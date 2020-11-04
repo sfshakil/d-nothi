@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{856DBAEE-2A55-49D6-A44F-A086D9D85D08}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>d_nothi</RootNamespace>
-    <AssemblyName>d-nothi</AssemblyName>
+    <RootNamespace>dNothi.Desktop</RootNamespace>
+    <AssemblyName>dNothi.Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
