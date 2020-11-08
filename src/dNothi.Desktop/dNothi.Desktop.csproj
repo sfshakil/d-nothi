@@ -98,17 +98,29 @@
     <Compile Include="CustomControl\CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="designationSelect.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="designationSelect.Designer.cs">
-      <DependentUpon>designationSelect.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="UI\Nothi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UI\Nothi.Designer.cs">
+      <DependentUpon>Nothi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\designationSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\designationSelect.Designer.cs">
+      <DependentUpon>designationSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\PasswordResetPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\PasswordResetPanel.Designer.cs">
+      <DependentUpon>PasswordResetPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFactory.cs" />
     <Compile Include="Interfaces\IFormFactory.cs" />
@@ -123,11 +135,23 @@
     <Compile Include="UI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="designationSelect.resx">
+    <Compile Include="UserControl\UserNamePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UserNamePanel.Designer.cs">
+      <DependentUpon>UserNamePanel.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Nothi.resx">
+      <DependentUpon>Nothi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\designationSelect.resx">
       <DependentUpon>designationSelect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\PasswordResetPanel.resx">
+      <DependentUpon>PasswordResetPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -140,6 +164,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\UserNamePanel.resx">
+      <DependentUpon>UserNamePanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

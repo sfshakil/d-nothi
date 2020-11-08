@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dNothi.Desktop.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace dNothi.Desktop
 {
-    public partial class Form1 : Form
+    public partial class Dashboard : Form
     {
-        public Form1()
+        public Dashboard()
         {
             InitializeComponent();
             designationSelect2.Hide();
@@ -106,11 +107,6 @@ namespace dNothi.Desktop
             this.label1.Size = new System.Drawing.Size(19, 20);
         }
 
-
-        
-
-        
-
         private void xTextBox2_MouseHover(object sender, EventArgs e)
         {
             this.xTextBox2.Text = "";
@@ -131,6 +127,7 @@ namespace dNothi.Desktop
 
         private void button15_Click(object sender, EventArgs e)
         {
+
             if(designationSelect2.Width==428)
             {
                 designationSelect2.Show();
@@ -142,6 +139,24 @@ namespace dNothi.Desktop
                 designationSelect2.Hide();
                 designationSelect2.Width = 428;
             }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Nothi nothi = new Nothi();
+            nothi.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.ShowDialog();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.ShowDialog();
         }
     }
 } 

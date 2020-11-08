@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace dNothi.Desktop.UI
         {
             InitializeComponent();
             select_UserID();
+            this.panel13.Show();
 
         }
         public void select_UserID()
@@ -54,21 +56,17 @@ namespace dNothi.Desktop.UI
 
         private void button6_Click(object sender, EventArgs e)
         {
-            this.button6.ForeColor = Color.Indigo;
-            this.panel5.BackColor = Color.Indigo;
-            this.button6.FlatAppearance.BorderColor = Color.Gainsboro;
-            this.panel8.BackColor = Color.Gainsboro;
-            this.button7.ForeColor = Color.Black;
-            this.panel6.BackColor = Color.White;
-            this.button7.FlatAppearance.BorderColor = Color.White;
-            this.button8.ForeColor = Color.Black;
-            this.panel7.BackColor = Color.White;
-            this.button8.FlatAppearance.BorderColor = Color.White;
+            
+            select_UserID();
+
+            this.panel13.Show();
 
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+
+            this.panel13.Hide();
             this.button6.ForeColor = Color.Black;
             this.panel5.BackColor = Color.White;
             this.button6.FlatAppearance.BorderColor = Color.White;
@@ -83,6 +81,8 @@ namespace dNothi.Desktop.UI
 
         private void button8_Click(object sender, EventArgs e)
         {
+
+            this.panel13.Hide();
             this.button6.ForeColor = Color.Black;
             this.panel5.BackColor = Color.White;
             this.button6.FlatAppearance.BorderColor = Color.White;
@@ -113,6 +113,115 @@ namespace dNothi.Desktop.UI
         private void label10_MouseLeave(object sender, EventArgs e)
         {
             this.label10.Font = new Font("Microsoft Sans Serif", 8);
+        }
+
+        public void userid()
+        {
+
+            Panel dynamicPanel = new Panel();
+            dynamicPanel.BackColor = System.Drawing.SystemColors.Window;
+            
+            dynamicPanel.Location = new System.Drawing.Point(692, 204);
+            dynamicPanel.Name = "panel14";
+            dynamicPanel.Size = new System.Drawing.Size(405, 467);
+            dynamicPanel.TabIndex = 8;
+
+            XTextBox xTextBox2 = new XTextBox();
+            xTextBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            xTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            xTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xTextBox2.ForeColor = System.Drawing.Color.DimGray;
+            xTextBox2.Location = new System.Drawing.Point(21, 16);
+            xTextBox2.Multiline = true;
+            xTextBox2.Name = "xTextBox2";
+            xTextBox2.Size = new System.Drawing.Size(161, 31);
+            xTextBox2.TabIndex = 7;
+            xTextBox2.Text = "ইউজার নেম";
+
+            MetroTextBox metroTextBox2 = new MetroTextBox();
+            metroTextBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            metroTextBox2.CustomBackground = true;
+            metroTextBox2.CustomForeColor = true;
+            metroTextBox2.ForeColor = System.Drawing.Color.DimGray;
+            metroTextBox2.Location = new System.Drawing.Point(214, 16);
+            metroTextBox2.Name = "metroTextBox2";
+            metroTextBox2.PasswordChar = '●';
+            metroTextBox2.PromptText = "পাসওয়ার্ড";
+            metroTextBox2.Size = new System.Drawing.Size(161, 31);
+            metroTextBox2.TabIndex = 8;
+            metroTextBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            metroTextBox2.UseStyleColors = true;
+            metroTextBox2.UseSystemPasswordChar = true;
+
+            Label label25 = new Label();
+            label25.AutoSize = true;
+            label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label25.ForeColor = System.Drawing.Color.SaddleBrown;
+            label25.Location = new System.Drawing.Point(7, 8);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(252, 24);
+            label25.TabIndex = 0;
+            label25.Text = "ইউজার নেম ব্যবহার করে প্রবেশ করুন";
+
+            Panel panel15 = new Panel();
+            panel15.BackColor = System.Drawing.Color.Moccasin;
+            panel15.Controls.Add(label25);
+            panel15.Location = new System.Drawing.Point(19, 72);
+            panel15.Name = "panel15";
+            panel15.Size = new System.Drawing.Size(264, 38);
+            panel15.TabIndex = 9;
+
+            
+
+            Button button10 = new Button();
+            button10.BackColor = System.Drawing.Color.RoyalBlue;
+            button10.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            //this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
+            button10.Location = new System.Drawing.Point(289, 72);
+            button10.Name = "button10";
+            button10.Size = new System.Drawing.Size(86, 38);
+            button10.TabIndex = 10;
+            button10.Text = "প্রবেশ";
+            button10.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            button10.UseVisualStyleBackColor = false;
+
+            dynamicPanel.Controls.Add(xTextBox2);
+            dynamicPanel.Controls.Add(metroTextBox2);
+            dynamicPanel.Controls.Add(panel15);
+            dynamicPanel.Controls.Add(button10);
+            Controls.Add(dynamicPanel);
+            
+            
+
+            // 
+            // xTextBox2
+            // 
+            
+            // 
+            // metroTextBox2
+            // 
+            
+            // 
+            // panel15
+            // 
+            
+            // 
+            // label25
+            // 
+            
+            // 
+            // button10
+            // 
+            
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Dashboard form = new Dashboard();
+            form.ShowDialog();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop
 {
-    partial class Form1
+    partial class Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -70,29 +70,29 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.xTextBox2 = new dNothi.Desktop.XTextBox();
-            this.button22 = new System.Windows.Forms.Button();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.designationSelect2 = new dNothi.Desktop.designationSelect();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button22 = new System.Windows.Forms.Button();
+            this.xTextBox2 = new dNothi.Desktop.XTextBox();
             this.metroPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -100,9 +100,9 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -194,7 +194,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(172, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(52, 60);
+            this.button3.Size = new System.Drawing.Size(56, 60);
             this.button3.TabIndex = 3;
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -210,6 +210,7 @@
             this.button2.Size = new System.Drawing.Size(173, 60);
             this.button2.TabIndex = 2;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // metroPanel2
             // 
@@ -346,7 +347,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 724);
+            this.panel1.Size = new System.Drawing.Size(227, 724);
             this.panel1.TabIndex = 11;
             // 
             // button18
@@ -431,6 +432,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Window;
             this.panel2.Controls.Add(this.circularPictureBox1);
             this.panel2.Controls.Add(this.button15);
             this.panel2.Controls.Add(this.label3);
@@ -440,9 +442,9 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button12);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(220, 0);
+            this.panel2.Location = new System.Drawing.Point(227, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1124, 60);
+            this.panel2.Size = new System.Drawing.Size(1117, 60);
             this.panel2.TabIndex = 12;
             // 
             // circularPictureBox1
@@ -517,6 +519,7 @@
             this.button13.TabIndex = 19;
             this.button13.Text = "নথি";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // label1
             // 
@@ -543,6 +546,7 @@
             this.button12.TabIndex = 17;
             this.button12.Text = "ডাক";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -704,34 +708,146 @@
             this.panel5.Controls.Add(this.button22);
             this.panel5.Controls.Add(this.xTextBox2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(220, 0);
+            this.panel5.Location = new System.Drawing.Point(227, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1124, 724);
+            this.panel5.Size = new System.Drawing.Size(1117, 724);
             this.panel5.TabIndex = 12;
             // 
-            // xTextBox2
+            // designationSelect2
             // 
-            this.xTextBox2.BackColor = System.Drawing.Color.Gainsboro;
-            this.xTextBox2.Location = new System.Drawing.Point(1, 60);
-            this.xTextBox2.Multiline = true;
-            this.xTextBox2.Name = "xTextBox2";
-            this.xTextBox2.Size = new System.Drawing.Size(1076, 52);
-            this.xTextBox2.TabIndex = 0;
-            this.xTextBox2.Text = "খুঁজুন";
-            this.xTextBox2.MouseEnter += new System.EventHandler(this.xTextBox2_MouseEnter);
-            this.xTextBox2.MouseLeave += new System.EventHandler(this.xTextBox2_MouseLeave);
-            this.xTextBox2.MouseHover += new System.EventHandler(this.xTextBox2_MouseHover);
+            this.designationSelect2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.designationSelect2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.designationSelect2.Location = new System.Drawing.Point(697, 60);
+            this.designationSelect2.Name = "designationSelect2";
+            this.designationSelect2.Size = new System.Drawing.Size(428, 180);
+            this.designationSelect2.TabIndex = 5;
             // 
-            // button22
+            // panel7
             // 
-            this.button22.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Image = ((System.Drawing.Image)(resources.GetObject("button22.Image")));
-            this.button22.Location = new System.Drawing.Point(1080, 59);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(41, 53);
-            this.button22.TabIndex = 1;
-            this.button22.UseVisualStyleBackColor = true;
+            this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel7.Controls.Add(this.vScrollBar2);
+            this.panel7.Location = new System.Drawing.Point(0, 170);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1124, 520);
+            this.panel7.TabIndex = 4;
+            // 
+            // vScrollBar2
+            // 
+            this.vScrollBar2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.vScrollBar2.Location = new System.Drawing.Point(1107, 0);
+            this.vScrollBar2.Name = "vScrollBar2";
+            this.vScrollBar2.Size = new System.Drawing.Size(17, 520);
+            this.vScrollBar2.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label9);
+            this.panel6.Controls.Add(this.linkLabel2);
+            this.panel6.Controls.Add(this.label7);
+            this.panel6.Controls.Add(this.button30);
+            this.panel6.Controls.Add(this.button29);
+            this.panel6.Controls.Add(this.button28);
+            this.panel6.Controls.Add(this.button27);
+            this.panel6.Controls.Add(this.button26);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 690);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1117, 34);
+            this.panel6.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(901, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 13);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "পার্টনার: ";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(124, 12);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(82, 13);
+            this.linkLabel2.TabIndex = 31;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "এটুআই প্রোগ্রাম";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(10, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 16);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "© Copyright ২০২০, ";
+            // 
+            // button30
+            // 
+            this.button30.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button30.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button30.BackgroundImage")));
+            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button30.Location = new System.Drawing.Point(959, 3);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(25, 23);
+            this.button30.TabIndex = 29;
+            this.button30.UseVisualStyleBackColor = false;
+            // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button29.BackgroundImage")));
+            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button29.Location = new System.Drawing.Point(990, 3);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(25, 23);
+            this.button29.TabIndex = 28;
+            this.button29.UseVisualStyleBackColor = false;
+            // 
+            // button28
+            // 
+            this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button28.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button28.BackgroundImage")));
+            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button28.Location = new System.Drawing.Point(1021, 3);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(25, 23);
+            this.button28.TabIndex = 27;
+            this.button28.UseVisualStyleBackColor = false;
+            // 
+            // button27
+            // 
+            this.button27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button27.BackgroundImage")));
+            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.Location = new System.Drawing.Point(1052, 3);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(25, 23);
+            this.button27.TabIndex = 26;
+            this.button27.UseVisualStyleBackColor = false;
+            // 
+            // button26
+            // 
+            this.button26.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button26.BackgroundImage")));
+            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.Location = new System.Drawing.Point(1083, 3);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(25, 23);
+            this.button26.TabIndex = 25;
+            this.button26.UseVisualStyleBackColor = false;
             // 
             // metroPanel1
             // 
@@ -754,71 +870,18 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
-            // checkBox2
+            // button25
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(12, 22);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(49, 15);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 28);
-            this.comboBox5.TabIndex = 3;
-            this.comboBox5.Text = "সকল";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(176, 15);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 28);
-            this.comboBox6.TabIndex = 4;
-            this.comboBox6.Text = "গোপনীয়তা";
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(303, 15);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(121, 28);
-            this.comboBox7.TabIndex = 5;
-            this.comboBox7.Text = "ডাকের ধরণ";
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(430, 14);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(121, 28);
-            this.comboBox8.TabIndex = 6;
-            this.comboBox8.Text = "অগ্রাধিকার";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(974, 22);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = " সর্বমোট: ১২";
+            this.button25.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button25.BackgroundImage")));
+            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button25.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button25.Location = new System.Drawing.Point(1082, 16);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(25, 25);
+            this.button25.TabIndex = 26;
+            this.button25.UseVisualStyleBackColor = false;
             // 
             // button24
             // 
@@ -833,156 +896,97 @@
             this.button24.TabIndex = 25;
             this.button24.UseVisualStyleBackColor = false;
             // 
-            // button25
+            // label6
             // 
-            this.button25.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button25.BackgroundImage")));
-            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button25.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button25.Location = new System.Drawing.Point(1082, 16);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(25, 25);
-            this.button25.TabIndex = 26;
-            this.button25.UseVisualStyleBackColor = false;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(974, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = " সর্বমোট: ১২";
             // 
-            // panel6
+            // comboBox8
             // 
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.linkLabel2);
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.button30);
-            this.panel6.Controls.Add(this.button29);
-            this.panel6.Controls.Add(this.button28);
-            this.panel6.Controls.Add(this.button27);
-            this.panel6.Controls.Add(this.button26);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 690);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1124, 34);
-            this.panel6.TabIndex = 3;
+            this.comboBox8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(430, 14);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(121, 28);
+            this.comboBox8.TabIndex = 6;
+            this.comboBox8.Text = "অগ্রাধিকার";
             // 
-            // button26
+            // comboBox7
             // 
-            this.button26.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button26.BackgroundImage")));
-            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Location = new System.Drawing.Point(1083, 3);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(25, 23);
-            this.button26.TabIndex = 25;
-            this.button26.UseVisualStyleBackColor = false;
+            this.comboBox7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(303, 15);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(121, 28);
+            this.comboBox7.TabIndex = 5;
+            this.comboBox7.Text = "ডাকের ধরণ";
             // 
-            // button27
+            // comboBox6
             // 
-            this.button27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button27.BackgroundImage")));
-            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Location = new System.Drawing.Point(1052, 3);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(25, 23);
-            this.button27.TabIndex = 26;
-            this.button27.UseVisualStyleBackColor = false;
+            this.comboBox6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(176, 15);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(121, 28);
+            this.comboBox6.TabIndex = 4;
+            this.comboBox6.Text = "গোপনীয়তা";
             // 
-            // button28
+            // comboBox5
             // 
-            this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button28.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button28.BackgroundImage")));
-            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Location = new System.Drawing.Point(1021, 3);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(25, 23);
-            this.button28.TabIndex = 27;
-            this.button28.UseVisualStyleBackColor = false;
+            this.comboBox5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(49, 15);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(121, 28);
+            this.comboBox5.TabIndex = 3;
+            this.comboBox5.Text = "সকল";
             // 
-            // button29
+            // checkBox2
             // 
-            this.button29.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button29.BackgroundImage")));
-            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.Location = new System.Drawing.Point(990, 3);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(25, 23);
-            this.button29.TabIndex = 28;
-            this.button29.UseVisualStyleBackColor = false;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(12, 22);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 2;
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // button30
+            // button22
             // 
-            this.button30.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button30.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button30.BackgroundImage")));
-            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30.Location = new System.Drawing.Point(959, 3);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(25, 23);
-            this.button30.TabIndex = 29;
-            this.button30.UseVisualStyleBackColor = false;
+            this.button22.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button22.Image = ((System.Drawing.Image)(resources.GetObject("button22.Image")));
+            this.button22.Location = new System.Drawing.Point(1080, 59);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(41, 53);
+            this.button22.TabIndex = 1;
+            this.button22.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // xTextBox2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(10, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 16);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "© Copyright ২০২০, ";
+            this.xTextBox2.BackColor = System.Drawing.Color.Gainsboro;
+            this.xTextBox2.Location = new System.Drawing.Point(1, 60);
+            this.xTextBox2.Multiline = true;
+            this.xTextBox2.Name = "xTextBox2";
+            this.xTextBox2.Size = new System.Drawing.Size(1076, 52);
+            this.xTextBox2.TabIndex = 0;
+            this.xTextBox2.Text = "খুঁজুন";
+            this.xTextBox2.MouseEnter += new System.EventHandler(this.xTextBox2_MouseEnter);
+            this.xTextBox2.MouseLeave += new System.EventHandler(this.xTextBox2_MouseLeave);
+            this.xTextBox2.MouseHover += new System.EventHandler(this.xTextBox2_MouseHover);
             // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(124, 12);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(82, 13);
-            this.linkLabel2.TabIndex = 31;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "এটুআই প্রোগ্রাম";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(901, 12);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 13);
-            this.label9.TabIndex = 33;
-            this.label9.Text = "পার্টনার: ";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel7.Controls.Add(this.vScrollBar2);
-            this.panel7.Location = new System.Drawing.Point(0, 170);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1124, 520);
-            this.panel7.TabIndex = 4;
-            // 
-            // designationSelect2
-            // 
-            this.designationSelect2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.designationSelect2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.designationSelect2.Location = new System.Drawing.Point(697, 60);
-            this.designationSelect2.Name = "designationSelect2";
-            this.designationSelect2.Size = new System.Drawing.Size(428, 180);
-            this.designationSelect2.TabIndex = 5;
-            // 
-            // vScrollBar2
-            // 
-            this.vScrollBar2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.vScrollBar2.Location = new System.Drawing.Point(1107, 0);
-            this.vScrollBar2.Name = "vScrollBar2";
-            this.vScrollBar2.Size = new System.Drawing.Size(17, 520);
-            this.vScrollBar2.TabIndex = 0;
-            // 
-            // Form1
+            // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -992,7 +996,7 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "Form1";
+            this.Name = "Dashboard";
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1004,11 +1008,11 @@
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
