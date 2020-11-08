@@ -26,17 +26,14 @@ namespace dNothi.Services.UserServices
             _employeeRepository = employeeRepository;
             _userrepository = userrepository;
         }
-        public async Task<UserMessage> GetUserMessageAsync()
+        public async Task<UserMessage> GetUserMessageAsync(UserParam userParam)
         {
             try
             {
                 using (var client = new HttpClient())
                 {
                     var url = "https://a2i.nothibs.tappware.com/api/login";
-                    var person = new UserParam();
-                    person.username = "200000002986";
-                    person.password = "abc123";
-                    var json = JsonConvert.SerializeObject(person);
+                    var json = JsonConvert.SerializeObject(userParam);
                     var data = new StringContent(json, Encoding.UTF8, "application/json");
                     client.DefaultRequestHeaders.Add("api-version", "1");
                     client.DefaultRequestHeaders.Add("device-id", "1234567890");
@@ -51,6 +48,17 @@ namespace dNothi.Services.UserServices
             {
                 throw;
             }
+        }
+
+        public EmployeeInfoDTO GetEmployeeInfo()
+        {
+            var empInfo=_userrepository.Table.FirstOrDefault();
+            var config = new MapperConfiguration(cfg =>
+                    cfg.CreateMap<EmployeeInfo, EmployeeInfoDTO>()
+                );
+            var mapper = new Mapper(config);
+            var employeeInfoDTO = mapper.Map<EmployeeInfoDTO>(empInfo);
+            return employeeInfoDTO;
         }
 
         public void SaveOrUpdateUser(UserDTO userdto)

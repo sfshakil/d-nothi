@@ -2,6 +2,11 @@
 {
     public class UserParam
     {
+        public UserParam(string userName,string password)
+        {
+            this.username = userName;
+            this.password = password;
+        }
         public string username { get; set; }
         public string password { get; set; }
 

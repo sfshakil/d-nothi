@@ -5,7 +5,8 @@ namespace dNothi.Services.UserServices
 {
     public interface IUserService
     {
-        Task<UserMessage> GetUserMessageAsync();
+        EmployeeInfoDTO GetEmployeeInfo();
+        Task<UserMessage> GetUserMessageAsync(UserParam userParam);
         void SaveOrUpdateUser(UserDTO user);
         void SaveOrUpdateUserEmployeeInfo(EmployeeInfoDTO employeedto);
     }
