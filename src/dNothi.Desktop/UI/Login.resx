@@ -434,6 +434,17 @@
   <metadata name="panel10.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAVtJREFUOE/F
+        lb1KBDEUhbew0EKwsLO2FisLO7G30ocRH8BXsBFt/GnEbjs7KxtLEWSLAUkyM/kDFUGI98zcIZl1xKAL
+        fnCKm3vPGSabzYw6QlEsOK0unJaeFDKF2TN4OSbijDhohmp54rU8zBHNn8JjtdjnmIit5RU1n7jMBh54
+        uYxQ45r0wGU28MDLZeTfAm0tjmn/jkIIc01txRb2vWmm5AbyXPBa3RhjlrBWluVi00wZCnSV2LC12k3l
+        anGHwDZU3r9W1QqP95kOxFOp/ujM34lCC2PkGtsi1OwFev+8nBp/0Is3YoetLbT4l8A32o49trbQ4q9e
+        mVTSa2+yLUKNLz+KMWrdVnI7Fc3cchD+po/OqVUe7zMUOATPIXDcHZfsYzMEDrXT4jJMJvOosXeom2ZK
+        buA08MDLZWTmgbO/vroLVqtz7FOOMAvP4AWbfALe2+AsYTb5BIxGn9NMtWFkpKs5AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="pictureBox14.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -709,17 +720,6 @@
 বাংলা বানান নিরীক্ষক (Spell Checker) অর্ন্তভূক্ত করা হয়েছে। কোন 
 শব্দের বানান নিরীক্ষা করতে হলে, সংশ্লিষ্ট শব্দের উপর কার্সর রেখে ডান 
 বাটন ক্লিক করলে সিস্টেম ইউজারকে সঠিক শব্দটি সাজেশন দিবে।</value>
-  </data>
-  <data name="button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAVtJREFUOE/F
-        lb1KBDEUhbew0EKwsLO2FisLO7G30ocRH8BXsBFt/GnEbjs7KxtLEWSLAUkyM/kDFUGI98zcIZl1xKAL
-        fnCKm3vPGSabzYw6QlEsOK0unJaeFDKF2TN4OSbijDhohmp54rU8zBHNn8JjtdjnmIit5RU1n7jMBh54
-        uYxQ45r0wGU28MDLZeTfAm0tjmn/jkIIc01txRb2vWmm5AbyXPBa3RhjlrBWluVi00wZCnSV2LC12k3l
-        anGHwDZU3r9W1QqP95kOxFOp/ujM34lCC2PkGtsi1OwFev+8nBp/0Is3YoetLbT4l8A32o49trbQ4q9e
-        mVTSa2+yLUKNLz+KMWrdVnI7Fc3cchD+po/OqVUe7zMUOATPIXDcHZfsYzMEDrXT4jJMJvOosXeom2ZK
-        buA08MDLZWTmgbO/vroLVqtz7FOOMAvP4AWbfALe2+AsYTb5BIxGn9NMtWFkpKs5AAAAAElFTkSuQmCC
-</value>
   </data>
   <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -52,7 +52,7 @@ namespace dNothi.Desktop
 
             builder.RegisterType<UI.Login>().AsSelf();
             //builder.RegisterType<NothiListForm>().AsSelf();
-            builder.RegisterType<Form1>().AsSelf();
+            builder.RegisterType<Dashboard>().AsSelf();
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());
         }

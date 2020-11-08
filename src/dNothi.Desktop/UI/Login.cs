@@ -1,4 +1,7 @@
-﻿using MetroFramework.Controls;
+﻿using dNothi.JsonParser.Entity;
+using dNothi.Services.AccountServices;
+using dNothi.Services.UserServices;
+using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +16,22 @@ namespace dNothi.Desktop.UI
 {
     public partial class Login : Form
     {
-        public Login()
+        //public Login()
+        //{
+        //    InitializeComponent();
+        //    select_UserID();
+        //    this.panel13.Show();
+
+        //}
+        IAccountService _accountService { get; set; }
+        IUserService _userService { get; set; }
+        public Login(IUserService userService, IAccountService accountService)
         {
             InitializeComponent();
             select_UserID();
             this.panel13.Show();
-
+            _userService = userService;
+            _accountService = accountService;
         }
         public void select_UserID()
         {
@@ -97,12 +110,15 @@ namespace dNothi.Desktop.UI
 
         private void xTextBox1_MouseHover(object sender, EventArgs e)
         {
-            this.xTextBox1.Text = "";
+            //this.txtUser.Text = "";
         }
 
         private void xTextBox1_MouseLeave(object sender, EventArgs e)
         {
-            this.xTextBox1.Text = "ইউজার আইডি";
+            if (string.IsNullOrEmpty(this.txtUser.Text))
+            {
+                this.txtUser.Text = "ইউজার আইডি";
+            }
         }
 
         private void label10_MouseHover(object sender, EventArgs e)
@@ -222,6 +238,38 @@ namespace dNothi.Desktop.UI
         {
             Dashboard form = new Dashboard();
             form.ShowDialog();
+        }
+        private async void btnLogin_Click(object sender, EventArgs e)
+        {
+            var userName = txtUser.Text.Trim();
+            var password = txtPassword.Text.Trim();
+            var isRemember = true;
+            UserParam userParam = new UserParam(userName, password);
+            var resmessage = await _userService.GetUserMessageAsync(userParam);
+            if (resmessage.status == "success")
+            {
+                _accountService.SaveOrUpdateUser(userName, password, isRemember);
+                SaveOrUpdateUser(resmessage?.data?.user);
+                SaveOrUpdateEmployee(resmessage?.data?.employee_info);
+                using (var form = FormFactory.Create<Dashboard>())
+                {
+                    form.ShowDialog();
+                }
+            }
+        }
+        private void SaveOrUpdateUser(UserDTO userDTO)
+        {
+            _userService.SaveOrUpdateUser(userDTO);
+        }
+        private void SaveOrUpdateEmployee(EmployeeInfoDTO employeeInfoDTO)
+        {
+            _userService.SaveOrUpdateUserEmployeeInfo(employeeInfoDTO);
+        }
+
+        private void OnLoad(object sender, EventArgs e)
+        {
+            txtUser.Text = "200000002986";
+            txtPassword.Text = "abc123";
         }
     }
 }
