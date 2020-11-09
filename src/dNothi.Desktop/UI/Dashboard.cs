@@ -143,8 +143,8 @@ namespace dNothi.Desktop
 
         private void button13_Click(object sender, EventArgs e)
         {
-            Nothi nothi = new Nothi();
-            nothi.ShowDialog();
+            //Nothi nothi = new Nothi();
+            //nothi.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
