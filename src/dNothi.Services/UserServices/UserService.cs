@@ -10,6 +10,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using dNothi.Constants;
+using System.Configuration;
 
 namespace dNothi.Services.UserServices
 {
@@ -18,6 +20,7 @@ namespace dNothi.Services.UserServices
         IUserMessageParser _userMessageParser;
         IRepository<User> _userrepository;
         IRepository<EmployeeInfo> _employeeRepository;
+        
         public UserService(IUserMessageParser userMessageParser,
         IRepository<User> userrepository,
         IRepository<EmployeeInfo> employeeRepository)
@@ -32,12 +35,12 @@ namespace dNothi.Services.UserServices
             {
                 using (var client = new HttpClient())
                 {
-                    var url = "https://a2i.nothibs.tappware.com/api/login";
+                    var url = GetAPIDomain() + GetLoginEndpoint();
                     var json = JsonConvert.SerializeObject(userParam);
                     var data = new StringContent(json, Encoding.UTF8, "application/json");
-                    client.DefaultRequestHeaders.Add("api-version", "1");
-                    client.DefaultRequestHeaders.Add("device-id", "1234567890");
-                    client.DefaultRequestHeaders.Add("device-type", "android");
+                    client.DefaultRequestHeaders.Add("api-version", GetAPIVersion());
+                    client.DefaultRequestHeaders.Add("device-id", GetDeviceId());
+                    client.DefaultRequestHeaders.Add("device-type", GetDeviceType());
                     var response = await client.PostAsync(url, data);
                     string result =await response.Content.ReadAsStringAsync();
                     UserMessage responsemessage = _userMessageParser.ParseMessage(result);
@@ -94,6 +97,33 @@ namespace dNothi.Services.UserServices
             {
                 _employeeRepository.Update(empInfo);
             }
+        }
+
+        protected string GetAPIDomain()
+        {
+            return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
+        }
+        protected string GetLoginEndpoint()
+        {
+            return DefaultAPIConfiguration.LoginEndPoint;
+        }
+        protected string GetAPIVersion()
+        {
+            return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;
+        }
+
+        protected string GetDeviceId()
+        {
+            return ReadAppSettings("device-id") ?? DefaultAPIConfiguration.DefaultDeviceId;
+        }
+        protected string GetDeviceType()
+        {
+            return ReadAppSettings("device-type") ?? DefaultAPIConfiguration.DefaultDeviceType;
+        }
+
+        protected string ReadAppSettings(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
         }
     }
 }

@@ -12,6 +12,8 @@ using dNothi.Services.UserServices;
 using Nothi.Services.DakServices;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,8 +29,10 @@ namespace dNothi.Desktop
         [STAThread]
         static void Main()
         {
+           // AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Database.SetInitializer<AppDbContext>(new DropCreateDatabaseIfModelChanges<AppDbContext>());
             Bootstrap();
             Application.Run(container.Resolve<UI.Login>());
             //using (var scope = container.BeginLifetimeScope())
