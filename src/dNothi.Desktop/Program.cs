@@ -60,7 +60,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
 
-            builder.RegisterType<UI.Login>().AsSelf();
+            builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<UI.Nothi>().AsSelf();
             //builder.RegisterType<NothiListForm>().AsSelf();
             builder.RegisterType<Dashboard>().AsSelf();
