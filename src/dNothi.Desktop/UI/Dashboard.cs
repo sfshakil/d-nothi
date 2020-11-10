@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace dNothi.Desktop
+namespace dNothi.Desktop.UI
 {
     public partial class Dashboard : Form
     {
@@ -176,8 +176,8 @@ namespace dNothi.Desktop
 
         private void button13_Click(object sender, EventArgs e)
         {
-            //Nothi nothi = new Nothi();
-            //nothi.ShowDialog();
+            Nothi nothi = new Nothi();
+            nothi.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)

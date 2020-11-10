@@ -74,7 +74,8 @@ namespace dNothi.Desktop.UI
         {
             
             select_UserID();
-
+            ucUserNamePanel.Visible = false;
+            ucPasswordResetPanel.Visible = false;
             this.panel13.Show();
 
         }
@@ -99,25 +100,16 @@ namespace dNothi.Desktop.UI
         
         public void userName()
         {
-            
-            if (ucUserNamePanel.Width == 405)
-            {
                 ucUserNamePanel.Visible = true;
-                ucUserNamePanel.Location = new System.Drawing.Point(420, 60);
+                ucUserNamePanel.Location = new System.Drawing.Point(278+420, 60+ 151);
                 Controls.Add(ucUserNamePanel);
                 ucUserNamePanel.BringToFront();
-                ucUserNamePanel.Width = 400;
-            }
-            else
-            {
-                ucUserNamePanel.Visible = false;
-                ucUserNamePanel.Width = 405;
-            }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            passwordReset();
+            ucUserNamePanel.Visible = false;
             this.panel13.Hide();
             this.button6.ForeColor = Color.Black;
             this.panel5.BackColor = Color.White;
@@ -129,6 +121,14 @@ namespace dNothi.Desktop.UI
             this.button8.ForeColor = Color.Indigo;
             this.panel7.BackColor = Color.Indigo;
             this.button8.FlatAppearance.BorderColor = Color.Gainsboro;
+        }
+        PasswordResetPanel ucPasswordResetPanel = new PasswordResetPanel();
+        private void passwordReset()
+        {
+            ucPasswordResetPanel.Visible = true;
+            ucPasswordResetPanel.Location = new System.Drawing.Point(278 + 420, 60 + 151);
+            Controls.Add(ucPasswordResetPanel);
+            ucPasswordResetPanel.BringToFront();
         }
 
         private void xTextBox1_MouseHover(object sender, EventArgs e)
@@ -168,13 +168,13 @@ namespace dNothi.Desktop.UI
             var resmessage = await _userService.GetUserMessageAsync(userParam);
 
 
-
             if (resmessage.status == "success")
             {
                 _accountService.SaveOrUpdateUser(userName, password, isRemember);
                 SaveOrUpdateUser(resmessage?.data?.user);
                 SaveOrUpdateEmployee(resmessage?.data?.employee_info);
                 SaveOrUpdateOffice(resmessage?.data?.office_info);
+                SaveOrUpdateToken(resmessage?.data?.token);
                 // Call DakInbox
                 var dakInbox =  _dakInbox.GetDakInbox(resmessage.data.token);
                 if(dakInbox.status=="success")
@@ -198,11 +198,15 @@ namespace dNothi.Desktop.UI
 
                 using (var form = FormFactory.Create<Dashboard>())
                 {
-                    form.Show();
+                    form.ShowDialog();
                 }
             }
         }
 
+        private void SaveOrUpdateToken(string token)
+        {
+            _userService.SaveOrUpdateToken(token);
+        }
 
         private void SaveOrUpdateUser(UserDTO userDTO)
         {
