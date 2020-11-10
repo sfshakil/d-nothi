@@ -184,14 +184,21 @@ namespace dNothi.Desktop.UI
 
                         _dakInbox.SaveOrUpdateDakUser(record.dak_user);
                     }
+                if(dakInbox.data.records.Count>0)
+                    {
+
+                        Form form = new Dashboard(dakInbox.data.records);
+                        form.Show();
+                       
+
+                    }
+
                 }
-
-
 
 
                 using (var form = FormFactory.Create<Dashboard>())
                 {
-                    form.ShowDialog();
+                    form.Show();
                 }
             }
         }

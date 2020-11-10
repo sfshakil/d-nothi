@@ -98,6 +98,12 @@
     <Compile Include="CustomControl\CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\Dak\DakInboxUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakInboxUserControl.Designer.cs">
+      <DependentUpon>DakInboxUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Nothi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     <Compile Include="UserControl\UserNamePanel.Designer.cs">
       <DependentUpon>UserNamePanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Dak\DakInboxUserControl.resx">
+      <DependentUpon>DakInboxUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Nothi.resx">
       <DependentUpon>Nothi.cs</DependentUpon>
     </EmbeddedResource>

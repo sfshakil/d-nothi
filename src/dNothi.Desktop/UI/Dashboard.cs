@@ -1,4 +1,6 @@
 ﻿using dNothi.Desktop.UI;
+using dNothi.Desktop.UI.Dak;
+using Nothi.JsonParser.Entity.Dak_List_Inbox;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,37 @@ namespace dNothi.Desktop
             designationSelect2.Hide();
         }
 
+        public Dashboard(List<DakListInboxRecordsDTO> dakLists)
+        {
+            InitializeComponent();
+            List<DakInboxUserControl> dakInboxUserControls = new List<DakInboxUserControl>();
+            int i = 0;
+            foreach (DakListInboxRecordsDTO dakListInboxRecordsDTO in dakLists)
+            {
+
+                DakInboxUserControl dakInboxUserControl = new DakInboxUserControl();
+                dakInboxUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
+                dakInboxUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
+                dakInboxUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
+                dakInboxUserControl.source = dakListInboxRecordsDTO.dak_origin.name_bng;
+                dakInboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
+                dakInboxUserControl.receiver = dakListInboxRecordsDTO.movement_status.to[0].officer;
+                i = i + 1;
+                dakInboxUserControls.Add(dakInboxUserControl);
+               
+            }
+
+            for (int j = 0; j <= dakInboxUserControls.Count - 1; j++)
+            {
+                dashBoardBodyPanel.Controls.Add(dakInboxUserControls[j]);
+            }
+
+
+
+
+
+
+        }
         private void button1_MouseHover(object sender, EventArgs e)
         {
             this.button1.ForeColor = Color.DodgerBlue;
