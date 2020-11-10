@@ -257,7 +257,7 @@ namespace dNothi.Desktop.UI
                 _accountService.SaveOrUpdateUser(userName, password, isRemember);
                 SaveOrUpdateUser(resmessage?.data?.user);
                 SaveOrUpdateEmployee(resmessage?.data?.employee_info);
-
+                SaveOrUpdateOffice(resmessage?.data?.office_info);
                 // Call DakInbox
                 var dakInbox =  _dakInbox.GetDakInbox(resmessage.data.token);
                 if(dakInbox.status=="success")
@@ -285,6 +285,8 @@ namespace dNothi.Desktop.UI
                 }
             }
         }
+
+
         private void SaveOrUpdateUser(UserDTO userDTO)
         {
             _userService.SaveOrUpdateUser(userDTO);
@@ -292,6 +294,11 @@ namespace dNothi.Desktop.UI
         private void SaveOrUpdateEmployee(EmployeeInfoDTO employeeInfoDTO)
         {
             _userService.SaveOrUpdateUserEmployeeInfo(employeeInfoDTO);
+        }
+
+        private void SaveOrUpdateOffice(List<OfficeInfoDTO> officeInfoDTO)
+        {
+            _userService.SaveOrUpdateUserOfficeInfo(officeInfoDTO);
         }
 
         private void OnLoad(object sender, EventArgs e)
