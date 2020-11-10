@@ -18,14 +18,18 @@ namespace dNothi.Services.UserServices
         IUserMessageParser _userMessageParser;
         IRepository<User> _userrepository;
         IRepository<EmployeeInfo> _employeeRepository;
+        IRepository<OfficeInfo> _officeRepository;
         public UserService(IUserMessageParser userMessageParser,
         IRepository<User> userrepository,
-        IRepository<EmployeeInfo> employeeRepository)
+        IRepository<EmployeeInfo> employeeRepository,
+        IRepository<OfficeInfo> officeRepository)
         {
             _userMessageParser = userMessageParser;
             _employeeRepository = employeeRepository;
             _userrepository = userrepository;
+            _officeRepository = officeRepository;
         }
+
         public async Task<UserMessage> GetUserMessageAsync(UserParam userParam)
         {
             try
@@ -39,7 +43,7 @@ namespace dNothi.Services.UserServices
                     client.DefaultRequestHeaders.Add("device-id", "1234567890");
                     client.DefaultRequestHeaders.Add("device-type", "android");
                     var response = await client.PostAsync(url, data);
-                    string result =await response.Content.ReadAsStringAsync();
+                    string result = await response.Content.ReadAsStringAsync();
                     UserMessage responsemessage = _userMessageParser.ParseMessage(result);
                     return responsemessage;
                 }
@@ -52,13 +56,24 @@ namespace dNothi.Services.UserServices
 
         public EmployeeInfoDTO GetEmployeeInfo()
         {
-            var empInfo=_userrepository.Table.FirstOrDefault();
+            var empInfo = _userrepository.Table.FirstOrDefault();
             var config = new MapperConfiguration(cfg =>
                     cfg.CreateMap<EmployeeInfo, EmployeeInfoDTO>()
                 );
             var mapper = new Mapper(config);
             var employeeInfoDTO = mapper.Map<EmployeeInfoDTO>(empInfo);
             return employeeInfoDTO;
+        }
+
+        public OfficeInfoDTO GetOfficeInfo()
+        {
+            var empInfo = _userrepository.Table.FirstOrDefault();
+            var config = new MapperConfiguration(cfg =>
+                    cfg.CreateMap<OfficeInfo, OfficeInfoDTO>()
+                );
+            var mapper = new Mapper(config);
+            var officeInfoDTO = mapper.Map<OfficeInfoDTO>(empInfo);
+            return officeInfoDTO;
         }
 
         public void SaveOrUpdateUser(UserDTO userdto)
@@ -68,7 +83,7 @@ namespace dNothi.Services.UserServices
                 );
             var mapper = new Mapper(config);
             var user = mapper.Map<User>(userdto);
-            var dbuser=_userrepository.Table.Where(q => q.username == userdto.username).FirstOrDefault();
+            var dbuser = _userrepository.Table.Where(q => q.username == userdto.username).FirstOrDefault();
             if (dbuser == null)
             {
                 _userrepository.Insert(user);
@@ -93,6 +108,30 @@ namespace dNothi.Services.UserServices
             else
             {
                 _employeeRepository.Update(empInfo);
+            }
+        }
+
+        public void SaveOrUpdateUserOfficeInfo(List<OfficeInfoDTO> officeinfodtos)
+        {
+
+            var config = new MapperConfiguration(cfg =>
+                    cfg.CreateMap<OfficeInfoDTO, OfficeInfo>()
+                );
+            var mapper = new Mapper(config);
+
+
+            foreach (var officeinfodto in officeinfodtos)
+            {
+                var ofcInfo = mapper.Map<OfficeInfo>(officeinfodto);
+                var dboffice = _officeRepository.Table.Where(q => q.employee_record_id == officeinfodto.employee_record_id).FirstOrDefault();
+                if (dboffice == null)
+                {
+                    _officeRepository.Insert(ofcInfo);
+                }
+                else
+                {
+                    _officeRepository.Update(ofcInfo);
+                }
             }
         }
     }
