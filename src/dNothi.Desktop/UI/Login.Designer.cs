@@ -92,8 +92,9 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtUser = new dNothi.Desktop.XTextBox();
+            this.FackPasswordTextBox = new MetroFramework.Controls.MetroTextBox();
             this.xTextBoxFake = new dNothi.Desktop.XTextBox();
+            this.txtUser = new dNothi.Desktop.XTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -611,6 +612,7 @@
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.FackPasswordTextBox);
             this.panel13.Controls.Add(this.xTextBoxFake);
             this.panel13.Controls.Add(this.button9);
             this.panel13.Controls.Add(this.txtUser);
@@ -860,6 +862,36 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // FackPasswordTextBox
+            // 
+            this.FackPasswordTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.FackPasswordTextBox.CustomBackground = true;
+            this.FackPasswordTextBox.CustomForeColor = true;
+            this.FackPasswordTextBox.ForeColor = System.Drawing.Color.DimGray;
+            this.FackPasswordTextBox.Location = new System.Drawing.Point(214, 16);
+            this.FackPasswordTextBox.Name = "FackPasswordTextBox";
+            this.FackPasswordTextBox.ReadOnly = true;
+            this.FackPasswordTextBox.Size = new System.Drawing.Size(161, 31);
+            this.FackPasswordTextBox.TabIndex = 12;
+            this.FackPasswordTextBox.Text = "পাসওয়ার্ড";
+            this.FackPasswordTextBox.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FackPasswordTextBox.UseStyleColors = true;
+            this.FackPasswordTextBox.Enter += new System.EventHandler(this.FackPasswordTextBox_Enter);
+            // 
+            // xTextBoxFake
+            // 
+            this.xTextBoxFake.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.xTextBoxFake.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xTextBoxFake.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xTextBoxFake.ForeColor = System.Drawing.Color.DimGray;
+            this.xTextBoxFake.Location = new System.Drawing.Point(21, 16);
+            this.xTextBoxFake.Multiline = true;
+            this.xTextBoxFake.Name = "xTextBoxFake";
+            this.xTextBoxFake.Size = new System.Drawing.Size(161, 31);
+            this.xTextBoxFake.TabIndex = 11;
+            this.xTextBoxFake.Text = "ইউজার আইডি";
+            this.xTextBoxFake.Enter += new System.EventHandler(this.xTextBoxFake_Enter);
+            // 
             // txtUser
             // 
             this.txtUser.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -871,22 +903,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(161, 31);
             this.txtUser.TabIndex = 7;
-            this.txtUser.MouseLeave += new System.EventHandler(this.xTextBox1_MouseLeave);
-            this.txtUser.MouseHover += new System.EventHandler(this.xTextBox1_MouseHover);
-            // 
-            // xTextBoxFake
-            // 
-            this.xTextBoxFake.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.xTextBoxFake.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xTextBoxFake.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xTextBoxFake.ForeColor = System.Drawing.Color.DimGray;
-            this.xTextBoxFake.Location = new System.Drawing.Point(20, 16);
-            this.xTextBoxFake.Multiline = true;
-            this.xTextBoxFake.Name = "xTextBoxFake";
-            this.xTextBoxFake.Size = new System.Drawing.Size(161, 31);
-            this.xTextBoxFake.TabIndex = 11;
-            this.xTextBoxFake.Text = "ইউজার আইডি";
-            this.xTextBoxFake.MouseEnter += new System.EventHandler(this.xTextBoxFake_MouseEnter);
+            this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
             // 
             // Login
             // 
@@ -997,5 +1014,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Panel panel13;
         private XTextBox xTextBoxFake;
+        private MetroFramework.Controls.MetroTextBox FackPasswordTextBox;
     }
 }

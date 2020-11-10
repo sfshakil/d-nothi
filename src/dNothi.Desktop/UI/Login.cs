@@ -120,7 +120,7 @@ namespace dNothi.Desktop.UI
         {
             if (string.IsNullOrEmpty(this.txtUser.Text))
             {
-                xTextBoxFake.Visible = true;
+               
             }
         }
 
@@ -293,12 +293,75 @@ namespace dNothi.Desktop.UI
             txtPassword.Text = "abc123";
         }
 
-        private void xTextBoxFake_MouseEnter(object sender, EventArgs e)
+      
+
+       
+
+       
+        
+       
+
+        private void FackPasswordTextBox_Enter(object sender, EventArgs e)
         {
+
+            FackPasswordTextBox.Visible = false;
+
+            txtPassword.Focus();
+        }
+
+        private void xTextBoxFake_Enter(object sender, EventArgs e)
+        {
+          
             xTextBoxFake.Visible = false;
+            
+            if (txtPassword.Text == "")
+            {
+                FackPasswordTextBox.Visible = true;
+            }
+            else
+            {
+                FackPasswordTextBox.Visible = false;
+            }
+
+          
+
 
         }
+
+     
+        private void txtUser_Leave(object sender, EventArgs e)
+        {
             
-    
+               
+                string userId = txtUser.Text.ToString();
+                if (userId.Length < 12)
+                {
+
+
+
+
+                    if (userId.Length > 0)
+                    {
+                        string WithoutFirstDigit = userId.Substring(1);
+                        string newString = WithoutFirstDigit.PadLeft(11, '0');
+                        newString = userId[0] + newString;
+
+                        txtUser.Text = newString;
+                    }
+                    else
+                    {
+                        txtUser.Text = "000000000000";
+                    }
+
+
+
+                }
+                else
+                {
+                    txtUser.Text = userId;
+                }
+            
+            
+        }
     }
 }
