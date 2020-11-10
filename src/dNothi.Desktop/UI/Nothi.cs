@@ -15,6 +15,7 @@ namespace dNothi.Desktop.UI
         public Nothi()
         {
             InitializeComponent();
+            
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -33,6 +34,27 @@ namespace dNothi.Desktop.UI
         {
             Dashboard dashboard = new Dashboard();
             dashboard.ShowDialog();
+
+        }
+        designationSelect ucdesignationSelect = new designationSelect();
+        private void button15_Click(object sender, EventArgs e)
+        {
+            
+           
+            if (ucdesignationSelect.Width == 428)
+            {
+                ucdesignationSelect.Visible = true;
+                ucdesignationSelect.Location = new System.Drawing.Point(227 + 689, 60);
+                Controls.Add(ucdesignationSelect);
+                ucdesignationSelect.BringToFront();
+                ucdesignationSelect.Width = 427;
+                button15.BackColor = Color.WhiteSmoke;
+            }
+            else
+            {
+                ucdesignationSelect.Visible = false;
+                ucdesignationSelect.Width = 428;
+            }
 
         }
     }

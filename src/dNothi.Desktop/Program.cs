@@ -8,7 +8,6 @@ using dNothi.Infrastructure;
 using dNothi.JsonParser;
 using dNothi.Services.AccountServices;
 using dNothi.Services.UserServices;
-
 using Nothi.Services.DakServices;
 using System;
 using System.Collections.Generic;
@@ -53,10 +52,11 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<Nothi.Core.Entities.DakTag>>().As<IRepository<Nothi.Core.Entities.DakTag>>();
             builder.RegisterType<EfRepository<Nothi.Core.Entities.DakUser>>().As<IRepository<Nothi.Core.Entities.DakUser>>();
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
+            builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
             builder.RegisterType<AccountService>().As<IAccountService>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<DakInboxListService>().As<IDakInboxLIstServices>();
-        
+            
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
 
