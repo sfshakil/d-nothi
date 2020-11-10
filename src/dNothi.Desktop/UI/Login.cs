@@ -1,6 +1,7 @@
 ﻿using dNothi.JsonParser.Entity;
 using dNothi.Services.AccountServices;
 using dNothi.Services.UserServices;
+using Nothi.Services.DakServices;
 using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
@@ -25,13 +26,15 @@ namespace dNothi.Desktop.UI
         //}
         IAccountService _accountService { get; set; }
         IUserService _userService { get; set; }
-        public Login(IUserService userService, IAccountService accountService)
+        IDakInboxLIstServices _dakInbox { get; set; }
+        public Login(IUserService userService, IAccountService accountService, IDakInboxLIstServices dakInboxLIst)
         {
             InitializeComponent();
             select_UserID();
             this.panel13.Show();
             _userService = userService;
             _accountService = accountService;
+            _dakInbox = dakInboxLIst;
         }
         public void select_UserID()
         {
@@ -117,7 +120,7 @@ namespace dNothi.Desktop.UI
         {
             if (string.IsNullOrEmpty(this.txtUser.Text))
             {
-                this.txtUser.Text = "ইউজার আইডি";
+                xTextBoxFake.Visible = true;
             }
         }
 
@@ -246,11 +249,29 @@ namespace dNothi.Desktop.UI
             var isRemember = true;
             UserParam userParam = new UserParam(userName, password);
             var resmessage = await _userService.GetUserMessageAsync(userParam);
+
+
+
             if (resmessage.status == "success")
             {
                 _accountService.SaveOrUpdateUser(userName, password, isRemember);
                 SaveOrUpdateUser(resmessage?.data?.user);
                 SaveOrUpdateEmployee(resmessage?.data?.employee_info);
+
+                // Call DakInbox
+                var dakInbox =  _dakInbox.GetDakInbox(resmessage.data.token);
+                if(dakInbox.status=="success")
+                {
+                    foreach(var record in dakInbox.data.records)
+                    {
+
+                        _dakInbox.SaveOrUpdateDakUser(record.dak_user);
+                    }
+                }
+
+
+
+
                 using (var form = FormFactory.Create<Dashboard>())
                 {
                     form.ShowDialog();
@@ -271,5 +292,13 @@ namespace dNothi.Desktop.UI
             txtUser.Text = "200000002986";
             txtPassword.Text = "abc123";
         }
+
+        private void xTextBoxFake_MouseEnter(object sender, EventArgs e)
+        {
+            xTextBoxFake.Visible = false;
+
+        }
+            
+    
     }
 }

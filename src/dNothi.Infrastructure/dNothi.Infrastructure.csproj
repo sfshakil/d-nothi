@@ -54,13 +54,32 @@
     <Compile Include="EfRepository.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mappings\AppUsers\AppUserMap.cs" />
+    <Compile Include="Mappings\Dak\DakInboxListMap.cs" />
+    <Compile Include="Mappings\Dak\DakTagMap.cs" />
+    <Compile Include="Mappings\Dak\DakUserMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
     <Compile Include="Mappings\Users\EmployeeInfoMap.cs" />
     <Compile Include="Mappings\Users\OfficeInfoMap.cs" />
     <Compile Include="Mappings\Users\UserMap.cs" />
-    <Compile Include="Migrations\202011021600378_InitialCreate.cs" />
-    <Compile Include="Migrations\202011021600378_InitialCreate.designer.cs">
-      <DependentUpon>202011021600378_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202011081116148_initial.cs" />
+    <Compile Include="Migrations\202011081116148_initial.designer.cs">
+      <DependentUpon>202011081116148_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011091006043_CreateDakTags.cs" />
+    <Compile Include="Migrations\202011091006043_CreateDakTags.designer.cs">
+      <DependentUpon>202011091006043_CreateDakTags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011091048211_CreateDakUser.cs" />
+    <Compile Include="Migrations\202011091048211_CreateDakUser.designer.cs">
+      <DependentUpon>202011091048211_CreateDakUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011091717538_updatedakuser.cs" />
+    <Compile Include="Migrations\202011091717538_updatedakuser.designer.cs">
+      <DependentUpon>202011091717538_updatedakuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011100506310_DakModelNameUpdate.cs" />
+    <Compile Include="Migrations\202011100506310_DakModelNameUpdate.designer.cs">
+      <DependentUpon>202011100506310_DakModelNameUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,8 +96,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011021600378_InitialCreate.resx">
-      <DependentUpon>202011021600378_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011081116148_initial.resx">
+      <DependentUpon>202011081116148_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011091006043_CreateDakTags.resx">
+      <DependentUpon>202011091006043_CreateDakTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011091048211_CreateDakUser.resx">
+      <DependentUpon>202011091048211_CreateDakUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011091717538_updatedakuser.resx">
+      <DependentUpon>202011091717538_updatedakuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011100506310_DakModelNameUpdate.resx">
+      <DependentUpon>202011100506310_DakModelNameUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

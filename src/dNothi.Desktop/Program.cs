@@ -8,6 +8,8 @@ using dNothi.Infrastructure;
 using dNothi.JsonParser;
 using dNothi.Services.AccountServices;
 using dNothi.Services.UserServices;
+
+using Nothi.Services.DakServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +30,12 @@ namespace dNothi.Desktop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Bootstrap();
-            //Application.Run(container.Resolve<LoginForm>());
-            using (var scope = container.BeginLifetimeScope())
-            {
-                var main = scope.Resolve<UI.Login>();
-                Application.Run(main);
-            }
+            Application.Run(container.Resolve<UI.Login>());
+            //using (var scope = container.BeginLifetimeScope())
+            //{
+            //    var main = scope.Resolve<UI.Login>();
+            //    Application.Run(main);
+            //}
         }
         private static void Bootstrap()
         {
@@ -44,13 +46,18 @@ namespace dNothi.Desktop
             builder.RegisterType<AppDbContext>().As<IDbContext>();
             builder.RegisterType<EfRepository<AppUser>>().As<IRepository<AppUser>>();
             builder.RegisterType<EfRepository<User>>().As<IRepository<User>>();
+            builder.RegisterType<EfRepository<Nothi.Core.Entities.DakTag>>().As<IRepository<Nothi.Core.Entities.DakTag>>();
+            builder.RegisterType<EfRepository<Nothi.Core.Entities.DakUser>>().As<IRepository<Nothi.Core.Entities.DakUser>>();
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
             builder.RegisterType<AccountService>().As<IAccountService>();
             builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<DakInboxListService>().As<IDakInboxLIstServices>();
+        
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
 
             builder.RegisterType<UI.Login>().AsSelf();
+            builder.RegisterType<UI.Nothi>().AsSelf();
             //builder.RegisterType<NothiListForm>().AsSelf();
             builder.RegisterType<Dashboard>().AsSelf();
             container = (builder.Build());

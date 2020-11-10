@@ -143,8 +143,8 @@ namespace dNothi.Desktop
 
         private void button13_Click(object sender, EventArgs e)
         {
-            Nothi nothi = new Nothi();
-            nothi.ShowDialog();
+            //Nothi nothi = new Nothi();
+            //nothi.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -157,6 +157,34 @@ namespace dNothi.Desktop
         {
             Dashboard dashboard = new Dashboard();
             dashboard.ShowDialog();
+        }
+        private bool IsCollasped;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(IsCollasped)
+            {
+                panelDropDownDakUpload.Height +=10;
+                if(panelDropDownDakUpload.Size==panelDropDownDakUpload.MaximumSize)
+                {
+                    timer1.Stop();
+                    IsCollasped = false;
+                }
+               
+            }
+            else
+            {
+                panelDropDownDakUpload.Height -= 10;
+                if (panelDropDownDakUpload.Size == panelDropDownDakUpload.MinimumSize)
+                {
+                    timer1.Stop();
+                    IsCollasped = true;
+                }
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
         }
     }
 } 

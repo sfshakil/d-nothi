@@ -373,3 +373,4 @@ Temporary Items
 
 # Ignore "InteropTests/NativeTests/out"
 InteropTests/NativeTests/out
+/src/dNothi.Constants/packages.config

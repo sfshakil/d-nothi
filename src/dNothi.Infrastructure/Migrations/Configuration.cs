@@ -1,4 +1,4 @@
-﻿namespace dNothi.Infrastructure.Migrations
+﻿namespace Nothi.Infrastructure.Migrations
 {
     using System;
     using System.Data.Entity;

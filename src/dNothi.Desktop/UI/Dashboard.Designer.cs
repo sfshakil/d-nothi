@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -45,12 +46,13 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelDropDownDakUpload = new System.Windows.Forms.Panel();
+            this.button32 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.button15 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button14 = new System.Windows.Forms.Button();
@@ -70,7 +72,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.designationSelect2 = new dNothi.Desktop.designationSelect();
             this.panel7 = new System.Windows.Forms.Panel();
             this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -92,17 +93,22 @@
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button22 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
+            this.designationSelect2 = new dNothi.Desktop.designationSelect();
             this.xTextBox2 = new dNothi.Desktop.XTextBox();
+            this.button17 = new System.Windows.Forms.Button();
             this.metroPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelDropDownDakUpload.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -115,7 +121,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(5, 66);
+            this.button1.Location = new System.Drawing.Point(6, 66);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(218, 50);
             this.button1.TabIndex = 0;
@@ -175,7 +181,7 @@
             this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(5, 118);
+            this.button4.Location = new System.Drawing.Point(3, 116);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(218, 50);
             this.button4.TabIndex = 4;
@@ -334,21 +340,71 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.panelDropDownDakUpload);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button18);
             this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button17);
             this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.button16);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(227, 724);
+            this.panel1.Size = new System.Drawing.Size(305, 724);
             this.panel1.TabIndex = 11;
+            // 
+            // panelDropDownDakUpload
+            // 
+            this.panelDropDownDakUpload.Controls.Add(this.button32);
+            this.panelDropDownDakUpload.Controls.Add(this.button31);
+            this.panelDropDownDakUpload.Controls.Add(this.button17);
+            this.panelDropDownDakUpload.Location = new System.Drawing.Point(6, 374);
+            this.panelDropDownDakUpload.MaximumSize = new System.Drawing.Size(218, 126);
+            this.panelDropDownDakUpload.MinimumSize = new System.Drawing.Size(218, 56);
+            this.panelDropDownDakUpload.Name = "panelDropDownDakUpload";
+            this.panelDropDownDakUpload.Size = new System.Drawing.Size(218, 56);
+            this.panelDropDownDakUpload.TabIndex = 1;
+            // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button32.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button32.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button32.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.button32.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button32.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button32.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button32.Location = new System.Drawing.Point(0, 81);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(218, 36);
+            this.button32.TabIndex = 21;
+            this.button32.Text = "    -  ডাক আপলোড";
+            this.button32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button32.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button32.UseVisualStyleBackColor = false;
+            // 
+            // button31
+            // 
+            this.button31.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button31.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button31.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button31.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.button31.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button31.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button31.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button31.Location = new System.Drawing.Point(0, 45);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(218, 36);
+            this.button31.TabIndex = 20;
+            this.button31.Text = "    -  ডাক আপলোড";
+            this.button31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button31.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button31.UseVisualStyleBackColor = false;
             // 
             // button18
             // 
@@ -360,7 +416,7 @@
             this.button18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
             this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button18.Location = new System.Drawing.Point(5, 431);
+            this.button18.Location = new System.Drawing.Point(5, 441);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(218, 50);
             this.button18.TabIndex = 19;
@@ -369,26 +425,6 @@
             this.button18.UseVisualStyleBackColor = false;
             this.button18.MouseLeave += new System.EventHandler(this.button18_MouseLeave);
             this.button18.MouseHover += new System.EventHandler(this.button18_MouseHover);
-            // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button17.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
-            this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.Location = new System.Drawing.Point(5, 378);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(218, 50);
-            this.button17.TabIndex = 18;
-            this.button17.Text = "      ডাক আপলোড";
-            this.button17.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button17.UseVisualStyleBackColor = false;
-            this.button17.MouseLeave += new System.EventHandler(this.button17_MouseLeave);
-            this.button17.MouseHover += new System.EventHandler(this.button17_MouseHover);
             // 
             // button10
             // 
@@ -400,7 +436,7 @@
             this.button10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(5, 326);
+            this.button10.Location = new System.Drawing.Point(6, 321);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(218, 50);
             this.button10.TabIndex = 17;
@@ -442,22 +478,10 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button12);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(227, 0);
+            this.panel2.Location = new System.Drawing.Point(305, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1117, 60);
+            this.panel2.Size = new System.Drawing.Size(1039, 60);
             this.panel2.TabIndex = 12;
-            // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
-            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.circularPictureBox1.ErrorImage = null;
-            this.circularPictureBox1.InitialImage = null;
-            this.circularPictureBox1.Location = new System.Drawing.Point(753, 18);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(37, 31);
-            this.circularPictureBox1.TabIndex = 0;
-            this.circularPictureBox1.TabStop = false;
             // 
             // button15
             // 
@@ -708,19 +732,10 @@
             this.panel5.Controls.Add(this.button22);
             this.panel5.Controls.Add(this.xTextBox2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(227, 0);
+            this.panel5.Location = new System.Drawing.Point(305, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1117, 724);
+            this.panel5.Size = new System.Drawing.Size(1039, 724);
             this.panel5.TabIndex = 12;
-            // 
-            // designationSelect2
-            // 
-            this.designationSelect2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.designationSelect2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.designationSelect2.Location = new System.Drawing.Point(697, 60);
-            this.designationSelect2.Name = "designationSelect2";
-            this.designationSelect2.Size = new System.Drawing.Size(428, 180);
-            this.designationSelect2.TabIndex = 5;
             // 
             // panel7
             // 
@@ -752,7 +767,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 690);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1117, 34);
+            this.panel6.Size = new System.Drawing.Size(1039, 34);
             this.panel6.TabIndex = 3;
             // 
             // label9
@@ -973,6 +988,32 @@
             this.button22.TabIndex = 1;
             this.button22.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 15;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // circularPictureBox1
+            // 
+            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
+            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.circularPictureBox1.ErrorImage = null;
+            this.circularPictureBox1.InitialImage = null;
+            this.circularPictureBox1.Location = new System.Drawing.Point(753, 18);
+            this.circularPictureBox1.Name = "circularPictureBox1";
+            this.circularPictureBox1.Size = new System.Drawing.Size(37, 31);
+            this.circularPictureBox1.TabIndex = 0;
+            this.circularPictureBox1.TabStop = false;
+            // 
+            // designationSelect2
+            // 
+            this.designationSelect2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.designationSelect2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.designationSelect2.Location = new System.Drawing.Point(697, 60);
+            this.designationSelect2.Name = "designationSelect2";
+            this.designationSelect2.Size = new System.Drawing.Size(428, 180);
+            this.designationSelect2.TabIndex = 5;
+            // 
             // xTextBox2
             // 
             this.xTextBox2.BackColor = System.Drawing.Color.Gainsboro;
@@ -985,6 +1026,26 @@
             this.xTextBox2.MouseEnter += new System.EventHandler(this.xTextBox2_MouseEnter);
             this.xTextBox2.MouseLeave += new System.EventHandler(this.xTextBox2_MouseLeave);
             this.xTextBox2.MouseHover += new System.EventHandler(this.xTextBox2_MouseHover);
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button17.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
+            this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button17.Location = new System.Drawing.Point(0, 0);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(218, 45);
+            this.button17.TabIndex = 19;
+            this.button17.Text = "      ডাক আপলোড";
+            this.button17.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // Dashboard
             // 
@@ -1000,9 +1061,9 @@
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panelDropDownDakUpload.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1013,6 +1074,7 @@
             this.panel6.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1039,7 +1101,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -1086,6 +1147,11 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private designationSelect designationSelect2;
         private System.Windows.Forms.VScrollBar vScrollBar2;
+        private System.Windows.Forms.Panel panelDropDownDakUpload;
+        private System.Windows.Forms.Button button32;
+        private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button17;
     }
 }
 
