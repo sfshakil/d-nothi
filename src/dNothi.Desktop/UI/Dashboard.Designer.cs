@@ -46,6 +46,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panelDropDownDakUpload = new System.Windows.Forms.Panel();
             this.button32 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
@@ -74,9 +76,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dashBoardBodyPanel = new System.Windows.Forms.Panel();
             this.designationSelect2 = new dNothi.Desktop.designationSelect();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -106,7 +107,6 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -340,6 +340,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panelDropDownDakUpload);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button1);
@@ -353,8 +355,22 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(305, 724);
+            this.panel1.Size = new System.Drawing.Size(233, 724);
             this.panel1.TabIndex = 11;
+            // 
+            // panel8
+            // 
+            this.panel8.Location = new System.Drawing.Point(305, 172);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1058, 512);
+            this.panel8.TabIndex = 6;
+            // 
+            // panel7
+            // 
+            this.panel7.Location = new System.Drawing.Point(305, 172);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(287, 100);
+            this.panel7.TabIndex = 6;
             // 
             // panelDropDownDakUpload
             // 
@@ -498,9 +514,9 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button12);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(305, 0);
+            this.panel2.Location = new System.Drawing.Point(233, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1057, 60);
+            this.panel2.Size = new System.Drawing.Size(1129, 60);
             this.panel2.TabIndex = 12;
             // 
             // circularPictureBox1
@@ -757,17 +773,26 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.dashBoardBodyPanel);
             this.panel5.Controls.Add(this.designationSelect2);
-            this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.metroPanel1);
             this.panel5.Controls.Add(this.button22);
             this.panel5.Controls.Add(this.xTextBox2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(305, 0);
+            this.panel5.Location = new System.Drawing.Point(233, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1057, 724);
+            this.panel5.Size = new System.Drawing.Size(1129, 724);
             this.panel5.TabIndex = 12;
+            // 
+            // dashBoardBodyPanel
+            // 
+            this.dashBoardBodyPanel.AutoScroll = true;
+            this.dashBoardBodyPanel.AutoSize = true;
+            this.dashBoardBodyPanel.Location = new System.Drawing.Point(0, 169);
+            this.dashBoardBodyPanel.Name = "dashBoardBodyPanel";
+            this.dashBoardBodyPanel.Size = new System.Drawing.Size(1127, 515);
+            this.dashBoardBodyPanel.TabIndex = 6;
             // 
             // designationSelect2
             // 
@@ -777,23 +802,6 @@
             this.designationSelect2.Name = "designationSelect2";
             this.designationSelect2.Size = new System.Drawing.Size(428, 180);
             this.designationSelect2.TabIndex = 5;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel7.Controls.Add(this.vScrollBar2);
-            this.panel7.Location = new System.Drawing.Point(0, 170);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1124, 520);
-            this.panel7.TabIndex = 4;
-            // 
-            // vScrollBar2
-            // 
-            this.vScrollBar2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.vScrollBar2.Location = new System.Drawing.Point(1107, 0);
-            this.vScrollBar2.Name = "vScrollBar2";
-            this.vScrollBar2.Size = new System.Drawing.Size(17, 520);
-            this.vScrollBar2.TabIndex = 0;
             // 
             // panel6
             // 
@@ -808,7 +816,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 690);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1057, 34);
+            this.panel6.Size = new System.Drawing.Size(1129, 34);
             this.panel6.TabIndex = 3;
             // 
             // label9
@@ -1070,7 +1078,6 @@
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
@@ -1127,7 +1134,6 @@
         private XTextBox xTextBox2;
         private System.Windows.Forms.Button button22;
         private MetroFramework.Controls.MetroPanel metroPanel1;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.LinkLabel linkLabel2;
@@ -1146,12 +1152,14 @@
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.CheckBox checkBox2;
         private designationSelect designationSelect2;
-        private System.Windows.Forms.VScrollBar vScrollBar2;
         private System.Windows.Forms.Panel panelDropDownDakUpload;
         private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel dashBoardBodyPanel;
     }
 }
 
