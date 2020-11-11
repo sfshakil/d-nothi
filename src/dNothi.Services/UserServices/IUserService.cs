@@ -12,5 +12,6 @@ namespace dNothi.Services.UserServices
         void SaveOrUpdateUser(UserDTO user);
         void SaveOrUpdateUserEmployeeInfo(EmployeeInfoDTO employeedto);
         void SaveOrUpdateUserOfficeInfo(List<OfficeInfoDTO> officeInfoDTO);
+        void SaveOrUpdateToken(string token);
     }
 }

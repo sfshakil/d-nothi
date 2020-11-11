@@ -1,4 +1,4 @@
-﻿namespace dNothi.Desktop
+﻿namespace dNothi.Desktop.UI
 {
     partial class Dashboard
     {

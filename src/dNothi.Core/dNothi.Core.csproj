@@ -57,6 +57,7 @@
     <Compile Include="Entities\DakUser.cs" />
     <Compile Include="Entities\EmployeeInfo.cs" />
     <Compile Include="Entities\OfficeInfo.cs" />
+    <Compile Include="Entities\UserToken.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

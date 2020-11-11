@@ -74,15 +74,16 @@ namespace dNothi.Desktop.UI
         {
             
             select_UserID();
-
+            ucUserNamePanel.Visible = false;
+            ucPasswordResetPanel.Visible = false;
             this.panel13.Show();
 
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-
             this.panel13.Hide();
+            userName();
             this.button6.ForeColor = Color.Black;
             this.panel5.BackColor = Color.White;
             this.button6.FlatAppearance.BorderColor = Color.White;
@@ -95,9 +96,20 @@ namespace dNothi.Desktop.UI
             this.button8.FlatAppearance.BorderColor = Color.White;
         }
 
+        UserNamePanel ucUserNamePanel = new UserNamePanel();
+        
+        public void userName()
+        {
+                ucUserNamePanel.Visible = true;
+                ucUserNamePanel.Location = new System.Drawing.Point(278+420, 60+ 151);
+                Controls.Add(ucUserNamePanel);
+                ucUserNamePanel.BringToFront();
+        }
+
         private void button8_Click(object sender, EventArgs e)
         {
-
+            passwordReset();
+            ucUserNamePanel.Visible = false;
             this.panel13.Hide();
             this.button6.ForeColor = Color.Black;
             this.panel5.BackColor = Color.White;
@@ -109,6 +121,14 @@ namespace dNothi.Desktop.UI
             this.button8.ForeColor = Color.Indigo;
             this.panel7.BackColor = Color.Indigo;
             this.button8.FlatAppearance.BorderColor = Color.Gainsboro;
+        }
+        PasswordResetPanel ucPasswordResetPanel = new PasswordResetPanel();
+        private void passwordReset()
+        {
+            ucPasswordResetPanel.Visible = true;
+            ucPasswordResetPanel.Location = new System.Drawing.Point(278 + 420, 60 + 151);
+            Controls.Add(ucPasswordResetPanel);
+            ucPasswordResetPanel.BringToFront();
         }
 
         private void xTextBox1_MouseHover(object sender, EventArgs e)
@@ -134,109 +154,6 @@ namespace dNothi.Desktop.UI
             this.label10.Font = new Font("Microsoft Sans Serif", 8);
         }
 
-        public void userid()
-        {
-
-            Panel dynamicPanel = new Panel();
-            dynamicPanel.BackColor = System.Drawing.SystemColors.Window;
-            
-            dynamicPanel.Location = new System.Drawing.Point(692, 204);
-            dynamicPanel.Name = "panel14";
-            dynamicPanel.Size = new System.Drawing.Size(405, 467);
-            dynamicPanel.TabIndex = 8;
-
-            XTextBox xTextBox2 = new XTextBox();
-            xTextBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            xTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            xTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xTextBox2.ForeColor = System.Drawing.Color.DimGray;
-            xTextBox2.Location = new System.Drawing.Point(21, 16);
-            xTextBox2.Multiline = true;
-            xTextBox2.Name = "xTextBox2";
-            xTextBox2.Size = new System.Drawing.Size(161, 31);
-            xTextBox2.TabIndex = 7;
-            xTextBox2.Text = "ইউজার নেম";
-
-            MetroTextBox metroTextBox2 = new MetroTextBox();
-            metroTextBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            metroTextBox2.CustomBackground = true;
-            metroTextBox2.CustomForeColor = true;
-            metroTextBox2.ForeColor = System.Drawing.Color.DimGray;
-            metroTextBox2.Location = new System.Drawing.Point(214, 16);
-            metroTextBox2.Name = "metroTextBox2";
-            metroTextBox2.PasswordChar = '●';
-            metroTextBox2.PromptText = "পাসওয়ার্ড";
-            metroTextBox2.Size = new System.Drawing.Size(161, 31);
-            metroTextBox2.TabIndex = 8;
-            metroTextBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            metroTextBox2.UseStyleColors = true;
-            metroTextBox2.UseSystemPasswordChar = true;
-
-            Label label25 = new Label();
-            label25.AutoSize = true;
-            label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label25.ForeColor = System.Drawing.Color.SaddleBrown;
-            label25.Location = new System.Drawing.Point(7, 8);
-            label25.Name = "label25";
-            label25.Size = new System.Drawing.Size(252, 24);
-            label25.TabIndex = 0;
-            label25.Text = "ইউজার নেম ব্যবহার করে প্রবেশ করুন";
-
-            Panel panel15 = new Panel();
-            panel15.BackColor = System.Drawing.Color.Moccasin;
-            panel15.Controls.Add(label25);
-            panel15.Location = new System.Drawing.Point(19, 72);
-            panel15.Name = "panel15";
-            panel15.Size = new System.Drawing.Size(264, 38);
-            panel15.TabIndex = 9;
-
-            
-
-            Button button10 = new Button();
-            button10.BackColor = System.Drawing.Color.RoyalBlue;
-            button10.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            button10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            //this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            button10.Location = new System.Drawing.Point(289, 72);
-            button10.Name = "button10";
-            button10.Size = new System.Drawing.Size(86, 38);
-            button10.TabIndex = 10;
-            button10.Text = "প্রবেশ";
-            button10.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            button10.UseVisualStyleBackColor = false;
-
-            dynamicPanel.Controls.Add(xTextBox2);
-            dynamicPanel.Controls.Add(metroTextBox2);
-            dynamicPanel.Controls.Add(panel15);
-            dynamicPanel.Controls.Add(button10);
-            Controls.Add(dynamicPanel);
-            
-            
-
-            // 
-            // xTextBox2
-            // 
-            
-            // 
-            // metroTextBox2
-            // 
-            
-            // 
-            // panel15
-            // 
-            
-            // 
-            // label25
-            // 
-            
-            // 
-            // button10
-            // 
-            
-        }
-
         private void button9_Click(object sender, EventArgs e)
         {
             Dashboard form = new Dashboard();
@@ -251,13 +168,13 @@ namespace dNothi.Desktop.UI
             var resmessage = await _userService.GetUserMessageAsync(userParam);
 
 
-
             if (resmessage.status == "success")
             {
                 _accountService.SaveOrUpdateUser(userName, password, isRemember);
                 SaveOrUpdateUser(resmessage?.data?.user);
                 SaveOrUpdateEmployee(resmessage?.data?.employee_info);
                 SaveOrUpdateOffice(resmessage?.data?.office_info);
+                SaveOrUpdateToken(resmessage?.data?.token);
                 // Call DakInbox
                 var dakInbox =  _dakInbox.GetDakInbox(resmessage.data.token);
                 if(dakInbox.status=="success")
@@ -281,11 +198,15 @@ namespace dNothi.Desktop.UI
 
                 using (var form = FormFactory.Create<Dashboard>())
                 {
-                    form.Show();
+                    form.ShowDialog();
                 }
             }
         }
 
+        private void SaveOrUpdateToken(string token)
+        {
+            _userService.SaveOrUpdateToken(token);
+        }
 
         private void SaveOrUpdateUser(UserDTO userDTO)
         {
