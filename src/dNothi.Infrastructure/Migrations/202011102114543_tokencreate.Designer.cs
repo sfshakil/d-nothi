@@ -7,13 +7,13 @@ namespace Nothi.Infrastructure.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class nothidb : IMigrationMetadata
+    public sealed partial class tokencreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(nothidb));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tokencreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011101502244_nothidb"; }
+            get { return "202011102114543_tokencreate"; }
         }
         
         string IMigrationMetadata.Source

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.pnlHelpDesk = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -54,16 +54,16 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbMobileNo3 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbMobileNo2 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbMobileNo1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlENothiSystemUpdate = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,33 +71,33 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
+            this.pnlUserId = new System.Windows.Forms.Panel();
+            this.txtUserPassword = new MetroFramework.Controls.MetroTextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.pnlUserIdNamePasswordBottom = new System.Windows.Forms.Panel();
+            this.pnlPasswordResetTop = new System.Windows.Forms.Panel();
+            this.btnPasswordReset = new System.Windows.Forms.Button();
+            this.pnlUserNameTop = new System.Windows.Forms.Panel();
+            this.btnUserName = new System.Windows.Forms.Button();
+            this.pnlUserIdTop = new System.Windows.Forms.Panel();
+            this.btnUserId = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lbTappwareLink = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.FackPasswordTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.xTextBoxFake = new dNothi.Desktop.XTextBox();
+            this.txtUserId = new dNothi.Desktop.XTextBox();
             this.txtUser = new dNothi.Desktop.XTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel10.SuspendLayout();
+            this.pnlHelpDesk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -111,9 +111,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.pnlENothiSystemUpdate.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.pnlUserId.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -133,8 +133,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.panel10);
-            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.pnlHelpDesk);
+            this.panel1.Controls.Add(this.pnlENothiSystemUpdate);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(278, 151);
@@ -142,45 +142,45 @@
             this.panel1.Size = new System.Drawing.Size(828, 573);
             this.panel1.TabIndex = 1;
             // 
-            // panel10
+            // pnlHelpDesk
             // 
-            this.panel10.BackColor = System.Drawing.Color.GhostWhite;
-            this.panel10.Controls.Add(this.label23);
-            this.panel10.Controls.Add(this.pictureBox14);
-            this.panel10.Controls.Add(this.label24);
-            this.panel10.Controls.Add(this.pictureBox15);
-            this.panel10.Controls.Add(this.label21);
-            this.panel10.Controls.Add(this.label22);
-            this.panel10.Controls.Add(this.pictureBox13);
-            this.panel10.Controls.Add(this.label20);
-            this.panel10.Controls.Add(this.pictureBox12);
-            this.panel10.Controls.Add(this.label19);
-            this.panel10.Controls.Add(this.pictureBox11);
-            this.panel10.Controls.Add(this.label18);
-            this.panel10.Controls.Add(this.pictureBox10);
-            this.panel10.Controls.Add(this.label17);
-            this.panel10.Controls.Add(this.pictureBox9);
-            this.panel10.Controls.Add(this.label16);
-            this.panel10.Controls.Add(this.pictureBox8);
-            this.panel10.Controls.Add(this.label15);
-            this.panel10.Controls.Add(this.label14);
-            this.panel10.Controls.Add(this.pictureBox7);
-            this.panel10.Controls.Add(this.label13);
-            this.panel10.Controls.Add(this.pictureBox6);
-            this.panel10.Controls.Add(this.label12);
-            this.panel10.Controls.Add(this.pictureBox5);
-            this.panel10.Controls.Add(this.label11);
-            this.panel10.Controls.Add(this.pictureBox4);
-            this.panel10.Controls.Add(this.label10);
-            this.panel10.Controls.Add(this.pictureBox3);
-            this.panel10.Controls.Add(this.panel12);
-            this.panel10.Controls.Add(this.label9);
-            this.panel10.Controls.Add(this.panel11);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(0, 284);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(414, 242);
-            this.panel10.TabIndex = 4;
+            this.pnlHelpDesk.BackColor = System.Drawing.Color.GhostWhite;
+            this.pnlHelpDesk.Controls.Add(this.label23);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox14);
+            this.pnlHelpDesk.Controls.Add(this.label24);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox15);
+            this.pnlHelpDesk.Controls.Add(this.label21);
+            this.pnlHelpDesk.Controls.Add(this.label22);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox13);
+            this.pnlHelpDesk.Controls.Add(this.label20);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox12);
+            this.pnlHelpDesk.Controls.Add(this.label19);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox11);
+            this.pnlHelpDesk.Controls.Add(this.label18);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox10);
+            this.pnlHelpDesk.Controls.Add(this.label17);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox9);
+            this.pnlHelpDesk.Controls.Add(this.label16);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox8);
+            this.pnlHelpDesk.Controls.Add(this.label15);
+            this.pnlHelpDesk.Controls.Add(this.label14);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox7);
+            this.pnlHelpDesk.Controls.Add(this.label13);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox6);
+            this.pnlHelpDesk.Controls.Add(this.lbMobileNo3);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox5);
+            this.pnlHelpDesk.Controls.Add(this.lbMobileNo2);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox4);
+            this.pnlHelpDesk.Controls.Add(this.lbMobileNo1);
+            this.pnlHelpDesk.Controls.Add(this.pictureBox3);
+            this.pnlHelpDesk.Controls.Add(this.panel12);
+            this.pnlHelpDesk.Controls.Add(this.label9);
+            this.pnlHelpDesk.Controls.Add(this.panel11);
+            this.pnlHelpDesk.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlHelpDesk.Location = new System.Drawing.Point(0, 284);
+            this.pnlHelpDesk.Name = "pnlHelpDesk";
+            this.pnlHelpDesk.Size = new System.Drawing.Size(414, 242);
+            this.pnlHelpDesk.TabIndex = 4;
             // 
             // label23
             // 
@@ -425,16 +425,18 @@
             this.pictureBox6.TabIndex = 16;
             this.pictureBox6.TabStop = false;
             // 
-            // label12
+            // lbMobileNo3
             // 
-            this.label12.AutoSize = true;
-            this.label12.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label12.ForeColor = System.Drawing.Color.Indigo;
-            this.label12.Location = new System.Drawing.Point(38, 111);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৯";
+            this.lbMobileNo3.AutoSize = true;
+            this.lbMobileNo3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbMobileNo3.ForeColor = System.Drawing.Color.Indigo;
+            this.lbMobileNo3.Location = new System.Drawing.Point(38, 111);
+            this.lbMobileNo3.Name = "lbMobileNo3";
+            this.lbMobileNo3.Size = new System.Drawing.Size(119, 13);
+            this.lbMobileNo3.TabIndex = 15;
+            this.lbMobileNo3.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৯";
+            this.lbMobileNo3.MouseLeave += new System.EventHandler(this.lbMobileNo3_MouseLeave);
+            this.lbMobileNo3.MouseHover += new System.EventHandler(this.lbMobileNo3_MouseHover);
             // 
             // pictureBox5
             // 
@@ -446,16 +448,18 @@
             this.pictureBox5.TabIndex = 14;
             this.pictureBox5.TabStop = false;
             // 
-            // label11
+            // lbMobileNo2
             // 
-            this.label11.AutoSize = true;
-            this.label11.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label11.ForeColor = System.Drawing.Color.Indigo;
-            this.label11.Location = new System.Drawing.Point(38, 85);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(119, 13);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৮";
+            this.lbMobileNo2.AutoSize = true;
+            this.lbMobileNo2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbMobileNo2.ForeColor = System.Drawing.Color.Indigo;
+            this.lbMobileNo2.Location = new System.Drawing.Point(38, 85);
+            this.lbMobileNo2.Name = "lbMobileNo2";
+            this.lbMobileNo2.Size = new System.Drawing.Size(119, 13);
+            this.lbMobileNo2.TabIndex = 13;
+            this.lbMobileNo2.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৮";
+            this.lbMobileNo2.MouseLeave += new System.EventHandler(this.lbMobileNo2_MouseLeave);
+            this.lbMobileNo2.MouseHover += new System.EventHandler(this.lbMobileNo2_MouseHover);
             // 
             // pictureBox4
             // 
@@ -467,18 +471,18 @@
             this.pictureBox4.TabIndex = 12;
             this.pictureBox4.TabStop = false;
             // 
-            // label10
+            // lbMobileNo1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label10.ForeColor = System.Drawing.Color.Indigo;
-            this.label10.Location = new System.Drawing.Point(38, 60);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 13);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৭";
-            this.label10.MouseLeave += new System.EventHandler(this.label10_MouseLeave);
-            this.label10.MouseHover += new System.EventHandler(this.label10_MouseHover);
+            this.lbMobileNo1.AutoSize = true;
+            this.lbMobileNo1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbMobileNo1.ForeColor = System.Drawing.Color.Indigo;
+            this.lbMobileNo1.Location = new System.Drawing.Point(38, 60);
+            this.lbMobileNo1.Name = "lbMobileNo1";
+            this.lbMobileNo1.Size = new System.Drawing.Size(118, 13);
+            this.lbMobileNo1.TabIndex = 11;
+            this.lbMobileNo1.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৭";
+            this.lbMobileNo1.MouseLeave += new System.EventHandler(this.lbMobileNo1_MouseLeave);
+            this.lbMobileNo1.MouseHover += new System.EventHandler(this.lbMobileNo1_MouseHover);
             // 
             // pictureBox3
             // 
@@ -516,20 +520,20 @@
             this.panel11.Size = new System.Drawing.Size(381, 3);
             this.panel11.TabIndex = 7;
             // 
-            // panel3
+            // pnlENothiSystemUpdate
             // 
-            this.panel3.BackColor = System.Drawing.Color.GhostWhite;
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(414, 284);
-            this.panel3.TabIndex = 3;
+            this.pnlENothiSystemUpdate.BackColor = System.Drawing.Color.GhostWhite;
+            this.pnlENothiSystemUpdate.Controls.Add(this.label8);
+            this.pnlENothiSystemUpdate.Controls.Add(this.label7);
+            this.pnlENothiSystemUpdate.Controls.Add(this.label6);
+            this.pnlENothiSystemUpdate.Controls.Add(this.label5);
+            this.pnlENothiSystemUpdate.Controls.Add(this.label3);
+            this.pnlENothiSystemUpdate.Controls.Add(this.label4);
+            this.pnlENothiSystemUpdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlENothiSystemUpdate.Location = new System.Drawing.Point(0, 0);
+            this.pnlENothiSystemUpdate.Name = "pnlENothiSystemUpdate";
+            this.pnlENothiSystemUpdate.Size = new System.Drawing.Size(414, 284);
+            this.pnlENothiSystemUpdate.TabIndex = 3;
             // 
             // label8
             // 
@@ -596,32 +600,48 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Window;
-            this.panel4.Controls.Add(this.panel13);
-            this.panel4.Controls.Add(this.panel8);
-            this.panel4.Controls.Add(this.panel7);
-            this.panel4.Controls.Add(this.button8);
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.button7);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.button6);
+            this.panel4.Controls.Add(this.pnlUserId);
+            this.panel4.Controls.Add(this.pnlUserIdNamePasswordBottom);
+            this.panel4.Controls.Add(this.pnlPasswordResetTop);
+            this.panel4.Controls.Add(this.btnPasswordReset);
+            this.panel4.Controls.Add(this.pnlUserNameTop);
+            this.panel4.Controls.Add(this.btnUserName);
+            this.panel4.Controls.Add(this.pnlUserIdTop);
+            this.panel4.Controls.Add(this.btnUserId);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(414, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(414, 526);
             this.panel4.TabIndex = 2;
             // 
-            // panel13
+            // pnlUserId
             // 
-            this.panel13.Controls.Add(this.FackPasswordTextBox);
-            this.panel13.Controls.Add(this.xTextBoxFake);
-            this.panel13.Controls.Add(this.button9);
-            this.panel13.Controls.Add(this.txtUser);
-            this.panel13.Controls.Add(this.txtPassword);
-            this.panel13.Controls.Add(this.panel9);
-            this.panel13.Location = new System.Drawing.Point(6, 56);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(405, 467);
-            this.panel13.TabIndex = 7;
+            this.pnlUserId.Controls.Add(this.txtUserPassword);
+            this.pnlUserId.Controls.Add(this.txtUserId);
+            this.pnlUserId.Controls.Add(this.button9);
+            this.pnlUserId.Controls.Add(this.txtUser);
+            this.pnlUserId.Controls.Add(this.txtPassword);
+            this.pnlUserId.Controls.Add(this.panel9);
+            this.pnlUserId.Location = new System.Drawing.Point(6, 60);
+            this.pnlUserId.Name = "pnlUserId";
+            this.pnlUserId.Size = new System.Drawing.Size(405, 467);
+            this.pnlUserId.TabIndex = 7;
+            // 
+            // txtUserPassword
+            // 
+            this.txtUserPassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUserPassword.CustomBackground = true;
+            this.txtUserPassword.CustomForeColor = true;
+            this.txtUserPassword.ForeColor = System.Drawing.Color.DimGray;
+            this.txtUserPassword.Location = new System.Drawing.Point(214, 16);
+            this.txtUserPassword.Name = "txtUserPassword";
+            this.txtUserPassword.ReadOnly = true;
+            this.txtUserPassword.Size = new System.Drawing.Size(161, 31);
+            this.txtUserPassword.TabIndex = 12;
+            this.txtUserPassword.Text = "পাসওয়ার্ড";
+            this.txtUserPassword.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.txtUserPassword.UseStyleColors = true;
+            this.txtUserPassword.Enter += new System.EventHandler(this.txtUserPassword_Enter);
             // 
             // button9
             // 
@@ -676,81 +696,81 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "ইউজার আইডি ব্যবহার করে প্রবেশ \r\nকরুন";
             // 
-            // panel8
+            // pnlUserIdNamePasswordBottom
             // 
-            this.panel8.Location = new System.Drawing.Point(27, 44);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(356, 3);
-            this.panel8.TabIndex = 6;
+            this.pnlUserIdNamePasswordBottom.Location = new System.Drawing.Point(27, 44);
+            this.pnlUserIdNamePasswordBottom.Name = "pnlUserIdNamePasswordBottom";
+            this.pnlUserIdNamePasswordBottom.Size = new System.Drawing.Size(356, 3);
+            this.pnlUserIdNamePasswordBottom.TabIndex = 6;
             // 
-            // panel7
+            // pnlPasswordResetTop
             // 
-            this.panel7.Location = new System.Drawing.Point(272, 12);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(111, 3);
-            this.panel7.TabIndex = 5;
+            this.pnlPasswordResetTop.Location = new System.Drawing.Point(272, 12);
+            this.pnlPasswordResetTop.Name = "pnlPasswordResetTop";
+            this.pnlPasswordResetTop.Size = new System.Drawing.Size(111, 3);
+            this.pnlPasswordResetTop.TabIndex = 5;
             // 
-            // button8
+            // btnPasswordReset
             // 
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(272, 13);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(111, 32);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "পাসওয়ার্ড রিসেট";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            this.button8.MouseHover += new System.EventHandler(this.button8_MouseHover);
+            this.btnPasswordReset.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPasswordReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPasswordReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnPasswordReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPasswordReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPasswordReset.Location = new System.Drawing.Point(272, 13);
+            this.btnPasswordReset.Name = "btnPasswordReset";
+            this.btnPasswordReset.Size = new System.Drawing.Size(111, 32);
+            this.btnPasswordReset.TabIndex = 4;
+            this.btnPasswordReset.Text = "পাসওয়ার্ড রিসেট";
+            this.btnPasswordReset.UseVisualStyleBackColor = true;
+            this.btnPasswordReset.Click += new System.EventHandler(this.btnPasswordReset_Click);
+            this.btnPasswordReset.MouseHover += new System.EventHandler(this.btnPasswordReset_MouseHover);
             // 
-            // panel6
+            // pnlUserNameTop
             // 
-            this.panel6.Location = new System.Drawing.Point(150, 12);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(94, 3);
-            this.panel6.TabIndex = 3;
+            this.pnlUserNameTop.Location = new System.Drawing.Point(150, 12);
+            this.pnlUserNameTop.Name = "pnlUserNameTop";
+            this.pnlUserNameTop.Size = new System.Drawing.Size(94, 3);
+            this.pnlUserNameTop.TabIndex = 3;
             // 
-            // button7
+            // btnUserName
             // 
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(150, 13);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(94, 32);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "ইউজার নেম";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            this.button7.MouseHover += new System.EventHandler(this.button7_MouseHover);
+            this.btnUserName.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnUserName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnUserName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnUserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserName.Location = new System.Drawing.Point(150, 13);
+            this.btnUserName.Name = "btnUserName";
+            this.btnUserName.Size = new System.Drawing.Size(94, 32);
+            this.btnUserName.TabIndex = 2;
+            this.btnUserName.Text = "ইউজার নেম";
+            this.btnUserName.UseVisualStyleBackColor = true;
+            this.btnUserName.Click += new System.EventHandler(this.btnUserName_Click);
+            this.btnUserName.MouseHover += new System.EventHandler(this.btnUserName_MouseHover);
             // 
-            // panel5
+            // pnlUserIdTop
             // 
-            this.panel5.Location = new System.Drawing.Point(27, 12);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(94, 3);
-            this.panel5.TabIndex = 1;
+            this.pnlUserIdTop.Location = new System.Drawing.Point(27, 12);
+            this.pnlUserIdTop.Name = "pnlUserIdTop";
+            this.pnlUserIdTop.Size = new System.Drawing.Size(94, 3);
+            this.pnlUserIdTop.TabIndex = 1;
             // 
-            // button6
+            // btnUserId
             // 
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(27, 13);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(94, 32);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "ইউজার আইডি";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            this.button6.MouseHover += new System.EventHandler(this.button6_MouseHover);
+            this.btnUserId.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnUserId.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnUserId.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnUserId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserId.Location = new System.Drawing.Point(27, 13);
+            this.btnUserId.Name = "btnUserId";
+            this.btnUserId.Size = new System.Drawing.Size(94, 32);
+            this.btnUserId.TabIndex = 0;
+            this.btnUserId.Text = "ইউজার আইডি";
+            this.btnUserId.UseVisualStyleBackColor = true;
+            this.btnUserId.Click += new System.EventHandler(this.btnUserId_Click);
+            this.btnUserId.MouseHover += new System.EventHandler(this.btnUserId_MouseHover);
             // 
             // panel2
             // 
@@ -760,7 +780,7 @@
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.linkLabel1);
+            this.panel2.Controls.Add(this.lbTappwareLink);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -829,18 +849,18 @@
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // lbTappwareLink
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Blue;
-            this.linkLabel1.Location = new System.Drawing.Point(151, 15);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(160, 13);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "ট্যাপওয়্যার সলিউশনস লিমিটেড";
+            this.lbTappwareLink.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.lbTappwareLink.AutoSize = true;
+            this.lbTappwareLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTappwareLink.LinkColor = System.Drawing.Color.Blue;
+            this.lbTappwareLink.Location = new System.Drawing.Point(151, 15);
+            this.lbTappwareLink.Name = "lbTappwareLink";
+            this.lbTappwareLink.Size = new System.Drawing.Size(160, 13);
+            this.lbTappwareLink.TabIndex = 2;
+            this.lbTappwareLink.TabStop = true;
+            this.lbTappwareLink.Text = "ট্যাপওয়্যার সলিউশনস লিমিটেড";
             // 
             // label1
             // 
@@ -862,35 +882,19 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // FackPasswordTextBox
+            // txtUserId
             // 
-            this.FackPasswordTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.FackPasswordTextBox.CustomBackground = true;
-            this.FackPasswordTextBox.CustomForeColor = true;
-            this.FackPasswordTextBox.ForeColor = System.Drawing.Color.DimGray;
-            this.FackPasswordTextBox.Location = new System.Drawing.Point(214, 16);
-            this.FackPasswordTextBox.Name = "FackPasswordTextBox";
-            this.FackPasswordTextBox.ReadOnly = true;
-            this.FackPasswordTextBox.Size = new System.Drawing.Size(161, 31);
-            this.FackPasswordTextBox.TabIndex = 12;
-            this.FackPasswordTextBox.Text = "পাসওয়ার্ড";
-            this.FackPasswordTextBox.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.FackPasswordTextBox.UseStyleColors = true;
-            this.FackPasswordTextBox.Enter += new System.EventHandler(this.FackPasswordTextBox_Enter);
-            // 
-            // xTextBoxFake
-            // 
-            this.xTextBoxFake.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.xTextBoxFake.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.xTextBoxFake.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xTextBoxFake.ForeColor = System.Drawing.Color.DimGray;
-            this.xTextBoxFake.Location = new System.Drawing.Point(21, 16);
-            this.xTextBoxFake.Multiline = true;
-            this.xTextBoxFake.Name = "xTextBoxFake";
-            this.xTextBoxFake.Size = new System.Drawing.Size(161, 31);
-            this.xTextBoxFake.TabIndex = 11;
-            this.xTextBoxFake.Text = "ইউজার আইডি";
-            this.xTextBoxFake.Enter += new System.EventHandler(this.xTextBoxFake_Enter);
+            this.txtUserId.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserId.ForeColor = System.Drawing.Color.DimGray;
+            this.txtUserId.Location = new System.Drawing.Point(21, 16);
+            this.txtUserId.Multiline = true;
+            this.txtUserId.Name = "txtUserId";
+            this.txtUserId.Size = new System.Drawing.Size(161, 31);
+            this.txtUserId.TabIndex = 11;
+            this.txtUserId.Text = "ইউজার আইডি";
+            this.txtUserId.Enter += new System.EventHandler(this.txtUserId_Enter);
             // 
             // txtUser
             // 
@@ -911,15 +915,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1344, 724);
+            this.ClientSize = new System.Drawing.Size(1362, 724);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
+            this.pnlHelpDesk.ResumeLayout(false);
+            this.pnlHelpDesk.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
@@ -933,11 +937,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlENothiSystemUpdate.ResumeLayout(false);
+            this.pnlENothiSystemUpdate.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
+            this.pnlUserId.ResumeLayout(false);
+            this.pnlUserId.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -958,26 +962,26 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lbTappwareLink;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnUserId;
+        private System.Windows.Forms.Panel pnlPasswordResetTop;
+        private System.Windows.Forms.Button btnPasswordReset;
+        private System.Windows.Forms.Panel pnlUserNameTop;
+        private System.Windows.Forms.Button btnUserName;
+        private System.Windows.Forms.Panel pnlUserIdTop;
+        private System.Windows.Forms.Panel pnlUserIdNamePasswordBottom;
         private MetroFramework.Controls.MetroTextBox txtPassword;
         private XTextBox txtUser;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel pnlHelpDesk;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlENothiSystemUpdate;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -985,10 +989,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbMobileNo1;
+        private System.Windows.Forms.Label lbMobileNo3;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbMobileNo2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox7;
@@ -1012,8 +1016,8 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Panel panel13;
-        private XTextBox xTextBoxFake;
-        private MetroFramework.Controls.MetroTextBox FackPasswordTextBox;
+        private System.Windows.Forms.Panel pnlUserId;
+        private XTextBox txtUserId;
+        private MetroFramework.Controls.MetroTextBox txtUserPassword;
     }
 }

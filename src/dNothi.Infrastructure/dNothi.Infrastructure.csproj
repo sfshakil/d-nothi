@@ -67,6 +67,7 @@
     <Compile Include="Mappings\Users\EmployeeInfoMap.cs" />
     <Compile Include="Mappings\Users\OfficeInfoMap.cs" />
     <Compile Include="Mappings\Users\UserMap.cs" />
+    <Compile Include="Mappings\Users\UserTokenMap.cs" />
     <Compile Include="Migrations\202011081116148_initial.cs" />
     <Compile Include="Migrations\202011081116148_initial.designer.cs">
       <DependentUpon>202011081116148_initial.cs</DependentUpon>
@@ -87,9 +88,10 @@
     <Compile Include="Migrations\202011100506310_DakModelNameUpdate.designer.cs">
       <DependentUpon>202011100506310_DakModelNameUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011101502244_nothidb.cs" />
-    <Compile Include="Migrations\202011101502244_nothidb.designer.cs">
-      <DependentUpon>202011101502244_nothidb.cs</DependentUpon>
+    
+    <Compile Include="Migrations\202011102114543_tokencreate.cs" />
+    <Compile Include="Migrations\202011102114543_tokencreate.designer.cs">
+      <DependentUpon>202011102114543_tokencreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,8 +123,8 @@
     <EmbeddedResource Include="Migrations\202011100506310_DakModelNameUpdate.resx">
       <DependentUpon>202011100506310_DakModelNameUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101502244_nothidb.resx">
-      <DependentUpon>202011101502244_nothidb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011102114543_tokencreate.resx">
+      <DependentUpon>202011102114543_tokencreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

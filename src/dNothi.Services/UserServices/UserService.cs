@@ -10,8 +10,12 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+<<<<<<< HEAD
 using dNothi.Constants;
 using System.Configuration;
+=======
+using Nothi.Core.Entities;
+>>>>>>> 29f2d07793007d2a791b45ea6eadc7350a8f06e5
 
 namespace dNothi.Services.UserServices
 {
@@ -21,15 +25,18 @@ namespace dNothi.Services.UserServices
         IRepository<User> _userrepository;
         IRepository<EmployeeInfo> _employeeRepository;
         IRepository<OfficeInfo> _officeRepository;
+        IRepository<UserToken> _userTokenRepository;
         public UserService(IUserMessageParser userMessageParser,
         IRepository<User> userrepository,
         IRepository<EmployeeInfo> employeeRepository,
-        IRepository<OfficeInfo> officeRepository)
+        IRepository<OfficeInfo> officeRepository,
+        IRepository<UserToken> userTokenRepository)
         {
             _userMessageParser = userMessageParser;
             _employeeRepository = employeeRepository;
             _userrepository = userrepository;
             _officeRepository = officeRepository;
+            _userTokenRepository = userTokenRepository;
         }
 
         public async Task<UserMessage> GetUserMessageAsync(UserParam userParam)
@@ -160,6 +167,20 @@ namespace dNothi.Services.UserServices
                 {
                     _officeRepository.Update(ofcInfo);
                 }
+            }
+        }
+
+        public void SaveOrUpdateToken(string token)
+        {
+            var dbtoken = _userTokenRepository.Table.FirstOrDefault();
+            if (dbtoken == null)
+            {
+                _userTokenRepository.Insert(new UserToken {Token=token});
+            }
+            else
+            {
+                dbtoken.Token = token;
+                _userTokenRepository.Update(dbtoken);
             }
         }
     }

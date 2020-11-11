@@ -8,6 +8,7 @@ using dNothi.Infrastructure;
 using dNothi.JsonParser;
 using dNothi.Services.AccountServices;
 using dNothi.Services.UserServices;
+using Nothi.Core.Entities;
 using Nothi.Services.DakServices;
 using System;
 using System.Collections.Generic;
@@ -34,11 +35,6 @@ namespace dNothi.Desktop
             //Database.SetInitializer<AppDbContext>(new DropCreateDatabaseIfModelChanges<AppDbContext>());
             Bootstrap();
             Application.Run(container.Resolve<UI.Login>());
-            //using (var scope = container.BeginLifetimeScope())
-            //{
-            //    var main = scope.Resolve<UI.Login>();
-            //    Application.Run(main);
-            //}
         }
         private static void Bootstrap()
         {
@@ -53,6 +49,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<Nothi.Core.Entities.DakUser>>().As<IRepository<Nothi.Core.Entities.DakUser>>();
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
             builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
+            builder.RegisterType<EfRepository<UserToken>>().As<IRepository<UserToken>>();
             builder.RegisterType<AccountService>().As<IAccountService>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<DakInboxListService>().As<IDakInboxLIstServices>();
@@ -62,8 +59,7 @@ namespace dNothi.Desktop
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<UI.Nothi>().AsSelf();
-            //builder.RegisterType<NothiListForm>().AsSelf();
-            builder.RegisterType<Dashboard>().AsSelf();
+            builder.RegisterType<UI.Dashboard>().AsSelf();
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());
         }
