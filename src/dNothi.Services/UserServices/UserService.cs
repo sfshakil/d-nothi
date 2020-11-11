@@ -10,12 +10,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
 using dNothi.Constants;
 using System.Configuration;
-=======
 using Nothi.Core.Entities;
->>>>>>> 29f2d07793007d2a791b45ea6eadc7350a8f06e5
 
 namespace dNothi.Services.UserServices
 {
