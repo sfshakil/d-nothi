@@ -40,10 +40,13 @@ namespace dNothi.Desktop.UI
                 dakInboxUserControls.Add(dakInboxUserControl);
                
             }
+            dakInboxListFlowLayoutPanel.AutoScroll = true;
+            dakInboxListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            dakInboxListFlowLayoutPanel.WrapContents = false;
 
             for (int j = 0; j <= dakInboxUserControls.Count - 1; j++)
             {
-                dashBoardBodyPanel.Controls.Add(dakInboxUserControls[j]);
+                dakInboxListFlowLayoutPanel.Controls.Add(dakInboxUserControls[j]);
             }
 
 

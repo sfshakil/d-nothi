@@ -76,7 +76,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dashBoardBodyPanel = new System.Windows.Forms.Panel();
             this.designationSelect2 = new dNothi.Desktop.designationSelect();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -99,6 +98,7 @@
             this.button22 = new System.Windows.Forms.Button();
             this.xTextBox2 = new dNothi.Desktop.XTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dakInboxListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.metroPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelDropDownDakUpload.SuspendLayout();
@@ -773,7 +773,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.dashBoardBodyPanel);
+            this.panel5.Controls.Add(this.dakInboxListFlowLayoutPanel);
             this.panel5.Controls.Add(this.designationSelect2);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.metroPanel1);
@@ -784,15 +784,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1129, 724);
             this.panel5.TabIndex = 12;
-            // 
-            // dashBoardBodyPanel
-            // 
-            this.dashBoardBodyPanel.AutoScroll = true;
-            this.dashBoardBodyPanel.AutoSize = true;
-            this.dashBoardBodyPanel.Location = new System.Drawing.Point(0, 169);
-            this.dashBoardBodyPanel.Name = "dashBoardBodyPanel";
-            this.dashBoardBodyPanel.Size = new System.Drawing.Size(1127, 515);
-            this.dashBoardBodyPanel.TabIndex = 6;
             // 
             // designationSelect2
             // 
@@ -1055,6 +1046,13 @@
             this.timer1.Interval = 15;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // dakInboxListFlowLayoutPanel
+            // 
+            this.dakInboxListFlowLayoutPanel.Location = new System.Drawing.Point(0, 172);
+            this.dakInboxListFlowLayoutPanel.Name = "dakInboxListFlowLayoutPanel";
+            this.dakInboxListFlowLayoutPanel.Size = new System.Drawing.Size(1130, 515);
+            this.dakInboxListFlowLayoutPanel.TabIndex = 6;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1159,7 +1157,7 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel dashBoardBodyPanel;
+        private System.Windows.Forms.FlowLayoutPanel dakInboxListFlowLayoutPanel;
     }
 }
 
