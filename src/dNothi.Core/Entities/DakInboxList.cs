@@ -11,8 +11,6 @@ namespace Nothi.Core.Entities
 {
    public class DakInboxList: BaseEntity
     {
-        [Key]
-        public int id { get; set; }
         public int dak_tagsid { get; set; }
         [ForeignKey("dak_tagsid")]
         public virtual DakTag Dak_Tags { get; set; }

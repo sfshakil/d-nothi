@@ -10,8 +10,7 @@ namespace Nothi.Core.Entities
 {
    public class DakTag: BaseEntity
     {
-        [Key]
-        public int id { get; set; }
+        
         public int dak_custom_label_id { get; set; }
         public int dak_id { get; set; }
         public string dak_type { get; set; }

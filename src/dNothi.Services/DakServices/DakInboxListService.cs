@@ -57,7 +57,7 @@ namespace Nothi.Services.DakServices
                 );
             var mapper = new Mapper(config);
             var daktag = mapper.Map<DakTag>(dak_Tagsdto);
-            var dbdaktag = _daktags.Table.Where(q => q.id == dak_Tagsdto.id).FirstOrDefault();
+            var dbdaktag = _daktags.Table.Where(q => q.Id == dak_Tagsdto.id).FirstOrDefault();
             if (dbdaktag == null)
             {
                 _daktags.Insert(daktag);
