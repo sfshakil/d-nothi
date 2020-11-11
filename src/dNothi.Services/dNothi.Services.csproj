@@ -65,9 +65,11 @@
     <Compile Include="AccountServices\IAccountService.cs" />
     <Compile Include="AccountServices\ITokenService.cs" />
     <Compile Include="AccountServices\TokenService.cs" />
-    <Compile Include="DakServices\DakInboxListService.cs" />
+    <Compile Include="DakServices\DakInboxService.cs" />
     <Compile Include="DakServices\DakListUserParam.cs" />
-    <Compile Include="DakServices\IDakInboxLIstServices.cs" />
+    <Compile Include="DakServices\DakOutboxService.cs" />
+    <Compile Include="DakServices\IDakInboxServices.cs" />
+    <Compile Include="DakServices\IDakOutboxService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserServices\IUserService.cs" />
     <Compile Include="UserServices\UserParam.cs" />

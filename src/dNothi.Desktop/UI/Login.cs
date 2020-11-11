@@ -12,22 +12,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Autofac;
+using dNothi.Desktop.Interfaces;
 
 namespace dNothi.Desktop.UI
 {
     public partial class Login : Form
     {
+       
         IAccountService _accountService { get; set; }
         IUserService _userService { get; set; }
-        IDakInboxLIstServices _dakInbox { get; set; }
-        public Login(IUserService userService, IAccountService accountService, IDakInboxLIstServices dakInboxLIst)
+        
+        public Login(IUserService userService, IAccountService accountService)
         {
             InitializeComponent();
             select_UserID();
             this.pnlUserId.Show();
             _userService = userService;
             _accountService = accountService;
-            _dakInbox = dakInboxLIst;
         }
         public void select_UserID()
         {
@@ -79,28 +81,13 @@ namespace dNothi.Desktop.UI
                 SaveOrUpdateEmployee(resmessage?.data?.employee_info);
                 SaveOrUpdateOffice(resmessage?.data?.office_info);
                 SaveOrUpdateToken(resmessage?.data?.token);
-                // Call DakInbox
-                var dakInbox =  _dakInbox.GetDakInbox(resmessage.data.token);
-                if(dakInbox.status=="success")
-                {
-                    foreach(var record in dakInbox.data.records)
-                    {
-                        _dakInbox.SaveOrUpdateDakUser(record.dak_user);
-                    }
-                if(dakInbox.data.records.Count>0)
-                    {
-                        Form form = new Dashboard(dakInbox.data.records);
-                        form.Show();
-                    }
-
-                }
                 using (var form = FormFactory.Create<Dashboard>())
                 {
                     form.ShowDialog();
                 }
             }
         }
-
+      
         private void SaveOrUpdateToken(string token)
         {
             _userService.SaveOrUpdateToken(token);

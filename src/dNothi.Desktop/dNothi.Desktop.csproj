@@ -104,6 +104,12 @@
     <Compile Include="UI\Dak\DakInboxUserControl.Designer.cs">
       <DependentUpon>DakInboxUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakOutboxUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakOutboxUserControl.Designer.cs">
+      <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Nothi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Dak\DakInboxUserControl.resx">
       <DependentUpon>DakInboxUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakOutboxUserControl.resx">
+      <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Nothi.resx">
       <DependentUpon>Nothi.cs</DependentUpon>

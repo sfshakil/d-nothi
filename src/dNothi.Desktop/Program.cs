@@ -52,8 +52,9 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
             builder.RegisterType<EfRepository<UserToken>>().As<IRepository<UserToken>>();
             builder.RegisterType<AccountService>().As<IAccountService>();
+            builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
             builder.RegisterType<UserService>().As<IUserService>();
-            builder.RegisterType<DakInboxListService>().As<IDakInboxLIstServices>();
+            builder.RegisterType<DakInboxService>().As<IDakInboxServices>();
             
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
