@@ -12,11 +12,11 @@ using RestSharp;
 
 namespace Nothi.Services.DakServices
 {
-    public class DakInboxListService : IDakInboxLIstServices
+    public class DakInboxService : IDakInboxServices
     {
         IRepository<DakTag> _daktags;
         IRepository<DakUser> _dakuser;
-        public DakInboxListService(IRepository<DakTag> daktags, IRepository<DakUser> dakuser)
+        public DakInboxService(IRepository<DakTag> daktags, IRepository<DakUser> dakuser)
         {
             this._daktags = daktags;
             this._dakuser = dakuser;

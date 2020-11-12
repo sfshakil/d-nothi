@@ -26,15 +26,17 @@ namespace dNothi.Desktop.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
-            dashboard.ShowDialog();
+            var form = FormFactory.Create<Dashboard>();
+       
+                form.ShowDialog();
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
-            dashboard.ShowDialog();
-
+            var form = FormFactory.Create<Dashboard>();
+       
+                form.ShowDialog();
+            
         }
         designationSelect ucdesignationSelect = new designationSelect();
         private void button15_Click(object sender, EventArgs e)

@@ -54,17 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\Dak_List_Inbox\DakListInboxResponse.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\DakLISTInboxDTO.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\DakListInboxRecordsDTO.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\DakOriginDTO.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\DakTagDTO.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\DakUserDTO.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\FromDTO.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\MovementStatusDTO.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\NothiDTO.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\OtherDTO.cs" />
-    <Compile Include="Entity\Dak_List_Inbox\ToDTO.cs" />
+    <Compile Include="Entity\Dak\DakListInboxResponse.cs" />
+    <Compile Include="Entity\Dak\DakListDTO.cs" />
+    <Compile Include="Entity\Dak\DakListOutboxResponse.cs" />
+    <Compile Include="Entity\Dak\DakListRecordsDTO.cs" />
+    <Compile Include="Entity\Dak\DakOriginDTO.cs" />
+    <Compile Include="Entity\Dak\DakTagDTO.cs" />
+    <Compile Include="Entity\Dak\DakUserDTO.cs" />
+    <Compile Include="Entity\Dak\FromDTO.cs" />
+    <Compile Include="Entity\Dak\MovementStatusDTO.cs" />
+    <Compile Include="Entity\Dak\NothiDTO.cs" />
+    <Compile Include="Entity\Dak\OtherDTO.cs" />
+    <Compile Include="Entity\Dak\ToDTO.cs" />
     <Compile Include="Entity\DataDTO.cs" />
     <Compile Include="Entity\EmployeeInfoDTO.cs" />
     <Compile Include="Entity\OfficeInfoDTO.cs" />

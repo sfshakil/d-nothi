@@ -7,7 +7,7 @@ using Nothi.JsonParser.Entity.Dak_List_Inbox;
 
 namespace Nothi.Services.DakServices
 {
-   public interface IDakInboxLIstServices
+   public interface IDakInboxServices
     {
         DakListInboxResponse GetDakInbox(string token);
         void SaveOrUpdateDakTag(DakTagDTO dak_Tags);
