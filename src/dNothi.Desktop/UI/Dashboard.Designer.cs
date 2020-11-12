@@ -33,7 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.dakInboxButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
@@ -54,9 +54,8 @@
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.dakOutboxButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.button15 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button14 = new System.Windows.Forms.Button();
@@ -76,7 +75,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.designationSelect2 = new dNothi.Desktop.designationSelect();
+            this.dakListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -96,19 +95,20 @@
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button22 = new System.Windows.Forms.Button();
-            this.xTextBox2 = new dNothi.Desktop.XTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dakInboxListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
+            this.designationSelect2 = new dNothi.Desktop.designationSelect();
+            this.xTextBox2 = new dNothi.Desktop.XTextBox();
             this.metroPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelDropDownDakUpload.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -171,25 +171,26 @@
             this.button6.MouseLeave += new System.EventHandler(this.button6_MouseLeave);
             this.button6.MouseHover += new System.EventHandler(this.button6_MouseHover);
             // 
-            // button4
+            // dakInboxButton
             // 
-            this.button4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(3, 116);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(218, 50);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "     আগত ডাক";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
-            this.button4.MouseHover += new System.EventHandler(this.button4_MouseHover);
+            this.dakInboxButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dakInboxButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.dakInboxButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.dakInboxButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.dakInboxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakInboxButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dakInboxButton.Image = ((System.Drawing.Image)(resources.GetObject("dakInboxButton.Image")));
+            this.dakInboxButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dakInboxButton.Location = new System.Drawing.Point(3, 116);
+            this.dakInboxButton.Name = "dakInboxButton";
+            this.dakInboxButton.Size = new System.Drawing.Size(218, 50);
+            this.dakInboxButton.TabIndex = 4;
+            this.dakInboxButton.Text = "     আগত ডাক";
+            this.dakInboxButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.dakInboxButton.UseVisualStyleBackColor = false;
+            this.dakInboxButton.Click += new System.EventHandler(this.dakInboxButton_Click);
+            this.dakInboxButton.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
+            this.dakInboxButton.MouseHover += new System.EventHandler(this.button4_MouseHover);
             // 
             // button3
             // 
@@ -343,12 +344,12 @@
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panelDropDownDakUpload);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.dakInboxButton);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button18);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button10);
-            this.panel1.Controls.Add(this.button16);
+            this.panel1.Controls.Add(this.dakOutboxButton);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
@@ -482,25 +483,26 @@
             this.button10.MouseLeave += new System.EventHandler(this.button10_MouseLeave_1);
             this.button10.MouseHover += new System.EventHandler(this.button10_MouseHover_1);
             // 
-            // button16
+            // dakOutboxButton
             // 
-            this.button16.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button16.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button16.Image = ((System.Drawing.Image)(resources.GetObject("button16.Image")));
-            this.button16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.Location = new System.Drawing.Point(5, 170);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(218, 50);
-            this.button16.TabIndex = 17;
-            this.button16.Text = "       প্রেরিত ডাক";
-            this.button16.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.MouseLeave += new System.EventHandler(this.button16_MouseLeave);
-            this.button16.MouseHover += new System.EventHandler(this.button16_MouseHover);
+            this.dakOutboxButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dakOutboxButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.dakOutboxButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.dakOutboxButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.dakOutboxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakOutboxButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dakOutboxButton.Image = ((System.Drawing.Image)(resources.GetObject("dakOutboxButton.Image")));
+            this.dakOutboxButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dakOutboxButton.Location = new System.Drawing.Point(5, 170);
+            this.dakOutboxButton.Name = "dakOutboxButton";
+            this.dakOutboxButton.Size = new System.Drawing.Size(218, 50);
+            this.dakOutboxButton.TabIndex = 17;
+            this.dakOutboxButton.Text = "       প্রেরিত ডাক";
+            this.dakOutboxButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.dakOutboxButton.UseVisualStyleBackColor = false;
+            this.dakOutboxButton.Click += new System.EventHandler(this.dakOutboxButton_Click);
+            this.dakOutboxButton.MouseLeave += new System.EventHandler(this.button16_MouseLeave);
+            this.dakOutboxButton.MouseHover += new System.EventHandler(this.button16_MouseHover);
             // 
             // panel2
             // 
@@ -518,18 +520,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1129, 60);
             this.panel2.TabIndex = 12;
-            // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
-            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.circularPictureBox1.ErrorImage = null;
-            this.circularPictureBox1.InitialImage = null;
-            this.circularPictureBox1.Location = new System.Drawing.Point(753, 18);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(37, 31);
-            this.circularPictureBox1.TabIndex = 0;
-            this.circularPictureBox1.TabStop = false;
             // 
             // button15
             // 
@@ -773,7 +763,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.dakInboxListFlowLayoutPanel);
+            this.panel5.Controls.Add(this.dakListFlowLayoutPanel);
             this.panel5.Controls.Add(this.designationSelect2);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.metroPanel1);
@@ -785,14 +775,12 @@
             this.panel5.Size = new System.Drawing.Size(1129, 724);
             this.panel5.TabIndex = 12;
             // 
-            // designationSelect2
+            // dakListFlowLayoutPanel
             // 
-            this.designationSelect2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.designationSelect2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.designationSelect2.Location = new System.Drawing.Point(697, 60);
-            this.designationSelect2.Name = "designationSelect2";
-            this.designationSelect2.Size = new System.Drawing.Size(428, 180);
-            this.designationSelect2.TabIndex = 5;
+            this.dakListFlowLayoutPanel.Location = new System.Drawing.Point(0, 172);
+            this.dakListFlowLayoutPanel.Name = "dakListFlowLayoutPanel";
+            this.dakListFlowLayoutPanel.Size = new System.Drawing.Size(1130, 515);
+            this.dakListFlowLayoutPanel.TabIndex = 6;
             // 
             // panel6
             // 
@@ -1028,6 +1016,32 @@
             this.button22.TabIndex = 1;
             this.button22.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 15;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // circularPictureBox1
+            // 
+            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
+            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.circularPictureBox1.ErrorImage = null;
+            this.circularPictureBox1.InitialImage = null;
+            this.circularPictureBox1.Location = new System.Drawing.Point(753, 18);
+            this.circularPictureBox1.Name = "circularPictureBox1";
+            this.circularPictureBox1.Size = new System.Drawing.Size(37, 31);
+            this.circularPictureBox1.TabIndex = 0;
+            this.circularPictureBox1.TabStop = false;
+            // 
+            // designationSelect2
+            // 
+            this.designationSelect2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.designationSelect2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.designationSelect2.Location = new System.Drawing.Point(697, 60);
+            this.designationSelect2.Name = "designationSelect2";
+            this.designationSelect2.Size = new System.Drawing.Size(428, 180);
+            this.designationSelect2.TabIndex = 5;
+            // 
             // xTextBox2
             // 
             this.xTextBox2.BackColor = System.Drawing.Color.Gainsboro;
@@ -1041,18 +1055,6 @@
             this.xTextBox2.MouseLeave += new System.EventHandler(this.xTextBox2_MouseLeave);
             this.xTextBox2.MouseHover += new System.EventHandler(this.xTextBox2_MouseHover);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 15;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // dakInboxListFlowLayoutPanel
-            // 
-            this.dakInboxListFlowLayoutPanel.Location = new System.Drawing.Point(0, 172);
-            this.dakInboxListFlowLayoutPanel.Name = "dakInboxListFlowLayoutPanel";
-            this.dakInboxListFlowLayoutPanel.Size = new System.Drawing.Size(1130, 515);
-            this.dakInboxListFlowLayoutPanel.TabIndex = 6;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1064,13 +1066,13 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Dashboard";
+            this.Load += new System.EventHandler(this.OnLoad);
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panelDropDownDakUpload.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1080,6 +1082,7 @@
             this.panel6.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1089,7 +1092,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button dakInboxButton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private MetroFramework.Controls.MetroPanel metroPanel2;
@@ -1107,7 +1110,7 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button dakOutboxButton;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -1157,7 +1160,7 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.FlowLayoutPanel dakInboxListFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel dakListFlowLayoutPanel;
     }
 }
 

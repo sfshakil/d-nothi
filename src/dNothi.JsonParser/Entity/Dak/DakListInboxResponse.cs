@@ -10,6 +10,6 @@ namespace Nothi.JsonParser.Entity.Dak_List_Inbox
     {
       public string status { get; set; }
 
-     public DakLISTInboxDTO data { get; set; }
+     public DakListDTO data { get; set; }
     }
 }

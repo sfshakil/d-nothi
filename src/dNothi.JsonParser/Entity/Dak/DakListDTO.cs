@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Nothi.JsonParser.Entity.Dak_List_Inbox
 {
-    public class DakLISTInboxDTO
+    public class DakListDTO
     {
-        public List<DakListInboxRecordsDTO> records { get; set; }
+        public List<DakListRecordsDTO> records { get; set; }
         public int total_records { get; set; }
     }
 }

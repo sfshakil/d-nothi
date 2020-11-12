@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nothi.JsonParser.Entity.Dak_List_Inbox
 {
-    public class DakListInboxRecordsDTO
+    public class DakListRecordsDTO
     {
         public DakUserDTO dak_user { get; set; }
         public DakOriginDTO dak_origin { get; set; }

@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using dNothi.Constants;
 using System.Configuration;
 using Nothi.Core.Entities;
+using Nothi.Services.DakServices;
 
 namespace dNothi.Services.UserServices
 {
@@ -35,6 +36,8 @@ namespace dNothi.Services.UserServices
             _officeRepository = officeRepository;
             _userTokenRepository = userTokenRepository;
         }
+
+       
 
         public async Task<UserMessage> GetUserMessageAsync(UserParam userParam)
         {
@@ -62,7 +65,7 @@ namespace dNothi.Services.UserServices
 
         public EmployeeInfoDTO GetEmployeeInfo()
         {
-            var empInfo = _userrepository.Table.FirstOrDefault();
+            var empInfo = _employeeRepository.Table.FirstOrDefault();
             var config = new MapperConfiguration(cfg =>
                     cfg.CreateMap<EmployeeInfo, EmployeeInfoDTO>()
                 );
@@ -73,7 +76,7 @@ namespace dNothi.Services.UserServices
 
         public OfficeInfoDTO GetOfficeInfo()
         {
-            var empInfo = _userrepository.Table.FirstOrDefault();
+            var empInfo = _officeRepository.Table.FirstOrDefault();
             var config = new MapperConfiguration(cfg =>
                     cfg.CreateMap<OfficeInfo, OfficeInfoDTO>()
                 );
@@ -179,6 +182,36 @@ namespace dNothi.Services.UserServices
                 dbtoken.Token = token;
                 _userTokenRepository.Update(dbtoken);
             }
+        }
+
+        public string GetToken()
+        {
+            var dbtoken = _userTokenRepository.Table.FirstOrDefault();
+            return dbtoken.Token;
+        }
+
+        public DakListUserParam GetLocalDakUserParam()
+        {
+           
+            OfficeInfoDTO officeInfo = GetOfficeInfo();
+
+
+
+            DakListUserParam dakListUserParam = new DakListUserParam();
+
+
+            try
+            {
+                dakListUserParam.token = GetToken();
+                dakListUserParam.officeId = officeInfo.office_id;
+                dakListUserParam.designationId = officeInfo.office_unit_organogram_id;
+            }
+            catch
+            {
+
+            }
+
+            return dakListUserParam;
         }
     }
 }
