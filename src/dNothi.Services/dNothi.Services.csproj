@@ -8,8 +8,8 @@
     <ProjectGuid>{E152ABB6-4983-492D-BFD8-C32C739CFC1F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nothi.Services</RootNamespace>
-    <AssemblyName>Nothi.Services</AssemblyName>
+    <RootNamespace>dNothi.Services</RootNamespace>
+    <AssemblyName>dNothi.Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

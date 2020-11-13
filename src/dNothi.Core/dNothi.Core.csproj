@@ -8,8 +8,8 @@
     <ProjectGuid>{14F70AAB-7796-479A-8F54-32F90A8A399D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nothi.Core</RootNamespace>
-    <AssemblyName>Nothi.Core</AssemblyName>
+    <RootNamespace>dNothi.Core</RootNamespace>
+    <AssemblyName>dNothi.Core</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
