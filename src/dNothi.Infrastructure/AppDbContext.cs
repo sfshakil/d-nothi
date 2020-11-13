@@ -22,8 +22,9 @@ namespace dNothi.Infrastructure
         public AppDbContext()
             : base("Nothi")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AppDbContext, Nothi.Infrastructure.Migrations.Configuration>());
         }
-        
+
         #endregion
 
         #region Utilities

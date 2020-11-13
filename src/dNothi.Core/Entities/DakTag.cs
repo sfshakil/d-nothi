@@ -6,16 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nothi.Core.Entities
+namespace dNothi.Core.Entities
 {
    public class DakTag: BaseEntity
     {
-        [Key]
-        public int id { get; set; }
+        
         public int dak_custom_label_id { get; set; }
         public int dak_id { get; set; }
         public string dak_type { get; set; }
         public int is_copied_dak { get; set; }
         public string tag { get; set; }
+        public virtual ICollection<DakListRecordDakTag> DakListRecordDakTags { get; set; }
     }
 }

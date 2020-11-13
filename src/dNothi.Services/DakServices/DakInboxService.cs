@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using AutoMapper;
 using dNothi.Core.Interfaces;
 using Newtonsoft.Json;
-using Nothi.Core.Entities;
-using Nothi.JsonParser.Entity.Dak_List_Inbox;
+using dNothi.Core.Entities;
+using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using RestSharp;
 
-namespace Nothi.Services.DakServices
+namespace dNothi.Services.DakServices
 {
     public class DakInboxService : IDakInboxServices
     {
@@ -57,7 +57,7 @@ namespace Nothi.Services.DakServices
                 );
             var mapper = new Mapper(config);
             var daktag = mapper.Map<DakTag>(dak_Tagsdto);
-            var dbdaktag = _daktags.Table.Where(q => q.id == dak_Tagsdto.id).FirstOrDefault();
+            var dbdaktag = _daktags.Table.Where(q => q.Id == dak_Tagsdto.id).FirstOrDefault();
             if (dbdaktag == null)
             {
                 _daktags.Insert(daktag);

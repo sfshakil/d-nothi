@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nothi.Core.Entities
+namespace dNothi.Core.Entities
 {
    public class DakUser : BaseEntity
     {

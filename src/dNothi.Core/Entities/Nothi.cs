@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace dNothi.Core.Entities
 {
-    public class UserToken : BaseEntity
+    public class Nothi:BaseEntity
     {
-        public string Token { get; set; }
     }
 }

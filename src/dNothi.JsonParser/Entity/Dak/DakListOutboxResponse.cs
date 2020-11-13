@@ -1,11 +1,11 @@
-﻿using Nothi.JsonParser.Entity.Dak_List_Inbox;
+﻿using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nothi.JsonParser.Entity.Dak
+namespace dNothi.JsonParser.Entity.Dak
 {
     public class DakListOutboxResponse
     {

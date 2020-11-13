@@ -1,5 +1,4 @@
 ﻿using dNothi.Infrastructure.Mapping;
-using dNothi.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace dNothi.Infrastructure.Mappings.Dak
 {
-    class DakUserMap : NothiEntityTypeConfiguration<DakUser>
+    public class NothiMap : NothiEntityTypeConfiguration<dNothi.Core.Entities.Nothi>
     {
-        public DakUserMap()
+        public NothiMap()
         {
-            this.ToTable("DakUser");
+            this.ToTable("Nothi");
 
         }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nothi.Services.DakServices
+namespace dNothi.Services.DakServices
 {
     public class DakListUserParam
     {
