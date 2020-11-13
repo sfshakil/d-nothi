@@ -2,9 +2,9 @@
 using dNothi.Desktop.UI.Dak;
 using dNothi.Services.AccountServices;
 using dNothi.Services.UserServices;
-using Nothi.JsonParser.Entity.Dak;
-using Nothi.JsonParser.Entity.Dak_List_Inbox;
-using Nothi.Services.DakServices;
+using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Dak_List_Inbox;
+using dNothi.Services.DakServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,14 +35,14 @@ namespace dNothi.Desktop.UI
             designationSelect2.Hide();
         }
 
-       
-            
+
+
         public Dashboard(List<DakListRecordsDTO> dakLists)
-        
+
         {
-      
+
             InitializeComponent();
-          
+
 
 
         }
@@ -50,7 +50,7 @@ namespace dNothi.Desktop.UI
         private void button1_MouseHover(object sender, EventArgs e)
         {
             this.button1.ForeColor = Color.DodgerBlue;
-       }
+        }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
@@ -156,7 +156,7 @@ namespace dNothi.Desktop.UI
         private void button15_Click(object sender, EventArgs e)
         {
 
-            if(designationSelect2.Width==428)
+            if (designationSelect2.Width == 428)
             {
                 designationSelect2.Show();
                 designationSelect2.Width = 427;
@@ -189,15 +189,15 @@ namespace dNothi.Desktop.UI
         private bool IsCollasped;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(IsCollasped)
+            if (IsCollasped)
             {
-                panelDropDownDakUpload.Height +=10;
-                if(panelDropDownDakUpload.Size==panelDropDownDakUpload.MaximumSize)
+                panelDropDownDakUpload.Height += 10;
+                if (panelDropDownDakUpload.Size == panelDropDownDakUpload.MaximumSize)
                 {
                     timer1.Stop();
                     IsCollasped = false;
                 }
-               
+
             }
             else
             {
@@ -221,7 +221,7 @@ namespace dNothi.Desktop.UI
 
             LoadDakOutbox();
 
-            
+
         }
 
         private void LoadDakOutbox()
@@ -338,4 +338,4 @@ namespace dNothi.Desktop.UI
             LoadDakInbox();
         }
     }
-} 
+}

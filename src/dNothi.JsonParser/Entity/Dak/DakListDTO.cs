@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nothi.JsonParser.Entity.Dak_List_Inbox
+namespace dNothi.JsonParser.Entity.Dak_List_Inbox
 {
     public class DakListDTO
     {

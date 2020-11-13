@@ -12,8 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using dNothi.Constants;
 using System.Configuration;
-using Nothi.Core.Entities;
-using Nothi.Services.DakServices;
+using dNothi.Services.DakServices;
 
 namespace dNothi.Services.UserServices
 {

@@ -60,9 +60,13 @@
     <Compile Include="EfRepository.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mappings\AppUsers\AppUserMap.cs" />
-    <Compile Include="Mappings\Dak\DakInboxListMap.cs" />
+    <Compile Include="Mappings\Dak\DakListRecordDakTagMap.cs" />
+    <Compile Include="Mappings\Dak\DakListRecordMap.cs" />
+    <Compile Include="Mappings\Dak\DakOriginMap.cs" />
     <Compile Include="Mappings\Dak\DakTagMap.cs" />
     <Compile Include="Mappings\Dak\DakUserMap.cs" />
+    <Compile Include="Mappings\Dak\MovementStatusMap.cs" />
+    <Compile Include="Mappings\Dak\NothiMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
     <Compile Include="Mappings\Users\EmployeeInfoMap.cs" />
     <Compile Include="Mappings\Users\OfficeInfoMap.cs" />

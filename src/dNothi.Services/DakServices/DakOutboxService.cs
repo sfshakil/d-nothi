@@ -7,11 +7,11 @@ using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity;
 using dNothi.Services.UserServices;
 using Newtonsoft.Json;
-using Nothi.JsonParser.Entity.Dak;
-using Nothi.JsonParser.Entity.Dak_List_Inbox;
+using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using RestSharp;
 
-namespace Nothi.Services.DakServices
+namespace dNothi.Services.DakServices
 {
    public class DakOutboxService : IDakOutboxService
     {

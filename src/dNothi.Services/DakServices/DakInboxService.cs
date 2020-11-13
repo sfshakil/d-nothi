@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using AutoMapper;
 using dNothi.Core.Interfaces;
 using Newtonsoft.Json;
-using Nothi.Core.Entities;
-using Nothi.JsonParser.Entity.Dak_List_Inbox;
+using dNothi.Core.Entities;
+using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using RestSharp;
 
-namespace Nothi.Services.DakServices
+namespace dNothi.Services.DakServices
 {
     public class DakInboxService : IDakInboxServices
     {

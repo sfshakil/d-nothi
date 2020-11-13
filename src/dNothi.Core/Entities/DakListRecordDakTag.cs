@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace dNothi.Core.Entities
 {
-    public class UserToken : BaseEntity
+    public class DakListRecordDakTag : BaseEntity
     {
-        public string Token { get; set; }
+        public long DakListRecordId { get; set; }
+        public long DakTagId { get; set; }
     }
 }

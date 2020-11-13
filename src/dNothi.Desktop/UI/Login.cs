@@ -1,7 +1,7 @@
 ﻿using dNothi.JsonParser.Entity;
 using dNothi.Services.AccountServices;
 using dNothi.Services.UserServices;
-using Nothi.Services.DakServices;
+using dNothi.Services.DakServices;
 using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
@@ -248,6 +248,11 @@ namespace dNothi.Desktop.UI
             txtUserPassword.Visible = false;
 
             txtPassword.Focus();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
