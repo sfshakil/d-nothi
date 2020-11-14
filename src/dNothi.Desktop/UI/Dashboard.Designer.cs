@@ -56,6 +56,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.dakOutboxButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.button15 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button14 = new System.Windows.Forms.Button();
@@ -76,6 +77,7 @@
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dakListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.designationSelect2 = new dNothi.Desktop.designationSelect();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -95,20 +97,18 @@
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button22 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
-            this.designationSelect2 = new dNothi.Desktop.designationSelect();
             this.xTextBox2 = new dNothi.Desktop.XTextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelDropDownDakUpload.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -521,6 +521,18 @@
             this.panel2.Size = new System.Drawing.Size(1129, 60);
             this.panel2.TabIndex = 12;
             // 
+            // circularPictureBox1
+            // 
+            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
+            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.circularPictureBox1.ErrorImage = null;
+            this.circularPictureBox1.InitialImage = null;
+            this.circularPictureBox1.Location = new System.Drawing.Point(753, 18);
+            this.circularPictureBox1.Name = "circularPictureBox1";
+            this.circularPictureBox1.Size = new System.Drawing.Size(37, 31);
+            this.circularPictureBox1.TabIndex = 0;
+            this.circularPictureBox1.TabStop = false;
+            // 
             // button15
             // 
             this.button15.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -782,6 +794,15 @@
             this.dakListFlowLayoutPanel.Size = new System.Drawing.Size(1130, 515);
             this.dakListFlowLayoutPanel.TabIndex = 6;
             // 
+            // designationSelect2
+            // 
+            this.designationSelect2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.designationSelect2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.designationSelect2.Location = new System.Drawing.Point(697, 60);
+            this.designationSelect2.Name = "designationSelect2";
+            this.designationSelect2.Size = new System.Drawing.Size(428, 180);
+            this.designationSelect2.TabIndex = 5;
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label9);
@@ -1016,32 +1037,6 @@
             this.button22.TabIndex = 1;
             this.button22.UseVisualStyleBackColor = true;
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 15;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
-            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.circularPictureBox1.ErrorImage = null;
-            this.circularPictureBox1.InitialImage = null;
-            this.circularPictureBox1.Location = new System.Drawing.Point(753, 18);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(37, 31);
-            this.circularPictureBox1.TabIndex = 0;
-            this.circularPictureBox1.TabStop = false;
-            // 
-            // designationSelect2
-            // 
-            this.designationSelect2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.designationSelect2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.designationSelect2.Location = new System.Drawing.Point(697, 60);
-            this.designationSelect2.Name = "designationSelect2";
-            this.designationSelect2.Size = new System.Drawing.Size(428, 180);
-            this.designationSelect2.TabIndex = 5;
-            // 
             // xTextBox2
             // 
             this.xTextBox2.BackColor = System.Drawing.Color.Gainsboro;
@@ -1054,6 +1049,11 @@
             this.xTextBox2.MouseEnter += new System.EventHandler(this.xTextBox2_MouseEnter);
             this.xTextBox2.MouseLeave += new System.EventHandler(this.xTextBox2_MouseLeave);
             this.xTextBox2.MouseHover += new System.EventHandler(this.xTextBox2_MouseHover);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 15;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Dashboard
             // 
@@ -1073,6 +1073,7 @@
             this.panelDropDownDakUpload.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1082,7 +1083,6 @@
             this.panel6.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

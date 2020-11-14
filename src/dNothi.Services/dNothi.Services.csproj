@@ -101,6 +101,8 @@
     <Compile Include="DakServices\DakOutboxService.cs" />
     <Compile Include="DakServices\IDakInboxServices.cs" />
     <Compile Include="DakServices\IDakOutboxService.cs" />
+    <Compile Include="NothiServices\INothiInboxServices.cs" />
+    <Compile Include="NothiServices\NothiInboxService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserServices\IUserService.cs" />
     <Compile Include="UserServices\UserParam.cs" />

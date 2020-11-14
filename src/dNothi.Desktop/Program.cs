@@ -17,6 +17,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.Services.NothiServices;
 
 namespace dNothi.Desktop
 {
@@ -50,11 +51,12 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
             builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
             builder.RegisterType<EfRepository<UserToken>>().As<IRepository<UserToken>>();
+            builder.RegisterType<EfRepository<NothiListRecords>>().As<IRepository<NothiListRecords>>();
             builder.RegisterType<AccountService>().As<IAccountService>();
             builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<DakInboxService>().As<IDakInboxServices>();
-            
+            builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
 

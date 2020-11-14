@@ -80,6 +80,9 @@
     <Compile Include="Entity\Dak\ToDTO.cs" />
     <Compile Include="Entity\DataDTO.cs" />
     <Compile Include="Entity\EmployeeInfoDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiListDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiListInboxResponse.cs" />
+    <Compile Include="Entity\Nothi\NothiListRecordsDTO.cs" />
     <Compile Include="Entity\OfficeInfoDTO.cs" />
     <Compile Include="Entity\UserMessage.cs" />
     <Compile Include="Entity\SignatureDTO.cs" />

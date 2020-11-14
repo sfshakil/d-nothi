@@ -80,6 +80,7 @@
     <Compile Include="Mappings\Dak\MovementStatusMap.cs" />
     <Compile Include="Mappings\Dak\NothiMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
+    <Compile Include="Mappings\Nothi\NothiListRecordsMap.cs" />
     <Compile Include="Mappings\Users\EmployeeInfoMap.cs" />
     <Compile Include="Mappings\Users\OfficeInfoMap.cs" />
     <Compile Include="Mappings\Users\UserMap.cs" />

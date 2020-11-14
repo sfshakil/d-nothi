@@ -13,5 +13,7 @@ namespace dNothi.Constants
         public const string DefaultDeviceId = "1234567890";
         public const string DefaultDeviceType = "android";
         public const string LoginEndPoint = "/api/login";
+        public const string NothiListInboxEndPoint = "/api/nothi/list/inbox";
+
     }
 }
