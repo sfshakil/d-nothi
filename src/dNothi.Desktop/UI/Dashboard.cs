@@ -180,8 +180,8 @@ namespace dNothi.Desktop.UI
 
         private void button13_Click(object sender, EventArgs e)
         {
-            Nothi nothi = new Nothi();
-            nothi.ShowDialog();
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
