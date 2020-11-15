@@ -518,7 +518,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(233, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1129, 60);
+            this.panel2.Size = new System.Drawing.Size(1121, 60);
             this.panel2.TabIndex = 12;
             // 
             // circularPictureBox1
@@ -784,7 +784,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(233, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1129, 724);
+            this.panel5.Size = new System.Drawing.Size(1121, 724);
             this.panel5.TabIndex = 12;
             // 
             // dakListFlowLayoutPanel
@@ -816,7 +816,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 690);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1129, 34);
+            this.panel6.Size = new System.Drawing.Size(1121, 34);
             this.panel6.TabIndex = 3;
             // 
             // label9
@@ -1060,7 +1060,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1362, 724);
+            this.ClientSize = new System.Drawing.Size(1354, 724);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);

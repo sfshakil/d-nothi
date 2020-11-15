@@ -217,11 +217,7 @@ namespace dNothi.Desktop.UI
 
         private void dakOutboxButton_Click(object sender, EventArgs e)
         {
-
-
             LoadDakOutbox();
-
-
         }
 
         private void LoadDakOutbox()

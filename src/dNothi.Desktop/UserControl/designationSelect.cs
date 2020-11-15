@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.Desktop.UI;
 
 namespace dNothi.Desktop
 {
@@ -17,6 +18,11 @@ namespace dNothi.Desktop
             InitializeComponent();
         }
 
-        
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Login>();
+
+            form.ShowDialog();
+        }
     }
 }

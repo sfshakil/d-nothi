@@ -35,15 +35,14 @@
             this.button16 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnNothiIcon = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnNothiOutbox = new System.Windows.Forms.Button();
             this.btnNothiInbox = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.btnLogOutArrow = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button14 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbNothi = new System.Windows.Forms.Label();
             this.btnNothi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDak = new System.Windows.Forms.Button();
@@ -63,11 +62,12 @@
             this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.nothiListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,13 +78,13 @@
             this.panel1.Controls.Add(this.button16);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.btnNothiIcon);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.btnNothiOutbox);
             this.panel1.Controls.Add(this.btnNothiInbox);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(227, 724);
+            this.panel1.Size = new System.Drawing.Size(183, 724);
             this.panel1.TabIndex = 12;
             // 
             // button6
@@ -99,7 +99,7 @@
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(5, 274);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(218, 50);
+            this.button6.Size = new System.Drawing.Size(178, 50);
             this.button6.TabIndex = 5;
             this.button6.Text = "      নতুন নথি";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -117,7 +117,7 @@
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.Location = new System.Drawing.Point(5, 326);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(218, 50);
+            this.button10.Size = new System.Drawing.Size(178, 50);
             this.button10.TabIndex = 17;
             this.button10.Text = "      পত্রজারি গ্রূপসমূহ";
             this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -135,7 +135,7 @@
             this.button16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button16.Location = new System.Drawing.Point(5, 170);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(218, 50);
+            this.button16.Size = new System.Drawing.Size(178, 50);
             this.button16.TabIndex = 17;
             this.button16.Text = "      সকল নথি";
             this.button16.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -153,7 +153,7 @@
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.Location = new System.Drawing.Point(5, 222);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(218, 50);
+            this.button5.Size = new System.Drawing.Size(178, 50);
             this.button5.TabIndex = 6;
             this.button5.Text = "              গার্ড ফাইল";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -169,28 +169,29 @@
             this.btnNothiIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiIcon.Location = new System.Drawing.Point(0, 0);
             this.btnNothiIcon.Name = "btnNothiIcon";
-            this.btnNothiIcon.Size = new System.Drawing.Size(173, 60);
+            this.btnNothiIcon.Size = new System.Drawing.Size(137, 60);
             this.btnNothiIcon.TabIndex = 2;
             this.btnNothiIcon.UseVisualStyleBackColor = false;
             this.btnNothiIcon.Click += new System.EventHandler(this.btnNothiIcon_Click);
             // 
-            // button4
+            // btnNothiOutbox
             // 
-            this.button4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(5, 118);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(218, 50);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "      প্রেরিত নথি";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnNothiOutbox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNothiOutbox.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNothiOutbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNothiOutbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNothiOutbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiOutbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNothiOutbox.Image = ((System.Drawing.Image)(resources.GetObject("btnNothiOutbox.Image")));
+            this.btnNothiOutbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNothiOutbox.Location = new System.Drawing.Point(5, 118);
+            this.btnNothiOutbox.Name = "btnNothiOutbox";
+            this.btnNothiOutbox.Size = new System.Drawing.Size(178, 50);
+            this.btnNothiOutbox.TabIndex = 4;
+            this.btnNothiOutbox.Text = "      প্রেরিত নথি";
+            this.btnNothiOutbox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNothiOutbox.UseVisualStyleBackColor = false;
+            this.btnNothiOutbox.Click += new System.EventHandler(this.btnNothiOutbox_Click);
             // 
             // btnNothiInbox
             // 
@@ -204,7 +205,7 @@
             this.btnNothiInbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNothiInbox.Location = new System.Drawing.Point(5, 66);
             this.btnNothiInbox.Name = "btnNothiInbox";
-            this.btnNothiInbox.Size = new System.Drawing.Size(218, 50);
+            this.btnNothiInbox.Size = new System.Drawing.Size(178, 50);
             this.btnNothiInbox.TabIndex = 0;
             this.btnNothiInbox.Text = "      আগত নথি";
             this.btnNothiInbox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -218,9 +219,9 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(171, 0);
+            this.button3.Location = new System.Drawing.Point(133, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(56, 60);
+            this.button3.Size = new System.Drawing.Size(50, 60);
             this.button3.TabIndex = 3;
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -231,27 +232,15 @@
             this.panel2.Controls.Add(this.btnLogOutArrow);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.button14);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.lbNothi);
             this.panel2.Controls.Add(this.btnNothi);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnDak);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(227, 0);
+            this.panel2.Location = new System.Drawing.Point(183, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1135, 60);
+            this.panel2.Size = new System.Drawing.Size(1171, 60);
             this.panel2.TabIndex = 13;
-            // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
-            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.circularPictureBox1.ErrorImage = null;
-            this.circularPictureBox1.InitialImage = null;
-            this.circularPictureBox1.Location = new System.Drawing.Point(753, 18);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(37, 31);
-            this.circularPictureBox1.TabIndex = 0;
-            this.circularPictureBox1.TabStop = false;
             // 
             // btnLogOutArrow
             // 
@@ -290,15 +279,15 @@
             this.button14.TabIndex = 21;
             this.button14.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // lbNothi
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkOrange;
-            this.label2.Location = new System.Drawing.Point(382, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "12";
+            this.lbNothi.AutoSize = true;
+            this.lbNothi.BackColor = System.Drawing.Color.DarkOrange;
+            this.lbNothi.Location = new System.Drawing.Point(382, 27);
+            this.lbNothi.Name = "lbNothi";
+            this.lbNothi.Size = new System.Drawing.Size(19, 13);
+            this.lbNothi.TabIndex = 20;
+            this.lbNothi.Text = "12";
             // 
             // btnNothi
             // 
@@ -349,9 +338,9 @@
             this.panel3.Controls.Add(this.button9);
             this.panel3.Controls.Add(this.button11);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(227, 60);
+            this.panel3.Location = new System.Drawing.Point(183, 60);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1135, 36);
+            this.panel3.Size = new System.Drawing.Size(1171, 36);
             this.panel3.TabIndex = 14;
             // 
             // button25
@@ -428,9 +417,9 @@
             this.panel6.Controls.Add(this.button27);
             this.panel6.Controls.Add(this.button26);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(227, 690);
+            this.panel6.Location = new System.Drawing.Point(183, 690);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1135, 34);
+            this.panel6.Size = new System.Drawing.Size(1171, 34);
             this.panel6.TabIndex = 15;
             // 
             // label9
@@ -530,17 +519,29 @@
             // nothiListFlowLayoutPanel
             // 
             this.nothiListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(227, 96);
+            this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(183, 96);
             this.nothiListFlowLayoutPanel.Name = "nothiListFlowLayoutPanel";
-            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(1135, 594);
+            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(1171, 594);
             this.nothiListFlowLayoutPanel.TabIndex = 16;
+            // 
+            // circularPictureBox1
+            // 
+            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
+            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.circularPictureBox1.ErrorImage = null;
+            this.circularPictureBox1.InitialImage = null;
+            this.circularPictureBox1.Location = new System.Drawing.Point(753, 18);
+            this.circularPictureBox1.Name = "circularPictureBox1";
+            this.circularPictureBox1.Size = new System.Drawing.Size(37, 31);
+            this.circularPictureBox1.TabIndex = 0;
+            this.circularPictureBox1.TabStop = false;
             // 
             // Nothi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1362, 724);
+            this.ClientSize = new System.Drawing.Size(1354, 724);
             this.Controls.Add(this.nothiListFlowLayoutPanel);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
@@ -551,11 +552,11 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -568,7 +569,7 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnNothiIcon;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnNothiOutbox;
         private System.Windows.Forms.Button btnNothiInbox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel2;
@@ -576,7 +577,7 @@
         private System.Windows.Forms.Button btnLogOutArrow;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbNothi;
         private System.Windows.Forms.Button btnNothi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDak;

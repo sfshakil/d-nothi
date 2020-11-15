@@ -57,6 +57,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<DakInboxService>().As<IDakInboxServices>();
             builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
+            builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
 

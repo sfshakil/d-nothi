@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace dNothi.JsonParser.Entity.Nothi
 {
-    public class NothiListInboxResponse
+    public class NothiListOutboxDTO
     {
-        public string status { get; set; }
-        public NothiListInboxDTO data { get; set; }
+        public List<NothiOutboxListRecordsDTO> records { get; set; }
+        public int total_records { get; set; }
     }
 }

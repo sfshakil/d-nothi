@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dNothi.JsonParser.Entity.Nothi
 {
-    public class NothiListDTO
+    public class NothiListInboxDTO
     {
         public List<NothiListRecordsDTO> records { get; set; }
         public int total_records { get; set; }

@@ -42,9 +42,9 @@
             // lbNoteLastDate
             // 
             this.lbNoteLastDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNoteLastDate.Location = new System.Drawing.Point(802, 45);
+            this.lbNoteLastDate.Location = new System.Drawing.Point(905, 45);
             this.lbNoteLastDate.Name = "lbNoteLastDate";
-            this.lbNoteLastDate.Size = new System.Drawing.Size(269, 23);
+            this.lbNoteLastDate.Size = new System.Drawing.Size(263, 23);
             this.lbNoteLastDate.TabIndex = 41;
             this.lbNoteLastDate.Text = "noteLastDateLabel";
             // 
@@ -53,7 +53,7 @@
             this.lbTotalNothi.AutoSize = true;
             this.lbTotalNothi.BackColor = System.Drawing.Color.NavajoWhite;
             this.lbTotalNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalNothi.Location = new System.Drawing.Point(994, 15);
+            this.lbTotalNothi.Location = new System.Drawing.Point(1050, 15);
             this.lbTotalNothi.Name = "lbTotalNothi";
             this.lbTotalNothi.Size = new System.Drawing.Size(77, 20);
             this.lbTotalNothi.TabIndex = 40;
@@ -140,7 +140,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button14);
             this.Name = "NothiInbox";
-            this.Size = new System.Drawing.Size(1117, 82);
+            this.Size = new System.Drawing.Size(1171, 82);
             this.ResumeLayout(false);
             this.PerformLayout();
 

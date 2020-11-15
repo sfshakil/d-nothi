@@ -18,12 +18,13 @@ namespace dNothi.Desktop.UI
     {
         IUserService _userService { get; set; }
         INothiInboxServices _nothiInbox { get; set; }
+        INothiOutboxServices _nothiOutbox { get; set; }
 
-        public Nothi(IUserService userService, INothiInboxServices nothiInbox)
+        public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiOutboxServices nothiOutbox)
         {
-
             _userService = userService;
             _nothiInbox = nothiInbox;
+            _nothiOutbox = nothiOutbox;
             InitializeComponent();
             LoadNothiInbox();
         }
@@ -55,6 +56,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadNothiInboxinPanel(List<NothiListRecordsDTO> nothiLists)
         {
+            
             List<NothiInbox> nothiInboxs = new List<NothiInbox>();
             int i = 0;
             foreach (NothiListRecordsDTO nothiListRecordsDTO in nothiLists)
@@ -116,6 +118,53 @@ namespace dNothi.Desktop.UI
             {
                 ucdesignationSelect.Visible = false;
                 ucdesignationSelect.Width = 428;
+            }
+        }
+
+        private void btnNothiOutbox_Click(object sender, EventArgs e)
+        {
+            LoadNothiOutbox();
+        }
+
+        private void LoadNothiOutbox()
+        {
+            var token = _userService.GetToken();
+            var nothiOutbox = _nothiOutbox.GetNothiOutbox(token);
+
+            if (nothiOutbox.status == "success")
+            {
+                if (nothiOutbox.data.records.Count > 0)
+                {
+                    LoadNothiOutboxinPanel(nothiOutbox.data.records);
+                }
+
+            }
+        }
+        private void LoadNothiOutboxinPanel(List<NothiOutboxListRecordsDTO> nothiOutboxLists)
+        {
+
+            List<NothiOutbox> nothiOutboxs = new List<NothiOutbox>();
+            int i = 0;
+            foreach (NothiOutboxListRecordsDTO nothiOutboxListDTO in nothiOutboxLists)
+            {
+                NothiOutbox nothiOutbox = new NothiOutbox();
+                nothiOutbox.nothi = nothiOutboxListDTO.nothi.nothi_no + " " + nothiOutboxListDTO.nothi.subject;
+                nothiOutbox.shakha = nothiOutboxListDTO.nothi.office_unit_name;
+                nothiOutbox.prapok = nothiOutboxListDTO.to.officer + " "+ nothiOutboxListDTO.to.designation +","+ nothiOutboxListDTO.to.office_unit +","+ nothiOutboxListDTO.to.office;
+                nothiOutbox.bortomanDesk = nothiOutboxListDTO.desk.officer+" "+ nothiOutboxListDTO.desk.designation +","+ nothiOutboxListDTO.desk.office_unit +","+ nothiOutboxListDTO.desk.office;
+                nothiOutbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiOutboxListDTO.nothi.last_note_date;
+                i = i + 1;
+                nothiOutboxs.Add(nothiOutbox);
+
+            }
+            nothiListFlowLayoutPanel.Controls.Clear();
+            nothiListFlowLayoutPanel.AutoScroll = true;
+            nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            nothiListFlowLayoutPanel.WrapContents = false;
+
+            for (int j = 0; j <= nothiOutboxs.Count - 1; j++)
+            {
+                nothiListFlowLayoutPanel.Controls.Add(nothiOutboxs[j]);
             }
         }
     }
