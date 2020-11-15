@@ -72,6 +72,7 @@
     <Compile Include="Entities\EmployeeInfo.cs" />
     <Compile Include="Entities\MovementStatus.cs" />
     <Compile Include="Entities\Nothi.cs" />
+    <Compile Include="Entities\NothiListRecords.cs" />
     <Compile Include="Entities\OfficeInfo.cs" />
     <Compile Include="Entities\UserToken.cs" />
     <Compile Include="Entities\User.cs" />

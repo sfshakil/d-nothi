@@ -51,9 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  
-  
-    <ItemGroup>
+  <ItemGroup>
     <Reference Include="Autofac, Version=6.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.6.0.0\lib\netstandard2.0\Autofac.dll</HintPath>
     </Reference>
@@ -137,6 +135,18 @@
     <Compile Include="UI\Dak\DakOutboxUserControl.Designer.cs">
       <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiInbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiInbox.Designer.cs">
+      <DependentUpon>NothiInbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiOutbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiOutbox.Designer.cs">
+      <DependentUpon>NothiOutbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Nothi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +195,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakOutboxUserControl.resx">
       <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiInbox.resx">
+      <DependentUpon>NothiInbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiOutbox.resx">
+      <DependentUpon>NothiOutbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Nothi.resx">
       <DependentUpon>Nothi.cs</DependentUpon>

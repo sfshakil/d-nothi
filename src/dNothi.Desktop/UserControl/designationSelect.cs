@@ -18,12 +18,11 @@ namespace dNothi.Desktop
             InitializeComponent();
         }
 
-        private void logoutButton_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-           
             var form = FormFactory.Create<Login>();
+
             form.ShowDialog();
-           
         }
     }
 }
