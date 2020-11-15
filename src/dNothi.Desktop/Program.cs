@@ -34,7 +34,7 @@ namespace dNothi.Desktop
             Application.SetCompatibleTextRenderingDefault(false);
             //Database.SetInitializer<AppDbContext>(new DropCreateDatabaseIfModelChanges<AppDbContext>());
             Bootstrap();
-            Application.Run(container.Resolve<UI.Login>());
+            Application.Run(container.Resolve<UI.Dashboard>());
         }
         private static void Bootstrap()
         {

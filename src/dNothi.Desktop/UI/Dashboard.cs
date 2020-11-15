@@ -43,8 +43,25 @@ namespace dNothi.Desktop.UI
 
             InitializeComponent();
 
+            HideSubmenu();
+            detailsDakSearcPanel.Visible = false;
+            nameorDesignationSearchPanel.Visible = false;
+            LoadReadDakComboBox();
 
+        }
 
+        private void LoadReadDakComboBox()
+        {
+            readTypeComboBox.SelectedIndex = comboBox1.Items.IndexOf("সকল");
+        }
+
+        private  void HideSubmenu()
+        {
+            dakUploadDropDownPanel.Visible = false;
+        }
+        private void HideOtherSubMenuButThis()
+        {
+    
         }
 
         private void button1_MouseHover(object sender, EventArgs e)
@@ -96,32 +113,24 @@ namespace dNothi.Desktop.UI
 
         private void button10_MouseHover_1(object sender, EventArgs e)
         {
-            this.button10.ForeColor = Color.DodgerBlue;
+            this.dakUploadButton.ForeColor = Color.DodgerBlue;
         }
 
         private void button10_MouseLeave_1(object sender, EventArgs e)
         {
-            this.button10.ForeColor = Color.Black;
+            this.dakUploadButton.ForeColor = Color.Black;
         }
 
-        private void button17_MouseHover(object sender, EventArgs e)
-        {
-            this.button17.ForeColor = Color.DodgerBlue;
-        }
-
-        private void button17_MouseLeave(object sender, EventArgs e)
-        {
-            this.button17.ForeColor = Color.Black;
-        }
+        
 
         private void button18_MouseHover(object sender, EventArgs e)
         {
-            this.button18.ForeColor = Color.DodgerBlue;
+            this.dakArchiveButton.ForeColor = Color.DodgerBlue;
         }
 
         private void button18_MouseLeave(object sender, EventArgs e)
         {
-            this.button18.ForeColor = Color.Black;
+            this.dakArchiveButton.ForeColor = Color.Black;
         }
 
         private void label1_Resize(object sender, EventArgs e)
@@ -189,40 +198,29 @@ namespace dNothi.Desktop.UI
         private bool IsCollasped;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (IsCollasped)
-            {
-                panelDropDownDakUpload.Height += 10;
-                if (panelDropDownDakUpload.Size == panelDropDownDakUpload.MaximumSize)
-                {
-                    timer1.Stop();
-                    IsCollasped = false;
-                }
+            //if (IsCollasped)
+            //{
+            //    panelDropDownDakUpload.Height += 10;
+            //    if (panelDropDownDakUpload.Size == panelDropDownDakUpload.MaximumSize)
+            //    {
+            //        timer1.Stop();
+            //        IsCollasped = false;
+            //    }
 
-            }
-            else
-            {
-                panelDropDownDakUpload.Height -= 10;
-                if (panelDropDownDakUpload.Size == panelDropDownDakUpload.MinimumSize)
-                {
-                    timer1.Stop();
-                    IsCollasped = true;
-                }
-            }
+            //}
+            //else
+            //{
+            //    panelDropDownDakUpload.Height -= 10;
+            //    if (panelDropDownDakUpload.Size == panelDropDownDakUpload.MinimumSize)
+            //    {
+            //        timer1.Stop();
+            //        IsCollasped = true;
+            //    }
+            //}
         }
 
-        private void button17_Click(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
+       
 
-        private void dakOutboxButton_Click(object sender, EventArgs e)
-        {
-
-
-            LoadDakOutbox();
-
-
-        }
 
         private void LoadDakOutbox()
         {
@@ -231,7 +229,7 @@ namespace dNothi.Desktop.UI
             // Satic Class
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
-            dakListUserParam.outboxApi = "https://a2i.nothibs.tappware.com/api/dak/outbox";
+            dakListUserParam.api = "https://a2i.nothibs.tappware.com/api/dak/outbox";
 
             DakListOutboxResponse dakListOutboxResponse = _dakOutboxService.GetDakOutbox(dakListUserParam);
 
@@ -281,8 +279,14 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakInbox()
         {
-            var token = _userService.GetToken();
-            var dakInbox = _dakInbox.GetDakInbox(token);
+            DakListUserParam dakListUserParam= _userService.GetLocalDakUserParam();
+
+            dakListUserParam.limit = 10;
+            dakListUserParam.page = 1;
+            dakListUserParam.api = "https://a2i.nothibs.tappware.com/api/dak/inbox";
+
+
+            var dakInbox = _dakInbox.GetDakInbox(dakListUserParam);
             if (dakInbox.status == "success")
             {
                 foreach (var record in dakInbox.data.records)
@@ -333,9 +337,118 @@ namespace dNothi.Desktop.UI
         }
 
 
-        private void dakInboxButton_Click(object sender, EventArgs e)
+      
+        
+
+        private void ShowSubMenu(Panel dakUploadDropDownPanel)
+        {
+            if(dakUploadDropDownPanel.Visible==true)
+            {
+                dakUploadDropDownPanel.Visible = false;
+            }
+            else
+            {
+                HideSubmenu();
+                dakUploadDropDownPanel.Visible = true;
+            }
+        }
+
+        private void dakUploadButton_Click_1(object sender, EventArgs e)
+        {
+            ShowSubMenu(dakUploadDropDownPanel);
+        }
+
+        private void dakInboxButton_Click_1(object sender, EventArgs e)
         {
             LoadDakInbox();
+        }
+
+        private void dakOutboxButton_Click_1(object sender, EventArgs e)
+        {
+            LoadDakOutbox();
+        }
+
+        private void xTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void docketingNoSearchXTextBox_MouseHover(object sender, EventArgs e)
+        {
+            //if (docketingNoSearchXTextBox.Text == "ডকেটিং নং")
+            //{
+            //    docketingNoSearchXTextBox.Text = "";
+            //}
+            //else if(docketingNoSearchXTextBox.Text == "")
+            //{
+            //    docketingNoSearchXTextBox.Text = "ডকেটিং নং";
+            //}
+        }
+
+        private void docketingNoSearchXTextBox_MouseLeave(object sender, EventArgs e)
+        {
+            if(docketingNoSearchXTextBox.Text == "")
+            {
+                docketingNoSearchXTextBox.Text = "ডকেটিং নং";
+            }
+            
+            
+        }
+
+        private void docketingNoSearchXTextBox_MouseEnter(object sender, EventArgs e)
+        {
+
+            if (docketingNoSearchXTextBox.Text == "ডকেটিং নং")
+            {
+                docketingNoSearchXTextBox.Text = "";
+            }
+
+        }
+
+        private void applicationAcceptNumberXTextBox_MouseEnter(object sender, EventArgs e)
+        {
+            if (applicationAcceptNumberXTextBox.Text == "আবেদন গ্রহন নাম্বার")
+            {
+                applicationAcceptNumberXTextBox.Text = "";
+            }
+        }
+
+        private void applicationAcceptNumberXTextBox_MouseLeave(object sender, EventArgs e)
+        {
+            if (applicationAcceptNumberXTextBox.Text == "")
+            {
+                applicationAcceptNumberXTextBox.Text = "আবেদন গ্রহন নাম্বার";
+            }
+
+        }
+
+        private void nameDesignationSearchButton_Click(object sender, EventArgs e)
+        {
+           if(nameorDesignationSearchPanel.Visible==false)
+            {
+                nameorDesignationSearchPanel.Visible = true;
+                nameorDesignationSearchPanel.BringToFront();
+                nameorDesignationSearchXTextBox.Focus();
+            }
+            else
+            {
+                nameorDesignationSearchPanel.Visible = false;
+                
+
+            }
+        }
+
+        private void detailPanelDropDownButton_Click(object sender, EventArgs e)
+        {
+            if (detailsDakSearcPanel.Visible == true)
+            {
+                detailsDakSearcPanel.Visible = false;
+            }
+            else
+            {
+                detailsDakSearcPanel.Visible = true;
+            }
+
         }
     }
 }

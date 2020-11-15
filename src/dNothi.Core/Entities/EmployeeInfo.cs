@@ -6,6 +6,8 @@ namespace dNothi.Core.Entities
 {
     public class EmployeeInfo : BaseEntity
     {
+        public int emp_id { get; set; }
+
         [StringLength(500)]
         public string name_eng { get; set; }
         [StringLength(500)]

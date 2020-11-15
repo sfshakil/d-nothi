@@ -91,6 +91,7 @@ namespace dNothi.Services.UserServices
                 );
             var mapper = new Mapper(config);
             var user = mapper.Map<User>(userdto);
+      
             var dbuser = _userrepository.Table.Where(q => q.username == userdto.username).FirstOrDefault();
             if (dbuser == null)
             {
@@ -108,7 +109,8 @@ namespace dNothi.Services.UserServices
                 );
             var mapper = new Mapper(config);
             var empInfo = mapper.Map<EmployeeInfo>(employeedto);
-            var dbemployee = _employeeRepository.Table.Where(q => q.Id == employeedto.id).FirstOrDefault();
+            empInfo.emp_id = employeedto.id;
+            var dbemployee = _employeeRepository.Table.Where(q => q.emp_id == employeedto.id).FirstOrDefault();
             if (dbemployee == null)
             {
                 _employeeRepository.Insert(empInfo);

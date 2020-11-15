@@ -9,7 +9,7 @@ namespace dNothi.Services.DakServices
 {
    public interface IDakInboxServices
     {
-        DakListInboxResponse GetDakInbox(string token);
+        DakListInboxResponse GetDakInbox(DakListUserParam dakListUserParam);
         void SaveOrUpdateDakTag(DakTagDTO dak_Tags);
         void SaveOrUpdateDakUser(DakUserDTO dak_Userdto);
     }
