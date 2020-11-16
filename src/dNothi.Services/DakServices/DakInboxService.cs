@@ -21,21 +21,21 @@ namespace dNothi.Services.DakServices
             this._daktags = daktags;
             this._dakuser = dakuser;
         }
-        public DakListInboxResponse GetDakInbox(string token)
+        public DakListInboxResponse GetDakInbox(DakListUserParam dakListUserParam)
         {
             try
             {
-                var client2 = new RestClient("https://a2i.nothibs.tappware.com/api/dak/inbox");
-                client2.Timeout = -1;
+                var dakInboxApi = new RestClient(dakListUserParam.api);
+                dakInboxApi.Timeout = -1;
                 var request2 = new RestRequest(Method.POST);
                 request2.AddHeader("api-version", "2");
-                request2.AddHeader("Authorization", "Bearer " + token);
+                request2.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 request2.AlwaysMultipartFormData = true;
-                request2.AddParameter("designation_id", "149239");
-                request2.AddParameter("office_id", "65");
-                request2.AddParameter("page", "1");
-                request2.AddParameter("limit", "10");
-                IRestResponse tResponse2 = client2.Execute(request2);
+                request2.AddParameter("designation_id", dakListUserParam.designationId);
+                request2.AddParameter("office_id", dakListUserParam.officeId);
+                request2.AddParameter("page", dakListUserParam.page);
+                request2.AddParameter("limit", dakListUserParam.limit);
+                IRestResponse tResponse2 = dakInboxApi.Execute(request2);
 
 
                 var responseJson2 = tResponse2.Content;

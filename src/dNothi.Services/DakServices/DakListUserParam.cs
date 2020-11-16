@@ -11,7 +11,7 @@ namespace dNothi.Services.DakServices
         public string token { get; set; }
         public int designationId { get; set; }
         public int officeId { get; set; }
-        public string outboxApi { get; set; }
+        public string api { get; set; }
         public int page { get; set; }
         public int limit { get; set; }
     }

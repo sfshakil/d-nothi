@@ -20,7 +20,7 @@ namespace dNothi.Services.DakServices
         {
             try
             {
-                var dakOutboxApi = new RestClient(dakListUserParam.outboxApi);
+                var dakOutboxApi = new RestClient(dakListUserParam.api);
                 dakOutboxApi.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("api-version", "2");
