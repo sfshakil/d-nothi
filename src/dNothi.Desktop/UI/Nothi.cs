@@ -32,10 +32,13 @@ namespace dNothi.Desktop.UI
             LoadNothiInbox();
         }
 
-        designationSelect ucdesignationSelect = new designationSelect();
+        
 
         private void btnNothiInbox_Click(object sender, EventArgs e)
         {
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
             LoadNothiInbox();
         }
 
@@ -87,7 +90,6 @@ namespace dNothi.Desktop.UI
         private void btnNothi_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Nothi>();
-
             form.ShowDialog();
             
         }
@@ -95,17 +97,15 @@ namespace dNothi.Desktop.UI
         private void btnNothiIcon_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Dashboard>();
-
             form.ShowDialog();
         }
 
         private void btnDak_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Dashboard>();
-
             form.ShowDialog();
         }
-
+        designationSelect ucdesignationSelect = new designationSelect();
         private void btnLogOutArrow_Click(object sender, EventArgs e)
         {
             if (ucdesignationSelect.Width == 428)
@@ -126,6 +126,9 @@ namespace dNothi.Desktop.UI
 
         private void btnNothiOutbox_Click(object sender, EventArgs e)
         {
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
             LoadNothiOutbox();
         }
 
@@ -173,6 +176,9 @@ namespace dNothi.Desktop.UI
 
         private void btnNothiAll_Click(object sender, EventArgs e)
         {
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
             LoadNothiAll();
         }
 
@@ -222,6 +228,43 @@ namespace dNothi.Desktop.UI
             {
                 nothiListFlowLayoutPanel.Controls.Add(nothiAlls[j]);
             }
+        }
+
+        private void btnGardFile_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(gardFileDropDownPanel);
+        }
+        private void ShowSubMenu(Panel gardFileDropDownPanel)
+        {
+            if (gardFileDropDownPanel.Visible == true)
+            {
+                gardFileDropDownPanel.Visible = false;
+            }
+            else
+            {
+                HideSubmenu();
+                gardFileDropDownPanel.Visible = true;
+            }
+        }
+        private void HideSubmenu()
+        {
+            gardFileDropDownPanel.Visible = false;
+        }
+        NewNothi newNothi = new NewNothi();
+        private void btnNewNothi_Click(object sender, EventArgs e)
+        {
+            newNothi.Visible = true;
+            newNothi.Location = new System.Drawing.Point(233, 60);
+            Controls.Add(newNothi);
+            newNothi.BringToFront();
+            newNothi.BackColor = Color.WhiteSmoke;
+        }
+
+        private void btnPotrojari_Click(object sender, EventArgs e)
+        {
+            newNothi.Visible = false;
+            nothiListFlowLayoutPanel.Visible = false;
+            pnlNothiNoteTalika.Visible = false;
         }
     }
 }

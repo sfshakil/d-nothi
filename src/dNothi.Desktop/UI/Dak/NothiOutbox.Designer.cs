@@ -45,7 +45,7 @@
             // lblPresentDesk
             // 
             this.lblPresentDesk.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresentDesk.Location = new System.Drawing.Point(590, 68);
+            this.lblPresentDesk.Location = new System.Drawing.Point(590, 60);
             this.lblPresentDesk.Name = "lblPresentDesk";
             this.lblPresentDesk.Size = new System.Drawing.Size(525, 39);
             this.lblPresentDesk.TabIndex = 49;
@@ -56,7 +56,7 @@
             this.lbPrapok.AutoSize = true;
             this.lbPrapok.BackColor = System.Drawing.Color.NavajoWhite;
             this.lbPrapok.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrapok.Location = new System.Drawing.Point(541, 17);
+            this.lbPrapok.Location = new System.Drawing.Point(541, 20);
             this.lbPrapok.Name = "lbPrapok";
             this.lbPrapok.Size = new System.Drawing.Size(43, 20);
             this.lbPrapok.TabIndex = 48;
@@ -66,7 +66,7 @@
             // 
             this.lbShakha.AutoSize = true;
             this.lbShakha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbShakha.Location = new System.Drawing.Point(109, 67);
+            this.lbShakha.Location = new System.Drawing.Point(109, 59);
             this.lbShakha.Name = "lbShakha";
             this.lbShakha.Size = new System.Drawing.Size(91, 18);
             this.lbShakha.TabIndex = 47;
@@ -77,7 +77,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 67);
+            this.label1.Location = new System.Drawing.Point(65, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 20);
             this.label1.TabIndex = 45;
@@ -88,7 +88,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.LightSkyBlue;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(69, 17);
+            this.label6.Location = new System.Drawing.Point(65, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 20);
             this.label6.TabIndex = 44;
@@ -125,7 +125,7 @@
             this.lbPresentDesk.AutoSize = true;
             this.lbPresentDesk.BackColor = System.Drawing.Color.PaleTurquoise;
             this.lbPresentDesk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPresentDesk.Location = new System.Drawing.Point(511, 68);
+            this.lbPresentDesk.Location = new System.Drawing.Point(511, 60);
             this.lbPresentDesk.Name = "lbPresentDesk";
             this.lbPresentDesk.Size = new System.Drawing.Size(73, 20);
             this.lbPresentDesk.TabIndex = 50;
@@ -134,16 +134,16 @@
             // lbLastNoteDate
             // 
             this.lbLastNoteDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLastNoteDate.Location = new System.Drawing.Point(836, 114);
+            this.lbLastNoteDate.Location = new System.Drawing.Point(855, 95);
             this.lbLastNoteDate.Name = "lbLastNoteDate";
-            this.lbLastNoteDate.Size = new System.Drawing.Size(276, 23);
+            this.lbLastNoteDate.Size = new System.Drawing.Size(260, 23);
             this.lbLastNoteDate.TabIndex = 52;
             this.lbLastNoteDate.Text = "noteLastDateLabel";
             // 
             // lblPrapok
             // 
             this.lblPrapok.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrapok.Location = new System.Drawing.Point(590, 17);
+            this.lblPrapok.Location = new System.Drawing.Point(590, 20);
             this.lblPrapok.Name = "lblPrapok";
             this.lblPrapok.Size = new System.Drawing.Size(525, 39);
             this.lblPrapok.TabIndex = 53;
@@ -152,7 +152,7 @@
             // lbNothi
             // 
             this.lbNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothi.Location = new System.Drawing.Point(109, 17);
+            this.lbNothi.Location = new System.Drawing.Point(109, 20);
             this.lbNothi.Name = "lbNothi";
             this.lbNothi.Size = new System.Drawing.Size(402, 39);
             this.lbNothi.TabIndex = 54;
@@ -174,7 +174,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button14);
             this.Name = "NothiOutbox";
-            this.Size = new System.Drawing.Size(1121, 145);
+            this.Size = new System.Drawing.Size(1121, 132);
             this.ResumeLayout(false);
             this.PerformLayout();
 
