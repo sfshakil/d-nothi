@@ -20,11 +20,14 @@ namespace dNothi.Desktop.UI
         INothiInboxServices _nothiInbox { get; set; }
         INothiOutboxServices _nothiOutbox { get; set; }
 
-        public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiOutboxServices nothiOutbox)
+        INothiAllServices _nothiAll { get; set; }
+
+        public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiOutboxServices nothiOutbox, INothiAllServices nothiAll)
         {
             _userService = userService;
             _nothiInbox = nothiInbox;
             _nothiOutbox = nothiOutbox;
+            _nothiAll = nothiAll;
             InitializeComponent();
             LoadNothiInbox();
         }
@@ -167,5 +170,58 @@ namespace dNothi.Desktop.UI
                 nothiListFlowLayoutPanel.Controls.Add(nothiOutboxs[j]);
             }
         }
+
+        private void btnNothiAll_Click(object sender, EventArgs e)
+        {
+            LoadNothiAll();
+        }
+
+        private void LoadNothiAll()
+        {
+            var token = _userService.GetToken();
+            var nothiAll = _nothiAll.GetNothiAll(token);
+
+            if (nothiAll.status == "success")
+            {
+                if (nothiAll.data.records.Count > 0)
+                {
+                    LoadNothiAllinPanel(nothiAll.data.records);
+                }
+
+            }
+        }
+        private void LoadNothiAllinPanel(List<NothiListAllRecordsDTO> nothiAllLists)
+        {
+
+            List<NothiAll> nothiAlls = new List<NothiAll>();
+            int i = 0;
+            foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
+            {
+                if (nothiAllListDTO.desk != null && nothiAllListDTO.status != null)
+                {
+                    NothiAll nothiAll = new NothiAll();
+                    nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
+                    nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
+                    nothiAll.desk = "ডেস্ক: " + nothiAllListDTO.desk.note_count.ToString();
+                    nothiAll.noteTotal = nothiAllListDTO.status.total;
+                    nothiAll.permitted = nothiAllListDTO.status.permitted;
+                    nothiAll.onishponno = nothiAllListDTO.status.onishponno;
+                    nothiAll.nishponno = nothiAllListDTO.status.nishponno;
+                    nothiAll.archived = nothiAllListDTO.status.archived;
+                    nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
+                    i = i + 1;
+                    nothiAlls.Add(nothiAll);
+                }
+            }
+            nothiListFlowLayoutPanel.Controls.Clear();
+            nothiListFlowLayoutPanel.AutoScroll = true;
+            nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            nothiListFlowLayoutPanel.WrapContents = false;
+
+            for (int j = 0; j <= nothiAlls.Count - 1; j++)
+            {
+                nothiListFlowLayoutPanel.Controls.Add(nothiAlls[j]);
+            }
+        }
     }
-    }
+}

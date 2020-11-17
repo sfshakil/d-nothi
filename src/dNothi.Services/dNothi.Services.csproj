@@ -101,8 +101,10 @@
     <Compile Include="DakServices\DakOutboxService.cs" />
     <Compile Include="DakServices\IDakInboxServices.cs" />
     <Compile Include="DakServices\IDakOutboxService.cs" />
+    <Compile Include="NothiServices\INothiAllServices.cs" />
     <Compile Include="NothiServices\INothiInboxServices.cs" />
     <Compile Include="NothiServices\INothiOutboxServices.cs" />
+    <Compile Include="NothiServices\NothiAllService.cs" />
     <Compile Include="NothiServices\NothiInboxService.cs" />
     <Compile Include="NothiServices\NothiOutboxService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -135,6 +135,12 @@
     <Compile Include="UI\Dak\DakOutboxUserControl.Designer.cs">
       <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiAll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiAll.Designer.cs">
+      <DependentUpon>NothiAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiInbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakOutboxUserControl.resx">
       <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiAll.resx">
+      <DependentUpon>NothiAll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiInbox.resx">
       <DependentUpon>NothiInbox.cs</DependentUpon>

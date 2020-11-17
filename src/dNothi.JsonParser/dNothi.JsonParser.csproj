@@ -80,7 +80,12 @@
     <Compile Include="Entity\Dak\ToDTO.cs" />
     <Compile Include="Entity\DataDTO.cs" />
     <Compile Include="Entity\EmployeeInfoDTO.cs" />
+    <Compile Include="Entity\Nothi\DeskAllDTO.cs" />
     <Compile Include="Entity\Nothi\DeskOutboxDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiAllDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiListAllDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiListAllRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiListAllResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListInboxDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListInboxResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListOutboxDTO.cs" />
@@ -88,6 +93,7 @@
     <Compile Include="Entity\Nothi\NothiListRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxListRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\StatusAllDTO.cs" />
     <Compile Include="Entity\Nothi\ToOutboxDTO.cs" />
     <Compile Include="Entity\OfficeInfoDTO.cs" />
     <Compile Include="Entity\UserMessage.cs" />
