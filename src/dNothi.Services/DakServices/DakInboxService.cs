@@ -27,21 +27,21 @@ namespace dNothi.Services.DakServices
             {
                 var dakInboxApi = new RestClient(dakListUserParam.api);
                 dakInboxApi.Timeout = -1;
-                var request2 = new RestRequest(Method.POST);
-                request2.AddHeader("api-version", "2");
-                request2.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-                request2.AlwaysMultipartFormData = true;
-                request2.AddParameter("designation_id", dakListUserParam.designationId);
-                request2.AddParameter("office_id", dakListUserParam.officeId);
-                request2.AddParameter("page", dakListUserParam.page);
-                request2.AddParameter("limit", dakListUserParam.limit);
-                IRestResponse tResponse2 = dakInboxApi.Execute(request2);
+                var dakInboxRequest = new RestRequest(Method.POST);
+                dakInboxRequest.AddHeader("api-version", "2");
+                dakInboxRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                dakInboxRequest.AlwaysMultipartFormData = true;
+                dakInboxRequest.AddParameter("designation_id", dakListUserParam.designationId);
+                dakInboxRequest.AddParameter("office_id", dakListUserParam.officeId);
+                dakInboxRequest.AddParameter("page", dakListUserParam.page);
+                dakInboxRequest.AddParameter("limit", dakListUserParam.limit);
+                IRestResponse dakInboxResponse = dakInboxApi.Execute(dakInboxRequest);
 
 
-                var responseJson2 = tResponse2.Content;
+                var dakInboxResponseJson = dakInboxResponse.Content;
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakListInboxResponse dakListInboxResponse = JsonConvert.DeserializeObject<DakListInboxResponse>(responseJson2);
+                DakListInboxResponse dakListInboxResponse = JsonConvert.DeserializeObject<DakListInboxResponse>(dakInboxResponseJson);
                 return dakListInboxResponse;
             }
             catch (Exception ex)

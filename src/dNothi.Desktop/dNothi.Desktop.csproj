@@ -123,11 +123,29 @@
     <Compile Include="CustomControl\CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\Dak\DakArchiveUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakArchiveUserControl.Designer.cs">
+      <DependentUpon>DakArchiveUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DakInboxUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Dak\DakInboxUserControl.Designer.cs">
       <DependentUpon>DakInboxUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothijatoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothijatoUserControl.Designer.cs">
+      <DependentUpon>DakNothijatoUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothivuktoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothivuktoUserControl.Designer.cs">
+      <DependentUpon>DakNothivuktoUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\DakOutboxUserControl.cs">
       <SubType>UserControl</SubType>
@@ -208,8 +226,17 @@
     <Compile Include="UserControl\UserNamePanel.Designer.cs">
       <DependentUpon>UserNamePanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Dak\DakArchiveUserControl.resx">
+      <DependentUpon>DakArchiveUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakInboxUserControl.resx">
       <DependentUpon>DakInboxUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakNothijatoUserControl.resx">
+      <DependentUpon>DakNothijatoUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakNothivuktoUserControl.resx">
+      <DependentUpon>DakNothivuktoUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakOutboxUserControl.resx">
       <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
@@ -249,6 +276,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -287,6 +315,10 @@
       <Project>{E152ABB6-4983-492D-BFD8-C32C739CFC1F}</Project>
       <Name>dNothi.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\dNothi.Utility\dNothi.Utility.csproj">
+      <Project>{58B5B842-9223-4E9B-A7F5-921D356F2CCF}</Project>
+      <Name>dNothi.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -302,6 +334,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\Picture2.png" />
+    <None Include="Resources\Picture11.png" />
+    <None Include="Resources\Picture1.png" />
+    <None Include="Resources\paperclip.png" />
+    <None Include="Resources\paperclip %281%29.png" />
+    <None Include="Resources\icons8-maple-leaf-24.png" />
+    <None Include="Resources\NewDak.png" />
+    <None Include="Resources\Pin.png" />
+    <None Include="Resources\icons8-high-priority-24.png" />
+    <None Include="Resources\icons8-high-priority-100.png" />
+    <None Include="Resources\Nagorik.png" />
+    <None Include="Resources\গোপনীয়1.png" />
+    <None Include="Resources\নাগরিক.png" />
+    <None Include="Resources\সীমিত.png" />
+    <None Include="Resources\বিশেষ গোপনীয়.png" />
+    <None Include="Resources\গোপনীয়.png" />
+    <None Include="Resources\অতি গোপনীয়.png" />
+    <None Include="Resources\মূল-প্রাপক.png" />
+    <None Include="Resources\অনুলিপি.png" />
+    <None Include="Resources\MulPrapok.png" />
+    <None Include="Resources\Anulipiu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

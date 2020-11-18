@@ -56,6 +56,9 @@ namespace dNothi.Desktop
             builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<DakInboxService>().As<IDakInboxServices>();
+            builder.RegisterType<DakNothijatoService>().As<IDakNothijatoService>();
+            builder.RegisterType<DakNothivuktoService>().As<IDakNothivuktoService>();
+            builder.RegisterType<DakListArchiveService>().As<IDakListArchiveService>();
             builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
