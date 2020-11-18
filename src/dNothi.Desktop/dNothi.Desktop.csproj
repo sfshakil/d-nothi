@@ -147,6 +147,12 @@
     <Compile Include="UI\Dak\NothiAll.Designer.cs">
       <DependentUpon>NothiAll.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiGuidelines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGuidelines.Designer.cs">
+      <DependentUpon>NothiGuidelines.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiInbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiAll.resx">
       <DependentUpon>NothiAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiGuidelines.resx">
+      <DependentUpon>NothiGuidelines.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiInbox.resx">
       <DependentUpon>NothiInbox.cs</DependentUpon>

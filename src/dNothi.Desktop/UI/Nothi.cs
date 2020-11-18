@@ -74,7 +74,6 @@ namespace dNothi.Desktop.UI
                 nothiInbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiListRecordsDTO.last_note_date;
                 i = i + 1;
                 nothiInboxs.Add(nothiInbox);
-
             }
             nothiListFlowLayoutPanel.Controls.Clear();
             nothiListFlowLayoutPanel.AutoScroll = true;
