@@ -7,14 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.Utility;
+using System.Runtime.InteropServices;
+using System.Drawing.Drawing2D;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakInboxUserControl : UserControl
     {
+       
+
+
+
         public DakInboxUserControl()
         {
             InitializeComponent();
+            dakPriorityIconPanel.Visible = false;
+            dakSecurityIconPanel.Visible = false;
+            attentionTypeIconPanel.Visible = false;
+            newDakImagePanel.Visible = false;
+            dakTypePanel.Visible = false;
+            potrojariPanel.Visible = false;
+            
+            
         }
 
         private string _source;
@@ -23,12 +38,206 @@ namespace dNothi.Desktop.UI.Dak
         private string _subject;
         private string _decision;
         private string _date;
+        private string _dakViewStatus;
+
+        private string _attentionTypeIconValue;
+        private string _dakSecurityIconValue;
+        private string _dakType;
+        private string _dakPriority;
+        private int _potrojari;
+        private int _dakAttachmentCount;
+
+        [Category("Custom Props")]
+        public int dakAttachmentCount
+        {
+            get { return _dakAttachmentCount; }
+            set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+        [Category("Custom Props")]
+        public int potrojari
+        {
+            get { return _potrojari; }
+            set
+            {
+                _potrojari = value;
+
+
+               
+                if (value == 1)
+                {
+                    potrojariPanel.Visible = true;
+                }
+                else
+                {
+                    potrojariPanel.Visible = false;
+                }
+
+
+
+
+
+
+            }
+        }
+
+        [Category("Custom Props")]
+        public string dakPrioriy
+        {
+            get { return _dakPriority; }
+            set
+            {
+                _dakPriority = value;
+
+
+                DakPriorityList dakPriorityList = new DakPriorityList();
+                string priorityName = dakPriorityList.GetDakPriorityName(value);
+
+
+                if (priorityName == "")
+                {
+                   dakPriorityIconPanel.Visible = false;
+                }
+                else
+                {
+                    dakPriorityIconPanel.Visible = true;
+                    prioriyLabel.Text = priorityName;
+
+                }
+
+
+
+
+
+
+            }
+        }
+
+        [Category("Custom Props")]
+        public string dakType
+        {
+
+
+
+            get { return _dakType; }
+            set
+            {
+                _dakType = value;
+
+              
+
+                dakTypePanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(value);
+
+                if (dakTypePanel.BackgroundImage == null)
+                {
+                    dakTypePanel.Visible = false;
+                }
+                else
+                {
+                    dakTypePanel.Visible = true;
+
+                }
+
+
+
+
+
+
+            }
+        }
+
+        [Category("Custom Props")]
+        public string dakSecurityIconValue
+        {
+
+
+
+            get { return _dakSecurityIconValue; }
+            set
+            {
+                _dakSecurityIconValue = value;
+
+                DakSecurityList dakSecurityList = new DakSecurityList();
+                string icon = dakSecurityList.GetDakSecuritiesIcon(value);
+
+                dakSecurityIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
+
+                if (dakSecurityIconPanel.BackgroundImage == null)
+                {
+                    dakSecurityIconPanel.Visible = false;
+                }
+                else
+                {
+                    dakSecurityIconPanel.Visible = true;
+
+                }
+
+
+
+
+
+
+            }
+        }
+
+
+
+
+        [Category("Custom Props")]
+        public string attentionTypeIconValue
+        {
+
+
+
+            get { return _attentionTypeIconValue; }
+            set { _attentionTypeIconValue = value;
+
+                AttentionTypeList attentionTypeIconList = new AttentionTypeList();
+               string icon= attentionTypeIconList.GetAttentionTypeIcon(value);
+               
+                    attentionTypeIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
+                    
+                   if(attentionTypeIconPanel.BackgroundImage == null)
+                {
+                    attentionTypeIconPanel.Visible = false;
+                }
+                else
+                {
+                    attentionTypeIconPanel.Visible = true;
+
+                }
+
+
+
+
+
+
+            }
+        }
 
         [Category("Custom Props")]
         public string source
         {
             get { return _source; }
             set { _source = value; sourceLabel.Text = value; }
+        }
+        
+        [Category("Custom Props")]
+        public string dakViewStatus
+        {
+            get { return _dakViewStatus; }
+            set { _dakViewStatus = value; 
+            if(dakViewStatus== "New")
+                {
+                    newDakImagePanel.Visible = true;
+                    subjectLabel.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+
+                }
+            else
+                {
+                    newDakImagePanel.Visible = false;
+                }
+            
+            }
         }
 
 
@@ -75,6 +284,6 @@ namespace dNothi.Desktop.UI.Dak
             set { _date = value; dateLabel.Text = value; }
         }
 
-
+       
     }
 }

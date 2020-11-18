@@ -66,8 +66,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Dak\DakListArchiveResponse.cs" />
     <Compile Include="Entity\Dak\DakListInboxResponse.cs" />
     <Compile Include="Entity\Dak\DakListDTO.cs" />
+    <Compile Include="Entity\Dak\DakListNothijatoResponse.cs" />
+    <Compile Include="Entity\Dak\DakListNothivuktoResponse.cs" />
     <Compile Include="Entity\Dak\DakListOutboxResponse.cs" />
     <Compile Include="Entity\Dak\DakListRecordsDTO.cs" />
     <Compile Include="Entity\Dak\DakOriginDTO.cs" />

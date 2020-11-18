@@ -11,36 +11,30 @@ using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class DakOutboxUserControl : UserControl
+    public partial class DakNothivuktoUserControl : UserControl
     {
-        public DakOutboxUserControl()
+        public DakNothivuktoUserControl()
         {
             InitializeComponent();
         }
+
+
         private string _source;
         private string _sender;
         private string _receiver;
         private string _subject;
         private string _decision;
         private string _date;
-
-     
+        private string _dakViewStatus;
 
         private string _attentionTypeIconValue;
         private string _dakSecurityIconValue;
         private string _dakType;
         private string _dakPriority;
         private int _potrojari;
-
-
+        private string _nothiNo;
         private int _dakAttachmentCount;
 
-        [Category("Custom Props")]
-        public int dakAttachmentCount
-        {
-            get { return _dakAttachmentCount; }
-            set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
-        }
 
         [Category("Custom Props")]
         public int potrojari
@@ -205,18 +199,32 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-
-
-
-
-
-
-
         [Category("Custom Props")]
         public string source
         {
             get { return _source; }
             set { _source = value; sourceLabel.Text = value; }
+        }
+
+        [Category("Custom Props")]
+        public string dakViewStatus
+        {
+            get { return _dakViewStatus; }
+            set
+            {
+                _dakViewStatus = value;
+                if (dakViewStatus == "New")
+                {
+                    newDakImagePanel.Visible = true;
+                    subjectLabel.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+
+                }
+                else
+                {
+                    newDakImagePanel.Visible = false;
+                }
+
+            }
         }
 
 
@@ -261,6 +269,21 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _date; }
             set { _date = value; dateLabel.Text = value; }
+        }
+
+        [Category("Custom Props")]
+        public string nothiNo
+        {
+            get { return _nothiNo; }
+            set { _nothiNo = value; nothiNoLabel.Text = value; }
+        }
+
+
+        [Category("Custom Props")]
+        public int dakAttachmentCount
+        {
+            get { return _dakAttachmentCount; }
+            set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
     }
 }
