@@ -20,19 +20,25 @@ namespace dNothi.Desktop.UI
         INothiInboxServices _nothiInbox { get; set; }
         INothiOutboxServices _nothiOutbox { get; set; }
 
-        public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiOutboxServices nothiOutbox)
+        INothiAllServices _nothiAll { get; set; }
+
+        public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiOutboxServices nothiOutbox, INothiAllServices nothiAll)
         {
             _userService = userService;
             _nothiInbox = nothiInbox;
             _nothiOutbox = nothiOutbox;
+            _nothiAll = nothiAll;
             InitializeComponent();
             LoadNothiInbox();
         }
 
-        designationSelect ucdesignationSelect = new designationSelect();
+        
 
         private void btnNothiInbox_Click(object sender, EventArgs e)
         {
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
             LoadNothiInbox();
         }
 
@@ -84,7 +90,6 @@ namespace dNothi.Desktop.UI
         private void btnNothi_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Nothi>();
-
             form.ShowDialog();
             
         }
@@ -92,17 +97,15 @@ namespace dNothi.Desktop.UI
         private void btnNothiIcon_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Dashboard>();
-
             form.ShowDialog();
         }
 
         private void btnDak_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Dashboard>();
-
             form.ShowDialog();
         }
-
+        designationSelect ucdesignationSelect = new designationSelect();
         private void btnLogOutArrow_Click(object sender, EventArgs e)
         {
             if (ucdesignationSelect.Width == 428)
@@ -123,6 +126,9 @@ namespace dNothi.Desktop.UI
 
         private void btnNothiOutbox_Click(object sender, EventArgs e)
         {
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
             LoadNothiOutbox();
         }
 
@@ -167,5 +173,98 @@ namespace dNothi.Desktop.UI
                 nothiListFlowLayoutPanel.Controls.Add(nothiOutboxs[j]);
             }
         }
+
+        private void btnNothiAll_Click(object sender, EventArgs e)
+        {
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
+            LoadNothiAll();
+        }
+
+        private void LoadNothiAll()
+        {
+            var token = _userService.GetToken();
+            var nothiAll = _nothiAll.GetNothiAll(token);
+
+            if (nothiAll.status == "success")
+            {
+                if (nothiAll.data.records.Count > 0)
+                {
+                    LoadNothiAllinPanel(nothiAll.data.records);
+                }
+
+            }
+        }
+        private void LoadNothiAllinPanel(List<NothiListAllRecordsDTO> nothiAllLists)
+        {
+
+            List<NothiAll> nothiAlls = new List<NothiAll>();
+            int i = 0;
+            foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
+            {
+                if (nothiAllListDTO.desk != null && nothiAllListDTO.status != null)
+                {
+                    NothiAll nothiAll = new NothiAll();
+                    nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
+                    nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
+                    nothiAll.desk = "ডেস্ক: " + nothiAllListDTO.desk.note_count.ToString();
+                    nothiAll.noteTotal = nothiAllListDTO.status.total;
+                    nothiAll.permitted = nothiAllListDTO.status.permitted;
+                    nothiAll.onishponno = nothiAllListDTO.status.onishponno;
+                    nothiAll.nishponno = nothiAllListDTO.status.nishponno;
+                    nothiAll.archived = nothiAllListDTO.status.archived;
+                    nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
+                    i = i + 1;
+                    nothiAlls.Add(nothiAll);
+                }
+            }
+            nothiListFlowLayoutPanel.Controls.Clear();
+            nothiListFlowLayoutPanel.AutoScroll = true;
+            nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            nothiListFlowLayoutPanel.WrapContents = false;
+
+            for (int j = 0; j <= nothiAlls.Count - 1; j++)
+            {
+                nothiListFlowLayoutPanel.Controls.Add(nothiAlls[j]);
+            }
+        }
+
+        private void btnGardFile_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(gardFileDropDownPanel);
+        }
+        private void ShowSubMenu(Panel gardFileDropDownPanel)
+        {
+            if (gardFileDropDownPanel.Visible == true)
+            {
+                gardFileDropDownPanel.Visible = false;
+            }
+            else
+            {
+                HideSubmenu();
+                gardFileDropDownPanel.Visible = true;
+            }
+        }
+        private void HideSubmenu()
+        {
+            gardFileDropDownPanel.Visible = false;
+        }
+        NewNothi newNothi = new NewNothi();
+        private void btnNewNothi_Click(object sender, EventArgs e)
+        {
+            newNothi.Visible = true;
+            newNothi.Location = new System.Drawing.Point(233, 60);
+            Controls.Add(newNothi);
+            newNothi.BringToFront();
+            newNothi.BackColor = Color.WhiteSmoke;
+        }
+
+        private void btnPotrojari_Click(object sender, EventArgs e)
+        {
+            newNothi.Visible = false;
+            nothiListFlowLayoutPanel.Visible = false;
+            pnlNothiNoteTalika.Visible = false;
+        }
     }
-    }
+}

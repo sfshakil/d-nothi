@@ -30,13 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nothi));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnPotrojari = new System.Windows.Forms.Button();
+            this.btnNewNothi = new System.Windows.Forms.Button();
+            this.gardFileDropDownPanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.btnNothiIcon = new System.Windows.Forms.Button();
+            this.btnGardFile = new System.Windows.Forms.Button();
+            this.btnNothiAll = new System.Windows.Forms.Button();
             this.btnNothiOutbox = new System.Windows.Forms.Button();
             this.btnNothiInbox = new System.Windows.Forms.Button();
+            this.btnNothiIcon = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOutArrow = new System.Windows.Forms.Button();
@@ -46,7 +51,7 @@
             this.btnNothi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDak = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlNothiNoteTalika = new System.Windows.Forms.Panel();
             this.button25 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,8 +69,10 @@
             this.nothiListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.gardFileDropDownPanel.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnlNothiNoteTalika.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -73,92 +80,225 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button10);
-            this.panel1.Controls.Add(this.button16);
-            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btnNothiIcon);
-            this.panel1.Controls.Add(this.btnNothiOutbox);
-            this.panel1.Controls.Add(this.btnNothiInbox);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(183, 724);
+            this.panel1.Size = new System.Drawing.Size(233, 724);
             this.panel1.TabIndex = 12;
             // 
-            // button6
+            // panel4
             // 
-            this.button6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(5, 274);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(178, 50);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "      নতুন নথি";
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button6.UseVisualStyleBackColor = false;
+            this.panel4.Controls.Add(this.btnPotrojari);
+            this.panel4.Controls.Add(this.btnNewNothi);
+            this.panel4.Controls.Add(this.gardFileDropDownPanel);
+            this.panel4.Controls.Add(this.btnGardFile);
+            this.panel4.Controls.Add(this.btnNothiAll);
+            this.panel4.Controls.Add(this.btnNothiOutbox);
+            this.panel4.Controls.Add(this.btnNothiInbox);
+            this.panel4.Location = new System.Drawing.Point(0, 60);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(233, 630);
+            this.panel4.TabIndex = 4;
             // 
-            // button10
+            // btnPotrojari
             // 
-            this.button10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(5, 326);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(178, 50);
-            this.button10.TabIndex = 17;
-            this.button10.Text = "      পত্রজারি গ্রূপসমূহ";
-            this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button10.UseVisualStyleBackColor = false;
+            this.btnPotrojari.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPotrojari.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPotrojari.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPotrojari.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btnPotrojari.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.btnPotrojari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPotrojari.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnPotrojari.Image = ((System.Drawing.Image)(resources.GetObject("btnPotrojari.Image")));
+            this.btnPotrojari.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPotrojari.Location = new System.Drawing.Point(0, 330);
+            this.btnPotrojari.Name = "btnPotrojari";
+            this.btnPotrojari.Size = new System.Drawing.Size(233, 50);
+            this.btnPotrojari.TabIndex = 17;
+            this.btnPotrojari.Text = "      পত্রজারি গ্রূপসমূহ";
+            this.btnPotrojari.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPotrojari.UseVisualStyleBackColor = false;
+            this.btnPotrojari.Click += new System.EventHandler(this.btnPotrojari_Click);
+            // 
+            // btnNewNothi
+            // 
+            this.btnNewNothi.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewNothi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNewNothi.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewNothi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNewNothi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNewNothi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewNothi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNewNothi.Image = ((System.Drawing.Image)(resources.GetObject("btnNewNothi.Image")));
+            this.btnNewNothi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewNothi.Location = new System.Drawing.Point(0, 280);
+            this.btnNewNothi.Name = "btnNewNothi";
+            this.btnNewNothi.Size = new System.Drawing.Size(233, 50);
+            this.btnNewNothi.TabIndex = 5;
+            this.btnNewNothi.Text = "      নতুন নথি";
+            this.btnNewNothi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNewNothi.UseVisualStyleBackColor = false;
+            this.btnNewNothi.Click += new System.EventHandler(this.btnNewNothi_Click);
+            // 
+            // gardFileDropDownPanel
+            // 
+            this.gardFileDropDownPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gardFileDropDownPanel.Controls.Add(this.button2);
+            this.gardFileDropDownPanel.Controls.Add(this.button1);
+            this.gardFileDropDownPanel.Controls.Add(this.button16);
+            this.gardFileDropDownPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gardFileDropDownPanel.Location = new System.Drawing.Point(0, 200);
+            this.gardFileDropDownPanel.Name = "gardFileDropDownPanel";
+            this.gardFileDropDownPanel.Size = new System.Drawing.Size(233, 80);
+            this.gardFileDropDownPanel.TabIndex = 23;
+            this.gardFileDropDownPanel.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 50);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(233, 25);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "       -আপলোড গার্ড ফাইল";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(233, 25);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "       -গার্ড ফাইল তালিকা";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // button16
             // 
+            this.button16.AutoSize = true;
+            this.button16.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button16.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button16.Dock = System.Windows.Forms.DockStyle.Top;
             this.button16.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button16.Image = ((System.Drawing.Image)(resources.GetObject("button16.Image")));
             this.button16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.Location = new System.Drawing.Point(5, 170);
+            this.button16.Location = new System.Drawing.Point(0, 0);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(178, 50);
-            this.button16.TabIndex = 17;
-            this.button16.Text = "      সকল নথি";
+            this.button16.Size = new System.Drawing.Size(233, 25);
+            this.button16.TabIndex = 21;
+            this.button16.Text = "       -গার্ড ফাইলের ধরন";
+            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button16.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button16.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnGardFile
             // 
-            this.button5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.Location = new System.Drawing.Point(5, 222);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(178, 50);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "              গার্ড ফাইল";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnGardFile.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGardFile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGardFile.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGardFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btnGardFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.btnGardFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGardFile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGardFile.Image = ((System.Drawing.Image)(resources.GetObject("btnGardFile.Image")));
+            this.btnGardFile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGardFile.Location = new System.Drawing.Point(0, 150);
+            this.btnGardFile.Name = "btnGardFile";
+            this.btnGardFile.Size = new System.Drawing.Size(233, 50);
+            this.btnGardFile.TabIndex = 6;
+            this.btnGardFile.Text = "              গার্ড ফাইল";
+            this.btnGardFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGardFile.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnGardFile.UseVisualStyleBackColor = false;
+            this.btnGardFile.Click += new System.EventHandler(this.btnGardFile_Click);
+            // 
+            // btnNothiAll
+            // 
+            this.btnNothiAll.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNothiAll.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNothiAll.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNothiAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNothiAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNothiAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiAll.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNothiAll.Image = ((System.Drawing.Image)(resources.GetObject("btnNothiAll.Image")));
+            this.btnNothiAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNothiAll.Location = new System.Drawing.Point(0, 100);
+            this.btnNothiAll.Name = "btnNothiAll";
+            this.btnNothiAll.Size = new System.Drawing.Size(233, 50);
+            this.btnNothiAll.TabIndex = 17;
+            this.btnNothiAll.Text = "      সকল  নথি";
+            this.btnNothiAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNothiAll.UseVisualStyleBackColor = false;
+            this.btnNothiAll.Click += new System.EventHandler(this.btnNothiAll_Click);
+            // 
+            // btnNothiOutbox
+            // 
+            this.btnNothiOutbox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNothiOutbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNothiOutbox.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNothiOutbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNothiOutbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNothiOutbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiOutbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNothiOutbox.Image = ((System.Drawing.Image)(resources.GetObject("btnNothiOutbox.Image")));
+            this.btnNothiOutbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNothiOutbox.Location = new System.Drawing.Point(0, 50);
+            this.btnNothiOutbox.Name = "btnNothiOutbox";
+            this.btnNothiOutbox.Size = new System.Drawing.Size(233, 50);
+            this.btnNothiOutbox.TabIndex = 4;
+            this.btnNothiOutbox.Text = "      প্রেরিত নথি";
+            this.btnNothiOutbox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNothiOutbox.UseVisualStyleBackColor = false;
+            this.btnNothiOutbox.Click += new System.EventHandler(this.btnNothiOutbox_Click);
+            // 
+            // btnNothiInbox
+            // 
+            this.btnNothiInbox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNothiInbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNothiInbox.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNothiInbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNothiInbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.btnNothiInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiInbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNothiInbox.Image = ((System.Drawing.Image)(resources.GetObject("btnNothiInbox.Image")));
+            this.btnNothiInbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNothiInbox.Location = new System.Drawing.Point(0, 0);
+            this.btnNothiInbox.Name = "btnNothiInbox";
+            this.btnNothiInbox.Size = new System.Drawing.Size(233, 50);
+            this.btnNothiInbox.TabIndex = 0;
+            this.btnNothiInbox.Text = "      আগত নথি";
+            this.btnNothiInbox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNothiInbox.UseVisualStyleBackColor = false;
+            this.btnNothiInbox.Click += new System.EventHandler(this.btnNothiInbox_Click);
             // 
             // btnNothiIcon
             // 
@@ -169,48 +309,10 @@
             this.btnNothiIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiIcon.Location = new System.Drawing.Point(0, 0);
             this.btnNothiIcon.Name = "btnNothiIcon";
-            this.btnNothiIcon.Size = new System.Drawing.Size(137, 60);
+            this.btnNothiIcon.Size = new System.Drawing.Size(173, 60);
             this.btnNothiIcon.TabIndex = 2;
             this.btnNothiIcon.UseVisualStyleBackColor = false;
             this.btnNothiIcon.Click += new System.EventHandler(this.btnNothiIcon_Click);
-            // 
-            // btnNothiOutbox
-            // 
-            this.btnNothiOutbox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNothiOutbox.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNothiOutbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.btnNothiOutbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.btnNothiOutbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiOutbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNothiOutbox.Image = ((System.Drawing.Image)(resources.GetObject("btnNothiOutbox.Image")));
-            this.btnNothiOutbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNothiOutbox.Location = new System.Drawing.Point(5, 118);
-            this.btnNothiOutbox.Name = "btnNothiOutbox";
-            this.btnNothiOutbox.Size = new System.Drawing.Size(178, 50);
-            this.btnNothiOutbox.TabIndex = 4;
-            this.btnNothiOutbox.Text = "      প্রেরিত নথি";
-            this.btnNothiOutbox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNothiOutbox.UseVisualStyleBackColor = false;
-            this.btnNothiOutbox.Click += new System.EventHandler(this.btnNothiOutbox_Click);
-            // 
-            // btnNothiInbox
-            // 
-            this.btnNothiInbox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNothiInbox.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNothiInbox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.btnNothiInbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.btnNothiInbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiInbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNothiInbox.Image = ((System.Drawing.Image)(resources.GetObject("btnNothiInbox.Image")));
-            this.btnNothiInbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNothiInbox.Location = new System.Drawing.Point(5, 66);
-            this.btnNothiInbox.Name = "btnNothiInbox";
-            this.btnNothiInbox.Size = new System.Drawing.Size(178, 50);
-            this.btnNothiInbox.TabIndex = 0;
-            this.btnNothiInbox.Text = "      আগত নথি";
-            this.btnNothiInbox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNothiInbox.UseVisualStyleBackColor = false;
-            this.btnNothiInbox.Click += new System.EventHandler(this.btnNothiInbox_Click);
             // 
             // button3
             // 
@@ -219,9 +321,9 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(133, 0);
+            this.button3.Location = new System.Drawing.Point(172, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(50, 60);
+            this.button3.Size = new System.Drawing.Size(56, 60);
             this.button3.TabIndex = 3;
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -237,9 +339,9 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnDak);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(183, 0);
+            this.panel2.Location = new System.Drawing.Point(233, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1171, 60);
+            this.panel2.Size = new System.Drawing.Size(1121, 60);
             this.panel2.TabIndex = 13;
             // 
             // btnLogOutArrow
@@ -329,19 +431,19 @@
             this.btnDak.UseVisualStyleBackColor = false;
             this.btnDak.Click += new System.EventHandler(this.btnDak_Click);
             // 
-            // panel3
+            // pnlNothiNoteTalika
             // 
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.button25);
-            this.panel3.Controls.Add(this.button24);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.button9);
-            this.panel3.Controls.Add(this.button11);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(183, 60);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1171, 36);
-            this.panel3.TabIndex = 14;
+            this.pnlNothiNoteTalika.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlNothiNoteTalika.Controls.Add(this.button25);
+            this.pnlNothiNoteTalika.Controls.Add(this.button24);
+            this.pnlNothiNoteTalika.Controls.Add(this.label6);
+            this.pnlNothiNoteTalika.Controls.Add(this.button9);
+            this.pnlNothiNoteTalika.Controls.Add(this.button11);
+            this.pnlNothiNoteTalika.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlNothiNoteTalika.Location = new System.Drawing.Point(233, 60);
+            this.pnlNothiNoteTalika.Name = "pnlNothiNoteTalika";
+            this.pnlNothiNoteTalika.Size = new System.Drawing.Size(1121, 36);
+            this.pnlNothiNoteTalika.TabIndex = 14;
             // 
             // button25
             // 
@@ -417,9 +519,9 @@
             this.panel6.Controls.Add(this.button27);
             this.panel6.Controls.Add(this.button26);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(183, 690);
+            this.panel6.Location = new System.Drawing.Point(233, 690);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1171, 34);
+            this.panel6.Size = new System.Drawing.Size(1121, 34);
             this.panel6.TabIndex = 15;
             // 
             // label9
@@ -519,9 +621,9 @@
             // nothiListFlowLayoutPanel
             // 
             this.nothiListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(183, 96);
+            this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(233, 96);
             this.nothiListFlowLayoutPanel.Name = "nothiListFlowLayoutPanel";
-            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(1171, 594);
+            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(1121, 594);
             this.nothiListFlowLayoutPanel.TabIndex = 16;
             // 
             // circularPictureBox1
@@ -544,16 +646,19 @@
             this.ClientSize = new System.Drawing.Size(1354, 724);
             this.Controls.Add(this.nothiListFlowLayoutPanel);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnlNothiNoteTalika);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Nothi";
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.gardFileDropDownPanel.ResumeLayout(false);
+            this.gardFileDropDownPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlNothiNoteTalika.ResumeLayout(false);
+            this.pnlNothiNoteTalika.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
@@ -564,10 +669,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnNewNothi;
+        private System.Windows.Forms.Button btnPotrojari;
+        private System.Windows.Forms.Button btnNothiAll;
+        private System.Windows.Forms.Button btnGardFile;
         private System.Windows.Forms.Button btnNothiIcon;
         private System.Windows.Forms.Button btnNothiOutbox;
         private System.Windows.Forms.Button btnNothiInbox;
@@ -581,7 +686,7 @@
         private System.Windows.Forms.Button btnNothi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDak;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlNothiNoteTalika;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Panel panel6;
@@ -597,5 +702,10 @@
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel nothiListFlowLayoutPanel;
+        private System.Windows.Forms.Panel gardFileDropDownPanel;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Panel panel4;
     }
 }
