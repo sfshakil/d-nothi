@@ -64,16 +64,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AppUser.cs" />
+    <Compile Include="Entities\DakArchive.cs" />
+    <Compile Include="Entities\DakInbox.cs" />
+    <Compile Include="Entities\DakList.cs" />
+    <Compile Include="Entities\DakListDakListRecord.cs" />
     <Compile Include="Entities\DakListRecord.cs" />
     <Compile Include="Entities\DakListRecordDakTag.cs" />
+    <Compile Include="Entities\DakNothijato.cs" />
+    <Compile Include="Entities\DakNothivukto.cs" />
     <Compile Include="Entities\DakOrigin.cs" />
+    <Compile Include="Entities\DakOutbox.cs" />
     <Compile Include="Entities\DakTag.cs" />
     <Compile Include="Entities\DakUser.cs" />
     <Compile Include="Entities\EmployeeInfo.cs" />
+    <Compile Include="Entities\From.cs" />
     <Compile Include="Entities\MovementStatus.cs" />
-    <Compile Include="Entities\Nothi.cs" />
+    <Compile Include="Entities\MovementStatusTo.cs" />
+    <Compile Include="Entities\DakNothi.cs" />
     <Compile Include="Entities\NothiListRecords.cs" />
     <Compile Include="Entities\OfficeInfo.cs" />
+    <Compile Include="Entities\Other.cs" />
+    <Compile Include="Entities\To.cs" />
     <Compile Include="Entities\UserToken.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Interfaces\IRepository.cs" />

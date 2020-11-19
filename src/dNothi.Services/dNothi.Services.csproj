@@ -98,12 +98,14 @@
     <Compile Include="AccountServices\TokenService.cs" />
     <Compile Include="DakServices\DakInboxService.cs" />
     <Compile Include="DakServices\DakListArchiveService.cs" />
+    <Compile Include="DakServices\DakListService.cs" />
     <Compile Include="DakServices\DakListUserParam.cs" />
     <Compile Include="DakServices\DakNothijatoService.cs" />
     <Compile Include="DakServices\DakNothivuktoService.cs" />
     <Compile Include="DakServices\DakOutboxService.cs" />
     <Compile Include="DakServices\IDakInboxServices.cs" />
     <Compile Include="DakServices\IDakListArchiveService.cs" />
+    <Compile Include="DakServices\IDakListService.cs" />
     <Compile Include="DakServices\IDakNothijatoService.cs" />
     <Compile Include="DakServices\IDakNothivuktoService.cs" />
     <Compile Include="DakServices\IDakOutboxService.cs" />

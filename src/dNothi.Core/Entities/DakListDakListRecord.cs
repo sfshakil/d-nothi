@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace dNothi.Core.Entities
 {
-    public class Nothi:BaseEntity
+   public class DakListDakListRecord: BaseEntity
     {
+        public long dakListRecordId { get; set; }
+        
+        public long dakListId { get; set; }
     }
 }

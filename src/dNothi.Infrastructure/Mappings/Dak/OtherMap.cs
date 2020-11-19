@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace dNothi.Infrastructure.Mappings.Dak
 {
-    class MovementStatusMap : NothiEntityTypeConfiguration<MovementStatus>
+   public class OtherMap : NothiEntityTypeConfiguration<Other>
     {
-        public MovementStatusMap()
+        public OtherMap()
         {
-            this.ToTable("MovementStatus");
-            this.HasMany(t => t.to).WithRequired().HasForeignKey(f => f.MovStatusId);
+            this.ToTable("Other");
+            
         }
     }
 }

@@ -16,5 +16,7 @@ namespace dNothi.Services.UserServices
         void SaveOrUpdateUserOfficeInfo(List<OfficeInfoDTO> officeInfoDTO);
         void SaveOrUpdateToken(string token);
         DakListUserParam GetLocalDakUserParam();
+
+     
     }
 }

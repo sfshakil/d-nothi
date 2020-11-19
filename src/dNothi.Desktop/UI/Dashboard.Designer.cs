@@ -32,13 +32,19 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button15 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button14 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.dakListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
@@ -49,86 +55,80 @@
             this.nameorDesignationSearchPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.senderOfficePanel = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.nameDesignationSearchButton = new System.Windows.Forms.Button();
+            this.officeSearchutton = new System.Windows.Forms.Button();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.officeSourceCheckBox = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.officerOwnOfficeCheckBox = new System.Windows.Forms.CheckBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.officerSourceCheckBox = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.timeLimitDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.dakPriorityComboBox = new System.Windows.Forms.ComboBox();
             this.dakSecurityComboBox11 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.dakTypeComboBox = new System.Windows.Forms.ComboBox();
             this.dakPaperTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.detailSearchStopButton = new System.Windows.Forms.Button();
             this.dakAttentionTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.timeLimitDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
+            this.detailsSearchResetButton = new System.Windows.Forms.Button();
+            this.detailSearchButton = new System.Windows.Forms.Button();
+            this.detailPanelDropDownButton = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.dakUploadDropDownPanel = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.officeSourceCheckBox = new System.Windows.Forms.CheckBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.officerSourceCheckBox = new System.Windows.Forms.CheckBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.officerOwnOfficeCheckBox = new System.Windows.Forms.CheckBox();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.senderOfficePanel = new System.Windows.Forms.Panel();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.nameDesignationSearchButton = new System.Windows.Forms.Button();
-            this.officeSearchutton = new System.Windows.Forms.Button();
-            this.detailSearchStopButton = new System.Windows.Forms.Button();
-            this.detailsSearchResetButton = new System.Windows.Forms.Button();
-            this.detailSearchButton = new System.Windows.Forms.Button();
-            this.detailPanelDropDownButton = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.button18 = new System.Windows.Forms.Button();
+            this.dakUploadDropDownPanel = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.dakUploadButton = new System.Windows.Forms.Button();
             this.dakArchiveButton = new System.Windows.Forms.Button();
-            this.nothijatoButton = new System.Windows.Forms.Button();
-            this.notvuktoDakButton = new System.Windows.Forms.Button();
+            this.dakNothijatoButton = new System.Windows.Forms.Button();
+            this.dakNotivuktoButton = new System.Windows.Forms.Button();
             this.dakOutboxButton = new System.Windows.Forms.Button();
             this.dakSortButton = new System.Windows.Forms.Button();
             this.dakInboxButton = new System.Windows.Forms.Button();
             this.dakSearchButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
@@ -145,16 +145,16 @@
             this.metroPanel1.SuspendLayout();
             this.detailsDakSearcPanel.SuspendLayout();
             this.nameorDesignationSearchPanel.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.senderOfficePanel.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.panel6.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.dakUploadDropDownPanel.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.senderOfficePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -192,6 +192,20 @@
             this.panel2.Size = new System.Drawing.Size(1123, 60);
             this.panel2.TabIndex = 12;
             // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button15.BackgroundImage")));
+            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button15.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Location = new System.Drawing.Point(1083, 22);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(25, 23);
+            this.button15.TabIndex = 24;
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -202,6 +216,19 @@
             this.label3.TabIndex = 23;
             this.label3.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি)";
             // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button14.BackgroundImage")));
+            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button14.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Location = new System.Drawing.Point(465, 22);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(25, 23);
+            this.button14.TabIndex = 21;
+            this.button14.UseVisualStyleBackColor = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -211,6 +238,21 @@
             this.label2.Size = new System.Drawing.Size(19, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "12";
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
+            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button13.Location = new System.Drawing.Point(293, 18);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(117, 30);
+            this.button13.TabIndex = 19;
+            this.button13.Text = "নথি";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // label1
             // 
@@ -223,6 +265,21 @@
             this.label1.Text = "11";
             this.label1.SizeChanged += new System.EventHandler(this.label1_SizeChanged);
             this.label1.Resize += new System.EventHandler(this.label1_Resize);
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
+            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button12.Location = new System.Drawing.Point(170, 18);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(117, 30);
+            this.button12.TabIndex = 17;
+            this.button12.Text = "ডাক";
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // panel5
             // 
@@ -278,6 +335,32 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // button25
+            // 
+            this.button25.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button25.BackgroundImage")));
+            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button25.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button25.Location = new System.Drawing.Point(1072, 16);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(25, 25);
+            this.button25.TabIndex = 26;
+            this.button25.UseVisualStyleBackColor = false;
+            // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button24.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button24.BackgroundImage")));
+            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button24.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button24.Location = new System.Drawing.Point(1047, 16);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(25, 25);
+            this.button24.TabIndex = 25;
+            this.button24.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -404,6 +487,205 @@
             this.label12.TabIndex = 31;
             this.label12.Text = "Please enter 4 or more characters";
             // 
+            // panel15
+            // 
+            this.panel15.AutoSize = true;
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.senderOfficePanel);
+            this.panel15.Controls.Add(this.panel13);
+            this.panel15.Controls.Add(this.panel14);
+            this.panel15.Location = new System.Drawing.Point(6, 153);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(1091, 160);
+            this.panel15.TabIndex = 47;
+            // 
+            // senderOfficePanel
+            // 
+            this.senderOfficePanel.Controls.Add(this.officeSenderOfficeNameTextBox);
+            this.senderOfficePanel.Controls.Add(this.officerSenderOfficeNameTextBox);
+            this.senderOfficePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.senderOfficePanel.Location = new System.Drawing.Point(0, 105);
+            this.senderOfficePanel.Name = "senderOfficePanel";
+            this.senderOfficePanel.Size = new System.Drawing.Size(1089, 50);
+            this.senderOfficePanel.TabIndex = 47;
+            this.senderOfficePanel.Visible = false;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.nameDesignationSearchButton);
+            this.panel13.Controls.Add(this.officeSearchutton);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 48);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1089, 57);
+            this.panel13.TabIndex = 46;
+            // 
+            // nameDesignationSearchButton
+            // 
+            this.nameDesignationSearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.nameDesignationSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.nameDesignationSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nameDesignationSearchButton.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.nameDesignationSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("nameDesignationSearchButton.Image")));
+            this.nameDesignationSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nameDesignationSearchButton.Location = new System.Drawing.Point(25, 10);
+            this.nameDesignationSearchButton.Name = "nameDesignationSearchButton";
+            this.nameDesignationSearchButton.Size = new System.Drawing.Size(498, 38);
+            this.nameDesignationSearchButton.TabIndex = 29;
+            this.nameDesignationSearchButton.Text = "নাম/পদবী দিয়ে খুঁজুন";
+            this.nameDesignationSearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nameDesignationSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.nameDesignationSearchButton.UseVisualStyleBackColor = false;
+            this.nameDesignationSearchButton.Click += new System.EventHandler(this.nameDesignationSearchButton_Click);
+            // 
+            // officeSearchutton
+            // 
+            this.officeSearchutton.BackColor = System.Drawing.Color.Transparent;
+            this.officeSearchutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.officeSearchutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.officeSearchutton.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.officeSearchutton.Image = ((System.Drawing.Image)(resources.GetObject("officeSearchutton.Image")));
+            this.officeSearchutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.officeSearchutton.Location = new System.Drawing.Point(554, 10);
+            this.officeSearchutton.Name = "officeSearchutton";
+            this.officeSearchutton.Size = new System.Drawing.Size(506, 38);
+            this.officeSearchutton.TabIndex = 45;
+            this.officeSearchutton.Text = "জেলা প্রশাশকের কার্যালয়";
+            this.officeSearchutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.officeSearchutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.officeSearchutton.UseVisualStyleBackColor = false;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.officeSourceCheckBox);
+            this.panel14.Controls.Add(this.label17);
+            this.panel14.Controls.Add(this.label19);
+            this.panel14.Controls.Add(this.officerOwnOfficeCheckBox);
+            this.panel14.Controls.Add(this.label16);
+            this.panel14.Controls.Add(this.label18);
+            this.panel14.Controls.Add(this.label20);
+            this.panel14.Controls.Add(this.officerSourceCheckBox);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(1089, 48);
+            this.panel14.TabIndex = 46;
+            // 
+            // officeSourceCheckBox
+            // 
+            this.officeSourceCheckBox.AutoSize = true;
+            this.officeSourceCheckBox.Location = new System.Drawing.Point(624, 21);
+            this.officeSourceCheckBox.Name = "officeSourceCheckBox";
+            this.officeSourceCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.officeSourceCheckBox.TabIndex = 53;
+            this.officeSourceCheckBox.UseVisualStyleBackColor = true;
+            this.officeSourceCheckBox.CheckedChanged += new System.EventHandler(this.officeSourceCheckBox_CheckedChanged);
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(224, 13);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 27);
+            this.label17.TabIndex = 47;
+            this.label17.Text = "উৎস";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(645, 14);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(42, 27);
+            this.label19.TabIndex = 52;
+            this.label19.Text = "উৎস";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // officerOwnOfficeCheckBox
+            // 
+            this.officerOwnOfficeCheckBox.AutoSize = true;
+            this.officerOwnOfficeCheckBox.Location = new System.Drawing.Point(98, 19);
+            this.officerOwnOfficeCheckBox.Name = "officerOwnOfficeCheckBox";
+            this.officerOwnOfficeCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.officerOwnOfficeCheckBox.TabIndex = 49;
+            this.officerOwnOfficeCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(16, 12);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 27);
+            this.label16.TabIndex = 46;
+            this.label16.Text = "আফিসার ";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(116, 12);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(74, 27);
+            this.label18.TabIndex = 48;
+            this.label18.Text = "নিজ অফিস ";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(535, 13);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(78, 27);
+            this.label20.TabIndex = 51;
+            this.label20.Text = "আফিস";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // officerSourceCheckBox
+            // 
+            this.officerSourceCheckBox.AutoSize = true;
+            this.officerSourceCheckBox.Location = new System.Drawing.Point(208, 20);
+            this.officerSourceCheckBox.Name = "officerSourceCheckBox";
+            this.officerSourceCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.officerSourceCheckBox.TabIndex = 50;
+            this.officerSourceCheckBox.UseVisualStyleBackColor = true;
+            this.officerSourceCheckBox.CheckedChanged += new System.EventHandler(this.officerSourceCheckBox_CheckedChanged);
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label11.Location = new System.Drawing.Point(-3, 42);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(1108, 1);
+            this.label11.TabIndex = 34;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.label10.Location = new System.Drawing.Point(-3, 104);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(1108, 1);
+            this.label10.TabIndex = 33;
+            // 
+            // timeLimitDateTimePicker
+            // 
+            this.timeLimitDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLimitDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLimitDateTimePicker.Location = new System.Drawing.Point(584, 56);
+            this.timeLimitDateTimePicker.MinimumSize = new System.Drawing.Size(4, 35);
+            this.timeLimitDateTimePicker.Name = "timeLimitDateTimePicker";
+            this.timeLimitDateTimePicker.Size = new System.Drawing.Size(513, 35);
+            this.timeLimitDateTimePicker.TabIndex = 31;
+            // 
             // dakPriorityComboBox
             // 
             this.dakPriorityComboBox.FormattingEnabled = true;
@@ -434,6 +716,18 @@
             this.dakSecurityComboBox11.TabIndex = 5;
             this.dakSecurityComboBox11.Text = "গোপনীয়তা";
             // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(17, 8);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 27);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "বিস্তারিত খুঁজুন";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // dakTypeComboBox
             // 
             this.dakTypeComboBox.FormattingEnabled = true;
@@ -462,6 +756,23 @@
             this.dakPaperTypeComboBox.TabIndex = 3;
             this.dakPaperTypeComboBox.Text = "পত্রের ধরন";
             // 
+            // detailSearchStopButton
+            // 
+            this.detailSearchStopButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.detailSearchStopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.detailSearchStopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.detailSearchStopButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.detailSearchStopButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchStopButton.Image")));
+            this.detailSearchStopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.detailSearchStopButton.Location = new System.Drawing.Point(281, 319);
+            this.detailSearchStopButton.Name = "detailSearchStopButton";
+            this.detailSearchStopButton.Size = new System.Drawing.Size(121, 44);
+            this.detailSearchStopButton.TabIndex = 32;
+            this.detailSearchStopButton.Text = "       বন্ধ করুন";
+            this.detailSearchStopButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.detailSearchStopButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.detailSearchStopButton.UseVisualStyleBackColor = false;
+            // 
             // dakAttentionTypeComboBox
             // 
             this.dakAttentionTypeComboBox.FormattingEnabled = true;
@@ -477,27 +788,52 @@
             this.dakAttentionTypeComboBox.TabIndex = 2;
             this.dakAttentionTypeComboBox.Text = "সকল";
             // 
-            // timeLimitDateTimePicker
+            // detailsSearchResetButton
             // 
-            this.timeLimitDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLimitDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLimitDateTimePicker.Location = new System.Drawing.Point(584, 56);
-            this.timeLimitDateTimePicker.MinimumSize = new System.Drawing.Size(4, 35);
-            this.timeLimitDateTimePicker.Name = "timeLimitDateTimePicker";
-            this.timeLimitDateTimePicker.Size = new System.Drawing.Size(513, 35);
-            this.timeLimitDateTimePicker.TabIndex = 31;
+            this.detailsSearchResetButton.BackColor = System.Drawing.Color.Salmon;
+            this.detailsSearchResetButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.detailsSearchResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.detailsSearchResetButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.detailsSearchResetButton.Image = ((System.Drawing.Image)(resources.GetObject("detailsSearchResetButton.Image")));
+            this.detailsSearchResetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.detailsSearchResetButton.Location = new System.Drawing.Point(159, 319);
+            this.detailsSearchResetButton.Name = "detailsSearchResetButton";
+            this.detailsSearchResetButton.Size = new System.Drawing.Size(121, 44);
+            this.detailsSearchResetButton.TabIndex = 31;
+            this.detailsSearchResetButton.Text = "       রিসেট";
+            this.detailsSearchResetButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.detailsSearchResetButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.detailsSearchResetButton.UseVisualStyleBackColor = false;
             // 
-            // label8
+            // detailSearchButton
             // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(17, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 27);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "বিস্তারিত খুঁজুন";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.detailSearchButton.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.detailSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.detailSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.detailSearchButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.detailSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchButton.Image")));
+            this.detailSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.detailSearchButton.Location = new System.Drawing.Point(43, 319);
+            this.detailSearchButton.Name = "detailSearchButton";
+            this.detailSearchButton.Size = new System.Drawing.Size(121, 44);
+            this.detailSearchButton.TabIndex = 30;
+            this.detailSearchButton.Text = "       খুঁজুন";
+            this.detailSearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.detailSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.detailSearchButton.UseVisualStyleBackColor = false;
+            // 
+            // detailPanelDropDownButton
+            // 
+            this.detailPanelDropDownButton.BackColor = System.Drawing.Color.MediumOrchid;
+            this.detailPanelDropDownButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("detailPanelDropDownButton.BackgroundImage")));
+            this.detailPanelDropDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.detailPanelDropDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.detailPanelDropDownButton.Location = new System.Drawing.Point(1, 60);
+            this.detailPanelDropDownButton.Name = "detailPanelDropDownButton";
+            this.detailPanelDropDownButton.Size = new System.Drawing.Size(34, 52);
+            this.detailPanelDropDownButton.TabIndex = 27;
+            this.detailPanelDropDownButton.UseVisualStyleBackColor = false;
+            this.detailPanelDropDownButton.Click += new System.EventHandler(this.detailPanelDropDownButton_Click);
             // 
             // panel6
             // 
@@ -542,6 +878,82 @@
             this.label7.Size = new System.Drawing.Size(108, 16);
             this.label7.TabIndex = 30;
             this.label7.Text = "© Copyright ২০২০, ";
+            // 
+            // button30
+            // 
+            this.button30.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button30.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button30.BackgroundImage")));
+            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button30.Location = new System.Drawing.Point(959, 3);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(25, 23);
+            this.button30.TabIndex = 29;
+            this.button30.UseVisualStyleBackColor = false;
+            // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button29.BackgroundImage")));
+            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button29.Location = new System.Drawing.Point(990, 3);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(25, 23);
+            this.button29.TabIndex = 28;
+            this.button29.UseVisualStyleBackColor = false;
+            // 
+            // button28
+            // 
+            this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button28.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button28.BackgroundImage")));
+            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button28.Location = new System.Drawing.Point(1021, 3);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(25, 23);
+            this.button28.TabIndex = 27;
+            this.button28.UseVisualStyleBackColor = false;
+            // 
+            // button27
+            // 
+            this.button27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button27.BackgroundImage")));
+            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.Location = new System.Drawing.Point(1052, 3);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(25, 23);
+            this.button27.TabIndex = 26;
+            this.button27.UseVisualStyleBackColor = false;
+            // 
+            // button26
+            // 
+            this.button26.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button26.BackgroundImage")));
+            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.Location = new System.Drawing.Point(1083, 3);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(25, 23);
+            this.button26.TabIndex = 25;
+            this.button26.UseVisualStyleBackColor = false;
+            // 
+            // button22
+            // 
+            this.button22.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button22.Image = ((System.Drawing.Image)(resources.GetObject("button22.Image")));
+            this.button22.Location = new System.Drawing.Point(1077, 59);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(41, 53);
+            this.button22.TabIndex = 1;
+            this.button22.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -596,6 +1008,71 @@
             this.label5.Size = new System.Drawing.Size(55, 20);
             this.label5.TabIndex = 31;
             this.label5.Text = "পার্টনার: ";
+            // 
+            // button23
+            // 
+            this.button23.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button23.BackgroundImage")));
+            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button23.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button23.Location = new System.Drawing.Point(917, 6);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(25, 23);
+            this.button23.TabIndex = 30;
+            this.button23.UseVisualStyleBackColor = false;
+            // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button20.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button20.BackgroundImage")));
+            this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button20.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button20.Location = new System.Drawing.Point(948, 6);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(25, 23);
+            this.button20.TabIndex = 29;
+            this.button20.UseVisualStyleBackColor = false;
+            // 
+            // button21
+            // 
+            this.button21.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button21.BackgroundImage")));
+            this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button21.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button21.Location = new System.Drawing.Point(979, 6);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(25, 23);
+            this.button21.TabIndex = 28;
+            this.button21.UseVisualStyleBackColor = false;
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button19.BackgroundImage")));
+            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button19.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button19.Location = new System.Drawing.Point(1010, 6);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(25, 23);
+            this.button19.TabIndex = 27;
+            this.button19.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(1041, 6);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(25, 23);
+            this.button9.TabIndex = 26;
+            this.button9.UseVisualStyleBackColor = false;
             // 
             // comboBox4
             // 
@@ -692,6 +1169,32 @@
             this.panel3.Size = new System.Drawing.Size(1119, 55);
             this.panel3.TabIndex = 24;
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(1033, 13);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(36, 30);
+            this.button8.TabIndex = 23;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(998, 13);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(36, 30);
+            this.button7.TabIndex = 22;
+            this.button7.UseVisualStyleBackColor = false;
+            // 
             // panel7
             // 
             this.panel7.Location = new System.Drawing.Point(305, 172);
@@ -729,8 +1232,8 @@
             this.panel9.Controls.Add(this.dakUploadDropDownPanel);
             this.panel9.Controls.Add(this.dakUploadButton);
             this.panel9.Controls.Add(this.dakArchiveButton);
-            this.panel9.Controls.Add(this.nothijatoButton);
-            this.panel9.Controls.Add(this.notvuktoDakButton);
+            this.panel9.Controls.Add(this.dakNothijatoButton);
+            this.panel9.Controls.Add(this.dakNotivuktoButton);
             this.panel9.Controls.Add(this.dakOutboxButton);
             this.panel9.Controls.Add(this.dakSortButton);
             this.panel9.Controls.Add(this.dakInboxButton);
@@ -753,6 +1256,26 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1126, 558);
             this.panel10.TabIndex = 28;
+            // 
+            // button18
+            // 
+            this.button18.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button18.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button18.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
+            this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button18.Location = new System.Drawing.Point(0, 456);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(234, 50);
+            this.button18.TabIndex = 31;
+            this.button18.Text = "    খস​ড়া আপলোড";
+            this.button18.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button18.UseVisualStyleBackColor = false;
             // 
             // dakUploadDropDownPanel
             // 
@@ -808,438 +1331,6 @@
             this.button16.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button16.UseVisualStyleBackColor = false;
             // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label10.Location = new System.Drawing.Point(-3, 104);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(1108, 1);
-            this.label10.TabIndex = 33;
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label11.Location = new System.Drawing.Point(-3, 42);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(1108, 1);
-            this.label11.TabIndex = 34;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.nameDesignationSearchButton);
-            this.panel13.Controls.Add(this.officeSearchutton);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 48);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1089, 57);
-            this.panel13.TabIndex = 46;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.officeSourceCheckBox);
-            this.panel14.Controls.Add(this.label17);
-            this.panel14.Controls.Add(this.label19);
-            this.panel14.Controls.Add(this.officerOwnOfficeCheckBox);
-            this.panel14.Controls.Add(this.label16);
-            this.panel14.Controls.Add(this.label18);
-            this.panel14.Controls.Add(this.label20);
-            this.panel14.Controls.Add(this.officerSourceCheckBox);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1089, 48);
-            this.panel14.TabIndex = 46;
-            // 
-            // officeSourceCheckBox
-            // 
-            this.officeSourceCheckBox.AutoSize = true;
-            this.officeSourceCheckBox.Location = new System.Drawing.Point(624, 21);
-            this.officeSourceCheckBox.Name = "officeSourceCheckBox";
-            this.officeSourceCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.officeSourceCheckBox.TabIndex = 53;
-            this.officeSourceCheckBox.UseVisualStyleBackColor = true;
-            this.officeSourceCheckBox.CheckedChanged += new System.EventHandler(this.officeSourceCheckBox_CheckedChanged);
-            // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(645, 14);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(42, 27);
-            this.label19.TabIndex = 52;
-            this.label19.Text = "উৎস";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(16, 12);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(74, 27);
-            this.label16.TabIndex = 46;
-            this.label16.Text = "আফিসার ";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label20
-            // 
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(535, 13);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(78, 27);
-            this.label20.TabIndex = 51;
-            this.label20.Text = "আফিস";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(224, 13);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(42, 27);
-            this.label17.TabIndex = 47;
-            this.label17.Text = "উৎস";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // officerSourceCheckBox
-            // 
-            this.officerSourceCheckBox.AutoSize = true;
-            this.officerSourceCheckBox.Location = new System.Drawing.Point(208, 20);
-            this.officerSourceCheckBox.Name = "officerSourceCheckBox";
-            this.officerSourceCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.officerSourceCheckBox.TabIndex = 50;
-            this.officerSourceCheckBox.UseVisualStyleBackColor = true;
-            this.officerSourceCheckBox.CheckedChanged += new System.EventHandler(this.officerSourceCheckBox_CheckedChanged);
-            // 
-            // label18
-            // 
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(116, 12);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(74, 27);
-            this.label18.TabIndex = 48;
-            this.label18.Text = "নিজ অফিস ";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // officerOwnOfficeCheckBox
-            // 
-            this.officerOwnOfficeCheckBox.AutoSize = true;
-            this.officerOwnOfficeCheckBox.Location = new System.Drawing.Point(98, 19);
-            this.officerOwnOfficeCheckBox.Name = "officerOwnOfficeCheckBox";
-            this.officerOwnOfficeCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.officerOwnOfficeCheckBox.TabIndex = 49;
-            this.officerOwnOfficeCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // panel15
-            // 
-            this.panel15.AutoSize = true;
-            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel15.Controls.Add(this.senderOfficePanel);
-            this.panel15.Controls.Add(this.panel13);
-            this.panel15.Controls.Add(this.panel14);
-            this.panel15.Location = new System.Drawing.Point(6, 153);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(1091, 160);
-            this.panel15.TabIndex = 47;
-            // 
-            // senderOfficePanel
-            // 
-            this.senderOfficePanel.Controls.Add(this.officeSenderOfficeNameTextBox);
-            this.senderOfficePanel.Controls.Add(this.officerSenderOfficeNameTextBox);
-            this.senderOfficePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.senderOfficePanel.Location = new System.Drawing.Point(0, 105);
-            this.senderOfficePanel.Name = "senderOfficePanel";
-            this.senderOfficePanel.Size = new System.Drawing.Size(1089, 50);
-            this.senderOfficePanel.TabIndex = 47;
-            this.senderOfficePanel.Visible = false;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button15.BackgroundImage")));
-            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button15.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Location = new System.Drawing.Point(1083, 22);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(25, 23);
-            this.button15.TabIndex = 24;
-            this.button15.UseVisualStyleBackColor = false;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button14.BackgroundImage")));
-            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button14.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(465, 22);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(25, 23);
-            this.button14.TabIndex = 21;
-            this.button14.UseVisualStyleBackColor = false;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
-            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(293, 18);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(117, 30);
-            this.button13.TabIndex = 19;
-            this.button13.Text = "নথি";
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
-            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(170, 18);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(117, 30);
-            this.button12.TabIndex = 17;
-            this.button12.Text = "ডাক";
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button25
-            // 
-            this.button25.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button25.BackgroundImage")));
-            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button25.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button25.Location = new System.Drawing.Point(1072, 16);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(25, 25);
-            this.button25.TabIndex = 26;
-            this.button25.UseVisualStyleBackColor = false;
-            // 
-            // button24
-            // 
-            this.button24.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button24.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button24.BackgroundImage")));
-            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button24.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button24.Location = new System.Drawing.Point(1047, 16);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(25, 25);
-            this.button24.TabIndex = 25;
-            this.button24.UseVisualStyleBackColor = false;
-            // 
-            // nameDesignationSearchButton
-            // 
-            this.nameDesignationSearchButton.BackColor = System.Drawing.Color.Transparent;
-            this.nameDesignationSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.nameDesignationSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nameDesignationSearchButton.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nameDesignationSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("nameDesignationSearchButton.Image")));
-            this.nameDesignationSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nameDesignationSearchButton.Location = new System.Drawing.Point(25, 10);
-            this.nameDesignationSearchButton.Name = "nameDesignationSearchButton";
-            this.nameDesignationSearchButton.Size = new System.Drawing.Size(498, 38);
-            this.nameDesignationSearchButton.TabIndex = 29;
-            this.nameDesignationSearchButton.Text = "নাম/পদবী দিয়ে খুঁজুন";
-            this.nameDesignationSearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nameDesignationSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.nameDesignationSearchButton.UseVisualStyleBackColor = false;
-            this.nameDesignationSearchButton.Click += new System.EventHandler(this.nameDesignationSearchButton_Click);
-            // 
-            // officeSearchutton
-            // 
-            this.officeSearchutton.BackColor = System.Drawing.Color.Transparent;
-            this.officeSearchutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.officeSearchutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.officeSearchutton.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.officeSearchutton.Image = ((System.Drawing.Image)(resources.GetObject("officeSearchutton.Image")));
-            this.officeSearchutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.officeSearchutton.Location = new System.Drawing.Point(554, 10);
-            this.officeSearchutton.Name = "officeSearchutton";
-            this.officeSearchutton.Size = new System.Drawing.Size(506, 38);
-            this.officeSearchutton.TabIndex = 45;
-            this.officeSearchutton.Text = "জেলা প্রশাশকের কার্যালয়";
-            this.officeSearchutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.officeSearchutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.officeSearchutton.UseVisualStyleBackColor = false;
-            // 
-            // detailSearchStopButton
-            // 
-            this.detailSearchStopButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.detailSearchStopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.detailSearchStopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailSearchStopButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.detailSearchStopButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchStopButton.Image")));
-            this.detailSearchStopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailSearchStopButton.Location = new System.Drawing.Point(281, 319);
-            this.detailSearchStopButton.Name = "detailSearchStopButton";
-            this.detailSearchStopButton.Size = new System.Drawing.Size(121, 44);
-            this.detailSearchStopButton.TabIndex = 32;
-            this.detailSearchStopButton.Text = "       বন্ধ করুন";
-            this.detailSearchStopButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.detailSearchStopButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.detailSearchStopButton.UseVisualStyleBackColor = false;
-            // 
-            // detailsSearchResetButton
-            // 
-            this.detailsSearchResetButton.BackColor = System.Drawing.Color.Salmon;
-            this.detailsSearchResetButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.detailsSearchResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailsSearchResetButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.detailsSearchResetButton.Image = ((System.Drawing.Image)(resources.GetObject("detailsSearchResetButton.Image")));
-            this.detailsSearchResetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailsSearchResetButton.Location = new System.Drawing.Point(159, 319);
-            this.detailsSearchResetButton.Name = "detailsSearchResetButton";
-            this.detailsSearchResetButton.Size = new System.Drawing.Size(121, 44);
-            this.detailsSearchResetButton.TabIndex = 31;
-            this.detailsSearchResetButton.Text = "       রিসেট";
-            this.detailsSearchResetButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.detailsSearchResetButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.detailsSearchResetButton.UseVisualStyleBackColor = false;
-            // 
-            // detailSearchButton
-            // 
-            this.detailSearchButton.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.detailSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.detailSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailSearchButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.detailSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchButton.Image")));
-            this.detailSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailSearchButton.Location = new System.Drawing.Point(43, 319);
-            this.detailSearchButton.Name = "detailSearchButton";
-            this.detailSearchButton.Size = new System.Drawing.Size(121, 44);
-            this.detailSearchButton.TabIndex = 30;
-            this.detailSearchButton.Text = "       খুঁজুন";
-            this.detailSearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.detailSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.detailSearchButton.UseVisualStyleBackColor = false;
-            // 
-            // detailPanelDropDownButton
-            // 
-            this.detailPanelDropDownButton.BackColor = System.Drawing.Color.MediumOrchid;
-            this.detailPanelDropDownButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("detailPanelDropDownButton.BackgroundImage")));
-            this.detailPanelDropDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.detailPanelDropDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailPanelDropDownButton.Location = new System.Drawing.Point(1, 60);
-            this.detailPanelDropDownButton.Name = "detailPanelDropDownButton";
-            this.detailPanelDropDownButton.Size = new System.Drawing.Size(34, 52);
-            this.detailPanelDropDownButton.TabIndex = 27;
-            this.detailPanelDropDownButton.UseVisualStyleBackColor = false;
-            this.detailPanelDropDownButton.Click += new System.EventHandler(this.detailPanelDropDownButton_Click);
-            // 
-            // button30
-            // 
-            this.button30.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button30.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button30.BackgroundImage")));
-            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30.Location = new System.Drawing.Point(959, 3);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(25, 23);
-            this.button30.TabIndex = 29;
-            this.button30.UseVisualStyleBackColor = false;
-            // 
-            // button29
-            // 
-            this.button29.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button29.BackgroundImage")));
-            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.Location = new System.Drawing.Point(990, 3);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(25, 23);
-            this.button29.TabIndex = 28;
-            this.button29.UseVisualStyleBackColor = false;
-            // 
-            // button28
-            // 
-            this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button28.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button28.BackgroundImage")));
-            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Location = new System.Drawing.Point(1021, 3);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(25, 23);
-            this.button28.TabIndex = 27;
-            this.button28.UseVisualStyleBackColor = false;
-            // 
-            // button27
-            // 
-            this.button27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button27.BackgroundImage")));
-            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Location = new System.Drawing.Point(1052, 3);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(25, 23);
-            this.button27.TabIndex = 26;
-            this.button27.UseVisualStyleBackColor = false;
-            // 
-            // button26
-            // 
-            this.button26.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button26.BackgroundImage")));
-            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Location = new System.Drawing.Point(1083, 3);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(25, 23);
-            this.button26.TabIndex = 25;
-            this.button26.UseVisualStyleBackColor = false;
-            // 
-            // button22
-            // 
-            this.button22.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Image = ((System.Drawing.Image)(resources.GetObject("button22.Image")));
-            this.button22.Location = new System.Drawing.Point(1077, 59);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(41, 53);
-            this.button22.TabIndex = 1;
-            this.button22.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            this.button18.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button18.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button18.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
-            this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button18.Location = new System.Drawing.Point(0, 456);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(234, 50);
-            this.button18.TabIndex = 31;
-            this.button18.Text = "    খস​ড়া আপলোড";
-            this.button18.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button18.UseVisualStyleBackColor = false;
-            // 
             // dakUploadButton
             // 
             this.dakUploadButton.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -1281,45 +1372,45 @@
             this.dakArchiveButton.UseVisualStyleBackColor = false;
             this.dakArchiveButton.Click += new System.EventHandler(this.dakArchiveButton_Click);
             // 
-            // nothijatoButton
+            // dakNothijatoButton
             // 
-            this.nothijatoButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.nothijatoButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.nothijatoButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.nothijatoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.nothijatoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.nothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothijatoButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.nothijatoButton.Image = ((System.Drawing.Image)(resources.GetObject("nothijatoButton.Image")));
-            this.nothijatoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nothijatoButton.Location = new System.Drawing.Point(0, 251);
-            this.nothijatoButton.Name = "nothijatoButton";
-            this.nothijatoButton.Size = new System.Drawing.Size(234, 50);
-            this.nothijatoButton.TabIndex = 24;
-            this.nothijatoButton.Text = "       নথিজাত ডাক";
-            this.nothijatoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.nothijatoButton.UseVisualStyleBackColor = false;
-            this.nothijatoButton.Click += new System.EventHandler(this.nothijatoButton_Click);
+            this.dakNothijatoButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dakNothijatoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dakNothijatoButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.dakNothijatoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.dakNothijatoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.dakNothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakNothijatoButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dakNothijatoButton.Image = ((System.Drawing.Image)(resources.GetObject("dakNothijatoButton.Image")));
+            this.dakNothijatoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dakNothijatoButton.Location = new System.Drawing.Point(0, 251);
+            this.dakNothijatoButton.Name = "dakNothijatoButton";
+            this.dakNothijatoButton.Size = new System.Drawing.Size(234, 50);
+            this.dakNothijatoButton.TabIndex = 24;
+            this.dakNothijatoButton.Text = "       নথিজাত ডাক";
+            this.dakNothijatoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.dakNothijatoButton.UseVisualStyleBackColor = false;
+            this.dakNothijatoButton.Click += new System.EventHandler(this.nothijatoButton_Click);
             // 
-            // notvuktoDakButton
+            // dakNotivuktoButton
             // 
-            this.notvuktoDakButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.notvuktoDakButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.notvuktoDakButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.notvuktoDakButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.notvuktoDakButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.notvuktoDakButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notvuktoDakButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.notvuktoDakButton.Image = ((System.Drawing.Image)(resources.GetObject("notvuktoDakButton.Image")));
-            this.notvuktoDakButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.notvuktoDakButton.Location = new System.Drawing.Point(0, 201);
-            this.notvuktoDakButton.Name = "notvuktoDakButton";
-            this.notvuktoDakButton.Size = new System.Drawing.Size(234, 50);
-            this.notvuktoDakButton.TabIndex = 25;
-            this.notvuktoDakButton.Text = "     নথিতে উপস্থাপিত ডাক";
-            this.notvuktoDakButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.notvuktoDakButton.UseVisualStyleBackColor = false;
-            this.notvuktoDakButton.Click += new System.EventHandler(this.notvuktoDakButton_Click);
+            this.dakNotivuktoButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dakNotivuktoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dakNotivuktoButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.dakNotivuktoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.dakNotivuktoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
+            this.dakNotivuktoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakNotivuktoButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dakNotivuktoButton.Image = ((System.Drawing.Image)(resources.GetObject("dakNotivuktoButton.Image")));
+            this.dakNotivuktoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dakNotivuktoButton.Location = new System.Drawing.Point(0, 201);
+            this.dakNotivuktoButton.Name = "dakNotivuktoButton";
+            this.dakNotivuktoButton.Size = new System.Drawing.Size(234, 50);
+            this.dakNotivuktoButton.TabIndex = 25;
+            this.dakNotivuktoButton.Text = "     নথিতে উপস্থাপিত ডাক";
+            this.dakNotivuktoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.dakNotivuktoButton.UseVisualStyleBackColor = false;
+            this.dakNotivuktoButton.Click += new System.EventHandler(this.notvuktoDakButton_Click);
             // 
             // dakOutboxButton
             // 
@@ -1365,13 +1456,13 @@
             // 
             // dakInboxButton
             // 
-            this.dakInboxButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dakInboxButton.BackColor = System.Drawing.Color.Silver;
             this.dakInboxButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.dakInboxButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.dakInboxButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.dakInboxButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.dakInboxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakInboxButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dakInboxButton.ForeColor = System.Drawing.Color.Blue;
             this.dakInboxButton.Image = ((System.Drawing.Image)(resources.GetObject("dakInboxButton.Image")));
             this.dakInboxButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dakInboxButton.Location = new System.Drawing.Point(0, 50);
@@ -1429,97 +1520,6 @@
             this.button3.Size = new System.Drawing.Size(56, 60);
             this.button3.TabIndex = 3;
             this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button23
-            // 
-            this.button23.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button23.BackgroundImage")));
-            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button23.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button23.Location = new System.Drawing.Point(917, 6);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(25, 23);
-            this.button23.TabIndex = 30;
-            this.button23.UseVisualStyleBackColor = false;
-            // 
-            // button20
-            // 
-            this.button20.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button20.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button20.BackgroundImage")));
-            this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button20.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Location = new System.Drawing.Point(948, 6);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(25, 23);
-            this.button20.TabIndex = 29;
-            this.button20.UseVisualStyleBackColor = false;
-            // 
-            // button21
-            // 
-            this.button21.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button21.BackgroundImage")));
-            this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button21.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Location = new System.Drawing.Point(979, 6);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(25, 23);
-            this.button21.TabIndex = 28;
-            this.button21.UseVisualStyleBackColor = false;
-            // 
-            // button19
-            // 
-            this.button19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button19.BackgroundImage")));
-            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button19.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Location = new System.Drawing.Point(1010, 6);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(25, 23);
-            this.button19.TabIndex = 27;
-            this.button19.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(1041, 6);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(25, 23);
-            this.button9.TabIndex = 26;
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(1033, 13);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(36, 30);
-            this.button8.TabIndex = 23;
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(998, 13);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(36, 30);
-            this.button7.TabIndex = 22;
-            this.button7.UseVisualStyleBackColor = false;
             // 
             // button11
             // 
@@ -1657,6 +1657,12 @@
             this.detailsDakSearcPanel.PerformLayout();
             this.nameorDesignationSearchPanel.ResumeLayout(false);
             this.nameorDesignationSearchPanel.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.senderOfficePanel.ResumeLayout(false);
+            this.senderOfficePanel.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.metroPanel2.ResumeLayout(false);
@@ -1667,12 +1673,6 @@
             this.panel9.ResumeLayout(false);
             this.dakUploadDropDownPanel.ResumeLayout(false);
             this.dakUploadDropDownPanel.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            this.panel15.ResumeLayout(false);
-            this.senderOfficePanel.ResumeLayout(false);
-            this.senderOfficePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1736,8 +1736,8 @@
         private System.Windows.Forms.Button dakInboxButton;
         private System.Windows.Forms.Panel dakUploadDropDownPanel;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button nothijatoButton;
-        private System.Windows.Forms.Button notvuktoDakButton;
+        private System.Windows.Forms.Button dakNothijatoButton;
+        private System.Windows.Forms.Button dakNotivuktoButton;
         private System.Windows.Forms.Button dakUploadButton;
         private System.Windows.Forms.Button dakSortButton;
         private System.Windows.Forms.Button button18;

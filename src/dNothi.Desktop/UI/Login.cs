@@ -72,19 +72,38 @@ namespace dNothi.Desktop.UI
             var password = txtPassword.Text.Trim();
             var isRemember = true;
             UserParam userParam = new UserParam(userName, password);
-            var resmessage = await _userService.GetUserMessageAsync(userParam);
-
-            if (resmessage.status == "success")
+            try
             {
-                _accountService.SaveOrUpdateUser(userName, password, isRemember);
-                SaveOrUpdateUser(resmessage?.data?.user);
-                SaveOrUpdateEmployee(resmessage?.data?.employee_info);
-                SaveOrUpdateOffice(resmessage?.data?.office_info);
-                SaveOrUpdateToken(resmessage?.data?.token);
-                using (var form = FormFactory.Create<Dashboard>())
+                var resmessage = await _userService.GetUserMessageAsync(userParam);
+
+                if (resmessage.status == "success")
                 {
+                    _accountService.SaveOrUpdateUser(userName, password, isRemember);
+                    SaveOrUpdateUser(resmessage?.data?.user);
+                    SaveOrUpdateEmployee(resmessage?.data?.employee_info);
+                    SaveOrUpdateOffice(resmessage?.data?.office_info);
+                    SaveOrUpdateToken(resmessage?.data?.token);
+                    using (var form = FormFactory.Create<Dashboard>())
+                    {
+                        form.ShowDialog();
+                    }
+                }
+            }
+            catch
+            {
+                var appUser = _accountService.LoginUser(userName, password);
+                if (appUser != null)
+                {
+                    var form = FormFactory.Create<Dashboard>();
+
                     form.ShowDialog();
                 }
+
+                else
+                {
+                    MessageBox.Show("Login Failed!");
+                }
+
             }
         }
       

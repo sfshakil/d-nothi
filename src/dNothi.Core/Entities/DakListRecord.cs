@@ -11,18 +11,24 @@ namespace dNothi.Core.Entities
     public class DakListRecord: BaseEntity
     {
         [ForeignKey("dakUser")]
-        public long dak_user_id { get; set; }
+        public long? dak_user_id { get; set; }
         [ForeignKey("dakOrigin")]
-        public long dak_origin_id { get; set; }
+        public long? dak_origin_id { get; set; }
         [ForeignKey("movementStatus")]
-        public long movement_status_id { get; set; }
+        public long? movement_status_id { get; set; }
         public long attachment_count { get; set; }
-        [ForeignKey("nothi")]
-        public long nothi_id { get; set; }
+
+        [ForeignKey("dakNothi")]
+        public long? dak_nothi_id { get; set; }
+
+        public virtual DakNothi dakNothi { get; set; }
+        //[ForeignKey("nothi")]
+        //public long? dak_nothi_Id { get; set; }
         public virtual DakUser dakUser { get; set; }
         public virtual DakOrigin dakOrigin { get; set; }
-        public MovementStatus movementStatus { get; set; }
-        public virtual Nothi nothi { get; set; }
+        public virtual MovementStatus movementStatus { get; set; }
+        //public virtual DakNothi nothi { get; set; }
         public virtual ICollection<DakListRecordDakTag> dak_Tags { get; set; }
+        public virtual ICollection<DakListDakListRecord> dak_List { get; set; }
     }
 }

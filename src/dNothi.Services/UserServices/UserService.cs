@@ -60,6 +60,8 @@ namespace dNothi.Services.UserServices
             {
                 throw;
             }
+
+            
         }
 
         public EmployeeInfoDTO GetEmployeeInfo()
@@ -70,6 +72,7 @@ namespace dNothi.Services.UserServices
                 );
             var mapper = new Mapper(config);
             var employeeInfoDTO = mapper.Map<EmployeeInfoDTO>(empInfo);
+           
             return employeeInfoDTO;
         }
 
@@ -206,6 +209,7 @@ namespace dNothi.Services.UserServices
                 dakListUserParam.token = GetToken();
                 dakListUserParam.officeId = officeInfo.office_id;
                 dakListUserParam.designationId = officeInfo.office_unit_organogram_id;
+               
             }
             catch
             {
@@ -214,5 +218,7 @@ namespace dNothi.Services.UserServices
 
             return dakListUserParam;
         }
+
+        
     }
 }
