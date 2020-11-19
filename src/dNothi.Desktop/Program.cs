@@ -18,25 +18,75 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Services.NothiServices;
+using dNothi.Desktop.UI;
+using System.Threading;
 
 namespace dNothi.Desktop
 {
     static class Program
     {
         private static IContainer container;
+        private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            log4net.Config.XmlConfigurator.Configure();
+            _log.Info("Application Stated!");
            // AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Database.SetInitializer<AppDbContext>(new DropCreateDatabaseIfModelChanges<AppDbContext>());
             Bootstrap();
-            Application.Run(container.Resolve<UI.Login>());
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            Application.ThreadException += ApplicationThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
+
+
+            //var form = FormFactory.Create<Nothi>();
+            //form.ShowDialog();
+            DialogResult result;
+            using (var form = FormFactory.Create<Login>())
+            {
+                result=form.ShowDialog();
+            }
+            if (result == DialogResult.OK)
+            {
+                Application.Run(container.Resolve<Dashboard>());
+            }
+            //Application.Run(container.Resolve<UI.Login>());
         }
+
+        /// <summary>
+        /// Global exceptions in Non User Interfarce(other thread) antipicated error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            var message =
+                String.Format(
+                    "Sorry, something went wrong.\r\n" + "{0}\r\n" + "{1}\r\n" + "please contact support.",
+                    ((Exception)e.ExceptionObject).Message, ((Exception)e.ExceptionObject).StackTrace);
+            MessageBox.Show(message, @"Unexpected error");
+        }
+
+        /// <summary>
+        /// Global exceptions in User Interfarce antipicated error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void ApplicationThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            var message =
+                String.Format(
+                    "Sorry, something went wrong.\r\n" + "{0}\r\n" + "{1}\r\n" + "please contact support.",
+                    e.Exception.Message, e.Exception.StackTrace);
+            MessageBox.Show(message, @"Unexpected error");
+        }
+
         private static void Bootstrap()
         {
             var builder = new ContainerBuilder();

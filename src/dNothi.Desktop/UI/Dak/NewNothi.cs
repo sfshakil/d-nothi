@@ -16,5 +16,13 @@ namespace dNothi.Desktop.UI.Dak
         {
             InitializeComponent();
         }
+        private void btnGuidelines_Click(object sender, EventArgs e)
+        {
+            NothiGuidelines nothiGuidelines = new NothiGuidelines();
+            nothiGuidelines.Visible = true;
+            nothiGuidelines.Location = new System.Drawing.Point(0,0);
+            Controls.Add(nothiGuidelines);
+            nothiGuidelines.BringToFront();
+        }
     }
 }
