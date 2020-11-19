@@ -22,7 +22,8 @@ namespace dNothi.Desktop.UI
        
         IAccountService _accountService { get; set; }
         IUserService _userService { get; set; }
-        
+        private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public Login(IUserService userService, IAccountService accountService)
         {
             InitializeComponent();
@@ -76,15 +77,18 @@ namespace dNothi.Desktop.UI
 
             if (resmessage.status == "success")
             {
+                //throw new Exception("User Exception");
                 _accountService.SaveOrUpdateUser(userName, password, isRemember);
                 SaveOrUpdateUser(resmessage?.data?.user);
                 SaveOrUpdateEmployee(resmessage?.data?.employee_info);
                 SaveOrUpdateOffice(resmessage?.data?.office_info);
                 SaveOrUpdateToken(resmessage?.data?.token);
-                using (var form = FormFactory.Create<Dashboard>())
-                {
-                    form.ShowDialog();
-                }
+                DialogResult = DialogResult.OK;
+                _log.Info("successful login");
+                //using (var form = FormFactory.Create<Dashboard>())
+                //{
+                //    form.ShowDialog();
+                //}
             }
         }
       

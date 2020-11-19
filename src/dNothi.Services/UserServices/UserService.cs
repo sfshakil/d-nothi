@@ -23,6 +23,7 @@ namespace dNothi.Services.UserServices
         IRepository<EmployeeInfo> _employeeRepository;
         IRepository<OfficeInfo> _officeRepository;
         IRepository<UserToken> _userTokenRepository;
+        private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public UserService(IUserMessageParser userMessageParser,
         IRepository<User> userrepository,
         IRepository<EmployeeInfo> employeeRepository,
