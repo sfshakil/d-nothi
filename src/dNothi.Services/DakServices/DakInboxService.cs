@@ -9,17 +9,19 @@ using Newtonsoft.Json;
 using dNothi.Core.Entities;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using RestSharp;
+using System.Data.Entity;
 
 namespace dNothi.Services.DakServices
 {
     public class DakInboxService : IDakInboxServices
     {
-        IRepository<DakTag> _daktags;
-        IRepository<DakUser> _dakuser;
-        public DakInboxService(IRepository<DakTag> daktags, IRepository<DakUser> dakuser)
+        IRepository<DakInbox> _dakInbox;
+        IDakListService _dakListService { get; set; }
+
+        public DakInboxService(IRepository<DakInbox> dakInbox, IDakListService dakListService)
         {
-            this._daktags = daktags;
-            this._dakuser = dakuser;
+            _dakInbox = dakInbox;
+            _dakListService = dakListService;
         }
         public DakListInboxResponse GetDakInbox(DakListUserParam dakListUserParam)
         {
@@ -50,40 +52,45 @@ namespace dNothi.Services.DakServices
             }
         }
 
-        public void SaveOrUpdateDakTag(DakTagDTO dak_Tagsdto)
+        public void SaveorUpdateDakInbox(DakListInboxResponse dakListInboxResponse)
         {
-            var config = new MapperConfiguration(cfg =>
-                    cfg.CreateMap<DakTagDTO, DakTag>()
-                );
-            var mapper = new Mapper(config);
-            var daktag = mapper.Map<DakTag>(dak_Tagsdto);
-            var dbdaktag = _daktags.Table.Where(q => q.Id == dak_Tagsdto.id).FirstOrDefault();
-            if (dbdaktag == null)
+
+
+            DakInbox castDakInbox = new DakInbox();
+            castDakInbox.status = dakListInboxResponse.status;
+            castDakInbox.dak_list_record_id = _dakListService.SaveOrUpdateDakInbox(dakListInboxResponse.data);
+           
+            var dbdakInbox = _dakInbox.Table.FirstOrDefault();
+            if (dbdakInbox != null)
             {
-                _daktags.Insert(daktag);
+                _dakInbox.Delete(dbdakInbox);
             }
-            else
+
+            try
             {
-                _daktags.Update(daktag);
+                _dakInbox.Insert(castDakInbox);
             }
+            catch
+            {
+
+            }
+
+
+
+           
         }
 
-        public void SaveOrUpdateDakUser(DakUserDTO dak_Userdto)
+        public DakListInboxResponse GetLocalDakInbox()
         {
+            var dbdakInbox = _dakInbox.Table.Include(a=>a.data.records).Include(a=>a.data.records).FirstOrDefault();
+
             var config = new MapperConfiguration(cfg =>
-                     cfg.CreateMap<DakUserDTO, DakUser>()
+                     cfg.CreateMap<DakInbox, DakListInboxResponse>()
                  );
             var mapper = new Mapper(config);
-            var daktuser = mapper.Map<DakUser>(dak_Userdto);
-            var dbdaktuser = _dakuser.Table.Where(q => q.dak_id == dak_Userdto.dak_id).FirstOrDefault();
-            if (dbdaktuser == null)
-            {
-                _dakuser.Insert(daktuser);
-            }
-            else
-            {
-                _dakuser.Update(daktuser);
-            }
+            var dakInboxListResponse = mapper.Map<DakListInboxResponse>(dbdakInbox);
+
+            return dakInboxListResponse;
         }
     }
 }

@@ -14,14 +14,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI
 {
     public partial class Dashboard : Form
     {
         IUserService _userService { get; set; }
+        IDakListService _dakListService { get; set; }
         IDakOutboxService _dakOutboxService { get; set; }
         IDakInboxServices _dakInbox { get; set; }
+       
         IDakListArchiveService _dakListArchiveService { get; set; }
         IDakNothijatoService _dakNothijatoService { get; set; }
 
@@ -32,6 +35,7 @@ namespace dNothi.Desktop.UI
             IDakOutboxService dakOutboxService,
             IDakNothivuktoService dakNothivuktoService,
             IDakListArchiveService dakListArchiveService,
+            IDakListService dakListService,
             IDakNothijatoService dakNothijatoService)
         {
             _dakNothivuktoService = dakNothivuktoService;
@@ -40,6 +44,7 @@ namespace dNothi.Desktop.UI
             _dakInbox = dakInbox;
             _dakListArchiveService = dakListArchiveService;
             _dakNothijatoService = dakNothijatoService;
+            _dakListService = dakListService;
             InitializeComponent();
             designationSelect2.Hide();
         }
@@ -102,22 +107,22 @@ namespace dNothi.Desktop.UI
         }
         private void button5_MouseHover(object sender, EventArgs e)
         {
-            this.notvuktoDakButton.ForeColor = Color.DodgerBlue;
+            this.dakNotivuktoButton.ForeColor = Color.DodgerBlue;
         }
 
         private void button5_MouseLeave(object sender, EventArgs e)
         {
-            this.notvuktoDakButton.ForeColor = Color.Black;
+            this.dakNotivuktoButton.ForeColor = Color.Black;
         }
 
         private void button6_MouseHover(object sender, EventArgs e)
         {
-            this.nothijatoButton.ForeColor = Color.DodgerBlue;
+            this.dakNothijatoButton.ForeColor = Color.DodgerBlue;
         }
 
         private void button6_MouseLeave(object sender, EventArgs e)
         {
-            this.nothijatoButton.ForeColor = Color.Black;
+            this.dakNothijatoButton.ForeColor = Color.Black;
         }
 
         private void button10_MouseHover_1(object sender, EventArgs e)
@@ -205,7 +210,7 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Dashboard>();
             form.ShowDialog();
         }
-        private bool IsCollasped;
+   
       
 
        
@@ -224,6 +229,8 @@ namespace dNothi.Desktop.UI
 
             if (dakListOutboxResponse.status == "success")
             {
+                _dakOutboxService.SaveorUpdateDakOutbox(dakListOutboxResponse);
+                
                 if (dakListOutboxResponse.data.records.Count > 0)
                 {
                     LoadDakOutboxinPanel(dakListOutboxResponse.data.records);
@@ -240,10 +247,16 @@ namespace dNothi.Desktop.UI
             {
 
                 DakOutboxUserControl dakOutboxUserControl = new DakOutboxUserControl();
+                dakOutboxUserControl.source=IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
+
+
                 dakOutboxUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
+                
+               
                 dakOutboxUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
+                
                 dakOutboxUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
-                dakOutboxUserControl.source = dakListInboxRecordsDTO.dak_origin.sender_name;
+               
                 dakOutboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
                 dakOutboxUserControl.receiver = dakListInboxRecordsDTO.movement_status.to[0].officer;
                 dakOutboxUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
@@ -252,7 +265,7 @@ namespace dNothi.Desktop.UI
                 dakOutboxUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
                 dakOutboxUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
                 dakOutboxUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
-
+                
 
                 i = i + 1;
                 dakOutboxUserControls.Add(dakOutboxUserControl);
@@ -266,6 +279,19 @@ namespace dNothi.Desktop.UI
             for (int j = 0; j <= dakOutboxUserControls.Count - 1; j++)
             {
                 dakListFlowLayoutPanel.Controls.Add(dakOutboxUserControls[j]);
+            }
+        }
+
+        private string IsNagorikDakType(string dak_type, string sender_name, string name_bng)
+        {
+            CheckNagorikDakType checkNagorikDakType = new CheckNagorikDakType(dak_type);
+            if (checkNagorikDakType.IsNagarik)
+            {
+               return name_bng;
+            }
+            else
+            {
+                return sender_name;
             }
         }
 
@@ -283,20 +309,39 @@ namespace dNothi.Desktop.UI
             dakListUserParam.api = "https://a2i.nothibs.tappware.com/api/dak/inbox";
 
 
-            var dakInbox = _dakInbox.GetDakInbox(dakListUserParam);
-            if (dakInbox.status == "success")
+            try
             {
-                foreach (var record in dakInbox.data.records)
-                {
-                    _dakInbox.SaveOrUpdateDakUser(record.dak_user);
-                }
-                if (dakInbox.data.records.Count > 0)
+                var dakInbox = _dakInbox.GetDakInbox(dakListUserParam);
+                if (dakInbox.status == "success")
                 {
 
-                    LoadDakInboxinPanel(dakInbox.data.records);
+
+                    _dakInbox.SaveorUpdateDakInbox(dakInbox);
+                    if (dakInbox.data.records.Count > 0)
+                    {
+
+                        LoadDakInboxinPanel(dakInbox.data.records);
+
+
+                    }
 
                 }
+            }
+            catch
+            {
+               
+                try
+                {
+                    var dakInbox = _dakInbox.GetLocalDakInbox();
+                    if (dakInbox.data.records.Count > 0)
+                    {
+                        LoadDakInboxinPanel(dakInbox.data.records);
+                    }
+                }
+                catch
+                {
 
+                }
             }
         }
 
@@ -311,7 +356,7 @@ namespace dNothi.Desktop.UI
                 dakInboxUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
                 dakInboxUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
                 dakInboxUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
-                dakInboxUserControl.source = dakListInboxRecordsDTO.dak_origin.sender_name;
+                dakInboxUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
                 dakInboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
                 dakInboxUserControl.receiver = dakListInboxRecordsDTO.movement_status.to[0].officer;
                 dakInboxUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
@@ -364,8 +409,45 @@ namespace dNothi.Desktop.UI
 
         private void dakInboxButton_Click_1(object sender, EventArgs e)
         {
+
+           
+            ResetAllMenuButtonSelection();
+            SelectButton(dakInboxButton);
             DakListLoad();
             LoadDakInbox();
+        }
+
+        private void ResetAllMenuButtonSelection()
+        {
+            dakSearchButton.BackColor=Color.WhiteSmoke;
+            dakSearchButton.ForeColor = Color.Black;
+
+            dakArchiveButton.BackColor = Color.WhiteSmoke;
+            dakArchiveButton.ForeColor = Color.Black;
+
+            dakInboxButton.BackColor = Color.WhiteSmoke;
+            dakInboxButton.ForeColor = Color.Black;
+
+            dakOutboxButton.BackColor = Color.WhiteSmoke;
+            dakOutboxButton.ForeColor = Color.Black;
+
+
+            dakNothijatoButton.BackColor = Color.WhiteSmoke;
+            dakNothijatoButton.ForeColor = Color.Black;
+
+            dakNotivuktoButton.BackColor = Color.WhiteSmoke;
+            dakNotivuktoButton.ForeColor = Color.Black;
+
+            dakSortButton.BackColor = Color.WhiteSmoke;
+            dakSortButton.ForeColor = Color.Black;
+
+
+        }
+
+        private void SelectButton(Button button)
+        {
+            button.BackColor = Color.Silver;
+            button.ForeColor = Color.Blue;
         }
 
         private void dakOutboxButton_Click_1(object sender, EventArgs e)
@@ -458,6 +540,8 @@ namespace dNothi.Desktop.UI
 
         private void notvuktoDakButton_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             DakListLoad();
             LoadDakNothivukto();
         }
@@ -475,6 +559,7 @@ namespace dNothi.Desktop.UI
             var dakInbox = _dakNothivuktoService.GetNothivuktoDakList(dakListUserParam);
             if (dakInbox.status == "success")
             {
+                _dakNothivuktoService.SaveorUpdateDakNothivukto(dakInbox);
                
                 if (dakInbox.data.records.Count > 0)
                 {
@@ -498,7 +583,8 @@ namespace dNothi.Desktop.UI
                 dakNothivuktoUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
                 dakNothivuktoUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
                 dakNothivuktoUserControl.source = dakListInboxRecordsDTO.dak_origin.sender_name;
-                dakNothivuktoUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
+                dakNothivuktoUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
+
                 dakNothivuktoUserControl.receiver = dakListInboxRecordsDTO.movement_status.to[0].officer;
                 dakNothivuktoUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
                 dakNothivuktoUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
@@ -570,6 +656,10 @@ namespace dNothi.Desktop.UI
 
         private void dakArchiveButton_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
+
             DakListLoad();
             LoadDakArchive();
         }
@@ -587,7 +677,7 @@ namespace dNothi.Desktop.UI
             var dakArchive = _dakListArchiveService.GetDakList(dakListUserParam);
             if (dakArchive.status == "success")
             {
-
+                _dakListArchiveService.SaveorUpdateDakArchive(dakArchive);
                 if (dakArchive.data.records.Count > 0)
                 {
 
@@ -609,7 +699,8 @@ namespace dNothi.Desktop.UI
                 dakArchiveUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
                 dakArchiveUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
                 dakArchiveUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
-                dakArchiveUserControl.source = dakListInboxRecordsDTO.dak_origin.sender_name;
+                dakArchiveUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
+
                 dakArchiveUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
                 dakArchiveUserControl.receiver = dakListInboxRecordsDTO.movement_status.to[0].officer;
                 dakArchiveUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
@@ -641,6 +732,8 @@ namespace dNothi.Desktop.UI
 
         private void dakOutboxButton_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             DakListLoad();
             LoadDakOutbox();
         }
@@ -664,7 +757,7 @@ namespace dNothi.Desktop.UI
             var dakNothijato = _dakNothijatoService.GetNothijatoDak(dakListUserParam);
             if (dakNothijato.status == "success")
             {
-
+                _dakNothijatoService.SaveorUpdateDakNothijato(dakNothijato);
                 if (dakNothijato.data.records.Count > 0)
                 {
 
@@ -687,7 +780,8 @@ namespace dNothi.Desktop.UI
                 dakNothijatoUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
                 dakNothijatoUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
                 dakNothijatoUserControl.source = dakListInboxRecordsDTO.dak_origin.sender_name;
-                dakNothijatoUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
+                dakNothijatoUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
+
                 dakNothijatoUserControl.receiver = dakListInboxRecordsDTO.movement_status.to[0].officer;
                 dakNothijatoUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
                 dakNothijatoUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
@@ -718,17 +812,23 @@ namespace dNothi.Desktop.UI
 
         private void nothijatoButton_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             DakListLoad();
             LoadDakNothijato();
         }
 
         private void dakSearchButton_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             DakListLoad();
         }
 
         private void dakSortButton_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             DakListLoad();
         }
     }

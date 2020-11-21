@@ -13,7 +13,8 @@ namespace dNothi.Infrastructure.Mappings.Dak
         public DakListRecordMap()
         {
             this.ToTable("DakListRecord");
-
+            this.HasMany(t => t.dak_Tags).WithRequired().HasForeignKey(f => f.DakListRecordId);
+            this.HasMany(t => t.dak_List).WithRequired().HasForeignKey(f => f.dakListRecordId);
         }
     }
 }

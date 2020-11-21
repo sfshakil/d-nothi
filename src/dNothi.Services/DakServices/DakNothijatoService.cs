@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
 using Newtonsoft.Json;
 using RestSharp;
@@ -11,6 +13,13 @@ namespace dNothi.Services.DakServices
 {
     public class DakNothijatoService : IDakNothijatoService
     {
+        IRepository<DakNothijato> _dakNothijato;
+        IDakListService _dakListService { get; set; }
+        public DakNothijatoService(IRepository<DakNothijato> dakNothijato, IDakListService dakListService)
+        {
+            _dakNothijato = dakNothijato;
+            _dakListService = dakListService;
+        }
         public DakListNothijatoResponse GetNothijatoDak(DakListUserParam dakListUserParam)
         {
             try
@@ -37,6 +46,28 @@ namespace dNothi.Services.DakServices
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+
+        public void SaveorUpdateDakNothijato(DakListNothijatoResponse dakListNothijatoResponse)
+        {
+            DakNothijato dakNothijato = new DakNothijato();
+            dakNothijato.status = dakListNothijatoResponse.status;
+            dakNothijato.dak_list_record_id = _dakListService.SaveOrUpdateDakInbox(dakListNothijatoResponse.data);
+
+            var dbdakNothijato = _dakNothijato.Table.FirstOrDefault();
+            if (dbdakNothijato != null)
+            {
+                _dakNothijato.Delete(dbdakNothijato);
+            }
+
+            try
+            {
+                _dakNothijato.Insert(dakNothijato);
+            }
+            catch
+            {
+
             }
         }
     }

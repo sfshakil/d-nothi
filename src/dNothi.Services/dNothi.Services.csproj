@@ -43,6 +43,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
     </Reference>
@@ -98,12 +101,14 @@
     <Compile Include="AccountServices\TokenService.cs" />
     <Compile Include="DakServices\DakInboxService.cs" />
     <Compile Include="DakServices\DakListArchiveService.cs" />
+    <Compile Include="DakServices\DakListService.cs" />
     <Compile Include="DakServices\DakListUserParam.cs" />
     <Compile Include="DakServices\DakNothijatoService.cs" />
     <Compile Include="DakServices\DakNothivuktoService.cs" />
     <Compile Include="DakServices\DakOutboxService.cs" />
     <Compile Include="DakServices\IDakInboxServices.cs" />
     <Compile Include="DakServices\IDakListArchiveService.cs" />
+    <Compile Include="DakServices\IDakListService.cs" />
     <Compile Include="DakServices\IDakNothijatoService.cs" />
     <Compile Include="DakServices\IDakNothivuktoService.cs" />
     <Compile Include="DakServices\IDakOutboxService.cs" />

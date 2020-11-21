@@ -67,6 +67,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="DakPriorityList.cs" />
     <Compile Include="dakSecurityIconList.cs" />
+    <Compile Include="CheckNagorikDakType.cs" />
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="EmailSender.cs" />
     <Compile Include="IDelayedProvider.cs" />

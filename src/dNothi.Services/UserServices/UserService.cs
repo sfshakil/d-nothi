@@ -23,6 +23,7 @@ namespace dNothi.Services.UserServices
         IRepository<EmployeeInfo> _employeeRepository;
         IRepository<OfficeInfo> _officeRepository;
         IRepository<UserToken> _userTokenRepository;
+        private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public UserService(IUserMessageParser userMessageParser,
         IRepository<User> userrepository,
         IRepository<EmployeeInfo> employeeRepository,
@@ -60,6 +61,8 @@ namespace dNothi.Services.UserServices
             {
                 throw;
             }
+
+            
         }
 
         public EmployeeInfoDTO GetEmployeeInfo()
@@ -70,6 +73,7 @@ namespace dNothi.Services.UserServices
                 );
             var mapper = new Mapper(config);
             var employeeInfoDTO = mapper.Map<EmployeeInfoDTO>(empInfo);
+           
             return employeeInfoDTO;
         }
 
@@ -206,6 +210,7 @@ namespace dNothi.Services.UserServices
                 dakListUserParam.token = GetToken();
                 dakListUserParam.officeId = officeInfo.office_id;
                 dakListUserParam.designationId = officeInfo.office_unit_organogram_id;
+               
             }
             catch
             {
@@ -214,5 +219,7 @@ namespace dNothi.Services.UserServices
 
             return dakListUserParam;
         }
+
+        
     }
 }

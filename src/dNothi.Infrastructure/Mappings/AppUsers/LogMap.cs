@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dNothi.Infrastructure.Mappings.Dak
+namespace dNothi.Infrastructure.Mappings.AppUsers
 {
-    public class NothiMap : NothiEntityTypeConfiguration<DakNothi>
+    public class LogMap : NothiEntityTypeConfiguration<Log>
     {
-        public NothiMap()
+        public LogMap()
         {
-            this.ToTable("DakNothi");
-
+            this.ToTable("Log");
+            this.HasKey(a => a.Id);
         }
     }
 }
