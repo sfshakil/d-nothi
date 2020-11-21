@@ -183,6 +183,18 @@
     <Compile Include="UI\Dak\NothiOutbox.Designer.cs">
       <DependentUpon>NothiOutbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiType.Designer.cs">
+      <DependentUpon>NothiType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiTypeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiTypeList.Designer.cs">
+      <DependentUpon>NothiTypeList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Nothi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutbox.resx">
       <DependentUpon>NothiOutbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiType.resx">
+      <DependentUpon>NothiType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiTypeList.resx">
+      <DependentUpon>NothiTypeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Nothi.resx">
       <DependentUpon>Nothi.cs</DependentUpon>

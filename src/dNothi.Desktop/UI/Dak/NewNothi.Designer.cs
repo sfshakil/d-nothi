@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewNothi));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnNothi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -42,7 +41,6 @@
             this.button11 = new System.Windows.Forms.Button();
             this.xTextBox1 = new dNothi.Desktop.XTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnGuidelines = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
@@ -53,6 +51,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnGuidelines = new System.Windows.Forms.Button();
+            this.btnNothiTypeList = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,29 +61,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnNothi);
+            this.panel1.Controls.Add(this.btnNothiTypeList);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1121, 60);
             this.panel1.TabIndex = 0;
-            // 
-            // btnNothi
-            // 
-            this.btnNothi.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNothi.FlatAppearance.BorderColor = System.Drawing.Color.LightSalmon;
-            this.btnNothi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothi.ForeColor = System.Drawing.Color.LightSalmon;
-            this.btnNothi.Image = ((System.Drawing.Image)(resources.GetObject("btnNothi.Image")));
-            this.btnNothi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNothi.Location = new System.Drawing.Point(990, 14);
-            this.btnNothi.Name = "btnNothi";
-            this.btnNothi.Size = new System.Drawing.Size(117, 39);
-            this.btnNothi.TabIndex = 20;
-            this.btnNothi.Text = "ধরনের তালিকা";
-            this.btnNothi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNothi.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -222,20 +206,6 @@
             this.label5.TabIndex = 39;
             this.label5.Text = "নথির বিষয়:";
             // 
-            // btnGuidelines
-            // 
-            this.btnGuidelines.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnGuidelines.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGuidelines.BackgroundImage")));
-            this.btnGuidelines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuidelines.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnGuidelines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuidelines.Location = new System.Drawing.Point(994, 24);
-            this.btnGuidelines.Name = "btnGuidelines";
-            this.btnGuidelines.Size = new System.Drawing.Size(25, 23);
-            this.btnGuidelines.TabIndex = 38;
-            this.btnGuidelines.UseVisualStyleBackColor = false;
-            this.btnGuidelines.Click += new System.EventHandler(this.btnGuidelines_Click);
-            // 
             // comboBox2
             // 
             this.comboBox2.BackColor = System.Drawing.Color.White;
@@ -358,6 +328,37 @@
             this.label6.TabIndex = 28;
             this.label6.Text = "নথির শাখা:";
             // 
+            // btnGuidelines
+            // 
+            this.btnGuidelines.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btnGuidelines.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGuidelines.BackgroundImage")));
+            this.btnGuidelines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuidelines.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnGuidelines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuidelines.Location = new System.Drawing.Point(994, 24);
+            this.btnGuidelines.Name = "btnGuidelines";
+            this.btnGuidelines.Size = new System.Drawing.Size(25, 23);
+            this.btnGuidelines.TabIndex = 38;
+            this.btnGuidelines.UseVisualStyleBackColor = false;
+            this.btnGuidelines.Click += new System.EventHandler(this.btnGuidelines_Click);
+            // 
+            // btnNothiTypeList
+            // 
+            this.btnNothiTypeList.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNothiTypeList.FlatAppearance.BorderColor = System.Drawing.Color.LightSalmon;
+            this.btnNothiTypeList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiTypeList.ForeColor = System.Drawing.Color.LightSalmon;
+            this.btnNothiTypeList.Image = ((System.Drawing.Image)(resources.GetObject("btnNothiTypeList.Image")));
+            this.btnNothiTypeList.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNothiTypeList.Location = new System.Drawing.Point(990, 14);
+            this.btnNothiTypeList.Name = "btnNothiTypeList";
+            this.btnNothiTypeList.Size = new System.Drawing.Size(117, 39);
+            this.btnNothiTypeList.TabIndex = 20;
+            this.btnNothiTypeList.Text = "ধরনের তালিকা";
+            this.btnNothiTypeList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNothiTypeList.UseVisualStyleBackColor = false;
+            this.btnNothiTypeList.Click += new System.EventHandler(this.btnNothiTypeList_Click);
+            // 
             // NewNothi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,7 +380,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnNothi;
+        private System.Windows.Forms.Button btnNothiTypeList;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
