@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -23,6 +24,15 @@ namespace dNothi.Desktop.UI.Dak
             nothiGuidelines.Location = new System.Drawing.Point(0,0);
             Controls.Add(nothiGuidelines);
             nothiGuidelines.BringToFront();
+        }
+
+        private void btnNothiTypeList_Click(object sender, EventArgs e)
+        {
+            NothiType nothiType = new NothiType();
+            nothiType.Visible = true;
+            nothiType.Location = new System.Drawing.Point(550, 0);
+            Controls.Add(nothiType);
+            nothiType.BringToFront();
         }
     }
 }

@@ -7,23 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class NothiGuidelines : UserControl
+    public partial class NothiType : UserControl
     {
-        public NothiGuidelines()
+        public NothiType()
         {
             InitializeComponent();
-            flpNothiGuidelines.AutoScroll = true;
-            flpNothiGuidelines.FlowDirection = FlowDirection.TopDown;
-            flpNothiGuidelines.WrapContents = false;
+
         }
 
-        private void btnCross_Click(object sender, EventArgs e)
+
+        private void btnNothiTypeCross_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-
         }
     }
 }
