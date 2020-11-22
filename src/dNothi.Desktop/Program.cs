@@ -20,6 +20,7 @@ using System.Windows.Forms;
 using dNothi.Services.NothiServices;
 using dNothi.Desktop.UI;
 using System.Threading;
+using dNothi.Desktop.UI.Dak;
 
 namespace dNothi.Desktop
 {
@@ -141,8 +142,10 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<UI.Nothi>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
+            builder.RegisterType<NothiType>().AsSelf();
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());
+            UserControlFactory.Use(container.Resolve<IUserControlFactory>());
         }
     }
 }

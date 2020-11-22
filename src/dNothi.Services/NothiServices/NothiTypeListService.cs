@@ -15,7 +15,7 @@ namespace dNothi.Services.NothiServices
         {
             try
             {
-                var client = new RestClient("https://a2i.nothibs.tappware.com/api/nothi/list/inbox");
+                var client = new RestClient("https://a2i.nothibs.tappware.com/api/nothi/type/list");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("api-version", "1");
@@ -27,7 +27,6 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("office_unit_id", "40372");
                 IRestResponse response = client.Execute(request);
                 Console.WriteLine(response.Content);
-
 
                 var responseJson = response.Content;
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();

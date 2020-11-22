@@ -52,16 +52,12 @@ namespace dNothi.Desktop.UI
 
 
         public Dashboard(List<DakListRecordsDTO> dakLists)
-
         {
-
             InitializeComponent();
-
             HideSubmenu();
             detailsDakSearcPanel.Visible = false;
             nameorDesignationSearchPanel.Visible = false;
             LoadReadDakComboBox();
-
         }
 
         private void LoadReadDakComboBox()
@@ -409,8 +405,6 @@ namespace dNothi.Desktop.UI
 
         private void dakInboxButton_Click_1(object sender, EventArgs e)
         {
-
-           
             ResetAllMenuButtonSelection();
             SelectButton(dakInboxButton);
             DakListLoad();
@@ -658,7 +652,6 @@ namespace dNothi.Desktop.UI
         {
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
-
 
             DakListLoad();
             LoadDakArchive();
