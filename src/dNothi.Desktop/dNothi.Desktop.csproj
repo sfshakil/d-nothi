@@ -121,6 +121,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutofacUserControlFactory.cs" />
     <Compile Include="AutofacFormFactory.cs" />
     <Compile Include="CustomControl\CircularButtin.cs">
       <SubType>Component</SubType>
@@ -128,6 +129,7 @@
     <Compile Include="CustomControl\CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Interfaces\IUserControlFactory.cs" />
     <Compile Include="UI\Dak\DakArchiveUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -212,6 +214,7 @@
     <Compile Include="UI\Nothi.Designer.cs">
       <DependentUpon>Nothi.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlFactory.cs" />
     <Compile Include="UserControl\designationSelect.cs">
       <SubType>UserControl</SubType>
     </Compile>

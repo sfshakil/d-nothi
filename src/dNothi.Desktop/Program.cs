@@ -136,6 +136,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
+            builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<UI.Nothi>().AsSelf();
