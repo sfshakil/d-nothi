@@ -45,7 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.nothiTypeListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -229,13 +229,13 @@
             this.label2.TabIndex = 45;
             this.label2.Text = "মোট";
             // 
-            // flowLayoutPanel1
+            // nothiTypeListFlowLayoutPanel
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 336);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(554, 297);
-            this.flowLayoutPanel1.TabIndex = 47;
+            this.nothiTypeListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nothiTypeListFlowLayoutPanel.Location = new System.Drawing.Point(0, 336);
+            this.nothiTypeListFlowLayoutPanel.Name = "nothiTypeListFlowLayoutPanel";
+            this.nothiTypeListFlowLayoutPanel.Size = new System.Drawing.Size(554, 297);
+            this.nothiTypeListFlowLayoutPanel.TabIndex = 47;
             // 
             // NothiType
             // 
@@ -243,7 +243,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.nothiTypeListFlowLayoutPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -275,7 +275,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel nothiTypeListFlowLayoutPanel;
         private System.Windows.Forms.Button btnNothiTypeCross;
     }
 }

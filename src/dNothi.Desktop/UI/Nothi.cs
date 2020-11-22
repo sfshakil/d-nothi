@@ -63,7 +63,6 @@ namespace dNothi.Desktop.UI
 
         private void LoadNothiInboxinPanel(List<NothiListRecordsDTO> nothiLists)
         {
-            
             List<NothiInbox> nothiInboxs = new List<NothiInbox>();
             int i = 0;
             foreach (NothiListRecordsDTO nothiListRecordsDTO in nothiLists)

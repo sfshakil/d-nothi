@@ -96,6 +96,8 @@
     <Compile Include="Entity\Nothi\NothiListRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxListRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiTypeListDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiTypeListResponse.cs" />
     <Compile Include="Entity\Nothi\StatusAllDTO.cs" />
     <Compile Include="Entity\Nothi\ToOutboxDTO.cs" />
     <Compile Include="Entity\OfficeInfoDTO.cs" />

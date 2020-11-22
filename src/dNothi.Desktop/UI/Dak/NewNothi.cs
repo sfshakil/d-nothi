@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Text;
+using dNothi.Services.UserServices;
+using dNothi.Services.NothiServices;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -28,11 +30,11 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnNothiTypeList_Click(object sender, EventArgs e)
         {
-            NothiType nothiType = new NothiType();
-            nothiType.Visible = true;
-            nothiType.Location = new System.Drawing.Point(550, 0);
-            Controls.Add(nothiType);
-            nothiType.BringToFront();
+            //var nothiType = UserControlFactory.Create<NothiType>();
+            //nothiType.Visible = true;
+            //nothiType.Location = new System.Drawing.Point(550, 0);
+            //Controls.Add(nothiType);
+            //nothiType.BringToFront();
         }
     }
 }

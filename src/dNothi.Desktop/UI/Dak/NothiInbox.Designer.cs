@@ -36,7 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.btnNotes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbNoteLastDate
@@ -114,18 +114,18 @@
             this.button1.TabIndex = 35;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // button14
+            // btnNotes
             // 
-            this.button14.BackColor = System.Drawing.Color.SkyBlue;
-            this.button14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button14.BackgroundImage")));
-            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button14.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(28, 19);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(33, 37);
-            this.button14.TabIndex = 34;
-            this.button14.UseVisualStyleBackColor = false;
+            this.btnNotes.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnNotes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNotes.BackgroundImage")));
+            this.btnNotes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnNotes.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
+            this.btnNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotes.Location = new System.Drawing.Point(28, 19);
+            this.btnNotes.Name = "btnNotes";
+            this.btnNotes.Size = new System.Drawing.Size(33, 37);
+            this.btnNotes.TabIndex = 34;
+            this.btnNotes.UseVisualStyleBackColor = false;
             // 
             // NothiInbox
             // 
@@ -138,7 +138,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button14);
+            this.Controls.Add(this.btnNotes);
             this.Name = "NothiInbox";
             this.Size = new System.Drawing.Size(1121, 82);
             this.ResumeLayout(false);
@@ -155,6 +155,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button btnNotes;
     }
 }

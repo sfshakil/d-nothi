@@ -133,7 +133,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
-            
+            builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
 

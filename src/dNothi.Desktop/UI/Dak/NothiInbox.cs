@@ -49,5 +49,6 @@ namespace dNothi.Desktop.UI.Dak
             get { return _lastdate; }
             set { _lastdate = value; lbNoteLastDate.Text = value; }
         }
+
     }
 }
