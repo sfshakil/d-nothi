@@ -30,11 +30,11 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnNothiTypeList_Click(object sender, EventArgs e)
         {
-            //var nothiType = UserControlFactory.Create<NothiType>();
-            //nothiType.Visible = true;
-            //nothiType.Location = new System.Drawing.Point(550, 0);
-            //Controls.Add(nothiType);
-            //nothiType.BringToFront();
+            var nothiType = UserControlFactory.Create<NothiType>();
+            nothiType.Visible = true;
+            nothiType.Location = new System.Drawing.Point(550, 0);
+            Controls.Add(nothiType);
+            nothiType.BringToFront();
         }
     }
 }
