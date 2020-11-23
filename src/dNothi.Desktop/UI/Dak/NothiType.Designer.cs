@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNothiTypeCross = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnNewNothiCreate = new System.Windows.Forms.Button();
             this.xTextBox1 = new dNothi.Desktop.XTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,7 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbTotalNothi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nothiTypeListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
@@ -85,19 +85,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "নথি ধরনের তালিকা";
             // 
-            // button11
+            // btnNewNothiCreate
             // 
-            this.button11.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(23, 40);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(140, 43);
-            this.button11.TabIndex = 42;
-            this.button11.Text = "নতুন ধরন তৈরি করুন";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btnNewNothiCreate.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnNewNothiCreate.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewNothiCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewNothiCreate.ForeColor = System.Drawing.Color.White;
+            this.btnNewNothiCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewNothiCreate.Location = new System.Drawing.Point(23, 40);
+            this.btnNewNothiCreate.Name = "btnNewNothiCreate";
+            this.btnNewNothiCreate.Size = new System.Drawing.Size(140, 43);
+            this.btnNewNothiCreate.TabIndex = 42;
+            this.btnNewNothiCreate.Text = "নতুন ধরন তৈরি করুন";
+            this.btnNewNothiCreate.UseVisualStyleBackColor = false;
+            this.btnNewNothiCreate.Click += new System.EventHandler(this.btnNewNothiCreate_Click);
             // 
             // xTextBox1
             // 
@@ -126,7 +127,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button11);
+            this.panel2.Controls.Add(this.btnNewNothiCreate);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 74);
             this.panel2.Name = "panel2";
@@ -141,7 +142,7 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.lbTotalNothi);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.xTextBox1);
@@ -210,15 +211,15 @@
             this.label4.TabIndex = 47;
             this.label4.Text = "টি নথির ধরন পাওয়া গেছে";
             // 
-            // label3
+            // lbTotalNothi
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(56, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 13);
-            this.label3.TabIndex = 46;
-            this.label3.Text = "11";
+            this.lbTotalNothi.AutoSize = true;
+            this.lbTotalNothi.BackColor = System.Drawing.SystemColors.Control;
+            this.lbTotalNothi.Location = new System.Drawing.Point(56, 61);
+            this.lbTotalNothi.Name = "lbTotalNothi";
+            this.lbTotalNothi.Size = new System.Drawing.Size(19, 13);
+            this.lbTotalNothi.TabIndex = 46;
+            this.lbTotalNothi.Text = "00";
             // 
             // label2
             // 
@@ -262,7 +263,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnNewNothiCreate;
         private XTextBox xTextBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
@@ -274,7 +275,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbTotalNothi;
         private System.Windows.Forms.FlowLayoutPanel nothiTypeListFlowLayoutPanel;
         private System.Windows.Forms.Button btnNothiTypeCross;
     }

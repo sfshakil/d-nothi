@@ -259,9 +259,10 @@ namespace dNothi.Desktop.UI
         {
             gardFileDropDownPanel.Visible = false;
         }
-        NewNothi newNothi = new NewNothi();
+        public dynamic newNothi = UserControlFactory.Create<NewNothi>();
         private void btnNewNothi_Click(object sender, EventArgs e)
         {
+            
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             newNothi.Visible = true;

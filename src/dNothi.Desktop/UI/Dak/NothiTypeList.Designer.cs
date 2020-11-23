@@ -29,53 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NothiTypeList));
-            this.txtSerialNo = new dNothi.Desktop.XTextBox();
-            this.txtNothiSubjectType = new dNothi.Desktop.XTextBox();
-            this.txtNothiCode = new dNothi.Desktop.XTextBox();
-            this.txtNothiNumber = new dNothi.Desktop.XTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.lbNothiSubjectType = new System.Windows.Forms.Label();
+            this.lbNothiCode = new System.Windows.Forms.Label();
+            this.lbNothiNumber = new System.Windows.Forms.Label();
+            this.lblSerialNo = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // txtSerialNo
-            // 
-            this.txtSerialNo.BackColor = System.Drawing.Color.White;
-            this.txtSerialNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSerialNo.Location = new System.Drawing.Point(20, 12);
-            this.txtSerialNo.Multiline = true;
-            this.txtSerialNo.Name = "txtSerialNo";
-            this.txtSerialNo.Size = new System.Drawing.Size(44, 35);
-            this.txtSerialNo.TabIndex = 31;
-            // 
-            // txtNothiSubjectType
-            // 
-            this.txtNothiSubjectType.BackColor = System.Drawing.Color.White;
-            this.txtNothiSubjectType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNothiSubjectType.Location = new System.Drawing.Point(81, 12);
-            this.txtNothiSubjectType.Multiline = true;
-            this.txtNothiSubjectType.Name = "txtNothiSubjectType";
-            this.txtNothiSubjectType.Size = new System.Drawing.Size(199, 63);
-            this.txtNothiSubjectType.TabIndex = 32;
-            // 
-            // txtNothiCode
-            // 
-            this.txtNothiCode.BackColor = System.Drawing.Color.White;
-            this.txtNothiCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNothiCode.Location = new System.Drawing.Point(286, 12);
-            this.txtNothiCode.Multiline = true;
-            this.txtNothiCode.Name = "txtNothiCode";
-            this.txtNothiCode.Size = new System.Drawing.Size(44, 35);
-            this.txtNothiCode.TabIndex = 33;
-            // 
-            // txtNothiNumber
-            // 
-            this.txtNothiNumber.BackColor = System.Drawing.Color.White;
-            this.txtNothiNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNothiNumber.Location = new System.Drawing.Point(347, 12);
-            this.txtNothiNumber.Multiline = true;
-            this.txtNothiNumber.Name = "txtNothiNumber";
-            this.txtNothiNumber.Size = new System.Drawing.Size(44, 35);
-            this.txtNothiNumber.TabIndex = 34;
             // 
             // button1
             // 
@@ -86,7 +46,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(412, 12);
+            this.button1.Location = new System.Drawing.Point(410, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(37, 35);
             this.button1.TabIndex = 45;
@@ -101,36 +61,73 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(446, 12);
+            this.button3.Location = new System.Drawing.Point(444, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(35, 35);
             this.button3.TabIndex = 47;
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // lbNothiSubjectType
+            // 
+            this.lbNothiSubjectType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiSubjectType.Location = new System.Drawing.Point(81, 12);
+            this.lbNothiSubjectType.Name = "lbNothiSubjectType";
+            this.lbNothiSubjectType.Size = new System.Drawing.Size(199, 68);
+            this.lbNothiSubjectType.TabIndex = 50;
+            this.lbNothiSubjectType.Text = "NothiSubjectType";
+            // 
+            // lbNothiCode
+            // 
+            this.lbNothiCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiCode.Location = new System.Drawing.Point(284, 12);
+            this.lbNothiCode.Name = "lbNothiCode";
+            this.lbNothiCode.Size = new System.Drawing.Size(44, 35);
+            this.lbNothiCode.TabIndex = 51;
+            this.lbNothiCode.Text = "NothiCode";
+            this.lbNothiCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbNothiNumber
+            // 
+            this.lbNothiNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiNumber.Location = new System.Drawing.Point(345, 12);
+            this.lbNothiNumber.Name = "lbNothiNumber";
+            this.lbNothiNumber.Size = new System.Drawing.Size(44, 35);
+            this.lbNothiNumber.TabIndex = 52;
+            this.lbNothiNumber.Text = "NothiCode";
+            this.lbNothiNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSerialNo
+            // 
+            this.lblSerialNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSerialNo.Location = new System.Drawing.Point(20, 12);
+            this.lblSerialNo.Name = "lblSerialNo";
+            this.lblSerialNo.Size = new System.Drawing.Size(44, 35);
+            this.lblSerialNo.TabIndex = 53;
+            this.lblSerialNo.Text = "SerialNo";
+            this.lblSerialNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // NothiTypeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblSerialNo);
+            this.Controls.Add(this.lbNothiNumber);
+            this.Controls.Add(this.lbNothiCode);
+            this.Controls.Add(this.lbNothiSubjectType);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtNothiNumber);
-            this.Controls.Add(this.txtNothiCode);
-            this.Controls.Add(this.txtNothiSubjectType);
-            this.Controls.Add(this.txtSerialNo);
             this.Name = "NothiTypeList";
-            this.Size = new System.Drawing.Size(556, 103);
+            this.Size = new System.Drawing.Size(541, 103);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private XTextBox txtSerialNo;
-        private XTextBox txtNothiSubjectType;
-        private XTextBox txtNothiCode;
-        private XTextBox txtNothiNumber;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lbNothiSubjectType;
+        private System.Windows.Forms.Label lbNothiCode;
+        private System.Windows.Forms.Label lbNothiNumber;
+        private System.Windows.Forms.Label lblSerialNo;
     }
 }

@@ -33,9 +33,9 @@ namespace dNothi.Desktop.UI.Dak
             {
                 if (nothiType.data.Count > 0)
                 {
-
                     LoadNothiTypeListinPanel(nothiType.data);
-
+                    int value = nothiType.data.Count;
+                    totalNothi = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 }
             }
         }
@@ -70,6 +70,23 @@ namespace dNothi.Desktop.UI.Dak
         private void btnNothiTypeCross_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+        }
+        private string _totalNothi;
+
+        [Category("Custom Props")]
+        public string totalNothi
+        {
+            get { return _totalNothi; }
+            set { _totalNothi = value; lbTotalNothi.Text = value; }
+        }
+
+        private void btnNewNothiCreate_Click(object sender, EventArgs e)
+        {
+            var createNewNothiType = UserControlFactory.Create<CreateNewNothiType>();
+            createNewNothiType.Visible = true;
+            createNewNothiType.Location = new System.Drawing.Point(0, 74);
+            Controls.Add(createNewNothiType);
+            createNewNothiType.BringToFront();
         }
     }
 }
