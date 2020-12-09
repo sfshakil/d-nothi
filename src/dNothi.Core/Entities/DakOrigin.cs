@@ -9,7 +9,10 @@ namespace dNothi.Core.Entities
 {
     public class DakOrigin:BaseEntity
     {
+
+        public int dak_origin_id { get; set; }
        
+
         public string name_eng { get; set; }
         public string name_bng { get; set; }
         public string sender_name { get; set; }
@@ -31,5 +34,9 @@ namespace dNothi.Core.Entities
         public string sender_office_unit_name { get; set; }
         public int sender_officer_designation_id { get; set; }
         public string sender_officer_designation_label { get; set; }
+
+
+
+        
     }
 }

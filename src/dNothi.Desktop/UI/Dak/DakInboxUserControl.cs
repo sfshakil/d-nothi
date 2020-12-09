@@ -28,8 +28,25 @@ namespace dNothi.Desktop.UI.Dak
             newDakImagePanel.Visible = false;
             dakTypePanel.Visible = false;
             potrojariPanel.Visible = false;
-            
-            
+            IterateControls(this.Controls);
+
+          
+
+
+
+        }
+
+        void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+                ctrl.Click += DakInboxUserControl_Click;
+                ctrl.MouseEnter += DakInboxUserControl_MouseEnter;
+                ctrl.MouseLeave += DakInboxUserControl_MouseLeave;
+                IterateControls(ctrl.Controls);
+            }
+          
         }
 
         private string _source;
@@ -46,6 +63,28 @@ namespace dNothi.Desktop.UI.Dak
         private string _dakPriority;
         private int _potrojari;
         private int _dakAttachmentCount;
+        private int _dakid;
+
+
+        public new event EventHandler Click
+        {
+            add
+            {
+                base.Click += value;
+                foreach (Control control in Controls)
+                {
+                    control.Click += value;
+                }
+            }
+            remove
+            {
+                base.Click -= value;
+                foreach (Control control in Controls)
+                {
+                    control.Click -= value;
+                }
+            }
+        }
 
         [Category("Custom Props")]
         public int dakAttachmentCount
@@ -53,6 +92,14 @@ namespace dNothi.Desktop.UI.Dak
             get { return _dakAttachmentCount; }
             set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
+
+        [Category("Custom Props")]
+        public int dakid
+        {
+            get { return _dakid; }
+            set { _dakid = value; }
+        }
+
         [Category("Custom Props")]
         public int potrojari
         {
@@ -229,7 +276,7 @@ namespace dNothi.Desktop.UI.Dak
             if(dakViewStatus== "New")
                 {
                     newDakImagePanel.Visible = true;
-                    subjectLabel.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+                   
 
                 }
             else
@@ -284,6 +331,54 @@ namespace dNothi.Desktop.UI.Dak
             set { _date = value; dateLabel.Text = value; }
         }
 
-       
+        private void DakInboxUserControl_MouseEnter(object sender, EventArgs e)
+        {
+           
+                this.BackColor = Color.WhiteSmoke;
+               
+           
+          
+            
+        }
+
+        private void DakInboxUserControl_MouseLeave(object sender, EventArgs e)
+        {
+            
+                this.BackColor = Color.White;
+              
+          
+        
+        }
+
+        private void DakInboxUserControl_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void DakInboxUserControl_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler ButtonClick;
+        private void DakInboxUserControl_Click(object sender, EventArgs e)
+        {
+            
+           
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+
+      
+
+
+      
+        private void dakMovementButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

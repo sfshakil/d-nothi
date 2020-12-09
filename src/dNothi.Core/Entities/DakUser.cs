@@ -25,6 +25,7 @@ namespace dNothi.Core.Entities
         public string dak_category { get; set; }
         public string dak_subject { get; set; }
         public string dak_decision { get; set; }
+        [MaxLength]
         public string drafted_decisions { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace dNothi.Core.Entities
     public class DakNothi:BaseEntity
     {
         public int nothi_master_id { get; set; }
+        public int nothi_id { get; set; }
         public int nothi_note_id { get; set; }
         public int nothi_potro_id { get; set; }
         public int dak_id { get; set; }

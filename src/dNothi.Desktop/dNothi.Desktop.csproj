@@ -129,6 +129,17 @@
     <Compile Include="CustomControl\CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomControl\MovementStatusSliderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\MovementStatusSliderPanel.Designer.cs">
+      <DependentUpon>MovementStatusSliderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IUserControlFactory.cs" />
     <Compile Include="UI\Dak\CreateNewNothiType.cs">
       <SubType>UserControl</SubType>
@@ -148,6 +159,12 @@
     <Compile Include="UI\Dak\DakInboxUserControl.Designer.cs">
       <DependentUpon>DakInboxUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakMovementStatusListUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakMovementStatusListUserControl.Designer.cs">
+      <DependentUpon>DakMovementStatusListUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DakNothijatoUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,11 +183,47 @@
     <Compile Include="UI\Dak\DakOutboxUserControl.Designer.cs">
       <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakSendUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakSendUserControl.Designer.cs">
+      <DependentUpon>DakSendUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DakSortedUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Dak\DakSortedUserControl.Designer.cs">
       <DependentUpon>DakSortedUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\detailsAttachmentListUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\detailsAttachmentListUserControl.Designer.cs">
+      <DependentUpon>detailsAttachmentListUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\detailsAttachmentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\detailsAttachmentUserControl.Designer.cs">
+      <DependentUpon>detailsAttachmentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DetailsDakUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DetailsDakUserControl.Designer.cs">
+      <DependentUpon>DetailsDakUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\movementStatusDetailsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\movementStatusDetailsUserControl.Designer.cs">
+      <DependentUpon>movementStatusDetailsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\MovementStatusLeftSidePicUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\MovementStatusLeftSidePicUserControl.Designer.cs">
+      <DependentUpon>MovementStatusLeftSidePicUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\NewNothi.cs">
       <SubType>UserControl</SubType>
@@ -226,6 +279,7 @@
     <Compile Include="UI\Nothi.Designer.cs">
       <DependentUpon>Nothi.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\VIew\DakListView.cs" />
     <Compile Include="UserControlFactory.cs" />
     <Compile Include="UserControl\designationSelect.cs">
       <SubType>UserControl</SubType>
@@ -273,6 +327,9 @@
     <EmbeddedResource Include="UI\Dak\DakInboxUserControl.resx">
       <DependentUpon>DakInboxUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakMovementStatusListUserControl.resx">
+      <DependentUpon>DakMovementStatusListUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakNothijatoUserControl.resx">
       <DependentUpon>DakNothijatoUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,8 +339,26 @@
     <EmbeddedResource Include="UI\Dak\DakOutboxUserControl.resx">
       <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakSendUserControl.resx">
+      <DependentUpon>DakSendUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakSortedUserControl.resx">
       <DependentUpon>DakSortedUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\detailsAttachmentListUserControl.resx">
+      <DependentUpon>detailsAttachmentListUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\detailsAttachmentUserControl.resx">
+      <DependentUpon>detailsAttachmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DetailsDakUserControl.resx">
+      <DependentUpon>DetailsDakUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\movementStatusDetailsUserControl.resx">
+      <DependentUpon>movementStatusDetailsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\MovementStatusLeftSidePicUserControl.resx">
+      <DependentUpon>MovementStatusLeftSidePicUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NewNothi.resx">
       <DependentUpon>NewNothi.cs</DependentUpon>
@@ -323,14 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,6 +457,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\icons8-edit-property-24.png" />
+    <None Include="Resources\Edit_Icon.png" />
+    <None Include="Resources\DamiProfile.jpg" />
+    <None Include="Resources\dakMovementIcon.png" />
+    <None Include="Resources\PDF_File_Icon.png" />
+    <None Include="Resources\Other_File_Icon.png" />
+    <None Include="Resources\Image_File_Icon.png" />
+    <None Include="Resources\mulpotro3.png" />
+    <None Include="Resources\icons8-share-241.png" />
+    <None Include="Resources\icons8-download-from-cloud-641.png" />
+    <None Include="Resources\icons8-pdf-24.png" />
+    <None Include="Resources\mulpotro.png" />
+    <None Include="Resources\icons8-share-24.png" />
+    <None Include="Resources\icons8-download-from-cloud-64.png" />
+    <None Include="Resources\pdf_Attachment.png" />
+    <None Include="Resources\icons8-attach-30.png" />
+    <None Include="Resources\icons8-expand-arrow-24 %281%29.png" />
+    <None Include="Resources\dakdetailsuserprofilepic.png" />
+    <None Include="Resources\DakListUserControlBG.jpg" />
     <None Include="Resources\Picture2.png" />
     <None Include="Resources\Picture11.png" />
     <None Include="Resources\Picture1.png" />
@@ -406,11 +495,29 @@
     <None Include="Resources\অতি গোপনীয়.png" />
     <None Include="Resources\মূল-প্রাপক.png" />
     <None Include="Resources\অনুলিপি.png" />
-    <None Include="Resources\MulPrapok.png" />
     <None Include="Resources\Anulipiu.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Logs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

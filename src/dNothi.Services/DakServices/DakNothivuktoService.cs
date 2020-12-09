@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
@@ -13,21 +15,21 @@ namespace dNothi.Services.DakServices
 {
     public class DakNothivuktoService : IDakNothivuktoService
     {
-        IRepository<DakNothivukto> _daknothivukto;
+        IRepository<DakType> _daktype;
         IDakListService _dakListService { get; set; }
-        public DakNothivuktoService(IRepository<DakNothivukto> daknothivukto, IDakListService dakListService)
+        public DakNothivuktoService(IRepository<DakType> daktype, IDakListService dakListService)
         {
-            _daknothivukto = daknothivukto;
+            _daktype = daktype;
             _dakListService = dakListService;
         }
         public DakListNothivuktoResponse GetNothivuktoDakList(DakListUserParam dakListUserParam)
         {
             try
             {
-                var nothivuktoDakApi = new RestClient(dakListUserParam.api);
+                var nothivuktoDakApi = new RestClient(GetAPIDomain()+GetDakListNothivuktoEndpoint());
                 nothivuktoDakApi.Timeout = -1;
                 var nothivuktoDakRequest = new RestRequest(Method.POST);
-                nothivuktoDakRequest.AddHeader("api-version", "2");
+                nothivuktoDakRequest.AddHeader("api-version", GetAPIVersion());
                 nothivuktoDakRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 nothivuktoDakRequest.AlwaysMultipartFormData = true;
                 nothivuktoDakRequest.AddParameter("designation_id", dakListUserParam.designationId);
@@ -51,24 +53,46 @@ namespace dNothi.Services.DakServices
 
         public void SaveorUpdateDakNothivukto(DakListNothivuktoResponse dakListNothivuktoResponse)
         {
-            DakNothivukto dakNothivukto = new DakNothivukto();
-            dakNothivukto.status = dakListNothivuktoResponse.status;
-            dakNothivukto.dak_list_record_id = _dakListService.SaveOrUpdateDakInbox(dakListNothivuktoResponse.data);
-
-            var dbdakNothivukto = _daknothivukto.Table.FirstOrDefault();
-            if (dbdakNothivukto != null)
+            DakType dakType = new DakType();
+            dakType.is_nothivukto = true;
+            if (dakListNothivuktoResponse.data != null)
             {
-                _daknothivukto.Delete(dbdakNothivukto);
-            }
-
-            try
-            {
-                _daknothivukto.Insert(dakNothivukto);
-            }
-            catch
-            {
+                dakType.total_records = dakListNothivuktoResponse.data.total_records;
 
             }
+
+            var dbdakType = _daktype.Table.FirstOrDefault(a => a.is_nothivukto == true);
+            if (dbdakType != null)
+            {
+                dakType.Id = dbdakType.Id;
+                _daktype.Update(dakType);
+            }
+            else
+            {
+                _daktype.Insert(dakType);
+            }
+
+            _dakListService.SaveOrUpdateDakList(dakListNothivuktoResponse.data, dakType.Id);
+        }
+
+        protected string GetAPIVersion()
+        {
+            return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
+        }
+        protected string ReadAppSettings(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
+        }
+
+
+        protected string GetAPIDomain()
+        {
+            return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
+        }
+
+        protected string GetDakListNothivuktoEndpoint()
+        {
+            return DefaultAPIConfiguration.DakListNothivuktoEndPoint;
         }
     }
 }

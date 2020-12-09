@@ -69,6 +69,7 @@ namespace dNothi.Core.Interfaces
         /// </summary>
         IQueryable<TEntity> TableNoTracking { get; }
 
+
         #endregion
     }
 }

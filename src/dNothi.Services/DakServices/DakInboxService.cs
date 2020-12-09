@@ -10,27 +10,34 @@ using dNothi.Core.Entities;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using RestSharp;
 using System.Data.Entity;
+using dNothi.Constants;
+using System.Configuration;
 
 namespace dNothi.Services.DakServices
 {
     public class DakInboxService : IDakInboxServices
     {
-        IRepository<DakInbox> _dakInbox;
+        IRepository<DakType> _daktype;
+        IRepository<DakList> _daklist;
+       
         IDakListService _dakListService { get; set; }
 
-        public DakInboxService(IRepository<DakInbox> dakInbox, IDakListService dakListService)
+        public DakInboxService(IRepository<DakType> daktype, IRepository<DakList> daklist,IDakListService dakListService)
         {
-            _dakInbox = dakInbox;
+            _daktype = daktype;
+            _daklist = daklist;
             _dakListService = dakListService;
         }
         public DakListInboxResponse GetDakInbox(DakListUserParam dakListUserParam)
         {
             try
             {
-                var dakInboxApi = new RestClient(dakListUserParam.api);
+
+              
+                var dakInboxApi = new RestClient(GetAPIDomain()+GetDakListInboxEndpoint());
                 dakInboxApi.Timeout = -1;
                 var dakInboxRequest = new RestRequest(Method.POST);
-                dakInboxRequest.AddHeader("api-version", "2");
+                dakInboxRequest.AddHeader("api-version", GetAPIVersion());
                 dakInboxRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 dakInboxRequest.AlwaysMultipartFormData = true;
                 dakInboxRequest.AddParameter("designation_id", dakListUserParam.designationId);
@@ -56,41 +63,67 @@ namespace dNothi.Services.DakServices
         {
 
 
-            DakInbox castDakInbox = new DakInbox();
-            castDakInbox.status = dakListInboxResponse.status;
-            castDakInbox.dak_list_record_id = _dakListService.SaveOrUpdateDakInbox(dakListInboxResponse.data);
-           
-            var dbdakInbox = _dakInbox.Table.FirstOrDefault();
-            if (dbdakInbox != null)
+            DakType dakType = new DakType();
+            dakType.is_inbox = true;
+           if(dakListInboxResponse.data != null)
             {
-                _dakInbox.Delete(dbdakInbox);
+                dakType.total_records = dakListInboxResponse.data.total_records;
+                
             }
 
-            try
+            var dbdakType = _daktype.Table.FirstOrDefault(a=>a.is_inbox==true);
+            if (dbdakType != null)
             {
-                _dakInbox.Insert(castDakInbox);
+                dakType.Id = dbdakType.Id;
+                _daktype.Update(dakType);
             }
-            catch
+            else
             {
-
+                _daktype.Insert(dakType);
             }
-
+          
+            _dakListService.SaveOrUpdateDakList(dakListInboxResponse.data,dakType.Id);
 
 
            
         }
 
-        public DakListInboxResponse GetLocalDakInbox()
+        public DakListInboxResponse GetLocalDakInbox(DakListUserParam dakListUserParam)
         {
-            var dbdakInbox = _dakInbox.Table.Include(a=>a.data.records).Include(a=>a.data.records).FirstOrDefault();
+            var dbdakInbox = _daktype.Table.FirstOrDefault(a=>a.is_inbox==true);
 
-            var config = new MapperConfiguration(cfg =>
-                     cfg.CreateMap<DakInbox, DakListInboxResponse>()
-                 );
-            var mapper = new Mapper(config);
-            var dakInboxListResponse = mapper.Map<DakListInboxResponse>(dbdakInbox);
+           
+            DakListInboxResponse dakListInboxResponse = new DakListInboxResponse();
+            if(dbdakInbox != null)
+            {
+                DakListDTO dakListDTO = new DakListDTO();
+                dakListDTO.total_records = dbdakInbox.total_records;
+                dakListInboxResponse.data = dakListDTO;
+                dakListInboxResponse.data = _dakListService.GetLocalDakListbyType(dbdakInbox.Id, dakListUserParam);
+            }
+            
+            
+           
+            return dakListInboxResponse;
+        }
+        protected string GetAPIVersion()
+        {
+            return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
+        }
+        protected string ReadAppSettings(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
+        }
 
-            return dakInboxListResponse;
+
+        protected string GetAPIDomain()
+        {
+            return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
+        }
+
+        protected string GetDakListInboxEndpoint()
+        {
+            return DefaultAPIConfiguration.DakListInboxEndPoint;
         }
     }
 }
