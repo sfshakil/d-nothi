@@ -10,20 +10,22 @@ using System.Windows.Forms;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class NothiGuidelines : UserControl
+    public partial class CreateNewNothiType : UserControl
     {
-        public NothiGuidelines()
+        public CreateNewNothiType()
         {
             InitializeComponent();
-            flpNothiGuidelines.AutoScroll = true;
-            flpNothiGuidelines.FlowDirection = FlowDirection.TopDown;
-            flpNothiGuidelines.WrapContents = false;
         }
 
-        private void btnCross_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+        }
 
+        private void btnGuidelines_Click(object sender, EventArgs e)
+        {
+            NewNothiCreateGuidelines newguideline = new NewNothiCreateGuidelines();
+            newguideline.ShowDialog();
         }
     }
 }

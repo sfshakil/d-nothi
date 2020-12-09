@@ -121,6 +121,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutofacUserControlFactory.cs" />
     <Compile Include="AutofacFormFactory.cs" />
     <Compile Include="CustomControl\CircularButtin.cs">
       <SubType>Component</SubType>
@@ -138,6 +139,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IUserControlFactory.cs" />
+    <Compile Include="UI\Dak\CreateNewNothiType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\CreateNewNothiType.Designer.cs">
+      <DependentUpon>CreateNewNothiType.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\DakArchiveUserControl.cs">
       <SubType>UserControl</SubType>
@@ -247,6 +255,24 @@
     <Compile Include="UI\Dak\NothiOutbox.Designer.cs">
       <DependentUpon>NothiOutbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiType.Designer.cs">
+      <DependentUpon>NothiType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiTypeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiTypeList.Designer.cs">
+      <DependentUpon>NothiTypeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NewNothiCreateGuidelines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NewNothiCreateGuidelines.Designer.cs">
+      <DependentUpon>NewNothiCreateGuidelines.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Nothi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +280,7 @@
       <DependentUpon>Nothi.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\VIew\DakListView.cs" />
+    <Compile Include="UserControlFactory.cs" />
     <Compile Include="UserControl\designationSelect.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -291,6 +318,9 @@
     <Compile Include="UserControl\UserNamePanel.Designer.cs">
       <DependentUpon>UserNamePanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Dak\CreateNewNothiType.resx">
+      <DependentUpon>CreateNewNothiType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakArchiveUserControl.resx">
       <DependentUpon>DakArchiveUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -344,6 +374,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutbox.resx">
       <DependentUpon>NothiOutbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiType.resx">
+      <DependentUpon>NothiType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiTypeList.resx">
+      <DependentUpon>NothiTypeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NewNothiCreateGuidelines.resx">
+      <DependentUpon>NewNothiCreateGuidelines.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Nothi.resx">
       <DependentUpon>Nothi.cs</DependentUpon>

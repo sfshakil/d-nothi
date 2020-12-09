@@ -20,6 +20,7 @@ using System.Windows.Forms;
 using dNothi.Services.NothiServices;
 using dNothi.Desktop.UI;
 using System.Threading;
+using dNothi.Desktop.UI.Dak;
 
 namespace dNothi.Desktop
 {
@@ -129,15 +130,21 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
-            
+            builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
+            builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<UI.Nothi>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
+            builder.RegisterType<NothiType>().AsSelf();
+            builder.RegisterType<NewNothi>().AsSelf();
+            builder.RegisterType<CreateNewNothiType>().AsSelf();
+
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());
+            UserControlFactory.Use(container.Resolve<IUserControlFactory>());
         }
     }
 }

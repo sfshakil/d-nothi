@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,12 +31,16 @@ namespace dNothi.Desktop.UI
             _nothiAll = nothiAll;
             InitializeComponent();
             LoadNothiInbox();
+            ResetAllMenuButtonSelection();
+            SelectButton(btnNothiInbox);
         }
 
         
 
         private void btnNothiInbox_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             nothiListFlowLayoutPanel.Visible = true;
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
@@ -62,7 +67,6 @@ namespace dNothi.Desktop.UI
 
         private void LoadNothiInboxinPanel(List<NothiListRecordsDTO> nothiLists)
         {
-            
             List<NothiInbox> nothiInboxs = new List<NothiInbox>();
             int i = 0;
             foreach (NothiListRecordsDTO nothiListRecordsDTO in nothiLists)
@@ -125,6 +129,8 @@ namespace dNothi.Desktop.UI
 
         private void btnNothiOutbox_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             nothiListFlowLayoutPanel.Visible = true;
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
@@ -175,6 +181,8 @@ namespace dNothi.Desktop.UI
 
         private void btnNothiAll_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             nothiListFlowLayoutPanel.Visible = true;
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
@@ -231,6 +239,8 @@ namespace dNothi.Desktop.UI
 
         private void btnGardFile_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             ShowSubMenu(gardFileDropDownPanel);
         }
         private void ShowSubMenu(Panel gardFileDropDownPanel)
@@ -249,9 +259,12 @@ namespace dNothi.Desktop.UI
         {
             gardFileDropDownPanel.Visible = false;
         }
-        NewNothi newNothi = new NewNothi();
+        public dynamic newNothi = UserControlFactory.Create<NewNothi>();
         private void btnNewNothi_Click(object sender, EventArgs e)
         {
+            
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             newNothi.Visible = true;
             newNothi.Location = new System.Drawing.Point(233, 60);
             Controls.Add(newNothi);
@@ -261,9 +274,39 @@ namespace dNothi.Desktop.UI
 
         private void btnPotrojari_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             newNothi.Visible = false;
             nothiListFlowLayoutPanel.Visible = false;
             pnlNothiNoteTalika.Visible = false;
+        }
+        private void ResetAllMenuButtonSelection()
+        {
+            btnNothiInbox.BackColor = Color.WhiteSmoke;
+            btnNothiInbox.ForeColor = Color.Black;
+
+            btnNothiOutbox.BackColor = Color.WhiteSmoke;
+            btnNothiOutbox.ForeColor = Color.Black;
+
+            btnNothiAll.BackColor = Color.WhiteSmoke;
+            btnNothiAll.ForeColor = Color.Black;
+
+            btnGardFile.BackColor = Color.WhiteSmoke;
+            btnGardFile.ForeColor = Color.Black;
+
+
+            btnNewNothi.BackColor = Color.WhiteSmoke;
+            btnNewNothi.ForeColor = Color.Black;
+
+            btnPotrojari.BackColor = Color.WhiteSmoke;
+            btnPotrojari.ForeColor = Color.Black;
+
+
+        }
+        private void SelectButton(Button button)
+        {
+            button.BackColor = Color.Silver;
+            button.ForeColor = Color.Blue;
         }
     }
 }
