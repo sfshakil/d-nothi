@@ -12,12 +12,17 @@ namespace dNothi.Core.Entities
     {
         [ForeignKey("from")]
         public long from_id { get; set; }
+        public virtual Officer from { get; set; }
+
+
 
         [ForeignKey("other")]
         public long other_id { get; set; }
-
-        public virtual From from { get; set; }
         public virtual Other other { get; set; }
-        public virtual ICollection<MovementStatusTo> to { get; set; }
+
+
+
+
+        public virtual ICollection<To> to { get; set; }
     }
 }

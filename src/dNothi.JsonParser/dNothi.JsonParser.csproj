@@ -66,6 +66,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Dak\DakAttachmentDTO.cs" />
+    <Compile Include="Entity\Dak\DakAttachmentResponse.cs" />
+    <Compile Include="Entity\Dak\DakDetailsResponse.cs" />
     <Compile Include="Entity\Dak\DakListArchiveResponse.cs" />
     <Compile Include="Entity\Dak\DakListInboxResponse.cs" />
     <Compile Include="Entity\Dak\DakListDTO.cs" />
@@ -73,9 +76,13 @@
     <Compile Include="Entity\Dak\DakListNothivuktoResponse.cs" />
     <Compile Include="Entity\Dak\DakListOutboxResponse.cs" />
     <Compile Include="Entity\Dak\DakListRecordsDTO.cs" />
+    <Compile Include="Entity\Dak\DakListSortedResponse.cs" />
+    <Compile Include="Entity\Dak\DakMovementStatusListDTO.cs" />
+    <Compile Include="Entity\Dak\DakMovementStatusResponse.cs" />
     <Compile Include="Entity\Dak\DakOriginDTO.cs" />
     <Compile Include="Entity\Dak\DakTagDTO.cs" />
     <Compile Include="Entity\Dak\DakUserDTO.cs" />
+    <Compile Include="Entity\Dak\DraftedDecisionDTO.cs" />
     <Compile Include="Entity\Dak\FromDTO.cs" />
     <Compile Include="Entity\Dak\MovementStatusDTO.cs" />
     <Compile Include="Entity\Dak\NothiDTO.cs" />

@@ -13,7 +13,7 @@ namespace dNothi.Infrastructure.Mappings.Dak
         public DakUserMap()
         {
             this.ToTable("DakUser");
-
+            this.HasKey(a => a.Id);
         }
     }
 }

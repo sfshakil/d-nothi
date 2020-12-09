@@ -96,25 +96,20 @@ namespace dNothi.Desktop
             builder.RegisterType<AppDbContext>().As<IDbContext>();
             builder.RegisterType<EfRepository<AppUser>>().As<IRepository<AppUser>>();
             builder.RegisterType<EfRepository<User>>().As<IRepository<User>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakArchive>>().As<IRepository<dNothi.Core.Entities.DakArchive>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakNothijato>>().As<IRepository<dNothi.Core.Entities.DakNothijato>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakNothivukto>>().As<IRepository<dNothi.Core.Entities.DakNothivukto>>();
+       
+           
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakTag>>().As<IRepository<dNothi.Core.Entities.DakTag>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakOutbox>>().As<IRepository<dNothi.Core.Entities.DakOutbox>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakInbox>>().As<IRepository<dNothi.Core.Entities.DakInbox>>();
+           
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakType>>().As<IRepository<dNothi.Core.Entities.DakType>>();
+           
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakList>>().As<IRepository<dNothi.Core.Entities.DakList>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakListDakListRecord>>().As<IRepository<dNothi.Core.Entities.DakListDakListRecord>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakListRecord>>().As<IRepository<dNothi.Core.Entities.DakListRecord>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakListRecordDakTag>>().As<IRepository<dNothi.Core.Entities.DakListRecordDakTag>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.From>>().As<IRepository<dNothi.Core.Entities.From>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.Officer>>().As<IRepository<dNothi.Core.Entities.Officer>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.To>>().As<IRepository<dNothi.Core.Entities.To>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.Other>>().As<IRepository<dNothi.Core.Entities.Other>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.Other>>().As<IRepository<dNothi.Core.Entities.Other>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.MovementStatus>>().As<IRepository<dNothi.Core.Entities.MovementStatus>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.MovementStatusTo>>().As<IRepository<dNothi.Core.Entities.MovementStatusTo>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakNothi>>().As<IRepository<dNothi.Core.Entities.DakNothi>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakUser>>().As<IRepository<dNothi.Core.Entities.DakUser>>();
-            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakInbox>>().As<IRepository<dNothi.Core.Entities.DakInbox>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakOrigin>>().As<IRepository<dNothi.Core.Entities.DakOrigin>>();
        
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
@@ -130,6 +125,7 @@ namespace dNothi.Desktop
             builder.RegisterType<DakNothijatoService>().As<IDakNothijatoService>();
             builder.RegisterType<DakNothivuktoService>().As<IDakNothivuktoService>();
             builder.RegisterType<DakListArchiveService>().As<IDakListArchiveService>();
+            builder.RegisterType<DakListSortedService>().As<IDakListSortedService>();
             builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();

@@ -13,7 +13,7 @@ namespace dNothi.Infrastructure.Mappings.Dak
         public MovementStatusMap()
         {
             this.ToTable("MovementStatus");
-            this.HasMany(t => t.to).WithRequired().HasForeignKey(f => f.MovStatusId);
+            this.HasKey(a => a.Id);
         }
     }
 }

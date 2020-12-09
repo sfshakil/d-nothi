@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
 
+
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakArchiveUserControl : UserControl
@@ -103,7 +104,6 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _dakType = value;
-
 
 
                 dakTypePanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(value);
@@ -282,6 +282,18 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _dakAttachmentCount; }
             set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+
+
+
+        private void DakSortedUserControl_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.WhiteSmoke;
+        }
+
+        private void DakSortedUserControl_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
         }
     }
 }

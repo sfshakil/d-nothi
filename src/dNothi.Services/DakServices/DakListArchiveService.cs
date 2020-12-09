@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
@@ -13,21 +15,21 @@ namespace dNothi.Services.DakServices
 {
     public class DakListArchiveService : IDakListArchiveService
     {
-        IRepository<DakArchive> _dakarchive;
+        IRepository<DakType> _daktype;
         IDakListService _dakListService { get; set; }
-        public DakListArchiveService(IRepository<DakArchive> dakarchive, IDakListService dakListService)
+        public DakListArchiveService(IRepository<DakType> daktype, IDakListService dakListService)
         {
-            _dakarchive = dakarchive;
+            _daktype = daktype;
             _dakListService = dakListService;
         }
         public DakListArchiveResponse GetDakList(DakListUserParam dakListUserParam)
         {
               try
             {
-                var dakArchiveApi = new RestClient(dakListUserParam.api);
+                var dakArchiveApi = new RestClient(GetAPIDomain()+GetDakListArchiveEndpoint());
                 dakArchiveApi.Timeout = -1;
                 var dakArchiveRequest = new RestRequest(Method.POST);
-                dakArchiveRequest.AddHeader("api-version", "2");
+                dakArchiveRequest.AddHeader("api-version", GetAPIVersion());
                 dakArchiveRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 dakArchiveRequest.AlwaysMultipartFormData = true;
                 dakArchiveRequest.AddParameter("designation_id", dakListUserParam.designationId);
@@ -51,24 +53,45 @@ namespace dNothi.Services.DakServices
 
         public void SaveorUpdateDakArchive(DakListArchiveResponse dakListArchiveResponse)
         {
-            DakArchive dakArchive = new DakArchive();
-            dakArchive.status = dakListArchiveResponse.status;
-            dakArchive.dak_list_record_id = _dakListService.SaveOrUpdateDakInbox(dakListArchiveResponse.data);
-
-            var dbdakArchive = _dakarchive.Table.FirstOrDefault();
-            if (dbdakArchive != null)
+            DakType dakType = new DakType();
+            dakType.is_archived = true;
+            if (dakListArchiveResponse.data != null)
             {
-                _dakarchive.Delete(dbdakArchive);
-            }
-
-            try
-            {
-                _dakarchive.Insert(dakArchive);
-            }
-            catch
-            {
+                dakType.total_records = dakListArchiveResponse.data.total_records;
 
             }
+
+            var dbdakType = _daktype.Table.FirstOrDefault(a => a.is_archived == true);
+            if (dbdakType != null)
+            {
+                dakType.Id = dbdakType.Id;
+                _daktype.Update(dakType);
+            }
+            else
+            {
+                _daktype.Insert(dakType);
+            }
+
+            _dakListService.SaveOrUpdateDakList(dakListArchiveResponse.data, dakType.Id);
+        }
+        protected string GetAPIVersion()
+        {
+            return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
+        }
+        protected string ReadAppSettings(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
+        }
+
+
+        protected string GetAPIDomain()
+        {
+            return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
+        }
+
+        protected string GetDakListArchiveEndpoint()
+        {
+            return DefaultAPIConfiguration.DakListOnulipiEndPoint;
         }
     }
 }

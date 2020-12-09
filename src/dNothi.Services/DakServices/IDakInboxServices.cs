@@ -13,7 +13,7 @@ namespace dNothi.Services.DakServices
     {
        
         DakListInboxResponse GetDakInbox(DakListUserParam dakListUserParam);
-        DakListInboxResponse GetLocalDakInbox();
+        DakListInboxResponse GetLocalDakInbox(DakListUserParam dakListUserParam);
         void SaveorUpdateDakInbox(DakListInboxResponse dakListInboxResponse);
     }
 }

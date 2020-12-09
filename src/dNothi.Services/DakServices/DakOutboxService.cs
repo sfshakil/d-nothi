@@ -11,16 +11,18 @@ using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using RestSharp;
 using dNothi.Core.Entities;
+using dNothi.Constants;
+using System.Configuration;
 
 namespace dNothi.Services.DakServices
 {
    public class DakOutboxService : IDakOutboxService
     {
-        IRepository<DakOutbox> _dakOutbox;
+        IRepository<DakType> _daktype;
         IDakListService _dakListService { get; set; }
-        public DakOutboxService(IRepository<DakOutbox> dakOutbox, IDakListService dakListService)
+        public DakOutboxService(IRepository<DakType> daktype, IDakListService dakListService)
         {
-            this._dakOutbox = dakOutbox;
+            this._daktype = daktype;
             _dakListService = dakListService;
         }
 
@@ -28,10 +30,10 @@ namespace dNothi.Services.DakServices
         {
             try
             {
-                var dakOutboxApi = new RestClient(dakListUserParam.api);
+                var dakOutboxApi = new RestClient(GetAPIDomain()+GetDakOutboxEndpoint());
                 dakOutboxApi.Timeout = -1;
                 var request = new RestRequest(Method.POST);
-                request.AddHeader("api-version", "2");
+                request.AddHeader("api-version",GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("designation_id", dakListUserParam.designationId);
@@ -53,25 +55,48 @@ namespace dNothi.Services.DakServices
 
         public void SaveorUpdateDakOutbox(DakListOutboxResponse dakListOutboxResponse)
         {
-            DakOutbox dakOutbox = new DakOutbox();
-            dakOutbox.status = dakListOutboxResponse.status;
-            dakOutbox.dak_list_record_id = _dakListService.SaveOrUpdateDakInbox(dakListOutboxResponse.data);
-
-            var dbdakOutbox = _dakOutbox.Table.FirstOrDefault();
-            if (dbdakOutbox != null)
+            DakType dakType = new DakType();
+            dakType.is_outbox = true;
+            if (dakListOutboxResponse.data != null)
             {
-                _dakOutbox.Delete(dbdakOutbox);
-            }
-
-            try
-            {
-                _dakOutbox.Insert(dakOutbox);
-            }
-            catch
-            {
+                dakType.total_records = dakListOutboxResponse.data.total_records;
 
             }
+
+            var dbdakType = _daktype.Table.FirstOrDefault(a => a.is_outbox == true);
+            if (dbdakType != null)
+            {
+                dakType.Id = dbdakType.Id;
+                _daktype.Update(dakType);
+            }
+            else
+            {
+                _daktype.Insert(dakType);
+            }
+
+            _dakListService.SaveOrUpdateDakList(dakListOutboxResponse.data, dakType.Id);
 
         }
+
+        protected string GetAPIDomain()
+        {
+            return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
+        }
+
+        
+
+        protected string GetDakOutboxEndpoint()
+        {
+            return DefaultAPIConfiguration.DakListOutboxEndPoint;
+        }
+        protected string GetAPIVersion()
+        {
+            return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
+        }
+        protected string ReadAppSettings(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
+        }
+
     }
 }

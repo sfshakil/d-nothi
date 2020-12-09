@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,8 +15,9 @@ namespace dNothi.JsonParser.Entity.Dak_List_Inbox
         public int dak_id { get; set; }
         public string dak_type { get; set; }
         public int is_copied_dak { get; set; }
-      
-        public int id { get; set; }
+
+        [JsonProperty("id")]
+        public int nothi_id { get; set; }
         public string nothi_no { get; set; }
         public string subject { get; set; }
         public int office_id { get; set; }
