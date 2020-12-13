@@ -361,19 +361,12 @@ namespace dNothi.Desktop.UI.Dak
             
             DakPriorityList dakPriority = new DakPriorityList();
             int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
-            if(dak_priority_id==0)
-            {
-                MessageBox.Show("Priority!");
-            }
+            
 
 
             DakSecurityList dakSecurityList = new DakSecurityList();
             int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
-            if (dak_security_id == 0)
-            {
-                MessageBox.Show("Security!");
-            }
-
+            
 
             dakForwardRequestParam.priority = dak_priority_id;
             dakForwardRequestParam.security = dak_security_id;
@@ -429,7 +422,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-
+                MessageBox.Show(dakForwardResponse.status);
             }
         }
 

@@ -58,7 +58,7 @@ namespace dNothi.Utility
             }
             else
             {
-                return "";
+                return "0";
             }
         }
     }
