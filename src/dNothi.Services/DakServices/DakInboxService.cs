@@ -40,8 +40,8 @@ namespace dNothi.Services.DakServices
                 dakInboxRequest.AddHeader("api-version", GetAPIVersion());
                 dakInboxRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 dakInboxRequest.AlwaysMultipartFormData = true;
-                dakInboxRequest.AddParameter("designation_id", dakListUserParam.designationId);
-                dakInboxRequest.AddParameter("office_id", dakListUserParam.officeId);
+                dakInboxRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakInboxRequest.AddParameter("office_id", dakListUserParam.office_id);
                 dakInboxRequest.AddParameter("page", dakListUserParam.page);
                 dakInboxRequest.AddParameter("limit", dakListUserParam.limit);
                 IRestResponse dakInboxResponse = dakInboxApi.Execute(dakInboxRequest);

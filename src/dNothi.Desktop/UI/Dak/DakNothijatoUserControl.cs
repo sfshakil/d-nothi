@@ -15,7 +15,25 @@ namespace dNothi.Desktop.UI.Dak
     {
         public DakNothijatoUserControl()
         {
-            InitializeComponent();
+            InitializeComponent(); IterateControls(this.Controls);
+
+
+
+
+
+        }
+
+        void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+                ctrl.Click += DakNothijatoUserControl_Click;
+                ctrl.MouseEnter += DakNothijatoUserControl_MouseEnter;
+                ctrl.MouseLeave += DakNothijatoUserControl_MouseLeave;
+                IterateControls(ctrl.Controls);
+            }
+
         }
 
         private string _source;
@@ -283,6 +301,26 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _dakAttachmentCount; }
             set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler ButtonClick;
+        private void DakNothijatoUserControl_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+
+        private void DakNothijatoUserControl_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.WhiteSmoke;
+        }
+
+        private void DakNothijatoUserControl_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
         }
     }
 }

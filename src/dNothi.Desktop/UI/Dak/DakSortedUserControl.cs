@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
+using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -22,25 +23,113 @@ namespace dNothi.Desktop.UI.Dak
             newDakImagePanel.Visible = false;
             dakTypePanel.Visible = false;
             potrojariPanel.Visible = false;
-
+            IterateControls(this.Controls);
 
         }
+
+        void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+                ctrl.Click += DakSortedUserControl_Click;
+                ctrl.MouseEnter += DakSortedUserControl_MouseEnter;
+                ctrl.MouseLeave += DakSortedUserControl_MouseLeave;
+                IterateControls(ctrl.Controls);
+            }
+
+        }
+
+
+
         private string _nothiNo;
         private string _source;
         private string _sender;
         private string _receiver;
+        private string _mainreceiver;
         private string _subject;
         private string _decision;
+        private string _drafteddecision;
         private string _date;
         private string _dakViewStatus;
 
         private string _attentionTypeIconValue;
         private string _dakSecurityIconValue;
+        private string _drafteddakSecurityIconValue;
         private string _dakType;
         private string _dakPriority;
+        private string _drafteddakPriority;
         private int _potrojari;
-        private int _dakAttachmentCount;
+        public int _dakAttachmentCount;
 
+        public DraftedDecisionDTO _draftedDecisionDTO { get; set; }
+
+
+        public DraftedDecisionDTO draftedDecision
+        {
+            get { return _draftedDecisionDTO; }
+            set { _draftedDecisionDTO = value;
+                try
+                {
+                    if(draftedDecision.decision != "")
+                    {
+                        DraftedDecisionLabel.Text = draftedDecision.decision;
+                    }
+                    else
+                    {
+                        DraftedDecisionLabel.Visible = false;
+                        draftedDecisionsSidelabel.Visible = false;
+                    }
+
+                    DakPriorityList dakPriorityList = new DakPriorityList();
+                    string priorityName = dakPriorityList.GetDakPriorityName(draftedDecision.priority);
+
+
+                    if (priorityName == "")
+                    {
+                        draftedPriorityHoldingPanel.Visible = false;
+                        draftedprioritySidePanel.Visible = false;
+                    }
+                    else
+                    {
+                        draftedPriorityHoldingPanel.Visible = true;
+                        draftedPriorityLabel.Text = "সিদ্ধান্তঃ "+ priorityName;
+
+                    }
+
+
+                    DakSecurityList dakSecurityList = new DakSecurityList();
+                    string icon = dakSecurityList.GetDakSecuritiesIcon(draftedDecision.security);
+
+                    draftedSecurityPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
+
+                    if (draftedSecurityPanel.BackgroundImage == null)
+                    {
+                        daraftedSecurityHoldingPanel.Visible = false;
+                        draftedsecuritySideLabel.Visible = false;
+                    }
+                   
+
+                    try
+                    {
+                        draftedMainPrapokButton.Text = "মূল প্রাপকঃ " + draftedDecision.recipients.mul_prapok.employee_name_bng;
+                    }
+                    catch
+                    {
+                        draftedMainPrapokButton.Visible = false;
+                    }
+
+
+
+
+                }
+                catch
+                {
+                    draftedInfoPanel.Visible = false;
+                }
+            
+            }
+        }
 
         [Category("Custom Props")]
         public string nothiNo
@@ -261,6 +350,7 @@ namespace dNothi.Desktop.UI.Dak
             get { return _receiver; }
             set { _receiver = value; mainReceiverLabel.Text = value; }
         }
+       
 
         [Category("Custom Props")]
         public string subject
@@ -314,6 +404,16 @@ namespace dNothi.Desktop.UI.Dak
         private void DakSortedUserControl_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.White;
+        }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler ButtonClick;
+        private void DakSortedUserControl_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
         }
     }
 }

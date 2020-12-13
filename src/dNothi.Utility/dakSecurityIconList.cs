@@ -46,6 +46,19 @@ namespace dNothi.Utility
                 return "";
             }
         }
+        public string GetDakSecuritiesId(string Name)
+        {
+            DakSecurity dakSecurity = _dakSecurities.FirstOrDefault(a => a._typeName == Name);
+
+            if (dakSecurity != null)
+            {
+                return dakSecurity._id;
+            }
+            else
+            {
+                return "";
+            }
+        }
 
     }
 

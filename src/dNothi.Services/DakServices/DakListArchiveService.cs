@@ -32,8 +32,8 @@ namespace dNothi.Services.DakServices
                 dakArchiveRequest.AddHeader("api-version", GetAPIVersion());
                 dakArchiveRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 dakArchiveRequest.AlwaysMultipartFormData = true;
-                dakArchiveRequest.AddParameter("designation_id", dakListUserParam.designationId);
-                dakArchiveRequest.AddParameter("office_id", dakListUserParam.officeId);
+                dakArchiveRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakArchiveRequest.AddParameter("office_id", dakListUserParam.office_id);
                 dakArchiveRequest.AddParameter("page", dakListUserParam.page);
                 dakArchiveRequest.AddParameter("limit", dakListUserParam.limit);
                 IRestResponse dakArchiveResponse = dakArchiveApi.Execute(dakArchiveRequest);

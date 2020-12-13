@@ -380,5 +380,10 @@ namespace dNothi.Desktop.UI.Dak
         {
 
         }
+
+        private void dakMovementStatusButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

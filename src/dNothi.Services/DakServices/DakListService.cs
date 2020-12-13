@@ -527,8 +527,8 @@ namespace dNothi.Services.DakServices
                 dakInboxRequest.AddHeader("api-version", GetAPIVersion());
                 dakInboxRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 dakInboxRequest.AlwaysMultipartFormData = true;
-                dakInboxRequest.AddParameter("designation_id", dakListUserParam.designationId);
-                dakInboxRequest.AddParameter("office_id", dakListUserParam.officeId);
+                dakInboxRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakInboxRequest.AddParameter("office_id", dakListUserParam.office_id);
                 dakInboxRequest.AddParameter("dak_id", dak_id);
                 dakInboxRequest.AddParameter("dak_type", dak_type);
                 dakInboxRequest.AddParameter("is_copied_dak", is_copied_dak);
@@ -593,8 +593,8 @@ namespace dNothi.Services.DakServices
                 dakAttachmentRequest.AddHeader("api-version", GetOldAPIVersion());
                 dakAttachmentRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 dakAttachmentRequest.AlwaysMultipartFormData = true;
-                dakAttachmentRequest.AddParameter("designation_id", dakListUserParam.designationId);
-                dakAttachmentRequest.AddParameter("office_id", dakListUserParam.officeId);
+                dakAttachmentRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakAttachmentRequest.AddParameter("office_id", dakListUserParam.office_id);
                 dakAttachmentRequest.AddParameter("dak_id", dak_id);
                 dakAttachmentRequest.AddParameter("dak_type", dak_type);
                 dakAttachmentRequest.AddParameter("is_copied_dak", is_copied_dak);
@@ -624,8 +624,8 @@ namespace dNothi.Services.DakServices
                 dakMovementStatusRequest.AddHeader("api-version", GetOldAPIVersion());
                 dakMovementStatusRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 dakMovementStatusRequest.AlwaysMultipartFormData = true;
-                dakMovementStatusRequest.AddParameter("designation_id", dakListUserParam.designationId);
-                dakMovementStatusRequest.AddParameter("office_id", dakListUserParam.officeId);
+                dakMovementStatusRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakMovementStatusRequest.AddParameter("office_id", dakListUserParam.office_id);
                 dakMovementStatusRequest.AddParameter("dak_id", dak_id);
                 dakMovementStatusRequest.AddParameter("dak_type", dak_type);
                 dakMovementStatusRequest.AddParameter("is_copied_dak", is_copied_dak);
