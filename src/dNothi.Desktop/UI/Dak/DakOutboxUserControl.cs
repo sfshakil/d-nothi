@@ -15,7 +15,27 @@ namespace dNothi.Desktop.UI.Dak
     {
         public DakOutboxUserControl()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            
+            IterateControls(this.Controls);
+
+
+
+
+
+        }
+
+        void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+                ctrl.Click += DakOutboxUserControl_Click;
+                ctrl.MouseEnter += DakOutboxUserControl_Enter;
+                ctrl.MouseLeave += DakOutboxUserControl_Leave;
+                IterateControls(ctrl.Controls);
+            }
+
         }
         private string _source;
         private string _sender;
@@ -261,6 +281,26 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _date; }
             set { _date = value; dateLabel.Text = value; }
+        }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler ButtonClick;
+        private void DakOutboxUserControl_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+
+        private void DakOutboxUserControl_Enter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.WhiteSmoke;
+        }
+
+        private void DakOutboxUserControl_Leave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
         }
     }
 }

@@ -36,7 +36,7 @@ namespace dNothi.JsonParser.Entity.Dak_List_Inbox
                 }
                 catch (Exception Ex)
                 {
-                    throw;
+                   return null;
                 }
             }
 

@@ -17,5 +17,9 @@ namespace dNothi.JsonParser.Entity.Dak_List_Inbox
         public string designation { get; set; }
         public string officer { get; set; }
         public string attention_type { get; set; }
+
+
+        
+
     }
 }

@@ -83,6 +83,16 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DakForward {
+            get {
+                object obj = ResourceManager.GetObject("DakForward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DakListUserControlBG {
             get {
                 object obj = ResourceManager.GetObject("DakListUserControlBG", resourceCulture);

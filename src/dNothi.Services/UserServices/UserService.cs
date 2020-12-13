@@ -64,7 +64,7 @@ namespace dNothi.Services.UserServices
 
             
         }
-
+       
         public EmployeeInfoDTO GetEmployeeInfo()
         {
             var empInfo = _employeeRepository.Table.FirstOrDefault();
@@ -96,13 +96,17 @@ namespace dNothi.Services.UserServices
             var mapper = new Mapper(config);
             var user = mapper.Map<User>(userdto);
       
-            var dbuser = _userrepository.Table.Where(q => q.username == userdto.username).FirstOrDefault();
+            var dbuser = _userrepository.Table.FirstOrDefault();
+
+
+
             if (dbuser == null)
             {
                 _userrepository.Insert(user);
             }
             else
             {
+                user.Id = dbuser.Id;
                 _userrepository.Update(user);
             }
         }
@@ -114,13 +118,14 @@ namespace dNothi.Services.UserServices
             var mapper = new Mapper(config);
             var empInfo = mapper.Map<EmployeeInfo>(employeedto);
             empInfo.emp_id = employeedto.id;
-            var dbemployee = _employeeRepository.Table.Where(q => q.emp_id == employeedto.id).FirstOrDefault();
+            var dbemployee = _employeeRepository.Table.FirstOrDefault();
             if (dbemployee == null)
             {
                 _employeeRepository.Insert(empInfo);
             }
             else
             {
+                empInfo.Id = dbemployee.Id;
                 _employeeRepository.Update(empInfo);
             }
         }
@@ -163,13 +168,15 @@ namespace dNothi.Services.UserServices
             foreach (var officeinfodto in officeinfodtos)
             {
                 var ofcInfo = mapper.Map<OfficeInfo>(officeinfodto);
-                var dboffice = _officeRepository.Table.Where(q => q.employee_record_id == officeinfodto.employee_record_id).FirstOrDefault();
+                var dboffice = _officeRepository.Table.FirstOrDefault();
                 if (dboffice == null)
                 {
                     _officeRepository.Insert(ofcInfo);
                 }
                 else
                 {
+                    dboffice.office_unit_organogram_id = ofcInfo.office_unit_organogram_id;
+                    dboffice.office_id = ofcInfo.office_id;
                     _officeRepository.Update(ofcInfo);
                 }
             }
@@ -199,6 +206,7 @@ namespace dNothi.Services.UserServices
         {
            
             OfficeInfoDTO officeInfo = GetOfficeInfo();
+            EmployeeInfoDTO employeeInfoDTO = GetEmployeeInfo();
 
 
 
@@ -208,9 +216,22 @@ namespace dNothi.Services.UserServices
             try
             {
                 dakListUserParam.token = GetToken();
-                dakListUserParam.officeId = officeInfo.office_id;
-                dakListUserParam.designationId = officeInfo.office_unit_organogram_id;
-               
+                dakListUserParam.office_id = officeInfo.office_id;
+             
+                dakListUserParam.unit_id = officeInfo.office_unit_id;
+                dakListUserParam.designation_id = officeInfo.office_unit_organogram_id;
+                dakListUserParam.office_label = officeInfo.office_name_bn;
+                dakListUserParam.unit_label = officeInfo.unit_name_bn;
+                dakListUserParam.office_id = officeInfo.office_id;
+                dakListUserParam.employee_record_id = officeInfo.employee_record_id;
+
+                dakListUserParam.designation_label = officeInfo.designation;
+                dakListUserParam.incharge_label = officeInfo.incharge_label;
+
+                dakListUserParam.officer_name = officeInfo.office_name_en;
+
+
+
             }
             catch
             {

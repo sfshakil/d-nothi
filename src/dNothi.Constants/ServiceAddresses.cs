@@ -24,6 +24,8 @@ namespace dNothi.Constants
         public const string DakDetailsEndpoint = "/api/dak/view";
         public const string DakAttachmentEndpoint = "/api/dak/attachments";
         public const string DakMovementStatusListEndpoint = "/api/dak/movements";
+        public const string GetDesignationSealListEndpoint = "/api/dak/seal/list";
+        public const string GetDakForwardEndpoint = "/api/dak/forward";
        
     }
 }

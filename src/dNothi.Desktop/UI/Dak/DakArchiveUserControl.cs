@@ -17,6 +17,19 @@ namespace dNothi.Desktop.UI.Dak
         public DakArchiveUserControl()
         {
             InitializeComponent();
+            IterateControls(this.Controls);
+        }
+        void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+                ctrl.Click += DakArchiveUserControl_Click;
+                ctrl.MouseEnter += DakArchiveUserControl_MouseEnter;
+                ctrl.MouseLeave += DakArchiveUserControl_MouseLeave;
+                IterateControls(ctrl.Controls);
+            }
+
         }
         private string _source;
         private string _sender;
@@ -294,6 +307,31 @@ namespace dNothi.Desktop.UI.Dak
         private void DakSortedUserControl_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.White;
+        }
+
+        private void DakArchiveUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DakArchiveUserControl_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.WhiteSmoke;
+
+        }
+
+        private void DakArchiveUserControl_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
+        }
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler ButtonClick;
+        private void DakArchiveUserControl_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
         }
     }
 }

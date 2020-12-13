@@ -25,7 +25,7 @@ namespace dNothi.Services.AccountServices
         }
         public void SaveOrUpdateUser(string username, string password, bool isRemember)
         {
-            var user = _userRepository.Table.Where(u => u.UserName == username).FirstOrDefault();
+            var user = _userRepository.Table.FirstOrDefault();
             if (user != null)
             {
                 var data = Encoding.ASCII.GetBytes(password);

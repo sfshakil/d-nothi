@@ -123,6 +123,7 @@ namespace dNothi.Desktop
             builder.RegisterType<DakInboxService>().As<IDakInboxServices>();
             builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
             builder.RegisterType<DakListService>().As<IDakListService>();
+            builder.RegisterType<DakForwardService>().As<IDakForwardService>();
             builder.RegisterType<DakNothijatoService>().As<IDakNothijatoService>();
             builder.RegisterType<DakNothivuktoService>().As<IDakNothivuktoService>();
             builder.RegisterType<DakListArchiveService>().As<IDakListArchiveService>();
@@ -136,6 +137,7 @@ namespace dNothi.Desktop
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
+           
             builder.RegisterType<UI.Nothi>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();

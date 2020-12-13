@@ -36,8 +36,8 @@ namespace dNothi.Services.DakServices
                 request.AddHeader("api-version",GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 request.AlwaysMultipartFormData = true;
-                request.AddParameter("designation_id", dakListUserParam.designationId);
-                request.AddParameter("office_id", dakListUserParam.officeId);
+                request.AddParameter("designation_id", dakListUserParam.designation_id);
+                request.AddParameter("office_id", dakListUserParam.office_id);
                 request.AddParameter("page", dakListUserParam.page);
                 request.AddParameter("limit", dakListUserParam.limit);
                 IRestResponse Response = dakOutboxApi.Execute(request);

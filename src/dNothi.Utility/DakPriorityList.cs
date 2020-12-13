@@ -47,6 +47,20 @@ namespace dNothi.Utility
                 return "";
             }
         }
+
+        public string GetDakPrioritiesId(string Name)
+        {
+            DakPriority dakPriority = _dakPriority.FirstOrDefault(a => a._typeName == Name);
+
+            if (dakPriority != null)
+            {
+                return dakPriority._id;
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
     public class DakPriority
     {
