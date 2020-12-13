@@ -378,5 +378,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             senderSortSidePanel.Visible = false;
         }
+
+        private void fileUploadButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opnfd = new OpenFileDialog();
+        }
     }
 }

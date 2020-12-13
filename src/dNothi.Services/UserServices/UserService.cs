@@ -125,8 +125,11 @@ namespace dNothi.Services.UserServices
             }
             else
             {
-                empInfo.Id = dbemployee.Id;
-                _employeeRepository.Update(empInfo);
+               
+
+               dbemployee.name_bng=empInfo.name_bng;
+               
+                _employeeRepository.Update(dbemployee);
             }
         }
 
@@ -175,9 +178,21 @@ namespace dNothi.Services.UserServices
                 }
                 else
                 {
+                    dboffice.office_id = ofcInfo.office_id;
+
+                    dboffice.office_unit_id = ofcInfo.office_unit_id;
+                    dboffice.office_unit_organogram_id = ofcInfo.office_unit_organogram_id;
+                    dboffice.office_name_bn = ofcInfo.office_name_bn;
+                    dboffice.unit_name_bn = ofcInfo.unit_name_bn;
+                 
+                    dboffice.employee_record_id = ofcInfo.employee_record_id;
+
+                    dboffice.designation=ofcInfo.designation;
+                    dboffice.incharge_label=ofcInfo.incharge_label;
+
                     dboffice.office_unit_organogram_id = ofcInfo.office_unit_organogram_id;
                     dboffice.office_id = ofcInfo.office_id;
-                    _officeRepository.Update(ofcInfo);
+                    _officeRepository.Update(dboffice);
                 }
             }
         }
@@ -228,7 +243,7 @@ namespace dNothi.Services.UserServices
                 dakListUserParam.designation_label = officeInfo.designation;
                 dakListUserParam.incharge_label = officeInfo.incharge_label;
 
-                dakListUserParam.officer_name = officeInfo.office_name_en;
+                dakListUserParam.officer_name = employeeInfoDTO.name_bng;
 
 
 
