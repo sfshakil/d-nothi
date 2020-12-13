@@ -40,7 +40,7 @@ namespace dNothi.Services.SyncServices
         }
         public List<long> GetStatus()
         {
-            
+            return new List<long>() { 1, 3 };
         }
         private void DeleteFromStatus(List<long> diff2)
         {
