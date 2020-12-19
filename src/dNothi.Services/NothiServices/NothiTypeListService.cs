@@ -15,7 +15,7 @@ namespace dNothi.Services.NothiServices
         {
             try
             {
-                var client = new RestClient("https://a2i.nothibs.tappware.com/api/nothi/type/list");
+                var client = new RestClient("https://dev.nothibs.tappware.com/api/nothi/type/list");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("api-version", "1");

@@ -32,7 +32,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             var token = _userService.GetToken();
             var nothiType = _nothiType.GetNothiTypeList(token);
-            if (nothiType.status == "success")
+            if (nothiType!=null && nothiType.status == "success")
             {
                 if (nothiType.data.Count > 0)
                 {
