@@ -350,11 +350,11 @@
     </Compile>
     <Compile Include="UI\VIew\DakListView.cs" />
     <Compile Include="UserControlFactory.cs" />
-    <Compile Include="UserControl\designationSelect.cs">
+    <Compile Include="UserControl\DesignationSelect.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\designationSelect.Designer.cs">
-      <DependentUpon>designationSelect.cs</DependentUpon>
+    <Compile Include="UserControl\DesignationSelect.Designer.cs">
+      <DependentUpon>DesignationSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dashboard.cs">
       <SubType>Form</SubType>
@@ -476,8 +476,8 @@
     <EmbeddedResource Include="UI\Nothi.resx">
       <DependentUpon>Nothi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\designationSelect.resx">
-      <DependentUpon>designationSelect.cs</DependentUpon>
+    <EmbeddedResource Include="UserControl\DesignationSelect.resx">
+      <DependentUpon>DesignationSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

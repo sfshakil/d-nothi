@@ -134,6 +134,7 @@
     <Compile Include="NothiServices\NothiOutboxService.cs" />
     <Compile Include="NothiServices\NothiTypeListService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyncServices\SyncerService.cs" />
     <Compile Include="UserServices\IUserService.cs" />
     <Compile Include="UserServices\UserParam.cs" />
     <Compile Include="UserServices\UserService.cs" />

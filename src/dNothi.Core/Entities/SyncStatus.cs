@@ -1,12 +1,13 @@
-﻿using System;
+﻿using dNothi.Core.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dNothi.Utility
+namespace dNothi.Core.Entities
 {
-    public class Class1
+    public class SyncStatus : BaseEntity
     {
     }
 }

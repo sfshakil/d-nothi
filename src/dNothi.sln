@@ -27,6 +27,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{D9DD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{36B25CAB-BFC6-470E-AB2F-76270427C284}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroServices", "MicroServices", "{B89DE05E-F2F4-4699-A919-3F522E7367B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dNothi.Syncer", "dNothi.Syncer\dNothi.Syncer.csproj", "{6621958E-747D-4649-8E12-BFF0F6DA57C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,10 @@ Global
 		{856DBAEE-2A55-49D6-A44F-A086D9D85D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{856DBAEE-2A55-49D6-A44F-A086D9D85D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{856DBAEE-2A55-49D6-A44F-A086D9D85D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6621958E-747D-4649-8E12-BFF0F6DA57C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6621958E-747D-4649-8E12-BFF0F6DA57C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6621958E-747D-4649-8E12-BFF0F6DA57C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6621958E-747D-4649-8E12-BFF0F6DA57C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +81,7 @@ Global
 		{E152ABB6-4983-492D-BFD8-C32C739CFC1F} = {D9DD9874-A6CB-40E7-A6A0-A3E01768B967}
 		{58B5B842-9223-4E9B-A7F5-921D356F2CCF} = {36B25CAB-BFC6-470E-AB2F-76270427C284}
 		{856DBAEE-2A55-49D6-A44F-A086D9D85D08} = {A2435B53-4DEA-4FD7-B52B-6B94621A5FDD}
+		{6621958E-747D-4649-8E12-BFF0F6DA57C5} = {B89DE05E-F2F4-4699-A919-3F522E7367B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D6946A18-BB0B-43F6-917E-7DB533563449}

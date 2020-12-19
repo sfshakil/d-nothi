@@ -76,6 +76,7 @@
     <Compile Include="Entities\NothiListRecords.cs" />
     <Compile Include="Entities\OfficeInfo.cs" />
     <Compile Include="Entities\Other.cs" />
+    <Compile Include="Entities\SyncStatus.cs" />
     <Compile Include="Entities\To.cs" />
     <Compile Include="Entities\UserToken.cs" />
     <Compile Include="Entities\User.cs" />
