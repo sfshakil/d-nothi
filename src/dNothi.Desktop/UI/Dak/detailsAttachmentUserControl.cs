@@ -11,9 +11,9 @@ using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class detailsAttachmentUserControl : UserControl
+    public partial class DetailsAttachmentUserControl : UserControl
     {
-        public detailsAttachmentUserControl()
+        public DetailsAttachmentUserControl()
         {
             InitializeComponent();
         }

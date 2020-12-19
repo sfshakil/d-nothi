@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class movementStatusDetailsUserControl : UserControl
+    public partial class MovementStatusDetailsUserControl : UserControl
     {
-        public movementStatusDetailsUserControl()
+        public MovementStatusDetailsUserControl()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop.UI.Dak
 {
-    partial class detailsAttachmentUserControl
+    partial class DetailsAttachmentUserControl
     {
         /// <summary> 
         /// Required designer variable.

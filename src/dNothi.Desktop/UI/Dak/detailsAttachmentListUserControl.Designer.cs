@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop.UI.Dak
 {
-    partial class detailsAttachmentListUserControl
+    partial class DetailsAttachmentListUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(detailsAttachmentListUserControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailsAttachmentListUserControl));
             this.attachmentCountLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.attachmentListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();

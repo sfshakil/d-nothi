@@ -208,17 +208,17 @@
     <Compile Include="UI\Dak\DakUploadUserControl.Designer.cs">
       <DependentUpon>DakUploadUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\detailsAttachmentListUserControl.cs">
+    <Compile Include="UI\Dak\DetailsAttachmentListUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\detailsAttachmentListUserControl.Designer.cs">
-      <DependentUpon>detailsAttachmentListUserControl.cs</DependentUpon>
+    <Compile Include="UI\Dak\DetailsAttachmentListUserControl.Designer.cs">
+      <DependentUpon>DetailsAttachmentListUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\detailsAttachmentUserControl.cs">
+    <Compile Include="UI\Dak\DetailsAttachmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\detailsAttachmentUserControl.Designer.cs">
-      <DependentUpon>detailsAttachmentUserControl.cs</DependentUpon>
+    <Compile Include="UI\Dak\DetailsAttachmentUserControl.Designer.cs">
+      <DependentUpon>DetailsAttachmentUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\DetailsDakUserControl.cs">
       <SubType>UserControl</SubType>
@@ -226,11 +226,11 @@
     <Compile Include="UI\Dak\DetailsDakUserControl.Designer.cs">
       <DependentUpon>DetailsDakUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\movementStatusDetailsUserControl.cs">
+    <Compile Include="UI\Dak\MovementStatusDetailsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\movementStatusDetailsUserControl.Designer.cs">
-      <DependentUpon>movementStatusDetailsUserControl.cs</DependentUpon>
+    <Compile Include="UI\Dak\MovementStatusDetailsUserControl.Designer.cs">
+      <DependentUpon>MovementStatusDetailsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\MovementStatusLeftSidePicUserControl.cs">
       <SubType>UserControl</SubType>
@@ -294,11 +294,11 @@
     </Compile>
     <Compile Include="UI\VIew\DakListView.cs" />
     <Compile Include="UserControlFactory.cs" />
-    <Compile Include="UserControl\designationSelect.cs">
+    <Compile Include="UserControl\DesignationSelect.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\designationSelect.Designer.cs">
-      <DependentUpon>designationSelect.cs</DependentUpon>
+    <Compile Include="UserControl\DesignationSelect.Designer.cs">
+      <DependentUpon>DesignationSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dashboard.cs">
       <SubType>Form</SubType>
@@ -363,17 +363,17 @@
     <EmbeddedResource Include="UI\Dak\DakUploadUserControl.resx">
       <DependentUpon>DakUploadUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\detailsAttachmentListUserControl.resx">
-      <DependentUpon>detailsAttachmentListUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\DetailsAttachmentListUserControl.resx">
+      <DependentUpon>DetailsAttachmentListUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\detailsAttachmentUserControl.resx">
-      <DependentUpon>detailsAttachmentUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\DetailsAttachmentUserControl.resx">
+      <DependentUpon>DetailsAttachmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DetailsDakUserControl.resx">
       <DependentUpon>DetailsDakUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\movementStatusDetailsUserControl.resx">
-      <DependentUpon>movementStatusDetailsUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\MovementStatusDetailsUserControl.resx">
+      <DependentUpon>MovementStatusDetailsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\MovementStatusLeftSidePicUserControl.resx">
       <DependentUpon>MovementStatusLeftSidePicUserControl.cs</DependentUpon>
@@ -405,8 +405,8 @@
     <EmbeddedResource Include="UI\Nothi.resx">
       <DependentUpon>Nothi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\designationSelect.resx">
-      <DependentUpon>designationSelect.cs</DependentUpon>
+    <EmbeddedResource Include="UserControl\DesignationSelect.resx">
+      <DependentUpon>DesignationSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

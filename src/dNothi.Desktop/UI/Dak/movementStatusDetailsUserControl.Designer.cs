@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop.UI.Dak
 {
-    partial class movementStatusDetailsUserControl
+    partial class MovementStatusDetailsUserControl
     {
         /// <summary> 
         /// Required designer variable.

@@ -64,10 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttentionTypeIConList.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="DakAttachmentTypeIconList.cs" />
     <Compile Include="DakPriorityList.cs" />
-    <Compile Include="dakSecurityIconList.cs" />
+    <Compile Include="DakSecurityList.cs" />
     <Compile Include="CheckNagorikDakType.cs" />
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="EmailSender.cs" />
