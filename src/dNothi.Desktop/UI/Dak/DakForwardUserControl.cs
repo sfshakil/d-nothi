@@ -21,7 +21,7 @@ using Newtonsoft.Json;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class DakSendUserControl : UserControl
+    public partial class DakForwardUserControl : UserControl
     {
         [Browsable(true)]
         [Category("Action")]
@@ -36,6 +36,7 @@ namespace dNothi.Desktop.UI.Dak
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
         private int _dak_id;
         private string _dak_type;
+        private string _dak_subject;
         private int _is_copied_dak;
         private DakListUserParam _dak_List_User_Param;
 
@@ -44,6 +45,11 @@ namespace dNothi.Desktop.UI.Dak
             get { return _dak_List_User_Param; }
 
             set { _dak_List_User_Param = value; }
+        }
+         public string dak_subject {
+            get { return _dak_subject; }
+
+            set { _dak_subject = value; Subjectlabel.Text = value; }
         }
 
         public int dak_id
@@ -113,6 +119,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
 
                     PopulateOwnOfficeGrid();
+                    PopulateOtherOfficeGrid();
                 }
                 catch
                 {
@@ -125,66 +132,16 @@ namespace dNothi.Desktop.UI.Dak
         
         }
 
-        public DakSendUserControl()
+        public DakForwardUserControl()
         {
             InitializeComponent();
             PriorityListCollection.Clear();
 
-            foreach(string str in dakPriorityListBox.Items)
-            {
-                PriorityListCollection.Add(str);
-            }
-
-            SecurityListCollection.Clear();
-            foreach (string str in securityLevelListBox.Items)
-            {
-                SecurityListCollection.Add(str);
-            }
+           
 
         }
 
-        private void prioritySearchXTextBox_TextChanged(object sender, EventArgs e)
-        {
-            dakPriorityListBox.Items.Clear();
-            if(prioritySearchXTextBox.Text=="")
-            {
-                foreach(string str in PriorityListCollection)
-                {
-                    dakPriorityListBox.Items.Add(str);
-                }
-            }
-            else
-            {
-                foreach (string str in PriorityListCollection)
-                {
-                    if(str.StartsWith(prioritySearchXTextBox.Text))
-                    {
-                        dakPriorityListBox.Items.Add(str);
-                    }
-                   
-                }
-             
-            }
-        }
-
-        private void prioritySearchButton_Click(object sender, EventArgs e)
-        {
-            if(prioritySearchPanel.Visible)
-            {
-                prioritySearchPanel.Visible = false;
-            }
-            else
-            {
-                prioritySearchPanel.Visible = true;
-            }
-        }
-
-        private void dakPriorityListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            prioritySearchPanel.Visible = false;
-            prioritySearchButton.Text = dakPriorityListBox.GetItemText(dakPriorityListBox.SelectedItem);
-        }
-
+       
         private void nothivuktoRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             decisionXTextBox.Text = nothivuktoRadioButton.Text;
@@ -200,48 +157,7 @@ namespace dNothi.Desktop.UI.Dak
             decisionXTextBox.Text = decisionComboBox.SelectedItem.ToString();
         }
 
-        private void secretLevelSearchButton_Click(object sender, EventArgs e)
-        {
-            if (dakSecurityLevelPanel.Visible)
-            {
-                dakSecurityLevelPanel.Visible = false;
-            }
-            else
-            {
-                dakSecurityLevelPanel.Visible = true;
-            }
-        }
-
-        private void securityLevelXTextBox_TextChanged(object sender, EventArgs e)
-        {
-            securityLevelListBox.Items.Clear();
-            if (securityLevelXTextBox.Text == "")
-            {
-                foreach (string str in SecurityListCollection)
-                {
-                    securityLevelListBox.Items.Add(str);
-                }
-            }
-            else
-            {
-                foreach (string str in SecurityListCollection)
-                {
-                    if (str.StartsWith(securityLevelXTextBox.Text))
-                    {
-                        securityLevelListBox.Items.Add(str);
-                    }
-
-                }
-
-            }
-        }
-
-        private void securityLevelListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dakSecurityLevelPanel.Visible = false;
-            secretLevelSearchButton.Text = securityLevelListBox.GetItemText(securityLevelListBox.SelectedItem);
-        }
-
+     
         private void decisionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             decisionXTextBox.Text = decisionComboBox.SelectedItem.ToString();
@@ -253,19 +169,37 @@ namespace dNothi.Desktop.UI.Dak
             
         }
         int designationColumn = 2;
-        private void SaveOnulipiPrapok(int row_index)
+        private void SaveOwnOnulipiPrapok(int row_index)
         {
            
-            for (int i = 0; i <= prapokDataGridView.Rows.Count-1; i++)
+            for (int i = 0; i <= prapokOwnDataGridView.Rows.Count-1; i++)
             {
                 if (i == row_index)
                 {
-                    prapokDataGridView.Rows[i].Cells[onulipiColumn].Value = false;
-                    prapokDataGridView.Rows[i].Cells[mulPrapokColumn].Value = false;
+                    prapokOwnDataGridView.Rows[i].Cells[onulipiColumn].Value = false;
+                    prapokOwnDataGridView.Rows[i].Cells[mulPrapokColumn].Value = false;
                     
 
                 
-                    int designation_id = (int)prapokDataGridView.Rows[i].Cells[designationColumn].Value;
+                    int designation_id = (int)prapokOwnDataGridView.Rows[i].Cells[designationColumn].Value;
+                    SetThisMulprapokfalse(designation_id);
+                }
+            }
+        }
+
+        private void SaveOtherOnulipiPrapok(int row_index)
+        {
+
+            for (int i = 0; i <= prapokOthersDataGridView.Rows.Count - 1; i++)
+            {
+                if (i == row_index)
+                {
+                    prapokOthersDataGridView.Rows[i].Cells[onulipiColumn].Value = false;
+                    prapokOthersDataGridView.Rows[i].Cells[mulPrapokColumn].Value = false;
+
+
+
+                    int designation_id = (int)prapokOthersDataGridView.Rows[i].Cells[designationColumn].Value;
                     SetThisMulprapokfalse(designation_id);
                 }
             }
@@ -278,23 +212,47 @@ namespace dNothi.Desktop.UI.Dak
             
         }
 
-        private void SaveMulPrapok(int row_index)
+        private void SaveOwnMulPrapok(int row_index)
         {
-            for (int i = 0; i <= prapokDataGridView.Rows.Count-1; i++)
+            for (int i = 0; i <= prapokOwnDataGridView.Rows.Count-1; i++)
             {
-                prapokDataGridView.Rows[i].Cells[mulPrapokColumn].Value = false;
+                prapokOwnDataGridView.Rows[i].Cells[mulPrapokColumn].Value = false;
              
                 if (i != row_index)
                 {
-                    prapokDataGridView.Rows[i].Cells[mulPrapokColumn].Value = false;
+                    prapokOwnDataGridView.Rows[i].Cells[mulPrapokColumn].Value = false;
           
 
 
                 }
                 else
                 {
-                    int designation_id = (int)prapokDataGridView.Rows[i].Cells[designationColumn].Value;
-                    prapokDataGridView.Rows[i].Cells[onulipiColumn].Value = false;
+                    int designation_id = (int)prapokOwnDataGridView.Rows[i].Cells[designationColumn].Value;
+                    prapokOwnDataGridView.Rows[i].Cells[onulipiColumn].Value = false;
+
+                    SetOtherMulprapokfalse(designation_id);
+
+                }
+            }
+        }
+
+        private void SaveOtherMulPrapok(int row_index)
+        {
+            for (int i = 0; i <= prapokOthersDataGridView.Rows.Count - 1; i++)
+            {
+                prapokOthersDataGridView.Rows[i].Cells[mulPrapokColumn].Value = false;
+
+                if (i != row_index)
+                {
+                    prapokOthersDataGridView.Rows[i].Cells[mulPrapokColumn].Value = false;
+
+
+
+                }
+                else
+                {
+                    int designation_id = (int)prapokOthersDataGridView.Rows[i].Cells[designationColumn].Value;
+                    prapokOthersDataGridView.Rows[i].Cells[onulipiColumn].Value = false;
 
                     SetOtherMulprapokfalse(designation_id);
 
@@ -317,23 +275,21 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        private void ownOfficeButton_Click(object sender, EventArgs e)
-        {
-            PopulateOwnOfficeGrid();
-
-
-        }
+        
         public void PopulateOwnOfficeGrid()
         {
-            prapokDataGridView.DataSource = null;
-            prapokDataGridView.DataSource = viewDesignationSealLists.Where(a => a.nij_Office == true).ToList();
-        }
-        private void otherOfficeButton_Click(object sender, EventArgs e)
-        {
-            prapokDataGridView.DataSource = null;
-            prapokDataGridView.DataSource = viewDesignationSealLists.Where(a => a.nij_Office == false).ToList();
-        }
+            prapokOwnDataGridView.DataSource = null;
+            prapokOwnDataGridView.DataSource = viewDesignationSealLists.Where(a => a.nij_Office == true).ToList();
 
+          
+        }
+        public void PopulateOtherOfficeGrid()
+        {
+           
+            prapokOthersDataGridView.DataSource = null;
+            prapokOthersDataGridView.DataSource = viewDesignationSealLists.Where(a => a.nij_Office == false).ToList();
+        }
+       
         private void prapokDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row_index = e.RowIndex;
@@ -342,14 +298,15 @@ namespace dNothi.Desktop.UI.Dak
             //  if(e.ColumnIndex==prapokDataGridView.Columns["mul_prapok"].Index)
             if (e.ColumnIndex == mulPrapokColumn)
             {
-                SaveMulPrapok(row_index);
+                SaveOwnMulPrapok(row_index);
             }
             else if (e.ColumnIndex == onulipiColumn)
             {
-                SaveOnulipiPrapok(row_index);
+                SaveOwnOnulipiPrapok(row_index);
             }
 
-            prapokDataGridView.Refresh();
+            prapokOwnDataGridView.Refresh();
+            prapokOthersDataGridView.Refresh();
         }
 
         private void sendButton_Click(object sender, EventArgs e)
@@ -489,6 +446,41 @@ namespace dNothi.Desktop.UI.Dak
             {
                 return null;
             }
+        }
+
+        private void prapokOthersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row_index = e.RowIndex;
+            if (e.ColumnIndex == mulPrapokColumn)
+            {
+                SaveOtherMulPrapok(row_index);
+            }
+            else if (e.ColumnIndex == onulipiColumn)
+            {
+                SaveOtherOnulipiPrapok(row_index);
+            }
+
+            prapokOwnDataGridView.Refresh();
+            prapokOthersDataGridView.Refresh();
+        }
+
+        private void prapokOwnDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row_index = e.RowIndex;
+            //bool mulprapok = (bool)prapokDataGridView.Rows[row_index].Cells[mulPrapokColumn].Value;
+            //bool Onulipi = (bool)prapokDataGridView.Rows[row_index].Cells[onulipiColumn].Value;
+            //  if(e.ColumnIndex==prapokDataGridView.Columns["mul_prapok"].Index)
+            if (e.ColumnIndex == mulPrapokColumn)
+            {
+                SaveOwnMulPrapok(row_index);
+            }
+            else if (e.ColumnIndex == onulipiColumn)
+            {
+                SaveOwnOnulipiPrapok(row_index);
+            }
+
+            prapokOwnDataGridView.Refresh();
+            prapokOthersDataGridView.Refresh();
         }
     }
 }

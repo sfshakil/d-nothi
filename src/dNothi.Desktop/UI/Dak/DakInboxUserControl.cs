@@ -15,10 +15,10 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakInboxUserControl : UserControl
     {
+
        
-
-
-
+        private bool MouseIsOverControl() =>
+    this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
         public DakInboxUserControl()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
-
+                
                 ctrl.Click += DakInboxUserControl_Click;
                 ctrl.MouseEnter += DakInboxUserControl_MouseEnter;
                 ctrl.MouseLeave += DakInboxUserControl_MouseLeave;
@@ -333,21 +333,32 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakInboxUserControl_MouseEnter(object sender, EventArgs e)
         {
-           
+
+
+            MouseHoverAction();
+
+        }
+
+        private void MouseHoverAction()
+        {
+            if (MouseIsOverControl())
+            {
                 this.BackColor = Color.WhiteSmoke;
-               
-           
-          
-            
+                dakActionPanel.Visible = true;
+            }
+            else
+            {
+                this.BackColor = Color.White;
+                dakActionPanel.Visible = false;
+            }
         }
 
         private void DakInboxUserControl_MouseLeave(object sender, EventArgs e)
         {
-            
-                this.BackColor = Color.White;
-              
-          
-        
+
+            MouseHoverAction();
+
+
         }
 
         private void DakInboxUserControl_Load(object sender, EventArgs e)

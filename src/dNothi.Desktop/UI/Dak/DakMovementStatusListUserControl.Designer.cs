@@ -47,11 +47,11 @@
             // userDesignationLabel
             // 
             this.userDesignationLabel.AutoSize = true;
-            this.userDesignationLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userDesignationLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userDesignationLabel.Location = new System.Drawing.Point(98, 6);
             this.userDesignationLabel.MaximumSize = new System.Drawing.Size(260, 0);
             this.userDesignationLabel.Name = "userDesignationLabel";
-            this.userDesignationLabel.Size = new System.Drawing.Size(258, 68);
+            this.userDesignationLabel.Size = new System.Drawing.Size(257, 56);
             this.userDesignationLabel.TabIndex = 1;
             this.userDesignationLabel.Text = "মোঃ হাসানুজ্জাafdasdfadsমানfddsafdsafdsfdsaaafdasfdasfdafdasfdasfadf (সল্যুশন আর্" +
     "কিটেক্ট, টেকনোলজি, এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম";
@@ -59,10 +59,10 @@
             // userTypeLabel
             // 
             this.userTypeLabel.AutoSize = true;
-            this.userTypeLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTypeLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userTypeLabel.Location = new System.Drawing.Point(7, 7);
             this.userTypeLabel.Name = "userTypeLabel";
-            this.userTypeLabel.Size = new System.Drawing.Size(85, 17);
+            this.userTypeLabel.Size = new System.Drawing.Size(69, 14);
             this.userTypeLabel.TabIndex = 0;
             this.userTypeLabel.Text = "প্রেরক           :";
             // 

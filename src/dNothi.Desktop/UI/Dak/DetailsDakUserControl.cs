@@ -70,6 +70,19 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     DakAttachmentDTO dakAttachmentDTO = dakAttachmentResponse.data.FirstOrDefault(a => a.is_main == 1);
                     mainAttachmentViewWebBrowser.Url = new Uri(dakAttachmentDTO.url);
+                    attachmentListFlowLayoutPanel.Controls.Clear();
+                    DetailsAttachmentListUserControl detailsAttachmentListUserControl = new DetailsAttachmentListUserControl();
+                    try
+                    {
+
+                        detailsAttachmentListUserControl.dakAttachmentDTOs = _dakAttachmentResponse.data;
+                        detailsAttachmentListUserControl.allattachmentdownloadlink = "";
+                        attachmentListFlowLayoutPanel.Controls.Add(detailsAttachmentListUserControl);
+                    }
+                    catch
+                    {
+
+                    }
                 }
                 catch(Exception ex)
                 {
@@ -86,7 +99,7 @@ namespace dNothi.Desktop.UI.Dak
             get { return _dakDetailsResponse; }
             set { _dakDetailsResponse = value;
                 movementStatusDetailsPanel.Controls.Clear();
-                movementStatusDetailsUserControl movementStatusDetailsUserControlSource = new movementStatusDetailsUserControl();
+                MovementStatusDetailsUserControl movementStatusDetailsUserControlSource = new MovementStatusDetailsUserControl();
 
                 movementStatusDetailsUserControlSource.userType = "উৎসঃ";
                 movementStatusDetailsUserControlSource.userName = dakDetailsResponse.data.dak_origin.sender_name;
@@ -94,7 +107,7 @@ namespace dNothi.Desktop.UI.Dak
                 movementStatusDetailsPanel.Controls.Add(movementStatusDetailsUserControlSource);
 
 
-                movementStatusDetailsUserControl movementStatusDetailsUserControlMainReceiver = new movementStatusDetailsUserControl();
+                MovementStatusDetailsUserControl movementStatusDetailsUserControlMainReceiver = new MovementStatusDetailsUserControl();
 
                 movementStatusDetailsUserControlMainReceiver.userType = "মূল প্রাপকঃ";
                 movementStatusDetailsUserControlMainReceiver.userName = dakDetailsResponse.data.dak_origin.receiving_officer_name;
@@ -102,7 +115,7 @@ namespace dNothi.Desktop.UI.Dak
                 movementStatusDetailsPanel.Controls.Add(movementStatusDetailsUserControlMainReceiver);
 
 
-                movementStatusDetailsUserControl movementStatusDetailsUserControlSender = new movementStatusDetailsUserControl();
+                MovementStatusDetailsUserControl movementStatusDetailsUserControlSender = new MovementStatusDetailsUserControl();
 
                 try
                 {
@@ -116,7 +129,7 @@ namespace dNothi.Desktop.UI.Dak
 
                 }
 
-                movementStatusDetailsUserControl movementStatusDetailsUserControlReceiver = new movementStatusDetailsUserControl();
+                MovementStatusDetailsUserControl movementStatusDetailsUserControlReceiver = new MovementStatusDetailsUserControl();
 
                 try
                 {
@@ -138,7 +151,7 @@ namespace dNothi.Desktop.UI.Dak
                     string type= "অনুলিপি প্রাপকঃ";
                     foreach (ToDTO toDTO in dakDetailsResponse.data.movement_status.to.Where(a=>a.attention_type!="1"))
                     {
-                        movementStatusDetailsUserControl movementStatusDetailsUserControlOnulipi = new movementStatusDetailsUserControl();
+                        MovementStatusDetailsUserControl movementStatusDetailsUserControlOnulipi = new MovementStatusDetailsUserControl();
 
                         movementStatusDetailsUserControlOnulipi.userType =type;
                         movementStatusDetailsUserControlOnulipi.userName = toDTO.officer;
@@ -390,60 +403,8 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        private void mainAttachmentButton_MouseEnter(object sender, EventArgs e)
-        {
-            mainAttachmentButton.ForeColor = Color.Blue;
-        }
+       
+       
 
-        private void mainAttachmentButton_MouseLeave(object sender, EventArgs e)
-        {
-            mainAttachmentButton.ForeColor = Color.Black;
-        }
-
-      
-
-        private void attachmentListButton_MouseEnter(object sender, EventArgs e)
-        {
-            attachmentListButton.ForeColor = Color.Blue;
-        }
-
-        private void attachmentListButton_MouseLeave(object sender, EventArgs e)
-        {
-            attachmentListButton.ForeColor = Color.Black;
-        }
-
-        private void mainAttachmentButton_Click(object sender, EventArgs e)
-        {
-
-            attachmentFlowLayoutPanel.Controls.Clear();
-            attachmentFlowLayoutPanel.Controls.Add(mainAttachmentViewWebBrowser);
-            mainAttachmentButton.FlatAppearance.BorderColor = Color.White;
-            attachmentListButton.FlatAppearance.BorderColor = Color.Black;
-        }
-
-        private void attachmentListButton_Click(object sender, EventArgs e)
-        {
-           
-            attachmentListButton.FlatAppearance.BorderColor = Color.White;
-
-            mainAttachmentButton.FlatAppearance.BorderColor = Color.Black;
-
-            attachmentFlowLayoutPanel.Controls.Clear();
-            detailsAttachmentListUserControl detailsAttachmentListUserControl = new detailsAttachmentListUserControl();
-            try
-            {
-
-                detailsAttachmentListUserControl.dakAttachmentDTOs = _dakAttachmentResponse.data;
-                detailsAttachmentListUserControl.allattachmentdownloadlink = "";
-                attachmentFlowLayoutPanel.Controls.Add(detailsAttachmentListUserControl);
-            }
-            catch
-            {
-
-            }
-
-
-
-        }
     }
 }

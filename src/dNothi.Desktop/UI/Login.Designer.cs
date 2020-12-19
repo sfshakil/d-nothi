@@ -124,9 +124,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(532, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(503, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(334, 74);
+            this.pictureBox1.Size = new System.Drawing.Size(346, 72);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -137,9 +138,10 @@
             this.panel1.Controls.Add(this.pnlENothiSystemUpdate);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(278, 151);
+            this.panel1.Location = new System.Drawing.Point(200, 92);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(828, 573);
+            this.panel1.Size = new System.Drawing.Size(966, 680);
             this.panel1.TabIndex = 1;
             // 
             // pnlHelpDesk
@@ -177,9 +179,10 @@
             this.pnlHelpDesk.Controls.Add(this.label9);
             this.pnlHelpDesk.Controls.Add(this.panel11);
             this.pnlHelpDesk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHelpDesk.Location = new System.Drawing.Point(0, 284);
+            this.pnlHelpDesk.Location = new System.Drawing.Point(0, 293);
+            this.pnlHelpDesk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlHelpDesk.Name = "pnlHelpDesk";
-            this.pnlHelpDesk.Size = new System.Drawing.Size(414, 242);
+            this.pnlHelpDesk.Size = new System.Drawing.Size(483, 302);
             this.pnlHelpDesk.TabIndex = 4;
             // 
             // label23
@@ -187,9 +190,9 @@
             this.label23.AutoSize = true;
             this.label23.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label23.ForeColor = System.Drawing.Color.Indigo;
-            this.label23.Location = new System.Drawing.Point(246, 188);
+            this.label23.Location = new System.Drawing.Point(287, 242);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(115, 13);
+            this.label23.Size = new System.Drawing.Size(118, 18);
             this.label23.TabIndex = 38;
             this.label23.Text = "ই নথি অনলাইন কোর্স ";
             // 
@@ -198,9 +201,10 @@
             this.pictureBox14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox14.BackgroundImage")));
             this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox14.Location = new System.Drawing.Point(224, 188);
+            this.pictureBox14.Location = new System.Drawing.Point(261, 242);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox14.Size = new System.Drawing.Size(23, 21);
             this.pictureBox14.TabIndex = 37;
             this.pictureBox14.TabStop = false;
             // 
@@ -209,9 +213,9 @@
             this.label24.AutoSize = true;
             this.label24.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label24.ForeColor = System.Drawing.Color.Indigo;
-            this.label24.Location = new System.Drawing.Point(246, 163);
+            this.label24.Location = new System.Drawing.Point(287, 208);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(104, 13);
+            this.label24.Size = new System.Drawing.Size(108, 18);
             this.label24.TabIndex = 36;
             this.label24.Text = "ভিডিও টিউটোরিয়াল";
             // 
@@ -220,9 +224,10 @@
             this.pictureBox15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox15.BackgroundImage")));
             this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox15.Location = new System.Drawing.Point(224, 163);
+            this.pictureBox15.Location = new System.Drawing.Point(261, 208);
+            this.pictureBox15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox15.Size = new System.Drawing.Size(23, 21);
             this.pictureBox15.TabIndex = 35;
             this.pictureBox15.TabStop = false;
             // 
@@ -232,10 +237,10 @@
             this.label21.BackColor = System.Drawing.Color.HotPink;
             this.label21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label21.ForeColor = System.Drawing.SystemColors.Control;
-            this.label21.Location = new System.Drawing.Point(338, 137);
+            this.label21.Location = new System.Drawing.Point(394, 172);
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(57, 13);
+            this.label21.Size = new System.Drawing.Size(59, 18);
             this.label21.TabIndex = 34;
             this.label21.Text = "ভার্সনঃ ১৫";
             // 
@@ -244,9 +249,9 @@
             this.label22.AutoSize = true;
             this.label22.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label22.ForeColor = System.Drawing.Color.Indigo;
-            this.label22.Location = new System.Drawing.Point(246, 137);
+            this.label22.Location = new System.Drawing.Point(287, 172);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(86, 13);
+            this.label22.Size = new System.Drawing.Size(88, 18);
             this.label22.TabIndex = 33;
             this.label22.Text = "ব্যবহার সহায়িকা";
             // 
@@ -255,9 +260,10 @@
             this.pictureBox13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox13.BackgroundImage")));
             this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox13.Location = new System.Drawing.Point(223, 137);
+            this.pictureBox13.Location = new System.Drawing.Point(260, 172);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox13.Size = new System.Drawing.Size(23, 21);
             this.pictureBox13.TabIndex = 32;
             this.pictureBox13.TabStop = false;
             // 
@@ -266,9 +272,9 @@
             this.label20.AutoSize = true;
             this.label20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label20.ForeColor = System.Drawing.Color.Indigo;
-            this.label20.Location = new System.Drawing.Point(37, 213);
+            this.label20.Location = new System.Drawing.Point(43, 277);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(102, 13);
+            this.label20.Size = new System.Drawing.Size(101, 18);
             this.label20.TabIndex = 31;
             this.label20.Text = "ব্রাউজার ক্যাশ মুছুন";
             // 
@@ -277,9 +283,10 @@
             this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
             this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox12.Location = new System.Drawing.Point(15, 213);
+            this.pictureBox12.Location = new System.Drawing.Point(17, 277);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox12.Size = new System.Drawing.Size(23, 21);
             this.pictureBox12.TabIndex = 30;
             this.pictureBox12.TabStop = false;
             // 
@@ -288,9 +295,9 @@
             this.label19.AutoSize = true;
             this.label19.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label19.ForeColor = System.Drawing.Color.Indigo;
-            this.label19.Location = new System.Drawing.Point(246, 111);
+            this.label19.Location = new System.Drawing.Point(287, 136);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 13);
+            this.label19.Size = new System.Drawing.Size(40, 18);
             this.label19.TabIndex = 29;
             this.label19.Text = "নোটিশ";
             // 
@@ -298,9 +305,10 @@
             // 
             this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
             this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox11.Location = new System.Drawing.Point(223, 111);
+            this.pictureBox11.Location = new System.Drawing.Point(260, 136);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox11.Size = new System.Drawing.Size(23, 21);
             this.pictureBox11.TabIndex = 28;
             this.pictureBox11.TabStop = false;
             // 
@@ -309,9 +317,9 @@
             this.label18.AutoSize = true;
             this.label18.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label18.ForeColor = System.Drawing.Color.Indigo;
-            this.label18.Location = new System.Drawing.Point(246, 85);
+            this.label18.Location = new System.Drawing.Point(287, 100);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 13);
+            this.label18.Size = new System.Drawing.Size(49, 18);
             this.label18.TabIndex = 27;
             this.label18.Text = "আপডেট";
             // 
@@ -319,9 +327,10 @@
             // 
             this.pictureBox10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.BackgroundImage")));
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox10.Location = new System.Drawing.Point(223, 85);
+            this.pictureBox10.Location = new System.Drawing.Point(260, 100);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox10.Size = new System.Drawing.Size(23, 21);
             this.pictureBox10.TabIndex = 26;
             this.pictureBox10.TabStop = false;
             // 
@@ -330,9 +339,9 @@
             this.label17.AutoSize = true;
             this.label17.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label17.ForeColor = System.Drawing.Color.Indigo;
-            this.label17.Location = new System.Drawing.Point(246, 60);
+            this.label17.Location = new System.Drawing.Point(287, 65);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(91, 13);
+            this.label17.Size = new System.Drawing.Size(88, 18);
             this.label17.TabIndex = 25;
             this.label17.Text = "আপনার জিজ্ঞাসা";
             // 
@@ -340,9 +349,10 @@
             // 
             this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox9.Location = new System.Drawing.Point(223, 60);
+            this.pictureBox9.Location = new System.Drawing.Point(260, 65);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox9.Size = new System.Drawing.Size(23, 21);
             this.pictureBox9.TabIndex = 24;
             this.pictureBox9.TabStop = false;
             // 
@@ -351,9 +361,9 @@
             this.label16.AutoSize = true;
             this.label16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label16.ForeColor = System.Drawing.Color.Indigo;
-            this.label16.Location = new System.Drawing.Point(37, 188);
+            this.label16.Location = new System.Drawing.Point(43, 242);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(99, 13);
+            this.label16.Size = new System.Drawing.Size(102, 18);
             this.label16.TabIndex = 23;
             this.label16.Text = "নথি মোবাইল অ্যাপ";
             // 
@@ -362,9 +372,10 @@
             this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Location = new System.Drawing.Point(15, 188);
+            this.pictureBox8.Location = new System.Drawing.Point(17, 242);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox8.Size = new System.Drawing.Size(23, 21);
             this.pictureBox8.TabIndex = 22;
             this.pictureBox8.TabStop = false;
             // 
@@ -374,10 +385,10 @@
             this.label15.BackColor = System.Drawing.Color.DarkOrange;
             this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label15.Location = new System.Drawing.Point(88, 163);
+            this.label15.Location = new System.Drawing.Point(103, 208);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(68, 13);
+            this.label15.Size = new System.Drawing.Size(69, 18);
             this.label15.TabIndex = 21;
             this.label15.Text = "ফেসবুক গ্রূপ";
             // 
@@ -386,9 +397,9 @@
             this.label14.AutoSize = true;
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label14.ForeColor = System.Drawing.Color.Indigo;
-            this.label14.Location = new System.Drawing.Point(40, 163);
+            this.label14.Location = new System.Drawing.Point(47, 208);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 13);
+            this.label14.Size = new System.Drawing.Size(49, 18);
             this.label14.TabIndex = 19;
             this.label14.Text = "নথি গ্রূপ";
             // 
@@ -397,9 +408,10 @@
             this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Location = new System.Drawing.Point(15, 163);
+            this.pictureBox7.Location = new System.Drawing.Point(17, 208);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox7.Size = new System.Drawing.Size(23, 21);
             this.pictureBox7.TabIndex = 18;
             this.pictureBox7.TabStop = false;
             // 
@@ -408,9 +420,9 @@
             this.label13.AutoSize = true;
             this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label13.ForeColor = System.Drawing.Color.Indigo;
-            this.label13.Location = new System.Drawing.Point(41, 137);
+            this.label13.Location = new System.Drawing.Point(48, 172);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(109, 13);
+            this.label13.Size = new System.Drawing.Size(129, 18);
             this.label13.TabIndex = 17;
             this.label13.Text = "support@nothi.org.bd";
             // 
@@ -419,9 +431,10 @@
             this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.Location = new System.Drawing.Point(15, 137);
+            this.pictureBox6.Location = new System.Drawing.Point(17, 172);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox6.Size = new System.Drawing.Size(23, 21);
             this.pictureBox6.TabIndex = 16;
             this.pictureBox6.TabStop = false;
             // 
@@ -430,9 +443,9 @@
             this.lbMobileNo3.AutoSize = true;
             this.lbMobileNo3.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbMobileNo3.ForeColor = System.Drawing.Color.Indigo;
-            this.lbMobileNo3.Location = new System.Drawing.Point(38, 111);
+            this.lbMobileNo3.Location = new System.Drawing.Point(44, 136);
             this.lbMobileNo3.Name = "lbMobileNo3";
-            this.lbMobileNo3.Size = new System.Drawing.Size(119, 13);
+            this.lbMobileNo3.Size = new System.Drawing.Size(129, 18);
             this.lbMobileNo3.TabIndex = 15;
             this.lbMobileNo3.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৯";
             this.lbMobileNo3.MouseLeave += new System.EventHandler(this.lbMobileNo3_MouseLeave);
@@ -442,9 +455,10 @@
             // 
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(15, 111);
+            this.pictureBox5.Location = new System.Drawing.Point(17, 136);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox5.Size = new System.Drawing.Size(23, 21);
             this.pictureBox5.TabIndex = 14;
             this.pictureBox5.TabStop = false;
             // 
@@ -453,9 +467,9 @@
             this.lbMobileNo2.AutoSize = true;
             this.lbMobileNo2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbMobileNo2.ForeColor = System.Drawing.Color.Indigo;
-            this.lbMobileNo2.Location = new System.Drawing.Point(38, 85);
+            this.lbMobileNo2.Location = new System.Drawing.Point(44, 100);
             this.lbMobileNo2.Name = "lbMobileNo2";
-            this.lbMobileNo2.Size = new System.Drawing.Size(119, 13);
+            this.lbMobileNo2.Size = new System.Drawing.Size(129, 18);
             this.lbMobileNo2.TabIndex = 13;
             this.lbMobileNo2.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৮";
             this.lbMobileNo2.MouseLeave += new System.EventHandler(this.lbMobileNo2_MouseLeave);
@@ -465,9 +479,10 @@
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(15, 85);
+            this.pictureBox4.Location = new System.Drawing.Point(17, 100);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox4.Size = new System.Drawing.Size(23, 21);
             this.pictureBox4.TabIndex = 12;
             this.pictureBox4.TabStop = false;
             // 
@@ -476,9 +491,9 @@
             this.lbMobileNo1.AutoSize = true;
             this.lbMobileNo1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbMobileNo1.ForeColor = System.Drawing.Color.Indigo;
-            this.lbMobileNo1.Location = new System.Drawing.Point(38, 60);
+            this.lbMobileNo1.Location = new System.Drawing.Point(44, 65);
             this.lbMobileNo1.Name = "lbMobileNo1";
-            this.lbMobileNo1.Size = new System.Drawing.Size(118, 13);
+            this.lbMobileNo1.Size = new System.Drawing.Size(129, 18);
             this.lbMobileNo1.TabIndex = 11;
             this.lbMobileNo1.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৭";
             this.lbMobileNo1.MouseLeave += new System.EventHandler(this.lbMobileNo1_MouseLeave);
@@ -488,36 +503,39 @@
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(15, 60);
+            this.pictureBox3.Location = new System.Drawing.Point(17, 65);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 15);
+            this.pictureBox3.Size = new System.Drawing.Size(23, 21);
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Indigo;
-            this.panel12.Location = new System.Drawing.Point(15, 50);
+            this.panel12.Location = new System.Drawing.Point(17, 48);
+            this.panel12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(381, 3);
+            this.panel12.Size = new System.Drawing.Size(444, 4);
             this.panel12.TabIndex = 9;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(14, 21);
+            this.label9.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(16, 16);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 24);
+            this.label9.Size = new System.Drawing.Size(77, 21);
             this.label9.TabIndex = 8;
             this.label9.Text = "হেল্প ডেস্ক";
             // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.Indigo;
-            this.panel11.Location = new System.Drawing.Point(15, 15);
+            this.panel11.Location = new System.Drawing.Point(17, 8);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(381, 3);
+            this.panel11.Size = new System.Drawing.Size(444, 4);
             this.panel11.TabIndex = 7;
             // 
             // pnlENothiSystemUpdate
@@ -531,17 +549,18 @@
             this.pnlENothiSystemUpdate.Controls.Add(this.label4);
             this.pnlENothiSystemUpdate.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlENothiSystemUpdate.Location = new System.Drawing.Point(0, 0);
+            this.pnlENothiSystemUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlENothiSystemUpdate.Name = "pnlENothiSystemUpdate";
-            this.pnlENothiSystemUpdate.Size = new System.Drawing.Size(414, 284);
+            this.pnlENothiSystemUpdate.Size = new System.Drawing.Size(483, 293);
             this.pnlENothiSystemUpdate.TabIndex = 3;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 211);
+            this.label8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(17, 224);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(351, 60);
+            this.label8.Size = new System.Drawing.Size(342, 54);
             this.label8.TabIndex = 6;
             this.label8.Text = "অপশন তৈরি করা হয়েছে। এই ক্ষেত্রে পত্রের খসড়া তৈরির সময় \r\nপ্রাপকের মোবাইল নম্বর দি" +
     "য়ে সংশ্লিষ্ট মেসেজ দেওয়া যাবে। প্রাপক ই-\r\nমেইলে সংশ্লিষ্ট পত্রটি এবং মোবাইলে মেস" +
@@ -550,50 +569,50 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(106, 191);
+            this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(107, 196);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(264, 20);
+            this.label7.Size = new System.Drawing.Size(254, 18);
             this.label7.TabIndex = 5;
             this.label7.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে মেসেজ দেওয়ার";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 191);
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(15, 196);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 20);
+            this.label6.Size = new System.Drawing.Size(91, 18);
             this.label6.TabIndex = 4;
             this.label6.Text = "ই-নথি সিস্টেম:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(198, 13);
+            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(201, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(183, 20);
+            this.label5.Size = new System.Drawing.Size(176, 18);
             this.label5.TabIndex = 3;
             this.label5.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 13);
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(15, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(191, 20);
+            this.label3.Size = new System.Drawing.Size(187, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "ই-নথি সিস্টেমের নতুন আপডেট:\r\n";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 33);
+            this.label4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(18, 38);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(374, 140);
+            this.label4.Size = new System.Drawing.Size(351, 126);
             this.label4.TabIndex = 1;
             this.label4.Text = resources.GetString("label4.Text");
             // 
@@ -609,9 +628,10 @@
             this.panel4.Controls.Add(this.pnlUserIdTop);
             this.panel4.Controls.Add(this.btnUserId);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(414, 0);
+            this.panel4.Location = new System.Drawing.Point(483, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(414, 526);
+            this.panel4.Size = new System.Drawing.Size(483, 595);
             this.panel4.TabIndex = 2;
             // 
             // pnlUserId
@@ -622,9 +642,10 @@
             this.pnlUserId.Controls.Add(this.txtUser);
             this.pnlUserId.Controls.Add(this.txtPassword);
             this.pnlUserId.Controls.Add(this.panel9);
-            this.pnlUserId.Location = new System.Drawing.Point(6, 60);
+            this.pnlUserId.Location = new System.Drawing.Point(7, 81);
+            this.pnlUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserId.Name = "pnlUserId";
-            this.pnlUserId.Size = new System.Drawing.Size(405, 467);
+            this.pnlUserId.Size = new System.Drawing.Size(472, 534);
             this.pnlUserId.TabIndex = 7;
             // 
             // txtUserPassword
@@ -632,11 +653,12 @@
             this.txtUserPassword.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtUserPassword.CustomBackground = true;
             this.txtUserPassword.CustomForeColor = true;
-            this.txtUserPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUserPassword.Location = new System.Drawing.Point(214, 16);
+            this.txtUserPassword.ForeColor = System.Drawing.Color.Gray;
+            this.txtUserPassword.Location = new System.Drawing.Point(251, 21);
+            this.txtUserPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserPassword.Name = "txtUserPassword";
             this.txtUserPassword.ReadOnly = true;
-            this.txtUserPassword.Size = new System.Drawing.Size(161, 31);
+            this.txtUserPassword.Size = new System.Drawing.Size(188, 43);
             this.txtUserPassword.TabIndex = 12;
             this.txtUserPassword.Text = "পাসওয়ার্ড";
             this.txtUserPassword.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -647,12 +669,13 @@
             // 
             this.txtUserId.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserId.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserId.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUserId.Location = new System.Drawing.Point(21, 16);
+            this.txtUserId.Location = new System.Drawing.Point(24, 22);
+            this.txtUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserId.Multiline = true;
             this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(161, 31);
+            this.txtUserId.Size = new System.Drawing.Size(187, 42);
             this.txtUserId.TabIndex = 11;
             this.txtUserId.Text = "ইউজার আইডি";
             this.txtUserId.Enter += new System.EventHandler(this.txtUserId_Enter);
@@ -662,12 +685,13 @@
             this.button9.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(300, 72);
+            this.button9.Location = new System.Drawing.Point(350, 100);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 62);
+            this.button9.Size = new System.Drawing.Size(87, 86);
             this.button9.TabIndex = 10;
             this.button9.Text = "প্রবেশ";
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -680,10 +704,11 @@
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUser.Location = new System.Drawing.Point(21, 16);
+            this.txtUser.Location = new System.Drawing.Point(24, 22);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(161, 31);
+            this.txtUser.Size = new System.Drawing.Size(187, 42);
             this.txtUser.TabIndex = 7;
             this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
             // 
@@ -693,11 +718,12 @@
             this.txtPassword.CustomBackground = true;
             this.txtPassword.CustomForeColor = true;
             this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPassword.Location = new System.Drawing.Point(214, 16);
+            this.txtPassword.Location = new System.Drawing.Point(250, 22);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.PromptText = "পাসওয়ার্ড";
-            this.txtPassword.Size = new System.Drawing.Size(161, 31);
+            this.txtPassword.Size = new System.Drawing.Size(188, 43);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtPassword.UseStyleColors = true;
@@ -707,34 +733,37 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.Moccasin;
             this.panel9.Controls.Add(this.label2);
-            this.panel9.Location = new System.Drawing.Point(19, 72);
+            this.panel9.Location = new System.Drawing.Point(22, 100);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(275, 62);
+            this.panel9.Size = new System.Drawing.Size(321, 86);
             this.panel9.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label2.Location = new System.Drawing.Point(7, 8);
+            this.label2.Location = new System.Drawing.Point(8, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(232, 48);
+            this.label2.Size = new System.Drawing.Size(214, 42);
             this.label2.TabIndex = 0;
             this.label2.Text = "ইউজার আইডি ব্যবহার করে প্রবেশ \r\nকরুন";
             // 
             // pnlUserIdNamePasswordBottom
             // 
-            this.pnlUserIdNamePasswordBottom.Location = new System.Drawing.Point(27, 44);
+            this.pnlUserIdNamePasswordBottom.Location = new System.Drawing.Point(31, 61);
+            this.pnlUserIdNamePasswordBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserIdNamePasswordBottom.Name = "pnlUserIdNamePasswordBottom";
-            this.pnlUserIdNamePasswordBottom.Size = new System.Drawing.Size(356, 3);
+            this.pnlUserIdNamePasswordBottom.Size = new System.Drawing.Size(415, 4);
             this.pnlUserIdNamePasswordBottom.TabIndex = 6;
             // 
             // pnlPasswordResetTop
             // 
-            this.pnlPasswordResetTop.Location = new System.Drawing.Point(272, 12);
+            this.pnlPasswordResetTop.Location = new System.Drawing.Point(317, 17);
+            this.pnlPasswordResetTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlPasswordResetTop.Name = "pnlPasswordResetTop";
-            this.pnlPasswordResetTop.Size = new System.Drawing.Size(111, 3);
+            this.pnlPasswordResetTop.Size = new System.Drawing.Size(129, 4);
             this.pnlPasswordResetTop.TabIndex = 5;
             // 
             // btnPasswordReset
@@ -743,10 +772,11 @@
             this.btnPasswordReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnPasswordReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnPasswordReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPasswordReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPasswordReset.Location = new System.Drawing.Point(272, 13);
+            this.btnPasswordReset.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPasswordReset.Location = new System.Drawing.Point(317, 18);
+            this.btnPasswordReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPasswordReset.Name = "btnPasswordReset";
-            this.btnPasswordReset.Size = new System.Drawing.Size(111, 32);
+            this.btnPasswordReset.Size = new System.Drawing.Size(129, 44);
             this.btnPasswordReset.TabIndex = 4;
             this.btnPasswordReset.Text = "পাসওয়ার্ড রিসেট";
             this.btnPasswordReset.UseVisualStyleBackColor = true;
@@ -755,9 +785,10 @@
             // 
             // pnlUserNameTop
             // 
-            this.pnlUserNameTop.Location = new System.Drawing.Point(150, 12);
+            this.pnlUserNameTop.Location = new System.Drawing.Point(175, 17);
+            this.pnlUserNameTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserNameTop.Name = "pnlUserNameTop";
-            this.pnlUserNameTop.Size = new System.Drawing.Size(94, 3);
+            this.pnlUserNameTop.Size = new System.Drawing.Size(110, 4);
             this.pnlUserNameTop.TabIndex = 3;
             // 
             // btnUserName
@@ -766,10 +797,11 @@
             this.btnUserName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnUserName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnUserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserName.Location = new System.Drawing.Point(150, 13);
+            this.btnUserName.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserName.Location = new System.Drawing.Point(175, 18);
+            this.btnUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUserName.Name = "btnUserName";
-            this.btnUserName.Size = new System.Drawing.Size(94, 32);
+            this.btnUserName.Size = new System.Drawing.Size(110, 44);
             this.btnUserName.TabIndex = 2;
             this.btnUserName.Text = "ইউজার নেম";
             this.btnUserName.UseVisualStyleBackColor = true;
@@ -778,9 +810,10 @@
             // 
             // pnlUserIdTop
             // 
-            this.pnlUserIdTop.Location = new System.Drawing.Point(27, 12);
+            this.pnlUserIdTop.Location = new System.Drawing.Point(31, 17);
+            this.pnlUserIdTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserIdTop.Name = "pnlUserIdTop";
-            this.pnlUserIdTop.Size = new System.Drawing.Size(94, 3);
+            this.pnlUserIdTop.Size = new System.Drawing.Size(110, 4);
             this.pnlUserIdTop.TabIndex = 1;
             // 
             // btnUserId
@@ -789,10 +822,11 @@
             this.btnUserId.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnUserId.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnUserId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserId.Location = new System.Drawing.Point(27, 13);
+            this.btnUserId.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserId.Location = new System.Drawing.Point(31, 18);
+            this.btnUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUserId.Name = "btnUserId";
-            this.btnUserId.Size = new System.Drawing.Size(94, 32);
+            this.btnUserId.Size = new System.Drawing.Size(110, 44);
             this.btnUserId.TabIndex = 0;
             this.btnUserId.Text = "ইউজার আইডি";
             this.btnUserId.UseVisualStyleBackColor = true;
@@ -811,9 +845,10 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 526);
+            this.panel2.Location = new System.Drawing.Point(0, 595);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(828, 47);
+            this.panel2.Size = new System.Drawing.Size(966, 85);
             this.panel2.TabIndex = 0;
             // 
             // button5
@@ -822,9 +857,10 @@
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(774, 7);
+            this.button5.Location = new System.Drawing.Point(903, 5);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(42, 37);
+            this.button5.Size = new System.Drawing.Size(49, 51);
             this.button5.TabIndex = 7;
             this.button5.UseVisualStyleBackColor = true;
             // 
@@ -834,9 +870,10 @@
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(684, 3);
+            this.button4.Location = new System.Drawing.Point(800, 3);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 41);
+            this.button4.Size = new System.Drawing.Size(68, 53);
             this.button4.TabIndex = 6;
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -846,9 +883,10 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(589, 6);
+            this.button3.Location = new System.Drawing.Point(687, 3);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(62, 32);
+            this.button3.Size = new System.Drawing.Size(72, 44);
             this.button3.TabIndex = 5;
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -858,9 +896,10 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(504, 7);
+            this.button2.Location = new System.Drawing.Point(588, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 32);
+            this.button2.Size = new System.Drawing.Size(52, 44);
             this.button2.TabIndex = 4;
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -870,9 +909,10 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(414, 7);
+            this.button1.Location = new System.Drawing.Point(483, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(42, 32);
+            this.button1.Size = new System.Drawing.Size(49, 44);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -880,11 +920,11 @@
             // 
             this.lbTappwareLink.ActiveLinkColor = System.Drawing.Color.Blue;
             this.lbTappwareLink.AutoSize = true;
-            this.lbTappwareLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTappwareLink.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTappwareLink.LinkColor = System.Drawing.Color.Blue;
-            this.lbTappwareLink.Location = new System.Drawing.Point(151, 15);
+            this.lbTappwareLink.Location = new System.Drawing.Point(176, 20);
             this.lbTappwareLink.Name = "lbTappwareLink";
-            this.lbTappwareLink.Size = new System.Drawing.Size(160, 13);
+            this.lbTappwareLink.Size = new System.Drawing.Size(165, 18);
             this.lbTappwareLink.TabIndex = 2;
             this.lbTappwareLink.TabStop = true;
             this.lbTappwareLink.Text = "ট্যাপওয়্যার সলিউশনস লিমিটেড";
@@ -892,10 +932,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 12);
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(49, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 20);
+            this.label1.Size = new System.Drawing.Size(128, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = " কারিগরি সহায়তায় ";
             // 
@@ -903,22 +943,25 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(13, 8);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 11);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(26, 29);
+            this.pictureBox2.Size = new System.Drawing.Size(30, 40);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1354, 733);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
+            this.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

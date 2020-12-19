@@ -8,47 +8,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Desktop.View_Model;
+using dNothi.Services.DakServices;
 using dNothi.JsonParser.Entity.Dak;
 using AutoMapper;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class DakUploadUserControl : UserControl
+    public partial class NagorikDakUploadUserControl : UserControl
     {
         List<string> PriorityListCollection = new List<string>();
         List<string> SecurityListCollection = new List<string>();
         List<string> sendMediumListCollection = new List<string>();
+
+
         int mulPrapokColumn = 9;
         int onulipiColumn = 10;
         bool NijOffice = true;
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
+        List<DakAttachmentinGrid> _dakAttachmentinGrids = new List<DakAttachmentinGrid>();
 
 
 
-        public DakUploadUserControl()
+        public NagorikDakUploadUserControl()
         {
             InitializeComponent();
 
 
             PriorityListCollection.Clear();
 
-            foreach (string str in dakPriorityListBox.Items)
-            {
-                PriorityListCollection.Add(str);
-            }
-
-            SecurityListCollection.Clear();
-            foreach (string str in securityLevelListBox.Items)
-            {
-                SecurityListCollection.Add(str);
-            }
-
-            sendMediumListCollection.Clear();
-            foreach (string str in sendMediumListBox.Items)
-            {
-                sendMediumListCollection.Add(str);
-            }
-
+            DakAttachmentListinGrid dakAttachmentListinGrid = new DakAttachmentListinGrid();
+            _dakAttachmentinGrids = dakAttachmentListinGrid.dakAttachmentinGrids;
+            attachmentDataGridView.DataSource = null;
+            attachmentDataGridView.DataSource = _dakAttachmentinGrids.ToList();
 
         }
         private DesignationSealListResponse _designationSealListResponse;
@@ -166,12 +157,7 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        private void ownOfficeButton_Click(object sender, EventArgs e)
-        {
-            PopulateGrid();
-
-
-        }
+       
         public void PopulateGrid()
         {
             prapokDataGridView.DataSource = null;
@@ -183,131 +169,6 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        private void sendMediumButton_Click(object sender, EventArgs e)
-        {
-            if (sendMediumPanel.Visible)
-            {
-                sendMediumPanel.Visible = false;
-            }
-            else
-            {
-                sendMediumPanel.Visible = true;
-            }
-        }
-
-        private void prioritySearchButton_Click(object sender, EventArgs e)
-        {
-            if (prioritySearchPanel.Visible)
-            {
-                prioritySearchPanel.Visible = false;
-            }
-            else
-            {
-                prioritySearchPanel.Visible = true;
-            }
-        }
-
-        private void secretLevelSearchButton_Click(object sender, EventArgs e)
-        {
-            if (secretLevelSearchButton.Visible)
-            {
-                secretLevelSearchButton.Visible = false;
-            }
-            else
-            {
-                secretLevelSearchButton.Visible = true;
-            }
-        }
-
-        private void dakPriorityListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            prioritySearchPanel.Visible = false;
-            prioritySearchButton.Text = dakPriorityListBox.GetItemText(dakPriorityListBox.SelectedItem);
-        }
-
-        private void securityLevelListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            secretLevelSearchButton.Visible = false;
-            secretLevelSearchButton.Text = dakPriorityListBox.GetItemText(dakPriorityListBox.SelectedItem);
-        }
-
-        private void prioritySearchXTextBox_TextChanged(object sender, EventArgs e)
-        {
-            dakPriorityListBox.Items.Clear();
-            if (prioritySearchXTextBox.Text == "")
-            {
-                foreach (string str in PriorityListCollection)
-                {
-                    dakPriorityListBox.Items.Add(str);
-                }
-            }
-            else
-            {
-                foreach (string str in PriorityListCollection)
-                {
-                    if (str.StartsWith(prioritySearchXTextBox.Text))
-                    {
-                        dakPriorityListBox.Items.Add(str);
-                    }
-
-                }
-
-            }
-        }
-
-        private void securityLevelXTextBox_TextChanged(object sender, EventArgs e)
-        {
-            securityLevelListBox.Items.Clear();
-            if (securityLevelXTextBox.Text == "")
-            {
-                foreach (string str in SecurityListCollection)
-                {
-                    securityLevelListBox.Items.Add(str);
-                }
-            }
-            else
-            {
-                foreach (string str in SecurityListCollection)
-                {
-                    if (str.StartsWith(securityLevelXTextBox.Text))
-                    {
-                        securityLevelListBox.Items.Add(str);
-                    }
-
-                }
-
-            }
-        }
-
-        private void sendMediumListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            sendMediumPanel.Visible = false;
-            sendMediumButton.Text = sendMediumListBox.GetItemText(sendMediumListBox.SelectedItem);
-        }
-
-        private void sendMediumSearchXTextBox_TextChanged(object sender, EventArgs e)
-        {
-            sendMediumListBox.Items.Clear();
-            if (sendMediumSearchXTextBox.Text == "")
-            {
-                foreach (string str in sendMediumListCollection)
-                {
-                    sendMediumListBox.Items.Add(str);
-                }
-            }
-            else
-            {
-                foreach (string str in sendMediumListCollection)
-                {
-                    if (str.StartsWith(sendMediumSearchXTextBox.Text))
-                    {
-                        sendMediumListBox.Items.Add(str);
-                    }
-
-                }
-
-            }
-        }
 
         private void dakUploadPanel3_Paint(object sender, PaintEventArgs e)
         {
@@ -349,7 +210,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 foreach (var des in designationSealListsinGridView)
                 {
-                    if (des.designation.StartsWith(officerSearchXTextBox.Text)|| des.employee_name_bng.StartsWith(officerSearchXTextBox.Text))
+                    if (des.designation.StartsWith(officerSearchXTextBox.Text) || des.employee_name_bng.StartsWith(officerSearchXTextBox.Text))
                     {
                         NewViewDesignationSealLists.Add(des);
                     }
@@ -359,9 +220,9 @@ namespace dNothi.Desktop.UI.Dak
                 prapokDataGridView.DataSource = NewViewDesignationSealLists.ToList();
             }
 
-           
-                
-                }
+
+
+        }
 
         private void ownOfficeButton_Click_1(object sender, EventArgs e)
         {
@@ -369,19 +230,56 @@ namespace dNothi.Desktop.UI.Dak
             PopulateGrid();
         }
 
-        private void senderSearchButton_Click(object sender, EventArgs e)
-        {
-            senderSortSidePanel.Visible = true;
-        }
-
-        private void sliderCrossButton_Click(object sender, EventArgs e)
-        {
-            senderSortSidePanel.Visible = false;
-        }
-
+       
         private void fileUploadButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
+            //opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+            opnfd.ShowDialog();
+
+
+        }
+
+        private void attachmentDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 4)
+                return;
+
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 4)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                //var w = Properties.Resources.SomeImage.Width;
+                //var h = Properties.Resources.SomeImage.Height;
+                //var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                //var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                //e.Graphics.DrawImage(someImage, new Rectangle(x, y, w, h));
+                //e.Handled = true;
+            }
+        }
+
+       
+       
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void xTextBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ownOfficeButton_Click_2(object sender, EventArgs e)
+        {
+            PopulateGrid();
         }
     }
 }

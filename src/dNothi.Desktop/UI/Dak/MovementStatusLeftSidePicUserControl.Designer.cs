@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.HorizontalLine = new System.Windows.Forms.Label();
+            this.officerCircularPictureBox = new dNothi.Desktop.CircularPictureBox();
             this.dateLabel = new System.Windows.Forms.Label();
             this.decisionLabel = new System.Windows.Forms.Label();
             this.descriptionPanel = new System.Windows.Forms.Panel();
@@ -39,13 +41,11 @@
             this.priorityPanel = new System.Windows.Forms.Panel();
             this.prioriyLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
-            this.officerCircularPictureBox = new dNothi.Desktop.CircularPictureBox();
             this.LeftPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).BeginInit();
             this.descriptionPanel.SuspendLayout();
             this.securityPanel.SuspendLayout();
             this.priorityPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // LeftPanel
@@ -60,6 +60,14 @@
             this.LeftPanel.Size = new System.Drawing.Size(75, 238);
             this.LeftPanel.TabIndex = 2;
             // 
+            // movementStatusSliderPanel1
+            // 
+            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(58, 1);
+            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
+            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(74, 86);
+            this.movementStatusSliderPanel1.TabIndex = 0;
+            // 
             // HorizontalLine
             // 
             this.HorizontalLine.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -70,29 +78,39 @@
             this.HorizontalLine.Size = new System.Drawing.Size(1, 300);
             this.HorizontalLine.TabIndex = 0;
             // 
+            // officerCircularPictureBox
+            // 
+            this.officerCircularPictureBox.BackgroundImage = global::dNothi.Desktop.Properties.Resources.DamiProfile;
+            this.officerCircularPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.officerCircularPictureBox.Location = new System.Drawing.Point(4, 7);
+            this.officerCircularPictureBox.Name = "officerCircularPictureBox";
+            this.officerCircularPictureBox.Size = new System.Drawing.Size(59, 56);
+            this.officerCircularPictureBox.TabIndex = 0;
+            this.officerCircularPictureBox.TabStop = false;
+            // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.dateLabel.Location = new System.Drawing.Point(85, 38);
             this.dateLabel.MaximumSize = new System.Drawing.Size(424, 0);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.dateLabel.Size = new System.Drawing.Size(127, 17);
+            this.dateLabel.Size = new System.Drawing.Size(125, 18);
             this.dateLabel.TabIndex = 22;
             this.dateLabel.Text = "৩/১২/২০ ১১:০৩ AM";
             // 
             // decisionLabel
             // 
             this.decisionLabel.AutoSize = true;
-            this.decisionLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decisionLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decisionLabel.Location = new System.Drawing.Point(85, 6);
             this.decisionLabel.Margin = new System.Windows.Forms.Padding(0);
             this.decisionLabel.MaximumSize = new System.Drawing.Size(424, 0);
             this.decisionLabel.Name = "decisionLabel";
             this.decisionLabel.Padding = new System.Windows.Forms.Padding(10, 5, 0, 10);
-            this.decisionLabel.Size = new System.Drawing.Size(197, 32);
+            this.decisionLabel.Size = new System.Drawing.Size(202, 33);
             this.decisionLabel.TabIndex = 21;
             this.decisionLabel.Text = "সদয় সিদ্ধান্তের জন্যে প্রেরণ করা হলো";
             // 
@@ -102,6 +120,7 @@
             this.descriptionPanel.Controls.Add(this.movementStatusdetailsFlowLayoutPanel);
             this.descriptionPanel.Controls.Add(this.securityPanel);
             this.descriptionPanel.Controls.Add(this.priorityPanel);
+            this.descriptionPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionPanel.Location = new System.Drawing.Point(97, 63);
             this.descriptionPanel.Name = "descriptionPanel";
             this.descriptionPanel.Size = new System.Drawing.Size(388, 172);
@@ -131,7 +150,7 @@
             // 
             this.dakSecurityIconPanel.BackColor = System.Drawing.Color.Transparent;
             this.dakSecurityIconPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.dakSecurityIconPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSecurityIconPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakSecurityIconPanel.Location = new System.Drawing.Point(2, 3);
             this.dakSecurityIconPanel.Name = "dakSecurityIconPanel";
             this.dakSecurityIconPanel.Size = new System.Drawing.Size(121, 27);
@@ -152,7 +171,7 @@
             // prioriyLabel
             // 
             this.prioriyLabel.BackColor = System.Drawing.Color.Transparent;
-            this.prioriyLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prioriyLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prioriyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.prioriyLabel.Location = new System.Drawing.Point(36, 4);
             this.prioriyLabel.Name = "prioriyLabel";
@@ -165,29 +184,11 @@
             this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.BackgroundImage = global::dNothi.Desktop.Properties.Resources.icons8_high_priority_24;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(2, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(30, 28);
             this.panel5.TabIndex = 12;
-            // 
-            // movementStatusSliderPanel1
-            // 
-            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(58, 1);
-            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
-            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(74, 86);
-            this.movementStatusSliderPanel1.TabIndex = 0;
-            // 
-            // officerCircularPictureBox
-            // 
-            this.officerCircularPictureBox.BackgroundImage = global::dNothi.Desktop.Properties.Resources.DamiProfile;
-            this.officerCircularPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.officerCircularPictureBox.Location = new System.Drawing.Point(4, 7);
-            this.officerCircularPictureBox.Name = "officerCircularPictureBox";
-            this.officerCircularPictureBox.Size = new System.Drawing.Size(59, 56);
-            this.officerCircularPictureBox.TabIndex = 0;
-            this.officerCircularPictureBox.TabStop = false;
             // 
             // MovementStatusLeftSidePicUserControl
             // 
@@ -203,11 +204,11 @@
             this.Name = "MovementStatusLeftSidePicUserControl";
             this.Size = new System.Drawing.Size(513, 238);
             this.LeftPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).EndInit();
             this.descriptionPanel.ResumeLayout(false);
             this.descriptionPanel.PerformLayout();
             this.securityPanel.ResumeLayout(false);
             this.priorityPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

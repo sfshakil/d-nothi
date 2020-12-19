@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>E:\Dev\testPublish\</PublishUrl>
+    <PublishUrl>C:\Nothi\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -50,6 +50,24 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9783A4A23449E90E1C6CA5707A166E1751DB8EED</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>dNothi.Desktop_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=6.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -102,6 +120,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -112,6 +131,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -141,6 +161,18 @@
     </Compile>
     <Compile Include="CustomControl\MovementStatusSliderPanel.Designer.cs">
       <DependentUpon>MovementStatusSliderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\PlaceHolderTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\PlaceHolderTextBox.Designer.cs">
+      <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonCell.cs" />
+    <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonCellLayout.cs" />
+    <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonColumn.cs" />
+    <Compile Include="DataGridViewRadioButtonElements\MyDataGridView.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\Resources1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -190,11 +222,11 @@
     <Compile Include="UI\Dak\DakOutboxUserControl.Designer.cs">
       <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\DakSendUserControl.cs">
+    <Compile Include="UI\Dak\DakForwardUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\DakSendUserControl.Designer.cs">
-      <DependentUpon>DakSendUserControl.cs</DependentUpon>
+    <Compile Include="UI\Dak\DakForwardUserControl.Designer.cs">
+      <DependentUpon>DakForwardUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\DakSortedUserControl.cs">
       <SubType>UserControl</SubType>
@@ -202,23 +234,35 @@
     <Compile Include="UI\Dak\DakSortedUserControl.Designer.cs">
       <DependentUpon>DakSortedUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\DakUploadUserControl.cs">
+    <Compile Include="UI\Dak\DakUploadAttachmentListTableUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\DakUploadUserControl.Designer.cs">
-      <DependentUpon>DakUploadUserControl.cs</DependentUpon>
+    <Compile Include="UI\Dak\DakUploadAttachmentListTableUserControl.Designer.cs">
+      <DependentUpon>DakUploadAttachmentListTableUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\detailsAttachmentListUserControl.cs">
+    <Compile Include="UI\Dak\DakUploadAttachmentTableRow.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\detailsAttachmentListUserControl.Designer.cs">
-      <DependentUpon>detailsAttachmentListUserControl.cs</DependentUpon>
+    <Compile Include="UI\Dak\DakUploadAttachmentTableRow.Designer.cs">
+      <DependentUpon>DakUploadAttachmentTableRow.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\detailsAttachmentUserControl.cs">
+    <Compile Include="UI\Dak\DaptorikDakUploadUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\detailsAttachmentUserControl.Designer.cs">
-      <DependentUpon>detailsAttachmentUserControl.cs</DependentUpon>
+    <Compile Include="UI\Dak\DaptorikDakUploadUserControl.Designer.cs">
+      <DependentUpon>DaptorikDakUploadUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DetailsAttachmentListUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DetailsAttachmentListUserControl.Designer.cs">
+      <DependentUpon>DetailsAttachmentListUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DetailsAttachmentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DetailsAttachmentUserControl.Designer.cs">
+      <DependentUpon>DetailsAttachmentUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\DetailsDakUserControl.cs">
       <SubType>UserControl</SubType>
@@ -226,17 +270,23 @@
     <Compile Include="UI\Dak\DetailsDakUserControl.Designer.cs">
       <DependentUpon>DetailsDakUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\movementStatusDetailsUserControl.cs">
+    <Compile Include="UI\Dak\MovementStatusDetailsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\movementStatusDetailsUserControl.Designer.cs">
-      <DependentUpon>movementStatusDetailsUserControl.cs</DependentUpon>
+    <Compile Include="UI\Dak\MovementStatusDetailsUserControl.Designer.cs">
+      <DependentUpon>MovementStatusDetailsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\MovementStatusLeftSidePicUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Dak\MovementStatusLeftSidePicUserControl.Designer.cs">
       <DependentUpon>MovementStatusLeftSidePicUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NagorikDakUploadUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NagorikDakUploadUserControl.Designer.cs">
+      <DependentUpon>NagorikDakUploadUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\NewNothi.cs">
       <SubType>UserControl</SubType>
@@ -279,6 +329,12 @@
     </Compile>
     <Compile Include="UI\Dak\NothiTypeList.Designer.cs">
       <DependentUpon>NothiTypeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\SearchUserController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\SearchUserController.Designer.cs">
+      <DependentUpon>SearchUserController.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\NewNothiCreateGuidelines.cs">
       <SubType>Form</SubType>
@@ -333,6 +389,9 @@
     </Compile>
     <Compile Include="View Model\ViewDesignationSealList.cs" />
     <Compile Include="View Model\WebBrowserColumn.cs" />
+    <EmbeddedResource Include="CustomControl\PlaceHolderTextBox.resx">
+      <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\CreateNewNothiType.resx">
       <DependentUpon>CreateNewNothiType.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,29 +413,38 @@
     <EmbeddedResource Include="UI\Dak\DakOutboxUserControl.resx">
       <DependentUpon>DakOutboxUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\DakSendUserControl.resx">
-      <DependentUpon>DakSendUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\DakForwardUserControl.resx">
+      <DependentUpon>DakForwardUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakSortedUserControl.resx">
       <DependentUpon>DakSortedUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\DakUploadUserControl.resx">
-      <DependentUpon>DakUploadUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\DakUploadAttachmentListTableUserControl.resx">
+      <DependentUpon>DakUploadAttachmentListTableUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\detailsAttachmentListUserControl.resx">
-      <DependentUpon>detailsAttachmentListUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\DakUploadAttachmentTableRow.resx">
+      <DependentUpon>DakUploadAttachmentTableRow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\detailsAttachmentUserControl.resx">
-      <DependentUpon>detailsAttachmentUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\DaptorikDakUploadUserControl.resx">
+      <DependentUpon>DaptorikDakUploadUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DetailsAttachmentListUserControl.resx">
+      <DependentUpon>DetailsAttachmentListUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DetailsAttachmentUserControl.resx">
+      <DependentUpon>DetailsAttachmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DetailsDakUserControl.resx">
       <DependentUpon>DetailsDakUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\movementStatusDetailsUserControl.resx">
-      <DependentUpon>movementStatusDetailsUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\MovementStatusDetailsUserControl.resx">
+      <DependentUpon>MovementStatusDetailsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\MovementStatusLeftSidePicUserControl.resx">
       <DependentUpon>MovementStatusLeftSidePicUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NagorikDakUploadUserControl.resx">
+      <DependentUpon>NagorikDakUploadUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NewNothi.resx">
       <DependentUpon>NewNothi.cs</DependentUpon>
@@ -398,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiTypeList.resx">
       <DependentUpon>NothiTypeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\SearchUserController.resx">
+      <DependentUpon>SearchUserController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NewNothiCreateGuidelines.resx">
       <DependentUpon>NewNothiCreateGuidelines.cs</DependentUpon>
@@ -425,8 +496,11 @@
     <EmbeddedResource Include="UserControl\UserNamePanel.resx">
       <DependentUpon>UserNamePanel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dNothi.Desktop_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\dNothi.Desktop.View_Model.ViewDesignationSealList.datasource" />
+    <None Include="Properties\DataSources\dNothi.Services.DakServices.DakAttachmentinGrid.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -522,6 +596,7 @@
     <None Include="Resources\Anulipiu.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Attachment\" />
     <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>

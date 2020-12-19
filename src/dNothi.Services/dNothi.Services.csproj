@@ -100,6 +100,7 @@
     <Compile Include="AccountServices\IAccountService.cs" />
     <Compile Include="AccountServices\ITokenService.cs" />
     <Compile Include="AccountServices\TokenService.cs" />
+    <Compile Include="DakServices\DakAttachmentListinGrid.cs" />
     <Compile Include="DakServices\DakForwardRequestParam.cs" />
     <Compile Include="DakServices\DakForwardService.cs" />
     <Compile Include="DakServices\DakInboxService.cs" />
@@ -110,6 +111,12 @@
     <Compile Include="DakServices\DakNothijatoService.cs" />
     <Compile Include="DakServices\DakNothivuktoService.cs" />
     <Compile Include="DakServices\DakOutboxService.cs" />
+    <Compile Include="DakServices\DakUploadAttachmentListTableUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DakServices\DakUploadAttachmentListTableUserControl.Designer.cs">
+      <DependentUpon>DakUploadAttachmentListTableUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DakServices\IDakForwardService.cs" />
     <Compile Include="DakServices\IDakInboxServices.cs" />
     <Compile Include="DakServices\IDakListArchiveService.cs" />
@@ -156,6 +163,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DakServices\DakUploadAttachmentListTableUserControl.resx">
+      <DependentUpon>DakUploadAttachmentListTableUserControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

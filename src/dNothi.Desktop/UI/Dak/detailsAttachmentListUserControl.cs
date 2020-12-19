@@ -11,9 +11,9 @@ using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class detailsAttachmentListUserControl : UserControl
+    public partial class DetailsAttachmentListUserControl : UserControl
     {
-        public detailsAttachmentListUserControl()
+        public DetailsAttachmentListUserControl()
         {
             InitializeComponent();
         }
@@ -41,7 +41,7 @@ namespace dNothi.Desktop.UI.Dak
                     attachmentListFlowLayoutPanel.Controls.Clear();
                     foreach(DakAttachmentDTO dakAttachmentDTO in dakAttachmentDTOs)
                     {
-                        detailsAttachmentUserControl detailsAttachmentUserControl = new detailsAttachmentUserControl();
+                        DetailsAttachmentUserControl detailsAttachmentUserControl = new DetailsAttachmentUserControl();
                         detailsAttachmentUserControl.mainattachment = dakAttachmentDTO.is_main;
                         detailsAttachmentUserControl.attachmentName = dakAttachmentDTO.file_name;
                         detailsAttachmentUserControl.attachmentsize = dakAttachmentDTO.file_size_in_kb;

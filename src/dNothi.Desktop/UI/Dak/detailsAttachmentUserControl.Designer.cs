@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop.UI.Dak
 {
-    partial class detailsAttachmentUserControl
+    partial class DetailsAttachmentUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -42,12 +42,12 @@
             // 
             this.attachmentNameLabel.AutoSize = true;
             this.attachmentNameLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.attachmentNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attachmentNameLabel.ForeColor = System.Drawing.Color.Blue;
             this.attachmentNameLabel.Location = new System.Drawing.Point(0, 0);
             this.attachmentNameLabel.Name = "attachmentNameLabel";
             this.attachmentNameLabel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.attachmentNameLabel.Size = new System.Drawing.Size(367, 20);
+            this.attachmentNameLabel.Size = new System.Drawing.Size(385, 21);
             this.attachmentNameLabel.TabIndex = 1;
             this.attachmentNameLabel.Text = "ই-ফাইল ব্যবহার সহায়িকা-১(লগইন প্রক্রিয়া ও প্রোফাইল ব্যবস্থাপনা) (1).pdf";
             // 
@@ -55,11 +55,11 @@
             // 
             this.attachmentSizeLabel.AutoSize = true;
             this.attachmentSizeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.attachmentSizeLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentSizeLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attachmentSizeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.attachmentSizeLabel.Location = new System.Drawing.Point(53, 32);
             this.attachmentSizeLabel.Name = "attachmentSizeLabel";
-            this.attachmentSizeLabel.Size = new System.Drawing.Size(50, 17);
+            this.attachmentSizeLabel.Size = new System.Drawing.Size(52, 18);
             this.attachmentSizeLabel.TabIndex = 2;
             this.attachmentSizeLabel.Text = "১৭৩৬.৫";
             // 
@@ -67,9 +67,10 @@
             // 
             this.panel1.Controls.Add(this.mainAttachmentIconPanel);
             this.panel1.Controls.Add(this.attachmentNameLabel);
+            this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(52, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(430, 25);
+            this.panel1.Size = new System.Drawing.Size(501, 25);
             this.panel1.TabIndex = 3;
             // 
             // mainAttachmentIconPanel
@@ -78,7 +79,7 @@
             this.mainAttachmentIconPanel.BackgroundImage = global::dNothi.Desktop.Properties.Resources.mulpotro;
             this.mainAttachmentIconPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainAttachmentIconPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.mainAttachmentIconPanel.Location = new System.Drawing.Point(367, 0);
+            this.mainAttachmentIconPanel.Location = new System.Drawing.Point(385, 0);
             this.mainAttachmentIconPanel.Name = "mainAttachmentIconPanel";
             this.mainAttachmentIconPanel.Size = new System.Drawing.Size(35, 25);
             this.mainAttachmentIconPanel.TabIndex = 2;
@@ -118,7 +119,7 @@
             this.shareButton.TabIndex = 5;
             this.shareButton.UseVisualStyleBackColor = false;
             // 
-            // detailsAttachmentUserControl
+            // DetailsAttachmentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -129,7 +130,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.attachmentSizeLabel);
             this.Controls.Add(this.attchmentTypePanel);
-            this.Name = "detailsAttachmentUserControl";
+            this.Name = "DetailsAttachmentUserControl";
             this.Size = new System.Drawing.Size(903, 54);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -190,15 +190,15 @@ namespace dNothi.Desktop.UI.Dak
                 AttentionTypeList attentionTypeIconList = new AttentionTypeList();
                 string icon = attentionTypeIconList.GetAttentionTypeIcon(value);
 
-                attentionTypeIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
+                attentionTypePanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
 
-                if (attentionTypeIconPanel.BackgroundImage == null)
+                if (attentionTypePanel.BackgroundImage == null)
                 {
-                    attentionTypeIconPanel.Visible = false;
+                    attentionTypePanel.Visible = false;
                 }
                 else
                 {
-                    attentionTypeIconPanel.Visible = true;
+                    attentionTypePanel.Visible = true;
 
                 }
 

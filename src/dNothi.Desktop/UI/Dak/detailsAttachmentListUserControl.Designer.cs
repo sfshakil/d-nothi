@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop.UI.Dak
 {
-    partial class detailsAttachmentListUserControl
+    partial class DetailsAttachmentListUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(detailsAttachmentListUserControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailsAttachmentListUserControl));
             this.attachmentCountLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.attachmentListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -39,10 +39,10 @@
             // 
             this.attachmentCountLabel.AutoSize = true;
             this.attachmentCountLabel.BackColor = System.Drawing.Color.Transparent;
-            this.attachmentCountLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentCountLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attachmentCountLabel.Location = new System.Drawing.Point(41, 22);
             this.attachmentCountLabel.Name = "attachmentCountLabel";
-            this.attachmentCountLabel.Size = new System.Drawing.Size(62, 17);
+            this.attachmentCountLabel.Size = new System.Drawing.Size(66, 18);
             this.attachmentCountLabel.TabIndex = 68;
             this.attachmentCountLabel.Text = "সংযুক্তি (৩)";
             // 
@@ -78,7 +78,7 @@
             this.attachmentZipDownloadButton.TabIndex = 81;
             this.attachmentZipDownloadButton.UseVisualStyleBackColor = false;
             // 
-            // detailsAttachmentListUserControl
+            // DetailsAttachmentListUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,7 +88,7 @@
             this.Controls.Add(this.attachmentListFlowLayoutPanel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.attachmentCountLabel);
-            this.Name = "detailsAttachmentListUserControl";
+            this.Name = "DetailsAttachmentListUserControl";
             this.Size = new System.Drawing.Size(1041, 430);
             this.ResumeLayout(false);
             this.PerformLayout();
