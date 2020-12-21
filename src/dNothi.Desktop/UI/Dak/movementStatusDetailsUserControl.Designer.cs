@@ -40,7 +40,7 @@
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.userDesignationLabel);
             this.panel1.Controls.Add(this.userNameLabel);
-            this.panel1.Location = new System.Drawing.Point(61, 8);
+            this.panel1.Location = new System.Drawing.Point(66, 8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(635, 21);
             this.panel1.TabIndex = 1;
@@ -50,7 +50,7 @@
             this.userDesignationLabel.AutoSize = true;
             this.userDesignationLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.userDesignationLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userDesignationLabel.Location = new System.Drawing.Point(73, 0);
+            this.userDesignationLabel.Location = new System.Drawing.Point(89, 0);
             this.userDesignationLabel.Name = "userDesignationLabel";
             this.userDesignationLabel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.userDesignationLabel.Size = new System.Drawing.Size(389, 16);
@@ -64,22 +64,22 @@
             // 
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.userNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userNameLabel.Location = new System.Drawing.Point(0, 0);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.userNameLabel.Size = new System.Drawing.Size(73, 15);
+            this.userNameLabel.Size = new System.Drawing.Size(89, 19);
             this.userNameLabel.TabIndex = 2;
             this.userNameLabel.Text = "নিলুফা ইয়াসমিন";
             // 
             // userTypeLabel
             // 
             this.userTypeLabel.AutoSize = true;
-            this.userTypeLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTypeLabel.Location = new System.Drawing.Point(8, 9);
+            this.userTypeLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTypeLabel.Location = new System.Drawing.Point(12, 8);
             this.userTypeLabel.MaximumSize = new System.Drawing.Size(50, 0);
             this.userTypeLabel.Name = "userTypeLabel";
-            this.userTypeLabel.Size = new System.Drawing.Size(42, 28);
+            this.userTypeLabel.Size = new System.Drawing.Size(49, 36);
             this.userTypeLabel.TabIndex = 2;
             this.userTypeLabel.Text = "অনুলিপি প্রাপক:";
             // 

@@ -11,46 +11,35 @@ using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class DakNothijatoUserControl : UserControl
+    public partial class DraftedDakUserControl : UserControl
     {
-        public DakNothijatoUserControl()
-        {
-            InitializeComponent(); IterateControls(this.Controls);
-
-
-
-
-
-        }
         private bool MouseIsOverControl() =>
-        this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
-        private void MouseHoverAction()
+   this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
+        public DraftedDakUserControl()
         {
-            if (MouseIsOverControl())
-            {
-                this.BackColor = Color.WhiteSmoke;
-                dakActionPanel.Visible = true;
-            }
-            else
-            {
-                this.BackColor = Color.White;
-                dakActionPanel.Visible = false;
-            }
+            InitializeComponent();
+            InitializeComponent();
+            dakPriorityIconPanel.Visible = false;
+            dakSecurityIconPanel.Visible = false;
+            attentionTypeIconPanel.Visible = false;
+            newDakImagePanel.Visible = false;
+            dakTypePanel.Visible = false;
+            potrojariPanel.Visible = false;
+            IterateControls(this.Controls);
         }
-
-
         void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
         {
             foreach (Control ctrl in collection)
             {
 
-                ctrl.Click += DakNothijatoUserControl_Click;
-                ctrl.MouseEnter += DakNothijatoUserControl_MouseEnter;
-                ctrl.MouseLeave += DakNothijatoUserControl_MouseLeave;
+                ctrl.Click += DraftedDakUserControl_Click;
+                ctrl.MouseEnter += DraftedDakUserControl_MouseEnter;
+                ctrl.MouseLeave += DraftedDakUserControl_MouseLeave;
                 IterateControls(ctrl.Controls);
             }
 
         }
+
 
         private string _source;
         private string _sender;
@@ -65,9 +54,42 @@ namespace dNothi.Desktop.UI.Dak
         private string _dakType;
         private string _dakPriority;
         private int _potrojari;
-        private string _nothiNo;
         private int _dakAttachmentCount;
+        private int _dakid;
 
+        public new event EventHandler Click
+        {
+            add
+            {
+                base.Click += value;
+                foreach (Control control in Controls)
+                {
+                    control.Click += value;
+                }
+            }
+            remove
+            {
+                base.Click -= value;
+                foreach (Control control in Controls)
+                {
+                    control.Click -= value;
+                }
+            }
+        }
+
+        [Category("Custom Props")]
+        public int dakAttachmentCount
+        {
+            get { return _dakAttachmentCount; }
+            set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+
+        [Category("Custom Props")]
+        public int dakid
+        {
+            get { return _dakid; }
+            set { _dakid = value; }
+        }
 
         [Category("Custom Props")]
         public int potrojari
@@ -239,7 +261,7 @@ namespace dNothi.Desktop.UI.Dak
             set { _source = value; sourceLabel.Text = value; }
         }
 
-        [Category("Custom Props")]
+       
         public string dakViewStatus
         {
             get { return _dakViewStatus; }
@@ -249,7 +271,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (dakViewStatus == "New")
                 {
                     newDakImagePanel.Visible = true;
-                    subjectLabel.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+
 
                 }
                 else
@@ -261,21 +283,14 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
-        [Category("Custom Props")]
-        public string sender
-        {
-            get { return _sender; }
-            set { _sender = value; senderLabel.Text = value; }
-        }
-
-        [Category("Custom Props")]
+       
         public string receiver
         {
             get { return _receiver; }
             set { _receiver = value; mainReceiverLabel.Text = value; }
         }
 
-        [Category("Custom Props")]
+      
         public string subject
         {
             get { return _subject; }
@@ -283,12 +298,7 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
-        [Category("Custom Props")]
-        public string decision
-        {
-            get { return _decision; }
-            set { _decision = value; decisionLabel.Text = value; }
-        }
+        
 
         //private int _id;
         //public int id
@@ -304,39 +314,48 @@ namespace dNothi.Desktop.UI.Dak
             set { _date = value; dateLabel.Text = value; }
         }
 
-        [Category("Custom Props")]
-        public string nothiNo
+        private void DraftedDakUserControl_MouseEnter(object sender, EventArgs e)
         {
-            get { return _nothiNo; }
-            set { _nothiNo = value; if (value == null) { nothiPlainTextLabel.Visible = false; } else { nothiPlainTextLabel.Visible = true; nothiNoLabel.Text = value; } }
-        }
 
 
-        [Category("Custom Props")]
-        public int dakAttachmentCount
-        {
-            get { return _dakAttachmentCount; }
-            set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
-        }
-
-        [Browsable(true)]
-        [Category("Action")]
-        [Description("Invoked when user clicks button")]
-        public event EventHandler ButtonClick;
-        private void DakNothijatoUserControl_Click(object sender, EventArgs e)
-        {
-            if (this.ButtonClick != null)
-                this.ButtonClick(sender, e);
-        }
-
-        private void DakNothijatoUserControl_MouseEnter(object sender, EventArgs e)
-        {
             MouseHoverAction();
+
         }
 
-        private void DakNothijatoUserControl_MouseLeave(object sender, EventArgs e)
+        private void MouseHoverAction()
         {
+            if (MouseIsOverControl())
+            {
+                this.BackColor = Color.WhiteSmoke;
+                dakActionPanel.Visible = true;
+            }
+            else
+            {
+                this.BackColor = Color.White;
+                dakActionPanel.Visible = false;
+            }
+        }
+
+        private void DraftedDakUserControl_MouseLeave(object sender, EventArgs e)
+        {
+
             MouseHoverAction();
+
+
+        }
+
+     
+
+        //[Browsable(true)]
+        //[Category("Action")]
+        //[Description("Invoked when user clicks button")]
+        //public event EventHandler ButtonClick;
+        private void DraftedDakUserControl_Click(object sender, EventArgs e)
+        {
+
+
+            //if (this.ButtonClick != null)
+            //    this.ButtonClick(sender, e);
         }
     }
 }

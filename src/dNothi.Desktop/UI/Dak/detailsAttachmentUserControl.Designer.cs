@@ -57,7 +57,7 @@
             this.attachmentSizeLabel.BackColor = System.Drawing.Color.Transparent;
             this.attachmentSizeLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attachmentSizeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.attachmentSizeLabel.Location = new System.Drawing.Point(53, 32);
+            this.attachmentSizeLabel.Location = new System.Drawing.Point(44, 32);
             this.attachmentSizeLabel.Name = "attachmentSizeLabel";
             this.attachmentSizeLabel.Size = new System.Drawing.Size(52, 18);
             this.attachmentSizeLabel.TabIndex = 2;
@@ -68,9 +68,9 @@
             this.panel1.Controls.Add(this.mainAttachmentIconPanel);
             this.panel1.Controls.Add(this.attachmentNameLabel);
             this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(52, 6);
+            this.panel1.Location = new System.Drawing.Point(43, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(501, 25);
+            this.panel1.Size = new System.Drawing.Size(501, 24);
             this.panel1.TabIndex = 3;
             // 
             // mainAttachmentIconPanel
@@ -81,7 +81,7 @@
             this.mainAttachmentIconPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainAttachmentIconPanel.Location = new System.Drawing.Point(385, 0);
             this.mainAttachmentIconPanel.Name = "mainAttachmentIconPanel";
-            this.mainAttachmentIconPanel.Size = new System.Drawing.Size(35, 25);
+            this.mainAttachmentIconPanel.Size = new System.Drawing.Size(39, 24);
             this.mainAttachmentIconPanel.TabIndex = 2;
             // 
             // downloadButton
@@ -91,9 +91,9 @@
             this.downloadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.downloadButton.FlatAppearance.BorderSize = 0;
             this.downloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.downloadButton.Location = new System.Drawing.Point(835, 9);
+            this.downloadButton.Location = new System.Drawing.Point(739, 9);
             this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(24, 21);
+            this.downloadButton.Size = new System.Drawing.Size(21, 18);
             this.downloadButton.TabIndex = 4;
             this.downloadButton.UseVisualStyleBackColor = false;
             // 
@@ -101,7 +101,7 @@
             // 
             this.attchmentTypePanel.BackColor = System.Drawing.Color.Transparent;
             this.attchmentTypePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.attchmentTypePanel.Location = new System.Drawing.Point(22, 9);
+            this.attchmentTypePanel.Location = new System.Drawing.Point(13, 9);
             this.attchmentTypePanel.Name = "attchmentTypePanel";
             this.attchmentTypePanel.Size = new System.Drawing.Size(24, 21);
             this.attchmentTypePanel.TabIndex = 0;
@@ -113,9 +113,9 @@
             this.shareButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.shareButton.FlatAppearance.BorderSize = 0;
             this.shareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.shareButton.Location = new System.Drawing.Point(868, 9);
+            this.shareButton.Location = new System.Drawing.Point(763, 9);
             this.shareButton.Name = "shareButton";
-            this.shareButton.Size = new System.Drawing.Size(24, 21);
+            this.shareButton.Size = new System.Drawing.Size(21, 18);
             this.shareButton.TabIndex = 5;
             this.shareButton.UseVisualStyleBackColor = false;
             // 
@@ -131,7 +131,7 @@
             this.Controls.Add(this.attachmentSizeLabel);
             this.Controls.Add(this.attchmentTypePanel);
             this.Name = "DetailsAttachmentUserControl";
-            this.Size = new System.Drawing.Size(903, 54);
+            this.Size = new System.Drawing.Size(796, 50);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

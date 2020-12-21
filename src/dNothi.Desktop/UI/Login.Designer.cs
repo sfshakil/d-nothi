@@ -124,7 +124,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(503, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(484, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(346, 72);
@@ -138,10 +138,10 @@
             this.panel1.Controls.Add(this.pnlENothiSystemUpdate);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(200, 92);
+            this.panel1.Location = new System.Drawing.Point(263, 92);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(966, 680);
+            this.panel1.Size = new System.Drawing.Size(829, 680);
             this.panel1.TabIndex = 1;
             // 
             // pnlHelpDesk
@@ -182,7 +182,7 @@
             this.pnlHelpDesk.Location = new System.Drawing.Point(0, 293);
             this.pnlHelpDesk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlHelpDesk.Name = "pnlHelpDesk";
-            this.pnlHelpDesk.Size = new System.Drawing.Size(483, 302);
+            this.pnlHelpDesk.Size = new System.Drawing.Size(399, 302);
             this.pnlHelpDesk.TabIndex = 4;
             // 
             // label23
@@ -190,7 +190,7 @@
             this.label23.AutoSize = true;
             this.label23.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label23.ForeColor = System.Drawing.Color.Indigo;
-            this.label23.Location = new System.Drawing.Point(287, 242);
+            this.label23.Location = new System.Drawing.Point(230, 242);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(118, 18);
             this.label23.TabIndex = 38;
@@ -201,7 +201,7 @@
             this.pictureBox14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox14.BackgroundImage")));
             this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox14.Location = new System.Drawing.Point(261, 242);
+            this.pictureBox14.Location = new System.Drawing.Point(204, 242);
             this.pictureBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(23, 21);
@@ -213,7 +213,7 @@
             this.label24.AutoSize = true;
             this.label24.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label24.ForeColor = System.Drawing.Color.Indigo;
-            this.label24.Location = new System.Drawing.Point(287, 208);
+            this.label24.Location = new System.Drawing.Point(230, 208);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(108, 18);
             this.label24.TabIndex = 36;
@@ -224,7 +224,7 @@
             this.pictureBox15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox15.BackgroundImage")));
             this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox15.Location = new System.Drawing.Point(261, 208);
+            this.pictureBox15.Location = new System.Drawing.Point(204, 208);
             this.pictureBox15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(23, 21);
@@ -237,7 +237,7 @@
             this.label21.BackColor = System.Drawing.Color.HotPink;
             this.label21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label21.ForeColor = System.Drawing.SystemColors.Control;
-            this.label21.Location = new System.Drawing.Point(394, 172);
+            this.label21.Location = new System.Drawing.Point(337, 172);
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(59, 18);
@@ -249,7 +249,7 @@
             this.label22.AutoSize = true;
             this.label22.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label22.ForeColor = System.Drawing.Color.Indigo;
-            this.label22.Location = new System.Drawing.Point(287, 172);
+            this.label22.Location = new System.Drawing.Point(230, 172);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(88, 18);
             this.label22.TabIndex = 33;
@@ -260,7 +260,7 @@
             this.pictureBox13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox13.BackgroundImage")));
             this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox13.Location = new System.Drawing.Point(260, 172);
+            this.pictureBox13.Location = new System.Drawing.Point(203, 172);
             this.pictureBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(23, 21);
@@ -295,7 +295,7 @@
             this.label19.AutoSize = true;
             this.label19.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label19.ForeColor = System.Drawing.Color.Indigo;
-            this.label19.Location = new System.Drawing.Point(287, 136);
+            this.label19.Location = new System.Drawing.Point(230, 136);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(40, 18);
             this.label19.TabIndex = 29;
@@ -305,7 +305,7 @@
             // 
             this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
             this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox11.Location = new System.Drawing.Point(260, 136);
+            this.pictureBox11.Location = new System.Drawing.Point(203, 136);
             this.pictureBox11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(23, 21);
@@ -317,7 +317,7 @@
             this.label18.AutoSize = true;
             this.label18.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label18.ForeColor = System.Drawing.Color.Indigo;
-            this.label18.Location = new System.Drawing.Point(287, 100);
+            this.label18.Location = new System.Drawing.Point(230, 100);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(49, 18);
             this.label18.TabIndex = 27;
@@ -327,7 +327,7 @@
             // 
             this.pictureBox10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.BackgroundImage")));
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox10.Location = new System.Drawing.Point(260, 100);
+            this.pictureBox10.Location = new System.Drawing.Point(203, 100);
             this.pictureBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(23, 21);
@@ -339,7 +339,7 @@
             this.label17.AutoSize = true;
             this.label17.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label17.ForeColor = System.Drawing.Color.Indigo;
-            this.label17.Location = new System.Drawing.Point(287, 65);
+            this.label17.Location = new System.Drawing.Point(230, 65);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(88, 18);
             this.label17.TabIndex = 25;
@@ -349,7 +349,7 @@
             // 
             this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox9.Location = new System.Drawing.Point(260, 65);
+            this.pictureBox9.Location = new System.Drawing.Point(203, 65);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(23, 21);
@@ -551,7 +551,7 @@
             this.pnlENothiSystemUpdate.Location = new System.Drawing.Point(0, 0);
             this.pnlENothiSystemUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlENothiSystemUpdate.Name = "pnlENothiSystemUpdate";
-            this.pnlENothiSystemUpdate.Size = new System.Drawing.Size(483, 293);
+            this.pnlENothiSystemUpdate.Size = new System.Drawing.Size(399, 293);
             this.pnlENothiSystemUpdate.TabIndex = 3;
             // 
             // label8
@@ -628,24 +628,24 @@
             this.panel4.Controls.Add(this.pnlUserIdTop);
             this.panel4.Controls.Add(this.btnUserId);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(483, 0);
+            this.panel4.Location = new System.Drawing.Point(399, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(483, 595);
+            this.panel4.Size = new System.Drawing.Size(430, 595);
             this.panel4.TabIndex = 2;
             // 
             // pnlUserId
             // 
-            this.pnlUserId.Controls.Add(this.txtUserPassword);
             this.pnlUserId.Controls.Add(this.txtUserId);
             this.pnlUserId.Controls.Add(this.button9);
+            this.pnlUserId.Controls.Add(this.txtUserPassword);
             this.pnlUserId.Controls.Add(this.txtUser);
             this.pnlUserId.Controls.Add(this.txtPassword);
             this.pnlUserId.Controls.Add(this.panel9);
-            this.pnlUserId.Location = new System.Drawing.Point(7, 81);
+            this.pnlUserId.Location = new System.Drawing.Point(8, 73);
             this.pnlUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserId.Name = "pnlUserId";
-            this.pnlUserId.Size = new System.Drawing.Size(472, 534);
+            this.pnlUserId.Size = new System.Drawing.Size(412, 165);
             this.pnlUserId.TabIndex = 7;
             // 
             // txtUserPassword
@@ -654,11 +654,11 @@
             this.txtUserPassword.CustomBackground = true;
             this.txtUserPassword.CustomForeColor = true;
             this.txtUserPassword.ForeColor = System.Drawing.Color.Gray;
-            this.txtUserPassword.Location = new System.Drawing.Point(251, 21);
+            this.txtUserPassword.Location = new System.Drawing.Point(217, 22);
             this.txtUserPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserPassword.Name = "txtUserPassword";
             this.txtUserPassword.ReadOnly = true;
-            this.txtUserPassword.Size = new System.Drawing.Size(188, 43);
+            this.txtUserPassword.Size = new System.Drawing.Size(187, 35);
             this.txtUserPassword.TabIndex = 12;
             this.txtUserPassword.Text = "পাসওয়ার্ড";
             this.txtUserPassword.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -675,9 +675,10 @@
             this.txtUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserId.Multiline = true;
             this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(187, 42);
+            this.txtUserId.Size = new System.Drawing.Size(187, 35);
             this.txtUserId.TabIndex = 11;
             this.txtUserId.Text = "ইউজার আইডি";
+            this.txtUserId.TextChanged += new System.EventHandler(this.txtUserId_TextChanged);
             this.txtUserId.Enter += new System.EventHandler(this.txtUserId_Enter);
             // 
             // button9
@@ -688,10 +689,10 @@
             this.button9.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(350, 100);
+            this.button9.Location = new System.Drawing.Point(312, 72);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(87, 86);
+            this.button9.Size = new System.Drawing.Size(94, 57);
             this.button9.TabIndex = 10;
             this.button9.Text = "প্রবেশ";
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -708,7 +709,7 @@
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(187, 42);
+            this.txtUser.Size = new System.Drawing.Size(187, 35);
             this.txtUser.TabIndex = 7;
             this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
             // 
@@ -718,12 +719,12 @@
             this.txtPassword.CustomBackground = true;
             this.txtPassword.CustomForeColor = true;
             this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPassword.Location = new System.Drawing.Point(250, 22);
+            this.txtPassword.Location = new System.Drawing.Point(217, 22);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.PromptText = "পাসওয়ার্ড";
-            this.txtPassword.Size = new System.Drawing.Size(188, 43);
+            this.txtPassword.Size = new System.Drawing.Size(187, 35);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtPassword.UseStyleColors = true;
@@ -733,10 +734,10 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.Moccasin;
             this.panel9.Controls.Add(this.label2);
-            this.panel9.Location = new System.Drawing.Point(22, 100);
+            this.panel9.Location = new System.Drawing.Point(22, 72);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(321, 86);
+            this.panel9.Size = new System.Drawing.Size(284, 57);
             this.panel9.TabIndex = 9;
             // 
             // label2
@@ -752,15 +753,15 @@
             // 
             // pnlUserIdNamePasswordBottom
             // 
-            this.pnlUserIdNamePasswordBottom.Location = new System.Drawing.Point(31, 61);
+            this.pnlUserIdNamePasswordBottom.Location = new System.Drawing.Point(12, 55);
             this.pnlUserIdNamePasswordBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserIdNamePasswordBottom.Name = "pnlUserIdNamePasswordBottom";
-            this.pnlUserIdNamePasswordBottom.Size = new System.Drawing.Size(415, 4);
+            this.pnlUserIdNamePasswordBottom.Size = new System.Drawing.Size(404, 5);
             this.pnlUserIdNamePasswordBottom.TabIndex = 6;
             // 
             // pnlPasswordResetTop
             // 
-            this.pnlPasswordResetTop.Location = new System.Drawing.Point(317, 17);
+            this.pnlPasswordResetTop.Location = new System.Drawing.Point(279, 17);
             this.pnlPasswordResetTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlPasswordResetTop.Name = "pnlPasswordResetTop";
             this.pnlPasswordResetTop.Size = new System.Drawing.Size(129, 4);
@@ -773,7 +774,7 @@
             this.btnPasswordReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnPasswordReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPasswordReset.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPasswordReset.Location = new System.Drawing.Point(317, 18);
+            this.btnPasswordReset.Location = new System.Drawing.Point(279, 18);
             this.btnPasswordReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPasswordReset.Name = "btnPasswordReset";
             this.btnPasswordReset.Size = new System.Drawing.Size(129, 44);
@@ -785,7 +786,7 @@
             // 
             // pnlUserNameTop
             // 
-            this.pnlUserNameTop.Location = new System.Drawing.Point(175, 17);
+            this.pnlUserNameTop.Location = new System.Drawing.Point(146, 17);
             this.pnlUserNameTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserNameTop.Name = "pnlUserNameTop";
             this.pnlUserNameTop.Size = new System.Drawing.Size(110, 4);
@@ -798,7 +799,7 @@
             this.btnUserName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnUserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserName.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserName.Location = new System.Drawing.Point(175, 18);
+            this.btnUserName.Location = new System.Drawing.Point(141, 18);
             this.btnUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUserName.Name = "btnUserName";
             this.btnUserName.Size = new System.Drawing.Size(110, 44);
@@ -810,7 +811,7 @@
             // 
             // pnlUserIdTop
             // 
-            this.pnlUserIdTop.Location = new System.Drawing.Point(31, 17);
+            this.pnlUserIdTop.Location = new System.Drawing.Point(17, 17);
             this.pnlUserIdTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserIdTop.Name = "pnlUserIdTop";
             this.pnlUserIdTop.Size = new System.Drawing.Size(110, 4);
@@ -823,7 +824,7 @@
             this.btnUserId.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnUserId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserId.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserId.Location = new System.Drawing.Point(31, 18);
+            this.btnUserId.Location = new System.Drawing.Point(17, 18);
             this.btnUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUserId.Name = "btnUserId";
             this.btnUserId.Size = new System.Drawing.Size(110, 44);
@@ -848,7 +849,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 595);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(966, 85);
+            this.panel2.Size = new System.Drawing.Size(829, 85);
             this.panel2.TabIndex = 0;
             // 
             // button5
@@ -870,10 +871,10 @@
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(800, 3);
+            this.button4.Location = new System.Drawing.Point(728, 6);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(68, 53);
+            this.button4.Size = new System.Drawing.Size(40, 40);
             this.button4.TabIndex = 6;
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -883,10 +884,10 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(687, 3);
+            this.button3.Location = new System.Drawing.Point(621, 7);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 44);
+            this.button3.Size = new System.Drawing.Size(40, 40);
             this.button3.TabIndex = 5;
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -896,10 +897,10 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(588, 5);
+            this.button2.Location = new System.Drawing.Point(527, 7);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(52, 44);
+            this.button2.Size = new System.Drawing.Size(40, 40);
             this.button2.TabIndex = 4;
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -909,10 +910,10 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(483, 5);
+            this.button1.Location = new System.Drawing.Point(431, 6);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 44);
+            this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -943,7 +944,7 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(15, 11);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 10);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 40);

@@ -23,6 +23,7 @@ namespace dNothi.Desktop.UI
     {
         
         IUserService _userService { get; set; }
+        IDakKhosraService _dakkhosraservice { get; set; }
         IDakListService _dakListService { get; set; }
         IDakOutboxService _dakOutboxService { get; set; }
         IDakInboxServices _dakInbox { get; set; }
@@ -42,6 +43,7 @@ namespace dNothi.Desktop.UI
             IDakListService dakListService,
             IDakListSortedService dakListSortedService,
             IDakForwardService dakForwardService,
+            IDakKhosraService dakKhosraService,
             IDakNothijatoService dakNothijatoService)
         {
             _dakNothivuktoService = dakNothivuktoService;
@@ -53,6 +55,7 @@ namespace dNothi.Desktop.UI
             _dakListService = dakListService;
             _dakListSortedService = dakListSortedService;
             _dakForwardService = dakForwardService;
+            _dakkhosraservice = dakKhosraService;
             InitializeComponent();
             designationSelect2.Hide();
             dashboardSlideFlowLayoutPanel.BringToFront();
@@ -744,15 +747,12 @@ namespace dNothi.Desktop.UI
                 detailsDakSearcPanel.Visible = true;
             }
             
-            if (searchOfficeDetailSearch.Visible == true)
-            {
-                searchOfficeDetailSearch.Visible = false;
-            }
-            else
-            {
-                searchOfficeDetailSearch.Visible = true;
-            }
+            
 
+        }
+        private void sortingUserButton_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void notvuktoDakButton_Click(object sender, EventArgs e)
@@ -1196,6 +1196,101 @@ namespace dNothi.Desktop.UI
 
 
             dakListFlowLayoutPanel.Controls.Add(dakUploadUserControl);
+        }
+
+        private void KhasraDakButton_Click(object sender, EventArgs e)
+        {
+            LoadDakKhasraList();
+        }
+
+        private void LoadDakKhasraList()
+        {
+            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+            // Satic Class
+            dakListUserParam.limit = 10;
+            dakListUserParam.page = 1;
+
+            DakListKhosraResponse dakListKhosraResponse = _dakkhosraservice.GetDakKhosraList(dakListUserParam);
+
+            if (dakListKhosraResponse.status == "success")
+            {
+              //Save This
+
+                if (dakListKhosraResponse.data.records.Count > 0)
+                {
+                    LoadDakKhosrainPanel(dakListKhosraResponse.data.records);
+                }
+
+            }
+        }
+
+        private void LoadDakKhosrainPanel(List<DakListRecordsDTO> dakLists)
+        {
+            List<DraftedDakUserControl> draftedDakUserControls = new List<DraftedDakUserControl>();
+            int i = 0;
+            foreach (DakListRecordsDTO dakListInboxRecordsDTO in dakLists)
+            {
+
+
+                DraftedDakUserControl draftedDakUserControl = new DraftedDakUserControl();
+                draftedDakUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
+
+
+                draftedDakUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
+
+
+                draftedDakUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
+
+               
+
+                draftedDakUserControl.receiver = dakListInboxRecordsDTO.dak_origin.receiving_officer_name+","+ dakListInboxRecordsDTO.dak_origin.receiving_officer_designation_label + "," + dakListInboxRecordsDTO.dak_origin.receiving_office_unit_name + "," + dakListInboxRecordsDTO.dak_origin.receiving_office_name;
+                draftedDakUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
+                draftedDakUserControl.dakSecurityIconValue = dakListInboxRecordsDTO.dak_user.dak_security;
+                draftedDakUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
+                draftedDakUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
+                draftedDakUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
+                draftedDakUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
+              //  draftedDakUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+
+
+                i = i + 1;
+                draftedDakUserControls.Add(draftedDakUserControl);
+
+            }
+            dakListFlowLayoutPanel.Controls.Clear();
+            dakListFlowLayoutPanel.AutoScroll = true;
+            dakListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            dakListFlowLayoutPanel.WrapContents = false;
+
+            for (int j = 0; j <= draftedDakUserControls.Count - 1; j++)
+            {
+                dakListFlowLayoutPanel.Controls.Add(draftedDakUserControls[j]);
+            }
+        }
+
+        private void dakSortingButton_Click(object sender, EventArgs e)
+        {
+
+
+            DropDownButtonUserControl dropDownButtonUserControl = new DropDownButtonUserControl();
+            dropDownButtonUserControl.ButtonText = "-শারমিন ফেরদৌসি(প্রজেক্ট এসিস্টেন্ট)";
+            DropDownButtonUserControl dropDownButtonUserControl2 = new DropDownButtonUserControl();
+            dropDownButtonUserControl2.ButtonText = "-ইমরুল হোসেন(ন্যাশনাল কনসালটেন্ট এমআইএস/আইসিটি)";
+            
+            dakSortingUserFlowLayoutPanel.Controls.Clear();
+            dakSortingUserFlowLayoutPanel.Controls.Add(dropDownButtonUserControl);
+            dakSortingUserFlowLayoutPanel.Controls.Add(dropDownButtonUserControl2);
+
+            if (dakSortingUserFlowLayoutPanel.Visible == true)
+            {
+                dakSortingUserFlowLayoutPanel.Visible = false;
+            }
+            else
+            {
+                dakSortingUserFlowLayoutPanel.Visible = true;
+            }
+
         }
     }
 }

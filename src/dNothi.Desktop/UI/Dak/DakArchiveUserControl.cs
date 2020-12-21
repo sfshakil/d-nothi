@@ -14,6 +14,9 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakArchiveUserControl : UserControl
     {
+        private bool MouseIsOverControl() =>
+    this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
+
         public DakArchiveUserControl()
         {
             InitializeComponent();
@@ -106,7 +109,19 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
-
+        private void MouseHoverAction()
+        {
+            if (MouseIsOverControl())
+            {
+                this.BackColor = Color.WhiteSmoke;
+                dakActionPanel.Visible = true;
+            }
+            else
+            {
+                this.BackColor = Color.White;
+                dakActionPanel.Visible = false;
+            }
+        }
         [Category("Custom Props")]
         public string dakType
         {
@@ -227,7 +242,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (dakViewStatus == "New")
                 {
                     newDakImagePanel.Visible = true;
-                    subjectLabel.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+                  //  subjectLabel.Font = new Font(Label.def, FontStyle.Bold);
 
                 }
                 else
@@ -299,16 +314,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-        private void DakSortedUserControl_MouseEnter(object sender, EventArgs e)
-        {
-            this.BackColor = Color.WhiteSmoke;
-        }
-
-        private void DakSortedUserControl_MouseLeave(object sender, EventArgs e)
-        {
-            this.BackColor = Color.White;
-        }
-
+       
         private void DakArchiveUserControl_Load(object sender, EventArgs e)
         {
 
@@ -316,13 +322,13 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakArchiveUserControl_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.WhiteSmoke;
+            MouseHoverAction();
 
         }
 
         private void DakArchiveUserControl_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
+            MouseHoverAction();
         }
         [Browsable(true)]
         [Category("Action")]

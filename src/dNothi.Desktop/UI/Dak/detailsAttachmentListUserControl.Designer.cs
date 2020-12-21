@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailsAttachmentListUserControl));
             this.attachmentCountLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.attachmentListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.attachmentZipDownloadButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -40,26 +39,18 @@
             this.attachmentCountLabel.AutoSize = true;
             this.attachmentCountLabel.BackColor = System.Drawing.Color.Transparent;
             this.attachmentCountLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attachmentCountLabel.Location = new System.Drawing.Point(41, 22);
+            this.attachmentCountLabel.Location = new System.Drawing.Point(10, 6);
             this.attachmentCountLabel.Name = "attachmentCountLabel";
             this.attachmentCountLabel.Size = new System.Drawing.Size(66, 18);
             this.attachmentCountLabel.TabIndex = 68;
             this.attachmentCountLabel.Text = "সংযুক্তি (৩)";
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label2.Location = new System.Drawing.Point(4, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1030, 1);
-            this.label2.TabIndex = 71;
-            // 
             // attachmentListFlowLayoutPanel
             // 
             this.attachmentListFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.attachmentListFlowLayoutPanel.Location = new System.Drawing.Point(35, 53);
+            this.attachmentListFlowLayoutPanel.Location = new System.Drawing.Point(11, 33);
             this.attachmentListFlowLayoutPanel.Name = "attachmentListFlowLayoutPanel";
-            this.attachmentListFlowLayoutPanel.Size = new System.Drawing.Size(903, 374);
+            this.attachmentListFlowLayoutPanel.Size = new System.Drawing.Size(796, 374);
             this.attachmentListFlowLayoutPanel.TabIndex = 72;
             // 
             // attachmentZipDownloadButton
@@ -72,9 +63,9 @@
             this.attachmentZipDownloadButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
             this.attachmentZipDownloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.attachmentZipDownloadButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attachmentZipDownloadButton.Location = new System.Drawing.Point(896, 17);
+            this.attachmentZipDownloadButton.Location = new System.Drawing.Point(768, 6);
             this.attachmentZipDownloadButton.Name = "attachmentZipDownloadButton";
-            this.attachmentZipDownloadButton.Size = new System.Drawing.Size(27, 24);
+            this.attachmentZipDownloadButton.Size = new System.Drawing.Size(21, 18);
             this.attachmentZipDownloadButton.TabIndex = 81;
             this.attachmentZipDownloadButton.UseVisualStyleBackColor = false;
             // 
@@ -86,10 +77,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.attachmentZipDownloadButton);
             this.Controls.Add(this.attachmentListFlowLayoutPanel);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.attachmentCountLabel);
             this.Name = "DetailsAttachmentListUserControl";
-            this.Size = new System.Drawing.Size(1041, 430);
+            this.Size = new System.Drawing.Size(858, 430);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,7 +88,6 @@
         #endregion
 
         private System.Windows.Forms.Label attachmentCountLabel;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel attachmentListFlowLayoutPanel;
         private System.Windows.Forms.Button attachmentZipDownloadButton;
     }

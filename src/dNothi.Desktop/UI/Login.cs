@@ -147,7 +147,7 @@ namespace dNothi.Desktop.UI
                     }
                     else
                     {
-                        txtUser.Text = "000000000000";
+                        txtUser.Text = "";
                     }
                 }
                 else
@@ -252,7 +252,7 @@ namespace dNothi.Desktop.UI
         private void txtUserId_Enter(object sender, EventArgs e)
         {
             txtUserId.Visible = false;
-
+            txtUser.Focus();
             if (txtPassword.Text == "")
             {
                 txtUserPassword.Visible = true;
@@ -270,6 +270,11 @@ namespace dNothi.Desktop.UI
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUserId_TextChanged(object sender, EventArgs e)
         {
 
         }

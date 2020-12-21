@@ -54,7 +54,7 @@ namespace dNothi.Desktop.UI.Dak
         public string officerDesignation
         {
             get { return _officerDesignation; ; }
-            set { _officerDesignation = value; designationLabel.Text = value; designationLabel.Font = new Font("SolaimanLipi", 8,FontStyle.Regular); }
+            set { _officerDesignation = value; designationLabel.Text = value;}
         }
         public int dakAttachmentCount
         {

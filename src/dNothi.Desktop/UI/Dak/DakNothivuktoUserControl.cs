@@ -23,7 +23,21 @@ namespace dNothi.Desktop.UI.Dak
 
 
         }
-
+        private bool MouseIsOverControl() =>
+      this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
+        private void MouseHoverAction()
+        {
+            if (MouseIsOverControl())
+            {
+                this.BackColor = Color.WhiteSmoke;
+                dakActionPanel.Visible = true;
+            }
+            else
+            {
+                this.BackColor = Color.White;
+                dakActionPanel.Visible = false;
+            }
+        }
         void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
         {
             foreach (Control ctrl in collection)
@@ -315,12 +329,12 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakNothivuktoUserControl_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.WhiteSmoke;
+            MouseHoverAction();
         }
 
         private void DakNothivuktoUserControl_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
+            MouseHoverAction();
         }
     }
 }

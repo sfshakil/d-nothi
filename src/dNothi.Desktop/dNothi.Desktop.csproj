@@ -270,6 +270,18 @@
     <Compile Include="UI\Dak\DetailsDakUserControl.Designer.cs">
       <DependentUpon>DetailsDakUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DraftedDakUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DraftedDakUserControl.Designer.cs">
+      <DependentUpon>DraftedDakUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DropDownButtonUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DropDownButtonUserControl.Designer.cs">
+      <DependentUpon>DropDownButtonUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\MovementStatusDetailsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -436,6 +448,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DetailsDakUserControl.resx">
       <DependentUpon>DetailsDakUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DraftedDakUserControl.resx">
+      <DependentUpon>DraftedDakUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DropDownButtonUserControl.resx">
+      <DependentUpon>DropDownButtonUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\MovementStatusDetailsUserControl.resx">
       <DependentUpon>MovementStatusDetailsUserControl.cs</DependentUpon>
