@@ -69,6 +69,9 @@
   <PropertyGroup>
     <ManifestKeyFile>dNothi.Desktop_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>256x256bb.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=6.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.6.0.0\lib\netstandard2.0\Autofac.dll</HintPath>
@@ -571,6 +574,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="256x256bb.ico" />
     <Content Include="MetroFramework.txt" />
     <None Include="Resources\DakForward.png" />
     <None Include="Resources\icons8-edit-property-24.png" />
