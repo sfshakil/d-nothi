@@ -71,10 +71,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.loginFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlUserId = new System.Windows.Forms.Panel();
-            this.txtUserPassword = new MetroFramework.Controls.MetroTextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
-            this.txtPassword = new MetroFramework.Controls.MetroTextBox();
+            this.txtUser = new dNothi.Desktop.XTextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlUserIdNamePasswordBottom = new System.Windows.Forms.Panel();
@@ -93,8 +96,6 @@
             this.lbTappwareLink = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtUserId = new dNothi.Desktop.XTextBox();
-            this.txtUser = new dNothi.Desktop.XTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnlHelpDesk.SuspendLayout();
@@ -113,6 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlENothiSystemUpdate.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.loginFlowLayoutPanel.SuspendLayout();
             this.pnlUserId.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -189,10 +191,11 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label23.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Indigo;
             this.label23.Location = new System.Drawing.Point(230, 242);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(193, 29);
+            this.label23.Size = new System.Drawing.Size(118, 18);
             this.label23.TabIndex = 38;
             this.label23.Text = "ই নথি অনলাইন কোর্স ";
             // 
@@ -212,10 +215,11 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label24.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Indigo;
             this.label24.Location = new System.Drawing.Point(230, 208);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(176, 29);
+            this.label24.Size = new System.Drawing.Size(108, 18);
             this.label24.TabIndex = 36;
             this.label24.Text = "ভিডিও টিউটোরিয়াল";
             // 
@@ -236,11 +240,12 @@
             this.label21.AutoSize = true;
             this.label21.BackColor = System.Drawing.Color.HotPink;
             this.label21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label21.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.Control;
-            this.label21.Location = new System.Drawing.Point(337, 172);
+            this.label21.Location = new System.Drawing.Point(332, 172);
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(98, 29);
+            this.label21.Size = new System.Drawing.Size(59, 18);
             this.label21.TabIndex = 34;
             this.label21.Text = "ভার্সনঃ ১৫";
             // 
@@ -248,10 +253,11 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label22.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Indigo;
             this.label22.Location = new System.Drawing.Point(230, 172);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(147, 29);
+            this.label22.Size = new System.Drawing.Size(88, 18);
             this.label22.TabIndex = 33;
             this.label22.Text = "ব্যবহার সহায়িকা";
             // 
@@ -271,10 +277,11 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label20.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Indigo;
             this.label20.Location = new System.Drawing.Point(43, 277);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(173, 29);
+            this.label20.Size = new System.Drawing.Size(101, 18);
             this.label20.TabIndex = 31;
             this.label20.Text = "ব্রাউজার ক্যাশ মুছুন";
             // 
@@ -294,10 +301,11 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label19.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Indigo;
             this.label19.Location = new System.Drawing.Point(230, 136);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(70, 29);
+            this.label19.Size = new System.Drawing.Size(40, 18);
             this.label19.TabIndex = 29;
             this.label19.Text = "নোটিশ";
             // 
@@ -316,10 +324,11 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label18.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Indigo;
             this.label18.Location = new System.Drawing.Point(230, 100);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(86, 29);
+            this.label18.Size = new System.Drawing.Size(49, 18);
             this.label18.TabIndex = 27;
             this.label18.Text = "আপডেট";
             // 
@@ -338,10 +347,11 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label17.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Indigo;
             this.label17.Location = new System.Drawing.Point(230, 65);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(155, 29);
+            this.label17.Size = new System.Drawing.Size(88, 18);
             this.label17.TabIndex = 25;
             this.label17.Text = "আপনার জিজ্ঞাসা";
             // 
@@ -360,10 +370,11 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label16.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Indigo;
             this.label16.Location = new System.Drawing.Point(43, 242);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(167, 29);
+            this.label16.Size = new System.Drawing.Size(102, 18);
             this.label16.TabIndex = 23;
             this.label16.Text = "নথি মোবাইল অ্যাপ";
             // 
@@ -384,11 +395,12 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.DarkOrange;
             this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label15.Location = new System.Drawing.Point(103, 208);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(116, 29);
+            this.label15.Size = new System.Drawing.Size(69, 18);
             this.label15.TabIndex = 21;
             this.label15.Text = "ফেসবুক গ্রূপ";
             // 
@@ -396,10 +408,11 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Indigo;
             this.label14.Location = new System.Drawing.Point(47, 208);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 29);
+            this.label14.Size = new System.Drawing.Size(49, 18);
             this.label14.TabIndex = 19;
             this.label14.Text = "নথি গ্রূপ";
             // 
@@ -419,10 +432,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Indigo;
             this.label13.Location = new System.Drawing.Point(48, 172);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(246, 29);
+            this.label13.Size = new System.Drawing.Size(129, 18);
             this.label13.TabIndex = 17;
             this.label13.Text = "support@nothi.org.bd";
             // 
@@ -442,10 +456,11 @@
             // 
             this.lbMobileNo3.AutoSize = true;
             this.lbMobileNo3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbMobileNo3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMobileNo3.ForeColor = System.Drawing.Color.Indigo;
             this.lbMobileNo3.Location = new System.Drawing.Point(44, 136);
             this.lbMobileNo3.Name = "lbMobileNo3";
-            this.lbMobileNo3.Size = new System.Drawing.Size(206, 29);
+            this.lbMobileNo3.Size = new System.Drawing.Size(129, 18);
             this.lbMobileNo3.TabIndex = 15;
             this.lbMobileNo3.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৯";
             this.lbMobileNo3.MouseLeave += new System.EventHandler(this.lbMobileNo3_MouseLeave);
@@ -466,10 +481,11 @@
             // 
             this.lbMobileNo2.AutoSize = true;
             this.lbMobileNo2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbMobileNo2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMobileNo2.ForeColor = System.Drawing.Color.Indigo;
             this.lbMobileNo2.Location = new System.Drawing.Point(44, 100);
             this.lbMobileNo2.Name = "lbMobileNo2";
-            this.lbMobileNo2.Size = new System.Drawing.Size(208, 29);
+            this.lbMobileNo2.Size = new System.Drawing.Size(129, 18);
             this.lbMobileNo2.TabIndex = 13;
             this.lbMobileNo2.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৮";
             this.lbMobileNo2.MouseLeave += new System.EventHandler(this.lbMobileNo2_MouseLeave);
@@ -490,10 +506,11 @@
             // 
             this.lbMobileNo1.AutoSize = true;
             this.lbMobileNo1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbMobileNo1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMobileNo1.ForeColor = System.Drawing.Color.Indigo;
             this.lbMobileNo1.Location = new System.Drawing.Point(44, 65);
             this.lbMobileNo1.Name = "lbMobileNo1";
-            this.lbMobileNo1.Size = new System.Drawing.Size(205, 29);
+            this.lbMobileNo1.Size = new System.Drawing.Size(129, 18);
             this.lbMobileNo1.TabIndex = 11;
             this.lbMobileNo1.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৭";
             this.lbMobileNo1.MouseLeave += new System.EventHandler(this.lbMobileNo1_MouseLeave);
@@ -525,7 +542,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(16, 16);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 33);
+            this.label9.Size = new System.Drawing.Size(79, 24);
             this.label9.TabIndex = 8;
             this.label9.Text = "হেল্প ডেস্ক";
             // 
@@ -557,10 +574,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(17, 224);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(557, 87);
+            this.label8.Size = new System.Drawing.Size(342, 54);
             this.label8.TabIndex = 6;
             this.label8.Text = "অপশন তৈরি করা হয়েছে। এই ক্ষেত্রে পত্রের খসড়া তৈরির সময় \r\nপ্রাপকের মোবাইল নম্বর দি" +
     "য়ে সংশ্লিষ্ট মেসেজ দেওয়া যাবে। প্রাপক ই-\r\nমেইলে সংশ্লিষ্ট পত্রটি এবং মোবাইলে মেস" +
@@ -569,57 +586,57 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(107, 196);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(420, 29);
+            this.label7.Size = new System.Drawing.Size(254, 18);
             this.label7.TabIndex = 5;
             this.label7.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে মেসেজ দেওয়ার";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(15, 196);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(147, 29);
+            this.label6.Size = new System.Drawing.Size(91, 18);
             this.label6.TabIndex = 4;
             this.label6.Text = "ই-নথি সিস্টেম:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(201, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(291, 29);
+            this.label5.Size = new System.Drawing.Size(176, 18);
             this.label5.TabIndex = 3;
             this.label5.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(15, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(301, 29);
+            this.label3.Size = new System.Drawing.Size(187, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "ই-নথি সিস্টেমের নতুন আপডেট:\r\n";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(18, 38);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(593, 203);
+            this.label4.Size = new System.Drawing.Size(351, 126);
             this.label4.TabIndex = 1;
             this.label4.Text = resources.GetString("label4.Text");
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Window;
-            this.panel4.Controls.Add(this.pnlUserId);
+            this.panel4.Controls.Add(this.loginFlowLayoutPanel);
             this.panel4.Controls.Add(this.pnlUserIdNamePasswordBottom);
             this.panel4.Controls.Add(this.pnlPasswordResetTop);
             this.panel4.Controls.Add(this.btnPasswordReset);
@@ -634,65 +651,70 @@
             this.panel4.Size = new System.Drawing.Size(430, 595);
             this.panel4.TabIndex = 2;
             // 
+            // loginFlowLayoutPanel
+            // 
+            this.loginFlowLayoutPanel.Controls.Add(this.pnlUserId);
+            this.loginFlowLayoutPanel.Location = new System.Drawing.Point(6, 65);
+            this.loginFlowLayoutPanel.Name = "loginFlowLayoutPanel";
+            this.loginFlowLayoutPanel.Size = new System.Drawing.Size(423, 228);
+            this.loginFlowLayoutPanel.TabIndex = 8;
+            // 
             // pnlUserId
             // 
-            this.pnlUserId.Controls.Add(this.txtUserId);
-            this.pnlUserId.Controls.Add(this.button9);
-            this.pnlUserId.Controls.Add(this.txtUserPassword);
-            this.pnlUserId.Controls.Add(this.txtUser);
             this.pnlUserId.Controls.Add(this.txtPassword);
+            this.pnlUserId.Controls.Add(this.label11);
+            this.pnlUserId.Controls.Add(this.label10);
+            this.pnlUserId.Controls.Add(this.button9);
+            this.pnlUserId.Controls.Add(this.txtUser);
             this.pnlUserId.Controls.Add(this.panel9);
-            this.pnlUserId.Location = new System.Drawing.Point(8, 73);
+            this.pnlUserId.Location = new System.Drawing.Point(3, 4);
             this.pnlUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserId.Name = "pnlUserId";
-            this.pnlUserId.Size = new System.Drawing.Size(412, 165);
+            this.pnlUserId.Size = new System.Drawing.Size(412, 211);
             this.pnlUserId.TabIndex = 7;
             // 
-            // txtUserPassword
+            // txtPassword
             // 
-            this.txtUserPassword.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUserPassword.CustomBackground = true;
-            this.txtUserPassword.CustomForeColor = true;
-            this.txtUserPassword.ForeColor = System.Drawing.Color.Gray;
-            this.txtUserPassword.Location = new System.Drawing.Point(217, 22);
-            this.txtUserPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUserPassword.Name = "txtUserPassword";
-            this.txtUserPassword.ReadOnly = true;
-            this.txtUserPassword.Size = new System.Drawing.Size(187, 35);
-            this.txtUserPassword.TabIndex = 12;
-            this.txtUserPassword.Text = "পাসওয়ার্ড";
-            this.txtUserPassword.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.txtUserPassword.UseStyleColors = true;
-            this.txtUserPassword.Enter += new System.EventHandler(this.txtUserPassword_Enter);
+            this.txtPassword.Location = new System.Drawing.Point(209, 39);
+            this.txtPassword.Multiline = true;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.Size = new System.Drawing.Size(187, 33);
+            this.txtPassword.TabIndex = 15;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress_1);
             // 
-            // txtUserId
+            // label11
             // 
-            this.txtUserId.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUserId.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserId.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUserId.Location = new System.Drawing.Point(24, 22);
-            this.txtUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUserId.Multiline = true;
-            this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(187, 35);
-            this.txtUserId.TabIndex = 11;
-            this.txtUserId.Text = "ইউজার আইডি";
-            this.txtUserId.TextChanged += new System.EventHandler(this.txtUserId_TextChanged);
-            this.txtUserId.Enter += new System.EventHandler(this.txtUserId_Enter);
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(206, 18);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 18);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "পাসওয়ার্ড";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(14, 18);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 18);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "ইউজার আইডি ";
             // 
             // button9
             // 
             this.button9.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(312, 72);
+            this.button9.Location = new System.Drawing.Point(304, 89);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(94, 57);
+            this.button9.Size = new System.Drawing.Size(94, 71);
             this.button9.TabIndex = 10;
             this.button9.Text = "প্রবেশ";
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -701,62 +723,45 @@
             // 
             // txtUser
             // 
-            this.txtUser.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUser.BackColor = System.Drawing.Color.White;
             this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUser.Location = new System.Drawing.Point(24, 22);
+            this.txtUser.Location = new System.Drawing.Point(16, 39);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(187, 35);
+            this.txtUser.Size = new System.Drawing.Size(187, 33);
             this.txtUser.TabIndex = 7;
+            this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
             this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPassword.CustomBackground = true;
-            this.txtPassword.CustomForeColor = true;
-            this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPassword.Location = new System.Drawing.Point(217, 22);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '●';
-            this.txtPassword.PromptText = "পাসওয়ার্ড";
-            this.txtPassword.Size = new System.Drawing.Size(187, 35);
-            this.txtPassword.TabIndex = 8;
-            this.txtPassword.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.txtPassword.UseStyleColors = true;
-            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.Moccasin;
             this.panel9.Controls.Add(this.label2);
-            this.panel9.Location = new System.Drawing.Point(22, 72);
+            this.panel9.Location = new System.Drawing.Point(14, 89);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(284, 57);
+            this.panel9.Size = new System.Drawing.Size(284, 71);
             this.panel9.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SaddleBrown;
             this.label2.Location = new System.Drawing.Point(8, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(356, 66);
+            this.label2.Size = new System.Drawing.Size(214, 42);
             this.label2.TabIndex = 0;
             this.label2.Text = "ইউজার আইডি ব্যবহার করে প্রবেশ \r\nকরুন";
             // 
             // pnlUserIdNamePasswordBottom
             // 
-            this.pnlUserIdNamePasswordBottom.Location = new System.Drawing.Point(12, 55);
+            this.pnlUserIdNamePasswordBottom.Location = new System.Drawing.Point(17, 56);
             this.pnlUserIdNamePasswordBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserIdNamePasswordBottom.Name = "pnlUserIdNamePasswordBottom";
-            this.pnlUserIdNamePasswordBottom.Size = new System.Drawing.Size(404, 5);
+            this.pnlUserIdNamePasswordBottom.Size = new System.Drawing.Size(393, 1);
             this.pnlUserIdNamePasswordBottom.TabIndex = 6;
             // 
             // pnlPasswordResetTop
@@ -764,7 +769,7 @@
             this.pnlPasswordResetTop.Location = new System.Drawing.Point(279, 17);
             this.pnlPasswordResetTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlPasswordResetTop.Name = "pnlPasswordResetTop";
-            this.pnlPasswordResetTop.Size = new System.Drawing.Size(129, 4);
+            this.pnlPasswordResetTop.Size = new System.Drawing.Size(129, 2);
             this.pnlPasswordResetTop.TabIndex = 5;
             // 
             // btnPasswordReset
@@ -777,7 +782,7 @@
             this.btnPasswordReset.Location = new System.Drawing.Point(279, 18);
             this.btnPasswordReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPasswordReset.Name = "btnPasswordReset";
-            this.btnPasswordReset.Size = new System.Drawing.Size(129, 44);
+            this.btnPasswordReset.Size = new System.Drawing.Size(129, 39);
             this.btnPasswordReset.TabIndex = 4;
             this.btnPasswordReset.Text = "পাসওয়ার্ড রিসেট";
             this.btnPasswordReset.UseVisualStyleBackColor = true;
@@ -786,10 +791,10 @@
             // 
             // pnlUserNameTop
             // 
-            this.pnlUserNameTop.Location = new System.Drawing.Point(146, 17);
+            this.pnlUserNameTop.Location = new System.Drawing.Point(141, 18);
             this.pnlUserNameTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserNameTop.Name = "pnlUserNameTop";
-            this.pnlUserNameTop.Size = new System.Drawing.Size(110, 4);
+            this.pnlUserNameTop.Size = new System.Drawing.Size(110, 2);
             this.pnlUserNameTop.TabIndex = 3;
             // 
             // btnUserName
@@ -802,7 +807,7 @@
             this.btnUserName.Location = new System.Drawing.Point(141, 18);
             this.btnUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUserName.Name = "btnUserName";
-            this.btnUserName.Size = new System.Drawing.Size(110, 44);
+            this.btnUserName.Size = new System.Drawing.Size(110, 39);
             this.btnUserName.TabIndex = 2;
             this.btnUserName.Text = "ইউজার নেম";
             this.btnUserName.UseVisualStyleBackColor = true;
@@ -814,7 +819,7 @@
             this.pnlUserIdTop.Location = new System.Drawing.Point(17, 17);
             this.pnlUserIdTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlUserIdTop.Name = "pnlUserIdTop";
-            this.pnlUserIdTop.Size = new System.Drawing.Size(110, 4);
+            this.pnlUserIdTop.Size = new System.Drawing.Size(110, 2);
             this.pnlUserIdTop.TabIndex = 1;
             // 
             // btnUserId
@@ -827,7 +832,7 @@
             this.btnUserId.Location = new System.Drawing.Point(17, 18);
             this.btnUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUserId.Name = "btnUserId";
-            this.btnUserId.Size = new System.Drawing.Size(110, 44);
+            this.btnUserId.Size = new System.Drawing.Size(110, 39);
             this.btnUserId.TabIndex = 0;
             this.btnUserId.Text = "ইউজার আইডি";
             this.btnUserId.UseVisualStyleBackColor = true;
@@ -921,11 +926,11 @@
             // 
             this.lbTappwareLink.ActiveLinkColor = System.Drawing.Color.Blue;
             this.lbTappwareLink.AutoSize = true;
-            this.lbTappwareLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTappwareLink.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTappwareLink.LinkColor = System.Drawing.Color.Blue;
             this.lbTappwareLink.Location = new System.Drawing.Point(176, 20);
             this.lbTappwareLink.Name = "lbTappwareLink";
-            this.lbTappwareLink.Size = new System.Drawing.Size(271, 29);
+            this.lbTappwareLink.Size = new System.Drawing.Size(165, 18);
             this.lbTappwareLink.TabIndex = 2;
             this.lbTappwareLink.TabStop = true;
             this.lbTappwareLink.Text = "ট্যাপওয়্যার সলিউশনস লিমিটেড";
@@ -933,10 +938,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(49, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 33);
+            this.label1.Size = new System.Drawing.Size(128, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = " কারিগরি সহায়তায় ";
             // 
@@ -951,38 +956,9 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // txtUserId
-            // 
-            this.txtUserId.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserId.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUserId.Location = new System.Drawing.Point(24, 22);
-            this.txtUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUserId.Multiline = true;
-            this.txtUserId.Name = "txtUserId";
-            this.txtUserId.Size = new System.Drawing.Size(187, 42);
-            this.txtUserId.TabIndex = 11;
-            this.txtUserId.Text = "ইউজার আইডি";
-            this.txtUserId.Enter += new System.EventHandler(this.txtUserId_Enter);
-            // 
-            // txtUser
-            // 
-            this.txtUser.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUser.Location = new System.Drawing.Point(24, 22);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUser.Multiline = true;
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(187, 42);
-            this.txtUser.TabIndex = 7;
-            this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
-            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -1014,6 +990,7 @@
             this.pnlENothiSystemUpdate.ResumeLayout(false);
             this.pnlENothiSystemUpdate.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.loginFlowLayoutPanel.ResumeLayout(false);
             this.pnlUserId.ResumeLayout(false);
             this.pnlUserId.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -1046,11 +1023,6 @@
         private System.Windows.Forms.Button btnUserName;
         private System.Windows.Forms.Panel pnlUserIdTop;
         private System.Windows.Forms.Panel pnlUserIdNamePasswordBottom;
-        private MetroFramework.Controls.MetroTextBox txtPassword;
-        private XTextBox txtUser;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlHelpDesk;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label9;
@@ -1090,8 +1062,14 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.FlowLayoutPanel loginFlowLayoutPanel;
         private System.Windows.Forms.Panel pnlUserId;
-        private XTextBox txtUserId;
-        private MetroFramework.Controls.MetroTextBox txtUserPassword;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button9;
+        private XTextBox txtUser;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -51,7 +51,7 @@ namespace dNothi.Desktop.UI
         public void userName()
         {
                 ucUserNamePanel.Visible = true;
-                ucUserNamePanel.Location = new System.Drawing.Point(278+420, 60+ 151);
+                ucUserNamePanel.Location = new System.Drawing.Point(8, 73);
                 Controls.Add(ucUserNamePanel);
                 ucUserNamePanel.BringToFront();
         }
@@ -196,7 +196,17 @@ namespace dNothi.Desktop.UI
 
         private void btnUserId_Click(object sender, EventArgs e)
         {
-            select_UserID();
+            loginFlowLayoutPanel.Controls.Clear();
+            loginFlowLayoutPanel.Controls.Add(pnlUserId);
+
+            this.pnlUserIdNamePasswordBottom.BackColor = Color.Gainsboro;
+            this.btnUserName.ForeColor = Color.Black;
+            this.pnlUserNameTop.BackColor = Color.White;
+            this.btnUserName.FlatAppearance.BorderColor = Color.White;
+            this.btnPasswordReset.ForeColor = Color.Black;
+            this.pnlPasswordResetTop.BackColor = Color.White;
+            this.btnPasswordReset.FlatAppearance.BorderColor = Color.White;
+            
             ucUserNamePanel.Visible = false;
             ucPasswordResetPanel.Visible = false;
             this.pnlUserId.Show();
@@ -211,8 +221,10 @@ namespace dNothi.Desktop.UI
 
         private void btnUserName_Click(object sender, EventArgs e)
         {
-            this.pnlUserId.Hide();
-            userName();
+            loginFlowLayoutPanel.Controls.Clear();
+            UserNamePanel ucUserNamePanel = new UserNamePanel();
+            loginFlowLayoutPanel.Controls.Add(ucUserNamePanel);
+
             this.btnUserId.ForeColor = Color.Black;
             this.pnlUserIdTop.BackColor = Color.White;
             this.btnUserId.FlatAppearance.BorderColor = Color.White;
@@ -234,9 +246,11 @@ namespace dNothi.Desktop.UI
 
         private void btnPasswordReset_Click(object sender, EventArgs e)
         {
-            passwordReset();
-            ucUserNamePanel.Visible = false;
-            this.pnlUserId.Hide();
+            loginFlowLayoutPanel.Controls.Clear();
+            PasswordResetPanel passwordResetPanel = new PasswordResetPanel();
+            loginFlowLayoutPanel.Controls.Add(passwordResetPanel);
+
+
             this.btnUserId.ForeColor = Color.Black;
             this.pnlUserIdTop.BackColor = Color.White;
             this.btnUserId.FlatAppearance.BorderColor = Color.White;
@@ -249,34 +263,91 @@ namespace dNothi.Desktop.UI
             this.btnPasswordReset.FlatAppearance.BorderColor = Color.Gainsboro;
         }
 
-        private void txtUserId_Enter(object sender, EventArgs e)
-        {
-            txtUserId.Visible = false;
-            txtUser.Focus();
-            if (txtPassword.Text == "")
-            {
-                txtUserPassword.Visible = true;
-            }
-            else
-            {
-                txtUserPassword.Visible = false;
-            }
-        }
-        private void txtUserPassword_Enter(object sender, EventArgs e)
-        {
-            txtUserPassword.Visible = false;
+        //private void txtUserId_Enter(object sender, EventArgs e)
+        //{
+        //    txtUserId.Visible = false;
+        //    txtUser.Focus();
+        //    if (txtPassword.Text == "")
+        //    {
+        //        txtUserPassword.Visible = true;
+        //    }
+        //    else
+        //    {
+        //        txtUserPassword.Visible = false;
+        //    }
+        //}
+        //private void txtUserPassword_Enter(object sender, EventArgs e)
+        //{
+        //    txtUserPassword.Visible = false;
 
-            txtPassword.Focus();
-        }
+        //    txtPassword.Focus();
+        //}
 
         private void Login_Load(object sender, EventArgs e)
         {
+             
+           
+        
 
+    }
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button();
+            btn.Size = new Size(33, txtPassword.ClientSize.Height + 2);
+            btn.Location = new Point(txtPassword.ClientSize.Width - btn.Width, -1);
+            btn.BringToFront();
+            btn.Cursor = Cursors.Default;
+            btn.Click += pasword_Show;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.Image = Properties.Resources.icons8_eye_15;
+            txtPassword.Controls.Add(btn);
+            // Send EM_SETMARGINS to prevent text from disappearing underneath the button
+            SendMessage(txtPassword.Handle, 0xd3, (IntPtr)2, (IntPtr)(btn.Width << 16));
+            base.OnLoad(e);
         }
+
+            private void pasword_Show(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = txtPassword.PasswordChar == '\0' ? '●' : '\0';
+        }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
 
         private void txtUserId_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            //// only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+     
+
+        private void txtPassword_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please Input Only English Character!");
+            }
+
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            //{
+            //    e.Handled = true;
+            //}
         }
     }
 }
