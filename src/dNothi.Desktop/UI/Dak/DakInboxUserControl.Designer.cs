@@ -260,9 +260,9 @@
             this.disablePanel.Controls.Add(this.potrojariPanel);
             this.disablePanel.Enabled = false;
             this.disablePanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.disablePanel.Location = new System.Drawing.Point(471, 15);
+            this.disablePanel.Location = new System.Drawing.Point(545, 15);
             this.disablePanel.Name = "disablePanel";
-            this.disablePanel.Size = new System.Drawing.Size(601, 34);
+            this.disablePanel.Size = new System.Drawing.Size(530, 34);
             this.disablePanel.TabIndex = 69;
             // 
             // dakPriorityIconPanel
@@ -273,7 +273,7 @@
             this.dakPriorityIconPanel.Controls.Add(this.panel2);
             this.dakPriorityIconPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.dakPriorityIconPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakPriorityIconPanel.Location = new System.Drawing.Point(348, 0);
+            this.dakPriorityIconPanel.Location = new System.Drawing.Point(277, 0);
             this.dakPriorityIconPanel.Name = "dakPriorityIconPanel";
             this.dakPriorityIconPanel.Size = new System.Drawing.Size(75, 34);
             this.dakPriorityIconPanel.TabIndex = 21;
@@ -301,7 +301,7 @@
             this.potrojariPanel.Controls.Add(this.panel4);
             this.potrojariPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.potrojariPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.potrojariPanel.Location = new System.Drawing.Point(503, 0);
+            this.potrojariPanel.Location = new System.Drawing.Point(432, 0);
             this.potrojariPanel.Name = "potrojariPanel";
             this.potrojariPanel.Size = new System.Drawing.Size(98, 34);
             this.potrojariPanel.TabIndex = 0;
@@ -381,9 +381,9 @@
             this.dakActionPanel.BackColor = System.Drawing.Color.Transparent;
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(992, 16);
+            this.dakActionPanel.Location = new System.Drawing.Point(1003, 16);
             this.dakActionPanel.Name = "dakActionPanel";
-            this.dakActionPanel.Size = new System.Drawing.Size(76, 32);
+            this.dakActionPanel.Size = new System.Drawing.Size(68, 32);
             this.dakActionPanel.TabIndex = 62;
             this.dakActionPanel.Visible = false;
             // 
@@ -478,7 +478,7 @@
             this.dakMovementStatusButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakMovementStatusButton.Location = new System.Drawing.Point(32, 0);
             this.dakMovementStatusButton.Name = "dakMovementStatusButton";
-            this.dakMovementStatusButton.Size = new System.Drawing.Size(44, 32);
+            this.dakMovementStatusButton.Size = new System.Drawing.Size(36, 32);
             this.dakMovementStatusButton.TabIndex = 65;
             this.dakMovementStatusButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dakMovementStatusButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -493,7 +493,7 @@
             this.newDakImagePanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.newDakImagePanel.Enabled = false;
             this.newDakImagePanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newDakImagePanel.Location = new System.Drawing.Point(76, 0);
+            this.newDakImagePanel.Location = new System.Drawing.Point(5, 0);
             this.newDakImagePanel.Margin = new System.Windows.Forms.Padding(0);
             this.newDakImagePanel.Name = "newDakImagePanel";
             this.newDakImagePanel.Size = new System.Drawing.Size(55, 34);
@@ -508,7 +508,7 @@
             this.attentionTypeIconPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.attentionTypeIconPanel.Enabled = false;
             this.attentionTypeIconPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attentionTypeIconPanel.Location = new System.Drawing.Point(131, 0);
+            this.attentionTypeIconPanel.Location = new System.Drawing.Point(60, 0);
             this.attentionTypeIconPanel.Name = "attentionTypeIconPanel";
             this.attentionTypeIconPanel.Size = new System.Drawing.Size(96, 34);
             this.attentionTypeIconPanel.TabIndex = 20;
@@ -522,7 +522,7 @@
             this.dakSecurityIconPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.dakSecurityIconPanel.Enabled = false;
             this.dakSecurityIconPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSecurityIconPanel.Location = new System.Drawing.Point(227, 0);
+            this.dakSecurityIconPanel.Location = new System.Drawing.Point(156, 0);
             this.dakSecurityIconPanel.Name = "dakSecurityIconPanel";
             this.dakSecurityIconPanel.Size = new System.Drawing.Size(121, 34);
             this.dakSecurityIconPanel.TabIndex = 20;
@@ -549,7 +549,7 @@
             this.dakTypePanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.dakTypePanel.Enabled = false;
             this.dakTypePanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakTypePanel.Location = new System.Drawing.Point(423, 0);
+            this.dakTypePanel.Location = new System.Drawing.Point(352, 0);
             this.dakTypePanel.Name = "dakTypePanel";
             this.dakTypePanel.Size = new System.Drawing.Size(80, 34);
             this.dakTypePanel.TabIndex = 20;

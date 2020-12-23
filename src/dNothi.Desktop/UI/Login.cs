@@ -318,6 +318,9 @@ namespace dNothi.Desktop.UI
             // Send EM_SETMARGINS to prevent text from disappearing underneath the button
             SendMessage(txtPassword.Handle, 0xd3, (IntPtr)2, (IntPtr)(btn.Width << 16));
             base.OnLoad(e);
+
+
+            this.AcceptButton = userLoginByUserIdButton;
         }
 
             private void pasword_Show(object sender, EventArgs e)
