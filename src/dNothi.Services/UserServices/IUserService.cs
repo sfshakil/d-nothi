@@ -17,6 +17,9 @@ namespace dNothi.Services.UserServices
         void SaveOrUpdateToken(string token);
         DakListUserParam GetLocalDakUserParam();
 
+        bool ValidatePassword(char passChar);
+        string InvalidPasswordMessage();
+
      
     }
 }

@@ -383,11 +383,11 @@
     <Compile Include="UI\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\PasswordResetPanel2.cs">
+    <Compile Include="UserControl\PasswordResetPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\PasswordResetPanel2.Designer.cs">
-      <DependentUpon>PasswordResetPanel2.cs</DependentUpon>
+    <Compile Include="UserControl\PasswordResetPanel.Designer.cs">
+      <DependentUpon>PasswordResetPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFactory.cs" />
     <Compile Include="Interfaces\IFormFactory.cs" />
@@ -402,11 +402,11 @@
     <Compile Include="UI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UserNamePanel2.cs">
+    <Compile Include="UserControl\UserNamePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\UserNamePanel2.Designer.cs">
-      <DependentUpon>UserNamePanel2.cs</DependentUpon>
+    <Compile Include="UserControl\UserNamePanel.Designer.cs">
+      <DependentUpon>UserNamePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="View Model\ViewDesignationSealList.cs" />
     <Compile Include="View Model\WebBrowserColumn.cs" />
@@ -512,8 +512,8 @@
     <EmbeddedResource Include="UI\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\PasswordResetPanel2.resx">
-      <DependentUpon>PasswordResetPanel2.cs</DependentUpon>
+    <EmbeddedResource Include="UserControl\PasswordResetPanel.resx">
+      <DependentUpon>PasswordResetPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -523,8 +523,8 @@
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\UserNamePanel2.resx">
-      <DependentUpon>UserNamePanel2.cs</DependentUpon>
+    <EmbeddedResource Include="UserControl\UserNamePanel.resx">
+      <DependentUpon>UserNamePanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dNothi.Desktop_TemporaryKey.pfx" />
     <None Include="packages.config" />
@@ -585,6 +585,7 @@
   <ItemGroup>
     <Content Include="256x256bb.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\মূল-প্রাপক1.png" />
     <None Include="Resources\icons8-eye-15.png" />
     <None Include="Resources\DakForward.png" />
     <None Include="Resources\icons8-edit-property-24.png" />

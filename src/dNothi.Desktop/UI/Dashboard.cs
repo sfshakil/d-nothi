@@ -630,35 +630,25 @@ namespace dNothi.Desktop.UI
 
         private void ResetAllMenuButtonSelection()
         {
-            dakSearchButton.BackColor=Color.WhiteSmoke;
-            dakSearchButton.ForeColor = Color.Black;
+           // var buttons = dakMenuPanel.Controls.OfType<Button>;
 
-            dakArchiveButton.BackColor = Color.WhiteSmoke;
-            dakArchiveButton.ForeColor = Color.Black;
-
-            dakInboxButton.BackColor = Color.WhiteSmoke;
-            dakInboxButton.ForeColor = Color.Black;
-
-            dakOutboxButton.BackColor = Color.WhiteSmoke;
-            dakOutboxButton.ForeColor = Color.Black;
-
-
-            dakNothijatoButton.BackColor = Color.WhiteSmoke;
-            dakNothijatoButton.ForeColor = Color.Black;
-
-            dakNotivuktoButton.BackColor = Color.WhiteSmoke;
-            dakNotivuktoButton.ForeColor = Color.Black;
-
-            dakSortButton.BackColor = Color.WhiteSmoke;
-            dakSortButton.ForeColor = Color.Black;
+            foreach (Control control in dakMenuPanel.Controls)
+            {
+                if (control.GetType() == typeof(Button))
+                {
+                    control.BackColor=Color.FromArgb(254, 254, 254);
+                    control.ForeColor = Color.Black;
+                }
+            }
+           
 
 
         }
 
         private void SelectButton(Button button)
         {
-            button.BackColor = Color.Silver;
-            button.ForeColor = Color.Blue;
+            button.BackColor = Color.FromArgb(243, 246, 249);
+            button.ForeColor = Color.FromArgb(78, 165, 254);
         }
 
         private void dakOutboxButton_Click_1(object sender, EventArgs e)
@@ -1291,6 +1281,11 @@ namespace dNothi.Desktop.UI
                 dakSortingUserFlowLayoutPanel.Visible = true;
             }
 
+        }
+
+        private void dakMenuButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

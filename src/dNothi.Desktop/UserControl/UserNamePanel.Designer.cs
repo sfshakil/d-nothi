@@ -77,12 +77,12 @@
             // 
             // txtUserNamePassword
             // 
-            this.txtUserNamePassword.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserNamePassword.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserNamePassword.ForeColor = System.Drawing.Color.DimGray;
             this.txtUserNamePassword.Location = new System.Drawing.Point(207, 30);
-            this.txtUserNamePassword.Multiline = true;
             this.txtUserNamePassword.Name = "txtUserNamePassword";
             this.txtUserNamePassword.PasswordChar = '●';
-            this.txtUserNamePassword.Size = new System.Drawing.Size(187, 33);
+            this.txtUserNamePassword.Size = new System.Drawing.Size(187, 29);
             this.txtUserNamePassword.TabIndex = 19;
             this.txtUserNamePassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNamePassword_KeyPress);
             // 
@@ -109,13 +109,12 @@
             // txtUserName
             // 
             this.txtUserName.BackColor = System.Drawing.Color.White;
-            this.txtUserName.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.ForeColor = System.Drawing.Color.DimGray;
             this.txtUserName.Location = new System.Drawing.Point(14, 30);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(187, 33);
+            this.txtUserName.Size = new System.Drawing.Size(187, 29);
             this.txtUserName.TabIndex = 16;
             this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
             // 

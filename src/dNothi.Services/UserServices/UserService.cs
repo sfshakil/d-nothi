@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using dNothi.Constants;
 using System.Configuration;
 using dNothi.Services.DakServices;
+using System.Text.RegularExpressions;
 
 namespace dNothi.Services.UserServices
 {
@@ -256,6 +257,24 @@ namespace dNothi.Services.UserServices
             return dakListUserParam;
         }
 
-        
+        public bool ValidatePassword(char passChar)
+        {
+            var regexItem = new Regex("^[a-zA-Z0-9$@$!%*?&#^-_. +\b]+$");
+            string pressedChar = passChar.ToString();
+            if (!regexItem.IsMatch(pressedChar))
+            {
+                return false;
+               
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public string InvalidPasswordMessage()
+        {
+            return "দয়া করে শুধু মাত্র ইংরেজি কীবোর্ড ব্যাবহার করুন!";
+        }
     }
 }

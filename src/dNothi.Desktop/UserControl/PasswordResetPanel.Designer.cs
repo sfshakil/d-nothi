@@ -47,11 +47,10 @@
             this.button9.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(257, 72);
+            this.button9.Location = new System.Drawing.Point(257, 73);
             this.button9.MaximumSize = new System.Drawing.Size(141, 62);
-            this.button9.MinimumSize = new System.Drawing.Size(141, 62);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(141, 62);
+            this.button9.Size = new System.Drawing.Size(141, 52);
             this.button9.TabIndex = 16;
             this.button9.Text = "অনুরোধ করুন";
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -61,11 +60,10 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.Moccasin;
             this.panel9.Controls.Add(this.label2);
-            this.panel9.Location = new System.Drawing.Point(19, 72);
+            this.panel9.Location = new System.Drawing.Point(19, 73);
             this.panel9.MaximumSize = new System.Drawing.Size(232, 62);
-            this.panel9.MinimumSize = new System.Drawing.Size(232, 62);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(232, 62);
+            this.panel9.Size = new System.Drawing.Size(232, 52);
             this.panel9.TabIndex = 15;
             // 
             // label2
@@ -73,7 +71,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label2.Location = new System.Drawing.Point(7, 8);
+            this.label2.Location = new System.Drawing.Point(7, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(163, 42);
             this.label2.TabIndex = 0;
@@ -82,13 +80,12 @@
             // txtUserNamePassword
             // 
             this.txtUserNamePassword.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserNamePassword.Location = new System.Drawing.Point(211, 30);
+            this.txtUserNamePassword.ForeColor = System.Drawing.Color.DimGray;
+            this.txtUserNamePassword.Location = new System.Drawing.Point(211, 31);
             this.txtUserNamePassword.MaximumSize = new System.Drawing.Size(187, 33);
-            this.txtUserNamePassword.MinimumSize = new System.Drawing.Size(187, 33);
-            this.txtUserNamePassword.Multiline = true;
             this.txtUserNamePassword.Name = "txtUserNamePassword";
             this.txtUserNamePassword.PasswordChar = '●';
-            this.txtUserNamePassword.Size = new System.Drawing.Size(187, 33);
+            this.txtUserNamePassword.Size = new System.Drawing.Size(187, 29);
             this.txtUserNamePassword.TabIndex = 23;
             this.txtUserNamePassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNamePassword_KeyPress);
             // 
@@ -124,10 +121,8 @@
             this.txtUserName.Location = new System.Drawing.Point(18, 31);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserName.MaximumSize = new System.Drawing.Size(187, 33);
-            this.txtUserName.MinimumSize = new System.Drawing.Size(187, 33);
-            this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(187, 33);
+            this.txtUserName.Size = new System.Drawing.Size(187, 29);
             this.txtUserName.TabIndex = 20;
             this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
             // 

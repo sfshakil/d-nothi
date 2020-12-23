@@ -12,8 +12,8 @@ namespace dNothi.Utility
 
        public AttentionTypeList()
         {
-            attentionTypes.Add(new AttentionType("0", "অনুলিপি", "Anulipiu"));
-            attentionTypes.Add(new AttentionType("1", "মূল-প্রাপক", "MulPrapok"));
+            attentionTypes.Add(new AttentionType("0", "অনুলিপি", "অনুলিপি"));
+            attentionTypes.Add(new AttentionType("1", "মূল-প্রাপক", "মূল-প্রাপক"));
 
            
         }

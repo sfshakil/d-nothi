@@ -710,7 +710,7 @@
 শব্দের বানান নিরীক্ষা করতে হলে, সংশ্লিষ্ট শব্দের উপর কার্সর রেখে ডান 
 বাটন ক্লিক করলে সিস্টেম ইউজারকে সঠিক শব্দটি সাজেশন দিবে।</value>
   </data>
-  <data name="button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="userLoginByUserIdButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAVtJREFUOE/F
         lb1KBDEUhbew0EKwsLO2FisLO7G30ocRH8BXsBFt/GnEbjs7KxtLEWSLAUkyM/kDFUGI98zcIZl1xKAL

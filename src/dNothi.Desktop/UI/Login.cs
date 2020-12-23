@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
 using dNothi.Desktop.Interfaces;
+using System.Text.RegularExpressions;
 
 namespace dNothi.Desktop.UI
 {
@@ -87,6 +88,10 @@ namespace dNothi.Desktop.UI
                     {
                         form.ShowDialog();
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid User Id or Password!");
                 }
             }
             catch
@@ -210,6 +215,8 @@ namespace dNothi.Desktop.UI
             ucUserNamePanel.Visible = false;
             ucPasswordResetPanel.Visible = false;
             this.pnlUserId.Show();
+            this.AcceptButton = userLoginByUserIdButton;
+
         }
 
         private void btnUserName_MouseHover(object sender, EventArgs e)
@@ -223,6 +230,9 @@ namespace dNothi.Desktop.UI
         {
             loginFlowLayoutPanel.Controls.Clear();
             UserNamePanel ucUserNamePanel = new UserNamePanel();
+            ucUserNamePanel.PasswordBoxPressEventClick += delegate (object s, EventArgs ev) { validateTxtPass(ucUserNamePanel.passPressEvent); };
+
+
             loginFlowLayoutPanel.Controls.Add(ucUserNamePanel);
 
             this.btnUserId.ForeColor = Color.Black;
@@ -248,6 +258,8 @@ namespace dNothi.Desktop.UI
         {
             loginFlowLayoutPanel.Controls.Clear();
             PasswordResetPanel passwordResetPanel = new PasswordResetPanel();
+            passwordResetPanel.PasswordBoxPressEventClick += delegate (object s, EventArgs ev) { validateTxtPass(passwordResetPanel.passPressEvent); };
+
             loginFlowLayoutPanel.Controls.Add(passwordResetPanel);
 
 
@@ -300,6 +312,7 @@ namespace dNothi.Desktop.UI
             btn.Click += pasword_Show;
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderSize = 0;
+            btn.TabIndex = 15;
             btn.Image = Properties.Resources.icons8_eye_15;
             txtPassword.Controls.Add(btn);
             // Send EM_SETMARGINS to prevent text from disappearing underneath the button
@@ -334,20 +347,24 @@ namespace dNothi.Desktop.UI
             //}
         }
 
-     
+ 
 
         private void txtPassword_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("Please Input Only English Character!");
-            }
 
-            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            //{
-            //    e.Handled = true;
-            //}
+
+            validateTxtPass(e);
+           
+                
+        }
+
+        private void validateTxtPass(KeyPressEventArgs e)
+        {
+            if (!_userService.ValidatePassword(e.KeyChar))
+            {
+                MessageBox.Show(_userService.InvalidPasswordMessage());
+                e.Handled = true;
+            }
         }
     }
 }

@@ -12,6 +12,14 @@ namespace dNothi.Desktop
 {
     public partial class UserNamePanel : UserControl
     {
+        private KeyPressEventArgs _passPressEvent;
+        public KeyPressEventArgs passPressEvent
+        {
+            get
+            {
+                return _passPressEvent;
+            }
+        }
         public UserNamePanel()
         {
             InitializeComponent();
@@ -42,15 +50,18 @@ namespace dNothi.Desktop
             txtUserNamePassword.PasswordChar = txtUserNamePassword.PasswordChar == '\0' ? '●' : '\0';
         }
 
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user press box")]
+        public event EventHandler PasswordBoxPressEventClick;
         private void txtUserNamePassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("Please Input Only English Character!");
-            }
+            _passPressEvent = e;
+            if (this.PasswordBoxPressEventClick != null)
+                this.PasswordBoxPressEventClick(sender, e);
         }
 
+       
         private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

@@ -37,10 +37,46 @@ namespace dNothi.Desktop.UI.Dak
 
             DakAttachmentListinGrid dakAttachmentListinGrid = new DakAttachmentListinGrid();
             _dakAttachmentinGrids = dakAttachmentListinGrid.dakAttachmentinGrids;
-            attachmentDataGridView.DataSource = null;
-            attachmentDataGridView.DataSource = _dakAttachmentinGrids.ToList();
 
+
+
+            attachmentListFlowLayoutPanel.Controls.Clear();
+            DakUploadAttachmentTableRow dakUploadAttachmentTableRow = new DakUploadAttachmentTableRow();
+            dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
+            dakUploadAttachmentTableRow.imageLink = "https://nothibs.tappware.com/api/content/view?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MDg3MjEzNzUsImlhdCI6MTYwODYzNDM3NSwianRpIjoiTVRZd09EWXpORE0zTlE9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2MDg2MzQzNzUsImRhdGEiOnsiZmlsZSI6IkdrbDBhNVZvTkNNUmtLTWsxQ1NoWGI4bEJvVVpJMDJtZkorQUg2ZjZjS2Q1WHFBRFFmQU94TmZHU29wRHNYUmR2TjFOYnFlMnN5bnRPR2FIZStoSG5DOTJYT1JyWENoMFJUNHRIbFNGR3Jja1g0YUxlcWZHaEJKVDFWTjhQZWdRRXcxZGM4Snk3SldKcTk4dGZyR2duMFJyMzBOaGpUa3E2azd1M3U2Q1Job29sQUNiZ2laZ240Y2VOSlNWbE5HMlFRWCtUWXdTcGJFR0ttTzFjalhNM3c9PSIsImRlc2lnbmF0aW9uIjoiYVJpMkNVbUlRdXJuclwvYXBCN251Zk9uYWVQaTIxRFF2WVpuV0xCT01mV0RJTnhWZ2QrWW5xcG9rVEVyQ09paHZDbXZGc1BQYkgxSTdQaHFUdlFrcG13PT0ifX0.Q1OZt-HCPQ7VCVnSN6LQIBaqY6L4dSC2ZtL8R--lb55lzdaKIOACSyyA4S8sNATmt2Jgf27W_gFoelFOBVPJWQ";
+            dakUploadAttachmentTableRow.imgSource = "https://nothibs.tappware.com/api/content/view?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MDg3MjEzNzUsImlhdCI6MTYwODYzNDM3NSwianRpIjoiTVRZd09EWXpORE0zTlE9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2MDg2MzQzNzUsImRhdGEiOnsiZmlsZSI6ImpmQ3BpdFkyaGpRejZ5TDBFZG0reGJrZ0FkTFduazNYS2ZmOXhSM0JWMmxcLzh5bEJcLzk2TUs5WHlWS0ljTmh5VFwvc25GY1hMYmlUaFBQRmFMcnBCQkpKOFdjaXByRWxTZGlWazFqQTFmM3gwUHBOSTJmM0FPSkJVV0Z3M3N5a1wvcnZjUkErZHJaSkVORHdhaFRuOURoOTNQdW9sUDRkNHY0ekM2V1A3RnF5VGtMR1JnM3lGclJNY2ZzQmQrd0E3cFNCZ2pPd0J2aGJMbVdtQWlNV1JINTdRPT0iLCJkZXNpZ25hdGlvbiI6IjYwT0xXeFQrWEIyTlNLcmJ4NURraFR1SXdtVCsrTmtSNUtcLzQrV2QrejlZaHVcLzBxZHF2bXo2VWJRNWZCTHJXamU5emcxUXhQRXh2YWJacXNTMmZLdnc9PSJ9fQ.tWCCEbq5Ua5YsqurGg2u3Ij9qkS0e1ZlupjjgJRGEpJq_xgGCzjtcL4FS-bqLlDFsrAiqjzXSJCegSqhv04OnA";
+            dakUploadAttachmentTableRow.attachmentName = "LoginPanel.jpg";
+            dakUploadAttachmentTableRow.attachmentId = 1;
+            dakUploadAttachmentTableRow.RadioButtonClick += delegate (object sender, EventArgs e) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
+
+
+            attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
+
+            DakUploadAttachmentTableRow dakUploadAttachmentTableRow2 = new DakUploadAttachmentTableRow();
+            dakUploadAttachmentTableRow2.isAllowedforMulpotro = true;
+            dakUploadAttachmentTableRow2.imageLink = "https://nothibs.tappware.com/api/content/view?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MDg3MjEzNzUsImlhdCI6MTYwODYzNDM3NSwianRpIjoiTVRZd09EWXpORE0zTlE9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2MDg2MzQzNzUsImRhdGEiOnsiZmlsZSI6IkdrbDBhNVZvTkNNUmtLTWsxQ1NoWGI4bEJvVVpJMDJtZkorQUg2ZjZjS2Q1WHFBRFFmQU94TmZHU29wRHNYUmR2TjFOYnFlMnN5bnRPR2FIZStoSG5DOTJYT1JyWENoMFJUNHRIbFNGR3Jja1g0YUxlcWZHaEJKVDFWTjhQZWdRRXcxZGM4Snk3SldKcTk4dGZyR2duMFJyMzBOaGpUa3E2azd1M3U2Q1Job29sQUNiZ2laZ240Y2VOSlNWbE5HMlFRWCtUWXdTcGJFR0ttTzFjalhNM3c9PSIsImRlc2lnbmF0aW9uIjoiYVJpMkNVbUlRdXJuclwvYXBCN251Zk9uYWVQaTIxRFF2WVpuV0xCT01mV0RJTnhWZ2QrWW5xcG9rVEVyQ09paHZDbXZGc1BQYkgxSTdQaHFUdlFrcG13PT0ifX0.Q1OZt-HCPQ7VCVnSN6LQIBaqY6L4dSC2ZtL8R--lb55lzdaKIOACSyyA4S8sNATmt2Jgf27W_gFoelFOBVPJWQ";
+            dakUploadAttachmentTableRow2.imgSource = "https://nothibs.tappware.com/api/content/view?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MDg3MjEzNzUsImlhdCI6MTYwODYzNDM3NSwianRpIjoiTVRZd09EWXpORE0zTlE9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2MDg2MzQzNzUsImRhdGEiOnsiZmlsZSI6ImpmQ3BpdFkyaGpRejZ5TDBFZG0reGJrZ0FkTFduazNYS2ZmOXhSM0JWMmxcLzh5bEJcLzk2TUs5WHlWS0ljTmh5VFwvc25GY1hMYmlUaFBQRmFMcnBCQkpKOFdjaXByRWxTZGlWazFqQTFmM3gwUHBOSTJmM0FPSkJVV0Z3M3N5a1wvcnZjUkErZHJaSkVORHdhaFRuOURoOTNQdW9sUDRkNHY0ekM2V1A3RnF5VGtMR1JnM3lGclJNY2ZzQmQrd0E3cFNCZ2pPd0J2aGJMbVdtQWlNV1JINTdRPT0iLCJkZXNpZ25hdGlvbiI6IjYwT0xXeFQrWEIyTlNLcmJ4NURraFR1SXdtVCsrTmtSNUtcLzQrV2QrejlZaHVcLzBxZHF2bXo2VWJRNWZCTHJXamU5emcxUXhQRXh2YWJacXNTMmZLdnc9PSJ9fQ.tWCCEbq5Ua5YsqurGg2u3Ij9qkS0e1ZlupjjgJRGEpJq_xgGCzjtcL4FS-bqLlDFsrAiqjzXSJCegSqhv04OnA";
+            dakUploadAttachmentTableRow2.attachmentName = "LoginPanel.jpg";
+            dakUploadAttachmentTableRow2.attachmentId = 2;
+            dakUploadAttachmentTableRow2.RadioButtonClick += delegate (object sender, EventArgs e) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow2.attachmentId); };
+
+            attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow2);
         }
+
+        private void AttachmentTable_RadioButtonClick(object sender, EventArgs e, long attachmentId)
+        {
+            var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
+
+            foreach (var attachment in attachmentList)
+            {
+                if(attachment.attachmentId!=attachmentId)
+                {
+                    attachment.isMulpotro = false;
+                }
+            }
+               
+        }
+
         private DesignationSealListResponse _designationSealListResponse;
 
 
@@ -355,6 +391,11 @@ namespace dNothi.Desktop.UI.Dak
         private void prerokBachaiOwnRightButton_Click(object sender, EventArgs e)
         {
             selectedPrerokLabel.Text = officerManualEntryXTextBox.Text + "," + designationManualEntryXTextBox.Text + "," + unitAddressManualEntryXTextBox.Text + "," + officeAddressManualEntryXTextBox.Text + ",Mobile:" + mobileAddressManualEntryXTextBox.Text + ", Email:" + emailAddressManualEntryXTextBox.Text;
+        }
+
+        private void dakUploadAttachmentTableRow1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
