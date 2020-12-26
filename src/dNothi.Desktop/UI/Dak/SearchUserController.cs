@@ -18,6 +18,7 @@ namespace dNothi.Desktop.UI.Dak
         public SearchUserController()
         {
             InitializeComponent();
+            
         }
 
         public string[] listboxcollection
@@ -93,6 +94,20 @@ namespace dNothi.Desktop.UI.Dak
             searchPanel.Visible = false;
             searchButton.Text = searchListBox.GetItemText(searchListBox.SelectedItem);
             _selectedString = searchListBox.GetItemText(searchListBox.SelectedItem);
+        }
+
+        private void searchButton_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void SearchUserController_Load(object sender, EventArgs e)
+        {
+                }
+
+        private void SearchUserController_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

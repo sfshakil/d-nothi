@@ -32,11 +32,13 @@
             this.button9 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUserNamePassword = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtUserName = new dNothi.Desktop.XTextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtUserNamePassword = new PlaceholderTextBox.PlaceholderTextBox();
+            this.userIdPanel = new System.Windows.Forms.Panel();
+            this.txtUserName = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel9.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.userIdPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // button9
@@ -77,63 +79,57 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "ইউজার আইডি ও ইমেইল \r\nপাঠান";
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.txtUserNamePassword);
+            this.panel3.Location = new System.Drawing.Point(213, 24);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(185, 39);
+            this.panel3.TabIndex = 80;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
+            // 
             // txtUserNamePassword
             // 
-            this.txtUserNamePassword.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserNamePassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUserNamePassword.Location = new System.Drawing.Point(211, 31);
-            this.txtUserNamePassword.MaximumSize = new System.Drawing.Size(187, 33);
+            this.txtUserNamePassword.BackColor = System.Drawing.Color.White;
+            this.txtUserNamePassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUserNamePassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserNamePassword.Location = new System.Drawing.Point(4, 10);
             this.txtUserNamePassword.Name = "txtUserNamePassword";
-            this.txtUserNamePassword.PasswordChar = '●';
-            this.txtUserNamePassword.Size = new System.Drawing.Size(187, 29);
-            this.txtUserNamePassword.TabIndex = 23;
+            this.txtUserNamePassword.PlaceholderText = "পাসওয়ার্ড";
+            this.txtUserNamePassword.Size = new System.Drawing.Size(177, 19);
+            this.txtUserNamePassword.TabIndex = 3;
+            this.txtUserNamePassword.TextChanged += new System.EventHandler(this.txtUserNamePassword_TextChanged);
             this.txtUserNamePassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserNamePassword_KeyPress);
             // 
-            // label11
+            // userIdPanel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(208, 10);
-            this.label11.MaximumSize = new System.Drawing.Size(56, 18);
-            this.label11.MinimumSize = new System.Drawing.Size(56, 18);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 18);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "পাসওয়ার্ড";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 10);
-            this.label10.MaximumSize = new System.Drawing.Size(104, 18);
-            this.label10.MinimumSize = new System.Drawing.Size(104, 18);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 18);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "ইউজার আইডি/নেম";
+            this.userIdPanel.BackColor = System.Drawing.Color.Transparent;
+            this.userIdPanel.Controls.Add(this.txtUserName);
+            this.userIdPanel.Location = new System.Drawing.Point(19, 24);
+            this.userIdPanel.Name = "userIdPanel";
+            this.userIdPanel.Size = new System.Drawing.Size(187, 39);
+            this.userIdPanel.TabIndex = 79;
+            this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
             // 
             // txtUserName
             // 
             this.txtUserName.BackColor = System.Drawing.Color.White;
-            this.txtUserName.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUserName.Location = new System.Drawing.Point(18, 31);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUserName.MaximumSize = new System.Drawing.Size(187, 33);
+            this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Location = new System.Drawing.Point(4, 10);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(187, 29);
-            this.txtUserName.TabIndex = 20;
+            this.txtUserName.PlaceholderText = "ইউজার আইডি/নেম";
+            this.txtUserName.Size = new System.Drawing.Size(177, 19);
+            this.txtUserName.TabIndex = 3;
             this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
             // 
             // PasswordResetPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.Controls.Add(this.txtUserNamePassword);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.userIdPanel);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.panel9);
             this.MaximumSize = new System.Drawing.Size(406, 150);
@@ -142,8 +138,11 @@
             this.Size = new System.Drawing.Size(406, 150);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.userIdPanel.ResumeLayout(false);
+            this.userIdPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -152,9 +151,9 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUserNamePassword;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private XTextBox txtUserName;
+        private System.Windows.Forms.Panel panel3;
+        private PlaceholderTextBox.PlaceholderTextBox txtUserNamePassword;
+        private System.Windows.Forms.Panel userIdPanel;
+        private PlaceholderTextBox.PlaceholderTextBox txtUserName;
     }
 }

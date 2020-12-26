@@ -38,8 +38,7 @@ namespace dNothi.Desktop.UI.Dak
 
             DakAttachmentListinGrid dakAttachmentListinGrid = new DakAttachmentListinGrid();
             _dakAttachmentinGrids = dakAttachmentListinGrid.dakAttachmentinGrids;
-            attachmentDataGridView.DataSource = null;
-            attachmentDataGridView.DataSource = _dakAttachmentinGrids.ToList();
+          
 
         }
         private DesignationSealListResponse _designationSealListResponse;
@@ -272,14 +271,19 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void ownOfficeButton_Click_2(object sender, EventArgs e)
         {
             PopulateGrid();
+        }
+
+        private void fileUploadPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void fileUploadPanel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

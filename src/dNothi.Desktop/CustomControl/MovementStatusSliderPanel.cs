@@ -36,6 +36,59 @@ namespace dNothi.Desktop.CustomControl
 
     }
 
+    public partial class SPanel : Panel
+    {
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.FillRoundedRectangle(new SolidBrush(Color.White), 10, 10, this.Width - 40, this.Height - 60, 10);
+            SolidBrush brush = new SolidBrush(
+                Color.White
+                );
+            g.FillRoundedRectangle(brush, 12, 12, this.Width - 44, this.Height - 64, 10);
+            g.DrawRoundedRectangle(new Pen(ControlPaint.Light(Color.White, 0.00f)), 12, 12, this.Width - 44, this.Height - 64, 10);
+            g.FillRoundedRectangle(new SolidBrush(Color.White), 12, 12 + ((this.Height - 64) / 2), this.Width - 44, (this.Height - 64) / 2, 10);
+        }
+    }
+    public class RoundLabel : Label
+    {
+        [Browsable(true)]
+        public Color _BackColor { get; set; }
+
+        public RoundLabel()
+        {
+            this.DoubleBuffered = true;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            using (var graphicsPath = _getRoundRectangle(this.ClientRectangle))
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                using (var brush = new SolidBrush(_BackColor))
+                    e.Graphics.FillPath(brush, graphicsPath);
+                using (var pen = new Pen(_BackColor, 1.0f))
+                    e.Graphics.DrawPath(pen, graphicsPath);
+                TextRenderer.DrawText(e.Graphics, Text, this.Font, this.ClientRectangle, this.ForeColor);
+            }
+        }
+
+        private GraphicsPath _getRoundRectangle(Rectangle rectangle)
+        {
+            int cornerRadius = 15; // change this value according to your needs
+            int diminisher = 1;
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(rectangle.X, rectangle.Y, cornerRadius, cornerRadius, 180, 90);
+            path.AddArc(rectangle.X + rectangle.Width - cornerRadius - diminisher, rectangle.Y, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(rectangle.X + rectangle.Width - cornerRadius - diminisher, rectangle.Y + rectangle.Height - cornerRadius - diminisher, cornerRadius, cornerRadius, 0, 90);
+            path.AddArc(rectangle.X, rectangle.Y + rectangle.Height - cornerRadius - diminisher, cornerRadius, cornerRadius, 90, 90);
+            path.CloseAllFigures();
+            return path;
+        }
+    }
+
     static class GraphicsExtension
     {
         private static GraphicsPath GenerateRoundedRectangle(

@@ -69,5 +69,22 @@ namespace dNothi.Desktop
                 e.Handled = true;
             }
         }
+
+        private void txtUserNamePassword_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUserNamePassword.Text == "")
+            {
+                txtUserNamePassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtUserNamePassword.PasswordChar = '●';
+            }
+        }
+
+        private void userIdPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
     }
 }

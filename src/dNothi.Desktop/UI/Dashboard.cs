@@ -346,32 +346,19 @@ namespace dNothi.Desktop.UI
 
         private void label1_Resize(object sender, EventArgs e)
         {
-            this.label1.Size = new System.Drawing.Size(19, 20);
-            this.label1.AutoSize = true;
+            this.moduleDakCountLabel.Size = new System.Drawing.Size(19, 20);
+            this.moduleDakCountLabel.AutoSize = true;
         }
 
         private void label1_SizeChanged(object sender, EventArgs e)
         {
-            this.label1.Size = new System.Drawing.Size(19, 20);
+            this.moduleDakCountLabel.Size = new System.Drawing.Size(19, 20);
         }
 
-        private void xTextBox2_MouseHover(object sender, EventArgs e)
-        {
-            this.xTextBox2.Text = "";
-            this.xTextBox2.BackColor = Color.WhiteSmoke;
-        }
+       
 
-        private void xTextBox2_MouseLeave(object sender, EventArgs e)
-        {
-            this.xTextBox2.Text = "খুঁজুন";
-            this.xTextBox2.BackColor = Color.Gainsboro;
-        }
-
-        private void xTextBox2_MouseEnter(object sender, EventArgs e)
-        {
-            this.xTextBox2.Text = "";
-            this.xTextBox2.BackColor = Color.WhiteSmoke;
-        }
+       
+        
 
         private void button15_Click(object sender, EventArgs e)
         {
@@ -404,8 +391,7 @@ namespace dNothi.Desktop.UI
 
         private void button12_Click(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<Dashboard>();
-            form.ShowDialog();
+            
         }
    
       
@@ -673,42 +659,7 @@ namespace dNothi.Desktop.UI
             //}
         }
 
-        private void docketingNoSearchXTextBox_MouseLeave(object sender, EventArgs e)
-        {
-            if(docketingNoSearchXTextBox.Text == "")
-            {
-                docketingNoSearchXTextBox.Text = "ডকেটিং নং";
-            }
-            
-            
-        }
-
-        private void docketingNoSearchXTextBox_MouseEnter(object sender, EventArgs e)
-        {
-
-            if (docketingNoSearchXTextBox.Text == "ডকেটিং নং")
-            {
-                docketingNoSearchXTextBox.Text = "";
-            }
-
-        }
-
-        private void applicationAcceptNumberXTextBox_MouseEnter(object sender, EventArgs e)
-        {
-            if (applicationAcceptNumberXTextBox.Text == "আবেদন গ্রহন নাম্বার")
-            {
-                applicationAcceptNumberXTextBox.Text = "";
-            }
-        }
-
-        private void applicationAcceptNumberXTextBox_MouseLeave(object sender, EventArgs e)
-        {
-            if (applicationAcceptNumberXTextBox.Text == "")
-            {
-                applicationAcceptNumberXTextBox.Text = "আবেদন গ্রহন নাম্বার";
-            }
-
-        }
+       
 
         private void nameDesignationSearchButton_Click(object sender, EventArgs e)
         {
@@ -731,9 +682,13 @@ namespace dNothi.Desktop.UI
             if (detailsDakSearcPanel.Visible == true)
             {
                 detailsDakSearcPanel.Visible = false;
+               
+                
             }
             else
             {
+              
+             
                 detailsDakSearcPanel.Visible = true;
             }
             
@@ -829,11 +784,11 @@ namespace dNothi.Desktop.UI
         {
             if (officerSourceCheckBox.Checked)
             {
-                officerSenderOfficeNameTextBox.Visible = true;
+                detailsSearchOfficerNamePanel.Visible = true;
             }
             else
             {
-                officerSenderOfficeNameTextBox.Visible = false;
+                detailsSearchOfficerNamePanel.Visible = false;
             }
 
             VisibleSenderOfficePanle();
@@ -856,11 +811,11 @@ namespace dNothi.Desktop.UI
         {
             if (officeSourceCheckBox.Checked)
             {
-                officeSenderOfficeNameTextBox.Visible = true;
+                detailsSearchOfficeNamePanel.Visible = true;
             }
             else
             {
-                officeSenderOfficeNameTextBox.Visible = false;
+                detailsSearchOfficeNamePanel.Visible = false;
             }
 
             VisibleSenderOfficePanle();
@@ -1286,6 +1241,102 @@ namespace dNothi.Desktop.UI
         private void dakMenuButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void detailPanelDropDownButton_MouseUp(object sender, MouseEventArgs e)
+        {
+          
+        }
+
+        private void detailPanelDropDownButton_MouseDown(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void detailPanelDropDownButton_MouseHover(object sender, EventArgs e)
+        {
+            ClickedDetaiPanleDropDownButtonStyle();
+        }
+
+        private void detailPanelDropDownButton_MouseLeave(object sender, EventArgs e)
+        {
+           
+                NormalDetaiPanleDropDownButtonStyle();
+                
+            
+          
+        }
+
+        private void ClickedDetaiPanleDropDownButtonStyle()
+        {
+            detailPanelDropDownButton.IconColor = Color.White;
+            detailPanelDropDownButton.BackColor = Color.FromArgb(136, 80, 250);
+        }
+
+        private void NormalDetaiPanleDropDownButtonStyle()
+        {
+        if (detailsDakSearcPanel.Visible)
+        {
+            ClickedDetaiPanleDropDownButtonStyle();
+
+        }
+        else
+        {
+
+            detailPanelDropDownButton.IconColor = Color.FromArgb(136, 80, 250);
+            detailPanelDropDownButton.BackColor = Color.FromArgb(236, 227, 253);
+        }
+        
+    }
+
+        private void searchBoxPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.searchBoxPanel.ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void dakModulePanel_MouseHover(object sender, EventArgs e)
+        {
+            dakModulePanel.BackColor = Color.FromArgb(245, 245, 249);
+        }
+
+        private void moduleDakCountLabel_Paint(object sender, PaintEventArgs e)
+        {
+          //  ControlPaint.DrawBorder(e.Graphics, this.moduleDakCountLabel,, Color.FromArgb(203, 225, 248), );
+        }
+
+        private void dakModulePanel_Paint(object sender, PaintEventArgs e)
+        {
+             
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void dakModulePanel_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void nothiModulePanel_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+
+        private void nothiModulePanel_MouseHover(object sender, EventArgs e)
+        {
+            nothiModulePanel.BackColor = Color.FromArgb(245, 245, 249);
+            nothiModuleNameLabel.ForeColor = Color.Blue;
+        }
+
+        private void nothiModulePanel_MouseLeave(object sender, EventArgs e)
+        {
+            nothiModulePanel.BackColor = Color.Transparent;
+            nothiModuleNameLabel.ForeColor = Color.Black;
+        }
+
+        private void dakTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

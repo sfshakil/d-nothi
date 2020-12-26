@@ -84,10 +84,12 @@ namespace dNothi.Desktop.UI
                     SaveOrUpdateEmployee(resmessage?.data?.employee_info);
                     SaveOrUpdateOffice(resmessage?.data?.office_info);
                     SaveOrUpdateToken(resmessage?.data?.token);
+                    this.Hide();
                     using (var form = FormFactory.Create<Dashboard>())
                     {
                         form.ShowDialog();
                     }
+                   
                 }
                 else
                 {
@@ -357,8 +359,9 @@ namespace dNothi.Desktop.UI
 
 
             validateTxtPass(e);
-           
-                
+
+            
+
         }
 
         private void validateTxtPass(KeyPressEventArgs e)
@@ -367,6 +370,32 @@ namespace dNothi.Desktop.UI
             {
                 MessageBox.Show(_userService.InvalidPasswordMessage());
                 e.Handled = true;
+            }
+           
+        }
+
+        private void userIdPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            //if(txtPassword.Text=="")
+            //{
+            //    txtPassword.PasswordChar = '\0';
+            //}
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "")
+            {
+                txtPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPassword.PasswordChar = '●';
             }
         }
     }

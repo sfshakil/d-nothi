@@ -125,7 +125,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
 
         private void attachmentLink_Click(object sender, EventArgs e)

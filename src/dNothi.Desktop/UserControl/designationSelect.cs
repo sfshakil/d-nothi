@@ -20,6 +20,7 @@ namespace dNothi.Desktop
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+           
             var form = FormFactory.Create<Login>();
 
             form.ShowDialog();

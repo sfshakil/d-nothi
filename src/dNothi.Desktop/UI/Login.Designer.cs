@@ -73,11 +73,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.loginFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlUserId = new System.Windows.Forms.Panel();
-            this.txtPassword = new dNothi.Desktop.XTextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtPassword = new PlaceholderTextBox.PlaceholderTextBox();
+            this.userIdPanel = new System.Windows.Forms.Panel();
+            this.txtUser = new PlaceholderTextBox.PlaceholderTextBox();
             this.userLoginByUserIdButton = new System.Windows.Forms.Button();
-            this.txtUser = new dNothi.Desktop.XTextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlUserIdNamePasswordBottom = new System.Windows.Forms.Panel();
@@ -116,6 +116,8 @@
             this.panel4.SuspendLayout();
             this.loginFlowLayoutPanel.SuspendLayout();
             this.pnlUserId.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.userIdPanel.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -661,11 +663,9 @@
             // 
             // pnlUserId
             // 
-            this.pnlUserId.Controls.Add(this.txtPassword);
-            this.pnlUserId.Controls.Add(this.label11);
-            this.pnlUserId.Controls.Add(this.label10);
+            this.pnlUserId.Controls.Add(this.panel3);
+            this.pnlUserId.Controls.Add(this.userIdPanel);
             this.pnlUserId.Controls.Add(this.userLoginByUserIdButton);
-            this.pnlUserId.Controls.Add(this.txtUser);
             this.pnlUserId.Controls.Add(this.panel9);
             this.pnlUserId.Location = new System.Drawing.Point(3, 4);
             this.pnlUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -673,37 +673,52 @@
             this.pnlUserId.Size = new System.Drawing.Size(411, 211);
             this.pnlUserId.TabIndex = 7;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.txtPassword);
+            this.panel3.Location = new System.Drawing.Point(208, 29);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(187, 39);
+            this.panel3.TabIndex = 78;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
+            // 
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.White;
-            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPassword.Location = new System.Drawing.Point(210, 39);
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(6, 10);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(187, 29);
-            this.txtPassword.TabIndex = 8;
+            this.txtPassword.PlaceholderText = "পাসওয়ার্ড";
+            this.txtPassword.Size = new System.Drawing.Size(177, 19);
+            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress_1);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
-            // label11
+            // userIdPanel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(206, 18);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 18);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "পাসওয়ার্ড";
+            this.userIdPanel.BackColor = System.Drawing.Color.Transparent;
+            this.userIdPanel.Controls.Add(this.txtUser);
+            this.userIdPanel.Location = new System.Drawing.Point(13, 29);
+            this.userIdPanel.Name = "userIdPanel";
+            this.userIdPanel.Size = new System.Drawing.Size(187, 39);
+            this.userIdPanel.TabIndex = 77;
+            this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
             // 
-            // label10
+            // txtUser
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(14, 18);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 18);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "ইউজার আইডি ";
+            this.txtUser.BackColor = System.Drawing.Color.White;
+            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUser.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.Location = new System.Drawing.Point(7, 10);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.PlaceholderText = "ইউজার আইডি ";
+            this.txtUser.Size = new System.Drawing.Size(177, 19);
+            this.txtUser.TabIndex = 3;
+            this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
+            this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
             // 
             // userLoginByUserIdButton
             // 
@@ -722,19 +737,6 @@
             this.userLoginByUserIdButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.userLoginByUserIdButton.UseVisualStyleBackColor = false;
             this.userLoginByUserIdButton.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // txtUser
-            // 
-            this.txtUser.BackColor = System.Drawing.Color.White;
-            this.txtUser.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUser.Location = new System.Drawing.Point(15, 39);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(187, 29);
-            this.txtUser.TabIndex = 7;
-            this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
-            this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
             // 
             // panel9
             // 
@@ -993,7 +995,10 @@
             this.panel4.ResumeLayout(false);
             this.loginFlowLayoutPanel.ResumeLayout(false);
             this.pnlUserId.ResumeLayout(false);
-            this.pnlUserId.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.userIdPanel.ResumeLayout(false);
+            this.userIdPanel.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1065,12 +1070,12 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.FlowLayoutPanel loginFlowLayoutPanel;
         private System.Windows.Forms.Panel pnlUserId;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button userLoginByUserIdButton;
-        private XTextBox txtUser;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label2;
-        private XTextBox txtPassword;
+        private System.Windows.Forms.Panel userIdPanel;
+        private PlaceholderTextBox.PlaceholderTextBox txtUser;
+        private System.Windows.Forms.Panel panel3;
+        private PlaceholderTextBox.PlaceholderTextBox txtPassword;
     }
 }
