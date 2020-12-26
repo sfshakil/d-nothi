@@ -25,6 +25,9 @@ namespace dNothi.Desktop.UI.Dak
             newDakImagePanel.Visible = false;
             dakTypePanel.Visible = false;
             potrojariPanel.Visible = false;
+
+            disablePanel.BringToFront();
+            dakActionPanel.BringToFront();
             IterateControls(this.Controls);
         }
         void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
@@ -42,10 +45,10 @@ namespace dNothi.Desktop.UI.Dak
 
 
         private string _source;
-        private string _sender;
+
         private string _receiver;
         private string _subject;
-        private string _decision;
+     
         private string _date;
         private string _dakViewStatus;
 
@@ -311,7 +314,7 @@ namespace dNothi.Desktop.UI.Dak
         public string date
         {
             get { return _date; }
-            set { _date = value; dateLabel.Text = value; }
+            set { _date = value; dateLabel.Text = value; dateLabel.BringToFront(); }
         }
 
         private void DraftedDakUserControl_MouseEnter(object sender, EventArgs e)
@@ -328,6 +331,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 this.BackColor = Color.WhiteSmoke;
                 dakActionPanel.Visible = true;
+                dakActionPanel.BringToFront();
             }
             else
             {
