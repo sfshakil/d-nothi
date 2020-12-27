@@ -26,6 +26,7 @@ namespace dNothi.Desktop.UI
         IDakKhosraService _dakkhosraservice { get; set; }
         IDakListService _dakListService { get; set; }
         IDakOutboxService _dakOutboxService { get; set; }
+        IDakUploadService _dakuploadservice { get; set; }
         IDakInboxServices _dakInbox { get; set; }
        
         IDakListArchiveService _dakListArchiveService { get; set; }
@@ -44,6 +45,7 @@ namespace dNothi.Desktop.UI
             IDakListSortedService dakListSortedService,
             IDakForwardService dakForwardService,
             IDakKhosraService dakKhosraService,
+            IDakUploadService dakUploadService,
             IDakNothijatoService dakNothijatoService)
         {
             _dakNothivuktoService = dakNothivuktoService;
@@ -56,14 +58,49 @@ namespace dNothi.Desktop.UI
             _dakListSortedService = dakListSortedService;
             _dakForwardService = dakForwardService;
             _dakkhosraservice = dakKhosraService;
+            _dakuploadservice = dakUploadService;
             InitializeComponent();
             designationSelect2.Hide();
             dashboardSlideFlowLayoutPanel.BringToFront();
 
         }
 
-        
+        public OCRResponse OCRFile(OCRParameter oCRParameter)
+        {
+            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
+
+
+            OCRResponse oCRResponse = _dakuploadservice.GetOCRResponsse(dakListUserParam, oCRParameter);
+
+
+            return oCRResponse;
+        }
+        public DakFileDeleteResponse DeleteFile(DakUploadFileDeleteParam deleteParam)
+        {
+            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+
+
+            DakFileDeleteResponse deleteResponse = _dakuploadservice.GetFileDeleteResponsse(dakListUserParam, deleteParam);
+
+
+            return deleteResponse;
+        }
+
+
+        public DakUploadedFileResponse UploadFile(DakFileUploadParam dakFileUploadParam)
+        {
+            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+           
+
+          DakUploadedFileResponse dakUploadedFileResponse= _dakuploadservice.GetDakUploadedFile(dakListUserParam,dakFileUploadParam);
+
+            
+
+            return dakUploadedFileResponse;
+        }
         protected void UserControl_ButtonClick(object sender, EventArgs e,int dak_id,string dak_type, string dak_subject, int is_copied_dak)
         {
             string s = (sender as Control).Name;
@@ -1105,6 +1142,7 @@ namespace dNothi.Desktop.UI
 
         private void daptorikDakUploadButton_Click(object sender, EventArgs e)
         {
+                           
             dakSortMetroPanel.Visible = false;
             dakListFlowLayoutPanel.Controls.Clear();
 
@@ -1118,7 +1156,7 @@ namespace dNothi.Desktop.UI
 
 
             dakUploadUserControl.designationSealListResponse = designationSealListResponse;
-
+        
 
             dakListFlowLayoutPanel.Controls.Add(dakUploadUserControl);
         }

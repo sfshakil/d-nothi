@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -18,11 +19,16 @@ namespace dNothi.Desktop.UI.Dak
         private string _imageLink;
         private long _attachmentId;
         private bool _isAllowedforMulpotro;
+        public bool _isAllowedforOCR=false;
         private bool _isMulpotro;
         private string _attachmentName;
+        private string _fileextension;
         private bool _isOCRVisible;
         private bool _isDeleteVisible;
         private bool _isRejectVisible;
+
+        public DakAttachmentDTO _dakAttachment = new DakAttachmentDTO();
+        internal string imageBase64String;
 
         public DakUploadAttachmentTableRow()
         {
@@ -58,7 +64,20 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-      
+
+        public string fileexension
+        {
+            get { return _fileextension; }
+            set
+            {
+                _fileextension = value;
+
+
+
+            }
+
+        }
+
         public string attachmentName
         {
             get { return _attachmentName; }
@@ -98,7 +117,8 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _isMulpotro = value;
-                if (value == true) {attachmentOCRButton.Visible = true; }
+                if (value == true && _isAllowedforOCR == true) { attachmentOCRButton.Visible = true; }
+                else if (value == true) { dakAttachmentTableRadioButton.Checked = true; }
                 else { dakAttachmentTableRadioButton.Checked = false; attachmentOCRButton.Visible = false; }
 
             }
@@ -108,6 +128,8 @@ namespace dNothi.Desktop.UI.Dak
         [Category("Action")]
         [Description("Invoked when user clicks button")]
         public event EventHandler RadioButtonClick;
+        public event EventHandler DeleteButtonClick;
+        public event EventHandler OCRButtonClick;
        
         private void dakAttachmentTableRadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -131,6 +153,18 @@ namespace dNothi.Desktop.UI.Dak
         private void attachmentLink_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(_imageLink);
+        }
+
+        private void attachmentOCRButton_Click(object sender, EventArgs e)
+        {
+            if (this.OCRButtonClick != null)
+                this.OCRButtonClick(sender, e);
+        }
+
+        private void attachmentDeleteButton_Click(object sender, EventArgs e)
+        {
+            if (this.DeleteButtonClick != null)
+                this.DeleteButtonClick(sender, e);
         }
     }
 }

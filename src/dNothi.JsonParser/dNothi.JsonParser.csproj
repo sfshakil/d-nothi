@@ -69,6 +69,7 @@
     <Compile Include="Entity\Dak\DakAttachmentDTO.cs" />
     <Compile Include="Entity\Dak\DakAttachmentResponse.cs" />
     <Compile Include="Entity\Dak\DakDetailsResponse.cs" />
+    <Compile Include="Entity\Dak\DakFileDeleteResponse.cs" />
     <Compile Include="Entity\Dak\DakForwardResponse.cs" />
     <Compile Include="Entity\Dak\DakListArchiveResponse.cs" />
     <Compile Include="Entity\Dak\DakListInboxResponse.cs" />
@@ -83,12 +84,14 @@
     <Compile Include="Entity\Dak\DakMovementStatusResponse.cs" />
     <Compile Include="Entity\Dak\DakOriginDTO.cs" />
     <Compile Include="Entity\Dak\DakTagDTO.cs" />
+    <Compile Include="Entity\Dak\DakUploadedFileResponse.cs" />
     <Compile Include="Entity\Dak\DakUserDTO.cs" />
     <Compile Include="Entity\Dak\DesignationSealListResponse.cs" />
     <Compile Include="Entity\Dak\DraftedDecisionDTO.cs" />
     <Compile Include="Entity\Dak\FromDTO.cs" />
     <Compile Include="Entity\Dak\MovementStatusDTO.cs" />
     <Compile Include="Entity\Dak\NothiDTO.cs" />
+    <Compile Include="Entity\Dak\OCRResponse.cs" />
     <Compile Include="Entity\Dak\OtherDTO.cs" />
     <Compile Include="Entity\Dak\ToDTO.cs" />
     <Compile Include="Entity\DataDTO.cs" />

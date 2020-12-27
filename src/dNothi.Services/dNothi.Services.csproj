@@ -101,6 +101,7 @@
     <Compile Include="AccountServices\ITokenService.cs" />
     <Compile Include="AccountServices\TokenService.cs" />
     <Compile Include="DakServices\DakAttachmentListinGrid.cs" />
+    <Compile Include="DakServices\DakFileUploadParam.cs" />
     <Compile Include="DakServices\DakForwardRequestParam.cs" />
     <Compile Include="DakServices\DakForwardService.cs" />
     <Compile Include="DakServices\DakInboxService.cs" />
@@ -118,6 +119,8 @@
     <Compile Include="DakServices\DakUploadAttachmentListTableUserControl.Designer.cs">
       <DependentUpon>DakUploadAttachmentListTableUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="DakServices\DakUploadFileDeleteParam.cs" />
+    <Compile Include="DakServices\DakUploadService.cs" />
     <Compile Include="DakServices\IDakForwardService.cs" />
     <Compile Include="DakServices\IDakInboxServices.cs" />
     <Compile Include="DakServices\IDakKhosraService.cs" />
@@ -127,6 +130,8 @@
     <Compile Include="DakServices\IDakNothijatoService.cs" />
     <Compile Include="DakServices\IDakNothivuktoService.cs" />
     <Compile Include="DakServices\IDakOutboxService.cs" />
+    <Compile Include="DakServices\IDakUploadService.cs" />
+    <Compile Include="DakServices\OCRParameter.cs" />
     <Compile Include="NothiServices\INothiAllServices.cs" />
     <Compile Include="NothiServices\INothiInboxServices.cs" />
     <Compile Include="NothiServices\INothiOutboxServices.cs" />

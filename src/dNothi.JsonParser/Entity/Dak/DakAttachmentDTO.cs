@@ -22,9 +22,32 @@ namespace dNothi.JsonParser.Entity.Dak
         public string file_name { get; set; }
         public string user_file_name { get; set; }
         public string file_dir { get; set; }
-        public double file_size_in_kb { get; set; }
+        public string file_size_in_kb { get; set; }
         public string url { get; set; }
         public string download_url { get; set; }
         public string thumb_url { get; set; }
+
+
+      
+        public string file_url { get; set; }
+        
+        public string file_thumbnail { get; set; }
+        public string thumbnail_url { get; set; }
+        public string delete_token { get; set; }
+        public string designation_id { get; set; }
+        public string office_id { get; set; }
+        public string path { get; set; }
+
+
+       
+      
+        public string file_custom_name { get; set; }
+    
+        public int dak_type { get; set; }
+        public int dak_id { get; set; }
+   
+        public string modified { get; set; }
+      
+      
     }
 }
