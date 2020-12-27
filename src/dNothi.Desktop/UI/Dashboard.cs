@@ -500,7 +500,7 @@ namespace dNothi.Desktop.UI
             LoadDakInbox();
         }
 
-        private void LoadDakInbox()
+        private async void LoadDakInbox()
         {
             DakListUserParam dakListUserParam= _userService.GetLocalDakUserParam();
 
@@ -511,7 +511,7 @@ namespace dNothi.Desktop.UI
 
             try
             {
-                var dakInbox = _dakInbox.GetDakInbox(dakListUserParam);
+                var dakInbox = await Task.Run(()=>_dakInbox.GetDakInbox(dakListUserParam));
                 if (dakInbox.status == "success")
                 {
 

@@ -71,7 +71,10 @@ namespace dNothi.Desktop
                 String.Format(
                     "Sorry, something went wrong.\r\n" + "{0}\r\n" + "{1}\r\n" + "please contact support.",
                     ((Exception)e.ExceptionObject).Message, ((Exception)e.ExceptionObject).StackTrace);
+            var logmessage ="Exception: "+ ((Exception)e.ExceptionObject).Message + "Stack Trace: "+((Exception)e.ExceptionObject).StackTrace;
+            _log.Error(logmessage);
             MessageBox.Show(message, @"Unexpected error");
+
         }
 
         /// <summary>
@@ -85,6 +88,8 @@ namespace dNothi.Desktop
                 String.Format(
                     "Sorry, something went wrong.\r\n" + "{0}\r\n" + "{1}\r\n" + "please contact support.",
                     e.Exception.Message, e.Exception.StackTrace);
+            var logmessage = "Exception: " + ((Exception)e.Exception).Message + "Stack Trace: " + ((Exception)e.Exception).StackTrace;
+            _log.Error(logmessage);
             MessageBox.Show(message, @"Unexpected error");
         }
 

@@ -84,12 +84,8 @@ namespace dNothi.Desktop.UI
                     SaveOrUpdateEmployee(resmessage?.data?.employee_info);
                     SaveOrUpdateOffice(resmessage?.data?.office_info);
                     SaveOrUpdateToken(resmessage?.data?.token);
-                    this.Hide();
-                    using (var form = FormFactory.Create<Dashboard>())
-                    {
-                        form.ShowDialog();
-                    }
-                   
+                    DialogResult = DialogResult.OK;
+
                 }
                 else
                 {
