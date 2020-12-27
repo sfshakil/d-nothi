@@ -111,6 +111,7 @@
             this.attachmentOCRButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.attachmentOCRButton.UseVisualStyleBackColor = false;
             this.attachmentOCRButton.Visible = false;
+            this.attachmentOCRButton.Click += new System.EventHandler(this.attachmentOCRButton_Click);
             // 
             // rejectButton
             // 
@@ -139,6 +140,7 @@
             this.attachmentDeleteButton.Size = new System.Drawing.Size(55, 44);
             this.attachmentDeleteButton.TabIndex = 10;
             this.attachmentDeleteButton.UseVisualStyleBackColor = false;
+            this.attachmentDeleteButton.Click += new System.EventHandler(this.attachmentDeleteButton_Click);
             // 
             // tableLayoutPanel2
             // 

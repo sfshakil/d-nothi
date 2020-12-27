@@ -128,6 +128,7 @@ namespace dNothi.Desktop
             builder.RegisterType<DakInboxService>().As<IDakInboxServices>();
             builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
             builder.RegisterType<DakListService>().As<IDakListService>();
+            builder.RegisterType<DakUploadService>().As<IDakUploadService>();
             builder.RegisterType<DakForwardService>().As<IDakForwardService>();
             builder.RegisterType<DakNothijatoService>().As<IDakNothijatoService>();
             builder.RegisterType<DakNothivuktoService>().As<IDakNothivuktoService>();

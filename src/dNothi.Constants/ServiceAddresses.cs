@@ -9,6 +9,8 @@ namespace dNothi.Constants
     public class DefaultAPIConfiguration
     {
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";
+        public const string OCREndpoint = "http://bokshi-img2txt.tappware.com/apiImageToText/";
+        public const string DakFileDeleteEndPoint = "/api/content/daak/delete";
         public const string NewAPIversion = "2";
         public const string DefaultAPIversion = "1";
         public const string DefaultDeviceId = "1234567890";
@@ -27,6 +29,7 @@ namespace dNothi.Constants
         public const string GetDesignationSealListEndpoint = "/api/dak/seal/list";
         public const string GetDakForwardEndpoint = "/api/dak/forward";
         public const string DakListKhosraEndPoint = "/api/dak/khoshra";
+        public const string DakFileUploadEndPoint = "/api/content/upload";
        
     }
 }

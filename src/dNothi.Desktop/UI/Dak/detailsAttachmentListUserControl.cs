@@ -44,7 +44,7 @@ namespace dNothi.Desktop.UI.Dak
                         DetailsAttachmentUserControl detailsAttachmentUserControl = new DetailsAttachmentUserControl();
                         detailsAttachmentUserControl.mainattachment = dakAttachmentDTO.is_main;
                         detailsAttachmentUserControl.attachmentName = dakAttachmentDTO.file_name;
-                        detailsAttachmentUserControl.attachmentsize = dakAttachmentDTO.file_size_in_kb;
+                        detailsAttachmentUserControl.attachmentsize = Convert.ToDouble(dakAttachmentDTO.file_size_in_kb);
                         detailsAttachmentUserControl.attachmentdownload = dakAttachmentDTO.download_url;
                         detailsAttachmentUserControl.attachmenttype = dakAttachmentDTO.attachment_type;
                         detailsAttachmentUserControl.attachmentid = dakAttachmentDTO.attachment_id;
