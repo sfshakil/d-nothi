@@ -120,6 +120,7 @@
       <DependentUpon>DakUploadAttachmentListTableUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DakServices\DakUploadFileDeleteParam.cs" />
+    <Compile Include="DakServices\DakUploadParameter.cs" />
     <Compile Include="DakServices\DakUploadService.cs" />
     <Compile Include="DakServices\IDakForwardService.cs" />
     <Compile Include="DakServices\IDakInboxServices.cs" />

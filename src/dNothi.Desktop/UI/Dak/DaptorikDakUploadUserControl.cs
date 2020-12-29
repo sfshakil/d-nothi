@@ -12,6 +12,7 @@ using dNothi.JsonParser.Entity.Dak;
 using AutoMapper;
 using dNothi.Services.DakServices;
 using System.IO;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -23,14 +24,24 @@ namespace dNothi.Desktop.UI.Dak
         List<string> SecurityListCollection = new List<string>();
         List<string> sendMediumListCollection = new List<string>();
         DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
+        public int _prerokId = 0;
+        private DakListUserParam _dak_List_User_Param;
+        public DakUploadParameter dakUploadParameter = new DakUploadParameter();
+
 
         int mulPrapokColumn = 9;
         int onulipiColumn = 10;
         bool NijOffice = true;
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
         List<DakAttachmentinGrid> _dakAttachmentinGrids = new List<DakAttachmentinGrid>();
-      
-      
+
+
+        public DakListUserParam dakListUserParam
+        {
+            get { return _dak_List_User_Param; }
+            set { _dak_List_User_Param = value; }
+        
+        }
 
 
         public DaptorikDakUploadUserControl()
@@ -43,29 +54,6 @@ namespace dNothi.Desktop.UI.Dak
             DakAttachmentListinGrid dakAttachmentListinGrid = new DakAttachmentListinGrid();
             _dakAttachmentinGrids = dakAttachmentListinGrid.dakAttachmentinGrids;
 
-
-
-            //attachmentListFlowLayoutPanel.Controls.Clear();
-            //DakUploadAttachmentTableRow dakUploadAttachmentTableRow = new DakUploadAttachmentTableRow();
-            //dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
-            //dakUploadAttachmentTableRow.imageLink = "https://nothibs.tappware.com/api/content/view?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MDg3MjEzNzUsImlhdCI6MTYwODYzNDM3NSwianRpIjoiTVRZd09EWXpORE0zTlE9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2MDg2MzQzNzUsImRhdGEiOnsiZmlsZSI6IkdrbDBhNVZvTkNNUmtLTWsxQ1NoWGI4bEJvVVpJMDJtZkorQUg2ZjZjS2Q1WHFBRFFmQU94TmZHU29wRHNYUmR2TjFOYnFlMnN5bnRPR2FIZStoSG5DOTJYT1JyWENoMFJUNHRIbFNGR3Jja1g0YUxlcWZHaEJKVDFWTjhQZWdRRXcxZGM4Snk3SldKcTk4dGZyR2duMFJyMzBOaGpUa3E2azd1M3U2Q1Job29sQUNiZ2laZ240Y2VOSlNWbE5HMlFRWCtUWXdTcGJFR0ttTzFjalhNM3c9PSIsImRlc2lnbmF0aW9uIjoiYVJpMkNVbUlRdXJuclwvYXBCN251Zk9uYWVQaTIxRFF2WVpuV0xCT01mV0RJTnhWZ2QrWW5xcG9rVEVyQ09paHZDbXZGc1BQYkgxSTdQaHFUdlFrcG13PT0ifX0.Q1OZt-HCPQ7VCVnSN6LQIBaqY6L4dSC2ZtL8R--lb55lzdaKIOACSyyA4S8sNATmt2Jgf27W_gFoelFOBVPJWQ";
-            //dakUploadAttachmentTableRow.imgSource = "https://nothibs.tappware.com/api/content/view?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MDkwMTI5MjgsImlhdCI6MTYwODkyNTkyOCwianRpIjoiTVRZd09Ea3lOVGt5T0E9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2MDg5MjU5MjgsImRhdGEiOnsiZmlsZSI6IkNLUUJRY2RJamtQUTlOeXhvUEJ1M1Y2UGthZ08wQTlWNzhBWms3blVtbmpIblZsTTMxZmxzQk1OTFVZdWR0UmFYTU9Yd1RXekNJejl4eVJnQUM3MEE4bWQyNmNQTFN1U1wva1c3M3VleUxkQ0lrRVwvcnJGVnpqS0gwRWJLUUQzSDRFVm9qWjR5Z2w1cFdcL2NHRmROMTg1QjZ2ZWw0YTBkOFUwRUVySzZZblFtRnkxbUFIbXZYeW9mMUhCd1wvRXlOc3hLVmlTeXVva1A4ZVwvdlY5Q0pvcnQ0QT09IiwiZGVzaWduYXRpb24iOiJQK3EyRDVuSlBaekgwbjRZN2daclg5RGdpNmRhWFdoWnFtR3NNV3NxQ1MzdjNDNmVoVHdKU0lXbkJsV05qMGRqWTlLWUM4WDlGOWtsOElOR0I0ZFVDdz09In19.N1-nRj1V625a6_SnFxduNutcCNLxEqAK13bj4ABqElAvSmg_SLPFTXIais8uGRzE26totIDVTpfZfbAFC3k2Ng";
-            //dakUploadAttachmentTableRow.attachmentName = "LoginPanel.jpg";
-            //dakUploadAttachmentTableRow.attachmentId = 1;
-            //dakUploadAttachmentTableRow.RadioButtonClick += delegate (object sender, EventArgs e) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
-
-
-            //attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
-
-            //DakUploadAttachmentTableRow dakUploadAttachmentTableRow2 = new DakUploadAttachmentTableRow();
-            //dakUploadAttachmentTableRow2.isAllowedforMulpotro = true;
-            //dakUploadAttachmentTableRow2.imageLink = "https://nothibs.tappware.com/api/content/view?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MDg3MjEzNzUsImlhdCI6MTYwODYzNDM3NSwianRpIjoiTVRZd09EWXpORE0zTlE9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2MDg2MzQzNzUsImRhdGEiOnsiZmlsZSI6IkdrbDBhNVZvTkNNUmtLTWsxQ1NoWGI4bEJvVVpJMDJtZkorQUg2ZjZjS2Q1WHFBRFFmQU94TmZHU29wRHNYUmR2TjFOYnFlMnN5bnRPR2FIZStoSG5DOTJYT1JyWENoMFJUNHRIbFNGR3Jja1g0YUxlcWZHaEJKVDFWTjhQZWdRRXcxZGM4Snk3SldKcTk4dGZyR2duMFJyMzBOaGpUa3E2azd1M3U2Q1Job29sQUNiZ2laZ240Y2VOSlNWbE5HMlFRWCtUWXdTcGJFR0ttTzFjalhNM3c9PSIsImRlc2lnbmF0aW9uIjoiYVJpMkNVbUlRdXJuclwvYXBCN251Zk9uYWVQaTIxRFF2WVpuV0xCT01mV0RJTnhWZ2QrWW5xcG9rVEVyQ09paHZDbXZGc1BQYkgxSTdQaHFUdlFrcG13PT0ifX0.Q1OZt-HCPQ7VCVnSN6LQIBaqY6L4dSC2ZtL8R--lb55lzdaKIOACSyyA4S8sNATmt2Jgf27W_gFoelFOBVPJWQ";
-            //dakUploadAttachmentTableRow2.imgSource = "https://nothibs.tappware.com/api/content/view?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MDkwMTI5MjgsImlhdCI6MTYwODkyNTkyOCwianRpIjoiTVRZd09Ea3lOVGt5T0E9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2MDg5MjU5MjgsImRhdGEiOnsiZmlsZSI6IkNLUUJRY2RJamtQUTlOeXhvUEJ1M1Y2UGthZ08wQTlWNzhBWms3blVtbmpIblZsTTMxZmxzQk1OTFVZdWR0UmFYTU9Yd1RXekNJejl4eVJnQUM3MEE4bWQyNmNQTFN1U1wva1c3M3VleUxkQ0lrRVwvcnJGVnpqS0gwRWJLUUQzSDRFVm9qWjR5Z2w1cFdcL2NHRmROMTg1QjZ2ZWw0YTBkOFUwRUVySzZZblFtRnkxbUFIbXZYeW9mMUhCd1wvRXlOc3hLVmlTeXVva1A4ZVwvdlY5Q0pvcnQ0QT09IiwiZGVzaWduYXRpb24iOiJQK3EyRDVuSlBaekgwbjRZN2daclg5RGdpNmRhWFdoWnFtR3NNV3NxQ1MzdjNDNmVoVHdKU0lXbkJsV05qMGRqWTlLWUM4WDlGOWtsOElOR0I0ZFVDdz09In19.N1-nRj1V625a6_SnFxduNutcCNLxEqAK13bj4ABqElAvSmg_SLPFTXIais8uGRzE26totIDVTpfZfbAFC3k2Ng";
-            //dakUploadAttachmentTableRow2.attachmentName = "LoginPanel.jpg";
-            //dakUploadAttachmentTableRow2.attachmentId = 2;
-            //dakUploadAttachmentTableRow2.RadioButtonClick += delegate (object sender, EventArgs e) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow2.attachmentId); };
-
-            //attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow2);
         }
 
         private void AttachmentTable_RadioButtonClick(object sender, EventArgs e, long attachmentId)
@@ -119,6 +107,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
 
                     PopulateGrid();
+                   
                 }
                 catch
                 {
@@ -131,6 +120,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+       
 
         int designationColumn = 2;
         private void SaveOnulipiPrapok(int row_index)
@@ -293,7 +283,7 @@ namespace dNothi.Desktop.UI.Dak
             //opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
-                _dakFileUploadParam.user_file_name = new FileInfo(opnfd.FileName).Name;
+                _dakFileUploadParam.user_file_name = new System.IO.FileInfo(opnfd.FileName).Name;
                
 
 
@@ -309,7 +299,7 @@ namespace dNothi.Desktop.UI.Dak
                 // _dakFileUploadParam.file_size_in_kb=opnfd.
 
 
-                var size = new FileInfo(opnfd.FileName).Length;
+                var size = new System.IO.FileInfo(opnfd.FileName).Length;
 
                 _dakFileUploadParam.file_size_in_kb = size.ToString() + " KB";
 
@@ -328,7 +318,7 @@ namespace dNothi.Desktop.UI.Dak
                     {
                         //attachmentListFlowLayoutPanel.Controls.Clear();
                         DakUploadAttachmentTableRow dakUploadAttachmentTableRow = new DakUploadAttachmentTableRow();
-                        if (ImageExtensions.Contains(new FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                        if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             dakUploadAttachmentTableRow._isAllowedforOCR = true;
@@ -350,7 +340,7 @@ namespace dNothi.Desktop.UI.Dak
 
                              
                         }
-                        else if(PdfExtensions.Contains(new FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                        else if(PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                           
@@ -367,7 +357,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                        dakUploadAttachmentTableRow.fileexension = new FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
+                        dakUploadAttachmentTableRow.fileexension = new System.IO.FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
                         dakUploadAttachmentTableRow._dakAttachment = dakUploadedFileResponse.data[0];
                         dakUploadAttachmentTableRow.imageLink = dakUploadedFileResponse.data[0].url;
                         dakUploadAttachmentTableRow.imgSource = dakUploadedFileResponse.data[0].thumbnail_url;
@@ -397,7 +387,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 response = form.DeleteFile(deleteParam);
             }
-            if (response.status != "success")
+            if (response.status == "success")
 
             {
                 var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
@@ -453,38 +443,33 @@ namespace dNothi.Desktop.UI.Dak
 
         private void searchOfficerRightXTextBox_TextChanged(object sender, EventArgs e)
         {
-            searchOfficerRightListBox.Items.Clear();
+            searchOfficerRightListBox.DataSource = null;
             if (searchOfficerRightXTextBox.Text == "")
             {
-                searchOfficerRightResultLabel.Text = "Please Enter 4 or More Character";
+                searchOfficerRightResultLabel.Text = "";
                 searchOfficerRightListBox.Visible = false;
 
             }
             else 
             {
               
-                List<ViewDesignationSealList> viewDesignationSealListsforOfficerSearch = viewDesignationSealLists.Where(a => a.employee_name_bng.StartsWith(searchOfficerRightXTextBox.Text)).ToList();
+                List<ViewDesignationSealList> viewDesignationSealListsforOfficerSearch = viewDesignationSealLists.Where(a => a.employee_name_bng.Contains(searchOfficerRightXTextBox.Text)).ToList();
                
-                if(officerSearchRightNijOfficeCheckBox.Checked && viewDesignationSealListsforOfficerSearch.Count>0)
-                {
-                    viewDesignationSealListsforOfficerSearch = viewDesignationSealListsforOfficerSearch.Where(a=>a.nij_Office == officerSearchRightNijOfficeCheckBox.Checked).ToList();
-                }
+              
                 
                 
                 if(viewDesignationSealListsforOfficerSearch.Count>0)
                 {
-                    foreach (var officer in viewDesignationSealListsforOfficerSearch)
-                    {
-                        searchOfficerRightListBox.Items.Add(officer.employee_name_bng + "," + officer.designation);
+                    searchOfficerRightListBox.DisplayMember = "designationwithname";
+                    searchOfficerRightListBox.DataSource = null;
+                    searchOfficerRightListBox.DataSource = viewDesignationSealListsforOfficerSearch;
 
-
-                    }
                     searchOfficerRightListBox.Visible = true;
                 }
                 else
                 {
                     searchOfficerRightListBox.Visible = false;
-                    searchOfficerRightResultLabel.Text = "No Result Found!";
+                    searchOfficerRightResultLabel.Text = "";
                 }
 
             }
@@ -502,7 +487,7 @@ namespace dNothi.Desktop.UI.Dak
                 searchOfficerRightXTextBox.Text = "";
                 searchOfficerRightListBox.Visible = false;
                 searchOfficerRightPanel.Visible = true;
-                searchOfficerRightResultLabel.Text = "Please Enter 4 or More Character";
+                searchOfficerRightResultLabel.Text = "";
                
                 searchOfficerRightXTextBox.Focus();
             }
@@ -511,13 +496,22 @@ namespace dNothi.Desktop.UI.Dak
         private void searchOfficerRightListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
            
-            searchOfficerRightPanel.Visible = false;
-            searchOfficerRightButton.Text = searchOfficerRightListBox.GetItemText(searchOfficerRightListBox.SelectedItem);
+          
         }
 
         private void prerokBachaiButton_Click(object sender, EventArgs e)
         {
-            selectedPrerokLabel.Text = searchOfficerRightButton.Text.ToString();
+            selectedPrerokLabel.Text = officerSearchOfficerNameLabel.Text.ToString();
+            try
+            {
+                _prerokId = Convert.ToInt32(officerSearchOfficerIdLabel.Text);
+            }
+            catch(Exception Ex)
+            {
+                MessageBox.Show("অফিসার সিলেক্ট করুন!");
+            }
+
+            senderSortSidePanel.Visible = false;
         }
 
         private void searchOfficerRightControl_Load(object sender, EventArgs e)
@@ -580,6 +574,155 @@ namespace dNothi.Desktop.UI.Dak
         private void senderSearchButton_MouseLeave(object sender, EventArgs e)
         {
             NormalColorSenderSearchButton();
+        }
+
+        private void searchOfficerRightListBox_Click(object sender, EventArgs e)
+        {
+            searchOfficerRightPanel.Visible = false;
+            officerSearchOfficerNameLabel.Text = searchOfficerRightListBox.GetItemText(searchOfficerRightListBox.SelectedItem);
+            officerSearchOfficerIdLabel.Text = (searchOfficerRightListBox.SelectedItem as ViewDesignationSealList).designation_id.ToString();
+
+        }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler KhosraSaveButtonClick;
+        private void khosraSaveButton_Click(object sender, EventArgs e)
+        {
+          
+
+            //uploader
+            
+            var config = new MapperConfiguration(cfg =>
+                      cfg.CreateMap<DakListUserParam, DakForwardRequestSenderInfo>()
+                  );
+            var mapper = new Mapper(config);
+            var dakSender = mapper.Map<DakForwardRequestSenderInfo>(_dak_List_User_Param);
+
+
+            dakUploadParameter.uploader = dakUploadParameter.CSharpObjtoJson(dakSender);
+
+            //Sender
+           var sender_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == _prerokId);
+           if(sender_info == null)
+            {
+                sender_info= designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == _prerokId);
+            }
+
+            dakUploadParameter.sender_info = dakUploadParameter.CSharpObjtoJson(sender_info);
+
+
+            // Dak
+
+            DakInfo dak = new DakInfo(false);
+
+            List<DakUploadAttachment> dakUploadAttachments = new List<DakUploadAttachment>();
+
+            var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
+
+            foreach (var attachment in attachmentList)
+            {
+                DakUploadAttachment dakUploadAttachment = new DakUploadAttachment();
+                if(attachment.isMulpotro)
+                {
+                    dakUploadAttachment.mulpotro = 1;
+                }
+                dakUploadAttachment.file_info = dakUploadParameter.CSharpObjtoJson(attachment._dakAttachment);
+                dakUploadAttachments.Add(dakUploadAttachment);
+
+
+            }
+
+            dak.attachment=dakUploadParameter.CSharpObjtoJson(dakUploadAttachments);
+            dak.sarok_no = sharokNoTextBox.Text;
+            dak.dak_subject = subjectXTextBox.Text;
+            dak.sending_date = DateTime.Now.ToString("dd-MM-yyyy");
+            dak.sending_media = sendMediumSearchButton.searchButtonText;
+      
+            dak.dak_description = dakDescriptionXTextBox.Text;
+
+
+
+
+
+            DakPriorityList dakPriority = new DakPriorityList();
+            int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
+
+
+
+            DakSecurityList dakSecurityList = new DakSecurityList();
+            int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
+
+            dak.priority = dak_priority_id.ToString();
+            dak.security = dak_security_id.ToString();
+
+
+            dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dak);
+           
+            
+            // Receiver
+            DakUploadReceiver dakUploadReceiver = new DakUploadReceiver();
+
+            ViewDesignationSealList mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
+
+            if (mulprapok.nij_Office == true)
+            {
+                var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                dakUploadReceiver.mul_prapok = receiver_info;
+            }
+            else
+            {
+                var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                dakUploadReceiver.mul_prapok = receiver_info;
+            }
+
+
+            // onulipi
+            List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
+
+            List<ViewDesignationSealList> viewDesignationSealListsOnulipPrapok = viewDesignationSealLists.Where(a => a.onulipi_prapok == true).ToList();
+            foreach (ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
+            {
+                if (viewDesignationSeal.nij_Office == true)
+                {
+                    OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                }
+                else
+                {
+                    OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                }
+            }
+
+            dakUploadReceiver.onulipi = OnulipiprapokDTOs;
+
+
+
+
+
+
+
+            dakUploadParameter.receiver_info = dakUploadParameter.CSharpObjtoJson(dakUploadReceiver);
+            dakUploadParameter.others = "[]";
+           // dakUploadParameter.path = sendMediumSearchButton.searchButtonText;
+            dakUploadParameter.content = dakDescriptionXTextBox.Text;
+            dakUploadParameter.office_id = _dak_List_User_Param.office_id;
+            dakUploadParameter.designation_id = _dak_List_User_Param.designation_id;
+        
+
+            if (this.KhosraSaveButtonClick != null)
+                this.KhosraSaveButtonClick(sender, e);
+
+
+
+
+        }
+        public event EventHandler AddDesignationButtonClick;
+        private void addDesignationButton_Click(object sender, EventArgs e)
+        {
+            if (this.AddDesignationButtonClick != null)
+                this.AddDesignationButtonClick(sender, e);
+
         }
     }
 }

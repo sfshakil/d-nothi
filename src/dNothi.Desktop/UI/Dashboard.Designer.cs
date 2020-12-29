@@ -230,6 +230,7 @@
             this.nothiModulePanel.Size = new System.Drawing.Size(134, 43);
             this.nothiModulePanel.TabIndex = 26;
             this.nothiModulePanel.Click += new System.EventHandler(this.nothiModulePanel_Click);
+            this.nothiModulePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
             this.nothiModulePanel.MouseLeave += new System.EventHandler(this.nothiModulePanel_MouseLeave);
             this.nothiModulePanel.MouseHover += new System.EventHandler(this.nothiModulePanel_MouseHover);
             // 
@@ -638,7 +639,7 @@
             this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(174, 40);
             this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
             this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(506, 43);
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(506, 84);
             this.searchOfficeDetailSearch.TabIndex = 30;
             // 
             // nameorDesignationSearchPanel

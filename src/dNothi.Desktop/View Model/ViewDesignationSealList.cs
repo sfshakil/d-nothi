@@ -24,6 +24,15 @@ namespace dNothi.Desktop.View_Model
             } 
         
         }
+        public string designationwithname
+        {
+            get
+            {
+                return employee_name_bng+","+ designation_bng + "," + unit_name_bng + "," + office_name_bng;
+
+            }
+
+        }
 
         public bool nij_Office { get; set; }
 

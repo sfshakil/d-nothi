@@ -9,8 +9,8 @@ namespace dNothi.JsonParser.Entity.Dak
 {
     public class DakAttachmentDTO
     {
-        [JsonProperty("id")]
-        public int attachment_id { get; set; }
+       
+        public int id { get; set; }
         public int is_main { get; set; }
         public string attachment_type { get; set; }
         public string attachment_description { get; set; }
@@ -26,6 +26,7 @@ namespace dNothi.JsonParser.Entity.Dak
         public string url { get; set; }
         public string download_url { get; set; }
         public string thumb_url { get; set; }
+       
 
 
       
@@ -37,6 +38,7 @@ namespace dNothi.JsonParser.Entity.Dak
         public string designation_id { get; set; }
         public string office_id { get; set; }
         public string path { get; set; }
+   
 
 
        
@@ -47,7 +49,19 @@ namespace dNothi.JsonParser.Entity.Dak
         public int dak_id { get; set; }
    
         public string modified { get; set; }
-      
-      
+        public string delete_url { get; set; }
+
+        public int attachment_id
+        { get
+            {
+                return id;
+            }
+              
+                
+        }
+
+
+
+
     }
 }

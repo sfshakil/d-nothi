@@ -1156,9 +1156,29 @@ namespace dNothi.Desktop.UI
 
 
             dakUploadUserControl.designationSealListResponse = designationSealListResponse;
-        
+            dakUploadUserControl.dakListUserParam = dakListUserParam;
+            dakUploadUserControl.KhosraSaveButtonClick += delegate (object khosraSaveSender, EventArgs khosraSaveEvent) { khosraSaveUserControl_ButtonClick(sender, e, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
+            dakUploadUserControl.AddDesignationButtonClick += delegate (object addDesignationSender, EventArgs addDesignationEvent) { AddDesignationUserControl_ButtonClick(sender, e); };
+
 
             dakListFlowLayoutPanel.Controls.Add(dakUploadUserControl);
+        }
+
+        private void AddDesignationUserControl_ButtonClick(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<AddDesignationSeal>();
+            form.ShowDialog();
+        }
+
+        private void khosraSaveUserControl_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakListUserParam dakListUserParam)
+        {
+            DakUploadResponse dakUploadResponse = _dakuploadservice.GetDakUploadResponse(dakListUserParam, dakUploadParameter);
+            if (dakUploadResponse.status == "error")
+            {
+                MessageBox.Show(dakUploadResponse.message);
+            }
+            
+            
         }
 
         private void nagorikDakUploadMenuButton_Click(object sender, EventArgs e)
@@ -1299,9 +1319,7 @@ namespace dNothi.Desktop.UI
         private void detailPanelDropDownButton_MouseLeave(object sender, EventArgs e)
         {
            
-                NormalDetaiPanleDropDownButtonStyle();
-                
-            
+                NormalDetaiPanleDropDownButtonStyle();  
           
         }
 
@@ -1373,6 +1391,11 @@ namespace dNothi.Desktop.UI
         }
 
         private void dakTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

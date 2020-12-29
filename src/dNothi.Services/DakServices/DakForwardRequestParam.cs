@@ -50,6 +50,47 @@ namespace dNothi.Services.DakServices
 
 
         public int office_id { get; set; }
+        public string office_name
+        { get
+            {
+                return office_label;
+            }
+                
+                }
+        
+        public int office_unit_id
+        { get
+            {
+                return unit_id;
+            }
+                
+                }
+        
+        public string office_unit
+        { get
+            {
+                return unit_label;
+            }
+                
+                
+        }
+        public int officer_id
+        { get
+            {
+                return employee_record_id;
+            }
+                
+                
+        }
+         public string designation
+        { get
+            {
+                return designation_label;
+            }
+                
+                
+        }
+        
 
     }
 

@@ -202,6 +202,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IUserControlFactory.cs" />
+    <Compile Include="UI\Dak\AddDesignationSeal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\AddDesignationSeal.Designer.cs">
+      <DependentUpon>AddDesignationSeal.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\CreateNewNothiType.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,6 +279,18 @@
     </Compile>
     <Compile Include="UI\Dak\DaptorikDakUploadUserControl.Designer.cs">
       <DependentUpon>DaptorikDakUploadUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DesignationSealBranchRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DesignationSealBranchRowUserControl.Designer.cs">
+      <DependentUpon>DesignationSealBranchRowUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DesignationSealListOfficerRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DesignationSealListOfficerRowUserControl.Designer.cs">
+      <DependentUpon>DesignationSealListOfficerRowUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\DetailsAttachmentListUserControl.cs">
       <SubType>UserControl</SubType>
@@ -432,6 +450,9 @@
     <EmbeddedResource Include="CustomControl\PlaceHolderTextBox.resx">
       <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\AddDesignationSeal.resx">
+      <DependentUpon>AddDesignationSeal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\CreateNewNothiType.resx">
       <DependentUpon>CreateNewNothiType.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,6 +488,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DaptorikDakUploadUserControl.resx">
       <DependentUpon>DaptorikDakUploadUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DesignationSealBranchRowUserControl.resx">
+      <DependentUpon>DesignationSealBranchRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DesignationSealListOfficerRowUserControl.resx">
+      <DependentUpon>DesignationSealListOfficerRowUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DetailsAttachmentListUserControl.resx">
       <DependentUpon>DetailsAttachmentListUserControl.cs</DependentUpon>
@@ -604,6 +631,7 @@
   <ItemGroup>
     <Content Include="256x256bb.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\delete.png" />
     <None Include="Resources\মূল-প্রাপক1.png" />
     <None Include="Resources\icons8-eye-15.png" />
     <None Include="Resources\DakForward.png" />

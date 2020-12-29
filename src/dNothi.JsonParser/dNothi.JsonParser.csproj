@@ -85,6 +85,7 @@
     <Compile Include="Entity\Dak\DakOriginDTO.cs" />
     <Compile Include="Entity\Dak\DakTagDTO.cs" />
     <Compile Include="Entity\Dak\DakUploadedFileResponse.cs" />
+    <Compile Include="Entity\Dak\DakUploadResponse.cs" />
     <Compile Include="Entity\Dak\DakUserDTO.cs" />
     <Compile Include="Entity\Dak\DesignationSealListResponse.cs" />
     <Compile Include="Entity\Dak\DraftedDecisionDTO.cs" />

@@ -43,6 +43,9 @@ namespace dNothi.JsonParser.Entity.Dak
 
         [JsonProperty("officer_eng")]
         public string officer_eng { get; set; }
+
+
+        [JsonProperty("id")]
         public int employee_record_id { get; set; }
         public string incharge_label { get; set; }
 
@@ -76,6 +79,54 @@ namespace dNothi.JsonParser.Entity.Dak
                 return employee_name_bng;
             }
         }
+         public int officer_id
+        {
+            get
+            {
+                return employee_record_id;
+            }
+        }
+
+           public string office_name
+        {
+            get
+            {
+                return office_label;
+            }
+        }
+        
+        public string office_unit
+        {
+            get
+            {
+                return unit_label;
+            }
+        }
+
+
+         public string designation
+        {
+            get
+            {
+                return designation_label;
+            }
+        }
+
+        public string office_name_eng
+        {
+            get
+            {
+                return office_eng;
+            }
+        }
+         
+
+        
+      
+
+
+        
+        
     }
 
   

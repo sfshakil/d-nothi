@@ -141,6 +141,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            
             builder.RegisterType<UI.Nothi>().AsSelf();
+            builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();

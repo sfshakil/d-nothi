@@ -74,6 +74,11 @@ namespace dNothi.Services.DakServices
             return DefaultAPIConfiguration.DakFileDeleteEndPoint;
         }
 
+        protected string GetDakUploadEndpoint()
+        {
+            return DefaultAPIConfiguration.DakUploadEndpoint;
+        }
+
         public OCRResponse GetOCRResponsse(DakListUserParam dakListUserParam, OCRParameter oCRParameter)
         {
             try
@@ -125,6 +130,28 @@ namespace dNothi.Services.DakServices
 
 
 
+        }
+
+        public DakUploadResponse GetDakUploadResponse(DakListUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
+        {
+            var dakUploadAPI = new RestClient(GetAPIDomain() + GetDakUploadEndpoint());
+            dakUploadAPI.Timeout = -1;
+            var dakUploadRequest = new RestRequest(Method.POST);
+            dakUploadRequest.AddHeader("api-version", GetAPIVersion());
+            dakUploadRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+            dakUploadRequest.AddParameter("sender",dakUploadParameter.sender_info);
+            dakUploadRequest.AddParameter("receiver", dakUploadParameter.receiver_info);
+            dakUploadRequest.AddParameter("dak",dakUploadParameter.dak_info);
+            dakUploadRequest.AddParameter("others",dakUploadParameter.others);
+            dakUploadRequest.AddParameter("uploader", dakUploadParameter.uploader);
+            dakUploadRequest.AddParameter("path", dakUploadParameter.path);
+            dakUploadRequest.AddParameter("content", dakUploadParameter.content);
+            dakUploadRequest.AddParameter("office_id", dakUploadParameter.office_id);
+            dakUploadRequest.AddParameter("designation_id", dakUploadParameter.designation_id);
+            IRestResponse dakUploadIRestResponse = dakUploadAPI.Execute(dakUploadRequest);
+            var dakFileUploadResponseJson = dakUploadIRestResponse.Content;
+            DakUploadResponse dakUploadResponse = JsonConvert.DeserializeObject<DakUploadResponse>(dakFileUploadResponseJson);
+            return dakUploadResponse;
         }
     }
 }

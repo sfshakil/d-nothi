@@ -10,6 +10,7 @@ namespace dNothi.Constants
     {
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";
         public const string OCREndpoint = "http://bokshi-img2txt.tappware.com/apiImageToText/";
+        public const string DakUploadEndpoint = "/api/dak/upload";
         public const string DakFileDeleteEndPoint = "/api/content/daak/delete";
         public const string NewAPIversion = "2";
         public const string DefaultAPIversion = "1";

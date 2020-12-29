@@ -1,0 +1,125 @@
+﻿using dNothi.JsonParser.Entity.Dak;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Script.Serialization;
+
+namespace dNothi.Services.DakServices
+{
+   public class DakUploadParameter
+    {
+        public string sender_info { get; set; }
+        public string CSharpObjtoJson(object obj)
+        {
+
+            var jsonString = new JavaScriptSerializer().Serialize(obj);
+            return jsonString;
+        }
+        public string receiver_info { get; set; }
+        public string content { get; set; }
+        public string dak_info { get; set; }
+       
+        public string others { get; set; }
+        public string uploader { get; set; }
+        public string path { get; set; }
+        public int office_id { get; set; }
+        public int designation_id { get; set; }
+        public  DakUploadParameter()
+        {
+            path = "Dak";
+            content = "Daak";
+        }
+
+    }
+
+
+    public class DakInfo
+    {
+        public int id { get; set; }
+        public string dak_type { get; set; }
+        public string sarok_no { get; set; }
+        public string sending_date { get; set; }
+        public string sending_media { get; set; }
+        public string dak_subject { get; set; }
+        public string dak_description { get; set; }
+        public string priority { get; set; }
+        public string security { get; set; }
+        public string attachment { get; set; }
+       
+    
+        public DakInfo(bool IsNagorik)
+        {
+            if(!IsNagorik)
+            {
+                this.dak_type = "Daptorik";
+            }
+            else
+            {
+                this.dak_type = "Nagorik";
+            }
+        }
+
+
+
+
+    }
+
+    public class DakUploadAttachment
+    {
+        public int mulpotro { get; set; }
+        public string file_info { get; set; }
+
+
+
+    }
+  
+
+    public class DakUploadReceiver
+    {
+        public PrapokDTO mul_prapok { get; set; }
+        public List<PrapokDTO> onulipi { get; set; }
+    }
+    
+    public class FileInfo
+    {
+        public int id { get; set; }
+        public int dak_id { get; set; }
+        public int dak_type { get; set; }
+        public int is_main { get; set; }
+        public string attachment_type { get; set; }
+        public string file_size_in_kb { get; set; }
+        public string user_file_name { get; set; }
+        public string file_name { get; set; }
+        public string file_dir { get; set; }
+        public string url { get; set; }
+        public string download_url { get; set; }
+        public string thumb_url { get; set; }
+        public string delete_token { get; set; }
+    
+    }
+
+    public class DakUploadRequestSenderInfo
+    {
+
+
+        public string designation { get; set; }
+        public string office_unit { get; set; }
+        public string office_name { get; set; }
+        public string officer_name { get; set; }
+        public string incharge_label { get; set; }
+        public int employee_record_id { get; set; }
+
+
+        public int designation_id { get; set; }
+        public int unit_id { get; set; }
+
+
+        public int office_id { get; set; }
+        public int officer_id { get; set; }
+        public int office_unit_id { get; set; }
+     
+
+    }
+}
