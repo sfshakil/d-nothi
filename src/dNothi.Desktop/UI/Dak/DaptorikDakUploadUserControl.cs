@@ -25,7 +25,7 @@ namespace dNothi.Desktop.UI.Dak
         List<string> sendMediumListCollection = new List<string>();
         DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
         public int _prerokId = 0;
-        private DakListUserParam _dak_List_User_Param;
+        private DakUserParam _dak_List_User_Param;
         public DakUploadParameter dakUploadParameter = new DakUploadParameter();
 
 
@@ -36,7 +36,7 @@ namespace dNothi.Desktop.UI.Dak
         List<DakAttachmentinGrid> _dakAttachmentinGrids = new List<DakAttachmentinGrid>();
 
 
-        public DakListUserParam dakListUserParam
+        public DakUserParam dakListUserParam
         {
             get { return _dak_List_User_Param; }
             set { _dak_List_User_Param = value; }
@@ -595,7 +595,7 @@ namespace dNothi.Desktop.UI.Dak
             //uploader
             
             var config = new MapperConfiguration(cfg =>
-                      cfg.CreateMap<DakListUserParam, DakForwardRequestSenderInfo>()
+                      cfg.CreateMap<DakUserParam, DakForwardRequestSenderInfo>()
                   );
             var mapper = new Mapper(config);
             var dakSender = mapper.Map<DakForwardRequestSenderInfo>(_dak_List_User_Param);

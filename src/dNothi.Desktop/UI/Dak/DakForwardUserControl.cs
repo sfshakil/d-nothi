@@ -38,10 +38,10 @@ namespace dNothi.Desktop.UI.Dak
         private string _dak_type;
         private string _dak_subject;
         private int _is_copied_dak;
-        private DakListUserParam _dak_List_User_Param;
+        private DakUserParam _dak_List_User_Param;
 
 
-        public DakListUserParam dak_List_User_Param {
+        public DakUserParam dak_List_User_Param {
             get { return _dak_List_User_Param; }
 
             set { _dak_List_User_Param = value; }
@@ -331,7 +331,7 @@ namespace dNothi.Desktop.UI.Dak
             dakForwardRequestParam.token = _dak_List_User_Param.token;
 
             var config = new MapperConfiguration(cfg =>
-                      cfg.CreateMap<DakListUserParam,DakForwardRequestSenderInfo>()
+                      cfg.CreateMap<DakUserParam,DakForwardRequestSenderInfo>()
                   );
             var mapper = new Mapper(config);
             var dakSender = mapper.Map<DakForwardRequestSenderInfo>(_dak_List_User_Param);

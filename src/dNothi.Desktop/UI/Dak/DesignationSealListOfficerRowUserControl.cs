@@ -13,6 +13,8 @@ namespace dNothi.Desktop.UI.Dak
     public partial class DesignationSealListOfficerRowUserControl : UserControl
     {
         private string _officeName;
+        private int _designationid;
+        private bool _isNewAdded;
         public DesignationSealListOfficerRowUserControl()
         {
             InitializeComponent();
@@ -26,6 +28,40 @@ namespace dNothi.Desktop.UI.Dak
             {
                 _officeName = value;
                 officerNameLabel.Text = value;
+            }
+
+        }
+
+
+
+        public int designationid
+        {
+            get { return _designationid; }
+            set
+            {
+                _designationid = value;
+               
+            }
+
+        }
+
+        public bool isNewlyAdded
+        {
+            get { return _isNewAdded; }
+            set
+            {
+                _isNewAdded = value;
+
+                if(value)
+                {
+                    deleteButton.Visible = true;
+                }
+                else
+                   
+                {
+                    deleteButton.Visible = false;
+                }
+               
             }
 
         }

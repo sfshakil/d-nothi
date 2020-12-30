@@ -13,7 +13,7 @@ namespace dNothi.Services.DakServices
 {
     public class DakKhosraService : IDakKhosraService
     {
-        public DakListKhosraResponse GetDakKhosraList(DakListUserParam dakListUserParam)
+        public DakListKhosraResponse GetDakKhosraList(DakUserParam dakListUserParam)
         {
             try
             {

@@ -12,5 +12,6 @@ namespace dNothi.Core.Entities
         public string user_alias { get; set; }
         public bool active { get; set; }
         public int employee_record_id { get; set; }
+        public int userid { get; set; }
     }
 }

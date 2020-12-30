@@ -10,7 +10,7 @@ namespace dNothi.Services.DakServices
 {
    public interface IDakNothivuktoService
     {
-        DakListNothivuktoResponse GetNothivuktoDakList(DakListUserParam dakListUserParam);
+        DakListNothivuktoResponse GetNothivuktoDakList(DakUserParam dakListUserParam);
         void SaveorUpdateDakNothivukto(DakListNothivuktoResponse dakListNothivuktoResponse);
 
     }

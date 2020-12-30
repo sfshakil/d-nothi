@@ -10,7 +10,7 @@ namespace dNothi.Services.DakServices
 {
     public interface IDakOutboxService
     {
-        DakListOutboxResponse GetDakOutbox(DakListUserParam dakListUserParam);
+        DakListOutboxResponse GetDakOutbox(DakUserParam dakListUserParam);
         void SaveorUpdateDakOutbox(DakListOutboxResponse dakListOutboxResponse);
     }
 }

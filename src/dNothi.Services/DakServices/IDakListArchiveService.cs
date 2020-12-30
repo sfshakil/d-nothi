@@ -9,7 +9,7 @@ namespace dNothi.Services.DakServices
 {
    public interface IDakListArchiveService
     {
-        DakListArchiveResponse GetDakList(DakListUserParam dakListUserParam);
+        DakListArchiveResponse GetDakList(DakUserParam dakListUserParam);
         void SaveorUpdateDakArchive(DakListArchiveResponse dakListArchiveResponse);
     }
 }

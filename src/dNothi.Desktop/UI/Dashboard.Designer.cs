@@ -216,7 +216,7 @@
             this.panel2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(230, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1125, 60);
+            this.panel2.Size = new System.Drawing.Size(1124, 60);
             this.panel2.TabIndex = 12;
             // 
             // nothiModulePanel
@@ -414,7 +414,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(230, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1125, 724);
+            this.panel5.Size = new System.Drawing.Size(1124, 724);
             this.panel5.TabIndex = 12;
             // 
             // panel12

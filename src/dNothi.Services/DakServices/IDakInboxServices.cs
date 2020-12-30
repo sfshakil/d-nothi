@@ -12,8 +12,8 @@ namespace dNothi.Services.DakServices
    public interface IDakInboxServices
     {
        
-        DakListInboxResponse GetDakInbox(DakListUserParam dakListUserParam);
-        DakListInboxResponse GetLocalDakInbox(DakListUserParam dakListUserParam);
+        DakListInboxResponse GetDakInbox(DakUserParam dakListUserParam);
+        DakListInboxResponse GetLocalDakInbox(DakUserParam dakListUserParam);
         void SaveorUpdateDakInbox(DakListInboxResponse dakListInboxResponse);
     }
 }

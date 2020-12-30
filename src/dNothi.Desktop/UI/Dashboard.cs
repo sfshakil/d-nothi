@@ -67,7 +67,7 @@ namespace dNothi.Desktop.UI
 
         public OCRResponse OCRFile(OCRParameter oCRParameter)
         {
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
 
@@ -78,7 +78,7 @@ namespace dNothi.Desktop.UI
         }
         public DakFileDeleteResponse DeleteFile(DakUploadFileDeleteParam deleteParam)
         {
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
 
@@ -91,7 +91,7 @@ namespace dNothi.Desktop.UI
 
         public DakUploadedFileResponse UploadFile(DakFileUploadParam dakFileUploadParam)
         {
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
            
 
@@ -118,7 +118,7 @@ namespace dNothi.Desktop.UI
            else
             {
                 dakSortMetroPanel.Visible = false;
-                DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
                 DakDetailsResponse dakDetailsResponse = _dakListService.GetDakDetailsbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
@@ -195,7 +195,7 @@ namespace dNothi.Desktop.UI
 
 
 
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
             DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
@@ -220,7 +220,7 @@ namespace dNothi.Desktop.UI
         private void GetDakMovementList(int dak_id, string dak_type, int is_copied_dak)
         {
 
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
             DakMovementStatusResponse dakMovementStatusResponse = _dakListService.GetDakMovementStatusListbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
@@ -438,7 +438,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakOutbox()
         {
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             // Satic Class
             dakListUserParam.limit = 10;
@@ -539,7 +539,7 @@ namespace dNothi.Desktop.UI
 
         private async void LoadDakInbox()
         {
-            DakListUserParam dakListUserParam= _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam= _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
@@ -748,7 +748,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakNothivukto()
         {
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
@@ -870,7 +870,7 @@ namespace dNothi.Desktop.UI
         private void LoadDakArchive()
         {
          
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
@@ -968,7 +968,7 @@ namespace dNothi.Desktop.UI
         private void LoadDakNothijato()
         {
 
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
@@ -1059,7 +1059,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakListSorted()
         {
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
@@ -1147,7 +1147,7 @@ namespace dNothi.Desktop.UI
             dakListFlowLayoutPanel.Controls.Clear();
 
             DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
             DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
@@ -1167,10 +1167,10 @@ namespace dNothi.Desktop.UI
         private void AddDesignationUserControl_ButtonClick(object sender, EventArgs e)
         {
             var form = FormFactory.Create<AddDesignationSeal>();
-            form.ShowDialog();
+            form.Show();
         }
 
-        private void khosraSaveUserControl_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakListUserParam dakListUserParam)
+        private void khosraSaveUserControl_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakUserParam dakListUserParam)
         {
             DakUploadResponse dakUploadResponse = _dakuploadservice.GetDakUploadResponse(dakListUserParam, dakUploadParameter);
             if (dakUploadResponse.status == "error")
@@ -1187,7 +1187,7 @@ namespace dNothi.Desktop.UI
             dakListFlowLayoutPanel.Controls.Clear();
 
             NagorikDakUploadUserControl dakUploadUserControl = new NagorikDakUploadUserControl();
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
             DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
@@ -1208,7 +1208,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakKhasraList()
         {
-            DakListUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             // Satic Class
             dakListUserParam.limit = 10;

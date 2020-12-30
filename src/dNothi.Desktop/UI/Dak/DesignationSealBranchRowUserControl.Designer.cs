@@ -52,6 +52,7 @@
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -59,20 +60,25 @@
             this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.MaximumSize = new System.Drawing.Size(510, 0);
+            this.tableLayoutPanel2.MinimumSize = new System.Drawing.Size(510, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(510, 40);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(510, 28);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel3
             // 
+            this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.branchNameLabel);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Location = new System.Drawing.Point(1, 1);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.MaximumSize = new System.Drawing.Size(500, 0);
+            this.panel3.MinimumSize = new System.Drawing.Size(500, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(501, 34);
+            this.panel3.Size = new System.Drawing.Size(500, 26);
             this.panel3.TabIndex = 0;
             // 
             // branchNameLabel
@@ -106,7 +112,9 @@
             this.Name = "DesignationSealBranchRowUserControl";
             this.Size = new System.Drawing.Size(510, 74);
             this.branchOfficeFlowLayoutPanel.ResumeLayout(false);
+            this.branchOfficeFlowLayoutPanel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);

@@ -13,7 +13,7 @@ namespace dNothi.Services.DakServices
 {
     public class DakForwardService : IDakForwardService
     {
-        public DesignationSealListResponse GetSealListResponse(DakListUserParam dakListUserParam)
+        public DesignationSealListResponse GetSealListResponse(DakUserParam dakListUserParam)
         {
             try
             {

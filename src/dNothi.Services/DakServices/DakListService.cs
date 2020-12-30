@@ -372,7 +372,7 @@ namespace dNothi.Services.DakServices
             
         }
 
-        public DakListDTO GetLocalDakListbyType(long dakTypeId, DakListUserParam dakListUserParam)
+        public DakListDTO GetLocalDakListbyType(long dakTypeId, DakUserParam dakListUserParam)
         {
             DakListDTO dakListDTO = new DakListDTO();
             var dbdaklist = _daklist.Table.Include(a=>a.dak_origin).Include(a => a.dak_user).Include(a => a.dak_Tags).Include(a => a.nothi).Include(a => a.movement_status).Where(a => a.dak_List_type_Id == dakTypeId).ToList();
@@ -514,7 +514,7 @@ namespace dNothi.Services.DakServices
             return dak_originDTO;
         }
 
-        public DakDetailsResponse GetDakDetailsbyDakId(int dak_id,string dak_type, int is_copied_dak,  DakListUserParam dakListUserParam)
+        public DakDetailsResponse GetDakDetailsbyDakId(int dak_id,string dak_type, int is_copied_dak,  DakUserParam dakListUserParam)
         {
 
 
@@ -582,7 +582,7 @@ namespace dNothi.Services.DakServices
             return DefaultAPIConfiguration.DakMovementStatusListEndpoint;
         }
 
-        public DakAttachmentResponse GetDakAttachmentbyDakId(int dak_id, string dak_type, int is_copied_dak, DakListUserParam dakListUserParam)
+        public DakAttachmentResponse GetDakAttachmentbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam)
         {
             try
             {
@@ -613,7 +613,7 @@ namespace dNothi.Services.DakServices
             }
         }
 
-        public DakMovementStatusResponse GetDakMovementStatusListbyDakId(int dak_id, string dak_type, int is_copied_dak, DakListUserParam dakListUserParam)
+        public DakMovementStatusResponse GetDakMovementStatusListbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam)
         {
             try
             {

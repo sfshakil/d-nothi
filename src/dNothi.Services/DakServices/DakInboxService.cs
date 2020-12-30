@@ -28,7 +28,7 @@ namespace dNothi.Services.DakServices
             _daklist = daklist;
             _dakListService = dakListService;
         }
-        public DakListInboxResponse GetDakInbox(DakListUserParam dakListUserParam)
+        public DakListInboxResponse GetDakInbox(DakUserParam dakListUserParam)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace dNothi.Services.DakServices
            
         }
 
-        public DakListInboxResponse GetLocalDakInbox(DakListUserParam dakListUserParam)
+        public DakListInboxResponse GetLocalDakInbox(DakUserParam dakListUserParam)
         {
             var dbdakInbox = _daktype.Table.FirstOrDefault(a=>a.is_inbox==true);
 

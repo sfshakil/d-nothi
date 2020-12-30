@@ -15,7 +15,7 @@ namespace dNothi.Services.UserServices
         void SaveOrUpdateUserEmployeeInfo(EmployeeInfoDTO employeedto);
         void SaveOrUpdateUserOfficeInfo(List<OfficeInfoDTO> officeInfoDTO);
         void SaveOrUpdateToken(string token);
-        DakListUserParam GetLocalDakUserParam();
+        DakUserParam GetLocalDakUserParam();
 
         bool ValidatePassword(char passChar);
         string InvalidPasswordMessage();

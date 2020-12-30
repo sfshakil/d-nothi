@@ -14,6 +14,7 @@ using dNothi.Constants;
 using System.Configuration;
 using dNothi.Services.DakServices;
 using System.Text.RegularExpressions;
+using System.Web.Script.Serialization;
 
 namespace dNothi.Services.UserServices
 {
@@ -88,7 +89,16 @@ namespace dNothi.Services.UserServices
             var officeInfoDTO = mapper.Map<OfficeInfoDTO>(empInfo);
             return officeInfoDTO;
         }
-
+        public UserDTO GetUserInfo()
+        {
+            var userInfo = _userrepository.Table.FirstOrDefault();
+            var config = new MapperConfiguration(cfg =>
+                    cfg.CreateMap<User, UserDTO>()
+                );
+            var mapper = new Mapper(config);
+            var userDTO = mapper.Map<UserDTO>(userInfo);
+            return userDTO;
+        }
         public void SaveOrUpdateUser(UserDTO userdto)
         {
             var config = new MapperConfiguration(cfg =>
@@ -193,6 +203,7 @@ namespace dNothi.Services.UserServices
 
                     dboffice.office_unit_organogram_id = ofcInfo.office_unit_organogram_id;
                     dboffice.office_id = ofcInfo.office_id;
+
                     _officeRepository.Update(dboffice);
                 }
             }
@@ -218,15 +229,16 @@ namespace dNothi.Services.UserServices
             return dbtoken.Token;
         }
 
-        public DakListUserParam GetLocalDakUserParam()
+        public DakUserParam GetLocalDakUserParam()
         {
            
             OfficeInfoDTO officeInfo = GetOfficeInfo();
             EmployeeInfoDTO employeeInfoDTO = GetEmployeeInfo();
+            UserDTO userDTO = GetUserInfo();
 
 
 
-            DakListUserParam dakListUserParam = new DakListUserParam();
+            DakUserParam dakListUserParam = new DakUserParam();
 
 
             try
@@ -245,6 +257,10 @@ namespace dNothi.Services.UserServices
                 dakListUserParam.incharge_label = officeInfo.incharge_label;
 
                 dakListUserParam.officer_name = employeeInfoDTO.name_bng;
+                dakListUserParam.designation_level = officeInfo.designation_level;
+                dakListUserParam.user_id = userDTO.userid;
+                dakListUserParam.json_String = new JavaScriptSerializer().Serialize(dakListUserParam);
+
 
 
 

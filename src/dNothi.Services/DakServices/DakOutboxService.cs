@@ -26,7 +26,7 @@ namespace dNothi.Services.DakServices
             _dakListService = dakListService;
         }
 
-        public DakListOutboxResponse GetDakOutbox(DakListUserParam dakListUserParam)
+        public DakListOutboxResponse GetDakOutbox(DakUserParam dakListUserParam)
         {
             try
             {

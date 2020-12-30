@@ -22,7 +22,7 @@ namespace dNothi.Services.DakServices
             _daktype = daktype;
             _dakListService = dakListService;
         }
-        public DakListArchiveResponse GetDakList(DakListUserParam dakListUserParam)
+        public DakListArchiveResponse GetDakList(DakUserParam dakListUserParam)
         {
               try
             {

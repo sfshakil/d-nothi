@@ -1,9 +1,14 @@
 ﻿
+using Newtonsoft.Json;
+
 namespace dNothi.JsonParser.Entity
 {
     public class UserDTO
     {
-        public int id { get; set; }
+       
+
+        [JsonProperty("id")]
+        public int userid { get; set; }
         public string username { get; set; }
         public string user_alias { get; set; }
         public bool active { get; set; }

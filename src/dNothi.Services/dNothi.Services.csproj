@@ -109,7 +109,7 @@
     <Compile Include="DakServices\DakListArchiveService.cs" />
     <Compile Include="DakServices\DakListService.cs" />
     <Compile Include="DakServices\DakListSortedService.cs" />
-    <Compile Include="DakServices\DakListUserParam.cs" />
+    <Compile Include="DakServices\DakUserParam.cs" />
     <Compile Include="DakServices\DakNothijatoService.cs" />
     <Compile Include="DakServices\DakNothivuktoService.cs" />
     <Compile Include="DakServices\DakOutboxService.cs" />

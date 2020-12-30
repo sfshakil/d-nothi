@@ -9,7 +9,7 @@ namespace dNothi.Services.DakServices
 {
     public interface IDakNothijatoService
     {
-        DakListNothijatoResponse GetNothijatoDak(DakListUserParam dakListUserParam);
+        DakListNothijatoResponse GetNothijatoDak(DakUserParam dakListUserParam);
         void SaveorUpdateDakNothijato(DakListNothijatoResponse dakListNothijatoResponse);
     }
 }

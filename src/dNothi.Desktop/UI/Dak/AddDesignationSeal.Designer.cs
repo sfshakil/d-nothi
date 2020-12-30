@@ -37,7 +37,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabControlLeft = new System.Windows.Forms.TabControl();
             this.ownOfficeTabPageLeft = new System.Windows.Forms.TabPage();
+            this.designationStateOwnLabel = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.prapokSearchOwnOfficeTextBox = new PlaceholderTextBox.PlaceholderTextBox();
+            this.prapokownOfficeTreeView = new System.Windows.Forms.TreeView();
             this.otherOfficeTabPageLeft = new System.Windows.Forms.TabPage();
+            this.officerSearchOfficeIdLabel = new System.Windows.Forms.Label();
+            this.officeSearchOfficeNameLabel = new System.Windows.Forms.Label();
+            this.searchOfficePanel = new System.Windows.Forms.Panel();
+            this.searchOfficeListBox = new System.Windows.Forms.ListBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.searchOfficeButton = new System.Windows.Forms.Button();
+            this.designationStateOtherLabel = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.otherOfficeTreeView = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControlRight = new System.Windows.Forms.TabControl();
             this.ownOfficeTabPageRight = new System.Windows.Forms.TabPage();
             this.ownOfficeRightFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -46,27 +61,23 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.otherOfficeTabPageRight = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
             this.otherOfficeRightFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.prapokownOfficeTreeView = new System.Windows.Forms.TreeView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.prapokSearchOwnOfficeTextBox = new PlaceholderTextBox.PlaceholderTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.otherOfficeTreeView = new System.Windows.Forms.TreeView();
-            this.sendMediumSearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.saveDesignationSealButton = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.searchOfficeTextBox = new dNothi.Desktop.XTextBox();
             this.panel1.SuspendLayout();
             this.tabControlLeft.SuspendLayout();
             this.ownOfficeTabPageLeft.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.otherOfficeTabPageLeft.SuspendLayout();
+            this.searchOfficePanel.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.tabControlRight.SuspendLayout();
             this.ownOfficeTabPageRight.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -74,7 +85,6 @@
             this.otherOfficeTabPageRight.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -150,7 +160,7 @@
             // 
             // ownOfficeTabPageLeft
             // 
-            this.ownOfficeTabPageLeft.Controls.Add(this.label8);
+            this.ownOfficeTabPageLeft.Controls.Add(this.designationStateOwnLabel);
             this.ownOfficeTabPageLeft.Controls.Add(this.panel4);
             this.ownOfficeTabPageLeft.Controls.Add(this.prapokownOfficeTreeView);
             this.ownOfficeTabPageLeft.ImageIndex = 1;
@@ -162,10 +172,56 @@
             this.ownOfficeTabPageLeft.Text = "নিজ অফিসের পদসমূহ";
             this.ownOfficeTabPageLeft.UseVisualStyleBackColor = true;
             // 
+            // designationStateOwnLabel
+            // 
+            this.designationStateOwnLabel.AutoSize = true;
+            this.designationStateOwnLabel.Location = new System.Drawing.Point(18, 93);
+            this.designationStateOwnLabel.Name = "designationStateOwnLabel";
+            this.designationStateOwnLabel.Size = new System.Drawing.Size(243, 18);
+            this.designationStateOwnLabel.TabIndex = 77;
+            this.designationStateOwnLabel.Text = "শাখা ০ টি, পদ ০টি, শুন্যপদ ০টি, কর্মরত ০ জন";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.prapokSearchOwnOfficeTextBox);
+            this.panel4.Location = new System.Drawing.Point(18, 30);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(310, 44);
+            this.panel4.TabIndex = 76;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
+            // 
+            // prapokSearchOwnOfficeTextBox
+            // 
+            this.prapokSearchOwnOfficeTextBox.BackColor = System.Drawing.Color.White;
+            this.prapokSearchOwnOfficeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.prapokSearchOwnOfficeTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prapokSearchOwnOfficeTextBox.Location = new System.Drawing.Point(10, 13);
+            this.prapokSearchOwnOfficeTextBox.Name = "prapokSearchOwnOfficeTextBox";
+            this.prapokSearchOwnOfficeTextBox.PlaceholderText = "প্রাপক খুঁজুন";
+            this.prapokSearchOwnOfficeTextBox.Size = new System.Drawing.Size(297, 19);
+            this.prapokSearchOwnOfficeTextBox.TabIndex = 3;
+            // 
+            // prapokownOfficeTreeView
+            // 
+            this.prapokownOfficeTreeView.CheckBoxes = true;
+            this.prapokownOfficeTreeView.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
+            this.prapokownOfficeTreeView.Location = new System.Drawing.Point(17, 123);
+            this.prapokownOfficeTreeView.Name = "prapokownOfficeTreeView";
+            this.prapokownOfficeTreeView.Size = new System.Drawing.Size(490, 301);
+            this.prapokownOfficeTreeView.TabIndex = 0;
+            this.prapokownOfficeTreeView.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.prapokownOfficeTreeView_BeforeCheck);
+            this.prapokownOfficeTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.prapokownOfficeTreeView_AfterCheck);
+            this.prapokownOfficeTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.prapokownOfficeTreeView_DrawNode);
+            this.prapokownOfficeTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.prapokownOfficeTreeView_AfterSelect);
+            // 
             // otherOfficeTabPageLeft
             // 
-            this.otherOfficeTabPageLeft.Controls.Add(this.sendMediumSearchButton);
-            this.otherOfficeTabPageLeft.Controls.Add(this.label9);
+            this.otherOfficeTabPageLeft.Controls.Add(this.officerSearchOfficeIdLabel);
+            this.otherOfficeTabPageLeft.Controls.Add(this.officeSearchOfficeNameLabel);
+            this.otherOfficeTabPageLeft.Controls.Add(this.searchOfficePanel);
+            this.otherOfficeTabPageLeft.Controls.Add(this.searchOfficeButton);
+            this.otherOfficeTabPageLeft.Controls.Add(this.designationStateOtherLabel);
             this.otherOfficeTabPageLeft.Controls.Add(this.label10);
             this.otherOfficeTabPageLeft.Controls.Add(this.otherOfficeTreeView);
             this.otherOfficeTabPageLeft.ImageIndex = 0;
@@ -176,6 +232,136 @@
             this.otherOfficeTabPageLeft.TabIndex = 1;
             this.otherOfficeTabPageLeft.Text = "অন্য অফিসের পদসমূহ ";
             this.otherOfficeTabPageLeft.UseVisualStyleBackColor = true;
+            // 
+            // officerSearchOfficeIdLabel
+            // 
+            this.officerSearchOfficeIdLabel.AutoSize = true;
+            this.officerSearchOfficeIdLabel.Location = new System.Drawing.Point(122, 10);
+            this.officerSearchOfficeIdLabel.MaximumSize = new System.Drawing.Size(320, 18);
+            this.officerSearchOfficeIdLabel.MinimumSize = new System.Drawing.Size(320, 18);
+            this.officerSearchOfficeIdLabel.Name = "officerSearchOfficeIdLabel";
+            this.officerSearchOfficeIdLabel.Size = new System.Drawing.Size(320, 18);
+            this.officerSearchOfficeIdLabel.TabIndex = 97;
+            this.officerSearchOfficeIdLabel.Visible = false;
+            // 
+            // officeSearchOfficeNameLabel
+            // 
+            this.officeSearchOfficeNameLabel.AutoSize = true;
+            this.officeSearchOfficeNameLabel.Location = new System.Drawing.Point(27, 55);
+            this.officeSearchOfficeNameLabel.MaximumSize = new System.Drawing.Size(320, 18);
+            this.officeSearchOfficeNameLabel.MinimumSize = new System.Drawing.Size(320, 18);
+            this.officeSearchOfficeNameLabel.Name = "officeSearchOfficeNameLabel";
+            this.officeSearchOfficeNameLabel.Size = new System.Drawing.Size(320, 18);
+            this.officeSearchOfficeNameLabel.TabIndex = 96;
+            this.officeSearchOfficeNameLabel.Text = "অফিস বাছাই করুন";
+            this.officeSearchOfficeNameLabel.Click += new System.EventHandler(this.searchOfficeButton_Click);
+            // 
+            // searchOfficePanel
+            // 
+            this.searchOfficePanel.AutoScroll = true;
+            this.searchOfficePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchOfficePanel.Controls.Add(this.searchOfficeListBox);
+            this.searchOfficePanel.Controls.Add(this.panel8);
+            this.searchOfficePanel.Location = new System.Drawing.Point(20, 83);
+            this.searchOfficePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficePanel.Name = "searchOfficePanel";
+            this.searchOfficePanel.Size = new System.Drawing.Size(363, 265);
+            this.searchOfficePanel.TabIndex = 95;
+            this.searchOfficePanel.Visible = false;
+            this.searchOfficePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchOfficePanel_Paint);
+            // 
+            // searchOfficeListBox
+            // 
+            this.searchOfficeListBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchOfficeListBox.FormattingEnabled = true;
+            this.searchOfficeListBox.HorizontalScrollbar = true;
+            this.searchOfficeListBox.ItemHeight = 18;
+            this.searchOfficeListBox.Items.AddRange(new object[] {
+            "মোহাম্মদ আশরাফ উদ্দিন সিনিয়র সহকারী সচিব, সওব্য-১২ শাখা, জনপ্রশাসন মন্ত্রণালয়",
+            "মোহাম্মদ আশরাফুল ইসলাম মোল্লা গোপনীয় সহকারী, শিক্ষা ও আইসিটি, জেলা প্রশাসকের কার্" +
+                "যালয়, নরসিংদী",
+            "জি.এম. ফয়সাল আহমদ সিস্টেম এনালিস্ট, আইসিটি সেল, নৌ-পরিবহন মন্ত্রণালয়"});
+            this.searchOfficeListBox.Location = new System.Drawing.Point(0, 49);
+            this.searchOfficeListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeListBox.Name = "searchOfficeListBox";
+            this.searchOfficeListBox.Size = new System.Drawing.Size(361, 166);
+            this.searchOfficeListBox.TabIndex = 35;
+            this.searchOfficeListBox.SelectedIndexChanged += new System.EventHandler(this.searchOfficeListBox_SelectedIndexChanged);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.panel12);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(361, 49);
+            this.panel8.TabIndex = 34;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.searchOfficeTextBox);
+            this.panel12.Location = new System.Drawing.Point(9, 6);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(342, 37);
+            this.panel12.TabIndex = 34;
+            // 
+            // searchOfficeButton
+            // 
+            this.searchOfficeButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchOfficeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.searchOfficeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.searchOfficeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.searchOfficeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchOfficeButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchOfficeButton.Image = ((System.Drawing.Image)(resources.GetObject("searchOfficeButton.Image")));
+            this.searchOfficeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.searchOfficeButton.Location = new System.Drawing.Point(20, 46);
+            this.searchOfficeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeButton.Name = "searchOfficeButton";
+            this.searchOfficeButton.Size = new System.Drawing.Size(363, 37);
+            this.searchOfficeButton.TabIndex = 94;
+            this.searchOfficeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.searchOfficeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.searchOfficeButton.UseVisualStyleBackColor = false;
+            this.searchOfficeButton.Click += new System.EventHandler(this.searchOfficeButton_Click);
+            // 
+            // designationStateOtherLabel
+            // 
+            this.designationStateOtherLabel.AutoSize = true;
+            this.designationStateOtherLabel.Location = new System.Drawing.Point(17, 104);
+            this.designationStateOtherLabel.Name = "designationStateOtherLabel";
+            this.designationStateOtherLabel.Size = new System.Drawing.Size(243, 18);
+            this.designationStateOtherLabel.TabIndex = 79;
+            this.designationStateOtherLabel.Text = "শাখা ০ টি, পদ ০টি, শুন্যপদ ০টি, কর্মরত ০ জন";
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label10.Location = new System.Drawing.Point(17, 25);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(196, 28);
+            this.label10.TabIndex = 87;
+            this.label10.Text = "অফিস বাছাই করুন";
+            // 
+            // otherOfficeTreeView
+            // 
+            this.otherOfficeTreeView.CheckBoxes = true;
+            this.otherOfficeTreeView.Location = new System.Drawing.Point(16, 134);
+            this.otherOfficeTreeView.Name = "otherOfficeTreeView";
+            this.otherOfficeTreeView.Size = new System.Drawing.Size(490, 301);
+            this.otherOfficeTreeView.TabIndex = 78;
+            this.otherOfficeTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.otherOfficeTreeView_AfterCheck);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "icons8-building-24.png");
+            this.imageList1.Images.SetKeyName(1, "icons8-brandenburg-gate-24.png");
             // 
             // tabControlRight
             // 
@@ -272,14 +458,6 @@
             this.otherOfficeTabPageRight.Text = "অন্য অফিসের পদসমূহ ";
             this.otherOfficeTabPageRight.UseVisualStyleBackColor = true;
             // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label11.Location = new System.Drawing.Point(-7, 617);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(1108, 1);
-            this.label11.TabIndex = 35;
-            // 
             // otherOfficeRightFlowLayoutPanel
             // 
             this.otherOfficeRightFlowLayoutPanel.AutoSize = true;
@@ -335,85 +513,13 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "কর্মকর্তা";
             // 
-            // prapokownOfficeTreeView
+            // label11
             // 
-            this.prapokownOfficeTreeView.CheckBoxes = true;
-            this.prapokownOfficeTreeView.Location = new System.Drawing.Point(17, 123);
-            this.prapokownOfficeTreeView.Name = "prapokownOfficeTreeView";
-            this.prapokownOfficeTreeView.Size = new System.Drawing.Size(490, 301);
-            this.prapokownOfficeTreeView.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.panel4.Controls.Add(this.prapokSearchOwnOfficeTextBox);
-            this.panel4.Location = new System.Drawing.Point(18, 30);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(310, 44);
-            this.panel4.TabIndex = 76;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
-            // 
-            // prapokSearchOwnOfficeTextBox
-            // 
-            this.prapokSearchOwnOfficeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.prapokSearchOwnOfficeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.prapokSearchOwnOfficeTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prapokSearchOwnOfficeTextBox.Location = new System.Drawing.Point(10, 13);
-            this.prapokSearchOwnOfficeTextBox.Name = "prapokSearchOwnOfficeTextBox";
-            this.prapokSearchOwnOfficeTextBox.PlaceholderText = "প্রাপক খুঁজুন";
-            this.prapokSearchOwnOfficeTextBox.Size = new System.Drawing.Size(297, 19);
-            this.prapokSearchOwnOfficeTextBox.TabIndex = 3;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 93);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(243, 18);
-            this.label8.TabIndex = 77;
-            this.label8.Text = "শাখা ০ টি, পদ ০টি, শুন্যপদ ০টি, কর্মরত ০ জন";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 104);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(243, 18);
-            this.label9.TabIndex = 79;
-            this.label9.Text = "শাখা ০ টি, পদ ০টি, শুন্যপদ ০টি, কর্মরত ০ জন";
-            // 
-            // otherOfficeTreeView
-            // 
-            this.otherOfficeTreeView.CheckBoxes = true;
-            this.otherOfficeTreeView.Location = new System.Drawing.Point(16, 134);
-            this.otherOfficeTreeView.Name = "otherOfficeTreeView";
-            this.otherOfficeTreeView.Size = new System.Drawing.Size(490, 301);
-            this.otherOfficeTreeView.TabIndex = 78;
-            // 
-            // sendMediumSearchButton
-            // 
-            this.sendMediumSearchButton.AutoSize = true;
-            this.sendMediumSearchButton.BackColor = System.Drawing.Color.Transparent;
-            this.sendMediumSearchButton.listboxcollection = new string[] {
-        "অফিস বাছাই করুন"};
-            this.sendMediumSearchButton.Location = new System.Drawing.Point(20, 47);
-            this.sendMediumSearchButton.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.sendMediumSearchButton.MinimumSize = new System.Drawing.Size(140, 0);
-            this.sendMediumSearchButton.Name = "sendMediumSearchButton";
-            this.sendMediumSearchButton.searchButtonText = "অফিস বাছাই করুন";
-            this.sendMediumSearchButton.Size = new System.Drawing.Size(362, 44);
-            this.sendMediumSearchButton.TabIndex = 88;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label10.Location = new System.Drawing.Point(17, 25);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(196, 28);
-            this.label10.TabIndex = 87;
-            this.label10.Text = "অফিস বাছাই করুন";
+            this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label11.Location = new System.Drawing.Point(-7, 617);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(1108, 1);
+            this.label11.TabIndex = 35;
             // 
             // saveDesignationSealButton
             // 
@@ -428,7 +534,7 @@
             this.saveDesignationSealButton.IconSize = 32;
             this.saveDesignationSealButton.Location = new System.Drawing.Point(847, 621);
             this.saveDesignationSealButton.Name = "saveDesignationSealButton";
-            this.saveDesignationSealButton.Size = new System.Drawing.Size(118, 48);
+            this.saveDesignationSealButton.Size = new System.Drawing.Size(124, 48);
             this.saveDesignationSealButton.TabIndex = 36;
             this.saveDesignationSealButton.Text = "সংরক্ষণ করুন";
             this.saveDesignationSealButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -453,12 +559,18 @@
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // imageList1
+            // searchOfficeTextBox
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "icons8-building-24.png");
-            this.imageList1.Images.SetKeyName(1, "icons8-brandenburg-gate-24.png");
+            this.searchOfficeTextBox.BackColor = System.Drawing.Color.White;
+            this.searchOfficeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchOfficeTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchOfficeTextBox.Location = new System.Drawing.Point(3, 9);
+            this.searchOfficeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeTextBox.Name = "searchOfficeTextBox";
+            this.searchOfficeTextBox.Size = new System.Drawing.Size(336, 19);
+            this.searchOfficeTextBox.TabIndex = 33;
+            this.searchOfficeTextBox.TextChanged += new System.EventHandler(this.searchOfficeTextBox_TextChanged);
             // 
             // AddDesignationSeal
             // 
@@ -487,8 +599,14 @@
             this.tabControlLeft.ResumeLayout(false);
             this.ownOfficeTabPageLeft.ResumeLayout(false);
             this.ownOfficeTabPageLeft.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.otherOfficeTabPageLeft.ResumeLayout(false);
             this.otherOfficeTabPageLeft.PerformLayout();
+            this.searchOfficePanel.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.tabControlRight.ResumeLayout(false);
             this.ownOfficeTabPageRight.ResumeLayout(false);
             this.ownOfficeTabPageRight.PerformLayout();
@@ -502,8 +620,6 @@
             this.tableLayoutPanel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,13 +652,20 @@
         private System.Windows.Forms.TreeView prapokownOfficeTreeView;
         private System.Windows.Forms.Panel panel4;
         private PlaceholderTextBox.PlaceholderTextBox prapokSearchOwnOfficeTextBox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label designationStateOwnLabel;
+        private System.Windows.Forms.Label designationStateOtherLabel;
         private System.Windows.Forms.TreeView otherOfficeTreeView;
-        private SearchUserController sendMediumSearchButton;
         private System.Windows.Forms.Label label10;
         private FontAwesome.Sharp.IconButton saveDesignationSealButton;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label officerSearchOfficeIdLabel;
+        private System.Windows.Forms.Label officeSearchOfficeNameLabel;
+        private System.Windows.Forms.Panel searchOfficePanel;
+        private System.Windows.Forms.ListBox searchOfficeListBox;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel12;
+        private XTextBox searchOfficeTextBox;
+        private System.Windows.Forms.Button searchOfficeButton;
     }
 }
