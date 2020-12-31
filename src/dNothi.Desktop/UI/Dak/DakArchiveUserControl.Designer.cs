@@ -165,7 +165,7 @@
             this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(12, 22);
+            this.panel1.Size = new System.Drawing.Size(12, 20);
             this.panel1.TabIndex = 62;
             // 
             // padspofjipsod
@@ -466,7 +466,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(54, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(20, 22);
+            this.panel6.Size = new System.Drawing.Size(20, 20);
             this.panel6.TabIndex = 68;
             // 
             // rightNextButton
@@ -497,7 +497,7 @@
             this.senderAndReceiverPanel.MaximumSize = new System.Drawing.Size(1080, 0);
             this.senderAndReceiverPanel.MinimumSize = new System.Drawing.Size(1080, 20);
             this.senderAndReceiverPanel.Name = "senderAndReceiverPanel";
-            this.senderAndReceiverPanel.Size = new System.Drawing.Size(1080, 22);
+            this.senderAndReceiverPanel.Size = new System.Drawing.Size(1080, 20);
             this.senderAndReceiverPanel.TabIndex = 93;
             // 
             // nothiPanel
@@ -510,7 +510,7 @@
             this.nothiPanel.Controls.Add(this.panel5);
             this.nothiPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.nothiPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiPanel.Location = new System.Drawing.Point(0, 81);
+            this.nothiPanel.Location = new System.Drawing.Point(0, 79);
             this.nothiPanel.MinimumSize = new System.Drawing.Size(0, 20);
             this.nothiPanel.Name = "nothiPanel";
             this.nothiPanel.Padding = new System.Windows.Forms.Padding(2);
@@ -551,7 +551,7 @@
             this.subjectPanel.Controls.Add(this.panel3);
             this.subjectPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.subjectPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectPanel.Location = new System.Drawing.Point(0, 63);
+            this.subjectPanel.Location = new System.Drawing.Point(0, 61);
             this.subjectPanel.Name = "subjectPanel";
             this.subjectPanel.Size = new System.Drawing.Size(1080, 18);
             this.subjectPanel.TabIndex = 94;

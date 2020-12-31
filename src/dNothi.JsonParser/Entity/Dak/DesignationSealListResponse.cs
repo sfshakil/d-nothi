@@ -61,11 +61,11 @@ public class DesignationSealListResponse
 
         public int unit_id { get { return office_unit_id; } }
 
-        public string office_eng { get { return office_eng; } }
+        public string office_eng { get { return office_name_eng; } }
 
        
    
-        public string office_name_bng { get { return officer_bng; } }
+        public string office_name_bng { get { return office_bng; } }
      
         public int office_id { get; set; }
 
@@ -73,7 +73,7 @@ public class DesignationSealListResponse
         public string employee_name_bng { get { return officer_bng; } }
 
  
-        public string officer_eng { get { return officer_eng; } }
+        public string officer_eng { get; set; }
 
 
         [JsonProperty("id")]
@@ -138,14 +138,7 @@ public class DesignationSealListResponse
             }
         }
 
-        public string office_name_eng
-        {
-            get
-            {
-                return office_eng;
-            }
-        }
-
+        public string office_name_eng { get; set; }
 
 
 
@@ -202,9 +195,25 @@ public class DesignationSealListResponse
         public string unitWithCode { get { return unit_label + " শাখা কোডঃ " + string.Concat(office_unit_code.ToString().Select(c => (char)('\u09E6' + c - '0'))); } }
         public string NameWithDesignation { get { return employee_name_bng + " " + designation_bng; } }
         public string NameWithOrganogram { get { return employee_name_bng + ", " + designation_bng + ", " + unit_name_bng + ", " + office_bng; } }
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+       
+
     }
 
-  
+
 
     public class DesignationSealDataDTO
     {

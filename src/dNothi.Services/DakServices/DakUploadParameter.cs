@@ -71,7 +71,7 @@ namespace dNothi.Services.DakServices
         public int mulpotro { get; set; }
         public string file_info { get; set; }
 
-
+       
 
     }
   
@@ -79,7 +79,41 @@ namespace dNothi.Services.DakServices
     public class DakUploadReceiver
     {
         public PrapokDTO mul_prapok { get; set; }
-        public List<PrapokDTO> onulipi { get; set; }
+
+        public Dictionary<string, PrapokDTO> onulipi { get; set; }
+
+        //public string receiverJson{ get; set; }
+        //public string receiverJson{ get; set; }
+
+        //public string CSharpObjtoJsonOnulipi(List<PrapokDTO> prapokDTOs)
+        //{
+        //    string jsonString = "";
+        //    int count=0;
+        //    foreach (PrapokDTO p in prapokDTOs)
+        //    {
+        //        if (count != 0)jsonString += ",";
+
+        //        var jsonStringConverted = new JavaScriptSerializer().Serialize(p);
+
+        //        jsonString += "{\"" + p.designation_id + "\":" + jsonStringConverted+"}";
+        //        count += 1;
+        //    }
+
+        //    jsonString = "\"onulipi\":" + jsonString;
+        //    return jsonString;
+        //}
+        //public string CSharpObjtoJsonmul_prapoki(PrapokDTO prapokDTOs)
+        //{
+        //    string jsonString = "";
+
+        //        var jsonStringConverted = new JavaScriptSerializer().Serialize(p);
+
+        //        jsonString += "{\"mul_prapok\":" + jsonStringConverted+",";
+
+
+
+        //    return jsonString;
+        //}
     }
     
     public class FileInfo

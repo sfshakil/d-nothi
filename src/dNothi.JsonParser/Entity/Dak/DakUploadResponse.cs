@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace dNothi.JsonParser.Entity.Dak
 {
-   public class DakUploadResponse
+   public class DakDraftedResponse
+    {
+        public string status { get; set; }
+        public string message { get; set; }
+
+    }
+    public class DakSendResponse
     {
         public string status { get; set; }
         public string message { get; set; }

@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DateTimePicker sharoksDateTimePicker;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DaptorikDakUploadUserControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dakUploadPanel1 = new System.Windows.Forms.Panel();
             this.dakAttachmentButton = new System.Windows.Forms.Button();
             this.dateLabel = new System.Windows.Forms.Label();
@@ -197,11 +197,11 @@
             // 
             sharoksDateTimePicker.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             sharoksDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            sharoksDateTimePicker.Location = new System.Drawing.Point(331, 228);
+            sharoksDateTimePicker.Location = new System.Drawing.Point(361, 228);
             sharoksDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             sharoksDateTimePicker.MinimumSize = new System.Drawing.Size(4, 44);
             sharoksDateTimePicker.Name = "sharoksDateTimePicker";
-            sharoksDateTimePicker.Size = new System.Drawing.Size(310, 44);
+            sharoksDateTimePicker.Size = new System.Drawing.Size(320, 44);
             sharoksDateTimePicker.TabIndex = 83;
             // 
             // dakUploadPanel1
@@ -215,7 +215,7 @@
             this.dakUploadPanel1.Location = new System.Drawing.Point(0, 0);
             this.dakUploadPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dakUploadPanel1.Name = "dakUploadPanel1";
-            this.dakUploadPanel1.Size = new System.Drawing.Size(1075, 36);
+            this.dakUploadPanel1.Size = new System.Drawing.Size(1111, 36);
             this.dakUploadPanel1.TabIndex = 0;
             // 
             // dakAttachmentButton
@@ -250,7 +250,6 @@
             // 
             // dakUploadPanel2
             // 
-            this.dakUploadPanel2.AutoScroll = true;
             this.dakUploadPanel2.AutoSize = true;
             this.dakUploadPanel2.Controls.Add(this.FilePanel);
             this.dakUploadPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -258,12 +257,11 @@
             this.dakUploadPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dakUploadPanel2.MaximumSize = new System.Drawing.Size(1260, 0);
             this.dakUploadPanel2.Name = "dakUploadPanel2";
-            this.dakUploadPanel2.Size = new System.Drawing.Size(1075, 246);
+            this.dakUploadPanel2.Size = new System.Drawing.Size(1111, 246);
             this.dakUploadPanel2.TabIndex = 1;
             // 
             // FilePanel
             // 
-            this.FilePanel.AutoScroll = true;
             this.FilePanel.AutoSize = true;
             this.FilePanel.Controls.Add(this.dakUploadAttachmentListTableUserControl2);
             this.FilePanel.Controls.Add(this.attachmentListFlowLayoutPanel);
@@ -271,11 +269,11 @@
             this.FilePanel.Controls.Add(this.fileUploadPanel);
             this.FilePanel.Controls.Add(this.panel1);
             this.FilePanel.Controls.Add(this.label5);
-            this.FilePanel.Location = new System.Drawing.Point(16, 8);
+            this.FilePanel.Location = new System.Drawing.Point(15, 8);
             this.FilePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 20);
             this.FilePanel.MinimumSize = new System.Drawing.Size(2, 218);
             this.FilePanel.Name = "FilePanel";
-            this.FilePanel.Size = new System.Drawing.Size(990, 218);
+            this.FilePanel.Size = new System.Drawing.Size(1060, 218);
             this.FilePanel.TabIndex = 0;
             this.FilePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
@@ -289,7 +287,7 @@
             this.dakUploadAttachmentListTableUserControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dakUploadAttachmentListTableUserControl2.MinimumSize = new System.Drawing.Size(950, 38);
             this.dakUploadAttachmentListTableUserControl2.Name = "dakUploadAttachmentListTableUserControl2";
-            this.dakUploadAttachmentListTableUserControl2.Size = new System.Drawing.Size(950, 38);
+            this.dakUploadAttachmentListTableUserControl2.Size = new System.Drawing.Size(1024, 38);
             this.dakUploadAttachmentListTableUserControl2.TabIndex = 1;
             this.dakUploadAttachmentListTableUserControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
@@ -299,9 +297,9 @@
             this.attachmentListFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.attachmentListFlowLayoutPanel.Location = new System.Drawing.Point(17, 174);
             this.attachmentListFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.attachmentListFlowLayoutPanel.MaximumSize = new System.Drawing.Size(970, 0);
+            this.attachmentListFlowLayoutPanel.MaximumSize = new System.Drawing.Size(1024, 0);
             this.attachmentListFlowLayoutPanel.Name = "attachmentListFlowLayoutPanel";
-            this.attachmentListFlowLayoutPanel.Size = new System.Drawing.Size(970, 0);
+            this.attachmentListFlowLayoutPanel.Size = new System.Drawing.Size(1024, 0);
             this.attachmentListFlowLayoutPanel.TabIndex = 73;
             // 
             // label3
@@ -366,7 +364,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(990, 51);
+            this.panel1.Size = new System.Drawing.Size(1060, 51);
             this.panel1.TabIndex = 69;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
@@ -391,7 +389,7 @@
             this.label2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.label2.Size = new System.Drawing.Size(196, 37);
             this.label2.TabIndex = 68;
-            this.label2.Text = "মূল ডাক ও সংযুক্তিসমূহ ";
+            this.label2.Text = "মূল ডাক ও সংযুক্তিসমূহ";
             // 
             // label5
             // 
@@ -407,7 +405,6 @@
             // 
             // dakUploadPanel3
             // 
-            this.dakUploadPanel3.AutoScroll = true;
             this.dakUploadPanel3.AutoSize = true;
             this.dakUploadPanel3.Controls.Add(this.BottomPanel);
             this.dakUploadPanel3.Controls.Add(this.panel3);
@@ -416,7 +413,7 @@
             this.dakUploadPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dakUploadPanel3.MinimumSize = new System.Drawing.Size(1002, 0);
             this.dakUploadPanel3.Name = "dakUploadPanel3";
-            this.dakUploadPanel3.Size = new System.Drawing.Size(1075, 1509);
+            this.dakUploadPanel3.Size = new System.Drawing.Size(1111, 1509);
             this.dakUploadPanel3.TabIndex = 2;
             this.dakUploadPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.dakUploadPanel3_Paint);
             // 
@@ -434,7 +431,7 @@
             this.BottomPanel.Location = new System.Drawing.Point(16, 670);
             this.BottomPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(990, 835);
+            this.BottomPanel.Size = new System.Drawing.Size(1059, 835);
             this.BottomPanel.TabIndex = 36;
             this.BottomPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
@@ -521,7 +518,7 @@
             this.khosraSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.khosraSaveButton.ForeColor = System.Drawing.Color.Transparent;
             this.khosraSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.khosraSaveButton.Location = new System.Drawing.Point(737, 771);
+            this.khosraSaveButton.Location = new System.Drawing.Point(828, 771);
             this.khosraSaveButton.Margin = new System.Windows.Forms.Padding(0);
             this.khosraSaveButton.Name = "khosraSaveButton";
             this.khosraSaveButton.Size = new System.Drawing.Size(128, 50);
@@ -541,32 +538,33 @@
             this.sendButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendButton.ForeColor = System.Drawing.Color.Transparent;
             this.sendButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.sendButton.Location = new System.Drawing.Point(865, 771);
+            this.sendButton.Location = new System.Drawing.Point(956, 771);
             this.sendButton.Margin = new System.Windows.Forms.Padding(0);
             this.sendButton.Name = "sendButton";
             this.sendButton.Size = new System.Drawing.Size(84, 50);
             this.sendButton.TabIndex = 40;
             this.sendButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.sendButton.UseVisualStyleBackColor = false;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // prapokDataGridView
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prapokDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prapokDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.prapokDataGridView.AutoGenerateColumns = false;
             this.prapokDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.prapokDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.prapokDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.prapokDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prapokDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prapokDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.prapokDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prapokDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ActionButton,
@@ -585,35 +583,35 @@
             this.prapokDataGridView.Location = new System.Drawing.Point(15, 184);
             this.prapokDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.prapokDataGridView.Name = "prapokDataGridView";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prapokDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prapokDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.prapokDataGridView.RowHeadersWidth = 5;
             this.prapokDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
-            this.prapokDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(5);
+            this.prapokDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.prapokDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prapokDataGridView.RowTemplate.Height = 40;
             this.prapokDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.prapokDataGridView.Size = new System.Drawing.Size(934, 583);
+            this.prapokDataGridView.Size = new System.Drawing.Size(1020, 583);
             this.prapokDataGridView.TabIndex = 39;
             this.prapokDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokDataGridView_CellContentClick);
             // 
             // ActionButton
             // 
             this.ActionButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            this.ActionButton.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle12.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle12.NullValue")));
+            this.ActionButton.DefaultCellStyle = dataGridViewCellStyle12;
             this.ActionButton.HeaderText = "";
             this.ActionButton.Image = ((System.Drawing.Image)(resources.GetObject("ActionButton.Image")));
             this.ActionButton.MinimumWidth = 40;
@@ -664,8 +662,8 @@
             // designationDataGridViewTextBoxColumn
             // 
             this.designationDataGridViewTextBoxColumn.DataPropertyName = "designation";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
             this.designationDataGridViewTextBoxColumn.HeaderText = "পদ";
             this.designationDataGridViewTextBoxColumn.MinimumWidth = 420;
             this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
@@ -691,10 +689,10 @@
             // mul_prapok
             // 
             this.mul_prapok.DataPropertyName = "mul_prapok";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = false;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.mul_prapok.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.NullValue = false;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.mul_prapok.DefaultCellStyle = dataGridViewCellStyle14;
             this.mul_prapok.HeaderText = "মূল প্রাপক";
             this.mul_prapok.Name = "mul_prapok";
             this.mul_prapok.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -714,9 +712,9 @@
             // label16
             // 
             this.label16.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.label16.Location = new System.Drawing.Point(19, 116);
+            this.label16.Location = new System.Drawing.Point(147, 114);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(930, 1);
+            this.label16.Size = new System.Drawing.Size(903, 1);
             this.label16.TabIndex = 4;
             // 
             // label17
@@ -728,7 +726,7 @@
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label17.Location = new System.Drawing.Point(0, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(990, 42);
+            this.label17.Size = new System.Drawing.Size(1059, 42);
             this.label17.TabIndex = 3;
             this.label17.Text = "   প্রাপক";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -736,15 +734,14 @@
             // 
             // panel3
             // 
-            this.panel3.AutoScroll = true;
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel2);
-            this.panel3.Location = new System.Drawing.Point(3, 1);
+            this.panel3.Location = new System.Drawing.Point(15, 1);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.MinimumSize = new System.Drawing.Size(2, 631);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1005, 665);
+            this.panel3.Size = new System.Drawing.Size(1063, 665);
             this.panel3.TabIndex = 1;
             // 
             // panel6
@@ -754,7 +751,7 @@
             this.panel6.Location = new System.Drawing.Point(12, 149);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(990, 51);
+            this.panel6.Size = new System.Drawing.Size(1048, 51);
             this.panel6.TabIndex = 73;
             // 
             // label6
@@ -789,9 +786,9 @@
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Location = new System.Drawing.Point(12, 5);
+            this.panel2.Location = new System.Drawing.Point(0, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(990, 657);
+            this.panel2.Size = new System.Drawing.Size(1060, 657);
             this.panel2.TabIndex = 69;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
@@ -804,12 +801,12 @@
         "সরাসরি",
         "ফ্যাক্স",
         "ই-মেইল"};
-            this.sendMediumSearchButton.Location = new System.Drawing.Point(650, 228);
+            this.sendMediumSearchButton.Location = new System.Drawing.Point(716, 227);
             this.sendMediumSearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sendMediumSearchButton.MinimumSize = new System.Drawing.Size(120, 0);
             this.sendMediumSearchButton.Name = "sendMediumSearchButton";
             this.sendMediumSearchButton.searchButtonText = "ডাকযোগে";
-            this.sendMediumSearchButton.Size = new System.Drawing.Size(310, 44);
+            this.sendMediumSearchButton.Size = new System.Drawing.Size(324, 44);
             this.sendMediumSearchButton.TabIndex = 86;
             // 
             // seurityLevelSearchButton
@@ -822,7 +819,7 @@
         "অতি গোপনীয়",
         "বিশেষ গোপনীয়",
         "সীমিত"};
-            this.seurityLevelSearchButton.Location = new System.Drawing.Point(805, 307);
+            this.seurityLevelSearchButton.Location = new System.Drawing.Point(881, 306);
             this.seurityLevelSearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.seurityLevelSearchButton.MinimumSize = new System.Drawing.Size(129, 44);
             this.seurityLevelSearchButton.Name = "seurityLevelSearchButton";
@@ -839,7 +836,7 @@
         "সর্বোচ্চ অগ্রাধিকার",
         "অবিলম্বে",
         "জরুরি"};
-            this.prioritySearchButton.Location = new System.Drawing.Point(649, 307);
+            this.prioritySearchButton.Location = new System.Drawing.Point(716, 306);
             this.prioritySearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.prioritySearchButton.MinimumSize = new System.Drawing.Size(120, 30);
             this.prioritySearchButton.Name = "prioritySearchButton";
@@ -852,7 +849,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label15.Location = new System.Drawing.Point(14, 360);
+            this.label15.Location = new System.Drawing.Point(14, 361);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(196, 28);
             this.label15.TabIndex = 79;
@@ -860,12 +857,12 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.panel10.BackColor = System.Drawing.Color.Transparent;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Controls.Add(this.dakDescriptionXTextBox);
             this.panel10.Location = new System.Drawing.Point(14, 391);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(953, 249);
+            this.panel10.Size = new System.Drawing.Size(1026, 249);
             this.panel10.TabIndex = 77;
             this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
@@ -874,7 +871,7 @@
             this.dakDescriptionXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dakDescriptionXTextBox.Location = new System.Drawing.Point(6, 3);
             this.dakDescriptionXTextBox.Name = "dakDescriptionXTextBox";
-            this.dakDescriptionXTextBox.Size = new System.Drawing.Size(935, 241);
+            this.dakDescriptionXTextBox.Size = new System.Drawing.Size(1001, 241);
             this.dakDescriptionXTextBox.TabIndex = 83;
             this.dakDescriptionXTextBox.Text = "";
             // 
@@ -884,7 +881,7 @@
             this.panel9.Controls.Add(this.subjectXTextBox);
             this.panel9.Location = new System.Drawing.Point(12, 306);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(629, 44);
+            this.panel9.Size = new System.Drawing.Size(669, 44);
             this.panel9.TabIndex = 76;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
@@ -905,7 +902,7 @@
             this.panel4.Controls.Add(this.sharokNoTextBox);
             this.panel4.Location = new System.Drawing.Point(12, 228);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(310, 44);
+            this.panel4.Size = new System.Drawing.Size(320, 44);
             this.panel4.TabIndex = 75;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
@@ -925,7 +922,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(805, 278);
+            this.label12.Location = new System.Drawing.Point(880, 278);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(142, 28);
             this.label12.TabIndex = 78;
@@ -936,7 +933,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label13.Location = new System.Drawing.Point(650, 278);
+            this.label13.Location = new System.Drawing.Point(725, 278);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(140, 28);
             this.label13.TabIndex = 77;
@@ -992,7 +989,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(990, 51);
+            this.panel5.Size = new System.Drawing.Size(1060, 51);
             this.panel5.TabIndex = 69;
             // 
             // label9
@@ -1023,7 +1020,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label11.Location = new System.Drawing.Point(647, 199);
+            this.label11.Location = new System.Drawing.Point(725, 197);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(196, 28);
             this.label11.TabIndex = 75;
@@ -1045,7 +1042,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label10.Location = new System.Drawing.Point(328, 199);
+            this.label10.Location = new System.Drawing.Point(368, 199);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(196, 28);
             this.label10.TabIndex = 74;
@@ -1057,10 +1054,10 @@
             this.senderSortSidePanel.Controls.Add(this.prerokBachaiTabControl);
             this.senderSortSidePanel.Controls.Add(this.label18);
             this.senderSortSidePanel.Controls.Add(this.sliderCrossButton);
-            this.senderSortSidePanel.Location = new System.Drawing.Point(564, 0);
+            this.senderSortSidePanel.Location = new System.Drawing.Point(615, 0);
             this.senderSortSidePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.senderSortSidePanel.Name = "senderSortSidePanel";
-            this.senderSortSidePanel.Size = new System.Drawing.Size(508, 455);
+            this.senderSortSidePanel.Size = new System.Drawing.Size(493, 696);
             this.senderSortSidePanel.TabIndex = 69;
             this.senderSortSidePanel.Visible = false;
             // 
@@ -1756,8 +1753,8 @@
             // 
             this.dataGridViewRadioButtonColumn1.DataPropertyName = "mul_potro";
             this.dataGridViewRadioButtonColumn1.DataSource = this.dakAttachmentinGridBindingSource;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewRadioButtonColumn1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewRadioButtonColumn1.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewRadioButtonColumn1.HeaderText = "মূলপত্র";
             this.dataGridViewRadioButtonColumn1.MinimumWidth = 20;
             this.dataGridViewRadioButtonColumn1.Name = "dataGridViewRadioButtonColumn1";
@@ -1777,8 +1774,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "attachment_Name";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewTextBoxColumn1.HeaderText = "মূলপত্র";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 20;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -1815,7 +1812,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.senderSortSidePanel);
@@ -1823,10 +1819,10 @@
             this.Controls.Add(this.dakUploadPanel2);
             this.Controls.Add(this.dakUploadPanel1);
             this.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1050, 1745);
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.MinimumSize = new System.Drawing.Size(1109, 1745);
             this.Name = "DaptorikDakUploadUserControl";
-            this.Size = new System.Drawing.Size(1075, 1884);
+            this.Size = new System.Drawing.Size(1111, 1796);
             this.dakUploadPanel1.ResumeLayout(false);
             this.dakUploadPanel2.ResumeLayout(false);
             this.dakUploadPanel2.PerformLayout();

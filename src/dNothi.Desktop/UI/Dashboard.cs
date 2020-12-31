@@ -60,7 +60,7 @@ namespace dNothi.Desktop.UI
             _dakkhosraservice = dakKhosraService;
             _dakuploadservice = dakUploadService;
             InitializeComponent();
-            designationSelect2.Hide();
+            designationDetailPanel.Hide();
             dashboardSlideFlowLayoutPanel.BringToFront();
 
         }
@@ -397,23 +397,6 @@ namespace dNothi.Desktop.UI
        
         
 
-        private void button15_Click(object sender, EventArgs e)
-        {
-
-            if (designationSelect2.Width == 428)
-            {
-                designationSelect2.Show();
-                designationSelect2.Width = 427;
-                button15.BackColor = Color.WhiteSmoke;
-                designationSelect2.BringToFront();
-            }
-            else
-            {
-                designationSelect2.Hide();
-                designationSelect2.Width = 428;
-            }
-        }
-
         private void button13_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Nothi>();
@@ -653,18 +636,22 @@ namespace dNothi.Desktop.UI
 
         private void ResetAllMenuButtonSelection()
         {
-           // var buttons = dakMenuPanel.Controls.OfType<Button>;
+            IterateControlsReseatSelection(dakMenuPanel.Controls);
 
-            foreach (Control control in dakMenuPanel.Controls)
+
+
+        }
+        void IterateControlsReseatSelection(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
             {
-                if (control.GetType() == typeof(Button))
-                {
-                    control.BackColor=Color.FromArgb(254, 254, 254);
-                    control.ForeColor = Color.Black;
-                }
-            }
-           
 
+                ctrl.BackColor = Color.FromArgb(254, 254, 254);
+                ctrl.ForeColor = Color.Black;
+
+               
+                IterateControlsReseatSelection(ctrl.Controls);
+            }
 
         }
 
@@ -1142,7 +1129,9 @@ namespace dNothi.Desktop.UI
 
         private void daptorikDakUploadButton_Click(object sender, EventArgs e)
         {
-                           
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
             dakSortMetroPanel.Visible = false;
             dakListFlowLayoutPanel.Controls.Clear();
 
@@ -1159,9 +1148,20 @@ namespace dNothi.Desktop.UI
             dakUploadUserControl.dakListUserParam = dakListUserParam;
             dakUploadUserControl.KhosraSaveButtonClick += delegate (object khosraSaveSender, EventArgs khosraSaveEvent) { khosraSaveUserControl_ButtonClick(sender, e, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
             dakUploadUserControl.AddDesignationButtonClick += delegate (object addDesignationSender, EventArgs addDesignationEvent) { AddDesignationUserControl_ButtonClick(sender, e); };
+            dakUploadUserControl.DakSendButton += delegate (object addDesignationSender, EventArgs addDesignationEvent) { DakSend_ButtonClick(sender, e, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
 
 
             dakListFlowLayoutPanel.Controls.Add(dakUploadUserControl);
+        }
+
+        private void DakSend_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakUserParam dakListUserParam)
+        {
+
+            DakSendResponse dakSendResponse = _dakuploadservice.GetDakSendResponse(dakListUserParam, dakUploadParameter);
+            if (dakSendResponse.status == "error")
+            {
+                MessageBox.Show(dakSendResponse.message);
+            }
         }
 
         private void AddDesignationUserControl_ButtonClick(object sender, EventArgs e)
@@ -1172,7 +1172,7 @@ namespace dNothi.Desktop.UI
 
         private void khosraSaveUserControl_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakUserParam dakListUserParam)
         {
-            DakUploadResponse dakUploadResponse = _dakuploadservice.GetDakUploadResponse(dakListUserParam, dakUploadParameter);
+            DakDraftedResponse dakUploadResponse = _dakuploadservice.GetDakDraftedResponse(dakListUserParam, dakUploadParameter);
             if (dakUploadResponse.status == "error")
             {
                 MessageBox.Show(dakUploadResponse.message);
@@ -1183,6 +1183,9 @@ namespace dNothi.Desktop.UI
 
         private void nagorikDakUploadMenuButton_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
             dakSortMetroPanel.Visible = false;
             dakListFlowLayoutPanel.Controls.Clear();
 
@@ -1203,6 +1206,8 @@ namespace dNothi.Desktop.UI
 
         private void KhasraDakButton_Click(object sender, EventArgs e)
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             LoadDakKhasraList();
         }
 
@@ -1274,25 +1279,6 @@ namespace dNothi.Desktop.UI
 
         private void dakSortingButton_Click(object sender, EventArgs e)
         {
-
-
-            DropDownButtonUserControl dropDownButtonUserControl = new DropDownButtonUserControl();
-            dropDownButtonUserControl.ButtonText = "-শারমিন ফেরদৌসি(প্রজেক্ট এসিস্টেন্ট)";
-            DropDownButtonUserControl dropDownButtonUserControl2 = new DropDownButtonUserControl();
-            dropDownButtonUserControl2.ButtonText = "-ইমরুল হোসেন(ন্যাশনাল কনসালটেন্ট এমআইএস/আইসিটি)";
-            
-            dakSortingUserFlowLayoutPanel.Controls.Clear();
-            dakSortingUserFlowLayoutPanel.Controls.Add(dropDownButtonUserControl);
-            dakSortingUserFlowLayoutPanel.Controls.Add(dropDownButtonUserControl2);
-
-            if (dakSortingUserFlowLayoutPanel.Visible == true)
-            {
-                dakSortingUserFlowLayoutPanel.Visible = false;
-            }
-            else
-            {
-                dakSortingUserFlowLayoutPanel.Visible = true;
-            }
 
         }
 
@@ -1397,6 +1383,56 @@ namespace dNothi.Desktop.UI
 
         private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profileShowArrowButton_Click(object sender, EventArgs e)
+        {
+          if (designationDetailPanel.Visible)
+            {
+                designationDetailPanel.Visible = false;
+            }
+            else
+            {
+                designationDetailPanel.Visible = true;
+            }
+        }
+
+        private void profileShowArrowButton_Enter(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.FromArgb(245, 245, 249);
+        }
+
+        private void profileShowArrowButton_MouseLeave(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.Transparent;
+        }
+
+        private void profileShowArrowButton_MouseEnter(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.FromArgb(245, 245, 249);
+        }
+
+        private void personalFolderButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+        }
+
+        private void dakSortedUserButton_Click(object sender, EventArgs e)
+        {
+            dakSortingUserFlowLayoutPanel.Controls.Clear();
+            //Button button = new Button();
+            //button.BackColor = Color.Transparent;
+            //button.Text = "শারমিন ফেরদৌসি(প্রজেক্ট এ্যাসিসটেন্ট";
+            
+            //dakSortingUserFlowLayoutPanel.Controls.Add(button);
+
 
         }
     }

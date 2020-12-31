@@ -149,7 +149,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 285F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 520F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 420F));
             this.tableLayoutPanel2.Controls.Add(this.dakUploadAttachmentNameLabel, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.dakAttachmentTableRadioButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.attachmentLink, 1, 0);
@@ -159,7 +159,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(950, 65);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1024, 65);
             this.tableLayoutPanel2.TabIndex = 12;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -180,10 +180,10 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(950, 0);
-            this.MinimumSize = new System.Drawing.Size(950, 65);
+            this.MaximumSize = new System.Drawing.Size(1024, 0);
+            this.MinimumSize = new System.Drawing.Size(1024, 65);
             this.Name = "DakUploadAttachmentTableRow";
-            this.Size = new System.Drawing.Size(950, 65);
+            this.Size = new System.Drawing.Size(1024, 65);
             ((System.ComponentModel.ISupportInitialize)(this.attachmentLink)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

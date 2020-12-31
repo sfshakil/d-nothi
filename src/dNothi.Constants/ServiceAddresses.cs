@@ -12,7 +12,8 @@ namespace dNothi.Constants
         public const string OCREndpoint = "http://bokshi-img2txt.tappware.com/apiImageToText/";
         public const string OfficeListEndpoint = "/api/dak/office/relational-map";
         public const string AllDesignationSealEndPoint = "/api/office/organograms";
-        public const string DakUploadEndpoint = "/api/dak/upload";
+        public const string DakSendEndpoint = "/api/dak/upload/send";
+        public const string DakDraftEndpoint = "/api/dak/upload";
         public const string DakFileDeleteEndPoint = "/api/content/daak/delete";
         public const string NewAPIversion = "2";
         public const string DefaultAPIversion = "1";

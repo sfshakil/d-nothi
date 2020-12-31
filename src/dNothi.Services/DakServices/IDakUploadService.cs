@@ -16,6 +16,7 @@ namespace dNothi.Services.DakServices
         OCRResponse GetOCRResponsse(DakUserParam dakListUserParam, OCRParameter oCRParameter);
         DakFileDeleteResponse GetFileDeleteResponsse(DakUserParam dakListUserParam, DakUploadFileDeleteParam deleteParam);
 
-        DakUploadResponse GetDakUploadResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter);
+        DakDraftedResponse GetDakDraftedResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter);
+        DakSendResponse GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter);
     }
 }

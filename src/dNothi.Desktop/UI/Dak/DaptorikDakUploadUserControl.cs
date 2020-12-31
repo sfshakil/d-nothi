@@ -590,10 +590,22 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler KhosraSaveButtonClick;
         private void khosraSaveButton_Click(object sender, EventArgs e)
         {
-          
 
+
+            SetDakUploadData();
+
+            if (this.KhosraSaveButtonClick != null)
+                this.KhosraSaveButtonClick(sender, e);
+
+
+
+
+        }
+
+        private void SetDakUploadData()
+        {
             //uploader
-            
+
             var config = new MapperConfiguration(cfg =>
                       cfg.CreateMap<DakUserParam, DakForwardRequestSenderInfo>()
                   );
@@ -604,10 +616,10 @@ namespace dNothi.Desktop.UI.Dak
             dakUploadParameter.uploader = dakUploadParameter.CSharpObjtoJson(dakSender);
 
             //Sender
-           var sender_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == _prerokId);
-           if(sender_info == null)
+            var sender_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == _prerokId);
+            if (sender_info == null)
             {
-                sender_info= designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == _prerokId);
+                sender_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == _prerokId);
             }
 
             dakUploadParameter.sender_info = dakUploadParameter.CSharpObjtoJson(sender_info);
@@ -624,7 +636,7 @@ namespace dNothi.Desktop.UI.Dak
             foreach (var attachment in attachmentList)
             {
                 DakUploadAttachment dakUploadAttachment = new DakUploadAttachment();
-                if(attachment.isMulpotro)
+                if (attachment.isMulpotro)
                 {
                     dakUploadAttachment.mulpotro = 1;
                 }
@@ -634,12 +646,12 @@ namespace dNothi.Desktop.UI.Dak
 
             }
 
-            dak.attachment=dakUploadParameter.CSharpObjtoJson(dakUploadAttachments);
+            dak.attachment = dakUploadParameter.CSharpObjtoJson(dakUploadAttachments);
             dak.sarok_no = sharokNoTextBox.Text;
             dak.dak_subject = subjectXTextBox.Text;
             dak.sending_date = DateTime.Now.ToString("dd-MM-yyyy");
             dak.sending_media = sendMediumSearchButton.searchButtonText;
-      
+
             dak.dak_description = dakDescriptionXTextBox.Text;
 
 
@@ -659,8 +671,8 @@ namespace dNothi.Desktop.UI.Dak
 
 
             dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dak);
-           
-            
+
+
             // Receiver
             DakUploadReceiver dakUploadReceiver = new DakUploadReceiver();
 
@@ -694,7 +706,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
             }
 
-            dakUploadReceiver.onulipi = OnulipiprapokDTOs;
+            dakUploadReceiver.onulipi = OnulipiprapokDTOs.ToDictionary(a=>a.designation_id.ToString());
 
 
 
@@ -702,27 +714,30 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
+          
             dakUploadParameter.receiver_info = dakUploadParameter.CSharpObjtoJson(dakUploadReceiver);
             dakUploadParameter.others = "[]";
-           // dakUploadParameter.path = sendMediumSearchButton.searchButtonText;
+            // dakUploadParameter.path = sendMediumSearchButton.searchButtonText;
             dakUploadParameter.content = dakDescriptionXTextBox.Text;
             dakUploadParameter.office_id = _dak_List_User_Param.office_id;
             dakUploadParameter.designation_id = _dak_List_User_Param.designation_id;
-        
-
-            if (this.KhosraSaveButtonClick != null)
-                this.KhosraSaveButtonClick(sender, e);
-
-
-
 
         }
+
         public event EventHandler AddDesignationButtonClick;
         private void addDesignationButton_Click(object sender, EventArgs e)
         {
+           
             if (this.AddDesignationButtonClick != null)
                 this.AddDesignationButtonClick(sender, e);
 
+        }
+        public event EventHandler DakSendButton;
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            SetDakUploadData();
+            if (this.DakSendButton != null)
+                this.DakSendButton(sender, e);
         }
     }
 }
