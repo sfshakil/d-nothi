@@ -421,6 +421,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakOutbox()
         {
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             // Satic Class
@@ -522,6 +523,7 @@ namespace dNothi.Desktop.UI
 
         private async void LoadDakInbox()
         {
+            NormalizeDashBoard();
             DakUserParam dakListUserParam= _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
@@ -726,6 +728,7 @@ namespace dNothi.Desktop.UI
 
         private void notvuktoDakButton_Click(object sender, EventArgs e)
         {
+            
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             DakListLoad();
@@ -735,6 +738,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakNothivukto()
         {
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
@@ -847,6 +851,7 @@ namespace dNothi.Desktop.UI
 
         private void dakArchiveButton_Click(object sender, EventArgs e)
         {
+            
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -856,7 +861,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakArchive()
         {
-         
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
@@ -940,6 +945,7 @@ namespace dNothi.Desktop.UI
 
         private void dakOutboxButton_Click(object sender, EventArgs e)
         {
+            
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             DakListLoad();
@@ -949,11 +955,22 @@ namespace dNothi.Desktop.UI
         private void DakListLoad()
         {
             dakListFlowLayoutPanel.Controls.Clear();
+            NormalizeDashBoard();
+
+         
+            
+        }
+
+        private void NormalizeDashBoard()
+        {
             detailsDakSearcPanel.Visible = false;
+            dakSortMetroPanel.Visible = true;
+            dakSearchHeadingPanel.Visible = true;
         }
 
         private void LoadDakNothijato()
         {
+            NormalizeDashBoard();
 
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
@@ -1021,6 +1038,7 @@ namespace dNothi.Desktop.UI
 
         private void nothijatoButton_Click(object sender, EventArgs e)
         {
+            
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             DakListLoad();
@@ -1029,6 +1047,7 @@ namespace dNothi.Desktop.UI
 
         private void dakSearchButton_Click(object sender, EventArgs e)
         {
+            NormalizeDashBoard();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             DakListLoad();
@@ -1036,6 +1055,7 @@ namespace dNothi.Desktop.UI
 
         private void dakSortButton_Click(object sender, EventArgs e)
         {
+           
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             DakListLoad();
@@ -1046,6 +1066,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakListSorted()
         {
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
@@ -1124,7 +1145,7 @@ namespace dNothi.Desktop.UI
 
 
             EnableController();
-            LoadDakInbox();
+            //LoadDakInbox();
         }
 
         private void daptorikDakUploadButton_Click(object sender, EventArgs e)
@@ -1133,6 +1154,7 @@ namespace dNothi.Desktop.UI
             SelectButton(sender as Button);
 
             dakSortMetroPanel.Visible = false;
+            dakSearchHeadingPanel.Visible = false;
             dakListFlowLayoutPanel.Controls.Clear();
 
             DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
@@ -1158,9 +1180,21 @@ namespace dNothi.Desktop.UI
         {
 
             DakSendResponse dakSendResponse = _dakuploadservice.GetDakSendResponse(dakListUserParam, dakUploadParameter);
-            if (dakSendResponse.status == "error")
+            try
             {
-                MessageBox.Show(dakSendResponse.message);
+                if (dakSendResponse.status == "error")
+                {
+                    MessageBox.Show("ডাকটি প্রেরণ সফল হইনি!");
+                }
+                else if (dakSendResponse.status == "success")
+                {
+                    MessageBox.Show(dakSendResponse.data.message);
+                 
+                }
+            }
+            catch(Exception Ex)
+            {
+                LoadDakOutbox();
             }
         }
 
@@ -1172,21 +1206,34 @@ namespace dNothi.Desktop.UI
 
         private void khosraSaveUserControl_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakUserParam dakListUserParam)
         {
-            DakDraftedResponse dakUploadResponse = _dakuploadservice.GetDakDraftedResponse(dakListUserParam, dakUploadParameter);
-            if (dakUploadResponse.status == "error")
+            DakDraftedResponse dakDraftedResponse = _dakuploadservice.GetDakDraftedResponse(dakListUserParam, dakUploadParameter);
+            
+            try
             {
-                MessageBox.Show(dakUploadResponse.message);
+                if (dakDraftedResponse.status == "error")
+                {
+                    MessageBox.Show("ডাকটি প্রেরণ সফল হইনি!");
+                }
+                else if (dakDraftedResponse.status == "success")
+                {
+                    MessageBox.Show(dakDraftedResponse.message);
+
+                }
             }
-            
-            
+            catch (Exception Ex)
+            {
+                LoadDakKhasraList();
+            }
+
         }
 
         private void nagorikDakUploadMenuButton_Click(object sender, EventArgs e)
         {
+            dakSortMetroPanel.Visible = false;
+            dakSearchHeadingPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
-            dakSortMetroPanel.Visible = false;
             dakListFlowLayoutPanel.Controls.Clear();
 
             NagorikDakUploadUserControl dakUploadUserControl = new NagorikDakUploadUserControl();
@@ -1206,6 +1253,7 @@ namespace dNothi.Desktop.UI
 
         private void KhasraDakButton_Click(object sender, EventArgs e)
         {
+            
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             LoadDakKhasraList();
@@ -1213,6 +1261,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakKhasraList()
         {
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             // Satic Class
@@ -1420,12 +1469,16 @@ namespace dNothi.Desktop.UI
 
         private void personalFolderButton_Click(object sender, EventArgs e)
         {
+            NormalizeDashBoard();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
         }
 
         private void dakSortedUserButton_Click(object sender, EventArgs e)
         {
+            NormalizeDashBoard();
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             dakSortingUserFlowLayoutPanel.Controls.Clear();
             //Button button = new Button();
             //button.BackColor = Color.Transparent;

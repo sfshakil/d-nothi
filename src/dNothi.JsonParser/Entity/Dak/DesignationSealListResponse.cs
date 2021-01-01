@@ -199,17 +199,20 @@ public class DesignationSealListResponse
 
 
 
-
-
-
-
-
-
-
-
+        public string office { get { return office_bng; } }
+        public string officer { get { return officer_bng; } }
       
-      
-       
+
+
+
+
+
+
+
+
+
+
+
 
     }
 

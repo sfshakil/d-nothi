@@ -90,7 +90,12 @@ namespace dNothi.Services.DakServices
                 
                 
         }
-        
+
+        public string office { get { return office_label; } }
+        public string officer { get { return officer_name; } }
+      
+
+
 
     }
 

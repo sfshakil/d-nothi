@@ -611,9 +611,9 @@
             this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(201, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(176, 18);
+            this.label5.Size = new System.Drawing.Size(172, 18);
             this.label5.TabIndex = 3;
-            this.label5.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে ";
+            this.label5.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে";
             // 
             // label3
             // 
@@ -623,7 +623,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(187, 18);
             this.label3.TabIndex = 2;
-            this.label3.Text = "ই-নথি সিস্টেমের নতুন আপডেট:\r\n";
+            this.label3.Text = "ই-নথি সিস্টেমের নতুন আপডেট:";
             // 
             // label4
             // 

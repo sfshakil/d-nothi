@@ -62,7 +62,7 @@
             this.userTypeLabel.Location = new System.Drawing.Point(7, 1);
             this.userTypeLabel.Margin = new System.Windows.Forms.Padding(0);
             this.userTypeLabel.Name = "userTypeLabel";
-            this.userTypeLabel.Size = new System.Drawing.Size(69, 14);
+            this.userTypeLabel.Size = new System.Drawing.Size(56, 14);
             this.userTypeLabel.TabIndex = 0;
             this.userTypeLabel.Text = "প্রেরক           :";
             // 

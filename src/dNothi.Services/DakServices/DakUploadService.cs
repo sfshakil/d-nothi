@@ -1,6 +1,7 @@
 ﻿using dNothi.Constants;
 using dNothi.JsonParser.Entity.Dak;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -146,24 +147,28 @@ namespace dNothi.Services.DakServices
 
         public DakDraftedResponse GetDakDraftedResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
         {
-            var dakUploadAPI = new RestClient(GetAPIDomain() + GetDakDraftEndpoint());
-            dakUploadAPI.Timeout = -1;
-            var dakUploadRequest = new RestRequest(Method.POST);
-            dakUploadRequest.AddHeader("api-version", GetAPIVersion());
-            dakUploadRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-            dakUploadRequest.AddParameter("sender",dakUploadParameter.sender_info);
-            dakUploadRequest.AddParameter("receiver", dakUploadParameter.receiver_info);
-            dakUploadRequest.AddParameter("dak",dakUploadParameter.dak_info);
-            dakUploadRequest.AddParameter("others",dakUploadParameter.others);
-            dakUploadRequest.AddParameter("uploader", dakUploadParameter.uploader);
-            dakUploadRequest.AddParameter("path", dakUploadParameter.path);
-            dakUploadRequest.AddParameter("content", dakUploadParameter.content);
-            dakUploadRequest.AddParameter("office_id", dakUploadParameter.office_id);
-            dakUploadRequest.AddParameter("designation_id", dakUploadParameter.designation_id);
-            IRestResponse dakUploadIRestResponse = dakUploadAPI.Execute(dakUploadRequest);
-            var dakFileUploadResponseJson = dakUploadIRestResponse.Content;
-            DakDraftedResponse dakUploadResponse = JsonConvert.DeserializeObject<DakDraftedResponse>(dakFileUploadResponseJson);
-            return dakUploadResponse;
+            var dakDraftedAPI = new RestClient(GetAPIDomain() + GetDakDraftEndpoint());
+            dakDraftedAPI.Timeout = -1;
+            var dakDraftedRequest = new RestRequest(Method.POST);
+            dakDraftedRequest.AddHeader("api-version", GetAPIVersion());
+            dakDraftedRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+            dakDraftedRequest.AddParameter("sender",dakUploadParameter.sender_info);
+            dakDraftedRequest.AddParameter("receiver", dakUploadParameter.receiver_info);
+            dakDraftedRequest.AddParameter("dak",dakUploadParameter.dak_info);
+            dakDraftedRequest.AddParameter("others",dakUploadParameter.others);
+            dakDraftedRequest.AddParameter("uploader", dakUploadParameter.uploader);
+            dakDraftedRequest.AddParameter("path", dakUploadParameter.path);
+            dakDraftedRequest.AddParameter("content", dakUploadParameter.content);
+            dakDraftedRequest.AddParameter("office_id", dakUploadParameter.office_id);
+            dakDraftedRequest.AddParameter("designation_id", dakUploadParameter.designation_id);
+            IRestResponse dakDraftedIRestResponse = dakDraftedAPI.Execute(dakDraftedRequest);
+            var dakDraftedResponseJson = dakDraftedIRestResponse.Content;
+            var dakDraftedResponse = JsonConvert.DeserializeObject<DakDraftedResponse>(dakDraftedResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+            
+            return dakDraftedResponse;
         }
       
 
@@ -219,8 +224,21 @@ namespace dNothi.Services.DakServices
             dakSendRequest.AddParameter("designation_id", dakUploadParameter.designation_id);
             IRestResponse dakSendIRestResponse = dakSendAPI.Execute(dakSendRequest);
             var dakSendResponseJson = dakSendIRestResponse.Content;
-            DakSendResponse dakSendResponse = JsonConvert.DeserializeObject<DakSendResponse>(dakSendResponseJson);
+
+            var dakSendResponse = JsonConvert.DeserializeObject<DakSendResponse>(dakSendResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+         
             return dakSendResponse;
+        }
+
+        public void HandleDeserializationError(object sender, ErrorEventArgs errorArgs)
+        {
+            var currentError = errorArgs.ErrorContext.Error.Message;
+            errorArgs.ErrorContext.Handled = true;
         }
     }
 }
