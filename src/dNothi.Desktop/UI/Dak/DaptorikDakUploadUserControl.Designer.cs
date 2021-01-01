@@ -43,7 +43,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dakUploadPanel1 = new System.Windows.Forms.Panel();
             this.dakAttachmentButton = new System.Windows.Forms.Button();
-            this.dateLabel = new System.Windows.Forms.Label();
+            this.headlineLabel = new System.Windows.Forms.Label();
             this.dakUploadPanel2 = new System.Windows.Forms.Panel();
             this.FilePanel = new System.Windows.Forms.Panel();
             this.dakUploadAttachmentListTableUserControl2 = new dNothi.Desktop.UI.Dak.DakUploadAttachmentListTableUserControl();
@@ -54,7 +54,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.attachmentHeaderLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dakAttachmentinGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dakUploadPanel3 = new System.Windows.Forms.Panel();
@@ -211,7 +211,7 @@
             this.dakUploadPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.dakUploadPanel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dakUploadPanel1.Controls.Add(this.dakAttachmentButton);
-            this.dakUploadPanel1.Controls.Add(this.dateLabel);
+            this.dakUploadPanel1.Controls.Add(this.headlineLabel);
             this.dakUploadPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dakUploadPanel1.Location = new System.Drawing.Point(0, 0);
             this.dakUploadPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -238,16 +238,16 @@
             this.dakAttachmentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.dakAttachmentButton.UseVisualStyleBackColor = false;
             // 
-            // dateLabel
+            // headlineLabel
             // 
-            this.dateLabel.BackColor = System.Drawing.Color.Transparent;
-            this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dateLabel.Location = new System.Drawing.Point(51, 4);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(196, 28);
-            this.dateLabel.TabIndex = 66;
-            this.dateLabel.Text = "দাপ্তরিক ডাক আপলোড";
+            this.headlineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.headlineLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.headlineLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.headlineLabel.Location = new System.Drawing.Point(51, 4);
+            this.headlineLabel.Name = "headlineLabel";
+            this.headlineLabel.Size = new System.Drawing.Size(196, 28);
+            this.headlineLabel.TabIndex = 66;
+            this.headlineLabel.Text = "দাপ্তরিক ডাক আপলোড";
             // 
             // dakUploadPanel2
             // 
@@ -360,7 +360,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.attachmentHeaderLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -380,17 +380,17 @@
             this.label1.TabIndex = 69;
             this.label1.Text = "*";
             // 
-            // label2
+            // attachmentHeaderLabel
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(2, 8);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.label2.Size = new System.Drawing.Size(196, 37);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "মূল ডাক ও সংযুক্তিসমূহ";
+            this.attachmentHeaderLabel.BackColor = System.Drawing.Color.Transparent;
+            this.attachmentHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentHeaderLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.attachmentHeaderLabel.Location = new System.Drawing.Point(2, 8);
+            this.attachmentHeaderLabel.Name = "attachmentHeaderLabel";
+            this.attachmentHeaderLabel.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.attachmentHeaderLabel.Size = new System.Drawing.Size(196, 37);
+            this.attachmentHeaderLabel.TabIndex = 68;
+            this.attachmentHeaderLabel.Text = "মূল ডাক ও সংযুক্তিসমূহ";
             // 
             // label5
             // 
@@ -1880,10 +1880,10 @@
 
         private System.Windows.Forms.Panel dakUploadPanel1;
         private System.Windows.Forms.Button dakAttachmentButton;
-        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label headlineLabel;
         private System.Windows.Forms.Panel dakUploadPanel2;
         private System.Windows.Forms.Panel FilePanel;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label attachmentHeaderLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel fileUploadPanel;

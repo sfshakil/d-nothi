@@ -53,7 +53,11 @@ namespace dNothi.Desktop.UI.Dak
 
             DakAttachmentListinGrid dakAttachmentListinGrid = new DakAttachmentListinGrid();
             _dakAttachmentinGrids = dakAttachmentListinGrid.dakAttachmentinGrids;
-
+           
+            
+            MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+            headlineLabel.Font = MemoryFonts.GetFont(0, 14);
+            attachmentHeaderLabel.Font = MemoryFonts.GetFont(0, 14);
         }
 
         private void AttachmentTable_RadioButtonClick(object sender, EventArgs e, long attachmentId)

@@ -421,6 +421,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakOutbox()
         {
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             // Satic Class
@@ -517,9 +518,8 @@ namespace dNothi.Desktop.UI
 
         private void OnLoad(object sender, EventArgs e)
         {
-            //MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-            //this.Font = MemoryFonts.GetFont(0,12);
-
+            MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+            dakInboxButton.Font = MemoryFonts.GetFont(0, 14);
             LoadDakInbox();
         }
 
@@ -740,6 +740,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakNothivukto()
         {
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
@@ -862,7 +863,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakArchive()
         {
-         
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
@@ -965,10 +966,13 @@ namespace dNothi.Desktop.UI
         private void NormalizeDashBoard()
         {
             detailsDakSearcPanel.Visible = false;
+            dakSortMetroPanel.Visible = true;
+            dakSearchHeadingPanel.Visible = true;
         }
 
         private void LoadDakNothijato()
         {
+            NormalizeDashBoard();
 
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
@@ -1045,6 +1049,7 @@ namespace dNothi.Desktop.UI
 
         private void dakSearchButton_Click(object sender, EventArgs e)
         {
+            NormalizeDashBoard();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             DakListLoad();
@@ -1063,6 +1068,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakListSorted()
         {
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = 10;
@@ -1141,7 +1147,7 @@ namespace dNothi.Desktop.UI
 
 
             EnableController();
-            LoadDakInbox();
+            //LoadDakInbox();
         }
 
         private void daptorikDakUploadButton_Click(object sender, EventArgs e)
@@ -1150,6 +1156,7 @@ namespace dNothi.Desktop.UI
             SelectButton(sender as Button);
 
             dakSortMetroPanel.Visible = false;
+            dakSearchHeadingPanel.Visible = false;
             dakListFlowLayoutPanel.Controls.Clear();
 
             DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
@@ -1220,15 +1227,15 @@ namespace dNothi.Desktop.UI
                 LoadDakKhasraList();
             }
 
-
         }
 
         private void nagorikDakUploadMenuButton_Click(object sender, EventArgs e)
         {
+            dakSortMetroPanel.Visible = false;
+            dakSearchHeadingPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
-            dakSortMetroPanel.Visible = false;
             dakListFlowLayoutPanel.Controls.Clear();
 
             NagorikDakUploadUserControl dakUploadUserControl = new NagorikDakUploadUserControl();
@@ -1256,6 +1263,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakKhasraList()
         {
+            NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             // Satic Class
@@ -1463,12 +1471,16 @@ namespace dNothi.Desktop.UI
 
         private void personalFolderButton_Click(object sender, EventArgs e)
         {
+            NormalizeDashBoard();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
         }
 
         private void dakSortedUserButton_Click(object sender, EventArgs e)
         {
+            NormalizeDashBoard();
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
             dakSortingUserFlowLayoutPanel.Controls.Clear();
             //Button button = new Button();
             //button.BackColor = Color.Transparent;
