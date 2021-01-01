@@ -517,6 +517,9 @@ namespace dNothi.Desktop.UI
 
         private void OnLoad(object sender, EventArgs e)
         {
+            MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+            this.Font = MemoryFonts.GetFont(0,12);
+
             LoadDakInbox();
         }
 
