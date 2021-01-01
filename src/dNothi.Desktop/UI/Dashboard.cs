@@ -517,8 +517,8 @@ namespace dNothi.Desktop.UI
 
         private void OnLoad(object sender, EventArgs e)
         {
-            MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-            this.Font = MemoryFonts.GetFont(0,12);
+            //MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+            //this.Font = MemoryFonts.GetFont(0,12);
 
             LoadDakInbox();
         }
@@ -1205,10 +1205,22 @@ namespace dNothi.Desktop.UI
 
             try
             {
-                MessageBox.Show(dakUploadResponse.message);
+                if (dakDraftedResponse.status == "error")
+                {
+                    MessageBox.Show("ডাকটি প্রেরণ সফল হইনি!");
+                }
+                else if (dakDraftedResponse.status == "success")
+                {
+                    MessageBox.Show(dakDraftedResponse.message);
+
+                }
             }
-            
-            
+            catch (Exception Ex)
+            {
+                LoadDakKhasraList();
+            }
+
+
         }
 
         private void nagorikDakUploadMenuButton_Click(object sender, EventArgs e)
