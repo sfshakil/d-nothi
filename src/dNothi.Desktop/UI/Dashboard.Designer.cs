@@ -102,7 +102,7 @@
             this.dakAttentionTypeComboBox = new System.Windows.Forms.ComboBox();
             this.detailsSearchResetButton = new System.Windows.Forms.Button();
             this.detailSearchButton = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.dakSearchHeadingPanel = new System.Windows.Forms.Panel();
             this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
             this.searchBoxPanel = new System.Windows.Forms.Panel();
             this.detailPanelDropDownButton = new FontAwesome.Sharp.IconButton();
@@ -178,7 +178,7 @@
             this.detailsSearchOfficeNamePanel.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.dakSearchHeadingPanel.SuspendLayout();
             this.searchBoxPanel.SuspendLayout();
             this.panel6.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -429,7 +429,7 @@
             this.panel12.Controls.Add(this.dakSortMetroPanel);
             this.panel12.Controls.Add(this.label21);
             this.panel12.Controls.Add(this.detailsDakSearcPanel);
-            this.panel12.Controls.Add(this.panel7);
+            this.panel12.Controls.Add(this.dakSearchHeadingPanel);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 92);
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
@@ -1221,17 +1221,17 @@
             this.detailSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.detailSearchButton.UseVisualStyleBackColor = false;
             // 
-            // panel7
+            // dakSearchHeadingPanel
             // 
-            this.panel7.Controls.Add(this.dakSearchUsingTextButton);
-            this.panel7.Controls.Add(this.searchBoxPanel);
-            this.panel7.Controls.Add(this.detailPanelDropDownButton);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1688, 66);
-            this.panel7.TabIndex = 52;
+            this.dakSearchHeadingPanel.Controls.Add(this.dakSearchUsingTextButton);
+            this.dakSearchHeadingPanel.Controls.Add(this.searchBoxPanel);
+            this.dakSearchHeadingPanel.Controls.Add(this.detailPanelDropDownButton);
+            this.dakSearchHeadingPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dakSearchHeadingPanel.Location = new System.Drawing.Point(0, 0);
+            this.dakSearchHeadingPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSearchHeadingPanel.Name = "dakSearchHeadingPanel";
+            this.dakSearchHeadingPanel.Size = new System.Drawing.Size(1125, 43);
+            this.dakSearchHeadingPanel.TabIndex = 52;
             // 
             // dakSearchUsingTextButton
             // 
@@ -1715,11 +1715,10 @@
             this.dakSortedUserButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakSortedUserButton.IconSize = 24;
             this.dakSortedUserButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakSortedUserButton.Location = new System.Drawing.Point(0, 855);
-            this.dakSortedUserButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dakSortedUserButton.Location = new System.Drawing.Point(0, 555);
             this.dakSortedUserButton.Name = "dakSortedUserButton";
-            this.dakSortedUserButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.dakSortedUserButton.Size = new System.Drawing.Size(340, 77);
+            this.dakSortedUserButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakSortedUserButton.Size = new System.Drawing.Size(227, 50);
             this.dakSortedUserButton.TabIndex = 45;
             this.dakSortedUserButton.TabStop = false;
             this.dakSortedUserButton.Text = "   ডাক বাছাইকরণ";
@@ -1742,11 +1741,10 @@
             this.personalFolderButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.personalFolderButton.IconSize = 24;
             this.personalFolderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personalFolderButton.Location = new System.Drawing.Point(0, 778);
-            this.personalFolderButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.personalFolderButton.Location = new System.Drawing.Point(0, 505);
             this.personalFolderButton.Name = "personalFolderButton";
-            this.personalFolderButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.personalFolderButton.Size = new System.Drawing.Size(340, 77);
+            this.personalFolderButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.personalFolderButton.Size = new System.Drawing.Size(227, 50);
             this.personalFolderButton.TabIndex = 46;
             this.personalFolderButton.Text = "   ব্যাক্তিগত ফোল্ডার";
             this.personalFolderButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1768,11 +1766,10 @@
             this.khasraDakButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.khasraDakButton.IconSize = 24;
             this.khasraDakButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.khasraDakButton.Location = new System.Drawing.Point(0, 701);
-            this.khasraDakButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.khasraDakButton.Location = new System.Drawing.Point(0, 455);
             this.khasraDakButton.Name = "khasraDakButton";
-            this.khasraDakButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.khasraDakButton.Size = new System.Drawing.Size(340, 77);
+            this.khasraDakButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.khasraDakButton.Size = new System.Drawing.Size(227, 50);
             this.khasraDakButton.TabIndex = 40;
             this.khasraDakButton.Text = "   খসড়া ডাক";
             this.khasraDakButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1857,11 +1854,10 @@
             this.dakUploadButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakUploadButton.IconSize = 24;
             this.dakUploadButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakUploadButton.Location = new System.Drawing.Point(0, 539);
-            this.dakUploadButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dakUploadButton.Location = new System.Drawing.Point(0, 350);
             this.dakUploadButton.Name = "dakUploadButton";
-            this.dakUploadButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.dakUploadButton.Size = new System.Drawing.Size(340, 77);
+            this.dakUploadButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakUploadButton.Size = new System.Drawing.Size(227, 50);
             this.dakUploadButton.TabIndex = 43;
             this.dakUploadButton.Text = "   ডাক আপলোড";
             this.dakUploadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1883,11 +1879,10 @@
             this.dakArchiveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakArchiveButton.IconSize = 24;
             this.dakArchiveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakArchiveButton.Location = new System.Drawing.Point(0, 462);
-            this.dakArchiveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dakArchiveButton.Location = new System.Drawing.Point(0, 300);
             this.dakArchiveButton.Name = "dakArchiveButton";
-            this.dakArchiveButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.dakArchiveButton.Size = new System.Drawing.Size(340, 77);
+            this.dakArchiveButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakArchiveButton.Size = new System.Drawing.Size(227, 50);
             this.dakArchiveButton.TabIndex = 42;
             this.dakArchiveButton.Text = "   আর্কাইভকৃত ডাক";
             this.dakArchiveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1909,11 +1904,10 @@
             this.dakNothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakNothijatoButton.IconSize = 24;
             this.dakNothijatoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakNothijatoButton.Location = new System.Drawing.Point(0, 385);
-            this.dakNothijatoButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dakNothijatoButton.Location = new System.Drawing.Point(0, 250);
             this.dakNothijatoButton.Name = "dakNothijatoButton";
-            this.dakNothijatoButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.dakNothijatoButton.Size = new System.Drawing.Size(340, 77);
+            this.dakNothijatoButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakNothijatoButton.Size = new System.Drawing.Size(227, 50);
             this.dakNothijatoButton.TabIndex = 41;
             this.dakNothijatoButton.Text = "   নথিজাত ডাক";
             this.dakNothijatoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1935,11 +1929,10 @@
             this.dakNotivuktoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakNotivuktoButton.IconSize = 24;
             this.dakNotivuktoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakNotivuktoButton.Location = new System.Drawing.Point(0, 308);
-            this.dakNotivuktoButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dakNotivuktoButton.Location = new System.Drawing.Point(0, 200);
             this.dakNotivuktoButton.Name = "dakNotivuktoButton";
-            this.dakNotivuktoButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.dakNotivuktoButton.Size = new System.Drawing.Size(340, 77);
+            this.dakNotivuktoButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakNotivuktoButton.Size = new System.Drawing.Size(227, 50);
             this.dakNotivuktoButton.TabIndex = 39;
             this.dakNotivuktoButton.Text = "   নথিতে উপস্থাপিত ডাক";
             this.dakNotivuktoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1961,11 +1954,10 @@
             this.dakOutboxButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakOutboxButton.IconSize = 24;
             this.dakOutboxButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakOutboxButton.Location = new System.Drawing.Point(0, 231);
-            this.dakOutboxButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dakOutboxButton.Location = new System.Drawing.Point(0, 150);
             this.dakOutboxButton.Name = "dakOutboxButton";
-            this.dakOutboxButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.dakOutboxButton.Size = new System.Drawing.Size(340, 77);
+            this.dakOutboxButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakOutboxButton.Size = new System.Drawing.Size(227, 50);
             this.dakOutboxButton.TabIndex = 38;
             this.dakOutboxButton.Text = "   প্রেরিত ডাক";
             this.dakOutboxButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2216,7 +2208,7 @@
             this.panel13.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            this.panel7.ResumeLayout(false);
+            this.dakSearchHeadingPanel.ResumeLayout(false);
             this.searchBoxPanel.ResumeLayout(false);
             this.searchBoxPanel.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -2328,7 +2320,7 @@
         private System.Windows.Forms.Button nagorikDakUploadMenuButton;
         private System.Windows.Forms.Button daptorikDakUploadButton;
         private FontAwesome.Sharp.IconButton detailPanelDropDownButton;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel dakSearchHeadingPanel;
         private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox2;
         private FontAwesome.Sharp.IconButton dakSearchUsingTextButton;
         private System.Windows.Forms.Panel searchBoxPanel;

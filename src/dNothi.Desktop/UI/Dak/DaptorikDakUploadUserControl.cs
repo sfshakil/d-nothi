@@ -640,13 +640,14 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     dakUploadAttachment.mulpotro = 1;
                 }
-                dakUploadAttachment.file_info = dakUploadParameter.CSharpObjtoJson(attachment._dakAttachment);
+                dakUploadAttachment.file_info = attachment._dakAttachment;
+
                 dakUploadAttachments.Add(dakUploadAttachment);
 
 
             }
 
-            dak.attachment = dakUploadParameter.CSharpObjtoJson(dakUploadAttachments);
+            dak.attachment = dakUploadAttachments.ToDictionary(a => a.file_info.id.ToString());
             dak.sarok_no = sharokNoTextBox.Text;
             dak.dak_subject = subjectXTextBox.Text;
             dak.sending_date = DateTime.Now.ToString("dd-MM-yyyy");
@@ -667,7 +668,9 @@ namespace dNothi.Desktop.UI.Dak
             int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
 
             dak.priority = dak_priority_id.ToString();
+            dak.dak_priority = dak_priority_id.ToString();
             dak.security = dak_security_id.ToString();
+            dak.dak_security = dak_security_id.ToString();
 
 
             dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dak);

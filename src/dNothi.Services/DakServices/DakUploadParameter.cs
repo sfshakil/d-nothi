@@ -39,6 +39,7 @@ namespace dNothi.Services.DakServices
     {
         public int id { get; set; }
         public string dak_type { get; set; }
+      
         public string sarok_no { get; set; }
         public string sending_date { get; set; }
         public string sending_media { get; set; }
@@ -46,7 +47,16 @@ namespace dNothi.Services.DakServices
         public string dak_description { get; set; }
         public string priority { get; set; }
         public string security { get; set; }
-        public string attachment { get; set; }
+
+
+
+        //New Change
+        public Dictionary<string, DakUploadAttachment> attachment { get; set; }
+        public string dak_priority { get; set; }
+        public string dak_security { get; set; }
+        
+     
+
        
     
         public DakInfo(bool IsNagorik)
@@ -69,11 +79,13 @@ namespace dNothi.Services.DakServices
     public class DakUploadAttachment
     {
         public int mulpotro { get; set; }
-        public string file_info { get; set; }
+        public DakAttachmentDTO file_info { get; set; }
 
        
 
     }
+  
+     
   
 
     public class DakUploadReceiver
