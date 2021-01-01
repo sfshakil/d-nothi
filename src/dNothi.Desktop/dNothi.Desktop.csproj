@@ -196,6 +196,7 @@
     <Compile Include="DataGridViewRadioButtonElements\MyDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MemoryFonts.cs" />
     <Compile Include="Properties\Resources1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -632,6 +633,8 @@
     <Content Include="256x256bb.ico" />
     <Content Include="MetroFramework.txt" />
     <None Include="Resources\delete.png" />
+    <None Include="Resources\SolaimanLipi.ttf" />
+    <None Include="Resources\SolaimanLipi_29-05-06.ttf" />
     <None Include="Resources\মূল-প্রাপক1.png" />
     <None Include="Resources\icons8-eye-15.png" />
     <None Include="Resources\DakForward.png" />

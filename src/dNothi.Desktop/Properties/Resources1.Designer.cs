@@ -431,6 +431,16 @@ namespace dNothi.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SolaimanLipi {
+            get {
+                object obj = ResourceManager.GetObject("SolaimanLipi", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap অতি_গোপনীয় {
