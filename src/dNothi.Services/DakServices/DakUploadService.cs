@@ -240,5 +240,35 @@ namespace dNothi.Services.DakServices
             var currentError = errorArgs.ErrorContext.Error.Message;
             errorArgs.ErrorContext.Handled = true;
         }
+
+        public DakSendResponse GetDraftedDakSendResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
+        {
+            var draftedDakSendAPI = new RestClient(GetAPIDomain() + GetDraftedDakSendEndpoint());
+            draftedDakSendAPI.Timeout = -1;
+            var draftedDakSendRequest = new RestRequest(Method.POST);
+            draftedDakSendRequest.AddHeader("api-version", GetAPIVersion());
+            draftedDakSendRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+            draftedDakSendRequest.AddParameter("office_id", dakUserParam.office_id);
+            draftedDakSendRequest.AddParameter("designation_id", dakUserParam.designation_id);
+            draftedDakSendRequest.AddParameter("is_copied_dak",is_copied_dak);
+            draftedDakSendRequest.AddParameter("dak_id", dak_id);
+            draftedDakSendRequest.AddParameter("dak_type", dak_type);
+            IRestResponse dakSendIRestResponse = draftedDakSendAPI.Execute(draftedDakSendRequest);
+            var dakSendResponseJson = dakSendIRestResponse.Content;
+
+            var dakSendResponse = JsonConvert.DeserializeObject<DakSendResponse>(dakSendResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+            return dakSendResponse;
+        }
+
+        private string GetDraftedDakSendEndpoint()
+        {
+            return DefaultAPIConfiguration.DraftedDakSendEndpoint;
+        }
     }
 }

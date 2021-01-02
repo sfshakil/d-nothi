@@ -66,12 +66,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dakActionPanel = new System.Windows.Forms.Panel();
-            this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
             this.DakSendButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.nothiPanel.SuspendLayout();
             this.subjectPanel.SuspendLayout();
             this.senderAndReceiverPanel.SuspendLayout();
@@ -108,7 +108,7 @@
             this.nothiNoLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiNoLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiNoLabel.ForeColor = System.Drawing.Color.Black;
-            this.nothiNoLabel.Location = new System.Drawing.Point(129, 0);
+            this.nothiNoLabel.Location = new System.Drawing.Point(119, 0);
             this.nothiNoLabel.Name = "nothiNoLabel";
             this.nothiNoLabel.Size = new System.Drawing.Size(0, 18);
             this.nothiNoLabel.TabIndex = 67;
@@ -120,7 +120,7 @@
             this.nothiPlainTextLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiPlainTextLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiPlainTextLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nothiPlainTextLabel.Location = new System.Drawing.Point(96, 0);
+            this.nothiPlainTextLabel.Location = new System.Drawing.Point(86, 0);
             this.nothiPlainTextLabel.Name = "nothiPlainTextLabel";
             this.nothiPlainTextLabel.Size = new System.Drawing.Size(33, 18);
             this.nothiPlainTextLabel.TabIndex = 66;
@@ -134,7 +134,7 @@
             this.decisionLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.decisionLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decisionLabel.ForeColor = System.Drawing.Color.Goldenrod;
-            this.decisionLabel.Location = new System.Drawing.Point(96, 0);
+            this.decisionLabel.Location = new System.Drawing.Point(86, 0);
             this.decisionLabel.Name = "decisionLabel";
             this.decisionLabel.Size = new System.Drawing.Size(0, 18);
             this.decisionLabel.TabIndex = 63;
@@ -146,7 +146,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
             this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label3.Location = new System.Drawing.Point(46, 0);
+            this.label3.Location = new System.Drawing.Point(36, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 18);
             this.label3.TabIndex = 55;
@@ -158,7 +158,7 @@
             this.panel5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(46, 20);
+            this.panel5.Size = new System.Drawing.Size(36, 20);
             this.panel5.TabIndex = 64;
             // 
             // dateLabel
@@ -203,7 +203,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label4.Location = new System.Drawing.Point(46, 0);
+            this.label4.Location = new System.Drawing.Point(36, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 18);
             this.label4.TabIndex = 56;
@@ -215,7 +215,7 @@
             this.panel3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(46, 18);
+            this.panel3.Size = new System.Drawing.Size(36, 18);
             this.panel3.TabIndex = 63;
             // 
             // senderAndReceiverPanel
@@ -242,7 +242,7 @@
             this.mainReceiverLabel.BackColor = System.Drawing.Color.Transparent;
             this.mainReceiverLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainReceiverLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainReceiverLabel.Location = new System.Drawing.Point(172, 0);
+            this.mainReceiverLabel.Location = new System.Drawing.Point(162, 0);
             this.mainReceiverLabel.Name = "mainReceiverLabel";
             this.mainReceiverLabel.Size = new System.Drawing.Size(0, 18);
             this.mainReceiverLabel.TabIndex = 61;
@@ -254,7 +254,7 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(108, 0);
+            this.label6.Location = new System.Drawing.Point(98, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 18);
             this.label6.TabIndex = 60;
@@ -264,7 +264,7 @@
             // 
             this.panel6.Controls.Add(this.rightNextButton);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(88, 0);
+            this.panel6.Location = new System.Drawing.Point(78, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(20, 20);
             this.panel6.TabIndex = 68;
@@ -288,7 +288,7 @@
             this.senderLabel.BackColor = System.Drawing.Color.Transparent;
             this.senderLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.senderLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.senderLabel.Location = new System.Drawing.Point(88, 0);
+            this.senderLabel.Location = new System.Drawing.Point(78, 0);
             this.senderLabel.Name = "senderLabel";
             this.senderLabel.Size = new System.Drawing.Size(0, 18);
             this.senderLabel.TabIndex = 59;
@@ -300,7 +300,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
             this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label5.Location = new System.Drawing.Point(46, 0);
+            this.label5.Location = new System.Drawing.Point(36, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 18);
             this.label5.TabIndex = 57;
@@ -312,7 +312,7 @@
             this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(46, 20);
+            this.panel1.Size = new System.Drawing.Size(36, 20);
             this.panel1.TabIndex = 62;
             // 
             // sourcePanel
@@ -332,7 +332,7 @@
             this.padspofjipsod.Controls.Add(this.sourceLabel);
             this.padspofjipsod.Dock = System.Windows.Forms.DockStyle.Left;
             this.padspofjipsod.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.padspofjipsod.Location = new System.Drawing.Point(46, 0);
+            this.padspofjipsod.Location = new System.Drawing.Point(36, 0);
             this.padspofjipsod.Name = "padspofjipsod";
             this.padspofjipsod.Size = new System.Drawing.Size(419, 41);
             this.padspofjipsod.TabIndex = 70;
@@ -366,7 +366,7 @@
             this.checkBoxPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxPanel.Location = new System.Drawing.Point(0, 0);
             this.checkBoxPanel.Name = "checkBoxPanel";
-            this.checkBoxPanel.Size = new System.Drawing.Size(46, 41);
+            this.checkBoxPanel.Size = new System.Drawing.Size(36, 41);
             this.checkBoxPanel.TabIndex = 0;
             // 
             // dakCheckBox
@@ -374,7 +374,7 @@
             this.dakCheckBox.AutoSize = true;
             this.dakCheckBox.BackColor = System.Drawing.Color.Transparent;
             this.dakCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakCheckBox.Location = new System.Drawing.Point(9, 22);
+            this.dakCheckBox.Location = new System.Drawing.Point(9, 23);
             this.dakCheckBox.Name = "dakCheckBox";
             this.dakCheckBox.Size = new System.Drawing.Size(15, 14);
             this.dakCheckBox.TabIndex = 66;
@@ -550,25 +550,6 @@
             this.dakActionPanel.TabIndex = 62;
             this.dakActionPanel.Visible = false;
             // 
-            // dakAttachmentButton
-            // 
-            this.dakAttachmentButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
-            this.dakAttachmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakAttachmentButton.IconChar = FontAwesome.Sharp.IconChar.Link;
-            this.dakAttachmentButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(132)))));
-            this.dakAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakAttachmentButton.IconSize = 24;
-            this.dakAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakAttachmentButton.Location = new System.Drawing.Point(885, 61);
-            this.dakAttachmentButton.Name = "dakAttachmentButton";
-            this.dakAttachmentButton.Size = new System.Drawing.Size(45, 29);
-            this.dakAttachmentButton.TabIndex = 64;
-            this.dakAttachmentButton.TabStop = false;
-            this.dakAttachmentButton.Text = "1";
-            this.dakAttachmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.dakAttachmentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.dakAttachmentButton.UseVisualStyleBackColor = true;
-            // 
             // dakMovementStatusButton
             // 
             this.dakMovementStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
@@ -606,23 +587,23 @@
             this.DakSendButton.TabIndex = 81;
             this.DakSendButton.UseVisualStyleBackColor = false;
             // 
-            // iconButton1
+            // iconButton3
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton1.FlatAppearance.BorderSize = 2;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Book;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 28;
-            this.iconButton1.Location = new System.Drawing.Point(128, 0);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(32, 36);
-            this.iconButton1.TabIndex = 82;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.iconButton3.FlatAppearance.BorderSize = 2;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Tags;
+            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 28;
+            this.iconButton3.Location = new System.Drawing.Point(64, 0);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(32, 36);
+            this.iconButton3.TabIndex = 84;
+            this.iconButton3.UseVisualStyleBackColor = false;
             // 
             // iconButton2
             // 
@@ -642,23 +623,42 @@
             this.iconButton2.TabIndex = 83;
             this.iconButton2.UseVisualStyleBackColor = false;
             // 
-            // iconButton3
+            // iconButton1
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton3.FlatAppearance.BorderSize = 2;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Tags;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 28;
-            this.iconButton3.Location = new System.Drawing.Point(64, 0);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(32, 36);
-            this.iconButton3.TabIndex = 84;
-            this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.iconButton1.FlatAppearance.BorderSize = 2;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 28;
+            this.iconButton1.Location = new System.Drawing.Point(128, 0);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(32, 36);
+            this.iconButton1.TabIndex = 82;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // dakAttachmentButton
+            // 
+            this.dakAttachmentButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.dakAttachmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakAttachmentButton.IconChar = FontAwesome.Sharp.IconChar.Link;
+            this.dakAttachmentButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(132)))));
+            this.dakAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakAttachmentButton.IconSize = 24;
+            this.dakAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dakAttachmentButton.Location = new System.Drawing.Point(885, 61);
+            this.dakAttachmentButton.Name = "dakAttachmentButton";
+            this.dakAttachmentButton.Size = new System.Drawing.Size(45, 29);
+            this.dakAttachmentButton.TabIndex = 64;
+            this.dakAttachmentButton.TabStop = false;
+            this.dakAttachmentButton.Text = "1";
+            this.dakAttachmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.dakAttachmentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.dakAttachmentButton.UseVisualStyleBackColor = true;
             // 
             // DakInboxUserControl
             // 

@@ -69,6 +69,7 @@
     <Compile Include="DakSecurityList.cs" />
     <Compile Include="CheckNagorikDakType.cs" />
     <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="DefaultFontStyle.cs" />
     <Compile Include="EmailSender.cs" />
     <Compile Include="IDelayedProvider.cs" />
     <Compile Include="IEmailSender.cs" />

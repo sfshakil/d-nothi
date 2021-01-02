@@ -23,6 +23,8 @@ namespace dNothi.Desktop.UI
     {
 
         IUserService _userService { get; set; }
+
+        private DakUserParam _dakuserparam = new DakUserParam();
         IDakKhosraService _dakkhosraservice { get; set; }
         IDakListService _dakListService { get; set; }
         IDakOutboxService _dakOutboxService { get; set; }
@@ -64,7 +66,27 @@ namespace dNothi.Desktop.UI
             dashboardSlideFlowLayoutPanel.BringToFront();
 
         }
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
 
+
+
+                if (ctrl.Font.Style != FontStyle.Regular)
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
+
+        }
         public OCRResponse OCRFile(OCRParameter oCRParameter)
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -518,10 +540,12 @@ namespace dNothi.Desktop.UI
 
         private void OnLoad(object sender, EventArgs e)
         {
-            MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-            dakInboxButton.Font = MemoryFonts.GetFont(0, 14);
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            SetDefaultFont(this.Controls);
             LoadDakInbox();
         }
+     
+       
 
         private async void LoadDakInbox()
         {
@@ -556,14 +580,7 @@ namespace dNothi.Desktop.UI
 
             }
 
-            //var dakInboxList = _dakInbox.GetLocalDakInbox(dakListUserParam);
-
-            //if (dakInboxList.data.records.Count > 0)
-            //{
-
-            //    LoadDakInboxinPanel(dakInboxList.data.records);
-
-            //}
+            
         }
 
         private void LoadDakInboxinPanel(List<DakListRecordsDTO> dakLists)
@@ -1191,6 +1208,7 @@ namespace dNothi.Desktop.UI
                 else if (dakSendResponse.status == "success")
                 {
                     MessageBox.Show(dakSendResponse.data.message);
+                    LoadDakOutbox();
 
                 }
             }
@@ -1219,6 +1237,7 @@ namespace dNothi.Desktop.UI
                 else if (dakDraftedResponse.status == "success")
                 {
                     MessageBox.Show(dakDraftedResponse.message);
+                    LoadDakKhasraList();
 
                 }
             }
@@ -1310,7 +1329,7 @@ namespace dNothi.Desktop.UI
                 draftedDakUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
                 draftedDakUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
                 draftedDakUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
-                //  draftedDakUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
 
 
                 i = i + 1;
@@ -1325,6 +1344,29 @@ namespace dNothi.Desktop.UI
             for (int j = 0; j <= draftedDakUserControls.Count - 1; j++)
             {
                 dakListFlowLayoutPanel.Controls.Add(draftedDakUserControls[j]);
+            }
+        }
+
+        private void DraftedDakSend_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak)
+        {
+            
+            DakSendResponse dakSendResponse = _dakuploadservice.GetDraftedDakSendResponse(_dakuserparam,dak_id,dak_type,is_copied_dak);
+            try
+            {
+                if (dakSendResponse.status == "error")
+                {
+                    MessageBox.Show("ডাকটি প্রেরণ সফল হইনি!");
+                }
+                else if (dakSendResponse.status == "success")
+                {
+                    MessageBox.Show(dakSendResponse.data.message);
+                    LoadDakKhasraList();
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                LoadDakKhasraList();
             }
         }
 
@@ -1482,11 +1524,7 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             dakSortingUserFlowLayoutPanel.Controls.Clear();
-            //Button button = new Button();
-            //button.BackColor = Color.Transparent;
-            //button.Text = "শারমিন ফেরদৌসি(প্রজেক্ট এ্যাসিসটেন্ট";
-
-            //dakSortingUserFlowLayoutPanel.Controls.Add(button);
+            
 
 
         }
