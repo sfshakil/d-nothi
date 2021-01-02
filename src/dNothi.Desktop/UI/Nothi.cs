@@ -241,7 +241,6 @@ namespace dNothi.Desktop.UI
         {
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
-            ShowSubMenu(gardFileDropDownPanel);
         }
         private void ShowSubMenu(Panel gardFileDropDownPanel)
         {
@@ -251,13 +250,8 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                HideSubmenu();
                 gardFileDropDownPanel.Visible = true;
             }
-        }
-        private void HideSubmenu()
-        {
-            gardFileDropDownPanel.Visible = false;
         }
         public dynamic newNothi = UserControlFactory.Create<NewNothi>();
         private void btnNewNothi_Click(object sender, EventArgs e)
@@ -282,31 +276,206 @@ namespace dNothi.Desktop.UI
         }
         private void ResetAllMenuButtonSelection()
         {
-            btnNothiInbox.BackColor = Color.WhiteSmoke;
+            btnNothiInbox.BackColor = Color.White;
             btnNothiInbox.ForeColor = Color.Black;
 
-            btnNothiOutbox.BackColor = Color.WhiteSmoke;
+            btnNothiOutbox.BackColor = Color.White;
             btnNothiOutbox.ForeColor = Color.Black;
 
-            btnNothiAll.BackColor = Color.WhiteSmoke;
+            btnNothiAll.BackColor = Color.White;
             btnNothiAll.ForeColor = Color.Black;
 
-            btnGardFile.BackColor = Color.WhiteSmoke;
-            btnGardFile.ForeColor = Color.Black;
 
-
-            btnNewNothi.BackColor = Color.WhiteSmoke;
+            btnNewNothi.BackColor = Color.White;
             btnNewNothi.ForeColor = Color.Black;
-
-            btnPotrojari.BackColor = Color.WhiteSmoke;
-            btnPotrojari.ForeColor = Color.Black;
-
 
         }
         private void SelectButton(Button button)
         {
-            button.BackColor = Color.Silver;
-            button.ForeColor = Color.Blue;
+            button.BackColor = Color.FromArgb(243, 246, 249);
+            button.ForeColor = Color.FromArgb(78, 165, 254);
+        }
+
+        private void nothiModulePanel_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+
+        private void dakModulePanel_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void dakModulePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void detailPanelDropDownButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void detailPanelDropDownButton_MouseHover(object sender, EventArgs e)
+        {
+            ClickedDetaiPanleDropDownButtonStyle();
+        }
+        private void ClickedDetaiPanleDropDownButtonStyle()
+        {
+            detailPanelDropDownButton.IconColor = Color.White;
+            detailPanelDropDownButton.BackColor = Color.FromArgb(136, 80, 250);
+        }
+        private void detailPanelDropDownButton_MouseLeave(object sender, EventArgs e)
+        {
+            NormalDetaiPanleDropDownButtonStyle();
+        }
+        private void NormalDetaiPanleDropDownButtonStyle()
+        {
+            if (detailsNothiSearcPanel.Visible)
+            {
+                ClickedDetaiPanleDropDownButtonStyle();
+
+            }
+            else
+            {
+
+                detailPanelDropDownButton.IconColor = Color.FromArgb(136, 80, 250);
+                detailPanelDropDownButton.BackColor = Color.FromArgb(236, 227, 253);
+            }
+
+        }
+        private void detailPanelDropDownButton_Click_1(object sender, EventArgs e)
+        {
+            if (detailsNothiSearcPanel.Visible == true)
+            {
+                detailsNothiSearcPanel.Visible = false;
+            }
+            else
+            {
+                detailsNothiSearcPanel.Visible = true;
+            }
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+
+        private void nothiModuleNameLabel_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+
+        private void dakModulePanel_MouseHover(object sender, EventArgs e)
+        {
+            dakModulePanel.BackColor = Color.FromArgb(245, 245, 249);
+            dakModuleNameLabel.ForeColor = Color.Blue;
+        }
+
+        private void dakModulePanel_MouseLeave(object sender, EventArgs e)
+        {
+            dakModulePanel.BackColor = Color.Transparent;
+            dakModuleNameLabel.ForeColor = Color.Black;
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void dakModuleNameLabel_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void moduleDakCountLabel_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void iconButton1_MouseHover(object sender, EventArgs e)
+        {
+            dakModulePanel.BackColor = Color.FromArgb(245, 245, 249);
+            dakModuleNameLabel.ForeColor = Color.Blue;
+            
+        }
+
+        private void iconButton1_MouseLeave(object sender, EventArgs e)
+        {
+            dakModulePanel.BackColor = Color.Transparent;
+            dakModuleNameLabel.ForeColor = Color.Black;
+        }
+        private void dakModuleNameLabel_MouseHover(object sender, EventArgs e)
+        {
+            dakModulePanel.BackColor = Color.FromArgb(245, 245, 249);
+            dakModuleNameLabel.ForeColor = Color.Blue;
+        }
+
+        private void dakModuleNameLabel_MouseLeave(object sender, EventArgs e)
+        {
+            dakModulePanel.BackColor = Color.Transparent;
+            dakModuleNameLabel.ForeColor = Color.Black;
+        }
+
+        private void moduleDakCountLabel_MouseHover(object sender, EventArgs e)
+        {
+            dakModulePanel.BackColor = Color.FromArgb(245, 245, 249);
+            dakModuleNameLabel.ForeColor = Color.Blue;
+        }
+
+        private void moduleDakCountLabel_MouseLeave(object sender, EventArgs e)
+        {
+            dakModulePanel.BackColor = Color.Transparent;
+            dakModuleNameLabel.ForeColor = Color.Black;
+        }
+
+        private void nothiDhoronSrchUC_Click(object sender, EventArgs e)
+        {
+            if (nothiDhoronSrchUC.Visible == false)
+            {
+                nothiDhoronSrchUC.Visible = true;
+                nothiDhoronSrchUC.BringToFront();
+                nameorDesignationSearchXTextBox.Focus();
+                ogradhikarSrchUC.Visible = false;
+                nothiShakhaSrchUC.Visible = false;
+                nameDesignationSrchUC.Visible = false;
+            }
+            else
+            {
+                nothiDhoronSrchUC.Visible = false;
+
+
+            }
+        }
+
+        private void detailSearchStopButton_Click(object sender, EventArgs e)
+        {
+            if (detailsNothiSearcPanel.Visible == true)
+            {
+                detailsNothiSearcPanel.Visible = false;
+            }
+            else
+            {
+                detailsNothiSearcPanel.Visible = true;
+            }
         }
     }
 }
