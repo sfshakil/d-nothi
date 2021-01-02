@@ -30,9 +30,20 @@ namespace dNothi.Desktop.UI.Dak
             potrojariPanel.Visible = false;
             IterateControls(this.Controls);
 
-          
+
+            //SetDefaultFont(this.Controls);
 
 
+        }
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+                MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+                SetDefaultFont(ctrl.Controls);
+            }
 
         }
 

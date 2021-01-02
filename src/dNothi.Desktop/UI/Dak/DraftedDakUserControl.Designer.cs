@@ -43,7 +43,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dakActionPanel = new System.Windows.Forms.Panel();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.dakSendButton = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -240,7 +240,7 @@
             this.dakActionPanel.AutoSize = true;
             this.dakActionPanel.BackColor = System.Drawing.Color.Transparent;
             this.dakActionPanel.Controls.Add(this.iconButton3);
-            this.dakActionPanel.Controls.Add(this.iconButton4);
+            this.dakActionPanel.Controls.Add(this.dakSendButton);
             this.dakActionPanel.Controls.Add(this.iconButton2);
             this.dakActionPanel.Location = new System.Drawing.Point(970, 3);
             this.dakActionPanel.Name = "dakActionPanel";
@@ -266,23 +266,24 @@
             this.iconButton3.TabIndex = 70;
             this.iconButton3.UseVisualStyleBackColor = false;
             // 
-            // iconButton4
+            // dakSendButton
             // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton4.FlatAppearance.BorderSize = 2;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Share;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 28;
-            this.iconButton4.Location = new System.Drawing.Point(32, 0);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(32, 32);
-            this.iconButton4.TabIndex = 71;
-            this.iconButton4.UseVisualStyleBackColor = false;
+            this.dakSendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.dakSendButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakSendButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.dakSendButton.FlatAppearance.BorderSize = 2;
+            this.dakSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakSendButton.IconChar = FontAwesome.Sharp.IconChar.Share;
+            this.dakSendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dakSendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakSendButton.IconSize = 28;
+            this.dakSendButton.Location = new System.Drawing.Point(32, 0);
+            this.dakSendButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSendButton.Name = "dakSendButton";
+            this.dakSendButton.Size = new System.Drawing.Size(32, 32);
+            this.dakSendButton.TabIndex = 71;
+            this.dakSendButton.UseVisualStyleBackColor = false;
+            this.dakSendButton.Click += new System.EventHandler(this.dakSendButton_Click);
             // 
             // iconButton2
             // 
@@ -532,7 +533,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel dakActionPanel;
         private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton dakSendButton;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton dakAttachmentButton;
         private System.Windows.Forms.Panel panel1;

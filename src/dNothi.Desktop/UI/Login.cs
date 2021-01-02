@@ -133,8 +133,29 @@ namespace dNothi.Desktop.UI
         {
             txtUser.Text = "200000002986";
             txtPassword.Text = "abc123";
+           
         }
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
 
+
+               
+                    if(ctrl.Font.Style!=FontStyle.Regular)
+                    {
+                      MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                      ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
+
+        }
         private void txtUser_Leave(object sender, EventArgs e)
         {
                 string userId = txtUser.Text.ToString();
@@ -295,11 +316,11 @@ namespace dNothi.Desktop.UI
 
         private void Login_Load(object sender, EventArgs e)
         {
-             
-           
-        
 
-    }
+
+            SetDefaultFont(this.Controls);
+
+           }
         protected override void OnLoad(EventArgs e)
         {
             var btn = new Button();

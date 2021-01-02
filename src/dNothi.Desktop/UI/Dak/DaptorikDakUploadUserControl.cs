@@ -42,12 +42,32 @@ namespace dNothi.Desktop.UI.Dak
             set { _dak_List_User_Param = value; }
         
         }
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
 
+
+
+                if (ctrl.Font.Style != FontStyle.Regular)
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
+
+        }
 
         public DaptorikDakUploadUserControl()
         {
             InitializeComponent();
-
+            SetDefaultFont(this.Controls);
 
             PriorityListCollection.Clear();
 

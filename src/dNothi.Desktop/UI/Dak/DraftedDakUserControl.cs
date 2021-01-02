@@ -348,18 +348,38 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-     
 
-        //[Browsable(true)]
-        //[Category("Action")]
-        //[Description("Invoked when user clicks button")]
-        //public event EventHandler ButtonClick;
+
+        
         private void DraftedDakUserControl_Click(object sender, EventArgs e)
         {
 
 
             //if (this.ButtonClick != null)
             //    this.ButtonClick(sender, e);
+        }
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler DraftedDakSendButtonClick;
+        private void dakSendButton_Click(object sender, EventArgs e)
+        {
+           
+
+           DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি প্রেরণ করতে চান?\n", 
+                                "Conditional", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+                if (this.DraftedDakSendButtonClick != null)
+                    this.DraftedDakSendButtonClick(sender, e);
+            }
+            else
+            {
+               
+            }
+
+
         }
     }
 }

@@ -10,6 +10,7 @@ namespace dNothi.Services.DakServices
     public interface IDakUploadService
     {
         OfficeListResponse GetAllOffice(DakUserParam dakListUserParam);
+        DakSendResponse GetDraftedDakSendResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
         AllDesignationSealListResponse GetAllDesignationSeal(DakUserParam dakListUserParam, int office_id);
 
         DakUploadedFileResponse GetDakUploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam);

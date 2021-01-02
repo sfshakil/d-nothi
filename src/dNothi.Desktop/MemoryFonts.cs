@@ -38,6 +38,7 @@ public static class MemoryFonts
     {
         return new Font(pfc.Families[fontIndex], fontSize, fontStyle);
     }
+    
 
     // Useful method for passing a 4 digit hex string to return the unicode character
     // Some fonts like FontAwesome require this conversion in order to access the characters
