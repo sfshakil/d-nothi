@@ -36,6 +36,11 @@
             this.decisionLabel = new System.Windows.Forms.Label();
             this.descriptionPanel = new System.Windows.Forms.Panel();
             this.movementStatusdetailsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.dakMovementStatusListUserControl1 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
+            this.dakMovementStatusListUserControl3 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
+            this.dakMovementStatusListUserControl2 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
+            this.dakMovementStatusListUserControl4 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
+            this.dakMovementStatusListUserControl5 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
             this.securityPanel = new System.Windows.Forms.Panel();
             this.dakSecurityIconPanel = new System.Windows.Forms.Panel();
             this.priorityPanel = new System.Windows.Forms.Panel();
@@ -44,6 +49,7 @@
             this.LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).BeginInit();
             this.descriptionPanel.SuspendLayout();
+            this.movementStatusdetailsFlowLayoutPanel.SuspendLayout();
             this.securityPanel.SuspendLayout();
             this.priorityPanel.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +63,7 @@
             this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftPanel.Location = new System.Drawing.Point(0, 0);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(75, 238);
+            this.LeftPanel.Size = new System.Drawing.Size(75, 302);
             this.LeftPanel.TabIndex = 2;
             // 
             // movementStatusSliderPanel1
@@ -122,19 +128,102 @@
             this.descriptionPanel.Controls.Add(this.priorityPanel);
             this.descriptionPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionPanel.Location = new System.Drawing.Point(97, 63);
+            this.descriptionPanel.MaximumSize = new System.Drawing.Size(415, 0);
             this.descriptionPanel.Name = "descriptionPanel";
-            this.descriptionPanel.Size = new System.Drawing.Size(388, 172);
+            this.descriptionPanel.Size = new System.Drawing.Size(415, 236);
             this.descriptionPanel.TabIndex = 23;
             // 
             // movementStatusdetailsFlowLayoutPanel
             // 
             this.movementStatusdetailsFlowLayoutPanel.AutoSize = true;
+            this.movementStatusdetailsFlowLayoutPanel.Controls.Add(this.dakMovementStatusListUserControl1);
+            this.movementStatusdetailsFlowLayoutPanel.Controls.Add(this.dakMovementStatusListUserControl3);
+            this.movementStatusdetailsFlowLayoutPanel.Controls.Add(this.dakMovementStatusListUserControl2);
+            this.movementStatusdetailsFlowLayoutPanel.Controls.Add(this.dakMovementStatusListUserControl4);
+            this.movementStatusdetailsFlowLayoutPanel.Controls.Add(this.dakMovementStatusListUserControl5);
             this.movementStatusdetailsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.movementStatusdetailsFlowLayoutPanel.Location = new System.Drawing.Point(0, 67);
-            this.movementStatusdetailsFlowLayoutPanel.MaximumSize = new System.Drawing.Size(400, 0);
+            this.movementStatusdetailsFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.movementStatusdetailsFlowLayoutPanel.MaximumSize = new System.Drawing.Size(415, 0);
             this.movementStatusdetailsFlowLayoutPanel.Name = "movementStatusdetailsFlowLayoutPanel";
-            this.movementStatusdetailsFlowLayoutPanel.Size = new System.Drawing.Size(388, 0);
+            this.movementStatusdetailsFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.movementStatusdetailsFlowLayoutPanel.Size = new System.Drawing.Size(415, 169);
             this.movementStatusdetailsFlowLayoutPanel.TabIndex = 25;
+            // 
+            // dakMovementStatusListUserControl1
+            // 
+            this.dakMovementStatusListUserControl1.AutoSize = true;
+            this.dakMovementStatusListUserControl1.BackColor = System.Drawing.Color.Transparent;
+            this.dakMovementStatusListUserControl1.Location = new System.Drawing.Point(3, 0);
+            this.dakMovementStatusListUserControl1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.dakMovementStatusListUserControl1.MaximumSize = new System.Drawing.Size(415, 0);
+            this.dakMovementStatusListUserControl1.MinimumSize = new System.Drawing.Size(415, 0);
+            this.dakMovementStatusListUserControl1.Name = "dakMovementStatusListUserControl1";
+            this.dakMovementStatusListUserControl1.Size = new System.Drawing.Size(415, 43);
+            this.dakMovementStatusListUserControl1.TabIndex = 26;
+            this.dakMovementStatusListUserControl1.userDesignation = "নিলুফা ইয়াসমিন (ন্যাশনাল কনসালটেন্ট ফর ই-নথি ইমপ্লিমেন্টেশন, এসপায়ার টু ইনোভেট (এ" +
+    "টুআই) প্রোগ্রাম, এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম";
+            this.dakMovementStatusListUserControl1.userType = "প্রেরক";
+            // 
+            // dakMovementStatusListUserControl3
+            // 
+            this.dakMovementStatusListUserControl3.AutoSize = true;
+            this.dakMovementStatusListUserControl3.BackColor = System.Drawing.Color.Transparent;
+            this.dakMovementStatusListUserControl3.Location = new System.Drawing.Point(3, 43);
+            this.dakMovementStatusListUserControl3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.dakMovementStatusListUserControl3.MaximumSize = new System.Drawing.Size(388, 0);
+            this.dakMovementStatusListUserControl3.MinimumSize = new System.Drawing.Size(388, 0);
+            this.dakMovementStatusListUserControl3.Name = "dakMovementStatusListUserControl3";
+            this.dakMovementStatusListUserControl3.Size = new System.Drawing.Size(388, 29);
+            this.dakMovementStatusListUserControl3.TabIndex = 27;
+            this.dakMovementStatusListUserControl3.userDesignation = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি, এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্" +
+    "রাম";
+            this.dakMovementStatusListUserControl3.userType = "অনুলিপি প্রাপক";
+            // 
+            // dakMovementStatusListUserControl2
+            // 
+            this.dakMovementStatusListUserControl2.AutoSize = true;
+            this.dakMovementStatusListUserControl2.BackColor = System.Drawing.Color.Transparent;
+            this.dakMovementStatusListUserControl2.Location = new System.Drawing.Point(3, 72);
+            this.dakMovementStatusListUserControl2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.dakMovementStatusListUserControl2.MaximumSize = new System.Drawing.Size(388, 0);
+            this.dakMovementStatusListUserControl2.MinimumSize = new System.Drawing.Size(388, 0);
+            this.dakMovementStatusListUserControl2.Name = "dakMovementStatusListUserControl2";
+            this.dakMovementStatusListUserControl2.Size = new System.Drawing.Size(388, 29);
+            this.dakMovementStatusListUserControl2.TabIndex = 30;
+            this.dakMovementStatusListUserControl2.userDesignation = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি, এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্" +
+    "রাম";
+            this.dakMovementStatusListUserControl2.userType = "অনুলিপি প্রাপক";
+            // 
+            // dakMovementStatusListUserControl4
+            // 
+            this.dakMovementStatusListUserControl4.AutoSize = true;
+            this.dakMovementStatusListUserControl4.BackColor = System.Drawing.Color.Transparent;
+            this.dakMovementStatusListUserControl4.Location = new System.Drawing.Point(3, 101);
+            this.dakMovementStatusListUserControl4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.dakMovementStatusListUserControl4.MaximumSize = new System.Drawing.Size(388, 0);
+            this.dakMovementStatusListUserControl4.MinimumSize = new System.Drawing.Size(388, 0);
+            this.dakMovementStatusListUserControl4.Name = "dakMovementStatusListUserControl4";
+            this.dakMovementStatusListUserControl4.Size = new System.Drawing.Size(388, 29);
+            this.dakMovementStatusListUserControl4.TabIndex = 28;
+            this.dakMovementStatusListUserControl4.userDesignation = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি, এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্" +
+    "রাম";
+            this.dakMovementStatusListUserControl4.userType = "";
+            // 
+            // dakMovementStatusListUserControl5
+            // 
+            this.dakMovementStatusListUserControl5.AutoSize = true;
+            this.dakMovementStatusListUserControl5.BackColor = System.Drawing.Color.Transparent;
+            this.dakMovementStatusListUserControl5.Location = new System.Drawing.Point(3, 130);
+            this.dakMovementStatusListUserControl5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.dakMovementStatusListUserControl5.MaximumSize = new System.Drawing.Size(388, 0);
+            this.dakMovementStatusListUserControl5.MinimumSize = new System.Drawing.Size(388, 0);
+            this.dakMovementStatusListUserControl5.Name = "dakMovementStatusListUserControl5";
+            this.dakMovementStatusListUserControl5.Size = new System.Drawing.Size(388, 29);
+            this.dakMovementStatusListUserControl5.TabIndex = 29;
+            this.dakMovementStatusListUserControl5.userDesignation = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি, এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্" +
+    "রাম";
+            this.dakMovementStatusListUserControl5.userType = "";
             // 
             // securityPanel
             // 
@@ -143,7 +232,7 @@
             this.securityPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.securityPanel.Location = new System.Drawing.Point(0, 34);
             this.securityPanel.Name = "securityPanel";
-            this.securityPanel.Size = new System.Drawing.Size(388, 33);
+            this.securityPanel.Size = new System.Drawing.Size(415, 33);
             this.securityPanel.TabIndex = 24;
             // 
             // dakSecurityIconPanel
@@ -165,7 +254,7 @@
             this.priorityPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.priorityPanel.Location = new System.Drawing.Point(0, 0);
             this.priorityPanel.Name = "priorityPanel";
-            this.priorityPanel.Size = new System.Drawing.Size(388, 34);
+            this.priorityPanel.Size = new System.Drawing.Size(415, 34);
             this.priorityPanel.TabIndex = 23;
             // 
             // prioriyLabel
@@ -202,11 +291,13 @@
             this.Controls.Add(this.LeftPanel);
             this.MaximumSize = new System.Drawing.Size(515, 0);
             this.Name = "MovementStatusLeftSidePicUserControl";
-            this.Size = new System.Drawing.Size(513, 238);
+            this.Size = new System.Drawing.Size(515, 302);
             this.LeftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).EndInit();
             this.descriptionPanel.ResumeLayout(false);
             this.descriptionPanel.PerformLayout();
+            this.movementStatusdetailsFlowLayoutPanel.ResumeLayout(false);
+            this.movementStatusdetailsFlowLayoutPanel.PerformLayout();
             this.securityPanel.ResumeLayout(false);
             this.priorityPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -229,5 +320,10 @@
         private System.Windows.Forms.Label prioriyLabel;
         private System.Windows.Forms.Panel panel5;
         private CustomControl.MovementStatusSliderPanel movementStatusSliderPanel1;
+        private DakMovementStatusListUserControl dakMovementStatusListUserControl1;
+        private DakMovementStatusListUserControl dakMovementStatusListUserControl3;
+        private DakMovementStatusListUserControl dakMovementStatusListUserControl4;
+        private DakMovementStatusListUserControl dakMovementStatusListUserControl5;
+        private DakMovementStatusListUserControl dakMovementStatusListUserControl2;
     }
 }

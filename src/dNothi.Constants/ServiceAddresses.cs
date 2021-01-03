@@ -15,6 +15,7 @@ namespace dNothi.Constants
         public const string DakSendEndpoint = "/api/dak/upload/send";
         public const string DakDraftEndpoint = "/api/dak/upload";
         public const string DraftedDakSendEndpoint = "/api/dak/send";
+        public const string DraftedDakDeleteEndpoint = "/api/dak/draft/delete";
         public const string DakFileDeleteEndPoint = "/api/content/daak/delete";
         public const string NewAPIversion = "2";
         public const string DefaultAPIversion = "1";

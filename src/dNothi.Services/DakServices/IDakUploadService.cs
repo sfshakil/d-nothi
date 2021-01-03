@@ -19,5 +19,8 @@ namespace dNothi.Services.DakServices
 
         DakDraftedResponse GetDakDraftedResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter);
         DakSendResponse GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter);
+
+        DraftedDakDeleteResponse GetDraftedDakDeleteResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
+
     }
 }

@@ -84,7 +84,12 @@ namespace dNothi.Desktop.UI
                     SaveOrUpdateEmployee(resmessage?.data?.employee_info);
                     SaveOrUpdateOffice(resmessage?.data?.office_info);
                     SaveOrUpdateToken(resmessage?.data?.token);
-                    DialogResult = DialogResult.OK;
+
+
+                    this.Hide();
+                    var form = FormFactory.Create<Dashboard>();
+
+                    form.ShowDialog();
 
                 }
                 else
@@ -316,7 +321,8 @@ namespace dNothi.Desktop.UI
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            var form = FormFactory.Create<Dashboard>();
+            form.Hide();
 
             SetDefaultFont(this.Controls);
 
