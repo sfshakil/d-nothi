@@ -353,6 +353,12 @@
     <Compile Include="UI\Dak\NothiInbox.Designer.cs">
       <DependentUpon>NothiInbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiNoteShomuho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteShomuho.Designer.cs">
+      <DependentUpon>NothiNoteShomuho.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiOutbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -519,6 +525,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiInbox.resx">
       <DependentUpon>NothiInbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiNoteShomuho.resx">
+      <DependentUpon>NothiNoteShomuho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutbox.resx">
       <DependentUpon>NothiOutbox.cs</DependentUpon>

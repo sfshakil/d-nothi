@@ -35,7 +35,6 @@
             this.profilePanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
-            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.nothiModulePanel = new System.Windows.Forms.Panel();
             this.nothiModuleNameLabel = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -61,11 +60,9 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.detailsDakSearcPanel = new System.Windows.Forms.Panel();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.nameorDesignationSearchPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timeLimitDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -158,10 +155,12 @@
             this.rightSliderHeadLineLabel = new System.Windows.Forms.Label();
             this.movementStatusDisplaypanel = new System.Windows.Forms.Panel();
             this.designationDetailPanel = new dNothi.Desktop.designationSelect();
+            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
+            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.nothiModulePanel.SuspendLayout();
             this.dakModulePanel.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -188,6 +187,7 @@
             this.dakUploadDropDownPanel.SuspendLayout();
             this.panel16.SuspendLayout();
             this.movementStatusDisplaypanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -263,21 +263,6 @@
             this.profileShowArrowButton.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             this.profileShowArrowButton.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
             this.profileShowArrowButton.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
-            // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
-            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.circularPictureBox1.ErrorImage = null;
-            this.circularPictureBox1.InitialImage = null;
-            this.circularPictureBox1.Location = new System.Drawing.Point(17, 3);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(26, 26);
-            this.circularPictureBox1.TabIndex = 0;
-            this.circularPictureBox1.TabStop = false;
-            this.circularPictureBox1.Click += new System.EventHandler(this.profileShowArrowButton_Click);
-            this.circularPictureBox1.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
-            this.circularPictureBox1.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
             // 
             // nothiModulePanel
             // 
@@ -633,23 +618,6 @@
             this.detailsDakSearcPanel.TabIndex = 0;
             this.detailsDakSearcPanel.Visible = false;
             // 
-            // searchOfficeDetailSearch
-            // 
-            this.searchOfficeDetailSearch.AutoSize = true;
-            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
-            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeDetailSearch.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 210);
-            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
-            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(174, 40);
-            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
-            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(506, 84);
-            this.searchOfficeDetailSearch.TabIndex = 30;
-            // 
             // nameorDesignationSearchPanel
             // 
             this.nameorDesignationSearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -685,16 +653,6 @@
             this.label12.Size = new System.Drawing.Size(209, 16);
             this.label12.TabIndex = 31;
             this.label12.Text = "Please enter 4 or more characters";
-            // 
-            // nameorDesignationSearchXTextBox
-            // 
-            this.nameorDesignationSearchXTextBox.BackColor = System.Drawing.Color.White;
-            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(11, 18);
-            this.nameorDesignationSearchXTextBox.Multiline = true;
-            this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
-            this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(449, 35);
-            this.nameorDesignationSearchXTextBox.TabIndex = 30;
             // 
             // label13
             // 
@@ -2074,6 +2032,48 @@
             this.designationDetailPanel.TabIndex = 5;
             this.designationDetailPanel.Visible = false;
             // 
+            // searchOfficeDetailSearch
+            // 
+            this.searchOfficeDetailSearch.AutoSize = true;
+            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
+            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeDetailSearch.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 210);
+            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
+            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(174, 40);
+            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
+            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(506, 84);
+            this.searchOfficeDetailSearch.TabIndex = 30;
+            // 
+            // nameorDesignationSearchXTextBox
+            // 
+            this.nameorDesignationSearchXTextBox.BackColor = System.Drawing.Color.White;
+            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(11, 18);
+            this.nameorDesignationSearchXTextBox.Multiline = true;
+            this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
+            this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(449, 35);
+            this.nameorDesignationSearchXTextBox.TabIndex = 30;
+            // 
+            // circularPictureBox1
+            // 
+            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
+            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.circularPictureBox1.ErrorImage = null;
+            this.circularPictureBox1.InitialImage = null;
+            this.circularPictureBox1.Location = new System.Drawing.Point(17, 3);
+            this.circularPictureBox1.Name = "circularPictureBox1";
+            this.circularPictureBox1.Size = new System.Drawing.Size(26, 26);
+            this.circularPictureBox1.TabIndex = 0;
+            this.circularPictureBox1.TabStop = false;
+            this.circularPictureBox1.Click += new System.EventHandler(this.profileShowArrowButton_Click);
+            this.circularPictureBox1.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
+            this.circularPictureBox1.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2093,7 +2093,6 @@
             this.panel2.ResumeLayout(false);
             this.profilePanel.ResumeLayout(false);
             this.profilePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.nothiModulePanel.ResumeLayout(false);
             this.nothiModulePanel.PerformLayout();
             this.dakModulePanel.ResumeLayout(false);
@@ -2141,6 +2140,7 @@
             this.panel16.PerformLayout();
             this.movementStatusDisplaypanel.ResumeLayout(false);
             this.movementStatusDisplaypanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

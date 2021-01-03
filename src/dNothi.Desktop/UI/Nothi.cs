@@ -32,19 +32,24 @@ namespace dNothi.Desktop.UI
             InitializeComponent();
             LoadNothiInbox();
             ResetAllMenuButtonSelection();
+            SetDefaultFont(this.Controls);
             SelectButton(btnNothiInbox);
         }
 
-        
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
 
+                MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+                SetDefaultFont(ctrl.Controls);
+            }
+
+        }
         private void btnNothiInbox_Click(object sender, EventArgs e)
         {
-            ResetAllMenuButtonSelection();
-            SelectButton(sender as Button);
-            nothiListFlowLayoutPanel.Visible = true;
-            pnlNothiNoteTalika.Visible = true;
-            newNothi.Visible = false;
-            LoadNothiInbox();
+            
         }
 
         private void LoadNothiInbox()
@@ -127,16 +132,6 @@ namespace dNothi.Desktop.UI
             }
         }
 
-        private void btnNothiOutbox_Click(object sender, EventArgs e)
-        {
-            ResetAllMenuButtonSelection();
-            SelectButton(sender as Button);
-            nothiListFlowLayoutPanel.Visible = true;
-            pnlNothiNoteTalika.Visible = true;
-            newNothi.Visible = false;
-            LoadNothiOutbox();
-        }
-
         private void LoadNothiOutbox()
         {
             var token = _userService.GetToken();
@@ -179,15 +174,6 @@ namespace dNothi.Desktop.UI
             }
         }
 
-        private void btnNothiAll_Click(object sender, EventArgs e)
-        {
-            ResetAllMenuButtonSelection();
-            SelectButton(sender as Button);
-            nothiListFlowLayoutPanel.Visible = true;
-            pnlNothiNoteTalika.Visible = true;
-            newNothi.Visible = false;
-            LoadNothiAll();
-        }
 
         private void LoadNothiAll()
         {
@@ -254,17 +240,7 @@ namespace dNothi.Desktop.UI
             }
         }
         public dynamic newNothi = UserControlFactory.Create<NewNothi>();
-        private void btnNewNothi_Click(object sender, EventArgs e)
-        {
-            
-            ResetAllMenuButtonSelection();
-            SelectButton(sender as Button);
-            newNothi.Visible = true;
-            newNothi.Location = new System.Drawing.Point(233, 60);
-            Controls.Add(newNothi);
-            newNothi.BringToFront();
-            newNothi.BackColor = Color.WhiteSmoke;
-        }
+        
 
         private void btnPotrojari_Click(object sender, EventArgs e)
         {
@@ -476,6 +452,63 @@ namespace dNothi.Desktop.UI
             {
                 detailsNothiSearcPanel.Visible = true;
             }
+        }
+
+        private void btnNothiInbox_Click_1(object sender, EventArgs e)
+        {
+            btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiInbox.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
+            LoadNothiInbox();
+        }
+
+        private void btnNothiOutbox_Click(object sender, EventArgs e)
+        {
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
+            LoadNothiOutbox();
+        }
+
+        private void btnNothiAll_Click(object sender, EventArgs e)
+        {
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
+            LoadNothiAll();
+        }
+
+        private void btnNewNothi_Click(object sender, EventArgs e)
+        {
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+            newNothi.Visible = true;
+            newNothi.Location = new System.Drawing.Point(233, 60);
+            Controls.Add(newNothi);
+            newNothi.BringToFront();
+            newNothi.BackColor = Color.WhiteSmoke;
         }
     }
 }
