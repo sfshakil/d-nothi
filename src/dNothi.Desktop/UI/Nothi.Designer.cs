@@ -760,11 +760,11 @@
         "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
         "জেলা প্রশাষকের কার্যালয়, ঢাকা",
         "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.nothiShakhaSrchUC.Location = new System.Drawing.Point(607, 146);
+            this.nothiShakhaSrchUC.Location = new System.Drawing.Point(607, 69);
             this.nothiShakhaSrchUC.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
             this.nothiShakhaSrchUC.MinimumSize = new System.Drawing.Size(174, 40);
             this.nothiShakhaSrchUC.Name = "nothiShakhaSrchUC";
-            this.nothiShakhaSrchUC.searchButtonText = "দপ্তর/শাখা";
+            this.nothiShakhaSrchUC.searchButtonText = "বাছাই করুন";
             this.nothiShakhaSrchUC.Size = new System.Drawing.Size(498, 49);
             this.nothiShakhaSrchUC.TabIndex = 56;
             // 
@@ -777,11 +777,11 @@
         "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
         "জেলা প্রশাষকের কার্যালয়, ঢাকা",
         "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.ogradhikarSrchUC.Location = new System.Drawing.Point(607, 69);
+            this.ogradhikarSrchUC.Location = new System.Drawing.Point(607, 150);
             this.ogradhikarSrchUC.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
             this.ogradhikarSrchUC.MinimumSize = new System.Drawing.Size(174, 40);
             this.ogradhikarSrchUC.Name = "ogradhikarSrchUC";
-            this.ogradhikarSrchUC.searchButtonText = "বাছাই করুন";
+            this.ogradhikarSrchUC.searchButtonText = "দপ্তর/শাখা";
             this.ogradhikarSrchUC.Size = new System.Drawing.Size(498, 49);
             this.ogradhikarSrchUC.TabIndex = 55;
             // 
@@ -801,7 +801,6 @@
             this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
             this.nothiDhoronSrchUC.Size = new System.Drawing.Size(514, 49);
             this.nothiDhoronSrchUC.TabIndex = 54;
-            this.nothiDhoronSrchUC.Click += new System.EventHandler(this.nothiDhoronSrchUC_Click);
             // 
             // nameDesignationSrchUC
             // 

@@ -139,6 +139,7 @@ namespace dNothi.Desktop
             builder.RegisterType<DakKhosraService>().As<IDakKhosraService>();
             builder.RegisterType<DakListSortedService>().As<IDakListSortedService>();
             builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
+            builder.RegisterType<NothiInboxNoteServices>().As<INothiInboxNoteServices>();
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
             builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>();
@@ -152,6 +153,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
+            builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();
             builder.RegisterType<CreateNewNothiType>().AsSelf();
 

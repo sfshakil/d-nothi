@@ -34,6 +34,7 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SetDefaultFont(this.Controls);
             SelectButton(btnNothiInbox);
+            nothiDhoronSrchUC.Visible = true;
         }
 
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
@@ -76,11 +77,13 @@ namespace dNothi.Desktop.UI
             int i = 0;
             foreach (NothiListRecordsDTO nothiListRecordsDTO in nothiLists)
             {
-                NothiInbox nothiInbox = new NothiInbox();
+                var nothiInbox = UserControlFactory.Create<NothiInbox>();
                 nothiInbox.nothi = nothiListRecordsDTO.nothi_no + " " + nothiListRecordsDTO.subject;
                 nothiInbox.shakha = nothiListRecordsDTO.office_unit_name;
                 nothiInbox.totalnothi = "মোট নোটঃ " + nothiListRecordsDTO.note_count;
                 nothiInbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiListRecordsDTO.last_note_date;
+                nothiInbox.nothiId = Convert.ToString(nothiListRecordsDTO.id);
+
                 i = i + 1;
                 nothiInboxs.Add(nothiInbox);
             }
@@ -423,24 +426,7 @@ namespace dNothi.Desktop.UI
             dakModuleNameLabel.ForeColor = Color.Black;
         }
 
-        private void nothiDhoronSrchUC_Click(object sender, EventArgs e)
-        {
-            if (nothiDhoronSrchUC.Visible == false)
-            {
-                nothiDhoronSrchUC.Visible = true;
-                nothiDhoronSrchUC.BringToFront();
-                nameorDesignationSearchXTextBox.Focus();
-                ogradhikarSrchUC.Visible = false;
-                nothiShakhaSrchUC.Visible = false;
-                nameDesignationSrchUC.Visible = false;
-            }
-            else
-            {
-                nothiDhoronSrchUC.Visible = false;
-
-
-            }
-        }
+        
 
         private void detailSearchStopButton_Click(object sender, EventArgs e)
         {
@@ -510,5 +496,6 @@ namespace dNothi.Desktop.UI
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
         }
+
     }
 }

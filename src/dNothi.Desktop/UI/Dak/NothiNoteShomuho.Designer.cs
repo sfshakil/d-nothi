@@ -32,12 +32,12 @@
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.lbNumber = new System.Windows.Forms.Label();
+            this.lbNoteNumber = new System.Windows.Forms.Label();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.lbNothi = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbNoteSubject = new System.Windows.Forms.Label();
+            this.lbDeskOfficer = new System.Windows.Forms.Label();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbToOfficer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -45,7 +45,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(110, 82);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1008, 2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1000, 2);
             this.flowLayoutPanel1.TabIndex = 57;
             // 
             // iconButton3
@@ -93,17 +93,17 @@
             this.iconButton2.TabIndex = 60;
             this.iconButton2.UseVisualStyleBackColor = false;
             // 
-            // lbNumber
+            // lbNoteNumber
             // 
-            this.lbNumber.AutoSize = true;
-            this.lbNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
-            this.lbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
-            this.lbNumber.Location = new System.Drawing.Point(119, 13);
-            this.lbNumber.Name = "lbNumber";
-            this.lbNumber.Size = new System.Drawing.Size(18, 20);
-            this.lbNumber.TabIndex = 61;
-            this.lbNumber.Text = "1";
+            this.lbNoteNumber.AutoSize = true;
+            this.lbNoteNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
+            this.lbNoteNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
+            this.lbNoteNumber.Location = new System.Drawing.Point(119, 13);
+            this.lbNoteNumber.Name = "lbNoteNumber";
+            this.lbNoteNumber.Size = new System.Drawing.Size(18, 20);
+            this.lbNoteNumber.TabIndex = 61;
+            this.lbNoteNumber.Text = "1";
             // 
             // iconButton4
             // 
@@ -120,25 +120,25 @@
             this.iconButton4.TabIndex = 62;
             this.iconButton4.UseVisualStyleBackColor = false;
             // 
-            // lbNothi
+            // lbNoteSubject
             // 
-            this.lbNothi.AutoSize = true;
-            this.lbNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothi.Location = new System.Drawing.Point(143, 13);
-            this.lbNothi.Name = "lbNothi";
-            this.lbNothi.Size = new System.Drawing.Size(83, 20);
-            this.lbNothi.TabIndex = 63;
-            this.lbNothi.Text = "nothiLabel";
+            this.lbNoteSubject.AutoSize = true;
+            this.lbNoteSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteSubject.Location = new System.Drawing.Point(143, 13);
+            this.lbNoteSubject.Name = "lbNoteSubject";
+            this.lbNoteSubject.Size = new System.Drawing.Size(134, 20);
+            this.lbNoteSubject.TabIndex = 63;
+            this.lbNoteSubject.Text = "noteSubjectLabel";
             // 
-            // label1
+            // lbDeskOfficer
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(145, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "nothiLabel";
+            this.lbDeskOfficer.AutoSize = true;
+            this.lbDeskOfficer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDeskOfficer.Location = new System.Drawing.Point(145, 49);
+            this.lbDeskOfficer.Name = "lbDeskOfficer";
+            this.lbDeskOfficer.Size = new System.Drawing.Size(129, 20);
+            this.lbDeskOfficer.TabIndex = 64;
+            this.lbDeskOfficer.Text = "deskOfficerLabel";
             // 
             // iconButton5
             // 
@@ -155,33 +155,33 @@
             this.iconButton5.TabIndex = 65;
             this.iconButton5.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // lbToOfficer
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(317, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 20);
-            this.label2.TabIndex = 66;
-            this.label2.Text = "nothiLabel";
+            this.lbToOfficer.AutoSize = true;
+            this.lbToOfficer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbToOfficer.Location = new System.Drawing.Point(317, 50);
+            this.lbToOfficer.Name = "lbToOfficer";
+            this.lbToOfficer.Size = new System.Drawing.Size(109, 20);
+            this.lbToOfficer.TabIndex = 66;
+            this.lbToOfficer.Text = "toOfficerLabel";
             // 
             // NothiNoteShomuho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbToOfficer);
             this.Controls.Add(this.iconButton5);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbNothi);
+            this.Controls.Add(this.lbDeskOfficer);
+            this.Controls.Add(this.lbNoteSubject);
             this.Controls.Add(this.iconButton4);
-            this.Controls.Add(this.lbNumber);
+            this.Controls.Add(this.lbNoteNumber);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.iconButton3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "NothiNoteShomuho";
-            this.Size = new System.Drawing.Size(1121, 84);
+            this.Size = new System.Drawing.Size(1110, 84);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,11 +193,11 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.Label lbNumber;
+        private System.Windows.Forms.Label lbNoteNumber;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private System.Windows.Forms.Label lbNothi;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbNoteSubject;
+        private System.Windows.Forms.Label lbDeskOfficer;
         private FontAwesome.Sharp.IconButton iconButton5;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbToOfficer;
     }
 }

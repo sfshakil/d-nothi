@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lbNothiShakha = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbNothiShakha = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -103,7 +103,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1121, 570);
+            this.panel2.Size = new System.Drawing.Size(1121, 575);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -132,6 +132,30 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1090, 232);
             this.panel3.TabIndex = 0;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(342, 75);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(104, 28);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "**.**.****.***.**.";
+            // 
+            // lbNothiShakha
+            // 
+            this.lbNothiShakha.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lbNothiShakha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbNothiShakha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbNothiShakha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiShakha.Location = new System.Drawing.Point(25, 75);
+            this.lbNothiShakha.Name = "lbNothiShakha";
+            this.lbNothiShakha.Size = new System.Drawing.Size(109, 28);
+            this.lbNothiShakha.TabIndex = 42;
+            this.lbNothiShakha.Text = "ই-নথি";
             // 
             // label11
             // 
@@ -335,30 +359,6 @@
             this.label6.TabIndex = 28;
             this.label6.Text = "নথির শাখা:";
             // 
-            // lbNothiShakha
-            // 
-            this.lbNothiShakha.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lbNothiShakha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbNothiShakha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbNothiShakha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiShakha.Location = new System.Drawing.Point(25, 75);
-            this.lbNothiShakha.Name = "lbNothiShakha";
-            this.lbNothiShakha.Size = new System.Drawing.Size(109, 28);
-            this.lbNothiShakha.TabIndex = 42;
-            this.lbNothiShakha.Text = "ই-নথি";
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(342, 75);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(104, 28);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "**.**.****.***.**.";
-            // 
             // NewNothi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,7 +366,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "NewNothi";
-            this.Size = new System.Drawing.Size(1121, 630);
+            this.Size = new System.Drawing.Size(1121, 635);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
