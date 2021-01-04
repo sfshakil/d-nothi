@@ -265,6 +265,7 @@
             this.dakEditButton.Size = new System.Drawing.Size(32, 32);
             this.dakEditButton.TabIndex = 70;
             this.dakEditButton.UseVisualStyleBackColor = false;
+            this.dakEditButton.Click += new System.EventHandler(this.dakEditButton_Click);
             // 
             // dakSendButton
             // 

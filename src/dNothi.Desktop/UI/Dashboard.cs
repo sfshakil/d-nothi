@@ -1176,27 +1176,8 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
-            dakSortMetroPanel.Visible = false;
-            dakSearchHeadingPanel.Visible = false;
-            dakListFlowLayoutPanel.Controls.Clear();
-
-            DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
-            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-
-
-            DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
-
-
-
-
-            dakUploadUserControl.designationSealListResponse = designationSealListResponse;
-            dakUploadUserControl.dakListUserParam = dakListUserParam;
-            dakUploadUserControl.KhosraSaveButtonClick += delegate (object khosraSaveSender, EventArgs khosraSaveEvent) { khosraSaveUserControl_ButtonClick(sender, e, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
-            dakUploadUserControl.AddDesignationButtonClick += delegate (object addDesignationSender, EventArgs addDesignationEvent) { AddDesignationUserControl_ButtonClick(sender, e); };
-            dakUploadUserControl.DakSendButton += delegate (object addDesignationSender, EventArgs addDesignationEvent) { DakSend_ButtonClick(sender, e, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
           
-
-            dakListFlowLayoutPanel.Controls.Add(dakUploadUserControl);
+            DaptorikDakSavePageLoad(null);
         }
 
         private void DakSend_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakUserParam dakListUserParam)
@@ -1335,6 +1316,7 @@ namespace dNothi.Desktop.UI
                 draftedDakUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
                 draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 draftedDakUserControl.DraftedDakDeleteButtonClick += delegate (object sender, EventArgs e) { DraftedDakDelete_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                draftedDakUserControl.DraftedDakEditButtonClick += delegate (object sender, EventArgs e) { DraftedDakEdit_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
 
 
                 i = i + 1;
@@ -1350,6 +1332,66 @@ namespace dNothi.Desktop.UI
             {
                 dakListFlowLayoutPanel.Controls.Add(draftedDakUserControls[j]);
             }
+        }
+
+        private void DraftedDakEdit_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak)
+        {
+            DraftedDakEditResponse dakEditResponse = _dakuploadservice.GetDraftedDakEditResponse(_dakuserparam, dak_id, dak_type, is_copied_dak);
+            try
+            {
+                if (dakEditResponse.status == "success")
+                {
+                    if (dakEditResponse.data.receiver.mul_prapok.dak_type == "Daptorik")
+                    {
+                        DaptorikDakSavePageLoad(dakEditResponse);
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+            catch(Exception Ex)
+            {
+
+            }
+
+        }
+
+        private void DaptorikDakSavePageLoad(DraftedDakEditResponse dakEditResponse)
+        {
+            dakSortMetroPanel.Visible = false;
+            dakSearchHeadingPanel.Visible = false;
+            dakListFlowLayoutPanel.Controls.Clear();
+
+            DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+
+            DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
+
+
+
+
+            dakUploadUserControl.designationSealListResponse = designationSealListResponse;
+            dakUploadUserControl.dakListUserParam = dakListUserParam;
+            dakUploadUserControl.KhosraSaveButtonClick += delegate (object khosraSaveSender, EventArgs khosraSaveEvent) { khosraSaveUserControl_ButtonClick(khosraSaveSender, khosraSaveEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
+            dakUploadUserControl.AddDesignationButtonClick += delegate (object addDesignationSender, EventArgs addDesignationEvent) { AddDesignationUserControl_ButtonClick(addDesignationSender, addDesignationEvent); };
+            dakUploadUserControl.DakSendButton += delegate (object addDesignationSender, EventArgs addDesignationEvent) { DakSend_ButtonClick(addDesignationSender, addDesignationEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
+
+
+
+
+
+            if(dakEditResponse != null)
+            {
+                dakUploadUserControl.mul_prapokEdit = dakEditResponse.data.receiver.mul_prapok;
+                dakUploadUserControl.onulipi = dakEditResponse.data.receiver.Onulipi;
+                dakUploadUserControl.dakInfoDTO = dakEditResponse.data.dak;
+                dakUploadUserControl.dakAttachmentDTOs = dakEditResponse.data.dak.attachments;
+            }
+
+            dakListFlowLayoutPanel.Controls.Add(dakUploadUserControl);
         }
 
         private void DraftedDakDelete_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak)

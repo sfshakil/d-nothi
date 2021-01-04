@@ -13,20 +13,27 @@ using AutoMapper;
 using dNothi.Services.DakServices;
 using System.IO;
 using dNothi.Utility;
+using System.Net;
+using System.Net.Http;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class DaptorikDakUploadUserControl : UserControl
     {
-        public static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
-        public static readonly List<string> PdfExtensions = new List<string> { ".PDF" };
+        public static readonly List<string> ImageExtensions = new List<string> { ".JPG", "JPG","JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG","IMAGE","IMG" };
+        public static readonly List<string> PdfExtensions = new List<string> { ".PDF","PDF" };
         List<string> PriorityListCollection = new List<string>();
         List<string> SecurityListCollection = new List<string>();
         List<string> sendMediumListCollection = new List<string>();
         DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
         public int _prerokId = 0;
+        public int _dakId = 0;
         private DakUserParam _dak_List_User_Param;
         public DakUploadParameter dakUploadParameter = new DakUploadParameter();
+        public List<DakAttachmentDTO> _dakAttachmentDTOs = new List<DakAttachmentDTO>();
+        public DakInfoDTO _dakInfoDTO = new DakInfoDTO();
+        public PrapokDTO _mul_prapok = new PrapokDTO();
+        public Dictionary<string, PrapokDTO> _onulipi;
 
 
         int mulPrapokColumn = 9;
@@ -34,7 +41,122 @@ namespace dNothi.Desktop.UI.Dak
         bool NijOffice = true;
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
         List<DakAttachmentinGrid> _dakAttachmentinGrids = new List<DakAttachmentinGrid>();
+        
+        public PrapokDTO mul_prapokEdit { get { return _mul_prapok; } set { _mul_prapok = value; viewDesignationSealLists.FirstOrDefault(a => a.designation_id == value.designation_id).mul_prapok = true; } }
+        public Dictionary<string, PrapokDTO> onulipi { get { return _onulipi; } 
+            set { 
+                _onulipi = value;
+                foreach (KeyValuePair<string, PrapokDTO> prapok in value)
+                {
+                    viewDesignationSealLists.FirstOrDefault(a => a.designation_id == prapok.Value.designation_id).onulipi_prapok = true;
+                }
+            } 
+        }
 
+
+        public DakInfoDTO dakInfoDTO {
+            get { return _dakInfoDTO; }
+            set { 
+                _dakInfoDTO = value; 
+                _prerokId = value.sender_officer_designation_id; 
+                selectedPrerokLabel.Text = value.receiving_officer_name + "," + value.receiving_officer_designation_label + "," + value.receiving_office_unit_name + "," + value.receiving_office_name;
+                sharokNoTextBox.Text = value.sender_sarok_no;
+                //sharokdateTimePicker.Text = value.sending_date;
+              
+                subjectXTextBox.Text=value.dak_subject;
+                _dakId = value.id;
+               
+                sendMediumSearchButton.searchButtonText=value.dak_sending_media;
+
+               dakDescriptionXTextBox.Text=value.dak_description;
+
+
+
+                prioritySearchButton.Text = value.dak_priority_level;
+                seurityLevelSearchButton.Text = value.dak_security_level;
+               
+               
+
+            }
+                
+        }
+
+        public List<DakAttachmentDTO> dakAttachmentDTOs {
+            get { return _dakAttachmentDTOs; }
+            set { _dakAttachmentDTOs = value;
+                 if(value != null)
+                {
+                    if(value.Count>0)
+                    {
+                        foreach(DakAttachmentDTO attachment in dakAttachmentDTOs)
+                        {
+                            DakUploadAttachmentTableRow dakUploadAttachmentTableRow = new DakUploadAttachmentTableRow();
+                                 
+                            if(attachment.attachment_type.ToUpperInvariant().Contains("IMAGE"))
+                            {
+                                dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
+                                dakUploadAttachmentTableRow._isAllowedforOCR = true;
+                                try
+                                {
+                                    using (Image image = Image.FromFile(attachment.url))
+                                    {
+                                        using (MemoryStream m = new MemoryStream())
+                                        {
+                                            image.Save(m, image.RawFormat);
+                                            byte[] imageBytes = m.ToArray();
+
+                                            // Convert byte[] to Base64 String
+                                            dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
+
+                                        }
+                                    }
+                                }
+                                catch (Exception Ex)
+                                {
+
+                                }
+                            }
+
+
+                            else if (attachment.attachment_type.ToUpperInvariant().Contains("PDF"))
+                            {
+                                dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
+                                dakUploadAttachmentTableRow._isAllowedforOCR = true;
+
+                            }
+                            else
+                            {
+                                dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
+                            }
+
+                            if(attachment.is_main==1)
+                            {
+                                dakUploadAttachmentTableRow.isMulpotro = true;
+                            }
+
+
+
+                            dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(oCRSender, oCREvent, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
+                            dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(deleteSender, deleteeVent, dakUploadAttachmentTableRow._dakAttachment); };
+
+
+
+                            dakUploadAttachmentTableRow.fileexension = attachment.attachment_type.ToLowerInvariant();
+                            dakUploadAttachmentTableRow._dakAttachment = attachment;
+                            dakUploadAttachmentTableRow.imageLink = attachment.url;
+                            dakUploadAttachmentTableRow.imgSource = attachment.thumbnail_url;
+                            dakUploadAttachmentTableRow.attachmentName = attachment.user_file_name;
+                            dakUploadAttachmentTableRow.attachmentId = attachment.attachment_id; ;
+                            dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(radioSender, radioEvent, dakUploadAttachmentTableRow.attachmentId); };
+
+
+                            attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
+                        }
+                    }
+                }
+            
+            
+            } }
 
         public DakUserParam dakListUserParam
         {
@@ -385,7 +507,7 @@ namespace dNothi.Desktop.UI.Dak
                         dakUploadAttachmentTableRow._dakAttachment = dakUploadedFileResponse.data[0];
                         dakUploadAttachmentTableRow.imageLink = dakUploadedFileResponse.data[0].url;
                         dakUploadAttachmentTableRow.imgSource = dakUploadedFileResponse.data[0].thumbnail_url;
-                        dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].file_name;
+                        dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                         dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;
                         dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
 
@@ -664,8 +786,11 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     dakUploadAttachment.mulpotro = 1;
                 }
-                dakUploadAttachment.file_info = attachment._dakAttachment;
 
+                
+                dakUploadAttachment.file_info = attachment._dakAttachment;
+                dakUploadAttachment.file_info.user_file_name = attachment._attachmentName;
+               
                 dakUploadAttachments.Add(dakUploadAttachment);
 
 
@@ -674,9 +799,9 @@ namespace dNothi.Desktop.UI.Dak
             dak.attachment = dakUploadAttachments.ToDictionary(a => a.file_info.id.ToString());
             dak.sarok_no = sharokNoTextBox.Text;
             dak.dak_subject = subjectXTextBox.Text;
-            dak.sending_date = DateTime.Now.ToString("dd-MM-yyyy");
+            dak.sending_date =sharokdateTimePicker.Value.ToString("dd-MM-yyyy");
             dak.sending_media = sendMediumSearchButton.searchButtonText;
-
+            dak.id = _dakId;
             dak.dak_description = dakDescriptionXTextBox.Text;
 
 
@@ -689,12 +814,12 @@ namespace dNothi.Desktop.UI.Dak
 
 
             DakSecurityList dakSecurityList = new DakSecurityList();
-            int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
+            int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(seurityLevelSearchButton.Text.ToString()));
 
             dak.priority = dak_priority_id.ToString();
-            dak.dak_priority = dak_priority_id.ToString();
+            dak.dak_priority = prioritySearchButton.ToString();
             dak.security = dak_security_id.ToString();
-            dak.dak_security = dak_security_id.ToString();
+            dak.dak_security = seurityLevelSearchButton.ToString();
 
 
             dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dak);
@@ -765,6 +890,11 @@ namespace dNothi.Desktop.UI.Dak
             SetDakUploadData();
             if (this.DakSendButton != null)
                 this.DakSendButton(sender, e);
+        }
+
+        private void searchOfficerRightListBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

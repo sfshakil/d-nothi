@@ -32,14 +32,16 @@
             this.dakAttachmentTableRadioButton = new System.Windows.Forms.RadioButton();
             this.attachmentLink = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dakUploadAttachmentNameLabel = new System.Windows.Forms.Label();
             this.attachmentOCRButton = new FontAwesome.Sharp.IconButton();
             this.rejectButton = new System.Windows.Forms.Button();
             this.attachmentDeleteButton = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dakUploadAttachmentNameTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentLink)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,18 +83,6 @@
             this.button1.TabIndex = 4;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dakUploadAttachmentNameLabel
-            // 
-            this.dakUploadAttachmentNameLabel.AutoSize = true;
-            this.dakUploadAttachmentNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.dakUploadAttachmentNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dakUploadAttachmentNameLabel.Location = new System.Drawing.Point(326, 1);
-            this.dakUploadAttachmentNameLabel.Name = "dakUploadAttachmentNameLabel";
-            this.dakUploadAttachmentNameLabel.Size = new System.Drawing.Size(279, 63);
-            this.dakUploadAttachmentNameLabel.TabIndex = 2;
-            this.dakUploadAttachmentNameLabel.Text = "label1";
-            this.dakUploadAttachmentNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // attachmentOCRButton
             // 
             this.attachmentOCRButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
@@ -121,7 +111,7 @@
             this.rejectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rejectButton.Location = new System.Drawing.Point(222, 5);
             this.rejectButton.Name = "rejectButton";
-            this.rejectButton.Size = new System.Drawing.Size(80, 44);
+            this.rejectButton.Size = new System.Drawing.Size(88, 44);
             this.rejectButton.TabIndex = 9;
             this.rejectButton.UseVisualStyleBackColor = true;
             this.rejectButton.Visible = false;
@@ -150,7 +140,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 285F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 420F));
-            this.tableLayoutPanel2.Controls.Add(this.dakUploadAttachmentNameLabel, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel2, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.dakAttachmentTableRadioButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.attachmentLink, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 3, 0);
@@ -162,6 +152,26 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1024, 65);
             this.tableLayoutPanel2.TabIndex = 12;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dakUploadAttachmentNameTextBox);
+            this.panel2.Location = new System.Drawing.Point(326, 16);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(279, 37);
+            this.panel2.TabIndex = 12;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // dakUploadAttachmentNameTextBox
+            // 
+            this.dakUploadAttachmentNameTextBox.BackColor = System.Drawing.Color.White;
+            this.dakUploadAttachmentNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dakUploadAttachmentNameTextBox.Location = new System.Drawing.Point(3, 9);
+            this.dakUploadAttachmentNameTextBox.Name = "dakUploadAttachmentNameTextBox";
+            this.dakUploadAttachmentNameTextBox.Size = new System.Drawing.Size(273, 19);
+            this.dakUploadAttachmentNameTextBox.TabIndex = 8;
+            this.dakUploadAttachmentNameTextBox.TextChanged += new System.EventHandler(this.dakUploadAttachmentNameTextBox_TextChanged);
             // 
             // panel1
             // 
@@ -186,7 +196,8 @@
             this.Size = new System.Drawing.Size(1024, 65);
             ((System.ComponentModel.ISupportInitialize)(this.attachmentLink)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -196,11 +207,12 @@
         private System.Windows.Forms.RadioButton dakAttachmentTableRadioButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox attachmentLink;
-        private System.Windows.Forms.Label dakUploadAttachmentNameLabel;
         private FontAwesome.Sharp.IconButton attachmentOCRButton;
         private System.Windows.Forms.Button rejectButton;
         private FontAwesome.Sharp.IconButton attachmentDeleteButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox dakUploadAttachmentNameTextBox;
+        private System.Windows.Forms.Panel panel2;
     }
 }

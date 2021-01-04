@@ -299,5 +299,35 @@ namespace dNothi.Services.DakServices
 
             return dakDeleteResponse;
         }
+
+        public DraftedDakEditResponse GetDraftedDakEditResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
+        {
+            var draftedDakEditAPI = new RestClient(GetAPIDomain() + GetDraftedDakEditEndpoint());
+            draftedDakEditAPI.Timeout = -1;
+            var draftedDakEditRequest = new RestRequest(Method.POST);
+            draftedDakEditRequest.AddHeader("api-version", GetAPIVersion());
+            draftedDakEditRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+            draftedDakEditRequest.AddParameter("office_id", dakUserParam.office_id);
+            draftedDakEditRequest.AddParameter("designation_id", dakUserParam.designation_id);
+            draftedDakEditRequest.AddParameter("is_copied_dak", is_copied_dak);
+            draftedDakEditRequest.AddParameter("dak_id", dak_id);
+            draftedDakEditRequest.AddParameter("dak_type", dak_type);
+            IRestResponse dakEditIRestResponse = draftedDakEditAPI.Execute(draftedDakEditRequest);
+            var dakEditResponseJson = dakEditIRestResponse.Content;
+
+            var dakEditResponse = JsonConvert.DeserializeObject<DraftedDakEditResponse>(dakEditResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+            return dakEditResponse;
+        }
+
+        private string GetDraftedDakEditEndpoint()
+        {
+            return DefaultAPIConfiguration.DraftedDakEditEndpoint;
+        }
     }
 }
