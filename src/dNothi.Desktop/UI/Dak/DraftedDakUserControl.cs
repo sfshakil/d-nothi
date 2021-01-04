@@ -381,5 +381,22 @@ namespace dNothi.Desktop.UI.Dak
 
 
         }
+
+
+        public event EventHandler DraftedDakDeleteButtonClick;
+        private void dakDeleteButton_Click(object sender, EventArgs e)
+        {
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি মুছে ফেলতে চান??\n",
+                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+                if (this.DraftedDakDeleteButtonClick != null)
+                    this.DraftedDakDeleteButtonClick(sender, e);
+            }
+            else
+            {
+
+            }
+        }
     }
 }

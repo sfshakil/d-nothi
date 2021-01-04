@@ -49,6 +49,7 @@ namespace dNothi.Desktop
             //var form = FormFactory.Create<Nothi>();
             //form.ShowDialog();
             DialogResult result;
+         
             using (var form = FormFactory.Create<Login>())
             {
                 result=form.ShowDialog();
@@ -57,6 +58,8 @@ namespace dNothi.Desktop
             {
                 Application.Run(container.Resolve<Dashboard>());
             }
+
+            
             //Application.Run(container.Resolve<UI.Login>());
         }
 

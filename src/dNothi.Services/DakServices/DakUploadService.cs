@@ -91,6 +91,10 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.OfficeListEndpoint;
         }
+        protected string GetDraftedDakDeleteEndpoint()
+        {
+            return DefaultAPIConfiguration.DraftedDakDeleteEndpoint;
+        }
 
         public OCRResponse GetOCRResponsse(DakUserParam dakListUserParam, OCRParameter oCRParameter)
         {
@@ -269,6 +273,31 @@ namespace dNothi.Services.DakServices
         private string GetDraftedDakSendEndpoint()
         {
             return DefaultAPIConfiguration.DraftedDakSendEndpoint;
+        }
+
+        public DraftedDakDeleteResponse GetDraftedDakDeleteResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
+        {
+            var draftedDakDeleteAPI = new RestClient(GetAPIDomain() + GetDraftedDakDeleteEndpoint());
+            draftedDakDeleteAPI.Timeout = -1;
+            var draftedDakDeleteRequest = new RestRequest(Method.POST);
+            draftedDakDeleteRequest.AddHeader("api-version", GetAPIVersion());
+            draftedDakDeleteRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+            draftedDakDeleteRequest.AddParameter("office_id", dakUserParam.office_id);
+            draftedDakDeleteRequest.AddParameter("designation_id", dakUserParam.designation_id);
+            draftedDakDeleteRequest.AddParameter("is_copied_dak", is_copied_dak);
+            draftedDakDeleteRequest.AddParameter("dak_id", dak_id);
+            draftedDakDeleteRequest.AddParameter("dak_type", dak_type);
+            IRestResponse dakDeleteIRestResponse = draftedDakDeleteAPI.Execute(draftedDakDeleteRequest);
+            var dakDeleteResponseJson = dakDeleteIRestResponse.Content;
+
+            var dakDeleteResponse = JsonConvert.DeserializeObject<DraftedDakDeleteResponse>(dakDeleteResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+            return dakDeleteResponse;
         }
     }
 }

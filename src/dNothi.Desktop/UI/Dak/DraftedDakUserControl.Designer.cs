@@ -42,9 +42,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dakActionPanel = new System.Windows.Forms.Panel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.dakEditButton = new FontAwesome.Sharp.IconButton();
             this.dakSendButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.dakDeleteButton = new FontAwesome.Sharp.IconButton();
             this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -239,32 +239,32 @@
             // 
             this.dakActionPanel.AutoSize = true;
             this.dakActionPanel.BackColor = System.Drawing.Color.Transparent;
-            this.dakActionPanel.Controls.Add(this.iconButton3);
+            this.dakActionPanel.Controls.Add(this.dakEditButton);
             this.dakActionPanel.Controls.Add(this.dakSendButton);
-            this.dakActionPanel.Controls.Add(this.iconButton2);
+            this.dakActionPanel.Controls.Add(this.dakDeleteButton);
             this.dakActionPanel.Location = new System.Drawing.Point(970, 3);
             this.dakActionPanel.Name = "dakActionPanel";
             this.dakActionPanel.Size = new System.Drawing.Size(96, 32);
             this.dakActionPanel.TabIndex = 82;
             this.dakActionPanel.Visible = false;
             // 
-            // iconButton3
+            // dakEditButton
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton3.FlatAppearance.BorderSize = 2;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 28;
-            this.iconButton3.Location = new System.Drawing.Point(0, 0);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(32, 32);
-            this.iconButton3.TabIndex = 70;
-            this.iconButton3.UseVisualStyleBackColor = false;
+            this.dakEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.dakEditButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakEditButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.dakEditButton.FlatAppearance.BorderSize = 2;
+            this.dakEditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakEditButton.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
+            this.dakEditButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dakEditButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakEditButton.IconSize = 24;
+            this.dakEditButton.Location = new System.Drawing.Point(0, 0);
+            this.dakEditButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakEditButton.Name = "dakEditButton";
+            this.dakEditButton.Size = new System.Drawing.Size(32, 32);
+            this.dakEditButton.TabIndex = 70;
+            this.dakEditButton.UseVisualStyleBackColor = false;
             // 
             // dakSendButton
             // 
@@ -276,7 +276,7 @@
             this.dakSendButton.IconChar = FontAwesome.Sharp.IconChar.Share;
             this.dakSendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.dakSendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakSendButton.IconSize = 28;
+            this.dakSendButton.IconSize = 24;
             this.dakSendButton.Location = new System.Drawing.Point(32, 0);
             this.dakSendButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSendButton.Name = "dakSendButton";
@@ -285,23 +285,24 @@
             this.dakSendButton.UseVisualStyleBackColor = false;
             this.dakSendButton.Click += new System.EventHandler(this.dakSendButton_Click);
             // 
-            // iconButton2
+            // dakDeleteButton
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton2.FlatAppearance.BorderSize = 2;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 28;
-            this.iconButton2.Location = new System.Drawing.Point(64, 0);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(32, 32);
-            this.iconButton2.TabIndex = 69;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.dakDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.dakDeleteButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakDeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.dakDeleteButton.FlatAppearance.BorderSize = 2;
+            this.dakDeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakDeleteButton.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.dakDeleteButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dakDeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakDeleteButton.IconSize = 24;
+            this.dakDeleteButton.Location = new System.Drawing.Point(64, 0);
+            this.dakDeleteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakDeleteButton.Name = "dakDeleteButton";
+            this.dakDeleteButton.Size = new System.Drawing.Size(32, 32);
+            this.dakDeleteButton.TabIndex = 69;
+            this.dakDeleteButton.UseVisualStyleBackColor = false;
+            this.dakDeleteButton.Click += new System.EventHandler(this.dakDeleteButton_Click);
             // 
             // dakAttachmentButton
             // 
@@ -532,9 +533,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel dakActionPanel;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton dakEditButton;
         private FontAwesome.Sharp.IconButton dakSendButton;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton dakDeleteButton;
         private FontAwesome.Sharp.IconButton dakAttachmentButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;

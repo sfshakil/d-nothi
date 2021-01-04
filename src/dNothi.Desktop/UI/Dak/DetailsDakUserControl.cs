@@ -403,8 +403,9 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-       
-       
+        private void DetailsDakUserControl_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

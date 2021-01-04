@@ -33,7 +33,8 @@
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.profilePanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
+            this.userNameLabel = new System.Windows.Forms.Label();
             this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
             this.nothiModulePanel = new System.Windows.Forms.Panel();
             this.nothiModuleNameLabel = new System.Windows.Forms.Label();
@@ -130,6 +131,8 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.RightSign = new FontAwesome.Sharp.IconButton();
+            this.LeftSign = new FontAwesome.Sharp.IconButton();
             this.dakMenuPanel = new System.Windows.Forms.Panel();
             this.dakSortingUserFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.dakSortedUserButton = new FontAwesome.Sharp.IconButton();
@@ -147,20 +150,20 @@
             this.dakInboxButton = new FontAwesome.Sharp.IconButton();
             this.dakSearchButton = new FontAwesome.Sharp.IconButton();
             this.button2 = new System.Windows.Forms.Button();
-            this.dakMenuButton = new System.Windows.Forms.Button();
+            this.dakMenuButton = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.dashboardSlideFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.sliderCrossButton = new System.Windows.Forms.Button();
             this.rightSliderHeadLineLabel = new System.Windows.Forms.Label();
             this.movementStatusDisplaypanel = new System.Windows.Forms.Panel();
-            this.designationDetailPanel = new dNothi.Desktop.designationSelect();
+            this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
-            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.nothiModulePanel.SuspendLayout();
             this.dakModulePanel.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -187,7 +190,6 @@
             this.dakUploadDropDownPanel.SuspendLayout();
             this.panel16.SuspendLayout();
             this.movementStatusDisplaypanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -214,7 +216,7 @@
             this.panel2.Controls.Add(this.nothiModulePanel);
             this.panel2.Controls.Add(this.dakModulePanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1125, 60);
@@ -223,43 +225,73 @@
             // 
             // profilePanel
             // 
-            this.profilePanel.Controls.Add(this.label3);
+            this.profilePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.profilePanel.AutoSize = true;
+            this.profilePanel.Controls.Add(this.userPictureBox);
+            this.profilePanel.Controls.Add(this.userNameLabel);
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
-            this.profilePanel.Controls.Add(this.circularPictureBox1);
-            this.profilePanel.Location = new System.Drawing.Point(781, 15);
+            this.profilePanel.Location = new System.Drawing.Point(811, 15);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Size = new System.Drawing.Size(324, 33);
+            this.profilePanel.Padding = new System.Windows.Forms.Padding(3);
+            this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.profilePanel.Size = new System.Drawing.Size(297, 33);
             this.profilePanel.TabIndex = 28;
             this.profilePanel.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             this.profilePanel.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
             this.profilePanel.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
             // 
-            // label3
+            // userPictureBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(283, 20);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি)";
-            this.label3.Click += new System.EventHandler(this.profileShowArrowButton_Click);
-            this.label3.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
-            this.label3.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
+            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.userPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.userPictureBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            this.userPictureBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.userPictureBox.IconSize = 23;
+            this.userPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.userPictureBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.userPictureBox.Size = new System.Drawing.Size(23, 27);
+            this.userPictureBox.TabIndex = 29;
+            this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.profileShowArrowButton_Click);
+            // 
+            // userNameLabel
+            // 
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.userNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
+            this.userNameLabel.Location = new System.Drawing.Point(26, 3);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.userNameLabel.Size = new System.Drawing.Size(255, 23);
+            this.userNameLabel.TabIndex = 23;
+            this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি)";
+            this.userNameLabel.Click += new System.EventHandler(this.profileShowArrowButton_Click);
+            this.userNameLabel.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
+            this.userNameLabel.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
             // 
             // profileShowArrowButton
             // 
+            this.profileShowArrowButton.BackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.profileShowArrowButton.FlatAppearance.BorderSize = 0;
+            this.profileShowArrowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.profileShowArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.profileShowArrowButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
-            this.profileShowArrowButton.IconColor = System.Drawing.Color.Black;
+            this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.profileShowArrowButton.IconSize = 24;
-            this.profileShowArrowButton.Location = new System.Drawing.Point(302, 10);
+            this.profileShowArrowButton.IconSize = 20;
+            this.profileShowArrowButton.Location = new System.Drawing.Point(281, 3);
             this.profileShowArrowButton.Name = "profileShowArrowButton";
-            this.profileShowArrowButton.Size = new System.Drawing.Size(19, 17);
+            this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.profileShowArrowButton.Size = new System.Drawing.Size(13, 27);
             this.profileShowArrowButton.TabIndex = 27;
-            this.profileShowArrowButton.UseVisualStyleBackColor = true;
+            this.profileShowArrowButton.UseVisualStyleBackColor = false;
             this.profileShowArrowButton.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             this.profileShowArrowButton.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
             this.profileShowArrowButton.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
@@ -282,11 +314,11 @@
             // nothiModuleNameLabel
             // 
             this.nothiModuleNameLabel.AutoSize = true;
-            this.nothiModuleNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiModuleNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiModuleNameLabel.ForeColor = System.Drawing.Color.Black;
             this.nothiModuleNameLabel.Location = new System.Drawing.Point(47, 11);
             this.nothiModuleNameLabel.Name = "nothiModuleNameLabel";
-            this.nothiModuleNameLabel.Size = new System.Drawing.Size(34, 24);
+            this.nothiModuleNameLabel.Size = new System.Drawing.Size(32, 21);
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
             this.nothiModuleNameLabel.Click += new System.EventHandler(this.nothiModulePanel_Click);
@@ -316,11 +348,11 @@
             this.label22.AutoEllipsis = true;
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label22.Location = new System.Drawing.Point(87, 12);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(31, 20);
+            this.label22.Size = new System.Drawing.Size(31, 18);
             this.label22.TabIndex = 18;
             this.label22.Text = "১২২";
             this.label22.Click += new System.EventHandler(this.nothiModulePanel_Click);
@@ -342,11 +374,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(47, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 24);
+            this.label1.Size = new System.Drawing.Size(35, 21);
             this.label1.TabIndex = 19;
             this.label1.Text = "ডাক";
             // 
@@ -370,11 +402,11 @@
             this.moduleDakCountLabel.AutoEllipsis = true;
             this.moduleDakCountLabel.AutoSize = true;
             this.moduleDakCountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.moduleDakCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moduleDakCountLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moduleDakCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.moduleDakCountLabel.Location = new System.Drawing.Point(92, 12);
             this.moduleDakCountLabel.Name = "moduleDakCountLabel";
-            this.moduleDakCountLabel.Size = new System.Drawing.Size(23, 20);
+            this.moduleDakCountLabel.Size = new System.Drawing.Size(23, 18);
             this.moduleDakCountLabel.TabIndex = 18;
             this.moduleDakCountLabel.Text = "১২";
             this.moduleDakCountLabel.SizeChanged += new System.EventHandler(this.label1_SizeChanged);
@@ -439,7 +471,7 @@
             this.dakSortMetroPanel.Controls.Add(this.label6);
             this.dakSortMetroPanel.Controls.Add(this.panel10);
             this.dakSortMetroPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakSortMetroPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSortMetroPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakSortMetroPanel.HorizontalScrollbarBarColor = true;
             this.dakSortMetroPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.dakSortMetroPanel.HorizontalScrollbarSize = 10;
@@ -468,12 +500,12 @@
             // 
             this.comboBox5.BackColor = System.Drawing.Color.White;
             this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(6, 6);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(10);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(90, 28);
+            this.comboBox5.Size = new System.Drawing.Size(90, 26);
             this.comboBox5.TabIndex = 3;
             this.comboBox5.Text = "সকল";
             // 
@@ -481,12 +513,12 @@
             // 
             this.comboBox6.BackColor = System.Drawing.Color.White;
             this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(107, 6);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 28);
+            this.comboBox6.Size = new System.Drawing.Size(121, 26);
             this.comboBox6.TabIndex = 4;
             this.comboBox6.Text = "গোপনীয়তা";
             // 
@@ -494,12 +526,12 @@
             // 
             this.comboBox8.BackColor = System.Drawing.Color.White;
             this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox8.FormattingEnabled = true;
             this.comboBox8.Location = new System.Drawing.Point(369, 5);
             this.comboBox8.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(121, 28);
+            this.comboBox8.Size = new System.Drawing.Size(121, 26);
             this.comboBox8.TabIndex = 6;
             this.comboBox8.Text = "অগ্রাধিকার";
             // 
@@ -507,12 +539,12 @@
             // 
             this.comboBox7.BackColor = System.Drawing.Color.White;
             this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Location = new System.Drawing.Point(238, 5);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(121, 28);
+            this.comboBox7.Size = new System.Drawing.Size(121, 26);
             this.comboBox7.TabIndex = 5;
             this.comboBox7.Text = "ডাকের ধরণ";
             // 
@@ -551,10 +583,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(968, 8);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 20);
+            this.label6.Size = new System.Drawing.Size(73, 18);
             this.label6.TabIndex = 7;
             this.label6.Text = " সর্বমোট: ১২";
             // 
@@ -624,7 +656,7 @@
             this.nameorDesignationSearchPanel.Controls.Add(this.label14);
             this.nameorDesignationSearchPanel.Controls.Add(this.label12);
             this.nameorDesignationSearchPanel.Controls.Add(this.nameorDesignationSearchXTextBox);
-            this.nameorDesignationSearchPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameorDesignationSearchPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameorDesignationSearchPanel.Location = new System.Drawing.Point(19, 251);
             this.nameorDesignationSearchPanel.Name = "nameorDesignationSearchPanel";
             this.nameorDesignationSearchPanel.Size = new System.Drawing.Size(497, 107);
@@ -635,7 +667,7 @@
             // label14
             // 
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(20, 61);
             this.label14.Name = "label14";
@@ -647,10 +679,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(28, 69);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(209, 16);
+            this.label12.Size = new System.Drawing.Size(229, 15);
             this.label12.TabIndex = 31;
             this.label12.Text = "Please enter 4 or more characters";
             // 
@@ -811,7 +843,7 @@
             // 
             this.panel13.Controls.Add(this.nameDesignationSearchButton);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel13.Location = new System.Drawing.Point(0, 48);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(1091, 57);
@@ -822,7 +854,7 @@
             this.nameDesignationSearchButton.BackColor = System.Drawing.Color.Transparent;
             this.nameDesignationSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.nameDesignationSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nameDesignationSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameDesignationSearchButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameDesignationSearchButton.ForeColor = System.Drawing.SystemColors.GrayText;
             this.nameDesignationSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("nameDesignationSearchButton.Image")));
             this.nameDesignationSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -866,7 +898,7 @@
             // label17
             // 
             this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.Location = new System.Drawing.Point(212, 17);
             this.label17.Name = "label17";
@@ -878,7 +910,7 @@
             // label19
             // 
             this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(645, 14);
             this.label19.Name = "label19";
@@ -899,7 +931,7 @@
             // label16
             // 
             this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
             this.label16.Location = new System.Drawing.Point(6, 17);
             this.label16.Name = "label16";
@@ -911,7 +943,7 @@
             // label18
             // 
             this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
             this.label18.Location = new System.Drawing.Point(104, 17);
             this.label18.Name = "label18";
@@ -923,7 +955,7 @@
             // label20
             // 
             this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Location = new System.Drawing.Point(536, 14);
             this.label20.Name = "label20";
@@ -962,7 +994,7 @@
             // 
             this.dakPriorityComboBox.BackColor = System.Drawing.Color.White;
             this.dakPriorityComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakPriorityComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakPriorityComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakPriorityComboBox.FormattingEnabled = true;
             this.dakPriorityComboBox.Items.AddRange(new object[] {
             "অগ্রাধিকার",
@@ -972,7 +1004,7 @@
             "জরুরি"});
             this.dakPriorityComboBox.Location = new System.Drawing.Point(644, 117);
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
-            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 28);
+            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakPriorityComboBox.TabIndex = 6;
             this.dakPriorityComboBox.Text = "অগ্রাধিকার";
             // 
@@ -980,7 +1012,7 @@
             // 
             this.dakSecurityComboBox11.BackColor = System.Drawing.Color.White;
             this.dakSecurityComboBox11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSecurityComboBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSecurityComboBox11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakSecurityComboBox11.FormattingEnabled = true;
             this.dakSecurityComboBox11.Items.AddRange(new object[] {
             "বাছাই করুন",
@@ -990,14 +1022,14 @@
             "সীমিত "});
             this.dakSecurityComboBox11.Location = new System.Drawing.Point(438, 117);
             this.dakSecurityComboBox11.Name = "dakSecurityComboBox11";
-            this.dakSecurityComboBox11.Size = new System.Drawing.Size(197, 28);
+            this.dakSecurityComboBox11.Size = new System.Drawing.Size(197, 26);
             this.dakSecurityComboBox11.TabIndex = 5;
             this.dakSecurityComboBox11.Text = "গোপনীয়তা";
             // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(17, 8);
             this.label8.Name = "label8";
@@ -1010,7 +1042,7 @@
             // 
             this.dakTypeComboBox.BackColor = System.Drawing.Color.White;
             this.dakTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakTypeComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakTypeComboBox.FormattingEnabled = true;
             this.dakTypeComboBox.Items.AddRange(new object[] {
             "ডাকের ধরণ",
@@ -1018,7 +1050,7 @@
             "নাগরিক"});
             this.dakTypeComboBox.Location = new System.Drawing.Point(861, 117);
             this.dakTypeComboBox.Name = "dakTypeComboBox";
-            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 28);
+            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakTypeComboBox.TabIndex = 4;
             this.dakTypeComboBox.Text = "ডাকের ধরণ";
             this.dakTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakTypeComboBox_SelectedIndexChanged);
@@ -1027,7 +1059,7 @@
             // 
             this.dakPaperTypeComboBox.BackColor = System.Drawing.Color.White;
             this.dakPaperTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakPaperTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakPaperTypeComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakPaperTypeComboBox.FormattingEnabled = true;
             this.dakPaperTypeComboBox.Items.AddRange(new object[] {
             "পত্রের ধরন",
@@ -1037,7 +1069,7 @@
             "বিজ্ঞপ্তি/নোটিশ"});
             this.dakPaperTypeComboBox.Location = new System.Drawing.Point(233, 118);
             this.dakPaperTypeComboBox.Name = "dakPaperTypeComboBox";
-            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 28);
+            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakPaperTypeComboBox.TabIndex = 3;
             this.dakPaperTypeComboBox.Text = "পত্রের ধরন";
             // 
@@ -1047,7 +1079,7 @@
             this.detailSearchStopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.detailSearchStopButton.FlatAppearance.BorderSize = 0;
             this.detailSearchStopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailSearchStopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailSearchStopButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detailSearchStopButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.detailSearchStopButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchStopButton.Image")));
             this.detailSearchStopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1064,7 +1096,7 @@
             // 
             this.dakAttentionTypeComboBox.BackColor = System.Drawing.Color.White;
             this.dakAttentionTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakAttentionTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakAttentionTypeComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakAttentionTypeComboBox.FormattingEnabled = true;
             this.dakAttentionTypeComboBox.Items.AddRange(new object[] {
             "সকল",
@@ -1074,7 +1106,7 @@
             " অনুলিপি"});
             this.dakAttentionTypeComboBox.Location = new System.Drawing.Point(21, 117);
             this.dakAttentionTypeComboBox.Name = "dakAttentionTypeComboBox";
-            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 28);
+            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakAttentionTypeComboBox.TabIndex = 2;
             this.dakAttentionTypeComboBox.Text = "সকল";
             // 
@@ -1084,7 +1116,7 @@
             this.detailsSearchResetButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.detailsSearchResetButton.FlatAppearance.BorderSize = 0;
             this.detailsSearchResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailsSearchResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailsSearchResetButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detailsSearchResetButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.detailsSearchResetButton.Image = ((System.Drawing.Image)(resources.GetObject("detailsSearchResetButton.Image")));
             this.detailsSearchResetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1103,7 +1135,7 @@
             this.detailSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.detailSearchButton.FlatAppearance.BorderSize = 0;
             this.detailSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailSearchButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detailSearchButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.detailSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchButton.Image")));
             this.detailSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1211,10 +1243,10 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.Location = new System.Drawing.Point(124, 10);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(89, 20);
+            this.linkLabel2.Size = new System.Drawing.Size(83, 18);
             this.linkLabel2.TabIndex = 31;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "এটুআই প্রোগ্রাম";
@@ -1222,10 +1254,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(10, 8);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(135, 20);
+            this.label7.Size = new System.Drawing.Size(116, 18);
             this.label7.TabIndex = 30;
             this.label7.Text = "© Copyright ২০২০, ";
             // 
@@ -1537,6 +1569,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.RightSign);
+            this.panel1.Controls.Add(this.LeftSign);
             this.panel1.Controls.Add(this.dakMenuPanel);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.dakMenuButton);
@@ -1546,6 +1580,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 687);
             this.panel1.TabIndex = 11;
+            // 
+            // RightSign
+            // 
+            this.RightSign.BackColor = System.Drawing.Color.Transparent;
+            this.RightSign.Enabled = false;
+            this.RightSign.FlatAppearance.BorderSize = 0;
+            this.RightSign.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.RightSign.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RightSign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RightSign.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.RightSign.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(243)))));
+            this.RightSign.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RightSign.IconSize = 24;
+            this.RightSign.Location = new System.Drawing.Point(198, 19);
+            this.RightSign.Name = "RightSign";
+            this.RightSign.Size = new System.Drawing.Size(10, 30);
+            this.RightSign.TabIndex = 20;
+            this.RightSign.UseVisualStyleBackColor = false;
+            // 
+            // LeftSign
+            // 
+            this.LeftSign.BackColor = System.Drawing.Color.Transparent;
+            this.LeftSign.Enabled = false;
+            this.LeftSign.FlatAppearance.BorderSize = 0;
+            this.LeftSign.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.LeftSign.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.LeftSign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LeftSign.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.LeftSign.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
+            this.LeftSign.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LeftSign.IconSize = 24;
+            this.LeftSign.Location = new System.Drawing.Point(189, 19);
+            this.LeftSign.Name = "LeftSign";
+            this.LeftSign.Size = new System.Drawing.Size(10, 30);
+            this.LeftSign.TabIndex = 21;
+            this.LeftSign.UseVisualStyleBackColor = false;
             // 
             // dakMenuPanel
             // 
@@ -1594,7 +1664,7 @@
             this.dakSortedUserButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakSortedUserButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakSortedUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSortedUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSortedUserButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakSortedUserButton.IconChar = FontAwesome.Sharp.IconChar.MailBulk;
             this.dakSortedUserButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.dakSortedUserButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1620,7 +1690,7 @@
             this.personalFolderButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.personalFolderButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.personalFolderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.personalFolderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.personalFolderButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personalFolderButton.IconChar = FontAwesome.Sharp.IconChar.Folder;
             this.personalFolderButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.personalFolderButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1645,7 +1715,7 @@
             this.khasraDakButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.khasraDakButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.khasraDakButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.khasraDakButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.khasraDakButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.khasraDakButton.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
             this.khasraDakButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.khasraDakButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1684,12 +1754,12 @@
             this.nagorikDakUploadMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.nagorikDakUploadMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.nagorikDakUploadMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nagorikDakUploadMenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nagorikDakUploadMenuButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nagorikDakUploadMenuButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.nagorikDakUploadMenuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nagorikDakUploadMenuButton.Location = new System.Drawing.Point(0, 30);
+            this.nagorikDakUploadMenuButton.Location = new System.Drawing.Point(0, 28);
             this.nagorikDakUploadMenuButton.Name = "nagorikDakUploadMenuButton";
-            this.nagorikDakUploadMenuButton.Size = new System.Drawing.Size(227, 30);
+            this.nagorikDakUploadMenuButton.Size = new System.Drawing.Size(227, 28);
             this.nagorikDakUploadMenuButton.TabIndex = 22;
             this.nagorikDakUploadMenuButton.Text = "         - নাগরিক";
             this.nagorikDakUploadMenuButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1708,12 +1778,12 @@
             this.daptorikDakUploadButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.daptorikDakUploadButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.daptorikDakUploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.daptorikDakUploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.daptorikDakUploadButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.daptorikDakUploadButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.daptorikDakUploadButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.daptorikDakUploadButton.Location = new System.Drawing.Point(0, 0);
             this.daptorikDakUploadButton.Name = "daptorikDakUploadButton";
-            this.daptorikDakUploadButton.Size = new System.Drawing.Size(227, 30);
+            this.daptorikDakUploadButton.Size = new System.Drawing.Size(227, 28);
             this.daptorikDakUploadButton.TabIndex = 21;
             this.daptorikDakUploadButton.Text = "         - দাপ্তরিক";
             this.daptorikDakUploadButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1730,7 +1800,7 @@
             this.dakUploadButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakUploadButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakUploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakUploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakUploadButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakUploadButton.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
             this.dakUploadButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.dakUploadButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1755,7 +1825,7 @@
             this.dakArchiveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakArchiveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakArchiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakArchiveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakArchiveButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakArchiveButton.IconChar = FontAwesome.Sharp.IconChar.Archive;
             this.dakArchiveButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.dakArchiveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1780,7 +1850,7 @@
             this.dakNothijatoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakNothijatoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakNothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakNothijatoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakNothijatoButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakNothijatoButton.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
             this.dakNothijatoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.dakNothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1805,7 +1875,7 @@
             this.dakNotivuktoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakNotivuktoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakNotivuktoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakNotivuktoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakNotivuktoButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakNotivuktoButton.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
             this.dakNotivuktoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.dakNotivuktoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1830,7 +1900,7 @@
             this.dakOutboxButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakOutboxButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakOutboxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakOutboxButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakOutboxButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakOutboxButton.IconChar = FontAwesome.Sharp.IconChar.Inbox;
             this.dakOutboxButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.dakOutboxButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1855,7 +1925,7 @@
             this.dakSortButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakSortButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakSortButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSortButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSortButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakSortButton.IconChar = FontAwesome.Sharp.IconChar.Inbox;
             this.dakSortButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.dakSortButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1880,7 +1950,7 @@
             this.dakInboxButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakInboxButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakInboxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakInboxButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakInboxButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakInboxButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
             this.dakInboxButton.IconChar = FontAwesome.Sharp.IconChar.MailBulk;
             this.dakInboxButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
@@ -1905,7 +1975,7 @@
             this.dakSearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSearchButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakSearchButton.IconChar = FontAwesome.Sharp.IconChar.Inbox;
             this.dakSearchButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.dakSearchButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -1937,16 +2007,12 @@
             // 
             // dakMenuButton
             // 
-            this.dakMenuButton.BackColor = System.Drawing.Color.White;
-            this.dakMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dakMenuButton.BackgroundImage")));
-            this.dakMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.dakMenuButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.dakMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakMenuButton.Location = new System.Drawing.Point(177, 3);
+            this.dakMenuButton.BackColor = System.Drawing.Color.Transparent;
+            this.dakMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dakMenuButton.Location = new System.Drawing.Point(182, 15);
             this.dakMenuButton.Name = "dakMenuButton";
-            this.dakMenuButton.Size = new System.Drawing.Size(56, 60);
-            this.dakMenuButton.TabIndex = 3;
-            this.dakMenuButton.UseVisualStyleBackColor = false;
+            this.dakMenuButton.Size = new System.Drawing.Size(39, 36);
+            this.dakMenuButton.TabIndex = 22;
             this.dakMenuButton.Click += new System.EventHandler(this.dakMenuButton_Click);
             // 
             // button11
@@ -2003,10 +2069,10 @@
             // rightSliderHeadLineLabel
             // 
             this.rightSliderHeadLineLabel.AutoSize = true;
-            this.rightSliderHeadLineLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rightSliderHeadLineLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rightSliderHeadLineLabel.Location = new System.Drawing.Point(14, 9);
             this.rightSliderHeadLineLabel.Name = "rightSliderHeadLineLabel";
-            this.rightSliderHeadLineLabel.Size = new System.Drawing.Size(77, 20);
+            this.rightSliderHeadLineLabel.Size = new System.Drawing.Size(72, 18);
             this.rightSliderHeadLineLabel.TabIndex = 26;
             this.rightSliderHeadLineLabel.Text = "ডাক গতিবিধি";
             // 
@@ -2015,28 +2081,31 @@
             this.movementStatusDisplaypanel.Controls.Add(this.rightSliderHeadLineLabel);
             this.movementStatusDisplaypanel.Controls.Add(this.sliderCrossButton);
             this.movementStatusDisplaypanel.Controls.Add(this.dashboardSlideFlowLayoutPanel);
-            this.movementStatusDisplaypanel.Location = new System.Drawing.Point(783, 1);
+            this.movementStatusDisplaypanel.Location = new System.Drawing.Point(1344, 1);
             this.movementStatusDisplaypanel.Name = "movementStatusDisplaypanel";
-            this.movementStatusDisplaypanel.Size = new System.Drawing.Size(572, 690);
+            this.movementStatusDisplaypanel.Size = new System.Drawing.Size(11, 690);
             this.movementStatusDisplaypanel.TabIndex = 26;
             this.movementStatusDisplaypanel.Visible = false;
             // 
-            // designationDetailPanel
+            // designationDetailsPanel
             // 
-            this.designationDetailPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.designationDetailPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.designationDetailPanel.Location = new System.Drawing.Point(904, 48);
-            this.designationDetailPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.designationDetailPanel.Name = "designationDetailPanel";
-            this.designationDetailPanel.Size = new System.Drawing.Size(432, 190);
-            this.designationDetailPanel.TabIndex = 5;
-            this.designationDetailPanel.Visible = false;
+            this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
+            this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.designationDetailsPanel.dakTotalNumber = 5;
+            this.designationDetailsPanel.designationLinkText = null;
+            this.designationDetailsPanel.Location = new System.Drawing.Point(895, 48);
+            this.designationDetailsPanel.Name = "designationDetailsPanel";
+            this.designationDetailsPanel.nothiTotalNumber = 9;
+            this.designationDetailsPanel.Size = new System.Drawing.Size(428, 146);
+            this.designationDetailsPanel.TabIndex = 51;
+            this.designationDetailsPanel.Visible = false;
+            this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
             // 
             // searchOfficeDetailSearch
             // 
             this.searchOfficeDetailSearch.AutoSize = true;
             this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
-            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchOfficeDetailSearch.listboxcollection = new string[] {
         "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
         "জেলা প্রশাষকের কার্যালয়, ঢাকা",
@@ -2052,27 +2121,12 @@
             // nameorDesignationSearchXTextBox
             // 
             this.nameorDesignationSearchXTextBox.BackColor = System.Drawing.Color.White;
-            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(11, 18);
             this.nameorDesignationSearchXTextBox.Multiline = true;
             this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
             this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(449, 35);
             this.nameorDesignationSearchXTextBox.TabIndex = 30;
-            // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
-            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.circularPictureBox1.ErrorImage = null;
-            this.circularPictureBox1.InitialImage = null;
-            this.circularPictureBox1.Location = new System.Drawing.Point(17, 3);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(26, 26);
-            this.circularPictureBox1.TabIndex = 0;
-            this.circularPictureBox1.TabStop = false;
-            this.circularPictureBox1.Click += new System.EventHandler(this.profileShowArrowButton_Click);
-            this.circularPictureBox1.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
-            this.circularPictureBox1.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
             // 
             // Dashboard
             // 
@@ -2080,8 +2134,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1354, 687);
+            this.Controls.Add(this.designationDetailsPanel);
             this.Controls.Add(this.movementStatusDisplaypanel);
-            this.Controls.Add(this.designationDetailPanel);
             this.Controls.Add(this.panel16);
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(1370, 1200);
@@ -2091,8 +2145,10 @@
             this.Load += new System.EventHandler(this.OnLoad);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.profilePanel.ResumeLayout(false);
             this.profilePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.nothiModulePanel.ResumeLayout(false);
             this.nothiModulePanel.PerformLayout();
             this.dakModulePanel.ResumeLayout(false);
@@ -2140,7 +2196,6 @@
             this.panel16.PerformLayout();
             this.movementStatusDisplaypanel.ResumeLayout(false);
             this.movementStatusDisplaypanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2153,11 +2208,9 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Panel panel2;
-        private CircularPictureBox circularPictureBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.Label moduleDakCountLabel;
         private System.Windows.Forms.Button button11;
-        private designationSelect designationDetailPanel;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.LinkLabel linkLabel2;
@@ -2184,7 +2237,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button dakMenuButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel dakMenuPanel;
@@ -2263,7 +2315,6 @@
         private FontAwesome.Sharp.IconButton dakSearchButton;
         private System.Windows.Forms.Label label21;
         private FontAwesome.Sharp.IconButton profileShowArrowButton;
-        private System.Windows.Forms.Panel profilePanel;
         private FontAwesome.Sharp.IconButton dakInboxButton;
         private FontAwesome.Sharp.IconButton dakSortButton;
         private System.Windows.Forms.Panel panel16;
@@ -2279,6 +2330,12 @@
         private FontAwesome.Sharp.IconButton dakArchiveButton;
         private FontAwesome.Sharp.IconButton dakNothijatoButton;
         private FontAwesome.Sharp.IconButton personalFolderButton;
+        private FontAwesome.Sharp.IconButton RightSign;
+        private FontAwesome.Sharp.IconButton LeftSign;
+        private System.Windows.Forms.Panel dakMenuButton;
+        private FontAwesome.Sharp.IconPictureBox userPictureBox;
+        private System.Windows.Forms.Panel profilePanel;
+        private designationSelect designationDetailsPanel;
     }
 }
 
