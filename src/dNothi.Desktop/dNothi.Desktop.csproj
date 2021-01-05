@@ -166,6 +166,12 @@
     <Compile Include="CustomControl\CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomControl\ListBoxHS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\ListBoxHS.Designer.cs">
+      <DependentUpon>ListBoxHS.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControl\MovementStatusSliderPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -448,6 +454,9 @@
     </Compile>
     <Compile Include="View Model\ViewDesignationSealList.cs" />
     <Compile Include="View Model\WebBrowserColumn.cs" />
+    <EmbeddedResource Include="CustomControl\ListBoxHS.resx">
+      <DependentUpon>ListBoxHS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\PlaceHolderTextBox.resx">
       <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
     </EmbeddedResource>

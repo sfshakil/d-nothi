@@ -109,5 +109,15 @@ namespace dNothi.Desktop.UI.Dak
         {
 
         }
+
+        private void searchListBox_MouseEnter(object sender, ListViewItemMouseHoverEventArgs e)
+        {
+            e.Item.BackColor = Color.Green;
+        }
+
+        private void searchListBox_MouseEnter(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

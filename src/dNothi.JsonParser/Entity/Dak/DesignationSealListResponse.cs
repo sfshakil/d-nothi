@@ -34,7 +34,10 @@ public class DesignationSealListResponse
     public class PrapokDTO
     {
 
-
+     
+        public int dak_id { get; set; }
+        public int to_officer_designation_id { get { return designation_id; } set{ designation_id = value; } }
+        public string dak_type { get; set; }
         public string designation_bng { get; set; }
         public string designation_eng { get; set; }
         public int designation_id { get; set; }

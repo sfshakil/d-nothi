@@ -21,11 +21,12 @@ namespace dNothi.Desktop.UI.Dak
         private bool _isAllowedforMulpotro;
         public bool _isAllowedforOCR=false;
         private bool _isMulpotro;
-        private string _attachmentName;
+        public string _attachmentName;
         private string _fileextension;
         private bool _isOCRVisible;
         private bool _isDeleteVisible;
         private bool _isRejectVisible;
+    
 
         public DakAttachmentDTO _dakAttachment = new DakAttachmentDTO();
         internal string imageBase64String;
@@ -83,7 +84,7 @@ namespace dNothi.Desktop.UI.Dak
             get { return _attachmentName; }
             set
             {
-                _attachmentName = value; dakUploadAttachmentNameLabel.Text= value;
+                _attachmentName = value; dakUploadAttachmentNameTextBox.Text = value;
             }
 
         }
@@ -117,7 +118,7 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _isMulpotro = value;
-                if (value == true && _isAllowedforOCR == true) { attachmentOCRButton.Visible = true; }
+                if (value == true && _isAllowedforOCR == true) { attachmentOCRButton.Visible = true; dakAttachmentTableRadioButton.Checked = true;  }
                 else if (value == true) { dakAttachmentTableRadioButton.Checked = true; }
                 else { dakAttachmentTableRadioButton.Checked = false; attachmentOCRButton.Visible = false; }
 
@@ -165,6 +166,11 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.DeleteButtonClick != null)
                 this.DeleteButtonClick(sender, e);
+        }
+
+        private void dakUploadAttachmentNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _attachmentName = dakUploadAttachmentNameTextBox.Text;
         }
     }
 }
