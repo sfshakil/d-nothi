@@ -365,6 +365,12 @@
     <Compile Include="UI\Dak\NothiOutbox.Designer.cs">
       <DependentUpon>NothiOutbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiTalika.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiTalika.Designer.cs">
+      <DependentUpon>NothiTalika.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiType.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -531,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutbox.resx">
       <DependentUpon>NothiOutbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiTalika.resx">
+      <DependentUpon>NothiTalika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiType.resx">
       <DependentUpon>NothiType.cs</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
 using System;
@@ -17,6 +18,7 @@ namespace dNothi.Desktop.UI
 {
     public partial class Nothi : Form
     {
+        private DakUserParam _dakuserparam = new DakUserParam();
         IUserService _userService { get; set; }
         INothiInboxServices _nothiInbox { get; set; }
         INothiOutboxServices _nothiOutbox { get; set; }
@@ -35,6 +37,7 @@ namespace dNothi.Desktop.UI
             SetDefaultFont(this.Controls);
             SelectButton(btnNothiInbox);
             nothiDhoronSrchUC.Visible = true;
+            designationDetailsPanelNothi.Visible = false;
         }
 
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
@@ -100,6 +103,7 @@ namespace dNothi.Desktop.UI
 
         private void btnNothi_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
             
@@ -107,32 +111,16 @@ namespace dNothi.Desktop.UI
 
         private void btnNothiIcon_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Dashboard>();
             form.ShowDialog();
         }
 
         private void btnDak_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Dashboard>();
             form.ShowDialog();
-        }
-        designationSelect ucdesignationSelect = new designationSelect();
-        private void btnLogOutArrow_Click(object sender, EventArgs e)
-        {
-            if (ucdesignationSelect.Width == 428)
-            {
-                ucdesignationSelect.Visible = true;
-                ucdesignationSelect.Location = new System.Drawing.Point(227 + 689, 60);
-                Controls.Add(ucdesignationSelect);
-                ucdesignationSelect.BringToFront();
-                ucdesignationSelect.Width = 427;
-                btnLogOutArrow.BackColor = Color.WhiteSmoke;
-            }
-            else
-            {
-                ucdesignationSelect.Visible = false;
-                ucdesignationSelect.Width = 428;
-            }
         }
 
         private void LoadNothiOutbox()
@@ -277,12 +265,14 @@ namespace dNothi.Desktop.UI
 
         private void nothiModulePanel_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
         }
 
         private void dakModulePanel_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Dashboard>();
             form.ShowDialog();
         }
@@ -344,18 +334,21 @@ namespace dNothi.Desktop.UI
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
         }
 
         private void nothiModuleNameLabel_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
         }
 
         private void label22_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
         }
@@ -374,18 +367,21 @@ namespace dNothi.Desktop.UI
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Dashboard>();
             form.ShowDialog();
         }
 
         private void dakModuleNameLabel_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Dashboard>();
             form.ShowDialog();
         }
 
         private void moduleDakCountLabel_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Dashboard>();
             form.ShowDialog();
         }
@@ -496,6 +492,121 @@ namespace dNothi.Desktop.UI
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
         }
+        designationSelect designationDetailsPanelNothi = new designationSelect();
+        private void profilePanel_Click(object sender, EventArgs e)
+        {
+            if (designationDetailsPanelNothi.Width == 428)
+            {
+                designationDetailsPanelNothi.Visible = true;
+                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
+                Controls.Add(designationDetailsPanelNothi);
+                designationDetailsPanelNothi.BringToFront();
+                designationDetailsPanelNothi.Width = 427;
 
+            }
+            else
+            {
+                designationDetailsPanelNothi.Visible = false;
+                designationDetailsPanelNothi.Width = 428;
+            }
+        }
+
+        private void userPictureBox_Click(object sender, EventArgs e)
+        {
+            if (designationDetailsPanelNothi.Width == 428)
+            {
+                designationDetailsPanelNothi.Visible = true;
+                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
+                Controls.Add(designationDetailsPanelNothi);
+                designationDetailsPanelNothi.BringToFront();
+                designationDetailsPanelNothi.Width = 427;
+
+            }
+            else
+            {
+                designationDetailsPanelNothi.Visible = false;
+                designationDetailsPanelNothi.Width = 428;
+            }
+        }
+        
+        private void userNameLabel_Click(object sender, EventArgs e)
+        {
+            if (designationDetailsPanelNothi.Width == 428)
+            {
+                designationDetailsPanelNothi.Visible = true;
+                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
+                Controls.Add(designationDetailsPanelNothi);
+                designationDetailsPanelNothi.BringToFront();
+                designationDetailsPanelNothi.Width = 427;
+
+            }
+            else
+            {
+                designationDetailsPanelNothi.Visible = false;
+                designationDetailsPanelNothi.Width = 428;
+            }
+        }
+
+        private void profileShowArrowButton_Click(object sender, EventArgs e)
+        {
+            if (designationDetailsPanelNothi.Width == 428)
+            {
+                designationDetailsPanelNothi.Visible = true;
+                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
+                Controls.Add(designationDetailsPanelNothi);
+                designationDetailsPanelNothi.BringToFront();
+                designationDetailsPanelNothi.Width = 427;
+
+            }
+            else
+            {
+                designationDetailsPanelNothi.Visible = false;
+                designationDetailsPanelNothi.Width = 428;
+            }
+        }
+
+        private void profilePanel_MouseHover(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.FromArgb(245, 245, 249);
+        }
+
+        private void userPictureBox_MouseHover(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.FromArgb(245, 245, 249);
+        }
+
+        private void userNameLabel_MouseHover(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.FromArgb(245, 245, 249);
+        }
+
+        private void profileShowArrowButton_MouseHover(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.FromArgb(245, 245, 249);
+        }
+
+        private void profilePanel_MouseLeave(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.Transparent;
+        }
+
+        private void userPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.Transparent;
+        }
+
+        private void userNameLabel_MouseLeave(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.Transparent;
+        }
+
+        private void profileShowArrowButton_MouseLeave(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.Transparent;
+        }
     }
 }

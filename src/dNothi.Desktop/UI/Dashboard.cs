@@ -1474,12 +1474,14 @@ namespace dNothi.Desktop.UI
 
         private void dakModulePanel_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Dashboard>();
             form.ShowDialog();
         }
 
         private void nothiModulePanel_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
         }

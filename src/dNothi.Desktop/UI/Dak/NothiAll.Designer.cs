@@ -97,7 +97,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1121, 84);
+            this.panel1.Size = new System.Drawing.Size(1115, 84);
             this.panel1.TabIndex = 0;
             // 
             // iconButton7
@@ -219,7 +219,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 82);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1121, 2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1115, 2);
             this.flowLayoutPanel1.TabIndex = 107;
             // 
             // panel3
@@ -228,7 +228,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1121, 2);
+            this.panel3.Size = new System.Drawing.Size(1115, 2);
             this.panel3.TabIndex = 106;
             // 
             // panel2
@@ -421,7 +421,7 @@
             // 
             this.lbNoteLastDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteLastDate.Location = new System.Drawing.Point(855, 54);
+            this.lbNoteLastDate.Location = new System.Drawing.Point(840, 54);
             this.lbNoteLastDate.Name = "lbNoteLastDate";
             this.lbNoteLastDate.Size = new System.Drawing.Size(263, 23);
             this.lbNoteLastDate.TabIndex = 91;
@@ -432,7 +432,7 @@
             this.newAllNoteFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newAllNoteFlowLayoutPanel.Location = new System.Drawing.Point(0, 119);
             this.newAllNoteFlowLayoutPanel.Name = "newAllNoteFlowLayoutPanel";
-            this.newAllNoteFlowLayoutPanel.Size = new System.Drawing.Size(1121, 0);
+            this.newAllNoteFlowLayoutPanel.Size = new System.Drawing.Size(1115, 0);
             this.newAllNoteFlowLayoutPanel.TabIndex = 23;
             // 
             // pnlNewAllNote
@@ -449,7 +449,7 @@
             this.pnlNewAllNote.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNewAllNote.Location = new System.Drawing.Point(0, 84);
             this.pnlNewAllNote.Name = "pnlNewAllNote";
-            this.pnlNewAllNote.Size = new System.Drawing.Size(1121, 35);
+            this.pnlNewAllNote.Size = new System.Drawing.Size(1115, 35);
             this.pnlNewAllNote.TabIndex = 22;
             // 
             // iconButton8
@@ -587,7 +587,7 @@
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 33);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1121, 2);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1115, 2);
             this.flowLayoutPanel3.TabIndex = 58;
             // 
             // flowLayoutPanel2
@@ -596,7 +596,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1121, 2);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1115, 2);
             this.flowLayoutPanel2.TabIndex = 57;
             // 
             // NothiAll
@@ -606,8 +606,9 @@
             this.Controls.Add(this.newAllNoteFlowLayoutPanel);
             this.Controls.Add(this.pnlNewAllNote);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiAll";
-            this.Size = new System.Drawing.Size(1121, 86);
+            this.Size = new System.Drawing.Size(1115, 86);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlNewAllNote.ResumeLayout(false);

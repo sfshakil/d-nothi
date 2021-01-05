@@ -140,7 +140,8 @@ namespace dNothi.Desktop
             builder.RegisterType<DakListSortedService>().As<IDakListSortedService>();
             builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
             builder.RegisterType<NothiInboxNoteServices>().As<INothiInboxNoteServices>();
-            builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
+            builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>(); 
+            builder.RegisterType<NothiNoteTalikaServices>().As<INothiNoteTalikaServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
             builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();

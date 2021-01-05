@@ -24,6 +24,19 @@ namespace dNothi.Desktop.UI.Dak
             _nothiType = nothiType;
             InitializeComponent();
             LoadNothiTypeList();
+            SetDefaultFont(this.Controls);
+            
+        }
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+                MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+                SetDefaultFont(ctrl.Controls);
+            }
+
         }
         private void LoadNothiTypeList()
         {
@@ -53,6 +66,8 @@ namespace dNothi.Desktop.UI.Dak
                 nothiType.nothiNumber = nothiTypeListDTO.nothi_type_count;
                 i = i + 1;
                 k++;
+                if (i % 2 != 0)
+                    nothiType.BackColor = Color.FromArgb(243, 246, 249);
                 nothiTypes.Add(nothiType);
 
             }
@@ -64,6 +79,8 @@ namespace dNothi.Desktop.UI.Dak
             for (int j = 0; j <= nothiTypes.Count - 1; j++)
             {
                 nothiTypeListFlowLayoutPanel.Controls.Add(nothiTypes[j]);
+               
+                    
             }
         }
 
@@ -87,6 +104,11 @@ namespace dNothi.Desktop.UI.Dak
             createNewNothiType.Location = new System.Drawing.Point(0, 74);
             Controls.Add(createNewNothiType);
             createNewNothiType.BringToFront();
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+           ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(210, 234, 255), ButtonBorderStyle.Solid);
         }
     }
 }

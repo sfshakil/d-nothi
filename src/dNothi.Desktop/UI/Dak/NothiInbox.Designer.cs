@@ -42,6 +42,7 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbNothiId = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -53,7 +54,6 @@
             this.lbNothi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbNothiId = new System.Windows.Forms.Label();
             this.allNothiInbox.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnlNewAllNote.SuspendLayout();
@@ -269,9 +269,22 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1110, 83);
             this.panel1.TabIndex = 18;
+            // 
+            // lbNothiId
+            // 
+            this.lbNothiId.AutoSize = true;
+            this.lbNothiId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothiId.Location = new System.Drawing.Point(728, 48);
+            this.lbNothiId.Name = "lbNothiId";
+            this.lbNothiId.Size = new System.Drawing.Size(97, 20);
+            this.lbNothiId.TabIndex = 58;
+            this.lbNothiId.Text = "nothiIdLabel";
+            this.lbNothiId.Visible = false;
             // 
             // panel2
             // 
@@ -400,23 +413,12 @@
             this.label6.TabIndex = 47;
             this.label6.Text = "নথিঃ";
             // 
-            // lbNothiId
-            // 
-            this.lbNothiId.AutoSize = true;
-            this.lbNothiId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothiId.Location = new System.Drawing.Point(728, 48);
-            this.lbNothiId.Name = "lbNothiId";
-            this.lbNothiId.Size = new System.Drawing.Size(97, 20);
-            this.lbNothiId.TabIndex = 58;
-            this.lbNothiId.Text = "nothiIdLabel";
-            this.lbNothiId.Visible = false;
-            // 
             // NothiInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.allNothiInbox);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiInbox";
             this.Size = new System.Drawing.Size(1110, 84);
             this.allNothiInbox.ResumeLayout(false);
