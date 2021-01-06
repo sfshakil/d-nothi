@@ -39,6 +39,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.nothiListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.profilePanel = new System.Windows.Forms.Panel();
+            this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
+            this.userNameLabel = new System.Windows.Forms.Label();
+            this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
             this.nothiModulePanel = new System.Windows.Forms.Panel();
             this.nothiModuleNameLabel = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -47,9 +51,6 @@
             this.dakModuleNameLabel = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.moduleDakCountLabel = new System.Windows.Forms.Label();
-            this.circularPictureBox1 = new dNothi.Desktop.CircularPictureBox();
-            this.btnLogOutArrow = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnlNothiNoteTalika = new System.Windows.Forms.Panel();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
@@ -95,9 +96,10 @@
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.profilePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.nothiModulePanel.SuspendLayout();
             this.dakModulePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.pnlNothiNoteTalika.SuspendLayout();
             this.panel6.SuspendLayout();
             this.nothiSearchHeadingPanel.SuspendLayout();
@@ -268,16 +270,89 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Window;
+            this.panel2.Controls.Add(this.profilePanel);
             this.panel2.Controls.Add(this.nothiModulePanel);
             this.panel2.Controls.Add(this.dakModulePanel);
-            this.panel2.Controls.Add(this.circularPictureBox1);
-            this.panel2.Controls.Add(this.btnLogOutArrow);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(233, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1121, 60);
             this.panel2.TabIndex = 13;
+            // 
+            // profilePanel
+            // 
+            this.profilePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.profilePanel.AutoSize = true;
+            this.profilePanel.Controls.Add(this.userPictureBox);
+            this.profilePanel.Controls.Add(this.userNameLabel);
+            this.profilePanel.Controls.Add(this.profileShowArrowButton);
+            this.profilePanel.Location = new System.Drawing.Point(783, 15);
+            this.profilePanel.Name = "profilePanel";
+            this.profilePanel.Padding = new System.Windows.Forms.Padding(3);
+            this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.profilePanel.Size = new System.Drawing.Size(325, 33);
+            this.profilePanel.TabIndex = 29;
+            this.profilePanel.Click += new System.EventHandler(this.profilePanel_Click);
+            this.profilePanel.MouseLeave += new System.EventHandler(this.profilePanel_MouseLeave);
+            this.profilePanel.MouseHover += new System.EventHandler(this.profilePanel_MouseHover);
+            // 
+            // userPictureBox
+            // 
+            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.userPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.userPictureBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            this.userPictureBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.userPictureBox.IconSize = 23;
+            this.userPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.userPictureBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.userPictureBox.Size = new System.Drawing.Size(23, 27);
+            this.userPictureBox.TabIndex = 29;
+            this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.userPictureBox_Click);
+            this.userPictureBox.MouseLeave += new System.EventHandler(this.userPictureBox_MouseLeave);
+            this.userPictureBox.MouseHover += new System.EventHandler(this.userPictureBox_MouseHover);
+            // 
+            // userNameLabel
+            // 
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
+            this.userNameLabel.Location = new System.Drawing.Point(26, 3);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.userNameLabel.Size = new System.Drawing.Size(283, 25);
+            this.userNameLabel.TabIndex = 23;
+            this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি)";
+            this.userNameLabel.Click += new System.EventHandler(this.userNameLabel_Click);
+            this.userNameLabel.MouseLeave += new System.EventHandler(this.userNameLabel_MouseLeave);
+            this.userNameLabel.MouseHover += new System.EventHandler(this.userNameLabel_MouseHover);
+            // 
+            // profileShowArrowButton
+            // 
+            this.profileShowArrowButton.BackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.profileShowArrowButton.FlatAppearance.BorderSize = 0;
+            this.profileShowArrowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileShowArrowButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.profileShowArrowButton.IconSize = 20;
+            this.profileShowArrowButton.Location = new System.Drawing.Point(309, 3);
+            this.profileShowArrowButton.Name = "profileShowArrowButton";
+            this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.profileShowArrowButton.Size = new System.Drawing.Size(13, 27);
+            this.profileShowArrowButton.TabIndex = 27;
+            this.profileShowArrowButton.UseVisualStyleBackColor = false;
+            this.profileShowArrowButton.Click += new System.EventHandler(this.profileShowArrowButton_Click);
+            this.profileShowArrowButton.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
+            this.profileShowArrowButton.MouseHover += new System.EventHandler(this.profileShowArrowButton_MouseHover);
             // 
             // nothiModulePanel
             // 
@@ -397,42 +472,6 @@
             this.moduleDakCountLabel.MouseLeave += new System.EventHandler(this.moduleDakCountLabel_MouseLeave);
             this.moduleDakCountLabel.MouseHover += new System.EventHandler(this.moduleDakCountLabel_MouseHover);
             // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("circularPictureBox1.BackgroundImage")));
-            this.circularPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.circularPictureBox1.ErrorImage = null;
-            this.circularPictureBox1.InitialImage = null;
-            this.circularPictureBox1.Location = new System.Drawing.Point(746, 15);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(37, 31);
-            this.circularPictureBox1.TabIndex = 0;
-            this.circularPictureBox1.TabStop = false;
-            // 
-            // btnLogOutArrow
-            // 
-            this.btnLogOutArrow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogOutArrow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogOutArrow.BackgroundImage")));
-            this.btnLogOutArrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLogOutArrow.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnLogOutArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOutArrow.Location = new System.Drawing.Point(1082, 21);
-            this.btnLogOutArrow.Name = "btnLogOutArrow";
-            this.btnLogOutArrow.Size = new System.Drawing.Size(25, 23);
-            this.btnLogOutArrow.TabIndex = 24;
-            this.btnLogOutArrow.UseVisualStyleBackColor = false;
-            this.btnLogOutArrow.Click += new System.EventHandler(this.btnLogOutArrow_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(789, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(283, 20);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি)";
-            // 
             // pnlNothiNoteTalika
             // 
             this.pnlNothiNoteTalika.BackColor = System.Drawing.Color.White;
@@ -538,18 +577,20 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(901, 12);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(897, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 13);
+            this.label9.Size = new System.Drawing.Size(55, 20);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(124, 12);
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Location = new System.Drawing.Point(143, 7);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(82, 13);
+            this.linkLabel2.Size = new System.Drawing.Size(89, 20);
             this.linkLabel2.TabIndex = 31;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "এটুআই প্রোগ্রাম";
@@ -557,10 +598,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(10, 10);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(10, 7);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 16);
+            this.label7.Size = new System.Drawing.Size(135, 20);
             this.label7.TabIndex = 30;
             this.label7.Text = "© Copyright ২০২০, ";
             // 
@@ -571,7 +612,7 @@
             this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30.Location = new System.Drawing.Point(959, 3);
+            this.button30.Location = new System.Drawing.Point(958, 6);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(25, 23);
             this.button30.TabIndex = 29;
@@ -584,7 +625,7 @@
             this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.Location = new System.Drawing.Point(990, 3);
+            this.button29.Location = new System.Drawing.Point(989, 6);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(25, 23);
             this.button29.TabIndex = 28;
@@ -597,7 +638,7 @@
             this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Location = new System.Drawing.Point(1021, 3);
+            this.button28.Location = new System.Drawing.Point(1020, 6);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(25, 23);
             this.button28.TabIndex = 27;
@@ -610,7 +651,7 @@
             this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Location = new System.Drawing.Point(1052, 3);
+            this.button27.Location = new System.Drawing.Point(1051, 6);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(25, 23);
             this.button27.TabIndex = 26;
@@ -623,7 +664,7 @@
             this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Location = new System.Drawing.Point(1083, 3);
+            this.button26.Location = new System.Drawing.Point(1082, 6);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(25, 23);
             this.button26.TabIndex = 25;
@@ -816,7 +857,7 @@
             this.nameDesignationSrchUC.MinimumSize = new System.Drawing.Size(174, 40);
             this.nameDesignationSrchUC.Name = "nameDesignationSrchUC";
             this.nameDesignationSrchUC.searchButtonText = "নাম/পদবি দিয়ে খুঁজুন";
-            this.nameDesignationSrchUC.Size = new System.Drawing.Size(1065, 49);
+            this.nameDesignationSrchUC.Size = new System.Drawing.Size(1070, 49);
             this.nameDesignationSrchUC.TabIndex = 31;
             // 
             // panel5
@@ -1041,11 +1082,13 @@
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.profilePanel.ResumeLayout(false);
+            this.profilePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.nothiModulePanel.ResumeLayout(false);
             this.nothiModulePanel.PerformLayout();
             this.dakModulePanel.ResumeLayout(false);
             this.dakModulePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.pnlNothiNoteTalika.ResumeLayout(false);
             this.pnlNothiNoteTalika.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1069,9 +1112,6 @@
         private System.Windows.Forms.Button btnNothiIcon;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel2;
-        private CircularPictureBox circularPictureBox1;
-        private System.Windows.Forms.Button btnLogOutArrow;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel pnlNothiNoteTalika;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button11;
@@ -1128,5 +1168,9 @@
         private FontAwesome.Sharp.IconButton btnNothiOutbox;
         private FontAwesome.Sharp.IconButton btnNothiAll;
         private FontAwesome.Sharp.IconButton btnNewNothi;
+        private System.Windows.Forms.Panel profilePanel;
+        private FontAwesome.Sharp.IconPictureBox userPictureBox;
+        private System.Windows.Forms.Label userNameLabel;
+        private FontAwesome.Sharp.IconButton profileShowArrowButton;
     }
 }

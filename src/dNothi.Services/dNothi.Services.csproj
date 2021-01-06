@@ -134,13 +134,17 @@
     <Compile Include="DakServices\IDakUploadService.cs" />
     <Compile Include="DakServices\OCRParameter.cs" />
     <Compile Include="NothiServices\INothiAllServices.cs" />
+    <Compile Include="NothiServices\INothiCreateService.cs" />
     <Compile Include="NothiServices\INothiInboxNoteServices.cs" />
     <Compile Include="NothiServices\INothiInboxServices.cs" />
+    <Compile Include="NothiServices\INothiNoteTalikaServices.cs" />
     <Compile Include="NothiServices\INothiOutboxServices.cs" />
     <Compile Include="NothiServices\INothiTypeListServices.cs" />
     <Compile Include="NothiServices\NothiAllService.cs" />
+    <Compile Include="NothiServices\NothiCreateService.cs" />
     <Compile Include="NothiServices\NothiInboxNoteServices.cs" />
     <Compile Include="NothiServices\NothiInboxService.cs" />
+    <Compile Include="NothiServices\NothiNoteTalikaServices.cs" />
     <Compile Include="NothiServices\NothiOutboxService.cs" />
     <Compile Include="NothiServices\NothiTypeListService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

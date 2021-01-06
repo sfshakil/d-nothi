@@ -113,8 +113,8 @@ namespace dNothi.Desktop.UI.Dak
         private void loadnewAllNoteFlowLayoutPanel()
         {
             var eachNothiId = lbNothiId.Text;
-            var token = _userService.GetToken();
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(token, eachNothiId);
+            var nothiListUserParam = _userService.GetLocalDakUserParam();
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(nothiListUserParam, eachNothiId);
 
             if (nothiInboxNote.status == "success")
             {

@@ -104,6 +104,8 @@
     <Compile Include="Entity\Nothi\DeskOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NoteNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiAllDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiCreateDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiCreateResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListAllDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListAllRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListAllResponse.cs" />
@@ -115,6 +117,9 @@
     <Compile Include="Entity\Nothi\NothiListOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListOutboxResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiNoteTalikaDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiNoteTalikaListResponse.cs" />
+    <Compile Include="Entity\Nothi\NothiNoteTalikaRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxListRecordsDTO.cs" />

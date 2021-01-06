@@ -28,58 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NothiTypeList));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.lbNothiSubjectType = new System.Windows.Forms.Label();
             this.lbNothiCode = new System.Windows.Forms.Label();
             this.lbNothiNumber = new System.Windows.Forms.Label();
             this.lblSerialNo = new System.Windows.Forms.Label();
+            this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(410, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 35);
-            this.button1.TabIndex = 45;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Turquoise;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(444, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 47;
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // lbNothiSubjectType
             // 
             this.lbNothiSubjectType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiSubjectType.Location = new System.Drawing.Point(81, 12);
+            this.lbNothiSubjectType.Location = new System.Drawing.Point(76, 12);
             this.lbNothiSubjectType.Name = "lbNothiSubjectType";
-            this.lbNothiSubjectType.Size = new System.Drawing.Size(199, 68);
+            this.lbNothiSubjectType.Size = new System.Drawing.Size(199, 43);
             this.lbNothiSubjectType.TabIndex = 50;
             this.lbNothiSubjectType.Text = "NothiSubjectType";
             // 
             // lbNothiCode
             // 
             this.lbNothiCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiCode.Location = new System.Drawing.Point(284, 12);
+            this.lbNothiCode.Location = new System.Drawing.Point(279, 12);
             this.lbNothiCode.Name = "lbNothiCode";
             this.lbNothiCode.Size = new System.Drawing.Size(44, 35);
             this.lbNothiCode.TabIndex = 51;
@@ -89,7 +58,7 @@
             // lbNothiNumber
             // 
             this.lbNothiNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiNumber.Location = new System.Drawing.Point(345, 12);
+            this.lbNothiNumber.Location = new System.Drawing.Point(340, 12);
             this.lbNothiNumber.Name = "lbNothiNumber";
             this.lbNothiNumber.Size = new System.Drawing.Size(44, 35);
             this.lbNothiNumber.TabIndex = 52;
@@ -99,35 +68,70 @@
             // lblSerialNo
             // 
             this.lblSerialNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSerialNo.Location = new System.Drawing.Point(20, 12);
+            this.lblSerialNo.Location = new System.Drawing.Point(15, 12);
             this.lblSerialNo.Name = "lblSerialNo";
             this.lblSerialNo.Size = new System.Drawing.Size(44, 35);
             this.lblSerialNo.TabIndex = 53;
             this.lblSerialNo.Text = "SerialNo";
             this.lblSerialNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnNothiTypeCross
+            // 
+            this.btnNothiTypeCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnNothiTypeCross.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnNothiTypeCross.FlatAppearance.BorderSize = 0;
+            this.btnNothiTypeCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiTypeCross.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnNothiTypeCross.IconColor = System.Drawing.Color.White;
+            this.btnNothiTypeCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiTypeCross.IconSize = 24;
+            this.btnNothiTypeCross.Location = new System.Drawing.Point(410, 6);
+            this.btnNothiTypeCross.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiTypeCross.Name = "btnNothiTypeCross";
+            this.btnNothiTypeCross.Size = new System.Drawing.Size(34, 35);
+            this.btnNothiTypeCross.TabIndex = 64;
+            this.btnNothiTypeCross.UseVisualStyleBackColor = false;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 24;
+            this.iconButton1.Location = new System.Drawing.Point(444, 6);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(34, 35);
+            this.iconButton1.TabIndex = 65;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
             // NothiTypeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.btnNothiTypeCross);
             this.Controls.Add(this.lblSerialNo);
             this.Controls.Add(this.lbNothiNumber);
             this.Controls.Add(this.lbNothiCode);
             this.Controls.Add(this.lbNothiSubjectType);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiTypeList";
-            this.Size = new System.Drawing.Size(541, 103);
+            this.Size = new System.Drawing.Size(503, 61);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lbNothiSubjectType;
         private System.Windows.Forms.Label lbNothiCode;
         private System.Windows.Forms.Label lbNothiNumber;
         private System.Windows.Forms.Label lblSerialNo;
+        private FontAwesome.Sharp.IconButton btnNothiTypeCross;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
