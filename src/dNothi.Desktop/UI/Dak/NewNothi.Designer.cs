@@ -46,7 +46,14 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cbxNothiClass = new System.Windows.Forms.ComboBox();
+            this.cbxLast2digitNothiNo = new System.Windows.Forms.ComboBox();
+            this.cbxNothiType = new System.Windows.Forms.ComboBox();
+            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.searchUserController2 = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.last2DigitNothiNoSUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.lbNothilast4digit = new System.Windows.Forms.TextBox();
             this.lbNothiNo = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -58,19 +65,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnNothiSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.placeholderTextBox1 = new PlaceholderTextBox.PlaceholderTextBox();
-            this.cbxNothiType = new System.Windows.Forms.ComboBox();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.searchUserController2 = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.searchUserController1 = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.lbNothilast4digit = new System.Windows.Forms.Label();
+            this.txtNothiSubject = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.nothiTalikaPnl.SuspendLayout();
@@ -157,6 +159,7 @@
             // 
             this.nothiTalikaFlowLayoutPnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nothiTalikaFlowLayoutPnl.Location = new System.Drawing.Point(0, 71);
+            this.nothiTalikaFlowLayoutPnl.Margin = new System.Windows.Forms.Padding(0);
             this.nothiTalikaFlowLayoutPnl.Name = "nothiTalikaFlowLayoutPnl";
             this.nothiTalikaFlowLayoutPnl.Size = new System.Drawing.Size(1132, 259);
             this.nothiTalikaFlowLayoutPnl.TabIndex = 21;
@@ -170,6 +173,7 @@
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel2);
             this.pnlNewAllNote.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNewAllNote.Location = new System.Drawing.Point(0, 36);
+            this.pnlNewAllNote.Margin = new System.Windows.Forms.Padding(0);
             this.pnlNewAllNote.Name = "pnlNewAllNote";
             this.pnlNewAllNote.Size = new System.Drawing.Size(1132, 35);
             this.pnlNewAllNote.TabIndex = 20;
@@ -241,6 +245,7 @@
             this.panel10.Controls.Add(this.label13);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1132, 36);
             this.panel10.TabIndex = 1;
@@ -285,10 +290,12 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.cbxNothiClass);
+            this.panel4.Controls.Add(this.cbxLast2digitNothiNo);
             this.panel4.Controls.Add(this.cbxNothiType);
             this.panel4.Controls.Add(this.searchOfficeDetailSearch);
             this.panel4.Controls.Add(this.searchUserController2);
-            this.panel4.Controls.Add(this.searchUserController1);
+            this.panel4.Controls.Add(this.last2DigitNothiNoSUC);
             this.panel4.Controls.Add(this.panel11);
             this.panel4.Controls.Add(this.lbNothiNo);
             this.panel4.Controls.Add(this.panel8);
@@ -301,7 +308,7 @@
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.button11);
+            this.panel4.Controls.Add(this.btnNothiSave);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
@@ -314,6 +321,122 @@
             this.panel4.Size = new System.Drawing.Size(1100, 246);
             this.panel4.TabIndex = 1;
             // 
+            // cbxNothiClass
+            // 
+            this.cbxNothiClass.DropDownHeight = 200;
+            this.cbxNothiClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxNothiClass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxNothiClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.cbxNothiClass.FormattingEnabled = true;
+            this.cbxNothiClass.IntegralHeight = false;
+            this.cbxNothiClass.ItemHeight = 19;
+            this.cbxNothiClass.Items.AddRange(new object[] {
+            "ঘ",
+            "গ",
+            "খ",
+            "ক"});
+            this.cbxNothiClass.Location = new System.Drawing.Point(873, 74);
+            this.cbxNothiClass.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxNothiClass.MaxDropDownItems = 100;
+            this.cbxNothiClass.MaxLength = 100;
+            this.cbxNothiClass.Name = "cbxNothiClass";
+            this.cbxNothiClass.Size = new System.Drawing.Size(170, 27);
+            this.cbxNothiClass.TabIndex = 71;
+            this.cbxNothiClass.Text = "বাছাই করুন";
+            // 
+            // cbxLast2digitNothiNo
+            // 
+            this.cbxLast2digitNothiNo.DropDownHeight = 200;
+            this.cbxLast2digitNothiNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxLast2digitNothiNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxLast2digitNothiNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.cbxLast2digitNothiNo.FormattingEnabled = true;
+            this.cbxLast2digitNothiNo.IntegralHeight = false;
+            this.cbxLast2digitNothiNo.ItemHeight = 19;
+            this.cbxLast2digitNothiNo.Items.AddRange(new object[] {
+            "No Results Found"});
+            this.cbxLast2digitNothiNo.Location = new System.Drawing.Point(684, 75);
+            this.cbxLast2digitNothiNo.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxLast2digitNothiNo.MaxDropDownItems = 100;
+            this.cbxLast2digitNothiNo.MaxLength = 100;
+            this.cbxLast2digitNothiNo.Name = "cbxLast2digitNothiNo";
+            this.cbxLast2digitNothiNo.Size = new System.Drawing.Size(170, 27);
+            this.cbxLast2digitNothiNo.TabIndex = 70;
+            this.cbxLast2digitNothiNo.Text = "বাছাই করুন";
+            // 
+            // cbxNothiType
+            // 
+            this.cbxNothiType.DropDownHeight = 200;
+            this.cbxNothiType.DropDownWidth = 200;
+            this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxNothiType.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxNothiType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.cbxNothiType.FormattingEnabled = true;
+            this.cbxNothiType.IntegralHeight = false;
+            this.cbxNothiType.ItemHeight = 19;
+            this.cbxNothiType.Location = new System.Drawing.Point(158, 75);
+            this.cbxNothiType.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxNothiType.MaxDropDownItems = 100;
+            this.cbxNothiType.MaxLength = 100;
+            this.cbxNothiType.Name = "cbxNothiType";
+            this.cbxNothiType.Size = new System.Drawing.Size(169, 27);
+            this.cbxNothiType.TabIndex = 69;
+            this.cbxNothiType.Text = "বাছাই করুন";
+            this.cbxNothiType.SelectedIndexChanged += new System.EventHandler(this.cbxNothiType_SelectedIndexChanged);
+            // 
+            // searchOfficeDetailSearch
+            // 
+            this.searchOfficeDetailSearch.AutoSize = true;
+            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
+            this.searchOfficeDetailSearch.Enabled = false;
+            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeDetailSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.searchOfficeDetailSearch.listboxcollection = new string[0];
+            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(155, 57);
+            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
+            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(174, 50);
+            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
+            this.searchOfficeDetailSearch.searchButtonText = "";
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(174, 50);
+            this.searchOfficeDetailSearch.TabIndex = 63;
+            this.searchOfficeDetailSearch.Click += new System.EventHandler(this.searchOfficeDetailSearch_Click);
+            // 
+            // searchUserController2
+            // 
+            this.searchUserController2.AutoSize = true;
+            this.searchUserController2.BackColor = System.Drawing.Color.White;
+            this.searchUserController2.Enabled = false;
+            this.searchUserController2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchUserController2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.searchUserController2.listboxcollection = new string[] {
+        "ঘ",
+        "গ",
+        "খ",
+        "ক"};
+            this.searchUserController2.Location = new System.Drawing.Point(870, 56);
+            this.searchUserController2.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
+            this.searchUserController2.MinimumSize = new System.Drawing.Size(174, 39);
+            this.searchUserController2.Name = "searchUserController2";
+            this.searchUserController2.searchButtonText = "";
+            this.searchUserController2.Size = new System.Drawing.Size(174, 49);
+            this.searchUserController2.TabIndex = 67;
+            // 
+            // last2DigitNothiNoSUC
+            // 
+            this.last2DigitNothiNoSUC.AutoSize = true;
+            this.last2DigitNothiNoSUC.BackColor = System.Drawing.Color.White;
+            this.last2DigitNothiNoSUC.Enabled = false;
+            this.last2DigitNothiNoSUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.last2DigitNothiNoSUC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.last2DigitNothiNoSUC.listboxcollection = new string[0];
+            this.last2DigitNothiNoSUC.Location = new System.Drawing.Point(683, 57);
+            this.last2DigitNothiNoSUC.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
+            this.last2DigitNothiNoSUC.MinimumSize = new System.Drawing.Size(174, 39);
+            this.last2DigitNothiNoSUC.Name = "last2DigitNothiNoSUC";
+            this.last2DigitNothiNoSUC.searchButtonText = "";
+            this.last2DigitNothiNoSUC.Size = new System.Drawing.Size(174, 49);
+            this.last2DigitNothiNoSUC.TabIndex = 66;
+            // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
@@ -324,11 +447,24 @@
             this.panel11.TabIndex = 65;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint_1);
             // 
+            // lbNothilast4digit
+            // 
+            this.lbNothilast4digit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.lbNothilast4digit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbNothilast4digit.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.lbNothilast4digit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothilast4digit.Location = new System.Drawing.Point(8, 15);
+            this.lbNothilast4digit.Multiline = true;
+            this.lbNothilast4digit.Name = "lbNothilast4digit";
+            this.lbNothilast4digit.Size = new System.Drawing.Size(179, 28);
+            this.lbNothilast4digit.TabIndex = 72;
+            this.lbNothilast4digit.Text = "***.**";
+            // 
             // lbNothiNo
             // 
             this.lbNothiNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.lbNothiNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbNothiNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothiNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNothiNo.Location = new System.Drawing.Point(338, 57);
             this.lbNothiNo.Name = "lbNothiNo";
@@ -385,7 +521,7 @@
             // 
             this.lbNothiShakha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.lbNothiShakha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbNothiShakha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiShakha.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothiShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNothiShakha.Location = new System.Drawing.Point(13, 57);
             this.lbNothiShakha.Name = "lbNothiShakha";
@@ -450,20 +586,21 @@
             this.label7.TabIndex = 42;
             this.label7.Text = "*";
             // 
-            // button11
+            // btnNothiSave
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(937, 163);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(107, 43);
-            this.button11.TabIndex = 41;
-            this.button11.Text = "সংরক্ষণ করুন";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btnNothiSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnNothiSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnNothiSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNothiSave.ForeColor = System.Drawing.Color.White;
+            this.btnNothiSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNothiSave.Location = new System.Drawing.Point(937, 163);
+            this.btnNothiSave.Name = "btnNothiSave";
+            this.btnNothiSave.Size = new System.Drawing.Size(107, 43);
+            this.btnNothiSave.TabIndex = 41;
+            this.btnNothiSave.Text = "সংরক্ষণ করুন";
+            this.btnNothiSave.UseVisualStyleBackColor = false;
+            this.btnNothiSave.Click += new System.EventHandler(this.btnNothiSave_Click);
             // 
             // label5
             // 
@@ -523,103 +660,24 @@
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.panel12.Controls.Add(this.placeholderTextBox1);
+            this.panel12.Controls.Add(this.txtNothiSubject);
             this.panel12.Location = new System.Drawing.Point(25, 163);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(644, 43);
             this.panel12.TabIndex = 68;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint);
             // 
-            // placeholderTextBox1
+            // txtNothiSubject
             // 
-            this.placeholderTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.placeholderTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.placeholderTextBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.placeholderTextBox1.Location = new System.Drawing.Point(10, 12);
-            this.placeholderTextBox1.Name = "placeholderTextBox1";
-            this.placeholderTextBox1.PlaceholderText = "নথির বিষয়";
-            this.placeholderTextBox1.Size = new System.Drawing.Size(619, 19);
-            this.placeholderTextBox1.TabIndex = 3;
-            // 
-            // cbxNothiType
-            // 
-            this.cbxNothiType.DropDownHeight = 50;
-            this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxNothiType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxNothiType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.cbxNothiType.FormattingEnabled = true;
-            this.cbxNothiType.IntegralHeight = false;
-            this.cbxNothiType.Location = new System.Drawing.Point(159, 68);
-            this.cbxNothiType.Margin = new System.Windows.Forms.Padding(0);
-            this.cbxNothiType.MaxDropDownItems = 20;
-            this.cbxNothiType.MaxLength = 20;
-            this.cbxNothiType.Name = "cbxNothiType";
-            this.cbxNothiType.Size = new System.Drawing.Size(164, 28);
-            this.cbxNothiType.TabIndex = 69;
-            this.cbxNothiType.Text = "বাছাই করুন";
-            this.cbxNothiType.SelectedIndexChanged += new System.EventHandler(this.cbxNothiType_SelectedIndexChanged);
-            // 
-            // searchOfficeDetailSearch
-            // 
-            this.searchOfficeDetailSearch.AutoSize = true;
-            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
-            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeDetailSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.searchOfficeDetailSearch.listboxcollection = new string[0];
-            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(155, 57);
-            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
-            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(174, 50);
-            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
-            this.searchOfficeDetailSearch.searchButtonText = "বাছাই করুন";
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(174, 50);
-            this.searchOfficeDetailSearch.TabIndex = 63;
-            this.searchOfficeDetailSearch.Click += new System.EventHandler(this.searchOfficeDetailSearch_Click);
-            // 
-            // searchUserController2
-            // 
-            this.searchUserController2.AutoSize = true;
-            this.searchUserController2.BackColor = System.Drawing.Color.White;
-            this.searchUserController2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchUserController2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.searchUserController2.listboxcollection = new string[] {
-        "ঘ",
-        "গ",
-        "খ",
-        "ক"};
-            this.searchUserController2.Location = new System.Drawing.Point(870, 56);
-            this.searchUserController2.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
-            this.searchUserController2.MinimumSize = new System.Drawing.Size(174, 39);
-            this.searchUserController2.Name = "searchUserController2";
-            this.searchUserController2.searchButtonText = "বাছাই করুন";
-            this.searchUserController2.Size = new System.Drawing.Size(174, 49);
-            this.searchUserController2.TabIndex = 67;
-            // 
-            // searchUserController1
-            // 
-            this.searchUserController1.AutoSize = true;
-            this.searchUserController1.BackColor = System.Drawing.Color.White;
-            this.searchUserController1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchUserController1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.searchUserController1.listboxcollection = new string[0];
-            this.searchUserController1.Location = new System.Drawing.Point(683, 57);
-            this.searchUserController1.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
-            this.searchUserController1.MinimumSize = new System.Drawing.Size(174, 39);
-            this.searchUserController1.Name = "searchUserController1";
-            this.searchUserController1.searchButtonText = "বাছাই করুন";
-            this.searchUserController1.Size = new System.Drawing.Size(174, 49);
-            this.searchUserController1.TabIndex = 66;
-            // 
-            // lbNothilast4digit
-            // 
-            this.lbNothilast4digit.AutoSize = true;
-            this.lbNothilast4digit.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.lbNothilast4digit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothilast4digit.Location = new System.Drawing.Point(7, 15);
-            this.lbNothilast4digit.Name = "lbNothilast4digit";
-            this.lbNothilast4digit.Size = new System.Drawing.Size(53, 19);
-            this.lbNothilast4digit.TabIndex = 29;
-            this.lbNothilast4digit.Text = "***.**";
+            this.txtNothiSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.txtNothiSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNothiSubject.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNothiSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.txtNothiSubject.Location = new System.Drawing.Point(10, 12);
+            this.txtNothiSubject.Name = "txtNothiSubject";
+            this.txtNothiSubject.PlaceholderText = "নথির বিষয়";
+            this.txtNothiSubject.Size = new System.Drawing.Size(619, 19);
+            this.txtNothiSubject.TabIndex = 3;
             // 
             // NewNothi
             // 
@@ -661,7 +719,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnNothiSave;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -688,10 +746,12 @@
         private System.Windows.Forms.Label lbNothiNo;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
-        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox1;
+        private PlaceholderTextBox.PlaceholderTextBox txtNothiSubject;
         private SearchUserController searchUserController2;
-        private SearchUserController searchUserController1;
+        private SearchUserController last2DigitNothiNoSUC;
         private System.Windows.Forms.ComboBox cbxNothiType;
-        private System.Windows.Forms.Label lbNothilast4digit;
+        private System.Windows.Forms.ComboBox cbxNothiClass;
+        private System.Windows.Forms.ComboBox cbxLast2digitNothiNo;
+        private System.Windows.Forms.TextBox lbNothilast4digit;
     }
 }

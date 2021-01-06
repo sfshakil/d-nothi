@@ -43,7 +43,7 @@ namespace dNothi.Desktop.UI.Dak
         public int _nishponno;
         public int _archived;
         public string _noteLastDate;
-
+        public int _flag;
 
         [Category("Custom Props")]
         public string nothi
@@ -109,6 +109,23 @@ namespace dNothi.Desktop.UI.Dak
             get { return _noteLastDate; }
             set { _noteLastDate = value; lbNoteLastDate.Text = value; }
         }
+        [Category("Custom Props")]
+        public int flag
+        {
+            get { return _flag; }
+            set { _flag = value;
+                if (value == 1)
+                {
+                    lbDesk.Visible = false; btnNote.Visible = false; btnOnumodito.Visible = false;
+                    btnOnishponno.Visible = false; btnNishponno.Visible = false; btnArchive.Visible = false;
+                    lbNoteLastDate.Visible = false; iconButton2.Visible = false; iconButton4.Visible = false;
+                    iconButton5.Visible = false; iconButton6.Visible = false; iconButton7.Visible = false;
+                    lbNoteTotal.Visible = false; lbPermitted.Visible = false; lbOnishponno.Visible = false;
+                    lbNishponno.Visible = false; lbArchived.Visible = false;
+                    nothiShompadonIcon.Visible = true;
+                }
+            }
+        }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
@@ -151,6 +168,16 @@ namespace dNothi.Desktop.UI.Dak
                 iconButton3.BackColor = Color.FromArgb(201, 247, 245);
 
             }
+        }
+
+        private void nothiShompadonIcon_MouseHover(object sender, EventArgs e)
+        {
+            nothiShompadonIcon.IconColor = Color.Salmon;
+        }
+
+        private void nothiShompadonIcon_MouseLeave(object sender, EventArgs e)
+        {
+            nothiShompadonIcon.IconColor = Color.FromArgb(54, 153, 255);
         }
     }
 }

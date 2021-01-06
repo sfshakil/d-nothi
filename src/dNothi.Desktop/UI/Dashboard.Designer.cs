@@ -61,7 +61,6 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.detailsDakSearcPanel = new System.Windows.Forms.Panel();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.nameorDesignationSearchPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -622,7 +621,6 @@
             // detailsDakSearcPanel
             // 
             this.detailsDakSearcPanel.BackColor = System.Drawing.Color.White;
-            this.detailsDakSearcPanel.Controls.Add(this.searchOfficeDetailSearch);
             this.detailsDakSearcPanel.Controls.Add(this.nameorDesignationSearchPanel);
             this.detailsDakSearcPanel.Controls.Add(this.label13);
             this.detailsDakSearcPanel.Controls.Add(this.label2);
@@ -685,6 +683,13 @@
             this.label12.Size = new System.Drawing.Size(209, 16);
             this.label12.TabIndex = 31;
             this.label12.Text = "Please enter 4 or more characters";
+            // 
+            // nameorDesignationSearchXTextBox
+            // 
+            this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(0, 0);
+            this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
+            this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(100, 26);
+            this.nameorDesignationSearchXTextBox.TabIndex = 33;
             // 
             // label13
             // 
@@ -856,7 +861,6 @@
             this.nameDesignationSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nameDesignationSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameDesignationSearchButton.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nameDesignationSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("nameDesignationSearchButton.Image")));
             this.nameDesignationSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nameDesignationSearchButton.Location = new System.Drawing.Point(12, 10);
             this.nameDesignationSearchButton.Name = "nameDesignationSearchButton";
@@ -2254,7 +2258,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.CheckBox officerSourceCheckBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private Dak.SearchUserController searchOfficeDetailSearch;
         private System.Windows.Forms.FlowLayoutPanel dakSortingUserFlowLayoutPanel;
         private System.Windows.Forms.Button nagorikDakUploadMenuButton;
         private System.Windows.Forms.Button daptorikDakUploadButton;

@@ -35,22 +35,22 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.lbNoteTotal = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnNote = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.lbArchived = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnArchive = new System.Windows.Forms.Button();
             this.lbNothi = new System.Windows.Forms.Label();
             this.lbShakha = new System.Windows.Forms.Label();
             this.lbNishponno = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnNishponno = new System.Windows.Forms.Button();
             this.lbOnishponno = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnOnishponno = new System.Windows.Forms.Button();
             this.lbPermitted = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnOnumodito = new System.Windows.Forms.Button();
             this.lbDesk = new System.Windows.Forms.Label();
             this.lbNoteLastDate = new System.Windows.Forms.Label();
             this.newAllNoteFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -64,34 +64,38 @@
             this.dakSearchButton = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbFlag = new System.Windows.Forms.Label();
+            this.nothiShompadonIcon = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.pnlNewAllNote.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.nothiShompadonIcon);
+            this.panel1.Controls.Add(this.lbFlag);
             this.panel1.Controls.Add(this.iconButton7);
             this.panel1.Controls.Add(this.iconButton6);
             this.panel1.Controls.Add(this.iconButton4);
             this.panel1.Controls.Add(this.iconButton2);
             this.panel1.Controls.Add(this.iconButton5);
             this.panel1.Controls.Add(this.lbNoteTotal);
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.btnNote);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Controls.Add(this.lbArchived);
-            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.btnArchive);
             this.panel1.Controls.Add(this.lbNothi);
             this.panel1.Controls.Add(this.lbShakha);
             this.panel1.Controls.Add(this.lbNishponno);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btnNishponno);
             this.panel1.Controls.Add(this.lbOnishponno);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.btnOnishponno);
             this.panel1.Controls.Add(this.lbPermitted);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnOnumodito);
             this.panel1.Controls.Add(this.lbDesk);
             this.panel1.Controls.Add(this.lbNoteLastDate);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -196,22 +200,22 @@
             this.lbNoteTotal.TabIndex = 109;
             this.lbNoteTotal.Text = "11";
             // 
-            // button6
+            // btnNote
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(605, 14);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 28);
-            this.button6.TabIndex = 108;
-            this.button6.Text = "নোট";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnNote.BackColor = System.Drawing.Color.Transparent;
+            this.btnNote.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNote.Location = new System.Drawing.Point(605, 14);
+            this.btnNote.Name = "btnNote";
+            this.btnNote.Size = new System.Drawing.Size(100, 28);
+            this.btnNote.TabIndex = 108;
+            this.btnNote.Text = "নোট";
+            this.btnNote.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel1
             // 
@@ -283,22 +287,22 @@
             this.lbArchived.TabIndex = 102;
             this.lbArchived.Text = "11";
             // 
-            // button5
+            // btnArchive
             // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(1015, 14);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(91, 29);
-            this.button5.TabIndex = 101;
-            this.button5.Text = "আর্কাইভ";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnArchive.BackColor = System.Drawing.Color.Transparent;
+            this.btnArchive.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnArchive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnArchive.Location = new System.Drawing.Point(1015, 14);
+            this.btnArchive.Name = "btnArchive";
+            this.btnArchive.Size = new System.Drawing.Size(91, 29);
+            this.btnArchive.TabIndex = 101;
+            this.btnArchive.Text = "আর্কাইভ";
+            this.btnArchive.UseVisualStyleBackColor = false;
             // 
             // lbNothi
             // 
@@ -332,22 +336,22 @@
             this.lbNishponno.TabIndex = 98;
             this.lbNishponno.Text = "11";
             // 
-            // button3
+            // btnNishponno
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(918, 14);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 29);
-            this.button3.TabIndex = 97;
-            this.button3.Text = "নিষ্পন্ন";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnNishponno.BackColor = System.Drawing.Color.Transparent;
+            this.btnNishponno.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNishponno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnNishponno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnNishponno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNishponno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNishponno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNishponno.Location = new System.Drawing.Point(918, 14);
+            this.btnNishponno.Name = "btnNishponno";
+            this.btnNishponno.Size = new System.Drawing.Size(97, 29);
+            this.btnNishponno.TabIndex = 97;
+            this.btnNishponno.Text = "নিষ্পন্ন";
+            this.btnNishponno.UseVisualStyleBackColor = false;
             // 
             // lbOnishponno
             // 
@@ -360,22 +364,22 @@
             this.lbOnishponno.TabIndex = 96;
             this.lbOnishponno.Text = "11";
             // 
-            // button4
+            // btnOnishponno
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(818, 14);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 29);
-            this.button4.TabIndex = 95;
-            this.button4.Text = "অনিষ্পন্ন";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnOnishponno.BackColor = System.Drawing.Color.Transparent;
+            this.btnOnishponno.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnOnishponno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnOnishponno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnOnishponno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnishponno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOnishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnOnishponno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOnishponno.Location = new System.Drawing.Point(818, 14);
+            this.btnOnishponno.Name = "btnOnishponno";
+            this.btnOnishponno.Size = new System.Drawing.Size(100, 29);
+            this.btnOnishponno.TabIndex = 95;
+            this.btnOnishponno.Text = "অনিষ্পন্ন";
+            this.btnOnishponno.UseVisualStyleBackColor = false;
             // 
             // lbPermitted
             // 
@@ -388,22 +392,22 @@
             this.lbPermitted.TabIndex = 94;
             this.lbPermitted.Text = "11";
             // 
-            // button2
+            // btnOnumodito
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(703, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 28);
-            this.button2.TabIndex = 93;
-            this.button2.Text = "অনুমোদিত";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnOnumodito.BackColor = System.Drawing.Color.Transparent;
+            this.btnOnumodito.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnOnumodito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnOnumodito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnOnumodito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnumodito.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOnumodito.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnOnumodito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOnumodito.Location = new System.Drawing.Point(703, 14);
+            this.btnOnumodito.Name = "btnOnumodito";
+            this.btnOnumodito.Size = new System.Drawing.Size(115, 28);
+            this.btnOnumodito.TabIndex = 93;
+            this.btnOnumodito.Text = "অনুমোদিত";
+            this.btnOnumodito.UseVisualStyleBackColor = false;
             // 
             // lbDesk
             // 
@@ -599,6 +603,39 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1115, 2);
             this.flowLayoutPanel2.TabIndex = 57;
             // 
+            // lbFlag
+            // 
+            this.lbFlag.AutoSize = true;
+            this.lbFlag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFlag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbFlag.Location = new System.Drawing.Point(556, 51);
+            this.lbFlag.Name = "lbFlag";
+            this.lbFlag.Size = new System.Drawing.Size(100, 20);
+            this.lbFlag.TabIndex = 115;
+            this.lbFlag.Text = "shakhaLabel";
+            this.lbFlag.Visible = false;
+            // 
+            // nothiShompadonIcon
+            // 
+            this.nothiShompadonIcon.BackColor = System.Drawing.Color.Transparent;
+            this.nothiShompadonIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.nothiShompadonIcon.FlatAppearance.BorderSize = 0;
+            this.nothiShompadonIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.nothiShompadonIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.nothiShompadonIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothiShompadonIcon.IconChar = FontAwesome.Sharp.IconChar.MoneyCheckAlt;
+            this.nothiShompadonIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.nothiShompadonIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nothiShompadonIcon.IconSize = 32;
+            this.nothiShompadonIcon.Location = new System.Drawing.Point(1051, 14);
+            this.nothiShompadonIcon.Name = "nothiShompadonIcon";
+            this.nothiShompadonIcon.Size = new System.Drawing.Size(38, 31);
+            this.nothiShompadonIcon.TabIndex = 116;
+            this.nothiShompadonIcon.UseVisualStyleBackColor = false;
+            this.nothiShompadonIcon.Visible = false;
+            this.nothiShompadonIcon.MouseLeave += new System.EventHandler(this.nothiShompadonIcon_MouseLeave);
+            this.nothiShompadonIcon.MouseHover += new System.EventHandler(this.nothiShompadonIcon_MouseHover);
+            // 
             // NothiAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -626,22 +663,22 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton5;
         private System.Windows.Forms.Label lbNoteTotal;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnNote;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Label lbArchived;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnArchive;
         private System.Windows.Forms.Label lbNothi;
         private System.Windows.Forms.Label lbShakha;
         private System.Windows.Forms.Label lbNishponno;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnNishponno;
         private System.Windows.Forms.Label lbOnishponno;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnOnishponno;
         private System.Windows.Forms.Label lbPermitted;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnOnumodito;
         private System.Windows.Forms.Label lbDesk;
         private System.Windows.Forms.Label lbNoteLastDate;
         private System.Windows.Forms.FlowLayoutPanel newAllNoteFlowLayoutPanel;
@@ -655,5 +692,7 @@
         private FontAwesome.Sharp.IconButton dakSearchButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label lbFlag;
+        private FontAwesome.Sharp.IconButton nothiShompadonIcon;
     }
 }

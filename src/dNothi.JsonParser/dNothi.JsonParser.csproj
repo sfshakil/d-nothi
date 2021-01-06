@@ -103,6 +103,8 @@
     <Compile Include="Entity\Nothi\DeskOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NoteNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiAllDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiCreateDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiCreateResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListAllDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListAllRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListAllResponse.cs" />

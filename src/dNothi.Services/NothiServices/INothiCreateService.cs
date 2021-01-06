@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace dNothi.Services.NothiServices
 {
-    public interface INothiInboxNoteServices
+    public interface INothiCreateService
     {
-        NothiListInboxNoteResponse GetNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId);
+        NothiCreateResponse GetNothiCreate(DakUserParam UserParam,  string nothishkha, string nothi_no, string nothi_type_id, string nothi_subject, string nothi_class,string currentYear);
     }
 }

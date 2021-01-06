@@ -165,7 +165,6 @@ namespace dNothi.Desktop.UI
             }
         }
 
-
         private void LoadNothiAll()
         {
             var token = _userService.GetToken();
@@ -187,9 +186,10 @@ namespace dNothi.Desktop.UI
             int i = 0;
             foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
             {
+                NothiAll nothiAll = new NothiAll();
                 if (nothiAllListDTO.desk != null && nothiAllListDTO.status != null)
                 {
-                    NothiAll nothiAll = new NothiAll();
+                    
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
                     nothiAll.desk = "ডেস্ক: " + nothiAllListDTO.desk.note_count.ToString();
@@ -200,8 +200,16 @@ namespace dNothi.Desktop.UI
                     nothiAll.archived = nothiAllListDTO.status.archived;
                     nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
                     i = i + 1;
-                    nothiAlls.Add(nothiAll);
+                    
                 }
+                else
+                {
+                    //NothiAll nothiAll = new NothiAll();
+                    nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
+                    nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
+                    nothiAll.flag = 1;
+                }
+                nothiAlls.Add(nothiAll);
             }
             nothiListFlowLayoutPanel.Controls.Clear();
             nothiListFlowLayoutPanel.AutoScroll = true;
@@ -463,7 +471,19 @@ namespace dNothi.Desktop.UI
             newNothi.Visible = false;
             LoadNothiOutbox();
         }
-
+        public void ForceLoadNothiALL()
+        {
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(btnNothiAll as Button);
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
+            LoadNothiAll();
+        }
         private void btnNothiAll_Click(object sender, EventArgs e)
         {
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
