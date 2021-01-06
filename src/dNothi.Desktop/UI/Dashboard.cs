@@ -671,7 +671,7 @@ namespace dNothi.Desktop.UI
             {
 
                 ctrl.BackColor = Color.FromArgb(254, 254, 254);
-                ctrl.ForeColor = Color.Black;
+                ctrl.ForeColor = Color.FromArgb(97, 99, 114);
 
 
                 IterateControlsReseatSelection(ctrl.Controls);
@@ -1205,8 +1205,59 @@ namespace dNothi.Desktop.UI
 
         private void AddDesignationUserControl_ButtonClick(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<AddDesignationSeal>();
-            form.Show();
+
+
+         
+           
+                var form = FormFactory.Create<AddDesignationSeal>();
+           
+                form.ShowDialog();
+            DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_dakuserparam);
+            try
+            {
+                var daptorikDakList = dakListFlowLayoutPanel.Controls.OfType<DaptorikDakUploadUserControl>().ToList();
+
+                foreach (var daptorikDak in daptorikDakList)
+                {
+                    daptorikDak.designationSealListResponse = designationSealListResponse;
+
+
+                }
+            }
+
+            catch (Exception Ex)
+            {
+
+            }
+
+
+        }
+
+        public AddDesignationSealResponse AddDesignation(string designationSeal)
+        {
+            _dakuserparam = _userService.GetLocalDakUserParam();
+
+            AddDesignationSealResponse addDesignationSealResponse = _dakuploadservice.GetDesiognationSealAddResponse(_dakuserparam, designationSeal);
+
+
+           
+
+
+
+            return addDesignationSealResponse;
+
+
+
+          
+
+        }
+        public DeleteDesignationSealResponse DeleteDesignation(string designationSealIds)
+        {
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            DeleteDesignationSealResponse deleteDesignationSealResponse = _dakuploadservice.GetDesiognationSealDeleteResponse(_dakuserparam, designationSealIds);
+          
+
+            return deleteDesignationSealResponse;
         }
 
         private void khosraSaveUserControl_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakUserParam dakListUserParam)

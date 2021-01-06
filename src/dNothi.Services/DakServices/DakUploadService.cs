@@ -329,5 +329,62 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.DraftedDakEditEndpoint;
         }
+        private string GetDesignationSealAddEndpoint()
+        {
+            return DefaultAPIConfiguration.DesignationSealAddEndpoint;
+        }
+        private string GetDesignationSealDeleteEndpoint()
+        {
+            return DefaultAPIConfiguration.DesignationSealDeleteEndpoint;
+        }
+
+
+        public AddDesignationSealResponse GetDesiognationSealAddResponse(DakUserParam dakUserParam, string sealInfo)
+        {
+            var designationAddAPI = new RestClient(GetAPIDomain() + GetDesignationSealAddEndpoint());
+            designationAddAPI.Timeout = -1;
+            var designationSealAddRequest = new RestRequest(Method.POST);
+            designationSealAddRequest.AddHeader("api-version", GetAPIVersion());
+            designationSealAddRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+      
+            designationSealAddRequest.AddParameter("designation_id", dakUserParam.designation_id);
+          
+            designationSealAddRequest.AddParameter("seal_info", sealInfo);
+            IRestResponse designationSealAddIRestResponse = designationAddAPI.Execute(designationSealAddRequest);
+            var designationSealAddResponseJson = designationSealAddIRestResponse.Content;
+
+            var designationAddResponse = JsonConvert.DeserializeObject<AddDesignationSealResponse>(designationSealAddResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+            return designationAddResponse;
+        }
+
+        public DeleteDesignationSealResponse GetDesiognationSealDeleteResponse(DakUserParam dakUserParam, string remove_designation_ids)
+        {
+            var designationDeleteAPI = new RestClient(GetAPIDomain() + GetDesignationSealDeleteEndpoint());
+            designationDeleteAPI.Timeout = -1;
+            var designationSealDeleteRequest = new RestRequest(Method.POST);
+            designationSealDeleteRequest.AddHeader("api-version", GetAPIVersion());
+            designationSealDeleteRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+
+            designationSealDeleteRequest.AddParameter("designation_id", dakUserParam.designation_id);
+
+            designationSealDeleteRequest.AddParameter("remove_designation_ids", remove_designation_ids);
+            IRestResponse designationSealDeleteIRestResponse = designationDeleteAPI.Execute(designationSealDeleteRequest);
+            var designationSealDeleteResponseJson = designationSealDeleteIRestResponse.Content;
+
+            var designationDeleteResponse = JsonConvert.DeserializeObject<DeleteDesignationSealResponse>(designationSealDeleteResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+            return designationDeleteResponse;
+        }
     }
 }

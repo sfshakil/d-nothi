@@ -17,11 +17,37 @@ namespace dNothi.Desktop.UI.Dak
 
 
         private List<PrapokDTO> _prapokdtos;
-            
+         
+        
             
         public int _unitid { get; set; }
+        public int _designationid { get; set; }
         public string _unitCode { get; set; }
- 
+
+        //public int designationid
+
+       public bool isAnyDesignationNewlyAdded = false;
+
+
+
+        public int designationid { set {
+
+                var designationList = branchOfficeFlowLayoutPanel.Controls.OfType<DesignationSealListOfficerRowUserControl>().ToList();
+
+                foreach (var designation in designationList)
+                {
+                    if (designation.designationid == value)
+                    {
+                        designation.Visible = true;
+                        designation.isNewlyAdded = true;
+                        //isAnyDesignationNewlyAdded = true;
+                    }
+                    
+                }
+
+            } }
+
+
         public DesignationSealBranchRowUserControl()
         {
             InitializeComponent();
@@ -36,21 +62,56 @@ namespace dNothi.Desktop.UI.Dak
         { get { return _prapokdtos; }
             set {
                 _prapokdtos = value;
+                
+                
                 foreach(PrapokDTO prapokDTO in value)
                 {
                     DesignationSealListOfficerRowUserControl designationSealListOfficerRowUserControl = new DesignationSealListOfficerRowUserControl();
                     designationSealListOfficerRowUserControl.officerName = prapokDTO.NameWithOrganogram;
                     designationSealListOfficerRowUserControl.designationid = prapokDTO.designation_id;
                     designationSealListOfficerRowUserControl.isNewlyAdded = false;
-                    //designationSealListOfficerRowUserControl.Visible = false;
+                    designationSealListOfficerRowUserControl.DeleteButton += delegate (object sender, EventArgs e) { DesignationDelete_ButtonClick(sender, e, designationSealListOfficerRowUserControl.designationid); };
+
+                  if(prapokDTO.isofficerAdded==true)
+                    {
+                        designationSealListOfficerRowUserControl.Visible = true;
+                        designationSealListOfficerRowUserControl.isNewlyAdded = true;
+
+                    }
+                    else
+                    {
+                        designationSealListOfficerRowUserControl.Visible = false;
+                    }
 
                     branchOfficeFlowLayoutPanel.Controls.Add(designationSealListOfficerRowUserControl);
-                    break;
+                   
                 }
             
             }
         
         }
+        public event EventHandler DesignationDeleteButton;
+        private void DesignationDelete_ButtonClick(object sender, EventArgs e, int designationid)
+        {
+            _designationid = designationid;
+            var designationList = branchOfficeFlowLayoutPanel.Controls.OfType<DesignationSealListOfficerRowUserControl>().ToList();
+             isAnyDesignationNewlyAdded = false;
+            foreach (var designation in designationList)
+            {
+                if (designation.designationid == designationid)
+                {
+                    designation.Visible = false;
+                }
+               if(designation.isNewlyAdded)
+                {
+                    isAnyDesignationNewlyAdded = true;
+                }
+            }
 
+            if (this.DesignationDeleteButton != null)
+                this.DesignationDeleteButton(sender, e);
+
+
+        }
     }
 }

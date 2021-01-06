@@ -9,6 +9,9 @@ namespace dNothi.Services.DakServices
 {
     public interface IDakUploadService
     {
+        AddDesignationSealResponse GetDesiognationSealAddResponse(DakUserParam dakListUserParam, string sealInfo);
+        DeleteDesignationSealResponse GetDesiognationSealDeleteResponse(DakUserParam dakListUserParam, string remove_designation_ids);
+
         DraftedDakEditResponse GetDraftedDakEditResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
 
         OfficeListResponse GetAllOffice(DakUserParam dakListUserParam);

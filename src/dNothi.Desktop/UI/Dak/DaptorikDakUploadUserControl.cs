@@ -238,7 +238,14 @@ namespace dNothi.Desktop.UI.Dak
 
 
                         viewdesignationListOwnOffice.nij_Office = true;
-                        viewDesignationSealLists.Add(viewdesignationListOwnOffice);
+
+                       
+
+                        if(!viewDesignationSealLists.Any(a=>a.designation_id==viewdesignationListOwnOffice.designation_id))
+                        {
+                            viewDesignationSealLists.Add(viewdesignationListOwnOffice);
+                        }
+                      
                     }
 
                     foreach (PrapokDTO otherOfficeDTO in value.data.other_office)
@@ -248,8 +255,11 @@ namespace dNothi.Desktop.UI.Dak
                   );
                         var mapper = new Mapper(config);
                         var viewdesignationListOtherOffice = mapper.Map<ViewDesignationSealList>(otherOfficeDTO);
-
-                        viewDesignationSealLists.Add(viewdesignationListOtherOffice);
+                        if (!viewDesignationSealLists.Any(a => a.designation_id == viewdesignationListOtherOffice.designation_id))
+                        {
+                            viewDesignationSealLists.Add(viewdesignationListOtherOffice);
+                        }
+                      
                     }
 
                     PopulateGrid();
@@ -265,8 +275,8 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-
        
+
 
         int designationColumn = 2;
         private void SaveOnulipiPrapok(int row_index)
@@ -341,8 +351,13 @@ namespace dNothi.Desktop.UI.Dak
         }
         public void PopulateGrid()
         {
+            BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
+            foreach(ViewDesignationSealList viewDesignationSealList in viewDesignationSealLists)
+            {
+                bindinglist.Add(viewDesignationSealList);
+            }
             prapokDataGridView.DataSource = null;
-            prapokDataGridView.DataSource = viewDesignationSealLists.Where(a => a.nij_Office == NijOffice).ToList();
+            prapokDataGridView.DataSource = bindinglist;
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -359,9 +374,41 @@ namespace dNothi.Desktop.UI.Dak
         private void prapokDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int row_index = e.RowIndex;
-            //bool mulprapok = (bool)prapokDataGridView.Rows[row_index].Cells[mulPrapokColumn].Value;
-            //bool Onulipi = (bool)prapokDataGridView.Rows[row_index].Cells[onulipiColumn].Value;
-            //  if(e.ColumnIndex==prapokDataGridView.Columns["mul_prapok"].Index)
+          
+            if (prapokDataGridView.Columns[prapokDataGridView.CurrentCell.ColumnIndex].Name== "ActionButton")
+            {
+
+                DialogResult DialogResultSttring = MessageBox.Show("অপনি কি প্রাপকটিকে মুছে ফেলতে চান?\n",
+                                   "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (DialogResultSttring == DialogResult.Yes)
+                {
+                   int designation_id= Convert.ToInt32(prapokDataGridView.Rows[row_index].Cells["designationid_id"].Value);
+                    var form = FormFactory.Create<Dashboard>();
+                    string designationSealIdJson =designation_id.ToString();
+                    DeleteDesignationSealResponse deleteDesignationSealResponse = form.DeleteDesignation(designationSealIdJson);
+
+                    if (deleteDesignationSealResponse.status == "success")
+                    {
+                        MessageBox.Show("প্রাপকটিকে সফলভাবে মুছে ফেলা হ​য়েছে।");
+                        
+                            prapokDataGridView.Rows.RemoveAt(row_index);
+                           
+                        
+
+                        viewDesignationSealLists = viewDesignationSealLists.Where(a => a.designation_id != designation_id).ToList();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("মুছে ফেলা সফল হ​য়নি।।");
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
             if (e.ColumnIndex == mulPrapokColumn)
             {
                 SaveMulPrapok(row_index);

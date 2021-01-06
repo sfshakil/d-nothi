@@ -107,8 +107,8 @@
             this.nothiNoLabel.BackColor = System.Drawing.Color.Transparent;
             this.nothiNoLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiNoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiNoLabel.ForeColor = System.Drawing.Color.Black;
-            this.nothiNoLabel.Location = new System.Drawing.Point(112, 0);
+            this.nothiNoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.nothiNoLabel.Location = new System.Drawing.Point(121, 0);
             this.nothiNoLabel.Name = "nothiNoLabel";
             this.nothiNoLabel.Size = new System.Drawing.Size(0, 20);
             this.nothiNoLabel.TabIndex = 67;
@@ -120,9 +120,9 @@
             this.nothiPlainTextLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiPlainTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiPlainTextLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nothiPlainTextLabel.Location = new System.Drawing.Point(81, 0);
+            this.nothiPlainTextLabel.Location = new System.Drawing.Point(87, 0);
             this.nothiPlainTextLabel.Name = "nothiPlainTextLabel";
-            this.nothiPlainTextLabel.Size = new System.Drawing.Size(31, 18);
+            this.nothiPlainTextLabel.Size = new System.Drawing.Size(34, 20);
             this.nothiPlainTextLabel.TabIndex = 66;
             this.nothiPlainTextLabel.Text = "নথিঃ";
             this.nothiPlainTextLabel.Visible = false;
@@ -134,7 +134,7 @@
             this.decisionLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.decisionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decisionLabel.ForeColor = System.Drawing.Color.Goldenrod;
-            this.decisionLabel.Location = new System.Drawing.Point(81, 0);
+            this.decisionLabel.Location = new System.Drawing.Point(87, 0);
             this.decisionLabel.Name = "decisionLabel";
             this.decisionLabel.Size = new System.Drawing.Size(0, 20);
             this.decisionLabel.TabIndex = 63;
@@ -148,7 +148,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label3.Location = new System.Drawing.Point(36, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 18);
+            this.label3.Size = new System.Drawing.Size(51, 20);
             this.label3.TabIndex = 55;
             this.label3.Text = "সিদ্ধান্তঃ";
             // 
@@ -165,6 +165,7 @@
             // 
             this.dateLabel.BackColor = System.Drawing.Color.Transparent;
             this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.dateLabel.Location = new System.Drawing.Point(932, 64);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(134, 23);
@@ -189,6 +190,7 @@
             this.subjectLabel.AutoSize = true;
             this.subjectLabel.BackColor = System.Drawing.Color.Transparent;
             this.subjectLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subjectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.subjectLabel.Location = new System.Drawing.Point(88, 0);
             this.subjectLabel.MaximumSize = new System.Drawing.Size(460, 0);
             this.subjectLabel.Name = "subjectLabel";
@@ -242,6 +244,7 @@
             this.mainReceiverLabel.BackColor = System.Drawing.Color.Transparent;
             this.mainReceiverLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainReceiverLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainReceiverLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.mainReceiverLabel.Location = new System.Drawing.Point(174, 0);
             this.mainReceiverLabel.Name = "mainReceiverLabel";
             this.mainReceiverLabel.Size = new System.Drawing.Size(0, 20);
@@ -288,6 +291,7 @@
             this.senderLabel.BackColor = System.Drawing.Color.Transparent;
             this.senderLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.senderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.senderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.senderLabel.Location = new System.Drawing.Point(84, 0);
             this.senderLabel.Name = "senderLabel";
             this.senderLabel.Size = new System.Drawing.Size(0, 20);
@@ -354,6 +358,7 @@
             this.sourceLabel.AutoSize = true;
             this.sourceLabel.BackColor = System.Drawing.Color.Transparent;
             this.sourceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sourceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.sourceLabel.Location = new System.Drawing.Point(43, 18);
             this.sourceLabel.Name = "sourceLabel";
             this.sourceLabel.Size = new System.Drawing.Size(0, 24);
@@ -459,7 +464,7 @@
             this.prioriyLabel.BackColor = System.Drawing.Color.Transparent;
             this.prioriyLabel.Enabled = false;
             this.prioriyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prioriyLabel.ForeColor = System.Drawing.Color.Black;
+            this.prioriyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
             this.prioriyLabel.Location = new System.Drawing.Point(33, 6);
             this.prioriyLabel.Name = "prioriyLabel";
             this.prioriyLabel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
@@ -514,7 +519,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
             this.label1.Location = new System.Drawing.Point(36, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 34);

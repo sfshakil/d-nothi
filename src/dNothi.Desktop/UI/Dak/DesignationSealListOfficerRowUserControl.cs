@@ -44,7 +44,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-
+       
         public bool isNewlyAdded
         {
             get { return _isNewAdded; }
@@ -64,6 +64,14 @@ namespace dNothi.Desktop.UI.Dak
                
             }
 
+        }
+
+        public event EventHandler DeleteButton;
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            isNewlyAdded = false;
+            if (this.DeleteButton != null)
+                this.DeleteButton(sender, e);
         }
     }
 }

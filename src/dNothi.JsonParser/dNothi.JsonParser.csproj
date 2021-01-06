@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Dak\DesignationSealResponse.cs" />
     <Compile Include="Entity\Dak\DakAttachmentDTO.cs" />
     <Compile Include="Entity\Dak\DakAttachmentResponse.cs" />
     <Compile Include="Entity\Dak\DakDetailsResponse.cs" />

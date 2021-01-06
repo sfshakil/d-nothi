@@ -7,21 +7,78 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class AddDesignationSeal : Form
     {
+        private const int TVIF_STATE = 0x8;
+        private const int TVIS_STATEIMAGEMASK = 0xF000;
+        private const int TV_FIRST = 0x1100;
+        private const int TVM_SETITEM = TV_FIRST + 63;
+
+        [StructLayout(LayoutKind.Sequential, Pack = 8, CharSet = CharSet.Auto)]
+        private struct TVITEM
+        {
+            public int mask;
+            public IntPtr hItem;
+            public int state;
+            public int stateMask;
+            [MarshalAs(UnmanagedType.LPTStr)]
+            public string lpszText;
+            public int cchTextMax;
+            public int iImage;
+            public int iSelectedImage;
+            public int cChildren;
+            public IntPtr lParam;
+        }
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam,
+                                                 ref TVITEM lParam);
+
+        /// <summary>
+        /// Hides the checkbox for the specified node on a TreeView control.
+        /// </summary>
+        private void HideCheckBox(TreeView tvw)
+        {
+            foreach (TreeNode trNode in tvw.Nodes)
+            {
+                if (_ownOfficeDesignationList.Any(a=>a.designation_id==Convert.ToInt32(trNode.Tag)) || _otherOfficeDesignationList.Any(a => a.designation_id == Convert.ToInt32(trNode.Tag)))
+                {
+                    TVITEM tvi = new TVITEM();
+                    tvi.hItem = trNode.Handle;
+                    tvi.mask = TVIF_STATE;
+                    tvi.stateMask = TVIS_STATEIMAGEMASK;
+                    tvi.state = 0;
+                    SendMessage(tvw.Handle, TVM_SETITEM, IntPtr.Zero, ref tvi);
+                    break;
+                }
+               
+            }
+
+           
+        }
+
+
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+           
+        }
         IDakUploadService _dakuploadservice { get; set; }
         IUserService _userService { get; set; }
        
         private DakUserParam _dakUserParam = new DakUserParam();
         private List<OfficeInfoDTO> _officeInfo = new List<OfficeInfoDTO>();
         private List<PrapokDTO> _ownOfficeDesignationList = new List<PrapokDTO>();
-      
+        private List<PrapokDTO> _otherOfficeDesignationList = new List<PrapokDTO>();
+        
 
         public AddDesignationSeal(IDakUploadService dakUploadService, IUserService userService)
         {
@@ -32,6 +89,40 @@ namespace dNothi.Desktop.UI.Dak
            
             LoadOwnOfficerTree();
             LoadOwnOfficeRight();
+           
+            LoadOtherOfficeLeftList();
+        }
+
+        private void LoadOtherOfficeLeftList()
+        {
+            searchOfficeListBox.DataSource = null;
+
+            OfficeListResponse officeListResponse = _dakuploadservice.GetAllOffice(_dakUserParam);
+            if (officeListResponse.status == "success")
+            {
+                if (officeListResponse.data != null)
+                {
+                    searchOfficeListBox.DisplayMember = "office_name_bng";
+                    _officeInfo = officeListResponse.data[_dakUserParam.office_id.ToString()];
+                    searchOfficeListBox.DataSource = _officeInfo;
+                }
+            }
+        }
+
+        private void LoadOwnOfficeLeftTree()
+        {
+            searchOfficeListBox.DataSource = null;
+
+            OfficeListResponse officeListResponse = _dakuploadservice.GetAllOffice(_dakUserParam);
+            if(officeListResponse.status=="success")
+            {
+                if(officeListResponse.data != null)
+                {
+                    searchOfficeListBox.DisplayMember = "office_name_bng";
+                        _officeInfo = officeListResponse.data[_dakUserParam.office_id.ToString()];
+                    searchOfficeListBox.DataSource = _officeInfo;
+                }
+            }
 
         }
 
@@ -94,31 +185,23 @@ namespace dNothi.Desktop.UI.Dak
 
                                 }
 
-                                //if(officer.==true)
-                                //{
-                                //    branchNodeOwnOffice.Nodes.Add(officer.designation_id.ToString(), officer.employee_name_bng).Checked=true;
-
-
-                                //}
-                                //else
-                                //{
-                                //    branchNodeOwnOffice.Nodes.Add(officer.designation_id.ToString(), officer.employee_name_bng);
-
-
-                                //}
+                              
                                 TreeNode childNode = new TreeNode();
                                 childNode.Tag = officer.designation_id;
                                 childNode.Text = officer.NameWithDesignation;
-                              
+                               
                                 branchNodeOwnOffice.Nodes.Add(childNode);
 
-                                prapokownOfficeTreeView.Nodes.Add(branchNodeOwnOffice);
+
+                               
+
+
                             }
 
+                            prapokownOfficeTreeView.Nodes.Add(branchNodeOwnOffice);
 
-                            
 
-                            
+
 
 
 
@@ -133,14 +216,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
 
-            if(officeListResponse.status=="success")
-            {
-                if(officeListResponse.data.officeInfos!=null)
-                {
-                    _officeInfo = officeListResponse.data.officeInfos;
-
-                }
-            }
+          
 
 
           
@@ -167,7 +243,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (designationSealListOtherOfficeResponse.data.Count > 0)
                 {
                     List<PrapokDTO> otherOfficers = designationSealListOtherOfficeResponse.data.ToList();
-
+                    _otherOfficeDesignationList.AddRange(otherOfficers.Where(x => !_otherOfficeDesignationList.Any(y => y.designation_id == x.designation_id)).ToList());
 
                     if (otherOfficers.Count > 0)
                     {
@@ -182,10 +258,10 @@ namespace dNothi.Desktop.UI.Dak
 
                             string branchName = group.Key;
                             int count = group.Count();
-                            branchName = "(" + ConvertEnglishNumbertoBangle(count) + ")";
+                            branchName += "(" + ConvertEnglishNumbertoBangle(count) + ")";
                             TreeNode branchNodeOtherOffice = new TreeNode(branchName);
-                        
 
+                          
                             foreach (var officer in group)
                             {
                                 if (officer.designation_id > 0)
@@ -199,30 +275,24 @@ namespace dNothi.Desktop.UI.Dak
 
 
                                 }
-
-                                if (officer.status == true)
+                                TreeNode childNodeOther = new TreeNode();
+                                childNodeOther.Tag = officer.designation_id;
+                                childNodeOther.Text = officer.NameWithDesignation;
+                              
+                                if(_otherOfficeDesignationList.Any(a=>a.designation_id==officer.designation_id && a.isofficerAdded==true))
                                 {
-                                    branchNodeOtherOffice.Nodes.Add(officer.designation_id.ToString(), officer.NameWithDesignation).Checked = true;
-
-
+                                    childNodeOther.Checked = true;
                                 }
-                                else
-                                {
-                                    branchNodeOtherOffice.Nodes.Add(officer.designation_id.ToString(), officer.NameWithDesignation);
-
-
-                                }
-                                TreeNode childNode = new TreeNode();
-                                childNode.Tag = officer.designation_id;
-                                childNode.Text = officer.NameWithDesignation;
-                                branchNodeOtherOffice.Nodes.Add(childNode);
-                                otherOfficeTreeView.Nodes.Add(branchNodeOtherOffice);
+                                
+                               
+                                branchNodeOtherOffice.Nodes.Add(childNodeOther);
+                               
                             }
 
 
 
 
-
+                            otherOfficeTreeView.Nodes.Add(branchNodeOtherOffice);
 
 
 
@@ -266,11 +336,7 @@ namespace dNothi.Desktop.UI.Dak
                 int i = 0;
                 foreach (var group in groupOwnOfficebyUnit)
                 {
-                    i++;
-                    if(i>5)
-                    {
-                        break;
-                    }
+                   
 
 
                     List<PrapokDTO> prapokGroupWise = _ownOfficeDesignationList.Where(a => a.unitWithCode == group.Key).ToList();
@@ -284,8 +350,9 @@ namespace dNothi.Desktop.UI.Dak
                     designationSealBranchRowUserControl.prapokDtos = prapokGroupWise;
 
 
+                    designationSealBranchRowUserControl.DesignationDeleteButton += delegate (object sender, EventArgs e) { OfficerDelete_ButtonClick(sender, e, designationSealBranchRowUserControl.isAnyDesignationNewlyAdded,designationSealBranchRowUserControl._designationid); };
 
-
+                    designationSealBranchRowUserControl.Visible = false;
                     ownOfficeRightFlowLayoutPanel.Controls.Add(designationSealBranchRowUserControl);
 
 
@@ -293,6 +360,63 @@ namespace dNothi.Desktop.UI.Dak
 
 
               
+
+
+
+
+
+
+            }
+
+
+        }
+
+        private void LoadOwnOfficeRight(int officeid)
+        {
+
+            if (_ownOfficeDesignationList.Count > 0)
+            {
+                List<PrapokDTO> otherOfficeDesignationByOfficeId = _otherOfficeDesignationList.Where(a => a.office_id == officeid).ToList();
+
+                var groupOfficebyUnit = otherOfficeDesignationByOfficeId.GroupBy(a => a.unitWithCode);
+
+                int i = 0;
+                foreach (var group in groupOfficebyUnit)
+                {
+
+
+
+                    List<PrapokDTO> prapokGroupWise = otherOfficeDesignationByOfficeId.Where(a => a.unitWithCode == group.Key).ToList();
+
+
+                    DesignationSealBranchRowUserControl designationSealBranchRowUserControl = new DesignationSealBranchRowUserControl();
+                    designationSealBranchRowUserControl.branchOfficeName = prapokGroupWise.FirstOrDefault().unit_name_bng;
+                    designationSealBranchRowUserControl.unitCode = prapokGroupWise.FirstOrDefault().office_unit_code;
+                    designationSealBranchRowUserControl.unitId = prapokGroupWise.FirstOrDefault().unit_id;
+
+                    designationSealBranchRowUserControl.prapokDtos = prapokGroupWise;
+
+
+                    designationSealBranchRowUserControl.DesignationDeleteButton += delegate (object sender, EventArgs e) { OfficerDelete_ButtonClick(sender, e, designationSealBranchRowUserControl.isAnyDesignationNewlyAdded, designationSealBranchRowUserControl._designationid); };
+
+
+
+                    if(otherOfficeDesignationByOfficeId.Any(a=>a.unitWithCode==group.Key && a.isofficerAdded==true))
+                    {
+                        designationSealBranchRowUserControl.Visible = true;
+                    }
+                    else
+                    {
+                        designationSealBranchRowUserControl.Visible = false;
+                    }
+                
+                    ownOfficeRightFlowLayoutPanel.Controls.Add(designationSealBranchRowUserControl);
+
+
+                }
+
+
+
 
 
 
@@ -311,6 +435,50 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        private void OfficerDelete_ButtonClick(object sender, EventArgs e, bool isAnyDesignationNewlyAdded,int designationId)
+        {
+            var designationBranchList = ownOfficeRightFlowLayoutPanel.Controls.OfType<DesignationSealBranchRowUserControl>().ToList();
+           
+            foreach (var designationBranch in designationBranchList)
+            {
+
+                if (designationBranch._designationid==designationId && !designationBranch.isAnyDesignationNewlyAdded)
+                {
+                    designationBranch.Visible = false;
+                }
+               
+            }
+
+          
+
+            try
+            {
+                _ownOfficeDesignationList.FirstOrDefault(a => a.designation_id == designationId).isofficerAdded = false;
+                CheckUncheckTreeNode(prapokownOfficeTreeView.Nodes, false, designationId);
+            }
+            catch(Exception Ex)
+            {
+                _otherOfficeDesignationList.FirstOrDefault(a => a.designation_id == designationId).isofficerAdded = false;
+                //otherOfficeTreeView.Nodes.OfType<TreeNode>()
+                //           .FirstOrDefault(node => node.Tag.Equals(designationId)).Checked = false;
+                CheckUncheckTreeNode(otherOfficeTreeView.Nodes, false, designationId);
+            }
+            
+        }
+        private void CheckUncheckTreeNode(TreeNodeCollection trNodeCollection, bool isCheck, int designationid)
+        {
+            foreach (TreeNode trNode in trNodeCollection)
+            {
+                if(Convert.ToInt32(trNode.Tag)==designationid)
+                {
+                    trNode.Checked = isCheck;
+                    break;
+                }
+
+                 if (trNode.Nodes.Count > 0)
+                CheckUncheckTreeNode(trNode.Nodes, isCheck, designationid);
+            }
+        }
         private void tabControlLeft_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControlLeft.SelectedTab == tabControlLeft.TabPages["ownOfficeTabPageLeft"])
@@ -335,11 +503,13 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        
+        // public event EventHandler CloseButton;
         private void AddDesignationCloseButton_Click(object sender, EventArgs e)
         {
-
+          
             this.Close();
+
+           
         }
 
         private void BorderBlueColor(object sender, PaintEventArgs e)
@@ -355,21 +525,53 @@ namespace dNothi.Desktop.UI.Dak
             }
             e.DrawDefault = true;
         }
+        private void prapokotherOfficeTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            if (e.Node.Nodes.Count != 0)
+            {
+                e.Node.Checked = false;
+            }
+            e.DrawDefault = true;
+        }
 
         private void otherOfficeTreeView_AfterCheck(object sender, TreeViewEventArgs e)
         {
-            if(e.Node.Checked==true)
+            if (e.Node.Parent == null)
             {
-                MessageBox.Show(e.Node.Name);
-                MessageBox.Show(e.Node.Text);
-                MessageBox.Show(e.Node.Tag.ToString());
-
+                e.Node.Checked = false;
             }
-            if (e.Node.Checked == false)
+            if (e.Action != TreeViewAction.Unknown)
             {
-                MessageBox.Show(e.Node.Name);
-                MessageBox.Show(e.Node.Text);
 
+
+
+                if (e.Node.Checked == true)
+                {
+                    int designation_id = Convert.ToInt32(e.Node.Tag);
+                    PrapokDTO otherOfficer = _otherOfficeDesignationList.FirstOrDefault(a => a.designation_id == designation_id);
+                    _otherOfficeDesignationList.FirstOrDefault(a => a.designation_id == designation_id).isofficerAdded = true;
+
+
+
+                    var branchList = otherOfficeRightFlowLayoutPanel.Controls.OfType<DesignationSealBranchRowUserControl>().ToList();
+
+                    foreach (var branch in branchList)
+                    {
+                        if (branch.branchOfficeName == otherOfficer.unit_name_bng && branch.unitCode == otherOfficer.office_unit_code && branch.unitId == otherOfficer.unit_id)
+
+                        {
+                            branch.Visible = true;
+                            branch.designationid = otherOfficer.designation_id;
+
+                        }
+
+                    }
+                }
+                if (e.Node.Checked == false)
+                {
+
+
+                }
             }
         }
 
@@ -402,8 +604,8 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                searchOfficeTextBox.Text = "";
-                searchOfficeListBox.Visible = false;
+               
+            
                 searchOfficePanel.Visible = true;
                
 
@@ -414,13 +616,7 @@ namespace dNothi.Desktop.UI.Dak
         private void searchOfficeTextBox_TextChanged(object sender, EventArgs e)
         {
             searchOfficeListBox.DataSource = null;
-            if (searchOfficeTextBox.Text == "")
-            {
-                searchOfficeListBox.Visible = false;
-
-            }
-            else
-            {
+           
 
                 List<OfficeInfoDTO> officeInfoSearch = _officeInfo.Where(a => a.office_name_bng.Contains(searchOfficeTextBox.Text)).ToList();
 
@@ -431,32 +627,21 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     searchOfficeListBox.DisplayMember = "office_name_bng";
                     searchOfficeListBox.DataSource = null;
-                    searchOfficeListBox.DataSource = _officeInfo;
+                    searchOfficeListBox.DataSource = officeInfoSearch;
 
                     searchOfficeListBox.Visible = true;
                 }
-                else
-                {
-                    searchOfficeListBox.Visible = false;
-                 
-                }
+               
 
-            }
-        }
-
-        private void searchOfficeListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            searchOfficePanel.Visible = false;
-            officeSearchOfficeNameLabel.Text = searchOfficeListBox.GetItemText(searchOfficeListBox.SelectedItem);
-            officerSearchOfficeIdLabel.Text = (searchOfficeListBox.SelectedItem as OfficeInfoDTO).id.ToString();
-
-
-            PopulateOtherOfficerTree((searchOfficeListBox.SelectedItem as OfficeInfoDTO).id);
-
+            
         }
 
         private void prapokownOfficeTreeView_AfterCheck(object sender, TreeViewEventArgs e)
         {
+            if(e.Node.Parent==null)
+            {
+                e.Node.Checked = false;
+            }
             if (e.Action != TreeViewAction.Unknown)
             {
 
@@ -464,18 +649,33 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (e.Node.Checked == true)
                 {
-                    MessageBox.Show(e.Node.Name);
-                    MessageBox.Show(e.Node.Text);
-                    MessageBox.Show(e.Node.Tag.ToString());
+                   int designation_id= Convert.ToInt32(e.Node.Tag);
+                   PrapokDTO otherOfficer= _ownOfficeDesignationList.FirstOrDefault(a => a.designation_id == designation_id);
+                    _ownOfficeDesignationList.FirstOrDefault(a => a.designation_id == designation_id).isofficerAdded = true;
+                    
+                    
+                    
+                    var branchList = ownOfficeRightFlowLayoutPanel.Controls.OfType<DesignationSealBranchRowUserControl>().ToList();
 
+                    foreach (var branch in branchList)
+                    {
+                        if (branch.branchOfficeName == otherOfficer.unit_name_bng && branch.unitCode == otherOfficer.office_unit_code && branch.unitId == otherOfficer.unit_id)
+
+                        {
+                            branch.Visible = true;
+                            branch.designationid = otherOfficer.designation_id;
+                            
+                        }
+
+                    }
                 }
                 if (e.Node.Checked == false)
                 {
-                    MessageBox.Show(e.Node.Name);
-                    MessageBox.Show(e.Node.Text);
+                   
 
                 }
             }
+            
         }
 
         private void prapokownOfficeTreeView_AfterSelect(object sender, TreeViewEventArgs e)
@@ -489,6 +689,57 @@ namespace dNothi.Desktop.UI.Dak
             if (e.Node.Parent == null)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void searchOfficeListBox_Click(object sender, EventArgs e)
+        {
+            searchOfficePanel.Visible = false;
+            officeSearchOfficeNameLabel.Text = searchOfficeListBox.GetItemText(searchOfficeListBox.SelectedItem);
+            officerSearchOfficeIdLabel.Text = (searchOfficeListBox.SelectedItem as OfficeInfoDTO).id.ToString();
+
+
+            PopulateOtherOfficerTree((searchOfficeListBox.SelectedItem as OfficeInfoDTO).id);
+        }
+
+        private void otherOfficeTreeView_BeforeCheck(object sender, TreeViewCancelEventArgs e)
+        {
+            if (e.Node.Parent == null)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void saveDesignationSealButton_Click(object sender, EventArgs e)
+        {
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি প্রাপকের তালিকাটি সংযুক্ত করতে চান??\n",
+                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+               
+
+                var form = FormFactory.Create<Dashboard>();
+                List<PrapokDTO> designationSealResponse = _ownOfficeDesignationList.Where(a => a.isofficerAdded == true).ToList();
+                var designationSealListJson =new JavaScriptSerializer().Serialize(designationSealResponse);
+              
+
+                AddDesignationSealResponse addDesignationSealResponse = form.AddDesignation(designationSealListJson);
+
+                if(addDesignationSealResponse.status=="success")
+                {
+                    MessageBox.Show("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                    this.Hide();
+
+                }
+                else
+                {
+                    MessageBox.Show("সংরক্ষণ সফল হ​য়নি।।");
+                }
+
+            }
+            else
+            {
+
             }
         }
     }

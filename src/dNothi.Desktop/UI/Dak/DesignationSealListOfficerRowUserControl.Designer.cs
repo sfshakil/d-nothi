@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.officerNameTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.pandksand = new System.Windows.Forms.Panel();
             this.officerNameLabel = new System.Windows.Forms.Label();
-            this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.officerNameTableLayoutPanel.SuspendLayout();
             this.pandksand.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,23 @@
             this.officerNameTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.officerNameTableLayoutPanel.Size = new System.Drawing.Size(510, 31);
             this.officerNameTableLayoutPanel.TabIndex = 3;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.BackColor = System.Drawing.Color.Transparent;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.ForeColor = System.Drawing.Color.Transparent;
+            this.deleteButton.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.deleteButton.IconColor = System.Drawing.Color.Red;
+            this.deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.deleteButton.IconSize = 18;
+            this.deleteButton.Location = new System.Drawing.Point(4, 4);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(25, 23);
+            this.deleteButton.TabIndex = 1;
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Visible = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // pandksand
             // 
@@ -77,22 +94,6 @@
             this.officerNameLabel.Size = new System.Drawing.Size(389, 24);
             this.officerNameLabel.TabIndex = 0;
             this.officerNameLabel.Text = "সেলিনাfপরিচালক (কম্পোনেন্ট-২,৩),এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম";
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.BackColor = System.Drawing.Color.Transparent;
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.ForeColor = System.Drawing.Color.Transparent;
-            this.deleteButton.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.deleteButton.IconColor = System.Drawing.Color.Red;
-            this.deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.deleteButton.IconSize = 18;
-            this.deleteButton.Location = new System.Drawing.Point(4, 4);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(25, 23);
-            this.deleteButton.TabIndex = 1;
-            this.deleteButton.UseVisualStyleBackColor = false;
-            this.deleteButton.Visible = false;
             // 
             // DesignationSealListOfficerRowUserControl
             // 

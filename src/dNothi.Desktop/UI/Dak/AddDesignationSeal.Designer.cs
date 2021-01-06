@@ -31,7 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDesignationSeal));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.AddDesignationCloseButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.AddDesignationCloseButton = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.officeSearchOfficeNameLabel = new System.Windows.Forms.Label();
             this.searchOfficePanel = new System.Windows.Forms.Panel();
             this.searchOfficeListBox = new System.Windows.Forms.ListBox();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.searchOfficeButton = new System.Windows.Forms.Button();
             this.designationStateOtherLabel = new System.Windows.Forms.Label();
@@ -70,13 +70,13 @@
             this.saveDesignationSealButton = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.searchOfficeTextBox = new dNothi.Desktop.XTextBox();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.panel1.SuspendLayout();
             this.tabControlLeft.SuspendLayout();
             this.ownOfficeTabPageLeft.SuspendLayout();
             this.panel4.SuspendLayout();
             this.otherOfficeTabPageLeft.SuspendLayout();
             this.searchOfficePanel.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel12.SuspendLayout();
             this.tabControlRight.SuspendLayout();
             this.ownOfficeTabPageRight.SuspendLayout();
@@ -89,7 +89,7 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.AddDesignationCloseButton);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -99,29 +99,39 @@
             this.panel1.Size = new System.Drawing.Size(1100, 66);
             this.panel1.TabIndex = 0;
             // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label8.Location = new System.Drawing.Point(0, 66);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(1100, 1);
+            this.label8.TabIndex = 39;
+            // 
             // AddDesignationCloseButton
             // 
+            this.AddDesignationCloseButton.AutoSize = true;
+            this.AddDesignationCloseButton.BackColor = System.Drawing.Color.Transparent;
             this.AddDesignationCloseButton.FlatAppearance.BorderSize = 0;
             this.AddDesignationCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddDesignationCloseButton.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddDesignationCloseButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.AddDesignationCloseButton.Location = new System.Drawing.Point(1059, 15);
-            this.AddDesignationCloseButton.Margin = new System.Windows.Forms.Padding(0);
+            this.AddDesignationCloseButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AddDesignationCloseButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.AddDesignationCloseButton.IconColor = System.Drawing.Color.DimGray;
+            this.AddDesignationCloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AddDesignationCloseButton.IconSize = 20;
+            this.AddDesignationCloseButton.Location = new System.Drawing.Point(1062, 9);
             this.AddDesignationCloseButton.Name = "AddDesignationCloseButton";
-            this.AddDesignationCloseButton.Size = new System.Drawing.Size(29, 32);
-            this.AddDesignationCloseButton.TabIndex = 1;
-            this.AddDesignationCloseButton.Text = "X";
-            this.AddDesignationCloseButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.AddDesignationCloseButton.UseVisualStyleBackColor = true;
+            this.AddDesignationCloseButton.Size = new System.Drawing.Size(28, 31);
+            this.AddDesignationCloseButton.TabIndex = 38;
+            this.AddDesignationCloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddDesignationCloseButton.UseVisualStyleBackColor = false;
             this.AddDesignationCloseButton.Click += new System.EventHandler(this.AddDesignationCloseButton_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 22);
+            this.label1.Location = new System.Drawing.Point(14, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 21);
+            this.label1.Size = new System.Drawing.Size(315, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "প্রাপকের তালিকা তৈরি করুন";
             // 
@@ -261,11 +271,12 @@
             this.searchOfficePanel.AutoScroll = true;
             this.searchOfficePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchOfficePanel.Controls.Add(this.searchOfficeListBox);
-            this.searchOfficePanel.Controls.Add(this.panel8);
+            this.searchOfficePanel.Controls.Add(this.panel12);
             this.searchOfficePanel.Location = new System.Drawing.Point(20, 83);
             this.searchOfficePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchOfficePanel.Name = "searchOfficePanel";
-            this.searchOfficePanel.Size = new System.Drawing.Size(363, 265);
+            this.searchOfficePanel.Padding = new System.Windows.Forms.Padding(5);
+            this.searchOfficePanel.Size = new System.Drawing.Size(363, 217);
             this.searchOfficePanel.TabIndex = 95;
             this.searchOfficePanel.Visible = false;
             this.searchOfficePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchOfficePanel_Paint);
@@ -277,34 +288,23 @@
             this.searchOfficeListBox.HorizontalScrollbar = true;
             this.searchOfficeListBox.ItemHeight = 18;
             this.searchOfficeListBox.Items.AddRange(new object[] {
-            "মোহাম্মদ আশরাফ উদ্দিন সিনিয়র সহকারী সচিব, সওব্য-১২ শাখা, জনপ্রশাসন মন্ত্রণালয়",
-            "মোহাম্মদ আশরাফুল ইসলাম মোল্লা গোপনীয় সহকারী, শিক্ষা ও আইসিটি, জেলা প্রশাসকের কার্" +
-                "যালয়, নরসিংদী",
-            "জি.এম. ফয়সাল আহমদ সিস্টেম এনালিস্ট, আইসিটি সেল, নৌ-পরিবহন মন্ত্রণালয়"});
-            this.searchOfficeListBox.Location = new System.Drawing.Point(0, 49);
+            "অফিস বাছাই করুন"});
+            this.searchOfficeListBox.Location = new System.Drawing.Point(5, 42);
             this.searchOfficeListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchOfficeListBox.Name = "searchOfficeListBox";
-            this.searchOfficeListBox.Size = new System.Drawing.Size(361, 166);
+            this.searchOfficeListBox.Size = new System.Drawing.Size(351, 166);
             this.searchOfficeListBox.TabIndex = 35;
-            this.searchOfficeListBox.SelectedIndexChanged += new System.EventHandler(this.searchOfficeListBox_SelectedIndexChanged);
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.panel12);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(361, 49);
-            this.panel8.TabIndex = 34;
+            this.searchOfficeListBox.Click += new System.EventHandler(this.searchOfficeListBox_Click);
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.searchOfficeTextBox);
-            this.panel12.Location = new System.Drawing.Point(9, 6);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(5, 5);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(342, 37);
+            this.panel12.Size = new System.Drawing.Size(351, 37);
             this.panel12.TabIndex = 34;
+            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
             // 
             // searchOfficeButton
             // 
@@ -354,7 +354,9 @@
             this.otherOfficeTreeView.Name = "otherOfficeTreeView";
             this.otherOfficeTreeView.Size = new System.Drawing.Size(490, 301);
             this.otherOfficeTreeView.TabIndex = 78;
+            this.otherOfficeTreeView.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.otherOfficeTreeView_BeforeCheck);
             this.otherOfficeTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.otherOfficeTreeView_AfterCheck);
+            this.otherOfficeTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.prapokotherOfficeTreeView_DrawNode);
             // 
             // imageList1
             // 
@@ -539,6 +541,7 @@
             this.saveDesignationSealButton.Text = "সংরক্ষণ করুন";
             this.saveDesignationSealButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saveDesignationSealButton.UseVisualStyleBackColor = false;
+            this.saveDesignationSealButton.Click += new System.EventHandler(this.saveDesignationSealButton_Click);
             // 
             // iconButton1
             // 
@@ -558,6 +561,7 @@
             this.iconButton1.Text = "বন্ধ করুন";
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.AddDesignationCloseButton_Click);
             // 
             // searchOfficeTextBox
             // 
@@ -572,13 +576,29 @@
             this.searchOfficeTextBox.TabIndex = 33;
             this.searchOfficeTextBox.TextChanged += new System.EventHandler(this.searchOfficeTextBox_TextChanged);
             // 
+            // metroPanel1
+            // 
+            this.metroPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.metroPanel1.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(1100, 733);
+            this.metroPanel1.TabIndex = 40;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
             // AddDesignationSeal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1100, 741);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1100, 733);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.saveDesignationSealButton);
             this.Controls.Add(this.label11);
@@ -587,6 +607,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.metroPanel1);
             this.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -604,7 +625,6 @@
             this.otherOfficeTabPageLeft.ResumeLayout(false);
             this.otherOfficeTabPageLeft.PerformLayout();
             this.searchOfficePanel.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.tabControlRight.ResumeLayout(false);
@@ -629,7 +649,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button AddDesignationCloseButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControlLeft;
@@ -663,9 +682,11 @@
         private System.Windows.Forms.Label officeSearchOfficeNameLabel;
         private System.Windows.Forms.Panel searchOfficePanel;
         private System.Windows.Forms.ListBox searchOfficeListBox;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel12;
         private XTextBox searchOfficeTextBox;
         private System.Windows.Forms.Button searchOfficeButton;
+        private FontAwesome.Sharp.IconButton AddDesignationCloseButton;
+        private System.Windows.Forms.Label label8;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
     }
 }

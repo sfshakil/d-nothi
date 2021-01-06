@@ -10,6 +10,8 @@ namespace dNothi.Constants
     {
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";
         public const string OCREndpoint = "http://bokshi-img2txt.tappware.com/apiImageToText/";
+        public const string DesignationSealDeleteEndpoint = "/api/dak/seal/delete";
+        public const string DesignationSealAddEndpoint = "/api/dak/seal/add";
         public const string OfficeListEndpoint = "/api/dak/office/relational-map";
         public const string DraftedDakEditEndpoint = "/api/dak/draft";
         public const string AllDesignationSealEndPoint = "/api/office/organograms";

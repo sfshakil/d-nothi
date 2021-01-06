@@ -11,12 +11,12 @@ namespace dNothi.JsonParser.Entity.Dak
     public class OfficeListResponse
     {
         public string status { get; set; }
-        public OfficeDTO data { get; set; }
+        public Dictionary<string,List<OfficeInfoDTO>> data { get; set; }
         
     }
     public class OfficeDTO
     {
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+       
         public List<OfficeInfoDTO> officeInfos { get; set; }
     }
     public class OfficeInfoDTO{
@@ -31,6 +31,7 @@ public class DesignationSealListResponse
         public string status { get; set; }
         public DesignationSealDataDTO data { get; set; }
     }
+
     public class PrapokDTO
     {
 
@@ -207,7 +208,7 @@ public class DesignationSealListResponse
       
 
 
-
+        public bool isofficerAdded { get; set; }
 
 
 
