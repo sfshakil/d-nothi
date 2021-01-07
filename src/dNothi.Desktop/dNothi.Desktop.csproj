@@ -197,6 +197,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IUserControlFactory.cs" />
+    <Compile Include="UI\Dak\NothiOnumodonDesignationSeal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiOnumodonDesignationSeal.Designer.cs">
+      <DependentUpon>NothiOnumodonDesignationSeal.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\AddDesignationSeal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +371,12 @@
     <Compile Include="UI\Dak\NothiNoteShomuho.Designer.cs">
       <DependentUpon>NothiNoteShomuho.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiOnumodonRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiOnumodonRow.Designer.cs">
+      <DependentUpon>NothiOnumodonRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiOutbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -472,6 +484,9 @@
     <EmbeddedResource Include="CustomControl\PlaceHolderTextBox.resx">
       <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiOnumodonDesignationSeal.resx">
+      <DependentUpon>NothiOnumodonDesignationSeal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\AddDesignationSeal.resx">
       <DependentUpon>AddDesignationSeal.cs</DependentUpon>
     </EmbeddedResource>
@@ -555,6 +570,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiNoteShomuho.resx">
       <DependentUpon>NothiNoteShomuho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiOnumodonRow.resx">
+      <DependentUpon>NothiOnumodonRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutbox.resx">
       <DependentUpon>NothiOutbox.cs</DependentUpon>

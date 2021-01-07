@@ -154,7 +154,8 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Nothi>().AsSelf();
             builder.RegisterType<UI.NothiOnumodonkari>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
-            builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf();
+            builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf(); 
+            builder.RegisterType<UI.Dak.NothiOnumodonDesignationSeal>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nothiShompadonIcon = new FontAwesome.Sharp.IconButton();
+            this.lbFlag = new System.Windows.Forms.Label();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
@@ -39,7 +41,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnOnumodon = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.lbArchived = new System.Windows.Forms.Label();
             this.btnArchive = new System.Windows.Forms.Button();
@@ -64,8 +66,6 @@
             this.dakSearchButton = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lbFlag = new System.Windows.Forms.Label();
-            this.nothiShompadonIcon = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.pnlNewAllNote.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +84,7 @@
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.iconButton1);
+            this.panel1.Controls.Add(this.btnOnumodon);
             this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Controls.Add(this.lbArchived);
             this.panel1.Controls.Add(this.btnArchive);
@@ -103,6 +103,39 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1115, 84);
             this.panel1.TabIndex = 0;
+            // 
+            // nothiShompadonIcon
+            // 
+            this.nothiShompadonIcon.BackColor = System.Drawing.Color.Transparent;
+            this.nothiShompadonIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.nothiShompadonIcon.FlatAppearance.BorderSize = 0;
+            this.nothiShompadonIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.nothiShompadonIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.nothiShompadonIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothiShompadonIcon.IconChar = FontAwesome.Sharp.IconChar.MoneyCheckAlt;
+            this.nothiShompadonIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.nothiShompadonIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nothiShompadonIcon.IconSize = 32;
+            this.nothiShompadonIcon.Location = new System.Drawing.Point(1051, 14);
+            this.nothiShompadonIcon.Name = "nothiShompadonIcon";
+            this.nothiShompadonIcon.Size = new System.Drawing.Size(38, 31);
+            this.nothiShompadonIcon.TabIndex = 116;
+            this.nothiShompadonIcon.UseVisualStyleBackColor = false;
+            this.nothiShompadonIcon.Visible = false;
+            this.nothiShompadonIcon.MouseLeave += new System.EventHandler(this.nothiShompadonIcon_MouseLeave);
+            this.nothiShompadonIcon.MouseHover += new System.EventHandler(this.nothiShompadonIcon_MouseHover);
+            // 
+            // lbFlag
+            // 
+            this.lbFlag.AutoSize = true;
+            this.lbFlag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFlag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbFlag.Location = new System.Drawing.Point(556, 51);
+            this.lbFlag.Name = "lbFlag";
+            this.lbFlag.Size = new System.Drawing.Size(100, 20);
+            this.lbFlag.TabIndex = 115;
+            this.lbFlag.Text = "shakhaLabel";
+            this.lbFlag.Visible = false;
             // 
             // iconButton7
             // 
@@ -243,20 +276,21 @@
             this.panel2.Size = new System.Drawing.Size(2, 82);
             this.panel2.TabIndex = 105;
             // 
-            // iconButton1
+            // btnOnumodon
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(50, 8);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(41, 41);
-            this.iconButton1.TabIndex = 104;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnOnumodon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.btnOnumodon.FlatAppearance.BorderSize = 0;
+            this.btnOnumodon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnumodon.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnOnumodon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnOnumodon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOnumodon.IconSize = 32;
+            this.btnOnumodon.Location = new System.Drawing.Point(50, 8);
+            this.btnOnumodon.Name = "btnOnumodon";
+            this.btnOnumodon.Size = new System.Drawing.Size(41, 41);
+            this.btnOnumodon.TabIndex = 104;
+            this.btnOnumodon.UseVisualStyleBackColor = false;
+            this.btnOnumodon.Click += new System.EventHandler(this.btnOnumodon_Click);
             // 
             // iconButton3
             // 
@@ -603,39 +637,6 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1115, 2);
             this.flowLayoutPanel2.TabIndex = 57;
             // 
-            // lbFlag
-            // 
-            this.lbFlag.AutoSize = true;
-            this.lbFlag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFlag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbFlag.Location = new System.Drawing.Point(556, 51);
-            this.lbFlag.Name = "lbFlag";
-            this.lbFlag.Size = new System.Drawing.Size(100, 20);
-            this.lbFlag.TabIndex = 115;
-            this.lbFlag.Text = "shakhaLabel";
-            this.lbFlag.Visible = false;
-            // 
-            // nothiShompadonIcon
-            // 
-            this.nothiShompadonIcon.BackColor = System.Drawing.Color.Transparent;
-            this.nothiShompadonIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.nothiShompadonIcon.FlatAppearance.BorderSize = 0;
-            this.nothiShompadonIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.nothiShompadonIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.nothiShompadonIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothiShompadonIcon.IconChar = FontAwesome.Sharp.IconChar.MoneyCheckAlt;
-            this.nothiShompadonIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.nothiShompadonIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.nothiShompadonIcon.IconSize = 32;
-            this.nothiShompadonIcon.Location = new System.Drawing.Point(1051, 14);
-            this.nothiShompadonIcon.Name = "nothiShompadonIcon";
-            this.nothiShompadonIcon.Size = new System.Drawing.Size(38, 31);
-            this.nothiShompadonIcon.TabIndex = 116;
-            this.nothiShompadonIcon.UseVisualStyleBackColor = false;
-            this.nothiShompadonIcon.Visible = false;
-            this.nothiShompadonIcon.MouseLeave += new System.EventHandler(this.nothiShompadonIcon_MouseLeave);
-            this.nothiShompadonIcon.MouseHover += new System.EventHandler(this.nothiShompadonIcon_MouseHover);
-            // 
             // NothiAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -667,7 +668,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnOnumodon;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Label lbArchived;
         private System.Windows.Forms.Button btnArchive;

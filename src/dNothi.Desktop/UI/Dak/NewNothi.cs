@@ -250,7 +250,10 @@ namespace dNothi.Desktop.UI.Dak
                 form.ShowDialog();
                 
             }
-            
+            else
+                MessageBox.Show("নথি  নম্বর  ইতিমধ্যে  বিদ্যমান");
+
+
         }
 
     }
