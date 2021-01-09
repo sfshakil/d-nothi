@@ -192,8 +192,14 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnNothiInboxOnumodon_Click(object sender, EventArgs e)
         {
-            this.Hide();
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.ShowDialog();
+            
+        }
+
+        private void btnNewNote_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<CreateNewNotes>();
             form.ShowDialog();
             
         }

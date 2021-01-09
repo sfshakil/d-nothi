@@ -682,7 +682,7 @@ namespace dNothi.Desktop.UI.Dak
         
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি প্রাপকের তালিকাটি সংযুক্ত করতে চান??\n",
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি সফলভাবে সংরক্ষণ করতে চান??\n",
                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (DialogResultSttring == DialogResult.Yes)
             {
