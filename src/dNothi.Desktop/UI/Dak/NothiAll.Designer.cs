@@ -63,7 +63,7 @@
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
-            this.dakSearchButton = new FontAwesome.Sharp.IconButton();
+            this.btnNewNote = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
@@ -229,7 +229,7 @@
             this.lbNoteTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbNoteTotal.Location = new System.Drawing.Point(677, 22);
             this.lbNoteTotal.Name = "lbNoteTotal";
-            this.lbNoteTotal.Size = new System.Drawing.Size(23, 13);
+            this.lbNoteTotal.Size = new System.Drawing.Size(19, 13);
             this.lbNoteTotal.TabIndex = 109;
             this.lbNoteTotal.Text = "11";
             // 
@@ -317,7 +317,7 @@
             this.lbArchived.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbArchived.Location = new System.Drawing.Point(1087, 22);
             this.lbArchived.Name = "lbArchived";
-            this.lbArchived.Size = new System.Drawing.Size(23, 13);
+            this.lbArchived.Size = new System.Drawing.Size(19, 13);
             this.lbArchived.TabIndex = 102;
             this.lbArchived.Text = "11";
             // 
@@ -366,7 +366,7 @@
             this.lbNishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbNishponno.Location = new System.Drawing.Point(987, 22);
             this.lbNishponno.Name = "lbNishponno";
-            this.lbNishponno.Size = new System.Drawing.Size(23, 13);
+            this.lbNishponno.Size = new System.Drawing.Size(19, 13);
             this.lbNishponno.TabIndex = 98;
             this.lbNishponno.Text = "11";
             // 
@@ -394,7 +394,7 @@
             this.lbOnishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbOnishponno.Location = new System.Drawing.Point(892, 22);
             this.lbOnishponno.Name = "lbOnishponno";
-            this.lbOnishponno.Size = new System.Drawing.Size(23, 13);
+            this.lbOnishponno.Size = new System.Drawing.Size(19, 13);
             this.lbOnishponno.TabIndex = 96;
             this.lbOnishponno.Text = "11";
             // 
@@ -422,7 +422,7 @@
             this.lbPermitted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbPermitted.Location = new System.Drawing.Point(792, 22);
             this.lbPermitted.Name = "lbPermitted";
-            this.lbPermitted.Size = new System.Drawing.Size(23, 13);
+            this.lbPermitted.Size = new System.Drawing.Size(19, 13);
             this.lbPermitted.TabIndex = 94;
             this.lbPermitted.Text = "11";
             // 
@@ -481,7 +481,7 @@
             this.pnlNewAllNote.Controls.Add(this.iconButton10);
             this.pnlNewAllNote.Controls.Add(this.iconButton11);
             this.pnlNewAllNote.Controls.Add(this.iconButton12);
-            this.pnlNewAllNote.Controls.Add(this.dakSearchButton);
+            this.pnlNewAllNote.Controls.Add(this.btnNewNote);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel3);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel2);
             this.pnlNewAllNote.Dock = System.Windows.Forms.DockStyle.Top;
@@ -595,29 +595,30 @@
             this.iconButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton12.UseVisualStyleBackColor = false;
             // 
-            // dakSearchButton
+            // btnNewNote
             // 
-            this.dakSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.dakSearchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakSearchButton.FlatAppearance.BorderSize = 0;
-            this.dakSearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.dakSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.dakSearchButton.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.dakSearchButton.IconColor = System.Drawing.Color.DimGray;
-            this.dakSearchButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakSearchButton.IconSize = 24;
-            this.dakSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakSearchButton.Location = new System.Drawing.Point(0, 3);
-            this.dakSearchButton.Name = "dakSearchButton";
-            this.dakSearchButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.dakSearchButton.Size = new System.Drawing.Size(106, 29);
-            this.dakSearchButton.TabIndex = 59;
-            this.dakSearchButton.Text = "নতুন নোট";
-            this.dakSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.dakSearchButton.UseVisualStyleBackColor = false;
+            this.btnNewNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnNewNote.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnNewNote.FlatAppearance.BorderSize = 0;
+            this.btnNewNote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnNewNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnNewNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNewNote.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.btnNewNote.IconColor = System.Drawing.Color.DimGray;
+            this.btnNewNote.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNewNote.IconSize = 24;
+            this.btnNewNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewNote.Location = new System.Drawing.Point(0, 3);
+            this.btnNewNote.Name = "btnNewNote";
+            this.btnNewNote.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNewNote.Size = new System.Drawing.Size(106, 29);
+            this.btnNewNote.TabIndex = 59;
+            this.btnNewNote.Text = "নতুন নোট";
+            this.btnNewNote.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNewNote.UseVisualStyleBackColor = false;
+            this.btnNewNote.Click += new System.EventHandler(this.btnNewNote_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -690,7 +691,7 @@
         private FontAwesome.Sharp.IconButton iconButton10;
         private FontAwesome.Sharp.IconButton iconButton11;
         private FontAwesome.Sharp.IconButton iconButton12;
-        private FontAwesome.Sharp.IconButton dakSearchButton;
+        private FontAwesome.Sharp.IconButton btnNewNote;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label lbFlag;

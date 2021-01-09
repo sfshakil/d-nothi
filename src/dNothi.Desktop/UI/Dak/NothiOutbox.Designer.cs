@@ -235,6 +235,7 @@
             this.dakSearchButton.Text = "নতুন নোট";
             this.dakSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.dakSearchButton.UseVisualStyleBackColor = false;
+            this.dakSearchButton.Click += new System.EventHandler(this.dakSearchButton_Click);
             // 
             // flowLayoutPanel3
             // 

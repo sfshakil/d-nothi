@@ -38,7 +38,7 @@
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.dakSearchButton = new FontAwesome.Sharp.IconButton();
+            this.btnNewNote = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -96,7 +96,7 @@
             this.pnlNewAllNote.Controls.Add(this.iconButton5);
             this.pnlNewAllNote.Controls.Add(this.iconButton4);
             this.pnlNewAllNote.Controls.Add(this.iconButton2);
-            this.pnlNewAllNote.Controls.Add(this.dakSearchButton);
+            this.pnlNewAllNote.Controls.Add(this.btnNewNote);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel3);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel2);
             this.pnlNewAllNote.Dock = System.Windows.Forms.DockStyle.Top;
@@ -211,29 +211,30 @@
             this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton2.UseVisualStyleBackColor = false;
             // 
-            // dakSearchButton
+            // btnNewNote
             // 
-            this.dakSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.dakSearchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakSearchButton.FlatAppearance.BorderSize = 0;
-            this.dakSearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.dakSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.dakSearchButton.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.dakSearchButton.IconColor = System.Drawing.Color.DimGray;
-            this.dakSearchButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakSearchButton.IconSize = 24;
-            this.dakSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakSearchButton.Location = new System.Drawing.Point(0, 3);
-            this.dakSearchButton.Name = "dakSearchButton";
-            this.dakSearchButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.dakSearchButton.Size = new System.Drawing.Size(106, 29);
-            this.dakSearchButton.TabIndex = 59;
-            this.dakSearchButton.Text = "নতুন নোট";
-            this.dakSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.dakSearchButton.UseVisualStyleBackColor = false;
+            this.btnNewNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnNewNote.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnNewNote.FlatAppearance.BorderSize = 0;
+            this.btnNewNote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnNewNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnNewNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNewNote.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.btnNewNote.IconColor = System.Drawing.Color.DimGray;
+            this.btnNewNote.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNewNote.IconSize = 24;
+            this.btnNewNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewNote.Location = new System.Drawing.Point(0, 3);
+            this.btnNewNote.Name = "btnNewNote";
+            this.btnNewNote.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNewNote.Size = new System.Drawing.Size(106, 29);
+            this.btnNewNote.TabIndex = 59;
+            this.btnNewNote.Text = "নতুন নোট";
+            this.btnNewNote.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNewNote.UseVisualStyleBackColor = false;
+            this.btnNewNote.Click += new System.EventHandler(this.btnNewNote_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -439,7 +440,7 @@
         private FontAwesome.Sharp.IconButton iconButton5;
         private FontAwesome.Sharp.IconButton iconButton4;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton dakSearchButton;
+        private FontAwesome.Sharp.IconButton btnNewNote;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
