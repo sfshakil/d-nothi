@@ -135,7 +135,7 @@ namespace dNothi.Desktop
             builder.RegisterType<DakForwardService>().As<IDakForwardService>();
             builder.RegisterType<DakNothijatoService>().As<IDakNothijatoService>();
             builder.RegisterType<DakNothivuktoService>().As<IDakNothivuktoService>();
-            builder.RegisterType<DakListArchiveService>().As<IDakListArchiveService>();
+            builder.RegisterType<DakArchiveService>().As<IDakArchiveService>();
             builder.RegisterType<DakKhosraService>().As<IDakKhosraService>();
             builder.RegisterType<DakListSortedService>().As<IDakListSortedService>();
             builder.RegisterType<NothiCreateService>().As<INothiCreateService>(); 
@@ -152,14 +152,18 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            
             builder.RegisterType<UI.Nothi>().AsSelf();
+            builder.RegisterType<DakModuleSokolNothiListUserControl>().AsSelf();
             builder.RegisterType<UI.NothiOnumodonkari>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
             builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf();
+            builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();
             builder.RegisterType<CreateNewNothiType>().AsSelf();
+            builder.RegisterType<DakNothiteUposthapitoNewNoteAddUserControl>().AsSelf();
+         
 
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());

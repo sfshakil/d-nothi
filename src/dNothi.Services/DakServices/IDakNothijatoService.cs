@@ -11,5 +11,7 @@ namespace dNothi.Services.DakServices
     {
         DakListNothijatoResponse GetNothijatoDak(DakUserParam dakListUserParam);
         void SaveorUpdateDakNothijato(DakListNothijatoResponse dakListNothijatoResponse);
+
+       
     }
 }

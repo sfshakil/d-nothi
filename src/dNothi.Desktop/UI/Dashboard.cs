@@ -31,7 +31,7 @@ namespace dNothi.Desktop.UI
         IDakUploadService _dakuploadservice { get; set; }
         IDakInboxServices _dakInbox { get; set; }
 
-        IDakListArchiveService _dakListArchiveService { get; set; }
+        IDakArchiveService _dakArchiveService { get; set; }
         IDakNothijatoService _dakNothijatoService { get; set; }
 
         IDakNothivuktoService _dakNothivuktoService { get; set; }
@@ -42,7 +42,7 @@ namespace dNothi.Desktop.UI
             IUserService userService,
             IDakOutboxService dakOutboxService,
             IDakNothivuktoService dakNothivuktoService,
-            IDakListArchiveService dakListArchiveService,
+            IDakArchiveService dakListArchiveService,
             IDakListService dakListService,
             IDakListSortedService dakListSortedService,
             IDakForwardService dakForwardService,
@@ -54,7 +54,7 @@ namespace dNothi.Desktop.UI
             _userService = userService;
             _dakOutboxService = dakOutboxService;
             _dakInbox = dakInbox;
-            _dakListArchiveService = dakListArchiveService;
+            _dakArchiveService = dakListArchiveService;
             _dakNothijatoService = dakNothijatoService;
             _dakListService = dakListService;
             _dakListSortedService = dakListSortedService;
@@ -608,7 +608,10 @@ namespace dNothi.Desktop.UI
                 dakInboxUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
                 dakInboxUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
                 dakInboxUserControl.dakid = dakListInboxRecordsDTO.dak_user.dak_id;
+                dakInboxUserControl.dakArchiveUserId = dakListInboxRecordsDTO.dak_user.archived_dak_user_id;
                 dakInboxUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakInboxUserControl.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakInboxUserControl.DakArchiveButtonClick += delegate (object sender, EventArgs e) { DakArchive_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 i = i + 1;
                 dakInboxUserControls.Add(dakInboxUserControl);
 
@@ -628,7 +631,42 @@ namespace dNothi.Desktop.UI
 
         }
 
+        private void DakArchive_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
+        {
+            DakArchiveResponse dakArchiveResponse = _dakArchiveService.GetDakArcivedResponse(_dakuserparam, dakid, dak_type, is_copied_dak);
+            if(dakArchiveResponse.status=="success")
+            {
+                ReloadBodyPanel();
+            }
+            else
+            {
+                MessageBox.Show("ডাক আর্কাইভ সফল হ​য়নি!");
+            }
+                 
+        }
 
+        private void NothiteUposthapito_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
+        {
+            var form = FormFactory.Create<DakNothiteUposthapitoForm>();
+            form.dak_type = dak_type;
+            form.dakid = dakid;
+            form.is_copied_dak = is_copied_dak;
+            form.dakSubject = dak_subject;
+            form.ShowDialog(this);
+
+            ReloadBodyPanel();
+
+        }
+
+        private void ReloadBodyPanel()
+        {
+            var dakInboxUserControl = dakListFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+
+            if (dakInboxUserControl != null)
+            {
+                LoadDakInbox();
+            }
+        }
 
         private void ShowSubMenu(Panel dakUploadDropDownPanel)
         {
@@ -891,10 +929,10 @@ namespace dNothi.Desktop.UI
 
 
 
-            var dakArchive = _dakListArchiveService.GetDakList(dakListUserParam);
+            var dakArchive = _dakArchiveService.GetDakList(dakListUserParam);
             if (dakArchive.status == "success")
             {
-                _dakListArchiveService.SaveorUpdateDakArchive(dakArchive);
+                _dakArchiveService.SaveorUpdateDakArchive(dakArchive);
                 if (dakArchive.data.records.Count > 0)
                 {
 
@@ -938,6 +976,7 @@ namespace dNothi.Desktop.UI
                 dakArchiveUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
                 dakArchiveUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
                 dakArchiveUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
+                dakArchiveUserControl.ArchiveRevertButtonClick += delegate (object sender, EventArgs e) { DakArchiveRevert_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 if (dakListInboxRecordsDTO.nothi != null)
                 {
                     dakArchiveUserControl.nothiNo = dakListInboxRecordsDTO.nothi.nothi_no;
@@ -963,6 +1002,11 @@ namespace dNothi.Desktop.UI
 
 
 
+        }
+
+        private void DakArchiveRevert_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, string dak_subject, int is_copied_dak)
+        {
+            throw new NotImplementedException();
         }
 
         private void dakOutboxButton_Click(object sender, EventArgs e)

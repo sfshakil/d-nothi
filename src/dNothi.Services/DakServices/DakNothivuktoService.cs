@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Nothi;
 using Newtonsoft.Json;
 using RestSharp;
+
+
+using Newtonsoft.Json.Serialization;
+
 
 namespace dNothi.Services.DakServices
 {
@@ -79,6 +86,11 @@ namespace dNothi.Services.DakServices
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
         }
+
+        protected string GetOldAPIVersion()
+        {
+            return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;
+        }
         protected string ReadAppSettings(string key)
         {
             return ConfigurationManager.AppSettings[key];
@@ -94,5 +106,80 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.DakListNothivuktoEndPoint;
         }
+
+        public GetNothivuktoNoteAddResponse GetNothijatoNoteAddResponse(DakUserParam dakUserParam, DakNothivuktoNoteAddParam dakNothivuktoNoteAddParam)
+        {
+            try
+            {
+                var nothivuktoNoteAddDakApi = new RestClient(GetAPIDomain() + GetNothijatoNoteAddEndpoint());
+                nothivuktoNoteAddDakApi.Timeout = -1;
+                var nothivuktoNoteAddDakRequest = new RestRequest(Method.POST);
+                nothivuktoNoteAddDakRequest.AddHeader("api-version", GetOldAPIVersion());
+                nothivuktoNoteAddDakRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                nothivuktoNoteAddDakRequest.AlwaysMultipartFormData = true;
+                nothivuktoNoteAddDakRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                nothivuktoNoteAddDakRequest.AddParameter("office_id", dakUserParam.office_id);
+
+
+                var jsonString = new JavaScriptSerializer().Serialize(dakNothivuktoNoteAddParam);
+                nothivuktoNoteAddDakRequest.AddParameter("data", jsonString);
+    
+                IRestResponse nothivuktoNoteAddDakResponse = nothivuktoNoteAddDakApi.Execute(nothivuktoNoteAddDakRequest);
+
+
+                var nothivuktoNoteAddDakResponseJson = nothivuktoNoteAddDakResponse.Content;
+                   GetNothivuktoNoteAddResponse noteAddResponse = JsonConvert.DeserializeObject<GetNothivuktoNoteAddResponse>(nothivuktoNoteAddDakResponseJson);
+                return noteAddResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private string GetNothijatoNoteAddEndpoint()
+        {
+            return DefaultAPIConfiguration.NothijatoNoteAddEndPoint;
+        }
+        private string GetDakNothivuktoEndpoint()
+        {
+            return DefaultAPIConfiguration.DakNothivuktoEndpointEndPoint;
+        }
+
+        public DakNothivuktoResponse GetDakNothivuktoResponse(DakUserParam dakUserParam, NoteNothiDTO nothi, int dak_id, string dak_type, int is_copied_dak)
+        {
+            var nothivuktoDakSendAPI = new RestClient(GetAPIDomain() + GetDakNothivuktoEndpoint());
+            nothivuktoDakSendAPI.Timeout = -1;
+            var NothivuktoDakSendRequest = new RestRequest(Method.POST);
+            NothivuktoDakSendRequest.AddHeader("api-version", GetOldAPIVersion());
+            NothivuktoDakSendRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+            NothivuktoDakSendRequest.AddParameter("cdesk", dakUserParam.json_String);
+          
+            NothivuktoDakSendRequest.AddParameter("daak", "{\"dak_id\":\""+dak_id+"\",\"dak_type\":\""+dak_type+"\",\"is_copied_dak\":"+is_copied_dak+"}");
+            var nothijsonString = new JavaScriptSerializer().Serialize(nothi);
+
+
+            NothivuktoDakSendRequest.AddParameter("nothi", nothijsonString);
+            IRestResponse dakNothivuktoIRestResponse = nothivuktoDakSendAPI.Execute(NothivuktoDakSendRequest);
+            var dakNothivuktoResponseJson = dakNothivuktoIRestResponse.Content;
+
+            var dakNothivuktoResponse = JsonConvert.DeserializeObject<DakNothivuktoResponse>(dakNothivuktoResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+            return dakNothivuktoResponse;
+        }
+
+        public void HandleDeserializationError(object sender, Newtonsoft.Json.Serialization.ErrorEventArgs errorArgs)
+        {
+            var currentError = errorArgs.ErrorContext.Error.Message;
+            errorArgs.ErrorContext.Handled = true;
+        }
+
+       
+
     }
 }

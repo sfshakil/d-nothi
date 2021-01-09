@@ -106,9 +106,10 @@
     <Compile Include="DakServices\DakForwardService.cs" />
     <Compile Include="DakServices\DakInboxService.cs" />
     <Compile Include="DakServices\DakKhosraService.cs" />
-    <Compile Include="DakServices\DakListArchiveService.cs" />
+    <Compile Include="DakServices\DakArchiveService.cs" />
     <Compile Include="DakServices\DakListService.cs" />
     <Compile Include="DakServices\DakListSortedService.cs" />
+    <Compile Include="DakServices\DakNothivuktoNoteAddParam.cs" />
     <Compile Include="DakServices\DakUserParam.cs" />
     <Compile Include="DakServices\DakNothijatoService.cs" />
     <Compile Include="DakServices\DakNothivuktoService.cs" />
@@ -125,7 +126,7 @@
     <Compile Include="DakServices\IDakForwardService.cs" />
     <Compile Include="DakServices\IDakInboxServices.cs" />
     <Compile Include="DakServices\IDakKhosraService.cs" />
-    <Compile Include="DakServices\IDakListArchiveService.cs" />
+    <Compile Include="DakServices\IDakArchiveService.cs" />
     <Compile Include="DakServices\IDakListService.cs" />
     <Compile Include="DakServices\IDakListSortedService.cs" />
     <Compile Include="DakServices\IDakNothijatoService.cs" />

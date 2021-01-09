@@ -1,11 +1,15 @@
-﻿using dNothi.JsonParser.Entity.Nothi;
+﻿using dNothi.Constants;
+using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.DakServices;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace dNothi.Services.NothiServices
 {
@@ -39,5 +43,54 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
         }
+
+        public NothiNoteListResponse GetNothiNoteListAll(DakUserParam dakUserParam, int nothi__id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain()+GetNoteListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", "1");
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+              
+
+                request.AddParameter("cdesk", dakUserParam.json_String);
+                request.AddParameter("length", "100");
+                request.AddParameter("page", "1");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi__id + "\",\"note_category\":\"ALL\"}");
+                IRestResponse response = client.Execute(request);
+               
+                var responseJson = response.Content;
+                NothiNoteListResponse nothiNoteListResponse = JsonConvert.DeserializeObject<NothiNoteListResponse>(responseJson);
+                return nothiNoteListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        protected string GetAPIVersion()
+        {
+            return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;
+        }
+        protected string ReadAppSettings(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
+        }
+
+
+        protected string GetAPIDomain()
+        {
+            return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
+        }
+
+        protected string GetNoteListEndpoint()
+        {
+            return DefaultAPIConfiguration.GetNoteListEndpoint;
+        }
+
     }
 }

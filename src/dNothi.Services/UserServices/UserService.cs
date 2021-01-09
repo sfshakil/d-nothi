@@ -250,7 +250,7 @@ namespace dNothi.Services.UserServices
                 dakListUserParam.designation_id = officeInfo.office_unit_organogram_id;
                 dakListUserParam.office_label = officeInfo.office_name_bn;
                 dakListUserParam.unit_label = officeInfo.unit_name_bn;
-                dakListUserParam.office_id = officeInfo.office_id;
+              //  dakListUserParam.office_id = officeInfo.office_id;
                 dakListUserParam.employee_record_id = officeInfo.employee_record_id;
 
                 dakListUserParam.designation_label = officeInfo.designation;

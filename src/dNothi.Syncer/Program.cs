@@ -67,7 +67,7 @@ namespace dNothi.Syncer
             builder.RegisterType<DakListService>().As<IDakListService>();
             builder.RegisterType<DakNothijatoService>().As<IDakNothijatoService>();
             builder.RegisterType<DakNothivuktoService>().As<IDakNothivuktoService>();
-            builder.RegisterType<DakListArchiveService>().As<IDakListArchiveService>();
+            builder.RegisterType<DakArchiveService>().As<IDakArchiveService>();
             builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();

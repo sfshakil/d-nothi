@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDesignationSeal));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.AddDesignationCloseButton = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControlLeft = new System.Windows.Forms.TabControl();
@@ -48,10 +48,11 @@
             this.searchOfficePanel = new System.Windows.Forms.Panel();
             this.searchOfficeListBox = new System.Windows.Forms.ListBox();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.searchOfficeButton = new System.Windows.Forms.Button();
+            this.searchOfficeTextBox = new dNothi.Desktop.XTextBox();
             this.designationStateOtherLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.otherOfficeTreeView = new System.Windows.Forms.TreeView();
+            this.searchOfficeButton = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControlRight = new System.Windows.Forms.TabControl();
             this.ownOfficeTabPageRight = new System.Windows.Forms.TabPage();
@@ -67,10 +68,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.saveDesignationSealButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.searchOfficeTextBox = new dNothi.Desktop.XTextBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.saveDesignationSealButton = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.tabControlLeft.SuspendLayout();
             this.ownOfficeTabPageLeft.SuspendLayout();
@@ -89,7 +89,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.AddDesignationCloseButton);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -98,14 +97,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 66);
             this.panel1.TabIndex = 0;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label8.Location = new System.Drawing.Point(0, 66);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(1100, 1);
-            this.label8.TabIndex = 39;
             // 
             // AddDesignationCloseButton
             // 
@@ -134,6 +125,14 @@
             this.label1.Size = new System.Drawing.Size(315, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "প্রাপকের তালিকা তৈরি করুন";
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label8.Location = new System.Drawing.Point(0, 66);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(1100, 1);
+            this.label8.TabIndex = 39;
             // 
             // label2
             // 
@@ -230,10 +229,10 @@
             this.otherOfficeTabPageLeft.Controls.Add(this.officerSearchOfficeIdLabel);
             this.otherOfficeTabPageLeft.Controls.Add(this.officeSearchOfficeNameLabel);
             this.otherOfficeTabPageLeft.Controls.Add(this.searchOfficePanel);
-            this.otherOfficeTabPageLeft.Controls.Add(this.searchOfficeButton);
             this.otherOfficeTabPageLeft.Controls.Add(this.designationStateOtherLabel);
             this.otherOfficeTabPageLeft.Controls.Add(this.label10);
             this.otherOfficeTabPageLeft.Controls.Add(this.otherOfficeTreeView);
+            this.otherOfficeTabPageLeft.Controls.Add(this.searchOfficeButton);
             this.otherOfficeTabPageLeft.ImageIndex = 0;
             this.otherOfficeTabPageLeft.Location = new System.Drawing.Point(4, 37);
             this.otherOfficeTabPageLeft.Name = "otherOfficeTabPageLeft";
@@ -306,26 +305,18 @@
             this.panel12.TabIndex = 34;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
             // 
-            // searchOfficeButton
+            // searchOfficeTextBox
             // 
-            this.searchOfficeButton.BackColor = System.Drawing.Color.Transparent;
-            this.searchOfficeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.searchOfficeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.searchOfficeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.searchOfficeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchOfficeButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchOfficeButton.Image = ((System.Drawing.Image)(resources.GetObject("searchOfficeButton.Image")));
-            this.searchOfficeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.searchOfficeButton.Location = new System.Drawing.Point(20, 46);
-            this.searchOfficeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficeButton.Name = "searchOfficeButton";
-            this.searchOfficeButton.Size = new System.Drawing.Size(363, 37);
-            this.searchOfficeButton.TabIndex = 94;
-            this.searchOfficeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.searchOfficeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.searchOfficeButton.UseVisualStyleBackColor = false;
-            this.searchOfficeButton.Click += new System.EventHandler(this.searchOfficeButton_Click);
+            this.searchOfficeTextBox.BackColor = System.Drawing.Color.White;
+            this.searchOfficeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchOfficeTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchOfficeTextBox.Location = new System.Drawing.Point(3, 9);
+            this.searchOfficeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeTextBox.Name = "searchOfficeTextBox";
+            this.searchOfficeTextBox.Size = new System.Drawing.Size(336, 19);
+            this.searchOfficeTextBox.TabIndex = 33;
+            this.searchOfficeTextBox.TextChanged += new System.EventHandler(this.searchOfficeTextBox_TextChanged);
             // 
             // designationStateOtherLabel
             // 
@@ -357,6 +348,27 @@
             this.otherOfficeTreeView.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.otherOfficeTreeView_BeforeCheck);
             this.otherOfficeTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.otherOfficeTreeView_AfterCheck);
             this.otherOfficeTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.prapokotherOfficeTreeView_DrawNode);
+            // 
+            // searchOfficeButton
+            // 
+            this.searchOfficeButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchOfficeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.searchOfficeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.searchOfficeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.searchOfficeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchOfficeButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchOfficeButton.Image = ((System.Drawing.Image)(resources.GetObject("searchOfficeButton.Image")));
+            this.searchOfficeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.searchOfficeButton.Location = new System.Drawing.Point(20, 46);
+            this.searchOfficeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeButton.Name = "searchOfficeButton";
+            this.searchOfficeButton.Size = new System.Drawing.Size(363, 37);
+            this.searchOfficeButton.TabIndex = 94;
+            this.searchOfficeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.searchOfficeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.searchOfficeButton.UseVisualStyleBackColor = false;
+            this.searchOfficeButton.Click += new System.EventHandler(this.searchOfficeButton_Click);
             // 
             // imageList1
             // 
@@ -480,8 +492,9 @@
             this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 7);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(510, 40);
             this.tableLayoutPanel2.TabIndex = 2;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
@@ -493,7 +506,7 @@
             this.label6.Location = new System.Drawing.Point(4, 1);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(3, 12, 3, 3);
-            this.label6.Size = new System.Drawing.Size(23, 33);
+            this.label6.Size = new System.Drawing.Size(23, 17);
             this.label6.TabIndex = 1;
             this.label6.Text = "#";
             // 
@@ -502,7 +515,7 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Location = new System.Drawing.Point(36, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(470, 32);
+            this.panel3.Size = new System.Drawing.Size(470, 11);
             this.panel3.TabIndex = 0;
             // 
             // label7
@@ -523,25 +536,21 @@
             this.label11.Size = new System.Drawing.Size(1108, 1);
             this.label11.TabIndex = 35;
             // 
-            // saveDesignationSealButton
+            // metroPanel1
             // 
-            this.saveDesignationSealButton.AutoSize = true;
-            this.saveDesignationSealButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.saveDesignationSealButton.FlatAppearance.BorderSize = 0;
-            this.saveDesignationSealButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveDesignationSealButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.saveDesignationSealButton.IconChar = FontAwesome.Sharp.IconChar.Cloud;
-            this.saveDesignationSealButton.IconColor = System.Drawing.Color.White;
-            this.saveDesignationSealButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.saveDesignationSealButton.IconSize = 32;
-            this.saveDesignationSealButton.Location = new System.Drawing.Point(847, 621);
-            this.saveDesignationSealButton.Name = "saveDesignationSealButton";
-            this.saveDesignationSealButton.Size = new System.Drawing.Size(124, 48);
-            this.saveDesignationSealButton.TabIndex = 36;
-            this.saveDesignationSealButton.Text = "সংরক্ষণ করুন";
-            this.saveDesignationSealButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.saveDesignationSealButton.UseVisualStyleBackColor = false;
-            this.saveDesignationSealButton.Click += new System.EventHandler(this.saveDesignationSealButton_Click);
+            this.metroPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.metroPanel1.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(1100, 733);
+            this.metroPanel1.TabIndex = 40;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
             // 
             // iconButton1
             // 
@@ -563,34 +572,25 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.AddDesignationCloseButton_Click);
             // 
-            // searchOfficeTextBox
+            // saveDesignationSealButton
             // 
-            this.searchOfficeTextBox.BackColor = System.Drawing.Color.White;
-            this.searchOfficeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchOfficeTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchOfficeTextBox.Location = new System.Drawing.Point(3, 9);
-            this.searchOfficeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficeTextBox.Name = "searchOfficeTextBox";
-            this.searchOfficeTextBox.Size = new System.Drawing.Size(336, 19);
-            this.searchOfficeTextBox.TabIndex = 33;
-            this.searchOfficeTextBox.TextChanged += new System.EventHandler(this.searchOfficeTextBox_TextChanged);
-            // 
-            // metroPanel1
-            // 
-            this.metroPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.metroPanel1.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
-            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(0, 0);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(1100, 733);
-            this.metroPanel1.TabIndex = 40;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.saveDesignationSealButton.AutoSize = true;
+            this.saveDesignationSealButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.saveDesignationSealButton.FlatAppearance.BorderSize = 0;
+            this.saveDesignationSealButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveDesignationSealButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.saveDesignationSealButton.IconChar = FontAwesome.Sharp.IconChar.Cloud;
+            this.saveDesignationSealButton.IconColor = System.Drawing.Color.White;
+            this.saveDesignationSealButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.saveDesignationSealButton.IconSize = 32;
+            this.saveDesignationSealButton.Location = new System.Drawing.Point(847, 621);
+            this.saveDesignationSealButton.Name = "saveDesignationSealButton";
+            this.saveDesignationSealButton.Size = new System.Drawing.Size(124, 48);
+            this.saveDesignationSealButton.TabIndex = 36;
+            this.saveDesignationSealButton.Text = "সংরক্ষণ করুন";
+            this.saveDesignationSealButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.saveDesignationSealButton.UseVisualStyleBackColor = false;
+            this.saveDesignationSealButton.Click += new System.EventHandler(this.saveDesignationSealButton_Click);
             // 
             // AddDesignationSeal
             // 
@@ -599,6 +599,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 733);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.saveDesignationSealButton);
             this.Controls.Add(this.label11);

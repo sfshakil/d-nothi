@@ -888,7 +888,6 @@
             this.nameDesignationSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nameDesignationSearchButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameDesignationSearchButton.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nameDesignationSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("nameDesignationSearchButton.Image")));
             this.nameDesignationSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nameDesignationSearchButton.Location = new System.Drawing.Point(12, 10);
             this.nameDesignationSearchButton.Name = "nameDesignationSearchButton";

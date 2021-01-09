@@ -5,13 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dNothi.JsonParser.Entity.Nothi;
 
 namespace dNothi.Services.DakServices
 {
    public interface IDakNothivuktoService
     {
+
+        DakNothivuktoResponse GetDakNothivuktoResponse(DakUserParam dakListUserParam, NoteNothiDTO nothi, int dak_id, string dak_type, int is_copied_dak);
+
         DakListNothivuktoResponse GetNothivuktoDakList(DakUserParam dakListUserParam);
         void SaveorUpdateDakNothivukto(DakListNothivuktoResponse dakListNothivuktoResponse);
-
+        GetNothivuktoNoteAddResponse GetNothijatoNoteAddResponse(DakUserParam dakUserParam, DakNothivuktoNoteAddParam dakNothivuktoNoteAddParam);
     }
 }

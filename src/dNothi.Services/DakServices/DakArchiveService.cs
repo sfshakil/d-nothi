@@ -13,11 +13,11 @@ using RestSharp;
 
 namespace dNothi.Services.DakServices
 {
-    public class DakListArchiveService : IDakListArchiveService
+    public class DakArchiveService : IDakArchiveService
     {
         IRepository<DakType> _daktype;
         IDakListService _dakListService { get; set; }
-        public DakListArchiveService(IRepository<DakType> daktype, IDakListService dakListService)
+        public DakArchiveService(IRepository<DakType> daktype, IDakListService dakListService)
         {
             _daktype = daktype;
             _dakListService = dakListService;
@@ -78,6 +78,10 @@ namespace dNothi.Services.DakServices
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
         }
+        protected string GetOldAPIVersion()
+        {
+            return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;
+        }
         protected string ReadAppSettings(string key)
         {
             return ConfigurationManager.AppSettings[key];
@@ -92,6 +96,40 @@ namespace dNothi.Services.DakServices
         protected string GetDakListArchiveEndpoint()
         {
             return DefaultAPIConfiguration.DakListOnulipiEndPoint;
+        }
+        protected string GetDakArchiveEndpoint()
+        {
+            return DefaultAPIConfiguration.DakArchiveEndPoint;
+        }
+
+        public DakArchiveResponse GetDakArcivedResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak)
+        {
+            try
+            {
+                var dakArchiveApi = new RestClient(GetAPIDomain() + GetDakArchiveEndpoint());
+                dakArchiveApi.Timeout = -1;
+                var dakArchiveRequest = new RestRequest(Method.POST);
+                dakArchiveRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakArchiveRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                dakArchiveRequest.AlwaysMultipartFormData = true;
+                dakArchiveRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakArchiveRequest.AddParameter("office_id", dakListUserParam.office_id);
+                dakArchiveRequest.AddParameter("dak_id", dak_id);
+                dakArchiveRequest.AddParameter("dak_type", dak_type);
+                dakArchiveRequest.AddParameter("is_copied_dak", is_copied_dak);
+                IRestResponse dakArchiveResponseIRest = dakArchiveApi.Execute(dakArchiveRequest);
+
+
+                var dakArchiveResponseJson = dakArchiveResponseIRest.Content;
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                DakArchiveResponse dakArchiveResponse = JsonConvert.DeserializeObject<DakArchiveResponse>(dakArchiveResponseJson);
+                return dakArchiveResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

@@ -26,7 +26,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
-
+                if(ctrl.Name== "dakActionPanel")
+                {
+                    continue;
+                }
                 ctrl.Click += DakArchiveUserControl_Click;
                 ctrl.MouseEnter += DakArchiveUserControl_MouseEnter;
                 ctrl.MouseLeave += DakArchiveUserControl_MouseLeave;
@@ -338,6 +341,19 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.ButtonClick != null)
                 this.ButtonClick(sender, e);
+        }
+
+
+        public event EventHandler ArchiveRevertButtonClick;
+        private void dakRevertButton_Click(object sender, EventArgs e)
+        {
+            if (this.ArchiveRevertButtonClick != null)
+                this.ArchiveRevertButtonClick(sender, e);
+        }
+
+        private void dakMovementStatusButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

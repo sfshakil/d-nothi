@@ -221,6 +221,18 @@
     <Compile Include="UI\Dak\DakInboxUserControl.Designer.cs">
       <DependentUpon>DakInboxUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakModuleAgotoNothiList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakModuleAgotoNothiList.Designer.cs">
+      <DependentUpon>DakModuleAgotoNothiList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DakModuleSokolNothiListUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakModuleSokolNothiListUserControl.Designer.cs">
+      <DependentUpon>DakModuleSokolNothiListUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DakMovementStatusListUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -232,6 +244,24 @@
     </Compile>
     <Compile Include="UI\Dak\DakNothijatoUserControl.Designer.cs">
       <DependentUpon>DakNothijatoUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothiteUposthapitoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothiteUposthapitoForm.Designer.cs">
+      <DependentUpon>DakNothiteUposthapitoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothiteUposthapitoNewNoteAddUserControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothiteUposthapitoNewNoteAddUserControl.Designer.cs">
+      <DependentUpon>DakNothiteUposthapitoNewNoteAddUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothiteUposthaponNoteList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothiteUposthaponNoteList.Designer.cs">
+      <DependentUpon>DakNothiteUposthaponNoteList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\DakNothivuktoUserControl.cs">
       <SubType>UserControl</SubType>
@@ -484,11 +514,26 @@
     <EmbeddedResource Include="UI\Dak\DakInboxUserControl.resx">
       <DependentUpon>DakInboxUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakModuleAgotoNothiList.resx">
+      <DependentUpon>DakModuleAgotoNothiList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakModuleSokolNothiListUserControl.resx">
+      <DependentUpon>DakModuleSokolNothiListUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakMovementStatusListUserControl.resx">
       <DependentUpon>DakMovementStatusListUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakNothijatoUserControl.resx">
       <DependentUpon>DakNothijatoUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakNothiteUposthapitoForm.resx">
+      <DependentUpon>DakNothiteUposthapitoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakNothiteUposthapitoNewNoteAddUserControl.resx">
+      <DependentUpon>DakNothiteUposthapitoNewNoteAddUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakNothiteUposthaponNoteList.resx">
+      <DependentUpon>DakNothiteUposthaponNoteList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakNothivuktoUserControl.resx">
       <DependentUpon>DakNothivuktoUserControl.cs</DependentUpon>
