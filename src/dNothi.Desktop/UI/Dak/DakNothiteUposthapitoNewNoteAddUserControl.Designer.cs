@@ -39,6 +39,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -49,7 +50,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(827, 40);
+            this.panel2.Size = new System.Drawing.Size(825, 40);
             this.panel2.TabIndex = 3;
             // 
             // closeButton
@@ -87,12 +88,12 @@
             this.label11.Dock = System.Windows.Forms.DockStyle.Top;
             this.label11.Location = new System.Drawing.Point(0, 40);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(827, 1);
+            this.label11.Size = new System.Drawing.Size(825, 1);
             this.label11.TabIndex = 41;
             // 
             // newNoteTextBox
             // 
-            this.newNoteTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.newNoteTextBox.BackColor = System.Drawing.Color.White;
             this.newNoteTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.newNoteTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newNoteTextBox.Location = new System.Drawing.Point(10, 11);
@@ -154,11 +155,19 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.iconButton1);
+            this.panel1.Controls.Add(this.saveNewNoteButton);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(827, 183);
+            this.panel1.Size = new System.Drawing.Size(827, 186);
             this.panel1.TabIndex = 80;
             // 
             // DakNothiteUposthapitoNewNoteAddUserControl
@@ -167,22 +176,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(827, 183);
-            this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.saveNewNoteButton);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(827, 186);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DakNothiteUposthapitoNewNoteAddUserControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
