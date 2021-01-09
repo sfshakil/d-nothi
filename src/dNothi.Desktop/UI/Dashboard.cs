@@ -16,12 +16,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
 using dNothi.Desktop.UI.VIew;
+using System.Drawing.Imaging;
 
 namespace dNothi.Desktop.UI
 {
     public partial class Dashboard : Form
     {
-
+        private PictureBox pb;
         IUserService _userService { get; set; }
 
         private DakUserParam _dakuserparam = new DakUserParam();
@@ -62,9 +63,30 @@ namespace dNothi.Desktop.UI
             _dakkhosraservice = dakKhosraService;
             _dakuploadservice = dakUploadService;
             InitializeComponent();
-          
+
             dashboardSlideFlowLayoutPanel.BringToFront();
 
+
+            pb = new PictureBox();
+            dashBoardBlurPanel.Controls.Add(pb);
+            pb.Dock = DockStyle.Fill;
+
+
+
+        }
+        private void Blur()
+        {
+            Bitmap bmp = Screenshot.TakeSnapshot(dashBoardBlurPanel);
+            BitmapFilter.GaussianBlur(bmp,1);
+
+            pb.Image = bmp;
+            dashBoardBlurPanel.BringToFront();
+        }
+
+        private void UnBlur()
+        {
+            pb.Image = null;
+            dashBoardBlurPanel.SendToBack();
         }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
@@ -268,7 +290,7 @@ namespace dNothi.Desktop.UI
                             movementStatusLeftSidePicUserControl.date = movementStatusDTO.other.last_movement_date;
                             movementStatusLeftSidePicUserControl.dakPrioriy = movementStatusDTO.other.dak_priority.ToString();
                             movementStatusLeftSidePicUserControl.dakSecurityIconValue = movementStatusDTO.other.dak_security_level;
-                          
+
                             dashboardSlideFlowLayoutPanel.Controls.Add(movementStatusLeftSidePicUserControl);
                         }
 
@@ -542,13 +564,13 @@ namespace dNothi.Desktop.UI
         {
             NormalizeDashBoard();
             _dakuserparam = _userService.GetLocalDakUserParam();
-            userNameLabel.Text = _dakuserparam.officer_name+"("+_dakuserparam.designation_label+","+_dakuserparam.unit_label+")";
-            
+            userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
+
             SetDefaultFont(this.Controls);
             LoadDakInbox();
         }
-     
-       
+
+
 
         private async void LoadDakInbox()
         {
@@ -583,7 +605,7 @@ namespace dNothi.Desktop.UI
 
             }
 
-            
+
         }
 
         private void LoadDakInboxinPanel(List<DakListRecordsDTO> dakLists)
@@ -634,7 +656,7 @@ namespace dNothi.Desktop.UI
         private void DakArchive_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
         {
             DakArchiveResponse dakArchiveResponse = _dakArchiveService.GetDakArcivedResponse(_dakuserparam, dakid, dak_type, is_copied_dak);
-            if(dakArchiveResponse.status=="success")
+            if (dakArchiveResponse.status == "success")
             {
                 ReloadBodyPanel();
             }
@@ -642,7 +664,7 @@ namespace dNothi.Desktop.UI
             {
                 MessageBox.Show("ডাক আর্কাইভ সফল হ​য়নি!");
             }
-                 
+
         }
 
         private void NothiteUposthapito_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
@@ -652,8 +674,9 @@ namespace dNothi.Desktop.UI
             form.dakid = dakid;
             form.is_copied_dak = is_copied_dak;
             form.dakSubject = dak_subject;
+            Blur();
             form.ShowDialog(this);
-
+            UnBlur();
             ReloadBodyPanel();
 
         }
@@ -1220,7 +1243,7 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
-          
+
             DaptorikDakSavePageLoad(null);
         }
 
@@ -1251,11 +1274,11 @@ namespace dNothi.Desktop.UI
         {
 
 
-         
-           
-                var form = FormFactory.Create<AddDesignationSeal>();
-           
-                form.ShowDialog();
+
+
+            var form = FormFactory.Create<AddDesignationSeal>();
+
+            form.ShowDialog();
             DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_dakuserparam);
             try
             {
@@ -1284,7 +1307,7 @@ namespace dNothi.Desktop.UI
             AddDesignationSealResponse addDesignationSealResponse = _dakuploadservice.GetDesiognationSealAddResponse(_dakuserparam, designationSeal);
 
 
-           
+
 
 
 
@@ -1292,14 +1315,14 @@ namespace dNothi.Desktop.UI
 
 
 
-          
+
 
         }
         public DeleteDesignationSealResponse DeleteDesignation(string designationSealIds)
         {
             _dakuserparam = _userService.GetLocalDakUserParam();
             DeleteDesignationSealResponse deleteDesignationSealResponse = _dakuploadservice.GetDesiognationSealDeleteResponse(_dakuserparam, designationSealIds);
-          
+
 
             return deleteDesignationSealResponse;
         }
@@ -1446,7 +1469,7 @@ namespace dNothi.Desktop.UI
                     }
                 }
             }
-            catch(Exception Ex)
+            catch (Exception Ex)
             {
 
             }
@@ -1478,7 +1501,7 @@ namespace dNothi.Desktop.UI
 
 
 
-            if(dakEditResponse != null)
+            if (dakEditResponse != null)
             {
                 dakUploadUserControl.mul_prapokEdit = dakEditResponse.data.receiver.mul_prapok;
                 dakUploadUserControl.onulipi = dakEditResponse.data.receiver.Onulipi;
@@ -1513,8 +1536,8 @@ namespace dNothi.Desktop.UI
 
         private void DraftedDakSend_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak)
         {
-            
-            DakSendResponse dakSendResponse = _dakuploadservice.GetDraftedDakSendResponse(_dakuserparam,dak_id,dak_type,is_copied_dak);
+
+            DakSendResponse dakSendResponse = _dakuploadservice.GetDraftedDakSendResponse(_dakuserparam, dak_id, dak_type, is_copied_dak);
             try
             {
                 if (dakSendResponse.status == "error")
@@ -1652,7 +1675,7 @@ namespace dNothi.Desktop.UI
 
         private void profileShowArrowButton_Click(object sender, EventArgs e)
         {
-            if(!designationDetailsPanel.Visible)
+            if (!designationDetailsPanel.Visible)
             {
                 designationDetailsPanel.Visible = true;
                 designationDetailsPanel.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
@@ -1691,7 +1714,7 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             dakSortingUserFlowLayoutPanel.Controls.Clear();
-            
+
 
 
         }
@@ -1701,12 +1724,131 @@ namespace dNothi.Desktop.UI
 
             this.Hide();
             var form = FormFactory.Create<Login>();
-                form.ShowDialog();
-            
-
-       
+            form.ShowDialog();
 
 
+
+
+
+        }
+
+        private void dashBoardBlurPanel_Paint(object sender, PaintEventArgs e)
+        {
+           
+            e.Graphics.DrawLine(Pens.Silver, 0, 0, 100, 100);
+        
+      }
+    }
+
+
+    public class BitmapFilter
+    {
+        private static bool Conv3x3(Bitmap b, ConvMatrix m)
+        {
+            // Avoid divide by zero errors
+            if (0 == m.Factor) return false;
+
+            Bitmap bSrc = (Bitmap)b.Clone();
+
+            // GDI+ still lies to us - the return format is BGR, NOT RGB.
+            BitmapData bmData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+            BitmapData bmSrc = bSrc.LockBits(new Rectangle(0, 0, bSrc.Width, bSrc.Height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            int stride = bmData.Stride;
+            int stride2 = stride * 2;
+            System.IntPtr Scan0 = bmData.Scan0;
+            System.IntPtr SrcScan0 = bmSrc.Scan0;
+
+            unsafe
+            {
+                byte* p = (byte*)(void*)Scan0;
+                byte* pSrc = (byte*)(void*)SrcScan0;
+
+                int nOffset = stride + 6 - b.Width * 3;
+                int nWidth = b.Width - 2;
+                int nHeight = b.Height - 2;
+
+                int nPixel;
+
+                for (int y = 0; y < nHeight; ++y)
+                {
+                    for (int x = 0; x < nWidth; ++x)
+                    {
+                        nPixel = ((((pSrc[2] * m.TopLeft) + (pSrc[5] * m.TopMid) + (pSrc[8] * m.TopRight) +
+                            (pSrc[2 + stride] * m.MidLeft) + (pSrc[5 + stride] * m.Pixel) + (pSrc[8 + stride] * m.MidRight) +
+                            (pSrc[2 + stride2] * m.BottomLeft) + (pSrc[5 + stride2] * m.BottomMid) + (pSrc[8 + stride2] * m.BottomRight)) / m.Factor) + m.Offset);
+
+                        if (nPixel < 0) nPixel = 0;
+                        if (nPixel > 255) nPixel = 255;
+
+                        p[5 + stride] = (byte)nPixel;
+
+                        nPixel = ((((pSrc[1] * m.TopLeft) + (pSrc[4] * m.TopMid) + (pSrc[7] * m.TopRight) +
+                            (pSrc[1 + stride] * m.MidLeft) + (pSrc[4 + stride] * m.Pixel) + (pSrc[7 + stride] * m.MidRight) +
+                            (pSrc[1 + stride2] * m.BottomLeft) + (pSrc[4 + stride2] * m.BottomMid) + (pSrc[7 + stride2] * m.BottomRight)) / m.Factor) + m.Offset);
+
+                        if (nPixel < 0) nPixel = 0;
+                        if (nPixel > 255) nPixel = 255;
+
+                        p[4 + stride] = (byte)nPixel;
+
+                        nPixel = ((((pSrc[0] * m.TopLeft) + (pSrc[3] * m.TopMid) + (pSrc[6] * m.TopRight) +
+                            (pSrc[0 + stride] * m.MidLeft) + (pSrc[3 + stride] * m.Pixel) + (pSrc[6 + stride] * m.MidRight) +
+                            (pSrc[0 + stride2] * m.BottomLeft) + (pSrc[3 + stride2] * m.BottomMid) + (pSrc[6 + stride2] * m.BottomRight)) / m.Factor) + m.Offset);
+
+                        if (nPixel < 0) nPixel = 0;
+                        if (nPixel > 255) nPixel = 255;
+
+                        p[3 + stride] = (byte)nPixel;
+
+                        p += 3;
+                        pSrc += 3;
+                    }
+
+                    p += nOffset;
+                    pSrc += nOffset;
+                }
+            }
+
+            b.UnlockBits(bmData);
+            bSrc.UnlockBits(bmSrc);
+
+            return true;
+        }
+
+        public static bool GaussianBlur(Bitmap b, int nWeight /* default to 4*/)
+        {
+            ConvMatrix m = new ConvMatrix();
+            m.SetAll(1);
+            m.Pixel = nWeight;
+            m.TopMid = m.MidLeft = m.MidRight = m.BottomMid = 2;
+            m.Factor = nWeight + 12;
+
+            return BitmapFilter.Conv3x3(b, m);
+        }
+
+        public class ConvMatrix
+        {
+            public int TopLeft = 0, TopMid = 0, TopRight = 0;
+            public int MidLeft = 0, Pixel = 1, MidRight = 0;
+            public int BottomLeft = 0, BottomMid = 0, BottomRight = 0;
+            public int Factor = 1;
+            public int Offset = 0;
+            public void SetAll(int nVal)
+            {
+                TopLeft = TopMid = TopRight = MidLeft = Pixel = MidRight = BottomLeft = BottomMid = BottomRight = nVal;
+            }
+        }
+    }
+
+    class Screenshot
+    {
+        public static Bitmap TakeSnapshot(Control ctl)
+        {
+            Bitmap bmp = new Bitmap(ctl.Size.Width, ctl.Size.Height);
+            System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bmp);
+            g.CopyFromScreen(ctl.PointToScreen(ctl.ClientRectangle.Location), new Point(0, 0), ctl.ClientRectangle.Size);
+            return bmp;
         }
     }
 }
