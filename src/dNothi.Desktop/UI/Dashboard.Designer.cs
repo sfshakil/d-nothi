@@ -160,6 +160,8 @@
             this.rightSliderHeadLineLabel = new System.Windows.Forms.Label();
             this.movementStatusDisplaypanel = new System.Windows.Forms.Panel();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.dashboardPanel = new System.Windows.Forms.Panel();
+            this.dashBoardBlurPanel = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -190,6 +192,7 @@
             this.dakUploadDropDownPanel.SuspendLayout();
             this.panel16.SuspendLayout();
             this.movementStatusDisplaypanel.SuspendLayout();
+            this.dashboardPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -2142,16 +2145,35 @@
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
             // 
+            // dashboardPanel
+            // 
+            this.dashboardPanel.Controls.Add(this.movementStatusDisplaypanel);
+            this.dashboardPanel.Controls.Add(this.designationDetailsPanel);
+            this.dashboardPanel.Controls.Add(this.panel16);
+            this.dashboardPanel.Controls.Add(this.panel1);
+            this.dashboardPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboardPanel.Location = new System.Drawing.Point(0, 0);
+            this.dashboardPanel.Name = "dashboardPanel";
+            this.dashboardPanel.Size = new System.Drawing.Size(1354, 687);
+            this.dashboardPanel.TabIndex = 47;
+            // 
+            // dashBoardBlurPanel
+            // 
+            this.dashBoardBlurPanel.BackColor = System.Drawing.Color.Transparent;
+            this.dashBoardBlurPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashBoardBlurPanel.Location = new System.Drawing.Point(0, 0);
+            this.dashBoardBlurPanel.Name = "dashBoardBlurPanel";
+            this.dashBoardBlurPanel.Size = new System.Drawing.Size(1354, 687);
+            this.dashBoardBlurPanel.TabIndex = 47;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1354, 687);
-            this.Controls.Add(this.movementStatusDisplaypanel);
-            this.Controls.Add(this.designationDetailsPanel);
-            this.Controls.Add(this.panel16);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dashboardPanel);
+            this.Controls.Add(this.dashBoardBlurPanel);
             this.MaximumSize = new System.Drawing.Size(1370, 1200);
             this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "Dashboard";
@@ -2210,8 +2232,9 @@
             this.panel16.PerformLayout();
             this.movementStatusDisplaypanel.ResumeLayout(false);
             this.movementStatusDisplaypanel.PerformLayout();
+            this.dashboardPanel.ResumeLayout(false);
+            this.dashboardPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -2350,6 +2373,8 @@
         private FontAwesome.Sharp.IconPictureBox userPictureBox;
         private System.Windows.Forms.Panel profilePanel;
         private designationSelect designationDetailsPanel;
+        private System.Windows.Forms.Panel dashboardPanel;
+        private System.Windows.Forms.Panel dashBoardBlurPanel;
     }
 }
 
