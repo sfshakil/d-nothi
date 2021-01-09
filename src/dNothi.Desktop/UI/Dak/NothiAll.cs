@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -178,6 +179,15 @@ namespace dNothi.Desktop.UI.Dak
         private void nothiShompadonIcon_MouseLeave(object sender, EventArgs e)
         {
             nothiShompadonIcon.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+
+        private void btnOnumodon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+
+            form.ShowDialog();
         }
     }
 }

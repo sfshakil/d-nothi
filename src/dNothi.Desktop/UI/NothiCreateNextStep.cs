@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dNothi.Desktop.UI.Dak;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,7 +40,8 @@ namespace dNothi.Desktop.UI
 
         private void btnYES_Click(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<NothiOnumodonkari>();
+            this.Hide();
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.ShowDialog();
         }
     }

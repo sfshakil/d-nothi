@@ -144,7 +144,8 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>(); 
             builder.RegisterType<NothiNoteTalikaServices>().As<INothiNoteTalikaServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
-            builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>();
+            builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>(); 
+            builder.RegisterType<NothiNotePermissionService>().As<INothiNotePermissionService>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
@@ -155,8 +156,10 @@ namespace dNothi.Desktop
             builder.RegisterType<DakModuleSokolNothiListUserControl>().AsSelf();
             builder.RegisterType<UI.NothiOnumodonkari>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
-            builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf();
+
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();
+            builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf(); 
+            builder.RegisterType<UI.Dak.NothiOnumodonDesignationSeal>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();

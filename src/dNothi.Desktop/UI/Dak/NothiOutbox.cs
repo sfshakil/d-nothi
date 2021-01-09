@@ -118,5 +118,12 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
+
+        private void btnNothiOutboxOnumodon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.ShowDialog();
+        }
     }
 }

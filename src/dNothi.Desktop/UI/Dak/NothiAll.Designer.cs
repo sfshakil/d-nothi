@@ -41,7 +41,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnOnumodon = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.lbArchived = new System.Windows.Forms.Label();
             this.btnArchive = new System.Windows.Forms.Button();
@@ -84,7 +84,7 @@
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.iconButton1);
+            this.panel1.Controls.Add(this.btnOnumodon);
             this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Controls.Add(this.lbArchived);
             this.panel1.Controls.Add(this.btnArchive);
@@ -229,7 +229,7 @@
             this.lbNoteTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbNoteTotal.Location = new System.Drawing.Point(677, 22);
             this.lbNoteTotal.Name = "lbNoteTotal";
-            this.lbNoteTotal.Size = new System.Drawing.Size(19, 13);
+            this.lbNoteTotal.Size = new System.Drawing.Size(23, 13);
             this.lbNoteTotal.TabIndex = 109;
             this.lbNoteTotal.Text = "11";
             // 
@@ -276,20 +276,21 @@
             this.panel2.Size = new System.Drawing.Size(2, 82);
             this.panel2.TabIndex = 105;
             // 
-            // iconButton1
+            // btnOnumodon
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(50, 8);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(41, 41);
-            this.iconButton1.TabIndex = 104;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnOnumodon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.btnOnumodon.FlatAppearance.BorderSize = 0;
+            this.btnOnumodon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnumodon.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnOnumodon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnOnumodon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOnumodon.IconSize = 32;
+            this.btnOnumodon.Location = new System.Drawing.Point(50, 8);
+            this.btnOnumodon.Name = "btnOnumodon";
+            this.btnOnumodon.Size = new System.Drawing.Size(41, 41);
+            this.btnOnumodon.TabIndex = 104;
+            this.btnOnumodon.UseVisualStyleBackColor = false;
+            this.btnOnumodon.Click += new System.EventHandler(this.btnOnumodon_Click);
             // 
             // iconButton3
             // 
@@ -316,7 +317,7 @@
             this.lbArchived.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbArchived.Location = new System.Drawing.Point(1087, 22);
             this.lbArchived.Name = "lbArchived";
-            this.lbArchived.Size = new System.Drawing.Size(19, 13);
+            this.lbArchived.Size = new System.Drawing.Size(23, 13);
             this.lbArchived.TabIndex = 102;
             this.lbArchived.Text = "11";
             // 
@@ -365,7 +366,7 @@
             this.lbNishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbNishponno.Location = new System.Drawing.Point(987, 22);
             this.lbNishponno.Name = "lbNishponno";
-            this.lbNishponno.Size = new System.Drawing.Size(19, 13);
+            this.lbNishponno.Size = new System.Drawing.Size(23, 13);
             this.lbNishponno.TabIndex = 98;
             this.lbNishponno.Text = "11";
             // 
@@ -393,7 +394,7 @@
             this.lbOnishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbOnishponno.Location = new System.Drawing.Point(892, 22);
             this.lbOnishponno.Name = "lbOnishponno";
-            this.lbOnishponno.Size = new System.Drawing.Size(19, 13);
+            this.lbOnishponno.Size = new System.Drawing.Size(23, 13);
             this.lbOnishponno.TabIndex = 96;
             this.lbOnishponno.Text = "11";
             // 
@@ -421,7 +422,7 @@
             this.lbPermitted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbPermitted.Location = new System.Drawing.Point(792, 22);
             this.lbPermitted.Name = "lbPermitted";
-            this.lbPermitted.Size = new System.Drawing.Size(19, 13);
+            this.lbPermitted.Size = new System.Drawing.Size(23, 13);
             this.lbPermitted.TabIndex = 94;
             this.lbPermitted.Text = "11";
             // 
@@ -667,7 +668,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnOnumodon;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Label lbArchived;
         private System.Windows.Forms.Button btnArchive;
