@@ -53,6 +53,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dakActionPanel = new System.Windows.Forms.Panel();
+            this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
+            this.dakRevertButton = new FontAwesome.Sharp.IconButton();
             this.subjectLabel = new System.Windows.Forms.Label();
             this.checkBoxPanel = new System.Windows.Forms.Panel();
             this.dateLabel = new System.Windows.Forms.Label();
@@ -67,9 +69,7 @@
             this.subjectPanel = new System.Windows.Forms.Panel();
             this.sourcePanel = new System.Windows.Forms.Panel();
             this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
-            this.dakRevertButton = new FontAwesome.Sharp.IconButton();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
             this.padspofjipsod.SuspendLayout();
             this.disablePanel.SuspendLayout();
             this.dakPriorityIconPanel.SuspendLayout();
@@ -370,6 +370,45 @@
             this.dakActionPanel.TabIndex = 89;
             this.dakActionPanel.Visible = false;
             // 
+            // dakMovementStatusButton
+            // 
+            this.dakMovementStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.dakMovementStatusButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakMovementStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.dakMovementStatusButton.FlatAppearance.BorderSize = 2;
+            this.dakMovementStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakMovementStatusButton.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
+            this.dakMovementStatusButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dakMovementStatusButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakMovementStatusButton.IconSize = 28;
+            this.dakMovementStatusButton.Location = new System.Drawing.Point(0, 0);
+            this.dakMovementStatusButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakMovementStatusButton.Name = "dakMovementStatusButton";
+            this.dakMovementStatusButton.Size = new System.Drawing.Size(32, 34);
+            this.dakMovementStatusButton.TabIndex = 84;
+            this.MyToolTip.SetToolTip(this.dakMovementStatusButton, "ডাক গতিবিধি");
+            this.dakMovementStatusButton.UseVisualStyleBackColor = false;
+            // 
+            // dakRevertButton
+            // 
+            this.dakRevertButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.dakRevertButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakRevertButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.dakRevertButton.FlatAppearance.BorderSize = 2;
+            this.dakRevertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakRevertButton.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
+            this.dakRevertButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dakRevertButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakRevertButton.IconSize = 28;
+            this.dakRevertButton.Location = new System.Drawing.Point(32, 0);
+            this.dakRevertButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakRevertButton.Name = "dakRevertButton";
+            this.dakRevertButton.Size = new System.Drawing.Size(32, 34);
+            this.dakRevertButton.TabIndex = 83;
+            this.MyToolTip.SetToolTip(this.dakRevertButton, "ফেরত");
+            this.dakRevertButton.UseVisualStyleBackColor = false;
+            this.dakRevertButton.Click += new System.EventHandler(this.dakRevertButton_Click);
+            // 
             // subjectLabel
             // 
             this.subjectLabel.AutoSize = true;
@@ -551,45 +590,6 @@
             this.dakAttachmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dakAttachmentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.dakAttachmentButton.UseVisualStyleBackColor = true;
-            // 
-            // dakRevertButton
-            // 
-            this.dakRevertButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.dakRevertButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakRevertButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.dakRevertButton.FlatAppearance.BorderSize = 2;
-            this.dakRevertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakRevertButton.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
-            this.dakRevertButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.dakRevertButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakRevertButton.IconSize = 28;
-            this.dakRevertButton.Location = new System.Drawing.Point(32, 0);
-            this.dakRevertButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakRevertButton.Name = "dakRevertButton";
-            this.dakRevertButton.Size = new System.Drawing.Size(32, 34);
-            this.dakRevertButton.TabIndex = 83;
-            this.MyToolTip.SetToolTip(this.dakRevertButton, "ফেরত");
-            this.dakRevertButton.UseVisualStyleBackColor = false;
-            this.dakRevertButton.Click += new System.EventHandler(this.dakRevertButton_Click);
-            // 
-            // dakMovementStatusButton
-            // 
-            this.dakMovementStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.dakMovementStatusButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakMovementStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.dakMovementStatusButton.FlatAppearance.BorderSize = 2;
-            this.dakMovementStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakMovementStatusButton.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
-            this.dakMovementStatusButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.dakMovementStatusButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakMovementStatusButton.IconSize = 28;
-            this.dakMovementStatusButton.Location = new System.Drawing.Point(0, 0);
-            this.dakMovementStatusButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakMovementStatusButton.Name = "dakMovementStatusButton";
-            this.dakMovementStatusButton.Size = new System.Drawing.Size(32, 34);
-            this.dakMovementStatusButton.TabIndex = 84;
-            this.MyToolTip.SetToolTip(this.dakMovementStatusButton, "ডাক গতিবিধি");
-            this.dakMovementStatusButton.UseVisualStyleBackColor = false;
             // 
             // DakArchiveUserControl
             // 
