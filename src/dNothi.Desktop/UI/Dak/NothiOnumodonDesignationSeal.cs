@@ -1,5 +1,7 @@
 ﻿using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
+using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
 using System;
 using System.Collections.Generic;
@@ -17,6 +19,7 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class NothiOnumodonDesignationSeal : Form
     {
+
         private const int TVIF_STATE = 0x8;
         private const int TVIS_STATEIMAGEMASK = 0xF000;
         private const int TV_FIRST = 0x1100;
@@ -75,15 +78,18 @@ namespace dNothi.Desktop.UI.Dak
         IUserService _userService { get; set; }
        
         private DakUserParam _dakUserParam = new DakUserParam();
+        INothiNotePermissionService _nothiNotePermission { get; set; }
+
         private List<OfficeInfoDTO> _officeInfo = new List<OfficeInfoDTO>();
         private List<PrapokDTO> _ownOfficeDesignationList = new List<PrapokDTO>();
         private List<PrapokDTO> _otherOfficeDesignationList = new List<PrapokDTO>();
         
 
-        public NothiOnumodonDesignationSeal(IDakUploadService dakUploadService, IUserService userService)
+        public NothiOnumodonDesignationSeal(IDakUploadService dakUploadService, IUserService userService, INothiNotePermissionService nothiNotePermission)
         {
             _dakuploadservice = dakUploadService;
             _userService = userService;
+            _nothiNotePermission = nothiNotePermission;
             InitializeComponent();
 
            
@@ -125,7 +131,10 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-
+        List<NothiOnumodonRowDTO> nothiOnumodons = new List<NothiOnumodonRowDTO>();
+        List<NothiOnumodonRow> nothiOnumodonRows = new List<NothiOnumodonRow>();
+        int inc = 0;
+        int level = 1;
         private void LoadOwnOfficerTree()
         {
 
@@ -197,10 +206,25 @@ namespace dNothi.Desktop.UI.Dak
                                     NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
                                     nothiOnumodonRow.name = officer.officer_name;
                                     nothiOnumodonRow.designation = officer.designation_bng+","+officer.office_unit_bng+","+officer.office_name_bng;
-                                    nothiOnumodonRow.level = "1";
-                                    nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
+                                    nothiOnumodonRow.level = level.ToString();
+                                    nothiOnumodonRows.Add(nothiOnumodonRow);
+
+                                    NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
+                                    nothiOnumodon.office_id = officer.office_id.ToString();
+                                    nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
+                                    nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
+                                    nothiOnumodon.designation_level = officer.designation_level.ToString();
+                                    nothiOnumodon.name = officer.officer_name;
+                                    nothiOnumodon.designation = officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng;
+                                    nothiOnumodon.level = level.ToString();
+                                    nothiOnumodons.Add(nothiOnumodon);
+
+                                    //nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
                                 }
-                                
+                                for (; inc <= nothiOnumodonRows.Count - 1; inc++)
+                                {
+                                    nothiOnumodonFLP.Controls.Add(nothiOnumodonRows[inc]);
+                                }
                                 branchNodeOwnOffice.Nodes.Add(childNode);
                                 
 
@@ -284,7 +308,6 @@ namespace dNothi.Desktop.UI.Dak
                                 else
                                 {
                                     workingdesignationOtherOffice += 1;
-
 
                                 }
                                 TreeNode childNodeOther = new TreeNode();
@@ -566,23 +589,19 @@ namespace dNothi.Desktop.UI.Dak
            
 
                 List<OfficeInfoDTO> officeInfoSearch = _officeInfo.Where(a => a.office_name_bng.Contains(searchOfficeTextBox.Text)).ToList();
-
-
-          
-
+            
                 if (officeInfoSearch.Count > 0)
                 {
                     searchOfficeListBox.DisplayMember = "office_name_bng";
                     searchOfficeListBox.DataSource = null;
                     searchOfficeListBox.DataSource = officeInfoSearch;
-
                     searchOfficeListBox.Visible = true;
                 }
                
 
             
         }
-        private int level = 2;
+        
         private void prapokownOfficeTreeView_AfterCheck(object sender, TreeViewEventArgs e)
         {
             
@@ -595,21 +614,39 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (e.Node.Checked == true)
                 {
+                    level++;
                     NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
                     nothiOnumodonRow.name = e.Node.Name;
                     nothiOnumodonRow.designation = (string)e.Node.Tag;
                     nothiOnumodonRow.level = level.ToString();
-                    nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
-                    level++;
-                }
-                else
-                {
+                   // nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
+                    
+                    nothiOnumodonRows.Add(nothiOnumodonRow);
 
+
+                    NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
+                    nothiOnumodon.name = e.Node.Name;
+                    nothiOnumodon.designation = (string)e.Node.Tag;
+                    nothiOnumodon.level = level.ToString();
+                    nothiOnumodons.Add(nothiOnumodon);
                 }
+                for (; inc<= nothiOnumodonRows.Count -1; inc++)
+                {
+                    nothiOnumodonFLP.Controls.Add(nothiOnumodonRows[inc]);
+                }
+                if(e.Node.Checked == false)
+                {
+                    int i = level-1;
+                    nothiOnumodons.RemoveAt(i);
+                    nothiOnumodonRows.RemoveAt(i);
+                    nothiOnumodonFLP.Controls.RemoveAt(i);
+                    inc--;level--;
+                }
+
             }
             
         }
-
+        
         private void prapokownOfficeTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             
@@ -642,14 +679,36 @@ namespace dNothi.Desktop.UI.Dak
                 e.Cancel = true;
             }
         }
-
+        
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("সফলভাবে তথ্য সংরক্ষণ করা হয়েছে");
-            this.Hide();
-            var form = FormFactory.Create<Nothi>();
-            form.ForceLoadNothiALL();
-            form.ShowDialog();
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি প্রাপকের তালিকাটি সংযুক্ত করতে চান??\n",
+                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+                var nothiNotePermission = _nothiNotePermission.GetNothiNotePermission(_dakUserParam,nothiOnumodons);
+
+                if (nothiNotePermission.status == "success")
+                {
+                    MessageBox.Show("সফলভাবে তথ্য সংরক্ষণ করা হয়েছে");
+                    this.Hide();
+                    var form = FormFactory.Create<Nothi>();
+                    form.ForceLoadNothiALL();
+                    form.ShowDialog();
+
+                }
+                else
+                {
+                    MessageBox.Show("সংরক্ষণ সফল হ​য়নি।।");
+                }
+
+            }
+            else
+            {
+
+            }
+            
+            
         }
     }
 }

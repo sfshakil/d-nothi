@@ -229,7 +229,7 @@
             this.lbNoteTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbNoteTotal.Location = new System.Drawing.Point(677, 22);
             this.lbNoteTotal.Name = "lbNoteTotal";
-            this.lbNoteTotal.Size = new System.Drawing.Size(19, 13);
+            this.lbNoteTotal.Size = new System.Drawing.Size(23, 13);
             this.lbNoteTotal.TabIndex = 109;
             this.lbNoteTotal.Text = "11";
             // 
@@ -317,7 +317,7 @@
             this.lbArchived.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbArchived.Location = new System.Drawing.Point(1087, 22);
             this.lbArchived.Name = "lbArchived";
-            this.lbArchived.Size = new System.Drawing.Size(19, 13);
+            this.lbArchived.Size = new System.Drawing.Size(23, 13);
             this.lbArchived.TabIndex = 102;
             this.lbArchived.Text = "11";
             // 
@@ -366,7 +366,7 @@
             this.lbNishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbNishponno.Location = new System.Drawing.Point(987, 22);
             this.lbNishponno.Name = "lbNishponno";
-            this.lbNishponno.Size = new System.Drawing.Size(19, 13);
+            this.lbNishponno.Size = new System.Drawing.Size(23, 13);
             this.lbNishponno.TabIndex = 98;
             this.lbNishponno.Text = "11";
             // 
@@ -394,7 +394,7 @@
             this.lbOnishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbOnishponno.Location = new System.Drawing.Point(892, 22);
             this.lbOnishponno.Name = "lbOnishponno";
-            this.lbOnishponno.Size = new System.Drawing.Size(19, 13);
+            this.lbOnishponno.Size = new System.Drawing.Size(23, 13);
             this.lbOnishponno.TabIndex = 96;
             this.lbOnishponno.Text = "11";
             // 
@@ -422,7 +422,7 @@
             this.lbPermitted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.lbPermitted.Location = new System.Drawing.Point(792, 22);
             this.lbPermitted.Name = "lbPermitted";
-            this.lbPermitted.Size = new System.Drawing.Size(19, 13);
+            this.lbPermitted.Size = new System.Drawing.Size(23, 13);
             this.lbPermitted.TabIndex = 94;
             this.lbPermitted.Text = "11";
             // 

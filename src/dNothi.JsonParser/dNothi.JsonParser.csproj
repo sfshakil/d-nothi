@@ -117,10 +117,12 @@
     <Compile Include="Entity\Nothi\NothiListOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListOutboxResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiNotePermissionResponse.cs" />
     <Compile Include="Entity\Nothi\NothiNoteTalikaDTO.cs" />
     <Compile Include="Entity\Nothi\NothiNoteTalikaListResponse.cs" />
     <Compile Include="Entity\Nothi\NothiNoteTalikaRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiNothiListInboxNoteRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiOnumodonRowDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxListRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiTypeListDTO.cs" />

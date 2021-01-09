@@ -46,7 +46,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnNothiInboxOnumodon = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.lbNoteLastDate = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
@@ -259,7 +259,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.iconButton1);
+            this.panel1.Controls.Add(this.btnNothiInboxOnumodon);
             this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Controls.Add(this.lbNoteLastDate);
             this.panel1.Controls.Add(this.lbTotalNothi);
@@ -312,20 +312,21 @@
             this.panel3.Size = new System.Drawing.Size(1110, 2);
             this.panel3.TabIndex = 55;
             // 
-            // iconButton1
+            // btnNothiInboxOnumodon
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(56, 19);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(41, 41);
-            this.iconButton1.TabIndex = 54;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnNothiInboxOnumodon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.btnNothiInboxOnumodon.FlatAppearance.BorderSize = 0;
+            this.btnNothiInboxOnumodon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiInboxOnumodon.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnNothiInboxOnumodon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnNothiInboxOnumodon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiInboxOnumodon.IconSize = 32;
+            this.btnNothiInboxOnumodon.Location = new System.Drawing.Point(56, 19);
+            this.btnNothiInboxOnumodon.Name = "btnNothiInboxOnumodon";
+            this.btnNothiInboxOnumodon.Size = new System.Drawing.Size(41, 41);
+            this.btnNothiInboxOnumodon.TabIndex = 54;
+            this.btnNothiInboxOnumodon.UseVisualStyleBackColor = false;
+            this.btnNothiInboxOnumodon.Click += new System.EventHandler(this.btnNothiInboxOnumodon_Click);
             // 
             // iconButton3
             // 
@@ -445,7 +446,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnNothiInboxOnumodon;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Label lbNoteLastDate;
         private System.Windows.Forms.Label lbTotalNothi;

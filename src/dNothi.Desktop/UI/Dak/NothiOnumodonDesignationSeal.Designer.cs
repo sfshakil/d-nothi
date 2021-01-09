@@ -544,7 +544,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.metroPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "NothiOnumodonDesignationSeal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

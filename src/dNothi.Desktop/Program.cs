@@ -144,7 +144,8 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>(); 
             builder.RegisterType<NothiNoteTalikaServices>().As<INothiNoteTalikaServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
-            builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>();
+            builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>(); 
+            builder.RegisterType<NothiNotePermissionService>().As<INothiNotePermissionService>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();

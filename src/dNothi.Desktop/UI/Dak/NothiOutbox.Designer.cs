@@ -49,7 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnNothiOutboxOnumodon = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.lbNothi = new System.Windows.Forms.Label();
             this.lblPrapok = new System.Windows.Forms.Label();
@@ -263,7 +263,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.iconButton1);
+            this.panel1.Controls.Add(this.btnNothiOutboxOnumodon);
             this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Controls.Add(this.lbNothi);
             this.panel1.Controls.Add(this.lblPrapok);
@@ -350,20 +350,21 @@
             this.panel2.Size = new System.Drawing.Size(2, 110);
             this.panel2.TabIndex = 72;
             // 
-            // iconButton1
+            // btnNothiOutboxOnumodon
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(50, 8);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(41, 41);
-            this.iconButton1.TabIndex = 71;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnNothiOutboxOnumodon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.btnNothiOutboxOnumodon.FlatAppearance.BorderSize = 0;
+            this.btnNothiOutboxOnumodon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiOutboxOnumodon.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnNothiOutboxOnumodon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnNothiOutboxOnumodon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiOutboxOnumodon.IconSize = 32;
+            this.btnNothiOutboxOnumodon.Location = new System.Drawing.Point(50, 8);
+            this.btnNothiOutboxOnumodon.Name = "btnNothiOutboxOnumodon";
+            this.btnNothiOutboxOnumodon.Size = new System.Drawing.Size(41, 41);
+            this.btnNothiOutboxOnumodon.TabIndex = 71;
+            this.btnNothiOutboxOnumodon.UseVisualStyleBackColor = false;
+            this.btnNothiOutboxOnumodon.Click += new System.EventHandler(this.btnNothiOutboxOnumodon_Click);
             // 
             // iconButton3
             // 
@@ -462,7 +463,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnNothiOutboxOnumodon;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Label lbNothi;
         private System.Windows.Forms.Label lblPrapok;

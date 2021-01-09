@@ -41,6 +41,7 @@ namespace dNothi.Constants
         public const string DakFileUploadEndPoint = "/api/content/upload";
         public const string NothiInboxNoteEndPoint = "/api/nothi/note/pending";
         public const string NothiCreateEndPoint = "/api/add";
+        public const string NothiNotePermissionEndPoint = "/api/nothi/note/permission/save";
 
 
     }
