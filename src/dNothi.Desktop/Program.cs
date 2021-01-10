@@ -167,7 +167,6 @@ namespace dNothi.Desktop
             builder.RegisterType<NewNothi>().AsSelf();
             builder.RegisterType<CreateNewNothiType>().AsSelf();
             builder.RegisterType<DakNothiteUposthapitoNewNoteAddUserControl>().AsSelf();
-         
 
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());

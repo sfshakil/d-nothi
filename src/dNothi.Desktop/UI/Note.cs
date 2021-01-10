@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dNothi.Desktop.UI.Dak;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,13 +17,11 @@ namespace dNothi.Desktop.UI
         {
             InitializeComponent();
             SetDefaultFont(this.Controls);
-            ScrollBar vScrollbar1 = new VScrollBar();
-            vScrollbar1.Dock = DockStyle.Right;
-            vScrollbar1.Scroll += (sender, e) => { panel5.VerticalScroll.Value = vScrollbar1.Value; };
-            panel5.Controls.Add(vScrollbar1);
+            tinyMceEditor.CreateEditor();
         }
-        
-        
+
+
+
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
             foreach (Control ctrl in collection)
@@ -57,6 +56,32 @@ namespace dNothi.Desktop.UI
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
 
+        }
+        public new event EventHandler Click
+        {
+            add
+            {
+                base.Click += value;
+                foreach (Control control in Controls)
+                {
+                    control.Click += value;
+                }
+            }
+            remove
+            {
+                base.Click -= value;
+                foreach (Control control in Controls)
+                {
+                    control.Click -= value;
+                }
+            }
+        }
+        
+        private void btnAllNothi_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<DakNothiteUposthapitoForm>();
+            form.ShowDialog();
+            
         }
     }
 }
