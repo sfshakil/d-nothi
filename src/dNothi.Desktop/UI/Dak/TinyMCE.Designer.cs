@@ -42,8 +42,7 @@
             this.webBrowser.ScrollBarsEnabled = false;
             this.webBrowser.Size = new System.Drawing.Size(944, 348);
             this.webBrowser.TabIndex = 0;
-            this.webBrowser.Url = new System.Uri("C:\\Users\\Shakil Ahmed Reja\\source\\repos\\dNothi\\d-nothi\\src\\dNothi.Desktop\\UI\\Dak\\" +
-        "tinymce\\tinymce.htm", System.UriKind.Absolute);
+            this.webBrowser.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // TinyMCE
             // 
