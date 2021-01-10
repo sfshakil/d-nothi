@@ -16,10 +16,18 @@ namespace dNothi.Desktop.UI.Dak
         {
             InitializeComponent();
         }
-
+        public string _noteSubject { get; set; }
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void saveNewNoteButton_Click(object sender, EventArgs e)
+        {
+            _noteSubject = newNoteTextBox.Text;
+            this.Hide();
+            var form = FormFactory.Create<Note>();
+            form.ShowDialog();
         }
     }
 }

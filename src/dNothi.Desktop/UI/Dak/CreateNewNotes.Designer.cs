@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.closeButton = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,10 +44,7 @@
             this.newNoteTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,33 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1205, 40);
             this.panel2.TabIndex = 82;
+            // 
+            // flowLayoutPanel11
+            // 
+            this.flowLayoutPanel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(1204, 1);
+            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(1, 37);
+            this.flowLayoutPanel11.TabIndex = 88;
+            // 
+            // flowLayoutPanel10
+            // 
+            this.flowLayoutPanel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(0, 1);
+            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(1, 37);
+            this.flowLayoutPanel10.TabIndex = 87;
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(1205, 1);
+            this.flowLayoutPanel8.TabIndex = 45;
             // 
             // flowLayoutPanel1
             // 
@@ -121,6 +148,7 @@
             this.saveNewNoteButton.Text = "সংরক্ষণ করুন";
             this.saveNewNoteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saveNewNoteButton.UseVisualStyleBackColor = false;
+            this.saveNewNoteButton.Click += new System.EventHandler(this.saveNewNoteButton_Click);
             // 
             // panel4
             // 
@@ -201,15 +229,6 @@
             this.flowLayoutPanel7.Size = new System.Drawing.Size(1204, 1);
             this.flowLayoutPanel7.TabIndex = 87;
             // 
-            // flowLayoutPanel8
-            // 
-            this.flowLayoutPanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(1205, 1);
-            this.flowLayoutPanel8.TabIndex = 45;
-            // 
             // flowLayoutPanel9
             // 
             this.flowLayoutPanel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
@@ -218,24 +237,6 @@
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
             this.flowLayoutPanel9.Size = new System.Drawing.Size(1, 76);
             this.flowLayoutPanel9.TabIndex = 88;
-            // 
-            // flowLayoutPanel10
-            // 
-            this.flowLayoutPanel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(0, 1);
-            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(1, 37);
-            this.flowLayoutPanel10.TabIndex = 87;
-            // 
-            // flowLayoutPanel11
-            // 
-            this.flowLayoutPanel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(1204, 1);
-            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(1, 37);
-            this.flowLayoutPanel11.TabIndex = 88;
             // 
             // CreateNewNotes
             // 

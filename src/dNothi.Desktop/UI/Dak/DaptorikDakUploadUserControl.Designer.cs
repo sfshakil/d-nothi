@@ -216,7 +216,7 @@
             this.dakAttachmentButton.FlatAppearance.BorderSize = 0;
             this.dakAttachmentButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
             this.dakAttachmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakAttachmentButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakAttachmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakAttachmentButton.Location = new System.Drawing.Point(9, 4);
             this.dakAttachmentButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dakAttachmentButton.Name = "dakAttachmentButton";
@@ -229,7 +229,7 @@
             // headlineLabel
             // 
             this.headlineLabel.BackColor = System.Drawing.Color.Transparent;
-            this.headlineLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.headlineLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.headlineLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.headlineLabel.Location = new System.Drawing.Point(51, 4);
             this.headlineLabel.Name = "headlineLabel";
@@ -270,7 +270,7 @@
             // 
             this.dakUploadAttachmentListTableUserControl2.AutoSize = true;
             this.dakUploadAttachmentListTableUserControl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakUploadAttachmentListTableUserControl2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakUploadAttachmentListTableUserControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakUploadAttachmentListTableUserControl2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dakUploadAttachmentListTableUserControl2.Location = new System.Drawing.Point(17, 136);
             this.dakUploadAttachmentListTableUserControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -294,7 +294,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(17, 116);
             this.label3.Name = "label3";
@@ -307,7 +307,7 @@
             this.fileUploadPanel.BackColor = System.Drawing.Color.Transparent;
             this.fileUploadPanel.Controls.Add(this.fileUploadButton);
             this.fileUploadPanel.Controls.Add(this.label4);
-            this.fileUploadPanel.Location = new System.Drawing.Point(17, 60);
+            this.fileUploadPanel.Location = new System.Drawing.Point(17, 59);
             this.fileUploadPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileUploadPanel.Name = "fileUploadPanel";
             this.fileUploadPanel.Size = new System.Drawing.Size(366, 41);
@@ -320,7 +320,7 @@
             this.fileUploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.fileUploadButton.FlatAppearance.BorderSize = 0;
             this.fileUploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fileUploadButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileUploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileUploadButton.Location = new System.Drawing.Point(276, 0);
             this.fileUploadButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileUploadButton.Name = "fileUploadButton";
@@ -334,12 +334,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(2, 4);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(12, 8, 0, 0);
-            this.label4.Size = new System.Drawing.Size(88, 26);
+            this.label4.Size = new System.Drawing.Size(90, 28);
             this.label4.TabIndex = 68;
             this.label4.Text = "ফাইল নির্বাচন";
             this.label4.Click += new System.EventHandler(this.fileUploadButton_Click);
@@ -360,7 +360,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(161, 8);
             this.label1.Name = "label1";
@@ -371,7 +371,7 @@
             // attachmentHeaderLabel
             // 
             this.attachmentHeaderLabel.BackColor = System.Drawing.Color.Transparent;
-            this.attachmentHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attachmentHeaderLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.attachmentHeaderLabel.Location = new System.Drawing.Point(2, 8);
             this.attachmentHeaderLabel.Name = "attachmentHeaderLabel";
@@ -383,7 +383,7 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(19, 116);
             this.label5.Name = "label5";
@@ -472,7 +472,7 @@
             // 
             this.officerSearchXTextBox.BackColor = System.Drawing.Color.White;
             this.officerSearchXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.officerSearchXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officerSearchXTextBox.Location = new System.Drawing.Point(7, 10);
             this.officerSearchXTextBox.Name = "officerSearchXTextBox";
             this.officerSearchXTextBox.PlaceholderText = "অফিসার খুঁজুন";
@@ -507,7 +507,7 @@
             this.khosraSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.BlueViolet;
             this.khosraSaveButton.FlatAppearance.BorderSize = 0;
             this.khosraSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.khosraSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.khosraSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.khosraSaveButton.ForeColor = System.Drawing.Color.Transparent;
             this.khosraSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.khosraSaveButton.Location = new System.Drawing.Point(828, 771);
@@ -527,7 +527,7 @@
             this.sendButton.FlatAppearance.BorderColor = System.Drawing.Color.BlueViolet;
             this.sendButton.FlatAppearance.BorderSize = 0;
             this.sendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendButton.ForeColor = System.Drawing.Color.Transparent;
             this.sendButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.sendButton.Location = new System.Drawing.Point(956, 771);
@@ -542,7 +542,7 @@
             // prapokDataGridView
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prapokDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.prapokDataGridView.AutoGenerateColumns = false;
             this.prapokDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
@@ -551,7 +551,7 @@
             this.prapokDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
@@ -574,7 +574,7 @@
             this.prapokDataGridView.DataSource = this.viewDesignationSealListBindingSource;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -586,7 +586,7 @@
             this.prapokDataGridView.Name = "prapokDataGridView";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -595,10 +595,10 @@
             this.prapokDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.prapokDataGridView.RowHeadersWidth = 5;
             this.prapokDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
             this.prapokDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.prapokDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prapokDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prapokDataGridView.RowTemplate.Height = 40;
             this.prapokDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.prapokDataGridView.Size = new System.Drawing.Size(1020, 583);
@@ -665,7 +665,7 @@
             // designationDataGridViewTextBoxColumn
             // 
             this.designationDataGridViewTextBoxColumn.DataPropertyName = "designation";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.designationDataGridViewTextBoxColumn.HeaderText = "পদ";
             this.designationDataGridViewTextBoxColumn.MinimumWidth = 520;
@@ -699,7 +699,7 @@
             this.mul_prapok.HeaderText = "মূল প্রাপক";
             this.mul_prapok.Name = "mul_prapok";
             this.mul_prapok.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.mul_prapok.Width = 75;
+            this.mul_prapok.Width = 80;
             // 
             // onulipiprapokDataGridViewCheckBoxColumn
             // 
@@ -707,6 +707,7 @@
             this.onulipiprapokDataGridViewCheckBoxColumn.HeaderText = "অনুলিপি প্রাপক";
             this.onulipiprapokDataGridViewCheckBoxColumn.MinimumWidth = 100;
             this.onulipiprapokDataGridViewCheckBoxColumn.Name = "onulipiprapokDataGridViewCheckBoxColumn";
+            this.onulipiprapokDataGridViewCheckBoxColumn.Width = 107;
             // 
             // viewDesignationSealListBindingSource
             // 
@@ -726,7 +727,7 @@
             this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label17.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label17.Location = new System.Drawing.Point(0, 0);
             this.label17.Name = "label17";
@@ -761,7 +762,7 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label6.Location = new System.Drawing.Point(2, 8);
             this.label6.Name = "label6";
@@ -819,7 +820,7 @@
             this.sendMediumSearchButton.MinimumSize = new System.Drawing.Size(120, 0);
             this.sendMediumSearchButton.Name = "sendMediumSearchButton";
             this.sendMediumSearchButton.searchButtonText = "ডাকযোগে";
-            this.sendMediumSearchButton.Size = new System.Drawing.Size(324, 44);
+            this.sendMediumSearchButton.Size = new System.Drawing.Size(324, 49);
             this.sendMediumSearchButton.TabIndex = 86;
             // 
             // seurityLevelSearchButton
@@ -837,7 +838,7 @@
             this.seurityLevelSearchButton.MinimumSize = new System.Drawing.Size(129, 44);
             this.seurityLevelSearchButton.Name = "seurityLevelSearchButton";
             this.seurityLevelSearchButton.searchButtonText = "বাছাই করুন";
-            this.seurityLevelSearchButton.Size = new System.Drawing.Size(159, 44);
+            this.seurityLevelSearchButton.Size = new System.Drawing.Size(159, 49);
             this.seurityLevelSearchButton.TabIndex = 88;
             // 
             // prioritySearchButton
@@ -854,18 +855,18 @@
             this.prioritySearchButton.MinimumSize = new System.Drawing.Size(120, 30);
             this.prioritySearchButton.Name = "prioritySearchButton";
             this.prioritySearchButton.searchButtonText = "বাছাই করুন";
-            this.prioritySearchButton.Size = new System.Drawing.Size(152, 44);
+            this.prioritySearchButton.Size = new System.Drawing.Size(152, 49);
             this.prioritySearchButton.TabIndex = 87;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label15.Location = new System.Drawing.Point(14, 370);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(75, 18);
+            this.label15.Size = new System.Drawing.Size(80, 20);
             this.label15.TabIndex = 79;
             this.label15.Text = "ডাকের বিবরণ";
             // 
@@ -903,7 +904,7 @@
             // 
             this.subjectXTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
             this.subjectXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.subjectXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subjectXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectXTextBox.Location = new System.Drawing.Point(9, 13);
             this.subjectXTextBox.Name = "subjectXTextBox";
             this.subjectXTextBox.PlaceholderText = "বিষয়";
@@ -924,7 +925,7 @@
             // 
             this.sharokNoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
             this.sharokNoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.sharokNoTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sharokNoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sharokNoTextBox.Location = new System.Drawing.Point(10, 13);
             this.sharokNoTextBox.Name = "sharokNoTextBox";
             this.sharokNoTextBox.PlaceholderText = "স্মারক নম্বর";
@@ -935,11 +936,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label12.Location = new System.Drawing.Point(880, 285);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 18);
+            this.label12.Size = new System.Drawing.Size(67, 20);
             this.label12.TabIndex = 78;
             this.label12.Text = "গোপনীয়তা";
             // 
@@ -947,27 +948,27 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label13.Location = new System.Drawing.Point(725, 285);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(55, 18);
+            this.label13.Size = new System.Drawing.Size(61, 20);
             this.label13.TabIndex = 77;
             this.label13.Text = "অগ্রধিকার";
             // 
             // selectedPrerokLabel
             // 
             this.selectedPrerokLabel.AutoSize = true;
-            this.selectedPrerokLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectedPrerokLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectedPrerokLabel.Location = new System.Drawing.Point(22, 112);
             this.selectedPrerokLabel.Name = "selectedPrerokLabel";
-            this.selectedPrerokLabel.Size = new System.Drawing.Size(0, 18);
+            this.selectedPrerokLabel.Size = new System.Drawing.Size(0, 20);
             this.selectedPrerokLabel.TabIndex = 74;
             // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label7.Location = new System.Drawing.Point(140, 75);
             this.label7.Name = "label7";
@@ -1011,7 +1012,7 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label9.Location = new System.Drawing.Point(2, 8);
             this.label9.Name = "label9";
@@ -1024,11 +1025,11 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label14.Location = new System.Drawing.Point(14, 285);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(33, 18);
+            this.label14.Size = new System.Drawing.Size(35, 20);
             this.label14.TabIndex = 76;
             this.label14.Text = "বিষয়";
             // 
@@ -1036,12 +1037,12 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label11.Location = new System.Drawing.Point(720, 207);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 18);
+            this.label11.Size = new System.Drawing.Size(86, 20);
             this.label11.TabIndex = 75;
             this.label11.Text = "প্রেরণের মাধ্যম";
             // 
@@ -1049,11 +1050,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(14, 207);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 18);
+            this.label8.Size = new System.Drawing.Size(66, 20);
             this.label8.TabIndex = 67;
             this.label8.Text = "স্মারক নম্বর";
             // 
@@ -1061,11 +1062,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label10.Location = new System.Drawing.Point(368, 207);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 18);
+            this.label10.Size = new System.Drawing.Size(85, 20);
             this.label10.TabIndex = 74;
             this.label10.Text = "স্মারকের তারিখ";
             // 
@@ -1087,7 +1088,7 @@
             this.prerokBachaiTabControl.Controls.Add(this.officerSearchTabPage);
             this.prerokBachaiTabControl.Controls.Add(this.tabPage2);
             this.prerokBachaiTabControl.Controls.Add(this.tabPage3);
-            this.prerokBachaiTabControl.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prerokBachaiTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prerokBachaiTabControl.Location = new System.Drawing.Point(34, 64);
             this.prerokBachaiTabControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.prerokBachaiTabControl.Name = "prerokBachaiTabControl";
@@ -1103,11 +1104,11 @@
             this.officerSearchTabPage.Controls.Add(this.prerokBachaiOfficerButton);
             this.officerSearchTabPage.Controls.Add(this.label19);
             this.officerSearchTabPage.Controls.Add(this.searchOfficerRightButton);
-            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 27);
+            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 29);
             this.officerSearchTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerSearchTabPage.Name = "officerSearchTabPage";
             this.officerSearchTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchTabPage.Size = new System.Drawing.Size(427, 566);
+            this.officerSearchTabPage.Size = new System.Drawing.Size(427, 564);
             this.officerSearchTabPage.TabIndex = 0;
             this.officerSearchTabPage.Text = "অফিসার খুঁজুন";
             this.officerSearchTabPage.UseVisualStyleBackColor = true;
@@ -1155,7 +1156,7 @@
             this.searchOfficerRightResultLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchOfficerRightResultLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchOfficerRightResultLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.searchOfficerRightResultLabel.Location = new System.Drawing.Point(0, 197);
+            this.searchOfficerRightResultLabel.Location = new System.Drawing.Point(0, 193);
             this.searchOfficerRightResultLabel.Name = "searchOfficerRightResultLabel";
             this.searchOfficerRightResultLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.searchOfficerRightResultLabel.Size = new System.Drawing.Size(361, 32);
@@ -1166,7 +1167,7 @@
             this.searchOfficerRightListBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchOfficerRightListBox.FormattingEnabled = true;
             this.searchOfficerRightListBox.HorizontalScrollbar = true;
-            this.searchOfficerRightListBox.ItemHeight = 18;
+            this.searchOfficerRightListBox.ItemHeight = 20;
             this.searchOfficerRightListBox.Items.AddRange(new object[] {
             "মোহাম্মদ আশরাফ উদ্দিন সিনিয়র সহকারী সচিব, সওব্য-১২ শাখা, জনপ্রশাসন মন্ত্রণালয়",
             "মোহাম্মদ আশরাফুল ইসলাম মোল্লা গোপনীয় সহকারী, শিক্ষা ও আইসিটি, জেলা প্রশাসকের কার্" +
@@ -1175,7 +1176,7 @@
             this.searchOfficerRightListBox.Location = new System.Drawing.Point(0, 49);
             this.searchOfficerRightListBox.Margin = new System.Windows.Forms.Padding(10);
             this.searchOfficerRightListBox.Name = "searchOfficerRightListBox";
-            this.searchOfficerRightListBox.Size = new System.Drawing.Size(361, 148);
+            this.searchOfficerRightListBox.Size = new System.Drawing.Size(361, 144);
             this.searchOfficerRightListBox.TabIndex = 35;
             this.searchOfficerRightListBox.Click += new System.EventHandler(this.searchOfficerRightListBox_Click);
             this.searchOfficerRightListBox.SelectedIndexChanged += new System.EventHandler(this.searchOfficerRightListBox_SelectedIndexChanged_1);
@@ -1203,7 +1204,7 @@
             // 
             this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
             this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchOfficerRightXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(3, 9);
             this.searchOfficerRightXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1216,7 +1217,7 @@
             // 
             this.prerokBachaiOfficerButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.prerokBachaiOfficerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prerokBachaiOfficerButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prerokBachaiOfficerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prerokBachaiOfficerButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.prerokBachaiOfficerButton.Image = ((System.Drawing.Image)(resources.GetObject("prerokBachaiOfficerButton.Image")));
             this.prerokBachaiOfficerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1235,7 +1236,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(13, 19);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(78, 18);
+            this.label19.Size = new System.Drawing.Size(84, 20);
             this.label19.TabIndex = 89;
             this.label19.Text = "অফিসার খুঁজুন";
             // 
@@ -1246,7 +1247,7 @@
             this.searchOfficerRightButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.searchOfficerRightButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.searchOfficerRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchOfficerRightButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficerRightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchOfficerRightButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.searchOfficerRightButton.Image = ((System.Drawing.Image)(resources.GetObject("searchOfficerRightButton.Image")));
             this.searchOfficerRightButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1280,11 +1281,11 @@
             this.tabPage2.Controls.Add(this.searchOriginRightControl);
             this.tabPage2.Controls.Add(this.searchLayerRightControl);
             this.tabPage2.Controls.Add(this.searchDirectOfficeRightUserControl);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(427, 566);
+            this.tabPage2.Size = new System.Drawing.Size(427, 564);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "অফিস বাছাই করুন";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1293,7 +1294,7 @@
             // 
             this.panel7.Controls.Add(this.prerokBachaifroOfficeRightButton);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 697);
+            this.panel7.Location = new System.Drawing.Point(3, 737);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(404, 108);
@@ -1303,7 +1304,7 @@
             // 
             this.prerokBachaifroOfficeRightButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.prerokBachaifroOfficeRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prerokBachaifroOfficeRightButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prerokBachaifroOfficeRightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prerokBachaifroOfficeRightButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.prerokBachaifroOfficeRightButton.Image = ((System.Drawing.Image)(resources.GetObject("prerokBachaifroOfficeRightButton.Image")));
             this.prerokBachaifroOfficeRightButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1321,9 +1322,9 @@
             // 
             this.label28.BackColor = System.Drawing.Color.Transparent;
             this.label28.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label28.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label28.Location = new System.Drawing.Point(3, 654);
+            this.label28.Location = new System.Drawing.Point(3, 694);
             this.label28.Name = "label28";
             this.label28.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.label28.Size = new System.Drawing.Size(404, 43);
@@ -1334,9 +1335,9 @@
             // 
             this.label27.BackColor = System.Drawing.Color.Transparent;
             this.label27.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label27.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label27.Location = new System.Drawing.Point(3, 611);
+            this.label27.Location = new System.Drawing.Point(3, 651);
             this.label27.Name = "label27";
             this.label27.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.label27.Size = new System.Drawing.Size(404, 43);
@@ -1347,9 +1348,9 @@
             // 
             this.label26.BackColor = System.Drawing.Color.Transparent;
             this.label26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label26.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label26.Location = new System.Drawing.Point(3, 567);
+            this.label26.Location = new System.Drawing.Point(3, 607);
             this.label26.Name = "label26";
             this.label26.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.label26.Size = new System.Drawing.Size(404, 44);
@@ -1360,9 +1361,9 @@
             // 
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label24.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label24.Location = new System.Drawing.Point(3, 523);
+            this.label24.Location = new System.Drawing.Point(3, 563);
             this.label24.Name = "label24";
             this.label24.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.label24.Size = new System.Drawing.Size(404, 44);
@@ -1373,9 +1374,9 @@
             // 
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label23.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label23.Location = new System.Drawing.Point(3, 479);
+            this.label23.Location = new System.Drawing.Point(3, 519);
             this.label23.Name = "label23";
             this.label23.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.label23.Size = new System.Drawing.Size(404, 44);
@@ -1386,9 +1387,9 @@
             // 
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label22.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label22.Location = new System.Drawing.Point(3, 439);
+            this.label22.Location = new System.Drawing.Point(3, 479);
             this.label22.Name = "label22";
             this.label22.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.label22.Size = new System.Drawing.Size(404, 40);
@@ -1399,9 +1400,9 @@
             // 
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label21.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label21.Location = new System.Drawing.Point(3, 396);
+            this.label21.Location = new System.Drawing.Point(3, 436);
             this.label21.Name = "label21";
             this.label21.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.label21.Size = new System.Drawing.Size(404, 43);
@@ -1412,9 +1413,9 @@
             // 
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label20.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label20.Location = new System.Drawing.Point(3, 356);
+            this.label20.Location = new System.Drawing.Point(3, 396);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.label20.Size = new System.Drawing.Size(404, 40);
@@ -1428,12 +1429,12 @@
             this.searchOfficerRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchOfficerRightControl.listboxcollection = new string[] {
         "অফিসার"};
-            this.searchOfficerRightControl.Location = new System.Drawing.Point(3, 312);
+            this.searchOfficerRightControl.Location = new System.Drawing.Point(3, 347);
             this.searchOfficerRightControl.Margin = new System.Windows.Forms.Padding(3, 76, 3, 76);
             this.searchOfficerRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchOfficerRightControl.Name = "searchOfficerRightControl";
             this.searchOfficerRightControl.searchButtonText = "অফিসার";
-            this.searchOfficerRightControl.Size = new System.Drawing.Size(404, 44);
+            this.searchOfficerRightControl.Size = new System.Drawing.Size(404, 49);
             this.searchOfficerRightControl.TabIndex = 103;
             this.searchOfficerRightControl.Load += new System.EventHandler(this.searchOfficerRightControl_Load);
             // 
@@ -1444,12 +1445,12 @@
             this.searchDesignationRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchDesignationRightControl.listboxcollection = new string[] {
         "পদ"};
-            this.searchDesignationRightControl.Location = new System.Drawing.Point(3, 268);
+            this.searchDesignationRightControl.Location = new System.Drawing.Point(3, 298);
             this.searchDesignationRightControl.Margin = new System.Windows.Forms.Padding(3, 55, 3, 55);
             this.searchDesignationRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchDesignationRightControl.Name = "searchDesignationRightControl";
             this.searchDesignationRightControl.searchButtonText = "পদ";
-            this.searchDesignationRightControl.Size = new System.Drawing.Size(404, 44);
+            this.searchDesignationRightControl.Size = new System.Drawing.Size(404, 49);
             this.searchDesignationRightControl.TabIndex = 101;
             // 
             // searchUnitRightControl
@@ -1459,12 +1460,12 @@
             this.searchUnitRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchUnitRightControl.listboxcollection = new string[] {
         "দপ্তর/শাখা"};
-            this.searchUnitRightControl.Location = new System.Drawing.Point(3, 224);
+            this.searchUnitRightControl.Location = new System.Drawing.Point(3, 249);
             this.searchUnitRightControl.Margin = new System.Windows.Forms.Padding(3, 40, 3, 40);
             this.searchUnitRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchUnitRightControl.Name = "searchUnitRightControl";
             this.searchUnitRightControl.searchButtonText = "দপ্তর/শাখা";
-            this.searchUnitRightControl.Size = new System.Drawing.Size(404, 44);
+            this.searchUnitRightControl.Size = new System.Drawing.Size(404, 49);
             this.searchUnitRightControl.TabIndex = 99;
             // 
             // searchCascadingOfficeRightControl
@@ -1476,12 +1477,12 @@
         "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
         "জেলা প্রশাষকের কার্যালয়, ঢাকা",
         "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.searchCascadingOfficeRightControl.Location = new System.Drawing.Point(3, 180);
+            this.searchCascadingOfficeRightControl.Location = new System.Drawing.Point(3, 200);
             this.searchCascadingOfficeRightControl.Margin = new System.Windows.Forms.Padding(3, 21, 3, 21);
             this.searchCascadingOfficeRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchCascadingOfficeRightControl.Name = "searchCascadingOfficeRightControl";
             this.searchCascadingOfficeRightControl.searchButtonText = "অফিস খুঁজুন";
-            this.searchCascadingOfficeRightControl.Size = new System.Drawing.Size(404, 44);
+            this.searchCascadingOfficeRightControl.Size = new System.Drawing.Size(404, 49);
             this.searchCascadingOfficeRightControl.TabIndex = 95;
             // 
             // searchDistrictRightControl
@@ -1491,12 +1492,12 @@
             this.searchDistrictRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchDistrictRightControl.listboxcollection = new string[] {
         "বাছাই করুন"};
-            this.searchDistrictRightControl.Location = new System.Drawing.Point(3, 136);
+            this.searchDistrictRightControl.Location = new System.Drawing.Point(3, 151);
             this.searchDistrictRightControl.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.searchDistrictRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchDistrictRightControl.Name = "searchDistrictRightControl";
             this.searchDistrictRightControl.searchButtonText = "বাছাই করুন";
-            this.searchDistrictRightControl.Size = new System.Drawing.Size(404, 44);
+            this.searchDistrictRightControl.Size = new System.Drawing.Size(404, 49);
             this.searchDistrictRightControl.TabIndex = 93;
             // 
             // searchOriginRightControl
@@ -1506,12 +1507,12 @@
             this.searchOriginRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchOriginRightControl.listboxcollection = new string[] {
         "বাছাই করুন"};
-            this.searchOriginRightControl.Location = new System.Drawing.Point(3, 92);
+            this.searchOriginRightControl.Location = new System.Drawing.Point(3, 102);
             this.searchOriginRightControl.Margin = new System.Windows.Forms.Padding(3, 11, 3, 11);
             this.searchOriginRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchOriginRightControl.Name = "searchOriginRightControl";
             this.searchOriginRightControl.searchButtonText = "বাছাই করুন";
-            this.searchOriginRightControl.Size = new System.Drawing.Size(404, 44);
+            this.searchOriginRightControl.Size = new System.Drawing.Size(404, 49);
             this.searchOriginRightControl.TabIndex = 91;
             // 
             // searchLayerRightControl
@@ -1521,12 +1522,12 @@
             this.searchLayerRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchLayerRightControl.listboxcollection = new string[] {
         "বাছাই করুন"};
-            this.searchLayerRightControl.Location = new System.Drawing.Point(3, 48);
+            this.searchLayerRightControl.Location = new System.Drawing.Point(3, 53);
             this.searchLayerRightControl.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.searchLayerRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchLayerRightControl.Name = "searchLayerRightControl";
             this.searchLayerRightControl.searchButtonText = "বাছাই করুন";
-            this.searchLayerRightControl.Size = new System.Drawing.Size(404, 44);
+            this.searchLayerRightControl.Size = new System.Drawing.Size(404, 49);
             this.searchLayerRightControl.TabIndex = 89;
             // 
             // searchDirectOfficeRightUserControl
@@ -1543,7 +1544,7 @@
             this.searchDirectOfficeRightUserControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchDirectOfficeRightUserControl.Name = "searchDirectOfficeRightUserControl";
             this.searchDirectOfficeRightUserControl.searchButtonText = "অফিস খুঁজুন";
-            this.searchDirectOfficeRightUserControl.Size = new System.Drawing.Size(404, 44);
+            this.searchDirectOfficeRightUserControl.Size = new System.Drawing.Size(404, 49);
             this.searchDirectOfficeRightUserControl.TabIndex = 87;
             // 
             // tabPage3
@@ -1564,11 +1565,11 @@
             this.tabPage3.Controls.Add(this.officeAddressManualEntryXTextBox);
             this.tabPage3.Controls.Add(this.designationManualEntryXTextBox);
             this.tabPage3.Controls.Add(this.officerManualEntryXTextBox);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Size = new System.Drawing.Size(427, 566);
+            this.tabPage3.Size = new System.Drawing.Size(427, 564);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "নিজে তথ্য লিখুন";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1576,7 +1577,7 @@
             // mobileAddressManualEntryXTextBox
             // 
             this.mobileAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.mobileAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mobileAddressManualEntryXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mobileAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mobileAddressManualEntryXTextBox.Location = new System.Drawing.Point(9, 428);
             this.mobileAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1590,7 +1591,7 @@
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(9, 399);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(50, 18);
+            this.label35.Size = new System.Drawing.Size(52, 20);
             this.label35.TabIndex = 106;
             this.label35.Text = "মোবাইল";
             // 
@@ -1599,7 +1600,7 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(9, 321);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(46, 18);
+            this.label34.Size = new System.Drawing.Size(46, 20);
             this.label34.TabIndex = 104;
             this.label34.Text = "ইমেইল";
             // 
@@ -1608,14 +1609,14 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(8, 244);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(57, 18);
+            this.label33.Size = new System.Drawing.Size(63, 20);
             this.label33.TabIndex = 102;
             this.label33.Text = "দপ্তর/শাখা";
             // 
             // label32
             // 
             this.label32.BackColor = System.Drawing.Color.Transparent;
-            this.label32.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label32.Location = new System.Drawing.Point(104, 168);
             this.label32.Name = "label32";
@@ -1628,7 +1629,7 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(9, 166);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(88, 18);
+            this.label31.Size = new System.Drawing.Size(95, 20);
             this.label31.TabIndex = 99;
             this.label31.Text = "কার্যালয়/ঠিকানা ";
             // 
@@ -1637,14 +1638,14 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(8, 89);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(25, 18);
+            this.label30.Size = new System.Drawing.Size(27, 20);
             this.label30.TabIndex = 97;
             this.label30.Text = "পদ";
             // 
             // label29
             // 
             this.label29.BackColor = System.Drawing.Color.Transparent;
-            this.label29.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label29.Location = new System.Drawing.Point(63, 8);
             this.label29.Name = "label29";
@@ -1657,7 +1658,7 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(7, 10);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(49, 18);
+            this.label25.Size = new System.Drawing.Size(54, 20);
             this.label25.TabIndex = 94;
             this.label25.Text = "অফিসার";
             // 
@@ -1665,7 +1666,7 @@
             // 
             this.prerokBachaiOwnRightButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.prerokBachaiOwnRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prerokBachaiOwnRightButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prerokBachaiOwnRightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prerokBachaiOwnRightButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.prerokBachaiOwnRightButton.Image = ((System.Drawing.Image)(resources.GetObject("prerokBachaiOwnRightButton.Image")));
             this.prerokBachaiOwnRightButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1682,7 +1683,7 @@
             // emailAddressManualEntryXTextBox
             // 
             this.emailAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.emailAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailAddressManualEntryXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.emailAddressManualEntryXTextBox.Location = new System.Drawing.Point(9, 350);
             this.emailAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1694,7 +1695,7 @@
             // unitAddressManualEntryXTextBox
             // 
             this.unitAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.unitAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unitAddressManualEntryXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unitAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.unitAddressManualEntryXTextBox.Location = new System.Drawing.Point(8, 273);
             this.unitAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1706,7 +1707,7 @@
             // officeAddressManualEntryXTextBox
             // 
             this.officeAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.officeAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officeAddressManualEntryXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officeAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.officeAddressManualEntryXTextBox.Location = new System.Drawing.Point(9, 195);
             this.officeAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1718,7 +1719,7 @@
             // designationManualEntryXTextBox
             // 
             this.designationManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.designationManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationManualEntryXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.designationManualEntryXTextBox.Location = new System.Drawing.Point(8, 118);
             this.designationManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1730,7 +1731,7 @@
             // officerManualEntryXTextBox
             // 
             this.officerManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.officerManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerManualEntryXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officerManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.officerManualEntryXTextBox.Location = new System.Drawing.Point(8, 40);
             this.officerManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1742,7 +1743,7 @@
             // label18
             // 
             this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label18.Location = new System.Drawing.Point(29, 14);
             this.label18.Name = "label18";
@@ -1775,7 +1776,7 @@
             // 
             this.dataGridViewRadioButtonColumn1.DataPropertyName = "mul_potro";
             this.dataGridViewRadioButtonColumn1.DataSource = this.dakAttachmentinGridBindingSource;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewRadioButtonColumn1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewRadioButtonColumn1.HeaderText = "মূলপত্র";
             this.dataGridViewRadioButtonColumn1.MinimumWidth = 20;
@@ -1796,7 +1797,7 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "attachment_Name";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn1.HeaderText = "মূলপত্র";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 20;
@@ -1832,7 +1833,7 @@
             // 
             // DaptorikDakUploadUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1840,7 +1841,7 @@
             this.Controls.Add(this.dakUploadPanel3);
             this.Controls.Add(this.dakUploadPanel2);
             this.Controls.Add(this.dakUploadPanel1);
-            this.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(1109, 1745);
             this.Name = "DaptorikDakUploadUserControl";
