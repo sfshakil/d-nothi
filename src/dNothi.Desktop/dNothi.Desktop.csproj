@@ -751,8 +751,12 @@
   <ItemGroup>
     <Content Include="256x256bb.ico" />
     <Content Include="MetroFramework.txt" />
-    <Content Include="test.htm" />
-    <Content Include="tinymce.htm" />
+    <Content Include="test.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tinymce.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="tinymce\changelog.txt" />
     <Content Include="tinymce\examples\css\content.css" />
     <Content Include="tinymce\examples\css\word.css" />
@@ -1092,7 +1096,9 @@
     if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
     xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
     if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
-    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"
+	xcopy "$(ProjectDir)tinymce" "$(TargetDir)tinymce" /Y /R /I /E
+	</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
