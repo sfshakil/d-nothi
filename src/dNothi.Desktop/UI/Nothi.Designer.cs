@@ -30,13 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nothi));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.RightSign = new FontAwesome.Sharp.IconButton();
+            this.LeftSign = new FontAwesome.Sharp.IconButton();
+            this.dakMenuButton = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnNewNothi = new FontAwesome.Sharp.IconButton();
             this.btnNothiAll = new FontAwesome.Sharp.IconButton();
             this.btnNothiOutbox = new FontAwesome.Sharp.IconButton();
             this.btnNothiInbox = new FontAwesome.Sharp.IconButton();
             this.btnNothiIcon = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.nothiListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.profilePanel = new System.Windows.Forms.Panel();
@@ -113,14 +115,61 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.RightSign);
+            this.panel1.Controls.Add(this.LeftSign);
+            this.panel1.Controls.Add(this.dakMenuButton);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btnNothiIcon);
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(233, 687);
             this.panel1.TabIndex = 12;
+            // 
+            // RightSign
+            // 
+            this.RightSign.BackColor = System.Drawing.Color.Transparent;
+            this.RightSign.Enabled = false;
+            this.RightSign.FlatAppearance.BorderSize = 0;
+            this.RightSign.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.RightSign.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RightSign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RightSign.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.RightSign.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(243)))));
+            this.RightSign.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RightSign.IconSize = 24;
+            this.RightSign.Location = new System.Drawing.Point(202, 13);
+            this.RightSign.Name = "RightSign";
+            this.RightSign.Size = new System.Drawing.Size(10, 30);
+            this.RightSign.TabIndex = 23;
+            this.RightSign.UseVisualStyleBackColor = false;
+            // 
+            // LeftSign
+            // 
+            this.LeftSign.BackColor = System.Drawing.Color.Transparent;
+            this.LeftSign.Enabled = false;
+            this.LeftSign.FlatAppearance.BorderSize = 0;
+            this.LeftSign.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.LeftSign.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.LeftSign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LeftSign.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.LeftSign.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
+            this.LeftSign.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LeftSign.IconSize = 24;
+            this.LeftSign.Location = new System.Drawing.Point(193, 13);
+            this.LeftSign.Name = "LeftSign";
+            this.LeftSign.Size = new System.Drawing.Size(10, 30);
+            this.LeftSign.TabIndex = 24;
+            this.LeftSign.UseVisualStyleBackColor = false;
+            // 
+            // dakMenuButton
+            // 
+            this.dakMenuButton.BackColor = System.Drawing.Color.Transparent;
+            this.dakMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dakMenuButton.Location = new System.Drawing.Point(183, 0);
+            this.dakMenuButton.Name = "dakMenuButton";
+            this.dakMenuButton.Size = new System.Drawing.Size(50, 60);
+            this.dakMenuButton.TabIndex = 25;
             // 
             // panel4
             // 
@@ -241,23 +290,10 @@
             this.btnNothiIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiIcon.Location = new System.Drawing.Point(0, 0);
             this.btnNothiIcon.Name = "btnNothiIcon";
-            this.btnNothiIcon.Size = new System.Drawing.Size(173, 60);
+            this.btnNothiIcon.Size = new System.Drawing.Size(187, 60);
             this.btnNothiIcon.TabIndex = 2;
             this.btnNothiIcon.UseVisualStyleBackColor = false;
             this.btnNothiIcon.Click += new System.EventHandler(this.btnNothiIcon_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(172, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(56, 60);
-            this.button3.TabIndex = 3;
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // nothiListFlowLayoutPanel
             // 
@@ -1110,7 +1146,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnNothiIcon;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlNothiNoteTalika;
         private System.Windows.Forms.Button button9;
@@ -1172,5 +1207,8 @@
         private FontAwesome.Sharp.IconPictureBox userPictureBox;
         private System.Windows.Forms.Label userNameLabel;
         private FontAwesome.Sharp.IconButton profileShowArrowButton;
+        private FontAwesome.Sharp.IconButton RightSign;
+        private FontAwesome.Sharp.IconButton LeftSign;
+        private System.Windows.Forms.Panel dakMenuButton;
     }
 }

@@ -153,6 +153,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            
             builder.RegisterType<UI.Nothi>().AsSelf();
+            builder.RegisterType<UI.Note>().AsSelf();
             builder.RegisterType<DakModuleSokolNothiListUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.CreateNewNotes>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
@@ -168,7 +169,6 @@ namespace dNothi.Desktop
             builder.RegisterType<CreateNewNothiType>().AsSelf();
              builder.RegisterType<DakForwardUserControl>().AsSelf();
             builder.RegisterType<DakNothiteUposthapitoNewNoteAddUserControl>().AsSelf();
-         
 
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());
