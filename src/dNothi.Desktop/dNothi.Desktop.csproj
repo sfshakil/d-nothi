@@ -205,6 +205,24 @@
     <Compile Include="UI\Dak\CreateNewNotes.Designer.cs">
       <DependentUpon>CreateNewNotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NoteFileDelete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NoteFileDelete.Designer.cs">
+      <DependentUpon>NoteFileDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NoteFileUpload.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NoteFileUpload.Designer.cs">
+      <DependentUpon>NoteFileUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NoteView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NoteView.Designer.cs">
+      <DependentUpon>NoteView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiOnumodonDesignationSeal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -530,6 +548,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\CreateNewNotes.resx">
       <DependentUpon>CreateNewNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NoteFileDelete.resx">
+      <DependentUpon>NoteFileDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NoteFileUpload.resx">
+      <DependentUpon>NoteFileUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NoteView.resx">
+      <DependentUpon>NoteView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOnumodonDesignationSeal.resx">
       <DependentUpon>NothiOnumodonDesignationSeal.cs</DependentUpon>

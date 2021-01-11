@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class CreateNewNotes : Form
+    public partial class NoteFileDelete : UserControl
     {
-        public CreateNewNotes()
+        public NoteFileDelete()
         {
             InitializeComponent();
             SetDefaultFont(this.Controls);
@@ -28,26 +28,33 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-        public string _noteSubject { get; set; }
-        private void closeButton_Click(object sender, EventArgs e)
+        public string _attachmentName;
+        private string _fileextension;
+        public string attachmentName
         {
-            this.Hide();
+            get { return _attachmentName; }
+            set
+            {
+                _attachmentName = value; lbAattachmentName.Text = value;
+            }
+
+        }
+        public string fileexension
+        {
+            get { return _fileextension; }
+            set
+            {
+                _fileextension = value;
+                lbByte.Text = value;
+
+
+            }
+
         }
 
-        private void saveNewNoteButton_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (newNoteTextBox.Text != "")
-            {
-                this.Hide();
-                var form = FormFactory.Create<Note>();
-                form.ShowDialog();
-            }
-            else
-            {
-                string message = "নোটের বিষয় দেওয়া হইনি";
-                MessageBox.Show(message);
-            }
-            
+            this.Hide();
         }
     }
 }
