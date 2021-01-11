@@ -215,7 +215,7 @@
             // 
             this.prapokownOfficeTreeView.CheckBoxes = true;
             this.prapokownOfficeTreeView.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
-            this.prapokownOfficeTreeView.Location = new System.Drawing.Point(17, 123);
+            this.prapokownOfficeTreeView.Location = new System.Drawing.Point(18, 134);
             this.prapokownOfficeTreeView.Name = "prapokownOfficeTreeView";
             this.prapokownOfficeTreeView.Size = new System.Drawing.Size(490, 301);
             this.prapokownOfficeTreeView.TabIndex = 0;
@@ -332,7 +332,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label10.Location = new System.Drawing.Point(17, 25);
+            this.label10.Location = new System.Drawing.Point(17, 18);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(196, 28);
             this.label10.TabIndex = 87;

@@ -28,7 +28,8 @@ namespace dNothi.Desktop.UI.Dak
         [Description("Invoked when user clicks button")]
         public event EventHandler ButtonClick;
 
-
+        IDakForwardService _dakForwardService { get; set; }
+        IUserService _userService { get; set; }
         List<string> PriorityListCollection = new List<string>();
         List<string> SecurityListCollection = new List<string>();
         int mulPrapokColumn = 9;
@@ -82,11 +83,44 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        public void LoadDecisionList()
+        {
+            decisionListFlowLayoutPanel.Controls.Clear();
+            DakUserParam userParam = _userService.GetLocalDakUserParam();
 
+            DakDecisionListResponse dakDecisionListResponse = _dakForwardService.GetDakDecisionListResponse(userParam);
+            if (dakDecisionListResponse != null)
+            {
+                if (dakDecisionListResponse.data.Count > 0)
+                {
+                    foreach (DakDecisionDTO dakDecisionDTO in dakDecisionListResponse.data)
+                    {
+                        var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();
+                        decisionTable.id = dakDecisionDTO.id;
+                        decisionTable.decision = dakDecisionDTO.dak_decision;
+                        decisionTable.RadioButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_RadioButtonClick(sender, e, dakDecisionDTO.id); };
+
+                        
+                        if (dakDecisionDTO.dak_decision_employee == 1)
+                        {
+                            decisionTable.isAdded = true;
+                            decisionComboBox.Items.Add(dakDecisionDTO.dak_decision);
+                        }
+                        else
+                        {
+                            decisionTable.isAdded = false;
+                        }
+
+                        decisionListFlowLayoutPanel.Controls.Add(decisionTable);
+                    }
+                }
+            }
+        }
         private DesignationSealListResponse _designationSealListResponse;
 
 
-        public DesignationSealListResponse designationSealListResponse {
+        public DesignationSealListResponse designationSealListResponse
+        {
             get { return _designationSealListResponse; }
             set
             {
@@ -104,7 +138,14 @@ namespace dNothi.Desktop.UI.Dak
 
 
                         viewdesignationListOwnOffice.nij_Office = true;
-                        viewDesignationSealLists.Add(viewdesignationListOwnOffice);
+
+
+
+                        if (!viewDesignationSealLists.Any(a => a.designation_id == viewdesignationListOwnOffice.designation_id))
+                        {
+                            viewDesignationSealLists.Add(viewdesignationListOwnOffice);
+                        }
+
                     }
 
                     foreach (PrapokDTO otherOfficeDTO in value.data.other_office)
@@ -114,12 +155,15 @@ namespace dNothi.Desktop.UI.Dak
                   );
                         var mapper = new Mapper(config);
                         var viewdesignationListOtherOffice = mapper.Map<ViewDesignationSealList>(otherOfficeDTO);
+                        if (!viewDesignationSealLists.Any(a => a.designation_id == viewdesignationListOtherOffice.designation_id))
+                        {
+                            viewDesignationSealLists.Add(viewdesignationListOtherOffice);
+                        }
 
-                        viewDesignationSealLists.Add(viewdesignationListOtherOffice);
                     }
 
                     PopulateOwnOfficeGrid();
-                    PopulateOtherOfficeGrid();
+
                 }
                 catch
                 {
@@ -127,16 +171,18 @@ namespace dNothi.Desktop.UI.Dak
                 }
 
 
-              
+
             }
-        
+
         }
 
-        public DakForwardUserControl()
+        public DakForwardUserControl(IDakForwardService dakForwardService, IUserService userService)
         {
+            _dakForwardService = dakForwardService;
+            _userService = userService;
             InitializeComponent();
             PriorityListCollection.Clear();
-
+            LoadDecisionList();
            
 
         }
@@ -278,16 +324,26 @@ namespace dNothi.Desktop.UI.Dak
         
         public void PopulateOwnOfficeGrid()
         {
-            prapokOwnDataGridView.DataSource = null;
-            prapokOwnDataGridView.DataSource = viewDesignationSealLists.Where(a => a.nij_Office == true).ToList();
+           
 
-          
+            BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
+            foreach (ViewDesignationSealList viewDesignationSealList in viewDesignationSealLists.Where(a => a.nij_Office == true))
+            {
+                bindinglist.Add(viewDesignationSealList);
+            }
+            prapokOwnDataGridView.DataSource = null;
+            prapokOwnDataGridView.DataSource = bindinglist;
         }
         public void PopulateOtherOfficeGrid()
         {
-           
+
+            BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
+            foreach (ViewDesignationSealList viewDesignationSealList in viewDesignationSealLists.Where(a => a.nij_Office == false))
+            {
+                bindinglist.Add(viewDesignationSealList);
+            }
             prapokOthersDataGridView.DataSource = null;
-            prapokOthersDataGridView.DataSource = viewDesignationSealLists.Where(a => a.nij_Office == false).ToList();
+            prapokOthersDataGridView.DataSource = bindinglist;
         }
        
         private void prapokDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -311,76 +367,83 @@ namespace dNothi.Desktop.UI.Dak
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            DakForwardRequestParam dakForwardRequestParam = new DakForwardRequestParam();
-            dakForwardRequestParam.dak_id = _dak_id;
-            dakForwardRequestParam.is_copied_dak = _is_copied_dak;
-            dakForwardRequestParam.dak_type = _dak_type.ToString();
-            
-            DakPriorityList dakPriority = new DakPriorityList();
-            int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
-            
 
-
-            DakSecurityList dakSecurityList = new DakSecurityList();
-            int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
-            
-
-            dakForwardRequestParam.priority = dak_priority_id;
-            dakForwardRequestParam.security = dak_security_id;
-            dakForwardRequestParam.comment = decisionXTextBox.Text;
-            dakForwardRequestParam.token = _dak_List_User_Param.token;
-
-            var config = new MapperConfiguration(cfg =>
-                      cfg.CreateMap<DakUserParam,DakForwardRequestSenderInfo>()
-                  );
-            var mapper = new Mapper(config);
-            var dakSender = mapper.Map<DakForwardRequestSenderInfo>(_dak_List_User_Param);
-
-
-            dakForwardRequestParam.sender_info = dakForwardRequestParam.CSharpObjtoJson(dakSender);
-
-
-            ViewDesignationSealList mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
-
-            if(mulprapok.nij_Office==true)
+            DialogResult DialogResultSttring = MessageBox.Show("অপনি কি ডাকটি প্রেরণ করুন চান ?\n",
+                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
             {
-                var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
-                dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
-            }
-            else
-            {
-                var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
-                dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
-            }
+                DakForwardRequestParam dakForwardRequestParam = new DakForwardRequestParam();
+                dakForwardRequestParam.dak_id = _dak_id;
+                dakForwardRequestParam.is_copied_dak = _is_copied_dak;
+                dakForwardRequestParam.dak_type = _dak_type.ToString();
 
-            List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
+                DakPriorityList dakPriority = new DakPriorityList();
+                int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
 
-            List<ViewDesignationSealList> viewDesignationSealListsOnulipPrapok = viewDesignationSealLists.Where(a => a.onulipi_prapok == true).ToList();
-            foreach(ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
-            {
-                if(viewDesignationSeal.nij_Office==true)
+
+
+                DakSecurityList dakSecurityList = new DakSecurityList();
+                int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
+
+
+                dakForwardRequestParam.priority = dak_priority_id;
+                dakForwardRequestParam.security = dak_security_id;
+                dakForwardRequestParam.comment = decisionXTextBox.Text;
+                dakForwardRequestParam.token = _dak_List_User_Param.token;
+
+                var config = new MapperConfiguration(cfg =>
+                          cfg.CreateMap<DakUserParam, DakForwardRequestSenderInfo>()
+                      );
+                var mapper = new Mapper(config);
+                var dakSender = mapper.Map<DakForwardRequestSenderInfo>(_dak_List_User_Param);
+
+
+                dakForwardRequestParam.sender_info = dakForwardRequestParam.CSharpObjtoJson(dakSender);
+
+
+                ViewDesignationSealList mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
+
+                if (mulprapok.nij_Office == true)
                 {
-                    OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                    dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
                 }
                 else
                 {
-                    OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                    dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
                 }
-            }
+
+                List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
+
+                List<ViewDesignationSealList> viewDesignationSealListsOnulipPrapok = viewDesignationSealLists.Where(a => a.onulipi_prapok == true).ToList();
+                foreach (ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
+                {
+                    if (viewDesignationSeal.nij_Office == true)
+                    {
+                        OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    }
+                    else
+                    {
+                        OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    }
+                }
 
                 dakForwardRequestParam.onulipi_info = dakForwardRequestParam.CSharpObjtoJson(OnulipiprapokDTOs);
 
-            var dakForwardResponse = GetDakForwardResponse(dakForwardRequestParam);
-               
-            if(dakForwardResponse.status=="success")
-            {
-                if (this.ButtonClick != null)
-                    this.ButtonClick(sender, e);
+                var dakForwardResponse = GetDakForwardResponse(dakForwardRequestParam);
+
+                if (dakForwardResponse.status == "success")
+                {
+                    if (this.ButtonClick != null)
+                        this.ButtonClick(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show(dakForwardResponse.status);
+                }
             }
-            else
-            {
-                MessageBox.Show(dakForwardResponse.status);
-            }
+
         }
 
         protected string GetAPIVersion()
@@ -467,6 +530,44 @@ namespace dNothi.Desktop.UI.Dak
         private void prapokOwnDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int row_index = e.RowIndex;
+
+            if (prapokOwnDataGridView.Columns[prapokOwnDataGridView.CurrentCell.ColumnIndex].Name == "ActionButton")
+            {
+
+                DialogResult DialogResultSttring = MessageBox.Show("অপনি কি প্রাপকটিকে মুছে ফেলতে চান?\n",
+                                   "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (DialogResultSttring == DialogResult.Yes)
+                {
+                    int designation_id = Convert.ToInt32(prapokOwnDataGridView.Rows[row_index].Cells["designationid_id"].Value);
+                    var form = FormFactory.Create<Dashboard>();
+                    string designationSealIdJson = designation_id.ToString();
+                    DeleteDesignationSealResponse deleteDesignationSealResponse = form.DeleteDesignation(designationSealIdJson);
+
+                    if (deleteDesignationSealResponse.status == "success")
+                    {
+                        MessageBox.Show("প্রাপকটিকে সফলভাবে মুছে ফেলা হ​য়েছে।");
+
+                        prapokOwnDataGridView.Rows.RemoveAt(row_index);
+
+
+
+                        viewDesignationSealLists = viewDesignationSealLists.Where(a => a.designation_id != designation_id).ToList();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("মুছে ফেলা সফল হ​য়নি।।");
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
+
+
+
             //bool mulprapok = (bool)prapokDataGridView.Rows[row_index].Cells[mulPrapokColumn].Value;
             //bool Onulipi = (bool)prapokDataGridView.Rows[row_index].Cells[onulipiColumn].Value;
             //  if(e.ColumnIndex==prapokDataGridView.Columns["mul_prapok"].Index)
@@ -481,6 +582,187 @@ namespace dNothi.Desktop.UI.Dak
 
             prapokOwnDataGridView.Refresh();
             prapokOthersDataGridView.Refresh();
+        }
+
+        private void BorderColorBlue(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+
+        }
+
+        private void officerSearchOwnXTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var prapokList = prapokOwnDataGridView.DataSource;
+
+            List<ViewDesignationSealList> designationSealListsinGridView = (List<ViewDesignationSealList>)prapokList;
+            List<ViewDesignationSealList> NewViewDesignationSealLists = new List<ViewDesignationSealList>();
+
+
+            if (officerSearchOwnXTextBox.Text == "")
+            {
+                PopulateOwnOfficeGrid();
+            }
+            else
+            {
+                foreach (var des in designationSealListsinGridView.Where(a=>a.nij_Office==true))
+                {
+                    if (des.designation.StartsWith(officerSearchOwnXTextBox.Text) || des.employee_name_bng.StartsWith(officerSearchOwnXTextBox.Text))
+                    {
+                        NewViewDesignationSealLists.Add(des);
+                    }
+
+                }
+                BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
+                foreach (ViewDesignationSealList viewDesignationSealList in NewViewDesignationSealLists)
+                {
+                    bindinglist.Add(viewDesignationSealList);
+                }
+                prapokOwnDataGridView.DataSource = null;
+                prapokOwnDataGridView.DataSource = bindinglist;
+            }
+
+        }
+
+
+        public event EventHandler AddDesignationButtonClick;
+        private void addDesignationButton_Click_Click(object sender, EventArgs e)
+        {
+            if (this.AddDesignationButtonClick != null)
+                this.AddDesignationButtonClick(sender, e);
+        }
+
+        private void newDecisionAddButton_Click(object sender, EventArgs e)
+        {
+            newDecisionAddFormPanel.Visible = true;
+            newDecisionAddButton.Visible = false;
+        }
+
+        private void newDecisionAddCrossButton_Click(object sender, EventArgs e)
+        {
+            newDecisionAddFormPanel.Visible = false;
+            newDecisionAddButton.Visible = true;
+        }
+
+        private void GetDecisionListButton_Click(object sender, EventArgs e)
+        {
+            if(newDecisionAddPanel.Visible)
+            {
+                newDecisionAddPanel.Visible = false;
+
+               
+              
+            }
+            else
+            {
+                newDecisionAddPanel.Visible = true;
+            }
+        }
+
+        
+        
+
+        private void dakDecisionTableUserControl_RadioButtonClick(object sender, EventArgs e, int id)
+        {
+            var decisionTable = decisionListFlowLayoutPanel.Controls.OfType<DakDecisionTableUserControl>().ToList();
+
+            foreach (var dakDecisionTableUser in decisionTable)
+            {
+                if(dakDecisionTableUser._id!=id)
+                {
+                    dakDecisionTableUser.isDecisionSelected = false;
+                }
+            }
+        }
+
+        private void decisionAddAllButton_Click(object sender, EventArgs e)
+        {
+
+            newDecisionAddPanel.Visible = false;
+            string addJson = "", deleteJson = "";
+            
+              
+            var decisionTable = decisionListFlowLayoutPanel.Controls.OfType<DakDecisionTableUserControl>().ToList();
+
+                foreach (var dakDecisionTableUser in decisionTable)
+                {
+                    if (dakDecisionTableUser._isDecisionSelected ==true)
+                    {
+                        decisionXTextBox.Text = dakDecisionTableUser._decisision;
+                      
+                    }
+                    if(dakDecisionTableUser._isCurrentlyAdded==true && dakDecisionTableUser._isAdded == false)
+                    {
+                       if(addJson!="")
+                       {
+                        addJson += ",";
+                       }
+                       addJson += dakDecisionTableUser._id;
+                    }
+                   else if(dakDecisionTableUser._isCurrentlyAdded == false && dakDecisionTableUser._isAdded == true)
+                       {
+                    if (deleteJson != "")
+                    {
+                        deleteJson += ",";
+                    }
+                    deleteJson += dakDecisionTableUser._id;
+
+                }
+                }
+
+
+             if(decisionAddCheckBox.Checked)
+            {
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                DakDecisionSetupResponse dakDecisionSetupResponse = _dakForwardService.GetDakDecisionSetupResponse(dakUserParam, addJson, deleteJson);
+                if(dakDecisionSetupResponse.status=="success")
+                {
+                    MessageBox.Show("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                    LoadDecisionList();
+                }
+            }
+
+            LoadDecisionList();
+
+        }
+
+        private void newDecisionAddRightButton_Click(object sender, EventArgs e)
+        {
+            DakDecisionDTO dakDecision = new DakDecisionDTO();
+            dakDecision.dak_decision = newDecisionTextBox.Text;
+
+            if (newDecisionCheckBox.Checked)
+            {
+                dakDecision.dak_decision_employee = 1;
+            }
+            else
+            {
+                dakDecision.dak_decision_employee = 0;
+            }
+
+            dakDecision.id = 0;
+
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+            DakDecisionAddResponse dakDecisionAddResponse = _dakForwardService.GetDakDecisionAddResponse(dakUserParam, dakDecision);
+            if (dakDecisionAddResponse.status == "success")
+            {
+                MessageBox.Show("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();
+                decisionTable.id = dakDecisionAddResponse.data.id;
+                decisionTable.decision = dakDecision.dak_decision;
+                if (dakDecision.dak_decision_employee == 1)
+                {
+                    decisionTable.isAdded = true;
+                    decisionComboBox.Items.Add(dakDecision.dak_decision);
+                }
+                else
+                {
+                    decisionTable.isAdded = false;
+                }
+
+                decisionListFlowLayoutPanel.Controls.Add(decisionTable);
+
+            }
         }
     }
 }

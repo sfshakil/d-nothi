@@ -45,21 +45,22 @@ namespace dNothi.Desktop.UI.Dak
         /// <summary>
         /// Hides the checkbox for the specified node on a TreeView control.
         /// </summary>
-        private void HideCheckBox(TreeView tvw)
+        private void HideParentNodeCheckBox(TreeView tvw)
         {
             foreach (TreeNode trNode in tvw.Nodes)
             {
-                if (_ownOfficeDesignationList.Any(a=>a.designation_id==Convert.ToInt32(trNode.Tag)) || _otherOfficeDesignationList.Any(a => a.designation_id == Convert.ToInt32(trNode.Tag)))
-                {
+               
                     TVITEM tvi = new TVITEM();
                     tvi.hItem = trNode.Handle;
                     tvi.mask = TVIF_STATE;
                     tvi.stateMask = TVIS_STATEIMAGEMASK;
                     tvi.state = 0;
                     SendMessage(tvw.Handle, TVM_SETITEM, IntPtr.Zero, ref tvi);
-                    break;
-                }
-               
+
+
+                
+
+
             }
 
            
@@ -207,7 +208,7 @@ namespace dNothi.Desktop.UI.Dak
 
                         }
 
-
+                        HideParentNodeCheckBox(prapokownOfficeTreeView);
                     }
 
                  
@@ -260,8 +261,9 @@ namespace dNothi.Desktop.UI.Dak
                             int count = group.Count();
                             branchName += "(" + ConvertEnglishNumbertoBangle(count) + ")";
                             TreeNode branchNodeOtherOffice = new TreeNode(branchName);
+                            branchNodeOtherOffice.Tag = 0;
 
-                          
+
                             foreach (var officer in group)
                             {
                                 if (officer.designation_id > 0)
@@ -454,6 +456,7 @@ namespace dNothi.Desktop.UI.Dak
             try
             {
                 _ownOfficeDesignationList.FirstOrDefault(a => a.designation_id == designationId).isofficerAdded = false;
+               
                 CheckUncheckTreeNode(prapokownOfficeTreeView.Nodes, false, designationId);
             }
             catch(Exception Ex)
@@ -471,6 +474,11 @@ namespace dNothi.Desktop.UI.Dak
             {
                 if(Convert.ToInt32(trNode.Tag)==designationid)
                 {
+                    if(!isCheck)
+                    {
+                        trNode.ForeColor = Color.Black;
+                    }
+
                     trNode.Checked = isCheck;
                     break;
                 }
@@ -690,6 +698,17 @@ namespace dNothi.Desktop.UI.Dak
             {
                 e.Cancel = true;
             }
+            if (Color.Gray == e.Node.ForeColor)
+            {
+                e.Cancel = true;
+            }
+              
+            else if(!e.Node.Checked)
+            {
+                e.Node.ForeColor = Color.Gray;
+            }
+
+
         }
 
         private void searchOfficeListBox_Click(object sender, EventArgs e)

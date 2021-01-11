@@ -106,7 +106,7 @@ namespace dNothi.Services.UserServices
                 );
             var mapper = new Mapper(config);
             var user = mapper.Map<User>(userdto);
-      
+            user.userid = userdto.userid;
             var dbuser = _userrepository.Table.FirstOrDefault();
 
 
@@ -117,8 +117,9 @@ namespace dNothi.Services.UserServices
             }
             else
             {
-                user.Id = dbuser.Id;
-                _userrepository.Update(user);
+                dbuser.userid = user.userid;
+                
+                _userrepository.Update(dbuser);
             }
         }
         public void SaveOrUpdateUserEmployeeInfo(EmployeeInfoDTO employeedto)

@@ -686,11 +686,7 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        private void searchOfficerRightListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-          
-        }
+        
 
         private void prerokBachaiButton_Click(object sender, EventArgs e)
         {
@@ -783,12 +779,21 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler KhosraSaveButtonClick;
         private void khosraSaveButton_Click(object sender, EventArgs e)
         {
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি সংরক্ষণ করতে চান?\n",
+                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+                SetDakUploadData();
 
+                if (this.KhosraSaveButtonClick != null)
+                    this.KhosraSaveButtonClick(sender, e);
+            }
+            else
+            {
 
-            SetDakUploadData();
+            }
 
-            if (this.KhosraSaveButtonClick != null)
-                this.KhosraSaveButtonClick(sender, e);
+           
 
 
 
@@ -934,9 +939,22 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DakSendButton;
         private void sendButton_Click(object sender, EventArgs e)
         {
-            SetDakUploadData();
-            if (this.DakSendButton != null)
-                this.DakSendButton(sender, e);
+
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি প্রেরণ করতে চান?\n",
+                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+                SetDakUploadData();
+
+
+                if (this.DakSendButton != null)
+                    this.DakSendButton(sender, e);
+            }
+            else
+            {
+
+            }
+        
         }
 
         private void searchOfficerRightListBox_SelectedIndexChanged_1(object sender, EventArgs e)

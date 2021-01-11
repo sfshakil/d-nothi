@@ -54,11 +54,27 @@ namespace dNothi.Services.DakServices
         public Dictionary<string, DakUploadAttachment> attachment { get; set; }
         public string dak_priority { get; set; }
         public string dak_security { get; set; }
-        
+
+
+
+        public string national_idendity_no { get; set; }
+        public string birth_registration_number { get; set; }
+        public string passport { get; set; }
+        public string name_bng { get; set; }
+        public string name_eng { get; set; }
+        public string father_name { get; set; }
+        public string mother_name { get; set; }
+        public string address { get; set; }
+        public string parmanent_address { get; set; }
+        public string email { get; set; }
+        public string mobile_no { get; set; }
+        public string nationality { get; set; }
+        public string gender { get; set; }
+        public string religion { get; set; }
      
 
-       
-    
+
+
         public DakInfo(bool IsNagorik)
         {
             if(!IsNagorik)
@@ -75,9 +91,57 @@ namespace dNothi.Services.DakServices
         }
 
 
+    public class DakInfoNagorik
+    {
+        public int id { get; set; }
+        public string dak_type { get; set; }
+
+        public string sarok_no { get; set; }
+        public string sending_date { get; set; }
+        public string sending_media { get; set; }
+        public string dak_subject { get; set; }
+        public string dak_description { get; set; }
+        public string priority { get; set; }
+        public string security { get; set; }
 
 
-    
+
+        //New Change
+        public Dictionary<string, DakUploadAttachment> attachment { get; set; }
+        public string dak_priority { get; set; }
+        public string dak_security { get; set; }
+
+
+
+        public string national_idendity_no { get; set; }
+        public string birth_registration_number { get; set; }
+        public string passport { get; set; }
+        public string name_bng { get; set; }
+        public string name_eng { get; set; }
+        public string father_name { get; set; }
+        public string mother_name { get; set; }
+        public string address { get; set; }
+        public string parmanent_address { get; set; }
+        public string email { get; set; }
+        public string mobile_no { get; set; }
+        public string nationality { get; set; }
+        public string gender { get; set; }
+        public string religion { get; set; }
+
+
+
+
+        public DakInfoNagorik()
+        {
+
+            this.dak_type = "Nagorik";
+        }
+
+
+    }
+
+
+
 
     public class DakUploadAttachment
     {

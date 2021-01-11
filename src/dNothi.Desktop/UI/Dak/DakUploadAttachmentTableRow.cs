@@ -105,8 +105,8 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _isAllowedforMulpotro = value; 
-                if (value == true) { dakAttachmentTableRadioButton.Visible = true; }
-                else { dakAttachmentTableRadioButton.Visible = false; }
+                if (value == true) { if (!dakAttachmentTableRadioButton.Visible) { dakAttachmentTableRadioButton.Visible = true;  } }
+                else { dakAttachmentTableRadioButton.Visible = true; dakAttachmentTableRadioButton.Visible = false; }
 
             }
 

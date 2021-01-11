@@ -46,7 +46,7 @@
             this.moduleDakCountLabel = new System.Windows.Forms.Label();
             this.placeholderTextBox2 = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.dakListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.dakBodyFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.dakSortMetroPanel = new MetroFramework.Controls.MetroPanel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -155,10 +155,10 @@
             this.dakMenuButton = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.dashboardSlideFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.dashboardRightSideFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.sliderCrossButton = new System.Windows.Forms.Button();
             this.rightSliderHeadLineLabel = new System.Windows.Forms.Label();
-            this.movementStatusDisplaypanel = new System.Windows.Forms.Panel();
+            this.dashboardRightSideDisplaypanel = new System.Windows.Forms.Panel();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.dashboardPanel = new System.Windows.Forms.Panel();
             this.dashBoardBlurPanel = new System.Windows.Forms.Panel();
@@ -191,7 +191,7 @@
             this.dakMenuPanel.SuspendLayout();
             this.dakUploadDropDownPanel.SuspendLayout();
             this.panel16.SuspendLayout();
-            this.movementStatusDisplaypanel.SuspendLayout();
+            this.dashboardRightSideDisplaypanel.SuspendLayout();
             this.dashboardPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -429,8 +429,7 @@
             // 
             // panel12
             // 
-            this.panel12.AutoSize = true;
-            this.panel12.Controls.Add(this.dakListFlowLayoutPanel);
+            this.panel12.Controls.Add(this.dakBodyFlowLayoutPanel);
             this.panel12.Controls.Add(this.label15);
             this.panel12.Controls.Add(this.dakSortMetroPanel);
             this.panel12.Controls.Add(this.label21);
@@ -439,21 +438,20 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 60);
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
-            this.panel12.MinimumSize = new System.Drawing.Size(0, 590);
+            this.panel12.MinimumSize = new System.Drawing.Size(1125, 590);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(1125, 590);
             this.panel12.TabIndex = 28;
             // 
-            // dakListFlowLayoutPanel
+            // dakBodyFlowLayoutPanel
             // 
-            this.dakListFlowLayoutPanel.AutoSize = true;
-            this.dakListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakListFlowLayoutPanel.Location = new System.Drawing.Point(0, 469);
-            this.dakListFlowLayoutPanel.MaximumSize = new System.Drawing.Size(1125, 0);
-            this.dakListFlowLayoutPanel.Name = "dakListFlowLayoutPanel";
-            this.dakListFlowLayoutPanel.Size = new System.Drawing.Size(1125, 0);
-            this.dakListFlowLayoutPanel.TabIndex = 15;
-            this.dakListFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.moduleDakCountLabel_Paint);
+            this.dakBodyFlowLayoutPanel.AutoScroll = true;
+            this.dakBodyFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dakBodyFlowLayoutPanel.Location = new System.Drawing.Point(0, 469);
+            this.dakBodyFlowLayoutPanel.Name = "dakBodyFlowLayoutPanel";
+            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1125, 121);
+            this.dakBodyFlowLayoutPanel.TabIndex = 15;
+            this.dakBodyFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.moduleDakCountLabel_Paint);
             // 
             // label15
             // 
@@ -2074,27 +2072,26 @@
             // 
             // panel16
             // 
-            this.panel16.AutoScroll = true;
             this.panel16.AutoSize = true;
             this.panel16.Controls.Add(this.panel6);
             this.panel16.Controls.Add(this.panel12);
             this.panel16.Controls.Add(this.panel2);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel16.Location = new System.Drawing.Point(230, 0);
-            this.panel16.MaximumSize = new System.Drawing.Size(1125, 0);
+            this.panel16.MaximumSize = new System.Drawing.Size(1125, 687);
             this.panel16.MinimumSize = new System.Drawing.Size(1125, 684);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(1125, 687);
             this.panel16.TabIndex = 51;
             // 
-            // dashboardSlideFlowLayoutPanel
+            // dashboardRightSideFlowLayoutPanel
             // 
-            this.dashboardSlideFlowLayoutPanel.AutoScroll = true;
-            this.dashboardSlideFlowLayoutPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashboardSlideFlowLayoutPanel.Location = new System.Drawing.Point(18, 35);
-            this.dashboardSlideFlowLayoutPanel.Name = "dashboardSlideFlowLayoutPanel";
-            this.dashboardSlideFlowLayoutPanel.Size = new System.Drawing.Size(551, 677);
-            this.dashboardSlideFlowLayoutPanel.TabIndex = 25;
+            this.dashboardRightSideFlowLayoutPanel.AutoScroll = true;
+            this.dashboardRightSideFlowLayoutPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboardRightSideFlowLayoutPanel.Location = new System.Drawing.Point(18, 35);
+            this.dashboardRightSideFlowLayoutPanel.Name = "dashboardRightSideFlowLayoutPanel";
+            this.dashboardRightSideFlowLayoutPanel.Size = new System.Drawing.Size(551, 677);
+            this.dashboardRightSideFlowLayoutPanel.TabIndex = 25;
             // 
             // sliderCrossButton
             // 
@@ -2113,23 +2110,23 @@
             // rightSliderHeadLineLabel
             // 
             this.rightSliderHeadLineLabel.AutoSize = true;
-            this.rightSliderHeadLineLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rightSliderHeadLineLabel.Location = new System.Drawing.Point(14, 9);
+            this.rightSliderHeadLineLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rightSliderHeadLineLabel.Location = new System.Drawing.Point(17, 9);
             this.rightSliderHeadLineLabel.Name = "rightSliderHeadLineLabel";
-            this.rightSliderHeadLineLabel.Size = new System.Drawing.Size(72, 18);
+            this.rightSliderHeadLineLabel.Size = new System.Drawing.Size(88, 21);
             this.rightSliderHeadLineLabel.TabIndex = 26;
             this.rightSliderHeadLineLabel.Text = "ডাক গতিবিধি";
             // 
-            // movementStatusDisplaypanel
+            // dashboardRightSideDisplaypanel
             // 
-            this.movementStatusDisplaypanel.Controls.Add(this.rightSliderHeadLineLabel);
-            this.movementStatusDisplaypanel.Controls.Add(this.sliderCrossButton);
-            this.movementStatusDisplaypanel.Controls.Add(this.dashboardSlideFlowLayoutPanel);
-            this.movementStatusDisplaypanel.Location = new System.Drawing.Point(783, 1);
-            this.movementStatusDisplaypanel.Name = "movementStatusDisplaypanel";
-            this.movementStatusDisplaypanel.Size = new System.Drawing.Size(572, 690);
-            this.movementStatusDisplaypanel.TabIndex = 26;
-            this.movementStatusDisplaypanel.Visible = false;
+            this.dashboardRightSideDisplaypanel.Controls.Add(this.rightSliderHeadLineLabel);
+            this.dashboardRightSideDisplaypanel.Controls.Add(this.sliderCrossButton);
+            this.dashboardRightSideDisplaypanel.Controls.Add(this.dashboardRightSideFlowLayoutPanel);
+            this.dashboardRightSideDisplaypanel.Location = new System.Drawing.Point(783, 1);
+            this.dashboardRightSideDisplaypanel.Name = "dashboardRightSideDisplaypanel";
+            this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(572, 690);
+            this.dashboardRightSideDisplaypanel.TabIndex = 26;
+            this.dashboardRightSideDisplaypanel.Visible = false;
             // 
             // designationDetailsPanel
             // 
@@ -2137,7 +2134,7 @@
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.designationDetailsPanel.dakTotalNumber = 5;
             this.designationDetailsPanel.designationLinkText = null;
-            this.designationDetailsPanel.Location = new System.Drawing.Point(895, 48);
+            this.designationDetailsPanel.Location = new System.Drawing.Point(910, 48);
             this.designationDetailsPanel.Name = "designationDetailsPanel";
             this.designationDetailsPanel.nothiTotalNumber = 9;
             this.designationDetailsPanel.Size = new System.Drawing.Size(428, 146);
@@ -2147,7 +2144,7 @@
             // 
             // dashboardPanel
             // 
-            this.dashboardPanel.Controls.Add(this.movementStatusDisplaypanel);
+            this.dashboardPanel.Controls.Add(this.dashboardRightSideDisplaypanel);
             this.dashboardPanel.Controls.Add(this.designationDetailsPanel);
             this.dashboardPanel.Controls.Add(this.panel16);
             this.dashboardPanel.Controls.Add(this.panel1);
@@ -2170,6 +2167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1354, 687);
             this.Controls.Add(this.dashboardPanel);
@@ -2190,7 +2188,6 @@
             this.dakModulePanel.ResumeLayout(false);
             this.dakModulePanel.PerformLayout();
             this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.dakSortMetroPanel.ResumeLayout(false);
             this.dakSortMetroPanel.PerformLayout();
             this.panel11.ResumeLayout(false);
@@ -2229,9 +2226,8 @@
             this.dakUploadDropDownPanel.ResumeLayout(false);
             this.dakUploadDropDownPanel.PerformLayout();
             this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.movementStatusDisplaypanel.ResumeLayout(false);
-            this.movementStatusDisplaypanel.PerformLayout();
+            this.dashboardRightSideDisplaypanel.ResumeLayout(false);
+            this.dashboardRightSideDisplaypanel.PerformLayout();
             this.dashboardPanel.ResumeLayout(false);
             this.dashboardPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -2287,7 +2283,7 @@
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Panel detailsDakSearcPanel;
-        private System.Windows.Forms.FlowLayoutPanel dakListFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel dakBodyFlowLayoutPanel;
         private System.Windows.Forms.DateTimePicker timeLimitDateTimePicker;
         private System.Windows.Forms.ComboBox dakAttentionTypeComboBox;
         private System.Windows.Forms.ComboBox dakPriorityComboBox;
@@ -2355,10 +2351,10 @@
         private FontAwesome.Sharp.IconButton dakInboxButton;
         private FontAwesome.Sharp.IconButton dakSortButton;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.FlowLayoutPanel dashboardSlideFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel dashboardRightSideFlowLayoutPanel;
         private System.Windows.Forms.Button sliderCrossButton;
         private System.Windows.Forms.Label rightSliderHeadLineLabel;
-        private System.Windows.Forms.Panel movementStatusDisplaypanel;
+        private System.Windows.Forms.Panel dashboardRightSideDisplaypanel;
         private FontAwesome.Sharp.IconButton khasraDakButton;
         private FontAwesome.Sharp.IconButton dakNotivuktoButton;
         private FontAwesome.Sharp.IconButton dakOutboxButton;

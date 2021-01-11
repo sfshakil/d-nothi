@@ -181,6 +181,7 @@
             this.lbToOfficer.Size = new System.Drawing.Size(84, 18);
             this.lbToOfficer.TabIndex = 70;
             this.lbToOfficer.Text = "toOfficerLabel";
+            this.lbToOfficer.Visible = false;
             // 
             // iconButton6
             // 
@@ -196,6 +197,7 @@
             this.iconButton6.Size = new System.Drawing.Size(16, 17);
             this.iconButton6.TabIndex = 69;
             this.iconButton6.UseVisualStyleBackColor = false;
+            this.iconButton6.Visible = false;
             // 
             // lbDeskOfficer
             // 

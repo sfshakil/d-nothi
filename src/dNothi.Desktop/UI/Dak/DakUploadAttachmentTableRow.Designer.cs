@@ -47,16 +47,19 @@
             // 
             // dakAttachmentTableRadioButton
             // 
-            this.dakAttachmentTableRadioButton.BackColor = System.Drawing.Color.Transparent;
-            this.dakAttachmentTableRadioButton.Location = new System.Drawing.Point(4, 5);
-            this.dakAttachmentTableRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dakAttachmentTableRadioButton.BackColor = System.Drawing.Color.White;
+            this.dakAttachmentTableRadioButton.FlatAppearance.BorderSize = 0;
+            this.dakAttachmentTableRadioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakAttachmentTableRadioButton.Location = new System.Drawing.Point(11, 11);
+            this.dakAttachmentTableRadioButton.Margin = new System.Windows.Forms.Padding(10);
             this.dakAttachmentTableRadioButton.Name = "dakAttachmentTableRadioButton";
             this.dakAttachmentTableRadioButton.Padding = new System.Windows.Forms.Padding(50);
-            this.dakAttachmentTableRadioButton.Size = new System.Drawing.Size(114, 55);
+            this.dakAttachmentTableRadioButton.Size = new System.Drawing.Size(73, 43);
             this.dakAttachmentTableRadioButton.TabIndex = 0;
             this.dakAttachmentTableRadioButton.TabStop = true;
             this.dakAttachmentTableRadioButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.dakAttachmentTableRadioButton.UseVisualStyleBackColor = false;
+            this.dakAttachmentTableRadioButton.Visible = false;
             this.dakAttachmentTableRadioButton.CheckedChanged += new System.EventHandler(this.dakAttachmentTableRadioButton_CheckedChanged);
             // 
             // attachmentLink
@@ -141,9 +144,9 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 285F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 420F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dakAttachmentTableRadioButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.attachmentLink, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dakAttachmentTableRadioButton, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";

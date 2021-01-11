@@ -11,14 +11,27 @@ using dNothi.Desktop.View_Model;
 using dNothi.Services.DakServices;
 using dNothi.JsonParser.Entity.Dak;
 using AutoMapper;
+using System.IO;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class NagorikDakUploadUserControl : UserControl
     {
+        public static readonly List<string> ImageExtensions = new List<string> { ".JPG", "JPG", "JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG", "IMAGE", "IMG" };
+        public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
         List<string> PriorityListCollection = new List<string>();
         List<string> SecurityListCollection = new List<string>();
         List<string> sendMediumListCollection = new List<string>();
+        DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
+        public int _prerokId = 0;
+        public int _dakId = 0;
+        private DakUserParam _dak_List_User_Param;
+        public DakUploadParameter dakUploadParameter = new DakUploadParameter();
+        public List<DakAttachmentDTO> _dakAttachmentDTOs = new List<DakAttachmentDTO>();
+        public DakInfoDTO _dakInfoDTO = new DakInfoDTO();
+        public PrapokDTO _mul_prapok = new PrapokDTO();
+        public Dictionary<string, PrapokDTO> _onulipi;
 
 
         int mulPrapokColumn = 9;
@@ -27,7 +40,158 @@ namespace dNothi.Desktop.UI.Dak
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
         List<DakAttachmentinGrid> _dakAttachmentinGrids = new List<DakAttachmentinGrid>();
 
+        public PrapokDTO mul_prapokEdit { get { return _mul_prapok; } set { _mul_prapok = value; viewDesignationSealLists.FirstOrDefault(a => a.designation_id == value.designation_id).mul_prapok = true; } }
+        public Dictionary<string, PrapokDTO> onulipi
+        {
+            get { return _onulipi; }
+            set
+            {
+                _onulipi = value;
+                foreach (KeyValuePair<string, PrapokDTO> prapok in value)
+                {
+                    viewDesignationSealLists.FirstOrDefault(a => a.designation_id == prapok.Value.designation_id).onulipi_prapok = true;
+                }
+            }
+        }
 
+
+        public DakInfoDTO dakInfoDTO
+        {
+            get { return _dakInfoDTO; }
+            set
+            {
+                _dakInfoDTO = value;
+                _prerokId = value.sender_officer_designation_id;
+                //selectedPrerokLabel.Text = value.receiving_officer_name + "," + value.receiving_officer_designation_label + "," + value.receiving_office_unit_name + "," + value.receiving_office_name;
+               // sharokNoTextBox.Text = value.sender_sarok_no;
+                //sharokdateTimePicker.Text = value.sending_date;
+
+                subjectXTextBox.Text = value.dak_subject;
+                _dakId = value.id;
+
+                //sendMediumSearchButton.searchButtonText = value.dak_sending_media;
+
+                //dakDescriptionXTextBox.Text = value.dak_description;
+
+
+
+                prioritySearchButton.Text = value.dak_priority_level;
+                seurityLevelSearchButton.Text = value.dak_security_level;
+
+
+
+            }
+
+        }
+
+        public List<DakAttachmentDTO> dakAttachmentDTOs
+        {
+            get { return _dakAttachmentDTOs; }
+            set
+            {
+                _dakAttachmentDTOs = value;
+                if (value != null)
+                {
+                    if (value.Count > 0)
+                    {
+                        foreach (DakAttachmentDTO attachment in dakAttachmentDTOs)
+                        {
+                            DakUploadAttachmentTableRow dakUploadAttachmentTableRow = new DakUploadAttachmentTableRow();
+
+                            if (attachment.attachment_type.ToUpperInvariant().Contains("IMAGE"))
+                            {
+                                dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
+                                dakUploadAttachmentTableRow._isAllowedforOCR = true;
+                                try
+                                {
+                                    using (Image image = Image.FromFile(attachment.url))
+                                    {
+                                        using (MemoryStream m = new MemoryStream())
+                                        {
+                                            image.Save(m, image.RawFormat);
+                                            byte[] imageBytes = m.ToArray();
+
+                                            // Convert byte[] to Base64 String
+                                            dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
+
+                                        }
+                                    }
+                                }
+                                catch (Exception Ex)
+                                {
+
+                                }
+                            }
+
+
+                            else if (attachment.attachment_type.ToUpperInvariant().Contains("PDF"))
+                            {
+                                dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
+                                dakUploadAttachmentTableRow._isAllowedforOCR = true;
+
+                            }
+                            else
+                            {
+                                dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
+                            }
+
+                            if (attachment.is_main == 1)
+                            {
+                                dakUploadAttachmentTableRow.isMulpotro = true;
+                            }
+
+
+
+                            dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(oCRSender, oCREvent, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
+                            dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(deleteSender, deleteeVent, dakUploadAttachmentTableRow._dakAttachment); };
+
+
+
+                            dakUploadAttachmentTableRow.fileexension = attachment.attachment_type.ToLowerInvariant();
+                            dakUploadAttachmentTableRow._dakAttachment = attachment;
+                            dakUploadAttachmentTableRow.imageLink = attachment.url;
+                            dakUploadAttachmentTableRow.imgSource = attachment.thumbnail_url;
+                            dakUploadAttachmentTableRow.attachmentName = attachment.user_file_name;
+                            dakUploadAttachmentTableRow.attachmentId = attachment.attachment_id; ;
+                            dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(radioSender, radioEvent, dakUploadAttachmentTableRow.attachmentId); };
+
+
+                            attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        public DakUserParam dakListUserParam
+        {
+            get { return _dak_List_User_Param; }
+            set { _dak_List_User_Param = value; }
+
+        }
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+
+
+                if (ctrl.Font.Style != FontStyle.Regular)
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
+
+        }
 
         public NagorikDakUploadUserControl()
         {
@@ -38,9 +202,29 @@ namespace dNothi.Desktop.UI.Dak
 
             DakAttachmentListinGrid dakAttachmentListinGrid = new DakAttachmentListinGrid();
             _dakAttachmentinGrids = dakAttachmentListinGrid.dakAttachmentinGrids;
-          
+            PriorityListCollection.Clear();
+
+         
+
+            MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+           
 
         }
+
+        private void AttachmentTable_RadioButtonClick(object sender, EventArgs e, long attachmentId)
+        {
+            var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
+
+            foreach (var attachment in attachmentList)
+            {
+                if (attachment.attachmentId != attachmentId)
+                {
+                    attachment.isMulpotro = false;
+                }
+            }
+
+        }
+
         private DesignationSealListResponse _designationSealListResponse;
 
 
@@ -63,7 +247,14 @@ namespace dNothi.Desktop.UI.Dak
 
 
                         viewdesignationListOwnOffice.nij_Office = true;
-                        viewDesignationSealLists.Add(viewdesignationListOwnOffice);
+
+
+
+                        if (!viewDesignationSealLists.Any(a => a.designation_id == viewdesignationListOwnOffice.designation_id))
+                        {
+                            viewDesignationSealLists.Add(viewdesignationListOwnOffice);
+                        }
+
                     }
 
                     foreach (PrapokDTO otherOfficeDTO in value.data.other_office)
@@ -73,11 +264,15 @@ namespace dNothi.Desktop.UI.Dak
                   );
                         var mapper = new Mapper(config);
                         var viewdesignationListOtherOffice = mapper.Map<ViewDesignationSealList>(otherOfficeDTO);
+                        if (!viewDesignationSealLists.Any(a => a.designation_id == viewdesignationListOtherOffice.designation_id))
+                        {
+                            viewDesignationSealLists.Add(viewdesignationListOtherOffice);
+                        }
 
-                        viewDesignationSealLists.Add(viewdesignationListOtherOffice);
                     }
 
                     PopulateGrid();
+
                 }
                 catch
                 {
@@ -89,6 +284,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+
 
 
         int designationColumn = 2;
@@ -156,30 +352,61 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-       
+        private void ownOfficeButton_Click(object sender, EventArgs e)
+        {
+            PopulateGrid();
+
+
+        }
         public void PopulateGrid()
         {
+            BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
+            foreach (ViewDesignationSealList viewDesignationSealList in viewDesignationSealLists)
+            {
+                bindinglist.Add(viewDesignationSealList);
+            }
             prapokDataGridView.DataSource = null;
-            prapokDataGridView.DataSource = viewDesignationSealLists.Where(a => a.nij_Office == NijOffice).ToList();
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-        private void dakUploadPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
+            prapokDataGridView.DataSource = bindinglist;
         }
 
         private void prapokDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int row_index = e.RowIndex;
-            //bool mulprapok = (bool)prapokDataGridView.Rows[row_index].Cells[mulPrapokColumn].Value;
-            //bool Onulipi = (bool)prapokDataGridView.Rows[row_index].Cells[onulipiColumn].Value;
-            //  if(e.ColumnIndex==prapokDataGridView.Columns["mul_prapok"].Index)
+
+            if (prapokDataGridView.Columns[prapokDataGridView.CurrentCell.ColumnIndex].Name == "ActionButton")
+            {
+
+                DialogResult DialogResultSttring = MessageBox.Show("অপনি কি প্রাপকটিকে মুছে ফেলতে চান?\n",
+                                   "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (DialogResultSttring == DialogResult.Yes)
+                {
+                    int designation_id = Convert.ToInt32(prapokDataGridView.Rows[row_index].Cells["designationid_id"].Value);
+                    var form = FormFactory.Create<Dashboard>();
+                    string designationSealIdJson = designation_id.ToString();
+                    DeleteDesignationSealResponse deleteDesignationSealResponse = form.DeleteDesignation(designationSealIdJson);
+
+                    if (deleteDesignationSealResponse.status == "success")
+                    {
+                        MessageBox.Show("প্রাপকটিকে সফলভাবে মুছে ফেলা হ​য়েছে।");
+
+                        prapokDataGridView.Rows.RemoveAt(row_index);
+
+
+
+                        viewDesignationSealLists = viewDesignationSealLists.Where(a => a.designation_id != designation_id).ToList();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("মুছে ফেলা সফল হ​য়নি।।");
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
             if (e.ColumnIndex == mulPrapokColumn)
             {
                 SaveMulPrapok(row_index);
@@ -215,8 +442,13 @@ namespace dNothi.Desktop.UI.Dak
                     }
 
                 }
+                BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
+                foreach (ViewDesignationSealList viewDesignationSealList in NewViewDesignationSealLists)
+                {
+                    bindinglist.Add(viewDesignationSealList);
+                }
                 prapokDataGridView.DataSource = null;
-                prapokDataGridView.DataSource = NewViewDesignationSealLists.ToList();
+                prapokDataGridView.DataSource = bindinglist;
             }
 
 
@@ -230,37 +462,165 @@ namespace dNothi.Desktop.UI.Dak
         }
 
        
+
+        
+
+        
+
+     
+
+       
         private void fileUploadButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
             //opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
-            opnfd.ShowDialog();
-
-
-        }
-
-        private void attachmentDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex < 4)
-                return;
-
-            //I supposed your button column is at index 0
-            if (e.ColumnIndex == 4)
+            if (opnfd.ShowDialog() == DialogResult.OK)
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                _dakFileUploadParam.user_file_name = new System.IO.FileInfo(opnfd.FileName).Name;
 
-                //var w = Properties.Resources.SomeImage.Width;
-                //var h = Properties.Resources.SomeImage.Height;
-                //var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                //var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                //e.Graphics.DrawImage(someImage, new Rectangle(x, y, w, h));
-                //e.Handled = true;
+
+                //Read the contents of the file into a stream
+                var fileStream = opnfd.OpenFile();
+
+                using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    _dakFileUploadParam.content = reader.ReadToEnd();
+                }
+
+
+                // _dakFileUploadParam.file_size_in_kb=opnfd.
+
+
+                var size = new System.IO.FileInfo(opnfd.FileName).Length;
+
+                _dakFileUploadParam.file_size_in_kb = size.ToString() + " KB";
+
+
+
+                DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+
+                using (var form = FormFactory.Create<Dashboard>())
+                {
+                    dakUploadedFileResponse = form.UploadFile(_dakFileUploadParam);
+                }
+
+                if (dakUploadedFileResponse.status == "success")
+                {
+                    if (dakUploadedFileResponse.data.Count > 0)
+                    {
+                        //attachmentListFlowLayoutPanel.Controls.Clear();
+                        DakUploadAttachmentTableRow dakUploadAttachmentTableRow = new DakUploadAttachmentTableRow();
+                        if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                        {
+                            dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
+                            dakUploadAttachmentTableRow._isAllowedforOCR = true;
+
+                            using (Image image = Image.FromFile(opnfd.FileName))
+                            {
+                                using (MemoryStream m = new MemoryStream())
+                                {
+                                    image.Save(m, image.RawFormat);
+                                    byte[] imageBytes = m.ToArray();
+
+                                    // Convert byte[] to Base64 String
+                                    dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
+
+                                }
+                            }
+
+
+
+
+                        }
+                        else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                        {
+                            dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
+
+                        }
+                        else
+                        {
+                            dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
+                        }
+
+
+
+                        dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
+                        dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._dakAttachment); };
+
+
+
+                        dakUploadAttachmentTableRow.fileexension = new System.IO.FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
+                        dakUploadAttachmentTableRow._dakAttachment = dakUploadedFileResponse.data[0];
+                        dakUploadAttachmentTableRow.imageLink = dakUploadedFileResponse.data[0].url;
+                        dakUploadAttachmentTableRow.imgSource = dakUploadedFileResponse.data[0].thumbnail_url;
+                        dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                        dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;
+                        dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
+
+
+                        attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
+                    }
+                }
+
             }
+
+
+        }
+        private void DeleteControl_ButtonClick(object sender, EventArgs e, DakAttachmentDTO dakAttachment)
+        {
+            DakUploadFileDeleteParam deleteParam = new DakUploadFileDeleteParam();
+            deleteParam.delete_token = dakAttachment.delete_token;
+            deleteParam.file_name = dakAttachment.file_name;
+
+            DakFileDeleteResponse response;
+
+            using (var form = FormFactory.Create<Dashboard>())
+            {
+                response = form.DeleteFile(deleteParam);
+            }
+            if (response.status == "success")
+
+            {
+                var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
+
+                foreach (var attachment in attachmentList)
+                {
+                    if (attachment.attachmentId == dakAttachment.attachment_id)
+                    {
+                        attachmentListFlowLayoutPanel.Controls.Remove(attachment);
+                    }
+                }
+            }
+
+
         }
 
-       
-       
+        private void OCRControl_ButtonClick(object sender, EventArgs e, string imageBase64String, DakAttachmentDTO dakAttachment, string Extension)
+        {
+            OCRParameter oCRParameter = new OCRParameter();
+            oCRParameter.data = imageBase64String;
+            oCRParameter.Extension = Extension;
+
+            OCRResponse oCRResponse = new OCRResponse();
+
+            using (var form = FormFactory.Create<Dashboard>())
+            {
+                oCRResponse = form.OCRFile(oCRParameter);
+            }
+
+            dakDescriptionXTextBox.Text = oCRResponse.text;
+
+        }
+
+        private void fileUploadPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+
+
+
         private void label19_Click(object sender, EventArgs e)
         {
 
@@ -276,12 +636,222 @@ namespace dNothi.Desktop.UI.Dak
             PopulateGrid();
         }
 
-        private void fileUploadPanel_Paint(object sender, PaintEventArgs e)
+
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler KhosraSaveButtonClick;
+        private void khosraSaveButton_Click(object sender, EventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি সংরক্ষণ করতে চান?\n",
+                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+                SetDakUploadData();
+
+                if (this.KhosraSaveButtonClick != null)
+                    this.KhosraSaveButtonClick(sender, e);
+            }
+            else
+            {
+
+            }
+
+
+
+
+
+
         }
 
-        private void fileUploadPanel_Click(object sender, EventArgs e)
+        private void SetDakUploadData()
+        {
+            //uploader
+
+            var config = new MapperConfiguration(cfg =>
+                      cfg.CreateMap<DakUserParam, DakForwardRequestSenderInfo>()
+                  );
+            var mapper = new Mapper(config);
+            var dakSender = mapper.Map<DakForwardRequestSenderInfo>(_dak_List_User_Param);
+
+
+            dakUploadParameter.uploader = dakUploadParameter.CSharpObjtoJson(dakSender);
+
+            //Sender
+           
+           dakUploadParameter.sender_info = "";
+
+
+            // Dak
+
+            DakInfo dak = new DakInfo(false);
+
+            List<DakUploadAttachment> dakUploadAttachments = new List<DakUploadAttachment>();
+
+            var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
+
+            foreach (var attachment in attachmentList)
+            {
+                DakUploadAttachment dakUploadAttachment = new DakUploadAttachment();
+                if (attachment.isMulpotro)
+                {
+                    dakUploadAttachment.mulpotro = 1;
+                }
+
+
+                dakUploadAttachment.file_info = attachment._dakAttachment;
+                dakUploadAttachment.file_info.user_file_name = attachment._attachmentName;
+
+                dakUploadAttachments.Add(dakUploadAttachment);
+
+
+            }
+
+            dak.attachment = dakUploadAttachments.ToDictionary(a => a.file_info.id.ToString());
+          
+            dak.national_idendity_no =nationalIdXTextBox.Text;
+            dak.birth_registration_number = birthCertificateNoXTextBox.Text;
+            dak.passport = passportNoXTextBox.Text;
+            dak.name_bng = nameBanglaXTextBox.Text;
+            dak.name_eng = NameEnglishXTextBox.Text;
+            dak.father_name = nameFatherorHusbandXTextBox.Text;
+            dak.mother_name = nameMotherXTextBox.Text;
+            dak.address = presentAddressXTextBox.Text;
+            dak.parmanent_address = permenantAddressXTextBox.Text;
+            dak.email = emailXTextBox.Text;
+            dak.mobile_no = mobileXTextBox.Text;
+            dak.nationality = searchNationalityUserController1.Text.ToString();
+            dak.gender = genderSearchButton.Text.ToString();
+            dak.religion = searchReligionUserController.Text.ToString();
+
+
+
+
+            dak.dak_subject = subjectXTextBox.Text;
+            dak.id = _dakId;
+            dak.dak_description = dakDescriptionXTextBox.Text;
+
+
+
+
+
+            DakPriorityList dakPriority = new DakPriorityList();
+            int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
+
+
+
+            DakSecurityList dakSecurityList = new DakSecurityList();
+            int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(seurityLevelSearchButton.Text.ToString()));
+
+            dak.priority = dak_priority_id.ToString();
+            dak.dak_priority = prioritySearchButton.ToString();
+            dak.security = dak_security_id.ToString();
+            dak.dak_security = seurityLevelSearchButton.ToString();
+
+
+            dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dak);
+
+
+            // Receiver
+            DakUploadReceiver dakUploadReceiver = new DakUploadReceiver();
+
+            ViewDesignationSealList mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
+
+            if (mulprapok.nij_Office == true)
+            {
+                var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                dakUploadReceiver.mul_prapok = receiver_info;
+            }
+            else
+            {
+                var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                dakUploadReceiver.mul_prapok = receiver_info;
+            }
+
+
+            // onulipi
+            List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
+
+            List<ViewDesignationSealList> viewDesignationSealListsOnulipPrapok = viewDesignationSealLists.Where(a => a.onulipi_prapok == true).ToList();
+            foreach (ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
+            {
+                if (viewDesignationSeal.nij_Office == true)
+                {
+                    OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                }
+                else
+                {
+                    OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                }
+            }
+
+            dakUploadReceiver.onulipi = OnulipiprapokDTOs.ToDictionary(a => a.designation_id.ToString());
+
+
+
+
+
+
+
+
+            dakUploadParameter.receiver_info = dakUploadParameter.CSharpObjtoJson(dakUploadReceiver);
+            dakUploadParameter.others = "[]";
+            // dakUploadParameter.path = sendMediumSearchButton.searchButtonText;
+            dakUploadParameter.content = dakDescriptionXTextBox.Text;
+            dakUploadParameter.office_id = _dak_List_User_Param.office_id;
+            dakUploadParameter.designation_id = _dak_List_User_Param.designation_id;
+
+        }
+
+        public event EventHandler AddDesignationButtonClick;
+        private void addDesignationButton_Click(object sender, EventArgs e)
+        {
+
+            if (this.AddDesignationButtonClick != null)
+                this.AddDesignationButtonClick(sender, e);
+
+        }
+        public event EventHandler DakSendButton;
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি প্রেরণ করতে চান?\n",
+                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+                SetDakUploadData();
+
+
+                if (this.DakSendButton != null)
+                    this.DakSendButton(sender, e);
+            }
+            else
+            {
+
+            }
+
+        }
+
+        private void sameAsPresentAddressCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            permenantAddressXTextBox.Text = presentAddressXTextBox.Text.ToString(); ;
+        }
+
+        private void nationalIdXTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                char ch = (char)('0' + e.KeyChar - '\u09E6');
+                if(!char.IsControl(ch) && !char.IsDigit(ch))
+                {
+                    e.Handled = true;
+                }
+                
+            }
+        }
+
+        private void mobileXTextBox_Validating(object sender, CancelEventArgs e)
         {
 
         }

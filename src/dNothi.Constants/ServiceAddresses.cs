@@ -10,7 +10,11 @@ namespace dNothi.Constants
     {
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";
         public const string NothijatoNoteAddEndPoint = "/api/nothi/note/create";
+        public const string DakDecisionListEndpoint = "/api/dak/decision/list/custom";
         public const string DakArchiveEndPoint = "/api/dak/action/archive";
+        public const string DakDecisionAddEndpoint = "/api/dak/decision/add";
+        public const string DakDecisionDeleteEndpoint = "/api/dak/decision/delete";
+        public const string DakDecisionSetupEndpoint = "/api/dak/decision/setup";
         public const string GetNoteListEndpoint = "/api/nothi/note/list";
         public const string DakNothivuktoEndpointEndPoint = "/api/nothi/dak/nothivukto";
         public const string OCREndpoint = "http://bokshi-img2txt.tappware.com/apiImageToText/";

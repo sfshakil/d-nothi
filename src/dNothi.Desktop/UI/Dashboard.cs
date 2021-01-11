@@ -64,7 +64,7 @@ namespace dNothi.Desktop.UI
             _dakuploadservice = dakUploadService;
             InitializeComponent();
 
-            dashboardSlideFlowLayoutPanel.BringToFront();
+            dashboardRightSideFlowLayoutPanel.BringToFront();
 
 
             pb = new PictureBox();
@@ -167,7 +167,7 @@ namespace dNothi.Desktop.UI
 
                 DakDetailsResponse dakDetailsResponse = _dakListService.GetDakDetailsbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
 
-                dakListFlowLayoutPanel.Controls.Clear();
+                dakBodyFlowLayoutPanel.Controls.Clear();
 
 
                 if (dakDetailsResponse != null)
@@ -217,7 +217,7 @@ namespace dNothi.Desktop.UI
                                 }
                             }
 
-                            dakListFlowLayoutPanel.Controls.Add(detailsDakUserControl);
+                            dakBodyFlowLayoutPanel.Controls.Add(detailsDakUserControl);
 
                         }
                     }
@@ -228,16 +228,13 @@ namespace dNothi.Desktop.UI
 
         private void DakSendButtonClicked(int dak_id, string dak_type, int is_copied_dak, string dak_subject)
         {
-            dashboardSlideFlowLayoutPanel.Controls.Clear();
-            movementStatusDisplaypanel.Visible = true;
+            dashboardRightSideFlowLayoutPanel.Controls.Clear();
+            dashboardRightSideDisplaypanel.Visible = true;
 
 
             rightSliderHeadLineLabel.Text = "ডাক প্রেরণ করুন";
-            DisabledOtherControlExceptLeftPopUpPanel(this.Controls);
-
-            DakForwardUserControl dakSendUserControl = new DakForwardUserControl();
-
-
+         
+            var dakSendUserControl=UserControlFactory.Create<DakForwardUserControl>();
 
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
@@ -254,12 +251,15 @@ namespace dNothi.Desktop.UI
             dakSendUserControl.is_copied_dak = is_copied_dak;
             dakSendUserControl.dak_List_User_Param = dakListUserParam;
             dakSendUserControl.ButtonClick += delegate (object sender, EventArgs e) { sliderCrossButton_Click(sender, e); };
+            dakSendUserControl.AddDesignationButtonClick += delegate (object sender, EventArgs e) { AddDesignationUserControl_ButtonClick(sender, e); };
 
 
 
 
-            dashboardSlideFlowLayoutPanel.Controls.Add(dakSendUserControl);
+            dashboardRightSideFlowLayoutPanel.Controls.Add(dakSendUserControl);
         }
+
+        
 
         private void GetDakMovementList(int dak_id, string dak_type, int is_copied_dak)
         {
@@ -269,8 +269,8 @@ namespace dNothi.Desktop.UI
 
             DakMovementStatusResponse dakMovementStatusResponse = _dakListService.GetDakMovementStatusListbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
 
-            dashboardSlideFlowLayoutPanel.Controls.Clear();
-            movementStatusDisplaypanel.Visible = true;
+            dashboardRightSideFlowLayoutPanel.Controls.Clear();
+            dashboardRightSideDisplaypanel.Visible = true;
 
 
             if (dakMovementStatusResponse != null)
@@ -291,7 +291,7 @@ namespace dNothi.Desktop.UI
                             movementStatusLeftSidePicUserControl.dakPrioriy = movementStatusDTO.other.dak_priority.ToString();
                             movementStatusLeftSidePicUserControl.dakSecurityIconValue = movementStatusDTO.other.dak_security_level;
 
-                            dashboardSlideFlowLayoutPanel.Controls.Add(movementStatusLeftSidePicUserControl);
+                            dashboardRightSideFlowLayoutPanel.Controls.Add(movementStatusLeftSidePicUserControl);
                         }
 
 
@@ -304,15 +304,17 @@ namespace dNothi.Desktop.UI
                     }
                 }
             }
-            DisabledOtherControlExceptLeftPopUpPanel(this.Controls);
+         //   DisabledOtherControlExceptLeftPopUpPanel(this.Controls);
+
 
 
         }
         void DisabledOtherControlExceptLeftPopUpPanel(System.Windows.Forms.Control.ControlCollection collection)
         {
+          
             foreach (Control ctrl in collection)
             {
-                if (ctrl.Name == "movementStatusDisplaypanel")
+                if (ctrl.Name == "dashboardRightSideDisplaypanel")
                 {
                     continue;
                 }
@@ -322,17 +324,17 @@ namespace dNothi.Desktop.UI
             }
 
         }
-        void EnableOtherControlExceptLeftPopUpPanel(System.Windows.Forms.Control.ControlCollection collection)
+        void EnableOtherControlExceptLeftPopUpPanel(System.Windows.Forms.Control.ControlCollection collection, Control control)
         {
             foreach (Control ctrl in collection)
             {
-                if (ctrl.Name == "movementStatusDisplaypanel")
+                if (ctrl.Name == control.Name)
                 {
                     continue;
                 }
 
                 ctrl.Enabled = true;
-                EnableOtherControlExceptLeftPopUpPanel(ctrl.Controls);
+                EnableOtherControlExceptLeftPopUpPanel(ctrl.Controls,control);
             }
 
         }
@@ -523,14 +525,14 @@ namespace dNothi.Desktop.UI
                 dakOutboxUserControls.Add(dakOutboxUserControl);
 
             }
-            dakListFlowLayoutPanel.Controls.Clear();
-            dakListFlowLayoutPanel.AutoScroll = true;
-            dakListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakListFlowLayoutPanel.WrapContents = false;
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.AutoScroll = true;
+            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            dakBodyFlowLayoutPanel.WrapContents = false;
 
             for (int j = 0; j <= dakOutboxUserControls.Count - 1; j++)
             {
-                dakListFlowLayoutPanel.Controls.Add(dakOutboxUserControls[j]);
+                dakBodyFlowLayoutPanel.Controls.Add(dakOutboxUserControls[j]);
             }
         }
 
@@ -638,14 +640,14 @@ namespace dNothi.Desktop.UI
                 dakInboxUserControls.Add(dakInboxUserControl);
 
             }
-            dakListFlowLayoutPanel.Controls.Clear();
-            dakListFlowLayoutPanel.AutoScroll = true;
-            dakListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakListFlowLayoutPanel.WrapContents = false;
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.AutoScroll = true;
+            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            dakBodyFlowLayoutPanel.WrapContents = false;
 
             for (int j = 0; j <= dakInboxUserControls.Count - 1; j++)
             {
-                dakListFlowLayoutPanel.Controls.Add(dakInboxUserControls[j]);
+                dakBodyFlowLayoutPanel.Controls.Add(dakInboxUserControls[j]);
             }
 
 
@@ -683,12 +685,62 @@ namespace dNothi.Desktop.UI
 
         private void ReloadBodyPanel()
         {
-            var dakInboxUserControl = dakListFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+            if(dashboardRightSideDisplaypanel.Visible)
+            {
+                var dakForwardControls = dashboardRightSideFlowLayoutPanel.Controls.OfType<DakForwardUserControl>().ToList();
 
-            if (dakInboxUserControl != null)
+                if (dakForwardControls.Count > 0)
+                {
+                    DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_dakuserparam);
+
+                    foreach (var dakFoprward in dakForwardControls)
+                    {
+                        dakFoprward.designationSealListResponse = designationSealListResponse;
+                    }
+
+                   
+                }
+            }
+          
+
+            var dakInboxUserControl = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+
+            if (dakInboxUserControl.Count>0)
             {
                 LoadDakInbox();
+                return;
             }
+
+
+
+
+            var daptorikDakList = dakBodyFlowLayoutPanel.Controls.OfType<DaptorikDakUploadUserControl>().ToList();
+
+            if(daptorikDakList.Count>0)
+            {
+                DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_dakuserparam);
+                foreach (var daptorikDak in daptorikDakList)
+                {
+                    daptorikDak.designationSealListResponse = designationSealListResponse;
+                }
+                return;
+            }
+            
+
+
+            var nagorikDakList = dakBodyFlowLayoutPanel.Controls.OfType<NagorikDakUploadUserControl>().ToList();
+            if(nagorikDakList.Count>0)
+            {
+                DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_dakuserparam);
+
+                foreach (var nagorikDak in nagorikDakList)
+                {
+                    nagorikDak.designationSealListResponse = designationSealListResponse;
+
+                }
+                return;
+            }
+           
         }
 
         private void ShowSubMenu(Panel dakUploadDropDownPanel)
@@ -876,14 +928,14 @@ namespace dNothi.Desktop.UI
                 dakNothivuktoUserControls.Add(dakNothivuktoUserControl);
 
             }
-            dakListFlowLayoutPanel.Controls.Clear();
-            dakListFlowLayoutPanel.AutoScroll = true;
-            dakListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakListFlowLayoutPanel.WrapContents = false;
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.AutoScroll = true;
+            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            dakBodyFlowLayoutPanel.WrapContents = false;
 
             for (int j = 0; j <= dakNothivuktoUserControls.Count - 1; j++)
             {
-                dakListFlowLayoutPanel.Controls.Add(dakNothivuktoUserControls[j]);
+                dakBodyFlowLayoutPanel.Controls.Add(dakNothivuktoUserControls[j]);
             }
 
 
@@ -1012,14 +1064,14 @@ namespace dNothi.Desktop.UI
                 dakArchiveUserControls.Add(dakArchiveUserControl);
 
             }
-            dakListFlowLayoutPanel.Controls.Clear();
-            dakListFlowLayoutPanel.AutoScroll = true;
-            dakListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakListFlowLayoutPanel.WrapContents = false;
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.AutoScroll = true;
+            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            dakBodyFlowLayoutPanel.WrapContents = false;
 
             for (int j = 0; j <= dakArchiveUserControls.Count - 1; j++)
             {
-                dakListFlowLayoutPanel.Controls.Add(dakArchiveUserControls[j]);
+                dakBodyFlowLayoutPanel.Controls.Add(dakArchiveUserControls[j]);
             }
 
 
@@ -1043,7 +1095,7 @@ namespace dNothi.Desktop.UI
 
         private void DakListLoad()
         {
-            dakListFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.Controls.Clear();
             NormalizeDashBoard();
 
 
@@ -1111,14 +1163,14 @@ namespace dNothi.Desktop.UI
                 dakNothijatoUserControls.Add(dakNothijatoUserControl);
 
             }
-            dakListFlowLayoutPanel.Controls.Clear();
-            dakListFlowLayoutPanel.AutoScroll = true;
-            dakListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakListFlowLayoutPanel.WrapContents = false;
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.AutoScroll = true;
+            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            dakBodyFlowLayoutPanel.WrapContents = false;
 
             for (int j = 0; j <= dakNothijatoUserControls.Count - 1; j++)
             {
-                dakListFlowLayoutPanel.Controls.Add(dakNothijatoUserControls[j]);
+                dakBodyFlowLayoutPanel.Controls.Add(dakNothijatoUserControls[j]);
             }
 
 
@@ -1211,14 +1263,14 @@ namespace dNothi.Desktop.UI
                 dakSortedUserControls.Add(dakSortedUserControl);
 
             }
-            dakListFlowLayoutPanel.Controls.Clear();
-            dakListFlowLayoutPanel.AutoScroll = true;
-            dakListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakListFlowLayoutPanel.WrapContents = false;
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.AutoScroll = true;
+            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            dakBodyFlowLayoutPanel.WrapContents = false;
 
             for (int j = 0; j <= dakSortedUserControls.Count - 1; j++)
             {
-                dakListFlowLayoutPanel.Controls.Add(dakSortedUserControls[j]);
+                dakBodyFlowLayoutPanel.Controls.Add(dakSortedUserControls[j]);
             }
         }
 
@@ -1226,14 +1278,14 @@ namespace dNothi.Desktop.UI
 
         private void EnableController()
         {
-            EnableOtherControlExceptLeftPopUpPanel(this.Controls);
+            EnableOtherControlExceptLeftPopUpPanel(this.Controls,dashboardRightSideDisplaypanel);
         }
 
         private void sliderCrossButton_Click(object sender, EventArgs e)
         {
-            movementStatusDisplaypanel.Visible = false;
+            dashboardRightSideDisplaypanel.Visible = false;
 
-
+            ReloadBodyPanel();
             EnableController();
             //LoadDakInbox();
         }
@@ -1279,23 +1331,8 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<AddDesignationSeal>();
 
             form.ShowDialog();
-            DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_dakuserparam);
-            try
-            {
-                var daptorikDakList = dakListFlowLayoutPanel.Controls.OfType<DaptorikDakUploadUserControl>().ToList();
-
-                foreach (var daptorikDak in daptorikDakList)
-                {
-                    daptorikDak.designationSealListResponse = designationSealListResponse;
-
-
-                }
-            }
-
-            catch (Exception Ex)
-            {
-
-            }
+            ReloadBodyPanel();
+           
 
 
         }
@@ -1358,21 +1395,9 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
-            dakListFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.Controls.Clear();
 
-            NagorikDakUploadUserControl dakUploadUserControl = new NagorikDakUploadUserControl();
-            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-
-
-            DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
-
-
-
-
-            dakUploadUserControl.designationSealListResponse = designationSealListResponse;
-
-
-            dakListFlowLayoutPanel.Controls.Add(dakUploadUserControl);
+            NagorikDakSavePageLoad(null);
         }
 
         private void KhasraDakButton_Click(object sender, EventArgs e)
@@ -1441,14 +1466,14 @@ namespace dNothi.Desktop.UI
                 draftedDakUserControls.Add(draftedDakUserControl);
 
             }
-            dakListFlowLayoutPanel.Controls.Clear();
-            dakListFlowLayoutPanel.AutoScroll = true;
-            dakListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakListFlowLayoutPanel.WrapContents = false;
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.AutoScroll = true;
+            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            dakBodyFlowLayoutPanel.WrapContents = false;
 
             for (int j = 0; j <= draftedDakUserControls.Count - 1; j++)
             {
-                dakListFlowLayoutPanel.Controls.Add(draftedDakUserControls[j]);
+                dakBodyFlowLayoutPanel.Controls.Add(draftedDakUserControls[j]);
             }
         }
 
@@ -1465,7 +1490,7 @@ namespace dNothi.Desktop.UI
                     }
                     else
                     {
-
+                        NagorikDakSavePageLoad(dakEditResponse);
                     }
                 }
             }
@@ -1480,7 +1505,7 @@ namespace dNothi.Desktop.UI
         {
             dakSortMetroPanel.Visible = false;
             dakSearchHeadingPanel.Visible = false;
-            dakListFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.Controls.Clear();
 
             DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -1509,7 +1534,43 @@ namespace dNothi.Desktop.UI
                 dakUploadUserControl.dakAttachmentDTOs = dakEditResponse.data.dak.attachments;
             }
 
-            dakListFlowLayoutPanel.Controls.Add(dakUploadUserControl);
+            dakBodyFlowLayoutPanel.Controls.Add(dakUploadUserControl);
+        }
+
+        private void NagorikDakSavePageLoad(DraftedDakEditResponse dakEditResponse)
+        {
+            dakSortMetroPanel.Visible = false;
+            dakSearchHeadingPanel.Visible = false;
+            dakBodyFlowLayoutPanel.Controls.Clear();
+
+            NagorikDakUploadUserControl dakUploadUserControl = new NagorikDakUploadUserControl();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+
+            DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
+
+
+
+
+            dakUploadUserControl.designationSealListResponse = designationSealListResponse;
+            dakUploadUserControl.dakListUserParam = dakListUserParam;
+            dakUploadUserControl.KhosraSaveButtonClick += delegate (object khosraSaveSender, EventArgs khosraSaveEvent) { khosraSaveUserControl_ButtonClick(khosraSaveSender, khosraSaveEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
+            dakUploadUserControl.AddDesignationButtonClick += delegate (object addDesignationSender, EventArgs addDesignationEvent) { AddDesignationUserControl_ButtonClick(addDesignationSender, addDesignationEvent); };
+            dakUploadUserControl.DakSendButton += delegate (object addDesignationSender, EventArgs addDesignationEvent) { DakSend_ButtonClick(addDesignationSender, addDesignationEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
+
+
+
+
+
+            if (dakEditResponse != null)
+            {
+                dakUploadUserControl.mul_prapokEdit = dakEditResponse.data.receiver.mul_prapok;
+                dakUploadUserControl.onulipi = dakEditResponse.data.receiver.Onulipi;
+                dakUploadUserControl.dakInfoDTO = dakEditResponse.data.dak;
+                dakUploadUserControl.dakAttachmentDTOs = dakEditResponse.data.dak.attachments;
+            }
+
+            dakBodyFlowLayoutPanel.Controls.Add(dakUploadUserControl);
         }
 
         private void DraftedDakDelete_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak)

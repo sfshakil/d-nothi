@@ -68,6 +68,8 @@
   <ItemGroup>
     <Compile Include="Entity\Dak\DakArchiveResponse.cs" />
     <Compile Include="Entity\Dak\DakArchiveRevertResponse.cs" />
+    <Compile Include="Entity\Dak\DakDecisionAddResponse.cs" />
+    <Compile Include="Entity\Dak\DakDecisionListResponse.cs" />
     <Compile Include="Entity\Dak\DakNothivuktoResponse.cs" />
     <Compile Include="Entity\Dak\DesignationSealResponse.cs" />
     <Compile Include="Entity\Dak\DakAttachmentDTO.cs" />

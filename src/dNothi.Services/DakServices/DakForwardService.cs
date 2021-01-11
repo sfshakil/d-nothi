@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using dNothi.Constants;
 using dNothi.JsonParser.Entity.Dak;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using RestSharp;
 
 namespace dNothi.Services.DakServices
@@ -70,6 +71,22 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.GetDakForwardEndpoint;
         }
+         protected string GetDakDecisionListEndpoint()
+        {
+            return DefaultAPIConfiguration.DakDecisionListEndpoint;
+        }
+        protected string GetDakDecisionAddEndpoint()
+        {
+            return DefaultAPIConfiguration.DakDecisionAddEndpoint;
+        }
+        protected string GetDakDecisionDeleteEndpoint()
+        {
+            return DefaultAPIConfiguration.DakDecisionDeleteEndpoint;
+        } 
+        protected string GetDakDecisionSetupEndpoint()
+        {
+            return DefaultAPIConfiguration.DakDecisionSetupEndpoint;
+        }
 
         public DakForwardResponse GetDakForwardResponse(DakForwardRequestParam dakForwardParam)
         {
@@ -106,5 +123,125 @@ namespace dNothi.Services.DakServices
                 throw;
             }
         }
+
+        public DakDecisionListResponse GetDakDecisionListResponse(DakUserParam dakUserParam)
+        {
+            try
+            {
+
+                var DakDecisionListApi = new RestClient(GetAPIDomain() + GetDakDecisionListEndpoint());
+                DakDecisionListApi.Timeout = -1;
+                var dakDecisionListRequest = new RestRequest(Method.POST);
+                dakDecisionListRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakDecisionListRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                dakDecisionListRequest.AlwaysMultipartFormData = true;
+                dakDecisionListRequest.AddParameter("user_id", dakUserParam.user_id);
+                
+                IRestResponse dakDecisionResponseAPI = DakDecisionListApi.Execute(dakDecisionListRequest);
+
+
+                var dakDecisionResponseJson = dakDecisionResponseAPI.Content;
+                DakDecisionListResponse dakDecisionResponse = JsonConvert.DeserializeObject<DakDecisionListResponse>(dakDecisionResponseJson);
+                return dakDecisionResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DakDecisionAddResponse GetDakDecisionAddResponse(DakUserParam dakUserParam,DakDecisionDTO dakDecision)
+        {
+            try
+            {
+
+                var DakDecisionAddApi = new RestClient(GetAPIDomain() + GetDakDecisionAddEndpoint());
+                DakDecisionAddApi.Timeout = -1;
+                var dakDecisionAddRequest = new RestRequest(Method.POST);
+                dakDecisionAddRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakDecisionAddRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                dakDecisionAddRequest.AlwaysMultipartFormData = true;
+                dakDecisionAddRequest.AddParameter("user_id", dakUserParam.user_id);
+                dakDecisionAddRequest.AddParameter("dak_decision_employee", dakDecision.dak_decision_employee);
+                dakDecisionAddRequest.AddParameter("dak_decision", dakDecision.dak_decision);
+                dakDecisionAddRequest.AddParameter("id", dakDecision.id);
+
+                IRestResponse dakDecisionResponseAPI = DakDecisionAddApi.Execute(dakDecisionAddRequest);
+
+
+                var dakDecisionResponseJson = dakDecisionResponseAPI.Content;
+                DakDecisionAddResponse dakDecisionResponse = JsonConvert.DeserializeObject<DakDecisionAddResponse>(dakDecisionResponseJson);
+                return dakDecisionResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DakDecisionDeleteResponse GetDakDecisionDeleteResponse(DakUserParam dakUserParam, DakDecisionDTO dakDecision)
+        {
+            try
+            {
+
+                var DakDecisionDeleteApi = new RestClient(GetAPIDomain() + GetDakDecisionDeleteEndpoint());
+                DakDecisionDeleteApi.Timeout = -1;
+                var dakDecisionDeleteRequest = new RestRequest(Method.POST);
+                dakDecisionDeleteRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakDecisionDeleteRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                dakDecisionDeleteRequest.AlwaysMultipartFormData = true;
+                dakDecisionDeleteRequest.AddParameter("dak_decision_id", dakDecision.id);
+            
+                IRestResponse dakDecisionResponseAPI = DakDecisionDeleteApi.Execute(dakDecisionDeleteRequest);
+
+
+                var dakDecisionResponseJson = dakDecisionResponseAPI.Content;
+                DakDecisionDeleteResponse dakDecisionResponse = JsonConvert.DeserializeObject<DakDecisionDeleteResponse>(dakDecisionResponseJson);
+                return dakDecisionResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DakDecisionSetupResponse GetDakDecisionSetupResponse(DakUserParam dakUserParam, string addJson, string deleteJson)
+        {
+            try
+            {
+
+                var DakDecisionSetupApi = new RestClient(GetAPIDomain() + GetDakDecisionSetupEndpoint());
+                DakDecisionSetupApi.Timeout = -1;
+                var dakDecisionSetupRequest = new RestRequest(Method.POST);
+                dakDecisionSetupRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakDecisionSetupRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                dakDecisionSetupRequest.AlwaysMultipartFormData = true;
+                dakDecisionSetupRequest.AddParameter("added_as_default", addJson);
+                dakDecisionSetupRequest.AddParameter("deleted_as_default", deleteJson);
+
+                IRestResponse dakDecisionResponseAPI = DakDecisionSetupApi.Execute(dakDecisionSetupRequest);
+
+               
+
+                var dakDecisionResponseJson = dakDecisionResponseAPI.Content;
+                var dakDecisionResponse = JsonConvert.DeserializeObject<DakDecisionSetupResponse>(dakDecisionResponseJson, new JsonSerializerSettings
+                {
+                    Error = HandleDeserializationError
+                });
+               // DakDecisionSetupResponse dakDecisionResponse = JsonConvert.DeserializeObject<DakDecisionSetupResponse>(dakDecisionResponseJson);
+                return dakDecisionResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void HandleDeserializationError(object sender, ErrorEventArgs errorArgs)
+        {
+            var currentError = errorArgs.ErrorContext.Error.Message;
+            errorArgs.ErrorContext.Handled = true;
+        }
+
     }
 }

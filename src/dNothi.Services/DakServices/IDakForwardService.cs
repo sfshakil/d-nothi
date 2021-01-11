@@ -10,7 +10,12 @@ namespace dNothi.Services.DakServices
 {
     public interface IDakForwardService
     {
-         DesignationSealListResponse GetSealListResponse(DakUserParam dakListUserParam);
-         DakForwardResponse GetDakForwardResponse(DakForwardRequestParam dakForwardResponse);
+        DakDecisionSetupResponse GetDakDecisionSetupResponse(DakUserParam dakListUserParam, string addJson, string deleteJson);
+
+        DakDecisionListResponse GetDakDecisionListResponse(DakUserParam dakListUserParam);
+        DakDecisionAddResponse GetDakDecisionAddResponse(DakUserParam dakListUserParam,DakDecisionDTO dakDecision);
+        DakDecisionDeleteResponse GetDakDecisionDeleteResponse(DakUserParam dakListUserParam,DakDecisionDTO dakDecision);
+        DesignationSealListResponse GetSealListResponse(DakUserParam dakListUserParam);
+        DakForwardResponse GetDakForwardResponse(DakForwardRequestParam dakForwardResponse);
     }
 }
