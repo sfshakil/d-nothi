@@ -197,11 +197,19 @@ namespace dNothi.Desktop.UI.Dak
             
         }
 
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler NewNoteButtonClick;
+
         private void btnNewNote_Click(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<CreateNewNotes>();
-            form.ShowDialog();
-            
+            //var form = FormFactory.Create<CreateNewNotes>();
+            //form.ShowDialog();
+            if (this.NewNoteButtonClick != null)
+                this.NewNoteButtonClick(sender, e);
+
         }
+        
     }
 }

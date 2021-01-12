@@ -28,19 +28,30 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-        public string _noteSubject { get; set; }
+        public string _nothiSubject;
+
+        [Category("Custom Props")]
+        public string nothiSubject
+        {
+            set { _nothiSubject = newNoteTextBox.Text; }
+            
+        }
+        
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
-
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler SaveNewNoteButtonClick;
         private void saveNewNoteButton_Click(object sender, EventArgs e)
         {
             if (newNoteTextBox.Text != "")
             {
                 this.Hide();
-                var form = FormFactory.Create<Note>();
-                form.ShowDialog();
+                if (this.SaveNewNoteButtonClick != null)
+                    this.SaveNewNoteButtonClick(newNoteTextBox.Text, e);
             }
             else
             {
