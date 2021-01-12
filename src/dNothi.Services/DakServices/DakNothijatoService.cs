@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
@@ -93,6 +94,76 @@ namespace dNothi.Services.DakServices
         protected string GetDakListNothijatoEndpoint()
         {
             return DefaultAPIConfiguration.DakListNothijatoEndPoint;
+        }
+
+        protected string GetDakNothijatoEndpoint()
+        {
+            return DefaultAPIConfiguration.DakNothijatoEndpoint;
+        }
+        protected string GetDakNothijatoRevertEndpoint()
+        {
+            return DefaultAPIConfiguration.DakNothijatoRevertEndpoint;
+        }
+        protected string GetOldAPIVersion()
+        {
+            return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;
+        }
+        public DakNothijatoResponse GetDakNothijatoResponse(DakUserParam dakUserParam, NothijatoActionParam nothi, int dak_id, string dak_type, int is_copied_dak)
+        {
+            var nothijatoDakSendAPI = new RestClient(GetAPIDomain() + GetDakNothijatoEndpoint());
+            nothijatoDakSendAPI.Timeout = -1;
+            var NothijatoDakSendRequest = new RestRequest(Method.POST);
+            NothijatoDakSendRequest.AddHeader("api-version", GetOldAPIVersion());
+            NothijatoDakSendRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+            NothijatoDakSendRequest.AddParameter("cdesk", dakUserParam.json_String);
+
+            NothijatoDakSendRequest.AddParameter("daak", "{\"dak_id\":\"" + dak_id + "\",\"dak_type\":\"" + dak_type + "\",\"is_copied_dak\":" + is_copied_dak + "}");
+            var nothijsonString = new JavaScriptSerializer().Serialize(nothi);
+
+
+            NothijatoDakSendRequest.AddParameter("nothi", nothijsonString);
+            IRestResponse dakNothijatoIRestResponse = nothijatoDakSendAPI.Execute(NothijatoDakSendRequest);
+            var dakNothijatoResponseJson = dakNothijatoIRestResponse.Content;
+
+            var dakNothijatoResponse = JsonConvert.DeserializeObject<DakNothijatoResponse>(dakNothijatoResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+            return dakNothijatoResponse;
+        }
+
+        public void HandleDeserializationError(object sender, Newtonsoft.Json.Serialization.ErrorEventArgs errorArgs)
+        {
+            var currentError = errorArgs.ErrorContext.Error.Message;
+            errorArgs.ErrorContext.Handled = true;
+        }
+
+        public DakNothijatoRevertResponse GetDakNothijatoRevertResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
+        {
+            var nothijatoRevertDakSendAPI = new RestClient(GetAPIDomain() + GetDakNothijatoRevertEndpoint());
+            nothijatoRevertDakSendAPI.Timeout = -1;
+            var NothijatoRevertDakSendRequest = new RestRequest(Method.POST);
+            NothijatoRevertDakSendRequest.AddHeader("api-version", GetOldAPIVersion());
+            NothijatoRevertDakSendRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+            NothijatoRevertDakSendRequest.AddParameter("designation_id", dakUserParam.designation_id);
+            NothijatoRevertDakSendRequest.AddParameter("office_id", dakUserParam.office_id);
+
+            NothijatoRevertDakSendRequest.AddParameter("dak", "{\"dak_id\":\"" + dak_id + "\",\"dak_type\":\"" + dak_type + "\",\"is_copied_dak\":" + is_copied_dak + "}");
+               
+            IRestResponse dakNothijatoRevertIRestResponse = nothijatoRevertDakSendAPI.Execute(NothijatoRevertDakSendRequest);
+            var dakNothijatoRevertResponseJson = dakNothijatoRevertIRestResponse.Content;
+
+            var dakNothijatoRevertResponse = JsonConvert.DeserializeObject<DakNothijatoRevertResponse>(dakNothijatoRevertResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+            return dakNothijatoRevertResponse;
         }
     }
 }

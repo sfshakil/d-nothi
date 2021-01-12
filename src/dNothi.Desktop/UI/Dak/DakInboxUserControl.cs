@@ -52,15 +52,12 @@ namespace dNothi.Desktop.UI.Dak
             foreach (Control ctrl in collection)
             {
 
-                if (ctrl.Name == "nothiteUposthaponButton")
+                if (ctrl.Name == "dakActionPanel")
                 {
                     continue;
                 }
                 
-                if (ctrl.Name == "dakArchiveButton")
-                {
-                    continue;
-                }
+               
                 ctrl.Click += DakInboxUserControl_Click;
                 ctrl.MouseEnter += DakInboxUserControl_MouseEnter;
                 ctrl.MouseLeave += DakInboxUserControl_MouseLeave;
@@ -118,7 +115,8 @@ namespace dNothi.Desktop.UI.Dak
         public int dakArchiveUserId
         {
             get { return _is_dak_Archived; }
-            set { _is_dak_Archived = value; if (_is_dak_Archived == 0){ dakArchiveButton.Visible = false; } }
+            set { _is_dak_Archived = value;  }
+            //if (_is_dak_Archived == 0){ dakArchiveButton.Visible = false; }
         }
 
         [Category("Custom Props")]
@@ -265,7 +263,14 @@ namespace dNothi.Desktop.UI.Dak
 
             get { return _attentionTypeIconValue; }
             set { _attentionTypeIconValue = value;
-
+                if(value== "0")
+                {
+                    dakArchiveButton.Visible = true;
+                }
+                else
+                {
+                    dakArchiveButton.Visible = false;
+                }
                 AttentionTypeList attentionTypeIconList = new AttentionTypeList();
                string icon= attentionTypeIconList.GetAttentionTypeIcon(value);
                
@@ -446,5 +451,24 @@ namespace dNothi.Desktop.UI.Dak
             }
            
         }
+
+        private void DakSendButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+           
+        }
+        public event EventHandler NothijatoButtonClick;
+       
+            
+        private void nothijatoButton_Click(object sender, EventArgs e)
+        {
+            if (this.NothijatoButtonClick != null)
+                this.NothijatoButtonClick(sender, e);
+        }
+    
     }
 }

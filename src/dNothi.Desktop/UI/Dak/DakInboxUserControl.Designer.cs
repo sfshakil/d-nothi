@@ -70,7 +70,7 @@
             this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
             this.DakSendButton = new FontAwesome.Sharp.IconButton();
             this.nothiteUposthaponButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.nothijatoButton = new FontAwesome.Sharp.IconButton();
             this.dakArchiveButton = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -550,7 +550,7 @@
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
-            this.dakActionPanel.Controls.Add(this.iconButton2);
+            this.dakActionPanel.Controls.Add(this.nothijatoButton);
             this.dakActionPanel.Controls.Add(this.dakArchiveButton);
             this.dakActionPanel.Controls.Add(this.iconButton3);
             this.dakActionPanel.Location = new System.Drawing.Point(883, 13);
@@ -597,6 +597,7 @@
             this.DakSendButton.TabIndex = 81;
             this.MyToolTip.SetToolTip(this.DakSendButton, "ডাক প্রেরণ করুন ");
             this.DakSendButton.UseVisualStyleBackColor = false;
+            this.DakSendButton.Click += new System.EventHandler(this.DakSendButton_Click);
             // 
             // nothiteUposthaponButton
             // 
@@ -618,24 +619,25 @@
             this.nothiteUposthaponButton.UseVisualStyleBackColor = false;
             this.nothiteUposthaponButton.Click += new System.EventHandler(this.nothiteUposthaponButton_Click);
             // 
-            // iconButton2
+            // nothijatoButton
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton2.FlatAppearance.BorderSize = 2;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 28;
-            this.iconButton2.Location = new System.Drawing.Point(96, 0);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(32, 36);
-            this.iconButton2.TabIndex = 83;
-            this.MyToolTip.SetToolTip(this.iconButton2, "নথিজাত");
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.nothijatoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.nothijatoButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.nothijatoButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.nothijatoButton.FlatAppearance.BorderSize = 2;
+            this.nothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothijatoButton.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
+            this.nothijatoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.nothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nothijatoButton.IconSize = 28;
+            this.nothijatoButton.Location = new System.Drawing.Point(96, 0);
+            this.nothijatoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.nothijatoButton.Name = "nothijatoButton";
+            this.nothijatoButton.Size = new System.Drawing.Size(32, 36);
+            this.nothijatoButton.TabIndex = 83;
+            this.MyToolTip.SetToolTip(this.nothijatoButton, "নথিজাত");
+            this.nothijatoButton.UseVisualStyleBackColor = false;
+            this.nothijatoButton.Click += new System.EventHandler(this.nothijatoButton_Click);
             // 
             // dakArchiveButton
             // 
@@ -786,7 +788,7 @@
         private FontAwesome.Sharp.IconButton dakMovementStatusButton;
         private FontAwesome.Sharp.IconButton DakSendButton;
         private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton nothijatoButton;
         private FontAwesome.Sharp.IconButton nothiteUposthaponButton;
         private System.Windows.Forms.ToolTip MyToolTip;
         private FontAwesome.Sharp.IconButton dakArchiveButton;

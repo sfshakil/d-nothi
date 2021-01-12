@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbNoteTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnNote = new System.Windows.Forms.Button();
@@ -57,18 +58,22 @@
             this.lbDesk = new System.Windows.Forms.Label();
             this.lbNoteLastDate = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.nothijatoButton = new FontAwesome.Sharp.IconButton();
+            this.addButton = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.addButton = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.nothiShompadonIcon = new FontAwesome.Sharp.IconButton();
             this.NoteListPanel = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlNewAllNote.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.NoteListPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -461,6 +466,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.lbDesk);
             this.panel1.Controls.Add(this.iconButton7);
             this.panel1.Controls.Add(this.iconButton6);
@@ -472,8 +478,6 @@
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Controls.Add(this.addButton);
             this.panel1.Controls.Add(this.lbArchived);
             this.panel1.Controls.Add(this.btnArchive);
             this.panel1.Controls.Add(this.lbNothi);
@@ -491,6 +495,72 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(542, 84);
             this.panel1.TabIndex = 24;
+            // 
+            // panel5
+            // 
+            this.panel5.AutoSize = true;
+            this.panel5.Controls.Add(this.iconButton1);
+            this.panel5.Controls.Add(this.nothijatoButton);
+            this.panel5.Controls.Add(this.addButton);
+            this.panel5.Location = new System.Drawing.Point(9, 7);
+            this.panel5.MaximumSize = new System.Drawing.Size(60, 30);
+            this.panel5.MinimumSize = new System.Drawing.Size(60, 30);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(60, 30);
+            this.panel5.TabIndex = 119;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.Location = new System.Drawing.Point(58, 0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(33, 30);
+            this.iconButton1.TabIndex = 104;
+            this.toolTip1.SetToolTip(this.iconButton1, "অনুমোদন পর্যালোচনা করুন");
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // nothijatoButton
+            // 
+            this.nothijatoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(226)))), ((int)(((byte)(229)))));
+            this.nothijatoButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nothijatoButton.FlatAppearance.BorderSize = 0;
+            this.nothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothijatoButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.nothijatoButton.IconColor = System.Drawing.Color.Black;
+            this.nothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nothijatoButton.Location = new System.Drawing.Point(29, 0);
+            this.nothijatoButton.Name = "nothijatoButton";
+            this.nothijatoButton.Size = new System.Drawing.Size(29, 30);
+            this.nothijatoButton.TabIndex = 120;
+            this.toolTip1.SetToolTip(this.nothijatoButton, "নথিজাত করুন");
+            this.nothijatoButton.UseVisualStyleBackColor = false;
+            this.nothijatoButton.Visible = false;
+            this.nothijatoButton.Click += new System.EventHandler(this.nothijatoButton_Click);
+            // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(247)))), ((int)(((byte)(245)))));
+            this.addButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.addButton.FlatAppearance.BorderSize = 0;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.addButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.addButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.addButton.IconSize = 32;
+            this.addButton.Location = new System.Drawing.Point(0, 0);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(29, 30);
+            this.addButton.TabIndex = 103;
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // iconButton7
             // 
@@ -577,38 +647,6 @@
             this.iconButton5.TabIndex = 110;
             this.iconButton5.UseVisualStyleBackColor = false;
             // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(38, 8);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(33, 30);
-            this.iconButton1.TabIndex = 104;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // addButton
-            // 
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(247)))), ((int)(((byte)(245)))));
-            this.addButton.FlatAppearance.BorderSize = 0;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.addButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.addButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.addButton.IconSize = 32;
-            this.addButton.Location = new System.Drawing.Point(9, 8);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(29, 30);
-            this.addButton.TabIndex = 103;
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
             // panel4
             // 
             this.panel4.Location = new System.Drawing.Point(-531, 73);
@@ -628,7 +666,7 @@
             this.nothiShompadonIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.nothiShompadonIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.nothiShompadonIcon.IconSize = 32;
-            this.nothiShompadonIcon.Location = new System.Drawing.Point(498, 8);
+            this.nothiShompadonIcon.Location = new System.Drawing.Point(496, 8);
             this.nothiShompadonIcon.Name = "nothiShompadonIcon";
             this.nothiShompadonIcon.Size = new System.Drawing.Size(38, 31);
             this.nothiShompadonIcon.TabIndex = 116;
@@ -665,6 +703,7 @@
             this.pnlNewAllNote.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.NoteListPanel.ResumeLayout(false);
             this.NoteListPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -713,5 +752,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel NoteListPanel;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel5;
+        private FontAwesome.Sharp.IconButton nothijatoButton;
     }
 }

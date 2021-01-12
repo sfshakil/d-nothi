@@ -167,7 +167,9 @@ namespace dNothi.Desktop
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();
             builder.RegisterType<CreateNewNothiType>().AsSelf();
-             builder.RegisterType<DakForwardUserControl>().AsSelf();
+            builder.RegisterType<DakForwardUserControl>().AsSelf();
+            builder.RegisterType<DakNothijatoForm>().AsSelf();
+            builder.RegisterType<DakModuleAgotoNothiList>().AsSelf();
             builder.RegisterType<DakNothiteUposthapitoNewNoteAddUserControl>().AsSelf();
 
             container = (builder.Build());

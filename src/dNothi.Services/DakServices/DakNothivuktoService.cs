@@ -107,11 +107,11 @@ namespace dNothi.Services.DakServices
             return DefaultAPIConfiguration.DakListNothivuktoEndPoint;
         }
 
-        public GetNothivuktoNoteAddResponse GetNothijatoNoteAddResponse(DakUserParam dakUserParam, DakNothivuktoNoteAddParam dakNothivuktoNoteAddParam)
+        public GetNothivuktoNoteAddResponse GetNothivuktoNoteAddResponse(DakUserParam dakUserParam, DakNothivuktoNoteAddParam dakNothivuktoNoteAddParam)
         {
             try
             {
-                var nothivuktoNoteAddDakApi = new RestClient(GetAPIDomain() + GetNothijatoNoteAddEndpoint());
+                var nothivuktoNoteAddDakApi = new RestClient(GetAPIDomain() + GetNothivuktoNoteAddEndpoint());
                 nothivuktoNoteAddDakApi.Timeout = -1;
                 var nothivuktoNoteAddDakRequest = new RestRequest(Method.POST);
                 nothivuktoNoteAddDakRequest.AddHeader("api-version", GetOldAPIVersion());
@@ -137,9 +137,9 @@ namespace dNothi.Services.DakServices
             }
         }
 
-        private string GetNothijatoNoteAddEndpoint()
+        private string GetNothivuktoNoteAddEndpoint()
         {
-            return DefaultAPIConfiguration.NothijatoNoteAddEndPoint;
+            return DefaultAPIConfiguration.NothivuktoNoteAddEndPoint;
         }
         private string GetDakNothivuktoEndpoint()
         {

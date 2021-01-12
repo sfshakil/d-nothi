@@ -61,7 +61,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string office { get; set; }
         public string office_unit { get; set; }
 
-        public string nothi_id { get { return id.ToString(); } }
+       // public string nothi_id { get { return id.ToString(); } }
         public string note_no { get; set; }
         public string note_subject { get; set; }
         public string note_id { get; set; }

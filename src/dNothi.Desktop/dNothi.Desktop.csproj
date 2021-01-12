@@ -211,11 +211,11 @@
     <Compile Include="UI\Dak\DakDecisionTableUserControl.Designer.cs">
       <DependentUpon>DakDecisionTableUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\Emnei.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="UI\Dak\DakNothijatoForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Dak\Emnei.Designer.cs">
-      <DependentUpon>Emnei.cs</DependentUpon>
+    <Compile Include="UI\Dak\DakNothijatoForm.Designer.cs">
+      <DependentUpon>DakNothijatoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\NoteFileDelete.cs">
       <SubType>UserControl</SubType>
@@ -469,12 +469,6 @@
     <Compile Include="UI\Dak\NothiTypeList.Designer.cs">
       <DependentUpon>NothiTypeList.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\OnuchhedShonjukti.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Dak\OnuchhedShonjukti.Designer.cs">
-      <DependentUpon>OnuchhedShonjukti.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Dak\SearchUserController.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -570,8 +564,8 @@
     <EmbeddedResource Include="UI\Dak\DakDecisionTableUserControl.resx">
       <DependentUpon>DakDecisionTableUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\Emnei.resx">
-      <DependentUpon>Emnei.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\DakNothijatoForm.resx">
+      <DependentUpon>DakNothijatoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NoteFileDelete.resx">
       <DependentUpon>NoteFileDelete.cs</DependentUpon>
@@ -698,9 +692,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiTypeList.resx">
       <DependentUpon>NothiTypeList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\OnuchhedShonjukti.resx">
-      <DependentUpon>OnuchhedShonjukti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SearchUserController.resx">
       <DependentUpon>SearchUserController.cs</DependentUpon>

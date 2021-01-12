@@ -24,7 +24,8 @@ namespace dNothi.Desktop.UI.Dak
         public int _dak_id;
         public string _dak_type;
         public int _is_copied_dak;
-        public NoteNothiDTO _nothiDTO;
+        public NoteNothiDTO  _nothiDTO;
+        public NothiAllDTO  _nothiAllDTO;
 
         public string dak_type
         {
@@ -141,6 +142,9 @@ namespace dNothi.Desktop.UI.Dak
             get { return _permitted; }
             set { _permitted = value; lbPermitted.Text = value.ToString(); }
         }
+        public bool NothiteUposthapitoButtonVisible { get { return true; } set { if (value) addButton.Visible = true; } }
+        public bool NothijatoButtonVisible { get { return true; } set { if (value) { nothijatoButton.Visible = true; addButton.Visible = false; } } }
+
 
         [Category("Custom Props")]
         public int onishponno
@@ -280,9 +284,13 @@ namespace dNothi.Desktop.UI.Dak
                  dakNothiteUposthaponNoteList.onucched = noteDTO.note.onucched_count;
                 dakNothiteUposthaponNoteList.nothivukto = noteDTO.note.nothivukto_potro;
                
-                noteDTO.nothi.note_no = noteDTO.note.note_no.ToString();
-                noteDTO.nothi.note_subject= noteDTO.note.note_subject;
-                noteDTO.nothi.note_id= noteDTO.note.nothi_note_id.ToString();
+               if(noteDTO.nothi==null)
+                {
+                    noteDTO.nothi = new NoteNothiDTO();
+                }
+                noteDTO.nothi.note_no = Convert.ToString(noteDTO.note.note_no);
+                noteDTO.nothi.note_subject = noteDTO.note.note_subject;
+                noteDTO.nothi.note_id = Convert.ToString(noteDTO.note.nothi_note_id);
 
                 dakNothiteUposthaponNoteList.nothiDTO = noteDTO.nothi;
                 dakNothiteUposthaponNoteList.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakNothiteUposthaponNoteList._nothiDTO); };
@@ -299,7 +307,10 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
+       
         public event EventHandler NothiteUposthaponButton;
+
+
         private void NothiteUposthapito_ButtonClick(object sender, EventArgs e, NoteNothiDTO nothiDTO)
         {
             _nothiDTO = nothiDTO;
@@ -334,7 +345,7 @@ namespace dNothi.Desktop.UI.Dak
             dakNothivuktoNoteAddParam.office_unit_name = dakUserParam.office_unit;
 
 
-            GetNothivuktoNoteAddResponse getNothivuktoNoteAddResponse = _nothivuktoService.GetNothijatoNoteAddResponse(dakUserParam, dakNothivuktoNoteAddParam);
+            GetNothivuktoNoteAddResponse getNothivuktoNoteAddResponse = _nothivuktoService.GetNothivuktoNoteAddResponse(dakUserParam, dakNothivuktoNoteAddParam);
 
             if(getNothivuktoNoteAddResponse.status=="success")
             {
@@ -344,6 +355,14 @@ namespace dNothi.Desktop.UI.Dak
             {
 
             }
+        }
+        public event EventHandler NothijatoButton;
+        private void nothijatoButton_Click(object sender, EventArgs e)
+        {
+           
+
+            if (this.NothijatoButton != null)
+                this.NothijatoButton(sender, e);
         }
     }
 }

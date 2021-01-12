@@ -43,7 +43,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
-
+                if (ctrl.Name == "dakActionPanel")
+                {
+                    continue;
+                }
                 ctrl.Click += DakNothijatoUserControl_Click;
                 ctrl.MouseEnter += DakNothijatoUserControl_MouseEnter;
                 ctrl.MouseLeave += DakNothijatoUserControl_MouseLeave;
@@ -337,6 +340,24 @@ namespace dNothi.Desktop.UI.Dak
         private void DakNothijatoUserControl_MouseLeave(object sender, EventArgs e)
         {
             MouseHoverAction();
+        }
+        public event EventHandler NothijatoRevertButtonClick;
+        private void dakRevertButton_Click(object sender, EventArgs e)
+        {
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি ফেরত আনতে চান ?\n",
+                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+
+
+                if (this.NothijatoRevertButtonClick != null)
+                    this.NothijatoRevertButtonClick(sender, e);
+
+
+
+            }
+
+
         }
     }
 }
