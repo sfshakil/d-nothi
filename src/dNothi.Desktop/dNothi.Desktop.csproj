@@ -211,6 +211,12 @@
     <Compile Include="UI\Dak\DakDecisionTableUserControl.Designer.cs">
       <DependentUpon>DakDecisionTableUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakNothijatoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakNothijatoForm.Designer.cs">
+      <DependentUpon>DakNothijatoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NoteFileDelete.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -557,6 +563,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakDecisionTableUserControl.resx">
       <DependentUpon>DakDecisionTableUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakNothijatoForm.resx">
+      <DependentUpon>DakNothijatoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NoteFileDelete.resx">
       <DependentUpon>NoteFileDelete.cs</DependentUpon>

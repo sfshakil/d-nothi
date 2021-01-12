@@ -1,4 +1,5 @@
 ﻿using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.DakServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace dNothi.Services.NothiServices
 {
     public interface INothiInboxServices
     {
+        NothiListInboxResponse GetNothiInbox(DakUserParam dakUserParam);
         NothiListInboxResponse GetNothiInbox(string token);
         void SaveOrUpdateNothiRecords(List<NothiListRecordsDTO> nothi_list_record);
     }

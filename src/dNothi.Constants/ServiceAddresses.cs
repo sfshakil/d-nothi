@@ -9,7 +9,9 @@ namespace dNothi.Constants
     public class DefaultAPIConfiguration
     {
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";
-        public const string NothijatoNoteAddEndPoint = "/api/nothi/note/create";
+        public const string NothivuktoNoteAddEndPoint = "/api/nothi/note/create";
+        public const string DakNothijatoEndpoint = "/api/nothi/dak/nothijato";
+        public const string DakNothijatoRevertEndpoint = "/api/nothi/dak/revert/nothijato";
         public const string DakDecisionListEndpoint = "/api/dak/decision/list/custom";
         public const string DakArchiveEndPoint = "/api/dak/action/archive";
         public const string DakDecisionAddEndpoint = "/api/dak/decision/add";

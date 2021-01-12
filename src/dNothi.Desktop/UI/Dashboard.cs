@@ -636,6 +636,7 @@ namespace dNothi.Desktop.UI
                 dakInboxUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakInboxUserControl.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakInboxUserControl.DakArchiveButtonClick += delegate (object sender, EventArgs e) { DakArchive_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakInboxUserControl.NothijatoButtonClick += delegate (object sender, EventArgs e) { Nothitejato_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 i = i + 1;
                 dakInboxUserControls.Add(dakInboxUserControl);
 
@@ -653,6 +654,19 @@ namespace dNothi.Desktop.UI
 
 
 
+        }
+
+        private void Nothitejato_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
+        {
+            var form = FormFactory.Create<DakNothijatoForm>();
+            form.dak_type = dak_type;
+            form.dakid = dakid;
+            form.is_copied_dak = is_copied_dak;
+            form.dakSubject = dak_subject;
+            Blur();
+            form.ShowDialog(this);
+            UnBlur();
+            ReloadBodyPanel();
         }
 
         private void DakArchive_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
@@ -708,9 +722,16 @@ namespace dNothi.Desktop.UI
             if (dakInboxUserControl.Count>0)
             {
                 LoadDakInbox();
-                return;
+               // return;
             }
 
+            var dakNothijato = dakBodyFlowLayoutPanel.Controls.OfType<DakNothijatoUserControl>().ToList();
+
+            if (dakNothijato.Count > 0)
+            {
+                LoadDakNothijato();
+                //return;
+            }
 
 
 
@@ -1158,6 +1179,7 @@ namespace dNothi.Desktop.UI
                 dakNothijatoUserControl.nothiNo = dakListInboxRecordsDTO.nothi.nothi_no;
                 dakNothijatoUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
                 dakNothijatoUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakNothijatoUserControl.NothijatoRevertButtonClick += delegate (object sender, EventArgs e) { NothijatoRevert_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
 
                 i = i + 1;
                 dakNothijatoUserControls.Add(dakNothijatoUserControl);
@@ -1176,6 +1198,12 @@ namespace dNothi.Desktop.UI
 
 
 
+        }
+
+        private void NothijatoRevert_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, string dak_subject, int is_copied_dak)
+        {
+            DakNothijatoRevertResponse dakNothijatoRevertResponse = _dakNothijatoService.GetDakNothijatoRevertResponse(_dakuserparam,dak_id,dak_type,is_copied_dak);
+            ReloadBodyPanel();
         }
 
         private void nothijatoButton_Click(object sender, EventArgs e)

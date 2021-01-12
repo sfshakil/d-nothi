@@ -85,17 +85,13 @@ namespace dNothi.Desktop.UI.Dak
             {
                 var nothiAll = UserControlFactory.Create<DakModuleSokolNothiListUserControl>();
              
-                if (nothiAllListDTO.desk != null && nothiAllListDTO.status != null)
+                if (nothiAllListDTO.desk != null)
                 {
 
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
                     nothiAll.desk = "ডেস্ক: " + nothiAllListDTO.desk.note_count.ToString();
-                    nothiAll.noteTotal = nothiAllListDTO.status.total;
-                    nothiAll.permitted = nothiAllListDTO.status.permitted;
-                    nothiAll.onishponno = nothiAllListDTO.status.onishponno;
-                    nothiAll.nishponno = nothiAllListDTO.status.nishponno;
-                    nothiAll.archived = nothiAllListDTO.status.archived;
+                   
                     nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
                     nothiAll.master_id = nothiAllListDTO.desk.nothi_master_id.ToString();
 
@@ -109,14 +105,29 @@ namespace dNothi.Desktop.UI.Dak
                     //NothiAll nothiAll = new NothiAll();
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
-                    nothiAll.flag = 1;
+                   
                     
+                }
+                if(nothiAllListDTO.status != null)
+                {
+                    nothiAll.noteTotal = nothiAllListDTO.status.total;
+                    nothiAll.permitted = nothiAllListDTO.status.permitted;
+                    nothiAll.onishponno = nothiAllListDTO.status.onishponno;
+                    nothiAll.nishponno = nothiAllListDTO.status.nishponno;
+                    nothiAll.archived = nothiAllListDTO.status.archived;
+                    nothiAll.master_id = nothiAllListDTO.status.nothi_master_id.ToString();
+                   
+                }
+                else
+                {
+                    nothiAll.flag = 1;
                 }
 
                 nothiAll.nothi_id = nothiAllListDTO.nothi.id.ToString();
                 nothiAll.dak_id = _dak_id;
                 nothiAll.is_copied_dak = _is_copied_dak;
                 nothiAll._dak_type = _dak_type;
+               // nothiAll.master_id=nothiAllListDTO.ma
                 nothiAlls.Add(nothiAll);
             }
             nothiListFlowLayoutPanel.Controls.Clear();
