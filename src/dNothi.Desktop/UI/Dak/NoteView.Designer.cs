@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbNothiLastDate = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -47,14 +47,14 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.iconButton18 = new FontAwesome.Sharp.IconButton();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbOfficerInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbOnuchhed = new System.Windows.Forms.Label();
+            this.lbNoteSubject = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbNote = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -63,7 +63,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.lbNothiLastDate);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
@@ -78,19 +78,19 @@
             this.panel1.Size = new System.Drawing.Size(601, 104);
             this.panel1.TabIndex = 0;
             // 
-            // label4
+            // lbNothiLastDate
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label4.Location = new System.Drawing.Point(15, 49);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 20);
-            this.label4.TabIndex = 65;
-            this.label4.Text = "৭/১/২১ ৬:১৫ PM";
+            this.lbNothiLastDate.AutoSize = true;
+            this.lbNothiLastDate.BackColor = System.Drawing.Color.Transparent;
+            this.lbNothiLastDate.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNothiLastDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothiLastDate.Location = new System.Drawing.Point(15, 49);
+            this.lbNothiLastDate.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNothiLastDate.Name = "lbNothiLastDate";
+            this.lbNothiLastDate.Size = new System.Drawing.Size(106, 20);
+            this.lbNothiLastDate.TabIndex = 65;
+            this.lbNothiLastDate.Text = "৭/১/২১ ৬:১৫ PM";
             // 
             // panel6
             // 
@@ -120,7 +120,7 @@
             this.label16.Dock = System.Windows.Forms.DockStyle.Left;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label16.Location = new System.Drawing.Point(502, 0);
+            this.label16.Location = new System.Drawing.Point(498, 0);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(17, 20);
@@ -134,7 +134,7 @@
             this.label17.Dock = System.Windows.Forms.DockStyle.Left;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label17.Location = new System.Drawing.Point(429, 0);
+            this.label17.Location = new System.Drawing.Point(425, 0);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(73, 20);
@@ -148,7 +148,7 @@
             this.label14.Dock = System.Windows.Forms.DockStyle.Left;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label14.Location = new System.Drawing.Point(412, 0);
+            this.label14.Location = new System.Drawing.Point(408, 0);
             this.label14.Margin = new System.Windows.Forms.Padding(0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(17, 20);
@@ -162,7 +162,7 @@
             this.label15.Dock = System.Windows.Forms.DockStyle.Left;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label15.Location = new System.Drawing.Point(359, 0);
+            this.label15.Location = new System.Drawing.Point(355, 0);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 20);
@@ -176,7 +176,7 @@
             this.label11.Dock = System.Windows.Forms.DockStyle.Left;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label11.Location = new System.Drawing.Point(342, 0);
+            this.label11.Location = new System.Drawing.Point(338, 0);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(17, 20);
@@ -190,7 +190,7 @@
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label12.Location = new System.Drawing.Point(276, 0);
+            this.label12.Location = new System.Drawing.Point(272, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(66, 20);
@@ -204,7 +204,7 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Left;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label9.Location = new System.Drawing.Point(259, 0);
+            this.label9.Location = new System.Drawing.Point(255, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(17, 20);
@@ -218,7 +218,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label10.Location = new System.Drawing.Point(132, 0);
+            this.label10.Location = new System.Drawing.Point(128, 0);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(127, 20);
@@ -232,7 +232,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Left;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label7.Location = new System.Drawing.Point(115, 0);
+            this.label7.Location = new System.Drawing.Point(111, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(17, 20);
@@ -246,7 +246,7 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Left;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label8.Location = new System.Drawing.Point(76, 0);
+            this.label8.Location = new System.Drawing.Point(72, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 20);
@@ -260,7 +260,7 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label6.Location = new System.Drawing.Point(59, 0);
+            this.label6.Location = new System.Drawing.Point(55, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(17, 20);
@@ -277,9 +277,9 @@
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 20);
+            this.label5.Size = new System.Drawing.Size(55, 20);
             this.label5.TabIndex = 65;
-            this.label5.Text = "টেস্ট নোট";
+            this.label5.Text = "অনুচ্ছেদ";
             // 
             // panel5
             // 
@@ -302,7 +302,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.iconButton18);
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.lbOfficerInfo);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(15, 25);
@@ -331,19 +331,19 @@
             this.iconButton18.TabIndex = 70;
             this.iconButton18.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // lbOfficerInfo
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label3.Location = new System.Drawing.Point(81, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(477, 20);
-            this.label3.TabIndex = 66;
-            this.label3.Text = "মোঃ হাসানুজ্জামান,সল্যুশন আর্কিটেক্ট,টেকনোলজি,এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম" +
+            this.lbOfficerInfo.AutoSize = true;
+            this.lbOfficerInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lbOfficerInfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbOfficerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOfficerInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbOfficerInfo.Location = new System.Drawing.Point(81, 0);
+            this.lbOfficerInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.lbOfficerInfo.Name = "lbOfficerInfo";
+            this.lbOfficerInfo.Size = new System.Drawing.Size(477, 20);
+            this.lbOfficerInfo.TabIndex = 66;
+            this.lbOfficerInfo.Text = "মোঃ হাসানুজ্জামান,সল্যুশন আর্কিটেক্ট,টেকনোলজি,এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম" +
     "";
             // 
             // label2
@@ -371,10 +371,10 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.lbOnuchhed);
+            this.panel2.Controls.Add(this.lbNoteSubject);
             this.panel2.Controls.Add(this.lbTotalNothi);
-            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.cbNote);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(15, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
@@ -382,33 +382,33 @@
             this.panel2.Size = new System.Drawing.Size(586, 24);
             this.panel2.TabIndex = 1;
             // 
-            // label1
+            // lbOnuchhed
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label1.Location = new System.Drawing.Point(91, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 20);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "(অনুচ্ছেদ দেওয়া হয়নি)";
+            this.lbOnuchhed.AutoSize = true;
+            this.lbOnuchhed.BackColor = System.Drawing.Color.Transparent;
+            this.lbOnuchhed.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbOnuchhed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOnuchhed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbOnuchhed.Location = new System.Drawing.Point(91, 0);
+            this.lbOnuchhed.Margin = new System.Windows.Forms.Padding(0);
+            this.lbOnuchhed.Name = "lbOnuchhed";
+            this.lbOnuchhed.Size = new System.Drawing.Size(130, 20);
+            this.lbOnuchhed.TabIndex = 65;
+            this.lbOnuchhed.Text = "(অনুচ্ছেদ দেওয়া হয়নি)";
             // 
-            // label13
+            // lbNoteSubject
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label13.Location = new System.Drawing.Point(32, 0);
-            this.label13.Margin = new System.Windows.Forms.Padding(0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 20);
-            this.label13.TabIndex = 64;
-            this.label13.Text = "টেস্ট নোট";
+            this.lbNoteSubject.AutoSize = true;
+            this.lbNoteSubject.BackColor = System.Drawing.Color.Transparent;
+            this.lbNoteSubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNoteSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteSubject.Location = new System.Drawing.Point(32, 0);
+            this.lbNoteSubject.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNoteSubject.Name = "lbNoteSubject";
+            this.lbNoteSubject.Size = new System.Drawing.Size(59, 20);
+            this.lbNoteSubject.TabIndex = 64;
+            this.lbNoteSubject.Text = "টেস্ট নোট";
             // 
             // lbTotalNothi
             // 
@@ -424,18 +424,17 @@
             this.lbTotalNothi.TabIndex = 63;
             this.lbTotalNothi.Text = "২";
             // 
-            // checkBox1
+            // cbNote
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox1.Location = new System.Drawing.Point(0, 0);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 24);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbNote.AutoSize = true;
+            this.cbNote.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cbNote.Location = new System.Drawing.Point(0, 0);
+            this.cbNote.Margin = new System.Windows.Forms.Padding(0);
+            this.cbNote.Name = "cbNote";
+            this.cbNote.Size = new System.Drawing.Size(15, 24);
+            this.cbNote.TabIndex = 0;
+            this.cbNote.UseVisualStyleBackColor = true;
+            this.cbNote.Click += new System.EventHandler(this.cbNote_Click_1);
             // 
             // NoteView
             // 
@@ -462,18 +461,18 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbNote;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbTotalNothi;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbNoteSubject;
+        private System.Windows.Forms.Label lbOnuchhed;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbOfficerInfo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel12;
         private FontAwesome.Sharp.IconButton iconButton18;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbNothiLastDate;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label16;
