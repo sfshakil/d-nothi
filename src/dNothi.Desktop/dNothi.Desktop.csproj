@@ -469,6 +469,12 @@
     <Compile Include="UI\Dak\NothiTypeList.Designer.cs">
       <DependentUpon>NothiTypeList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\OnuchhedAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\OnuchhedAdd.Designer.cs">
+      <DependentUpon>OnuchhedAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\SearchUserController.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -692,6 +698,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiTypeList.resx">
       <DependentUpon>NothiTypeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\OnuchhedAdd.resx">
+      <DependentUpon>OnuchhedAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SearchUserController.resx">
       <DependentUpon>SearchUserController.cs</DependentUpon>

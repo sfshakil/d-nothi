@@ -16,6 +16,7 @@ namespace dNothi.Desktop.UI
 {
     public partial class Note : Form
     {
+        NoteView newNoteView = new NoteView();
         public Note()
         {
             InitializeComponent();
@@ -23,21 +24,26 @@ namespace dNothi.Desktop.UI
             tinyMceEditor.CreateEditor();
             cbxNothiType.SelectedIndex = 0;
             cbxNothiType.ItemHeight = 30;
+            onuchhedheaderPnl.Hide();
         }
 
-        
-        //public Note(int i)
-        //{
-        //    InitializeComponent();
-        //    SetDefaultFont(this.Controls);
-        //    tinyMceEditor.CreateEditor();
-        //    NoteFullPanel.Hide();
-        //    cbxNothiType.SelectedIndex = 0;
-        //    cbxNothiType.ItemHeight = 30;
-        //}
         public void loadNoteView(NoteView noteView)
         {
+            newNoteView = noteView;
             noteViewFLP.Controls.Add(noteView);
+            noteView.CheckBoxClick += delegate (object sender, EventArgs e) { checkBox_Click(sender, e, newNoteView); };
+        }
+        private void checkBox_Click(object sender, EventArgs e, NoteView noteView)
+        {
+            string str = sender.ToString();
+            if (str == "System.Windows.Forms.CheckBox, CheckState: 0")
+            {
+                NoteFullPanel.Hide();
+                NoteFullPanel.Visible = false;
+            }
+            else
+                NoteFullPanel.Visible = true;
+
         }
 
         private string _nothiShakha;
@@ -80,7 +86,8 @@ namespace dNothi.Desktop.UI
         public string noteTotal
         {
             get { return _noteTotal; }
-            set { _noteTotal = value; lbNoteTtl.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            set { _noteTotal = value; string vl = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbNoteTtl.Text = vl+ ".০"; }
         }
 
         [Category("Custom Props")]
@@ -185,7 +192,7 @@ namespace dNothi.Desktop.UI
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
 
         }
-
+        int fileuploadDoneFlag = 0;
         private void fileUploadPanel_Click_1(object sender, EventArgs e)
         {
 
@@ -227,6 +234,7 @@ namespace dNothi.Desktop.UI
                 {
                     if (dakUploadedFileResponse.data.Count > 0)
                     {
+                        fileuploadDoneFlag = 1;
                         //attachmentListFlowLayoutPanel.Controls.Clear();
                         NoteFileUpload noteFileUpload = new NoteFileUpload();
                         if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
@@ -332,6 +340,7 @@ namespace dNothi.Desktop.UI
 
                 if (dakUploadedFileResponse.status == "success")
                 {
+                    fileuploadDoneFlag = 1;
                     if (dakUploadedFileResponse.data.Count > 0)
                     {
                         //attachmentListFlowLayoutPanel.Controls.Clear();
@@ -404,6 +413,46 @@ namespace dNothi.Desktop.UI
             this.Hide();
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
+        }
+        int onuchhedint = 0;
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+
+            if (fileuploadDoneFlag == 1)
+            {
+
+                onuchhedheaderPnl.Visible = true;
+                OnuchhedAdd onuchhed = new OnuchhedAdd();
+                onuchhed.currentDate = DateTime.Now.ToString("dd");
+                onuchhed.currentMonth = DateTime.Now.ToString("MM");
+                onuchhed.currentYear = DateTime.Now.ToString("yyyy");
+                onuchhed.noteOnuchhed = newNoteView.totalNothi;
+                onuchhed.Onuchhed = onuchhedint.ToString();
+                onuchhedint++;
+                onuchhed.fileflag = 0;
+                onuchhed.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1, e1); };
+                onuchhed.body = tinyMceEditor.HtmlContent;
+                onuchhedFLP.Controls.Add(onuchhed);
+                fileAddFLP.Controls.Clear();
+            }
+            else
+            {
+                string message = "অনুচ্ছেদ বডি দেওয়া হইনি";
+                MessageBox.Show(message);
+            }
+            
+            //tinyMceEditor.n
+            //tinyMceEditor.Controls.Clear();
+            
+        }
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (onuchhedint == 1)
+            {
+                onuchhedheaderPnl.Visible = false;
+            }
+            onuchhedint--;
         }
     }
 }

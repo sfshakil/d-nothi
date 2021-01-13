@@ -86,7 +86,9 @@ namespace dNothi.Desktop.UI.Dak
 
         private void cbNote_Click_1(object sender, EventArgs e)
         {
-
+                if (this.CheckBoxClick != null)
+                    this.CheckBoxClick(sender, e);
+                
         }
 
         //private void cbNote_Click(object sender, EventArgs e)
