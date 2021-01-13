@@ -61,11 +61,9 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.detailsDakSearcPanel = new System.Windows.Forms.Panel();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.nameorDesignationSearchPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timeLimitDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -159,9 +157,11 @@
             this.sliderCrossButton = new System.Windows.Forms.Button();
             this.rightSliderHeadLineLabel = new System.Windows.Forms.Label();
             this.dashboardRightSideDisplaypanel = new System.Windows.Forms.Panel();
-            this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.dashboardPanel = new System.Windows.Forms.Panel();
             this.dashBoardBlurPanel = new System.Windows.Forms.Panel();
+            this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -656,23 +656,6 @@
             this.detailsDakSearcPanel.TabIndex = 0;
             this.detailsDakSearcPanel.Visible = false;
             // 
-            // searchOfficeDetailSearch
-            // 
-            this.searchOfficeDetailSearch.AutoSize = true;
-            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
-            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeDetailSearch.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 210);
-            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
-            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(174, 40);
-            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
-            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(506, 84);
-            this.searchOfficeDetailSearch.TabIndex = 30;
-            // 
             // nameorDesignationSearchPanel
             // 
             this.nameorDesignationSearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -708,16 +691,6 @@
             this.label12.Size = new System.Drawing.Size(229, 15);
             this.label12.TabIndex = 31;
             this.label12.Text = "Please enter 4 or more characters";
-            // 
-            // nameorDesignationSearchXTextBox
-            // 
-            this.nameorDesignationSearchXTextBox.BackColor = System.Drawing.Color.White;
-            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(11, 18);
-            this.nameorDesignationSearchXTextBox.Multiline = true;
-            this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
-            this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(449, 35);
-            this.nameorDesignationSearchXTextBox.TabIndex = 30;
             // 
             // label13
             // 
@@ -2119,6 +2092,7 @@
             // 
             // dashboardRightSideDisplaypanel
             // 
+            this.dashboardRightSideDisplaypanel.AutoScroll = true;
             this.dashboardRightSideDisplaypanel.Controls.Add(this.rightSliderHeadLineLabel);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.sliderCrossButton);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.dashboardRightSideFlowLayoutPanel);
@@ -2127,20 +2101,6 @@
             this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(572, 690);
             this.dashboardRightSideDisplaypanel.TabIndex = 26;
             this.dashboardRightSideDisplaypanel.Visible = false;
-            // 
-            // designationDetailsPanel
-            // 
-            this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
-            this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.designationDetailsPanel.dakTotalNumber = 5;
-            this.designationDetailsPanel.designationLinkText = null;
-            this.designationDetailsPanel.Location = new System.Drawing.Point(910, 48);
-            this.designationDetailsPanel.Name = "designationDetailsPanel";
-            this.designationDetailsPanel.nothiTotalNumber = 9;
-            this.designationDetailsPanel.Size = new System.Drawing.Size(428, 146);
-            this.designationDetailsPanel.TabIndex = 51;
-            this.designationDetailsPanel.Visible = false;
-            this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
             // 
             // dashboardPanel
             // 
@@ -2162,6 +2122,47 @@
             this.dashBoardBlurPanel.Name = "dashBoardBlurPanel";
             this.dashBoardBlurPanel.Size = new System.Drawing.Size(1354, 687);
             this.dashBoardBlurPanel.TabIndex = 47;
+            // 
+            // designationDetailsPanel
+            // 
+            this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
+            this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.designationDetailsPanel.dakTotalNumber = 5;
+            this.designationDetailsPanel.designationLinkText = null;
+            this.designationDetailsPanel.Location = new System.Drawing.Point(910, 48);
+            this.designationDetailsPanel.Name = "designationDetailsPanel";
+            this.designationDetailsPanel.nothiTotalNumber = 9;
+            this.designationDetailsPanel.Size = new System.Drawing.Size(428, 146);
+            this.designationDetailsPanel.TabIndex = 51;
+            this.designationDetailsPanel.Visible = false;
+            this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
+            // 
+            // searchOfficeDetailSearch
+            // 
+            this.searchOfficeDetailSearch.AutoSize = true;
+            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
+            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeDetailSearch.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 210);
+            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
+            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(174, 40);
+            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
+            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(506, 84);
+            this.searchOfficeDetailSearch.TabIndex = 30;
+            // 
+            // nameorDesignationSearchXTextBox
+            // 
+            this.nameorDesignationSearchXTextBox.BackColor = System.Drawing.Color.White;
+            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(11, 18);
+            this.nameorDesignationSearchXTextBox.Multiline = true;
+            this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
+            this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(449, 35);
+            this.nameorDesignationSearchXTextBox.TabIndex = 30;
             // 
             // Dashboard
             // 

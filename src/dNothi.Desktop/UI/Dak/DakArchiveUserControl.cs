@@ -204,7 +204,14 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _attentionTypeIconValue = value;
-
+                if (value == "0")
+                {
+                    dakRevertButton.Visible = true;
+                }
+                else
+                {
+                    dakRevertButton.Visible = false;
+                }
                 AttentionTypeList attentionTypeIconList = new AttentionTypeList();
                 string icon = attentionTypeIconList.GetAttentionTypeIcon(value);
 
@@ -347,13 +354,25 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler ArchiveRevertButtonClick;
         private void dakRevertButton_Click(object sender, EventArgs e)
         {
-            if (this.ArchiveRevertButtonClick != null)
-                this.ArchiveRevertButtonClick(sender, e);
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি ফেরত আনতে চান ?\n",
+                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+
+                if (this.ArchiveRevertButtonClick != null)
+                    this.ArchiveRevertButtonClick(sender, e);
+            }
         }
 
         private void dakMovementStatusButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dakMovementStatusButton_Click_1(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
         }
     }
 }

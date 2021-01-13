@@ -70,8 +70,10 @@
     <Compile Include="Entity\Dak\DakArchiveRevertResponse.cs" />
     <Compile Include="Entity\Dak\DakDecisionAddResponse.cs" />
     <Compile Include="Entity\Dak\DakDecisionListResponse.cs" />
+    <Compile Include="Entity\Dak\DakForwardRevertResponse.cs" />
     <Compile Include="Entity\Dak\DakNothijatoResponse.cs" />
     <Compile Include="Entity\Dak\DakNothivuktoResponse.cs" />
+    <Compile Include="Entity\Dak\DakNothivuktoRevertResponse.cs" />
     <Compile Include="Entity\Dak\DesignationSealResponse.cs" />
     <Compile Include="Entity\Dak\DakAttachmentDTO.cs" />
     <Compile Include="Entity\Dak\DakAttachmentResponse.cs" />

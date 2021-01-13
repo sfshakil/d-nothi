@@ -87,6 +87,10 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.DakDecisionSetupEndpoint;
         }
+         protected string GetDakForwardRevertEndpoint()
+        {
+            return DefaultAPIConfiguration.DakForwardRevertEndPoint;
+        }
 
         public DakForwardResponse GetDakForwardResponse(DakForwardRequestParam dakForwardParam)
         {
@@ -243,5 +247,36 @@ namespace dNothi.Services.DakServices
             errorArgs.ErrorContext.Handled = true;
         }
 
+        public DakForwardRevertResponse GetDakForwardRevertResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
+        {
+            try
+            {
+                var forwardRevertDakApi = new RestClient(GetAPIDomain() + GetDakForwardRevertEndpoint());
+                forwardRevertDakApi.Timeout = -1;
+                var forwardRevertRequest = new RestRequest(Method.POST);
+                forwardRevertRequest.AddHeader("api-version", GetOldAPIVersion());
+                forwardRevertRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                forwardRevertRequest.AlwaysMultipartFormData = true;
+                forwardRevertRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                forwardRevertRequest.AddParameter("office_id", dakUserParam.office_id);
+                forwardRevertRequest.AddParameter("dak_id",dak_id);
+                forwardRevertRequest.AddParameter("dak_type", dak_type);
+                forwardRevertRequest.AddParameter("is_copied_dak",is_copied_dak);
+               
+
+
+                IRestResponse nothivuktoRevertResponse = forwardRevertDakApi.Execute(forwardRevertRequest);
+
+
+                var nothivuktoRevertResponseJson = nothivuktoRevertResponse.Content;
+                DakForwardRevertResponse revertResponse = JsonConvert.DeserializeObject<DakForwardRevertResponse>(nothivuktoRevertResponseJson);
+                return revertResponse;
+            }
+        
+            catch (Exception ex)
+            {
+               return null;
+            }
+}
     }
 }

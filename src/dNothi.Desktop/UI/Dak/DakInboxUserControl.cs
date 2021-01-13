@@ -423,12 +423,14 @@ namespace dNothi.Desktop.UI.Dak
       
         private void dakMovementButton_Click(object sender, EventArgs e)
         {
-
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
         }
 
         private void dakMovementStatusButton_Click(object sender, EventArgs e)
         {
-
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
         }
         public event EventHandler NothiteUposthapitoButtonClick;
         private void nothiteUposthaponButton_Click(object sender, EventArgs e)
@@ -454,13 +456,11 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakSendButton_Click(object sender, EventArgs e)
         {
-
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
         }
 
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-           
-        }
+       
         public event EventHandler NothijatoButtonClick;
        
             
