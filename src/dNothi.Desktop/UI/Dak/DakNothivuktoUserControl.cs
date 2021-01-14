@@ -42,7 +42,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
-
+                if (ctrl.Name == "dakActionPanel")
+                {
+                    continue;
+                }
                 ctrl.Click += DakNothivuktoUserControl_Click;
                 ctrl.MouseEnter += DakNothivuktoUserControl_MouseEnter;
                 ctrl.MouseLeave += DakNothivuktoUserControl_MouseLeave;
@@ -67,7 +70,12 @@ namespace dNothi.Desktop.UI.Dak
         private string _nothiNo;
         private int _dakAttachmentCount;
 
-
+        public event EventHandler NothiteUposthapitoButtonClick;
+        private void nothiteUposthaponButton_Click(object sender, EventArgs e)
+        {
+            if (this.NothiteUposthapitoButtonClick != null)
+                this.NothiteUposthapitoButtonClick(sender, e);
+        }
         [Category("Custom Props")]
         public int potrojari
         {
@@ -335,6 +343,28 @@ namespace dNothi.Desktop.UI.Dak
         private void DakNothivuktoUserControl_MouseLeave(object sender, EventArgs e)
         {
             MouseHoverAction();
+        }
+
+        private void dakMovementStatusButton_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+        public event EventHandler RevertButtonClick;
+        private void dakRevertButton_Click(object sender, EventArgs e)
+        {
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি ফেরত আনতে চান ?\n",
+                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+
+
+                if (this.RevertButtonClick != null)
+                    this.RevertButtonClick(sender, e);
+
+
+
+            }
         }
     }
 }

@@ -43,7 +43,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
-
+                if(ctrl.Name== "dakActionPanel")
+                {
+                    continue;
+                }
                 ctrl.Click += DakOutboxUserControl_Click;
                 ctrl.MouseEnter += DakOutboxUserControl_Enter;
                 ctrl.MouseLeave += DakOutboxUserControl_Leave;
@@ -215,7 +218,14 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _attentionTypeIconValue = value;
-
+                if (value == "0")
+                {
+                    dakArchiveButton.Visible = true;
+                }
+                else
+                {
+                    dakArchiveButton.Visible = false;
+                }
                 AttentionTypeList attentionTypeIconList = new AttentionTypeList();
                 string icon = attentionTypeIconList.GetAttentionTypeIcon(value);
 
@@ -297,6 +307,8 @@ namespace dNothi.Desktop.UI.Dak
             set { _date = value; dateLabel.Text = value; }
         }
 
+       
+
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when user clicks button")]
@@ -315,6 +327,56 @@ namespace dNothi.Desktop.UI.Dak
         private void DakOutboxUserControl_Leave(object sender, EventArgs e)
         {
             MouseHoverAction();
+        }
+        public event EventHandler RevertButtonClick;
+        private void dakRevertButton_Click(object sender, EventArgs e)
+        {
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি ফেরত আনতে চান ?\n",
+                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+
+
+                if (this.RevertButtonClick != null)
+                    this.RevertButtonClick(sender, e);
+
+
+
+            }
+        }
+
+        private void dakMovementStatusButton_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+
+        private void DakSendButton_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+        public event EventHandler NothiteUposthapitoButtonClick;
+        private void nothiteUposthaponButton_Click(object sender, EventArgs e)
+        {
+            if (this.NothiteUposthapitoButtonClick != null)
+                this.NothiteUposthapitoButtonClick(sender, e);
+        }
+
+        public event EventHandler DakArchiveButtonClick;
+        private void dakArchiveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        public event EventHandler NothijatoButtonClick;
+
+
+        private void nothijatoButton_Click(object sender, EventArgs e)
+        {
+            if (this.NothijatoButtonClick != null)
+                this.NothijatoButtonClick(sender, e);
         }
     }
 }

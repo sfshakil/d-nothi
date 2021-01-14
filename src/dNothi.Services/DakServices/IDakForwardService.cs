@@ -10,6 +10,8 @@ namespace dNothi.Services.DakServices
 {
     public interface IDakForwardService
     {
+        DakForwardRevertResponse GetDakForwardRevertResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
+
         DakDecisionSetupResponse GetDakDecisionSetupResponse(DakUserParam dakListUserParam, string addJson, string deleteJson);
 
         DakDecisionListResponse GetDakDecisionListResponse(DakUserParam dakListUserParam);

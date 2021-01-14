@@ -145,6 +145,10 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.DakNothivuktoEndpointEndPoint;
         }
+        private string GetDakNothivuktoRevertEndpoint()
+        {
+            return DefaultAPIConfiguration.DakNothivuktoRevertEndPoint;
+        }
 
         public DakNothivuktoResponse GetDakNothivuktoResponse(DakUserParam dakUserParam, NoteNothiDTO nothi, int dak_id, string dak_type, int is_copied_dak)
         {
@@ -179,7 +183,33 @@ namespace dNothi.Services.DakServices
             errorArgs.ErrorContext.Handled = true;
         }
 
-       
+        public DakNothivuktoRevertResponse GetDakNothivuktoRevertResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
+        {
+            try
+            {
+                var nothivuktoRevertDakApi = new RestClient(GetAPIDomain() + GetDakNothivuktoRevertEndpoint());
+                nothivuktoRevertDakApi.Timeout = -1;
+                var nothivuktoRevertRequest = new RestRequest(Method.POST);
+                nothivuktoRevertRequest.AddHeader("api-version", GetOldAPIVersion());
+                nothivuktoRevertRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                nothivuktoRevertRequest.AlwaysMultipartFormData = true;
+                nothivuktoRevertRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                nothivuktoRevertRequest.AddParameter("office_id", dakUserParam.office_id);
+                nothivuktoRevertRequest.AddParameter("dak", "{\"dak_id\":\""+dak_id+"\",\"dak_type\":\""+dak_type+"\", \"is_copied_dak\":\""+is_copied_dak+"\"}");
 
+
+               
+                IRestResponse nothivuktoRevertResponse = nothivuktoRevertDakApi.Execute(nothivuktoRevertRequest);
+
+
+                var nothivuktoRevertResponseJson = nothivuktoRevertResponse.Content;
+                DakNothivuktoRevertResponse revertResponse = JsonConvert.DeserializeObject<DakNothivuktoRevertResponse>(nothivuktoRevertResponseJson);
+                return revertResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
