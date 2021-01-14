@@ -199,6 +199,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IUserControlFactory.cs" />
+    <Compile Include="UI\Dak\Attachment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\Attachment.Designer.cs">
+      <DependentUpon>Attachment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\CreateNewNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -569,6 +575,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\PlaceHolderTextBox.resx">
       <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\Attachment.resx">
+      <DependentUpon>Attachment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\CreateNewNotes.resx">
       <DependentUpon>CreateNewNotes.cs</DependentUpon>

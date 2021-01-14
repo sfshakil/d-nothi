@@ -210,6 +210,7 @@ namespace dNothi.Desktop.UI.Dak
                                     nothiOnumodonRows.Add(nothiOnumodonRow);
 
                                     NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
+                                    //nothiOnumodon.id = 
                                     nothiOnumodon.office_id = officer.office_id.ToString();
                                     nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
                                     nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
@@ -691,7 +692,8 @@ namespace dNothi.Desktop.UI.Dak
                 if (nothiNotePermission.status == "success")
                 {
                     MessageBox.Show("সফলভাবে তথ্য সংরক্ষণ করা হয়েছে");
-                    this.Hide();
+                    foreach (Form f in Application.OpenForms)
+                    { f.Hide(); }
                     var form = FormFactory.Create<Nothi>();
                     form.ForceLoadNothiALL();
                     form.ShowDialog();

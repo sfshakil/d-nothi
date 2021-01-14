@@ -1,19 +1,18 @@
-﻿using dNothi.Desktop.UI.Dak;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace dNothi.Desktop.UI
+namespace dNothi.Desktop.UI.Dak
 {
-    public partial class NothiCreateNextStep : Form
+    public partial class Attachment : UserControl
     {
-        public NothiCreateNextStep()
+        public Attachment()
         {
             InitializeComponent();
             SetDefaultFont(this.Controls);
@@ -29,21 +28,21 @@ namespace dNothi.Desktop.UI
             }
 
         }
+        private string _attachmentSize;
+        private string _attachmentName;
 
-        private void btnNO_Click(object sender, EventArgs e)
+        [Category("Custom Props")]
+        public string attachmentName
         {
-            foreach (Form f in Application.OpenForms)
-            { f.Hide(); }
-            var form = FormFactory.Create<Nothi>();
-            form.ForceLoadNothiALL();
-            form.ShowDialog();
+            get { return _attachmentName; }
+            set { _attachmentName = value; lbAttachmentName.Text = value; }
+        }
+        [Category("Custom Props")]
+        public string attachmentSize
+        {
+            get { return _attachmentSize; }
+            set { _attachmentSize = value; lbAttachmentSize.Text = value; }
         }
 
-        private void btnYES_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
-            form.ShowDialog();
-        }
     }
 }

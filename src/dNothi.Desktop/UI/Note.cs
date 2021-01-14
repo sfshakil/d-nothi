@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -193,6 +194,7 @@ namespace dNothi.Desktop.UI
 
         }
         int fileuploadDoneFlag = 0;
+        List<NoteFileUpload> noteFileUploads = new List<NoteFileUpload>();
         private void fileUploadPanel_Click_1(object sender, EventArgs e)
         {
 
@@ -242,6 +244,7 @@ namespace dNothi.Desktop.UI
                             noteFileUpload.imgSource = opnfd.FileName;
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                            noteFileUploads.Add(noteFileUpload);
                             fileAddFLP.Controls.Add(noteFileUpload);
                             //dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             //dakUploadAttachmentTableRow._isAllowedforOCR = true;
@@ -268,6 +271,7 @@ namespace dNothi.Desktop.UI
                             noteFileUpload.imgSource = "";
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                            noteFileUploads.Add(noteFileUpload);
                             fileAddFLP.Controls.Add(noteFileUpload);
 
                         }
@@ -276,7 +280,7 @@ namespace dNothi.Desktop.UI
                             NoteFileDelete noteFileDelete = new NoteFileDelete();
                             noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                             noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                            fileAddFLP.Controls.Add(noteFileDelete);
+                            noteFileUploads.Add(noteFileUpload);
                             //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
                         }
 
@@ -351,6 +355,7 @@ namespace dNothi.Desktop.UI
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                             fileAddFLP.Controls.Add(noteFileUpload);
+                            noteFileUploads.Add(noteFileUpload);
                             //dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             //dakUploadAttachmentTableRow._isAllowedforOCR = true;
 
@@ -377,6 +382,7 @@ namespace dNothi.Desktop.UI
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                             fileAddFLP.Controls.Add(noteFileUpload);
+                            noteFileUploads.Add(noteFileUpload);
 
                         }
                         else
@@ -417,9 +423,10 @@ namespace dNothi.Desktop.UI
         int onuchhedint = 0;
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //string editortext = tinyMceEditor.HtmlContent;
+            string editortext =  getparagraphtext(tinyMceEditor.HtmlContent);
 
-
-            if (fileuploadDoneFlag == 1)
+            if (editortext !="")
             {
 
                 onuchhedheaderPnl.Visible = true;
@@ -432,9 +439,18 @@ namespace dNothi.Desktop.UI
                 onuchhedint++;
                 onuchhed.fileflag = 0;
                 onuchhed.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1, e1); };
-                onuchhed.body = tinyMceEditor.HtmlContent;
+                onuchhed.body = editortext;
+                int i = 1;
+                foreach (NoteFileUpload notefileupload in noteFileUploads)
+                {
+                   
+                    onuchhed.fileflag = 1;
+                    onuchhed.getAttachment(notefileupload);onuchhed.file = i;i++;
+                }
+                
                 onuchhedFLP.Controls.Add(onuchhed);
                 fileAddFLP.Controls.Clear();
+                noteFileUploads.Clear();
             }
             else
             {
@@ -442,10 +458,20 @@ namespace dNothi.Desktop.UI
                 MessageBox.Show(message);
             }
             
-            //tinyMceEditor.n
             //tinyMceEditor.Controls.Clear();
             
         }
+        public string getparagraphtext(string editortext)
+        {
+            Match m = Regex.Match(editortext, @"<p>\s*(.+?)\s*</p>");
+            if (m.Success)
+            {
+                return m.Groups[1].Value;
+            }
+            else
+                return "";
+        }
+
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (onuchhedint == 1)

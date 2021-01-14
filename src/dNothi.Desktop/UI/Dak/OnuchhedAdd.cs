@@ -34,30 +34,41 @@ namespace dNothi.Desktop.UI.Dak
         private string _noteOnuchhed;
         private string _body;
         private string _Onuchhed; 
+        private int _file;
         private int _fileflag;
 
         [Category("Custom Props")]
         public int fileflag
         {
             get { return _fileflag; }
-            set { _fileflag = value; if (value == 0)
+            set
+            {
+                _fileflag = value;
+                if (value == 0)
                 {
                     fileheadpnl.Visible = false;
                     fileFLP.Visible = false;
-                }; }
+                }
+                else
+                {
+                    fileheadpnl.Visible = true;
+                    fileFLP.Visible = true;
+                }
+            }
         }
-
         [Category("Custom Props")]
         public string currentDate
         {
             get { return _currentDate; }
             set { _currentDate = value; lbCurrentDate.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
+        [Category("Custom Props")]
         public string currentMonth
         {
             get { return _currentMonth; }
             set { _currentMonth = value; lbCurrentMonth.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
+        [Category("Custom Props")]
         public string currentYear
         {
             get { return _currentYear; }
@@ -76,6 +87,12 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _body; }
             set { _body = value; lbBody.Text = value; }
+        }
+        [Category("Custom Props")]
+        public int file
+        {
+            get { return _file; }
+            set { _file = value; lbfileflag.Text = "("+ string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')))+")"; }
         }
 
         [Category("Custom Props")]
@@ -163,5 +180,14 @@ namespace dNothi.Desktop.UI.Dak
             if (this.DeleteButtonClick != null)
                 this.DeleteButtonClick(sender, e);
         }
+        [Category("Custom Props")]
+        public void getAttachment(NoteFileUpload notefileupload)
+        {
+            Attachment attachment = new Attachment();
+            attachment.attachmentName = notefileupload.attachmentName;
+            attachment.attachmentSize = notefileupload.fileexension;
+            fileFLP.Controls.Add(attachment);
+        }
+        
     }
 }

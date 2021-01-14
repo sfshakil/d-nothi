@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.topPnl = new System.Windows.Forms.Panel();
-            this.btnKhoshra = new FontAwesome.Sharp.IconButton();
-            this.btnEdit = new FontAwesome.Sharp.IconButton();
-            this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.lbCurrentYear = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbCurrentMonth = new System.Windows.Forms.Label();
@@ -43,14 +40,17 @@
             this.lbNotettl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.lbBody = new System.Windows.Forms.Label();
             this.fileFLP = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel12 = new System.Windows.Forms.Panel();
             this.fileheadpnl = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.lbfileflag = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnKhoshra = new FontAwesome.Sharp.IconButton();
+            this.btnEdit = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.topPnl.SuspendLayout();
             this.middlePnl.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -72,82 +72,9 @@
             this.topPnl.Location = new System.Drawing.Point(0, 0);
             this.topPnl.Margin = new System.Windows.Forms.Padding(0);
             this.topPnl.Name = "topPnl";
-            this.topPnl.Size = new System.Drawing.Size(886, 24);
+            this.topPnl.Size = new System.Drawing.Size(884, 24);
             this.topPnl.TabIndex = 0;
             this.topPnl.MouseHover += new System.EventHandler(this.topPnl_MouseHover);
-            // 
-            // btnKhoshra
-            // 
-            this.btnKhoshra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnKhoshra.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnKhoshra.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnKhoshra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnKhoshra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnKhoshra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKhoshra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhoshra.ForeColor = System.Drawing.Color.White;
-            this.btnKhoshra.IconChar = FontAwesome.Sharp.IconChar.FileSignature;
-            this.btnKhoshra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnKhoshra.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnKhoshra.IconSize = 18;
-            this.btnKhoshra.Location = new System.Drawing.Point(790, 0);
-            this.btnKhoshra.Margin = new System.Windows.Forms.Padding(0);
-            this.btnKhoshra.Name = "btnKhoshra";
-            this.btnKhoshra.Size = new System.Drawing.Size(32, 24);
-            this.btnKhoshra.TabIndex = 73;
-            this.btnKhoshra.UseVisualStyleBackColor = false;
-            this.btnKhoshra.Visible = false;
-            this.btnKhoshra.MouseLeave += new System.EventHandler(this.btnKhoshra_MouseLeave);
-            this.btnKhoshra.MouseHover += new System.EventHandler(this.btnKhoshra_MouseHover);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
-            this.btnEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEdit.IconSize = 18;
-            this.btnEdit.Location = new System.Drawing.Point(822, 0);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(32, 24);
-            this.btnEdit.TabIndex = 72;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Visible = false;
-            this.btnEdit.MouseLeave += new System.EventHandler(this.btnEdit_MouseLeave);
-            this.btnEdit.MouseHover += new System.EventHandler(this.btnEdit_MouseHover);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDelete.IconSize = 18;
-            this.btnDelete.Location = new System.Drawing.Point(854, 0);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(32, 24);
-            this.btnDelete.TabIndex = 71;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Visible = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            this.btnDelete.MouseLeave += new System.EventHandler(this.btnDelete_MouseLeave);
-            this.btnDelete.MouseHover += new System.EventHandler(this.btnDelete_MouseHover);
             // 
             // lbCurrentYear
             // 
@@ -229,7 +156,7 @@
             this.middlePnl.Location = new System.Drawing.Point(0, 24);
             this.middlePnl.Margin = new System.Windows.Forms.Padding(0);
             this.middlePnl.Name = "middlePnl";
-            this.middlePnl.Size = new System.Drawing.Size(886, 24);
+            this.middlePnl.Size = new System.Drawing.Size(884, 24);
             this.middlePnl.TabIndex = 2;
             this.middlePnl.MouseHover += new System.EventHandler(this.middlePnl_MouseHover);
             // 
@@ -298,8 +225,17 @@
             this.panel1.Location = new System.Drawing.Point(0, 48);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(886, 73);
+            this.panel1.Size = new System.Drawing.Size(884, 65);
             this.panel1.TabIndex = 3;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel12.Location = new System.Drawing.Point(0, 64);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(884, 1);
+            this.panel12.TabIndex = 69;
             // 
             // lbBody
             // 
@@ -317,21 +253,15 @@
             // 
             // fileFLP
             // 
+            this.fileFLP.AutoScroll = true;
             this.fileFLP.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.fileFLP.Location = new System.Drawing.Point(0, 153);
+            this.fileFLP.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fileFLP.Location = new System.Drawing.Point(0, 145);
             this.fileFLP.Margin = new System.Windows.Forms.Padding(0);
             this.fileFLP.Name = "fileFLP";
-            this.fileFLP.Size = new System.Drawing.Size(886, 85);
+            this.fileFLP.Size = new System.Drawing.Size(884, 85);
             this.fileFLP.TabIndex = 4;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(0, 72);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(886, 1);
-            this.panel12.TabIndex = 69;
+            this.fileFLP.WrapContents = false;
             // 
             // fileheadpnl
             // 
@@ -340,20 +270,26 @@
             this.fileheadpnl.Controls.Add(this.label5);
             this.fileheadpnl.Controls.Add(this.panel3);
             this.fileheadpnl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.fileheadpnl.Location = new System.Drawing.Point(0, 121);
+            this.fileheadpnl.Location = new System.Drawing.Point(0, 113);
             this.fileheadpnl.Margin = new System.Windows.Forms.Padding(0);
             this.fileheadpnl.Name = "fileheadpnl";
-            this.fileheadpnl.Size = new System.Drawing.Size(886, 32);
+            this.fileheadpnl.Size = new System.Drawing.Size(884, 32);
             this.fileheadpnl.TabIndex = 5;
             // 
-            // panel3
+            // lbfileflag
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 31);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(886, 1);
-            this.panel3.TabIndex = 70;
+            this.lbfileflag.AutoSize = true;
+            this.lbfileflag.BackColor = System.Drawing.Color.Transparent;
+            this.lbfileflag.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbfileflag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbfileflag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbfileflag.Location = new System.Drawing.Point(57, 0);
+            this.lbfileflag.Margin = new System.Windows.Forms.Padding(0);
+            this.lbfileflag.Name = "lbfileflag";
+            this.lbfileflag.Padding = new System.Windows.Forms.Padding(5);
+            this.lbfileflag.Size = new System.Drawing.Size(44, 30);
+            this.lbfileflag.TabIndex = 75;
+            this.lbfileflag.Text = " ( ১ )";
             // 
             // label5
             // 
@@ -366,9 +302,18 @@
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(5);
-            this.label5.Size = new System.Drawing.Size(82, 30);
+            this.label5.Size = new System.Drawing.Size(57, 30);
             this.label5.TabIndex = 71;
-            this.label5.Text = "সংযুক্তি ( ১ )";
+            this.label5.Text = "সংযুক্তি";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 31);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(884, 1);
+            this.panel3.TabIndex = 70;
             // 
             // iconButton1
             // 
@@ -385,7 +330,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(854, 0);
+            this.iconButton1.Location = new System.Drawing.Point(852, 0);
             this.iconButton1.Margin = new System.Windows.Forms.Padding(5);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(5);
@@ -393,21 +338,78 @@
             this.iconButton1.TabIndex = 74;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // lbfileflag
+            // btnKhoshra
             // 
-            this.lbfileflag.AutoSize = true;
-            this.lbfileflag.BackColor = System.Drawing.Color.Transparent;
-            this.lbfileflag.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbfileflag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbfileflag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbfileflag.Location = new System.Drawing.Point(82, 0);
-            this.lbfileflag.Margin = new System.Windows.Forms.Padding(0);
-            this.lbfileflag.Name = "lbfileflag";
-            this.lbfileflag.Padding = new System.Windows.Forms.Padding(5);
-            this.lbfileflag.Size = new System.Drawing.Size(44, 30);
-            this.lbfileflag.TabIndex = 75;
-            this.lbfileflag.Text = " ( ১ )";
-            this.lbfileflag.Visible = false;
+            this.btnKhoshra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnKhoshra.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnKhoshra.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnKhoshra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnKhoshra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnKhoshra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhoshra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKhoshra.ForeColor = System.Drawing.Color.White;
+            this.btnKhoshra.IconChar = FontAwesome.Sharp.IconChar.FileSignature;
+            this.btnKhoshra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnKhoshra.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnKhoshra.IconSize = 18;
+            this.btnKhoshra.Location = new System.Drawing.Point(788, 0);
+            this.btnKhoshra.Margin = new System.Windows.Forms.Padding(0);
+            this.btnKhoshra.Name = "btnKhoshra";
+            this.btnKhoshra.Size = new System.Drawing.Size(32, 24);
+            this.btnKhoshra.TabIndex = 73;
+            this.btnKhoshra.UseVisualStyleBackColor = false;
+            this.btnKhoshra.Visible = false;
+            this.btnKhoshra.MouseLeave += new System.EventHandler(this.btnKhoshra_MouseLeave);
+            this.btnKhoshra.MouseHover += new System.EventHandler(this.btnKhoshra_MouseHover);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
+            this.btnEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEdit.IconSize = 18;
+            this.btnEdit.Location = new System.Drawing.Point(820, 0);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(32, 24);
+            this.btnEdit.TabIndex = 72;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Visible = false;
+            this.btnEdit.MouseLeave += new System.EventHandler(this.btnEdit_MouseLeave);
+            this.btnEdit.MouseHover += new System.EventHandler(this.btnEdit_MouseHover);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 18;
+            this.btnDelete.Location = new System.Drawing.Point(852, 0);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(32, 24);
+            this.btnDelete.TabIndex = 71;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.MouseLeave += new System.EventHandler(this.btnDelete_MouseLeave);
+            this.btnDelete.MouseHover += new System.EventHandler(this.btnDelete_MouseHover);
             // 
             // OnuchhedAdd
             // 
@@ -422,7 +424,7 @@
             this.Controls.Add(this.topPnl);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "OnuchhedAdd";
-            this.Size = new System.Drawing.Size(886, 117);
+            this.Size = new System.Drawing.Size(884, 116);
             this.MouseHover += new System.EventHandler(this.OnuchhedAdd_MouseHover);
             this.topPnl.ResumeLayout(false);
             this.topPnl.PerformLayout();
