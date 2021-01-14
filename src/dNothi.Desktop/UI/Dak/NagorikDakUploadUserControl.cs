@@ -71,9 +71,15 @@ namespace dNothi.Desktop.UI.Dak
 
                 //sendMediumSearchButton.searchButtonText = value.dak_sending_media;
 
-                //dakDescriptionXTextBox.Text = value.dak_description;
+                dakDescriptionXTextBox.Text = value.dak_description;
 
+                mobileXTextBox.Text = value.sender_mobile;
+                nameBanglaXTextBox.Text = value.sender_name;
+                permenantAddressXTextBox.Text = value.sender_address;
+                presentAddressXTextBox.Text = value.sender_address;
 
+            
+               
 
                 prioritySearchButton.Text = value.dak_priority_level;
                 seurityLevelSearchButton.Text = value.dak_security_level;
@@ -110,6 +116,7 @@ namespace dNothi.Desktop.UI.Dak
                                         {
                                             image.Save(m, image.RawFormat);
                                             byte[] imageBytes = m.ToArray();
+                                           // dakUploadAttachmentTableRow.imgSource = attachment.i;
 
                                             // Convert byte[] to Base64 String
                                             dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
@@ -150,8 +157,7 @@ namespace dNothi.Desktop.UI.Dak
                             dakUploadAttachmentTableRow.fileexension = attachment.attachment_type.ToLowerInvariant();
                             dakUploadAttachmentTableRow._dakAttachment = attachment;
                             dakUploadAttachmentTableRow.imageLink = attachment.url;
-                            dakUploadAttachmentTableRow.imgSource = attachment.thumbnail_url;
-                            dakUploadAttachmentTableRow.attachmentName = attachment.user_file_name;
+                             dakUploadAttachmentTableRow.attachmentName = attachment.user_file_name;
                             dakUploadAttachmentTableRow.attachmentId = attachment.attachment_id; ;
                             dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(radioSender, radioEvent, dakUploadAttachmentTableRow.attachmentId); };
 
@@ -515,7 +521,7 @@ namespace dNothi.Desktop.UI.Dak
                         {
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             dakUploadAttachmentTableRow._isAllowedforOCR = true;
-
+                            dakUploadAttachmentTableRow.imgSource = opnfd.FileName;
                             using (Image image = Image.FromFile(opnfd.FileName))
                             {
                                 using (MemoryStream m = new MemoryStream())
@@ -553,7 +559,7 @@ namespace dNothi.Desktop.UI.Dak
                         dakUploadAttachmentTableRow.fileexension = new System.IO.FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
                         dakUploadAttachmentTableRow._dakAttachment = dakUploadedFileResponse.data[0];
                         dakUploadAttachmentTableRow.imageLink = dakUploadedFileResponse.data[0].url;
-                        dakUploadAttachmentTableRow.imgSource = dakUploadedFileResponse.data[0].thumbnail_url;
+             
                         dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                         dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;
                         dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
@@ -679,12 +685,12 @@ namespace dNothi.Desktop.UI.Dak
 
             //Sender
            
-           dakUploadParameter.sender_info = "";
+           dakUploadParameter.sender_info = "[]";
 
 
             // Dak
 
-            DakInfo dak = new DakInfo(false);
+            DakInfo dak = new DakInfo(true);
 
             List<DakUploadAttachment> dakUploadAttachments = new List<DakUploadAttachment>();
 
@@ -720,9 +726,9 @@ namespace dNothi.Desktop.UI.Dak
             dak.parmanent_address = permenantAddressXTextBox.Text;
             dak.email = emailXTextBox.Text;
             dak.mobile_no = mobileXTextBox.Text;
-            dak.nationality = searchNationalityUserController1.Text.ToString();
-            dak.gender = genderSearchButton.Text.ToString();
-            dak.religion = searchReligionUserController.Text.ToString();
+            dak.nationality = searchNationalityUserController1.searchButtonText.ToString();
+            dak.gender = genderSearchButton.searchButtonText.ToString();
+            dak.religion = searchReligionUserController.searchButtonText.ToString();
 
 
 
@@ -736,12 +742,12 @@ namespace dNothi.Desktop.UI.Dak
 
 
             DakPriorityList dakPriority = new DakPriorityList();
-            int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
+            int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.searchButtonText.ToString()));
 
 
 
             DakSecurityList dakSecurityList = new DakSecurityList();
-            int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(seurityLevelSearchButton.Text.ToString()));
+            int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(seurityLevelSearchButton.searchButtonText.ToString()));
 
             dak.priority = dak_priority_id.ToString();
             dak.dak_priority = prioritySearchButton.ToString();

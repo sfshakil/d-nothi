@@ -33,7 +33,6 @@
             this.attachmentLink = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.attachmentOCRButton = new FontAwesome.Sharp.IconButton();
-            this.rejectButton = new System.Windows.Forms.Button();
             this.attachmentDeleteButton = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -66,10 +65,12 @@
             // 
             this.attachmentLink.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.attachmentLink.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.attachmentLink.Image = ((System.Drawing.Image)(resources.GetObject("attachmentLink.Image")));
             this.attachmentLink.Location = new System.Drawing.Point(125, 4);
             this.attachmentLink.Name = "attachmentLink";
+            this.attachmentLink.Padding = new System.Windows.Forms.Padding(25, 5, 25, 5);
             this.attachmentLink.Size = new System.Drawing.Size(194, 57);
-            this.attachmentLink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.attachmentLink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.attachmentLink.TabIndex = 6;
             this.attachmentLink.TabStop = false;
             this.attachmentLink.Click += new System.EventHandler(this.attachmentLink_Click);
@@ -106,19 +107,6 @@
             this.attachmentOCRButton.Visible = false;
             this.attachmentOCRButton.Click += new System.EventHandler(this.attachmentOCRButton_Click);
             // 
-            // rejectButton
-            // 
-            this.rejectButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rejectButton.BackgroundImage")));
-            this.rejectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.rejectButton.FlatAppearance.BorderSize = 0;
-            this.rejectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rejectButton.Location = new System.Drawing.Point(222, 5);
-            this.rejectButton.Name = "rejectButton";
-            this.rejectButton.Size = new System.Drawing.Size(88, 44);
-            this.rejectButton.TabIndex = 9;
-            this.rejectButton.UseVisualStyleBackColor = true;
-            this.rejectButton.Visible = false;
-            // 
             // attachmentDeleteButton
             // 
             this.attachmentDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
@@ -152,6 +140,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1024, 65);
             this.tableLayoutPanel2.TabIndex = 12;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -162,6 +151,7 @@
             this.panel2.Location = new System.Drawing.Point(326, 16);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
             this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(10);
             this.panel2.Size = new System.Drawing.Size(279, 37);
             this.panel2.TabIndex = 12;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -170,9 +160,10 @@
             // 
             this.dakUploadAttachmentNameTextBox.BackColor = System.Drawing.Color.White;
             this.dakUploadAttachmentNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dakUploadAttachmentNameTextBox.Location = new System.Drawing.Point(3, 9);
+            this.dakUploadAttachmentNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dakUploadAttachmentNameTextBox.Location = new System.Drawing.Point(10, 10);
             this.dakUploadAttachmentNameTextBox.Name = "dakUploadAttachmentNameTextBox";
-            this.dakUploadAttachmentNameTextBox.Size = new System.Drawing.Size(273, 19);
+            this.dakUploadAttachmentNameTextBox.Size = new System.Drawing.Size(259, 19);
             this.dakUploadAttachmentNameTextBox.TabIndex = 8;
             this.dakUploadAttachmentNameTextBox.TextChanged += new System.EventHandler(this.dakUploadAttachmentNameTextBox_TextChanged);
             // 
@@ -180,7 +171,6 @@
             // 
             this.panel1.Controls.Add(this.attachmentOCRButton);
             this.panel1.Controls.Add(this.attachmentDeleteButton);
-            this.panel1.Controls.Add(this.rejectButton);
             this.panel1.Location = new System.Drawing.Point(612, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(339, 57);
@@ -211,11 +201,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox attachmentLink;
         private FontAwesome.Sharp.IconButton attachmentOCRButton;
-        private System.Windows.Forms.Button rejectButton;
         private FontAwesome.Sharp.IconButton attachmentDeleteButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox dakUploadAttachmentNameTextBox;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox dakUploadAttachmentNameTextBox;
     }
 }

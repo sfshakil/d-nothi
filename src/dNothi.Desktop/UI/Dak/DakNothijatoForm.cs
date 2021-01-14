@@ -107,7 +107,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiInbox.dak_id = _dak_id;
                 nothiInbox.is_copied_dak = _is_copied_dak;
                 nothiInbox._dak_type = _dak_type;
-
+               
 
                 NothiAllDTO nothiDTO = new NothiAllDTO();
                 nothiDTO.id = Convert.ToInt32(nothiListRecordsDTO.id);
@@ -187,7 +187,7 @@ namespace dNothi.Desktop.UI.Dak
                     nothiAll.onishponno = nothiAllListDTO.status.onishponno;
                     nothiAll.nishponno = nothiAllListDTO.status.nishponno;
                     nothiAll.archived = nothiAllListDTO.status.archived;
-                    nothiAll.master_id = nothiAllListDTO.status.nothi_master_id.ToString();
+                   
 
                 }
                 else
@@ -202,7 +202,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiAll._dak_type = _dak_type;
                 nothiAll.NothijatoButton += delegate (object addSender, EventArgs addEvent) { Nothijato_ButtonClick(addSender, addEvent, nothiAllListDTO.nothi); };
                 nothiAll.NothijatoButtonVisible = true;
-
+                nothiAll.master_id = nothiAllListDTO.nothi.id.ToString();
 
                 nothiAlls.Add(nothiAll);
             }

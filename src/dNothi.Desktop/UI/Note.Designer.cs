@@ -84,6 +84,7 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
             this.btnSave = new FontAwesome.Sharp.IconButton();
@@ -94,6 +95,7 @@
             this.onuchhedPnl = new System.Windows.Forms.Panel();
             this.onuchhedFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.onuchhedheaderPnl = new System.Windows.Forms.Panel();
+            this.lbOffice = new System.Windows.Forms.Label();
             this.lbNoteTtl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.iconButton19 = new FontAwesome.Sharp.IconButton();
@@ -153,8 +155,6 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.lbOffice = new System.Windows.Forms.Label();
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -937,6 +937,16 @@
             this.panel22.Size = new System.Drawing.Size(893, 365);
             this.panel22.TabIndex = 62;
             // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = null;
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 2);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(876, 406);
+            this.tinyMceEditor.TabIndex = 61;
+            // 
             // panel29
             // 
             this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
@@ -1082,6 +1092,21 @@
             this.onuchhedheaderPnl.Name = "onuchhedheaderPnl";
             this.onuchhedheaderPnl.Size = new System.Drawing.Size(910, 30);
             this.onuchhedheaderPnl.TabIndex = 0;
+            // 
+            // lbOffice
+            // 
+            this.lbOffice.AutoSize = true;
+            this.lbOffice.BackColor = System.Drawing.Color.White;
+            this.lbOffice.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbOffice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbOffice.Location = new System.Drawing.Point(124, 0);
+            this.lbOffice.Margin = new System.Windows.Forms.Padding(0);
+            this.lbOffice.Name = "lbOffice";
+            this.lbOffice.Padding = new System.Windows.Forms.Padding(4);
+            this.lbOffice.Size = new System.Drawing.Size(226, 28);
+            this.lbOffice.TabIndex = 75;
+            this.lbOffice.Text = "(মোঃ হাসানুজ্জামান ১১/১/২১ ৪:০১ PM)";
             // 
             // lbNoteTtl
             // 
@@ -1918,31 +1943,6 @@
             // 
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
-            // 
-            // lbOffice
-            // 
-            this.lbOffice.AutoSize = true;
-            this.lbOffice.BackColor = System.Drawing.Color.White;
-            this.lbOffice.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbOffice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbOffice.Location = new System.Drawing.Point(124, 0);
-            this.lbOffice.Margin = new System.Windows.Forms.Padding(0);
-            this.lbOffice.Name = "lbOffice";
-            this.lbOffice.Padding = new System.Windows.Forms.Padding(4);
-            this.lbOffice.Size = new System.Drawing.Size(226, 28);
-            this.lbOffice.TabIndex = 75;
-            this.lbOffice.Text = "(মোঃ হাসানুজ্জামান ১১/১/২১ ৪:০১ PM)";
-            // 
-            // tinyMceEditor
-            // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = null;
-            this.tinyMceEditor.Location = new System.Drawing.Point(0, 2);
-            this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(876, 406);
-            this.tinyMceEditor.TabIndex = 61;
             // 
             // Note
             // 

@@ -48,7 +48,7 @@ namespace dNothi.Desktop.UI.Dak
                         detailsAttachmentUserControl.attachmentdownload = dakAttachmentDTO.download_url;
                         detailsAttachmentUserControl.attachmenttype = dakAttachmentDTO.attachment_type;
                         detailsAttachmentUserControl.attachmentid = dakAttachmentDTO.attachment_id;
-
+                        detailsAttachmentUserControl.attachmentlink = dakAttachmentDTO.url;
                         attachmentListFlowLayoutPanel.Controls.Add(detailsAttachmentUserControl);
                     }
                 }
@@ -58,6 +58,13 @@ namespace dNothi.Desktop.UI.Dak
                 
 
             }
+        }
+
+
+        private void BorderColorBlue(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+
         }
     }
 }

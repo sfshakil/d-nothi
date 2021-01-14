@@ -235,6 +235,12 @@
     <Compile Include="UI\Dak\NoteView.Designer.cs">
       <DependentUpon>NoteView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiNoteTalikaAll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteTalikaAll.Designer.cs">
+      <DependentUpon>NothiNoteTalikaAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiOnumodonDesignationSeal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -581,6 +587,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NoteView.resx">
       <DependentUpon>NoteView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiNoteTalikaAll.resx">
+      <DependentUpon>NothiNoteTalikaAll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOnumodonDesignationSeal.resx">
       <DependentUpon>NothiOnumodonDesignationSeal.cs</DependentUpon>

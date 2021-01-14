@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using dNothi.Utility;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
+using dNothi.Services.DakServices;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -36,10 +37,36 @@ namespace dNothi.Desktop.UI.Dak
         private string _officerName;
         private string _officerDesignation;
         private string _officeName;
+        private bool _isOnulipi;
+
+        private DakCatagoryList _dakCatagory;
 
         private DakDetailsResponse _dakDetailsResponse;
         private DakAttachmentResponse _dakAttachmentResponse;
 
+        public DakCatagoryList dakCatagory
+        {
+            get { return _dakCatagory; ; }
+            set { _dakCatagory = value; 
+                
+                dakCategoryLabel.Text = value.GetName;
+                if(value.isInbox)
+                {
+                    dakRevertButton.Visible = false;
+                }
+                else
+                {
+                    nothiteUposthaponButton.Visible = false;
+                    nothijatoButton.Visible = false;
+                    DakSendButton.Visible = false;
+                }
+            }
+        }
+        public bool isOnulipi
+        {
+            get { return _isOnulipi; ; }
+            set { _isOnulipi = value; if (value) { dakArchiveButton.Visible = true; } }
+        }
 
         public string officerName
         {
@@ -407,5 +434,78 @@ namespace dNothi.Desktop.UI.Dak
         {
 
         }
+        
+        public event EventHandler BackButtonClick;        
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            if (this.BackButtonClick != null)
+                this.BackButtonClick(sender, e);
+        }
+
+
+
+
+        public event EventHandler ButtonClick;
+       
+
+        private void dakMovementButton_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+        private void DakSendButton_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+
+
+        public event EventHandler NothiteUposthapitoButtonClick;
+        private void nothiteUposthaponButton_Click(object sender, EventArgs e)
+        {
+            if (this.NothiteUposthapitoButtonClick != null)
+                this.NothiteUposthapitoButtonClick(sender, e);
+        }
+
+        public event EventHandler DakArchiveButtonClick;
+        private void dakArchiveButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakArchiveButtonClick != null)
+                this.DakArchiveButtonClick(sender, e);
+        }
+
+        
+
+
+        public event EventHandler NothijatoButtonClick;
+
+
+        private void nothijatoButton_Click(object sender, EventArgs e)
+        {
+            if (this.NothijatoButtonClick != null)
+                this.NothijatoButtonClick(sender, e);
+        }
+
+
+        public event EventHandler RevertButtonClick;
+
+
+        private void revertButton_Click(object sender, EventArgs e)
+        {
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি ফেরত আনতে চান ?\n",
+                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+
+                if (this.RevertButtonClick != null)
+                    this.RevertButtonClick(sender, e);
+            }
+        }
+
+
+
+
+
+       
     }
 }

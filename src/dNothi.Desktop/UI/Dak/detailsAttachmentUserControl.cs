@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
+using System.Net;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -23,10 +24,14 @@ namespace dNothi.Desktop.UI.Dak
         private string _attachmentdownload;
        
         private string _attachmenttype;
+        private string _attachmentlink;
         private int _attachmentid;
 
 
-
+        private void attachmentLink_Click(object sender, EventArgs e)
+        {
+           
+        }
         public int mainattachment
         {
             get { return _mainattachment; }
@@ -64,11 +69,15 @@ namespace dNothi.Desktop.UI.Dak
                 }
                
         }
-
+        public string attachmentlink
+        {
+            get { return _attachmentlink; }
+            set { _attachmentlink = value;  }
+        }
         public string attachmentdownload
         {
             get { return _attachmentdownload; }
-            set { _attachmentdownload = value; }
+            set { _attachmentdownload = value; if (_attachmentdownload == null) { downloadButton.Visible = false; shareButton.Visible = false; } }
         }
 
         public int attachmentid
@@ -102,6 +111,23 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+        private void attachmentNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (_attachmentlink != null)
+            {
+                System.Diagnostics.Process.Start(_attachmentlink);
+            }
+           
+        }
 
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            //using (var client = new WebClient())
+            //{
+            //    client.DownloadFile(_attachmentdownload, _attachmentName);
+            //}
+            System.Diagnostics.Process.Start(_attachmentdownload);
+           
+        }
     }
 }

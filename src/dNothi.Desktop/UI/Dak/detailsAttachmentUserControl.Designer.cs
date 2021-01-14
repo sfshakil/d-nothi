@@ -28,28 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.attachmentNameLabel = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
             this.attachmentSizeLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainAttachmentIconPanel = new System.Windows.Forms.Panel();
-            this.downloadButton = new System.Windows.Forms.Button();
+            this.attachmentNameLabel = new System.Windows.Forms.LinkLabel();
             this.attchmentTypePanel = new System.Windows.Forms.Panel();
-            this.shareButton = new System.Windows.Forms.Button();
+            this.downloadButton = new FontAwesome.Sharp.IconButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.shareButton = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // attachmentNameLabel
-            // 
-            this.attachmentNameLabel.AutoSize = true;
-            this.attachmentNameLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.attachmentNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attachmentNameLabel.ForeColor = System.Drawing.Color.Blue;
-            this.attachmentNameLabel.Location = new System.Drawing.Point(0, 0);
-            this.attachmentNameLabel.Name = "attachmentNameLabel";
-            this.attachmentNameLabel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.attachmentNameLabel.Size = new System.Drawing.Size(385, 21);
-            this.attachmentNameLabel.TabIndex = 1;
-            this.attachmentNameLabel.Text = "ই-ফাইল ব্যবহার সহায়িকা-১(লগইন প্রক্রিয়া ও প্রোফাইল ব্যবস্থাপনা) (1).pdf";
             // 
             // attachmentSizeLabel
             // 
@@ -57,7 +46,7 @@
             this.attachmentSizeLabel.BackColor = System.Drawing.Color.Transparent;
             this.attachmentSizeLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attachmentSizeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.attachmentSizeLabel.Location = new System.Drawing.Point(44, 27);
+            this.attachmentSizeLabel.Location = new System.Drawing.Point(44, 22);
             this.attachmentSizeLabel.Name = "attachmentSizeLabel";
             this.attachmentSizeLabel.Size = new System.Drawing.Size(52, 18);
             this.attachmentSizeLabel.TabIndex = 2;
@@ -68,9 +57,9 @@
             this.panel1.Controls.Add(this.mainAttachmentIconPanel);
             this.panel1.Controls.Add(this.attachmentNameLabel);
             this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(43, 6);
+            this.panel1.Location = new System.Drawing.Point(43, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(501, 24);
+            this.panel1.Size = new System.Drawing.Size(501, 21);
             this.panel1.TabIndex = 3;
             // 
             // mainAttachmentIconPanel
@@ -81,48 +70,66 @@
             this.mainAttachmentIconPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainAttachmentIconPanel.Location = new System.Drawing.Point(385, 0);
             this.mainAttachmentIconPanel.Name = "mainAttachmentIconPanel";
-            this.mainAttachmentIconPanel.Size = new System.Drawing.Size(29, 24);
+            this.mainAttachmentIconPanel.Size = new System.Drawing.Size(34, 21);
             this.mainAttachmentIconPanel.TabIndex = 2;
             // 
-            // downloadButton
+            // attachmentNameLabel
             // 
-            this.downloadButton.BackColor = System.Drawing.Color.Transparent;
-            this.downloadButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.icons8_download_from_cloud_641;
-            this.downloadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.downloadButton.FlatAppearance.BorderSize = 0;
-            this.downloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.downloadButton.Location = new System.Drawing.Point(739, 9);
-            this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(21, 18);
-            this.downloadButton.TabIndex = 4;
-            this.downloadButton.UseVisualStyleBackColor = false;
+            this.attachmentNameLabel.AutoSize = true;
+            this.attachmentNameLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.attachmentNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentNameLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.attachmentNameLabel.Location = new System.Drawing.Point(0, 0);
+            this.attachmentNameLabel.Name = "attachmentNameLabel";
+            this.attachmentNameLabel.Size = new System.Drawing.Size(385, 18);
+            this.attachmentNameLabel.TabIndex = 6;
+            this.attachmentNameLabel.TabStop = true;
+            this.attachmentNameLabel.Text = "ই-ফাইল ব্যবহার সহায়িকা-১(লগইন প্রক্রিয়া ও প্রোফাইল ব্যবস্থাপনা) (1).pdf";
+            this.attachmentNameLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.attachmentNameLabel_LinkClicked);
             // 
             // attchmentTypePanel
             // 
             this.attchmentTypePanel.BackColor = System.Drawing.Color.Transparent;
             this.attchmentTypePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.attchmentTypePanel.Location = new System.Drawing.Point(17, 12);
+            this.attchmentTypePanel.Location = new System.Drawing.Point(17, 7);
             this.attchmentTypePanel.Name = "attchmentTypePanel";
-            this.attchmentTypePanel.Size = new System.Drawing.Size(24, 21);
+            this.attchmentTypePanel.Size = new System.Drawing.Size(24, 24);
             this.attchmentTypePanel.TabIndex = 0;
+            // 
+            // downloadButton
+            // 
+            this.downloadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.downloadButton.FlatAppearance.BorderSize = 0;
+            this.downloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.downloadButton.IconChar = FontAwesome.Sharp.IconChar.CloudDownloadAlt;
+            this.downloadButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(200)))), ((int)(((byte)(211)))));
+            this.downloadButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.downloadButton.IconSize = 32;
+            this.downloadButton.Location = new System.Drawing.Point(776, 5);
+            this.downloadButton.Name = "downloadButton";
+            this.downloadButton.Size = new System.Drawing.Size(31, 24);
+            this.downloadButton.TabIndex = 6;
+            this.downloadButton.UseVisualStyleBackColor = false;
+            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
             // shareButton
             // 
-            this.shareButton.BackColor = System.Drawing.Color.Transparent;
-            this.shareButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.icons8_share_24;
-            this.shareButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.shareButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.shareButton.FlatAppearance.BorderSize = 0;
             this.shareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.shareButton.Location = new System.Drawing.Point(763, 9);
+            this.shareButton.IconChar = FontAwesome.Sharp.IconChar.ShareAlt;
+            this.shareButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.shareButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.shareButton.IconSize = 22;
+            this.shareButton.Location = new System.Drawing.Point(807, 5);
             this.shareButton.Name = "shareButton";
-            this.shareButton.Size = new System.Drawing.Size(21, 18);
-            this.shareButton.TabIndex = 5;
+            this.shareButton.Size = new System.Drawing.Size(31, 24);
+            this.shareButton.TabIndex = 7;
             this.shareButton.UseVisualStyleBackColor = false;
             // 
             // DetailsAttachmentUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.shareButton);
@@ -130,8 +137,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.attachmentSizeLabel);
             this.Controls.Add(this.attchmentTypePanel);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "DetailsAttachmentUserControl";
-            this.Size = new System.Drawing.Size(796, 50);
+            this.Size = new System.Drawing.Size(846, 40);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -142,11 +150,12 @@
         #endregion
 
         private System.Windows.Forms.Panel attchmentTypePanel;
-        private System.Windows.Forms.Label attachmentNameLabel;
         private System.Windows.Forms.Label attachmentSizeLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel mainAttachmentIconPanel;
-        private System.Windows.Forms.Button downloadButton;
-        private System.Windows.Forms.Button shareButton;
+        private System.Windows.Forms.LinkLabel attachmentNameLabel;
+        private FontAwesome.Sharp.IconButton downloadButton;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private FontAwesome.Sharp.IconButton shareButton;
     }
 }

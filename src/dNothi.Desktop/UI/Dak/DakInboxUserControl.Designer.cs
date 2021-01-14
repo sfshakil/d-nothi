@@ -787,10 +787,10 @@
         private FontAwesome.Sharp.IconButton dakAttachmentButton;
         private FontAwesome.Sharp.IconButton dakMovementStatusButton;
         private FontAwesome.Sharp.IconButton DakSendButton;
-        private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton nothijatoButton;
         private FontAwesome.Sharp.IconButton nothiteUposthaponButton;
         private System.Windows.Forms.ToolTip MyToolTip;
         private FontAwesome.Sharp.IconButton dakArchiveButton;
+        private FontAwesome.Sharp.IconButton iconButton3;
     }
 }
