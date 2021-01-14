@@ -172,6 +172,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 if (nothiNoteTalika.data.records.Count > 0)
                 {
+                    
                     LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records);
                     lbTotalNote.Text = "সর্বমোট: " + string.Concat(nothiNoteTalika.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     
@@ -193,13 +194,15 @@ namespace dNothi.Desktop.UI.Dak
                 nothiTalika.nothi_last_date = NothiNoteTalikaListDTO.created;
                 
                 nothiNoteNo[i] = NothiNoteTalikaListDTO.nothi_no;
-
+                int totalnote = nothiNotetalikaLists.Count+1;
                 lbNothiNo.Text = NothiNoteTalikaListDTO.nothi_no.Substring(0,18);
-                lbNothilast4digit.Text = NothiNoteTalikaListDTO.nothi_no.Substring(18, 4);
+                string value = "00" + totalnote.ToString();
+                lbNothilast4digit.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')))+".";//NothiNoteTalikaListDTO.nothi_no.Substring(18, 4);
                 i = i + 1;
                 nothiTalika.permitted = Convert.ToString(NothiNoteTalikaListDTO.permitted);
                 nothiTalikas.Add(nothiTalika);
             }
+            nothiNoteNos = new string[] { };
             nothiNoteNos = nothiNoteNo;
             nothiTalikaFlowLayoutPnl.Controls.Clear();
             nothiTalikaFlowLayoutPnl.AutoScroll = true;
@@ -214,8 +217,18 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnNothiSave_Click(object sender, EventArgs e)
         {
-            if(nothiNoteNos.Contains(lbNothiNo.Text + lbNothilast4digit.Text + cbxLast2digitNothiNo.SelectedItem))
-                MessageBox.Show("নথি  নম্বর  ইতিমধ্যে  বিদ্যমান");
+            if(cbxNothiType.Text== "বাছাই করুন" || lbNothilast4digit.Text == "***.**")
+            {
+                MessageBox.Show("দুঃখিত! নথির ধরন ফাকা রাখা যাবে না।");
+            }
+            else if (cbxNothiClass.Text == "বাছাই করুন")
+            {
+                MessageBox.Show("দুঃখিত! নথির শ্রেণি ফাকা রাখা যাবে না।");
+            }
+            else if (txtNothiSubject.Text == "")
+            {
+                MessageBox.Show("দুঃখিত! নথির বিষয় ফাকা রাখা যাবে না।");
+            }
             else
             {
                 createNothi();
@@ -244,6 +257,7 @@ namespace dNothi.Desktop.UI.Dak
             var nothiCreate =  _nothiCreateServices.GetNothiCreate(UserParam, nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
             if (nothiCreate.status == "success")
             {
+                
                 var form = FormFactory.Create<NothiCreateNextStep>();
                 //form.Location = new System.Drawing.Point(108, 219);
                 form.BringToFront();

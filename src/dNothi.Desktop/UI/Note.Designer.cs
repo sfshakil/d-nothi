@@ -94,6 +94,7 @@
             this.onuchhedPnl = new System.Windows.Forms.Panel();
             this.onuchhedFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.onuchhedheaderPnl = new System.Windows.Forms.Panel();
+            this.lbOffice = new System.Windows.Forms.Label();
             this.lbNoteTtl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.iconButton19 = new FontAwesome.Sharp.IconButton();
@@ -153,7 +154,6 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.lbOffice = new System.Windows.Forms.Label();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -1064,6 +1064,7 @@
             // 
             this.onuchhedFLP.AutoScroll = true;
             this.onuchhedFLP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.onuchhedFLP.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.onuchhedFLP.Location = new System.Drawing.Point(0, 30);
             this.onuchhedFLP.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedFLP.Name = "onuchhedFLP";
@@ -1082,6 +1083,21 @@
             this.onuchhedheaderPnl.Name = "onuchhedheaderPnl";
             this.onuchhedheaderPnl.Size = new System.Drawing.Size(910, 30);
             this.onuchhedheaderPnl.TabIndex = 0;
+            // 
+            // lbOffice
+            // 
+            this.lbOffice.AutoSize = true;
+            this.lbOffice.BackColor = System.Drawing.Color.White;
+            this.lbOffice.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbOffice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbOffice.Location = new System.Drawing.Point(124, 0);
+            this.lbOffice.Margin = new System.Windows.Forms.Padding(0);
+            this.lbOffice.Name = "lbOffice";
+            this.lbOffice.Padding = new System.Windows.Forms.Padding(4);
+            this.lbOffice.Size = new System.Drawing.Size(226, 28);
+            this.lbOffice.TabIndex = 75;
+            this.lbOffice.Text = "(মোঃ হাসানুজ্জামান ১১/১/২১ ৪:০১ PM)";
             // 
             // lbNoteTtl
             // 
@@ -1918,21 +1934,6 @@
             // 
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
-            // 
-            // lbOffice
-            // 
-            this.lbOffice.AutoSize = true;
-            this.lbOffice.BackColor = System.Drawing.Color.White;
-            this.lbOffice.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbOffice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbOffice.Location = new System.Drawing.Point(124, 0);
-            this.lbOffice.Margin = new System.Windows.Forms.Padding(0);
-            this.lbOffice.Name = "lbOffice";
-            this.lbOffice.Padding = new System.Windows.Forms.Padding(4);
-            this.lbOffice.Size = new System.Drawing.Size(226, 28);
-            this.lbOffice.TabIndex = 75;
-            this.lbOffice.Text = "(মোঃ হাসানুজ্জামান ১১/১/২১ ৪:০১ PM)";
             // 
             // tinyMceEditor
             // 

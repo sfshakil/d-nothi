@@ -10,7 +10,8 @@ namespace dNothi.Services.NothiServices
 {
     public interface INothiAllServices
     {
-        NothiListAllResponse GetNothiAll(string token);
+        //NothiListAllResponse GetNothiAll(string token);
+        NothiListAllResponse GetNothiAll(DakUserParam dakUserParam);
         NothiListAllResponse GetNothiAllByUser(DakUserParam dakUserParam);
     }
 }

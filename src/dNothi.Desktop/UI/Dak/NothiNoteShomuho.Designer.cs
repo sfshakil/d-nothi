@@ -43,7 +43,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(110, 82);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(110, 76);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1000, 2);
             this.flowLayoutPanel1.TabIndex = 57;
@@ -181,7 +181,7 @@
             this.Controls.Add(this.iconButton3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "NothiNoteShomuho";
-            this.Size = new System.Drawing.Size(1110, 84);
+            this.Size = new System.Drawing.Size(976, 79);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -38,6 +38,8 @@ namespace dNothi.Desktop.UI
             SelectButton(btnNothiInbox);
             nothiDhoronSrchUC.Visible = true;
             designationDetailsPanelNothi.Visible = false;
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
         }
 
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
@@ -58,8 +60,11 @@ namespace dNothi.Desktop.UI
 
         private void LoadNothiInbox()
         {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = 10;
+            dakListUserParam.page = 1;
             var token = _userService.GetToken();
-            var nothiInbox = _nothiInbox.GetNothiInbox(token);
+            var nothiInbox = _nothiInbox.GetNothiInbox(dakListUserParam);
             if (nothiInbox.status == "success")
             {
                 _nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
@@ -188,8 +193,11 @@ namespace dNothi.Desktop.UI
 
         private void LoadNothiOutbox()
         {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = 10;
+            dakListUserParam.page = 1;
             var token = _userService.GetToken();
-            var nothiOutbox = _nothiOutbox.GetNothiOutbox(token);
+            var nothiOutbox = _nothiOutbox.GetNothiOutbox(dakListUserParam);
 
             if (nothiOutbox.status == "success")
             {
@@ -230,8 +238,11 @@ namespace dNothi.Desktop.UI
 
         private void LoadNothiAll()
         {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = 30;
+            dakListUserParam.page = 1;
             var token = _userService.GetToken();
-            var nothiAll = _nothiAll.GetNothiAll(token);
+            var nothiAll = _nothiAll.GetNothiAll(dakListUserParam);
 
             if (nothiAll.status == "success")
             {
@@ -576,6 +587,7 @@ namespace dNothi.Desktop.UI
             newNothi.BackColor = Color.WhiteSmoke;
         }
         designationSelect designationDetailsPanelNothi = new designationSelect();
+        
         private void profilePanel_Click(object sender, EventArgs e)
         {
             _dakuserparam = _userService.GetLocalDakUserParam();
@@ -587,6 +599,7 @@ namespace dNothi.Desktop.UI
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
                 designationDetailsPanelNothi.Width = 427;
+                
 
             }
             else
@@ -595,6 +608,7 @@ namespace dNothi.Desktop.UI
                 designationDetailsPanelNothi.Width = 428;
             }
         }
+        
 
         private void userPictureBox_Click(object sender, EventArgs e)
         {

@@ -58,19 +58,18 @@ namespace dNothi.Desktop
                 nothiCountButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) + " টি নথি";
             }
         }
-
-
-
-
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when user clicks button")]
         public event EventHandler LogoutButtonClick;
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
-
-            if (this.LogoutButtonClick != null)
-                this.LogoutButtonClick(sender, e);
+            //this.Hide();
+            foreach (Form f in Application.OpenForms)
+            { f.Hide(); }
+            var form = FormFactory.Create<Login>();
+            form.ShowDialog();
         }
     }
 }

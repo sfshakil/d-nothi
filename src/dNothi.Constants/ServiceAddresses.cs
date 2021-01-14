@@ -49,6 +49,9 @@ namespace dNothi.Constants
         public const string GetDakForwardEndpoint = "/api/dak/forward";
         public const string DakListKhosraEndPoint = "/api/dak/khoshra";
         public const string DakFileUploadEndPoint = "/api/content/upload";
+        public const string NothiInboxListEndPoint = "/api/nothi/list/inbox";
+        public const string NothiOutboxListEndPoint = "/api/nothi/list/outbox";
+        public const string NothiAllListEndPoint = "/api/nothi/list/all";
         public const string NothiInboxNoteEndPoint = "/api/nothi/note/pending";
         public const string NothiCreateEndPoint = "/api/add";
         public const string NothiNotePermissionEndPoint = "/api/nothi/note/permission/save";
