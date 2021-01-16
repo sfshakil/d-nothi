@@ -24,13 +24,16 @@ namespace dNothi.Desktop.UI
         INothiOutboxServices _nothiOutbox { get; set; }
 
         INothiAllServices _nothiAll { get; set; }
+        INoteSaveService _noteSave { get; set; }
 
-        public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiOutboxServices nothiOutbox, INothiAllServices nothiAll)
+        public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave)
         {
             _userService = userService;
             _nothiInbox = nothiInbox;
             _nothiOutbox = nothiOutbox;
             _nothiAll = nothiAll;
+            _noteSave = noteSave;
+
             InitializeComponent();
             LoadNothiInbox();
             ResetAllMenuButtonSelection();
@@ -78,13 +81,14 @@ namespace dNothi.Desktop.UI
             }
 
         }
-
+        NothiListRecordsDTO nothiInboxRecord;
         private void LoadNothiInboxinPanel(List<NothiListRecordsDTO> nothiLists)
         {
             List<NothiInbox> nothiInboxs = new List<NothiInbox>();
             int i = 0;
             foreach (NothiListRecordsDTO nothiListRecordsDTO in nothiLists)
             {
+                nothiInboxRecord = nothiListRecordsDTO;
                 var nothiInbox = UserControlFactory.Create<NothiInbox>();
                 nothiInbox.nothi = nothiListRecordsDTO.nothi_no + " " + nothiListRecordsDTO.subject;
                 nothiInbox.shakha = nothiListRecordsDTO.office_unit_name;
@@ -119,31 +123,44 @@ namespace dNothi.Desktop.UI
         }
         private void SaveNewNote_ButtonClick(object sender, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
         {
-            this.Hide();
-            var form = FormFactory.Create<Note>();
-            _dakuserparam = _userService.GetLocalDakUserParam();
-            NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
-            form.nothiNo = nothiListRecords.nothi_no;
-            form.nothiShakha = nothiListRecords.office_unit_name+" "+_dakuserparam.office_label;
-            form.nothiSubject = nothiListRecords.subject;
-            form.noteSubject = sender.ToString() ;
-            form.nothiLastDate = nothiListRecordsDTO.last_note_date;
-            form.noteTotal = nothiListRecordsDTO.note_count + 1.ToString();
-            form.office = "( " + nothiListRecords.office_name + " "+ nothiListRecordsDTO.last_note_date +")";
+            string noteSubject = sender.ToString();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            var noteSave = _noteSave.GetNoteSave(dakListUserParam, nothiListRecordsDTO, noteSubject);
+
+            if (noteSave.status == "success")
+            {
+                NoteSaveDTO notedata = noteSave.data;
+                this.Hide();
+                var form = FormFactory.Create<Note>();
+                _dakuserparam = _userService.GetLocalDakUserParam();
+
+                NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
+                form.nothiNo = nothiListRecords.nothi_no;
+                form.nothiShakha = nothiListRecords.office_unit_name + " " + _dakuserparam.office_label;
+                form.nothiSubject = nothiListRecords.subject;
+                form.noteSubject = sender.ToString();
+                form.nothiLastDate = nothiListRecordsDTO.last_note_date;
+                form.noteTotal = nothiListRecordsDTO.note_count + 1.ToString();
+                form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
+
+                NoteView noteView = new NoteView();
+                noteView.totalNothi = nothiListRecordsDTO.note_count + 1.ToString();
+                noteView.noteSubject = sender.ToString();
+                noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
+                noteView.officerInfo = nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
+                noteView.checkBox = "1";
+
+
+                //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
+                form.loadNoteData(notedata);
+                form.loadNoteView(noteView);
+                form.loadNothiInboxRecords(nothiListRecordsDTO);
+
+                form.ShowDialog();
+
+            }
+
             
-            NoteView noteView = new NoteView();
-            noteView.totalNothi = nothiListRecordsDTO.note_count + 1.ToString();
-            noteView.noteSubject = sender.ToString();
-            noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
-            noteView.officerInfo =nothiListRecords.office_name+","+nothiListRecords.office_designation_name+","+nothiListRecords.office_unit_name+","+_dakuserparam.office_label;
-            noteView.checkBox = "1";
-            
-
-            //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
-
-            form.loadNoteView(noteView);
-
-            form.ShowDialog();
 
         }
         //private void checkBox_Click(object sender, EventArgs e,NothiListRecordsDTO nothiListRecordsDTO)

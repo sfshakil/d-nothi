@@ -1,6 +1,9 @@
 ﻿using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
+using dNothi.Services.NothiServices;
+using dNothi.Services.UserServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +20,16 @@ namespace dNothi.Desktop.UI
 {
     public partial class Note : Form
     {
+        NoteSaveDTO newnotedata = new NoteSaveDTO();
         NoteView newNoteView = new NoteView();
-        public Note()
+
+        NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
+        IUserService _userService { get; set; }
+        IOnucchedSave _onucchedSave { get; set; }
+        public Note(IUserService userService, IOnucchedSave onucchedSave)
         {
+            _userService = userService;
+            _onucchedSave = onucchedSave;
             InitializeComponent();
             SetDefaultFont(this.Controls);
             tinyMceEditor.CreateEditor();
@@ -27,7 +37,14 @@ namespace dNothi.Desktop.UI
             cbxNothiType.ItemHeight = 30;
             onuchhedheaderPnl.Hide();
         }
-
+        public void loadNoteData(NoteSaveDTO notedata)
+        {
+            newnotedata = notedata;
+        }
+        public void loadNothiInboxRecords(NothiListRecordsDTO nothiListRecordsDTO)
+        {
+            nothiListRecords = nothiListRecordsDTO;
+        }
         public void loadNoteView(NoteView noteView)
         {
             newNoteView = noteView;
@@ -421,6 +438,7 @@ namespace dNothi.Desktop.UI
             form.ShowDialog();
         }
         int onuchhedint = 0;
+        List<FileAttachment> fileAttachments = new List<FileAttachment>();
         private void btnSave_Click(object sender, EventArgs e)
         {
             //string editortext = tinyMceEditor.HtmlContent;
@@ -428,7 +446,7 @@ namespace dNothi.Desktop.UI
 
             if (editortext !="")
             {
-
+                
                 onuchhedheaderPnl.Visible = true;
                 OnuchhedAdd onuchhed = new OnuchhedAdd();
                 onuchhed.currentDate = DateTime.Now.ToString("dd");
@@ -443,14 +461,30 @@ namespace dNothi.Desktop.UI
                 int i = 1;
                 foreach (NoteFileUpload notefileupload in noteFileUploads)
                 {
-                   
+                    FileAttachment fileattachment = new FileAttachment();
+                    fileattachment.attachmentName = notefileupload.attachmentName;
+                    fileattachment.attachmentSize = notefileupload.fileexension;
+                    fileAttachments.Add(fileattachment);
+
                     onuchhed.fileflag = 1;
                     onuchhed.getAttachment(notefileupload);onuchhed.file = i;i++;
                 }
-                
-                onuchhedFLP.Controls.Add(onuchhed);
-                fileAddFLP.Controls.Clear();
-                noteFileUploads.Clear();
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, fileAttachments, nothiListRecords, newnotedata);
+                if (onucchedSave.status == "success")
+                {
+                    
+                    onuchhedFLP.Controls.Add(onuchhed);
+                    fileAddFLP.Controls.Clear();
+                    noteFileUploads.Clear();
+                }
+                else
+                {
+                    string message = "Error";
+                    MessageBox.Show(message);
+                }
+
             }
             else
             {

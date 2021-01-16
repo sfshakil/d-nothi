@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace dNothi.JsonParser.Entity.Nothi
 {
@@ -23,5 +24,12 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int note_count { get; set; }
         public string issue_date { get; set; }
         public string last_note_date { get; set; }
+
+        public string CSharpObjtoJson(object obj)
+        {
+
+            var jsonString = new JavaScriptSerializer().Serialize(obj);
+            return jsonString;
+        }
     }
 }
