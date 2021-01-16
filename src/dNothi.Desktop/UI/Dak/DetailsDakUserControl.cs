@@ -161,7 +161,7 @@ namespace dNothi.Desktop.UI.Dak
                 try
                 {
                     movementStatusDetailsUserControlReceiver.userType = "প্রাপকঃ";
-                    ToDTO toDTO = dakDetailsResponse.data.movement_status.to.FirstOrDefault(a => a.designation_id!=dakDetailsResponse.data.dak_origin.receiving_officer_designation_id && a.attention_type=="1" );
+                    ToDTO toDTO = dakDetailsResponse.data.movement_status.to.FirstOrDefault(a => a.designation_id!=dakDetailsResponse.data.dak_origin.receiving_officer_designation_id && a.attention_type=="1");
 
 
                     movementStatusDetailsUserControlReceiver.userName = toDTO.officer;

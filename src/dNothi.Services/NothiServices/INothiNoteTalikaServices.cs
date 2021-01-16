@@ -11,6 +11,12 @@ namespace dNothi.Services.NothiServices
     public interface INothiNoteTalikaServices
     {
         NothiNoteTalikaListResponse GetNothiNoteTalika(string token, string nothi_type_id);
+
+        NothiNoteListResponse GetNothiNoteListSent(DakUserParam dakUserParam, int nothi__id);
+
+        NothiNoteListResponse GetNothiNoteListInbox(DakUserParam dakUserParam, int nothi__id);
+       
+
         NothiNoteListResponse GetNothiNoteListAll(DakUserParam dakUserParam, int nothi__id);
     }
 }

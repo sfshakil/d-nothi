@@ -20,7 +20,9 @@ namespace dNothi.Constants
         public const string DakDecisionAddEndpoint = "/api/dak/decision/add";
         public const string DakDecisionDeleteEndpoint = "/api/dak/decision/delete";
         public const string DakDecisionSetupEndpoint = "/api/dak/decision/setup";
-        public const string GetNoteListEndpoint = "/api/nothi/note/list";
+        public const string GetNoteListAllEndpoint = "/api/nothi/note/permitted";
+        public const string GetNoteListInboxEndpoint = "/api/nothi/note/pending";
+        public const string GetNoteListSentpoint = "/api/nothi/note/list";
         public const string DakNothivuktoEndpointEndPoint = "/api/nothi/dak/nothivukto";
         public const string OCREndpoint = "http://bokshi-img2txt.tappware.com/apiImageToText/";
         public const string DesignationSealDeleteEndpoint = "/api/dak/seal/delete";

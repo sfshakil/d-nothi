@@ -48,7 +48,7 @@ namespace dNothi.Services.NothiServices
         {
             try
             {
-                var client = new RestClient(GetAPIDomain()+GetNoteListEndpoint());
+                var client = new RestClient(GetAPIDomain()+GetNoteListAllEndpoint());
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("api-version", "1");
@@ -57,11 +57,65 @@ namespace dNothi.Services.NothiServices
               
 
                 request.AddParameter("cdesk", dakUserParam.json_String);
-                request.AddParameter("length", "100");
+                request.AddParameter("length", "10");
                 request.AddParameter("page", "1");
                 request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi__id + "\",\"note_category\":\"ALL\"}");
                 IRestResponse response = client.Execute(request);
                
+                var responseJson = response.Content;
+                NothiNoteListResponse nothiNoteListResponse = JsonConvert.DeserializeObject<NothiNoteListResponse>(responseJson);
+                return nothiNoteListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public NothiNoteListResponse GetNothiNoteListSent(DakUserParam dakUserParam, int nothi__id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNoteListSentEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", "1");
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+
+
+                request.AddParameter("cdesk", dakUserParam.json_String);
+                request.AddParameter("length", "10");
+                request.AddParameter("page", "1");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi__id + "\",\"note_category\":\"Sent\"}");
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiNoteListResponse nothiNoteListResponse = JsonConvert.DeserializeObject<NothiNoteListResponse>(responseJson);
+                return nothiNoteListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public NothiNoteListResponse GetNothiNoteListInbox(DakUserParam dakUserParam, int nothi__id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNoteListInboxEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", "1");
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+
+
+                request.AddParameter("cdesk", dakUserParam.json_String);
+                request.AddParameter("length", "10");
+                request.AddParameter("page", "1");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi__id + "\",\"note_category\":\"Inbox\"}");
+                IRestResponse response = client.Execute(request);
+
                 var responseJson = response.Content;
                 NothiNoteListResponse nothiNoteListResponse = JsonConvert.DeserializeObject<NothiNoteListResponse>(responseJson);
                 return nothiNoteListResponse;
@@ -87,9 +141,17 @@ namespace dNothi.Services.NothiServices
             return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
         }
 
-        protected string GetNoteListEndpoint()
+        protected string GetNoteListAllEndpoint()
         {
-            return DefaultAPIConfiguration.GetNoteListEndpoint;
+            return DefaultAPIConfiguration.GetNoteListAllEndpoint;
+        }
+        protected string GetNoteListInboxEndpoint()
+        {
+            return DefaultAPIConfiguration.GetNoteListInboxEndpoint;
+        }
+        protected string GetNoteListSentEndpoint()
+        {
+            return DefaultAPIConfiguration.GetNoteListSentpoint;
         }
 
     }
