@@ -44,6 +44,13 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbNothiId = new System.Windows.Forms.Label();
+            this.lbNoteLastDate = new System.Windows.Forms.Label();
+            this.lbTotalNothi = new System.Windows.Forms.Label();
+            this.lbShakha = new System.Windows.Forms.Label();
+            this.lbNothi = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.nothijatoButton = new FontAwesome.Sharp.IconButton();
@@ -51,13 +58,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.NoteListPanel = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbShakha = new System.Windows.Forms.Label();
-            this.lbNothi = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbNothiId = new System.Windows.Forms.Label();
-            this.lbNoteLastDate = new System.Windows.Forms.Label();
-            this.lbTotalNothi = new System.Windows.Forms.Label();
             this.pnlNewAllNote.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -284,6 +284,86 @@
             this.panel1.Size = new System.Drawing.Size(542, 84);
             this.panel1.TabIndex = 24;
             // 
+            // lbNothiId
+            // 
+            this.lbNothiId.AutoSize = true;
+            this.lbNothiId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothiId.Location = new System.Drawing.Point(285, 56);
+            this.lbNothiId.Name = "lbNothiId";
+            this.lbNothiId.Size = new System.Drawing.Size(97, 20);
+            this.lbNothiId.TabIndex = 126;
+            this.lbNothiId.Text = "nothiIdLabel";
+            this.lbNothiId.Visible = false;
+            // 
+            // lbNoteLastDate
+            // 
+            this.lbNoteLastDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteLastDate.Location = new System.Drawing.Point(388, 56);
+            this.lbNoteLastDate.Name = "lbNoteLastDate";
+            this.lbNoteLastDate.Size = new System.Drawing.Size(154, 23);
+            this.lbNoteLastDate.TabIndex = 125;
+            this.lbNoteLastDate.Text = "noteLastDateLabel";
+            // 
+            // lbTotalNothi
+            // 
+            this.lbTotalNothi.AutoSize = true;
+            this.lbTotalNothi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
+            this.lbTotalNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
+            this.lbTotalNothi.Location = new System.Drawing.Point(455, 12);
+            this.lbTotalNothi.Name = "lbTotalNothi";
+            this.lbTotalNothi.Size = new System.Drawing.Size(77, 20);
+            this.lbTotalNothi.TabIndex = 124;
+            this.lbTotalNothi.Text = "totalNothi";
+            // 
+            // lbShakha
+            // 
+            this.lbShakha.AutoSize = true;
+            this.lbShakha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbShakha.Location = new System.Drawing.Point(124, 41);
+            this.lbShakha.Name = "lbShakha";
+            this.lbShakha.Size = new System.Drawing.Size(100, 20);
+            this.lbShakha.TabIndex = 123;
+            this.lbShakha.Text = "shakhaLabel";
+            // 
+            // lbNothi
+            // 
+            this.lbNothi.AutoSize = true;
+            this.lbNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothi.Location = new System.Drawing.Point(120, 11);
+            this.lbNothi.Name = "lbNothi";
+            this.lbNothi.Size = new System.Drawing.Size(83, 20);
+            this.lbNothi.TabIndex = 122;
+            this.lbNothi.Text = "nothiLabel";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
+            this.label1.Location = new System.Drawing.Point(80, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 20);
+            this.label1.TabIndex = 121;
+            this.label1.Text = "শাখাঃ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
+            this.label6.Location = new System.Drawing.Point(80, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 20);
+            this.label6.TabIndex = 120;
+            this.label6.Text = "নথিঃ";
+            // 
             // panel5
             // 
             this.panel5.AutoSize = true;
@@ -369,86 +449,6 @@
             this.NoteListPanel.Size = new System.Drawing.Size(532, 34);
             this.NoteListPanel.TabIndex = 0;
             this.NoteListPanel.Visible = false;
-            // 
-            // lbShakha
-            // 
-            this.lbShakha.AutoSize = true;
-            this.lbShakha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbShakha.Location = new System.Drawing.Point(124, 41);
-            this.lbShakha.Name = "lbShakha";
-            this.lbShakha.Size = new System.Drawing.Size(100, 20);
-            this.lbShakha.TabIndex = 123;
-            this.lbShakha.Text = "shakhaLabel";
-            // 
-            // lbNothi
-            // 
-            this.lbNothi.AutoSize = true;
-            this.lbNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothi.Location = new System.Drawing.Point(120, 11);
-            this.lbNothi.Name = "lbNothi";
-            this.lbNothi.Size = new System.Drawing.Size(83, 20);
-            this.lbNothi.TabIndex = 122;
-            this.lbNothi.Text = "nothiLabel";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
-            this.label1.Location = new System.Drawing.Point(80, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 20);
-            this.label1.TabIndex = 121;
-            this.label1.Text = "শাখাঃ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
-            this.label6.Location = new System.Drawing.Point(80, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 20);
-            this.label6.TabIndex = 120;
-            this.label6.Text = "নথিঃ";
-            // 
-            // lbNothiId
-            // 
-            this.lbNothiId.AutoSize = true;
-            this.lbNothiId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothiId.Location = new System.Drawing.Point(285, 56);
-            this.lbNothiId.Name = "lbNothiId";
-            this.lbNothiId.Size = new System.Drawing.Size(97, 20);
-            this.lbNothiId.TabIndex = 126;
-            this.lbNothiId.Text = "nothiIdLabel";
-            this.lbNothiId.Visible = false;
-            // 
-            // lbNoteLastDate
-            // 
-            this.lbNoteLastDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteLastDate.Location = new System.Drawing.Point(388, 56);
-            this.lbNoteLastDate.Name = "lbNoteLastDate";
-            this.lbNoteLastDate.Size = new System.Drawing.Size(154, 23);
-            this.lbNoteLastDate.TabIndex = 125;
-            this.lbNoteLastDate.Text = "noteLastDateLabel";
-            // 
-            // lbTotalNothi
-            // 
-            this.lbTotalNothi.AutoSize = true;
-            this.lbTotalNothi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
-            this.lbTotalNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
-            this.lbTotalNothi.Location = new System.Drawing.Point(455, 12);
-            this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(77, 20);
-            this.lbTotalNothi.TabIndex = 124;
-            this.lbTotalNothi.Text = "totalNothi";
             // 
             // DakModuleAgotoNothiList
             // 

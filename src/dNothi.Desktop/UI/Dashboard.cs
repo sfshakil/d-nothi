@@ -595,7 +595,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
-                ToDTO toDTOs = to.FirstOrDefault(a => a.attention_type == "1");
+                ToDTO toDTOs = to.FirstOrDefault(a => a.attention_type == "1" && a.designation_id!= _dakuserparam.designation_id);
                 return toDTOs.officer;
             }
             catch
