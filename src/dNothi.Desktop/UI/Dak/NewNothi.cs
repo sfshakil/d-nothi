@@ -13,6 +13,7 @@ using dNothi.Services.NothiServices;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
+using java.lang;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -48,11 +49,12 @@ namespace dNothi.Desktop.UI.Dak
         }
         public int[] ids;
         public string[] nothi_type_codes;
-        public String[] nothiNoteNos;
+        public string[] nothiNoteNos;
         private void LoadNothiTypeListDropDown()
         {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             var token = _userService.GetToken();
-            var nothiType = _nothiType.GetNothiTypeList(token);
+            var nothiType = _nothiType.GetNothiTypeList(dakListUserParam);
             int i = 0;
             if (nothiType!=null && nothiType.status == "success")
             {
@@ -68,6 +70,8 @@ namespace dNothi.Desktop.UI.Dak
                         id[i] = nothiTypeListDTO.id;
                         nothi_type_code[i] = nothiTypeListDTO.nothi_type_code;
                         cbxNothiType.Items.Add(nothiTypeListDTO.nothi_type);
+                        cbxNothiType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                        cbxNothiType.AutoCompleteSource = AutoCompleteSource.ListItems;
                         playerNames[i] = nothiTypeListDTO.nothi_type;
                         i++;
 
@@ -82,7 +86,7 @@ namespace dNothi.Desktop.UI.Dak
         private void loadLast2digitNothiNo()
         {
             cbxLast2digitNothiNo.Items.Clear();
-            String initialYear = "1971";
+            string initialYear = "1971";
             int i = 0;
             var currentYear = DateTime.Now.ToString("yyyy-MM-dd").Substring(0, 4);
             for (int j = Convert.ToInt32(initialYear); j <= Convert.ToInt32(currentYear); j++)
@@ -163,11 +167,12 @@ namespace dNothi.Desktop.UI.Dak
 
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             nothiTalikaPnl.Visible = true;
             int i = cbxNothiType.SelectedIndex;
             var nothi_type_id = ids[i];
             var token = _userService.GetToken();
-            var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(token, Convert.ToString(nothi_type_id));
+            var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(dakListUserParam, Convert.ToString(nothi_type_id));
             if (nothiNoteTalika.status == "success")
             {
                 if (nothiNoteTalika.data.records.Count > 0)
@@ -177,6 +182,10 @@ namespace dNothi.Desktop.UI.Dak
                     lbTotalNote.Text = "সর্বমোট: " + string.Concat(nothiNoteTalika.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     
                 }
+                else
+                {
+                    nothiTalikaFlowLayoutPnl.Controls.Clear();
+                }
                 loadLast2digitNothiNo();
 
             }
@@ -185,7 +194,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             List<NothiTalika> nothiTalikas = new List<NothiTalika>();
             int i = 0;
-            String[] nothiNoteNo = new string[nothiNotetalikaLists.Count]; ;
+            int[] flag= new int[nothiNotetalikaLists.Count];
+            string[] nothiNoteNo = new string[nothiNotetalikaLists.Count];
             foreach (NothiNoteTalikaRecordsDTO NothiNoteTalikaListDTO in nothiNotetalikaLists)
             {
                 NothiTalika nothiTalika = new NothiTalika();
@@ -196,13 +206,23 @@ namespace dNothi.Desktop.UI.Dak
                 nothiNoteNo[i] = NothiNoteTalikaListDTO.nothi_no;
                 int totalnote = nothiNotetalikaLists.Count+1;
                 lbNothiNo.Text = NothiNoteTalikaListDTO.nothi_no.Substring(0,18);
-                string value = "00" + totalnote.ToString();
-                lbNothilast4digit.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')))+".";//NothiNoteTalikaListDTO.nothi_no.Substring(18, 4);
+                //string value =   totalnote.ToString("000");
+                //lbNothilast4digit.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')))+".";//NothiNoteTalikaListDTO.nothi_no.Substring(18, 4);
+                string english_text = string.Concat(NothiNoteTalikaListDTO.nothi_no.Select(c => (char)('0' + c - '\u09E6')));
                 i = i + 1;
                 nothiTalika.permitted = Convert.ToString(NothiNoteTalikaListDTO.permitted);
                 nothiTalikas.Add(nothiTalika);
+
+
+                var currentYear = DateTime.Now.ToString("yy");
+                if (english_text.Substring(22, 2) == currentYear)
+                {
+                    flag[i]= Integer.parseInt(english_text.Substring(18, 3));
+                }
+                int max = flag.Max()+1;
+                string value = max.ToString("000");
+                lbNothilast4digit.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ".";
             }
-            nothiNoteNos = new string[] { };
             nothiNoteNos = nothiNoteNo;
             nothiTalikaFlowLayoutPnl.Controls.Clear();
             nothiTalikaFlowLayoutPnl.AutoScroll = true;

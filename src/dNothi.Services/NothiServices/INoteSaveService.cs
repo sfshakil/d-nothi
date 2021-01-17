@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace dNothi.Services.NothiServices
 {
-    public interface INothiTypeListServices
+    public interface INoteSaveService
     {
-        NothiTypeListResponse GetNothiTypeList(DakUserParam dakListUserParam);
+        NoteSaveResponse GetNoteSave(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecordsDTO, string noteSubject);
     }
 }

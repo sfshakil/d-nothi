@@ -12,28 +12,27 @@ using System.Threading.Tasks;
 
 namespace dNothi.Services.NothiServices
 {
-    public class NothiTypeListService : INothiTypeListServices
+    public class NoteSaveService : INoteSaveService
     {
-        public NothiTypeListResponse GetNothiTypeList(DakUserParam dakUserParam)
+        public NoteSaveResponse GetNoteSave(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecordsDTO, string noteSubject)
         {
             try
             {
-                var client = new RestClient(GetAPIDomain() + GetNothiTypleListEndPoint());
+                var client = new RestClient(GetAPIDomain() + GetNothiNoteCreateEndpoint());
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("api-version", GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 request.AlwaysMultipartFormData = true;
-                request.AddParameter("office_id", +dakUserParam.office_id);
-                request.AddParameter("designation_id", +dakUserParam.designation_id);
-                //request.AddParameter("nothi_type_id", +dakUserParam.);
-                //request.AddParameter("office_unit_id", +dakUserParam.office_unit_id);
+                request.AddParameter("office_id", dakUserParam.office_id);
+                request.AddParameter("designation_id", dakUserParam.designation_id);
+                request.AddParameter("data", "{\"id\":\"0\",\"nothi_master_id\":\""+ nothiListRecordsDTO.id + "\",\"note_subject\":\""+noteSubject+"\",\"office_id\":"+nothiListRecordsDTO.office_id+",\"office_name\":\""+nothiListRecordsDTO.office_name+ "\",\"office_unit_name\":\"" + nothiListRecordsDTO.office_unit_name + "\",\"office_designation_name\":\"" + nothiListRecordsDTO.office_designation_name + "\",\"officer_name\":\"" + dakUserParam.officer_name + "\"}");
                 IRestResponse response = client.Execute(request);
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                NothiTypeListResponse nothiTypeListResponse = JsonConvert.DeserializeObject<NothiTypeListResponse>(responseJson);
-                return nothiTypeListResponse;
+                NoteSaveResponse noteSaveResponse = JsonConvert.DeserializeObject<NoteSaveResponse>(responseJson);
+                return noteSaveResponse;
             }
             catch (Exception ex)
             {
@@ -55,9 +54,9 @@ namespace dNothi.Services.NothiServices
             return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
         }
 
-        protected string GetNothiTypleListEndPoint()
+        protected string GetNothiNoteCreateEndpoint()
         {
-            return DefaultAPIConfiguration.NothiTypleListEndPoint;
+            return DefaultAPIConfiguration.NothiNoteCreateEndPoint;
         }
     }
 }

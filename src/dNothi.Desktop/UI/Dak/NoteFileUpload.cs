@@ -35,7 +35,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
         private string _imageSrc;
-        public string _attachmentName;
+        private string _attachmentName;
         private string _fileextension;
 
         public string imgSource

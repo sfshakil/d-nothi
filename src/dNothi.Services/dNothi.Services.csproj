@@ -134,6 +134,9 @@
     <Compile Include="DakServices\IDakNothivuktoService.cs" />
     <Compile Include="DakServices\IDakOutboxService.cs" />
     <Compile Include="DakServices\IDakUploadService.cs" />
+    <Compile Include="NothiServices\FileAttachment.cs" />
+    <Compile Include="NothiServices\INoteSaveService.cs" />
+    <Compile Include="NothiServices\IOnucchedSave.cs" />
     <Compile Include="DakServices\OCRParameter.cs" />
     <Compile Include="NothiServices\INothiAllServices.cs" />
     <Compile Include="NothiServices\INothiCreateService.cs" />
@@ -143,6 +146,7 @@
     <Compile Include="NothiServices\INothiNoteTalikaServices.cs" />
     <Compile Include="NothiServices\INothiOutboxServices.cs" />
     <Compile Include="NothiServices\INothiTypeListServices.cs" />
+    <Compile Include="NothiServices\NoteSaveService.cs" />
     <Compile Include="NothiServices\NothiAllService.cs" />
     <Compile Include="NothiServices\NothiCategoryList.cs" />
     <Compile Include="NothiServices\NothiCreateService.cs" />
@@ -152,6 +156,7 @@
     <Compile Include="NothiServices\NothiNoteTalikaServices.cs" />
     <Compile Include="NothiServices\NothiOutboxService.cs" />
     <Compile Include="NothiServices\NothiTypeListService.cs" />
+    <Compile Include="NothiServices\OnuchhedSave.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncServices\SyncerService.cs" />
     <Compile Include="UserServices\IUserService.cs" />
