@@ -27,6 +27,44 @@ namespace dNothi.Desktop.UI.Dak
         private int _onucched;
         private int _onumodon;
         private int _potrojari;
+        private bool _isPreritoNote;
+        private bool _isEyeOff;
+        private string _preritoNoteCDesk;
+        private string _preritoNoteDate;
+        private string _preritoNotePrapok;
+
+        public string preritoNotePrapok
+        {
+            get { return _preritoNotePrapok; }
+            set { _preritoNotePrapok = value; preritoNotePrapokLabel.Text = value; }
+        }
+          public string preritoNoteDate
+        {
+            get { return _preritoNoteDate; }
+            set { _preritoNoteDate = value; preritoNoteCDeskLabel.Text = value; }
+        }
+
+         public string preritoNoteCDesk
+        {
+            get { return _preritoNoteCDesk; }
+            set { _preritoNoteCDesk = value; cDeskLabel.Text = value; }
+        }
+
+
+        public bool isEyeInvisible
+        {
+            get { return _isEyeOff; }
+            set { _isEyeOff = value; if (value) { NoEyeIconButton.Visible = true;eyeButton.Visible = false;} }
+        }
+
+        public bool isPreritoNote
+        {
+            get { return _isPreritoNote; }
+            set { _isPreritoNote = value; if (value) { sokolNoteNoteDeskPanel.Visible = false; preritoNoteCDeskPanel.Visible = true; preritoNoteDatePanel.Visible = true; preritoNotePrapokPanel.Visible = true;usersButton.Visible = true; optionButton.Visible = false; } }
+        }
+
+
+
         public NoteNothiDTO _nothiDTO;
 
 
@@ -98,7 +136,7 @@ namespace dNothi.Desktop.UI.Dak
         public string sub
         {
             get { return _sub; }
-            set { _sub = value; branchNothiSubLabel.Text = value; }
+            set { _sub = value; branchNoteSubLabel.Text = value; }
         }
 
 
@@ -130,5 +168,9 @@ namespace dNothi.Desktop.UI.Dak
             set { _toofficer = value; lbToOfficer.Text = value; }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
 
+        private void BorderColorDate(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(235, 237, 243), ButtonBorderStyle.Solid);
+        }
     }
 }
