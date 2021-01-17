@@ -21,6 +21,7 @@ namespace dNothi.Desktop.UI
         private DakUserParam _dakuserparam = new DakUserParam();
         IUserService _userService { get; set; }
         INothiInboxServices _nothiInbox { get; set; }
+        INoteSaveService _noteSave { get; set; }
         INothiOutboxServices _nothiOutbox { get; set; }
         NothiCategoryList _nothiCurrentCategory = new NothiCategoryList();
         INothiNoteTalikaServices _nothiNoteTalikaServices { get; set; }

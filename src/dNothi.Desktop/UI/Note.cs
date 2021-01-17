@@ -446,7 +446,8 @@ namespace dNothi.Desktop.UI
 
             if (editortext !="")
             {
-                
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(editortext);
+                var encodedEditorText = System.Convert.ToBase64String(plainTextBytes);
                 onuchhedheaderPnl.Visible = true;
                 OnuchhedAdd onuchhed = new OnuchhedAdd();
                 onuchhed.currentDate = DateTime.Now.ToString("dd");
@@ -471,7 +472,7 @@ namespace dNothi.Desktop.UI
                 }
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, fileAttachments, nothiListRecords, newnotedata);
+                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, fileAttachments, nothiListRecords, newnotedata, encodedEditorText);
                 if (onucchedSave.status == "success")
                 {
                     

@@ -26,13 +26,11 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("office_id", dakUserParam.office_id);
                 request.AddParameter("designation_id", dakUserParam.designation_id);
-                request.AddParameter("data", "{\"id\":\""+ nothiListRecordsDTO.id+ "\",\"nothi_master_id\":\""+ nothiListRecordsDTO.id + "\",\"note_subject\":\""+noteSubject+"\",\"office_id\":"+nothiListRecordsDTO.office_id+",\"office_name\":\""+nothiListRecordsDTO.office_name+ "\",\"office_unit_name\":\"" + nothiListRecordsDTO.office_unit_name + "\",\"office_designation_name\":\"" + nothiListRecordsDTO.office_designation_name + "\",\"officer_name\":\"" + dakUserParam.officer_name + "\"}");
+                request.AddParameter("data", "{\"id\":\"0\",\"nothi_master_id\":\""+ nothiListRecordsDTO.id + "\",\"note_subject\":\""+noteSubject+"\",\"office_id\":"+nothiListRecordsDTO.office_id+",\"office_name\":\""+nothiListRecordsDTO.office_name+ "\",\"office_unit_name\":\"" + nothiListRecordsDTO.office_unit_name + "\",\"office_designation_name\":\"" + nothiListRecordsDTO.office_designation_name + "\",\"officer_name\":\"" + dakUserParam.officer_name + "\"}");
                 IRestResponse response = client.Execute(request);
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 NoteSaveResponse noteSaveResponse = JsonConvert.DeserializeObject<NoteSaveResponse>(responseJson);
                 return noteSaveResponse;
             }

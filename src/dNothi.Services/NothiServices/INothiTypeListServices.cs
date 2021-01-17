@@ -1,4 +1,5 @@
 ﻿using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.DakServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace dNothi.Services.NothiServices
 {
     public interface INothiTypeListServices
     {
-        NothiTypeListResponse GetNothiTypeList(string token);
+        NothiTypeListResponse GetNothiTypeList(DakUserParam dakListUserParam);
     }
 }
