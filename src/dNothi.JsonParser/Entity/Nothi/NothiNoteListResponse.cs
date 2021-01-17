@@ -112,6 +112,8 @@ namespace dNothi.JsonParser.Entity.Nothi
     }
     public class NoteTo
     {
+        public int view_status;
+
         public int nothi_master_id { get; set; }
         public int nothi_note_id { get; set; }
         public int nothi_office { get; set; }

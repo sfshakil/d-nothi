@@ -540,7 +540,7 @@ namespace dNothi.Desktop.UI
         private void btnNothiOutbox_Click(object sender, EventArgs e)
         {
             _nothiCurrentCategory.isOutbox = true;
-            _nothiCurrentCategory.isOutbox = true;
+           
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
@@ -732,7 +732,8 @@ namespace dNothi.Desktop.UI
             }
             else if (_nothiCurrentCategory._isOutbox)
             {
-               noteList = _nothiNoteTalikaServices.GetNothiNoteListSent(dakUserParam, -1);
+               
+                noteList = _nothiNoteTalikaServices.GetNothiNoteListSent(dakUserParam, -1);
 
             }
 
@@ -756,7 +757,9 @@ namespace dNothi.Desktop.UI
                         dakNothiteUposthaponNoteList.date = noteDTO.deskConverted.issue_date;
                         dakNothiteUposthaponNoteList.deskofficer = noteDTO.deskConverted.officer;
                         dakNothiteUposthaponNoteList.sub = "শাখা: " + noteDTO.deskConverted.office_unit + "," + noteDTO.deskConverted.office + "; নথি নম্বর: " + noteDTO.nothi.nothi_no + "; বিষয়:" + noteDTO.nothi.subject;
-                       
+                        dakNothiteUposthaponNoteList.preritoNoteDate = noteDTO.deskConverted.issue_date; ;
+                        dakNothiteUposthaponNoteList.preritoNoteCDesk = noteDTO.deskConverted.officer + "," + noteDTO.deskConverted.designation + "," + noteDTO.deskConverted.office_unit + "," + noteDTO.deskConverted.office;
+
 
                     }
 
@@ -781,8 +784,20 @@ namespace dNothi.Desktop.UI
                     noteDTO.nothi.note_subject = noteDTO.note.note_subject;
                     noteDTO.nothi.note_id = Convert.ToString(noteDTO.note.nothi_note_id);
 
+                    if (noteDTO.to.view_status== 1)
+                    {
+                        dakNothiteUposthaponNoteList.isEyeInvisible = true;
+                    }
+
                     dakNothiteUposthaponNoteList.nothiDTO = noteDTO.nothi;
                    // dakNothiteUposthaponNoteList.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakNothiteUposthaponNoteList._nothiDTO); };
+
+                    if(_nothiCurrentCategory._isOutbox)
+                    {
+                        dakNothiteUposthaponNoteList.isPreritoNote = true;
+                        dakNothiteUposthaponNoteList.preritoNotePrapok = noteDTO.to.officer+","+noteDTO.to.designation+","+ noteDTO.to.office_unit + ","+ noteDTO.to.office;
+                       
+                    }
 
 
                     noteListUserControls.Add(dakNothiteUposthaponNoteList);

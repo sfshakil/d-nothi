@@ -722,7 +722,7 @@ namespace dNothi.Desktop.UI
             Blur();
             form.ShowDialog(this);
             UnBlur();
-           
+            //LoadDakNothijato();
         }
 
         private void DakArchive_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
