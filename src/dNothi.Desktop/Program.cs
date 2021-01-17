@@ -148,6 +148,8 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiNotePermissionService>().As<INothiNotePermissionService>(); 
             builder.RegisterType<NoteSaveService>().As<INoteSaveService>(); 
             builder.RegisterType<OnuchhedSave>().As<IOnucchedSave>();
+            builder.RegisterType<NothiTypeSaveService>().As<INothiTypeSaveService>();
+            builder.RegisterType<NoteDeleteService>().As<INoteDeleteService>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
@@ -168,6 +170,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();
+            builder.RegisterType<NothiTypeList>().AsSelf();
             builder.RegisterType<CreateNewNothiType>().AsSelf();
             builder.RegisterType<DakForwardUserControl>().AsSelf();
             builder.RegisterType<DakNothijatoForm>().AsSelf();

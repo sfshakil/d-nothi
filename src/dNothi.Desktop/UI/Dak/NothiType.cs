@@ -61,11 +61,12 @@ namespace dNothi.Desktop.UI.Dak
             int i = 0, k = 1;
             foreach (NothiTypeListDTO nothiTypeListDTO in nothiTypeLists)
             {
-                NothiTypeList nothiType = new NothiTypeList();
+                var nothiType = UserControlFactory.Create<NothiTypeList>();
                 nothiType.serialNo = k.ToString();
                 nothiType.nothiSubjectType = nothiTypeListDTO.nothi_type;
                 nothiType.nothiCode = nothiTypeListDTO.nothi_type_code;
                 nothiType.nothiNumber = nothiTypeListDTO.nothi_type_count;
+                nothiType.noteId = nothiTypeListDTO.id.ToString();
                 i = i + 1;
                 k++;
                 if (i % 2 != 0)

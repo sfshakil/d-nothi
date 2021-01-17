@@ -28,34 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateNewNothiType));
             this.label2 = new System.Windows.Forms.Label();
             this.cbxNothiType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.xTextBox1 = new dNothi.Desktop.XTextBox();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnNothiDhoron = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnGuidelines = new System.Windows.Forms.Button();
+            this.btnInfo = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtDhoronCode = new PlaceholderTextBox.PlaceholderTextBox();
+            this.userIdPanel = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.userIdPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 16);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 46;
             this.label2.Text = "বিষয়ের ধরন";
             // 
             // cbxNothiType
             // 
             this.cbxNothiType.BackColor = System.Drawing.Color.White;
+            this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxNothiType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNothiType.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cbxNothiType.FormattingEnabled = true;
             this.cbxNothiType.IntegralHeight = false;
             this.cbxNothiType.ItemHeight = 20;
-            this.cbxNothiType.Location = new System.Drawing.Point(26, 38);
+            this.cbxNothiType.Location = new System.Drawing.Point(3, 1);
             this.cbxNothiType.MaxDropDownItems = 100;
             this.cbxNothiType.Name = "cbxNothiType";
             this.cbxNothiType.Size = new System.Drawing.Size(369, 28);
@@ -65,45 +70,38 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(428, 16);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(387, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 13);
+            this.label1.Size = new System.Drawing.Size(123, 20);
             this.label1.TabIndex = 48;
             this.label1.Text = "২ ডিজিটের ধরন কোড";
             // 
-            // xTextBox1
+            // btnNothiDhoron
             // 
-            this.xTextBox1.BackColor = System.Drawing.Color.White;
-            this.xTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xTextBox1.Location = new System.Drawing.Point(422, 38);
-            this.xTextBox1.Multiline = true;
-            this.xTextBox1.Name = "xTextBox1";
-            this.xTextBox1.Size = new System.Drawing.Size(122, 28);
-            this.xTextBox1.TabIndex = 49;
-            this.xTextBox1.Text = "২ ডিজিটের ধরন কোড";
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(362, 83);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(92, 43);
-            this.button11.TabIndex = 50;
-            this.button11.Text = "সংরক্ষণ করুন";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btnNothiDhoron.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnNothiDhoron.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnNothiDhoron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiDhoron.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNothiDhoron.ForeColor = System.Drawing.Color.White;
+            this.btnNothiDhoron.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNothiDhoron.Location = new System.Drawing.Point(317, 64);
+            this.btnNothiDhoron.Name = "btnNothiDhoron";
+            this.btnNothiDhoron.Size = new System.Drawing.Size(97, 43);
+            this.btnNothiDhoron.TabIndex = 50;
+            this.btnNothiDhoron.Text = "সংরক্ষণ করুন";
+            this.btnNothiDhoron.UseVisualStyleBackColor = false;
+            this.btnNothiDhoron.Click += new System.EventHandler(this.btnNothiDhoron_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.DeepPink;
-            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(452, 83);
+            this.btnCancel.Location = new System.Drawing.Point(413, 64);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(92, 43);
             this.btnCancel.TabIndex = 51;
@@ -111,33 +109,71 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnGuidelines
+            // btnInfo
             // 
-            this.btnGuidelines.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnGuidelines.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGuidelines.BackgroundImage")));
-            this.btnGuidelines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuidelines.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
-            this.btnGuidelines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuidelines.Location = new System.Drawing.Point(26, 83);
-            this.btnGuidelines.Name = "btnGuidelines";
-            this.btnGuidelines.Size = new System.Drawing.Size(25, 23);
-            this.btnGuidelines.TabIndex = 52;
-            this.btnGuidelines.UseVisualStyleBackColor = false;
-            this.btnGuidelines.Click += new System.EventHandler(this.btnGuidelines_Click);
+            this.btnInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
+            this.btnInfo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnInfo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnInfo.IconSize = 32;
+            this.btnInfo.Location = new System.Drawing.Point(6, 64);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(34, 43);
+            this.btnInfo.TabIndex = 63;
+            this.btnInfo.UseVisualStyleBackColor = false;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbxNothiType);
+            this.panel1.Location = new System.Drawing.Point(9, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(375, 30);
+            this.panel1.TabIndex = 64;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // txtDhoronCode
+            // 
+            this.txtDhoronCode.BackColor = System.Drawing.Color.White;
+            this.txtDhoronCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDhoronCode.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDhoronCode.Location = new System.Drawing.Point(7, 5);
+            this.txtDhoronCode.Name = "txtDhoronCode";
+            this.txtDhoronCode.PlaceholderText = "২ ডিজিটের ধরন কোড";
+            this.txtDhoronCode.Size = new System.Drawing.Size(119, 19);
+            this.txtDhoronCode.TabIndex = 3;
+            // 
+            // userIdPanel
+            // 
+            this.userIdPanel.BackColor = System.Drawing.Color.Transparent;
+            this.userIdPanel.Controls.Add(this.txtDhoronCode);
+            this.userIdPanel.Location = new System.Drawing.Point(388, 28);
+            this.userIdPanel.Name = "userIdPanel";
+            this.userIdPanel.Size = new System.Drawing.Size(129, 30);
+            this.userIdPanel.TabIndex = 78;
+            this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
             // 
             // CreateNewNothiType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnGuidelines);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.userIdPanel);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.xTextBox1);
+            this.Controls.Add(this.btnNothiDhoron);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbxNothiType);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "CreateNewNothiType";
-            this.Size = new System.Drawing.Size(554, 129);
+            this.Size = new System.Drawing.Size(520, 116);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.CreateNewNothiType_Paint);
+            this.panel1.ResumeLayout(false);
+            this.userIdPanel.ResumeLayout(false);
+            this.userIdPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,9 +184,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxNothiType;
         private System.Windows.Forms.Label label1;
-        private XTextBox xTextBox1;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnNothiDhoron;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnGuidelines;
+        private FontAwesome.Sharp.IconButton btnInfo;
+        private System.Windows.Forms.Panel panel1;
+        private PlaceholderTextBox.PlaceholderTextBox txtDhoronCode;
+        private System.Windows.Forms.Panel userIdPanel;
     }
 }

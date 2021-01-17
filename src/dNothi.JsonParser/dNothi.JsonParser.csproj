@@ -112,6 +112,7 @@
     <Compile Include="Entity\Nothi\DeskAllDTO.cs" />
     <Compile Include="Entity\Nothi\DeskNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\DeskOutboxDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteDeleteResponse.cs" />
     <Compile Include="Entity\Nothi\NoteNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NoteSaveDTO.cs" />
     <Compile Include="Entity\Nothi\NoteSaveResponse.cs" />
@@ -141,6 +142,8 @@
     <Compile Include="Entity\Nothi\NothiOutboxListRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiTypeListDTO.cs" />
     <Compile Include="Entity\Nothi\NothiTypeListResponse.cs" />
+    <Compile Include="Entity\Nothi\NothiTypeSaveDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiTypeSaveResponse.cs" />
     <Compile Include="Entity\Nothi\StatusAllDTO.cs" />
     <Compile Include="Entity\Nothi\ToNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\ToOutboxDTO.cs" />

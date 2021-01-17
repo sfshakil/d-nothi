@@ -611,6 +611,21 @@ namespace dNothi.Desktop.UI
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
         }
+        public void ForceLoadNewNothi()
+        {
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            btnNewNothi.BackColor = Color.FromArgb(243, 246, 249);
+            btnNewNothi.ForeColor = Color.FromArgb(78, 165, 254);
+            newNothi.Visible = true;
+            newNothi.Location = new System.Drawing.Point(233, 60);
+            Controls.Add(newNothi);
+            newNothi.BringToFront();
+            newNothi.BackColor = Color.WhiteSmoke;
+        }
         designationSelect designationDetailsPanelNothi = new designationSelect();
         
         private void profilePanel_Click(object sender, EventArgs e)

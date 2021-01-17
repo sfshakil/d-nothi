@@ -50,7 +50,7 @@ namespace dNothi.Desktop.UI.Dak
         public int[] ids;
         public string[] nothi_type_codes;
         public string[] nothiNoteNos;
-        private void LoadNothiTypeListDropDown()
+        public void LoadNothiTypeListDropDown()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             var token = _userService.GetToken();
@@ -108,12 +108,17 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnNothiTypeList_Click_1(object sender, EventArgs e)
         {
+            foreach (Form f in Application.OpenForms)
+            { f.Hide(); }
+            var form = FormFactory.Create<Nothi>();
+            form.ForceLoadNewNothi();
             var nothiType = UserControlFactory.Create<NothiType>();
             nothiType.Visible = true;
             nothiType.Enabled = true;
-            nothiType.Location = new System.Drawing.Point(602, 0);
-            Controls.Add(nothiType);
+            nothiType.Location = new System.Drawing.Point(845, 0);
+            form.Controls.Add(nothiType);
             nothiType.BringToFront();
+            form.ShowDialog();
         }
 
         private void btnNothiTypeList_MouseHover(object sender, EventArgs e)
@@ -170,6 +175,7 @@ namespace dNothi.Desktop.UI.Dak
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             nothiTalikaPnl.Visible = true;
             int i = cbxNothiType.SelectedIndex;
+            var nothi_type_code = nothi_type_codes[i];
             var nothi_type_id = ids[i];
             var token = _userService.GetToken();
             var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(dakListUserParam, Convert.ToString(nothi_type_id));
@@ -185,6 +191,8 @@ namespace dNothi.Desktop.UI.Dak
                 else
                 {
                     nothiTalikaFlowLayoutPnl.Controls.Clear();
+                    lbNothiNo.Text = "৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')))+".";
+                    lbNothilast4digit.Text = "০০১.";
                 }
                 loadLast2digitNothiNo();
 
