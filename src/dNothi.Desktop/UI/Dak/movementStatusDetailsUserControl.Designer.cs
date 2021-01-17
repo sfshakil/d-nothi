@@ -40,7 +40,7 @@
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.userDesignationLabel);
             this.panel1.Controls.Add(this.userNameLabel);
-            this.panel1.Location = new System.Drawing.Point(66, 8);
+            this.panel1.Location = new System.Drawing.Point(66, 3);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(635, 21);
@@ -77,7 +77,7 @@
             // 
             this.userTypeLabel.AutoSize = true;
             this.userTypeLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTypeLabel.Location = new System.Drawing.Point(12, 8);
+            this.userTypeLabel.Location = new System.Drawing.Point(12, 3);
             this.userTypeLabel.MaximumSize = new System.Drawing.Size(50, 0);
             this.userTypeLabel.Name = "userTypeLabel";
             this.userTypeLabel.Size = new System.Drawing.Size(49, 36);
@@ -86,8 +86,7 @@
             // 
             // MovementStatusDetailsUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.userTypeLabel);
@@ -95,7 +94,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(742, 0);
             this.Name = "MovementStatusDetailsUserControl";
-            this.Size = new System.Drawing.Size(742, 44);
+            this.Size = new System.Drawing.Size(742, 39);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

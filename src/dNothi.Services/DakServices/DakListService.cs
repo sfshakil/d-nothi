@@ -609,7 +609,7 @@ namespace dNothi.Services.DakServices
             }
             catch (Exception ex)
             {
-                throw;
+                return null;
             }
         }
 

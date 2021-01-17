@@ -42,14 +42,16 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _imageSrc = value;
-                try
+                _imageSrc = value;
+                if (value != "")
                 {
-                    attachmentLink.Load(value);
+                    attachmentLink.Image = new Bitmap(value);
                 }
-                catch(Exception Ex)
+                else
                 {
-                    attachmentLink.Text = Ex.ToString();
+                    attachmentLink.Enabled = false;
                 }
+               
             }
           
         }
@@ -153,7 +155,11 @@ namespace dNothi.Desktop.UI.Dak
 
         private void attachmentLink_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(_imageLink);
+           if(_imageLink!=null)
+            {
+                System.Diagnostics.Process.Start(_imageLink);
+            }
+
         }
 
         private void attachmentOCRButton_Click(object sender, EventArgs e)
@@ -164,8 +170,13 @@ namespace dNothi.Desktop.UI.Dak
 
         private void attachmentDeleteButton_Click(object sender, EventArgs e)
         {
-            if (this.DeleteButtonClick != null)
-                this.DeleteButtonClick(sender, e);
+            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি নিশ্চিতভাবে সংযুক্তি টি মুছে ফেলতে চান?\n",
+                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResultSttring == DialogResult.Yes)
+            {
+                if (this.DeleteButtonClick != null)
+                    this.DeleteButtonClick(sender, e);
+            }
         }
 
         private void dakUploadAttachmentNameTextBox_TextChanged(object sender, EventArgs e)

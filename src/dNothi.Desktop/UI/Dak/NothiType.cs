@@ -11,6 +11,7 @@ using System.Drawing.Text;
 using dNothi.Services.UserServices;
 using dNothi.Services.NothiServices;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.DakServices;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -40,8 +41,9 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void LoadNothiTypeList()
         {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             var token = _userService.GetToken();
-            var nothiType = _nothiType.GetNothiTypeList(token);
+            var nothiType = _nothiType.GetNothiTypeList(dakListUserParam);
             if (nothiType.status == "success")
             {
                 if (nothiType.data.Count > 0)

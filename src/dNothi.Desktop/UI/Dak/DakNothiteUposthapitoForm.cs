@@ -115,7 +115,7 @@ namespace dNothi.Desktop.UI.Dak
                     nothiAll.onishponno = nothiAllListDTO.status.onishponno;
                     nothiAll.nishponno = nothiAllListDTO.status.nishponno;
                     nothiAll.archived = nothiAllListDTO.status.archived;
-                    nothiAll.master_id = nothiAllListDTO.status.nothi_master_id.ToString();
+                   // nothiAll.master_id = nothiAllListDTO.status.nothi_master_id.ToString();
                    
                 }
                 else
@@ -127,7 +127,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiAll.dak_id = _dak_id;
                 nothiAll.is_copied_dak = _is_copied_dak;
                 nothiAll._dak_type = _dak_type;
-               // nothiAll.master_id=nothiAllListDTO.ma
+                nothiAll.master_id = nothiAllListDTO.nothi.id.ToString();
                 nothiAlls.Add(nothiAll);
             }
             nothiListFlowLayoutPanel.Controls.Clear();

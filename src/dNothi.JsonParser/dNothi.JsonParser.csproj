@@ -57,6 +57,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -112,6 +113,8 @@
     <Compile Include="Entity\Nothi\DeskNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\DeskOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NoteNothiListInboxNoteRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteSaveDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteSaveResponse.cs" />
     <Compile Include="Entity\Nothi\NothiAllDTO.cs" />
     <Compile Include="Entity\Nothi\NothiCreateDTO.cs" />
     <Compile Include="Entity\Nothi\NothiCreateResponse.cs" />
@@ -132,6 +135,7 @@
     <Compile Include="Entity\Nothi\NothiNoteTalikaListResponse.cs" />
     <Compile Include="Entity\Nothi\NothiNoteTalikaRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiNothiListInboxNoteRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiOnuchhedSaveResponse.cs" />
     <Compile Include="Entity\Nothi\NothiOnumodonRowDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxListRecordsDTO.cs" />

@@ -16,6 +16,7 @@ namespace dNothi.Services.DakServices
     {
         public DakUploadedFileResponse GetDakUploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam)
         {
+            DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
             try
             {
 
@@ -38,12 +39,12 @@ namespace dNothi.Services.DakServices
 
 
                 var dakFileUploadResponseJson = dakFileUploadResponse.Content;
-                DakUploadedFileResponse dakUploadedFileResponse = JsonConvert.DeserializeObject<DakUploadedFileResponse>(dakFileUploadResponseJson);
+                dakUploadedFileResponse = JsonConvert.DeserializeObject<DakUploadedFileResponse>(dakFileUploadResponseJson);
                 return dakUploadedFileResponse;
             }
             catch (Exception ex)
             {
-                throw;
+                return dakUploadedFileResponse;
             }
         }
 

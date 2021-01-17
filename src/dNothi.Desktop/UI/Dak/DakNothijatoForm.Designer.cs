@@ -69,8 +69,8 @@
             this.placeholderTextBox2 = new PlaceholderTextBox.PlaceholderTextBox();
             this.detailPanelDropDownButton = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.nothiTypeComboBox = new System.Windows.Forms.ComboBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.nothiTypeComboBox = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -619,6 +619,16 @@
             this.panel3.Size = new System.Drawing.Size(566, 37);
             this.panel3.TabIndex = 55;
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.nothiTypeComboBox);
+            this.panel7.Location = new System.Drawing.Point(2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(8);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(560, 32);
+            this.panel7.TabIndex = 5;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
+            // 
             // nothiTypeComboBox
             // 
             this.nothiTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -634,16 +644,6 @@
             this.nothiTypeComboBox.TabIndex = 4;
             this.nothiTypeComboBox.Text = "সকল নথি";
             this.nothiTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.nothiTypeComboBox_SelectedIndexChanged);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.nothiTypeComboBox);
-            this.panel7.Location = new System.Drawing.Point(2, 2);
-            this.panel7.Margin = new System.Windows.Forms.Padding(8);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(560, 32);
-            this.panel7.TabIndex = 5;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
             // 
             // DakNothijatoForm
             // 

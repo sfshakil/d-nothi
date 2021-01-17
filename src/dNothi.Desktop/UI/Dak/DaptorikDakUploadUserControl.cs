@@ -104,7 +104,7 @@ namespace dNothi.Desktop.UI.Dak
                                         {
                                             image.Save(m, image.RawFormat);
                                             byte[] imageBytes = m.ToArray();
-
+                                            // dakUploadAttachmentTableRow.imgSource = image.;
                                             // Convert byte[] to Base64 String
                                             dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
 
@@ -144,7 +144,7 @@ namespace dNothi.Desktop.UI.Dak
                             dakUploadAttachmentTableRow.fileexension = attachment.attachment_type.ToLowerInvariant();
                             dakUploadAttachmentTableRow._dakAttachment = attachment;
                             dakUploadAttachmentTableRow.imageLink = attachment.url;
-                            dakUploadAttachmentTableRow.imgSource = attachment.thumbnail_url;
+                          
                             dakUploadAttachmentTableRow.attachmentName = attachment.user_file_name;
                             dakUploadAttachmentTableRow.attachmentId = attachment.attachment_id; ;
                             dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(radioSender, radioEvent, dakUploadAttachmentTableRow.attachmentId); };
@@ -473,7 +473,8 @@ namespace dNothi.Desktop.UI.Dak
         private void fileUploadButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
-            //opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
+
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
                 _dakFileUploadParam.user_file_name = new System.IO.FileInfo(opnfd.FileName).Name;
@@ -515,7 +516,7 @@ namespace dNothi.Desktop.UI.Dak
                         {
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             dakUploadAttachmentTableRow._isAllowedforOCR = true;
-                       
+                            dakUploadAttachmentTableRow.imgSource = opnfd.FileName;
                             using (Image image = Image.FromFile(opnfd.FileName))
                             {
                                 using (MemoryStream m = new MemoryStream())
@@ -553,7 +554,7 @@ namespace dNothi.Desktop.UI.Dak
                         dakUploadAttachmentTableRow.fileexension = new System.IO.FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
                         dakUploadAttachmentTableRow._dakAttachment = dakUploadedFileResponse.data[0];
                         dakUploadAttachmentTableRow.imageLink = dakUploadedFileResponse.data[0].url;
-                        dakUploadAttachmentTableRow.imgSource = dakUploadedFileResponse.data[0].thumbnail_url;
+                     
                         dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                         dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;
                         dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
@@ -561,6 +562,13 @@ namespace dNothi.Desktop.UI.Dak
 
                         attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
                     }
+                }
+                else
+                {
+                    NoteFileDelete noteFileDelete = new NoteFileDelete();
+                    noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                    noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
+                    attachmentListFlowLayoutPanel.Controls.Add(noteFileDelete);
                 }
 
             }

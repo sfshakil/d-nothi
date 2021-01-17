@@ -145,7 +145,9 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiNoteTalikaServices>().As<INothiNoteTalikaServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
             builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>(); 
-            builder.RegisterType<NothiNotePermissionService>().As<INothiNotePermissionService>();
+            builder.RegisterType<NothiNotePermissionService>().As<INothiNotePermissionService>(); 
+            builder.RegisterType<NoteSaveService>().As<INoteSaveService>(); 
+            builder.RegisterType<OnuchhedSave>().As<IOnucchedSave>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
