@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
@@ -50,7 +51,17 @@
             this.dakBodyFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.dakSortMetroPanel = new MetroFramework.Controls.MetroPanel();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.settingsPanel = new System.Windows.Forms.Panel();
+            this.infoHideShowButton = new FontAwesome.Sharp.IconButton();
+            this.RefreshButton = new FontAwesome.Sharp.IconButton();
+            this.multipleSelectionPanel = new System.Windows.Forms.Panel();
+            this.multipleDakArchiveButton = new FontAwesome.Sharp.IconButton();
+            this.multipleDakNothijatoButton = new FontAwesome.Sharp.IconButton();
+            this.multipleDakNothivuktoButton = new FontAwesome.Sharp.IconButton();
+            this.multipleDakForwardButton = new FontAwesome.Sharp.IconButton();
+            this.starButton = new FontAwesome.Sharp.IconButton();
+            this.shortSearchPanel = new System.Windows.Forms.Panel();
+            this.dakShareButton = new FontAwesome.Sharp.IconButton();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
@@ -59,7 +70,7 @@
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.selectAllCheckBox = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.detailsDakSearcPanel = new System.Windows.Forms.Panel();
             this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
@@ -163,6 +174,7 @@
             this.dashboardPanel = new System.Windows.Forms.Panel();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.dashBoardBlurPanel = new System.Windows.Forms.Panel();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -171,7 +183,9 @@
             this.dakModulePanel.SuspendLayout();
             this.panel12.SuspendLayout();
             this.dakSortMetroPanel.SuspendLayout();
-            this.panel11.SuspendLayout();
+            this.settingsPanel.SuspendLayout();
+            this.multipleSelectionPanel.SuspendLayout();
+            this.shortSearchPanel.SuspendLayout();
             this.panel10.SuspendLayout();
             this.detailsDakSearcPanel.SuspendLayout();
             this.nameorDesignationSearchPanel.SuspendLayout();
@@ -478,7 +492,9 @@
             // 
             // dakSortMetroPanel
             // 
-            this.dakSortMetroPanel.Controls.Add(this.panel11);
+            this.dakSortMetroPanel.Controls.Add(this.settingsPanel);
+            this.dakSortMetroPanel.Controls.Add(this.multipleSelectionPanel);
+            this.dakSortMetroPanel.Controls.Add(this.shortSearchPanel);
             this.dakSortMetroPanel.Controls.Add(this.iconButton4);
             this.dakSortMetroPanel.Controls.Add(this.iconButton3);
             this.dakSortMetroPanel.Controls.Add(this.label6);
@@ -497,71 +513,268 @@
             this.dakSortMetroPanel.VerticalScrollbarSize = 10;
             this.dakSortMetroPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
             // 
-            // panel11
+            // settingsPanel
             // 
-            this.panel11.Controls.Add(this.comboBox5);
-            this.panel11.Controls.Add(this.comboBox6);
-            this.panel11.Controls.Add(this.comboBox8);
-            this.panel11.Controls.Add(this.comboBox7);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel11.Location = new System.Drawing.Point(35, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(502, 36);
-            this.panel11.TabIndex = 33;
+            this.settingsPanel.AutoSize = true;
+            this.settingsPanel.Controls.Add(this.infoHideShowButton);
+            this.settingsPanel.Controls.Add(this.RefreshButton);
+            this.settingsPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.settingsPanel.Location = new System.Drawing.Point(785, 0);
+            this.settingsPanel.Name = "settingsPanel";
+            this.settingsPanel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.settingsPanel.Size = new System.Drawing.Size(90, 36);
+            this.settingsPanel.TabIndex = 34;
+            // 
+            // infoHideShowButton
+            // 
+            this.infoHideShowButton.BackColor = System.Drawing.Color.Transparent;
+            this.infoHideShowButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.infoHideShowButton.FlatAppearance.BorderSize = 0;
+            this.infoHideShowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.infoHideShowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.infoHideShowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.infoHideShowButton.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.infoHideShowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.infoHideShowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.infoHideShowButton.IconSize = 24;
+            this.infoHideShowButton.Location = new System.Drawing.Point(45, 5);
+            this.infoHideShowButton.Margin = new System.Windows.Forms.Padding(0);
+            this.infoHideShowButton.Name = "infoHideShowButton";
+            this.infoHideShowButton.Size = new System.Drawing.Size(45, 31);
+            this.infoHideShowButton.TabIndex = 32;
+            this.MyToolTip.SetToolTip(this.infoHideShowButton, "তথ্য গোপন / প্রদর্শন");
+            this.infoHideShowButton.UseVisualStyleBackColor = false;
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.BackColor = System.Drawing.Color.Transparent;
+            this.RefreshButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.RefreshButton.FlatAppearance.BorderSize = 0;
+            this.RefreshButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.RefreshButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefreshButton.IconChar = FontAwesome.Sharp.IconChar.Sync;
+            this.RefreshButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(84)))), ((int)(((byte)(96)))));
+            this.RefreshButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RefreshButton.IconSize = 24;
+            this.RefreshButton.Location = new System.Drawing.Point(0, 5);
+            this.RefreshButton.Margin = new System.Windows.Forms.Padding(0);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(45, 31);
+            this.RefreshButton.TabIndex = 31;
+            this.MyToolTip.SetToolTip(this.RefreshButton, "রিফ্রেশ");
+            this.RefreshButton.UseVisualStyleBackColor = false;
+            // 
+            // multipleSelectionPanel
+            // 
+            this.multipleSelectionPanel.AutoSize = true;
+            this.multipleSelectionPanel.Controls.Add(this.multipleDakArchiveButton);
+            this.multipleSelectionPanel.Controls.Add(this.multipleDakNothijatoButton);
+            this.multipleSelectionPanel.Controls.Add(this.multipleDakNothivuktoButton);
+            this.multipleSelectionPanel.Controls.Add(this.multipleDakForwardButton);
+            this.multipleSelectionPanel.Controls.Add(this.starButton);
+            this.multipleSelectionPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.multipleSelectionPanel.Location = new System.Drawing.Point(560, 0);
+            this.multipleSelectionPanel.Name = "multipleSelectionPanel";
+            this.multipleSelectionPanel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.multipleSelectionPanel.Size = new System.Drawing.Size(225, 36);
+            this.multipleSelectionPanel.TabIndex = 36;
+            this.multipleSelectionPanel.Visible = false;
+            // 
+            // multipleDakArchiveButton
+            // 
+            this.multipleDakArchiveButton.BackColor = System.Drawing.Color.Transparent;
+            this.multipleDakArchiveButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.multipleDakArchiveButton.FlatAppearance.BorderSize = 0;
+            this.multipleDakArchiveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.multipleDakArchiveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.multipleDakArchiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.multipleDakArchiveButton.IconChar = FontAwesome.Sharp.IconChar.Archive;
+            this.multipleDakArchiveButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.multipleDakArchiveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.multipleDakArchiveButton.IconSize = 24;
+            this.multipleDakArchiveButton.Location = new System.Drawing.Point(180, 5);
+            this.multipleDakArchiveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.multipleDakArchiveButton.Name = "multipleDakArchiveButton";
+            this.multipleDakArchiveButton.Size = new System.Drawing.Size(45, 31);
+            this.multipleDakArchiveButton.TabIndex = 35;
+            this.MyToolTip.SetToolTip(this.multipleDakArchiveButton, "আর্কাইভ");
+            this.multipleDakArchiveButton.UseVisualStyleBackColor = false;
+            // 
+            // multipleDakNothijatoButton
+            // 
+            this.multipleDakNothijatoButton.BackColor = System.Drawing.Color.Transparent;
+            this.multipleDakNothijatoButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.multipleDakNothijatoButton.FlatAppearance.BorderSize = 0;
+            this.multipleDakNothijatoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.multipleDakNothijatoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.multipleDakNothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.multipleDakNothijatoButton.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
+            this.multipleDakNothijatoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(184)))), ((int)(((byte)(255)))));
+            this.multipleDakNothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.multipleDakNothijatoButton.IconSize = 24;
+            this.multipleDakNothijatoButton.Location = new System.Drawing.Point(135, 5);
+            this.multipleDakNothijatoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.multipleDakNothijatoButton.Name = "multipleDakNothijatoButton";
+            this.multipleDakNothijatoButton.Size = new System.Drawing.Size(45, 31);
+            this.multipleDakNothijatoButton.TabIndex = 34;
+            this.MyToolTip.SetToolTip(this.multipleDakNothijatoButton, "নথিজাত");
+            this.multipleDakNothijatoButton.UseVisualStyleBackColor = false;
+            // 
+            // multipleDakNothivuktoButton
+            // 
+            this.multipleDakNothivuktoButton.BackColor = System.Drawing.Color.Transparent;
+            this.multipleDakNothivuktoButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.multipleDakNothivuktoButton.FlatAppearance.BorderSize = 0;
+            this.multipleDakNothivuktoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.multipleDakNothivuktoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.multipleDakNothivuktoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.multipleDakNothivuktoButton.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.multipleDakNothivuktoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(51)))));
+            this.multipleDakNothivuktoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.multipleDakNothivuktoButton.IconSize = 24;
+            this.multipleDakNothivuktoButton.Location = new System.Drawing.Point(90, 5);
+            this.multipleDakNothivuktoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.multipleDakNothivuktoButton.Name = "multipleDakNothivuktoButton";
+            this.multipleDakNothivuktoButton.Size = new System.Drawing.Size(45, 31);
+            this.multipleDakNothivuktoButton.TabIndex = 33;
+            this.MyToolTip.SetToolTip(this.multipleDakNothivuktoButton, "নথিতে উপস্থাপন");
+            this.multipleDakNothivuktoButton.UseVisualStyleBackColor = false;
+            // 
+            // multipleDakForwardButton
+            // 
+            this.multipleDakForwardButton.BackColor = System.Drawing.Color.Transparent;
+            this.multipleDakForwardButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.multipleDakForwardButton.FlatAppearance.BorderSize = 0;
+            this.multipleDakForwardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.multipleDakForwardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.multipleDakForwardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.multipleDakForwardButton.IconChar = FontAwesome.Sharp.IconChar.Share;
+            this.multipleDakForwardButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.multipleDakForwardButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.multipleDakForwardButton.IconSize = 24;
+            this.multipleDakForwardButton.Location = new System.Drawing.Point(45, 5);
+            this.multipleDakForwardButton.Margin = new System.Windows.Forms.Padding(0);
+            this.multipleDakForwardButton.Name = "multipleDakForwardButton";
+            this.multipleDakForwardButton.Size = new System.Drawing.Size(45, 31);
+            this.multipleDakForwardButton.TabIndex = 32;
+            this.MyToolTip.SetToolTip(this.multipleDakForwardButton, "ডাক প্রেরণ করুন");
+            this.multipleDakForwardButton.UseVisualStyleBackColor = false;
+            this.multipleDakForwardButton.Click += new System.EventHandler(this.multipleDakForwardButton_Click);
+            // 
+            // starButton
+            // 
+            this.starButton.BackColor = System.Drawing.Color.Transparent;
+            this.starButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.starButton.FlatAppearance.BorderSize = 0;
+            this.starButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.starButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.starButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.starButton.IconChar = FontAwesome.Sharp.IconChar.Star;
+            this.starButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.starButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.starButton.IconSize = 24;
+            this.starButton.Location = new System.Drawing.Point(0, 5);
+            this.starButton.Margin = new System.Windows.Forms.Padding(0);
+            this.starButton.Name = "starButton";
+            this.starButton.Size = new System.Drawing.Size(45, 31);
+            this.starButton.TabIndex = 31;
+            this.MyToolTip.SetToolTip(this.starButton, "বিশেষ");
+            this.starButton.UseVisualStyleBackColor = false;
+            // 
+            // shortSearchPanel
+            // 
+            this.shortSearchPanel.AutoSize = true;
+            this.shortSearchPanel.Controls.Add(this.dakShareButton);
+            this.shortSearchPanel.Controls.Add(this.comboBox5);
+            this.shortSearchPanel.Controls.Add(this.comboBox6);
+            this.shortSearchPanel.Controls.Add(this.comboBox8);
+            this.shortSearchPanel.Controls.Add(this.comboBox7);
+            this.shortSearchPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.shortSearchPanel.Location = new System.Drawing.Point(35, 0);
+            this.shortSearchPanel.Name = "shortSearchPanel";
+            this.shortSearchPanel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.shortSearchPanel.Size = new System.Drawing.Size(525, 36);
+            this.shortSearchPanel.TabIndex = 33;
+            // 
+            // dakShareButton
+            // 
+            this.dakShareButton.BackColor = System.Drawing.Color.Transparent;
+            this.dakShareButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakShareButton.FlatAppearance.BorderSize = 0;
+            this.dakShareButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.dakShareButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.dakShareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakShareButton.IconChar = FontAwesome.Sharp.IconChar.ShareAlt;
+            this.dakShareButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.dakShareButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakShareButton.IconSize = 22;
+            this.dakShareButton.Location = new System.Drawing.Point(480, 5);
+            this.dakShareButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakShareButton.Name = "dakShareButton";
+            this.dakShareButton.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.dakShareButton.Size = new System.Drawing.Size(45, 31);
+            this.dakShareButton.TabIndex = 30;
+            this.MyToolTip.SetToolTip(this.dakShareButton, "ডাক বক্স শেয়ারিং");
+            this.dakShareButton.UseVisualStyleBackColor = false;
             // 
             // comboBox5
             // 
             this.comboBox5.BackColor = System.Drawing.Color.White;
+            this.comboBox5.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.comboBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(6, 6);
+            this.comboBox5.Location = new System.Drawing.Point(360, 5);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(10);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(90, 28);
+            this.comboBox5.Size = new System.Drawing.Size(120, 28);
             this.comboBox5.TabIndex = 3;
             this.comboBox5.Text = "সকল";
             // 
             // comboBox6
             // 
             this.comboBox6.BackColor = System.Drawing.Color.White;
+            this.comboBox6.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.comboBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(107, 6);
+            this.comboBox6.Location = new System.Drawing.Point(240, 5);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 28);
+            this.comboBox6.Size = new System.Drawing.Size(120, 28);
             this.comboBox6.TabIndex = 4;
             this.comboBox6.Text = "গোপনীয়তা";
             // 
             // comboBox8
             // 
             this.comboBox8.BackColor = System.Drawing.Color.White;
+            this.comboBox8.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.comboBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(369, 5);
+            this.comboBox8.Location = new System.Drawing.Point(120, 5);
             this.comboBox8.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(121, 28);
+            this.comboBox8.Size = new System.Drawing.Size(120, 28);
             this.comboBox8.TabIndex = 6;
             this.comboBox8.Text = "অগ্রাধিকার";
             // 
             // comboBox7
             // 
             this.comboBox7.BackColor = System.Drawing.Color.White;
+            this.comboBox7.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.comboBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(238, 5);
+            this.comboBox7.Location = new System.Drawing.Point(0, 5);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(121, 28);
+            this.comboBox7.Size = new System.Drawing.Size(120, 28);
             this.comboBox7.TabIndex = 5;
             this.comboBox7.Text = "ডাকের ধরণ";
             // 
@@ -610,21 +823,23 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.checkBox2);
+            this.panel10.Controls.Add(this.selectAllCheckBox);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(35, 36);
             this.panel10.TabIndex = 27;
             // 
-            // checkBox2
+            // selectAllCheckBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(13, 12);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.selectAllCheckBox.AutoSize = true;
+            this.selectAllCheckBox.Location = new System.Drawing.Point(13, 12);
+            this.selectAllCheckBox.Name = "selectAllCheckBox";
+            this.selectAllCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.selectAllCheckBox.TabIndex = 2;
+            this.MyToolTip.SetToolTip(this.selectAllCheckBox, "সকল ডাক বাছাই করুন");
+            this.selectAllCheckBox.UseVisualStyleBackColor = true;
+            this.selectAllCheckBox.CheckedChanged += new System.EventHandler(this.selectAllCheckBox_CheckedChanged);
             // 
             // label21
             // 
@@ -2135,9 +2350,9 @@
             this.dashboardRightSideDisplaypanel.Controls.Add(this.rightSliderHeadLineLabel);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.sliderCrossButton);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.dashboardRightSideFlowLayoutPanel);
-            this.dashboardRightSideDisplaypanel.Location = new System.Drawing.Point(763, 1);
+            this.dashboardRightSideDisplaypanel.Location = new System.Drawing.Point(753, 1);
             this.dashboardRightSideDisplaypanel.Name = "dashboardRightSideDisplaypanel";
-            this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(592, 690);
+            this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(602, 690);
             this.dashboardRightSideDisplaypanel.TabIndex = 26;
             this.dashboardRightSideDisplaypanel.Visible = false;
             // 
@@ -2203,7 +2418,9 @@
             this.panel12.ResumeLayout(false);
             this.dakSortMetroPanel.ResumeLayout(false);
             this.dakSortMetroPanel.PerformLayout();
-            this.panel11.ResumeLayout(false);
+            this.settingsPanel.ResumeLayout(false);
+            this.multipleSelectionPanel.ResumeLayout(false);
+            this.shortSearchPanel.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.detailsDakSearcPanel.ResumeLayout(false);
@@ -2294,7 +2511,7 @@
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox selectAllCheckBox;
         private System.Windows.Forms.Panel detailsDakSearcPanel;
         private System.Windows.Forms.FlowLayoutPanel dakBodyFlowLayoutPanel;
         private System.Windows.Forms.DateTimePicker timeLimitDateTimePicker;
@@ -2356,7 +2573,7 @@
         private FontAwesome.Sharp.IconButton iconButton4;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel shortSearchPanel;
         private System.Windows.Forms.Label label15;
         private FontAwesome.Sharp.IconButton dakSearchButton;
         private System.Windows.Forms.Label label21;
@@ -2385,6 +2602,17 @@
         private System.Windows.Forms.Panel dashboardPanel;
         private System.Windows.Forms.Panel dashBoardBlurPanel;
         private System.Windows.Forms.FlowLayoutPanel detailsFlowLayoutPanel;
+        private FontAwesome.Sharp.IconButton dakShareButton;
+        private System.Windows.Forms.ToolTip MyToolTip;
+        private System.Windows.Forms.Panel settingsPanel;
+        private FontAwesome.Sharp.IconButton infoHideShowButton;
+        private FontAwesome.Sharp.IconButton RefreshButton;
+        private System.Windows.Forms.Panel multipleSelectionPanel;
+        private FontAwesome.Sharp.IconButton multipleDakArchiveButton;
+        private FontAwesome.Sharp.IconButton multipleDakNothijatoButton;
+        private FontAwesome.Sharp.IconButton multipleDakNothivuktoButton;
+        private FontAwesome.Sharp.IconButton multipleDakForwardButton;
+        private FontAwesome.Sharp.IconButton starButton;
     }
 }
 

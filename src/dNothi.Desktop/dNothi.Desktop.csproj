@@ -307,6 +307,18 @@
     <Compile Include="UI\Dak\DakNothijatoForm.Designer.cs">
       <DependentUpon>DakNothijatoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\MultipleDakActionResultDakRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\MultipleDakActionResultDakRowUserControl.Designer.cs">
+      <DependentUpon>MultipleDakActionResultDakRowUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\MultipleDakActionResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\MultipleDakActionResultForm.Designer.cs">
+      <DependentUpon>MultipleDakActionResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NoteFileDelete.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -577,6 +589,12 @@
     <Compile Include="UI\Dak\SearchUserController.Designer.cs">
       <DependentUpon>SearchUserController.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\SelectedDakListUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\SelectedDakListUserControl.Designer.cs">
+      <DependentUpon>SelectedDakListUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\TinyMCE.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -671,6 +689,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakNothijatoForm.resx">
       <DependentUpon>DakNothijatoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\MultipleDakActionResultDakRowUserControl.resx">
+      <DependentUpon>MultipleDakActionResultDakRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\MultipleDakActionResultForm.resx">
+      <DependentUpon>MultipleDakActionResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NoteFileDelete.resx">
       <DependentUpon>NoteFileDelete.cs</DependentUpon>
@@ -806,6 +830,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SearchUserController.resx">
       <DependentUpon>SearchUserController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\SelectedDakListUserControl.resx">
+      <DependentUpon>SelectedDakListUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\TinyMCE.resx">
       <DependentUpon>TinyMCE.cs</DependentUpon>

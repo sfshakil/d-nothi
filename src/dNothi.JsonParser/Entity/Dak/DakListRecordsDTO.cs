@@ -14,5 +14,8 @@ namespace dNothi.JsonParser.Entity.Dak_List_Inbox
         public List<DakTagDTO> dak_Tags { get; set; }
         public int attachment_count { get; set; }
         public NothiDTO nothi { get; set; }
+
+
+        public string Status { get; set; }
     }
 }

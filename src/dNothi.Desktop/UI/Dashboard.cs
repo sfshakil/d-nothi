@@ -278,13 +278,11 @@ namespace dNothi.Desktop.UI
 
         private void DakSendButtonClicked(int dak_id, string dak_type, int is_copied_dak, string dak_subject)
         {
-            dashboardRightSideFlowLayoutPanel.Controls.Clear();
-            dashboardRightSideDisplaypanel.Visible = true;
+            
 
-
-            rightSliderHeadLineLabel.Text = "ডাক প্রেরণ করুন";
-         
-            var dakSendUserControl=UserControlFactory.Create<DakForwardUserControl>();
+            
+          
+            var dakSendUserControl=FormFactory.Create<DakForwardUserControl>();
 
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
@@ -302,14 +300,18 @@ namespace dNothi.Desktop.UI
             dakSendUserControl.dak_List_User_Param = dakListUserParam;
             dakSendUserControl.ButtonClick += delegate (object sender, EventArgs e) { sliderCrossButton_Click(sender, e); };
             dakSendUserControl.AddDesignationButtonClick += delegate (object sender, EventArgs e) { AddDesignationUserControl_ButtonClick(sender, e); };
+            dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false,0,0,0); };
 
 
 
 
-            dashboardRightSideFlowLayoutPanel.Controls.Add(dakSendUserControl);
+            dakSendUserControl.ShowDialog();
         }
 
-        
+        private void SuccessfullySingleDakForwarded(bool v,int req, int success, int fail)
+        {
+            LoadDakOutbox();
+        }
 
         private void GetDakMovementList(int dak_id, string dak_type, int is_copied_dak)
         {
@@ -517,6 +519,8 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakOutbox()
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(dakOutboxButton);
             NormalizeDashBoard();
             _currentDakCatagory.isOutbox = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -693,6 +697,9 @@ namespace dNothi.Desktop.UI
                 dakInboxUserControl.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakInboxUserControl.DakArchiveButtonClick += delegate (object sender, EventArgs e) { DakArchive_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakInboxUserControl.NothijatoButtonClick += delegate (object sender, EventArgs e) { Nothitejato_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakInboxUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDak(); };
+                dakInboxUserControl.dak = dakListInboxRecordsDTO;
+
                 i = i + 1;
                 dakInboxUserControls.Add(dakInboxUserControl);
 
@@ -1227,8 +1234,7 @@ namespace dNothi.Desktop.UI
         private void dakOutboxButton_Click(object sender, EventArgs e)
         {
 
-            ResetAllMenuButtonSelection();
-            SelectButton(sender as Button);
+           
             DakListLoad();
             LoadDakOutbox();
         }
@@ -1244,6 +1250,7 @@ namespace dNothi.Desktop.UI
 
         private void NormalizeDashBoard()
         {
+            multipleSelectionPanel.Visible = false;
             dakBodyFlowLayoutPanel.BringToFront();
             dakBodyFlowLayoutPanel.Visible = true;
             detailsFlowLayoutPanel.Visible = false;
@@ -1970,6 +1977,96 @@ namespace dNothi.Desktop.UI
             e.Graphics.DrawLine(Pens.Silver, 0, 0, 100, 100);
         
       }
+
+        private void selectAllCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(selectAllCheckBox.Checked)
+            {
+                
+                multipleSelectionPanel.Visible = true;
+            }
+            else
+            {
+                multipleSelectionPanel.Visible = false;
+            }
+            SelectorUnselectDak(selectAllCheckBox.Checked);
+        }
+
+        private void SelectorUnselectDak(bool isChecked)
+        {
+            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+
+            if (dakInboxUserControls.Count > 0)
+            {
+                foreach(DakInboxUserControl dakInboxUser in dakInboxUserControls)
+                {
+                    dakInboxUser.isChecked = isChecked;
+                }
+            }
+        }
+
+        private void SelectorUnselectSingleDak()
+        {
+            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+
+            if (dakInboxUserControls.Count > 0)
+            {
+                if(dakInboxUserControls.Any(a=>a._isChecked))
+                {
+                    multipleSelectionPanel.Visible = true;
+                }
+                else
+                {
+                    multipleSelectionPanel.Visible = false;
+                }
+            }
+        }
+
+        private void multipleDakForwardButton_Click(object sender, EventArgs e)
+        {
+            List<DakListRecordsDTO> daks = new List<DakListRecordsDTO>();
+
+
+            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+
+            if (dakInboxUserControls.Count > 0)
+            {
+                List<DakInboxUserControl> dakInboxSelectedUserControls = dakInboxUserControls.Where(a => a._isChecked == true).ToList();
+                if (dakInboxSelectedUserControls.Count > 0)
+                {
+                   foreach(DakInboxUserControl dakInboxUserControl in dakInboxSelectedUserControls)
+                    {
+                        daks.Add(dakInboxUserControl._dak);
+                    }
+                }
+            }
+
+            if(daks.Count>0)
+            {
+                var dakSendUserControl = FormFactory.Create<DakForwardUserControl>();
+               
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+
+                DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
+
+
+
+
+                dakSendUserControl.designationSealListResponse = designationSealListResponse;
+                dakSendUserControl._dakCount = daks.Count;
+                dakSendUserControl.isMultipleDak = true;
+                dakSendUserControl.dakListRecordsDTO = daks;
+                dakSendUserControl.dak_List_User_Param = dakListUserParam;
+                dakSendUserControl.AddDesignationButtonClick += delegate (object snd, EventArgs eve) { AddDesignationUserControl_ButtonClick(sender, e); };
+                dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true,dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest); };
+
+
+
+
+                dakSendUserControl.ShowDialog();
+            }
+        }
     }
 
 
