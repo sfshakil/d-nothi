@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity.Nothi;
+﻿using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.NothiServices;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace dNothi.Services.DakServices
 {
     public interface IOnucchedSave
     {
-        NothiOnuchhedSaveResponse GetNothiOnuchhedSave(DakUserParam dakUserParam, List<FileAttachment> fileattachments, NothiListRecordsDTO nothiListRecordsDTO, NoteSaveDTO newnotedata, string editorEncodedData);
+        NothiOnuchhedSaveResponse GetNothiOnuchhedSave(DakUserParam dakUserParam, DakUploadedFileResponse onuchhedSaveWithAttachment, NothiListRecordsDTO nothiListRecordsDTO, NoteSaveDTO newnotedata, string editorEncodedData);
     }
 }

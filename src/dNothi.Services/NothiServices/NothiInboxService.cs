@@ -64,7 +64,16 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("length", dakUserParam.limit);
                 request.AddParameter("page", dakUserParam.page);
-                request.AddParameter("cdesk", "{\"office_id\": "+dakUserParam.office_id+ ",\n  \"office_unit_id\": " + dakUserParam.office_unit_id + ",\n  \"designation_id\": " + dakUserParam.designation_id + ",\n  \"officer_id\": " + dakUserParam.officer_id + ",\n  \"user_id\": " + dakUserParam.user_id + "}");
+
+                //cdesk cdesk1 = new cdesk();
+                //cdesk1.office_id = dakUserParam.office_id;
+                //cdesk1.office_unit_id = dakUserParam.office_unit_id;
+                //cdesk1.designation_id =dakUserParam.designation_id;
+                //cdesk1.officer_id =dakUserParam.officer_id;
+                //cdesk1.user_id =dakUserParam.user_id;
+
+                var serializedObject = JsonConvert.SerializeObject(dakUserParam);
+                request.AddParameter("cdesk", serializedObject);
 
                 IRestResponse response = client.Execute(request);
                 Console.WriteLine(response.Content);
@@ -79,6 +88,15 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
         }
+        public class cdesk
+        {
+            public int office_id { get; set; }
+            public int office_unit_id { get; set; }
+            public int designation_id { get; set; }
+            public int officer_id { get; set; }
+            public int user_id { get; set; }
+        }
+
 
         public void SaveOrUpdateNothiRecords(List<NothiListRecordsDTO> nothi_list_records)
         {

@@ -314,7 +314,7 @@ namespace dNothi.Desktop.UI
 
             }
         }
-
+        DakUploadedFileResponse onuchhedSaveWithAttachment = new DakUploadedFileResponse();
         private void fileUploadButton_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
@@ -384,7 +384,7 @@ namespace dNothi.Desktop.UI
                                     byte[] imageBytes = m.ToArray();
 
                                     // Convert byte[] to Base64 String
-                                    //noteFileUpload.imageBase64String = Convert.ToBase64String(imageBytes);
+                                    dakUploadedFileResponse.data[0].img_base64 = Convert.ToBase64String(imageBytes);
 
                                 }
                             }
@@ -418,7 +418,7 @@ namespace dNothi.Desktop.UI
 
 
 
-
+                        onuchhedSaveWithAttachment = dakUploadedFileResponse;
                     }
                 }
 
@@ -472,10 +472,10 @@ namespace dNothi.Desktop.UI
                 }
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, fileAttachments, nothiListRecords, newnotedata, encodedEditorText);
+                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, onuchhedSaveWithAttachment, nothiListRecords, newnotedata, encodedEditorText);
                 if (onucchedSave.status == "success")
                 {
-                    
+                    tinyMceEditor.HtmlContent="";
                     onuchhedFLP.Controls.Add(onuchhed);
                     fileAddFLP.Controls.Clear();
                     noteFileUploads.Clear();
