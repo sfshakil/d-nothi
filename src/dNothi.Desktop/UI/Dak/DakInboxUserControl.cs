@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using dNothi.Utility;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
+using dNothi.JsonParser.Entity.Dak_List_Inbox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -56,6 +57,10 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     continue;
                 }
+                if(ctrl.Name== "dakCheckBox")
+                {
+                    continue;
+                }
                 
                
                 ctrl.Click += DakInboxUserControl_Click;
@@ -82,6 +87,13 @@ namespace dNothi.Desktop.UI.Dak
         private int _potrojari;
         private int _dakAttachmentCount;
         private int _dakid;
+        public bool _isChecked;
+        public DakListRecordsDTO _dak;
+
+
+        public DakListRecordsDTO dak { get { return _dak; }set { _dak = value; } }
+
+        public bool isChecked { get { return _isChecked; } set { _isChecked = value; dakCheckBox.Checked = value; } }
 
 
         public new event EventHandler Click
@@ -469,6 +481,15 @@ namespace dNothi.Desktop.UI.Dak
             if (this.NothijatoButtonClick != null)
                 this.NothijatoButtonClick(sender, e);
         }
-    
+
+
+        public event EventHandler CheckBoxClick;
+
+        private void dakCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            isChecked = dakCheckBox.Checked;
+            if (this.CheckBoxClick != null)
+                this.CheckBoxClick(sender, e);
+        }
     }
 }

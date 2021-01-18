@@ -387,6 +387,7 @@
             this.dakCheckBox.Size = new System.Drawing.Size(15, 14);
             this.dakCheckBox.TabIndex = 66;
             this.dakCheckBox.UseVisualStyleBackColor = false;
+            this.dakCheckBox.CheckedChanged += new System.EventHandler(this.dakCheckBox_CheckedChanged);
             // 
             // disablePanel
             // 

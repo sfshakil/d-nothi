@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DakForwardUserControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Subjectlabel = new System.Windows.Forms.Label();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -65,23 +66,11 @@
             this.officerSearchOwnXTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.addDesignationButton_Click = new FontAwesome.Sharp.IconButton();
             this.prapokOwnDataGridView = new System.Windows.Forms.DataGridView();
-            this.ActionButton = new System.Windows.Forms.DataGridViewImageColumn();
-            this.employeerecordidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationid_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationbngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitnamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.officenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nijOfficeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mulprapokDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.onulipiprapokDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.viewDesignationSealListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.officerSearchOwnButton = new System.Windows.Forms.Button();
             this.otherOfficerTabPage = new System.Windows.Forms.TabPage();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.prapokOthersDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,10 +81,10 @@
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.officerSearchOthersButton = new System.Windows.Forms.Button();
             this.officerSearchOthersXTextBox = new dNothi.Desktop.XTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.newDecisionAddButton = new System.Windows.Forms.Button();
             this.decisionAddAllButton = new System.Windows.Forms.Button();
@@ -113,6 +102,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.newDecisionAddFormPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.newDecisionTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.newDecisionAddCrossButton = new FontAwesome.Sharp.IconButton();
             this.newDecisionCheckBox = new System.Windows.Forms.CheckBox();
@@ -121,8 +112,30 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.dakForwardBodyPanel = new System.Windows.Forms.Panel();
             this.prioritySearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.secretLevelSearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.HeadingPanel = new System.Windows.Forms.Panel();
+            this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
+            this.multipleDakHeaderLabel = new System.Windows.Forms.Label();
+            this.singleDakHeaderLabel = new System.Windows.Forms.Label();
+            this.selectedDakListPanel = new System.Windows.Forms.Panel();
+            this.selectedDakListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.selectedCount = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ActionButton = new System.Windows.Forms.DataGridViewImageColumn();
+            this.employeerecordidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationid_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationbngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitnamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.officenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nijOfficeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mulprapokDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.onulipiprapokDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TopPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -142,6 +155,9 @@
             this.newDecisionAddFormPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.dakForwardBodyPanel.SuspendLayout();
+            this.HeadingPanel.SuspendLayout();
+            this.selectedDakListPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Subjectlabel
@@ -149,9 +165,9 @@
             this.Subjectlabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Subjectlabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Subjectlabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Subjectlabel.Location = new System.Drawing.Point(0, 0);
+            this.Subjectlabel.Location = new System.Drawing.Point(0, 110);
             this.Subjectlabel.Name = "Subjectlabel";
-            this.Subjectlabel.Size = new System.Drawing.Size(551, 23);
+            this.Subjectlabel.Size = new System.Drawing.Size(583, 23);
             this.Subjectlabel.TabIndex = 0;
             this.Subjectlabel.Text = "E-Nothi";
             this.Subjectlabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -167,16 +183,16 @@
             this.TopPanel.Controls.Add(this.NothijatoRadioButton);
             this.TopPanel.Controls.Add(this.nothivuktoRadioButton);
             this.TopPanel.Controls.Add(this.label1);
-            this.TopPanel.Location = new System.Drawing.Point(7, 24);
+            this.TopPanel.Location = new System.Drawing.Point(31, 24);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(520, 205);
+            this.TopPanel.Size = new System.Drawing.Size(520, 212);
             this.TopPanel.TabIndex = 1;
             this.TopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.decisionXTextBox);
-            this.panel2.Location = new System.Drawing.Point(6, 97);
+            this.panel2.Location = new System.Drawing.Point(6, 112);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(509, 32);
             this.panel2.TabIndex = 37;
@@ -197,7 +213,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(218)))), ((int)(((byte)(231)))));
             this.panel1.Controls.Add(this.decisionComboBox);
-            this.panel1.Location = new System.Drawing.Point(31, 58);
+            this.panel1.Location = new System.Drawing.Point(31, 71);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(450, 33);
             this.panel1.TabIndex = 36;
@@ -225,7 +241,7 @@
             this.GetDecisionListButton.IconColor = System.Drawing.Color.Black;
             this.GetDecisionListButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.GetDecisionListButton.IconSize = 24;
-            this.GetDecisionListButton.Location = new System.Drawing.Point(481, 58);
+            this.GetDecisionListButton.Location = new System.Drawing.Point(481, 71);
             this.GetDecisionListButton.Name = "GetDecisionListButton";
             this.GetDecisionListButton.Size = new System.Drawing.Size(33, 33);
             this.GetDecisionListButton.TabIndex = 35;
@@ -237,7 +253,7 @@
             this.decisionOwnRadioButton.AutoSize = true;
             this.decisionOwnRadioButton.BackColor = System.Drawing.Color.Lavender;
             this.decisionOwnRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.decisionOwnRadioButton.Location = new System.Drawing.Point(7, 58);
+            this.decisionOwnRadioButton.Location = new System.Drawing.Point(7, 73);
             this.decisionOwnRadioButton.Name = "decisionOwnRadioButton";
             this.decisionOwnRadioButton.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.decisionOwnRadioButton.Size = new System.Drawing.Size(24, 33);
@@ -250,7 +266,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(272, 135);
+            this.label3.Location = new System.Drawing.Point(275, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 18);
             this.label3.TabIndex = 8;
@@ -261,7 +277,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(6, 135);
+            this.label2.Location = new System.Drawing.Point(9, 151);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 18);
             this.label2.TabIndex = 7;
@@ -272,7 +288,7 @@
             this.NothijatoRadioButton.AutoSize = true;
             this.NothijatoRadioButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NothijatoRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.NothijatoRadioButton.Location = new System.Drawing.Point(165, 33);
+            this.NothijatoRadioButton.Location = new System.Drawing.Point(165, 43);
             this.NothijatoRadioButton.Name = "NothijatoRadioButton";
             this.NothijatoRadioButton.Size = new System.Drawing.Size(100, 22);
             this.NothijatoRadioButton.TabIndex = 4;
@@ -283,14 +299,12 @@
             // nothivuktoRadioButton
             // 
             this.nothivuktoRadioButton.AutoSize = true;
-            this.nothivuktoRadioButton.Checked = true;
             this.nothivuktoRadioButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothivuktoRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.nothivuktoRadioButton.Location = new System.Drawing.Point(15, 33);
+            this.nothivuktoRadioButton.Location = new System.Drawing.Point(15, 43);
             this.nothivuktoRadioButton.Name = "nothivuktoRadioButton";
             this.nothivuktoRadioButton.Size = new System.Drawing.Size(137, 22);
             this.nothivuktoRadioButton.TabIndex = 3;
-            this.nothivuktoRadioButton.TabStop = true;
             this.nothivuktoRadioButton.Text = "নথিতে উপস্থাপন করুন";
             this.nothivuktoRadioButton.UseVisualStyleBackColor = true;
             this.nothivuktoRadioButton.CheckedChanged += new System.EventHandler(this.nothivuktoRadioButton_CheckedChanged);
@@ -304,7 +318,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(520, 31);
+            this.label1.Size = new System.Drawing.Size(520, 40);
             this.label1.TabIndex = 2;
             this.label1.Text = "সিদ্ধান্ত দিন";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -315,11 +329,11 @@
             this.BottomPanel.Controls.Add(this.sendButton);
             this.BottomPanel.Controls.Add(this.ownOfficerTabControl);
             this.BottomPanel.Controls.Add(this.label4);
-            this.BottomPanel.Location = new System.Drawing.Point(7, 235);
+            this.BottomPanel.Location = new System.Drawing.Point(32, 253);
             this.BottomPanel.MaximumSize = new System.Drawing.Size(520, 0);
             this.BottomPanel.MinimumSize = new System.Drawing.Size(520, 0);
             this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(520, 525);
+            this.BottomPanel.Size = new System.Drawing.Size(520, 569);
             this.BottomPanel.TabIndex = 35;
             this.BottomPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
             // 
@@ -353,7 +367,7 @@
             this.ownOfficerTabControl.Padding = new System.Drawing.Point(15, 10);
             this.ownOfficerTabControl.SelectedIndex = 0;
             this.ownOfficerTabControl.ShowToolTips = true;
-            this.ownOfficerTabControl.Size = new System.Drawing.Size(512, 474);
+            this.ownOfficerTabControl.Size = new System.Drawing.Size(512, 518);
             this.ownOfficerTabControl.TabIndex = 40;
             // 
             // ownOfficeTabPage
@@ -366,7 +380,7 @@
             this.ownOfficeTabPage.Location = new System.Drawing.Point(4, 41);
             this.ownOfficeTabPage.Name = "ownOfficeTabPage";
             this.ownOfficeTabPage.Padding = new System.Windows.Forms.Padding(10);
-            this.ownOfficeTabPage.Size = new System.Drawing.Size(504, 429);
+            this.ownOfficeTabPage.Size = new System.Drawing.Size(504, 473);
             this.ownOfficeTabPage.TabIndex = 0;
             this.ownOfficeTabPage.Text = "নিজ অফিস";
             this.ownOfficeTabPage.UseVisualStyleBackColor = true;
@@ -410,20 +424,20 @@
             // 
             // prapokOwnDataGridView
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prapokOwnDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prapokOwnDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.prapokOwnDataGridView.AutoGenerateColumns = false;
             this.prapokOwnDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.prapokOwnDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.prapokOwnDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prapokOwnDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prapokOwnDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.prapokOwnDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prapokOwnDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ActionButton,
@@ -438,128 +452,28 @@
             this.mulprapokDataGridViewCheckBoxColumn,
             this.onulipiprapokDataGridViewCheckBoxColumn});
             this.prapokOwnDataGridView.DataSource = this.viewDesignationSealListBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.prapokOwnDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle36.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.prapokOwnDataGridView.DefaultCellStyle = dataGridViewCellStyle36;
             this.prapokOwnDataGridView.Location = new System.Drawing.Point(0, 48);
             this.prapokOwnDataGridView.Name = "prapokOwnDataGridView";
             this.prapokOwnDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.prapokOwnDataGridView.RowHeadersWidth = 5;
             this.prapokOwnDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prapokOwnDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prapokOwnDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle37;
             this.prapokOwnDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prapokOwnDataGridView.RowTemplate.Height = 100;
             this.prapokOwnDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.prapokOwnDataGridView.Size = new System.Drawing.Size(501, 378);
             this.prapokOwnDataGridView.TabIndex = 42;
             this.prapokOwnDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokOwnDataGridView_CellContentClick);
-            // 
-            // ActionButton
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            this.ActionButton.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ActionButton.HeaderText = "+";
-            this.ActionButton.Image = global::dNothi.Desktop.Properties.Resources.delete;
-            this.ActionButton.MinimumWidth = 2;
-            this.ActionButton.Name = "ActionButton";
-            this.ActionButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ActionButton.Width = 28;
-            // 
-            // employeerecordidDataGridViewTextBoxColumn
-            // 
-            this.employeerecordidDataGridViewTextBoxColumn.DataPropertyName = "employee_record_id";
-            this.employeerecordidDataGridViewTextBoxColumn.HeaderText = "employee_record_id";
-            this.employeerecordidDataGridViewTextBoxColumn.Name = "employeerecordidDataGridViewTextBoxColumn";
-            this.employeerecordidDataGridViewTextBoxColumn.Visible = false;
-            this.employeerecordidDataGridViewTextBoxColumn.Width = 181;
-            // 
-            // designationid_id
-            // 
-            this.designationid_id.DataPropertyName = "designation_id";
-            this.designationid_id.HeaderText = "designation_id";
-            this.designationid_id.Name = "designationid_id";
-            this.designationid_id.Visible = false;
-            this.designationid_id.Width = 141;
-            // 
-            // designationbngDataGridViewTextBoxColumn
-            // 
-            this.designationbngDataGridViewTextBoxColumn.DataPropertyName = "designation_bng";
-            this.designationbngDataGridViewTextBoxColumn.HeaderText = "designation_bng";
-            this.designationbngDataGridViewTextBoxColumn.Name = "designationbngDataGridViewTextBoxColumn";
-            this.designationbngDataGridViewTextBoxColumn.Visible = false;
-            this.designationbngDataGridViewTextBoxColumn.Width = 156;
-            // 
-            // unitnamebngDataGridViewTextBoxColumn
-            // 
-            this.unitnamebngDataGridViewTextBoxColumn.DataPropertyName = "unit_name_bng";
-            this.unitnamebngDataGridViewTextBoxColumn.HeaderText = "unit_name_bng";
-            this.unitnamebngDataGridViewTextBoxColumn.Name = "unitnamebngDataGridViewTextBoxColumn";
-            this.unitnamebngDataGridViewTextBoxColumn.Visible = false;
-            this.unitnamebngDataGridViewTextBoxColumn.Width = 149;
-            // 
-            // officenamebngDataGridViewTextBoxColumn
-            // 
-            this.officenamebngDataGridViewTextBoxColumn.DataPropertyName = "office_name_bng";
-            this.officenamebngDataGridViewTextBoxColumn.HeaderText = "office_name_bng";
-            this.officenamebngDataGridViewTextBoxColumn.Name = "officenamebngDataGridViewTextBoxColumn";
-            this.officenamebngDataGridViewTextBoxColumn.Visible = false;
-            this.officenamebngDataGridViewTextBoxColumn.Width = 162;
-            // 
-            // designationDataGridViewTextBoxColumn
-            // 
-            this.designationDataGridViewTextBoxColumn.DataPropertyName = "designation";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.designationDataGridViewTextBoxColumn.HeaderText = "পদ";
-            this.designationDataGridViewTextBoxColumn.MinimumWidth = 170;
-            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
-            this.designationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.designationDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // employeenamebngDataGridViewTextBoxColumn
-            // 
-            this.employeenamebngDataGridViewTextBoxColumn.DataPropertyName = "employee_name_bng";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeenamebngDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.employeenamebngDataGridViewTextBoxColumn.HeaderText = "নাম";
-            this.employeenamebngDataGridViewTextBoxColumn.MinimumWidth = 120;
-            this.employeenamebngDataGridViewTextBoxColumn.Name = "employeenamebngDataGridViewTextBoxColumn";
-            this.employeenamebngDataGridViewTextBoxColumn.ReadOnly = true;
-            this.employeenamebngDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // nijOfficeDataGridViewCheckBoxColumn
-            // 
-            this.nijOfficeDataGridViewCheckBoxColumn.DataPropertyName = "nij_Office";
-            this.nijOfficeDataGridViewCheckBoxColumn.HeaderText = "nij_Office";
-            this.nijOfficeDataGridViewCheckBoxColumn.Name = "nijOfficeDataGridViewCheckBoxColumn";
-            this.nijOfficeDataGridViewCheckBoxColumn.Visible = false;
-            this.nijOfficeDataGridViewCheckBoxColumn.Width = 85;
-            // 
-            // mulprapokDataGridViewCheckBoxColumn
-            // 
-            this.mulprapokDataGridViewCheckBoxColumn.DataPropertyName = "mul_prapok";
-            this.mulprapokDataGridViewCheckBoxColumn.HeaderText = "মূল প্রাপক";
-            this.mulprapokDataGridViewCheckBoxColumn.MinimumWidth = 40;
-            this.mulprapokDataGridViewCheckBoxColumn.Name = "mulprapokDataGridViewCheckBoxColumn";
-            this.mulprapokDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.mulprapokDataGridViewCheckBoxColumn.Width = 74;
-            // 
-            // onulipiprapokDataGridViewCheckBoxColumn
-            // 
-            this.onulipiprapokDataGridViewCheckBoxColumn.DataPropertyName = "onulipi_prapok";
-            this.onulipiprapokDataGridViewCheckBoxColumn.HeaderText = "অনুলিপি প্রাপক";
-            this.onulipiprapokDataGridViewCheckBoxColumn.Name = "onulipiprapokDataGridViewCheckBoxColumn";
-            this.onulipiprapokDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.onulipiprapokDataGridViewCheckBoxColumn.Width = 101;
             // 
             // viewDesignationSealListBindingSource
             // 
@@ -590,7 +504,7 @@
             this.otherOfficerTabPage.Margin = new System.Windows.Forms.Padding(5);
             this.otherOfficerTabPage.Name = "otherOfficerTabPage";
             this.otherOfficerTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.otherOfficerTabPage.Size = new System.Drawing.Size(504, 429);
+            this.otherOfficerTabPage.Size = new System.Drawing.Size(504, 473);
             this.otherOfficerTabPage.TabIndex = 1;
             this.otherOfficerTabPage.Text = "অন্যান্য অফিস";
             this.otherOfficerTabPage.UseVisualStyleBackColor = true;
@@ -612,15 +526,14 @@
             // 
             // prapokOthersDataGridView
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prapokOthersDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prapokOthersDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle38;
             this.prapokOthersDataGridView.AutoGenerateColumns = false;
             this.prapokOthersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.prapokOthersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.prapokOthersDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.prapokOthersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prapokOthersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewLinkColumn1,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -630,40 +543,29 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewCheckBoxColumn1,
             this.dataGridViewCheckBoxColumn2,
-            this.dataGridViewCheckBoxColumn3});
+            this.dataGridViewCheckBoxColumn3,
+            this.dataGridViewLinkColumn1});
             this.prapokOthersDataGridView.DataSource = this.viewDesignationSealListBindingSource;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.prapokOthersDataGridView.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle42.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.prapokOthersDataGridView.DefaultCellStyle = dataGridViewCellStyle42;
             this.prapokOthersDataGridView.Location = new System.Drawing.Point(0, 48);
             this.prapokOthersDataGridView.Name = "prapokOthersDataGridView";
             this.prapokOthersDataGridView.RowHeadersWidth = 5;
             this.prapokOthersDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prapokOthersDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prapokOthersDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle43;
             this.prapokOthersDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prapokOthersDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.prapokOthersDataGridView.Size = new System.Drawing.Size(390, 389);
             this.prapokOthersDataGridView.TabIndex = 45;
             this.prapokOthersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokOthersDataGridView_CellContentClick);
-            // 
-            // dataGridViewLinkColumn1
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle9.NullValue")));
-            this.dataGridViewLinkColumn1.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewLinkColumn1.HeaderText = "+";
-            this.dataGridViewLinkColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
-            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
-            this.dataGridViewLinkColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLinkColumn1.Width = 27;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -671,7 +573,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "employee_record_id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Visible = false;
-            this.dataGridViewTextBoxColumn1.Width = 131;
+            this.dataGridViewTextBoxColumn1.Width = 112;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -679,7 +581,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "designation_id";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 104;
+            this.dataGridViewTextBoxColumn2.Width = 85;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -687,7 +589,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "designation_bng";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Visible = false;
-            this.dataGridViewTextBoxColumn3.Width = 114;
+            this.dataGridViewTextBoxColumn3.Width = 95;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -695,7 +597,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "unit_name_bng";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Visible = false;
-            this.dataGridViewTextBoxColumn4.Width = 109;
+            this.dataGridViewTextBoxColumn4.Width = 90;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -703,13 +605,13 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "office_name_bng";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Visible = false;
-            this.dataGridViewTextBoxColumn5.Width = 118;
+            this.dataGridViewTextBoxColumn5.Width = 99;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "employee_name_bng";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridViewTextBoxColumn6.HeaderText = "নাম";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 100;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -718,8 +620,8 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "designation";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridViewTextBoxColumn7.HeaderText = "পদ";
             this.dataGridViewTextBoxColumn7.MinimumWidth = 100;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
@@ -749,6 +651,18 @@
             this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
             this.dataGridViewCheckBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn3.Width = 93;
+            // 
+            // dataGridViewLinkColumn1
+            // 
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle41.NullValue")));
+            this.dataGridViewLinkColumn1.DefaultCellStyle = dataGridViewCellStyle41;
+            this.dataGridViewLinkColumn1.HeaderText = "+";
+            this.dataGridViewLinkColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
+            this.dataGridViewLinkColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLinkColumn1.Width = 27;
             // 
             // officerSearchOthersButton
             // 
@@ -785,22 +699,10 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(520, 31);
+            this.label4.Size = new System.Drawing.Size(520, 40);
             this.label4.TabIndex = 3;
             this.label4.Text = "প্রাপক";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle14.NullValue")));
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewImageColumn1.HeaderText = "+";
-            this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 27;
             // 
             // newDecisionAddButton
             // 
@@ -858,7 +760,7 @@
             this.newDecisionAddPanel.Controls.Add(this.label6);
             this.newDecisionAddPanel.Controls.Add(this.label5);
             this.newDecisionAddPanel.Controls.Add(this.iconPictureBox1);
-            this.newDecisionAddPanel.Location = new System.Drawing.Point(15, 115);
+            this.newDecisionAddPanel.Location = new System.Drawing.Point(39, 128);
             this.newDecisionAddPanel.Name = "newDecisionAddPanel";
             this.newDecisionAddPanel.Size = new System.Drawing.Size(506, 625);
             this.newDecisionAddPanel.TabIndex = 35;
@@ -1012,12 +914,28 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.panel9);
+            this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.newDecisionTextBox);
             this.panel4.Location = new System.Drawing.Point(3, 1);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(183, 36);
             this.panel4.TabIndex = 82;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
+            // 
+            // panel9
+            // 
+            this.panel9.Location = new System.Drawing.Point(14, 22);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(200, 100);
+            this.panel9.TabIndex = 82;
+            // 
+            // panel8
+            // 
+            this.panel8.Location = new System.Drawing.Point(47, 2);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(200, 100);
+            this.panel8.TabIndex = 81;
             // 
             // newDecisionTextBox
             // 
@@ -1121,6 +1039,20 @@
             this.iconPictureBox1.TabIndex = 0;
             this.iconPictureBox1.TabStop = false;
             // 
+            // dakForwardBodyPanel
+            // 
+            this.dakForwardBodyPanel.AutoSize = true;
+            this.dakForwardBodyPanel.Controls.Add(this.newDecisionAddPanel);
+            this.dakForwardBodyPanel.Controls.Add(this.prioritySearchButton);
+            this.dakForwardBodyPanel.Controls.Add(this.secretLevelSearchButton);
+            this.dakForwardBodyPanel.Controls.Add(this.TopPanel);
+            this.dakForwardBodyPanel.Controls.Add(this.BottomPanel);
+            this.dakForwardBodyPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dakForwardBodyPanel.Location = new System.Drawing.Point(0, 133);
+            this.dakForwardBodyPanel.Name = "dakForwardBodyPanel";
+            this.dakForwardBodyPanel.Size = new System.Drawing.Size(583, 825);
+            this.dakForwardBodyPanel.TabIndex = 37;
+            // 
             // prioritySearchButton
             // 
             this.prioritySearchButton.AutoSize = true;
@@ -1131,7 +1063,7 @@
         "সর্বোচ্চ অগ্রাধিকার",
         "অবিলম্বে",
         "জরুরি"};
-            this.prioritySearchButton.Location = new System.Drawing.Point(15, 180);
+            this.prioritySearchButton.Location = new System.Drawing.Point(39, 196);
             this.prioritySearchButton.MinimumSize = new System.Drawing.Size(150, 32);
             this.prioritySearchButton.Name = "prioritySearchButton";
             this.prioritySearchButton.searchButtonText = "বাছাই করুন";
@@ -1149,27 +1081,264 @@
         "অতি গোপনীয়",
         "বিশেষ গোপনীয়",
         "সীমিত"};
-            this.secretLevelSearchButton.Location = new System.Drawing.Point(281, 180);
+            this.secretLevelSearchButton.Location = new System.Drawing.Point(305, 196);
             this.secretLevelSearchButton.MinimumSize = new System.Drawing.Size(150, 30);
             this.secretLevelSearchButton.Name = "secretLevelSearchButton";
             this.secretLevelSearchButton.searchButtonText = "বাছাই করুন";
             this.secretLevelSearchButton.Size = new System.Drawing.Size(240, 34);
             this.secretLevelSearchButton.TabIndex = 35;
             // 
+            // HeadingPanel
+            // 
+            this.HeadingPanel.Controls.Add(this.sliderCrossButton);
+            this.HeadingPanel.Controls.Add(this.multipleDakHeaderLabel);
+            this.HeadingPanel.Controls.Add(this.singleDakHeaderLabel);
+            this.HeadingPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HeadingPanel.Location = new System.Drawing.Point(0, 0);
+            this.HeadingPanel.Name = "HeadingPanel";
+            this.HeadingPanel.Padding = new System.Windows.Forms.Padding(26, 25, 0, 0);
+            this.HeadingPanel.Size = new System.Drawing.Size(583, 70);
+            this.HeadingPanel.TabIndex = 38;
+            // 
+            // sliderCrossButton
+            // 
+            this.sliderCrossButton.BackColor = System.Drawing.Color.White;
+            this.sliderCrossButton.FlatAppearance.BorderSize = 0;
+            this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sliderCrossButton.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.sliderCrossButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.sliderCrossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.sliderCrossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.sliderCrossButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.sliderCrossButton.IconSize = 18;
+            this.sliderCrossButton.Location = new System.Drawing.Point(519, 13);
+            this.sliderCrossButton.Name = "sliderCrossButton";
+            this.sliderCrossButton.Size = new System.Drawing.Size(28, 33);
+            this.sliderCrossButton.TabIndex = 38;
+            this.sliderCrossButton.UseVisualStyleBackColor = false;
+            this.sliderCrossButton.Click += new System.EventHandler(this.sliderCrossButton_Click);
+            // 
+            // multipleDakHeaderLabel
+            // 
+            this.multipleDakHeaderLabel.AutoSize = true;
+            this.multipleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.multipleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.multipleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.multipleDakHeaderLabel.Location = new System.Drawing.Point(114, 25);
+            this.multipleDakHeaderLabel.Name = "multipleDakHeaderLabel";
+            this.multipleDakHeaderLabel.Size = new System.Drawing.Size(127, 21);
+            this.multipleDakHeaderLabel.TabIndex = 29;
+            this.multipleDakHeaderLabel.Text = "সিলেক্টেড ডাক সমূহ";
+            this.multipleDakHeaderLabel.Visible = false;
+            // 
+            // singleDakHeaderLabel
+            // 
+            this.singleDakHeaderLabel.AutoSize = true;
+            this.singleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.singleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.singleDakHeaderLabel.Location = new System.Drawing.Point(26, 25);
+            this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(88, 21);
+            this.singleDakHeaderLabel.TabIndex = 28;
+            this.singleDakHeaderLabel.Text = "ডাক গতিবিধি";
+            // 
+            // selectedDakListPanel
+            // 
+            this.selectedDakListPanel.AutoSize = true;
+            this.selectedDakListPanel.Controls.Add(this.selectedDakListFlowLayoutPanel);
+            this.selectedDakListPanel.Controls.Add(this.selectedCount);
+            this.selectedDakListPanel.Controls.Add(this.label12);
+            this.selectedDakListPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.selectedDakListPanel.Location = new System.Drawing.Point(0, 70);
+            this.selectedDakListPanel.Name = "selectedDakListPanel";
+            this.selectedDakListPanel.Padding = new System.Windows.Forms.Padding(28, 0, 32, 0);
+            this.selectedDakListPanel.Size = new System.Drawing.Size(583, 40);
+            this.selectedDakListPanel.TabIndex = 39;
+            this.selectedDakListPanel.Visible = false;
+            // 
+            // selectedDakListFlowLayoutPanel
+            // 
+            this.selectedDakListFlowLayoutPanel.AutoSize = true;
+            this.selectedDakListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.selectedDakListFlowLayoutPanel.Location = new System.Drawing.Point(28, 40);
+            this.selectedDakListFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.selectedDakListFlowLayoutPanel.MaximumSize = new System.Drawing.Size(520, 0);
+            this.selectedDakListFlowLayoutPanel.MinimumSize = new System.Drawing.Size(520, 0);
+            this.selectedDakListFlowLayoutPanel.Name = "selectedDakListFlowLayoutPanel";
+            this.selectedDakListFlowLayoutPanel.Size = new System.Drawing.Size(520, 0);
+            this.selectedDakListFlowLayoutPanel.TabIndex = 40;
+            this.selectedDakListFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
+            // 
+            // selectedCount
+            // 
+            this.selectedCount.AutoSize = true;
+            this.selectedCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.selectedCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectedCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectedCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.selectedCount.Location = new System.Drawing.Point(106, 11);
+            this.selectedCount.Margin = new System.Windows.Forms.Padding(0);
+            this.selectedCount.Name = "selectedCount";
+            this.selectedCount.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.selectedCount.Size = new System.Drawing.Size(17, 18);
+            this.selectedCount.TabIndex = 4;
+            this.selectedCount.Text = "2";
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.GhostWhite;
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label12.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label12.Location = new System.Drawing.Point(28, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(523, 40);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "মোট সিলেক্টেড ";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle44.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle44.NullValue")));
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle44;
+            this.dataGridViewImageColumn1.HeaderText = "+";
+            this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewImageColumn1.MinimumWidth = 2;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 27;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle45.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle45.NullValue")));
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle45;
+            this.dataGridViewImageColumn2.HeaderText = "+";
+            this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.Width = 23;
+            // 
+            // ActionButton
+            // 
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle33.NullValue")));
+            this.ActionButton.DefaultCellStyle = dataGridViewCellStyle33;
+            this.ActionButton.HeaderText = "+";
+            this.ActionButton.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.ActionButton.MinimumWidth = 2;
+            this.ActionButton.Name = "ActionButton";
+            this.ActionButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ActionButton.Width = 28;
+            // 
+            // employeerecordidDataGridViewTextBoxColumn
+            // 
+            this.employeerecordidDataGridViewTextBoxColumn.DataPropertyName = "employee_record_id";
+            this.employeerecordidDataGridViewTextBoxColumn.HeaderText = "employee_record_id";
+            this.employeerecordidDataGridViewTextBoxColumn.Name = "employeerecordidDataGridViewTextBoxColumn";
+            this.employeerecordidDataGridViewTextBoxColumn.Visible = false;
+            this.employeerecordidDataGridViewTextBoxColumn.Width = 181;
+            // 
+            // designationid_id
+            // 
+            this.designationid_id.DataPropertyName = "designation_id";
+            this.designationid_id.HeaderText = "designation_id";
+            this.designationid_id.Name = "designationid_id";
+            this.designationid_id.Visible = false;
+            this.designationid_id.Width = 141;
+            // 
+            // designationbngDataGridViewTextBoxColumn
+            // 
+            this.designationbngDataGridViewTextBoxColumn.DataPropertyName = "designation_bng";
+            this.designationbngDataGridViewTextBoxColumn.HeaderText = "designation_bng";
+            this.designationbngDataGridViewTextBoxColumn.Name = "designationbngDataGridViewTextBoxColumn";
+            this.designationbngDataGridViewTextBoxColumn.Visible = false;
+            this.designationbngDataGridViewTextBoxColumn.Width = 156;
+            // 
+            // unitnamebngDataGridViewTextBoxColumn
+            // 
+            this.unitnamebngDataGridViewTextBoxColumn.DataPropertyName = "unit_name_bng";
+            this.unitnamebngDataGridViewTextBoxColumn.HeaderText = "unit_name_bng";
+            this.unitnamebngDataGridViewTextBoxColumn.Name = "unitnamebngDataGridViewTextBoxColumn";
+            this.unitnamebngDataGridViewTextBoxColumn.Visible = false;
+            this.unitnamebngDataGridViewTextBoxColumn.Width = 149;
+            // 
+            // officenamebngDataGridViewTextBoxColumn
+            // 
+            this.officenamebngDataGridViewTextBoxColumn.DataPropertyName = "office_name_bng";
+            this.officenamebngDataGridViewTextBoxColumn.HeaderText = "office_name_bng";
+            this.officenamebngDataGridViewTextBoxColumn.Name = "officenamebngDataGridViewTextBoxColumn";
+            this.officenamebngDataGridViewTextBoxColumn.Visible = false;
+            this.officenamebngDataGridViewTextBoxColumn.Width = 162;
+            // 
+            // designationDataGridViewTextBoxColumn
+            // 
+            this.designationDataGridViewTextBoxColumn.DataPropertyName = "designation";
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle34;
+            this.designationDataGridViewTextBoxColumn.HeaderText = "পদ";
+            this.designationDataGridViewTextBoxColumn.MinimumWidth = 170;
+            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
+            this.designationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.designationDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // employeenamebngDataGridViewTextBoxColumn
+            // 
+            this.employeenamebngDataGridViewTextBoxColumn.DataPropertyName = "employee_name_bng";
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeenamebngDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle35;
+            this.employeenamebngDataGridViewTextBoxColumn.HeaderText = "নাম";
+            this.employeenamebngDataGridViewTextBoxColumn.MinimumWidth = 100;
+            this.employeenamebngDataGridViewTextBoxColumn.Name = "employeenamebngDataGridViewTextBoxColumn";
+            this.employeenamebngDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nijOfficeDataGridViewCheckBoxColumn
+            // 
+            this.nijOfficeDataGridViewCheckBoxColumn.DataPropertyName = "nij_Office";
+            this.nijOfficeDataGridViewCheckBoxColumn.HeaderText = "nij_Office";
+            this.nijOfficeDataGridViewCheckBoxColumn.Name = "nijOfficeDataGridViewCheckBoxColumn";
+            this.nijOfficeDataGridViewCheckBoxColumn.Visible = false;
+            this.nijOfficeDataGridViewCheckBoxColumn.Width = 85;
+            // 
+            // mulprapokDataGridViewCheckBoxColumn
+            // 
+            this.mulprapokDataGridViewCheckBoxColumn.DataPropertyName = "mul_prapok";
+            this.mulprapokDataGridViewCheckBoxColumn.HeaderText = "মূল প্রাপক";
+            this.mulprapokDataGridViewCheckBoxColumn.MinimumWidth = 40;
+            this.mulprapokDataGridViewCheckBoxColumn.Name = "mulprapokDataGridViewCheckBoxColumn";
+            this.mulprapokDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.mulprapokDataGridViewCheckBoxColumn.Width = 74;
+            // 
+            // onulipiprapokDataGridViewCheckBoxColumn
+            // 
+            this.onulipiprapokDataGridViewCheckBoxColumn.DataPropertyName = "onulipi_prapok";
+            this.onulipiprapokDataGridViewCheckBoxColumn.HeaderText = "অনুলিপি প্রাপক";
+            this.onulipiprapokDataGridViewCheckBoxColumn.Name = "onulipiprapokDataGridViewCheckBoxColumn";
+            this.onulipiprapokDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.onulipiprapokDataGridViewCheckBoxColumn.Width = 101;
+            // 
             // DakForwardUserControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.newDecisionAddPanel);
-            this.Controls.Add(this.prioritySearchButton);
-            this.Controls.Add(this.secretLevelSearchButton);
-            this.Controls.Add(this.TopPanel);
+            this.ClientSize = new System.Drawing.Size(600, 780);
+            this.Controls.Add(this.dakForwardBodyPanel);
             this.Controls.Add(this.Subjectlabel);
-            this.Controls.Add(this.BottomPanel);
-            this.MaximumSize = new System.Drawing.Size(551, 0);
-            this.MinimumSize = new System.Drawing.Size(551, 0);
+            this.Controls.Add(this.selectedDakListPanel);
+            this.Controls.Add(this.HeadingPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(600, 950);
+            this.MinimumSize = new System.Drawing.Size(600, 726);
             this.Name = "DakForwardUserControl";
-            this.Size = new System.Drawing.Size(551, 780);
+            this.Load += new System.EventHandler(this.DakForwardUserControl_Load);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1197,6 +1366,12 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            this.dakForwardBodyPanel.ResumeLayout(false);
+            this.dakForwardBodyPanel.PerformLayout();
+            this.HeadingPanel.ResumeLayout(false);
+            this.HeadingPanel.PerformLayout();
+            this.selectedDakListPanel.ResumeLayout(false);
+            this.selectedDakListPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1240,17 +1415,6 @@
         private PlaceholderTextBox.PlaceholderTextBox officerSearchOwnXTextBox;
         private FontAwesome.Sharp.IconButton addDesignationButton_Click;
         private System.Windows.Forms.DataGridView prapokOwnDataGridView;
-        private System.Windows.Forms.DataGridViewImageColumn ActionButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeerecordidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn designationid_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn designationbngDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitnamebngDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn officenamebngDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeenamebngDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn nijOfficeDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn mulprapokDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn onulipiprapokDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button officerSearchOwnButton;
         private System.Windows.Forms.TabPage otherOfficerTabPage;
         private FontAwesome.Sharp.IconButton iconButton2;
@@ -1283,5 +1447,28 @@
         private System.Windows.Forms.CheckBox decisionAddCheckBox;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel dakForwardBodyPanel;
+        private System.Windows.Forms.Panel HeadingPanel;
+        private System.Windows.Forms.Label multipleDakHeaderLabel;
+        private System.Windows.Forms.Label singleDakHeaderLabel;
+        private System.Windows.Forms.Panel selectedDakListPanel;
+        private System.Windows.Forms.Label selectedCount;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.FlowLayoutPanel selectedDakListFlowLayoutPanel;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private FontAwesome.Sharp.IconButton sliderCrossButton;
+        private System.Windows.Forms.DataGridViewImageColumn ActionButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeerecordidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn designationid_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn designationbngDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitnamebngDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn officenamebngDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeenamebngDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn nijOfficeDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn mulprapokDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn onulipiprapokDataGridViewCheckBoxColumn;
     }
 }
