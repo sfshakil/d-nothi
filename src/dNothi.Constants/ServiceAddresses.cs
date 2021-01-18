@@ -64,6 +64,8 @@ namespace dNothi.Constants
         public const string NoteOnuchhedSaveEndPoint = "/api/nothi/note/onucched/save";
         public const string NothiTypleListEndPoint = "/api/nothi/type/list";
         public const string NothiNoteTalikaEndPoint = "/api/nothis";
+        public const string NothiTypeCreateEndPoint = "/api/add";
+        public const string NothiTypeDeleteEndPoint = "/api/delete";
 
 
     }

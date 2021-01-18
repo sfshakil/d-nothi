@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNewNothiCreate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.detailsSearchDocketingNoTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -43,9 +46,8 @@
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nothiTypeListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.detailsSearchDocketingNoTextBox = new PlaceholderTextBox.PlaceholderTextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -54,6 +56,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnNothiTypeCross);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -61,6 +64,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(530, 74);
             this.panel1.TabIndex = 0;
+            // 
+            // btnNothiTypeCross
+            // 
+            this.btnNothiTypeCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnNothiTypeCross.FlatAppearance.BorderSize = 0;
+            this.btnNothiTypeCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiTypeCross.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btnNothiTypeCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnNothiTypeCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiTypeCross.IconSize = 32;
+            this.btnNothiTypeCross.Location = new System.Drawing.Point(480, 22);
+            this.btnNothiTypeCross.Name = "btnNothiTypeCross";
+            this.btnNothiTypeCross.Size = new System.Drawing.Size(34, 35);
+            this.btnNothiTypeCross.TabIndex = 63;
+            this.btnNothiTypeCross.UseVisualStyleBackColor = false;
+            this.btnNothiTypeCross.Click += new System.EventHandler(this.btnNothiTypeCross_Click);
             // 
             // label1
             // 
@@ -106,9 +125,11 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.btnNewNothiCreate);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 74);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(530, 129);
             this.panel2.TabIndex = 45;
@@ -130,6 +151,28 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(530, 133);
             this.panel3.TabIndex = 46;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.panel11.Controls.Add(this.detailsSearchDocketingNoTextBox);
+            this.panel11.Location = new System.Drawing.Point(11, 8);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(425, 50);
+            this.panel11.TabIndex = 66;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
+            // 
+            // detailsSearchDocketingNoTextBox
+            // 
+            this.detailsSearchDocketingNoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.detailsSearchDocketingNoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsSearchDocketingNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailsSearchDocketingNoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.detailsSearchDocketingNoTextBox.Location = new System.Drawing.Point(10, 15);
+            this.detailsSearchDocketingNoTextBox.Name = "detailsSearchDocketingNoTextBox";
+            this.detailsSearchDocketingNoTextBox.PlaceholderText = "নথির ধরন দিয়ে খুঁজুন";
+            this.detailsSearchDocketingNoTextBox.Size = new System.Drawing.Size(187, 19);
+            this.detailsSearchDocketingNoTextBox.TabIndex = 3;
             // 
             // label9
             // 
@@ -225,46 +268,26 @@
             this.nothiTypeListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nothiTypeListFlowLayoutPanel.Location = new System.Drawing.Point(0, 336);
             this.nothiTypeListFlowLayoutPanel.Name = "nothiTypeListFlowLayoutPanel";
-            this.nothiTypeListFlowLayoutPanel.Size = new System.Drawing.Size(530, 295);
+            this.nothiTypeListFlowLayoutPanel.Size = new System.Drawing.Size(530, 364);
             this.nothiTypeListFlowLayoutPanel.TabIndex = 47;
             // 
-            // btnNothiTypeCross
+            // panel6
             // 
-            this.btnNothiTypeCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.btnNothiTypeCross.FlatAppearance.BorderSize = 0;
-            this.btnNothiTypeCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiTypeCross.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnNothiTypeCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.btnNothiTypeCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiTypeCross.IconSize = 32;
-            this.btnNothiTypeCross.Location = new System.Drawing.Point(480, 22);
-            this.btnNothiTypeCross.Name = "btnNothiTypeCross";
-            this.btnNothiTypeCross.Size = new System.Drawing.Size(34, 35);
-            this.btnNothiTypeCross.TabIndex = 63;
-            this.btnNothiTypeCross.UseVisualStyleBackColor = false;
-            this.btnNothiTypeCross.Click += new System.EventHandler(this.btnNothiTypeCross_Click);
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 73);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(530, 1);
+            this.panel6.TabIndex = 64;
             // 
-            // panel11
+            // panel4
             // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.panel11.Controls.Add(this.detailsSearchDocketingNoTextBox);
-            this.panel11.Location = new System.Drawing.Point(11, 8);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(425, 50);
-            this.panel11.TabIndex = 66;
-            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
-            // 
-            // detailsSearchDocketingNoTextBox
-            // 
-            this.detailsSearchDocketingNoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.detailsSearchDocketingNoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailsSearchDocketingNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailsSearchDocketingNoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.detailsSearchDocketingNoTextBox.Location = new System.Drawing.Point(10, 15);
-            this.detailsSearchDocketingNoTextBox.Name = "detailsSearchDocketingNoTextBox";
-            this.detailsSearchDocketingNoTextBox.PlaceholderText = "নথির ধরন দিয়ে খুঁজুন";
-            this.detailsSearchDocketingNoTextBox.Size = new System.Drawing.Size(187, 19);
-            this.detailsSearchDocketingNoTextBox.TabIndex = 3;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 128);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(530, 1);
+            this.panel4.TabIndex = 58;
             // 
             // NothiType
             // 
@@ -278,7 +301,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "NothiType";
-            this.Size = new System.Drawing.Size(530, 631);
+            this.Size = new System.Drawing.Size(530, 700);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -310,5 +333,7 @@
         private FontAwesome.Sharp.IconButton btnNothiTypeCross;
         private System.Windows.Forms.Panel panel11;
         private PlaceholderTextBox.PlaceholderTextBox detailsSearchDocketingNoTextBox;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel4;
     }
 }

@@ -34,12 +34,14 @@
             this.lblSerialNo = new System.Windows.Forms.Label();
             this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.lbNoteId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbNothiSubjectType
             // 
             this.lbNothiSubjectType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiSubjectType.Location = new System.Drawing.Point(76, 12);
+            this.lbNothiSubjectType.Location = new System.Drawing.Point(76, 8);
             this.lbNothiSubjectType.Name = "lbNothiSubjectType";
             this.lbNothiSubjectType.Size = new System.Drawing.Size(199, 43);
             this.lbNothiSubjectType.TabIndex = 50;
@@ -48,7 +50,7 @@
             // lbNothiCode
             // 
             this.lbNothiCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiCode.Location = new System.Drawing.Point(279, 12);
+            this.lbNothiCode.Location = new System.Drawing.Point(279, 8);
             this.lbNothiCode.Name = "lbNothiCode";
             this.lbNothiCode.Size = new System.Drawing.Size(44, 35);
             this.lbNothiCode.TabIndex = 51;
@@ -58,7 +60,7 @@
             // lbNothiNumber
             // 
             this.lbNothiNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiNumber.Location = new System.Drawing.Point(340, 12);
+            this.lbNothiNumber.Location = new System.Drawing.Point(340, 8);
             this.lbNothiNumber.Name = "lbNothiNumber";
             this.lbNothiNumber.Size = new System.Drawing.Size(44, 35);
             this.lbNothiNumber.TabIndex = 52;
@@ -68,7 +70,7 @@
             // lblSerialNo
             // 
             this.lblSerialNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSerialNo.Location = new System.Drawing.Point(15, 12);
+            this.lblSerialNo.Location = new System.Drawing.Point(15, 8);
             this.lblSerialNo.Name = "lblSerialNo";
             this.lblSerialNo.Size = new System.Drawing.Size(44, 35);
             this.lblSerialNo.TabIndex = 53;
@@ -84,11 +86,11 @@
             this.btnNothiTypeCross.IconChar = FontAwesome.Sharp.IconChar.Edit;
             this.btnNothiTypeCross.IconColor = System.Drawing.Color.White;
             this.btnNothiTypeCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiTypeCross.IconSize = 24;
+            this.btnNothiTypeCross.IconSize = 20;
             this.btnNothiTypeCross.Location = new System.Drawing.Point(410, 6);
             this.btnNothiTypeCross.Margin = new System.Windows.Forms.Padding(0);
             this.btnNothiTypeCross.Name = "btnNothiTypeCross";
-            this.btnNothiTypeCross.Size = new System.Drawing.Size(34, 35);
+            this.btnNothiTypeCross.Size = new System.Drawing.Size(24, 35);
             this.btnNothiTypeCross.TabIndex = 64;
             this.btnNothiTypeCross.UseVisualStyleBackColor = false;
             // 
@@ -101,18 +103,51 @@
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Plus;
             this.iconButton1.IconColor = System.Drawing.Color.White;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(444, 6);
+            this.iconButton1.IconSize = 20;
+            this.iconButton1.Location = new System.Drawing.Point(434, 6);
             this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(34, 35);
+            this.iconButton1.Size = new System.Drawing.Size(24, 35);
             this.iconButton1.TabIndex = 65;
             this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.White;
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 20;
+            this.btnDelete.Location = new System.Drawing.Point(457, 6);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(24, 35);
+            this.btnDelete.TabIndex = 66;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lbNoteId
+            // 
+            this.lbNoteId.AutoSize = true;
+            this.lbNoteId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.lbNoteId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
+            this.lbNoteId.Location = new System.Drawing.Point(378, 39);
+            this.lbNoteId.Name = "lbNoteId";
+            this.lbNoteId.Size = new System.Drawing.Size(0, 20);
+            this.lbNoteId.TabIndex = 67;
+            this.lbNoteId.Visible = false;
             // 
             // NothiTypeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbNoteId);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.btnNothiTypeCross);
             this.Controls.Add(this.lblSerialNo);
@@ -121,8 +156,9 @@
             this.Controls.Add(this.lbNothiSubjectType);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiTypeList";
-            this.Size = new System.Drawing.Size(503, 61);
+            this.Size = new System.Drawing.Size(490, 59);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -133,5 +169,7 @@
         private System.Windows.Forms.Label lblSerialNo;
         private FontAwesome.Sharp.IconButton btnNothiTypeCross;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnDelete;
+        private System.Windows.Forms.Label lbNoteId;
     }
 }
