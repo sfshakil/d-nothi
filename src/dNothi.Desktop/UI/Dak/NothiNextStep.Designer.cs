@@ -30,33 +30,34 @@ namespace dNothi.Desktop.UI.Dak
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.btnCross = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton18 = new FontAwesome.Sharp.IconButton();
+            this.btnSend = new FontAwesome.Sharp.IconButton();
+            this.btnOnumodonkari = new FontAwesome.Sharp.IconButton();
+            this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.nothiOnumodonRow1 = new dNothi.Desktop.UI.Dak.NothiOnumodonRow();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.label3 = new System.Windows.Forms.Label();
             this.lbNoteSubject = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.DesignationFLP = new System.Windows.Forms.FlowLayoutPanel();
+            this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.btnCross);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnNothiTypeCross);
@@ -66,6 +67,16 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(462, 74);
             this.panel1.TabIndex = 1;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(2, 73);
+            this.panel9.TabIndex = 66;
             // 
             // btnCross
             // 
@@ -120,86 +131,80 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.DesignationFLP);
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 74);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(462, 626);
+            this.panel2.Size = new System.Drawing.Size(462, 636);
             this.panel2.TabIndex = 2;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.iconButton3);
-            this.panel5.Controls.Add(this.iconButton2);
-            this.panel5.Controls.Add(this.iconButton18);
+            this.panel5.Controls.Add(this.btnSend);
+            this.panel5.Controls.Add(this.btnOnumodonkari);
+            this.panel5.Controls.Add(this.btnEdit);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 567);
+            this.panel5.Location = new System.Drawing.Point(0, 577);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(462, 59);
             this.panel5.TabIndex = 72;
             // 
-            // iconButton3
+            // btnSend
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.White;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.PaperPlane;
-            this.iconButton3.IconColor = System.Drawing.Color.White;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(327, 12);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(37, 33);
-            this.iconButton3.TabIndex = 73;
-            this.iconButton3.UseVisualStyleBackColor = false;
+            this.btnSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.ForeColor = System.Drawing.Color.White;
+            this.btnSend.IconChar = FontAwesome.Sharp.IconChar.PaperPlane;
+            this.btnSend.IconColor = System.Drawing.Color.White;
+            this.btnSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSend.IconSize = 24;
+            this.btnSend.Location = new System.Drawing.Point(327, 12);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(37, 33);
+            this.btnSend.TabIndex = 73;
+            this.btnSend.UseVisualStyleBackColor = false;
             // 
-            // iconButton2
+            // btnOnumodonkari
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(364, 12);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(37, 33);
-            this.iconButton2.TabIndex = 72;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.btnOnumodonkari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnOnumodonkari.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnOnumodonkari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnumodonkari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOnumodonkari.ForeColor = System.Drawing.Color.White;
+            this.btnOnumodonkari.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnOnumodonkari.IconColor = System.Drawing.Color.White;
+            this.btnOnumodonkari.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOnumodonkari.IconSize = 24;
+            this.btnOnumodonkari.Location = new System.Drawing.Point(364, 12);
+            this.btnOnumodonkari.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOnumodonkari.Name = "btnOnumodonkari";
+            this.btnOnumodonkari.Size = new System.Drawing.Size(37, 33);
+            this.btnOnumodonkari.TabIndex = 72;
+            this.btnOnumodonkari.UseVisualStyleBackColor = false;
             // 
-            // iconButton18
+            // btnEdit
             // 
-            this.iconButton18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.iconButton18.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.iconButton18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton18.ForeColor = System.Drawing.Color.White;
-            this.iconButton18.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
-            this.iconButton18.IconColor = System.Drawing.Color.White;
-            this.iconButton18.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton18.IconSize = 24;
-            this.iconButton18.Location = new System.Drawing.Point(400, 12);
-            this.iconButton18.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton18.Name = "iconButton18";
-            this.iconButton18.Size = new System.Drawing.Size(37, 33);
-            this.iconButton18.TabIndex = 71;
-            this.iconButton18.UseVisualStyleBackColor = false;
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
+            this.btnEdit.IconColor = System.Drawing.Color.White;
+            this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEdit.IconSize = 24;
+            this.btnEdit.Location = new System.Drawing.Point(400, 12);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(37, 33);
+            this.btnEdit.TabIndex = 71;
+            this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -209,28 +214,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(462, 1);
             this.panel7.TabIndex = 65;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.nothiOnumodonRow1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 129);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(462, 432);
-            this.panel4.TabIndex = 71;
-            // 
-            // nothiOnumodonRow1
-            // 
-            this.nothiOnumodonRow1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.nothiOnumodonRow1.designation = null;
-            this.nothiOnumodonRow1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.nothiOnumodonRow1.level = "11";
-            this.nothiOnumodonRow1.Location = new System.Drawing.Point(0, 0);
-            this.nothiOnumodonRow1.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.nothiOnumodonRow1.name = null;
-            this.nothiOnumodonRow1.Name = "nothiOnumodonRow1";
-            this.nothiOnumodonRow1.Size = new System.Drawing.Size(462, 150);
-            this.nothiOnumodonRow1.TabIndex = 0;
             // 
             // panel3
             // 
@@ -244,23 +227,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(462, 129);
             this.panel3.TabIndex = 70;
-            // 
-            // nothiDhoronSrchUC
-            // 
-            this.nothiDhoronSrchUC.AutoSize = true;
-            this.nothiDhoronSrchUC.BackColor = System.Drawing.Color.White;
-            this.nothiDhoronSrchUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiDhoronSrchUC.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.nothiDhoronSrchUC.Location = new System.Drawing.Point(19, 68);
-            this.nothiDhoronSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
-            this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
-            this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
-            this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
-            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(418, 50);
-            this.nothiDhoronSrchUC.TabIndex = 74;
             // 
             // label3
             // 
@@ -314,20 +280,55 @@ namespace dNothi.Desktop.UI.Dak
             this.label2.TabIndex = 70;
             this.label2.Text = "নোট :";
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(0, 74);
+            this.panel8.Margin = new System.Windows.Forms.Padding(0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(2, 636);
+            this.panel8.TabIndex = 65;
+            // 
+            // DesignationFLP
+            // 
+            this.DesignationFLP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DesignationFLP.Location = new System.Drawing.Point(0, 129);
+            this.DesignationFLP.Name = "DesignationFLP";
+            this.DesignationFLP.Size = new System.Drawing.Size(462, 448);
+            this.DesignationFLP.TabIndex = 73;
+            // 
+            // nothiDhoronSrchUC
+            // 
+            this.nothiDhoronSrchUC.AutoSize = true;
+            this.nothiDhoronSrchUC.BackColor = System.Drawing.Color.White;
+            this.nothiDhoronSrchUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiDhoronSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.nothiDhoronSrchUC.Location = new System.Drawing.Point(19, 68);
+            this.nothiDhoronSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
+            this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
+            this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
+            this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
+            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(418, 50);
+            this.nothiDhoronSrchUC.TabIndex = 74;
+            // 
             // NothiNextStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "NothiNextStep";
-            this.Size = new System.Drawing.Size(462, 700);
+            this.Size = new System.Drawing.Size(462, 710);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -342,7 +343,6 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton btnCross;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbNoteSubject;
@@ -350,10 +350,12 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton18;
+        private FontAwesome.Sharp.IconButton btnSend;
+        private FontAwesome.Sharp.IconButton btnOnumodonkari;
+        private FontAwesome.Sharp.IconButton btnEdit;
         private SearchUserController nothiDhoronSrchUC;
-        private NothiOnumodonRow nothiOnumodonRow1;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.FlowLayoutPanel DesignationFLP;
     }
 }

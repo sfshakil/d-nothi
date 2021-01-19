@@ -46,6 +46,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.iconButton18 = new FontAwesome.Sharp.IconButton();
             this.lbOfficerInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -54,7 +55,6 @@
             this.lbNoteSubject = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.cbNote = new System.Windows.Forms.CheckBox();
-            this.iconButton18 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -310,6 +310,27 @@
             this.panel3.Size = new System.Drawing.Size(586, 23);
             this.panel3.TabIndex = 61;
             // 
+            // iconButton18
+            // 
+            this.iconButton18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.iconButton18.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton18.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.iconButton18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton18.ForeColor = System.Drawing.Color.White;
+            this.iconButton18.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.iconButton18.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.iconButton18.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton18.IconSize = 24;
+            this.iconButton18.Location = new System.Drawing.Point(554, 0);
+            this.iconButton18.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton18.Name = "iconButton18";
+            this.iconButton18.Size = new System.Drawing.Size(32, 23);
+            this.iconButton18.TabIndex = 70;
+            this.iconButton18.UseVisualStyleBackColor = false;
+            // 
             // lbOfficerInfo
             // 
             this.lbOfficerInfo.AutoSize = true;
@@ -414,27 +435,6 @@
             this.cbNote.TabIndex = 0;
             this.cbNote.UseVisualStyleBackColor = true;
             this.cbNote.Click += new System.EventHandler(this.cbNote_Click_1);
-            // 
-            // iconButton18
-            // 
-            this.iconButton18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton18.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton18.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton18.ForeColor = System.Drawing.Color.White;
-            this.iconButton18.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.iconButton18.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton18.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton18.IconSize = 24;
-            this.iconButton18.Location = new System.Drawing.Point(554, 0);
-            this.iconButton18.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton18.Name = "iconButton18";
-            this.iconButton18.Size = new System.Drawing.Size(32, 23);
-            this.iconButton18.TabIndex = 70;
-            this.iconButton18.UseVisualStyleBackColor = false;
             // 
             // NoteView
             // 

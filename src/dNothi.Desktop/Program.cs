@@ -153,6 +153,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
+            builder.RegisterType<OnumodonService>().As<IOnumodonService>();
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            

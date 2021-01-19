@@ -148,11 +148,12 @@ namespace dNothi.Desktop.UI
                 form.nothiSubject = nothiListRecords.subject;
                 form.noteSubject = sender.ToString();
                 form.nothiLastDate = nothiListRecordsDTO.last_note_date;
-                form.noteTotal = nothiListRecordsDTO.note_count + 1.ToString();
+                var totalnothi = nothiListRecordsDTO.note_count;
+                form.noteTotal = totalnothi.ToString();
                 form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
 
                 NoteView noteView = new NoteView();
-                noteView.totalNothi = nothiListRecordsDTO.note_count + 1.ToString();
+                noteView.totalNothi = totalnothi.ToString();
                 noteView.noteSubject = sender.ToString();
                 noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
                 noteView.officerInfo = nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;

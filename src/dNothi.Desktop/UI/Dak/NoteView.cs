@@ -74,11 +74,6 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        //public Emnei getAllNothiNoteView(Emnei emnei)
-        //{
-        //    return emnei;
-        //}
-
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when user clicks button")]

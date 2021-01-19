@@ -26,10 +26,12 @@ namespace dNothi.Desktop.UI
         NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
         IUserService _userService { get; set; }
         IOnucchedSave _onucchedSave { get; set; }
-        public Note(IUserService userService, IOnucchedSave onucchedSave)
+        IOnumodonService _onumodonService { get; set; }
+        public Note(IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService)
         {
             _userService = userService;
             _onucchedSave = onucchedSave;
+            _onumodonService = onumodonService;
             InitializeComponent();
             SetDefaultFont(this.Controls);
             tinyMceEditor.CreateEditor();
@@ -660,12 +662,41 @@ namespace dNothi.Desktop.UI
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+            var onumodonList = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
+            if (onumodonList.status == "success")
+            {
+                if (onumodonList.data.records.Count > 0)
+                {
+                    
+                    LoadOnumodonListinPanel(onumodonList.data.records);
+                }
+                
+                //this.ShowDialog();
+            }
+
+
+            
+        }
+        public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records)
+        {
             var nothiType = UserControlFactory.Create<NothiNextStep>();
             nothiType.Visible = true;
             nothiType.Enabled = true;
-            nothiType.Location = new System.Drawing.Point(845, 0);
+            nothiType.noteTotal = newNoteView.totalNothi;
+            nothiType.noteSubject = newNoteView.noteSubject;
+            nothiType.Location = new System.Drawing.Point(903, 0);
+            foreach (onumodonDataRecordDTO  record in records)
+            {
+                nothiType.loadFlowLayout(record);
+
+            }
             this.Controls.Add(nothiType);
             nothiType.BringToFront();
+
+            
         }
     }
 }

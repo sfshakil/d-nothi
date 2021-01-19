@@ -31,7 +31,18 @@ namespace dNothi.Desktop.UI.Dak
         private string _level;
         private string _name;
         private string _designation;
+        public int flag
+        {
+            set { if (value == 1) 
+                {
+                    btnDelete.Visible = false;
+                    deleteButton.Visible = false;
+                    cbxControl.Visible = true;
 
+
+                } 
+            }
+        }
         public void uncheck()
         {
             this.Hide();
