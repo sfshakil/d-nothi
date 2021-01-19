@@ -600,6 +600,7 @@
             this.multipleDakArchiveButton.TabIndex = 35;
             this.MyToolTip.SetToolTip(this.multipleDakArchiveButton, "আর্কাইভ");
             this.multipleDakArchiveButton.UseVisualStyleBackColor = false;
+            this.multipleDakArchiveButton.Click += new System.EventHandler(this.multipleDakActionButton_Click);
             // 
             // multipleDakNothijatoButton
             // 
@@ -620,6 +621,7 @@
             this.multipleDakNothijatoButton.TabIndex = 34;
             this.MyToolTip.SetToolTip(this.multipleDakNothijatoButton, "নথিজাত");
             this.multipleDakNothijatoButton.UseVisualStyleBackColor = false;
+            this.multipleDakNothijatoButton.Click += new System.EventHandler(this.multipleDakActionButton_Click);
             // 
             // multipleDakNothivuktoButton
             // 
@@ -640,6 +642,7 @@
             this.multipleDakNothivuktoButton.TabIndex = 33;
             this.MyToolTip.SetToolTip(this.multipleDakNothivuktoButton, "নথিতে উপস্থাপন");
             this.multipleDakNothivuktoButton.UseVisualStyleBackColor = false;
+            this.multipleDakNothivuktoButton.Click += new System.EventHandler(this.multipleDakActionButton_Click);
             // 
             // multipleDakForwardButton
             // 
@@ -2350,9 +2353,9 @@
             this.dashboardRightSideDisplaypanel.Controls.Add(this.rightSliderHeadLineLabel);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.sliderCrossButton);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.dashboardRightSideFlowLayoutPanel);
-            this.dashboardRightSideDisplaypanel.Location = new System.Drawing.Point(753, 1);
+            this.dashboardRightSideDisplaypanel.Location = new System.Drawing.Point(1189, 1);
             this.dashboardRightSideDisplaypanel.Name = "dashboardRightSideDisplaypanel";
-            this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(602, 690);
+            this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(166, 690);
             this.dashboardRightSideDisplaypanel.TabIndex = 26;
             this.dashboardRightSideDisplaypanel.Visible = false;
             // 

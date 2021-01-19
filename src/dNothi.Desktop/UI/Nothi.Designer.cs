@@ -324,7 +324,7 @@
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Location = new System.Drawing.Point(382, 15);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.profilePanel.Padding = new System.Windows.Forms.Padding(3);
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.profilePanel.Size = new System.Drawing.Size(393, 33);
             this.profilePanel.TabIndex = 29;
@@ -574,7 +574,7 @@
             this.noteListButton.ForeColor = System.Drawing.Color.White;
             this.noteListButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.noteListButton.Location = new System.Drawing.Point(85, 3);
-            this.noteListButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.noteListButton.Margin = new System.Windows.Forms.Padding(2);
             this.noteListButton.Name = "noteListButton";
             this.noteListButton.Size = new System.Drawing.Size(99, 41);
             this.noteListButton.TabIndex = 19;
@@ -959,7 +959,7 @@
             this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameorDesignationSearchXTextBox.ForeColor = System.Drawing.Color.DimGray;
             this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(26, 122);
-            this.nameorDesignationSearchXTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameorDesignationSearchXTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameorDesignationSearchXTextBox.Multiline = true;
             this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
             this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(300, 41);

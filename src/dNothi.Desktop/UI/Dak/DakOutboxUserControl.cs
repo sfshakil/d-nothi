@@ -220,11 +220,11 @@ namespace dNothi.Desktop.UI.Dak
                 _attentionTypeIconValue = value;
                 if (value == "0")
                 {
-                    dakArchiveButton.Visible = true;
+                   // dakArchiveButton.Visible = true;
                 }
                 else
                 {
-                    dakArchiveButton.Visible = false;
+                    //dakArchiveButton.Visible = false;
                 }
                 AttentionTypeList attentionTypeIconList = new AttentionTypeList();
                 string icon = attentionTypeIconList.GetAttentionTypeIcon(value);

@@ -22,6 +22,7 @@ namespace dNothi.Desktop.UI.Dak
         IDakNothivuktoService _nothivuktoService { get; set; }
 
         public string _dakSubject { get; set; }
+        public NoteNothiDTO _noteSelected { get; set; }
 
         INothiNoteTalikaServices _nothinotetalikaservices { get; set; }
 
@@ -41,6 +42,8 @@ namespace dNothi.Desktop.UI.Dak
 
         public int _dak_id;
         public string _dak_type;
+        public string _nothiName;
+        public string _nothiBranch;
         public int _is_copied_dak;
 
         public string dak_type
@@ -95,8 +98,7 @@ namespace dNothi.Desktop.UI.Dak
                     nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
                     nothiAll.master_id = nothiAllListDTO.desk.nothi_master_id.ToString();
 
-                    nothiAll.NothiteUposthaponButton += delegate (object addSender, EventArgs addEvent) { NothiteUposthapito_ButtonClick(addSender,addEvent,nothiAll._nothiDTO); };
-
+                   
                     i = i + 1;
 
                 }
@@ -122,6 +124,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     nothiAll.flag = 1;
                 }
+                nothiAll.NothiteUposthaponButton += delegate (object addSender, EventArgs addEvent) { NothiteUposthapito_ButtonClick(addSender, addEvent, nothiAll._nothiDTO, nothiAll.nothi, nothiAllListDTO.nothi.office_unit_name); };
 
                 nothiAll.nothi_id = nothiAllListDTO.nothi.id.ToString();
                 nothiAll.dak_id = _dak_id;
@@ -138,16 +141,32 @@ namespace dNothi.Desktop.UI.Dak
                 nothiListFlowLayoutPanel.Controls.Add(nothiAlls[j]);
             }
         }
-
-        private void NothiteUposthapito_ButtonClick(object addSender, EventArgs addEvent, NoteNothiDTO nothiDTO)
+        public event EventHandler SucessfullyDakNothivukto;
+        public event EventHandler MultipleDakNothivukto;
+        private void NothiteUposthapito_ButtonClick(object addSender, EventArgs addEvent, NoteNothiDTO nothiDTO,string nothiName, string nothiBranch)
         {
-            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
-            DakNothivuktoResponse dakNothivuktoResponse = _nothivuktoService.GetDakNothivuktoResponse(dakUserParam, nothiDTO, _dak_id, _dak_type, _is_copied_dak);
-
-            if (dakNothivuktoResponse.status == "success")
+            _noteSelected = nothiDTO;
+            _nothiName = nothiName;
+            _nothiBranch = nothiBranch;
+            if(_dak_id==0)
             {
-                MessageBox.Show(dakNothivuktoResponse.data);
+          
+                if (this.MultipleDakNothivukto != null)
+                    this.MultipleDakNothivukto(addSender, addEvent);
                 this.Hide();
+            }
+            else
+            {
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                DakNothivuktoResponse dakNothivuktoResponse = _nothivuktoService.GetDakNothivuktoResponse(dakUserParam, nothiDTO, _dak_id, _dak_type, _is_copied_dak);
+
+                if (dakNothivuktoResponse.status == "success")
+                {
+                    MessageBox.Show(dakNothivuktoResponse.data);
+                    if (this.SucessfullyDakNothivukto != null)
+                        this.SucessfullyDakNothivukto(addSender, addEvent);
+                    this.Hide();
+                }
             }
         }
 

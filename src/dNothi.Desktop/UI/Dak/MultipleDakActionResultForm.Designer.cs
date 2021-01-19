@@ -95,7 +95,7 @@
             this.forwardHeadline.Dock = System.Windows.Forms.DockStyle.Left;
             this.forwardHeadline.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.forwardHeadline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.forwardHeadline.Location = new System.Drawing.Point(482, 0);
+            this.forwardHeadline.Location = new System.Drawing.Point(350, 0);
             this.forwardHeadline.Name = "forwardHeadline";
             this.forwardHeadline.Padding = new System.Windows.Forms.Padding(10, 25, 0, 0);
             this.forwardHeadline.Size = new System.Drawing.Size(86, 62);
@@ -108,12 +108,12 @@
             this.nothijatoHeadline.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothijatoHeadline.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothijatoHeadline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.nothijatoHeadline.Location = new System.Drawing.Point(292, 0);
+            this.nothijatoHeadline.Location = new System.Drawing.Point(251, 0);
             this.nothijatoHeadline.Name = "nothijatoHeadline";
             this.nothijatoHeadline.Padding = new System.Windows.Forms.Padding(10, 25, 0, 0);
-            this.nothijatoHeadline.Size = new System.Drawing.Size(190, 62);
+            this.nothijatoHeadline.Size = new System.Drawing.Size(99, 62);
             this.nothijatoHeadline.TabIndex = 43;
-            this.nothijatoHeadline.Text = "প্রাপকের তালিকা তৈরি করুন";
+            this.nothijatoHeadline.Text = "ডাক নথিজাত";
             this.nothijatoHeadline.Visible = false;
             // 
             // nothivuktoHeadline
@@ -124,9 +124,9 @@
             this.nothivuktoHeadline.Location = new System.Drawing.Point(102, 0);
             this.nothivuktoHeadline.Name = "nothivuktoHeadline";
             this.nothivuktoHeadline.Padding = new System.Windows.Forms.Padding(10, 25, 0, 0);
-            this.nothivuktoHeadline.Size = new System.Drawing.Size(190, 62);
+            this.nothivuktoHeadline.Size = new System.Drawing.Size(149, 62);
             this.nothivuktoHeadline.TabIndex = 42;
-            this.nothivuktoHeadline.Text = "প্রাপকের তালিকা তৈরি করুন";
+            this.nothivuktoHeadline.Text = "ডাক নথিতে উপস্থাপন ";
             this.nothivuktoHeadline.Visible = false;
             // 
             // CloseButton
@@ -521,7 +521,7 @@
             // iconButton7
             // 
             this.iconButton7.AutoSize = true;
-            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

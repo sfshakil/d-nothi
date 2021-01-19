@@ -98,7 +98,7 @@
             this.nothiPanel.Controls.Add(this.panel5);
             this.nothiPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.nothiPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiPanel.Location = new System.Drawing.Point(0, 101);
+            this.nothiPanel.Location = new System.Drawing.Point(0, 79);
             this.nothiPanel.MinimumSize = new System.Drawing.Size(0, 20);
             this.nothiPanel.Name = "nothiPanel";
             this.nothiPanel.Size = new System.Drawing.Size(1080, 20);
@@ -185,19 +185,19 @@
             this.subjectPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectPanel.Location = new System.Drawing.Point(0, 61);
             this.subjectPanel.Name = "subjectPanel";
-            this.subjectPanel.Size = new System.Drawing.Size(1080, 40);
+            this.subjectPanel.Size = new System.Drawing.Size(1080, 18);
             this.subjectPanel.TabIndex = 78;
             // 
             // subjectLabel
             // 
             this.subjectLabel.AutoSize = true;
             this.subjectLabel.BackColor = System.Drawing.Color.Transparent;
-            this.subjectLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subjectLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.subjectLabel.Location = new System.Drawing.Point(88, 0);
             this.subjectLabel.MaximumSize = new System.Drawing.Size(460, 0);
             this.subjectLabel.Name = "subjectLabel";
-            this.subjectLabel.Size = new System.Drawing.Size(422, 40);
+            this.subjectLabel.Size = new System.Drawing.Size(452, 18);
             this.subjectLabel.TabIndex = 62;
             this.subjectLabel.Text = "asa hbfhjfvghaf hfddaksj  hvfbghsadvjf hvfsadj hvgfdhsagv hddgvfhsad hgvsafjsad";
             // 
@@ -220,7 +220,7 @@
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(36, 40);
+            this.panel3.Size = new System.Drawing.Size(36, 18);
             this.panel3.TabIndex = 63;
             // 
             // senderAndReceiverPanel
@@ -717,7 +717,7 @@
             this.MaximumSize = new System.Drawing.Size(1080, 0);
             this.MinimumSize = new System.Drawing.Size(1080, 108);
             this.Name = "DakInboxUserControl";
-            this.Size = new System.Drawing.Size(1080, 121);
+            this.Size = new System.Drawing.Size(1080, 108);
             this.Load += new System.EventHandler(this.DakInboxUserControl_Load);
             this.Click += new System.EventHandler(this.DakInboxUserControl_Click);
             this.Enter += new System.EventHandler(this.DakInboxUserControl_Enter);

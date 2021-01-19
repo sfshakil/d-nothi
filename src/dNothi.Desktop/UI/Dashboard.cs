@@ -635,6 +635,10 @@ namespace dNothi.Desktop.UI
 
         private async void LoadDakInbox()
         {
+
+            ResetAllMenuButtonSelection();
+            SelectButton(dakInboxButton);
+
             NormalizeDashBoard();
             _currentDakCatagory.isInbox = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -726,6 +730,8 @@ namespace dNothi.Desktop.UI
             form.dakid = dakid;
             form.is_copied_dak = is_copied_dak;
             form.dakSubject = dak_subject;
+            form.SucessfullyDakNothijato += delegate (object snd, EventArgs eve) { LoadDakNothijato(); };
+
             Blur();
             form.ShowDialog(this);
             UnBlur();
@@ -734,6 +740,9 @@ namespace dNothi.Desktop.UI
 
         private void DakArchive_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
         {
+
+            
+          
             DakArchiveResponse dakArchiveResponse = _dakArchiveService.GetDakArcivedResponse(_dakuserparam, dakid, dak_type, is_copied_dak);
             if (dakArchiveResponse.status == "success")
             {
@@ -753,6 +762,9 @@ namespace dNothi.Desktop.UI
             form.dakid = dakid;
             form.is_copied_dak = is_copied_dak;
             form.dakSubject = dak_subject;
+            form.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakNothivukto(); };
+
+
             Blur();
             form.ShowDialog(this);
             UnBlur();
@@ -988,6 +1000,10 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakNothivukto()
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(dakNotivuktoButton);
+
+
             NormalizeDashBoard();
             _currentDakCatagory.isNothivukto = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -1113,7 +1129,11 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakArchive()
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(dakArchiveButton);
             NormalizeDashBoard();
+
+
             _currentDakCatagory.isArchived = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
@@ -1263,6 +1283,8 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakNothijato()
         {
+            ResetAllMenuButtonSelection();
+            SelectButton(dakNothijatoButton);
             NormalizeDashBoard();
             _currentDakCatagory.isNothijato = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -1306,7 +1328,10 @@ namespace dNothi.Desktop.UI
                 dakNothijatoUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
                 dakNothijatoUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
                 dakNothijatoUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
-                dakNothijatoUserControl.nothiNo = dakListInboxRecordsDTO.nothi.nothi_no;
+             if(dakListInboxRecordsDTO.nothi!=null)
+                {
+                    dakNothijatoUserControl.nothiNo = dakListInboxRecordsDTO.nothi.nothi_no;
+                }
                 dakNothijatoUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
                 dakNothijatoUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakNothijatoUserControl.NothijatoRevertButtonClick += delegate (object sender, EventArgs e) { NothijatoRevert_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
@@ -2067,6 +2092,75 @@ namespace dNothi.Desktop.UI
                 dakSendUserControl.ShowDialog();
             }
         }
+
+
+        private void multipleDakActionButton_Click(object sender, EventArgs e)
+        {
+            List<DakListRecordsDTO> daks = new List<DakListRecordsDTO>();
+
+
+            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+
+            if (dakInboxUserControls.Count > 0)
+            {
+                List<DakInboxUserControl> dakInboxSelectedUserControls = dakInboxUserControls.Where(a => a._isChecked == true).ToList();
+                if (dakInboxSelectedUserControls.Count > 0)
+                {
+                    foreach (DakInboxUserControl dakInboxUserControl in dakInboxSelectedUserControls)
+                    {
+                        daks.Add(dakInboxUserControl._dak);
+                    }
+                }
+            }
+
+            if (daks.Count > 0)
+            {
+                var multipleDakAction = UserControlFactory.Create<MultipleDakSelectedListConfirmForm>();
+               
+                if((sender as Button)==multipleDakArchiveButton)
+                {
+                    multipleDakAction.isArchive = true;
+                    multipleDakAction.SucessfullyDakArchived += delegate (object snd, EventArgs eve) { LoadDakArchive(); };
+
+                }
+                else if((sender as Button) == multipleDakNothijatoButton)
+                {
+                    multipleDakAction.isNothijato = true;
+                    multipleDakAction.SucessfullyDakNothijato += delegate (object snd, EventArgs eve) { LoadDakNothijato(); };
+
+                }
+                else if ((sender as Button) == multipleDakNothivuktoButton)
+                {
+                    multipleDakAction.isNothivukto = true;
+                    multipleDakAction.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakNothivukto(); };
+
+                }
+
+                multipleDakAction.dakListRecordsDTO = daks;
+                // multipleDakAction.Show();
+
+                Form form = new Form();
+
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.BackColor=Color.White;
+                //form.Opacity = .5;
+                //form.Size = this.Size;
+                //form.ClientSize = multipleDakAction.Size;
+                form.AutoSize = true;
+
+                form.Controls.Add(multipleDakAction);
+                //form.Anchor = AnchorStyles.None;
+                //multipleDakAction.Anchor = AnchorStyles.None;
+
+               
+                multipleDakAction.Anchor = AnchorStyles.Top|AnchorStyles.Bottom| AnchorStyles.Left| AnchorStyles.Right;
+                form.ShowDialog();
+
+                //window.ShowDialog();
+            }
+        }
+     
     }
 
 
