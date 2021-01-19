@@ -153,6 +153,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
+            builder.RegisterType<OnumodonService>().As<IOnumodonService>();
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            
@@ -165,6 +166,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();
             builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf(); 
             builder.RegisterType<UI.Dak.NothiOnumodonDesignationSeal>().AsSelf();
+            builder.RegisterType<UI.Dak.NothiNextStep>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();

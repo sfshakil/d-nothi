@@ -202,7 +202,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             List<NothiTalika> nothiTalikas = new List<NothiTalika>();
             int i = 0;
-            int[] flag= new int[nothiNotetalikaLists.Count];
+            int[] flag= new int[nothiNotetalikaLists.Count+1];
             string[] nothiNoteNo = new string[nothiNotetalikaLists.Count];
             foreach (NothiNoteTalikaRecordsDTO NothiNoteTalikaListDTO in nothiNotetalikaLists)
             {

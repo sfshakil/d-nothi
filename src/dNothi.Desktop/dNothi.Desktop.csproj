@@ -349,6 +349,12 @@
     <Compile Include="UI\Dak\NoteView.Designer.cs">
       <DependentUpon>NoteView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiNextStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNextStep.Designer.cs">
+      <DependentUpon>NothiNextStep.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiNoteTalikaAll.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -722,6 +728,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NoteView.resx">
       <DependentUpon>NoteView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiNextStep.resx">
+      <DependentUpon>NothiNextStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiNoteTalikaAll.resx">
       <DependentUpon>NothiNoteTalikaAll.cs</DependentUpon>

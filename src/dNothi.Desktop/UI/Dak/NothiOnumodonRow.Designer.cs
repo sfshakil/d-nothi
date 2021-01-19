@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.lbName = new System.Windows.Forms.Label();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.lbDesignation = new System.Windows.Forms.Label();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.lbName = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.LeftPanel = new System.Windows.Forms.Panel();
@@ -41,6 +41,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbxControl = new System.Windows.Forms.CheckBox();
             this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -51,7 +52,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel3.Controls.Add(this.iconButton4);
+            this.panel3.Controls.Add(this.cbxControl);
+            this.panel3.Controls.Add(this.btnDelete);
             this.panel3.Controls.Add(this.lbDesignation);
             this.panel3.Controls.Add(this.lbName);
             this.panel3.Controls.Add(this.iconButton2);
@@ -59,6 +61,42 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(419, 66);
             this.panel3.TabIndex = 0;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.Transparent;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.Red;
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 18;
+            this.btnDelete.Location = new System.Drawing.Point(4, 40);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(25, 23);
+            this.btnDelete.TabIndex = 62;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // lbDesignation
+            // 
+            this.lbDesignation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDesignation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbDesignation.Location = new System.Drawing.Point(165, 5);
+            this.lbDesignation.Name = "lbDesignation";
+            this.lbDesignation.Size = new System.Drawing.Size(251, 43);
+            this.lbDesignation.TabIndex = 61;
+            this.lbDesignation.Text = "সল্যুশন আর্কিটেক্ট,টেকনোলজি,এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম";
+            // 
+            // lbName
+            // 
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbName.Location = new System.Drawing.Point(35, 5);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(120, 20);
+            this.lbName.TabIndex = 60;
+            this.lbName.Text = "মোঃ হাসানুজ্জামান";
             // 
             // iconButton2
             // 
@@ -75,42 +113,6 @@
             this.iconButton2.Size = new System.Drawing.Size(25, 29);
             this.iconButton2.TabIndex = 58;
             this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // lbName
-            // 
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbName.Location = new System.Drawing.Point(35, 5);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(120, 20);
-            this.lbName.TabIndex = 60;
-            this.lbName.Text = "মোঃ হাসানুজ্জামান";
-            // 
-            // lbDesignation
-            // 
-            this.lbDesignation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDesignation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbDesignation.Location = new System.Drawing.Point(165, 5);
-            this.lbDesignation.Name = "lbDesignation";
-            this.lbDesignation.Size = new System.Drawing.Size(251, 43);
-            this.lbDesignation.TabIndex = 61;
-            this.lbDesignation.Text = "সল্যুশন আর্কিটেক্ট,টেকনোলজি,এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম";
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton4.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLightLight;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.ForeColor = System.Drawing.Color.Transparent;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButton4.IconColor = System.Drawing.Color.Red;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 18;
-            this.iconButton4.Location = new System.Drawing.Point(4, 40);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(25, 23);
-            this.iconButton4.TabIndex = 62;
-            this.iconButton4.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -216,6 +218,18 @@
             this.panel1.Size = new System.Drawing.Size(426, 54);
             this.panel1.TabIndex = 7;
             // 
+            // cbxControl
+            // 
+            this.cbxControl.AutoSize = true;
+            this.cbxControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.cbxControl.Location = new System.Drawing.Point(35, 45);
+            this.cbxControl.Name = "cbxControl";
+            this.cbxControl.Size = new System.Drawing.Size(15, 14);
+            this.cbxControl.TabIndex = 63;
+            this.cbxControl.UseVisualStyleBackColor = true;
+            this.cbxControl.Visible = false;
+            // 
             // movementStatusSliderPanel1
             // 
             this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -236,6 +250,7 @@
             this.Name = "NothiOnumodonRow";
             this.Size = new System.Drawing.Size(487, 150);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.LeftPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -247,7 +262,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton btnDelete;
         private System.Windows.Forms.Label lbDesignation;
         private System.Windows.Forms.Label lbName;
         private FontAwesome.Sharp.IconButton iconButton2;
@@ -260,5 +275,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private FontAwesome.Sharp.IconButton deleteButton;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox cbxControl;
     }
 }

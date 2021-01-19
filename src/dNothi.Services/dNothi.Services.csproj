@@ -148,6 +148,7 @@
     <Compile Include="NothiServices\INothiNoteTalikaServices.cs" />
     <Compile Include="NothiServices\INothiOutboxServices.cs" />
     <Compile Include="NothiServices\INothiTypeListServices.cs" />
+    <Compile Include="NothiServices\IOnumodonService.cs" />
     <Compile Include="NothiServices\NoteDeleteService.cs" />
     <Compile Include="NothiServices\NoteSaveService.cs" />
     <Compile Include="NothiServices\NothiAllService.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="NothiServices\NothiTypeListService.cs" />
     <Compile Include="NothiServices\NothiTypeSaveService.cs" />
     <Compile Include="NothiServices\OnuchhedSave.cs" />
+    <Compile Include="NothiServices\OnumodonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncServices\SyncerService.cs" />
     <Compile Include="UserServices\IUserService.cs" />

@@ -1,4 +1,5 @@
 ﻿using dNothi.Constants;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -8,13 +9,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace dNothi.Services.NothiServices
 {
     public class OnuchhedSave : IOnucchedSave
     {
-        public NothiOnuchhedSaveResponse GetNothiOnuchhedSave(DakUserParam dakUserParam, List<FileAttachment> fileattachments, NothiListRecordsDTO nothiListRecordsDTO, NoteSaveDTO newnotedata, string editorEncodedData)
+        public NothiOnuchhedSaveResponse GetNothiOnuchhedSave(DakUserParam dakUserParam, List<DakUploadedFileResponse> onuchhedSaveWithAttachments, NothiListRecordsDTO nothiListRecordsDTO, NoteSaveDTO newnotedata, string editorEncodedData)
         {
             try
             {
@@ -24,12 +26,42 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("api-version", GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 request.AlwaysMultipartFormData = true;
-                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id+ "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id+ "\",\"designation_id\":\"" + dakUserParam.designation_id+ "\",\"officer_id\":\"" + dakUserParam.officer_id+ "\",\"user_id\":\"" + dakUserParam.user_id+ "\",\"office\":\"" + dakUserParam.office+ "\",\"office_unit\":\"Technology\",\"designation\":\"" + dakUserParam.designation+ "\",\"officer\":\"" + dakUserParam.officer+ "\",\"designation_level\":\"" + dakUserParam.designation_level+ "\"}");
-                request.AddParameter("onucched", "{\"nothi_id\":\""+newnotedata.nothi_id+"\",\"nothi_office\":\""+newnotedata.office_id+"\",\"note_id\":\""+newnotedata.note_id+"\",\"id\":\""+newnotedata.id+"\",\"note_description\":\""+ editorEncodedData + "\",\"attachments\":[]}");
-                IRestResponse response = client.Execute(request);
-                Console.WriteLine(response.Content);
 
+                var serializedObject1 = JsonConvert.SerializeObject(dakUserParam);
+                request.AddParameter("cdesk", serializedObject1);
+
+                Onuchhed o1 = new Onuchhed();
+                o1.nothi_id = newnotedata.nothi_id.ToString();
+                o1.nothi_office = newnotedata.office_id.ToString();
+                o1.note_description = editorEncodedData;
+                o1.note_id = newnotedata.note_id.ToString();
+                o1.id = "0";
+
+                var onuchhed = JsonConvert.SerializeObject(o1);
+
+                request.AddParameter("onucched", onuchhed);
+
+                foreach (DakUploadedFileResponse onuchhedSaveWithAttachment in onuchhedSaveWithAttachments)
+                {
+                    FileInfo f1 = new FileInfo();
+                    f1.attachment_type = onuchhedSaveWithAttachment.data[0].attachment_type;
+                    f1.user_file_name = onuchhedSaveWithAttachment.data[0].user_file_name;
+                    f1.id = onuchhedSaveWithAttachment.data[0].id;
+                    f1.file_name = onuchhedSaveWithAttachment.data[0].file_name;
+                    f1.file_size_in_kb = onuchhedSaveWithAttachment.data[0].file_size_in_kb;
+                    f1.img_base64 = onuchhedSaveWithAttachment.data[0].img_base64;
+                    f1.url = onuchhedSaveWithAttachment.data[0].url;
+
+                    var fileinfo = JsonConvert.SerializeObject(f1);
+
+                    var attachment = "{" + onuchhedSaveWithAttachment.data[0].id + ":" + fileinfo + "}";
+
+                    request.AddParameter("attachments", attachment);
+                }
+                
+                IRestResponse response = client.Execute(request);
                 var responseJson = response.Content;
+                responseJson =  System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
                 NothiOnuchhedSaveResponse nothiOnuchhedSaveResponse = JsonConvert.DeserializeObject<NothiOnuchhedSaveResponse>(responseJson);
                 return nothiOnuchhedSaveResponse;
             }
@@ -39,6 +71,25 @@ namespace dNothi.Services.NothiServices
             }
             
         }
+        public class FileInfo
+        {
+            public int id { get; set; }
+            public string img_base64 { get; set; }
+            public string user_file_name { get; set; }
+            public string file_name { get; set; }
+            public string attachment_type { get; set; }
+            public string file_size_in_kb { get; set; }
+            public string url { get; set; }
+        }
+        public class Onuchhed
+        {
+            public string nothi_id { get; set; }
+            public string nothi_office { get; set; }
+            public string note_id { get; set; }
+            public string id { get; set; }
+            public string note_description { get; set; }
+        }
+        
         protected string GetAPIVersion()
         {
             return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;

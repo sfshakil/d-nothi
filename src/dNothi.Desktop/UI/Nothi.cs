@@ -74,12 +74,17 @@ namespace dNothi.Desktop.UI
             if (nothiInbox.status == "success")
             {
                 _nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
-                
+
                 if (nothiInbox.data.records.Count > 0)
                 {
-
+                    pnlNoData.Visible = false;
                     LoadNothiInboxinPanel(nothiInbox.data.records);
 
+                }
+                else
+                {
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
                 }
             }
 
@@ -143,11 +148,12 @@ namespace dNothi.Desktop.UI
                 form.nothiSubject = nothiListRecords.subject;
                 form.noteSubject = sender.ToString();
                 form.nothiLastDate = nothiListRecordsDTO.last_note_date;
-                form.noteTotal = nothiListRecordsDTO.note_count + 1.ToString();
+                var totalnothi = nothiListRecordsDTO.note_count;
+                form.noteTotal = totalnothi.ToString();
                 form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
 
                 NoteView noteView = new NoteView();
-                noteView.totalNothi = nothiListRecordsDTO.note_count + 1.ToString();
+                noteView.totalNothi = totalnothi.ToString();
                 noteView.noteSubject = sender.ToString();
                 noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
                 noteView.officerInfo = nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
@@ -223,7 +229,13 @@ namespace dNothi.Desktop.UI
             {
                 if (nothiOutbox.data.records.Count > 0)
                 {
+                    pnlNoData.Visible = false;
                     LoadNothiOutboxinPanel(nothiOutbox.data.records);
+                }
+                else
+                {
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
                 }
 
             }
@@ -268,9 +280,14 @@ namespace dNothi.Desktop.UI
             {
                 if (nothiAll.data.records.Count > 0)
                 {
+                    pnlNoData.Visible = false;
                     LoadNothiAllinPanel(nothiAll.data.records);
                 }
-
+                else
+                {
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
+                }
             }
         }
         private void LoadNothiAllinPanel(List<NothiListAllRecordsDTO> nothiAllLists)
