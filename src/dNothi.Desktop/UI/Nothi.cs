@@ -74,12 +74,17 @@ namespace dNothi.Desktop.UI
             if (nothiInbox.status == "success")
             {
                 _nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
-                
+
                 if (nothiInbox.data.records.Count > 0)
                 {
-
+                    pnlNoData.Visible = false;
                     LoadNothiInboxinPanel(nothiInbox.data.records);
 
+                }
+                else
+                {
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
                 }
             }
 
@@ -223,7 +228,13 @@ namespace dNothi.Desktop.UI
             {
                 if (nothiOutbox.data.records.Count > 0)
                 {
+                    pnlNoData.Visible = false;
                     LoadNothiOutboxinPanel(nothiOutbox.data.records);
+                }
+                else
+                {
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
                 }
 
             }
@@ -268,9 +279,14 @@ namespace dNothi.Desktop.UI
             {
                 if (nothiAll.data.records.Count > 0)
                 {
+                    pnlNoData.Visible = false;
                     LoadNothiAllinPanel(nothiAll.data.records);
                 }
-
+                else
+                {
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
+                }
             }
         }
         private void LoadNothiAllinPanel(List<NothiListAllRecordsDTO> nothiAllLists)

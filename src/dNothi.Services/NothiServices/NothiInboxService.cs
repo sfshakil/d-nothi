@@ -65,13 +65,6 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("length", dakUserParam.limit);
                 request.AddParameter("page", dakUserParam.page);
 
-                //cdesk cdesk1 = new cdesk();
-                //cdesk1.office_id = dakUserParam.office_id;
-                //cdesk1.office_unit_id = dakUserParam.office_unit_id;
-                //cdesk1.designation_id =dakUserParam.designation_id;
-                //cdesk1.officer_id =dakUserParam.officer_id;
-                //cdesk1.user_id =dakUserParam.user_id;
-
                 var serializedObject = JsonConvert.SerializeObject(dakUserParam);
                 request.AddParameter("cdesk", serializedObject);
 

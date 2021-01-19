@@ -36,6 +36,7 @@ namespace dNothi.Desktop.UI
             cbxNothiType.SelectedIndex = 0;
             cbxNothiType.ItemHeight = 30;
             onuchhedheaderPnl.Hide();
+            PnlSave.Visible = false;
         }
         public void loadNoteData(NoteSaveDTO notedata)
         {
@@ -314,7 +315,7 @@ namespace dNothi.Desktop.UI
 
             }
         }
-        DakUploadedFileResponse onuchhedSaveWithAttachment = new DakUploadedFileResponse();
+        List<DakUploadedFileResponse> onuchhedSaveWithAttachments = new List<DakUploadedFileResponse>();
         private void fileUploadButton_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
@@ -390,8 +391,6 @@ namespace dNothi.Desktop.UI
                             }
 
 
-
-
                         }
                         else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
@@ -418,7 +417,7 @@ namespace dNothi.Desktop.UI
 
 
 
-                        onuchhedSaveWithAttachment = dakUploadedFileResponse;
+                        onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
                     }
                 }
 
@@ -439,12 +438,60 @@ namespace dNothi.Desktop.UI
         }
         int onuchhedint = 0;
         List<FileAttachment> fileAttachments = new List<FileAttachment>();
-        private void btnSave_Click(object sender, EventArgs e)
+        
+        public string getparagraphtext(string editortext)
         {
-            //string editortext = tinyMceEditor.HtmlContent;
-            string editortext =  getparagraphtext(tinyMceEditor.HtmlContent);
+            Match m = Regex.Match(editortext, @"<p>\s*(.+?)\s*</p>");
+            if (m.Success)
+            {
+                return m.Groups[1].Value;
+            }
+            else
+                return "";
+        }
 
-            if (editortext !="")
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (onuchhedint == 1)
+            {
+                onuchhedheaderPnl.Visible = false;
+            }
+            onuchhedint--;
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            if (!PnlSave.Visible)
+            {
+                PnlSave.Visible = true;
+                //PnlSave.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+            }
+            else
+            {
+                PnlSave.Visible = false;
+            }
+        }
+
+        private void btnSaveArrow_Click(object sender, EventArgs e)
+        {
+            if (!PnlSave.Visible)
+            {
+                PnlSave.Visible = true;
+                //PnlSave.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+            }
+            else
+            {
+                PnlSave.Visible = false;
+            }
+        }
+
+        private void btnOnuchhedSave_Click(object sender, EventArgs e)
+        {
+            PnlSave.Visible = false;
+            //string editortext = tinyMceEditor.HtmlContent;
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+
+            if (editortext != "")
             {
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(editortext);
                 var encodedEditorText = System.Convert.ToBase64String(plainTextBytes);
@@ -468,14 +515,26 @@ namespace dNothi.Desktop.UI
                     fileAttachments.Add(fileattachment);
 
                     onuchhed.fileflag = 1;
-                    onuchhed.getAttachment(notefileupload);onuchhed.file = i;i++;
+                    onuchhed.getAttachment(notefileupload); onuchhed.file = i; i++;
                 }
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, onuchhedSaveWithAttachment, nothiListRecords, newnotedata, encodedEditorText);
+                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                 if (onucchedSave.status == "success")
                 {
-                    tinyMceEditor.HtmlContent="";
+                    //panel22.Visible = false;
+                    tinyMceEditor.Visible = false;
+                    PnlSave.Visible = false;
+                    panel24.Visible = false;
+                    panel28.Visible = false;
+
+                    btnCancel.Visible = false;
+                    btnSave.Visible = false;
+                    btnSaveArrow.Visible = false;
+
+                    btnWriteOnuchhed.Visible = true;
+                    btnSend.Visible = true;
+                    tinyMceEditor.HtmlContent = "";
                     onuchhedFLP.Controls.Add(onuchhed);
                     fileAddFLP.Controls.Clear();
                     noteFileUploads.Clear();
@@ -492,28 +551,121 @@ namespace dNothi.Desktop.UI
                 string message = "অনুচ্ছেদ বডি দেওয়া হইনি";
                 MessageBox.Show(message);
             }
-            
+
             //tinyMceEditor.Controls.Clear();
-            
-        }
-        public string getparagraphtext(string editortext)
-        {
-            Match m = Regex.Match(editortext, @"<p>\s*(.+?)\s*</p>");
-            if (m.Success)
-            {
-                return m.Groups[1].Value;
-            }
-            else
-                return "";
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+        private void btnSaveWithNewOnuchhed_Click(object sender, EventArgs e)
         {
-            if (onuchhedint == 1)
+            PnlSave.Visible = false;
+            //string editortext = tinyMceEditor.HtmlContent;
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+
+            if (editortext != "")
             {
-                onuchhedheaderPnl.Visible = false;
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(editortext);
+                var encodedEditorText = System.Convert.ToBase64String(plainTextBytes);
+                onuchhedheaderPnl.Visible = true;
+                OnuchhedAdd onuchhed = new OnuchhedAdd();
+                onuchhed.currentDate = DateTime.Now.ToString("dd");
+                onuchhed.currentMonth = DateTime.Now.ToString("MM");
+                onuchhed.currentYear = DateTime.Now.ToString("yyyy");
+                onuchhed.noteOnuchhed = newNoteView.totalNothi;
+                onuchhed.Onuchhed = onuchhedint.ToString();
+                onuchhedint++;
+                onuchhed.fileflag = 0;
+                onuchhed.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1, e1); };
+                onuchhed.body = editortext;
+                int i = 1;
+                foreach (NoteFileUpload notefileupload in noteFileUploads)
+                {
+                    FileAttachment fileattachment = new FileAttachment();
+                    fileattachment.attachmentName = notefileupload.attachmentName;
+                    fileattachment.attachmentSize = notefileupload.fileexension;
+                    fileAttachments.Add(fileattachment);
+
+                    onuchhed.fileflag = 1;
+                    onuchhed.getAttachment(notefileupload); onuchhed.file = i; i++;
+                }
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
+                if (onucchedSave.status == "success")
+                {
+                    panel22.Visible = true;
+                    tinyMceEditor.Visible = true;
+                    panel24.Visible = true;
+                    panel28.Visible = true;
+                    tinyMceEditor.HtmlContent = "";
+                    onuchhedFLP.Controls.Add(onuchhed);
+                    fileAddFLP.Controls.Clear();
+                    noteFileUploads.Clear();
+                }
+                else
+                {
+                    string message = "Error";
+                    MessageBox.Show(message);
+                }
+
             }
-            onuchhedint--;
+            else
+            {
+                string message = "অনুচ্ছেদ বডি দেওয়া হইনি";
+                MessageBox.Show(message);
+            }
+
+            //tinyMceEditor.Controls.Clear();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //panel22.Visible = false;
+            tinyMceEditor.Visible = false;
+            panel24.Visible = false;
+            panel28.Visible = false;
+            PnlSave.Visible = false;
+
+            btnCancel.Visible = false;
+            btnSave.Visible = false;
+            btnSaveArrow.Visible = false;
+
+            btnWriteOnuchhed.Visible = true;
+            btnSend.Visible = true;
+            fileAddFLP.Controls.Clear();
+            noteFileUploads.Clear();
+        }
+
+        private void btnWriteOnuchhed_Click(object sender, EventArgs e)
+        {
+            btnWriteOnuchhed.Visible = false;
+            btnSend.Visible = false;
+            btnSave.Visible = true;
+            btnSaveArrow.Visible = true;
+            btnCancel.Visible = true;
+
+            PnlSave.Visible = false;
+            panel22.Visible = true;
+            tinyMceEditor.Visible = true;
+            panel24.Visible = true;
+            panel28.Visible = true;
+            tinyMceEditor.HtmlContent = "";
+            fileAddFLP.Controls.Clear();
+            noteFileUploads.Clear();
+        }
+
+        private void iconButton20_Click(object sender, EventArgs e)
+        {
+            PnlSave.Visible = false;
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            var nothiType = UserControlFactory.Create<NothiNextStep>();
+            nothiType.Visible = true;
+            nothiType.Enabled = true;
+            nothiType.Location = new System.Drawing.Point(845, 0);
+            this.Controls.Add(nothiType);
+            nothiType.BringToFront();
         }
     }
 }

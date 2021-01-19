@@ -49,7 +49,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(869, 32);
+            this.panel1.Size = new System.Drawing.Size(843, 32);
             this.panel1.TabIndex = 0;
             // 
             // iconButton3
@@ -67,7 +67,7 @@
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 28;
-            this.iconButton3.Location = new System.Drawing.Point(805, 0);
+            this.iconButton3.Location = new System.Drawing.Point(779, 0);
             this.iconButton3.Margin = new System.Windows.Forms.Padding(5);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Padding = new System.Windows.Forms.Padding(5);
@@ -90,7 +90,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(837, 0);
+            this.iconButton2.Location = new System.Drawing.Point(811, 0);
             this.iconButton2.Margin = new System.Windows.Forms.Padding(5);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Padding = new System.Windows.Forms.Padding(5);
@@ -143,7 +143,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 32);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(869, 25);
+            this.panel2.Size = new System.Drawing.Size(843, 25);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -152,7 +152,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 24);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(869, 1);
+            this.panel3.Size = new System.Drawing.Size(843, 1);
             this.panel3.TabIndex = 73;
             // 
             // lbAttachmentSize
@@ -176,7 +176,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Attachment";
-            this.Size = new System.Drawing.Size(869, 57);
+            this.Size = new System.Drawing.Size(843, 57);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

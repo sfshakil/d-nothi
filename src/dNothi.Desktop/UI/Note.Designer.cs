@@ -84,12 +84,19 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.PnlSave = new System.Windows.Forms.Panel();
+            this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
+            this.iconButton20 = new FontAwesome.Sharp.IconButton();
+            this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.btnWriteOnuchhed = new FontAwesome.Sharp.IconButton();
+            this.btnSend = new FontAwesome.Sharp.IconButton();
             this.btnSave = new FontAwesome.Sharp.IconButton();
+            this.btnSaveArrow = new FontAwesome.Sharp.IconButton();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.iconButton9 = new FontAwesome.Sharp.IconButton();
+            this.btnCancel = new FontAwesome.Sharp.IconButton();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.panel10 = new System.Windows.Forms.Panel();
             this.onuchhedPnl = new System.Windows.Forms.Panel();
@@ -171,6 +178,7 @@
             this.fileUploadPanel.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel22.SuspendLayout();
+            this.PnlSave.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel10.SuspendLayout();
             this.onuchhedPnl.SuspendLayout();
@@ -274,7 +282,7 @@
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Location = new System.Drawing.Point(1016, 15);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.profilePanel.Padding = new System.Windows.Forms.Padding(3);
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.profilePanel.Size = new System.Drawing.Size(325, 33);
             this.profilePanel.TabIndex = 29;
@@ -928,6 +936,7 @@
             // panel22
             // 
             this.panel22.AutoScroll = true;
+            this.panel22.Controls.Add(this.PnlSave);
             this.panel22.Controls.Add(this.tinyMceEditor);
             this.panel22.Controls.Add(this.panel29);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
@@ -937,13 +946,92 @@
             this.panel22.Size = new System.Drawing.Size(893, 365);
             this.panel22.TabIndex = 62;
             // 
+            // PnlSave
+            // 
+            this.PnlSave.Controls.Add(this.btnSaveWithNewOnuchhed);
+            this.PnlSave.Controls.Add(this.iconButton20);
+            this.PnlSave.Controls.Add(this.btnOnuchhedSave);
+            this.PnlSave.Location = new System.Drawing.Point(687, 2);
+            this.PnlSave.Name = "PnlSave";
+            this.PnlSave.Size = new System.Drawing.Size(187, 128);
+            this.PnlSave.TabIndex = 66;
+            // 
+            // btnSaveWithNewOnuchhed
+            // 
+            this.btnSaveWithNewOnuchhed.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSaveWithNewOnuchhed.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSaveWithNewOnuchhed.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnSaveWithNewOnuchhed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveWithNewOnuchhed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveWithNewOnuchhed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnSaveWithNewOnuchhed.IconChar = FontAwesome.Sharp.IconChar.Cloud;
+            this.btnSaveWithNewOnuchhed.IconColor = System.Drawing.Color.Silver;
+            this.btnSaveWithNewOnuchhed.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSaveWithNewOnuchhed.IconSize = 20;
+            this.btnSaveWithNewOnuchhed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveWithNewOnuchhed.Location = new System.Drawing.Point(0, 84);
+            this.btnSaveWithNewOnuchhed.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSaveWithNewOnuchhed.Name = "btnSaveWithNewOnuchhed";
+            this.btnSaveWithNewOnuchhed.Size = new System.Drawing.Size(187, 42);
+            this.btnSaveWithNewOnuchhed.TabIndex = 68;
+            this.btnSaveWithNewOnuchhed.Text = "সংরক্ষণ ও নতুন অনুচ্ছেদ";
+            this.btnSaveWithNewOnuchhed.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveWithNewOnuchhed.UseVisualStyleBackColor = false;
+            this.btnSaveWithNewOnuchhed.Click += new System.EventHandler(this.btnSaveWithNewOnuchhed_Click);
+            // 
+            // iconButton20
+            // 
+            this.iconButton20.BackColor = System.Drawing.SystemColors.Window;
+            this.iconButton20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton20.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.iconButton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.iconButton20.IconChar = FontAwesome.Sharp.IconChar.Cloud;
+            this.iconButton20.IconColor = System.Drawing.Color.Silver;
+            this.iconButton20.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton20.IconSize = 20;
+            this.iconButton20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton20.Location = new System.Drawing.Point(0, 42);
+            this.iconButton20.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton20.Name = "iconButton20";
+            this.iconButton20.Size = new System.Drawing.Size(187, 42);
+            this.iconButton20.TabIndex = 67;
+            this.iconButton20.Text = "সংরক্ষণ ও খসড়া";
+            this.iconButton20.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton20.UseVisualStyleBackColor = false;
+            this.iconButton20.Click += new System.EventHandler(this.iconButton20_Click);
+            // 
+            // btnOnuchhedSave
+            // 
+            this.btnOnuchhedSave.BackColor = System.Drawing.SystemColors.Window;
+            this.btnOnuchhedSave.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOnuchhedSave.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnOnuchhedSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnuchhedSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOnuchhedSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnOnuchhedSave.IconChar = FontAwesome.Sharp.IconChar.Cloud;
+            this.btnOnuchhedSave.IconColor = System.Drawing.Color.Silver;
+            this.btnOnuchhedSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOnuchhedSave.IconSize = 20;
+            this.btnOnuchhedSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOnuchhedSave.Location = new System.Drawing.Point(0, 0);
+            this.btnOnuchhedSave.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOnuchhedSave.Name = "btnOnuchhedSave";
+            this.btnOnuchhedSave.Size = new System.Drawing.Size(187, 42);
+            this.btnOnuchhedSave.TabIndex = 66;
+            this.btnOnuchhedSave.Text = "সংরক্ষণ";
+            this.btnOnuchhedSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOnuchhedSave.UseVisualStyleBackColor = false;
+            this.btnOnuchhedSave.Click += new System.EventHandler(this.btnOnuchhedSave_Click);
+            // 
             // tinyMceEditor
             // 
             this.tinyMceEditor.AutoScroll = true;
             this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
             this.tinyMceEditor.HtmlContent = null;
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 2);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
             this.tinyMceEditor.Name = "tinyMceEditor";
             this.tinyMceEditor.Size = new System.Drawing.Size(876, 406);
             this.tinyMceEditor.TabIndex = 61;
@@ -960,15 +1048,68 @@
             // panel23
             // 
             this.panel23.BackColor = System.Drawing.Color.White;
+            this.panel23.Controls.Add(this.btnWriteOnuchhed);
+            this.panel23.Controls.Add(this.btnSend);
             this.panel23.Controls.Add(this.btnSave);
+            this.panel23.Controls.Add(this.btnSaveArrow);
             this.panel23.Controls.Add(this.iconButton8);
-            this.panel23.Controls.Add(this.iconButton9);
+            this.panel23.Controls.Add(this.btnCancel);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel23.Location = new System.Drawing.Point(0, 0);
             this.panel23.Margin = new System.Windows.Forms.Padding(0);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(893, 42);
             this.panel23.TabIndex = 17;
+            // 
+            // btnWriteOnuchhed
+            // 
+            this.btnWriteOnuchhed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnWriteOnuchhed.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnWriteOnuchhed.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnWriteOnuchhed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWriteOnuchhed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWriteOnuchhed.ForeColor = System.Drawing.Color.White;
+            this.btnWriteOnuchhed.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnWriteOnuchhed.IconColor = System.Drawing.SystemColors.Window;
+            this.btnWriteOnuchhed.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnWriteOnuchhed.IconSize = 20;
+            this.btnWriteOnuchhed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWriteOnuchhed.Location = new System.Drawing.Point(457, 0);
+            this.btnWriteOnuchhed.Margin = new System.Windows.Forms.Padding(0);
+            this.btnWriteOnuchhed.Name = "btnWriteOnuchhed";
+            this.btnWriteOnuchhed.Size = new System.Drawing.Size(123, 42);
+            this.btnWriteOnuchhed.TabIndex = 67;
+            this.btnWriteOnuchhed.Text = "অনুচ্ছেদ লিখুন";
+            this.btnWriteOnuchhed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnWriteOnuchhed.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnWriteOnuchhed.UseVisualStyleBackColor = false;
+            this.btnWriteOnuchhed.Visible = false;
+            this.btnWriteOnuchhed.Click += new System.EventHandler(this.btnWriteOnuchhed_Click);
+            // 
+            // btnSend
+            // 
+            this.btnSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSend.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.ForeColor = System.Drawing.Color.White;
+            this.btnSend.IconChar = FontAwesome.Sharp.IconChar.PaperPlane;
+            this.btnSend.IconColor = System.Drawing.SystemColors.Window;
+            this.btnSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSend.IconSize = 20;
+            this.btnSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSend.Location = new System.Drawing.Point(580, 0);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(106, 42);
+            this.btnSend.TabIndex = 66;
+            this.btnSend.Text = "প্রেরণ করুন";
+            this.btnSend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSend.UseVisualStyleBackColor = false;
+            this.btnSend.Visible = false;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // btnSave
             // 
@@ -983,15 +1124,37 @@
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 20;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(701, 0);
+            this.btnSave.Location = new System.Drawing.Point(686, 0);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(98, 42);
-            this.btnSave.TabIndex = 63;
+            this.btnSave.Size = new System.Drawing.Size(83, 42);
+            this.btnSave.TabIndex = 65;
             this.btnSave.Text = "সংরক্ষণ";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            // 
+            // btnSaveArrow
+            // 
+            this.btnSaveArrow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnSaveArrow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSaveArrow.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnSaveArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveArrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveArrow.ForeColor = System.Drawing.Color.White;
+            this.btnSaveArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.btnSaveArrow.IconColor = System.Drawing.Color.White;
+            this.btnSaveArrow.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSaveArrow.IconSize = 20;
+            this.btnSaveArrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveArrow.Location = new System.Drawing.Point(769, 0);
+            this.btnSaveArrow.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSaveArrow.Name = "btnSaveArrow";
+            this.btnSaveArrow.Size = new System.Drawing.Size(30, 42);
+            this.btnSaveArrow.TabIndex = 64;
+            this.btnSaveArrow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveArrow.UseVisualStyleBackColor = false;
+            this.btnSaveArrow.Click += new System.EventHandler(this.btnSaveArrow_Click);
             // 
             // iconButton8
             // 
@@ -1014,26 +1177,27 @@
             this.iconButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton8.UseVisualStyleBackColor = false;
             // 
-            // iconButton9
+            // btnCancel
             // 
-            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.iconButton9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton9.ForeColor = System.Drawing.Color.White;
-            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton9.IconSize = 20;
-            this.iconButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton9.Location = new System.Drawing.Point(799, 0);
-            this.iconButton9.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Size = new System.Drawing.Size(94, 42);
-            this.iconButton9.TabIndex = 39;
-            this.iconButton9.Text = "বাতিল করুন";
-            this.iconButton9.UseVisualStyleBackColor = false;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnCancel.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancel.IconSize = 20;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(799, 0);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(94, 42);
+            this.btnCancel.TabIndex = 39;
+            this.btnCancel.Text = "বাতিল করুন";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // splitter3
             // 
@@ -1105,7 +1269,7 @@
             this.lbOffice.Location = new System.Drawing.Point(124, 0);
             this.lbOffice.Margin = new System.Windows.Forms.Padding(0);
             this.lbOffice.Name = "lbOffice";
-            this.lbOffice.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbOffice.Padding = new System.Windows.Forms.Padding(4);
             this.lbOffice.Size = new System.Drawing.Size(226, 28);
             this.lbOffice.TabIndex = 75;
             this.lbOffice.Text = "(মোঃ হাসানুজ্জামান ১১/১/২১ ৪:০১ PM)";
@@ -1120,7 +1284,7 @@
             this.lbNoteTtl.Location = new System.Drawing.Point(88, 0);
             this.lbNoteTtl.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteTtl.Name = "lbNoteTtl";
-            this.lbNoteTtl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbNoteTtl.Padding = new System.Windows.Forms.Padding(4);
             this.lbNoteTtl.Size = new System.Drawing.Size(36, 28);
             this.lbNoteTtl.TabIndex = 72;
             this.lbNoteTtl.Text = "১.০";
@@ -1135,7 +1299,7 @@
             this.label6.Location = new System.Drawing.Point(25, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label6.Padding = new System.Windows.Forms.Padding(4);
             this.label6.Size = new System.Drawing.Size(63, 28);
             this.label6.TabIndex = 71;
             this.label6.Text = "অনুচ্ছেদ";
@@ -1189,7 +1353,7 @@
             this.lbNothiLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNothiLastDate.Location = new System.Drawing.Point(132, 0);
             this.lbNothiLastDate.Name = "lbNothiLastDate";
-            this.lbNothiLastDate.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lbNothiLastDate.Padding = new System.Windows.Forms.Padding(5);
             this.lbNothiLastDate.Size = new System.Drawing.Size(149, 30);
             this.lbNothiLastDate.TabIndex = 71;
             this.lbNothiLastDate.Text = "lbNothiLastDate";
@@ -1203,7 +1367,7 @@
             this.lbNoteSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNoteSubject.Location = new System.Drawing.Point(0, 0);
             this.lbNoteSubject.Name = "lbNoteSubject";
-            this.lbNoteSubject.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lbNoteSubject.Padding = new System.Windows.Forms.Padding(5);
             this.lbNoteSubject.Size = new System.Drawing.Size(132, 30);
             this.lbNoteSubject.TabIndex = 70;
             this.lbNoteSubject.Text = "lbNoteSubject";
@@ -1574,7 +1738,7 @@
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label16.Location = new System.Drawing.Point(108, 0);
             this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label16.Padding = new System.Windows.Forms.Padding(5);
             this.label16.Size = new System.Drawing.Size(27, 30);
             this.label16.TabIndex = 63;
             this.label16.Text = "২";
@@ -1588,7 +1752,7 @@
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label19.Location = new System.Drawing.Point(48, 0);
             this.label19.Name = "label19";
-            this.label19.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label19.Padding = new System.Windows.Forms.Padding(5);
             this.label19.Size = new System.Drawing.Size(60, 30);
             this.label19.TabIndex = 61;
             this.label19.Text = "নথিভুক্ত";
@@ -1603,7 +1767,7 @@
             this.label20.Location = new System.Drawing.Point(0, 0);
             this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
-            this.label20.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label20.Padding = new System.Windows.Forms.Padding(5);
             this.label20.Size = new System.Drawing.Size(48, 30);
             this.label20.TabIndex = 60;
             this.label20.Text = "নোটঃ";
@@ -1640,7 +1804,7 @@
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label14.Location = new System.Drawing.Point(202, 0);
             this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label14.Padding = new System.Windows.Forms.Padding(5);
             this.label14.Size = new System.Drawing.Size(27, 30);
             this.label14.TabIndex = 64;
             this.label14.Text = "২";
@@ -1654,7 +1818,7 @@
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label15.Location = new System.Drawing.Point(142, 0);
             this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label15.Padding = new System.Windows.Forms.Padding(5);
             this.label15.Size = new System.Drawing.Size(60, 30);
             this.label15.TabIndex = 63;
             this.label15.Text = "নথিভুক্ত";
@@ -1668,7 +1832,7 @@
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbTotalNothi.Location = new System.Drawing.Point(115, 0);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lbTotalNothi.Padding = new System.Windows.Forms.Padding(5);
             this.lbTotalNothi.Size = new System.Drawing.Size(27, 30);
             this.lbTotalNothi.TabIndex = 62;
             this.lbTotalNothi.Text = "২";
@@ -1682,7 +1846,7 @@
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label13.Location = new System.Drawing.Point(44, 0);
             this.label13.Name = "label13";
-            this.label13.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label13.Padding = new System.Windows.Forms.Padding(5);
             this.label13.Size = new System.Drawing.Size(71, 30);
             this.label13.TabIndex = 61;
             this.label13.Text = "সকল পত্র";
@@ -1697,7 +1861,7 @@
             this.label12.Location = new System.Drawing.Point(0, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.label12.Padding = new System.Windows.Forms.Padding(5);
             this.label12.Size = new System.Drawing.Size(44, 30);
             this.label12.TabIndex = 60;
             this.label12.Text = "নথিঃ";
@@ -1877,9 +2041,9 @@
             this.btnNewNote.IconSize = 20;
             this.btnNewNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNewNote.Location = new System.Drawing.Point(0, 69);
-            this.btnNewNote.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnNewNote.Margin = new System.Windows.Forms.Padding(5);
             this.btnNewNote.Name = "btnNewNote";
-            this.btnNewNote.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnNewNote.Padding = new System.Windows.Forms.Padding(5);
             this.btnNewNote.Size = new System.Drawing.Size(200, 41);
             this.btnNewNote.TabIndex = 41;
             this.btnNewNote.Text = " নতুন নোট ";
@@ -1984,6 +2148,7 @@
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
             this.panel22.ResumeLayout(false);
+            this.PnlSave.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.onuchhedPnl.ResumeLayout(false);
@@ -2109,9 +2274,8 @@
         private Dak.TinyMCE tinyMceEditor;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Panel panel23;
-        private FontAwesome.Sharp.IconButton btnSave;
         private FontAwesome.Sharp.IconButton iconButton8;
-        private FontAwesome.Sharp.IconButton iconButton9;
+        private FontAwesome.Sharp.IconButton btnCancel;
         private System.Windows.Forms.Splitter splitter3;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel31;
@@ -2139,5 +2303,13 @@
         private System.Windows.Forms.Label label6;
         private FontAwesome.Sharp.IconButton iconButton19;
         private System.Windows.Forms.Label lbOffice;
+        private FontAwesome.Sharp.IconButton btnSave;
+        private FontAwesome.Sharp.IconButton btnSaveArrow;
+        private System.Windows.Forms.Panel PnlSave;
+        private FontAwesome.Sharp.IconButton btnSaveWithNewOnuchhed;
+        private FontAwesome.Sharp.IconButton iconButton20;
+        private FontAwesome.Sharp.IconButton btnOnuchhedSave;
+        private FontAwesome.Sharp.IconButton btnWriteOnuchhed;
+        private FontAwesome.Sharp.IconButton btnSend;
     }
 }
