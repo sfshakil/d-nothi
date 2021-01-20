@@ -687,6 +687,8 @@ namespace dNothi.Desktop.UI
             nothiType.Enabled = true;
             nothiType.noteTotal = newNoteView.totalNothi;
             nothiType.noteSubject = newNoteView.noteSubject;
+            nothiType.loadNewNoteData(newnotedata);
+            nothiType.loadlistInboxRecord(nothiListRecords);
             nothiType.Location = new System.Drawing.Point(903, 0);
             foreach (onumodonDataRecordDTO  record in records)
             {
