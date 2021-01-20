@@ -40,7 +40,68 @@ namespace dNothi.Desktop.UI.Dak
         private string _dak_type;
         private string _dak_subject;
         private int _is_copied_dak;
-       
+     
+        private string _dakSecurityIconValue;
+
+        private string _dakPriority;
+
+
+        public string dakPrioriy
+        {
+            get { return _dakPriority; }
+            set
+            {
+                _dakPriority = value;
+
+
+                DakPriorityList dakPriorityList = new DakPriorityList();
+                string priorityName = dakPriorityList.GetDakPriorityName(value);
+
+
+                if (priorityName == "")
+                {
+                   
+                }
+                else
+                {
+                    prioritySearchButton.searchButtonText = priorityName;
+
+                }
+
+
+
+
+
+
+            }
+        }
+
+        public string dakSecurityIconValue
+        {
+
+
+
+            get { return _dakSecurityIconValue; }
+            set
+            {
+                _dakSecurityIconValue = value;
+
+                DakSecurityList dakSecurityList = new DakSecurityList();
+                string securityName = dakSecurityList.GetDakSecuritiesName(value);
+                if(securityName!="")
+                {
+                    secretLevelSearchButton.searchButtonText = securityName;
+                }
+               
+
+
+
+
+
+
+            }
+        }
+
         public int _totalForwardRequest;
         
         public int _totalSuccessForwardRequest;

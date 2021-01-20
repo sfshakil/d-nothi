@@ -32,7 +32,7 @@ namespace dNothi.Desktop.UI.Dak
             IterateControls(this.Controls);
 
 
-            //SetDefaultFont(this.Controls);
+            SetDefaultFont(this.Controls);
 
 
         }
@@ -40,6 +40,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
+                if(ctrl.Font.Style==FontStyle.Regular)
+                {
+                   // ctrl.Font.Style = "Normal";
+                }
 
                 MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
                 ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);

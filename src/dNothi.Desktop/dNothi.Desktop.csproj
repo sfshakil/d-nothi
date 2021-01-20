@@ -961,6 +961,7 @@
   <ItemGroup>
     <Content Include="256x256bb.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\icons8-hide-15.png" />
     <Content Include="test.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
