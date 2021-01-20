@@ -462,6 +462,7 @@
             // detailsFlowLayoutPanel
             // 
             this.detailsFlowLayoutPanel.AutoScroll = true;
+            this.detailsFlowLayoutPanel.AutoSize = true;
             this.detailsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(0, 469);
             this.detailsFlowLayoutPanel.Name = "detailsFlowLayoutPanel";
@@ -600,6 +601,7 @@
             this.multipleDakArchiveButton.TabIndex = 35;
             this.MyToolTip.SetToolTip(this.multipleDakArchiveButton, "আর্কাইভ");
             this.multipleDakArchiveButton.UseVisualStyleBackColor = false;
+            this.multipleDakArchiveButton.Click += new System.EventHandler(this.multipleDakActionButton_Click);
             // 
             // multipleDakNothijatoButton
             // 
@@ -620,6 +622,7 @@
             this.multipleDakNothijatoButton.TabIndex = 34;
             this.MyToolTip.SetToolTip(this.multipleDakNothijatoButton, "নথিজাত");
             this.multipleDakNothijatoButton.UseVisualStyleBackColor = false;
+            this.multipleDakNothijatoButton.Click += new System.EventHandler(this.multipleDakActionButton_Click);
             // 
             // multipleDakNothivuktoButton
             // 
@@ -640,6 +643,7 @@
             this.multipleDakNothivuktoButton.TabIndex = 33;
             this.MyToolTip.SetToolTip(this.multipleDakNothivuktoButton, "নথিতে উপস্থাপন");
             this.multipleDakNothivuktoButton.UseVisualStyleBackColor = false;
+            this.multipleDakNothivuktoButton.Click += new System.EventHandler(this.multipleDakActionButton_Click);
             // 
             // multipleDakForwardButton
             // 
@@ -767,16 +771,19 @@
             // 
             this.comboBox7.BackColor = System.Drawing.Color.White;
             this.comboBox7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.comboBox7.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBox7.DropDownHeight = 100;
             this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.IntegralHeight = false;
             this.comboBox7.Location = new System.Drawing.Point(0, 5);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(120, 28);
+            this.comboBox7.Size = new System.Drawing.Size(120, 27);
             this.comboBox7.TabIndex = 5;
-            this.comboBox7.Text = "ডাকের ধরণ";
+            this.comboBox7.Text = "সকল";
             // 
             // iconButton4
             // 
@@ -1435,6 +1442,7 @@
             this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
             this.dakSearchUsingTextButton.Size = new System.Drawing.Size(34, 43);
             this.dakSearchUsingTextButton.TabIndex = 30;
+            this.MyToolTip.SetToolTip(this.dakSearchUsingTextButton, "খুঁজুন");
             this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
             // 
             // searchBoxPanel
@@ -2305,7 +2313,7 @@
             this.panel16.Controls.Add(this.panel2);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel16.Location = new System.Drawing.Point(230, 0);
-            this.panel16.MaximumSize = new System.Drawing.Size(1125, 687);
+            this.panel16.MaximumSize = new System.Drawing.Size(1125, 1000);
             this.panel16.MinimumSize = new System.Drawing.Size(1125, 684);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(1125, 687);
@@ -2350,9 +2358,9 @@
             this.dashboardRightSideDisplaypanel.Controls.Add(this.rightSliderHeadLineLabel);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.sliderCrossButton);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.dashboardRightSideFlowLayoutPanel);
-            this.dashboardRightSideDisplaypanel.Location = new System.Drawing.Point(753, 1);
+            this.dashboardRightSideDisplaypanel.Location = new System.Drawing.Point(758, 1);
             this.dashboardRightSideDisplaypanel.Name = "dashboardRightSideDisplaypanel";
-            this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(602, 690);
+            this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(597, 690);
             this.dashboardRightSideDisplaypanel.TabIndex = 26;
             this.dashboardRightSideDisplaypanel.Visible = false;
             // 
@@ -2416,6 +2424,7 @@
             this.dakModulePanel.ResumeLayout(false);
             this.dakModulePanel.PerformLayout();
             this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.dakSortMetroPanel.ResumeLayout(false);
             this.dakSortMetroPanel.PerformLayout();
             this.settingsPanel.ResumeLayout(false);

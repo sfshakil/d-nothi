@@ -20,7 +20,9 @@ namespace dNothi.Desktop.UI
 {
     public partial class Login : Form
     {
-       
+        Button btn = new Button();
+        bool pass_hide = true;
+
         IAccountService _accountService { get; set; }
         IUserService _userService { get; set; }
         
@@ -329,18 +331,22 @@ namespace dNothi.Desktop.UI
            }
         protected override void OnLoad(EventArgs e)
         {
-            var btn = new Button();
+           
             btn.Size = new Size(33, txtPassword.ClientSize.Height + 2);
             btn.Location = new Point(txtPassword.ClientSize.Width - btn.Width, -1);
             btn.BringToFront();
             btn.Cursor = Cursors.Default;
             btn.Click += pasword_Show;
             btn.FlatStyle = FlatStyle.Flat;
+
+            btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+
             btn.FlatAppearance.BorderSize = 0;
             btn.TabIndex = 15;
             btn.Image = Properties.Resources.icons8_eye_15;
             txtPassword.Controls.Add(btn);
-            // Send EM_SETMARGINS to prevent text from disappearing underneath the button
+          
             SendMessage(txtPassword.Handle, 0xd3, (IntPtr)2, (IntPtr)(btn.Width << 16));
             base.OnLoad(e);
 
@@ -350,7 +356,20 @@ namespace dNothi.Desktop.UI
 
             private void pasword_Show(object sender, EventArgs e)
         {
+            if(pass_hide)
+            {
+                btn.Image = Properties.Resources.icons8_hide_15;
+                pass_hide = false;
+                
+            }
+            else
+            {
+                btn.Image = Properties.Resources.icons8_eye_15;
+                pass_hide = true;
+            }
             txtPassword.PasswordChar = txtPassword.PasswordChar == '\0' ? '●' : '\0';
+           
+           
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]

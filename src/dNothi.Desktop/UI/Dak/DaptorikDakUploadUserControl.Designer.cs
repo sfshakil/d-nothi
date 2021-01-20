@@ -45,7 +45,6 @@
             this.headlineLabel = new System.Windows.Forms.Label();
             this.dakUploadPanel2 = new System.Windows.Forms.Panel();
             this.FilePanel = new System.Windows.Forms.Panel();
-            this.dakUploadAttachmentListTableUserControl2 = new dNothi.Desktop.UI.Dak.DakUploadAttachmentListTableUserControl();
             this.attachmentListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.fileUploadPanel = new System.Windows.Forms.Panel();
@@ -67,17 +66,6 @@
             this.sendButton = new System.Windows.Forms.Button();
             this.prapokDataGridView = new System.Windows.Forms.DataGridView();
             this.ActionButton = new System.Windows.Forms.DataGridViewImageColumn();
-            this.employeerecordidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationid_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationbngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitnamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.officenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nijOfficeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mul_prapok = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.onulipiprapokDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.viewDesignationSealListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -85,15 +73,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sharokdateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.sendMediumSearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.seurityLevelSearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.prioritySearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.label15 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dakDescriptionXTextBox = new System.Windows.Forms.RichTextBox();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.dakDescriptionSubPanel = new System.Windows.Forms.Panel();
             this.subjectXTextBox = new PlaceholderTextBox.PlaceholderTextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.sharokNoPanel = new System.Windows.Forms.Panel();
             this.sharokNoTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -116,7 +101,6 @@
             this.searchOfficerRightListBox = new System.Windows.Forms.ListBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.searchOfficerRightXTextBox = new dNothi.Desktop.XTextBox();
             this.prerokBachaiOfficerButton = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.searchOfficerRightButton = new System.Windows.Forms.Button();
@@ -131,16 +115,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.searchOfficerRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.searchDesignationRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.searchUnitRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.searchCascadingOfficeRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.searchDistrictRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.searchOriginRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.searchLayerRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.searchDirectOfficeRightUserControl = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.mobileAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -150,14 +125,42 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.prerokBachaiOwnRightButton = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.sliderCrossButton = new System.Windows.Forms.Button();
+            this.sqlCeDataAdapter1 = new System.Data.SqlServerCe.SqlCeDataAdapter();
+            this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.searchOfficerRightXTextBox = new dNothi.Desktop.XTextBox();
+            this.searchOfficerRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.searchDesignationRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.searchUnitRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.searchCascadingOfficeRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.searchDistrictRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.searchOriginRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.searchLayerRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.searchDirectOfficeRightUserControl = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.mobileAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
             this.emailAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
             this.unitAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
             this.officeAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
             this.designationManualEntryXTextBox = new dNothi.Desktop.XTextBox();
             this.officerManualEntryXTextBox = new dNothi.Desktop.XTextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.sliderCrossButton = new System.Windows.Forms.Button();
-            this.sqlCeDataAdapter1 = new System.Data.SqlServerCe.SqlCeDataAdapter();
+            this.employeerecordidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationid_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationbngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitnamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.officenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nijOfficeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mul_prapok = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.onulipiprapokDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.viewDesignationSealListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sendMediumSearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.seurityLevelSearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.prioritySearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.dakUploadAttachmentListTableUserControl2 = new dNothi.Desktop.UI.Dak.DakUploadAttachmentListTableUserControl();
             this.dataGridViewRadioButtonColumn1 = new dNothi.Desktop.DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn();
             this.webBrowserColumn1 = new dNothi.Desktop.ViewModel.WebBrowserColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -174,13 +177,12 @@
             this.BottomPanel.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prapokDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.dakDescriptionSubPanel.SuspendLayout();
+            this.sharokNoPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.senderSortSidePanel.SuspendLayout();
             this.prerokBachaiTabControl.SuspendLayout();
@@ -191,6 +193,8 @@
             this.tabPage2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dakUploadPanel1
@@ -266,20 +270,6 @@
             this.FilePanel.TabIndex = 0;
             this.FilePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
-            // dakUploadAttachmentListTableUserControl2
-            // 
-            this.dakUploadAttachmentListTableUserControl2.AutoSize = true;
-            this.dakUploadAttachmentListTableUserControl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakUploadAttachmentListTableUserControl2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakUploadAttachmentListTableUserControl2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dakUploadAttachmentListTableUserControl2.Location = new System.Drawing.Point(17, 136);
-            this.dakUploadAttachmentListTableUserControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dakUploadAttachmentListTableUserControl2.MinimumSize = new System.Drawing.Size(950, 38);
-            this.dakUploadAttachmentListTableUserControl2.Name = "dakUploadAttachmentListTableUserControl2";
-            this.dakUploadAttachmentListTableUserControl2.Size = new System.Drawing.Size(1024, 38);
-            this.dakUploadAttachmentListTableUserControl2.TabIndex = 1;
-            this.dakUploadAttachmentListTableUserControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
-            // 
             // attachmentListFlowLayoutPanel
             // 
             this.attachmentListFlowLayoutPanel.AutoSize = true;
@@ -294,11 +284,11 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(17, 116);
+            this.label3.Location = new System.Drawing.Point(22, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 17);
+            this.label3.Size = new System.Drawing.Size(10, 16);
             this.label3.TabIndex = 72;
             this.label3.Text = "*";
             // 
@@ -360,7 +350,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(161, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
@@ -624,96 +614,6 @@
             this.ActionButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ActionButton.Width = 40;
             // 
-            // employeerecordidDataGridViewTextBoxColumn
-            // 
-            this.employeerecordidDataGridViewTextBoxColumn.DataPropertyName = "employee_record_id";
-            this.employeerecordidDataGridViewTextBoxColumn.HeaderText = "employee_record_id";
-            this.employeerecordidDataGridViewTextBoxColumn.Name = "employeerecordidDataGridViewTextBoxColumn";
-            this.employeerecordidDataGridViewTextBoxColumn.Visible = false;
-            this.employeerecordidDataGridViewTextBoxColumn.Width = 141;
-            // 
-            // designationid_id
-            // 
-            this.designationid_id.DataPropertyName = "designation_id";
-            this.designationid_id.HeaderText = "designation_id";
-            this.designationid_id.Name = "designationid_id";
-            this.designationid_id.Visible = false;
-            this.designationid_id.Width = 107;
-            // 
-            // designationbngDataGridViewTextBoxColumn
-            // 
-            this.designationbngDataGridViewTextBoxColumn.DataPropertyName = "designation_bng";
-            this.designationbngDataGridViewTextBoxColumn.HeaderText = "designation_bng";
-            this.designationbngDataGridViewTextBoxColumn.Name = "designationbngDataGridViewTextBoxColumn";
-            this.designationbngDataGridViewTextBoxColumn.Visible = false;
-            this.designationbngDataGridViewTextBoxColumn.Width = 118;
-            // 
-            // unitnamebngDataGridViewTextBoxColumn
-            // 
-            this.unitnamebngDataGridViewTextBoxColumn.DataPropertyName = "unit_name_bng";
-            this.unitnamebngDataGridViewTextBoxColumn.HeaderText = "unit_name_bng";
-            this.unitnamebngDataGridViewTextBoxColumn.Name = "unitnamebngDataGridViewTextBoxColumn";
-            this.unitnamebngDataGridViewTextBoxColumn.Visible = false;
-            this.unitnamebngDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // officenamebngDataGridViewTextBoxColumn
-            // 
-            this.officenamebngDataGridViewTextBoxColumn.DataPropertyName = "office_name_bng";
-            this.officenamebngDataGridViewTextBoxColumn.HeaderText = "office_name_bng";
-            this.officenamebngDataGridViewTextBoxColumn.Name = "officenamebngDataGridViewTextBoxColumn";
-            this.officenamebngDataGridViewTextBoxColumn.Visible = false;
-            this.officenamebngDataGridViewTextBoxColumn.Width = 124;
-            // 
-            // designationDataGridViewTextBoxColumn
-            // 
-            this.designationDataGridViewTextBoxColumn.DataPropertyName = "designation";
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            this.designationDataGridViewTextBoxColumn.HeaderText = "পদ";
-            this.designationDataGridViewTextBoxColumn.MinimumWidth = 520;
-            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
-            this.designationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.designationDataGridViewTextBoxColumn.Width = 520;
-            // 
-            // employeenamebngDataGridViewTextBoxColumn
-            // 
-            this.employeenamebngDataGridViewTextBoxColumn.DataPropertyName = "employee_name_bng";
-            this.employeenamebngDataGridViewTextBoxColumn.HeaderText = "নাম";
-            this.employeenamebngDataGridViewTextBoxColumn.MinimumWidth = 270;
-            this.employeenamebngDataGridViewTextBoxColumn.Name = "employeenamebngDataGridViewTextBoxColumn";
-            this.employeenamebngDataGridViewTextBoxColumn.Width = 270;
-            // 
-            // nijOfficeDataGridViewCheckBoxColumn
-            // 
-            this.nijOfficeDataGridViewCheckBoxColumn.DataPropertyName = "nij_Office";
-            this.nijOfficeDataGridViewCheckBoxColumn.HeaderText = "nij_Office";
-            this.nijOfficeDataGridViewCheckBoxColumn.MinimumWidth = 100;
-            this.nijOfficeDataGridViewCheckBoxColumn.Name = "nijOfficeDataGridViewCheckBoxColumn";
-            this.nijOfficeDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // mul_prapok
-            // 
-            this.mul_prapok.DataPropertyName = "mul_prapok";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.NullValue = false;
-            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.mul_prapok.DefaultCellStyle = dataGridViewCellStyle15;
-            this.mul_prapok.HeaderText = "মূল প্রাপক";
-            this.mul_prapok.Name = "mul_prapok";
-            this.mul_prapok.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.mul_prapok.Width = 75;
-            // 
-            // onulipiprapokDataGridViewCheckBoxColumn
-            // 
-            this.onulipiprapokDataGridViewCheckBoxColumn.DataPropertyName = "onulipi_prapok";
-            this.onulipiprapokDataGridViewCheckBoxColumn.HeaderText = "অনুলিপি প্রাপক";
-            this.onulipiprapokDataGridViewCheckBoxColumn.MinimumWidth = 100;
-            this.onulipiprapokDataGridViewCheckBoxColumn.Name = "onulipiprapokDataGridViewCheckBoxColumn";
-            // 
-            // viewDesignationSealListBindingSource
-            // 
-            this.viewDesignationSealListBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.ViewDesignationSealList);
-            // 
             // label16
             // 
             this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
@@ -780,8 +680,8 @@
             this.panel2.Controls.Add(this.prioritySearchButton);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.panel10);
-            this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.dakDescriptionSubPanel);
+            this.panel2.Controls.Add(this.sharokNoPanel);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.selectedPrerokLabel);
@@ -792,6 +692,8 @@
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label36);
             this.panel2.Location = new System.Drawing.Point(0, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1060, 657);
@@ -806,58 +708,6 @@
             this.sharokdateTimePicker.Name = "sharokdateTimePicker";
             this.sharokdateTimePicker.Size = new System.Drawing.Size(320, 44);
             this.sharokdateTimePicker.TabIndex = 89;
-            // 
-            // sendMediumSearchButton
-            // 
-            this.sendMediumSearchButton.AutoSize = true;
-            this.sendMediumSearchButton.BackColor = System.Drawing.Color.Transparent;
-            this.sendMediumSearchButton.listboxcollection = new string[] {
-        "ডাকযোগে",
-        "সরাসরি",
-        "ফ্যাক্স",
-        "ই-মেইল"};
-            this.sendMediumSearchButton.Location = new System.Drawing.Point(716, 227);
-            this.sendMediumSearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.sendMediumSearchButton.MinimumSize = new System.Drawing.Size(120, 0);
-            this.sendMediumSearchButton.Name = "sendMediumSearchButton";
-            this.sendMediumSearchButton.searchButtonText = "ডাকযোগে";
-            this.sendMediumSearchButton.Size = new System.Drawing.Size(324, 44);
-            this.sendMediumSearchButton.TabIndex = 86;
-            // 
-            // seurityLevelSearchButton
-            // 
-            this.seurityLevelSearchButton.AutoSize = true;
-            this.seurityLevelSearchButton.BackColor = System.Drawing.Color.Transparent;
-            this.seurityLevelSearchButton.listboxcollection = new string[] {
-        "বাছাই করুন",
-        "গোপনীয়",
-        "অতি গোপনীয়",
-        "বিশেষ গোপনীয়",
-        "সীমিত"};
-            this.seurityLevelSearchButton.Location = new System.Drawing.Point(881, 306);
-            this.seurityLevelSearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.seurityLevelSearchButton.MinimumSize = new System.Drawing.Size(129, 44);
-            this.seurityLevelSearchButton.Name = "seurityLevelSearchButton";
-            this.seurityLevelSearchButton.searchButtonText = "বাছাই করুন";
-            this.seurityLevelSearchButton.Size = new System.Drawing.Size(159, 44);
-            this.seurityLevelSearchButton.TabIndex = 88;
-            // 
-            // prioritySearchButton
-            // 
-            this.prioritySearchButton.AutoSize = true;
-            this.prioritySearchButton.BackColor = System.Drawing.Color.Transparent;
-            this.prioritySearchButton.listboxcollection = new string[] {
-        "বাছাই করুন",
-        "সর্বোচ্চ অগ্রাধিকার",
-        "অবিলম্বে",
-        "জরুরি"};
-            this.prioritySearchButton.Location = new System.Drawing.Point(716, 306);
-            this.prioritySearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.prioritySearchButton.MinimumSize = new System.Drawing.Size(120, 30);
-            this.prioritySearchButton.Name = "prioritySearchButton";
-            this.prioritySearchButton.searchButtonText = "বাছাই করুন";
-            this.prioritySearchButton.Size = new System.Drawing.Size(152, 44);
-            this.prioritySearchButton.TabIndex = 87;
             // 
             // label15
             // 
@@ -893,15 +743,15 @@
             this.dakDescriptionXTextBox.TabIndex = 83;
             this.dakDescriptionXTextBox.Text = "";
             // 
-            // panel9
+            // dakDescriptionSubPanel
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.panel9.Controls.Add(this.subjectXTextBox);
-            this.panel9.Location = new System.Drawing.Point(12, 306);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(669, 44);
-            this.panel9.TabIndex = 76;
-            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            this.dakDescriptionSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.dakDescriptionSubPanel.Controls.Add(this.subjectXTextBox);
+            this.dakDescriptionSubPanel.Location = new System.Drawing.Point(12, 306);
+            this.dakDescriptionSubPanel.Name = "dakDescriptionSubPanel";
+            this.dakDescriptionSubPanel.Size = new System.Drawing.Size(669, 44);
+            this.dakDescriptionSubPanel.TabIndex = 76;
+            this.dakDescriptionSubPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
             // subjectXTextBox
             // 
@@ -914,15 +764,15 @@
             this.subjectXTextBox.Size = new System.Drawing.Size(617, 19);
             this.subjectXTextBox.TabIndex = 4;
             // 
-            // panel4
+            // sharokNoPanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.panel4.Controls.Add(this.sharokNoTextBox);
-            this.panel4.Location = new System.Drawing.Point(12, 228);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(320, 44);
-            this.panel4.TabIndex = 75;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            this.sharokNoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.sharokNoPanel.Controls.Add(this.sharokNoTextBox);
+            this.sharokNoPanel.Location = new System.Drawing.Point(12, 228);
+            this.sharokNoPanel.Name = "sharokNoPanel";
+            this.sharokNoPanel.Size = new System.Drawing.Size(320, 44);
+            this.sharokNoPanel.TabIndex = 75;
+            this.sharokNoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
             // sharokNoTextBox
             // 
@@ -971,7 +821,7 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label7.Location = new System.Drawing.Point(138, 75);
             this.label7.Name = "label7";
@@ -1075,6 +925,9 @@
             // 
             // senderSortSidePanel
             // 
+            this.senderSortSidePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.senderSortSidePanel.AutoScroll = true;
             this.senderSortSidePanel.Controls.Add(this.prerokBachaiTabControl);
             this.senderSortSidePanel.Controls.Add(this.label18);
@@ -1202,19 +1055,6 @@
             this.panel12.Size = new System.Drawing.Size(342, 37);
             this.panel12.TabIndex = 34;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
-            // 
-            // searchOfficerRightXTextBox
-            // 
-            this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
-            this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficerRightXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(3, 9);
-            this.searchOfficerRightXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
-            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(336, 19);
-            this.searchOfficerRightXTextBox.TabIndex = 33;
-            this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
             // 
             // prerokBachaiOfficerButton
             // 
@@ -1425,6 +1265,202 @@
             this.label20.TabIndex = 86;
             this.label20.Text = "অফিস খুঁজুন";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.AutoScroll = true;
+            this.tabPage3.Controls.Add(this.mobileAddressManualEntryXTextBox);
+            this.tabPage3.Controls.Add(this.label35);
+            this.tabPage3.Controls.Add(this.label34);
+            this.tabPage3.Controls.Add(this.label33);
+            this.tabPage3.Controls.Add(this.label32);
+            this.tabPage3.Controls.Add(this.label31);
+            this.tabPage3.Controls.Add(this.label30);
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.prerokBachaiOwnRightButton);
+            this.tabPage3.Controls.Add(this.emailAddressManualEntryXTextBox);
+            this.tabPage3.Controls.Add(this.unitAddressManualEntryXTextBox);
+            this.tabPage3.Controls.Add(this.officeAddressManualEntryXTextBox);
+            this.tabPage3.Controls.Add(this.designationManualEntryXTextBox);
+            this.tabPage3.Controls.Add(this.officerManualEntryXTextBox);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage3.Size = new System.Drawing.Size(427, 566);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "নিজে তথ্য লিখুন";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(9, 399);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(50, 18);
+            this.label35.TabIndex = 106;
+            this.label35.Text = "মোবাইল";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(9, 321);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(46, 18);
+            this.label34.TabIndex = 104;
+            this.label34.Text = "ইমেইল";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(8, 244);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(57, 18);
+            this.label33.TabIndex = 102;
+            this.label33.Text = "দপ্তর/শাখা";
+            // 
+            // label32
+            // 
+            this.label32.BackColor = System.Drawing.Color.Transparent;
+            this.label32.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label32.Location = new System.Drawing.Point(104, 168);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(17, 17);
+            this.label32.TabIndex = 101;
+            this.label32.Text = "*";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(9, 166);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(88, 18);
+            this.label31.TabIndex = 99;
+            this.label31.Text = "কার্যালয়/ঠিকানা ";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(8, 89);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(25, 18);
+            this.label30.TabIndex = 97;
+            this.label30.Text = "পদ";
+            // 
+            // label29
+            // 
+            this.label29.BackColor = System.Drawing.Color.Transparent;
+            this.label29.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label29.Location = new System.Drawing.Point(63, 8);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(17, 17);
+            this.label29.TabIndex = 96;
+            this.label29.Text = "*";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(7, 10);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(49, 18);
+            this.label25.TabIndex = 94;
+            this.label25.Text = "অফিসার";
+            // 
+            // prerokBachaiOwnRightButton
+            // 
+            this.prerokBachaiOwnRightButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.prerokBachaiOwnRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prerokBachaiOwnRightButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prerokBachaiOwnRightButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.prerokBachaiOwnRightButton.Image = ((System.Drawing.Image)(resources.GetObject("prerokBachaiOwnRightButton.Image")));
+            this.prerokBachaiOwnRightButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.prerokBachaiOwnRightButton.Location = new System.Drawing.Point(8, 494);
+            this.prerokBachaiOwnRightButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.prerokBachaiOwnRightButton.Name = "prerokBachaiOwnRightButton";
+            this.prerokBachaiOwnRightButton.Size = new System.Drawing.Size(139, 50);
+            this.prerokBachaiOwnRightButton.TabIndex = 93;
+            this.prerokBachaiOwnRightButton.Text = "নিশ্চিত করুন";
+            this.prerokBachaiOwnRightButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.prerokBachaiOwnRightButton.UseVisualStyleBackColor = false;
+            this.prerokBachaiOwnRightButton.Click += new System.EventHandler(this.prerokBachaiOwnRightButton_Click);
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label18.Location = new System.Drawing.Point(29, 14);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(196, 28);
+            this.label18.TabIndex = 67;
+            this.label18.Text = "প্রেরক বাছাই করুন";
+            // 
+            // sliderCrossButton
+            // 
+            this.sliderCrossButton.BackColor = System.Drawing.Color.IndianRed;
+            this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sliderCrossButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.sliderCrossButton.Location = new System.Drawing.Point(469, 0);
+            this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
+            this.sliderCrossButton.Name = "sliderCrossButton";
+            this.sliderCrossButton.Size = new System.Drawing.Size(24, 29);
+            this.sliderCrossButton.TabIndex = 1;
+            this.sliderCrossButton.Text = "x";
+            this.sliderCrossButton.UseVisualStyleBackColor = false;
+            this.sliderCrossButton.Click += new System.EventHandler(this.sliderCrossButton_Click);
+            // 
+            // sqlCeDataAdapter1
+            // 
+            this.sqlCeDataAdapter1.DeleteCommand = null;
+            this.sqlCeDataAdapter1.InsertCommand = null;
+            this.sqlCeDataAdapter1.SelectCommand = null;
+            this.sqlCeDataAdapter1.UpdateCommand = null;
+            // 
+            // MyErrorProvider
+            // 
+            this.MyErrorProvider.ContainerControl = this;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(73, 207);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(10, 10);
+            this.label2.TabIndex = 90;
+            this.label2.Text = "*";
+            // 
+            // label36
+            // 
+            this.label36.BackColor = System.Drawing.Color.Transparent;
+            this.label36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label36.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.Red;
+            this.label36.Location = new System.Drawing.Point(43, 285);
+            this.label36.Margin = new System.Windows.Forms.Padding(0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(10, 10);
+            this.label36.TabIndex = 91;
+            this.label36.Text = "*";
+            // 
+            // searchOfficerRightXTextBox
+            // 
+            this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
+            this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficerRightXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(3, 9);
+            this.searchOfficerRightXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
+            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(336, 19);
+            this.searchOfficerRightXTextBox.TabIndex = 33;
+            this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
+            // 
             // searchOfficerRightControl
             // 
             this.searchOfficerRightControl.AutoSize = true;
@@ -1550,33 +1586,6 @@
             this.searchDirectOfficeRightUserControl.Size = new System.Drawing.Size(404, 44);
             this.searchDirectOfficeRightUserControl.TabIndex = 87;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.AutoScroll = true;
-            this.tabPage3.Controls.Add(this.mobileAddressManualEntryXTextBox);
-            this.tabPage3.Controls.Add(this.label35);
-            this.tabPage3.Controls.Add(this.label34);
-            this.tabPage3.Controls.Add(this.label33);
-            this.tabPage3.Controls.Add(this.label32);
-            this.tabPage3.Controls.Add(this.label31);
-            this.tabPage3.Controls.Add(this.label30);
-            this.tabPage3.Controls.Add(this.label29);
-            this.tabPage3.Controls.Add(this.label25);
-            this.tabPage3.Controls.Add(this.prerokBachaiOwnRightButton);
-            this.tabPage3.Controls.Add(this.emailAddressManualEntryXTextBox);
-            this.tabPage3.Controls.Add(this.unitAddressManualEntryXTextBox);
-            this.tabPage3.Controls.Add(this.officeAddressManualEntryXTextBox);
-            this.tabPage3.Controls.Add(this.designationManualEntryXTextBox);
-            this.tabPage3.Controls.Add(this.officerManualEntryXTextBox);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Size = new System.Drawing.Size(427, 566);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "নিজে তথ্য লিখুন";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // mobileAddressManualEntryXTextBox
             // 
             this.mobileAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
@@ -1588,100 +1597,6 @@
             this.mobileAddressManualEntryXTextBox.Name = "mobileAddressManualEntryXTextBox";
             this.mobileAddressManualEntryXTextBox.Size = new System.Drawing.Size(384, 43);
             this.mobileAddressManualEntryXTextBox.TabIndex = 107;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(9, 399);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(50, 18);
-            this.label35.TabIndex = 106;
-            this.label35.Text = "মোবাইল";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(9, 321);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(46, 18);
-            this.label34.TabIndex = 104;
-            this.label34.Text = "ইমেইল";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(8, 244);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(57, 18);
-            this.label33.TabIndex = 102;
-            this.label33.Text = "দপ্তর/শাখা";
-            // 
-            // label32
-            // 
-            this.label32.BackColor = System.Drawing.Color.Transparent;
-            this.label32.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label32.Location = new System.Drawing.Point(104, 168);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(17, 17);
-            this.label32.TabIndex = 101;
-            this.label32.Text = "*";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(9, 166);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(88, 18);
-            this.label31.TabIndex = 99;
-            this.label31.Text = "কার্যালয়/ঠিকানা ";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(8, 89);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(25, 18);
-            this.label30.TabIndex = 97;
-            this.label30.Text = "পদ";
-            // 
-            // label29
-            // 
-            this.label29.BackColor = System.Drawing.Color.Transparent;
-            this.label29.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label29.Location = new System.Drawing.Point(63, 8);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(17, 17);
-            this.label29.TabIndex = 96;
-            this.label29.Text = "*";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(7, 10);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(49, 18);
-            this.label25.TabIndex = 94;
-            this.label25.Text = "অফিসার";
-            // 
-            // prerokBachaiOwnRightButton
-            // 
-            this.prerokBachaiOwnRightButton.BackColor = System.Drawing.Color.DodgerBlue;
-            this.prerokBachaiOwnRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prerokBachaiOwnRightButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prerokBachaiOwnRightButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.prerokBachaiOwnRightButton.Image = ((System.Drawing.Image)(resources.GetObject("prerokBachaiOwnRightButton.Image")));
-            this.prerokBachaiOwnRightButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.prerokBachaiOwnRightButton.Location = new System.Drawing.Point(8, 494);
-            this.prerokBachaiOwnRightButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.prerokBachaiOwnRightButton.Name = "prerokBachaiOwnRightButton";
-            this.prerokBachaiOwnRightButton.Size = new System.Drawing.Size(139, 50);
-            this.prerokBachaiOwnRightButton.TabIndex = 93;
-            this.prerokBachaiOwnRightButton.Text = "নিশ্চিত করুন";
-            this.prerokBachaiOwnRightButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.prerokBachaiOwnRightButton.UseVisualStyleBackColor = false;
-            this.prerokBachaiOwnRightButton.Click += new System.EventHandler(this.prerokBachaiOwnRightButton_Click);
             // 
             // emailAddressManualEntryXTextBox
             // 
@@ -1743,37 +1658,161 @@
             this.officerManualEntryXTextBox.Size = new System.Drawing.Size(384, 43);
             this.officerManualEntryXTextBox.TabIndex = 95;
             // 
-            // label18
+            // employeerecordidDataGridViewTextBoxColumn
             // 
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(29, 14);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(196, 28);
-            this.label18.TabIndex = 67;
-            this.label18.Text = "প্রেরক বাছাই করুন";
+            this.employeerecordidDataGridViewTextBoxColumn.DataPropertyName = "employee_record_id";
+            this.employeerecordidDataGridViewTextBoxColumn.HeaderText = "employee_record_id";
+            this.employeerecordidDataGridViewTextBoxColumn.Name = "employeerecordidDataGridViewTextBoxColumn";
+            this.employeerecordidDataGridViewTextBoxColumn.Visible = false;
+            this.employeerecordidDataGridViewTextBoxColumn.Width = 141;
             // 
-            // sliderCrossButton
+            // designationid_id
             // 
-            this.sliderCrossButton.BackColor = System.Drawing.Color.IndianRed;
-            this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sliderCrossButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.sliderCrossButton.Location = new System.Drawing.Point(469, 0);
-            this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
-            this.sliderCrossButton.Name = "sliderCrossButton";
-            this.sliderCrossButton.Size = new System.Drawing.Size(24, 29);
-            this.sliderCrossButton.TabIndex = 1;
-            this.sliderCrossButton.Text = "x";
-            this.sliderCrossButton.UseVisualStyleBackColor = false;
-            this.sliderCrossButton.Click += new System.EventHandler(this.sliderCrossButton_Click);
+            this.designationid_id.DataPropertyName = "designation_id";
+            this.designationid_id.HeaderText = "designation_id";
+            this.designationid_id.Name = "designationid_id";
+            this.designationid_id.Visible = false;
+            this.designationid_id.Width = 107;
             // 
-            // sqlCeDataAdapter1
+            // designationbngDataGridViewTextBoxColumn
             // 
-            this.sqlCeDataAdapter1.DeleteCommand = null;
-            this.sqlCeDataAdapter1.InsertCommand = null;
-            this.sqlCeDataAdapter1.SelectCommand = null;
-            this.sqlCeDataAdapter1.UpdateCommand = null;
+            this.designationbngDataGridViewTextBoxColumn.DataPropertyName = "designation_bng";
+            this.designationbngDataGridViewTextBoxColumn.HeaderText = "designation_bng";
+            this.designationbngDataGridViewTextBoxColumn.Name = "designationbngDataGridViewTextBoxColumn";
+            this.designationbngDataGridViewTextBoxColumn.Visible = false;
+            this.designationbngDataGridViewTextBoxColumn.Width = 118;
+            // 
+            // unitnamebngDataGridViewTextBoxColumn
+            // 
+            this.unitnamebngDataGridViewTextBoxColumn.DataPropertyName = "unit_name_bng";
+            this.unitnamebngDataGridViewTextBoxColumn.HeaderText = "unit_name_bng";
+            this.unitnamebngDataGridViewTextBoxColumn.Name = "unitnamebngDataGridViewTextBoxColumn";
+            this.unitnamebngDataGridViewTextBoxColumn.Visible = false;
+            this.unitnamebngDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // officenamebngDataGridViewTextBoxColumn
+            // 
+            this.officenamebngDataGridViewTextBoxColumn.DataPropertyName = "office_name_bng";
+            this.officenamebngDataGridViewTextBoxColumn.HeaderText = "office_name_bng";
+            this.officenamebngDataGridViewTextBoxColumn.Name = "officenamebngDataGridViewTextBoxColumn";
+            this.officenamebngDataGridViewTextBoxColumn.Visible = false;
+            this.officenamebngDataGridViewTextBoxColumn.Width = 124;
+            // 
+            // designationDataGridViewTextBoxColumn
+            // 
+            this.designationDataGridViewTextBoxColumn.DataPropertyName = "designation";
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            this.designationDataGridViewTextBoxColumn.HeaderText = "পদ";
+            this.designationDataGridViewTextBoxColumn.MinimumWidth = 520;
+            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
+            this.designationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.designationDataGridViewTextBoxColumn.Width = 520;
+            // 
+            // employeenamebngDataGridViewTextBoxColumn
+            // 
+            this.employeenamebngDataGridViewTextBoxColumn.DataPropertyName = "employee_name_bng";
+            this.employeenamebngDataGridViewTextBoxColumn.HeaderText = "নাম";
+            this.employeenamebngDataGridViewTextBoxColumn.MinimumWidth = 270;
+            this.employeenamebngDataGridViewTextBoxColumn.Name = "employeenamebngDataGridViewTextBoxColumn";
+            this.employeenamebngDataGridViewTextBoxColumn.Width = 270;
+            // 
+            // nijOfficeDataGridViewCheckBoxColumn
+            // 
+            this.nijOfficeDataGridViewCheckBoxColumn.DataPropertyName = "nij_Office";
+            this.nijOfficeDataGridViewCheckBoxColumn.HeaderText = "nij_Office";
+            this.nijOfficeDataGridViewCheckBoxColumn.MinimumWidth = 100;
+            this.nijOfficeDataGridViewCheckBoxColumn.Name = "nijOfficeDataGridViewCheckBoxColumn";
+            this.nijOfficeDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // mul_prapok
+            // 
+            this.mul_prapok.DataPropertyName = "mul_prapok";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.NullValue = false;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.mul_prapok.DefaultCellStyle = dataGridViewCellStyle15;
+            this.mul_prapok.HeaderText = "মূল প্রাপক";
+            this.mul_prapok.Name = "mul_prapok";
+            this.mul_prapok.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.mul_prapok.Width = 75;
+            // 
+            // onulipiprapokDataGridViewCheckBoxColumn
+            // 
+            this.onulipiprapokDataGridViewCheckBoxColumn.DataPropertyName = "onulipi_prapok";
+            this.onulipiprapokDataGridViewCheckBoxColumn.HeaderText = "অনুলিপি প্রাপক";
+            this.onulipiprapokDataGridViewCheckBoxColumn.MinimumWidth = 100;
+            this.onulipiprapokDataGridViewCheckBoxColumn.Name = "onulipiprapokDataGridViewCheckBoxColumn";
+            // 
+            // viewDesignationSealListBindingSource
+            // 
+            this.viewDesignationSealListBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.ViewDesignationSealList);
+            // 
+            // sendMediumSearchButton
+            // 
+            this.sendMediumSearchButton.AutoSize = true;
+            this.sendMediumSearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.sendMediumSearchButton.listboxcollection = new string[] {
+        "ডাকযোগে",
+        "সরাসরি",
+        "ফ্যাক্স",
+        "ই-মেইল"};
+            this.sendMediumSearchButton.Location = new System.Drawing.Point(716, 227);
+            this.sendMediumSearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.sendMediumSearchButton.MinimumSize = new System.Drawing.Size(120, 0);
+            this.sendMediumSearchButton.Name = "sendMediumSearchButton";
+            this.sendMediumSearchButton.searchButtonText = "ডাকযোগে";
+            this.sendMediumSearchButton.Size = new System.Drawing.Size(324, 44);
+            this.sendMediumSearchButton.TabIndex = 86;
+            // 
+            // seurityLevelSearchButton
+            // 
+            this.seurityLevelSearchButton.AutoSize = true;
+            this.seurityLevelSearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.seurityLevelSearchButton.listboxcollection = new string[] {
+        "বাছাই করুন",
+        "গোপনীয়",
+        "অতি গোপনীয়",
+        "বিশেষ গোপনীয়",
+        "সীমিত"};
+            this.seurityLevelSearchButton.Location = new System.Drawing.Point(881, 306);
+            this.seurityLevelSearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.seurityLevelSearchButton.MinimumSize = new System.Drawing.Size(129, 44);
+            this.seurityLevelSearchButton.Name = "seurityLevelSearchButton";
+            this.seurityLevelSearchButton.searchButtonText = "বাছাই করুন";
+            this.seurityLevelSearchButton.Size = new System.Drawing.Size(159, 44);
+            this.seurityLevelSearchButton.TabIndex = 88;
+            // 
+            // prioritySearchButton
+            // 
+            this.prioritySearchButton.AutoSize = true;
+            this.prioritySearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.prioritySearchButton.listboxcollection = new string[] {
+        "বাছাই করুন",
+        "সর্বোচ্চ অগ্রাধিকার",
+        "অবিলম্বে",
+        "জরুরি"};
+            this.prioritySearchButton.Location = new System.Drawing.Point(716, 306);
+            this.prioritySearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.prioritySearchButton.MinimumSize = new System.Drawing.Size(120, 30);
+            this.prioritySearchButton.Name = "prioritySearchButton";
+            this.prioritySearchButton.searchButtonText = "বাছাই করুন";
+            this.prioritySearchButton.Size = new System.Drawing.Size(152, 44);
+            this.prioritySearchButton.TabIndex = 87;
+            // 
+            // dakUploadAttachmentListTableUserControl2
+            // 
+            this.dakUploadAttachmentListTableUserControl2.AutoSize = true;
+            this.dakUploadAttachmentListTableUserControl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dakUploadAttachmentListTableUserControl2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakUploadAttachmentListTableUserControl2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dakUploadAttachmentListTableUserControl2.Location = new System.Drawing.Point(17, 136);
+            this.dakUploadAttachmentListTableUserControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dakUploadAttachmentListTableUserControl2.MinimumSize = new System.Drawing.Size(950, 38);
+            this.dakUploadAttachmentListTableUserControl2.Name = "dakUploadAttachmentListTableUserControl2";
+            this.dakUploadAttachmentListTableUserControl2.Size = new System.Drawing.Size(1024, 38);
+            this.dakUploadAttachmentListTableUserControl2.TabIndex = 1;
+            this.dakUploadAttachmentListTableUserControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
             // dataGridViewRadioButtonColumn1
             // 
@@ -1838,6 +1877,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.senderSortSidePanel);
             this.Controls.Add(this.dakUploadPanel3);
@@ -1864,16 +1904,15 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prapokDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel10.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.dakDescriptionSubPanel.ResumeLayout(false);
+            this.dakDescriptionSubPanel.PerformLayout();
+            this.sharokNoPanel.ResumeLayout(false);
+            this.sharokNoPanel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.senderSortSidePanel.ResumeLayout(false);
             this.prerokBachaiTabControl.ResumeLayout(false);
@@ -1888,6 +1927,8 @@
             this.panel7.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1992,9 +2033,9 @@
         private System.Data.SqlServerCe.SqlCeDataAdapter sqlCeDataAdapter1;
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton senderSearchButton;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel sharokNoPanel;
         private PlaceholderTextBox.PlaceholderTextBox sharokNoTextBox;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel dakDescriptionSubPanel;
         private PlaceholderTextBox.PlaceholderTextBox subjectXTextBox;
         private System.Windows.Forms.Panel panel10;
         private FontAwesome.Sharp.IconButton ownOfficeButton;
@@ -2019,5 +2060,8 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn mul_prapok;
         private System.Windows.Forms.DataGridViewCheckBoxColumn onulipiprapokDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider MyErrorProvider;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label36;
     }
 }

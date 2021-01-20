@@ -63,7 +63,7 @@ namespace dNothi.Desktop.UI.Dak
                 _dakInfoDTO = value;
                 _prerokId = value.sender_officer_designation_id;
                 //selectedPrerokLabel.Text = value.receiving_officer_name + "," + value.receiving_officer_designation_label + "," + value.receiving_office_unit_name + "," + value.receiving_office_name;
-               // sharokNoTextBox.Text = value.sender_sarok_no;
+                // sharokNoTextBox.Text = value.sender_sarok_no;
                 //sharokdateTimePicker.Text = value.sending_date;
 
                 subjectXTextBox.Text = value.dak_subject;
@@ -78,8 +78,8 @@ namespace dNothi.Desktop.UI.Dak
                 permenantAddressXTextBox.Text = value.sender_address;
                 presentAddressXTextBox.Text = value.sender_address;
 
-            
-               
+
+
 
                 prioritySearchButton.Text = value.dak_priority_level;
                 seurityLevelSearchButton.Text = value.dak_security_level;
@@ -116,7 +116,7 @@ namespace dNothi.Desktop.UI.Dak
                                         {
                                             image.Save(m, image.RawFormat);
                                             byte[] imageBytes = m.ToArray();
-                                           // dakUploadAttachmentTableRow.imgSource = attachment.i;
+                                            // dakUploadAttachmentTableRow.imgSource = attachment.i;
 
                                             // Convert byte[] to Base64 String
                                             dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
@@ -157,7 +157,7 @@ namespace dNothi.Desktop.UI.Dak
                             dakUploadAttachmentTableRow.fileexension = attachment.attachment_type.ToLowerInvariant();
                             dakUploadAttachmentTableRow._dakAttachment = attachment;
                             dakUploadAttachmentTableRow.imageLink = attachment.url;
-                             dakUploadAttachmentTableRow.attachmentName = attachment.user_file_name;
+                            dakUploadAttachmentTableRow.attachmentName = attachment.user_file_name;
                             dakUploadAttachmentTableRow.attachmentId = attachment.attachment_id; ;
                             dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(radioSender, radioEvent, dakUploadAttachmentTableRow.attachmentId); };
 
@@ -210,10 +210,10 @@ namespace dNothi.Desktop.UI.Dak
             _dakAttachmentinGrids = dakAttachmentListinGrid.dakAttachmentinGrids;
             PriorityListCollection.Clear();
 
-         
+
 
             MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-           
+
 
         }
 
@@ -467,15 +467,15 @@ namespace dNothi.Desktop.UI.Dak
             PopulateGrid();
         }
 
-       
 
-        
 
-        
 
-     
 
-       
+
+
+
+
+
         private void fileUploadButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
@@ -559,7 +559,7 @@ namespace dNothi.Desktop.UI.Dak
                         dakUploadAttachmentTableRow.fileexension = new System.IO.FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
                         dakUploadAttachmentTableRow._dakAttachment = dakUploadedFileResponse.data[0];
                         dakUploadAttachmentTableRow.imageLink = dakUploadedFileResponse.data[0].url;
-             
+
                         dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                         dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;
                         dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
@@ -649,6 +649,10 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler KhosraSaveButtonClick;
         private void khosraSaveButton_Click(object sender, EventArgs e)
         {
+           if(!NagorikDakSaveAndSendValidation())
+            {
+                return;
+            }
             DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি সংরক্ষণ করতে চান?\n",
                                 "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (DialogResultSttring == DialogResult.Yes)
@@ -684,8 +688,8 @@ namespace dNothi.Desktop.UI.Dak
             dakUploadParameter.uploader = dakUploadParameter.CSharpObjtoJson(dakSender);
 
             //Sender
-           
-           dakUploadParameter.sender_info = "[]";
+
+            dakUploadParameter.sender_info = "[]";
 
 
             // Dak
@@ -714,8 +718,8 @@ namespace dNothi.Desktop.UI.Dak
             }
 
             dak.attachment = dakUploadAttachments.ToDictionary(a => a.file_info.id.ToString());
-          
-            dak.national_idendity_no =nationalIdXTextBox.Text;
+
+            dak.national_idendity_no = nationalIdXTextBox.Text;
             dak.birth_registration_number = birthCertificateNoXTextBox.Text;
             dak.passport = passportNoXTextBox.Text;
             dak.name_bng = nameBanglaXTextBox.Text;
@@ -779,18 +783,21 @@ namespace dNothi.Desktop.UI.Dak
             List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
 
             List<ViewDesignationSealList> viewDesignationSealListsOnulipPrapok = viewDesignationSealLists.Where(a => a.onulipi_prapok == true).ToList();
-            foreach (ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
+           if(viewDesignationSealListsOnulipPrapok.Count>0)
             {
-                if (viewDesignationSeal.nij_Office == true)
+                foreach (ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
                 {
-                    OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    if (viewDesignationSeal.nij_Office == true)
+                    {
+                        OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    }
+                    else
+                    {
+                        OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    }
                 }
-                else
-                {
-                    OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
-                }
-            }
 
+            }
             dakUploadReceiver.onulipi = OnulipiprapokDTOs.ToDictionary(a => a.designation_id.ToString());
 
 
@@ -821,7 +828,12 @@ namespace dNothi.Desktop.UI.Dak
         private void sendButton_Click(object sender, EventArgs e)
         {
 
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি প্রেরণ করতে চান?\n",
+            if (!NagorikDakSaveAndSendValidation())
+            {
+                return;
+            }
+
+                DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি প্রেরণ করতে চান?\n",
                                 "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (DialogResultSttring == DialogResult.Yes)
             {
@@ -837,7 +849,88 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+        private bool NagorikDakSaveAndSendValidation()
+        {
 
+
+            // Mulpotro
+            List<DakUploadAttachment> dakUploadAttachments = new List<DakUploadAttachment>();
+
+            var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
+
+            if (!attachmentList.Any(a => a.isMulpotro == true))
+            {
+                fileUploadPanel.Focus();
+                MyErrorProvider.SetError(fileUploadPanel, "দয়া করে মূলপত্র বাছাই করুন!");
+                return false;
+            }
+
+
+
+            if (nationalIdXTextBox.Text.Length != 10 || nationalIdXTextBox.Text.Length != 13 || nationalIdXTextBox.Text.Length != 17)
+            {
+
+                nationalIdXTextBox.Focus();
+                MyErrorProvider.SetError(nationalIdPanel, "সঠিক ন্যাশনাল আইডি ইনপুট দিন!");
+                return false;
+            }
+            if (birthCertificateNoXTextBox.Text.Length != 17 && !string.IsNullOrEmpty(birthCertificateNoXTextBox.Text))
+            {
+
+                birthCertificateNoXTextBox.Focus();
+                MyErrorProvider.SetError(birthCPanel, "শুধুমাত্র ১৭ অঙ্কের ইনপুট দিন!");
+                return false;
+            }
+             
+            if (mobileXTextBox.Text.Length != 11 && !string.IsNullOrEmpty(mobileXTextBox.Text))
+            {
+
+                mobileXTextBox.Focus();
+                MyErrorProvider.SetError(mobileNoPanel, "শুধুমাত্র ১১ অঙ্কের ইনপুট দিন!");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(nameBanglaXTextBox.Text))
+            {
+
+                nameBanglaXTextBox.Focus();
+                MyErrorProvider.SetError(nameBanglaPanel, "দয়া করে বাংলা নাম ইনপুট দিন!");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(presentAddressXTextBox.Text))
+            {
+
+                presentAddressXTextBox.Focus();
+                MyErrorProvider.SetError(presentAddPanel, "দয়া করে বর্তমান ঠিকানা ইনপুট দিন!");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(permenantAddressXTextBox.Text))
+            {
+
+                permenantAddressXTextBox.Focus();
+                MyErrorProvider.SetError(permenantAddPanel, "দয়া করে স্থায়ী ঠিকানা ইনপুট দিন!");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(subjectXTextBox.Text))
+            {
+
+                subjectXTextBox.Focus();
+                MyErrorProvider.SetError(subjectPanel, "দয়া করে স্থায়ী ঠিকানা ইনপুট দিন!");
+                return false;
+            }
+            var mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
+            if (mulprapok==null)
+            {
+                MessageBox.Show("মুল-প্রাপক সিলেক্ট করুন!");
+                return false;
+            }
+
+            return true;
+
+        }
         private void sameAsPresentAddressCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             permenantAddressXTextBox.Text = presentAddressXTextBox.Text.ToString(); ;
@@ -845,21 +938,72 @@ namespace dNothi.Desktop.UI.Dak
 
         private void nationalIdXTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
+
+
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 char ch = (char)('0' + e.KeyChar - '\u09E6');
-                if(!char.IsControl(ch) && !char.IsDigit(ch))
+                if (!char.IsDigit(ch))
+                {
+                    e.Handled = true;
+                }
+
+            }
+
+            else if (!char.IsControl(e.KeyChar) && (sender as TextBox).Text.Length == 17)
+            {
+                e.Handled = true;
+            }
+        }
+
+
+
+        private void passportNoXTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && passportNoXTextBox.Text.Length >= 2)
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                   
+                        e.Handled = true;
+                    
+
+                }
+                else if(!char.IsControl(e.KeyChar) && passportNoXTextBox.Text.Length >= 9)
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsUpper(e.KeyChar))
                 {
                     e.Handled = true;
                 }
                 
             }
+            
+         
         }
 
-        private void mobileXTextBox_Validating(object sender, CancelEventArgs e)
+        private void mobileXTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                char ch = (char)('0' + e.KeyChar - '\u09E6');
+                if (!char.IsDigit(ch))
+                {
+                    e.Handled = true;
+                }
 
+            }
+
+            else if (!char.IsControl(e.KeyChar) && (sender as TextBox).Text.Length == 11)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

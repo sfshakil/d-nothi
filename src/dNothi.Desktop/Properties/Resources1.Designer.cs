@@ -203,6 +203,16 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_hide_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-hide-15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_high_priority_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-high-priority-100", resourceCulture);

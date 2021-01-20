@@ -129,7 +129,7 @@ namespace dNothi.Desktop.UI.Dak
                 try
                 {
                     movementStatusDetailsUserControlReceiver.userType = "মূল প্রাপক      :";
-                    ToDTO toDTO = value.to.FirstOrDefault(a =>a.attention_type == "1");
+                    ToDTO toDTO = value.to.FirstOrDefault(a =>a.attention_type == "1" && a.designation_id!=value.from.designation_id);
 
 
                     movementStatusDetailsUserControlReceiver.userDesignation = toDTO.officer;

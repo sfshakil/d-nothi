@@ -181,6 +181,7 @@ namespace dNothi.Desktop
             builder.RegisterType<DakForwardUserControl>().AsSelf();
             builder.RegisterType<DakNothiteUposthapitoNewNoteAddUserControl>().AsSelf();
             builder.RegisterType<MultipleDakActionResultForm>().AsSelf();
+            builder.RegisterType<MultipleDakSelectedListConfirmForm>().AsSelf();
 
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());

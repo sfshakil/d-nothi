@@ -23,6 +23,7 @@ namespace dNothi.Desktop.UI.Dak
         IDakNothijatoService _nothijatoService { get; set; }
 
         public string _dakSubject { get; set; }
+        public NothijatoActionParam _nothiSelected { get; set; }
 
         INothiNoteTalikaServices _nothinotetalikaservices { get; set; }
 
@@ -215,30 +216,48 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+
+        public event EventHandler SucessfullyDakNothijato;
+        public event EventHandler MultipleDakNothijato;
         private void Nothijato_ButtonClick(object addSender, EventArgs addEvent, NothiAllDTO nothiDTO)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("ডাকটি এই নথিতে নথিজাত করতে চান ?\n",
-                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+
+            NothijatoActionParam nothijatoActionParam = new NothijatoActionParam();
+            nothijatoActionParam.nothi_id = nothiDTO.id.ToString();
+            nothijatoActionParam.nothi_no = nothiDTO.nothi_no;
+            nothijatoActionParam.nothi_office = nothiDTO.office_id.ToString();
+            nothijatoActionParam.office_unit = nothiDTO.office_unit_name;
+
+
+
+            _nothiSelected = nothijatoActionParam;
+            if (_dak_id == 0)
+            {
+                if (this.MultipleDakNothijato != null)
+                    this.MultipleDakNothijato(addSender, addEvent);
+                this.Hide();
+            }
+            else
             {
 
-
-                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
-                NothijatoActionParam nothijatoActionParam = new NothijatoActionParam();
-                nothijatoActionParam.nothi_id = nothiDTO.id.ToString();
-                nothijatoActionParam.nothi_no = nothiDTO.nothi_no;
-                nothijatoActionParam.nothi_office = nothiDTO.office_id.ToString();
-                nothijatoActionParam.office_unit = nothiDTO.office_unit_name;
-
-
-
-
-                DakNothijatoResponse dakNothijatoResponse = _nothijatoService.GetDakNothijatoResponse(dakUserParam, nothijatoActionParam, _dak_id, _dak_type, _is_copied_dak);
-
-                if (dakNothijatoResponse.status == "success")
+                DialogResult DialogResultSttring = MessageBox.Show("ডাকটি এই নথিতে নথিজাত করতে চান ?\n",
+                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (DialogResultSttring == DialogResult.Yes)
                 {
-                    MessageBox.Show(dakNothijatoResponse.data);
-                    this.Hide();
+
+
+                    DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                   
+
+
+
+                    DakNothijatoResponse dakNothijatoResponse = _nothijatoService.GetDakNothijatoResponse(dakUserParam, nothijatoActionParam, _dak_id, _dak_type, _is_copied_dak);
+
+                    if (dakNothijatoResponse.status == "success")
+                    {
+                        MessageBox.Show(dakNothijatoResponse.data);
+                        this.Hide();
+                    }
                 }
             }
             

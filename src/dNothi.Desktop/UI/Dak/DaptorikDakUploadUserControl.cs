@@ -460,12 +460,18 @@ namespace dNothi.Desktop.UI.Dak
 
         private void senderSearchButton_Click(object sender, EventArgs e)
         {
+          
+           
+
             senderSortSidePanel.Visible = true;
+            senderSortSidePanel.Focus();
+            
             HoverColorChangeSenderSearchButton();
         }
 
         private void sliderCrossButton_Click(object sender, EventArgs e)
         {
+            var parent = this.Parent as Form; if (parent != null) { parent.Hide(); }
             senderSortSidePanel.Visible = false;
             NormalColorSenderSearchButton();
         }
@@ -563,13 +569,7 @@ namespace dNothi.Desktop.UI.Dak
                         attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
                     }
                 }
-                else
-                {
-                    NoteFileDelete noteFileDelete = new NoteFileDelete();
-                    noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                    noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                    attachmentListFlowLayoutPanel.Controls.Add(noteFileDelete);
-                }
+                
 
             }
 
@@ -680,7 +680,7 @@ namespace dNothi.Desktop.UI.Dak
         {
            if (searchOfficerRightPanel.Visible)
             {
-                
+               
                 searchOfficerRightPanel.Visible = false;
             }
             else
@@ -787,6 +787,12 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler KhosraSaveButtonClick;
         private void khosraSaveButton_Click(object sender, EventArgs e)
         {
+
+            if (!DaptorikDakSaveAndSendValidation())
+            {
+                return;
+            }
+
             DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি সংরক্ষণ করতে চান?\n",
                                 "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (DialogResultSttring == DialogResult.Yes)
@@ -906,17 +912,23 @@ namespace dNothi.Desktop.UI.Dak
             List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
 
             List<ViewDesignationSealList> viewDesignationSealListsOnulipPrapok = viewDesignationSealLists.Where(a => a.onulipi_prapok == true).ToList();
-            foreach (ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
+
+            if (viewDesignationSealListsOnulipPrapok.Count > 0)
             {
-                if (viewDesignationSeal.nij_Office == true)
+                foreach (ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
                 {
-                    OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    if (viewDesignationSeal.nij_Office == true)
+                    {
+                        OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    }
+                    else
+                    {
+                        OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                    }
                 }
-                else
-                {
-                    OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
-                }
+
             }
+           
 
             dakUploadReceiver.onulipi = OnulipiprapokDTOs.ToDictionary(a=>a.designation_id.ToString());
 
@@ -948,6 +960,13 @@ namespace dNothi.Desktop.UI.Dak
         private void sendButton_Click(object sender, EventArgs e)
         {
 
+            if(!DaptorikDakSaveAndSendValidation())
+            {
+                return;
+            }
+
+
+
             DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি প্রেরণ করতে চান?\n",
                                 "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (DialogResultSttring == DialogResult.Yes)
@@ -964,6 +983,61 @@ namespace dNothi.Desktop.UI.Dak
             }
         
         }
+
+        private bool DaptorikDakSaveAndSendValidation()
+        {
+          
+
+            // Mulpotro
+            List<DakUploadAttachment> dakUploadAttachments = new List<DakUploadAttachment>();
+
+            var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
+
+            if(!attachmentList.Any(a=>a.isMulpotro==true))
+            {
+                fileUploadPanel.Focus();
+                MyErrorProvider.SetError(fileUploadPanel, "দয়া করে মূলপত্র বাছাই করুন!");
+                return false;
+            }
+            
+
+
+            if (string.IsNullOrEmpty(selectedPrerokLabel.Text))
+            {
+
+                senderSearchButton.Focus();
+                MyErrorProvider.SetError(senderSearchButton, "দয়া করে অফিসার বাছাই করুন!");
+                return false;
+            }
+           
+            if (string.IsNullOrEmpty(sharokNoTextBox.Text))
+            {
+
+                sharokNoTextBox.Focus();
+                MyErrorProvider.SetError(sharokNoPanel, "দয়া করে স্মারক নম্বর ইনপুট দিন!");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(subjectXTextBox.Text))
+            {
+
+                subjectXTextBox.Focus();
+                MyErrorProvider.SetError(dakDescriptionSubPanel, "দয়া করে ডাকের বিষয় ইনপুট দিন!");
+                return false;
+            }
+
+            var mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
+            if (mulprapok == null)
+            {
+                MessageBox.Show("মুল-প্রাপক সিলেক্ট করুন!");
+                return false;
+            }
+
+            return true;
+
+        }
+
+
 
         private void searchOfficerRightListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {

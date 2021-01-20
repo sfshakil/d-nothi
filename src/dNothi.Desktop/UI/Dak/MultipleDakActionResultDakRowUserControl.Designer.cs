@@ -56,7 +56,7 @@
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(92)))), ((int)(((byte)(107)))));
-            this.dateLabel.Location = new System.Drawing.Point(721, 20);
+            this.dateLabel.Location = new System.Drawing.Point(710, 23);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(97, 14);
             this.dateLabel.TabIndex = 89;
@@ -114,10 +114,10 @@
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.prerokLabel);
-            this.MaximumSize = new System.Drawing.Size(821, 0);
-            this.MinimumSize = new System.Drawing.Size(821, 0);
+            this.MaximumSize = new System.Drawing.Size(810, 0);
+            this.MinimumSize = new System.Drawing.Size(810, 0);
             this.Name = "MultipleDakActionResultDakRowUserControl";
-            this.Size = new System.Drawing.Size(821, 62);
+            this.Size = new System.Drawing.Size(810, 63);
             this.ResumeLayout(false);
             this.PerformLayout();
 

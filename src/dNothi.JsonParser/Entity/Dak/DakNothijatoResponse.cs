@@ -10,9 +10,12 @@ namespace dNothi.JsonParser.Entity.Dak
     {
         public string status { get; set; }
         public string data { get; set; }
+        public string message { get; set; }
     }
     public class DakNothijatoRevertResponse
     {
+        public string message;
+
         public string status { get; set; }
         public string data { get; set; }
     }

@@ -319,6 +319,18 @@
     <Compile Include="UI\Dak\MultipleDakActionResultForm.Designer.cs">
       <DependentUpon>MultipleDakActionResultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\MultipleDakSelectedListConfirmForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\MultipleDakSelectedListConfirmForm.Designer.cs">
+      <DependentUpon>MultipleDakSelectedListConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\MultipleSelectedDakListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\MultipleSelectedDakListRow.Designer.cs">
+      <DependentUpon>MultipleSelectedDakListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NoteFileDelete.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -702,6 +714,12 @@
     <EmbeddedResource Include="UI\Dak\MultipleDakActionResultForm.resx">
       <DependentUpon>MultipleDakActionResultForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\MultipleDakSelectedListConfirmForm.resx">
+      <DependentUpon>MultipleDakSelectedListConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\MultipleSelectedDakListRow.resx">
+      <DependentUpon>MultipleSelectedDakListRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NoteFileDelete.resx">
       <DependentUpon>NoteFileDelete.cs</DependentUpon>
     </EmbeddedResource>
@@ -943,6 +961,7 @@
   <ItemGroup>
     <Content Include="256x256bb.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\icons8-hide-15.png" />
     <Content Include="test.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

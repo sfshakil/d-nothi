@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -96,6 +97,7 @@
             this.lbTappwareLink = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnlHelpDesk.SuspendLayout();
@@ -515,11 +517,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Indigo;
-            this.label13.Location = new System.Drawing.Point(48, 172);
+            this.label13.Location = new System.Drawing.Point(46, 173);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(163, 20);
+            this.label13.Size = new System.Drawing.Size(129, 18);
             this.label13.TabIndex = 17;
             this.label13.Text = "support@nothi.org.bd";
             // 
@@ -1126,5 +1128,6 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }
