@@ -251,6 +251,7 @@ namespace dNothi.Desktop.UI
                 nothiOutbox.nothi = nothiOutboxListDTO.nothi.nothi_no + " " + nothiOutboxListDTO.nothi.subject;
                 nothiOutbox.shakha = nothiOutboxListDTO.nothi.office_unit_name;
                 nothiOutbox.prapok = nothiOutboxListDTO.to.officer + " "+ nothiOutboxListDTO.to.designation +","+ nothiOutboxListDTO.to.office_unit +","+ nothiOutboxListDTO.to.office;
+                if(nothiOutboxListDTO.desk !=null)
                 nothiOutbox.bortomanDesk = nothiOutboxListDTO.desk.officer+" "+ nothiOutboxListDTO.desk.designation +","+ nothiOutboxListDTO.desk.office_unit +","+ nothiOutboxListDTO.desk.office;
                 nothiOutbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiOutboxListDTO.nothi.last_note_date;
                 i = i + 1;

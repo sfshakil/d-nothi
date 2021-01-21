@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace dNothi.Services.NothiServices
@@ -30,17 +31,20 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("cdesk", serializedObject);
 
                 request.AddParameter("onucched", "{\"note_no\":\""+newnotedata.note_no+"\",\"note_subject\":\""+newnotedata.note_subject+"\",\"nothi_unit\":\""+nothiListRecord.office_unit_name+"\",\"nothi_no\":\""+nothiListRecord.nothi_no+"\",\"nothi_id\":\""+nothiListRecord.id+"\",\"nothi_office\":\""+nothiListRecord.office_id+"\",\"nothi_office_name\":\""+nothiListRecord.office_name+"\",\"note_id\":\""+newnotedata.note_id+"\",\"priority\":\"0\"}");
-    
-                request.AddParameter("recipient", "{\"office_id\":\""+ newrecords[0].office_id+ "\",\"office\":\""+newrecords[0].office+"\",\"office_unit_id\":\""+newrecords[0].office_unit_id+"\",\"office_unit\":\""+newrecords[0].office_unit+"\",\"designation_id\":\""+newrecords[0].designation_id+"\",\"designation\":\""+newrecords[0].designation+"\",\"officer_id\":\""+newrecords[0].officer_id+"\",\"officer\":\""+newrecords[0].officer+"\",\"designation_level\":\""+newrecords[0].designation_level+"\"}");
-    
+                //foreach (onumodonDataRecordDTO newrecord in newrecords)
+                //{
+
+                //}
+                //var serializedRecordsObject = JsonConvert.SerializeObject(newrecords);
+                request.AddParameter("recipient", "{\"office_id\":\"" + newrecords[0].office_id + "\",\"office\":\"" + newrecords[0].office + "\",\"office_unit_id\":\"" + newrecords[0].office_unit_id + "\",\"office_unit\":\"" + newrecords[0].office_unit + "\",\"designation_id\":\"" + newrecords[0].designation_id + "\",\"designation\":\"" + newrecords[0].designation + "\",\"officer_id\":\"" + newrecords[0].officer_id + "\",\"officer\":\"" + newrecords[0].officer + "\",\"designation_level\":\"" + newrecords[0].designation_level + "\"}");
+
                 IRestResponse response = client.Execute(request);
                 Console.WriteLine(response.Content);
 
 
 
                 var responseJson = response.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                responseJson = System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
                 OnuchhedForwardResponse onuchhedForwardResponse = JsonConvert.DeserializeObject<OnuchhedForwardResponse>(responseJson);
                 return onuchhedForwardResponse;
             }

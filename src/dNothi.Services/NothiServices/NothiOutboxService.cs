@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace dNothi.Services.NothiServices
@@ -58,8 +59,7 @@ namespace dNothi.Services.NothiServices
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                responseJson = System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
                 NothiListOutboxResponse dakListOutboxResponse = JsonConvert.DeserializeObject<NothiListOutboxResponse>(responseJson);
                 return dakListOutboxResponse;
             }
