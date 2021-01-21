@@ -76,7 +76,8 @@ namespace dNothi.Desktop.UI.Dak
         }
         IDakUploadService _dakuploadservice { get; set; }
         IUserService _userService { get; set; }
-       
+        IOnumodonService _onumodonService { get; set; }
+
         private DakUserParam _dakUserParam = new DakUserParam();
         INothiNotePermissionService _nothiNotePermission { get; set; }
 
@@ -85,15 +86,17 @@ namespace dNothi.Desktop.UI.Dak
         private List<PrapokDTO> _otherOfficeDesignationList = new List<PrapokDTO>();
         
 
-        public NothiOnumodonDesignationSeal(IDakUploadService dakUploadService, IUserService userService, INothiNotePermissionService nothiNotePermission)
+        public NothiOnumodonDesignationSeal(IDakUploadService dakUploadService, IUserService userService, INothiNotePermissionService nothiNotePermission, IOnumodonService onumodonService)
         {
             _dakuploadservice = dakUploadService;
             _userService = userService;
             _nothiNotePermission = nothiNotePermission;
+            _onumodonService = onumodonService;
+            _dakUserParam = _userService.GetLocalDakUserParam();
             InitializeComponent();
 
            
-            LoadOwnOfficerTree();
+            
             LoadOwnOfficeRight();
            
             LoadOtherOfficeLeftList();
@@ -131,6 +134,49 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+
+        NothiListRecordsDTO nothiListRecord = new NothiListRecordsDTO();
+
+        public void GetNothiInboxRecords(NothiListRecordsDTO nothiListRecordsDTO)
+        {
+            nothiListRecord = nothiListRecordsDTO;
+            var onumodonList = _onumodonService.GetOnumodonMembers(_dakUserParam, nothiListRecord);
+            if (onumodonList.status == "success")
+            {
+
+                if (onumodonList.data.records.Count > 0)
+                {
+                    foreach (onumodonDataRecordDTO record in onumodonList.data.records)
+                    {
+                        NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
+                        nothiOnumodonRow.name = record.officer;
+                        nothiOnumodonRow.designation = record.designation + "," + record.office_unit + "," + record.nothi_office_name;
+                        nothiOnumodonRow.level = level.ToString();
+                        level++;
+                        nothiOnumodonRows.Add(nothiOnumodonRow);
+
+                        NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
+                        nothiOnumodon.designation_id = record.designation_id.ToString();
+                        ////nothiOnumodon.id = 
+                        //nothiOnumodon.office_id = officer.office_id.ToString();
+                        //nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
+                        //nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
+                        //nothiOnumodon.designation_level = officer.designation_level.ToString();
+                        //nothiOnumodon.name = officer.officer_name;
+                        //nothiOnumodon.designation = officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng;
+                        //nothiOnumodon.level = level.ToString();
+                        nothiOnumodons.Add(nothiOnumodon);
+
+                        nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
+                    }
+                    //childNode.Checked = true;
+                    
+                }
+                LoadOwnOfficerTree();
+
+            }
+        }
+
         List<NothiOnumodonRowDTO> nothiOnumodons = new List<NothiOnumodonRowDTO>();
         List<NothiOnumodonRow> nothiOnumodonRows = new List<NothiOnumodonRow>();
         int inc = 0;
@@ -140,8 +186,8 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-          _dakUserParam = _userService.GetLocalDakUserParam();
-           
+          
+            
 
             AllDesignationSealListResponse designationSealListOwnOfficeResponse = _dakuploadservice.GetAllDesignationSeal(_dakUserParam, _dakUserParam.office_id);
             OfficeListResponse officeListResponse = _dakuploadservice.GetAllOffice(_dakUserParam);
@@ -200,32 +246,39 @@ namespace dNothi.Desktop.UI.Dak
                                 childNode.Text = officer.NameWithDesignation;
                                 childNode.Name = officer.employee_name_bng;
 
-                                if (officer.designation_id == _userService.GetOfficeInfo().office_unit_organogram_id)
-                                { 
-                                    childNode.Checked = true;
-                                    NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
-                                    nothiOnumodonRow.name = officer.officer_name;
-                                    nothiOnumodonRow.designation = officer.designation_bng+","+officer.office_unit_bng+","+officer.office_name_bng;
-                                    nothiOnumodonRow.level = level.ToString();
-                                    nothiOnumodonRows.Add(nothiOnumodonRow);
-
-                                    NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
-                                    //nothiOnumodon.id = 
-                                    nothiOnumodon.office_id = officer.office_id.ToString();
-                                    nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
-                                    nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
-                                    nothiOnumodon.designation_level = officer.designation_level.ToString();
-                                    nothiOnumodon.name = officer.officer_name;
-                                    nothiOnumodon.designation = officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng;
-                                    nothiOnumodon.level = level.ToString();
-                                    nothiOnumodons.Add(nothiOnumodon);
-
-                                    //nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
-                                }
-                                for (; inc <= nothiOnumodonRows.Count - 1; inc++)
+                                foreach (NothiOnumodonRowDTO nothiOnumodonRow in nothiOnumodons)
                                 {
-                                    nothiOnumodonFLP.Controls.Add(nothiOnumodonRows[inc]);
+                                    if (officer.designation_id.ToString() == nothiOnumodonRow.designation_id)
+                                        childNode.Checked = true;
                                 }
+                                
+
+                                //if (officer.designation_id == _userService.GetOfficeInfo().office_unit_organogram_id)
+                                //{ 
+                                //    childNode.Checked = true;
+                                //    NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
+                                //    nothiOnumodonRow.name = officer.officer_name;
+                                //    nothiOnumodonRow.designation = officer.designation_bng+","+officer.office_unit_bng+","+officer.office_name_bng;
+                                //    nothiOnumodonRow.level = level.ToString();
+                                //    nothiOnumodonRows.Add(nothiOnumodonRow);
+
+                                //    NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
+                                //    //nothiOnumodon.id = 
+                                //    nothiOnumodon.office_id = officer.office_id.ToString();
+                                //    nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
+                                //    nothiOnumodon.office_unit_id = officer.office_unit_id.ToString();
+                                //    nothiOnumodon.designation_level = officer.designation_level.ToString();
+                                //    nothiOnumodon.name = officer.officer_name;
+                                //    nothiOnumodon.designation = officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng;
+                                //    nothiOnumodon.level = level.ToString();
+                                //    nothiOnumodons.Add(nothiOnumodon);
+
+                                //    //nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
+                                //}
+                                //for (; inc <= nothiOnumodonRows.Count - 1; inc++)
+                                //{
+                                //    nothiOnumodonFLP.Controls.Add(nothiOnumodonRows[inc]);
+                                //}
                                 branchNodeOwnOffice.Nodes.Add(childNode);
                                 
 
@@ -613,36 +666,36 @@ namespace dNothi.Desktop.UI.Dak
             if (e.Action != TreeViewAction.Unknown)
             {
 
-                if (e.Node.Checked == true)
-                {
-                    level++;
-                    NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
-                    nothiOnumodonRow.name = e.Node.Name;
-                    nothiOnumodonRow.designation = (string)e.Node.Tag;
-                    nothiOnumodonRow.level = level.ToString();
-                   // nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
+                //if (e.Node.Checked == true)
+                //{
+                //    level++;
+                //    NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
+                //    nothiOnumodonRow.name = e.Node.Name;
+                //    nothiOnumodonRow.designation = (string)e.Node.Tag;
+                //    nothiOnumodonRow.level = level.ToString();
+                //   // nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
                     
-                    nothiOnumodonRows.Add(nothiOnumodonRow);
+                //    nothiOnumodonRows.Add(nothiOnumodonRow);
 
 
-                    NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
-                    nothiOnumodon.name = e.Node.Name;
-                    nothiOnumodon.designation = (string)e.Node.Tag;
-                    nothiOnumodon.level = level.ToString();
-                    nothiOnumodons.Add(nothiOnumodon);
-                }
-                for (; inc<= nothiOnumodonRows.Count -1; inc++)
-                {
-                    nothiOnumodonFLP.Controls.Add(nothiOnumodonRows[inc]);
-                }
-                if(e.Node.Checked == false)
-                {
-                    int i = level-1;
-                    nothiOnumodons.RemoveAt(i);
-                    nothiOnumodonRows.RemoveAt(i);
-                    nothiOnumodonFLP.Controls.RemoveAt(i);
-                    inc--;level--;
-                }
+                //    NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
+                //    nothiOnumodon.name = e.Node.Name;
+                //    nothiOnumodon.designation = (string)e.Node.Tag;
+                //    nothiOnumodon.level = level.ToString();
+                //    nothiOnumodons.Add(nothiOnumodon);
+                //}
+                //for (; inc<= nothiOnumodonRows.Count -1; inc++)
+                //{
+                //    nothiOnumodonFLP.Controls.Add(nothiOnumodonRows[inc]);
+                //}
+                //if(e.Node.Checked == false)
+                //{
+                //    int i = level-1;
+                //    nothiOnumodons.RemoveAt(i);
+                //    nothiOnumodonRows.RemoveAt(i);
+                //    nothiOnumodonFLP.Controls.RemoveAt(i);
+                //    inc--;level--;
+                //}
 
             }
             

@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbxControl = new System.Windows.Forms.CheckBox();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.lbDesignation = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnUser = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.btnChair = new FontAwesome.Sharp.IconButton();
             this.LeftPanel = new System.Windows.Forms.Panel();
             this.lbLevel = new System.Windows.Forms.Label();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnKarjodibosh = new FontAwesome.Sharp.IconButton();
+            this.cbxNiontron = new System.Windows.Forms.CheckBox();
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbxControl = new System.Windows.Forms.CheckBox();
             this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,11 +56,24 @@
             this.panel3.Controls.Add(this.btnDelete);
             this.panel3.Controls.Add(this.lbDesignation);
             this.panel3.Controls.Add(this.lbName);
-            this.panel3.Controls.Add(this.iconButton2);
+            this.panel3.Controls.Add(this.btnUser);
             this.panel3.Location = new System.Drawing.Point(3, 6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(419, 66);
             this.panel3.TabIndex = 0;
+            // 
+            // cbxControl
+            // 
+            this.cbxControl.AutoSize = true;
+            this.cbxControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.cbxControl.Location = new System.Drawing.Point(9, 44);
+            this.cbxControl.Name = "cbxControl";
+            this.cbxControl.Size = new System.Drawing.Size(15, 14);
+            this.cbxControl.TabIndex = 63;
+            this.cbxControl.UseVisualStyleBackColor = true;
+            this.cbxControl.Visible = false;
+            this.cbxControl.CheckedChanged += new System.EventHandler(this.cbxControl_CheckedChanged);
             // 
             // btnDelete
             // 
@@ -98,21 +111,21 @@
             this.lbName.TabIndex = 60;
             this.lbName.Text = "মোঃ হাসানুজ্জামান";
             // 
-            // iconButton2
+            // btnUser
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLightLight;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.Transparent;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(4, 5);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(25, 29);
-            this.iconButton2.TabIndex = 58;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.btnUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnUser.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUser.ForeColor = System.Drawing.Color.Transparent;
+            this.btnUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUser.IconSize = 24;
+            this.btnUser.Location = new System.Drawing.Point(4, 5);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(25, 29);
+            this.btnUser.TabIndex = 58;
+            this.btnUser.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -123,26 +136,26 @@
             this.panel2.Size = new System.Drawing.Size(426, 96);
             this.panel2.TabIndex = 8;
             // 
-            // iconButton3
+            // btnChair
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(243)))));
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(243)))));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Chair;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 32;
-            this.iconButton3.Location = new System.Drawing.Point(11, 10);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(29, 36);
-            this.iconButton3.TabIndex = 104;
-            this.iconButton3.UseVisualStyleBackColor = false;
+            this.btnChair.BackColor = System.Drawing.Color.Transparent;
+            this.btnChair.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(243)))));
+            this.btnChair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChair.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(243)))));
+            this.btnChair.IconChar = FontAwesome.Sharp.IconChar.Chair;
+            this.btnChair.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnChair.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnChair.IconSize = 32;
+            this.btnChair.Location = new System.Drawing.Point(11, 10);
+            this.btnChair.Name = "btnChair";
+            this.btnChair.Size = new System.Drawing.Size(29, 36);
+            this.btnChair.TabIndex = 104;
+            this.btnChair.UseVisualStyleBackColor = false;
             // 
             // LeftPanel
             // 
             this.LeftPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LeftPanel.Controls.Add(this.iconButton3);
+            this.LeftPanel.Controls.Add(this.btnChair);
             this.LeftPanel.Controls.Add(this.movementStatusSliderPanel1);
             this.LeftPanel.Location = new System.Drawing.Point(0, 0);
             this.LeftPanel.Name = "LeftPanel";
@@ -160,35 +173,35 @@
             this.lbLevel.TabIndex = 50;
             this.lbLevel.Text = "লেভেল ১";
             // 
-            // iconButton1
+            // btnKarjodibosh
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(68, 16);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(66, 35);
-            this.iconButton1.TabIndex = 55;
-            this.iconButton1.Text = "কার্যদিবস ";
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnKarjodibosh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.btnKarjodibosh.FlatAppearance.BorderSize = 0;
+            this.btnKarjodibosh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKarjodibosh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKarjodibosh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
+            this.btnKarjodibosh.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnKarjodibosh.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnKarjodibosh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnKarjodibosh.IconSize = 32;
+            this.btnKarjodibosh.Location = new System.Drawing.Point(68, 16);
+            this.btnKarjodibosh.Name = "btnKarjodibosh";
+            this.btnKarjodibosh.Size = new System.Drawing.Size(66, 35);
+            this.btnKarjodibosh.TabIndex = 55;
+            this.btnKarjodibosh.Text = "কার্যদিবস ";
+            this.btnKarjodibosh.UseVisualStyleBackColor = false;
             // 
-            // checkBox1
+            // cbxNiontron
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.checkBox1.Location = new System.Drawing.Point(140, 22);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(68, 24);
-            this.checkBox1.TabIndex = 56;
-            this.checkBox1.Text = "নিয়ন্ত্রিত";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbxNiontron.AutoSize = true;
+            this.cbxNiontron.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxNiontron.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.cbxNiontron.Location = new System.Drawing.Point(140, 22);
+            this.cbxNiontron.Name = "cbxNiontron";
+            this.cbxNiontron.Size = new System.Drawing.Size(68, 24);
+            this.cbxNiontron.TabIndex = 56;
+            this.cbxNiontron.Text = "নিয়ন্ত্রিত";
+            this.cbxNiontron.UseVisualStyleBackColor = true;
             // 
             // deleteButton
             // 
@@ -210,25 +223,13 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.deleteButton);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.iconButton1);
+            this.panel1.Controls.Add(this.cbxNiontron);
+            this.panel1.Controls.Add(this.btnKarjodibosh);
             this.panel1.Controls.Add(this.lbLevel);
             this.panel1.Location = new System.Drawing.Point(61, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(426, 54);
             this.panel1.TabIndex = 7;
-            // 
-            // cbxControl
-            // 
-            this.cbxControl.AutoSize = true;
-            this.cbxControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.cbxControl.Location = new System.Drawing.Point(35, 45);
-            this.cbxControl.Name = "cbxControl";
-            this.cbxControl.Size = new System.Drawing.Size(15, 14);
-            this.cbxControl.TabIndex = 63;
-            this.cbxControl.UseVisualStyleBackColor = true;
-            this.cbxControl.Visible = false;
             // 
             // movementStatusSliderPanel1
             // 
@@ -265,14 +266,14 @@
         private FontAwesome.Sharp.IconButton btnDelete;
         private System.Windows.Forms.Label lbDesignation;
         private System.Windows.Forms.Label lbName;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnUser;
         private System.Windows.Forms.Panel panel2;
         private CustomControl.MovementStatusSliderPanel movementStatusSliderPanel1;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton btnChair;
         private System.Windows.Forms.Panel LeftPanel;
         private System.Windows.Forms.Label lbLevel;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private FontAwesome.Sharp.IconButton btnKarjodibosh;
+        private System.Windows.Forms.CheckBox cbxNiontron;
         private FontAwesome.Sharp.IconButton deleteButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox cbxControl;

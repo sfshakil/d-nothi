@@ -154,6 +154,7 @@ namespace dNothi.Desktop
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
             builder.RegisterType<OnumodonService>().As<IOnumodonService>();
+            builder.RegisterType<OnuchhedForwardService>().As<IOnuchhedForwardService>();
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            

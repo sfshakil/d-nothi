@@ -286,6 +286,7 @@
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.profilePanel.Size = new System.Drawing.Size(325, 33);
             this.profilePanel.TabIndex = 29;
+            this.profilePanel.Click += new System.EventHandler(this.profilePanel_Click);
             // 
             // userPictureBox
             // 
@@ -303,6 +304,7 @@
             this.userPictureBox.Size = new System.Drawing.Size(23, 27);
             this.userPictureBox.TabIndex = 29;
             this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.userPictureBox_Click);
             // 
             // userNameLabel
             // 
@@ -316,6 +318,7 @@
             this.userNameLabel.Size = new System.Drawing.Size(283, 25);
             this.userNameLabel.TabIndex = 23;
             this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি)";
+            this.userNameLabel.Click += new System.EventHandler(this.userNameLabel_Click);
             // 
             // profileShowArrowButton
             // 
@@ -346,6 +349,7 @@
             this.nothiModulePanel.Name = "nothiModulePanel";
             this.nothiModulePanel.Size = new System.Drawing.Size(134, 43);
             this.nothiModulePanel.TabIndex = 27;
+            this.nothiModulePanel.Click += new System.EventHandler(this.nothiModulePanel_Click);
             // 
             // nothiModuleNameLabel
             // 
@@ -357,6 +361,7 @@
             this.nothiModuleNameLabel.Size = new System.Drawing.Size(34, 24);
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
+            this.nothiModuleNameLabel.Click += new System.EventHandler(this.nothiModuleNameLabel_Click);
             // 
             // iconButton2
             // 
@@ -372,6 +377,7 @@
             this.iconButton2.Size = new System.Drawing.Size(36, 30);
             this.iconButton2.TabIndex = 4;
             this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // label22
             // 
@@ -385,6 +391,7 @@
             this.label22.Size = new System.Drawing.Size(31, 20);
             this.label22.TabIndex = 18;
             this.label22.Text = "১২২";
+            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // dakModulePanel
             // 
@@ -396,6 +403,7 @@
             this.dakModulePanel.Name = "dakModulePanel";
             this.dakModulePanel.Size = new System.Drawing.Size(134, 43);
             this.dakModulePanel.TabIndex = 26;
+            this.dakModulePanel.Click += new System.EventHandler(this.dakModulePanel_Click);
             // 
             // dakModuleNameLabel
             // 
@@ -407,6 +415,7 @@
             this.dakModuleNameLabel.Size = new System.Drawing.Size(39, 24);
             this.dakModuleNameLabel.TabIndex = 19;
             this.dakModuleNameLabel.Text = "ডাক";
+            this.dakModuleNameLabel.Click += new System.EventHandler(this.dakModuleNameLabel_Click);
             // 
             // iconButton1
             // 
@@ -422,6 +431,7 @@
             this.iconButton1.Size = new System.Drawing.Size(36, 30);
             this.iconButton1.TabIndex = 4;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // moduleDakCountLabel
             // 
@@ -435,6 +445,7 @@
             this.moduleDakCountLabel.Size = new System.Drawing.Size(23, 20);
             this.moduleDakCountLabel.TabIndex = 18;
             this.moduleDakCountLabel.Text = "১২";
+            this.moduleDakCountLabel.Click += new System.EventHandler(this.moduleDakCountLabel_Click);
             // 
             // pnlNothiNoteTalika
             // 

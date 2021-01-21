@@ -20,6 +20,7 @@ namespace dNothi.Desktop.UI
 {
     public partial class Note : Form
     {
+        private DakUserParam _dakuserparam = new DakUserParam();
         NoteSaveDTO newnotedata = new NoteSaveDTO();
         NoteView newNoteView = new NoteView();
 
@@ -32,6 +33,8 @@ namespace dNothi.Desktop.UI
             _userService = userService;
             _onucchedSave = onucchedSave;
             _onumodonService = onumodonService;
+            _dakuserparam = _userService.GetLocalDakUserParam();
+
             InitializeComponent();
             SetDefaultFont(this.Controls);
             tinyMceEditor.CreateEditor();
@@ -39,6 +42,7 @@ namespace dNothi.Desktop.UI
             cbxNothiType.ItemHeight = 30;
             onuchhedheaderPnl.Hide();
             PnlSave.Visible = false;
+            userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
         }
         public void loadNoteData(NoteSaveDTO notedata)
         {
@@ -687,6 +691,8 @@ namespace dNothi.Desktop.UI
             nothiType.Enabled = true;
             nothiType.noteTotal = newNoteView.totalNothi;
             nothiType.noteSubject = newNoteView.noteSubject;
+            nothiType.loadNewNoteData(newnotedata);
+            nothiType.loadlistInboxRecord(nothiListRecords);
             nothiType.Location = new System.Drawing.Point(903, 0);
             foreach (onumodonDataRecordDTO  record in records)
             {
@@ -697,6 +703,119 @@ namespace dNothi.Desktop.UI
             nothiType.BringToFront();
 
             
+        }
+        designationSelect designationDetailsPanelNothi = new designationSelect();
+        private void userNameLabel_Click(object sender, EventArgs e)
+        {
+            if (designationDetailsPanelNothi.Width == 428)
+            {
+                designationDetailsPanelNothi.Visible = true;
+                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
+                Controls.Add(designationDetailsPanelNothi);
+                designationDetailsPanelNothi.BringToFront();
+                designationDetailsPanelNothi.Width = 427;
+
+            }
+            else
+            {
+                designationDetailsPanelNothi.Visible = false;
+                designationDetailsPanelNothi.Width = 428;
+            }
+        }
+
+        private void userPictureBox_Click(object sender, EventArgs e)
+        {
+            if (designationDetailsPanelNothi.Width == 428)
+            {
+                designationDetailsPanelNothi.Visible = true;
+                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
+                Controls.Add(designationDetailsPanelNothi);
+                designationDetailsPanelNothi.BringToFront();
+                designationDetailsPanelNothi.Width = 427;
+
+            }
+            else
+            {
+                designationDetailsPanelNothi.Visible = false;
+                designationDetailsPanelNothi.Width = 428;
+            }
+        }
+
+        private void profilePanel_Click(object sender, EventArgs e)
+        {
+            if (designationDetailsPanelNothi.Width == 428)
+            {
+                designationDetailsPanelNothi.Visible = true;
+                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
+                Controls.Add(designationDetailsPanelNothi);
+                designationDetailsPanelNothi.BringToFront();
+                designationDetailsPanelNothi.Width = 427;
+
+            }
+            else
+            {
+                designationDetailsPanelNothi.Visible = false;
+                designationDetailsPanelNothi.Width = 428;
+            }
+        }
+
+        private void dakModulePanel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void dakModuleNameLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void moduleDakCountLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void nothiModulePanel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+
+        private void nothiModuleNameLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
         }
     }
 }

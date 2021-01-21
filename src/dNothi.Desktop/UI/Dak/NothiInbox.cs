@@ -189,11 +189,12 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
-
+        public event EventHandler NothiOnumodonButtonClick;
         private void btnNothiInboxOnumodon_Click(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
-            form.ShowDialog();
+            if (this.NothiOnumodonButtonClick != null)
+                this.NothiOnumodonButtonClick(sender, e);
+            
             
         }
 

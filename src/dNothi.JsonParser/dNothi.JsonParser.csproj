@@ -144,6 +144,8 @@
     <Compile Include="Entity\Nothi\NothiTypeListResponse.cs" />
     <Compile Include="Entity\Nothi\NothiTypeSaveDTO.cs" />
     <Compile Include="Entity\Nothi\NothiTypeSaveResponse.cs" />
+    <Compile Include="Entity\Nothi\OnuchhedForwardData.cs" />
+    <Compile Include="Entity\Nothi\OnuchhedForwardResponse.cs" />
     <Compile Include="Entity\Nothi\OnuchhedSaveWithFile.cs" />
     <Compile Include="Entity\Nothi\onumodonDataDTO.cs" />
     <Compile Include="Entity\Nothi\onumodonDataRecordDTO.cs" />

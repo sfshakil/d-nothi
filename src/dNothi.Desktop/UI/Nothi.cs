@@ -104,6 +104,7 @@ namespace dNothi.Desktop.UI
                 nothiInbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiListRecordsDTO.last_note_date;
                 nothiInbox.nothiId = Convert.ToString(nothiListRecordsDTO.id);
                 nothiInbox.NewNoteButtonClick += delegate (object sender, EventArgs e) { NewNote_ButtonClick(sender, e, nothiListRecordsDTO); };
+                nothiInbox.NothiOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiOnumodon_ButtonClick(sender, e, nothiListRecordsDTO); };
                 //delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
 
                 i = i + 1;
@@ -126,6 +127,14 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<CreateNewNotes>();
             
             form.SaveNewNoteButtonClick += delegate (object sender1, EventArgs e1) { SaveNewNote_ButtonClick(sender1, e1, nothiListRecords); };
+            form.ShowDialog();
+
+        }
+        private void NothiOnumodon_ButtonClick(object sender, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
+        {
+            NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.GetNothiInboxRecords(nothiListRecords);
             form.ShowDialog();
 
         }
@@ -251,6 +260,7 @@ namespace dNothi.Desktop.UI
                 nothiOutbox.nothi = nothiOutboxListDTO.nothi.nothi_no + " " + nothiOutboxListDTO.nothi.subject;
                 nothiOutbox.shakha = nothiOutboxListDTO.nothi.office_unit_name;
                 nothiOutbox.prapok = nothiOutboxListDTO.to.officer + " "+ nothiOutboxListDTO.to.designation +","+ nothiOutboxListDTO.to.office_unit +","+ nothiOutboxListDTO.to.office;
+                if(nothiOutboxListDTO.desk !=null)
                 nothiOutbox.bortomanDesk = nothiOutboxListDTO.desk.officer+" "+ nothiOutboxListDTO.desk.designation +","+ nothiOutboxListDTO.desk.office_unit +","+ nothiOutboxListDTO.desk.office;
                 nothiOutbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiOutboxListDTO.nothi.last_note_date;
                 i = i + 1;

@@ -36,9 +36,10 @@ namespace dNothi.Desktop.UI.Dak
             this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DesignationFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnSend = new FontAwesome.Sharp.IconButton();
-            this.btnOnumodonkari = new FontAwesome.Sharp.IconButton();
+            this.btnAllOnumodonkari = new FontAwesome.Sharp.IconButton();
             this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -47,7 +48,6 @@ namespace dNothi.Desktop.UI.Dak
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.DesignationFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -140,10 +140,21 @@ namespace dNothi.Desktop.UI.Dak
             this.panel2.Size = new System.Drawing.Size(462, 636);
             this.panel2.TabIndex = 2;
             // 
+            // DesignationFLP
+            // 
+            this.DesignationFLP.AutoScroll = true;
+            this.DesignationFLP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DesignationFLP.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.DesignationFLP.Location = new System.Drawing.Point(0, 129);
+            this.DesignationFLP.Name = "DesignationFLP";
+            this.DesignationFLP.Size = new System.Drawing.Size(462, 448);
+            this.DesignationFLP.TabIndex = 73;
+            this.DesignationFLP.WrapContents = false;
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.btnSend);
-            this.panel5.Controls.Add(this.btnOnumodonkari);
+            this.panel5.Controls.Add(this.btnAllOnumodonkari);
             this.panel5.Controls.Add(this.btnEdit);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -169,24 +180,26 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSend.Size = new System.Drawing.Size(37, 33);
             this.btnSend.TabIndex = 73;
             this.btnSend.UseVisualStyleBackColor = false;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // btnOnumodonkari
+            // btnAllOnumodonkari
             // 
-            this.btnOnumodonkari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.btnOnumodonkari.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.btnOnumodonkari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOnumodonkari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOnumodonkari.ForeColor = System.Drawing.Color.White;
-            this.btnOnumodonkari.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.btnOnumodonkari.IconColor = System.Drawing.Color.White;
-            this.btnOnumodonkari.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOnumodonkari.IconSize = 24;
-            this.btnOnumodonkari.Location = new System.Drawing.Point(364, 12);
-            this.btnOnumodonkari.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOnumodonkari.Name = "btnOnumodonkari";
-            this.btnOnumodonkari.Size = new System.Drawing.Size(37, 33);
-            this.btnOnumodonkari.TabIndex = 72;
-            this.btnOnumodonkari.UseVisualStyleBackColor = false;
+            this.btnAllOnumodonkari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnAllOnumodonkari.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnAllOnumodonkari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAllOnumodonkari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAllOnumodonkari.ForeColor = System.Drawing.Color.White;
+            this.btnAllOnumodonkari.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnAllOnumodonkari.IconColor = System.Drawing.Color.White;
+            this.btnAllOnumodonkari.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAllOnumodonkari.IconSize = 24;
+            this.btnAllOnumodonkari.Location = new System.Drawing.Point(364, 12);
+            this.btnAllOnumodonkari.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAllOnumodonkari.Name = "btnAllOnumodonkari";
+            this.btnAllOnumodonkari.Size = new System.Drawing.Size(37, 33);
+            this.btnAllOnumodonkari.TabIndex = 72;
+            this.btnAllOnumodonkari.UseVisualStyleBackColor = false;
+            this.btnAllOnumodonkari.Click += new System.EventHandler(this.btnAllOnumodonkari_Click);
             // 
             // btnEdit
             // 
@@ -290,14 +303,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel8.Size = new System.Drawing.Size(2, 636);
             this.panel8.TabIndex = 65;
             // 
-            // DesignationFLP
-            // 
-            this.DesignationFLP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DesignationFLP.Location = new System.Drawing.Point(0, 129);
-            this.DesignationFLP.Name = "DesignationFLP";
-            this.DesignationFLP.Size = new System.Drawing.Size(462, 448);
-            this.DesignationFLP.TabIndex = 73;
-            // 
             // nothiDhoronSrchUC
             // 
             this.nothiDhoronSrchUC.AutoSize = true;
@@ -351,7 +356,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private FontAwesome.Sharp.IconButton btnSend;
-        private FontAwesome.Sharp.IconButton btnOnumodonkari;
+        private FontAwesome.Sharp.IconButton btnAllOnumodonkari;
         private FontAwesome.Sharp.IconButton btnEdit;
         private SearchUserController nothiDhoronSrchUC;
         private System.Windows.Forms.Panel panel9;

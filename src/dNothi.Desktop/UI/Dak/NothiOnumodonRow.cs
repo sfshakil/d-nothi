@@ -33,16 +33,26 @@ namespace dNothi.Desktop.UI.Dak
         private string _designation;
         public int flag
         {
-            set { if (value == 1) 
-                {
-                    btnDelete.Visible = false;
-                    deleteButton.Visible = false;
-                    cbxControl.Visible = true;
-
+            set {
+                    if (value == 1)
+                    {
+                        btnDelete.Visible = false;
+                        deleteButton.Visible = false;
+                        cbxControl.Visible = true;
+                    }
+                    if (value == 2)
+                    {
+                        btnDelete.Visible = false;
+                        deleteButton.Visible = false;
+                        btnChair.IconColor = Color.Red;
+                        cbxControl.Visible = false;
+                        lbName.ForeColor = Color.DarkMagenta;
+                        lbDesignation.ForeColor = Color.DarkMagenta;
+                    }
 
                 } 
-            }
         }
+
         public void uncheck()
         {
             this.Hide();
@@ -72,6 +82,14 @@ namespace dNothi.Desktop.UI.Dak
         {
             uncheck();
         }
-        
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler CheckboxButtonClick;
+        private void cbxControl_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.CheckboxButtonClick != null)
+                this.CheckboxButtonClick(sender, e);
+        }
     }
 }
