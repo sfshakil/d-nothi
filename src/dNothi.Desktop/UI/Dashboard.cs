@@ -2109,11 +2109,12 @@ namespace dNothi.Desktop.UI
                 dakSendUserControl.dak_List_User_Param = dakListUserParam;
                 dakSendUserControl.AddDesignationButtonClick += delegate (object snd, EventArgs eve) { AddDesignationUserControl_ButtonClick(sender, e); };
                 dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true,dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest); };
-               
 
 
 
-                dakSendUserControl.ShowDialog();
+
+                CalPopUpWindow(dakSendUserControl);
+              
             }
         }
         void hideform_Shown(object sender, EventArgs e,Form form)
