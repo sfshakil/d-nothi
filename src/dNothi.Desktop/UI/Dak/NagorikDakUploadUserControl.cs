@@ -375,6 +375,50 @@ namespace dNothi.Desktop.UI.Dak
             prapokDataGridView.DataSource = bindinglist;
         }
 
+        private void officerSearchXTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+            var prapokList = prapokDataGridView.DataSource;
+
+            List<ViewDesignationSealList> designationSealListsinGridView = (List<ViewDesignationSealList>)prapokList;
+            List<ViewDesignationSealList> NewViewDesignationSealLists = new List<ViewDesignationSealList>();
+
+
+            if (officerSearchXTextBox.Text == "")
+            {
+                PopulateGrid();
+            }
+            else
+            {
+                foreach (var des in designationSealListsinGridView)
+                {
+                    if (des.designation.StartsWith(officerSearchXTextBox.Text) || des.employee_name_bng.StartsWith(officerSearchXTextBox.Text))
+                    {
+                        NewViewDesignationSealLists.Add(des);
+                    }
+
+                }
+                BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
+                foreach (ViewDesignationSealList viewDesignationSealList in NewViewDesignationSealLists)
+                {
+                    bindinglist.Add(viewDesignationSealList);
+                }
+                prapokDataGridView.DataSource = null;
+                prapokDataGridView.DataSource = bindinglist;
+            }
+
+
+
+        }
+
+        private void ownOfficeButton_Click_1(object sender, EventArgs e)
+        {
+            NijOffice = false;
+            PopulateGrid();
+        }
+
+
+
         private void prapokDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int row_index = e.RowIndex;
@@ -424,51 +468,6 @@ namespace dNothi.Desktop.UI.Dak
 
             prapokDataGridView.Refresh();
         }
-
-        private void officerSearchXTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-            var prapokList = prapokDataGridView.DataSource;
-
-            List<ViewDesignationSealList> designationSealListsinGridView = (List<ViewDesignationSealList>)prapokList;
-            List<ViewDesignationSealList> NewViewDesignationSealLists = new List<ViewDesignationSealList>();
-
-
-            if (officerSearchXTextBox.Text == "")
-            {
-                PopulateGrid();
-            }
-            else
-            {
-                foreach (var des in designationSealListsinGridView)
-                {
-                    if (des.designation.StartsWith(officerSearchXTextBox.Text) || des.employee_name_bng.StartsWith(officerSearchXTextBox.Text))
-                    {
-                        NewViewDesignationSealLists.Add(des);
-                    }
-
-                }
-                BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
-                foreach (ViewDesignationSealList viewDesignationSealList in NewViewDesignationSealLists)
-                {
-                    bindinglist.Add(viewDesignationSealList);
-                }
-                prapokDataGridView.DataSource = null;
-                prapokDataGridView.DataSource = bindinglist;
-            }
-
-
-
-        }
-
-        private void ownOfficeButton_Click_1(object sender, EventArgs e)
-        {
-            NijOffice = false;
-            PopulateGrid();
-        }
-
-
-
 
 
 
@@ -673,6 +672,9 @@ namespace dNothi.Desktop.UI.Dak
 
 
         }
+
+
+
 
         private void SetDakUploadData()
         {

@@ -271,8 +271,6 @@
       <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonCell.cs" />
-    <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonCellLayout.cs" />
-    <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonColumn.cs" />
     <Compile Include="DataGridViewRadioButtonElements\MyDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>

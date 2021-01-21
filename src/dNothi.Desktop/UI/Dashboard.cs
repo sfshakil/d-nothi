@@ -73,6 +73,7 @@ namespace dNothi.Desktop.UI
             dashBoardBlurPanel.Controls.Add(pb);
             pb.Dock = DockStyle.Fill;
 
+          
 
 
         }
@@ -306,9 +307,9 @@ namespace dNothi.Desktop.UI
             dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false,0,0,0); };
 
 
+            CalPopUpWindow(dakSendUserControl);
+           
 
-
-            dakSendUserControl.ShowDialog();
         }
 
         private void SuccessfullySingleDakForwarded(bool v,int req, int success, int fail)
@@ -512,11 +513,6 @@ namespace dNothi.Desktop.UI
             form.ShowDialog();
         }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
 
 
@@ -628,12 +624,9 @@ namespace dNothi.Desktop.UI
 
         private void OnLoad(object sender, EventArgs e)
         {
-            NormalizeDashBoard();
             _dakuserparam = _userService.GetLocalDakUserParam();
             userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
 
-            SetDefaultFont(this.Controls);
-            LoadDakInbox();
         }
 
 
@@ -736,11 +729,11 @@ namespace dNothi.Desktop.UI
             form.is_copied_dak = is_copied_dak;
             form.dakSubject = dak_subject;
             form.SucessfullyDakNothijato += delegate (object snd, EventArgs eve) { LoadDakNothijato(); };
+            CalPopUpWindow(form);
 
-            Blur();
-            form.ShowDialog(this);
-            UnBlur();
-            //LoadDakNothijato();
+           
+      
+            
         }
 
         private void DakArchive_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
@@ -770,11 +763,10 @@ namespace dNothi.Desktop.UI
             form.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakNothivukto(); };
 
 
-            Blur();
-            form.ShowDialog(this);
-            UnBlur();
+            CalPopUpWindow(form);
+
+
             
-            ReloadBodyPanel();
 
         }
 
@@ -2124,7 +2116,15 @@ namespace dNothi.Desktop.UI
                 dakSendUserControl.ShowDialog();
             }
         }
+        void hideform_Shown(object sender, EventArgs e,Form form)
+        {
 
+             form.ShowDialog();
+
+            (sender as Form).Hide();
+
+           // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
 
         private void multipleDakActionButton_Click(object sender, EventArgs e)
         {
@@ -2167,32 +2167,73 @@ namespace dNothi.Desktop.UI
                     multipleDakAction.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakNothivukto(); };
 
                 }
-
                 multipleDakAction.dakListRecordsDTO = daks;
-                // multipleDakAction.Show();
 
-                Form form = new Form();
 
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.FormBorderStyle = FormBorderStyle.None;
-                form.BackColor=Color.White;
-                //form.Opacity = .5;
-                //form.Size = this.Size;
-                //form.ClientSize = multipleDakAction.Size;
-                form.AutoSize = true;
 
-                form.Controls.Add(multipleDakAction);
-                //form.Anchor = AnchorStyles.None;
-                //multipleDakAction.Anchor = AnchorStyles.None;
+                this.WindowState = FormWindowState.Maximized;
+                this.MinimizeBox = false ;
+
+
+
+
+
+
+
+                Form form = AttachControlToForm(multipleDakAction);
+
+
+
+                CalPopUpWindow(form);
+                
 
                
-                multipleDakAction.Anchor = AnchorStyles.Top|AnchorStyles.Bottom| AnchorStyles.Left| AnchorStyles.Right;
-                form.ShowDialog();
+             
 
-                //window.ShowDialog();
+
+
+               
+                
             }
         }
-     
+        public Form AttachControlToForm(Control control)
+        {
+            Form form = new Form();
+
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.Height = 100;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
+
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = this.Size;
+            hideform.Opacity = .6;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+
+        private void Dashboard_Shown(object sender, EventArgs e)
+        {
+            NormalizeDashBoard();
+         
+            SetDefaultFont(this.Controls);
+            LoadDakInbox();
+        }
     }
 
 

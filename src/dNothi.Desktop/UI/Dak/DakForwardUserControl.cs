@@ -296,6 +296,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
 
                     PopulateOwnOfficeGrid();
+                    PopulateOtherOfficeGrid();
 
                 }
                 catch
@@ -471,7 +472,7 @@ namespace dNothi.Desktop.UI.Dak
         {
 
             BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
-            foreach (ViewDesignationSealList viewDesignationSealList in viewDesignationSealLists.Where(a => a.nij_Office == false))
+            foreach (ViewDesignationSealList viewDesignationSealList in viewDesignationSealLists.Where(a => a.nij_Office == true))
             {
                 bindinglist.Add(viewDesignationSealList);
             }

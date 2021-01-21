@@ -310,7 +310,7 @@ namespace dNothi.Desktop.UI.Dak
             form._dak_id = 0;
             form.MultipleDakNothijato += delegate (object snd, EventArgs eve) { MultipleDakNothijatoConfirm(form._nothiSelected); };
 
-            form.ShowDialog(this);
+            form.ShowDialog();
         }
 
         private void MultipleDakNothijatoConfirm(NothijatoActionParam nothiSelected)
@@ -376,7 +376,7 @@ namespace dNothi.Desktop.UI.Dak
             form.MultipleDakNothivukto += delegate (object snd, EventArgs eve) { MultipleDakNothivuktoConfirm(form._noteSelected,form._nothiName,form._nothiBranch); };
 
 
-            form.ShowDialog(this);
+            form.ShowDialog();
         }
 
         private void MultipleDakNothivuktoConfirm(NoteNothiDTO noteSelected,string nothiName,string nothiBranch)
@@ -529,6 +529,12 @@ namespace dNothi.Desktop.UI.Dak
 
 
             var parent = this.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+
+        private void BlueBorder(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+
         }
     }
 }

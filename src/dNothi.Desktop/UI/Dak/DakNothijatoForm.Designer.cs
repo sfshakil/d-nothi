@@ -93,7 +93,7 @@
             this.panel2.Location = new System.Drawing.Point(10, 10);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(566, 105);
+            this.panel2.Size = new System.Drawing.Size(570, 105);
             this.panel2.TabIndex = 2;
             // 
             // dakSubjectLabel
@@ -151,7 +151,6 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.nothiListFlowLayoutPanel);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.detailsNothiSearcPanel);
@@ -172,7 +171,7 @@
             this.nothiListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(10, 608);
             this.nothiListFlowLayoutPanel.Name = "nothiListFlowLayoutPanel";
-            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(566, 92);
+            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(570, 96);
             this.nothiListFlowLayoutPanel.TabIndex = 59;
             this.nothiListFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
             // 
@@ -184,7 +183,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(10, 577);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(566, 31);
+            this.panel6.Size = new System.Drawing.Size(570, 31);
             this.panel6.TabIndex = 57;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
             // 
@@ -193,7 +192,7 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(424, 0);
+            this.label9.Location = new System.Drawing.Point(428, 0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label9.Size = new System.Drawing.Size(74, 23);
@@ -211,7 +210,7 @@
             this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 24;
-            this.iconButton6.Location = new System.Drawing.Point(498, 0);
+            this.iconButton6.Location = new System.Drawing.Point(502, 0);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Size = new System.Drawing.Size(34, 31);
             this.iconButton6.TabIndex = 37;
@@ -228,7 +227,7 @@
             this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 24;
-            this.iconButton5.Location = new System.Drawing.Point(532, 0);
+            this.iconButton5.Location = new System.Drawing.Point(536, 0);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(34, 31);
             this.iconButton5.TabIndex = 38;
@@ -257,7 +256,7 @@
             this.detailsNothiSearcPanel.ForeColor = System.Drawing.Color.White;
             this.detailsNothiSearcPanel.Location = new System.Drawing.Point(10, 195);
             this.detailsNothiSearcPanel.Name = "detailsNothiSearcPanel";
-            this.detailsNothiSearcPanel.Size = new System.Drawing.Size(566, 382);
+            this.detailsNothiSearcPanel.Size = new System.Drawing.Size(570, 382);
             this.detailsNothiSearcPanel.TabIndex = 58;
             this.detailsNothiSearcPanel.Visible = false;
             this.detailsNothiSearcPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
@@ -459,7 +458,7 @@
             this.label11.Dock = System.Windows.Forms.DockStyle.Top;
             this.label11.Location = new System.Drawing.Point(0, 39);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(566, 1);
+            this.label11.Size = new System.Drawing.Size(570, 1);
             this.label11.TabIndex = 34;
             // 
             // panel4
@@ -468,7 +467,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(566, 39);
+            this.panel4.Size = new System.Drawing.Size(570, 39);
             this.panel4.TabIndex = 51;
             // 
             // label8
@@ -546,7 +545,7 @@
             this.dakSearchHeadingPanel.Location = new System.Drawing.Point(10, 152);
             this.dakSearchHeadingPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakSearchHeadingPanel.Name = "dakSearchHeadingPanel";
-            this.dakSearchHeadingPanel.Size = new System.Drawing.Size(566, 43);
+            this.dakSearchHeadingPanel.Size = new System.Drawing.Size(570, 43);
             this.dakSearchHeadingPanel.TabIndex = 56;
             // 
             // dakSearchUsingTextButton
@@ -616,7 +615,7 @@
             this.panel3.Location = new System.Drawing.Point(10, 115);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
-            this.panel3.Size = new System.Drawing.Size(566, 37);
+            this.panel3.Size = new System.Drawing.Size(570, 37);
             this.panel3.TabIndex = 55;
             // 
             // panel7
