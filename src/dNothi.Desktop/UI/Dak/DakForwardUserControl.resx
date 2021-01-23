@@ -144,24 +144,10 @@
   <metadata name="viewDesignationSealListBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="officerSearchOwnButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACEAAAAfCAYAAABplKSyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAdJJREFUWEftlM1qwkAQx/twfYw8gM/gqafeevHkyVtPguAleGkJhAq2ip+x0rTU
-        DyQlNYYmWk3Q/jvRRm1Y4ypKKWTgB2Fnwv7YnZ2zczGDvyaS8IkkfCIJn38ocVdCVrdgz7EKx51AfWvh
-        UmLUc8ItITT60LzNHQvycwWX1YcFqa6Ojkvrrolskf3vLvgkim10SMAeKIix8mIe2Q8ycXQkDzgRLonU
-        cAaMu4gzcmtKKEwBQy8xcuFwSDxB/ZpBUelbykFg1iwRehZdC50GIxfGbglFhw0LIn2ndS18g6oG46eW
-        md/CbonmWkIcTVCoMWp87ql5TyIhUlPCRbmZwZU+CW++VxOYGbhm5ULgkJDpBGhvswVBqqPs0HOcmhCV
-        20BdHjdjqhsqgfXdcEgQiyuZodPL08CqQByY0BwXmtlHuiZRTQ4JbQwHY8gHzAo+CSLeNhcixrCNZCG3
-        Wo/VWpAtb1p5QfmRBVWrh76iINwSHkLjBconzYxA2CMN6bKCsu9CYbzzi+wlsUKScbEY2/mNCUq9Y/0W
-        5BU5TGIbXuPS1NwMQ6+zazc4roRHUISedIJVt8HxJTxIpDChq5nTcHtcN/E2TiOxJ5GETyThE0ksyeAb
-        EhcHmnHktlYAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="dataGridViewLinkColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="dataGridViewImageColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="dataGridViewCellStyle11.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="dataGridViewCellStyle10.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
@@ -176,26 +162,12 @@
         ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
         ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
         hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
-</value>
-  </data>
-  <data name="officerSearchOthersButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACEAAAAfCAYAAABplKSyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAdJJREFUWEftlM1qwkAQx/twfYw8gM/gqafeevHkyVtPguAleGkJhAq2ip+x0rTU
-        DyQlNYYmWk3Q/jvRRm1Y4ypKKWTgB2Fnwv7YnZ2zczGDvyaS8IkkfCIJn38ocVdCVrdgz7EKx51AfWvh
-        UmLUc8ItITT60LzNHQvycwWX1YcFqa6Ojkvrrolskf3vLvgkim10SMAeKIix8mIe2Q8ycXQkDzgRLonU
-        cAaMu4gzcmtKKEwBQy8xcuFwSDxB/ZpBUelbykFg1iwRehZdC50GIxfGbglFhw0LIn2ndS18g6oG46eW
-        md/CbonmWkIcTVCoMWp87ql5TyIhUlPCRbmZwZU+CW++VxOYGbhm5ULgkJDpBGhvswVBqqPs0HOcmhCV
-        20BdHjdjqhsqgfXdcEgQiyuZodPL08CqQByY0BwXmtlHuiZRTQ4JbQwHY8gHzAo+CSLeNhcixrCNZCG3
-        Wo/VWpAtb1p5QfmRBVWrh76iINwSHkLjBconzYxA2CMN6bKCsu9CYbzzi+wlsUKScbEY2/mNCUq9Y/0W
-        5BU5TGIbXuPS1NwMQ6+zazc4roRHUISedIJVt8HxJTxIpDChq5nTcHtcN/E2TiOxJ5GETyThE0ksyeAb
-        EhcHmnHktlYAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>387, 17</value>
   </metadata>
-  <data name="dataGridViewCellStyle14.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="dataGridViewCellStyle15.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
@@ -212,7 +184,7 @@
         hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
 </value>
   </data>
-  <data name="dataGridViewCellStyle15.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="dataGridViewCellStyle16.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG

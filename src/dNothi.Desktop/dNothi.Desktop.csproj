@@ -271,8 +271,6 @@
       <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonCell.cs" />
-    <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonCellLayout.cs" />
-    <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonColumn.cs" />
     <Compile Include="DataGridViewRadioButtonElements\MyDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -283,6 +281,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IUserControlFactory.cs" />
+    <Compile Include="UI\CustomMessageBox\ConditonBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CustomMessageBox\ConditonBoxForm.Designer.cs">
+      <DependentUpon>ConditonBoxForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\Attachment.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -625,6 +629,12 @@
     <Compile Include="UI\ManuelUserControl\UserNameLoginPageUserControl.Designer.cs">
       <DependentUpon>UserNameLoginPageUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CustomMessageBox\UIFormValidationAlertMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CustomMessageBox\UIFormValidationAlertMessageForm.Designer.cs">
+      <DependentUpon>UIFormValidationAlertMessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\NewNothiCreateGuidelines.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -695,6 +705,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\PlaceHolderTextBox.resx">
       <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomMessageBox\ConditonBoxForm.resx">
+      <DependentUpon>ConditonBoxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Attachment.resx">
       <DependentUpon>Attachment.cs</DependentUpon>
@@ -866,6 +879,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ManuelUserControl\UserNameLoginPageUserControl.resx">
       <DependentUpon>UserNameLoginPageUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomMessageBox\UIFormValidationAlertMessageForm.resx">
+      <DependentUpon>UIFormValidationAlertMessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NewNothiCreateGuidelines.resx">
       <DependentUpon>NewNothiCreateGuidelines.cs</DependentUpon>

@@ -56,7 +56,7 @@
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(92)))), ((int)(((byte)(107)))));
-            this.dateLabel.Location = new System.Drawing.Point(710, 23);
+            this.dateLabel.Location = new System.Drawing.Point(704, 23);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(97, 14);
             this.dateLabel.TabIndex = 89;

@@ -65,7 +65,6 @@
             // 
             this.attachmentLink.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.attachmentLink.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.attachmentLink.Image = ((System.Drawing.Image)(resources.GetObject("attachmentLink.Image")));
             this.attachmentLink.Location = new System.Drawing.Point(125, 4);
             this.attachmentLink.Name = "attachmentLink";
             this.attachmentLink.Padding = new System.Windows.Forms.Padding(25, 5, 25, 5);

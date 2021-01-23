@@ -11,6 +11,8 @@ using dNothi.Utility;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using dNothi.Services.DakServices;
+using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Constants;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -470,6 +472,7 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DakArchiveButtonClick;
         private void dakArchiveButton_Click(object sender, EventArgs e)
         {
+
             if (this.DakArchiveButtonClick != null)
                 this.DakArchiveButtonClick(sender, e);
         }
@@ -492,12 +495,14 @@ namespace dNothi.Desktop.UI.Dak
 
         private void revertButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি ফেরত আনতে চান ?\n",
-                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
-            {
+         
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = MessageBoxMessage.dakArchiveConditionMessage;
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
+                {
 
-                if (this.RevertButtonClick != null)
+                    if (this.RevertButtonClick != null)
                     this.RevertButtonClick(sender, e);
             }
         }

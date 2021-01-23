@@ -23,7 +23,7 @@ namespace dNothi.Desktop
             // begin a new lifetime scope for each form instance
             var scope = this.currentScope.BeginLifetimeScope();
 
-            var form = (Form)scope.Resolve(formType);
+           var form = (Form)scope.Resolve(formType);
 
             form.Disposed += (s, e) =>
             {

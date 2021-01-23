@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageBoxMessage.cs" />
     <Compile Include="ServiceAddresses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

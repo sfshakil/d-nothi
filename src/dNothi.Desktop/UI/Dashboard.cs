@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using dNothi.Utility;
 using dNothi.Desktop.UI.VIew;
 using System.Drawing.Imaging;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI
 {
@@ -73,6 +74,7 @@ namespace dNothi.Desktop.UI
             dashBoardBlurPanel.Controls.Add(pb);
             pb.Dock = DockStyle.Fill;
 
+          
 
 
         }
@@ -306,9 +308,9 @@ namespace dNothi.Desktop.UI
             dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false,0,0,0); };
 
 
+            CalPopUpWindow(dakSendUserControl);
+           
 
-
-            dakSendUserControl.ShowDialog();
         }
 
         private void SuccessfullySingleDakForwarded(bool v,int req, int success, int fail)
@@ -512,11 +514,6 @@ namespace dNothi.Desktop.UI
             form.ShowDialog();
         }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
 
 
@@ -628,12 +625,9 @@ namespace dNothi.Desktop.UI
 
         private void OnLoad(object sender, EventArgs e)
         {
-            NormalizeDashBoard();
             _dakuserparam = _userService.GetLocalDakUserParam();
             userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
 
-            SetDefaultFont(this.Controls);
-            LoadDakInbox();
         }
 
 
@@ -736,12 +730,15 @@ namespace dNothi.Desktop.UI
             form.is_copied_dak = is_copied_dak;
             form.dakSubject = dak_subject;
             form.SucessfullyDakNothijato += delegate (object snd, EventArgs eve) { LoadDakNothijato(); };
+            CalPopUpWindow(form);
 
-            Blur();
-            form.ShowDialog(this);
-            UnBlur();
-            //LoadDakNothijato();
+           
+      
+            
         }
+
+
+
 
         private void DakArchive_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
         {
@@ -751,11 +748,15 @@ namespace dNothi.Desktop.UI
             DakArchiveResponse dakArchiveResponse = _dakArchiveService.GetDakArcivedResponse(_dakuserparam, dakid, dak_type, is_copied_dak);
             if (dakArchiveResponse.status == "success")
             {
+
+                SuccessMessage(dakArchiveResponse.data);
                 ReloadBodyPanel();
+                
             }
             else
             {
-                MessageBox.Show("ডাক আর্কাইভ সফল হ​য়নি!");
+                ErrorMessage(dakArchiveResponse.message);
+   
             }
 
         }
@@ -770,11 +771,10 @@ namespace dNothi.Desktop.UI
             form.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakNothivukto(); };
 
 
-            Blur();
-            form.ShowDialog(this);
-            UnBlur();
+            CalPopUpWindow(form);
+
+
             
-            ReloadBodyPanel();
 
         }
 
@@ -930,27 +930,11 @@ namespace dNothi.Desktop.UI
             button.ForeColor = Color.FromArgb(78, 165, 254);
         }
 
-        private void dakOutboxButton_Click_1(object sender, EventArgs e)
-        {
+      
 
-        }
+        
 
-        private void xTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void docketingNoSearchXTextBox_MouseHover(object sender, EventArgs e)
-        {
-            //if (docketingNoSearchXTextBox.Text == "ডকেটিং নং")
-            //{
-            //    docketingNoSearchXTextBox.Text = "";
-            //}
-            //else if(docketingNoSearchXTextBox.Text == "")
-            //{
-            //    docketingNoSearchXTextBox.Text = "ডকেটিং নং";
-            //}
-        }
+      
 
 
 
@@ -1229,15 +1213,18 @@ namespace dNothi.Desktop.UI
             {
                 if (revertResponse.status == "success")
                 {
-                    MessageBox.Show(revertResponse.data);
+                    SuccessMessage(revertResponse.data);
+                    LoadDakArchive();
+
                 }
                 else
                 {
-                    MessageBox.Show(revertResponse.message);
+                    ErrorMessage(revertResponse.message);
+
                 }
             }
             
-            LoadDakArchive();
+            
         }
         private void DakNothivuktoRevert_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, string dak_subject, int is_copied_dak)
         {
@@ -1246,14 +1233,17 @@ namespace dNothi.Desktop.UI
             {
                 if (revertResponse.status == "success")
                 {
-                    MessageBox.Show(revertResponse.data);
+                    SuccessMessage(revertResponse.data);
+                    LoadDakNothivukto();
+
                 }
                 else
                 {
-                    MessageBox.Show(revertResponse.message);
+                    ErrorMessage(revertResponse.message);
+
                 }
             }
-            LoadDakNothivukto();
+           
         }
 
         private void DakForwardRevert_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, string dak_subject, int is_copied_dak)
@@ -1263,19 +1253,22 @@ namespace dNothi.Desktop.UI
             {
                 if(revertResponse.status=="success")
                 {
-                    MessageBox.Show(revertResponse.data);
+                    SuccessMessage(revertResponse.data);
+                    LoadDakOutbox();
+
                 }
                 else
                 {
-                    MessageBox.Show(revertResponse.message);
+                    ErrorMessage(revertResponse.message);
+
                 }
-               
+
             }
             else
             {
-                MessageBox.Show("দুঃখিত ! ডাকটি অন্য কার্যক্রমের সাথে যুক্ত রয়েছে বিধায় ফেরত আনা সম্ভব হচ্ছে না");
+               ErrorMessage("দুঃখিত ! ডাকটি অন্য কার্যক্রমের সাথে যুক্ত রয়েছে বিধায় ফেরত আনা সম্ভব হচ্ছে না");
             }
-            LoadDakOutbox();
+           
         }
 
         private void dakOutboxButton_Click(object sender, EventArgs e)
@@ -1290,8 +1283,6 @@ namespace dNothi.Desktop.UI
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
             NormalizeDashBoard();
-
-
 
         }
 
@@ -1390,14 +1381,17 @@ namespace dNothi.Desktop.UI
             {
                 if (revertResponse.status == "success")
                 {
-                    MessageBox.Show(revertResponse.data);
+                    SuccessMessage(revertResponse.data);
+                    LoadDakNothijato();
+
                 }
                 else
                 {
-                    MessageBox.Show(revertResponse.message);
+                    ErrorMessage(revertResponse.message);
+
                 }
             }
-            LoadDakNothijato();
+           
         }
 
         private void nothijatoButton_Click(object sender, EventArgs e)
@@ -1527,11 +1521,11 @@ namespace dNothi.Desktop.UI
             {
                 if (dakSendResponse.status == "error")
                 {
-                    MessageBox.Show("ডাকটি প্রেরণ সফল হইনি!");
+                    ErrorMessage("ডাকটি প্রেরণ সফল হইনি!");
                 }
                 else if (dakSendResponse.status == "success")
                 {
-                    MessageBox.Show(dakSendResponse.data.message);
+                    SuccessMessage(dakSendResponse.data.message);
                     LoadDakOutbox();
 
                 }
@@ -1550,7 +1544,7 @@ namespace dNothi.Desktop.UI
 
             var form = FormFactory.Create<AddDesignationSeal>();
 
-            form.ShowDialog();
+            CalPopUpWindow(form);
             ReloadBodyPanel();
            
 
@@ -1592,11 +1586,11 @@ namespace dNothi.Desktop.UI
             {
                 if (dakDraftedResponse.status == "error")
                 {
-                    MessageBox.Show("ডাকটি প্রেরণ সফল হইনি!");
+                    ErrorMessage("ডাকটি প্রেরণ সফল হইনি!");
                 }
                 else if (dakDraftedResponse.status == "success")
                 {
-                    MessageBox.Show(dakDraftedResponse.message);
+                    SuccessMessage(dakDraftedResponse.message);
                     ResetAllMenuButtonSelection();
                     SelectButton(khasraDakButton);
                     LoadDakKhasraList();
@@ -1815,11 +1809,11 @@ namespace dNothi.Desktop.UI
             {
                 if (dakDeleteResponse.status == "error")
                 {
-                    MessageBox.Show("ডাকটি মুছন সফল হইনি!");
+                    ErrorMessage("ডাকটি মুছন সফল হইনি!");
                 }
                 else if (dakDeleteResponse.status == "success")
                 {
-                    MessageBox.Show(dakDeleteResponse.data);
+                    SuccessMessage(dakDeleteResponse.data);
                     LoadDakKhasraList();
 
                 }
@@ -1838,14 +1832,16 @@ namespace dNothi.Desktop.UI
             {
                 if (dakSendResponse.status == "error")
                 {
-                    MessageBox.Show("ডাকটি প্রেরণ সফল হইনি!");
+                   ErrorMessage("ডাকটি প্রেরণ সফল হইনি!");
                 }
                 else if (dakSendResponse.status == "success")
                 {
-                    MessageBox.Show(dakSendResponse.data.message);
+                    SuccessMessage(dakSendResponse.data.message);
                     LoadDakKhasraList();
 
                 }
+
+
             }
             catch (Exception Ex)
             {
@@ -2117,14 +2113,23 @@ namespace dNothi.Desktop.UI
                 dakSendUserControl.dak_List_User_Param = dakListUserParam;
                 dakSendUserControl.AddDesignationButtonClick += delegate (object snd, EventArgs eve) { AddDesignationUserControl_ButtonClick(sender, e); };
                 dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true,dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest); };
-               
 
 
 
-                dakSendUserControl.ShowDialog();
+
+                CalPopUpWindow(dakSendUserControl);
+              
             }
         }
+        void hideform_Shown(object sender, EventArgs e,Form form)
+        {
 
+             form.ShowDialog();
+
+            (sender as Form).Hide();
+
+           // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
 
         private void multipleDakActionButton_Click(object sender, EventArgs e)
         {
@@ -2167,32 +2172,96 @@ namespace dNothi.Desktop.UI
                     multipleDakAction.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakNothivukto(); };
 
                 }
-
                 multipleDakAction.dakListRecordsDTO = daks;
-                // multipleDakAction.Show();
 
-                Form form = new Form();
 
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.FormBorderStyle = FormBorderStyle.None;
-                form.BackColor=Color.White;
-                //form.Opacity = .5;
-                //form.Size = this.Size;
-                //form.ClientSize = multipleDakAction.Size;
-                form.AutoSize = true;
 
-                form.Controls.Add(multipleDakAction);
-                //form.Anchor = AnchorStyles.None;
-                //multipleDakAction.Anchor = AnchorStyles.None;
+                this.WindowState = FormWindowState.Maximized;
+                this.MinimizeBox = false ;
+
+
+
+
+
+
+
+                Form form = AttachControlToForm(multipleDakAction);
+
+
+
+                CalPopUpWindow(form);
+                
 
                
-                multipleDakAction.Anchor = AnchorStyles.Top|AnchorStyles.Bottom| AnchorStyles.Left| AnchorStyles.Right;
-                form.ShowDialog();
+             
 
-                //window.ShowDialog();
+
+
+               
+                
             }
         }
-     
+        public Form AttachControlToForm(Control control)
+        {
+            Form form = new Form();
+
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.Height = 100;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
+
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = this.Size;
+            hideform.Opacity = .6;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+
+        private void Dashboard_Shown(object sender, EventArgs e)
+        {
+            NormalizeDashBoard();
+         
+            SetDefaultFont(this.Controls);
+            LoadDakInbox();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //this.Close();
+        }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+           
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+        
+        }
     }
 
 
@@ -2306,4 +2375,6 @@ namespace dNothi.Desktop.UI
             return bmp;
         }
     }
+
+    
 }

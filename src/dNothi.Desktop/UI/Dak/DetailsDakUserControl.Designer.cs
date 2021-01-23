@@ -152,7 +152,7 @@
             this.decisionText.Location = new System.Drawing.Point(302, 0);
             this.decisionText.Name = "decisionText";
             this.decisionText.Padding = new System.Windows.Forms.Padding(0, 3, 0, 5);
-            this.decisionText.Size = new System.Drawing.Size(181, 26);
+            this.decisionText.Size = new System.Drawing.Size(178, 26);
             this.decisionText.TabIndex = 76;
             this.decisionText.Text = "qewqewqeqw qweqwe qweqw ";
             this.decisionText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

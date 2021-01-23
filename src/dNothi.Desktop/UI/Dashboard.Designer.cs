@@ -175,6 +175,7 @@
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.dashBoardBlurPanel = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -2399,6 +2400,10 @@
             this.dashBoardBlurPanel.Size = new System.Drawing.Size(1354, 687);
             this.dashBoardBlurPanel.TabIndex = 47;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2413,6 +2418,7 @@
             this.Name = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.OnLoad);
+            this.Shown += new System.EventHandler(this.Dashboard_Shown);
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -2622,6 +2628,7 @@
         private FontAwesome.Sharp.IconButton multipleDakNothivuktoButton;
         private FontAwesome.Sharp.IconButton multipleDakForwardButton;
         private FontAwesome.Sharp.IconButton starButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

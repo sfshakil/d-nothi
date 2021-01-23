@@ -15,6 +15,8 @@ using System.IO;
 using dNothi.Utility;
 using System.Net;
 using System.Net.Http;
+using dNothi.Constants;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -53,7 +55,8 @@ namespace dNothi.Desktop.UI.Dak
             } 
         }
 
-
+        public MessageBoxMessage _message = new MessageBoxMessage();
+      
         public DakInfoDTO dakInfoDTO {
             get { return _dakInfoDTO; }
             set { 
@@ -793,10 +796,12 @@ namespace dNothi.Desktop.UI.Dak
                 return;
             }
 
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি সংরক্ষণ করতে চান?\n",
-                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি ডাকটি সংরক্ষণ করতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
             {
+
                 SetDakUploadData();
 
                 if (this.KhosraSaveButtonClick != null)
@@ -966,11 +971,12 @@ namespace dNothi.Desktop.UI.Dak
             }
 
 
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি ডাকটি প্রেরণ করতে চান?";
 
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি প্রেরণ করতে চান?\n",
-                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+            if (conditonBoxForm.Yes)
             {
+               
                 SetDakUploadData();
 
 
@@ -996,7 +1002,7 @@ namespace dNothi.Desktop.UI.Dak
             if(!attachmentList.Any(a=>a.isMulpotro==true))
             {
                 fileUploadPanel.Focus();
-                MyErrorProvider.SetError(fileUploadPanel, "দয়া করে মূলপত্র বাছাই করুন!");
+                ShowAlertMessage(MessageBoxMessage.mulpotroNotSelectErrorMessage);
                 return false;
             }
             
@@ -1006,7 +1012,7 @@ namespace dNothi.Desktop.UI.Dak
             {
 
                 senderSearchButton.Focus();
-                MyErrorProvider.SetError(senderSearchButton, "দয়া করে অফিসার বাছাই করুন!");
+                ShowAlertMessage(MessageBoxMessage.officerNotSelectErrorMessage);
                 return false;
             }
            
@@ -1014,7 +1020,7 @@ namespace dNothi.Desktop.UI.Dak
             {
 
                 sharokNoTextBox.Focus();
-                MyErrorProvider.SetError(sharokNoPanel, "দয়া করে স্মারক নম্বর ইনপুট দিন!");
+                ShowAlertMessage(MessageBoxMessage.sharokNoNotGivenErrorMessage);
                 return false;
             }
 
@@ -1022,14 +1028,14 @@ namespace dNothi.Desktop.UI.Dak
             {
 
                 subjectXTextBox.Focus();
-                MyErrorProvider.SetError(dakDescriptionSubPanel, "দয়া করে ডাকের বিষয় ইনপুট দিন!");
+                ShowAlertMessage(MessageBoxMessage.subjectNotGivenErrorMessage);
                 return false;
             }
 
             var mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
             if (mulprapok == null)
             {
-                MessageBox.Show("মুল-প্রাপক সিলেক্ট করুন!");
+                ShowAlertMessage(MessageBoxMessage.mulPrapokNotSelectErrorMessage);
                 return false;
             }
 
@@ -1037,7 +1043,13 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-
+        private void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
+        {
+            UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
+            alertMessageBox.message = mulpotroNotSelectErrorMessage;
+           
+            alertMessageBox.ShowDialog();
+        }
 
         private void searchOfficerRightListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {

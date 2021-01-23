@@ -11,6 +11,7 @@ using dNothi.Utility;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -458,13 +459,20 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DakArchiveButtonClick;
         private void dakArchiveButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি আর্কাইভ করতে চান ?\n",
-                              "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
-            {
+            
+
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = "আপনি কি ডাকটি আর্কাইভ করতে চান?";
+                conditonBoxForm.ShowDialog();
 
 
-                if (this.DakArchiveButtonClick != null)
+
+
+                if (conditonBoxForm.Yes)
+                {
+
+
+                    if (this.DakArchiveButtonClick != null)
                     this.DakArchiveButtonClick(sender, e);
             }
            

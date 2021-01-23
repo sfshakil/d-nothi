@@ -13,6 +13,9 @@ using dNothi.JsonParser.Entity.Dak;
 using AutoMapper;
 using System.IO;
 using dNothi.Utility;
+using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Constants;
+using System.Text.RegularExpressions;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -375,6 +378,50 @@ namespace dNothi.Desktop.UI.Dak
             prapokDataGridView.DataSource = bindinglist;
         }
 
+        private void officerSearchXTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+            var prapokList = prapokDataGridView.DataSource;
+
+            List<ViewDesignationSealList> designationSealListsinGridView = (List<ViewDesignationSealList>)prapokList;
+            List<ViewDesignationSealList> NewViewDesignationSealLists = new List<ViewDesignationSealList>();
+
+
+            if (officerSearchXTextBox.Text == "")
+            {
+                PopulateGrid();
+            }
+            else
+            {
+                foreach (var des in designationSealListsinGridView)
+                {
+                    if (des.designation.StartsWith(officerSearchXTextBox.Text) || des.employee_name_bng.StartsWith(officerSearchXTextBox.Text))
+                    {
+                        NewViewDesignationSealLists.Add(des);
+                    }
+
+                }
+                BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
+                foreach (ViewDesignationSealList viewDesignationSealList in NewViewDesignationSealLists)
+                {
+                    bindinglist.Add(viewDesignationSealList);
+                }
+                prapokDataGridView.DataSource = null;
+                prapokDataGridView.DataSource = bindinglist;
+            }
+
+
+
+        }
+
+        private void ownOfficeButton_Click_1(object sender, EventArgs e)
+        {
+            NijOffice = false;
+            PopulateGrid();
+        }
+
+
+
         private void prapokDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int row_index = e.RowIndex;
@@ -424,51 +471,6 @@ namespace dNothi.Desktop.UI.Dak
 
             prapokDataGridView.Refresh();
         }
-
-        private void officerSearchXTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-            var prapokList = prapokDataGridView.DataSource;
-
-            List<ViewDesignationSealList> designationSealListsinGridView = (List<ViewDesignationSealList>)prapokList;
-            List<ViewDesignationSealList> NewViewDesignationSealLists = new List<ViewDesignationSealList>();
-
-
-            if (officerSearchXTextBox.Text == "")
-            {
-                PopulateGrid();
-            }
-            else
-            {
-                foreach (var des in designationSealListsinGridView)
-                {
-                    if (des.designation.StartsWith(officerSearchXTextBox.Text) || des.employee_name_bng.StartsWith(officerSearchXTextBox.Text))
-                    {
-                        NewViewDesignationSealLists.Add(des);
-                    }
-
-                }
-                BindingList<ViewDesignationSealList> bindinglist = new BindingList<ViewDesignationSealList>();
-                foreach (ViewDesignationSealList viewDesignationSealList in NewViewDesignationSealLists)
-                {
-                    bindinglist.Add(viewDesignationSealList);
-                }
-                prapokDataGridView.DataSource = null;
-                prapokDataGridView.DataSource = bindinglist;
-            }
-
-
-
-        }
-
-        private void ownOfficeButton_Click_1(object sender, EventArgs e)
-        {
-            NijOffice = false;
-            PopulateGrid();
-        }
-
-
-
 
 
 
@@ -653,10 +655,15 @@ namespace dNothi.Desktop.UI.Dak
             {
                 return;
             }
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি সংরক্ষণ করতে চান?\n",
-                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি ডাকটি সংরক্ষণ করতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
             {
+
+
+                
                 SetDakUploadData();
 
                 if (this.KhosraSaveButtonClick != null)
@@ -673,6 +680,9 @@ namespace dNothi.Desktop.UI.Dak
 
 
         }
+
+
+
 
         private void SetDakUploadData()
         {
@@ -832,11 +842,13 @@ namespace dNothi.Desktop.UI.Dak
             {
                 return;
             }
-
-                DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি প্রেরণ করতে চান?\n",
-                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি ডাকটি প্রেরণ করতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
             {
+
+                
                 SetDakUploadData();
 
 
@@ -861,7 +873,7 @@ namespace dNothi.Desktop.UI.Dak
             if (!attachmentList.Any(a => a.isMulpotro == true))
             {
                 fileUploadPanel.Focus();
-                MyErrorProvider.SetError(fileUploadPanel, "দয়া করে মূলপত্র বাছাই করুন!");
+                ShowAlertMessage(MessageBoxMessage.mulpotroNotSelectErrorMessage);
                 return false;
             }
 
@@ -871,14 +883,14 @@ namespace dNothi.Desktop.UI.Dak
             {
 
                 nationalIdXTextBox.Focus();
-                MyErrorProvider.SetError(nationalIdPanel, "সঠিক ন্যাশনাল আইডি ইনপুট দিন!");
+                ShowAlertMessage(MessageBoxMessage.natioanlIdNotGivenSpedifiedDegitErrorMessage);
                 return false;
             }
             if (birthCertificateNoXTextBox.Text.Length != 17 && !string.IsNullOrEmpty(birthCertificateNoXTextBox.Text))
             {
 
                 birthCertificateNoXTextBox.Focus();
-                MyErrorProvider.SetError(birthCPanel, "শুধুমাত্র ১৭ অঙ্কের ইনপুট দিন!");
+                ShowAlertMessage(MessageBoxMessage.birthCertificateNotGiven17ErrorMessage);
                 return false;
             }
              
@@ -886,7 +898,7 @@ namespace dNothi.Desktop.UI.Dak
             {
 
                 mobileXTextBox.Focus();
-                MyErrorProvider.SetError(mobileNoPanel, "শুধুমাত্র ১১ অঙ্কের ইনপুট দিন!");
+                ShowAlertMessage(MessageBoxMessage.mobileNoNotGiven11DigitErrorMessage);
                 return false;
             }
 
@@ -894,7 +906,7 @@ namespace dNothi.Desktop.UI.Dak
             {
 
                 nameBanglaXTextBox.Focus();
-                MyErrorProvider.SetError(nameBanglaPanel, "দয়া করে বাংলা নাম ইনপুট দিন!");
+                ShowAlertMessage(MessageBoxMessage.nameBengaliNotGivenErrorMessage);
                 return false;
             }
 
@@ -902,7 +914,7 @@ namespace dNothi.Desktop.UI.Dak
             {
 
                 presentAddressXTextBox.Focus();
-                MyErrorProvider.SetError(presentAddPanel, "দয়া করে বর্তমান ঠিকানা ইনপুট দিন!");
+                ShowAlertMessage(MessageBoxMessage.presentAddressNotGivenErrorMessage);
                 return false;
             }
 
@@ -910,7 +922,7 @@ namespace dNothi.Desktop.UI.Dak
             {
 
                 permenantAddressXTextBox.Focus();
-                MyErrorProvider.SetError(permenantAddPanel, "দয়া করে স্থায়ী ঠিকানা ইনপুট দিন!");
+                ShowAlertMessage(MessageBoxMessage.permenantAddressNotGivenErrorMessage);
                 return false;
             }
 
@@ -918,13 +930,13 @@ namespace dNothi.Desktop.UI.Dak
             {
 
                 subjectXTextBox.Focus();
-                MyErrorProvider.SetError(subjectPanel, "দয়া করে স্থায়ী ঠিকানা ইনপুট দিন!");
+                ShowAlertMessage(MessageBoxMessage.subjectNotGivenErrorMessage);
                 return false;
             }
             var mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
             if (mulprapok==null)
             {
-                MessageBox.Show("মুল-প্রাপক সিলেক্ট করুন!");
+                ShowAlertMessage(MessageBoxMessage.mulPrapokNotSelectErrorMessage);
                 return false;
             }
 
@@ -958,7 +970,13 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
+        private void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
+        {
 
+            UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
+            alertMessageBox.message = mulpotroNotSelectErrorMessage;
+            alertMessageBox.ShowDialog();
+        }
         private void passportNoXTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -1004,6 +1022,24 @@ namespace dNothi.Desktop.UI.Dak
             {
                 e.Handled = true;
             }
+        }
+
+        private void nameBanglaXTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char inputChar = e.KeyChar;
+            var regexItem = new Regex("^[a-zA-Z0-9$@$!%*?&#^-_. +`\b]+$");
+            string pressedChar = inputChar.ToString();
+            if (!char.IsControl(e.KeyChar) && regexItem.IsMatch(pressedChar))
+            {
+                e.Handled = true;
+
+            }
+           
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

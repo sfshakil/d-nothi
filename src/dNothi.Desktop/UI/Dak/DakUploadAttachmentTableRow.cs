@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -170,11 +171,14 @@ namespace dNothi.Desktop.UI.Dak
 
         private void attachmentDeleteButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি নিশ্চিতভাবে সংযুক্তি টি মুছে ফেলতে চান?\n",
-                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
-            {
-                if (this.DeleteButtonClick != null)
+           
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = "আপনি কি নিশ্চিতভাবে সংযুক্তি টি মুছে ফেলতে চান?";
+            conditonBoxForm.ShowDialog();
+
+            if (conditonBoxForm.Yes)
+                {
+                    if (this.DeleteButtonClick != null)
                     this.DeleteButtonClick(sender, e);
             }
         }

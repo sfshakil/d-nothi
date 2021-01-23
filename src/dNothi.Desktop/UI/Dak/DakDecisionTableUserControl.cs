@@ -11,6 +11,7 @@ using dNothi.Core.Entities;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -131,7 +132,13 @@ namespace dNothi.Desktop.UI.Dak
             if(dakDecisionAddResponse.status=="success")
             {
                 decision = dakDecision.dak_decision;
-                MessageBox.Show("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                UIFormValidationAlertMessageForm uIFormValidationAlertMessageForm = new UIFormValidationAlertMessageForm();
+                uIFormValidationAlertMessageForm.message = "সফলভাবে সংরক্ষণ হ​য়েছে";
+                uIFormValidationAlertMessageForm.isSuccess = true;
+                uIFormValidationAlertMessageForm.Show();
+                var t = Task.Delay(3000); //1 second/1000 ms
+                t.Wait();
+                uIFormValidationAlertMessageForm.Hide();
                 NormalMode();
             }
 
@@ -139,11 +146,15 @@ namespace dNothi.Desktop.UI.Dak
 
         private void decisionDeleteButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি নিশ্চিতভাবে সিদ্ধান্ত টি মুছে ফেলতে চান?\n",
-                             "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+
+
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি নিশ্চিতভাবে সিদ্ধান্ত টি মুছে ফেলতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
             {
 
+                
                 DakDecisionDTO dakDecision = new DakDecisionDTO();
                 dakDecision.dak_decision = decisionNameTextBox.Text;
 

@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity.Dak;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
@@ -162,14 +163,39 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (dakNothivuktoResponse.status == "success")
                 {
-                    MessageBox.Show(dakNothivuktoResponse.data);
+
+                    SuccessMessage(dakNothivuktoResponse.data);
+
+
                     if (this.SucessfullyDakNothivukto != null)
                         this.SucessfullyDakNothivukto(addSender, addEvent);
                     this.Hide();
                 }
+
+                else
+                {
+                    ErrorMessage(dakNothivuktoResponse.message);
+                }
             }
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
 
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
         private void DakNothiteUposthapitoForm_Load(object sender, EventArgs e)
         {
 

@@ -521,13 +521,13 @@
             // iconButton7
             // 
             this.iconButton7.AutoSize = true;
-            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.iconButton7.ForeColor = System.Drawing.Color.Black;
             this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.iconButton7.IconColor = System.Drawing.Color.Black;
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 20;
             this.iconButton7.Location = new System.Drawing.Point(720, 293);
