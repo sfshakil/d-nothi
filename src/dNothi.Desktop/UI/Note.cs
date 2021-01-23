@@ -223,7 +223,7 @@ namespace dNothi.Desktop.UI
             {
                 noteViewFLP.Controls.Clear();
                 NoteListResponse inboxNoteList = _nothiNoteTalikaServices.GetNoteListInbox(_dakuserparam, nothiListRecords.id);
-                lbNothiType.Text = "আগত নোট ("+ inboxNoteList.data.total_records + ")";
+                lbNothiType.Text = "আগত নোট ("+ string.Concat(inboxNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                 if (inboxNoteList.data.records.Count>0)
                 {
 
@@ -246,7 +246,7 @@ namespace dNothi.Desktop.UI
             {
                 noteViewFLP.Controls.Clear();
                 NoteListResponse sentNoteList = _nothiNoteTalikaServices.GetNoteListSent(_dakuserparam, nothiListRecords.id);
-                lbNothiType.Text = "প্রেরিত নোট (" + sentNoteList.data.total_records + ")";
+                lbNothiType.Text = "প্রেরিত নোট (" + string.Concat(sentNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                 if (sentNoteList.data.records.Count > 0)
                 {
 
@@ -269,7 +269,7 @@ namespace dNothi.Desktop.UI
             {
                 noteViewFLP.Controls.Clear();
                 NothiNoteTalikaListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
-                lbNothiType.Text = "সকল নোট (" + allNoteList.data.total_records + ")";
+                lbNothiType.Text = "সকল নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                 if (allNoteList.data.records.Count > 0)
                 {
 
