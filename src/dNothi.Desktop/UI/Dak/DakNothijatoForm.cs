@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity.Dak;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
@@ -240,13 +241,18 @@ namespace dNothi.Desktop.UI.Dak
             else
             {
 
-                DialogResult DialogResultSttring = MessageBox.Show("ডাকটি এই নথিতে নথিজাত করতে চান ?\n",
-                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (DialogResultSttring == DialogResult.Yes)
-                {
+                    ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                    conditonBoxForm.message = "ডাকটি এই নথিতে নথিজাত করতে চান?";
+                    conditonBoxForm.ShowDialog();
 
 
-                    DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+
+                    if (conditonBoxForm.Yes)
+                    {
+
+
+                        DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                    
 
 
@@ -255,8 +261,14 @@ namespace dNothi.Desktop.UI.Dak
 
                     if (dakNothijatoResponse.status == "success")
                     {
-                        MessageBox.Show(dakNothijatoResponse.data);
+                        SuccessMessage(dakNothijatoResponse.data);
+                        if (this.SucessfullyDakNothijato != null)
+                            this.SucessfullyDakNothijato(addSender, addEvent);
                         this.Hide();
+                    }
+                    else
+                    {
+                        ErrorMessage(dakNothijatoResponse.message);
                     }
                 }
             }
@@ -296,6 +308,24 @@ namespace dNothi.Desktop.UI.Dak
         private void nothiTypeSelectSearchBox_Load(object sender, EventArgs e)
         {
             
+        }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
         }
 
         private void nothiTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)

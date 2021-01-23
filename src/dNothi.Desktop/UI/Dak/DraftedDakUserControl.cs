@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -365,12 +366,13 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DraftedDakSendButtonClick;
         private void dakSendButton_Click(object sender, EventArgs e)
         {
-           
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি ডাকটি প্রেরণ করতে চান?";
 
-           DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি প্রেরণ করতে চান?\n", 
-                                "Conditional", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+            if (conditonBoxForm.Yes)
             {
+
+                
                 if (this.DraftedDakSendButtonClick != null)
                     this.DraftedDakSendButtonClick(sender, e);
             }
@@ -386,11 +388,14 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DraftedDakDeleteButtonClick;
         private void dakDeleteButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি মুছে ফেলতে চান?\n",
-                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
-            {
-                if (this.DraftedDakDeleteButtonClick != null)
+            
+
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = "আপনি কি ডাকটি মুছে ফেলতে চান?";
+
+                if (conditonBoxForm.Yes)
+                {
+                    if (this.DraftedDakDeleteButtonClick != null)
                     this.DraftedDakDeleteButtonClick(sender, e);
             }
             else
@@ -402,10 +407,13 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DraftedDakEditButtonClick;
         private void dakEditButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি সম্পাদন করতে চান?\n",
-                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
-            {
+
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি ডাকটি সম্পাদন করতে চান?";
+
+            if (conditonBoxForm.Yes)
+            { 
+                
                 if (this.DraftedDakEditButtonClick != null)
                     this.DraftedDakEditButtonClick(sender, e);
             }

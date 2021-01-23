@@ -247,7 +247,8 @@ namespace dNothi.Desktop.UI.Dak
 
         private void LoadNote()
         {
-            var noteAll = _nothinotetalikaservices.GetNothiNoteListAll(_userService.GetLocalDakUserParam(),Convert.ToInt32(_id));
+            NothiNoteListResponse noteAll = new NothiNoteListResponse();
+            noteAll = _nothinotetalikaservices.GetNothiNoteListAll(_userService.GetLocalDakUserParam(),Convert.ToInt32(_id));
 
             if (noteAll.status == "success")
             {

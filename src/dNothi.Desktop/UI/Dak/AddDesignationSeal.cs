@@ -1,4 +1,6 @@
-﻿using dNothi.JsonParser.Entity.Dak;
+﻿using dNothi.Constants;
+using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
 using System;
@@ -729,11 +731,14 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+
+
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি প্রাপকের তালিকাটি সংযুক্ত করতে চান??\n",
-                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = MessageBoxMessage.addDesignationSealConditionMessage;
+
+                if (conditonBoxForm.Yes)
             {
                
 
@@ -746,13 +751,13 @@ namespace dNothi.Desktop.UI.Dak
 
                 if(addDesignationSealResponse.status=="success")
                 {
-                    MessageBox.Show("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                    SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
                     this.Hide();
 
                 }
                 else
                 {
-                    MessageBox.Show("সংরক্ষণ সফল হ​য়নি।।");
+                    ErrorMessage("সংরক্ষণ সফল হ​য়নি।।");
                 }
 
             }
@@ -760,6 +765,25 @@ namespace dNothi.Desktop.UI.Dak
             {
 
             }
+        }
+
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
         }
     }
 }

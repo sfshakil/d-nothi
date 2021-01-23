@@ -19,6 +19,7 @@ using System.Configuration;
 using RestSharp;
 using Newtonsoft.Json;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -622,11 +623,12 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-
-                DialogResult DialogResultSttring = MessageBox.Show("অপনি কি ডাকটি প্রেরণ করুন চান ?\n",
-                                   "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (DialogResultSttring == DialogResult.Yes)
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = "অপনি কি ডাকটি প্রেরণ করতে চান?";
+                conditonBoxForm.ShowDialog();
+                if (conditonBoxForm.Yes)
                 {
+                    
                     DakForwardRequestParam dakForwardRequestParam = new DakForwardRequestParam();
                     dakForwardRequestParam.dak_id = _dak_id;
                     dakForwardRequestParam.is_copied_dak = _is_copied_dak;
@@ -690,13 +692,14 @@ namespace dNothi.Desktop.UI.Dak
 
                     if (dakForwardResponse.status == "success")
                     {
+                        SuccessMessage(dakForwardResponse.data);
                         if (this.SucessfullyDakForwarded != null)
                             this.SucessfullyDakForwarded(sender, e);
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show(dakForwardResponse.status);
+                        ErrorMessage(dakForwardResponse.message);
                     }
 
 
@@ -786,7 +789,13 @@ namespace dNothi.Desktop.UI.Dak
             prapokOwnDataGridView.Refresh();
             prapokOthersDataGridView.Refresh();
         }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
 
+        }
         private void prapokOwnDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int row_index = e.RowIndex;
@@ -805,7 +814,7 @@ namespace dNothi.Desktop.UI.Dak
 
                     if (deleteDesignationSealResponse.status == "success")
                     {
-                        MessageBox.Show("প্রাপকটিকে সফলভাবে মুছে ফেলা হ​য়েছে।");
+                        SuccessMessage("প্রাপকটিকে সফলভাবে মুছে ফেলা হ​য়েছে।");
 
                         prapokOwnDataGridView.Rows.RemoveAt(row_index);
 
@@ -816,7 +825,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
                     else
                     {
-                        MessageBox.Show("মুছে ফেলা সফল হ​য়নি।।");
+                        ErrorMessage("মুছে ফেলা সফল হ​য়নি।।");
                     }
 
                 }
@@ -976,7 +985,7 @@ namespace dNothi.Desktop.UI.Dak
                 DakDecisionSetupResponse dakDecisionSetupResponse = _dakForwardService.GetDakDecisionSetupResponse(dakUserParam, addJson, deleteJson);
                 if(dakDecisionSetupResponse.status=="success")
                 {
-                    MessageBox.Show("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                    SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
                     LoadDecisionList();
                 }
             }
@@ -984,7 +993,17 @@ namespace dNothi.Desktop.UI.Dak
             LoadDecisionList();
 
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
 
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
         private void newDecisionAddRightButton_Click(object sender, EventArgs e)
         {
             DakDecisionDTO dakDecision = new DakDecisionDTO();
@@ -1006,7 +1025,7 @@ namespace dNothi.Desktop.UI.Dak
             DakDecisionAddResponse dakDecisionAddResponse = _dakForwardService.GetDakDecisionAddResponse(dakUserParam, dakDecision);
             if (dakDecisionAddResponse.status == "success")
             {
-                MessageBox.Show("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
                 var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();
                 decisionTable.id = dakDecisionAddResponse.data.id;
                 decisionTable.decision = dakDecision.dak_decision;

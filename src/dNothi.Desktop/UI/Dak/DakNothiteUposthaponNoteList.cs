@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -120,9 +121,10 @@ namespace dNothi.Desktop.UI.Dak
         private void nothiteUposthapitoButton_Click(object sender, EventArgs e)
         {
 
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি এই নোটে ডাকটি উপস্থাপন করতে চান ?\n",
-                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি এই নোটে ডাকটি উপস্থাপন করতে চান ?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
             {
 
 

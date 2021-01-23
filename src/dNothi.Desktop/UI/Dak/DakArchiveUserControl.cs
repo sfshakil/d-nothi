@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
-
+using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Constants;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -38,6 +39,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
         private string _source;
+       
         private string _sender;
         private string _receiver;
         private string _subject;
@@ -354,9 +356,14 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler ArchiveRevertButtonClick;
         private void dakRevertButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি ফেরত আনতে চান ?\n",
-                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = MessageBoxMessage.dakArchiveConditionMessage;
+            conditonBoxForm.ShowDialog();
+
+
+
+          
+            if (conditonBoxForm.Yes)
             {
 
                 if (this.ArchiveRevertButtonClick != null)

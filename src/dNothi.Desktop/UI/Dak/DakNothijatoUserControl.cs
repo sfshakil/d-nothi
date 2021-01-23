@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -344,13 +345,21 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NothijatoRevertButtonClick;
         private void dakRevertButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি ডাকটি ফেরত আনতে চান ?\n",
-                                "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
-            {
+            
+
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = "আপনি কি ডাকটি ফেরত আনতে চান?";
+                conditonBoxForm.ShowDialog();
 
 
-                if (this.NothijatoRevertButtonClick != null)
+
+
+                if (conditonBoxForm.Yes)
+                {
+
+
+
+                    if (this.NothijatoRevertButtonClick != null)
                     this.NothijatoRevertButtonClick(sender, e);
 
 
