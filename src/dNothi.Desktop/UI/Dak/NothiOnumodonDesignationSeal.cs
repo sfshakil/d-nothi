@@ -666,35 +666,36 @@ namespace dNothi.Desktop.UI.Dak
             if (e.Action != TreeViewAction.Unknown)
             {
 
-                //if (e.Node.Checked == true)
-                //{
-                //    level++;
-                //    NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
-                //    nothiOnumodonRow.name = e.Node.Name;
-                //    nothiOnumodonRow.designation = (string)e.Node.Tag;
-                //    nothiOnumodonRow.level = level.ToString();
-                //   // nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
-                    
-                //    nothiOnumodonRows.Add(nothiOnumodonRow);
+                if (e.Node.Checked == true)
+                {
+                    NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
+                    nothiOnumodonRow.name = e.Node.Name;
+                    nothiOnumodonRow.designation = (string)e.Node.Tag;
+                    nothiOnumodonRow.level = level.ToString();
+                    nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
 
-
-                //    NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
-                //    nothiOnumodon.name = e.Node.Name;
-                //    nothiOnumodon.designation = (string)e.Node.Tag;
-                //    nothiOnumodon.level = level.ToString();
-                //    nothiOnumodons.Add(nothiOnumodon);
-                //}
-                //for (; inc<= nothiOnumodonRows.Count -1; inc++)
+                    nothiOnumodonRows.Add(nothiOnumodonRow);
+                    level++;
+                }
+                //for (; inc <= nothiOnumodonRows.Count - 1; inc++)
                 //{
                 //    nothiOnumodonFLP.Controls.Add(nothiOnumodonRows[inc]);
                 //}
-                //if(e.Node.Checked == false)
+                //if (e.Node.Checked == false)
                 //{
-                //    int i = level-1;
+                //    int i=0;
+                //    foreach (NothiOnumodonRow nothiOnumodonRow in nothiOnumodonRows)
+                //    {
+                //        if(nothiOnumodonRow.name == e.Node.Name)
+                //        {
+                //            i = Convert.ToInt32(nothiOnumodonRow.level);
+                //        }
+                //    }
+                //    i--;
                 //    nothiOnumodons.RemoveAt(i);
                 //    nothiOnumodonRows.RemoveAt(i);
                 //    nothiOnumodonFLP.Controls.RemoveAt(i);
-                //    inc--;level--;
+                //    level--;
                 //}
 
             }

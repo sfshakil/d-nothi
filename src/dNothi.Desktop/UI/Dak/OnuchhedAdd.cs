@@ -36,6 +36,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _Onuchhed; 
         private int _file;
         private int _fileflag;
+        private string _onucchedId;
 
         [Category("Custom Props")]
         public int fileflag
@@ -87,6 +88,12 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _body; }
             set { _body = value; lbBody.Text = value; }
+        }
+        [Category("Custom Props")]
+        public string onucchedId
+        {
+            get { return _onucchedId; }
+            set { _onucchedId = value; lbonucchedId.Text = value; }
         }
         [Category("Custom Props")]
         public int file
@@ -178,7 +185,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.Hide();
             if (this.DeleteButtonClick != null)
-                this.DeleteButtonClick(sender, e);
+                this.DeleteButtonClick(onucchedId, e);
         }
         [Category("Custom Props")]
         public void getAttachment(NoteFileUpload notefileupload)
@@ -188,6 +195,12 @@ namespace dNothi.Desktop.UI.Dak
             attachment.attachmentSize = notefileupload.fileexension;
             fileFLP.Controls.Add(attachment);
         }
-        
+        //public event EventHandler EditButtonClick;
+        //private void btnEdit_Click(object sender, EventArgs e)
+        //{
+        //    this.Hide();
+        //    if (this.EditButtonClick != null)
+        //        this.EditButtonClick(onucchedId, e);
+        //}
     }
 }

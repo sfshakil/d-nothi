@@ -123,7 +123,88 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
         }
+        public NoteListResponse GetNoteListSent(DakUserParam dakUserParam, long nothi__id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNoteListSentEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
 
+
+                request.AddParameter("cdesk", dakUserParam.json_String);
+                request.AddParameter("length", "100");
+                request.AddParameter("page", "1");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi__id + "\",\"note_category\":\"Sent\"}");
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NoteListResponse noteListResponse = JsonConvert.DeserializeObject<NoteListResponse>(responseJson);
+                return noteListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public NoteListResponse GetNoteListInbox(DakUserParam dakUserParam, long nothi__id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNoteListSentEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+
+
+                request.AddParameter("cdesk", dakUserParam.json_String);
+                request.AddParameter("length", "100");
+                request.AddParameter("page", "1");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi__id + "\",\"note_category\":\"Inbox\"}");
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NoteListResponse noteListResponse = JsonConvert.DeserializeObject<NoteListResponse>(responseJson);
+                return noteListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiNoteTalikaListResponse GetNoteListAll(DakUserParam dakUserParam, long nothi__id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNoteListSentEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+
+
+                request.AddParameter("cdesk", dakUserParam.json_String);
+                request.AddParameter("length", "100");
+                request.AddParameter("page", "1");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi__id + "\",\"note_category\":\"All\"}");
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiNoteTalikaListResponse noteListResponse = JsonConvert.DeserializeObject<NothiNoteTalikaListResponse>(responseJson);
+                return noteListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         protected string GetAPIVersion()
         {
             return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;
@@ -155,5 +236,7 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiNoteTalikaEndPoint;
         }
+
+        
     }
 }

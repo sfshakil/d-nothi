@@ -112,7 +112,17 @@
     <Compile Include="Entity\Nothi\DeskAllDTO.cs" />
     <Compile Include="Entity\Nothi\DeskNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\DeskOutboxDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteAllList.cs" />
+    <Compile Include="Entity\Nothi\NoteAllListDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteAllListRecordDTO.cs" />
     <Compile Include="Entity\Nothi\NoteDeleteResponse.cs" />
+    <Compile Include="Entity\Nothi\NoteListDataDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteListDataRecordDeskDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteListDataRecordDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteListDataRecordNoteDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteListDataRecordNothiDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteListDataRecordToDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteListResponse.cs" />
     <Compile Include="Entity\Nothi\NoteNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NoteSaveDTO.cs" />
     <Compile Include="Entity\Nothi\NoteSaveResponse.cs" />
@@ -136,6 +146,7 @@
     <Compile Include="Entity\Nothi\NothiNoteTalikaListResponse.cs" />
     <Compile Include="Entity\Nothi\NothiNoteTalikaRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiNothiListInboxNoteRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiOnuchhedSaveDataDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOnuchhedSaveResponse.cs" />
     <Compile Include="Entity\Nothi\NothiOnumodonRowDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxDTO.cs" />
@@ -144,6 +155,7 @@
     <Compile Include="Entity\Nothi\NothiTypeListResponse.cs" />
     <Compile Include="Entity\Nothi\NothiTypeSaveDTO.cs" />
     <Compile Include="Entity\Nothi\NothiTypeSaveResponse.cs" />
+    <Compile Include="Entity\Nothi\OnucchedDeleteResponseDTO.cs" />
     <Compile Include="Entity\Nothi\OnuchhedForwardData.cs" />
     <Compile Include="Entity\Nothi\OnuchhedForwardResponse.cs" />
     <Compile Include="Entity\Nothi\OnuchhedSaveWithFile.cs" />

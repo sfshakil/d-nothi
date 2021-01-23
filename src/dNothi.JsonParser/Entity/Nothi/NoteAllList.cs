@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace dNothi.JsonParser.Entity.Nothi
 {
-    public class NothiOnuchhedSaveResponse
+    public class NoteAllList
     {
         public string status { get; set; }
-        public NothiOnuchhedSaveDataDTO data { get; set; }
+        public NoteAllListDTO data { get; set; }
     }
 }

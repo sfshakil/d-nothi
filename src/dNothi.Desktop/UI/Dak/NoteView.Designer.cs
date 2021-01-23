@@ -88,7 +88,7 @@
             this.lbNothiLastDate.Location = new System.Drawing.Point(15, 49);
             this.lbNothiLastDate.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiLastDate.Name = "lbNothiLastDate";
-            this.lbNothiLastDate.Size = new System.Drawing.Size(106, 20);
+            this.lbNothiLastDate.Size = new System.Drawing.Size(101, 20);
             this.lbNothiLastDate.TabIndex = 65;
             this.lbNothiLastDate.Text = "৭/১/২১ ৬:১৫ PM";
             // 

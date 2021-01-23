@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace dNothi.JsonParser.Entity.Nothi
 {
-    public class NothiOnuchhedSaveResponse
+    public class NothiOnuchhedSaveDataDTO
     {
-        public string status { get; set; }
-        public NothiOnuchhedSaveDataDTO data { get; set; }
+        public string id { get; set; }
+        public string onucched_no { get; set; }
     }
 }

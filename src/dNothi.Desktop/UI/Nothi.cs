@@ -165,7 +165,7 @@ namespace dNothi.Desktop.UI
                 noteView.totalNothi = totalnothi.ToString();
                 noteView.noteSubject = sender.ToString();
                 noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
-                noteView.officerInfo = nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
+                noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
                 noteView.checkBox = "1";
 
 

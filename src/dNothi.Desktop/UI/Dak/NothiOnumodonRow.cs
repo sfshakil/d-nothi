@@ -61,7 +61,7 @@ namespace dNothi.Desktop.UI.Dak
         public string level
         {
             get { return _level; }
-            set { _level = value+1;lbLevel.Text = "লেভেল "+ string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            set { _level = value;lbLevel.Text = "লেভেল "+ string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
 
         [Category("Custom Props")]

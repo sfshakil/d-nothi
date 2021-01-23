@@ -68,6 +68,7 @@ namespace dNothi.Constants
         public const string NothiTypeDeleteEndPoint = "/api/delete";
         public const string NothiAuthorityEndPoint = "/api/nothi/authority";
         public const string NoteOnuchhedSendEndPoint = "/api/nothi/note/onucched/send";
+        public const string NoteOnuchhedDeleteEndPoint = "/api/nothi/note/onucched/delete";
 
 
     }
