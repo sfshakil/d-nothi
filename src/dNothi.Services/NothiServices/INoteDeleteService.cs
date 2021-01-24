@@ -11,5 +11,6 @@ namespace dNothi.Services.NothiServices
     public interface INoteDeleteService
     {
         NoteDeleteResponse GetNoteDelete(DakUserParam dakListUserParam, string noteId);
+        NoteDeleteResponse  GetNoteDelteResponse(DakUserParam dakListUserParam, string model,  string noteId);
     }
 }

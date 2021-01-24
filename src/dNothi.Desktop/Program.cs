@@ -171,6 +171,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dak.NothiNextStep>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
+            builder.RegisterType<NothiNoteShomuho>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();

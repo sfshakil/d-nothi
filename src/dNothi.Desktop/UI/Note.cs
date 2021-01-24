@@ -234,7 +234,7 @@ namespace dNothi.Desktop.UI
                         NoteView noteView = new NoteView();
                         noteView.totalNothi = inboxList.note.note_no.ToString();
 
-                        if (inboxList.note.note_subject_sub_text == null)
+                        if (inboxList.note.note_subject_sub_text == "")
                         {
                             noteView.noteSubject = inboxList.note.note_subject;
                         }
@@ -272,7 +272,7 @@ namespace dNothi.Desktop.UI
                     {
                         NoteView noteView = new NoteView();
                         noteView.totalNothi = sentList.note.note_no.ToString();
-                        if (sentList.note.note_subject_sub_text == null)
+                        if (sentList.note.note_subject_sub_text == "")
                         {
                             noteView.noteSubject = sentList.note.note_subject;
                         }

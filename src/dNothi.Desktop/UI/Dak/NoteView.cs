@@ -44,13 +44,13 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (i == 0)
             {
-                eyeIcon.Visible = false;
-                eyeSlashIcon.Visible = true;
+                eyeIcon.Visible = true;
+                eyeSlashIcon.Visible = false;
             }
             else if (i== 1)
             {
-                eyeIcon.Visible = true;
-                eyeSlashIcon.Visible = false;
+                eyeIcon.Visible = false;
+                eyeSlashIcon.Visible = true;
             }
         }
 

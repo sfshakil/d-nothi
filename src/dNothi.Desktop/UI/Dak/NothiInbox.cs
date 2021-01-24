@@ -133,11 +133,15 @@ namespace dNothi.Desktop.UI.Dak
             int i = 0;
             foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
             {
-                NothiNoteShomuho nothiNoteShomuho = new NothiNoteShomuho();
+                var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
+                //NothiNoteShomuho nothiNoteShomuho = new NothiNoteShomuho();
+                nothiNoteShomuho.note_ID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
+                nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
                 nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
-                if (nothiListInboxNoteRecordsDTO.note.note_subject != null && nothiListInboxNoteRecordsDTO.note.note_subject_sub_text != null)
+
+                if (nothiListInboxNoteRecordsDTO.note.note_subject != null && nothiListInboxNoteRecordsDTO.note.note_subject_sub_text != "")
                 {
-                    nothiNoteShomuho.note_subject = nothiListInboxNoteRecordsDTO.note.note_subject + " " + nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
+                    nothiNoteShomuho.note_subject = nothiListInboxNoteRecordsDTO.note.note_subject + " (" + nothiListInboxNoteRecordsDTO.note.note_subject_sub_text+")";
                 }
                 else
                 {

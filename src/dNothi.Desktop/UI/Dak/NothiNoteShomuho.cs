@@ -7,13 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.Services.UserServices;
+using dNothi.Services.DakServices;
+using dNothi.Services.NothiServices;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class NothiNoteShomuho : UserControl
     {
-        public NothiNoteShomuho()
+        IUserService _userService { get; set; }
+        INoteDeleteService _noteDelete { get; set; }
+        public NothiNoteShomuho(IUserService userService, INoteDeleteService noteDelete)
         {
+            _userService = userService;
+            _noteDelete = noteDelete;
             InitializeComponent();
             SetDefaultFont(this.Controls);
         }
@@ -39,6 +46,22 @@ namespace dNothi.Desktop.UI.Dak
             get { return _note_no; }
             set { _note_no = value; lbNoteNumber.Text = value; }
         }
+        private string _note_ID;
+
+        [Category("Custom Props")]
+        public string note_ID
+        {
+            get { return _note_ID; }
+            set { _note_ID = value; lbNoteId.Text = value; }
+        }
+        private string _noteSubText;
+
+        [Category("Custom Props")]
+        public string noteSubText
+        {
+            get { return _noteSubText; }
+            set { _noteSubText = value; lbNoteSubText.Text = value; }
+        }
 
         [Category("Custom Props")]
         public string note_subject
@@ -61,5 +84,28 @@ namespace dNothi.Desktop.UI.Dak
             set { _toofficer = value; lbToOfficer.Text = value; }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
 
+        private void btnOption_Click(object sender, EventArgs e)
+        {
+            string message = "নোটটি মুছে ফেলুন";
+            string title = "";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes && lbNoteSubText.Text == "অনুচ্ছেদ দেওয়া হয়নি")
+            {
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                string model = "NothiNotes";
+                string noteID = lbNoteId.Text;
+                var noteDelete = _noteDelete.GetNoteDelteResponse(dakListUserParam,model,noteID);
+                if(noteDelete.status == "success")
+                {
+                    this.Hide();
+                }
+
+            }
+            else
+            {
+                
+            }
+        }
     }
 }
