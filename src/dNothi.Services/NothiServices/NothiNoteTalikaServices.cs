@@ -1,4 +1,5 @@
 ﻿using dNothi.Constants;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -15,6 +16,11 @@ namespace dNothi.Services.NothiServices
 {
     public class NothiNoteTalikaServices : INothiNoteTalikaServices
     {
+        private readonly INoteListParser _noteListParser;
+        public NothiNoteTalikaServices(INoteListParser noteListParser)
+        {
+            _noteListParser = noteListParser;
+        }
         public NothiNoteTalikaListResponse GetNothiNoteTalika(DakUserParam dakUserParam, string nothi_type_id)
         {
             try
@@ -197,7 +203,7 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                NoteAllListResponse noteListResponse = JsonConvert.DeserializeObject<NoteAllListResponse>(responseJson);
+                NoteAllListResponse noteListResponse = _noteListParser.ParseMessage(responseJson);
                 return noteListResponse;
             }
             catch (Exception ex)

@@ -151,11 +151,13 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiTypeSaveService>().As<INothiTypeSaveService>();
             builder.RegisterType<NoteDeleteService>().As<INoteDeleteService>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
+            builder.RegisterType<NoteListParser>().As<INoteListParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
             builder.RegisterType<OnumodonService>().As<IOnumodonService>();
             builder.RegisterType<OnuchhedForwardService>().As<IOnuchhedForwardService>();
             builder.RegisterType<OnucchedDelete>().As<IOnucchedDelete>();
+            
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            
