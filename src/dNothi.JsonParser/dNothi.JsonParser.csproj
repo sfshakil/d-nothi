@@ -113,8 +113,11 @@
     <Compile Include="Entity\Nothi\DeskNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\DeskOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NoteAllList.cs" />
+    <Compile Include="Entity\Nothi\NoteAllListDataDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteAllListDataRecordDTO.cs" />
     <Compile Include="Entity\Nothi\NoteAllListDTO.cs" />
     <Compile Include="Entity\Nothi\NoteAllListRecordDTO.cs" />
+    <Compile Include="Entity\Nothi\NoteAllListResponse.cs" />
     <Compile Include="Entity\Nothi\NoteDeleteResponse.cs" />
     <Compile Include="Entity\Nothi\NoteListDataDTO.cs" />
     <Compile Include="Entity\Nothi\NoteListDataRecordDeskDTO.cs" />

@@ -15,7 +15,7 @@ namespace dNothi.Services.NothiServices
         NothiNoteListResponse GetNothiNoteListSent(DakUserParam dakUserParam, int nothi__id);
         NoteListResponse GetNoteListSent(DakUserParam dakUserParam, long nothi__id);
         NoteListResponse GetNoteListInbox(DakUserParam dakUserParam, long nothi__id);
-        NothiNoteTalikaListResponse GetNoteListAll(DakUserParam dakUserParam, long nothi__id);
+        NoteAllListResponse GetNoteListAll(DakUserParam dakUserParam, long nothi__id);
         NothiNoteListResponse GetNothiNoteListInbox(DakUserParam dakUserParam, int nothi__id);
        
 

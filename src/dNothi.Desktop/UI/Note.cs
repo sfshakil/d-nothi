@@ -4,6 +4,8 @@ using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -231,8 +233,24 @@ namespace dNothi.Desktop.UI
                     {
                         NoteView noteView = new NoteView();
                         noteView.totalNothi = inboxList.note.note_no.ToString();
-                        noteView.noteSubject = inboxList.note.note_subject;
+
+                        if (inboxList.note.note_subject_sub_text == null)
+                        {
+                            noteView.noteSubject = inboxList.note.note_subject;
+                        }
+                        else
+                        {
+                            noteView.noteSubject = inboxList.note.note_subject_sub_text;
+                        }
+                        
                         noteView.nothiLastDate = inboxList.desk.issue_date;
+                        noteView.nothivukto = inboxList.note.nothivukto_potro.ToString();
+                        noteView.onucchedCount = inboxList.note.onucched_count.ToString();
+                        noteView.potrojari = inboxList.note.potrojari.ToString();
+                        noteView.approved = inboxList.note.approved_potro.ToString();
+                        noteView.khoshraWaiting = inboxList.note.khoshra_waiting_for_approval.ToString();
+                        noteView.khosraPotro = inboxList.note.khoshra_potro.ToString();
+                        noteView.loadEyeIcon(inboxList.note.can_revert);
                         noteView.officerInfo = inboxList.desk.officer + "," +inboxList.desk.designation+","+inboxList.desk.office_unit+","+inboxList.desk.office;//nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
                         noteViewFLP.Controls.Add(noteView);
                     }
@@ -254,8 +272,22 @@ namespace dNothi.Desktop.UI
                     {
                         NoteView noteView = new NoteView();
                         noteView.totalNothi = sentList.note.note_no.ToString();
-                        noteView.noteSubject = sentList.note.note_subject;
-                        noteView.nothiLastDate = sentList.desk.issue_date;
+                        if (sentList.note.note_subject_sub_text == null)
+                        {
+                            noteView.noteSubject = sentList.note.note_subject;
+                        }
+                        else
+                        {
+                            noteView.noteSubject = sentList.note.note_subject_sub_text;
+                        }
+                        noteView.nothiLastDate = sentList.desk.issue_date; 
+                        noteView.nothivukto = sentList.note.nothivukto_potro.ToString();
+                        noteView.onucchedCount = sentList.note.onucched_count.ToString();
+                        noteView.potrojari = sentList.note.potrojari.ToString();
+                        noteView.approved = sentList.note.approved_potro.ToString();
+                        noteView.khoshraWaiting = sentList.note.khoshra_waiting_for_approval.ToString();
+                        noteView.khosraPotro = sentList.note.khoshra_potro.ToString();
+                        noteView.loadEyeIcon(sentList.note.can_revert);
                         noteView.officerInfo = sentList.desk.officer + "," + sentList.desk.designation + "," + sentList.desk.office_unit + "," + sentList.desk.office;//nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
                         noteViewFLP.Controls.Add(noteView);
                     }
@@ -268,13 +300,16 @@ namespace dNothi.Desktop.UI
             else if (selectedItem == "সকল নোট")
             {
                 noteViewFLP.Controls.Clear();
-                NothiNoteTalikaListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
+                NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
                 lbNothiType.Text = "সকল নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                 if (allNoteList.data.records.Count > 0)
                 {
 
-                    foreach (NothiNoteTalikaRecordsDTO allList in allNoteList.data.records)
+                    foreach (NoteAllListDataRecordDTO allList in allNoteList.data.records)
                     {
+                        var str = allList.desk.ToString();
+                        dynamic obj = JsonConvert.DeserializeObject<dynamic>(str);
+                        NoteListDataRecordDeskDTO desk = ((JArray)Tag).ToObject<NoteListDataRecordDeskDTO>();
                         NoteView noteView = new NoteView();
                         //noteView.totalNothi = allList.note.note_no.ToString();
                         //noteView.noteSubject = inboxList.note.note_subject;

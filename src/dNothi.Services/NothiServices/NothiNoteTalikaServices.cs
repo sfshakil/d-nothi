@@ -178,7 +178,7 @@ namespace dNothi.Services.NothiServices
             }
         }
 
-        public NothiNoteTalikaListResponse GetNoteListAll(DakUserParam dakUserParam, long nothi__id)
+        public NoteAllListResponse GetNoteListAll(DakUserParam dakUserParam, long nothi__id)
         {
             try
             {
@@ -197,7 +197,7 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                NothiNoteTalikaListResponse noteListResponse = JsonConvert.DeserializeObject<NothiNoteTalikaListResponse>(responseJson);
+                NoteAllListResponse noteListResponse = JsonConvert.DeserializeObject<NoteAllListResponse>(responseJson);
                 return noteListResponse;
             }
             catch (Exception ex)
