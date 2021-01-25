@@ -82,7 +82,6 @@
             this.viewDesignationSealListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.otherOfficerTabPage = new System.Windows.Forms.TabPage();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.officerSearchOthersXTextBox = new dNothi.Desktop.XTextBox();
             this.prapokOthersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +94,7 @@
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn4 = new dNothi.Desktop.DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn();
             this.dataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.officerSearchOthersXTextBox = new dNothi.Desktop.XTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.newDecisionAddButton = new System.Windows.Forms.Button();
@@ -136,6 +136,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.TopPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -158,17 +159,21 @@
             this.dakForwardBodyPanel.SuspendLayout();
             this.HeadingPanel.SuspendLayout();
             this.selectedDakListPanel.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // Subjectlabel
             // 
-            this.Subjectlabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Subjectlabel.AutoSize = true;
+            this.Subjectlabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Subjectlabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Subjectlabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Subjectlabel.Location = new System.Drawing.Point(0, 110);
+            this.Subjectlabel.Location = new System.Drawing.Point(0, 0);
+            this.Subjectlabel.MaximumSize = new System.Drawing.Size(583, 0);
+            this.Subjectlabel.MinimumSize = new System.Drawing.Size(583, 0);
             this.Subjectlabel.Name = "Subjectlabel";
             this.Subjectlabel.Padding = new System.Windows.Forms.Padding(31, 0, 32, 0);
-            this.Subjectlabel.Size = new System.Drawing.Size(583, 20);
+            this.Subjectlabel.Size = new System.Drawing.Size(583, 21);
             this.Subjectlabel.TabIndex = 0;
             this.Subjectlabel.Text = "E-Nothi";
             this.Subjectlabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -606,8 +611,8 @@
             // otherOfficerTabPage
             // 
             this.otherOfficerTabPage.Controls.Add(this.iconButton2);
-            this.otherOfficerTabPage.Controls.Add(this.officerSearchOthersXTextBox);
             this.otherOfficerTabPage.Controls.Add(this.prapokOthersDataGridView);
+            this.otherOfficerTabPage.Controls.Add(this.officerSearchOthersXTextBox);
             this.otherOfficerTabPage.Location = new System.Drawing.Point(4, 41);
             this.otherOfficerTabPage.Margin = new System.Windows.Forms.Padding(5);
             this.otherOfficerTabPage.Name = "otherOfficerTabPage";
@@ -631,18 +636,6 @@
             this.iconButton2.Size = new System.Drawing.Size(18, 23);
             this.iconButton2.TabIndex = 79;
             this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // officerSearchOthersXTextBox
-            // 
-            this.officerSearchOthersXTextBox.BackColor = System.Drawing.Color.White;
-            this.officerSearchOthersXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officerSearchOthersXTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.officerSearchOthersXTextBox.Location = new System.Drawing.Point(12, 12);
-            this.officerSearchOthersXTextBox.Multiline = true;
-            this.officerSearchOthersXTextBox.Name = "officerSearchOthersXTextBox";
-            this.officerSearchOthersXTextBox.Size = new System.Drawing.Size(119, 30);
-            this.officerSearchOthersXTextBox.TabIndex = 44;
-            this.officerSearchOthersXTextBox.Text = "অফিসার খুঁজুন";
             // 
             // prapokOthersDataGridView
             // 
@@ -804,6 +797,18 @@
             this.dataGridViewCheckBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn5.Width = 105;
             // 
+            // officerSearchOthersXTextBox
+            // 
+            this.officerSearchOthersXTextBox.BackColor = System.Drawing.Color.White;
+            this.officerSearchOthersXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchOthersXTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.officerSearchOthersXTextBox.Location = new System.Drawing.Point(12, 12);
+            this.officerSearchOthersXTextBox.Multiline = true;
+            this.officerSearchOthersXTextBox.Name = "officerSearchOthersXTextBox";
+            this.officerSearchOthersXTextBox.Size = new System.Drawing.Size(119, 30);
+            this.officerSearchOthersXTextBox.TabIndex = 44;
+            this.officerSearchOthersXTextBox.Text = "অফিসার খুঁজুন";
+            // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.GhostWhite;
@@ -876,7 +881,7 @@
             this.newDecisionAddPanel.Controls.Add(this.iconPictureBox1);
             this.newDecisionAddPanel.Location = new System.Drawing.Point(39, 115);
             this.newDecisionAddPanel.Name = "newDecisionAddPanel";
-            this.newDecisionAddPanel.Size = new System.Drawing.Size(506, 625);
+            this.newDecisionAddPanel.Size = new System.Drawing.Size(506, 623);
             this.newDecisionAddPanel.TabIndex = 35;
             this.newDecisionAddPanel.Visible = false;
             this.newDecisionAddPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
@@ -1162,7 +1167,7 @@
             this.dakForwardBodyPanel.Controls.Add(this.TopPanel);
             this.dakForwardBodyPanel.Controls.Add(this.BottomPanel);
             this.dakForwardBodyPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakForwardBodyPanel.Location = new System.Drawing.Point(0, 130);
+            this.dakForwardBodyPanel.Location = new System.Drawing.Point(0, 131);
             this.dakForwardBodyPanel.Name = "dakForwardBodyPanel";
             this.dakForwardBodyPanel.Size = new System.Drawing.Size(583, 825);
             this.dakForwardBodyPanel.TabIndex = 37;
@@ -1238,7 +1243,7 @@
             this.multipleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.multipleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.multipleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.multipleDakHeaderLabel.Location = new System.Drawing.Point(114, 25);
+            this.multipleDakHeaderLabel.Location = new System.Drawing.Point(98, 25);
             this.multipleDakHeaderLabel.Name = "multipleDakHeaderLabel";
             this.multipleDakHeaderLabel.Size = new System.Drawing.Size(127, 21);
             this.multipleDakHeaderLabel.TabIndex = 29;
@@ -1253,9 +1258,9 @@
             this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.singleDakHeaderLabel.Location = new System.Drawing.Point(26, 25);
             this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(88, 21);
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(72, 21);
             this.singleDakHeaderLabel.TabIndex = 28;
-            this.singleDakHeaderLabel.Text = "ডাক গতিবিধি";
+            this.singleDakHeaderLabel.Text = "ডাক প্রেরণ";
             // 
             // selectedDakListPanel
             // 
@@ -1338,6 +1343,16 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 23;
             // 
+            // panel10
+            // 
+            this.panel10.AutoSize = true;
+            this.panel10.Controls.Add(this.Subjectlabel);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 110);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(583, 21);
+            this.panel10.TabIndex = 38;
+            // 
             // DakForwardUserControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1346,7 +1361,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 780);
             this.Controls.Add(this.dakForwardBodyPanel);
-            this.Controls.Add(this.Subjectlabel);
+            this.Controls.Add(this.panel10);
             this.Controls.Add(this.selectedDakListPanel);
             this.Controls.Add(this.HeadingPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1387,6 +1402,8 @@
             this.HeadingPanel.PerformLayout();
             this.selectedDakListPanel.ResumeLayout(false);
             this.selectedDakListPanel.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1485,5 +1502,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn nijOfficeDataGridViewCheckBoxColumn;
         private DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn mulprapokDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn onulipiprapokDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Panel panel10;
     }
 }

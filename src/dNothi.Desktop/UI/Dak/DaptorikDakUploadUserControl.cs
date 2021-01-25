@@ -381,11 +381,12 @@ namespace dNothi.Desktop.UI.Dak
             if (prapokDataGridView.Columns[prapokDataGridView.CurrentCell.ColumnIndex].Name== "ActionButton")
             {
 
-                DialogResult DialogResultSttring = MessageBox.Show("অপনি কি প্রাপকটিকে মুছে ফেলতে চান?\n",
-                                   "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (DialogResultSttring == DialogResult.Yes)
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = "অপনি কি প্রাপকটিকে মুছে ফেলতে চান?";
+                conditonBoxForm.ShowDialog();
+                if (conditonBoxForm.Yes)
                 {
-                   int designation_id= Convert.ToInt32(prapokDataGridView.Rows[row_index].Cells["designationid_id"].Value);
+                    int designation_id= Convert.ToInt32(prapokDataGridView.Rows[row_index].Cells["designationid_id"].Value);
                     var form = FormFactory.Create<Dashboard>();
                     string designationSealIdJson =designation_id.ToString();
                     DeleteDesignationSealResponse deleteDesignationSealResponse = form.DeleteDesignation(designationSealIdJson);
@@ -973,7 +974,7 @@ namespace dNothi.Desktop.UI.Dak
 
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
             conditonBoxForm.message = "আপনি কি ডাকটি প্রেরণ করতে চান?";
-
+            conditonBoxForm.ShowDialog();
             if (conditonBoxForm.Yes)
             {
                

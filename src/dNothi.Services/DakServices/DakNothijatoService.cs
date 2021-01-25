@@ -165,5 +165,35 @@ namespace dNothi.Services.DakServices
 
             return dakNothijatoRevertResponse;
         }
+
+        public DakListNothijatoResponse GetNothijatoDak(DakUserParam dakListUserParam, string searchParam)
+        {
+            try
+            {
+                var nothijatoDakApi = new RestClient(GetAPIDomain() + GetDakListNothijatoEndpoint());
+                nothijatoDakApi.Timeout = -1;
+                var nothijatoDakRequest = new RestRequest(Method.POST);
+                nothijatoDakRequest.AddHeader("api-version", GetAPIVersion());
+                nothijatoDakRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                nothijatoDakRequest.AlwaysMultipartFormData = true;
+                nothijatoDakRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                nothijatoDakRequest.AddParameter("office_id", dakListUserParam.office_id);
+                nothijatoDakRequest.AddParameter("page", dakListUserParam.page);
+                nothijatoDakRequest.AddParameter("limit", dakListUserParam.limit);
+                nothijatoDakRequest.AddParameter("search_params", searchParam);
+                IRestResponse nothijatoDakResponse = nothijatoDakApi.Execute(nothijatoDakRequest);
+
+
+                var nothijatoDakResponseJson = nothijatoDakResponse.Content;
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                DakListNothijatoResponse dakListNothijatoResponse = JsonConvert.DeserializeObject<DakListNothijatoResponse>(nothijatoDakResponseJson);
+                return dakListNothijatoResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

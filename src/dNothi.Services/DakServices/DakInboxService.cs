@@ -58,6 +58,37 @@ namespace dNothi.Services.DakServices
                 throw;
             }
         }
+        public DakListInboxResponse GetDakInbox(DakUserParam dakListUserParam, string searchParam)
+        {
+            try
+            {
+
+
+                var dakInboxApi = new RestClient(GetAPIDomain() + GetDakListInboxEndpoint());
+                dakInboxApi.Timeout = -1;
+                var dakInboxRequest = new RestRequest(Method.POST);
+                dakInboxRequest.AddHeader("api-version", GetAPIVersion());
+                dakInboxRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                dakInboxRequest.AlwaysMultipartFormData = true;
+                dakInboxRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakInboxRequest.AddParameter("office_id", dakListUserParam.office_id);
+                dakInboxRequest.AddParameter("page", dakListUserParam.page);
+                dakInboxRequest.AddParameter("limit", dakListUserParam.limit);
+                dakInboxRequest.AddParameter("search_params", searchParam);
+                IRestResponse dakInboxResponse = dakInboxApi.Execute(dakInboxRequest);
+
+
+                var dakInboxResponseJson = dakInboxResponse.Content;
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                DakListInboxResponse dakListInboxResponse = JsonConvert.DeserializeObject<DakListInboxResponse>(dakInboxResponseJson);
+                return dakListInboxResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         public void SaveorUpdateDakInbox(DakListInboxResponse dakListInboxResponse)
         {

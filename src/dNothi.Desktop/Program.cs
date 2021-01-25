@@ -131,6 +131,7 @@ namespace dNothi.Desktop
             builder.RegisterType<DakInboxService>().As<IDakInboxServices>();
             builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
             builder.RegisterType<DakListService>().As<IDakListService>();
+            builder.RegisterType<DesignationSealService>().As<IDesignationSealService>();
             builder.RegisterType<DakUploadService>().As<IDakUploadService>();
             builder.RegisterType<DakForwardService>().As<IDakForwardService>();
             builder.RegisterType<DakNothijatoService>().As<IDakNothijatoService>();
@@ -149,6 +150,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NoteSaveService>().As<INoteSaveService>(); 
             builder.RegisterType<OnuchhedSave>().As<IOnucchedSave>();
             builder.RegisterType<NothiTypeSaveService>().As<INothiTypeSaveService>();
+            builder.RegisterType<DakSearchService>().As<IDakSearchService>();
             builder.RegisterType<NoteDeleteService>().As<INoteDeleteService>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
             builder.RegisterType<NoteListParser>().As<INoteListParser>();
@@ -186,6 +188,7 @@ namespace dNothi.Desktop
             builder.RegisterType<DakNothiteUposthapitoNewNoteAddUserControl>().AsSelf();
             builder.RegisterType<MultipleDakActionResultForm>().AsSelf();
             builder.RegisterType<MultipleDakSelectedListConfirmForm>().AsSelf();
+           
 
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());

@@ -67,7 +67,7 @@
             this.placeholderTextBox2 = new PlaceholderTextBox.PlaceholderTextBox();
             this.detailPanelDropDownButton = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.nothiTypeSelectSearchBox = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.nothiTypeComboBox = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -76,10 +76,12 @@
             this.panel4.SuspendLayout();
             this.dakSearchHeadingPanel.SuspendLayout();
             this.searchBoxPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.dakSubjectLabel);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.closeButton);
@@ -88,7 +90,7 @@
             this.panel2.Location = new System.Drawing.Point(10, 10);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(570, 105);
+            this.panel2.Size = new System.Drawing.Size(570, 90);
             this.panel2.TabIndex = 2;
             // 
             // dakSubjectLabel
@@ -98,10 +100,13 @@
             this.dakSubjectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.dakSubjectLabel.Location = new System.Drawing.Point(106, 64);
             this.dakSubjectLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSubjectLabel.MaximumSize = new System.Drawing.Size(450, 0);
+            this.dakSubjectLabel.MinimumSize = new System.Drawing.Size(450, 0);
             this.dakSubjectLabel.Name = "dakSubjectLabel";
-            this.dakSubjectLabel.Size = new System.Drawing.Size(128, 21);
+            this.dakSubjectLabel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.dakSubjectLabel.Size = new System.Drawing.Size(450, 26);
             this.dakSubjectLabel.TabIndex = 42;
-            this.dakSubjectLabel.Text = "নতুন ডাক আপ‌লোড";
+            this.dakSubjectLabel.Text = "নতুন ডাক আপ‌লোড নতুন ";
             // 
             // label2
             // 
@@ -162,9 +167,9 @@
             // 
             this.nothiListFlowLayoutPanel.AutoScroll = true;
             this.nothiListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(10, 617);
+            this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(10, 593);
             this.nothiListFlowLayoutPanel.Name = "nothiListFlowLayoutPanel";
-            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(570, 87);
+            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(570, 111);
             this.nothiListFlowLayoutPanel.TabIndex = 59;
             this.nothiListFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
             // 
@@ -174,7 +179,7 @@
             this.panel6.Controls.Add(this.iconButton6);
             this.panel6.Controls.Add(this.iconButton5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(10, 586);
+            this.panel6.Location = new System.Drawing.Point(10, 562);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(570, 31);
             this.panel6.TabIndex = 57;
@@ -247,7 +252,7 @@
             this.detailsNothiSearcPanel.Controls.Add(this.detailSearchButton);
             this.detailsNothiSearcPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsNothiSearcPanel.ForeColor = System.Drawing.Color.White;
-            this.detailsNothiSearcPanel.Location = new System.Drawing.Point(10, 204);
+            this.detailsNothiSearcPanel.Location = new System.Drawing.Point(10, 180);
             this.detailsNothiSearcPanel.Name = "detailsNothiSearcPanel";
             this.detailsNothiSearcPanel.Size = new System.Drawing.Size(570, 382);
             this.detailsNothiSearcPanel.TabIndex = 58;
@@ -538,7 +543,7 @@
             this.dakSearchHeadingPanel.Controls.Add(this.searchBoxPanel);
             this.dakSearchHeadingPanel.Controls.Add(this.detailPanelDropDownButton);
             this.dakSearchHeadingPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakSearchHeadingPanel.Location = new System.Drawing.Point(10, 161);
+            this.dakSearchHeadingPanel.Location = new System.Drawing.Point(10, 137);
             this.dakSearchHeadingPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakSearchHeadingPanel.Name = "dakSearchHeadingPanel";
             this.dakSearchHeadingPanel.Size = new System.Drawing.Size(570, 43);
@@ -606,27 +611,27 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.nothiTypeComboBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(10, 115);
+            this.panel3.Location = new System.Drawing.Point(10, 100);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(570, 46);
+            this.panel3.Size = new System.Drawing.Size(570, 37);
             this.panel3.TabIndex = 55;
             // 
-            // nothiTypeSelectSearchBox
+            // nothiTypeComboBox
             // 
-            this.nothiTypeSelectSearchBox.AutoSize = true;
-            this.nothiTypeSelectSearchBox.BackColor = System.Drawing.Color.White;
-            this.nothiTypeSelectSearchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.nothiTypeSelectSearchBox.listboxcollection = new string[] {
-        "সকল নথি",
-        "অগত নথি",
-        "প্রেরিত নথি"};
-            this.nothiTypeSelectSearchBox.Location = new System.Drawing.Point(21, 125);
-            this.nothiTypeSelectSearchBox.MinimumSize = new System.Drawing.Size(120, 0);
-            this.nothiTypeSelectSearchBox.Name = "nothiTypeSelectSearchBox";
-            this.nothiTypeSelectSearchBox.searchButtonText = "সকল নথি";
-            this.nothiTypeSelectSearchBox.Size = new System.Drawing.Size(560, 32);
-            this.nothiTypeSelectSearchBox.TabIndex = 2;
+            this.nothiTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothiTypeComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiTypeComboBox.FormattingEnabled = true;
+            this.nothiTypeComboBox.Items.AddRange(new object[] {
+            "সকল নথি",
+            "অগত নথি",
+            "প্রেরিত নথি"});
+            this.nothiTypeComboBox.Location = new System.Drawing.Point(3, 6);
+            this.nothiTypeComboBox.Name = "nothiTypeComboBox";
+            this.nothiTypeComboBox.Size = new System.Drawing.Size(557, 26);
+            this.nothiTypeComboBox.TabIndex = 5;
+            this.nothiTypeComboBox.Text = "সকল নথি";
             // 
             // DakNothiteUposthapitoForm
             // 
@@ -635,7 +640,6 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(600, 726);
-            this.Controls.Add(this.nothiTypeSelectSearchBox);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(600, 726);
@@ -646,6 +650,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.detailsNothiSearcPanel.ResumeLayout(false);
@@ -656,8 +661,8 @@
             this.dakSearchHeadingPanel.ResumeLayout(false);
             this.searchBoxPanel.ResumeLayout(false);
             this.searchBoxPanel.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -670,7 +675,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private SearchUserController nothiTypeSelectSearchBox;
         private System.Windows.Forms.Panel dakSearchHeadingPanel;
         private FontAwesome.Sharp.IconButton dakSearchUsingTextButton;
         private System.Windows.Forms.Panel searchBoxPanel;
@@ -702,5 +706,6 @@
         private System.Windows.Forms.Button detailsSearchResetButton;
         private System.Windows.Forms.Button detailSearchButton;
         private System.Windows.Forms.FlowLayoutPanel nothiListFlowLayoutPanel;
+        private System.Windows.Forms.ComboBox nothiTypeComboBox;
     }
 }

@@ -45,10 +45,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.moduleDakCountLabel = new System.Windows.Forms.Label();
-            this.placeholderTextBox2 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.dakSearchSubTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.detailsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.dakBodyFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.noDakPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dakSortMetroPanel = new MetroFramework.Controls.MetroPanel();
             this.settingsPanel = new System.Windows.Forms.Panel();
@@ -73,19 +75,19 @@
             this.selectAllCheckBox = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.detailsDakSearcPanel = new System.Windows.Forms.Panel();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.nameorDesignationSearchPanel = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
+            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
+            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.timeLimitDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.timeLimitFromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.panel9 = new System.Windows.Forms.Panel();
             this.detailSearchApplicationAcceptNumberTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.detailsSearchDocketingNoTextBox = new PlaceholderTextBox.PlaceholderTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.timeLimitToDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.panel15 = new System.Windows.Forms.Panel();
             this.senderOfficePanel = new System.Windows.Forms.Panel();
             this.detailsSearchOfficerNamePanel = new System.Windows.Forms.Panel();
@@ -93,7 +95,6 @@
             this.detailsSearchOfficeNamePanel = new System.Windows.Forms.Panel();
             this.detailsSearchPrerokOficeNameTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.nameDesignationSearchButton = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.officeSourceCheckBox = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -103,11 +104,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.officerSourceCheckBox = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dakPriorityComboBox = new System.Windows.Forms.ComboBox();
-            this.dakSecurityComboBox11 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.dakSecurityComboBox = new System.Windows.Forms.ComboBox();
             this.dakTypeComboBox = new System.Windows.Forms.ComboBox();
             this.dakPaperTypeComboBox = new System.Windows.Forms.ComboBox();
             this.detailSearchStopButton = new System.Windows.Forms.Button();
@@ -183,20 +182,20 @@
             this.nothiModulePanel.SuspendLayout();
             this.dakModulePanel.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.noDakPanel.SuspendLayout();
             this.dakSortMetroPanel.SuspendLayout();
             this.settingsPanel.SuspendLayout();
             this.multipleSelectionPanel.SuspendLayout();
             this.shortSearchPanel.SuspendLayout();
             this.panel10.SuspendLayout();
             this.detailsDakSearcPanel.SuspendLayout();
-            this.nameorDesignationSearchPanel.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel15.SuspendLayout();
             this.senderOfficePanel.SuspendLayout();
             this.detailsSearchOfficerNamePanel.SuspendLayout();
             this.detailsSearchOfficeNamePanel.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
             this.dakSearchHeadingPanel.SuspendLayout();
             this.searchBoxPanel.SuspendLayout();
@@ -238,22 +237,23 @@
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 13, 5, 14);
             this.panel2.Size = new System.Drawing.Size(1125, 60);
             this.panel2.TabIndex = 12;
             this.panel2.Click += new System.EventHandler(this.panel2_Click);
             // 
             // profilePanel
             // 
-            this.profilePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.profilePanel.AutoSize = true;
             this.profilePanel.Controls.Add(this.userPictureBox);
             this.profilePanel.Controls.Add(this.userNameLabel);
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
-            this.profilePanel.Location = new System.Drawing.Point(783, 15);
+            this.profilePanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.profilePanel.Location = new System.Drawing.Point(794, 13);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Padding = new System.Windows.Forms.Padding(3);
+            this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.profilePanel.Size = new System.Drawing.Size(325, 33);
+            this.profilePanel.Size = new System.Drawing.Size(326, 33);
             this.profilePanel.TabIndex = 28;
             this.profilePanel.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             this.profilePanel.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
@@ -286,9 +286,9 @@
             this.userNameLabel.Location = new System.Drawing.Point(26, 3);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.userNameLabel.Size = new System.Drawing.Size(283, 25);
+            this.userNameLabel.Size = new System.Drawing.Size(287, 25);
             this.userNameLabel.TabIndex = 23;
-            this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি)";
+            this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি) ";
             this.userNameLabel.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             this.userNameLabel.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
             this.userNameLabel.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
@@ -305,7 +305,7 @@
             this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.profileShowArrowButton.IconSize = 20;
-            this.profileShowArrowButton.Location = new System.Drawing.Point(309, 3);
+            this.profileShowArrowButton.Location = new System.Drawing.Point(313, 3);
             this.profileShowArrowButton.Name = "profileShowArrowButton";
             this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.profileShowArrowButton.Size = new System.Drawing.Size(13, 27);
@@ -432,21 +432,22 @@
             this.moduleDakCountLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.moduleDakCountLabel_Paint);
             this.moduleDakCountLabel.Resize += new System.EventHandler(this.label1_Resize);
             // 
-            // placeholderTextBox2
+            // dakSearchSubTextBox
             // 
-            this.placeholderTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.placeholderTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.placeholderTextBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBox2.Location = new System.Drawing.Point(19, 11);
-            this.placeholderTextBox2.Name = "placeholderTextBox2";
-            this.placeholderTextBox2.PlaceholderText = "বিষয়/সিদ্ধান্ত দিয়ে খুঁজুন ";
-            this.placeholderTextBox2.Size = new System.Drawing.Size(987, 19);
-            this.placeholderTextBox2.TabIndex = 3;
+            this.dakSearchSubTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.dakSearchSubTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dakSearchSubTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSearchSubTextBox.Location = new System.Drawing.Point(19, 11);
+            this.dakSearchSubTextBox.Name = "dakSearchSubTextBox";
+            this.dakSearchSubTextBox.PlaceholderText = "বিষয়/সিদ্ধান্ত দিয়ে খুঁজুন ";
+            this.dakSearchSubTextBox.Size = new System.Drawing.Size(987, 19);
+            this.dakSearchSubTextBox.TabIndex = 3;
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.detailsFlowLayoutPanel);
             this.panel12.Controls.Add(this.dakBodyFlowLayoutPanel);
+            this.panel12.Controls.Add(this.noDakPanel);
             this.panel12.Controls.Add(this.label15);
             this.panel12.Controls.Add(this.dakSortMetroPanel);
             this.panel12.Controls.Add(this.label21);
@@ -465,9 +466,9 @@
             this.detailsFlowLayoutPanel.AutoScroll = true;
             this.detailsFlowLayoutPanel.AutoSize = true;
             this.detailsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(0, 469);
+            this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(0, 493);
             this.detailsFlowLayoutPanel.Name = "detailsFlowLayoutPanel";
-            this.detailsFlowLayoutPanel.Size = new System.Drawing.Size(1125, 121);
+            this.detailsFlowLayoutPanel.Size = new System.Drawing.Size(1125, 97);
             this.detailsFlowLayoutPanel.TabIndex = 16;
             this.detailsFlowLayoutPanel.Visible = false;
             // 
@@ -475,11 +476,32 @@
             // 
             this.dakBodyFlowLayoutPanel.AutoScroll = true;
             this.dakBodyFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dakBodyFlowLayoutPanel.Location = new System.Drawing.Point(0, 469);
+            this.dakBodyFlowLayoutPanel.Location = new System.Drawing.Point(0, 493);
             this.dakBodyFlowLayoutPanel.Name = "dakBodyFlowLayoutPanel";
-            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1125, 121);
+            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1125, 97);
             this.dakBodyFlowLayoutPanel.TabIndex = 15;
             this.dakBodyFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.moduleDakCountLabel_Paint);
+            // 
+            // noDakPanel
+            // 
+            this.noDakPanel.Controls.Add(this.label3);
+            this.noDakPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.noDakPanel.Location = new System.Drawing.Point(0, 469);
+            this.noDakPanel.Name = "noDakPanel";
+            this.noDakPanel.Size = new System.Drawing.Size(1125, 24);
+            this.noDakPanel.TabIndex = 0;
+            this.noDakPanel.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.label3.Location = new System.Drawing.Point(525, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "কোনো ডাক নেই";
             // 
             // label15
             // 
@@ -796,7 +818,7 @@
             this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 24;
-            this.iconButton4.Location = new System.Drawing.Point(1075, 0);
+            this.iconButton4.Location = new System.Drawing.Point(1090, 0);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(34, 35);
             this.iconButton4.TabIndex = 32;
@@ -812,7 +834,7 @@
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(1041, 0);
+            this.iconButton3.Location = new System.Drawing.Point(1056, 0);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(34, 35);
             this.iconButton3.TabIndex = 31;
@@ -823,7 +845,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.label6.Location = new System.Drawing.Point(968, 8);
+            this.label6.Location = new System.Drawing.Point(983, 8);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 20);
             this.label6.TabIndex = 7;
@@ -864,19 +886,19 @@
             // 
             this.detailsDakSearcPanel.BackColor = System.Drawing.Color.White;
             this.detailsDakSearcPanel.Controls.Add(this.searchOfficeDetailSearch);
-            this.detailsDakSearcPanel.Controls.Add(this.nameorDesignationSearchPanel);
+            this.detailsDakSearcPanel.Controls.Add(this.officerSearchList);
+            this.detailsDakSearcPanel.Controls.Add(this.label11);
+            this.detailsDakSearcPanel.Controls.Add(this.panel5);
             this.detailsDakSearcPanel.Controls.Add(this.label13);
             this.detailsDakSearcPanel.Controls.Add(this.label2);
-            this.detailsDakSearcPanel.Controls.Add(this.timeLimitDateTimePicker);
+            this.detailsDakSearcPanel.Controls.Add(this.timeLimitFromDateTimePicker);
             this.detailsDakSearcPanel.Controls.Add(this.panel9);
             this.detailsDakSearcPanel.Controls.Add(this.panel8);
-            this.detailsDakSearcPanel.Controls.Add(this.dateTimePicker1);
+            this.detailsDakSearcPanel.Controls.Add(this.timeLimitToDateTimePicker);
             this.detailsDakSearcPanel.Controls.Add(this.panel15);
-            this.detailsDakSearcPanel.Controls.Add(this.label11);
             this.detailsDakSearcPanel.Controls.Add(this.label10);
             this.detailsDakSearcPanel.Controls.Add(this.dakPriorityComboBox);
-            this.detailsDakSearcPanel.Controls.Add(this.dakSecurityComboBox11);
-            this.detailsDakSearcPanel.Controls.Add(this.label8);
+            this.detailsDakSearcPanel.Controls.Add(this.dakSecurityComboBox);
             this.detailsDakSearcPanel.Controls.Add(this.dakTypeComboBox);
             this.detailsDakSearcPanel.Controls.Add(this.dakPaperTypeComboBox);
             this.detailsDakSearcPanel.Controls.Add(this.detailSearchStopButton);
@@ -886,6 +908,7 @@
             this.detailsDakSearcPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsDakSearcPanel.ForeColor = System.Drawing.Color.White;
             this.detailsDakSearcPanel.Location = new System.Drawing.Point(0, 43);
+            this.detailsDakSearcPanel.Margin = new System.Windows.Forms.Padding(0);
             this.detailsDakSearcPanel.Name = "detailsDakSearcPanel";
             this.detailsDakSearcPanel.Size = new System.Drawing.Size(1125, 388);
             this.detailsDakSearcPanel.TabIndex = 0;
@@ -895,97 +918,98 @@
             // 
             this.searchOfficeDetailSearch.AutoSize = true;
             this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
-            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeDetailSearch.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 210);
-            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
-            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(174, 40);
+            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeDetailSearch.isListShown = false;
+            this.searchOfficeDetailSearch.itemList = null;
+            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 208);
+            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
             this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
             this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(506, 84);
-            this.searchOfficeDetailSearch.TabIndex = 30;
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 44);
+            this.searchOfficeDetailSearch.TabIndex = 53;
             // 
-            // nameorDesignationSearchPanel
+            // officerSearchList
             // 
-            this.nameorDesignationSearchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nameorDesignationSearchPanel.Controls.Add(this.label14);
-            this.nameorDesignationSearchPanel.Controls.Add(this.label12);
-            this.nameorDesignationSearchPanel.Controls.Add(this.nameorDesignationSearchXTextBox);
-            this.nameorDesignationSearchPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameorDesignationSearchPanel.Location = new System.Drawing.Point(19, 251);
-            this.nameorDesignationSearchPanel.Name = "nameorDesignationSearchPanel";
-            this.nameorDesignationSearchPanel.Size = new System.Drawing.Size(497, 107);
-            this.nameorDesignationSearchPanel.TabIndex = 2;
-            this.nameorDesignationSearchPanel.Visible = false;
-            this.nameorDesignationSearchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
+            this.officerSearchList.AutoSize = true;
+            this.officerSearchList.BackColor = System.Drawing.Color.White;
+            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchList.isListShown = false;
+            this.officerSearchList.itemList = null;
+            this.officerSearchList.Location = new System.Drawing.Point(21, 209);
+            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
+            this.officerSearchList.Name = "officerSearchList";
+            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
+            this.officerSearchList.Size = new System.Drawing.Size(516, 44);
+            this.officerSearchList.TabIndex = 52;
             // 
-            // label14
+            // label11
             // 
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(20, 61);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(261, 27);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "Please enter 4 or more characters";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label11.Location = new System.Drawing.Point(0, 47);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(1125, 1);
+            this.label11.TabIndex = 34;
             // 
-            // label12
+            // panel5
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(28, 69);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(209, 16);
-            this.label12.TabIndex = 31;
-            this.label12.Text = "Please enter 4 or more characters";
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1125, 47);
+            this.panel5.TabIndex = 51;
             // 
-            // nameorDesignationSearchXTextBox
+            // label8
             // 
-            this.nameorDesignationSearchXTextBox.BackColor = System.Drawing.Color.White;
-            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(11, 18);
-            this.nameorDesignationSearchXTextBox.Multiline = true;
-            this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
-            this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(449, 35);
-            this.nameorDesignationSearchXTextBox.TabIndex = 30;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(11, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(190, 27);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "বিস্তারিত খুঁজুন";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label13
             // 
             this.label13.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label13.Location = new System.Drawing.Point(-87, 305);
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label13.Location = new System.Drawing.Point(-87, 315);
+            this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(1236, 2);
+            this.label13.Size = new System.Drawing.Size(1236, 1);
             this.label13.TabIndex = 50;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label2.Location = new System.Drawing.Point(-3, 149);
+            this.label2.Location = new System.Drawing.Point(23, 148);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1108, 1);
+            this.label2.Size = new System.Drawing.Size(1075, 1);
             this.label2.TabIndex = 49;
             // 
-            // timeLimitDateTimePicker
+            // timeLimitFromDateTimePicker
             // 
-            this.timeLimitDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLimitDateTimePicker.CalendarForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.timeLimitDateTimePicker.CalendarMonthBackground = System.Drawing.Color.Transparent;
-            this.timeLimitDateTimePicker.CalendarTitleBackColor = System.Drawing.Color.Transparent;
-            this.timeLimitDateTimePicker.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.timeLimitDateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
-            this.timeLimitDateTimePicker.Cursor = System.Windows.Forms.Cursors.Default;
-            this.timeLimitDateTimePicker.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLimitDateTimePicker.Location = new System.Drawing.Point(553, 53);
-            this.timeLimitDateTimePicker.MinimumSize = new System.Drawing.Size(4, 43);
-            this.timeLimitDateTimePicker.Name = "timeLimitDateTimePicker";
-            this.timeLimitDateTimePicker.Size = new System.Drawing.Size(252, 43);
-            this.timeLimitDateTimePicker.TabIndex = 31;
+            this.timeLimitFromDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLimitFromDateTimePicker.CalendarForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.timeLimitFromDateTimePicker.CalendarMonthBackground = System.Drawing.Color.Transparent;
+            this.timeLimitFromDateTimePicker.CalendarTitleBackColor = System.Drawing.Color.Transparent;
+            this.timeLimitFromDateTimePicker.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.timeLimitFromDateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
+            this.timeLimitFromDateTimePicker.Cursor = System.Windows.Forms.Cursors.Default;
+            this.timeLimitFromDateTimePicker.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLimitFromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timeLimitFromDateTimePicker.Location = new System.Drawing.Point(553, 53);
+            this.timeLimitFromDateTimePicker.MinimumSize = new System.Drawing.Size(4, 43);
+            this.timeLimitFromDateTimePicker.Name = "timeLimitFromDateTimePicker";
+            this.timeLimitFromDateTimePicker.Size = new System.Drawing.Size(252, 43);
+            this.timeLimitFromDateTimePicker.TabIndex = 31;
+            this.timeLimitFromDateTimePicker.MouseEnter += new System.EventHandler(this.timeLimitFromDateTimePicker_MouseEnter_1);
             // 
             // panel9
             // 
@@ -1029,17 +1053,19 @@
             this.detailsSearchDocketingNoTextBox.Size = new System.Drawing.Size(217, 19);
             this.detailsSearchDocketingNoTextBox.TabIndex = 3;
             // 
-            // dateTimePicker1
+            // timeLimitToDateTimePicker
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.Transparent;
-            this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(814, 53);
-            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(252, 43);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(252, 43);
-            this.dateTimePicker1.TabIndex = 48;
+            this.timeLimitToDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLimitToDateTimePicker.CalendarMonthBackground = System.Drawing.Color.Transparent;
+            this.timeLimitToDateTimePicker.Cursor = System.Windows.Forms.Cursors.Default;
+            this.timeLimitToDateTimePicker.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLimitToDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timeLimitToDateTimePicker.Location = new System.Drawing.Point(830, 53);
+            this.timeLimitToDateTimePicker.MinimumSize = new System.Drawing.Size(252, 43);
+            this.timeLimitToDateTimePicker.Name = "timeLimitToDateTimePicker";
+            this.timeLimitToDateTimePicker.Size = new System.Drawing.Size(267, 43);
+            this.timeLimitToDateTimePicker.TabIndex = 48;
+            this.timeLimitToDateTimePicker.MouseEnter += new System.EventHandler(this.timeLimitToDateTimePicker_MouseEnter);
             // 
             // panel15
             // 
@@ -1049,7 +1075,7 @@
             this.panel15.Controls.Add(this.panel14);
             this.panel15.Location = new System.Drawing.Point(6, 153);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(1091, 160);
+            this.panel15.Size = new System.Drawing.Size(1091, 165);
             this.panel15.TabIndex = 47;
             // 
             // senderOfficePanel
@@ -1059,7 +1085,7 @@
             this.senderOfficePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.senderOfficePanel.Location = new System.Drawing.Point(0, 105);
             this.senderOfficePanel.Name = "senderOfficePanel";
-            this.senderOfficePanel.Size = new System.Drawing.Size(1091, 50);
+            this.senderOfficePanel.Size = new System.Drawing.Size(1091, 60);
             this.senderOfficePanel.TabIndex = 47;
             this.senderOfficePanel.Visible = false;
             // 
@@ -1069,7 +1095,7 @@
             this.detailsSearchOfficerNamePanel.Controls.Add(this.detailsSearchPrerokOficerNameTextBox);
             this.detailsSearchOfficerNamePanel.Location = new System.Drawing.Point(13, 7);
             this.detailsSearchOfficerNamePanel.Name = "detailsSearchOfficerNamePanel";
-            this.detailsSearchOfficerNamePanel.Size = new System.Drawing.Size(498, 35);
+            this.detailsSearchOfficerNamePanel.Size = new System.Drawing.Size(518, 43);
             this.detailsSearchOfficerNamePanel.TabIndex = 49;
             this.detailsSearchOfficerNamePanel.Visible = false;
             this.detailsSearchOfficerNamePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
@@ -1079,10 +1105,11 @@
             this.detailsSearchPrerokOficerNameTextBox.BackColor = System.Drawing.Color.White;
             this.detailsSearchPrerokOficerNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.detailsSearchPrerokOficerNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailsSearchPrerokOficerNameTextBox.Location = new System.Drawing.Point(10, 9);
+            this.detailsSearchPrerokOficerNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(140)))), ((int)(((byte)(159)))));
+            this.detailsSearchPrerokOficerNameTextBox.Location = new System.Drawing.Point(10, 12);
             this.detailsSearchPrerokOficerNameTextBox.Name = "detailsSearchPrerokOficerNameTextBox";
             this.detailsSearchPrerokOficerNameTextBox.PlaceholderText = "প্রেরক অফিসারের নাম ";
-            this.detailsSearchPrerokOficerNameTextBox.Size = new System.Drawing.Size(479, 19);
+            this.detailsSearchPrerokOficerNameTextBox.Size = new System.Drawing.Size(493, 19);
             this.detailsSearchPrerokOficerNameTextBox.TabIndex = 3;
             // 
             // detailsSearchOfficeNamePanel
@@ -1091,7 +1118,7 @@
             this.detailsSearchOfficeNamePanel.Controls.Add(this.detailsSearchPrerokOficeNameTextBox);
             this.detailsSearchOfficeNamePanel.Location = new System.Drawing.Point(554, 6);
             this.detailsSearchOfficeNamePanel.Name = "detailsSearchOfficeNamePanel";
-            this.detailsSearchOfficeNamePanel.Size = new System.Drawing.Size(506, 35);
+            this.detailsSearchOfficeNamePanel.Size = new System.Drawing.Size(532, 43);
             this.detailsSearchOfficeNamePanel.TabIndex = 48;
             this.detailsSearchOfficeNamePanel.Visible = false;
             this.detailsSearchOfficeNamePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
@@ -1101,40 +1128,21 @@
             this.detailsSearchPrerokOficeNameTextBox.BackColor = System.Drawing.Color.White;
             this.detailsSearchPrerokOficeNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.detailsSearchPrerokOficeNameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailsSearchPrerokOficeNameTextBox.Location = new System.Drawing.Point(10, 9);
+            this.detailsSearchPrerokOficeNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(140)))), ((int)(((byte)(159)))));
+            this.detailsSearchPrerokOficeNameTextBox.Location = new System.Drawing.Point(10, 11);
             this.detailsSearchPrerokOficeNameTextBox.Name = "detailsSearchPrerokOficeNameTextBox";
             this.detailsSearchPrerokOficeNameTextBox.PlaceholderText = "প্রেরক অফিসের নাম";
-            this.detailsSearchPrerokOficeNameTextBox.Size = new System.Drawing.Size(479, 19);
+            this.detailsSearchPrerokOficeNameTextBox.Size = new System.Drawing.Size(507, 19);
             this.detailsSearchPrerokOficeNameTextBox.TabIndex = 3;
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.nameDesignationSearchButton);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel13.Location = new System.Drawing.Point(0, 48);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(1091, 57);
             this.panel13.TabIndex = 46;
-            // 
-            // nameDesignationSearchButton
-            // 
-            this.nameDesignationSearchButton.BackColor = System.Drawing.Color.Transparent;
-            this.nameDesignationSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.nameDesignationSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nameDesignationSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameDesignationSearchButton.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nameDesignationSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nameDesignationSearchButton.Location = new System.Drawing.Point(12, 10);
-            this.nameDesignationSearchButton.Name = "nameDesignationSearchButton";
-            this.nameDesignationSearchButton.Size = new System.Drawing.Size(498, 40);
-            this.nameDesignationSearchButton.TabIndex = 29;
-            this.nameDesignationSearchButton.Text = "নাম/পদবী দিয়ে খুঁজুন";
-            this.nameDesignationSearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nameDesignationSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.nameDesignationSearchButton.UseVisualStyleBackColor = false;
-            this.nameDesignationSearchButton.Click += new System.EventHandler(this.nameDesignationSearchButton_Click);
-            this.nameDesignationSearchButton.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
             // 
             // panel14
             // 
@@ -1165,9 +1173,9 @@
             // label17
             // 
             this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(212, 17);
+            this.label17.Location = new System.Drawing.Point(212, 18);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(42, 27);
             this.label17.TabIndex = 47;
@@ -1177,7 +1185,7 @@
             // label19
             // 
             this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(645, 14);
             this.label19.Name = "label19";
@@ -1198,7 +1206,7 @@
             // label16
             // 
             this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
             this.label16.Location = new System.Drawing.Point(6, 17);
             this.label16.Name = "label16";
@@ -1210,9 +1218,9 @@
             // label18
             // 
             this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(104, 17);
+            this.label18.Location = new System.Drawing.Point(104, 18);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(74, 27);
             this.label18.TabIndex = 48;
@@ -1222,7 +1230,7 @@
             // label20
             // 
             this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Location = new System.Drawing.Point(536, 14);
             this.label20.Name = "label20";
@@ -1234,34 +1242,27 @@
             // officerSourceCheckBox
             // 
             this.officerSourceCheckBox.AutoSize = true;
-            this.officerSourceCheckBox.Location = new System.Drawing.Point(196, 23);
+            this.officerSourceCheckBox.Location = new System.Drawing.Point(196, 24);
             this.officerSourceCheckBox.Name = "officerSourceCheckBox";
             this.officerSourceCheckBox.Size = new System.Drawing.Size(15, 14);
             this.officerSourceCheckBox.TabIndex = 50;
             this.officerSourceCheckBox.UseVisualStyleBackColor = true;
             this.officerSourceCheckBox.CheckedChanged += new System.EventHandler(this.officerSourceCheckBox_CheckedChanged);
             // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label11.Location = new System.Drawing.Point(-3, 42);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(1108, 1);
-            this.label11.TabIndex = 34;
-            // 
             // label10
             // 
             this.label10.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label10.Location = new System.Drawing.Point(-3, 108);
+            this.label10.Location = new System.Drawing.Point(23, 108);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(1108, 1);
+            this.label10.Size = new System.Drawing.Size(1075, 1);
             this.label10.TabIndex = 33;
             // 
             // dakPriorityComboBox
             // 
             this.dakPriorityComboBox.BackColor = System.Drawing.Color.White;
             this.dakPriorityComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakPriorityComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakPriorityComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakPriorityComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(140)))), ((int)(((byte)(159)))));
             this.dakPriorityComboBox.FormattingEnabled = true;
             this.dakPriorityComboBox.Items.AddRange(new object[] {
             "অগ্রাধিকার",
@@ -1269,55 +1270,46 @@
             "সর্বোচ্চ অগ্রাধিকার",
             "অবিলম্বে",
             "জরুরি"});
-            this.dakPriorityComboBox.Location = new System.Drawing.Point(644, 117);
+            this.dakPriorityComboBox.Location = new System.Drawing.Point(678, 115);
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
-            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 28);
+            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakPriorityComboBox.TabIndex = 6;
-            this.dakPriorityComboBox.Text = "অগ্রাধিকার";
+            this.dakPriorityComboBox.Text = "অগ্রাধিকার ";
+            this.dakPriorityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPriorityComboBox_SelectedIndexChanged);
             // 
-            // dakSecurityComboBox11
+            // dakSecurityComboBox
             // 
-            this.dakSecurityComboBox11.BackColor = System.Drawing.Color.White;
-            this.dakSecurityComboBox11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSecurityComboBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSecurityComboBox11.FormattingEnabled = true;
-            this.dakSecurityComboBox11.Items.AddRange(new object[] {
+            this.dakSecurityComboBox.BackColor = System.Drawing.Color.White;
+            this.dakSecurityComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakSecurityComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSecurityComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(140)))), ((int)(((byte)(159)))));
+            this.dakSecurityComboBox.FormattingEnabled = true;
+            this.dakSecurityComboBox.Items.AddRange(new object[] {
             "বাছাই করুন",
             "গোপনীয়",
             "অতি গোপনীয়",
             "বিশেষ গোপনীয়",
-            "সীমিত "});
-            this.dakSecurityComboBox11.Location = new System.Drawing.Point(438, 117);
-            this.dakSecurityComboBox11.Name = "dakSecurityComboBox11";
-            this.dakSecurityComboBox11.Size = new System.Drawing.Size(197, 28);
-            this.dakSecurityComboBox11.TabIndex = 5;
-            this.dakSecurityComboBox11.Text = "গোপনীয়তা";
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(17, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 27);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "বিস্তারিত খুঁজুন";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            "সীমিত"});
+            this.dakSecurityComboBox.Location = new System.Drawing.Point(463, 115);
+            this.dakSecurityComboBox.Name = "dakSecurityComboBox";
+            this.dakSecurityComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakSecurityComboBox.TabIndex = 5;
+            this.dakSecurityComboBox.Text = "গোপনীয়তা";
+            this.dakSecurityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakSecurityComboBox_SelectedIndexChanged);
             // 
             // dakTypeComboBox
             // 
             this.dakTypeComboBox.BackColor = System.Drawing.Color.White;
             this.dakTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakTypeComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(140)))), ((int)(((byte)(159)))));
             this.dakTypeComboBox.FormattingEnabled = true;
             this.dakTypeComboBox.Items.AddRange(new object[] {
-            "ডাকের ধরণ",
             "দাপ্তরিক",
             "নাগরিক"});
-            this.dakTypeComboBox.Location = new System.Drawing.Point(861, 117);
+            this.dakTypeComboBox.Location = new System.Drawing.Point(897, 115);
             this.dakTypeComboBox.Name = "dakTypeComboBox";
-            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 28);
+            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakTypeComboBox.TabIndex = 4;
             this.dakTypeComboBox.Text = "ডাকের ধরণ";
             this.dakTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakTypeComboBox_SelectedIndexChanged);
@@ -1326,7 +1318,8 @@
             // 
             this.dakPaperTypeComboBox.BackColor = System.Drawing.Color.White;
             this.dakPaperTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakPaperTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakPaperTypeComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakPaperTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(140)))), ((int)(((byte)(159)))));
             this.dakPaperTypeComboBox.FormattingEnabled = true;
             this.dakPaperTypeComboBox.Items.AddRange(new object[] {
             "পত্রের ধরন",
@@ -1334,11 +1327,12 @@
             "সরকারী পত্র",
             "আধা সরকারী পত্র",
             "বিজ্ঞপ্তি/নোটিশ"});
-            this.dakPaperTypeComboBox.Location = new System.Drawing.Point(233, 118);
+            this.dakPaperTypeComboBox.Location = new System.Drawing.Point(245, 115);
             this.dakPaperTypeComboBox.Name = "dakPaperTypeComboBox";
-            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 28);
+            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakPaperTypeComboBox.TabIndex = 3;
-            this.dakPaperTypeComboBox.Text = "পত্রের ধরন";
+            this.dakPaperTypeComboBox.Text = "পত্রের ধরন ";
+            this.dakPaperTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPaperTypeComboBox_SelectedIndexChanged);
             // 
             // detailSearchStopButton
             // 
@@ -1346,11 +1340,11 @@
             this.detailSearchStopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.detailSearchStopButton.FlatAppearance.BorderSize = 0;
             this.detailSearchStopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailSearchStopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailSearchStopButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detailSearchStopButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.detailSearchStopButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchStopButton.Image")));
             this.detailSearchStopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailSearchStopButton.Location = new System.Drawing.Point(258, 320);
+            this.detailSearchStopButton.Location = new System.Drawing.Point(258, 326);
             this.detailSearchStopButton.Name = "detailSearchStopButton";
             this.detailSearchStopButton.Size = new System.Drawing.Size(121, 42);
             this.detailSearchStopButton.TabIndex = 32;
@@ -1358,12 +1352,14 @@
             this.detailSearchStopButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.detailSearchStopButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.detailSearchStopButton.UseVisualStyleBackColor = false;
+            this.detailSearchStopButton.Click += new System.EventHandler(this.detailSearchStopButton_Click);
             // 
             // dakAttentionTypeComboBox
             // 
             this.dakAttentionTypeComboBox.BackColor = System.Drawing.Color.White;
             this.dakAttentionTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakAttentionTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakAttentionTypeComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakAttentionTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(140)))), ((int)(((byte)(159)))));
             this.dakAttentionTypeComboBox.FormattingEnabled = true;
             this.dakAttentionTypeComboBox.Items.AddRange(new object[] {
             "সকল",
@@ -1371,11 +1367,12 @@
             "অপঠিত",
             "মূল-প্রাপক",
             " অনুলিপি"});
-            this.dakAttentionTypeComboBox.Location = new System.Drawing.Point(21, 117);
+            this.dakAttentionTypeComboBox.Location = new System.Drawing.Point(21, 115);
             this.dakAttentionTypeComboBox.Name = "dakAttentionTypeComboBox";
-            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 28);
+            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakAttentionTypeComboBox.TabIndex = 2;
-            this.dakAttentionTypeComboBox.Text = "সকল";
+            this.dakAttentionTypeComboBox.Text = "সকল ";
+            this.dakAttentionTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakAttentionTypeComboBox_SelectedIndexChanged);
             // 
             // detailsSearchResetButton
             // 
@@ -1383,11 +1380,11 @@
             this.detailsSearchResetButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.detailsSearchResetButton.FlatAppearance.BorderSize = 0;
             this.detailsSearchResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailsSearchResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailsSearchResetButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detailsSearchResetButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.detailsSearchResetButton.Image = ((System.Drawing.Image)(resources.GetObject("detailsSearchResetButton.Image")));
             this.detailsSearchResetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailsSearchResetButton.Location = new System.Drawing.Point(136, 320);
+            this.detailsSearchResetButton.Location = new System.Drawing.Point(136, 325);
             this.detailsSearchResetButton.Name = "detailsSearchResetButton";
             this.detailsSearchResetButton.Size = new System.Drawing.Size(121, 44);
             this.detailsSearchResetButton.TabIndex = 31;
@@ -1395,6 +1392,7 @@
             this.detailsSearchResetButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.detailsSearchResetButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.detailsSearchResetButton.UseVisualStyleBackColor = false;
+            this.detailsSearchResetButton.Click += new System.EventHandler(this.detailsSearchResetButton_Click);
             // 
             // detailSearchButton
             // 
@@ -1402,11 +1400,11 @@
             this.detailSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.detailSearchButton.FlatAppearance.BorderSize = 0;
             this.detailSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailSearchButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detailSearchButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.detailSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchButton.Image")));
             this.detailSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailSearchButton.Location = new System.Drawing.Point(16, 320);
+            this.detailSearchButton.Location = new System.Drawing.Point(16, 325);
             this.detailSearchButton.Name = "detailSearchButton";
             this.detailSearchButton.Size = new System.Drawing.Size(121, 44);
             this.detailSearchButton.TabIndex = 30;
@@ -1414,6 +1412,7 @@
             this.detailSearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.detailSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.detailSearchButton.UseVisualStyleBackColor = false;
+            this.detailSearchButton.Click += new System.EventHandler(this.detailSearchButton_Click);
             // 
             // dakSearchHeadingPanel
             // 
@@ -1438,23 +1437,24 @@
             this.dakSearchUsingTextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
             this.dakSearchUsingTextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakSearchUsingTextButton.IconSize = 32;
-            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(1075, 0);
+            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(1090, 0);
             this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
             this.dakSearchUsingTextButton.Size = new System.Drawing.Size(34, 43);
             this.dakSearchUsingTextButton.TabIndex = 30;
             this.MyToolTip.SetToolTip(this.dakSearchUsingTextButton, "খুঁজুন");
             this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
+            this.dakSearchUsingTextButton.Click += new System.EventHandler(this.dakSearchUsingTextButton_Click);
             // 
             // searchBoxPanel
             // 
             this.searchBoxPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.searchBoxPanel.Controls.Add(this.placeholderTextBox2);
+            this.searchBoxPanel.Controls.Add(this.dakSearchSubTextBox);
             this.searchBoxPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.searchBoxPanel.Location = new System.Drawing.Point(35, 0);
             this.searchBoxPanel.Margin = new System.Windows.Forms.Padding(0);
             this.searchBoxPanel.Name = "searchBoxPanel";
-            this.searchBoxPanel.Size = new System.Drawing.Size(1040, 43);
+            this.searchBoxPanel.Size = new System.Drawing.Size(1055, 43);
             this.searchBoxPanel.TabIndex = 4;
             this.searchBoxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchBoxPanel_Paint);
             // 
@@ -2359,9 +2359,9 @@
             this.dashboardRightSideDisplaypanel.Controls.Add(this.rightSliderHeadLineLabel);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.sliderCrossButton);
             this.dashboardRightSideDisplaypanel.Controls.Add(this.dashboardRightSideFlowLayoutPanel);
-            this.dashboardRightSideDisplaypanel.Location = new System.Drawing.Point(758, 1);
+            this.dashboardRightSideDisplaypanel.Location = new System.Drawing.Point(775, 1);
             this.dashboardRightSideDisplaypanel.Name = "dashboardRightSideDisplaypanel";
-            this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(597, 690);
+            this.dashboardRightSideDisplaypanel.Size = new System.Drawing.Size(670, 690);
             this.dashboardRightSideDisplaypanel.TabIndex = 26;
             this.dashboardRightSideDisplaypanel.Visible = false;
             // 
@@ -2383,10 +2383,12 @@
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.designationDetailsPanel.dakTotalNumber = 5;
             this.designationDetailsPanel.designationLinkText = null;
-            this.designationDetailsPanel.Location = new System.Drawing.Point(910, 48);
+            this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationDetailsPanel.Location = new System.Drawing.Point(926, 46);
+            this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
             this.designationDetailsPanel.Name = "designationDetailsPanel";
             this.designationDetailsPanel.nothiTotalNumber = 9;
-            this.designationDetailsPanel.Size = new System.Drawing.Size(428, 146);
+            this.designationDetailsPanel.Size = new System.Drawing.Size(428, 150);
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
@@ -2431,6 +2433,8 @@
             this.dakModulePanel.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            this.noDakPanel.ResumeLayout(false);
+            this.noDakPanel.PerformLayout();
             this.dakSortMetroPanel.ResumeLayout(false);
             this.dakSortMetroPanel.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
@@ -2440,8 +2444,7 @@
             this.panel10.PerformLayout();
             this.detailsDakSearcPanel.ResumeLayout(false);
             this.detailsDakSearcPanel.PerformLayout();
-            this.nameorDesignationSearchPanel.ResumeLayout(false);
-            this.nameorDesignationSearchPanel.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -2452,7 +2455,6 @@
             this.detailsSearchOfficerNamePanel.PerformLayout();
             this.detailsSearchOfficeNamePanel.ResumeLayout(false);
             this.detailsSearchOfficeNamePanel.PerformLayout();
-            this.panel13.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.dakSearchHeadingPanel.ResumeLayout(false);
@@ -2529,20 +2531,15 @@
         private System.Windows.Forms.CheckBox selectAllCheckBox;
         private System.Windows.Forms.Panel detailsDakSearcPanel;
         private System.Windows.Forms.FlowLayoutPanel dakBodyFlowLayoutPanel;
-        private System.Windows.Forms.DateTimePicker timeLimitDateTimePicker;
+        private System.Windows.Forms.DateTimePicker timeLimitFromDateTimePicker;
         private System.Windows.Forms.ComboBox dakAttentionTypeComboBox;
         private System.Windows.Forms.ComboBox dakPriorityComboBox;
-        private System.Windows.Forms.ComboBox dakSecurityComboBox11;
+        private System.Windows.Forms.ComboBox dakSecurityComboBox;
         private System.Windows.Forms.ComboBox dakTypeComboBox;
         private System.Windows.Forms.ComboBox dakPaperTypeComboBox;
-        private System.Windows.Forms.Panel nameorDesignationSearchPanel;
-        private System.Windows.Forms.Label label12;
-        private XTextBox nameorDesignationSearchXTextBox;
-        private System.Windows.Forms.Button nameDesignationSearchButton;
         private System.Windows.Forms.Button detailSearchStopButton;
         private System.Windows.Forms.Button detailsSearchResetButton;
         private System.Windows.Forms.Button detailSearchButton;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -2558,14 +2555,13 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.CheckBox officerSourceCheckBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private Dak.SearchUserController searchOfficeDetailSearch;
+        private System.Windows.Forms.DateTimePicker timeLimitToDateTimePicker;
         private System.Windows.Forms.FlowLayoutPanel dakSortingUserFlowLayoutPanel;
         private System.Windows.Forms.Button nagorikDakUploadMenuButton;
         private System.Windows.Forms.Button daptorikDakUploadButton;
         private FontAwesome.Sharp.IconButton detailPanelDropDownButton;
         private System.Windows.Forms.Panel dakSearchHeadingPanel;
-        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox2;
+        private PlaceholderTextBox.PlaceholderTextBox dakSearchSubTextBox;
         private FontAwesome.Sharp.IconButton dakSearchUsingTextButton;
         private System.Windows.Forms.Panel searchBoxPanel;
         private System.Windows.Forms.Panel dakModulePanel;
@@ -2629,6 +2625,11 @@
         private FontAwesome.Sharp.IconButton multipleDakForwardButton;
         private FontAwesome.Sharp.IconButton starButton;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel5;
+        private ManuelUserControl.SearchComboBox officerSearchList;
+        private ManuelUserControl.SearchComboBox searchOfficeDetailSearch;
+        private System.Windows.Forms.Panel noDakPanel;
+        private System.Windows.Forms.Label label3;
     }
 }
 

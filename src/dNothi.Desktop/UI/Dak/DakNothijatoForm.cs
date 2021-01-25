@@ -77,16 +77,20 @@ namespace dNothi.Desktop.UI.Dak
         private void LoadNothiInbox()
         {
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+            nothiListFlowLayoutPanel.Controls.Clear();
             var nothiInbox = _nothiInbox.GetNothiInbox(dakUserParam);
-            if (nothiInbox.status == "success")
+            if(nothiInbox != null)
             {
-                _nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
-
-                if (nothiInbox.data.records.Count > 0)
+                if (nothiInbox.status == "success")
                 {
+                    _nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
 
-                    LoadNothiInboxinPanel(nothiInbox.data.records);
+                    if (nothiInbox.data.records.Count > 0)
+                    {
 
+                        LoadNothiInboxinPanel(nothiInbox.data.records);
+
+                    }
                 }
             }
 
@@ -138,16 +142,19 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void LoadNothiAll()
         {
-
+            nothiListFlowLayoutPanel.Controls.Clear();
             var nothiAll = _nothiAll.GetNothiAllByUser(_userParam);
 
-            if (nothiAll.status == "success")
+            if(nothiAll != null)
             {
-                if (nothiAll.data.records.Count > 0)
+                if (nothiAll.status == "success")
                 {
-                    LoadNothiAllinPanel(nothiAll.data.records);
-                }
+                    if (nothiAll.data.records.Count > 0)
+                    {
+                        LoadNothiAllinPanel(nothiAll.data.records);
+                    }
 
+                }
             }
         }
         private void LoadNothiAllinPanel(List<NothiListAllRecordsDTO> nothiAllLists)

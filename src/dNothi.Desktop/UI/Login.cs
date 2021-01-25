@@ -146,7 +146,10 @@ namespace dNothi.Desktop.UI
         {
             foreach (Control ctrl in collection)
             {
-
+                if(ctrl.Name== "txtPassword")
+                {
+                    continue;
+                }
 
                
                     if(ctrl.Font.Style!=FontStyle.Regular)
@@ -154,6 +157,11 @@ namespace dNothi.Desktop.UI
                       MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
                       ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
 
+                    }
+                else
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size);
                 }
 
 

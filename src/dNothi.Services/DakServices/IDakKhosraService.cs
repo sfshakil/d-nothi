@@ -11,5 +11,6 @@ namespace dNothi.Services.DakServices
     public interface IDakKhosraService
     {
         DakListKhosraResponse GetDakKhosraList(DakUserParam dakListUserParam);
+        DakListKhosraResponse GetDakKhosraList(DakUserParam dakListUserParam, string searchParam);
     }
 }

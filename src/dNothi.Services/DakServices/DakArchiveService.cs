@@ -165,5 +165,35 @@ namespace dNothi.Services.DakServices
                 throw;
             }
         }
+
+        public DakListArchiveResponse GetDakList(DakUserParam dakListUserParam, string searchParam)
+        {
+            try
+            {
+                var dakArchiveApi = new RestClient(GetAPIDomain() + GetDakListArchiveEndpoint());
+                dakArchiveApi.Timeout = -1;
+                var dakArchiveRequest = new RestRequest(Method.POST);
+                dakArchiveRequest.AddHeader("api-version", GetAPIVersion());
+                dakArchiveRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                dakArchiveRequest.AlwaysMultipartFormData = true;
+                dakArchiveRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakArchiveRequest.AddParameter("office_id", dakListUserParam.office_id);
+                dakArchiveRequest.AddParameter("page", dakListUserParam.page);
+                dakArchiveRequest.AddParameter("limit", dakListUserParam.limit);
+                dakArchiveRequest.AddParameter("search_params", searchParam);
+                IRestResponse dakArchiveResponse = dakArchiveApi.Execute(dakArchiveRequest);
+
+
+                var dakArchiveResponseJson = dakArchiveResponse.Content;
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                DakListArchiveResponse dakListArchiveResponse = JsonConvert.DeserializeObject<DakListArchiveResponse>(dakArchiveResponseJson);
+                return dakListArchiveResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -98,5 +98,32 @@ namespace dNothi.Services.DakServices
             return ConfigurationManager.AppSettings[key];
         }
 
+        public DakListOutboxResponse GetDakOutbox(DakUserParam dakListUserParam, string searchParam)
+        {
+            try
+            {
+                var dakOutboxApi = new RestClient(GetAPIDomain() + GetDakOutboxEndpoint());
+                dakOutboxApi.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("designation_id", dakListUserParam.designation_id);
+                request.AddParameter("office_id", dakListUserParam.office_id);
+                request.AddParameter("page", dakListUserParam.page);
+                request.AddParameter("limit", dakListUserParam.limit);
+                request.AddParameter("search_params", searchParam);
+                IRestResponse Response = dakOutboxApi.Execute(request);
+
+
+                var responseJson = Response.Content;
+                DakListOutboxResponse dakListOutboxResponse = JsonConvert.DeserializeObject<DakListOutboxResponse>(responseJson);
+                return dakListOutboxResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

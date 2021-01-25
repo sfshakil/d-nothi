@@ -75,6 +75,7 @@
     <Compile Include="Entity\Dak\DakNothijatoResponse.cs" />
     <Compile Include="Entity\Dak\DakNothivuktoResponse.cs" />
     <Compile Include="Entity\Dak\DakNothivuktoRevertResponse.cs" />
+    <Compile Include="Entity\Dak\DakSearchResponse.cs" />
     <Compile Include="Entity\Dak\DesignationSealResponse.cs" />
     <Compile Include="Entity\Dak\DakAttachmentDTO.cs" />
     <Compile Include="Entity\Dak\DakAttachmentResponse.cs" />

@@ -11,6 +11,8 @@ namespace dNothi.Services.DakServices
     public interface IDakOutboxService
     {
         DakListOutboxResponse GetDakOutbox(DakUserParam dakListUserParam);
+        DakListOutboxResponse GetDakOutbox(DakUserParam dakListUserParam, string searchParam);
+    
         void SaveorUpdateDakOutbox(DakListOutboxResponse dakListOutboxResponse);
     }
 }
