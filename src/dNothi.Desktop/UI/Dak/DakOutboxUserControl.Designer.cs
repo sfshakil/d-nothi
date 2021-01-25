@@ -367,7 +367,10 @@
             this.dakActionPanel.Controls.Add(this.dakRevertButton);
             this.dakActionPanel.Controls.Add(this.dakTagButton);
             this.dakActionPanel.Location = new System.Drawing.Point(996, 15);
+            this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
+            this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.Name = "dakActionPanel";
+            this.dakActionPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dakActionPanel.Size = new System.Drawing.Size(96, 34);
             this.dakActionPanel.TabIndex = 89;
             this.dakActionPanel.Visible = false;
