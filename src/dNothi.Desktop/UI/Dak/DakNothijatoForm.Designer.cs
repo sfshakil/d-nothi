@@ -85,6 +85,7 @@
             // 
             // panel2
             // 
+            this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.dakSubjectLabel);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.closeButton);
@@ -93,7 +94,7 @@
             this.panel2.Location = new System.Drawing.Point(10, 10);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(570, 105);
+            this.panel2.Size = new System.Drawing.Size(570, 89);
             this.panel2.TabIndex = 2;
             // 
             // dakSubjectLabel
@@ -103,8 +104,11 @@
             this.dakSubjectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.dakSubjectLabel.Location = new System.Drawing.Point(59, 63);
             this.dakSubjectLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSubjectLabel.MaximumSize = new System.Drawing.Size(500, 0);
+            this.dakSubjectLabel.MinimumSize = new System.Drawing.Size(500, 0);
             this.dakSubjectLabel.Name = "dakSubjectLabel";
-            this.dakSubjectLabel.Size = new System.Drawing.Size(128, 21);
+            this.dakSubjectLabel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.dakSubjectLabel.Size = new System.Drawing.Size(500, 26);
             this.dakSubjectLabel.TabIndex = 42;
             this.dakSubjectLabel.Text = "নতুন ডাক আপ‌লোড";
             // 
@@ -169,9 +173,9 @@
             // 
             this.nothiListFlowLayoutPanel.AutoScroll = true;
             this.nothiListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(10, 608);
+            this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(10, 592);
             this.nothiListFlowLayoutPanel.Name = "nothiListFlowLayoutPanel";
-            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(570, 96);
+            this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(570, 112);
             this.nothiListFlowLayoutPanel.TabIndex = 59;
             this.nothiListFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
             // 
@@ -181,7 +185,7 @@
             this.panel6.Controls.Add(this.iconButton6);
             this.panel6.Controls.Add(this.iconButton5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(10, 577);
+            this.panel6.Location = new System.Drawing.Point(10, 561);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(570, 31);
             this.panel6.TabIndex = 57;
@@ -254,7 +258,7 @@
             this.detailsNothiSearcPanel.Controls.Add(this.detailSearchButton);
             this.detailsNothiSearcPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsNothiSearcPanel.ForeColor = System.Drawing.Color.White;
-            this.detailsNothiSearcPanel.Location = new System.Drawing.Point(10, 195);
+            this.detailsNothiSearcPanel.Location = new System.Drawing.Point(10, 179);
             this.detailsNothiSearcPanel.Name = "detailsNothiSearcPanel";
             this.detailsNothiSearcPanel.Size = new System.Drawing.Size(570, 382);
             this.detailsNothiSearcPanel.TabIndex = 58;
@@ -542,7 +546,7 @@
             this.dakSearchHeadingPanel.Controls.Add(this.searchBoxPanel);
             this.dakSearchHeadingPanel.Controls.Add(this.detailPanelDropDownButton);
             this.dakSearchHeadingPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakSearchHeadingPanel.Location = new System.Drawing.Point(10, 152);
+            this.dakSearchHeadingPanel.Location = new System.Drawing.Point(10, 136);
             this.dakSearchHeadingPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakSearchHeadingPanel.Name = "dakSearchHeadingPanel";
             this.dakSearchHeadingPanel.Size = new System.Drawing.Size(570, 43);
@@ -612,7 +616,7 @@
             // 
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(10, 115);
+            this.panel3.Location = new System.Drawing.Point(10, 99);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
             this.panel3.Size = new System.Drawing.Size(570, 37);
@@ -661,6 +665,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.detailsNothiSearcPanel.ResumeLayout(false);

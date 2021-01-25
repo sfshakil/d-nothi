@@ -13,6 +13,7 @@ namespace dNothi.Services.DakServices
         DakNothijatoRevertResponse GetDakNothijatoRevertResponse(DakUserParam dakListUserParam,int dak_id, string dak_type, int is_copied_dak);
 
         DakListNothijatoResponse GetNothijatoDak(DakUserParam dakListUserParam);
+        DakListNothijatoResponse GetNothijatoDak(DakUserParam dakListUserParam, string searchParam);
         void SaveorUpdateDakNothijato(DakListNothijatoResponse dakListNothijatoResponse);
 
        

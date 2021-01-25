@@ -10,6 +10,7 @@ namespace dNothi.Services.DakServices
    public interface IDakListSortedService
     {
         DakListSortedResponse GetDakList(DakUserParam dakListUserParam);
+        DakListSortedResponse GetDakList(DakUserParam dakListUserParam, string searchParam);
         void SaveorUpdateDakSorted(DakListSortedResponse dakListArchiveResponse);
     }
 }

@@ -735,13 +735,14 @@ namespace dNothi.Desktop.UI.Dak
 
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
+            
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
             conditonBoxForm.message = MessageBoxMessage.addDesignationSealConditionMessage;
-
+            conditonBoxForm.ShowDialog(this);
                 if (conditonBoxForm.Yes)
             {
-               
 
+                //this.WindowState = FormWindowState.Minimized;
                 var form = FormFactory.Create<Dashboard>();
                 List<PrapokDTO> designationSealResponse = _ownOfficeDesignationList.Where(a => a.isofficerAdded == true).ToList();
                 var designationSealListJson =new JavaScriptSerializer().Serialize(designationSealResponse);
@@ -773,8 +774,9 @@ namespace dNothi.Desktop.UI.Dak
 
             successMessage.message = Message;
             successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
+           
+            successMessage.Show(this);
+           var t = Task.Delay(3000); //1 second/1000 ms
             t.Wait();
             successMessage.Hide();
         }

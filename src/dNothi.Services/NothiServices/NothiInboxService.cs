@@ -54,6 +54,7 @@ namespace dNothi.Services.NothiServices
 
         public NothiListInboxResponse GetNothiInbox(DakUserParam dakUserParam)
         {
+            NothiListInboxResponse dakListInboxResponse = new NothiListInboxResponse();
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiInboxListEndpoint());
@@ -73,12 +74,12 @@ namespace dNothi.Services.NothiServices
 
 
                 var responseJson = response.Content;
-                NothiListInboxResponse dakListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(responseJson);
+                dakListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(responseJson);
                 return dakListInboxResponse;
             }
             catch (Exception ex)
             {
-                throw;
+                return dakListInboxResponse;
             }
         }
         public class cdesk

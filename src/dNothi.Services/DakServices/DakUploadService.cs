@@ -342,6 +342,7 @@ namespace dNothi.Services.DakServices
 
         public AddDesignationSealResponse GetDesiognationSealAddResponse(DakUserParam dakUserParam, string sealInfo)
         {
+            
             var designationAddAPI = new RestClient(GetAPIDomain() + GetDesignationSealAddEndpoint());
             designationAddAPI.Timeout = -1;
             var designationSealAddRequest = new RestRequest(Method.POST);

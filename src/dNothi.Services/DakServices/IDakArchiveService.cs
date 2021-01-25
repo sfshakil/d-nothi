@@ -13,6 +13,7 @@ namespace dNothi.Services.DakServices
 
         DakArchiveResponse GetDakArcivedResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
         DakListArchiveResponse GetDakList(DakUserParam dakListUserParam);
+        DakListArchiveResponse GetDakList(DakUserParam dakListUserParam, string searchParam);
         void SaveorUpdateDakArchive(DakListArchiveResponse dakListArchiveResponse);
     }
 }

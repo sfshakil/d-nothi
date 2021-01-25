@@ -335,7 +335,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void decisionOwnRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            decisionXTextBox.Text = decisionComboBox.SelectedItem.ToString();
+            decisionXTextBox.Text = decisionComboBox.Text.ToString();
         }
 
      
@@ -802,11 +802,12 @@ namespace dNothi.Desktop.UI.Dak
 
             if (prapokOwnDataGridView.Columns[prapokOwnDataGridView.CurrentCell.ColumnIndex].Name == "ActionButton")
             {
-
-                DialogResult DialogResultSttring = MessageBox.Show("অপনি কি প্রাপকটিকে মুছে ফেলতে চান?\n",
-                                   "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (DialogResultSttring == DialogResult.Yes)
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = "অপনি কি প্রাপকটিকে মুছে ফেলতে চান?";
+                conditonBoxForm.ShowDialog();
+                if (conditonBoxForm.Yes)
                 {
+                    
                     int designation_id = Convert.ToInt32(prapokOwnDataGridView.Rows[row_index].Cells["designationid_id"].Value);
                     var form = FormFactory.Create<Dashboard>();
                     string designationSealIdJson = designation_id.ToString();
@@ -1053,6 +1054,34 @@ namespace dNothi.Desktop.UI.Dak
         {
             Screen scr = Screen.FromPoint(this.Location);
             this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
+            SetDefaultFont(this.Controls);
+        }
+
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+
+
+
+                if (ctrl.Font.Style != FontStyle.Regular)
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+                else
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size);
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
 
         }
     }

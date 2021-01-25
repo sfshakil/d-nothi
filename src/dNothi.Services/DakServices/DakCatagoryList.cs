@@ -12,6 +12,8 @@ namespace dNothi.Services.DakServices
         public bool _isOutbox { get; set; }
         public bool _isNothijato { get; set; }
         public bool _isNothivukto { get; set; }
+        public bool _isSorted { get; set; }
+        public bool _isKhosra { get; set; }
         public bool _isArchived { get; set; }
         public bool isInbox { get { return _isInbox; }
             set { 
@@ -25,13 +27,44 @@ namespace dNothi.Services.DakServices
         
         }
 
-        private void MakeAllFalse()
+        public bool isSorted
+        {
+            get { return _isSorted; }
+            set
+            {
+                if (value)
+                {
+                    MakeAllFalse();
+                }
+                _isSorted = value;
+
+            }
+
+        }
+        public bool isKhosra
+        {
+            get { return _isKhosra; }
+            set
+            {
+                if (value)
+                {
+                    MakeAllFalse();
+                }
+                _isKhosra = value;
+
+            }
+
+        }
+
+        public void MakeAllFalse()
         {
             _isInbox = false;
             _isOutbox = false;
             _isArchived = false;
             _isNothijato = false;
             _isNothivukto = false;
+            _isSorted = false;
+            _isKhosra = false;
         }
 
         public bool isOutbox
@@ -106,9 +139,17 @@ namespace dNothi.Services.DakServices
                 {
                     Name = "নথিতে উপস্থাপিত ডাক";
                 }
+                else if(_isSorted)
+                {
+                    Name = "বাছাইকৃত ডাক";
+                }
                 else if(_isArchived)
                 {
                     Name = "আর্কাইভকৃত ডাক";
+                } 
+                else if(_isKhosra)
+                {
+                    Name = "খসড়া ডাক";
                 }
 
 
@@ -118,6 +159,70 @@ namespace dNothi.Services.DakServices
 
             }
         
+        }
+
+        public string SetCategory
+        {
+            get
+            {
+                return Name;
+            }
+            set
+            {
+                Name = value;
+
+                if (SetCategory=="Inbox")
+                {
+                    MakeAllFalse();
+                    _isInbox =true;
+
+                }
+                else if (SetCategory == "Outbox")
+                {
+                    MakeAllFalse();
+                    _isOutbox = true;
+
+                }
+                else if (SetCategory == "Nothijato")
+                {
+                    MakeAllFalse();
+                    _isNothijato = true;
+
+                }
+                else if (SetCategory == "Nothivukto")
+                {
+                    MakeAllFalse();
+                    _isNothivukto = true;
+
+                }
+                else if (SetCategory == "Archive")
+                {
+                    MakeAllFalse();
+                    _isArchived = true;
+
+                }
+                else if (SetCategory == "Sorted")
+                {
+                    MakeAllFalse();
+                    _isSorted = true;
+
+                }
+                else if (SetCategory == "Khosra")
+                {
+                    MakeAllFalse();
+                    _isKhosra = true;
+
+                }
+
+              
+
+
+
+               
+
+
+            }
+
         }
 
 

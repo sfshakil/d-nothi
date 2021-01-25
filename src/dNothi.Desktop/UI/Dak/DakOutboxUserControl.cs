@@ -19,7 +19,7 @@ namespace dNothi.Desktop.UI.Dak
             InitializeComponent(); 
             
             IterateControls(this.Controls);
-
+            SetDefaultFont(this.Controls);
 
 
 
@@ -61,6 +61,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _subject;
         private string _decision;
         private string _date;
+        private string _dak_view_status;
 
      
 
@@ -72,6 +73,14 @@ namespace dNothi.Desktop.UI.Dak
 
 
         private int _dakAttachmentCount;
+
+        [Category("Custom Props")]
+        public string dakViewStatus
+        {
+            get { return _dak_view_status; }
+            set { _dak_view_status = value;  if (value == "New") { dakRevertButton.Visible = true; } }
+        }
+
 
         [Category("Custom Props")]
         public int dakAttachmentCount
@@ -379,6 +388,35 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.NothijatoButtonClick != null)
                 this.NothijatoButtonClick(sender, e);
+        }
+
+
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+
+
+
+                if (ctrl.Font.Style != FontStyle.Regular)
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+                else
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size);
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
+
         }
     }
 }

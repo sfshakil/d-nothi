@@ -16,6 +16,7 @@ namespace dNothi.Services.DakServices
         DakNothivuktoResponse GetDakNothivuktoResponse(DakUserParam dakListUserParam, NoteNothiDTO nothi, int dak_id, string dak_type, int is_copied_dak);
 
         DakListNothivuktoResponse GetNothivuktoDakList(DakUserParam dakListUserParam);
+        DakListNothivuktoResponse GetNothivuktoDakList(DakUserParam dakListUserParam, string searchParam);
         void SaveorUpdateDakNothivukto(DakListNothivuktoResponse dakListNothivuktoResponse);
         GetNothivuktoNoteAddResponse GetNothivuktoNoteAddResponse(DakUserParam dakUserParam, DakNothivuktoNoteAddParam dakNothivuktoNoteAddParam);
     }

@@ -366,9 +366,9 @@
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
             this.dakActionPanel.Controls.Add(this.dakRevertButton);
             this.dakActionPanel.Controls.Add(this.dakTagButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(982, 15);
+            this.dakActionPanel.Location = new System.Drawing.Point(996, 15);
             this.dakActionPanel.Name = "dakActionPanel";
-            this.dakActionPanel.Size = new System.Drawing.Size(103, 34);
+            this.dakActionPanel.Size = new System.Drawing.Size(96, 34);
             this.dakActionPanel.TabIndex = 89;
             this.dakActionPanel.Visible = false;
             // 
@@ -383,7 +383,7 @@
             this.dakMovementStatusButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.dakMovementStatusButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakMovementStatusButton.IconSize = 28;
-            this.dakMovementStatusButton.Location = new System.Drawing.Point(7, 0);
+            this.dakMovementStatusButton.Location = new System.Drawing.Point(0, 0);
             this.dakMovementStatusButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakMovementStatusButton.Name = "dakMovementStatusButton";
             this.dakMovementStatusButton.Size = new System.Drawing.Size(32, 34);
@@ -403,13 +403,14 @@
             this.dakRevertButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.dakRevertButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakRevertButton.IconSize = 28;
-            this.dakRevertButton.Location = new System.Drawing.Point(39, 0);
+            this.dakRevertButton.Location = new System.Drawing.Point(32, 0);
             this.dakRevertButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakRevertButton.Name = "dakRevertButton";
             this.dakRevertButton.Size = new System.Drawing.Size(32, 34);
             this.dakRevertButton.TabIndex = 87;
             this.toolTip1.SetToolTip(this.dakRevertButton, "ফেরত");
             this.dakRevertButton.UseVisualStyleBackColor = false;
+            this.dakRevertButton.Visible = false;
             this.dakRevertButton.Click += new System.EventHandler(this.dakRevertButton_Click);
             // 
             // dakTagButton
@@ -423,7 +424,7 @@
             this.dakTagButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.dakTagButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakTagButton.IconSize = 28;
-            this.dakTagButton.Location = new System.Drawing.Point(71, 0);
+            this.dakTagButton.Location = new System.Drawing.Point(64, 0);
             this.dakTagButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakTagButton.Name = "dakTagButton";
             this.dakTagButton.Size = new System.Drawing.Size(32, 34);
@@ -541,7 +542,7 @@
             this.nothiPanel.MinimumSize = new System.Drawing.Size(0, 20);
             this.nothiPanel.Name = "nothiPanel";
             this.nothiPanel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.nothiPanel.Size = new System.Drawing.Size(1093, 20);
+            this.nothiPanel.Size = new System.Drawing.Size(1095, 20);
             this.nothiPanel.TabIndex = 95;
             // 
             // nothiNoLabel
@@ -580,7 +581,7 @@
             this.subjectPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectPanel.Location = new System.Drawing.Point(0, 63);
             this.subjectPanel.Name = "subjectPanel";
-            this.subjectPanel.Size = new System.Drawing.Size(1093, 18);
+            this.subjectPanel.Size = new System.Drawing.Size(1095, 18);
             this.subjectPanel.TabIndex = 94;
             // 
             // sourcePanel
@@ -591,7 +592,7 @@
             this.sourcePanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sourcePanel.Location = new System.Drawing.Point(0, 0);
             this.sourcePanel.Name = "sourcePanel";
-            this.sourcePanel.Size = new System.Drawing.Size(1093, 41);
+            this.sourcePanel.Size = new System.Drawing.Size(1095, 41);
             this.sourcePanel.TabIndex = 92;
             // 
             // dakAttachmentButton
@@ -628,7 +629,7 @@
             this.Controls.Add(this.senderAndReceiverPanel);
             this.Controls.Add(this.sourcePanel);
             this.Name = "DakOutboxUserControl";
-            this.Size = new System.Drawing.Size(1093, 107);
+            this.Size = new System.Drawing.Size(1095, 107);
             this.Click += new System.EventHandler(this.DakOutboxUserControl_Click);
             this.Enter += new System.EventHandler(this.DakOutboxUserControl_Enter);
             this.Leave += new System.EventHandler(this.DakOutboxUserControl_Leave);

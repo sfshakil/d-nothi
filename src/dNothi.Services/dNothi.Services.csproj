@@ -111,6 +111,8 @@
     <Compile Include="DakServices\DakListService.cs" />
     <Compile Include="DakServices\DakListSortedService.cs" />
     <Compile Include="DakServices\DakNothivuktoNoteAddParam.cs" />
+    <Compile Include="DakServices\DakSearchParam.cs" />
+    <Compile Include="DakServices\DakSearchService.cs" />
     <Compile Include="DakServices\DakUserParam.cs" />
     <Compile Include="DakServices\DakNothijatoService.cs" />
     <Compile Include="DakServices\DakNothivuktoService.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="DakServices\DakUploadFileDeleteParam.cs" />
     <Compile Include="DakServices\DakUploadParameter.cs" />
     <Compile Include="DakServices\DakUploadService.cs" />
+    <Compile Include="DakServices\DesignationSealService.cs" />
     <Compile Include="DakServices\IDakForwardService.cs" />
     <Compile Include="DakServices\IDakInboxServices.cs" />
     <Compile Include="DakServices\IDakKhosraService.cs" />
@@ -133,7 +136,9 @@
     <Compile Include="DakServices\IDakNothijatoService.cs" />
     <Compile Include="DakServices\IDakNothivuktoService.cs" />
     <Compile Include="DakServices\IDakOutboxService.cs" />
+    <Compile Include="DakServices\IDakSearchService.cs" />
     <Compile Include="DakServices\IDakUploadService.cs" />
+    <Compile Include="DakServices\IDesignationSealService.cs" />
     <Compile Include="NothiServices\FileAttachment.cs" />
     <Compile Include="NothiServices\INoteDeleteService.cs" />
     <Compile Include="NothiServices\INoteSaveService.cs" />
