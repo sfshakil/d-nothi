@@ -41,6 +41,33 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
         }
+        public NoteDeleteResponse GetNoteDelteResponse(DakUserParam dakUserParam,string model,  string noteId)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiTypeDeleteEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true; 
+                request.AddParameter("office_id", dakUserParam.office_id);
+                request.AddParameter("designation_id", dakUserParam.designation_id);
+                request.AddParameter("model", model);
+                request.AddParameter("id", noteId);
+                IRestResponse response = client.Execute(request);
+                Console.WriteLine(response.Content);
+
+
+                var responseJson = response.Content;
+                NoteDeleteResponse noteDeleteResponse = JsonConvert.DeserializeObject<NoteDeleteResponse>(responseJson);
+                return noteDeleteResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         protected string GetAPIVersion()
         {
             return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;

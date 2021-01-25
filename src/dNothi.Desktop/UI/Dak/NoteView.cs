@@ -33,13 +33,69 @@ namespace dNothi.Desktop.UI.Dak
         private string _officerInfo;
         private string _nothiLastDate;
         private string _checkBox;
+        private string _onucchedCount;
+        private string _khosraPotro;
+        private string _khoshraWaiting;
+        private string _approved;
+        private string _potrojari;
+        private string _nothivukto;
 
+        public void loadEyeIcon(int i)
+        {
+            if (i == 0)
+            {
+                eyeIcon.Visible = true;
+                eyeSlashIcon.Visible = false;
+            }
+            else if (i== 1)
+            {
+                eyeIcon.Visible = false;
+                eyeSlashIcon.Visible = true;
+            }
+        }
+
+        [Category("Custom Props")]
+        public string onucchedCount
+        {
+            get { return _onucchedCount; }
+            set { _totalNothi = value; lbOnucchedCount.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+        [Category("Custom Props")]
+        public string khosraPotro
+        {
+            get { return _khosraPotro; }
+            set { _khosraPotro = value; lbKhosraPotro.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+        [Category("Custom Props")]
+        public string khoshraWaiting
+        {
+            get { return _khoshraWaiting; }
+            set { _khoshraWaiting = value; lbKhoshraWaiting.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+        [Category("Custom Props")]
+        public string approved
+        {
+            get { return _approved; }
+            set { _approved = value; lbApproved.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+        [Category("Custom Props")]
+        public string potrojari
+        {
+            get { return _potrojari; }
+            set { _potrojari = value; lbPotrojari.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+        [Category("Custom Props")]
+        public string nothivukto
+        {
+            get { return _nothivukto; }
+            set { _nothivukto = value; lbNothivukto.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
         [Category("Custom Props")]
         public string totalNothi
         {
             get { return _totalNothi; }
             set { _totalNothi = value; lbTotalNothi.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
-}
+        }
 
         [Category("Custom Props")]
         public string noteSubject

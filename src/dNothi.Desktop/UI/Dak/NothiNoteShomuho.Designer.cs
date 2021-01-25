@@ -31,13 +31,15 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnOption = new FontAwesome.Sharp.IconButton();
             this.lbNoteNumber = new System.Windows.Forms.Label();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.lbNoteSubject = new System.Windows.Forms.Label();
             this.lbDeskOfficer = new System.Windows.Forms.Label();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.lbToOfficer = new System.Windows.Forms.Label();
+            this.lbNoteId = new System.Windows.Forms.Label();
+            this.lbNoteSubText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -56,7 +58,7 @@
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 24;
+            this.iconButton3.IconSize = 18;
             this.iconButton3.Location = new System.Drawing.Point(13, 13);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(30, 30);
@@ -71,27 +73,28 @@
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 24;
+            this.iconButton1.IconSize = 18;
             this.iconButton1.Location = new System.Drawing.Point(43, 13);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(30, 30);
             this.iconButton1.TabIndex = 59;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
-            // iconButton2
+            // btnOption
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.EllipsisV;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(73, 13);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(30, 30);
-            this.iconButton2.TabIndex = 60;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.btnOption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnOption.FlatAppearance.BorderSize = 0;
+            this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOption.IconChar = FontAwesome.Sharp.IconChar.EllipsisV;
+            this.btnOption.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnOption.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOption.IconSize = 18;
+            this.btnOption.Location = new System.Drawing.Point(73, 13);
+            this.btnOption.Name = "btnOption";
+            this.btnOption.Size = new System.Drawing.Size(30, 30);
+            this.btnOption.TabIndex = 60;
+            this.btnOption.UseVisualStyleBackColor = false;
+            this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
             // 
             // lbNoteNumber
             // 
@@ -165,18 +168,42 @@
             this.lbToOfficer.TabIndex = 66;
             this.lbToOfficer.Text = "toOfficerLabel";
             // 
+            // lbNoteId
+            // 
+            this.lbNoteId.AutoSize = true;
+            this.lbNoteId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteId.Location = new System.Drawing.Point(904, 49);
+            this.lbNoteId.Name = "lbNoteId";
+            this.lbNoteId.Size = new System.Drawing.Size(69, 20);
+            this.lbNoteId.TabIndex = 67;
+            this.lbNoteId.Text = "lbNoteId";
+            this.lbNoteId.Visible = false;
+            // 
+            // lbNoteSubText
+            // 
+            this.lbNoteSubText.AutoSize = true;
+            this.lbNoteSubText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteSubText.Location = new System.Drawing.Point(854, 49);
+            this.lbNoteSubText.Name = "lbNoteSubText";
+            this.lbNoteSubText.Size = new System.Drawing.Size(114, 20);
+            this.lbNoteSubText.TabIndex = 68;
+            this.lbNoteSubText.Text = "lbNoteSubText";
+            this.lbNoteSubText.Visible = false;
+            // 
             // NothiNoteShomuho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.lbNoteSubText);
+            this.Controls.Add(this.lbNoteId);
             this.Controls.Add(this.lbToOfficer);
             this.Controls.Add(this.iconButton5);
             this.Controls.Add(this.lbDeskOfficer);
             this.Controls.Add(this.lbNoteSubject);
             this.Controls.Add(this.iconButton4);
             this.Controls.Add(this.lbNoteNumber);
-            this.Controls.Add(this.iconButton2);
+            this.Controls.Add(this.btnOption);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.iconButton3);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -192,12 +219,14 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnOption;
         private System.Windows.Forms.Label lbNoteNumber;
         private FontAwesome.Sharp.IconButton iconButton4;
         private System.Windows.Forms.Label lbNoteSubject;
         private System.Windows.Forms.Label lbDeskOfficer;
         private FontAwesome.Sharp.IconButton iconButton5;
         private System.Windows.Forms.Label lbToOfficer;
+        private System.Windows.Forms.Label lbNoteId;
+        private System.Windows.Forms.Label lbNoteSubText;
     }
 }

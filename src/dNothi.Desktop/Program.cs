@@ -153,11 +153,13 @@ namespace dNothi.Desktop
             builder.RegisterType<DakSearchService>().As<IDakSearchService>();
             builder.RegisterType<NoteDeleteService>().As<INoteDeleteService>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
+            builder.RegisterType<NoteListParser>().As<INoteListParser>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             builder.RegisterType<AutofacUserControlFactory>().As<IUserControlFactory>();
             builder.RegisterType<OnumodonService>().As<IOnumodonService>();
             builder.RegisterType<OnuchhedForwardService>().As<IOnuchhedForwardService>();
             builder.RegisterType<OnucchedDelete>().As<IOnucchedDelete>();
+            
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            
@@ -173,6 +175,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dak.NothiNextStep>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
+            builder.RegisterType<NothiNoteShomuho>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();
