@@ -195,12 +195,15 @@ namespace dNothi.Desktop.UI.Dak
             attachment.attachmentSize = notefileupload.fileexension;
             fileFLP.Controls.Add(attachment);
         }
-        //public event EventHandler EditButtonClick;
-        //private void btnEdit_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    if (this.EditButtonClick != null)
-        //        this.EditButtonClick(onucchedId, e);
-        //}
+
+        
+        public event EventHandler EditButtonClick;
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            if (this.EditButtonClick != null)
+                this.EditButtonClick(onucchedId, e);
+        }
     }
 }

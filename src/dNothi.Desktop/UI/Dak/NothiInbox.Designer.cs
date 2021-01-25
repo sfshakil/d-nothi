@@ -140,11 +140,11 @@
             // lbTotalNote
             // 
             this.lbTotalNote.AutoSize = true;
-            this.lbTotalNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalNote.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbTotalNote.Location = new System.Drawing.Point(962, 8);
+            this.lbTotalNote.Location = new System.Drawing.Point(960, 7);
             this.lbTotalNote.Name = "lbTotalNote";
-            this.lbTotalNote.Size = new System.Drawing.Size(74, 20);
+            this.lbTotalNote.Size = new System.Drawing.Size(85, 21);
             this.lbTotalNote.TabIndex = 63;
             this.lbTotalNote.Text = " সর্বমোট: ১২";
             // 
@@ -156,7 +156,7 @@
             this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
             this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 24;
+            this.iconButton5.IconSize = 22;
             this.iconButton5.Location = new System.Drawing.Point(540, 7);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(28, 21);
@@ -171,12 +171,12 @@
             this.iconButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton4.Font = new System.Drawing.Font("SolaimanLipi", 9.75F);
             this.iconButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Sync;
             this.iconButton4.IconColor = System.Drawing.Color.DimGray;
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 24;
+            this.iconButton4.IconSize = 22;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton4.Location = new System.Drawing.Point(216, 3);
             this.iconButton4.Name = "iconButton4";
@@ -195,12 +195,12 @@
             this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.Font = new System.Drawing.Font("SolaimanLipi", 9.75F);
             this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Copy;
             this.iconButton2.IconColor = System.Drawing.Color.DimGray;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
+            this.iconButton2.IconSize = 22;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.Location = new System.Drawing.Point(108, 3);
             this.iconButton2.Name = "iconButton2";
@@ -219,12 +219,12 @@
             this.btnNewNote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.btnNewNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.btnNewNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewNote.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.btnNewNote.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.btnNewNote.IconColor = System.Drawing.Color.DimGray;
             this.btnNewNote.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNewNote.IconSize = 24;
+            this.btnNewNote.IconSize = 22;
             this.btnNewNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNewNote.Location = new System.Drawing.Point(0, 3);
             this.btnNewNote.Name = "btnNewNote";
@@ -278,11 +278,11 @@
             // lbNothiId
             // 
             this.lbNothiId.AutoSize = true;
-            this.lbNothiId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiId.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNothiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNothiId.Location = new System.Drawing.Point(728, 48);
             this.lbNothiId.Name = "lbNothiId";
-            this.lbNothiId.Size = new System.Drawing.Size(97, 20);
+            this.lbNothiId.Size = new System.Drawing.Size(98, 21);
             this.lbNothiId.TabIndex = 58;
             this.lbNothiId.Text = "nothiIdLabel";
             this.lbNothiId.Visible = false;
@@ -349,7 +349,7 @@
             // 
             // lbNoteLastDate
             // 
-            this.lbNoteLastDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteLastDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNoteLastDate.Location = new System.Drawing.Point(836, 45);
             this.lbNoteLastDate.Name = "lbNoteLastDate";
@@ -361,33 +361,33 @@
             // 
             this.lbTotalNothi.AutoSize = true;
             this.lbTotalNothi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
-            this.lbTotalNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
             this.lbTotalNothi.Location = new System.Drawing.Point(1003, 15);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(77, 20);
+            this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
             this.lbTotalNothi.TabIndex = 51;
             this.lbTotalNothi.Text = "totalNothi";
             // 
             // lbShakha
             // 
             this.lbShakha.AutoSize = true;
-            this.lbShakha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbShakha.Location = new System.Drawing.Point(161, 45);
             this.lbShakha.Name = "lbShakha";
-            this.lbShakha.Size = new System.Drawing.Size(100, 20);
+            this.lbShakha.Size = new System.Drawing.Size(102, 21);
             this.lbShakha.TabIndex = 50;
             this.lbShakha.Text = "shakhaLabel";
             // 
             // lbNothi
             // 
             this.lbNothi.AutoSize = true;
-            this.lbNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNothi.Location = new System.Drawing.Point(157, 15);
             this.lbNothi.Name = "lbNothi";
-            this.lbNothi.Size = new System.Drawing.Size(83, 20);
+            this.lbNothi.Size = new System.Drawing.Size(85, 21);
             this.lbNothi.TabIndex = 49;
             this.lbNothi.Text = "nothiLabel";
             // 
@@ -395,11 +395,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label1.Location = new System.Drawing.Point(117, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 20);
+            this.label1.Size = new System.Drawing.Size(43, 21);
             this.label1.TabIndex = 48;
             this.label1.Text = "শাখাঃ";
             // 
@@ -407,11 +407,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label6.Location = new System.Drawing.Point(117, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 20);
+            this.label6.Size = new System.Drawing.Size(38, 21);
             this.label6.TabIndex = 47;
             this.label6.Text = "নথিঃ";
             // 

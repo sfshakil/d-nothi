@@ -99,7 +99,7 @@
             // 
             // attachmentNameTextBox
             // 
-            this.attachmentNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentNameTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.attachmentNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.attachmentNameTextBox.Location = new System.Drawing.Point(26, 14);
             this.attachmentNameTextBox.Multiline = true;
@@ -110,11 +110,11 @@
             // lbByte
             // 
             this.lbByte.AutoSize = true;
-            this.lbByte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbByte.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbByte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbByte.Location = new System.Drawing.Point(29, 56);
             this.lbByte.Name = "lbByte";
-            this.lbByte.Size = new System.Drawing.Size(68, 16);
+            this.lbByte.Size = new System.Drawing.Size(64, 17);
             this.lbByte.TabIndex = 71;
             this.lbByte.Text = "byteLabel";
             // 

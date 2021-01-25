@@ -353,6 +353,12 @@
     <Compile Include="UI\Dak\NoteView.Designer.cs">
       <DependentUpon>NoteView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NoteViewNotInCurrentDesk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NoteViewNotInCurrentDesk.Designer.cs">
+      <DependentUpon>NoteViewNotInCurrentDesk.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiNextStep.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -742,6 +748,9 @@
     <EmbeddedResource Include="UI\Dak\NoteView.resx">
       <DependentUpon>NoteView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NoteViewNotInCurrentDesk.resx">
+      <DependentUpon>NoteViewNotInCurrentDesk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiNextStep.resx">
       <DependentUpon>NothiNextStep.cs</DependentUpon>
     </EmbeddedResource>
@@ -978,6 +987,8 @@
     <Content Include="256x256bb.ico" />
     <Content Include="MetroFramework.txt" />
     <None Include="Resources\icons8-hide-15.png" />
+    <None Include="Resources\%24this.Icon.ico" />
+    <None Include="Resources\%24this.Icon1.ico" />
     <Content Include="test.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

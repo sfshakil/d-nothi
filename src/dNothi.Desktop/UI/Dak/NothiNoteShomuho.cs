@@ -39,12 +39,53 @@ namespace dNothi.Desktop.UI.Dak
         private string _note_subject;
         private string _deskofficer;
         private string _toofficer;
+        private string _onucched;
+        private string _khosra;
+        private string _khoshraWaiting;
+        private string _noteIssueDate;
 
+        public void loadEyeIcon(int i)
+        {
+            if (i != 0)
+            {
+                eyeIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else
+            {
+                eyeIcon.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            }
+        }
+
+        [Category("Custom Props")]
+        public string noteIssueDate
+        {
+            get { return _noteIssueDate; }
+            set { _noteIssueDate = value; lbNoteIssueDate.Text = value; }
+        }
+        [Category("Custom Props")]
+        public string khoshraWaiting
+        {
+            get { return _khoshraWaiting; }
+            set { _khoshraWaiting = value; lbKhoshrawaiting.Visible = true; lbKhoshrawaiting.Text = "অনুমোদনের অপেক্ষায়: " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+        [Category("Custom Props")]
+        public string khosra
+        {
+            get { return _khosra; }
+            set { _khosra = value; lbKhoshra.Visible = true; lbKhoshra.Text = "খসড়া: " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+        [Category("Custom Props")]
+        public string onucched
+        {
+            
+            get { return _onucched; }
+            set { _onucched = value; lbOnucched.Visible = true; lbOnucched.Text = "অনুচ্ছেদ: " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
         [Category("Custom Props")]
         public string note_no
         {
             get { return _note_no; }
-            set { _note_no = value; lbNoteNumber.Text = value; }
+            set { _note_no = value; lbNoteNumber.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
         private string _note_ID;
 

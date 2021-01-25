@@ -42,11 +42,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label1.Location = new System.Drawing.Point(8, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 24);
+            this.label1.Size = new System.Drawing.Size(121, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "পরবর্তী কার্যক্রম";
             // 
@@ -62,11 +62,11 @@
             // lbShakha
             // 
             this.lbShakha.AutoSize = true;
-            this.lbShakha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbShakha.Location = new System.Drawing.Point(12, 48);
             this.lbShakha.Name = "lbShakha";
-            this.lbShakha.Size = new System.Drawing.Size(407, 20);
+            this.lbShakha.Size = new System.Drawing.Size(464, 21);
             this.lbShakha.TabIndex = 108;
             this.lbShakha.Text = "আপনার নথিটি তৈরি হয়েছে। আপনি কি নথির অনুমতি পর্যালোচনা করতে চান ?";
             // 
@@ -76,7 +76,7 @@
             this.btnYES.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnYES.FlatAppearance.BorderSize = 0;
             this.btnYES.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnYES.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYES.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnYES.ForeColor = System.Drawing.Color.White;
             this.btnYES.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnYES.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
@@ -96,7 +96,7 @@
             this.btnNO.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnNO.FlatAppearance.BorderSize = 0;
             this.btnNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNO.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.btnNO.ForeColor = System.Drawing.Color.White;
             this.btnNO.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnNO.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));

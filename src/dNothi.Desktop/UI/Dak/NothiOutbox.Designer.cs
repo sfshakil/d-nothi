@@ -142,10 +142,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(974, 8);
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(969, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
+            this.label3.Size = new System.Drawing.Size(85, 21);
             this.label3.TabIndex = 63;
             this.label3.Text = " সর্বমোট: ১২";
             // 
@@ -157,7 +157,7 @@
             this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
             this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 24;
+            this.iconButton5.IconSize = 22;
             this.iconButton5.Location = new System.Drawing.Point(540, 7);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(28, 21);
@@ -172,14 +172,14 @@
             this.iconButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton4.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Sync;
             this.iconButton4.IconColor = System.Drawing.Color.DimGray;
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 24;
+            this.iconButton4.IconSize = 22;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(216, 3);
+            this.iconButton4.Location = new System.Drawing.Point(212, 3);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton4.Size = new System.Drawing.Size(106, 29);
@@ -196,14 +196,14 @@
             this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Copy;
             this.iconButton2.IconColor = System.Drawing.Color.DimGray;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
+            this.iconButton2.IconSize = 22;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(108, 3);
+            this.iconButton2.Location = new System.Drawing.Point(106, 3);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.iconButton2.Size = new System.Drawing.Size(106, 29);
@@ -220,12 +220,12 @@
             this.dakSearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dakSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.dakSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSearchButton.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakSearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.dakSearchButton.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
             this.dakSearchButton.IconColor = System.Drawing.Color.DimGray;
             this.dakSearchButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakSearchButton.IconSize = 24;
+            this.dakSearchButton.IconSize = 22;
             this.dakSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dakSearchButton.Location = new System.Drawing.Point(0, 3);
             this.dakSearchButton.Name = "dakSearchButton";
@@ -299,11 +299,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label2.Location = new System.Drawing.Point(528, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(82, 21);
             this.label2.TabIndex = 76;
             this.label2.Text = "বর্তমান ডেস্ক";
             // 
@@ -311,11 +311,11 @@
             // 
             this.lbTotalNothi.AutoSize = true;
             this.lbTotalNothi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
-            this.lbTotalNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
             this.lbTotalNothi.Location = new System.Drawing.Point(557, 4);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(43, 20);
+            this.lbTotalNothi.Size = new System.Drawing.Size(45, 21);
             this.lbTotalNothi.TabIndex = 75;
             this.lbTotalNothi.Text = "প্রাপক";
             // 
@@ -323,11 +323,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label1.Location = new System.Drawing.Point(106, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 20);
+            this.label1.Size = new System.Drawing.Size(43, 21);
             this.label1.TabIndex = 74;
             this.label1.Text = "শাখাঃ";
             // 
@@ -335,11 +335,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label6.Location = new System.Drawing.Point(106, 4);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 20);
+            this.label6.Size = new System.Drawing.Size(38, 21);
             this.label6.TabIndex = 73;
             this.label6.Text = "নথিঃ";
             // 
@@ -387,7 +387,7 @@
             // 
             // lbNothi
             // 
-            this.lbNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNothi.Location = new System.Drawing.Point(150, 4);
             this.lbNothi.Name = "lbNothi";
@@ -397,7 +397,7 @@
             // 
             // lblPrapok
             // 
-            this.lblPrapok.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrapok.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrapok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lblPrapok.Location = new System.Drawing.Point(606, 4);
             this.lblPrapok.Name = "lblPrapok";
@@ -407,7 +407,7 @@
             // 
             // lbLastNoteDate
             // 
-            this.lbLastNoteDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLastNoteDate.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLastNoteDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbLastNoteDate.Location = new System.Drawing.Point(825, 85);
             this.lbLastNoteDate.Name = "lbLastNoteDate";
@@ -417,7 +417,7 @@
             // 
             // lblPresentDesk
             // 
-            this.lblPresentDesk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPresentDesk.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPresentDesk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lblPresentDesk.Location = new System.Drawing.Point(606, 44);
             this.lblPresentDesk.Name = "lblPresentDesk";
@@ -428,11 +428,11 @@
             // lbShakha
             // 
             this.lbShakha.AutoSize = true;
-            this.lbShakha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbShakha.Location = new System.Drawing.Point(150, 43);
             this.lbShakha.Name = "lbShakha";
-            this.lbShakha.Size = new System.Drawing.Size(100, 20);
+            this.lbShakha.Size = new System.Drawing.Size(102, 21);
             this.lbShakha.TabIndex = 65;
             this.lbShakha.Text = "shakhaLabel";
             // 

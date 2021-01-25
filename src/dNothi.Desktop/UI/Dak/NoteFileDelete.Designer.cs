@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.lbAattachmentName = new System.Windows.Forms.Label();
             this.lbByte = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbAattachmentName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,12 +63,42 @@
             this.panel1.Size = new System.Drawing.Size(762, 87);
             this.panel1.TabIndex = 1;
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label1);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(373, 1);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(207, 85);
+            this.panel8.TabIndex = 64;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.label1.Location = new System.Drawing.Point(6, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 21);
+            this.label1.TabIndex = 72;
+            this.label1.Text = "ফাইল টাইপ সঠিক নই";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel9.Location = new System.Drawing.Point(206, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1, 85);
+            this.panel9.TabIndex = 59;
+            // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
             this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.btnDelete.IconColor = System.Drawing.Color.White;
@@ -94,14 +124,24 @@
             this.panel10.Size = new System.Drawing.Size(372, 85);
             this.panel10.TabIndex = 62;
             // 
+            // lbAattachmentName
+            // 
+            this.lbAattachmentName.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbAattachmentName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbAattachmentName.Location = new System.Drawing.Point(16, 17);
+            this.lbAattachmentName.Name = "lbAattachmentName";
+            this.lbAattachmentName.Size = new System.Drawing.Size(314, 33);
+            this.lbAattachmentName.TabIndex = 72;
+            this.lbAattachmentName.Text = "noteLastDateLabel";
+            // 
             // lbByte
             // 
             this.lbByte.AutoSize = true;
-            this.lbByte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbByte.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbByte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbByte.Location = new System.Drawing.Point(17, 50);
             this.lbByte.Name = "lbByte";
-            this.lbByte.Size = new System.Drawing.Size(68, 16);
+            this.lbByte.Size = new System.Drawing.Size(64, 17);
             this.lbByte.TabIndex = 71;
             this.lbByte.Text = "byteLabel";
             // 
@@ -150,46 +190,6 @@
             this.panel3.Size = new System.Drawing.Size(762, 1);
             this.panel3.TabIndex = 56;
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label1);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(373, 1);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(207, 85);
-            this.panel8.TabIndex = 64;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel9.Location = new System.Drawing.Point(206, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1, 85);
-            this.panel9.TabIndex = 59;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.label1.Location = new System.Drawing.Point(6, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
-            this.label1.TabIndex = 72;
-            this.label1.Text = "ফাইল টাইপ সঠিক নই";
-            // 
-            // lbAattachmentName
-            // 
-            this.lbAattachmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAattachmentName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbAattachmentName.Location = new System.Drawing.Point(16, 17);
-            this.lbAattachmentName.Name = "lbAattachmentName";
-            this.lbAattachmentName.Size = new System.Drawing.Size(314, 32);
-            this.lbAattachmentName.TabIndex = 72;
-            this.lbAattachmentName.Text = "noteLastDateLabel";
-            // 
             // NoteFileDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,10 +198,10 @@
             this.Name = "NoteFileDelete";
             this.Size = new System.Drawing.Size(762, 87);
             this.panel1.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }

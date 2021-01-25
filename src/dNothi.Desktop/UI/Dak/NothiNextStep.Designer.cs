@@ -43,12 +43,12 @@ namespace dNothi.Desktop.UI.Dak
             this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.label3 = new System.Windows.Forms.Label();
             this.lbNoteSubject = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -121,11 +121,11 @@ namespace dNothi.Desktop.UI.Dak
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label1.Location = new System.Drawing.Point(10, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 24);
+            this.label1.Size = new System.Drawing.Size(264, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "পরবর্তী কার্যক্রমের জন্যে প্রেরণ করুন";
             // 
@@ -145,6 +145,7 @@ namespace dNothi.Desktop.UI.Dak
             this.DesignationFLP.AutoScroll = true;
             this.DesignationFLP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DesignationFLP.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.DesignationFLP.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DesignationFLP.Location = new System.Drawing.Point(0, 129);
             this.DesignationFLP.Name = "DesignationFLP";
             this.DesignationFLP.Size = new System.Drawing.Size(462, 448);
@@ -158,6 +159,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel5.Controls.Add(this.btnEdit);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(0, 577);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(462, 59);
@@ -241,16 +243,33 @@ namespace dNothi.Desktop.UI.Dak
             this.panel3.Size = new System.Drawing.Size(462, 129);
             this.panel3.TabIndex = 70;
             // 
+            // nothiDhoronSrchUC
+            // 
+            this.nothiDhoronSrchUC.AutoSize = true;
+            this.nothiDhoronSrchUC.BackColor = System.Drawing.Color.White;
+            this.nothiDhoronSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiDhoronSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.nothiDhoronSrchUC.Location = new System.Drawing.Point(19, 68);
+            this.nothiDhoronSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
+            this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
+            this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
+            this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
+            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(418, 51);
+            this.nothiDhoronSrchUC.TabIndex = 74;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
             this.label3.Location = new System.Drawing.Point(15, 42);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 20);
+            this.label3.Size = new System.Drawing.Size(145, 21);
             this.label3.TabIndex = 73;
             this.label3.Text = "অগ্রাধিকার বাছাই করুন";
             // 
@@ -258,12 +277,12 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbNoteSubject.AutoSize = true;
             this.lbNoteSubject.BackColor = System.Drawing.Color.Transparent;
-            this.lbNoteSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteSubject.Location = new System.Drawing.Point(72, 11);
+            this.lbNoteSubject.Location = new System.Drawing.Point(78, 11);
             this.lbNoteSubject.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteSubject.Name = "lbNoteSubject";
-            this.lbNoteSubject.Size = new System.Drawing.Size(59, 20);
+            this.lbNoteSubject.Size = new System.Drawing.Size(67, 21);
             this.lbNoteSubject.TabIndex = 72;
             this.lbNoteSubject.Text = "টেস্ট নোট";
             // 
@@ -271,12 +290,12 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbTotalNothi.AutoSize = true;
             this.lbTotalNothi.BackColor = System.Drawing.Color.Azure;
-            this.lbTotalNothi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.lbTotalNothi.Location = new System.Drawing.Point(55, 11);
+            this.lbTotalNothi.Location = new System.Drawing.Point(59, 11);
             this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(17, 20);
+            this.lbTotalNothi.Size = new System.Drawing.Size(19, 21);
             this.lbTotalNothi.TabIndex = 71;
             this.lbTotalNothi.Text = "২";
             // 
@@ -284,12 +303,12 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Azure;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
             this.label2.Location = new System.Drawing.Point(15, 11);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 20);
+            this.label2.Size = new System.Drawing.Size(44, 21);
             this.label2.TabIndex = 70;
             this.label2.Text = "নোট :";
             // 
@@ -302,23 +321,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(2, 636);
             this.panel8.TabIndex = 65;
-            // 
-            // nothiDhoronSrchUC
-            // 
-            this.nothiDhoronSrchUC.AutoSize = true;
-            this.nothiDhoronSrchUC.BackColor = System.Drawing.Color.White;
-            this.nothiDhoronSrchUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiDhoronSrchUC.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.nothiDhoronSrchUC.Location = new System.Drawing.Point(19, 68);
-            this.nothiDhoronSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
-            this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
-            this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
-            this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
-            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(418, 50);
-            this.nothiDhoronSrchUC.TabIndex = 74;
             // 
             // NothiNextStep
             // 

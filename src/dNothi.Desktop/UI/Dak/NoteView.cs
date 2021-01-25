@@ -58,7 +58,7 @@ namespace dNothi.Desktop.UI.Dak
         public string onucchedCount
         {
             get { return _onucchedCount; }
-            set { _totalNothi = value; lbOnucchedCount.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            set { _onucchedCount = value; lbOnucchedCount.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
         [Category("Custom Props")]
         public string khosraPotro
