@@ -134,11 +134,25 @@ namespace dNothi.Desktop.UI.Dak
             foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
             {
                 var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
-                //NothiNoteShomuho nothiNoteShomuho = new NothiNoteShomuho();
+                
                 nothiNoteShomuho.note_ID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
                 nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
                 nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
+                nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
+                nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
 
+                if (nothiListInboxNoteRecordsDTO.note.onucched_count>0)
+                {
+                    nothiNoteShomuho.onucched = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+                }
+                if (nothiListInboxNoteRecordsDTO.note.khoshra_potro > 0)
+                {
+                    nothiNoteShomuho.khosra = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+                }
+                if (nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval > 0)
+                {
+                    nothiNoteShomuho.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
+                }
                 if (nothiListInboxNoteRecordsDTO.note.note_subject != null && nothiListInboxNoteRecordsDTO.note.note_subject_sub_text != "")
                 {
                     nothiNoteShomuho.note_subject = nothiListInboxNoteRecordsDTO.note.note_subject + " (" + nothiListInboxNoteRecordsDTO.note.note_subject_sub_text+")";

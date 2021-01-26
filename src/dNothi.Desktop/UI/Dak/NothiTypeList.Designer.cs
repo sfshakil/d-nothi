@@ -40,7 +40,7 @@
             // 
             // lbNothiSubjectType
             // 
-            this.lbNothiSubjectType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiSubjectType.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothiSubjectType.Location = new System.Drawing.Point(76, 8);
             this.lbNothiSubjectType.Name = "lbNothiSubjectType";
             this.lbNothiSubjectType.Size = new System.Drawing.Size(199, 43);
@@ -49,7 +49,7 @@
             // 
             // lbNothiCode
             // 
-            this.lbNothiCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiCode.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothiCode.Location = new System.Drawing.Point(279, 8);
             this.lbNothiCode.Name = "lbNothiCode";
             this.lbNothiCode.Size = new System.Drawing.Size(44, 35);
@@ -59,7 +59,7 @@
             // 
             // lbNothiNumber
             // 
-            this.lbNothiNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiNumber.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothiNumber.Location = new System.Drawing.Point(340, 8);
             this.lbNothiNumber.Name = "lbNothiNumber";
             this.lbNothiNumber.Size = new System.Drawing.Size(44, 35);
@@ -69,7 +69,7 @@
             // 
             // lblSerialNo
             // 
-            this.lblSerialNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSerialNo.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSerialNo.Location = new System.Drawing.Point(15, 8);
             this.lblSerialNo.Name = "lblSerialNo";
             this.lblSerialNo.Size = new System.Drawing.Size(44, 35);

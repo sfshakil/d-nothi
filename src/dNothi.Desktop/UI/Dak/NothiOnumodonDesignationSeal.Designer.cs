@@ -158,7 +158,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label1.Location = new System.Drawing.Point(14, 22);
             this.label1.Name = "label1";
@@ -169,22 +169,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label2.Location = new System.Drawing.Point(20, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 24);
+            this.label2.Size = new System.Drawing.Size(144, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "পদবি নির্বাচন করুন";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label3.Location = new System.Drawing.Point(559, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(239, 24);
+            this.label3.Size = new System.Drawing.Size(251, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "বর্তমান অনুমতি প্রাপ্ত ব্যক্তিকে খুঁজুন";
             // 
@@ -192,6 +192,7 @@
             // 
             this.tabControlLeft.Controls.Add(this.ownOfficeTabPageLeft);
             this.tabControlLeft.Controls.Add(this.otherOfficeTabPageLeft);
+            this.tabControlLeft.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlLeft.ImageList = this.imageList1;
             this.tabControlLeft.Location = new System.Drawing.Point(18, 133);
             this.tabControlLeft.Name = "tabControlLeft";
@@ -207,10 +208,10 @@
             this.ownOfficeTabPageLeft.Controls.Add(this.panel4);
             this.ownOfficeTabPageLeft.Controls.Add(this.prapokownOfficeTreeView);
             this.ownOfficeTabPageLeft.ImageIndex = 1;
-            this.ownOfficeTabPageLeft.Location = new System.Drawing.Point(4, 39);
+            this.ownOfficeTabPageLeft.Location = new System.Drawing.Point(4, 40);
             this.ownOfficeTabPageLeft.Name = "ownOfficeTabPageLeft";
             this.ownOfficeTabPageLeft.Padding = new System.Windows.Forms.Padding(3);
-            this.ownOfficeTabPageLeft.Size = new System.Drawing.Size(522, 494);
+            this.ownOfficeTabPageLeft.Size = new System.Drawing.Size(522, 493);
             this.ownOfficeTabPageLeft.TabIndex = 0;
             this.ownOfficeTabPageLeft.Text = "নিজ অফিসের পদসমূহ";
             this.ownOfficeTabPageLeft.UseVisualStyleBackColor = true;
@@ -221,7 +222,7 @@
             this.designationStateOwnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.designationStateOwnLabel.Location = new System.Drawing.Point(18, 93);
             this.designationStateOwnLabel.Name = "designationStateOwnLabel";
-            this.designationStateOwnLabel.Size = new System.Drawing.Size(250, 20);
+            this.designationStateOwnLabel.Size = new System.Drawing.Size(282, 21);
             this.designationStateOwnLabel.TabIndex = 77;
             this.designationStateOwnLabel.Text = "শাখা ০ টি, পদ ০টি, শুন্যপদ ০টি, কর্মরত ০ জন";
             // 
@@ -269,10 +270,10 @@
             this.otherOfficeTabPageLeft.Controls.Add(this.otherOfficeTreeView);
             this.otherOfficeTabPageLeft.Controls.Add(this.searchOfficeButton);
             this.otherOfficeTabPageLeft.ImageIndex = 0;
-            this.otherOfficeTabPageLeft.Location = new System.Drawing.Point(4, 39);
+            this.otherOfficeTabPageLeft.Location = new System.Drawing.Point(4, 40);
             this.otherOfficeTabPageLeft.Name = "otherOfficeTabPageLeft";
             this.otherOfficeTabPageLeft.Padding = new System.Windows.Forms.Padding(3);
-            this.otherOfficeTabPageLeft.Size = new System.Drawing.Size(522, 494);
+            this.otherOfficeTabPageLeft.Size = new System.Drawing.Size(522, 493);
             this.otherOfficeTabPageLeft.TabIndex = 1;
             this.otherOfficeTabPageLeft.Text = "অন্য অফিসের পদসমূহ ";
             this.otherOfficeTabPageLeft.UseVisualStyleBackColor = true;
@@ -320,13 +321,13 @@
             this.searchOfficeListBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchOfficeListBox.FormattingEnabled = true;
             this.searchOfficeListBox.HorizontalScrollbar = true;
-            this.searchOfficeListBox.ItemHeight = 20;
+            this.searchOfficeListBox.ItemHeight = 21;
             this.searchOfficeListBox.Items.AddRange(new object[] {
             "অফিস বাছাই করুন"});
             this.searchOfficeListBox.Location = new System.Drawing.Point(5, 42);
             this.searchOfficeListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchOfficeListBox.Name = "searchOfficeListBox";
-            this.searchOfficeListBox.Size = new System.Drawing.Size(351, 164);
+            this.searchOfficeListBox.Size = new System.Drawing.Size(351, 151);
             this.searchOfficeListBox.TabIndex = 35;
             this.searchOfficeListBox.Click += new System.EventHandler(this.searchOfficeListBox_Click);
             // 
@@ -358,7 +359,7 @@
             this.designationStateOtherLabel.AutoSize = true;
             this.designationStateOtherLabel.Location = new System.Drawing.Point(17, 104);
             this.designationStateOtherLabel.Name = "designationStateOtherLabel";
-            this.designationStateOtherLabel.Size = new System.Drawing.Size(250, 20);
+            this.designationStateOtherLabel.Size = new System.Drawing.Size(282, 21);
             this.designationStateOtherLabel.TabIndex = 79;
             this.designationStateOtherLabel.Text = "শাখা ০ টি, পদ ০টি, শুন্যপদ ০টি, কর্মরত ০ জন";
             // 
@@ -424,6 +425,7 @@
             // 
             this.metroPanel1.BackColor = System.Drawing.Color.Transparent;
             this.metroPanel1.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.saveDesignationSealButton);
             this.metroPanel1.Controls.Add(this.panel5);
             this.metroPanel1.Controls.Add(this.iconButton7);
             this.metroPanel1.Controls.Add(this.tabControlLeft);
@@ -464,17 +466,18 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.checkBox1.Location = new System.Drawing.Point(14, 16);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(100, 24);
+            this.checkBox1.Size = new System.Drawing.Size(110, 25);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "সকল নিয়ন্ত্রিত";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // iconButton7
             // 
-            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.iconButton7.BackColor = System.Drawing.Color.Transparent;
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.iconButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -496,6 +499,7 @@
             this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(218)))), ((int)(((byte)(231)))));
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
@@ -516,14 +520,15 @@
             this.saveDesignationSealButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.saveDesignationSealButton.FlatAppearance.BorderSize = 0;
             this.saveDesignationSealButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveDesignationSealButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveDesignationSealButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.saveDesignationSealButton.IconChar = FontAwesome.Sharp.IconChar.Cloud;
             this.saveDesignationSealButton.IconColor = System.Drawing.Color.White;
             this.saveDesignationSealButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.saveDesignationSealButton.IconSize = 32;
-            this.saveDesignationSealButton.Location = new System.Drawing.Point(845, 679);
+            this.saveDesignationSealButton.Location = new System.Drawing.Point(840, 679);
             this.saveDesignationSealButton.Name = "saveDesignationSealButton";
-            this.saveDesignationSealButton.Size = new System.Drawing.Size(125, 48);
+            this.saveDesignationSealButton.Size = new System.Drawing.Size(131, 48);
             this.saveDesignationSealButton.TabIndex = 36;
             this.saveDesignationSealButton.Text = "সংরক্ষণ করুন";
             this.saveDesignationSealButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -537,7 +542,6 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 733);
-            this.Controls.Add(this.saveDesignationSealButton);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

@@ -37,12 +37,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnChair = new FontAwesome.Sharp.IconButton();
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.lbLevel = new System.Windows.Forms.Label();
             this.btnKarjodibosh = new FontAwesome.Sharp.IconButton();
             this.cbxNiontron = new System.Windows.Forms.CheckBox();
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.LeftPanel.SuspendLayout();
@@ -93,7 +93,7 @@
             // 
             // lbDesignation
             // 
-            this.lbDesignation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDesignation.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDesignation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbDesignation.Location = new System.Drawing.Point(165, 5);
             this.lbDesignation.Name = "lbDesignation";
@@ -103,7 +103,7 @@
             // 
             // lbName
             // 
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbName.Location = new System.Drawing.Point(35, 5);
             this.lbName.Name = "lbName";
@@ -162,14 +162,22 @@
             this.LeftPanel.Size = new System.Drawing.Size(58, 150);
             this.LeftPanel.TabIndex = 6;
             // 
+            // movementStatusSliderPanel1
+            // 
+            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(41, 0);
+            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
+            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(74, 86);
+            this.movementStatusSliderPanel1.TabIndex = 0;
+            // 
             // lbLevel
             // 
             this.lbLevel.AutoSize = true;
-            this.lbLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLevel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbLevel.Location = new System.Drawing.Point(6, 23);
             this.lbLevel.Name = "lbLevel";
-            this.lbLevel.Size = new System.Drawing.Size(56, 20);
+            this.lbLevel.Size = new System.Drawing.Size(63, 21);
             this.lbLevel.TabIndex = 50;
             this.lbLevel.Text = "লেভেল ১";
             // 
@@ -178,7 +186,7 @@
             this.btnKarjodibosh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
             this.btnKarjodibosh.FlatAppearance.BorderSize = 0;
             this.btnKarjodibosh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKarjodibosh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKarjodibosh.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKarjodibosh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
             this.btnKarjodibosh.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnKarjodibosh.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
@@ -194,11 +202,11 @@
             // cbxNiontron
             // 
             this.cbxNiontron.AutoSize = true;
-            this.cbxNiontron.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxNiontron.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNiontron.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.cbxNiontron.Location = new System.Drawing.Point(140, 22);
             this.cbxNiontron.Name = "cbxNiontron";
-            this.cbxNiontron.Size = new System.Drawing.Size(68, 24);
+            this.cbxNiontron.Size = new System.Drawing.Size(75, 25);
             this.cbxNiontron.TabIndex = 56;
             this.cbxNiontron.Text = "নিয়ন্ত্রিত";
             this.cbxNiontron.UseVisualStyleBackColor = true;
@@ -230,14 +238,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(426, 54);
             this.panel1.TabIndex = 7;
-            // 
-            // movementStatusSliderPanel1
-            // 
-            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(41, 0);
-            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
-            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(74, 86);
-            this.movementStatusSliderPanel1.TabIndex = 0;
             // 
             // NothiOnumodonRow
             // 
