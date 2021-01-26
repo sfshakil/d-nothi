@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.JsonParser.Entity.Nothi;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -137,8 +138,13 @@ namespace dNothi.Desktop.UI.Dak
 
         private void cbNote_Click_1(object sender, EventArgs e)
         {
+            NoteListDataRecordNoteDTO List1 = new NoteListDataRecordNoteDTO();
+            List1.khoshra_potro = Convert.ToInt32(_khosraPotro);
+            List1.khoshra_waiting_for_approval = Convert.ToInt32(khoshraWaiting);
+            List1.potrojari = Convert.ToInt32(potrojari);
+            List1.note_status = sender.ToString();
                 if (this.CheckBoxClick != null)
-                    this.CheckBoxClick(sender, e);
+                    this.CheckBoxClick(List1, e);
                 
         }
 

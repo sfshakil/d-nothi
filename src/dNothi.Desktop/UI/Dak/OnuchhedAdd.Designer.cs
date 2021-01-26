@@ -73,7 +73,7 @@
             this.topPnl.Location = new System.Drawing.Point(0, 0);
             this.topPnl.Margin = new System.Windows.Forms.Padding(0);
             this.topPnl.Name = "topPnl";
-            this.topPnl.Size = new System.Drawing.Size(782, 24);
+            this.topPnl.Size = new System.Drawing.Size(765, 24);
             this.topPnl.TabIndex = 0;
             this.topPnl.MouseHover += new System.EventHandler(this.topPnl_MouseHover);
             // 
@@ -91,7 +91,7 @@
             this.btnKhoshra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnKhoshra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnKhoshra.IconSize = 18;
-            this.btnKhoshra.Location = new System.Drawing.Point(686, 0);
+            this.btnKhoshra.Location = new System.Drawing.Point(669, 0);
             this.btnKhoshra.Margin = new System.Windows.Forms.Padding(0);
             this.btnKhoshra.Name = "btnKhoshra";
             this.btnKhoshra.Size = new System.Drawing.Size(32, 24);
@@ -115,7 +115,7 @@
             this.btnEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEdit.IconSize = 18;
-            this.btnEdit.Location = new System.Drawing.Point(718, 0);
+            this.btnEdit.Location = new System.Drawing.Point(701, 0);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(32, 24);
@@ -140,7 +140,7 @@
             this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDelete.IconSize = 18;
-            this.btnDelete.Location = new System.Drawing.Point(750, 0);
+            this.btnDelete.Location = new System.Drawing.Point(733, 0);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(32, 24);
@@ -232,7 +232,7 @@
             this.middlePnl.Location = new System.Drawing.Point(0, 24);
             this.middlePnl.Margin = new System.Windows.Forms.Padding(0);
             this.middlePnl.Name = "middlePnl";
-            this.middlePnl.Size = new System.Drawing.Size(782, 24);
+            this.middlePnl.Size = new System.Drawing.Size(765, 24);
             this.middlePnl.TabIndex = 2;
             this.middlePnl.MouseHover += new System.EventHandler(this.middlePnl_MouseHover);
             // 
@@ -316,7 +316,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 48);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(782, 65);
+            this.panel1.Size = new System.Drawing.Size(765, 65);
             this.panel1.TabIndex = 3;
             // 
             // panel12
@@ -325,7 +325,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel12.Location = new System.Drawing.Point(0, 64);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(782, 1);
+            this.panel12.Size = new System.Drawing.Size(765, 1);
             this.panel12.TabIndex = 69;
             // 
             // lbBody
@@ -350,7 +350,7 @@
             this.fileFLP.Location = new System.Drawing.Point(0, 145);
             this.fileFLP.Margin = new System.Windows.Forms.Padding(0);
             this.fileFLP.Name = "fileFLP";
-            this.fileFLP.Size = new System.Drawing.Size(782, 85);
+            this.fileFLP.Size = new System.Drawing.Size(765, 85);
             this.fileFLP.TabIndex = 4;
             this.fileFLP.WrapContents = false;
             // 
@@ -364,7 +364,7 @@
             this.fileheadpnl.Location = new System.Drawing.Point(0, 113);
             this.fileheadpnl.Margin = new System.Windows.Forms.Padding(0);
             this.fileheadpnl.Name = "fileheadpnl";
-            this.fileheadpnl.Size = new System.Drawing.Size(782, 32);
+            this.fileheadpnl.Size = new System.Drawing.Size(765, 32);
             this.fileheadpnl.TabIndex = 5;
             // 
             // lbfileflag
@@ -397,7 +397,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(750, 0);
+            this.iconButton1.Location = new System.Drawing.Point(733, 0);
             this.iconButton1.Margin = new System.Windows.Forms.Padding(5);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(5);
@@ -426,7 +426,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 31);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(782, 1);
+            this.panel3.Size = new System.Drawing.Size(765, 1);
             this.panel3.TabIndex = 70;
             // 
             // OnuchhedAdd
@@ -442,7 +442,7 @@
             this.Controls.Add(this.topPnl);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "OnuchhedAdd";
-            this.Size = new System.Drawing.Size(782, 116);
+            this.Size = new System.Drawing.Size(765, 116);
             this.MouseHover += new System.EventHandler(this.OnuchhedAdd_MouseHover);
             this.topPnl.ResumeLayout(false);
             this.topPnl.PerformLayout();

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.JsonParser.Entity.Nothi;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -200,10 +201,13 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler EditButtonClick;
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            this.Hide();
 
+            this.Hide();
+            NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
+            noteListDataRecordNoteDTO.note_subject = lbBody.Text;
+            noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbonucchedId.Text);
             if (this.EditButtonClick != null)
-                this.EditButtonClick(onucchedId, e);
+                this.EditButtonClick(noteListDataRecordNoteDTO, e);
         }
     }
 }

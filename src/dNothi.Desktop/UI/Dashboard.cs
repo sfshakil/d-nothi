@@ -716,9 +716,9 @@ namespace dNothi.Desktop.UI
             try
             {
                 ToDTO toDTOs = movementStatusDTO.to.FirstOrDefault(a => a.attention_type == "1" && a.designation_id!= movementStatusDTO.from.designation_id);
-                return toDTOs.officer;
+                return toDTOs?.officer;
             }
-            catch
+            catch(Exception ex)
             {
                 return "";
             }
