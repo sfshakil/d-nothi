@@ -31,15 +31,18 @@ namespace dNothi.Services.DakServices
                 dakSearchRequest.AddParameter("office_id", dakListUserParam.office_id);
                 dakSearchRequest.AddParameter("page", dakListUserParam.page);
                 dakSearchRequest.AddParameter("limit", dakListUserParam.limit);
-                var search_params = new JavaScriptSerializer().Serialize(dakSearchParam);
-                dakSearchRequest.AddParameter("search_params", search_params);
+                //var search_params = new JavaScriptSerializer().Serialize(dakSearchParam);
+                dakSearchRequest.AddParameter("search_params", dakSearchParam);
                 IRestResponse dakInboxResponse = dakSearchApi.Execute(dakSearchRequest);
-
+             
 
                 var dakResponseJson = dakInboxResponse.Content;
+                int firstStringIndex = dakResponseJson.IndexOf("{\"status\":");
+
+                var jsonStringDiscardedGarbage = dakResponseJson.Substring(firstStringIndex,dakResponseJson.Length-firstStringIndex );
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-            dakSearchResponse = JsonConvert.DeserializeObject<DakSearchResponse>(dakResponseJson);
+                dakSearchResponse = JsonConvert.DeserializeObject<DakSearchResponse>(jsonStringDiscardedGarbage);
                 return dakSearchResponse;
             }
             catch (Exception ex)
