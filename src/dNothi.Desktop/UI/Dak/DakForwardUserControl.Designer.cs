@@ -1169,7 +1169,7 @@
             this.dakForwardBodyPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.dakForwardBodyPanel.Location = new System.Drawing.Point(0, 131);
             this.dakForwardBodyPanel.Name = "dakForwardBodyPanel";
-            this.dakForwardBodyPanel.Size = new System.Drawing.Size(600, 825);
+            this.dakForwardBodyPanel.Size = new System.Drawing.Size(583, 825);
             this.dakForwardBodyPanel.TabIndex = 37;
             // 
             // prioritySearchButton
@@ -1216,7 +1216,7 @@
             this.HeadingPanel.Location = new System.Drawing.Point(0, 0);
             this.HeadingPanel.Name = "HeadingPanel";
             this.HeadingPanel.Padding = new System.Windows.Forms.Padding(26, 25, 0, 0);
-            this.HeadingPanel.Size = new System.Drawing.Size(600, 70);
+            this.HeadingPanel.Size = new System.Drawing.Size(583, 70);
             this.HeadingPanel.TabIndex = 38;
             // 
             // sliderCrossButton
@@ -1272,7 +1272,7 @@
             this.selectedDakListPanel.Location = new System.Drawing.Point(0, 70);
             this.selectedDakListPanel.Name = "selectedDakListPanel";
             this.selectedDakListPanel.Padding = new System.Windows.Forms.Padding(31, 0, 32, 0);
-            this.selectedDakListPanel.Size = new System.Drawing.Size(600, 40);
+            this.selectedDakListPanel.Size = new System.Drawing.Size(583, 40);
             this.selectedDakListPanel.TabIndex = 39;
             this.selectedDakListPanel.Visible = false;
             // 
@@ -1313,7 +1313,7 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label12.Location = new System.Drawing.Point(31, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(537, 40);
+            this.label12.Size = new System.Drawing.Size(520, 40);
             this.label12.TabIndex = 3;
             this.label12.Text = "মোট সিলেক্টেড ";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1350,7 +1350,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 110);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(600, 21);
+            this.panel10.Size = new System.Drawing.Size(583, 21);
             this.panel10.TabIndex = 38;
             // 
             // DakForwardUserControl
@@ -1359,7 +1359,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(617, 780);
+            this.ClientSize = new System.Drawing.Size(600, 780);
             this.Controls.Add(this.dakForwardBodyPanel);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.selectedDakListPanel);

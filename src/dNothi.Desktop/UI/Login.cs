@@ -334,9 +334,11 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Dashboard>();
             form.Hide();
 
-            SetDefaultFont(this.Controls);
-
-           }
+            //SetDefaultFont(this.Controls);
+            //Screen scr = Screen.FromPoint(this.Location);
+            //this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
+            //this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+        }
         protected override void OnLoad(EventArgs e)
         {
            
