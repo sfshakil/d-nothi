@@ -254,7 +254,7 @@ namespace dNothi.Services.DakServices
                 var forwardRevertDakApi = new RestClient(GetAPIDomain() + GetDakForwardRevertEndpoint());
                 forwardRevertDakApi.Timeout = -1;
                 var forwardRevertRequest = new RestRequest(Method.POST);
-                forwardRevertRequest.AddHeader("api-version", GetOldAPIVersion());
+                forwardRevertRequest.AddHeader("api-version", GetAPIVersion());
                 forwardRevertRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 forwardRevertRequest.AlwaysMultipartFormData = true;
                 forwardRevertRequest.AddParameter("designation_id", dakUserParam.designation_id);

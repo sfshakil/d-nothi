@@ -434,6 +434,16 @@
   <metadata name="pnlHelpDesk.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="label4.Text" xml:space="preserve">
+    <value>মেসেজ দেওয়ার অপশন তৈরি করা হয়েছে। এই ক্ষেত্রে পত্রের খসড়া 
+তৈরির সময় প্রাপকের মোবাইল নম্বর দিয়ে সংশ্লিষ্ট মেসেজ দেওয়া 
+যাবে। প্রাপক ই-মেইলে সংশ্লিষ্ট পত্রটি এবং মোবাইলে মেসেজ যাবে।
+
+বাংলা বানান নিরীক্ষক (Spell Checker) অর্ন্তভূক্ত করা হয়েছে। কোন 
+শব্দের বানান নিরীক্ষা করতে হলে, সংশ্লিষ্ট শব্দের উপর কার্সর রেখে ডান 
+বাটন ক্লিক করলে সিস্টেম ইউজারকে সঠিক শব্দটি সাজেশন দিবে।
+</value>
+  </data>
   <data name="userLoginByUserIdButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAVtJREFUOE/F
@@ -443,16 +453,6 @@
         anGHwDZU3r9W1QqP95kOxFOp/ujM34lCC2PkGtsi1OwFev+8nBp/0Is3YoetLbT4l8A32o49trbQ4q9e
         mVTSa2+yLUKNLz+KMWrdVnI7Fc3cchD+po/OqVUe7zMUOATPIXDcHZfsYzMEDrXT4jJMJvOosXeom2ZK
         buA08MDLZWTmgbO/vroLVqtz7FOOMAvP4AWbfALe2+AsYTb5BIxGn9NMtWFkpKs5AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>মেসেজ দেওয়ার অপশন তৈরি করা হয়েছে। এই ক্ষেত্রে পত্রের খসড়া 
-তৈরির সময় প্রাপকের মোবাইল নম্বর দিয়ে সংশ্লিষ্ট মেসেজ দেওয়া 
-যাবে। প্রাপক ই-মেইলে সংশ্লিষ্ট পত্রটি এবং মোবাইলে মেসেজ যাবে।
-
-বাংলা বানান নিরীক্ষক (Spell Checker) অর্ন্তভূক্ত করা হয়েছে। কোন 
-শব্দের বানান নিরীক্ষা করতে হলে, সংশ্লিষ্ট শব্দের উপর কার্সর রেখে ডান 
-বাটন ক্লিক করলে সিস্টেম ইউজারকে সঠিক শব্দটি সাজেশন দিবে।
 </value>
   </data>
   <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

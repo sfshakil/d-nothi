@@ -161,6 +161,8 @@ namespace dNothi.Services.DakServices
         
         }
 
+       
+
         public string SetCategory
         {
             get
@@ -177,7 +179,7 @@ namespace dNothi.Services.DakServices
                     _isInbox =true;
 
                 }
-                else if (SetCategory == "Outbox")
+                else if (SetCategory == "Forward")
                 {
                     MakeAllFalse();
                     _isOutbox = true;
@@ -207,7 +209,7 @@ namespace dNothi.Services.DakServices
                     _isSorted = true;
 
                 }
-                else if (SetCategory == "Khosra")
+                else if (SetCategory == "Draft")
                 {
                     MakeAllFalse();
                     _isKhosra = true;

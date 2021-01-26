@@ -660,15 +660,18 @@ namespace dNothi.Desktop.UI.Dak
 
                     ViewDesignationSealList mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
 
-                    if (mulprapok.nij_Office == true)
+                    if(mulprapok != null)
                     {
-                        var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
-                        dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
-                    }
-                    else
-                    {
-                        var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
-                        dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
+                        if (mulprapok.nij_Office == true)
+                        {
+                            var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                            dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
+                        }
+                        else
+                        {
+                            var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                            dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
+                        }
                     }
 
                     List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();

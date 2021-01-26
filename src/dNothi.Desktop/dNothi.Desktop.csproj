@@ -323,6 +323,12 @@
     <Compile Include="UI\Dak\DakDecisionTableUserControl.Designer.cs">
       <DependentUpon>DakDecisionTableUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakMovementDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakMovementDetailsForm.Designer.cs">
+      <DependentUpon>DakMovementDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DakNothijatoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -747,6 +753,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakDecisionTableUserControl.resx">
       <DependentUpon>DakDecisionTableUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakMovementDetailsForm.resx">
+      <DependentUpon>DakMovementDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakNothijatoForm.resx">
       <DependentUpon>DakNothijatoForm.cs</DependentUpon>
