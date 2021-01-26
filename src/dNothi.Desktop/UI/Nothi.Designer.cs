@@ -892,7 +892,7 @@
             this.nothiShakhaSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
             this.nothiShakhaSrchUC.Name = "nothiShakhaSrchUC";
             this.nothiShakhaSrchUC.searchButtonText = "বাছাই করুন";
-            this.nothiShakhaSrchUC.Size = new System.Drawing.Size(374, 51);
+            this.nothiShakhaSrchUC.Size = new System.Drawing.Size(374, 52);
             this.nothiShakhaSrchUC.TabIndex = 56;
             // 
             // ogradhikarSrchUC
@@ -909,7 +909,7 @@
             this.ogradhikarSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
             this.ogradhikarSrchUC.Name = "ogradhikarSrchUC";
             this.ogradhikarSrchUC.searchButtonText = "দপ্তর/শাখা";
-            this.ogradhikarSrchUC.Size = new System.Drawing.Size(374, 51);
+            this.ogradhikarSrchUC.Size = new System.Drawing.Size(374, 52);
             this.ogradhikarSrchUC.TabIndex = 55;
             // 
             // nothiDhoronSrchUC
@@ -926,7 +926,7 @@
             this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
             this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
             this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
-            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(386, 51);
+            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(386, 52);
             this.nothiDhoronSrchUC.TabIndex = 54;
             // 
             // nameDesignationSrchUC
@@ -943,7 +943,7 @@
             this.nameDesignationSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
             this.nameDesignationSrchUC.Name = "nameDesignationSrchUC";
             this.nameDesignationSrchUC.searchButtonText = "নাম/পদবি দিয়ে খুঁজুন";
-            this.nameDesignationSrchUC.Size = new System.Drawing.Size(1010, 51);
+            this.nameDesignationSrchUC.Size = new System.Drawing.Size(1010, 52);
             this.nameDesignationSrchUC.TabIndex = 31;
             // 
             // panel5

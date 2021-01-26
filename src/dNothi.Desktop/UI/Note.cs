@@ -58,13 +58,17 @@ namespace dNothi.Desktop.UI
         {
             nothiListRecords = nothiListRecordsDTO;
         }
-        public void loadNoteView(NoteView noteView)
+        public int loadNoteView(NoteView noteView)
         {
+            NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
+            var i = allNoteList.data.total_records;
+            noteView.totalNothi = i.ToString();
             lbNothiType.Text = "বাছাইকৃত নোট (১)";
             noteViewFLP.Controls.Clear();
             newNoteView = noteView;
             noteViewFLP.Controls.Add(noteView);
             noteView.CheckBoxClick += delegate (object sender, EventArgs e) { checkBox_Click(sender, e, newNoteView); };
+            return i;
         }
         private void checkBox_Click(object sender, EventArgs e, NoteView noteView)
         {
@@ -642,6 +646,9 @@ namespace dNothi.Desktop.UI
         private void btnOnuchhedSave_Click(object sender, EventArgs e)
         {
             PnlSave.Visible = false;
+            string noteId = "0";
+            if (updateNoteID > 0)
+                noteId = updateNoteID.ToString();
             //string editortext = tinyMceEditor.HtmlContent;
             string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
 
@@ -673,7 +680,7 @@ namespace dNothi.Desktop.UI
                 }
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
+                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(noteId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                 
                 if (onucchedSave.status == "success")
                 {
@@ -700,8 +707,9 @@ namespace dNothi.Desktop.UI
                     string message = "Error";
                     MessageBox.Show(message);
                 }
+
                 onuchhed.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata ); };
-                //onuchhed.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata ); };
+                onuchhed.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as NoteListDataRecordNoteDTO, e1, dakListUserParam, nothiListRecords, newnotedata ); };
                 
             }
             else
@@ -716,6 +724,9 @@ namespace dNothi.Desktop.UI
         private void btnSaveWithNewOnuchhed_Click(object sender, EventArgs e)
         {
             PnlSave.Visible = false;
+            string noteId = "0";
+            if (updateNoteID > 0)
+                noteId = updateNoteID.ToString();
             //string editortext = tinyMceEditor.HtmlContent;
             string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
 
@@ -747,7 +758,7 @@ namespace dNothi.Desktop.UI
                 }
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
+                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(noteId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                 if (onucchedSave.status == "success")
                 {
                     onuchhed.onucchedId = onucchedSave.data.id;
@@ -766,6 +777,7 @@ namespace dNothi.Desktop.UI
                     MessageBox.Show(message);
                 }
                 onuchhed.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
+                onuchhed.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as NoteListDataRecordNoteDTO, e1, dakListUserParam, nothiListRecords, newnotedata); };
 
             }
             else
@@ -776,7 +788,25 @@ namespace dNothi.Desktop.UI
 
             //tinyMceEditor.Controls.Clear();
         }
-
+        private int updateNoteID;
+        public void EditButton_Click(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, DakUserParam dakListUserParam, NothiListRecordsDTO nothiListRecords, NoteSaveDTO newnotedata)
+        {
+            //onuchhed.onucchedId = onucchedSave.data.id;
+            btnWriteOnuchhed.Visible = false;
+            btnSend.Visible = false;
+            btnSave.Visible = true;
+            btnSaveArrow.Visible = true;
+            btnCancel.Visible = true;
+            panel22.Visible = true;
+            tinyMceEditor.Visible = true;
+            panel24.Visible = true;
+            panel28.Visible = true;
+            tinyMceEditor.HtmlContent = noteListDataRecordNoteDTO.note_subject;
+            updateNoteID = noteListDataRecordNoteDTO.nothi_note_id;
+            //onuchhedFLP.Controls.Add(onuchhed);
+            fileAddFLP.Controls.Clear();
+            noteFileUploads.Clear();
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //panel22.Visible = false;

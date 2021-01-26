@@ -157,12 +157,12 @@ namespace dNothi.Desktop.UI
                 form.nothiSubject = nothiListRecords.subject;
                 form.noteSubject = sender.ToString();
                 form.nothiLastDate = nothiListRecordsDTO.last_note_date;
-                var totalnothi = nothiListRecordsDTO.note_count;
-                form.noteTotal = totalnothi.ToString();
+                //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
+                //totalnothi.ToString();
                 form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
 
                 NoteView noteView = new NoteView();
-                noteView.totalNothi = totalnothi.ToString();
+                //noteView.totalNothi = totalnothi.ToString();
                 noteView.noteSubject = sender.ToString();
                 noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
                 noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
@@ -171,8 +171,9 @@ namespace dNothi.Desktop.UI
 
                 //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
                 form.loadNoteData(notedata);
-                form.loadNoteView(noteView);
                 form.loadNothiInboxRecords(nothiListRecordsDTO);
+                form.noteTotal = form.loadNoteView(noteView).ToString();
+                
 
                 form.ShowDialog();
 
