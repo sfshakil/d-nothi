@@ -64,13 +64,13 @@ namespace dNothi.Desktop.UI
             
         }
 
-        private void LoadNothiInbox()
+        private async void LoadNothiInbox()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
             var token = _userService.GetToken();
-            var nothiInbox = _nothiInbox.GetNothiInbox(dakListUserParam);
+            var nothiInbox = await Task.Run(() => _nothiInbox.GetNothiInbox(dakListUserParam));
             if (nothiInbox.status == "success")
             {
                 _nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);

@@ -67,19 +67,43 @@ namespace dNothi.Desktop.UI
             noteViewFLP.Controls.Clear();
             newNoteView = noteView;
             noteViewFLP.Controls.Add(noteView);
-            noteView.CheckBoxClick += delegate (object sender, EventArgs e) { checkBox_Click(sender, e, newNoteView); };
+            noteView.CheckBoxClick += delegate (object sender, EventArgs e) { checkBox_Click(sender as NoteListDataRecordNoteDTO, e, newNoteView); };
             return i;
         }
-        private void checkBox_Click(object sender, EventArgs e, NoteView noteView)
+        private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
         {
-            string str = sender.ToString();
-            if (str == "System.Windows.Forms.CheckBox, CheckState: 0")
+            string str = list.note_status;
+            if (list.khoshra_potro>0)
             {
-                NoteFullPanel.Hide();
-                NoteFullPanel.Visible = false;
+                pnlNoNote.Visible = false;
+                lbNote.Visible = true;
+                pnlNoteKhoshra.Visible = true;
+                lbNoteKhoshra.Text = list.khoshra_potro.ToString();
             }
-            else
-                NoteFullPanel.Visible = true;
+            if(list.khoshra_waiting_for_approval > 0)
+            {
+                pnlNoNote.Visible = false;
+                lbNote.Visible = true;
+                pnlNoteKhoshraWaiting.Visible = true;
+                lbNoteKhoshraWaiting.Text = list.khoshra_waiting_for_approval.ToString();
+            }
+            if (list.potrojari > 0)
+            {
+                pnlNoNote.Visible = false;
+                lbNote.Visible = true;
+                pnlNotePotrojari.Visible = true;
+                lbNotePotrojari.Text = list.potrojari.ToString();
+            }
+            
+
+
+            //if (str == "System.Windows.Forms.CheckBox, CheckState: 0")
+            //{
+            //    NoteFullPanel.Hide();
+            //    NoteFullPanel.Visible = false;
+            //}
+            //else
+            //    NoteFullPanel.Visible = true;
 
         }
 
@@ -218,12 +242,13 @@ namespace dNothi.Desktop.UI
         {
             
             string selectedItem = cbxNothiType.Items[cbxNothiType.SelectedIndex].ToString() ;
+            newNoteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
             if (selectedItem == "বাছাইকৃত নোট")
             {
                 lbNothiType.Text = "বাছাইকৃত নোট (১)";
                 noteViewFLP.Controls.Clear();
                 noteViewFLP.Controls.Add(newNoteView);
-                newNoteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1, newNoteView); };
+                
             }
             else if(selectedItem == "আগত নোট")
             {
@@ -237,7 +262,6 @@ namespace dNothi.Desktop.UI
                     {
                         NoteView noteView = new NoteView();
                         noteView.totalNothi = inboxList.note.note_no.ToString();
-
                         if (inboxList.note.note_subject_sub_text == "")
                         {
                             noteView.noteSubject = inboxList.note.note_subject;
@@ -246,7 +270,7 @@ namespace dNothi.Desktop.UI
                         {
                             noteView.noteSubject = inboxList.note.note_subject_sub_text;
                         }
-                        
+                        noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
                         noteView.nothiLastDate = inboxList.desk.issue_date;
                         noteView.nothivukto = inboxList.note.nothivukto_potro.ToString();
                         noteView.onucchedCount = inboxList.note.onucched_count.ToString();
@@ -284,6 +308,7 @@ namespace dNothi.Desktop.UI
                         {
                             noteView.noteSubject = sentList.note.note_subject_sub_text;
                         }
+                        noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
                         noteView.nothiLastDate = sentList.desk.issue_date; 
                         noteView.nothivukto = sentList.note.nothivukto_potro.ToString();
                         noteView.onucchedCount = sentList.note.onucched_count.ToString();
@@ -324,6 +349,7 @@ namespace dNothi.Desktop.UI
                             {
                                 noteView.noteSubject = allList.note.note_subject_sub_text;
                             }
+                            noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
                             noteView.nothiLastDate = allList.deskDtoList[0].issue_date;
                             noteView.nothivukto = allList.note.nothivukto_potro.ToString();
                             noteView.onucchedCount = allList.note.onucched_count.ToString();
