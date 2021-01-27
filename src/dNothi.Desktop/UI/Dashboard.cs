@@ -89,7 +89,7 @@ namespace dNothi.Desktop.UI
 
 
             pb = new PictureBox();
-            dashBoardBlurPanel.Controls.Add(pb);
+          
             pb.Dock = DockStyle.Fill;
 
           
@@ -98,17 +98,17 @@ namespace dNothi.Desktop.UI
         }
         private void Blur()
         {
-            Bitmap bmp = Screenshot.TakeSnapshot(dashBoardBlurPanel);
-            BitmapFilter.GaussianBlur(bmp,1);
+            //Bitmap bmp = Screenshot.TakeSnapshot(dashBoardBlurPanel);
+            //BitmapFilter.GaussianBlur(bmp,1);
 
-            pb.Image = bmp;
-            dashBoardBlurPanel.BringToFront();
+            //pb.Image = bmp;
+            //dashBoardBlurPanel.BringToFront();
         }
 
         private void UnBlur()
         {
             pb.Image = null;
-            dashBoardBlurPanel.SendToBack();
+          //  dashBoardBlurPanel.SendToBack();
         }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {

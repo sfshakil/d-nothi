@@ -196,36 +196,12 @@ namespace dNothi.Desktop.UI
             
         }
 
-        private void lbMobileNo1_MouseHover(object sender, EventArgs e)
-        {
-            this.lbMobileNo1.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Underline);
-        }
+       
 
-        private void lbMobileNo1_MouseLeave(object sender, EventArgs e)
-        {
-            this.lbMobileNo1.Font = new Font("Microsoft Sans Serif", 8);
-        }
+       
+       
 
-        private void lbMobileNo2_MouseHover(object sender, EventArgs e)
-        {
-            this.lbMobileNo2.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Underline);
-        }
-
-        private void lbMobileNo2_MouseLeave(object sender, EventArgs e)
-        {
-            this.lbMobileNo2.Font = new Font("Microsoft Sans Serif", 8);
-        }
-
-        private void lbMobileNo3_MouseHover(object sender, EventArgs e)
-        {
-            this.lbMobileNo3.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Underline);
-        }
-
-        private void lbMobileNo3_MouseLeave(object sender, EventArgs e)
-        {
-            this.lbMobileNo3.Font = new Font("Microsoft Sans Serif", 8);
-        }
-
+        
         private void btnUserId_MouseHover(object sender, EventArgs e)
         {
             this.btnUserId.ForeColor = Color.Indigo;
@@ -334,9 +310,11 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Dashboard>();
             form.Hide();
 
-            SetDefaultFont(this.Controls);
-
-           }
+            //SetDefaultFont(this.Controls);
+            //Screen scr = Screen.FromPoint(this.Location);
+            //this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
+            //this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+        }
         protected override void OnLoad(EventArgs e)
         {
            
@@ -447,6 +425,11 @@ namespace dNothi.Desktop.UI
             {
                 txtPassword.PasswordChar = '●';
             }
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
