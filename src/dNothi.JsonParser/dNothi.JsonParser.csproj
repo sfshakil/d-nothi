@@ -155,6 +155,8 @@
     <Compile Include="Entity\Nothi\NothiOnumodonRowDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxDTO.cs" />
     <Compile Include="Entity\Nothi\NothiOutboxListRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiPotrangshoDataDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiPotrangshoResponse.cs" />
     <Compile Include="Entity\Nothi\NothiTypeListDTO.cs" />
     <Compile Include="Entity\Nothi\NothiTypeListResponse.cs" />
     <Compile Include="Entity\Nothi\NothiTypeSaveDTO.cs" />

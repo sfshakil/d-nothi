@@ -151,6 +151,9 @@ namespace dNothi.Desktop.UI
                 var form = FormFactory.Create<Note>();
                 _dakuserparam = _userService.GetLocalDakUserParam();
 
+
+
+
                 NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
                 form.nothiNo = nothiListRecords.nothi_no;
                 form.nothiShakha = nothiListRecords.office_unit_name + " " + _dakuserparam.office_label;
