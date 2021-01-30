@@ -144,6 +144,10 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.leftMenuBarTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.logoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dakMenuButton = new System.Windows.Forms.Panel();
             this.RightSign = new FontAwesome.Sharp.IconButton();
             this.LeftSign = new FontAwesome.Sharp.IconButton();
             this.dakMenuPanel = new System.Windows.Forms.Panel();
@@ -162,16 +166,12 @@
             this.dakSortButton = new FontAwesome.Sharp.IconButton();
             this.dakInboxButton = new FontAwesome.Sharp.IconButton();
             this.dakSearchButton = new FontAwesome.Sharp.IconButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dakMenuButton = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.leftMenuBarTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.logoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -200,13 +200,13 @@
             this.metroPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.dakMenuPanel.SuspendLayout();
-            this.dakUploadDropDownPanel.SuspendLayout();
-            this.dakMenuButton.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.dashboardBodyTableLayoutPanel.SuspendLayout();
             this.leftMenuBarTableLayoutPanel.SuspendLayout();
             this.logoTableLayoutPanel.SuspendLayout();
+            this.dakMenuButton.SuspendLayout();
+            this.dakMenuPanel.SuspendLayout();
+            this.dakUploadDropDownPanel.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.dashboardBodyTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -498,7 +498,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.label3.Location = new System.Drawing.Point(525, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 18);
+            this.label3.Size = new System.Drawing.Size(105, 21);
             this.label3.TabIndex = 0;
             this.label3.Text = "কোনো ডাক নেই";
             // 
@@ -925,7 +925,7 @@
             this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
             this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
             this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 44);
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 52);
             this.searchOfficeDetailSearch.TabIndex = 53;
             // 
             // officerSearchList
@@ -940,7 +940,7 @@
             this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
             this.officerSearchList.Name = "officerSearchList";
             this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
-            this.officerSearchList.Size = new System.Drawing.Size(516, 44);
+            this.officerSearchList.Size = new System.Drawing.Size(516, 52);
             this.officerSearchList.TabIndex = 52;
             // 
             // label11
@@ -1271,7 +1271,7 @@
             "জরুরি"});
             this.dakPriorityComboBox.Location = new System.Drawing.Point(678, 115);
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
-            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakPriorityComboBox.TabIndex = 6;
             this.dakPriorityComboBox.Text = "অগ্রাধিকার ";
             this.dakPriorityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPriorityComboBox_SelectedIndexChanged);
@@ -1291,7 +1291,7 @@
             "সীমিত"});
             this.dakSecurityComboBox.Location = new System.Drawing.Point(463, 115);
             this.dakSecurityComboBox.Name = "dakSecurityComboBox";
-            this.dakSecurityComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakSecurityComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakSecurityComboBox.TabIndex = 5;
             this.dakSecurityComboBox.Text = "গোপনীয়তা";
             this.dakSecurityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakSecurityComboBox_SelectedIndexChanged);
@@ -1308,7 +1308,7 @@
             "নাগরিক"});
             this.dakTypeComboBox.Location = new System.Drawing.Point(897, 115);
             this.dakTypeComboBox.Name = "dakTypeComboBox";
-            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakTypeComboBox.TabIndex = 4;
             this.dakTypeComboBox.Text = "ডাকের ধরণ";
             this.dakTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakTypeComboBox_SelectedIndexChanged);
@@ -1328,7 +1328,7 @@
             "বিজ্ঞপ্তি/নোটিশ"});
             this.dakPaperTypeComboBox.Location = new System.Drawing.Point(245, 115);
             this.dakPaperTypeComboBox.Name = "dakPaperTypeComboBox";
-            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakPaperTypeComboBox.TabIndex = 3;
             this.dakPaperTypeComboBox.Text = "পত্রের ধরন ";
             this.dakPaperTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPaperTypeComboBox_SelectedIndexChanged);
@@ -1370,7 +1370,7 @@
             " অনুলিপি"});
             this.dakAttentionTypeComboBox.Location = new System.Drawing.Point(21, 115);
             this.dakAttentionTypeComboBox.Name = "dakAttentionTypeComboBox";
-            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakAttentionTypeComboBox.TabIndex = 2;
             this.dakAttentionTypeComboBox.Text = "সকল ";
             this.dakAttentionTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakAttentionTypeComboBox_SelectedIndexChanged);
@@ -1510,7 +1510,7 @@
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(901, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 18);
+            this.label9.Size = new System.Drawing.Size(61, 21);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             // 
@@ -1851,6 +1851,66 @@
             this.panel1.Size = new System.Drawing.Size(230, 685);
             this.panel1.TabIndex = 11;
             // 
+            // leftMenuBarTableLayoutPanel
+            // 
+            this.leftMenuBarTableLayoutPanel.ColumnCount = 1;
+            this.leftMenuBarTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.leftMenuBarTableLayoutPanel.Controls.Add(this.logoTableLayoutPanel, 0, 0);
+            this.leftMenuBarTableLayoutPanel.Controls.Add(this.dakMenuPanel, 0, 1);
+            this.leftMenuBarTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leftMenuBarTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftMenuBarTableLayoutPanel.Name = "leftMenuBarTableLayoutPanel";
+            this.leftMenuBarTableLayoutPanel.RowCount = 2;
+            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.leftMenuBarTableLayoutPanel.Size = new System.Drawing.Size(230, 685);
+            this.leftMenuBarTableLayoutPanel.TabIndex = 47;
+            // 
+            // logoTableLayoutPanel
+            // 
+            this.logoTableLayoutPanel.ColumnCount = 2;
+            this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.logoTableLayoutPanel.Controls.Add(this.button2, 0, 0);
+            this.logoTableLayoutPanel.Controls.Add(this.dakMenuButton, 1, 0);
+            this.logoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logoTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.logoTableLayoutPanel.Name = "logoTableLayoutPanel";
+            this.logoTableLayoutPanel.RowCount = 1;
+            this.logoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.logoTableLayoutPanel.Size = new System.Drawing.Size(224, 62);
+            this.logoTableLayoutPanel.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(10, 3);
+            this.button2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(166, 56);
+            this.button2.TabIndex = 2;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // dakMenuButton
+            // 
+            this.dakMenuButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dakMenuButton.BackColor = System.Drawing.Color.Transparent;
+            this.dakMenuButton.Controls.Add(this.RightSign);
+            this.dakMenuButton.Controls.Add(this.LeftSign);
+            this.dakMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dakMenuButton.Location = new System.Drawing.Point(182, 13);
+            this.dakMenuButton.Name = "dakMenuButton";
+            this.dakMenuButton.Size = new System.Drawing.Size(39, 36);
+            this.dakMenuButton.TabIndex = 22;
+            this.dakMenuButton.Click += new System.EventHandler(this.dakMenuButton_Click);
+            // 
             // RightSign
             // 
             this.RightSign.BackColor = System.Drawing.Color.Transparent;
@@ -1906,7 +1966,7 @@
             this.dakMenuPanel.Controls.Add(this.dakInboxButton);
             this.dakMenuPanel.Controls.Add(this.dakSearchButton);
             this.dakMenuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dakMenuPanel.Location = new System.Drawing.Point(1, 65);
+            this.dakMenuPanel.Location = new System.Drawing.Point(3, 71);
             this.dakMenuPanel.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.dakMenuPanel.MaximumSize = new System.Drawing.Size(227, 610);
             this.dakMenuPanel.MinimumSize = new System.Drawing.Size(227, 610);
@@ -2272,36 +2332,6 @@
             this.dakSearchButton.UseVisualStyleBackColor = false;
             this.dakSearchButton.Click += new System.EventHandler(this.dakSearchButton_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(10, 3);
-            this.button2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 46);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // dakMenuButton
-            // 
-            this.dakMenuButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dakMenuButton.BackColor = System.Drawing.Color.Transparent;
-            this.dakMenuButton.Controls.Add(this.RightSign);
-            this.dakMenuButton.Controls.Add(this.LeftSign);
-            this.dakMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dakMenuButton.Location = new System.Drawing.Point(182, 8);
-            this.dakMenuButton.Name = "dakMenuButton";
-            this.dakMenuButton.Size = new System.Drawing.Size(39, 36);
-            this.dakMenuButton.TabIndex = 22;
-            this.dakMenuButton.Click += new System.EventHandler(this.dakMenuButton_Click);
-            // 
             // button11
             // 
             this.button11.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -2363,36 +2393,6 @@
             this.dashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.dashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1354, 691);
             this.dashboardBodyTableLayoutPanel.TabIndex = 4;
-            // 
-            // leftMenuBarTableLayoutPanel
-            // 
-            this.leftMenuBarTableLayoutPanel.ColumnCount = 1;
-            this.leftMenuBarTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.leftMenuBarTableLayoutPanel.Controls.Add(this.logoTableLayoutPanel, 0, 0);
-            this.leftMenuBarTableLayoutPanel.Controls.Add(this.dakMenuPanel, 0, 1);
-            this.leftMenuBarTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leftMenuBarTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftMenuBarTableLayoutPanel.Name = "leftMenuBarTableLayoutPanel";
-            this.leftMenuBarTableLayoutPanel.RowCount = 2;
-            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.leftMenuBarTableLayoutPanel.Size = new System.Drawing.Size(230, 685);
-            this.leftMenuBarTableLayoutPanel.TabIndex = 47;
-            // 
-            // logoTableLayoutPanel
-            // 
-            this.logoTableLayoutPanel.ColumnCount = 2;
-            this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.logoTableLayoutPanel.Controls.Add(this.button2, 0, 0);
-            this.logoTableLayoutPanel.Controls.Add(this.dakMenuButton, 1, 0);
-            this.logoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logoTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.logoTableLayoutPanel.Name = "logoTableLayoutPanel";
-            this.logoTableLayoutPanel.RowCount = 1;
-            this.logoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.logoTableLayoutPanel.Size = new System.Drawing.Size(224, 52);
-            this.logoTableLayoutPanel.TabIndex = 0;
             // 
             // Dashboard
             // 
@@ -2456,17 +2456,17 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.leftMenuBarTableLayoutPanel.ResumeLayout(false);
+            this.leftMenuBarTableLayoutPanel.PerformLayout();
+            this.logoTableLayoutPanel.ResumeLayout(false);
+            this.dakMenuButton.ResumeLayout(false);
             this.dakMenuPanel.ResumeLayout(false);
             this.dakMenuPanel.PerformLayout();
             this.dakUploadDropDownPanel.ResumeLayout(false);
             this.dakUploadDropDownPanel.PerformLayout();
-            this.dakMenuButton.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.dashboardBodyTableLayoutPanel.ResumeLayout(false);
             this.dashboardBodyTableLayoutPanel.PerformLayout();
-            this.leftMenuBarTableLayoutPanel.ResumeLayout(false);
-            this.leftMenuBarTableLayoutPanel.PerformLayout();
-            this.logoTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

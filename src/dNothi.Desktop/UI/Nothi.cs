@@ -46,6 +46,11 @@ namespace dNothi.Desktop.UI
             _dakuserparam = _userService.GetLocalDakUserParam();
             _nothiCurrentCategory.isInbox = true;
             userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
+            agotoNothiSelected = 1;
+            preritoNothiSelected = 0;
+            shokolNothiSelected = 0;
+            noteListButton.BackColor = Color.LightSteelBlue;
+            btnNothiTalika.BackColor = Color.MediumSlateBlue;
         }
 
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
@@ -78,6 +83,7 @@ namespace dNothi.Desktop.UI
                 if (nothiInbox.data.records.Count > 0)
                 {
                     pnlNoData.Visible = false;
+                    lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiInbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     LoadNothiInboxinPanel(nothiInbox.data.records);
 
                 }
@@ -100,7 +106,7 @@ namespace dNothi.Desktop.UI
                 var nothiInbox = UserControlFactory.Create<NothiInbox>();
                 nothiInbox.nothi = nothiListRecordsDTO.nothi_no + " " + nothiListRecordsDTO.subject;
                 nothiInbox.shakha = nothiListRecordsDTO.office_unit_name;
-                nothiInbox.totalnothi = "মোট নোটঃ " + nothiListRecordsDTO.note_count;
+                nothiInbox.totalnothi = nothiListRecordsDTO.note_count.ToString();
                 nothiInbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiListRecordsDTO.last_note_date;
                 nothiInbox.nothiId = Convert.ToString(nothiListRecordsDTO.id);
                 nothiInbox.NewNoteButtonClick += delegate (object sender, EventArgs e) { NewNote_ButtonClick(sender, e, nothiListRecordsDTO); };
@@ -363,7 +369,7 @@ namespace dNothi.Desktop.UI
                 gardFileDropDownPanel.Visible = true;
             }
         }
-        public dynamic newNothi = UserControlFactory.Create<NewNothi>();
+        public NewNothi newNothi = UserControlFactory.Create<NewNothi>();
         
 
         private void btnPotrojari_Click(object sender, EventArgs e)
@@ -568,9 +574,14 @@ namespace dNothi.Desktop.UI
                 detailsNothiSearcPanel.Visible = true;
             }
         }
-
+        private int agotoNothiSelected = 0;
+        private int preritoNothiSelected = 0;
+        private int shokolNothiSelected = 0;
         private void btnNothiInbox_Click_1(object sender, EventArgs e)
         {
+            agotoNothiSelected = 1;
+            preritoNothiSelected = 0;
+            shokolNothiSelected = 0;
             _nothiCurrentCategory.isInbox = true;
             _nothiCurrentCategory.isInbox = true;
             btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
@@ -587,6 +598,9 @@ namespace dNothi.Desktop.UI
 
         private void btnNothiOutbox_Click(object sender, EventArgs e)
         {
+            agotoNothiSelected = 0;
+            preritoNothiSelected = 1;
+            shokolNothiSelected = 0;
             _nothiCurrentCategory.isOutbox = true;
            
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
@@ -615,6 +629,9 @@ namespace dNothi.Desktop.UI
         }
         private void btnNothiAll_Click(object sender, EventArgs e)
         {
+            agotoNothiSelected = 0;
+            preritoNothiSelected = 0;
+            shokolNothiSelected = 1;
             _nothiCurrentCategory.isAll = true;
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
@@ -630,6 +647,7 @@ namespace dNothi.Desktop.UI
 
         private void btnNewNothi_Click(object sender, EventArgs e)
         {
+            newNothi.loadNewNothiPage();
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
@@ -780,6 +798,8 @@ namespace dNothi.Desktop.UI
 
         private void noteListButton_Click(object sender, EventArgs e)
         {
+            btnNothiTalika.BackColor = Color.LightSteelBlue; 
+            noteListButton.BackColor = Color.MediumSlateBlue;
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
             NothiNoteListResponse noteList = new NothiNoteListResponse();
 
@@ -874,6 +894,57 @@ namespace dNothi.Desktop.UI
                 {
                     nothiListFlowLayoutPanel.Controls.Add(noteListUserControls[j]);
                 }
+            }
+        }
+
+        private void btnNothiTalika_Click(object sender, EventArgs e)
+        {
+            noteListButton.BackColor = Color.LightSteelBlue;
+            btnNothiTalika.BackColor = Color.MediumSlateBlue;
+            if (agotoNothiSelected == 1)
+            {
+                _nothiCurrentCategory.isInbox = true;
+                _nothiCurrentCategory.isInbox = true;
+                btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+                btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+                btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+                btnNothiInbox.IconColor = Color.FromArgb(78, 165, 254);
+                ResetAllMenuButtonSelection();
+                SelectButton(btnNothiInbox as Button);
+                nothiListFlowLayoutPanel.Visible = true;
+                pnlNothiNoteTalika.Visible = true;
+                newNothi.Visible = false;
+                LoadNothiInbox();
+            }
+            if (preritoNothiSelected == 1)
+            {
+
+                _nothiCurrentCategory.isOutbox = true;
+
+                btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+                btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+                btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+                btnNothiOutbox.IconColor = Color.FromArgb(78, 165, 254);
+                ResetAllMenuButtonSelection();
+                SelectButton(btnNothiOutbox as Button);
+                nothiListFlowLayoutPanel.Visible = true;
+                pnlNothiNoteTalika.Visible = true;
+                newNothi.Visible = false;
+                LoadNothiOutbox();
+            }
+            if (shokolNothiSelected == 1)
+            {
+                _nothiCurrentCategory.isAll = true;
+                btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+                btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+                btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+                btnNothiAll.IconColor = Color.FromArgb(78, 165, 254);
+                ResetAllMenuButtonSelection();
+                SelectButton(btnNothiAll as Button);
+                nothiListFlowLayoutPanel.Visible = true;
+                pnlNothiNoteTalika.Visible = true;
+                newNothi.Visible = false;
+                LoadNothiAll();
             }
         }
     }

@@ -48,6 +48,10 @@
             this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -64,7 +68,7 @@
             this.btnNewNothiCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNewNothiCreate.Location = new System.Drawing.Point(18, 38);
             this.btnNewNothiCreate.Name = "btnNewNothiCreate";
-            this.btnNewNothiCreate.Size = new System.Drawing.Size(140, 43);
+            this.btnNewNothiCreate.Size = new System.Drawing.Size(152, 43);
             this.btnNewNothiCreate.TabIndex = 42;
             this.btnNewNothiCreate.Text = "নতুন ধরন তৈরি করুন";
             this.btnNewNothiCreate.UseVisualStyleBackColor = false;
@@ -87,13 +91,14 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.btnNewNothiCreate);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 74);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(530, 129);
+            this.panel2.Size = new System.Drawing.Size(534, 129);
             this.panel2.TabIndex = 45;
             // 
             // panel4
@@ -102,11 +107,12 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 128);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(530, 1);
+            this.panel4.Size = new System.Drawing.Size(534, 1);
             this.panel4.TabIndex = 58;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.panel11);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
@@ -120,7 +126,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 203);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(530, 133);
+            this.panel3.Size = new System.Drawing.Size(534, 133);
             this.panel3.TabIndex = 46;
             // 
             // panel11
@@ -236,10 +242,10 @@
             // 
             // nothiTypeListFlowLayoutPanel
             // 
-            this.nothiTypeListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nothiTypeListFlowLayoutPanel.Location = new System.Drawing.Point(0, 336);
+            this.nothiTypeListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.nothiTypeListFlowLayoutPanel.Location = new System.Drawing.Point(3, 336);
             this.nothiTypeListFlowLayoutPanel.Name = "nothiTypeListFlowLayoutPanel";
-            this.nothiTypeListFlowLayoutPanel.Size = new System.Drawing.Size(530, 364);
+            this.nothiTypeListFlowLayoutPanel.Size = new System.Drawing.Size(531, 368);
             this.nothiTypeListFlowLayoutPanel.TabIndex = 47;
             // 
             // label1
@@ -258,11 +264,13 @@
             this.btnNothiTypeCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.btnNothiTypeCross.FlatAppearance.BorderSize = 0;
             this.btnNothiTypeCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiTypeCross.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNothiTypeCross.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.btnNothiTypeCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.btnNothiTypeCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiTypeCross.IconSize = 32;
+            this.btnNothiTypeCross.IconSize = 24;
             this.btnNothiTypeCross.Location = new System.Drawing.Point(480, 22);
+            this.btnNothiTypeCross.Margin = new System.Windows.Forms.Padding(0);
             this.btnNothiTypeCross.Name = "btnNothiTypeCross";
             this.btnNothiTypeCross.Size = new System.Drawing.Size(34, 35);
             this.btnNothiTypeCross.TabIndex = 63;
@@ -275,33 +283,70 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 73);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(530, 1);
+            this.panel6.Size = new System.Drawing.Size(534, 1);
             this.panel6.TabIndex = 64;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnNothiTypeCross);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 74);
+            this.panel1.Size = new System.Drawing.Size(534, 74);
             this.panel1.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1, 73);
+            this.panel5.TabIndex = 65;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1, 128);
+            this.panel7.TabIndex = 66;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1, 133);
+            this.panel8.TabIndex = 67;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(0, 336);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1, 368);
+            this.panel9.TabIndex = 66;
             // 
             // NothiType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CausesValidation = false;
+            this.Controls.Add(this.panel9);
             this.Controls.Add(this.nothiTypeListFlowLayoutPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "NothiType";
-            this.Size = new System.Drawing.Size(530, 700);
+            this.Size = new System.Drawing.Size(534, 704);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -334,5 +379,9 @@
         private FontAwesome.Sharp.IconButton btnNothiTypeCross;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel9;
     }
 }

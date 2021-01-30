@@ -51,12 +51,28 @@ namespace dNothi.Desktop.UI
             onuchhedheaderPnl.Hide();
             PnlSave.Visible = false;
             userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
+            loadPotrangshoNotePanel();
+            loadPotrangshoNothiPanel();
+        }
+
+        public void loadPotrangshoNothiPanel()
+        {
+            pnlNothi.Visible = false;
+            pnlKhoshra.Visible = false;
+            pnlKhoshraWaiting.Visible = false;
+            pnlApproved.Visible = false;
+            pnlAllPotro.Visible = false;
+            pnlPotrojari.Visible = false;
+            pnlNothijato.Visible = false;
+            pnlNoNothi.Visible = true;
+        }
+        public void loadPotrangshoNotePanel()
+        {
             pnlNoteKhoshra.Visible = false;
             pnlNoteKhoshraWaiting.Visible = false;
             lbNote.Visible = false;
             pnlNotePotrojari.Visible = false;
             pnlNoNote.Visible = true;
-            
         }
         public void loadNoteData(NoteSaveDTO notedata)
         {
@@ -73,11 +89,77 @@ namespace dNothi.Desktop.UI
             NothiPotrangshoResponse loadPotrangsho = _loadPotrangsho.GetNothiPotrangsho(dakuserparam, nothiListRecordsDTO);
             if (loadPotrangsho.status == "success")
             {
-                lbKhoshra.Text = string.Concat(loadPotrangsho.data.khoshra_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                lbKhoshraWaiting.Text = string.Concat(loadPotrangsho.data.khoshra_waiting_for_approval.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                lbAllPotro.Text = string.Concat(loadPotrangsho.data.all_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                lbPotrojari.Text = string.Concat(loadPotrangsho.data.potrojari.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                lbNothijato.Text = string.Concat(loadPotrangsho.data.nothijato_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                if (loadPotrangsho.data.khoshra_potro>0 || loadPotrangsho.data.khoshra_waiting_for_approval>0 || loadPotrangsho.data.all_potro>0 ||
+                    loadPotrangsho.data.potrojari>0 || loadPotrangsho.data.nothijato_potro>0 || loadPotrangsho.data.approved_potro>0)
+                {
+                    pnlNoNothi.Visible = false;
+                    if(loadPotrangsho.data.khoshra_potro > 0)
+                    {
+                        pnlKhoshra.Visible = true;
+                        lbKhoshra.Text = string.Concat(loadPotrangsho.data.khoshra_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        pnlKhoshra.Visible = false;
+                    }
+                    if(loadPotrangsho.data.khoshra_waiting_for_approval > 0)
+                    {
+                        pnlKhoshraWaiting.Visible = true;
+                        lbKhoshraWaiting.Text = string.Concat(loadPotrangsho.data.khoshra_waiting_for_approval.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        pnlKhoshraWaiting.Visible = false;
+                    }
+                    if(loadPotrangsho.data.all_potro > 0)
+                    {
+                        pnlAllPotro.Visible = true;
+                        lbAllPotro.Text = string.Concat(loadPotrangsho.data.all_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        pnlAllPotro.Visible = false;
+                    }
+                    if(loadPotrangsho.data.potrojari > 0)
+                    {
+                        pnlPotrojari.Visible = true;
+                        lbPotrojari.Text = string.Concat(loadPotrangsho.data.potrojari.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        pnlPotrojari.Visible = false;
+                    }
+                    if(loadPotrangsho.data.nothijato_potro > 0)
+                    {
+                        pnlNothijato.Visible = true;
+                        lbNothijato.Text = string.Concat(loadPotrangsho.data.nothijato_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        pnlNothijato.Visible = false;
+                    }
+                    if(loadPotrangsho.data.approved_potro > 0)
+                    {
+                        pnlApproved.Visible = true;
+                        lbApprovedPotro.Text = string.Concat(loadPotrangsho.data.approved_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        pnlApproved.Visible = false;
+                    }
+                    pnlNothi.Visible = true;
+                }
+                else
+                {
+                    pnlNothi.Visible = false;
+                    pnlKhoshra.Visible = false;
+                    pnlKhoshraWaiting.Visible = false;
+                    pnlApproved.Visible = false;
+                    pnlAllPotro.Visible = false;
+                    pnlPotrojari.Visible = false;
+                    pnlNothijato.Visible = false;
+                    pnlNoNothi.Visible = true;
+                }
             }
         }
         public int loadNoteView(NoteView noteView)
