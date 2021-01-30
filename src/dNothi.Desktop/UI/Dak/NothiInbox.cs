@@ -73,7 +73,7 @@ namespace dNothi.Desktop.UI.Dak
         public string totalnothi
         {
             get { return _totalnothi; }
-            set { _totalnothi = value; lbTotalNothi.Text = value ; lbTotalNote.Text = value; }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            set { _totalnothi = value; lbTotalNothi.Text = "মোট নোটঃ " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); lbTotalNote.Text = "মোট নোটঃ " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) ; }//"মোট নোটঃ " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
 
         [Category("Custom Props")]
@@ -87,7 +87,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.Plus)
             {
-                int totalNote = Convert.ToInt32(totalnothi.Substring(9));
+                int totalNote = Convert.ToInt32(totalnothi);
                 this.Height = totalNote * 100 + originalHeight;
                 this.Width = originalWidth;
                 pnlNewAllNote.Visible = true;
@@ -169,13 +169,13 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     nothiNoteShomuho.deskofficer = " ";
                 }
-                if (nothiListInboxNoteRecordsDTO.to.officer != null)
+                if (nothiListInboxNoteRecordsDTO.to.officer != null && nothiListInboxNoteRecordsDTO.desk.officer != nothiListInboxNoteRecordsDTO.to.officer)
                 {
                     nothiNoteShomuho.toofficer = nothiListInboxNoteRecordsDTO.to.officer;
                 }
                 else
                 {
-                    nothiNoteShomuho.toofficer = " ";
+                    nothiNoteShomuho.toofficer = "";
                 }
                 i = i + 1;
                 nothiNoteShomuhos.Add(nothiNoteShomuho);

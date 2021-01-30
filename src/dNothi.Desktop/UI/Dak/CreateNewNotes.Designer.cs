@@ -136,14 +136,15 @@
             this.saveNewNoteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.saveNewNoteButton.FlatAppearance.BorderSize = 0;
             this.saveNewNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveNewNoteButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveNewNoteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.saveNewNoteButton.IconChar = FontAwesome.Sharp.IconChar.Cloud;
             this.saveNewNoteButton.IconColor = System.Drawing.Color.White;
             this.saveNewNoteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.saveNewNoteButton.IconSize = 32;
-            this.saveNewNoteButton.Location = new System.Drawing.Point(1073, 60);
+            this.saveNewNoteButton.Location = new System.Drawing.Point(1071, 60);
             this.saveNewNoteButton.Name = "saveNewNoteButton";
-            this.saveNewNoteButton.Size = new System.Drawing.Size(124, 41);
+            this.saveNewNoteButton.Size = new System.Drawing.Size(131, 41);
             this.saveNewNoteButton.TabIndex = 85;
             this.saveNewNoteButton.Text = "সংরক্ষণ করুন";
             this.saveNewNoteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

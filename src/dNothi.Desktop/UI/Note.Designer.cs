@@ -131,9 +131,49 @@
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
+            this.pnlNoNote = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pnlNotePotrojari = new System.Windows.Forms.Panel();
+            this.label35 = new System.Windows.Forms.Label();
+            this.lbNotePotrojari = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.pnlNoteKhoshraWaiting = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.lbNoteKhoshraWaiting = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.pnlNoteKhoshra = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lbNoteKhoshra = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.lbNote = new System.Windows.Forms.Label();
             this.panel36 = new System.Windows.Forms.Panel();
             this.panel32 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
+            this.pnlNoNothi = new FontAwesome.Sharp.IconButton();
+            this.pnlNothijato = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.lbNothijato = new System.Windows.Forms.Label();
+            this.pnlPotrojari = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lbPotrojari = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.pnlAllPotro = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lbAllPotro = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.pnlApproved = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lbApprovedPotro = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pnlKhoshraWaiting = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbKhoshraWaiting = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.pnlKhoshra = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lbKhoshra = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pnlNothi = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
@@ -155,41 +195,6 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lbKhoshra = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.panel41 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lbKhoshraWaiting = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.panel42 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.lbAllPotro = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.panel43 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.lbPotrojari = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.panel44 = new System.Windows.Forms.Panel();
-            this.label28 = new System.Windows.Forms.Label();
-            this.lbNothijato = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.lbNote = new System.Windows.Forms.Label();
-            this.pnlNoteKhoshra = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lbNoteKhoshra = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.pnlNoteKhoshraWaiting = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.lbNoteKhoshraWaiting = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.pnlNotePotrojari = new System.Windows.Forms.Panel();
-            this.label35 = new System.Windows.Forms.Label();
-            this.lbNotePotrojari = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.pnlNoNote = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -219,21 +224,22 @@
             this.panel16.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel35.SuspendLayout();
+            this.pnlNoNote.SuspendLayout();
+            this.pnlNotePotrojari.SuspendLayout();
+            this.pnlNoteKhoshraWaiting.SuspendLayout();
+            this.pnlNoteKhoshra.SuspendLayout();
             this.panel32.SuspendLayout();
+            this.pnlNothijato.SuspendLayout();
+            this.pnlPotrojari.SuspendLayout();
+            this.pnlAllPotro.SuspendLayout();
+            this.pnlApproved.SuspendLayout();
+            this.pnlKhoshraWaiting.SuspendLayout();
+            this.pnlKhoshra.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel41.SuspendLayout();
-            this.panel42.SuspendLayout();
-            this.panel43.SuspendLayout();
-            this.panel44.SuspendLayout();
-            this.pnlNoteKhoshra.SuspendLayout();
-            this.pnlNoteKhoshraWaiting.SuspendLayout();
-            this.pnlNotePotrojari.SuspendLayout();
-            this.pnlNoNote.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -614,12 +620,13 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(111, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1243, 2);
+            this.panel11.Size = new System.Drawing.Size(1149, 2);
             this.panel11.TabIndex = 61;
             // 
             // btnAllNothi
             // 
             this.btnAllNothi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.btnAllNothi.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAllNothi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
             this.btnAllNothi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAllNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
@@ -629,7 +636,7 @@
             this.btnAllNothi.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAllNothi.IconSize = 20;
             this.btnAllNothi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllNothi.Location = new System.Drawing.Point(1255, 2);
+            this.btnAllNothi.Location = new System.Drawing.Point(1260, 0);
             this.btnAllNothi.Margin = new System.Windows.Forms.Padding(0);
             this.btnAllNothi.Name = "btnAllNothi";
             this.btnAllNothi.Size = new System.Drawing.Size(94, 41);
@@ -819,7 +826,7 @@
             this.NoteFullPanel.Location = new System.Drawing.Point(205, 69);
             this.NoteFullPanel.Margin = new System.Windows.Forms.Padding(0);
             this.NoteFullPanel.Name = "NoteFullPanel";
-            this.NoteFullPanel.Size = new System.Drawing.Size(351, 483);
+            this.NoteFullPanel.Size = new System.Drawing.Size(920, 483);
             this.NoteFullPanel.TabIndex = 65;
             // 
             // panel5
@@ -833,7 +840,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(351, 483);
+            this.panel5.Size = new System.Drawing.Size(920, 483);
             this.panel5.TabIndex = 6;
             // 
             // panel14
@@ -846,7 +853,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(0, 188);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(351, 295);
+            this.panel14.Size = new System.Drawing.Size(920, 295);
             this.panel14.TabIndex = 3;
             // 
             // panel28
@@ -858,7 +865,7 @@
             this.panel28.Location = new System.Drawing.Point(0, 448);
             this.panel28.Margin = new System.Windows.Forms.Padding(0);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(334, 247);
+            this.panel28.Size = new System.Drawing.Size(903, 247);
             this.panel28.TabIndex = 73;
             // 
             // fileAddFLP
@@ -869,7 +876,7 @@
             this.fileAddFLP.Location = new System.Drawing.Point(0, 44);
             this.fileAddFLP.Margin = new System.Windows.Forms.Padding(0);
             this.fileAddFLP.Name = "fileAddFLP";
-            this.fileAddFLP.Size = new System.Drawing.Size(334, 203);
+            this.fileAddFLP.Size = new System.Drawing.Size(903, 203);
             this.fileAddFLP.TabIndex = 75;
             this.fileAddFLP.WrapContents = false;
             // 
@@ -879,7 +886,7 @@
             this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel39.Location = new System.Drawing.Point(0, 0);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(334, 44);
+            this.panel39.Size = new System.Drawing.Size(903, 44);
             this.panel39.TabIndex = 0;
             // 
             // fileUploadPanel
@@ -936,7 +943,7 @@
             this.panel24.Location = new System.Drawing.Point(0, 407);
             this.panel24.Margin = new System.Windows.Forms.Padding(0);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(334, 41);
+            this.panel24.Size = new System.Drawing.Size(903, 41);
             this.panel24.TabIndex = 63;
             // 
             // label3
@@ -957,7 +964,7 @@
             this.panel26.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel26.Location = new System.Drawing.Point(0, 40);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(334, 1);
+            this.panel26.Size = new System.Drawing.Size(903, 1);
             this.panel26.TabIndex = 62;
             // 
             // panel25
@@ -966,7 +973,7 @@
             this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel25.Location = new System.Drawing.Point(0, 0);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(334, 1);
+            this.panel25.Size = new System.Drawing.Size(903, 1);
             this.panel25.TabIndex = 61;
             // 
             // iconButton14
@@ -1000,7 +1007,7 @@
             this.panel22.Location = new System.Drawing.Point(0, 42);
             this.panel22.Margin = new System.Windows.Forms.Padding(0);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(334, 365);
+            this.panel22.Size = new System.Drawing.Size(903, 365);
             this.panel22.TabIndex = 62;
             // 
             // PnlSave
@@ -1088,7 +1095,7 @@
             this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel29.Location = new System.Drawing.Point(0, 0);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(874, 2);
+            this.panel29.Size = new System.Drawing.Size(886, 2);
             this.panel29.TabIndex = 60;
             // 
             // panel23
@@ -1104,7 +1111,7 @@
             this.panel23.Location = new System.Drawing.Point(0, 0);
             this.panel23.Margin = new System.Windows.Forms.Padding(0);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(334, 42);
+            this.panel23.Size = new System.Drawing.Size(903, 42);
             this.panel23.TabIndex = 17;
             // 
             // btnWriteOnuchhed
@@ -1120,7 +1127,7 @@
             this.btnWriteOnuchhed.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnWriteOnuchhed.IconSize = 20;
             this.btnWriteOnuchhed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWriteOnuchhed.Location = new System.Drawing.Point(-110, 0);
+            this.btnWriteOnuchhed.Location = new System.Drawing.Point(459, 0);
             this.btnWriteOnuchhed.Margin = new System.Windows.Forms.Padding(0);
             this.btnWriteOnuchhed.Name = "btnWriteOnuchhed";
             this.btnWriteOnuchhed.Size = new System.Drawing.Size(125, 42);
@@ -1145,7 +1152,7 @@
             this.btnSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSend.IconSize = 20;
             this.btnSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSend.Location = new System.Drawing.Point(15, 0);
+            this.btnSend.Location = new System.Drawing.Point(584, 0);
             this.btnSend.Margin = new System.Windows.Forms.Padding(0);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(108, 42);
@@ -1170,7 +1177,7 @@
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 20;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(123, 0);
+            this.btnSave.Location = new System.Drawing.Point(692, 0);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(85, 42);
@@ -1193,7 +1200,7 @@
             this.btnSaveArrow.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSaveArrow.IconSize = 20;
             this.btnSaveArrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveArrow.Location = new System.Drawing.Point(208, 0);
+            this.btnSaveArrow.Location = new System.Drawing.Point(777, 0);
             this.btnSaveArrow.Margin = new System.Windows.Forms.Padding(0);
             this.btnSaveArrow.Name = "btnSaveArrow";
             this.btnSaveArrow.Size = new System.Drawing.Size(30, 42);
@@ -1236,7 +1243,7 @@
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.IconSize = 20;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(238, 0);
+            this.btnCancel.Location = new System.Drawing.Point(807, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 42);
@@ -1252,7 +1259,7 @@
             this.splitter3.Location = new System.Drawing.Point(0, 183);
             this.splitter3.Margin = new System.Windows.Forms.Padding(0);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(351, 5);
+            this.splitter3.Size = new System.Drawing.Size(920, 5);
             this.splitter3.TabIndex = 2;
             this.splitter3.TabStop = false;
             // 
@@ -1266,7 +1273,7 @@
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(351, 183);
+            this.panel10.Size = new System.Drawing.Size(920, 183);
             this.panel10.TabIndex = 1;
             // 
             // onuchhedPnl
@@ -1278,7 +1285,7 @@
             this.onuchhedPnl.Location = new System.Drawing.Point(0, 81);
             this.onuchhedPnl.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedPnl.Name = "onuchhedPnl";
-            this.onuchhedPnl.Size = new System.Drawing.Size(351, 102);
+            this.onuchhedPnl.Size = new System.Drawing.Size(920, 102);
             this.onuchhedPnl.TabIndex = 65;
             // 
             // onuchhedFLP
@@ -1289,7 +1296,7 @@
             this.onuchhedFLP.Location = new System.Drawing.Point(0, 30);
             this.onuchhedFLP.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedFLP.Name = "onuchhedFLP";
-            this.onuchhedFLP.Size = new System.Drawing.Size(351, 72);
+            this.onuchhedFLP.Size = new System.Drawing.Size(920, 72);
             this.onuchhedFLP.TabIndex = 1;
             // 
             // onuchhedheaderPnl
@@ -1302,7 +1309,7 @@
             this.onuchhedheaderPnl.Location = new System.Drawing.Point(0, 0);
             this.onuchhedheaderPnl.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedheaderPnl.Name = "onuchhedheaderPnl";
-            this.onuchhedheaderPnl.Size = new System.Drawing.Size(351, 30);
+            this.onuchhedheaderPnl.Size = new System.Drawing.Size(920, 30);
             this.onuchhedheaderPnl.TabIndex = 0;
             // 
             // lbOffice
@@ -1387,7 +1394,7 @@
             this.panel31.Location = new System.Drawing.Point(0, 41);
             this.panel31.Margin = new System.Windows.Forms.Padding(0);
             this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(351, 40);
+            this.panel31.Size = new System.Drawing.Size(920, 40);
             this.panel31.TabIndex = 64;
             // 
             // lbNothiLastDate
@@ -1433,7 +1440,7 @@
             this.iconButton18.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton18.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton18.IconSize = 24;
-            this.iconButton18.Location = new System.Drawing.Point(127, 0);
+            this.iconButton18.Location = new System.Drawing.Point(696, 0);
             this.iconButton18.Name = "iconButton18";
             this.iconButton18.Size = new System.Drawing.Size(32, 38);
             this.iconButton18.TabIndex = 69;
@@ -1454,7 +1461,7 @@
             this.iconButton17.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton17.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton17.IconSize = 24;
-            this.iconButton17.Location = new System.Drawing.Point(159, 0);
+            this.iconButton17.Location = new System.Drawing.Point(728, 0);
             this.iconButton17.Name = "iconButton17";
             this.iconButton17.Size = new System.Drawing.Size(32, 38);
             this.iconButton17.TabIndex = 68;
@@ -1475,7 +1482,7 @@
             this.iconButton16.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton16.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton16.IconSize = 24;
-            this.iconButton16.Location = new System.Drawing.Point(191, 0);
+            this.iconButton16.Location = new System.Drawing.Point(760, 0);
             this.iconButton16.Name = "iconButton16";
             this.iconButton16.Size = new System.Drawing.Size(32, 38);
             this.iconButton16.TabIndex = 67;
@@ -1496,7 +1503,7 @@
             this.iconButton15.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton15.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton15.IconSize = 24;
-            this.iconButton15.Location = new System.Drawing.Point(223, 0);
+            this.iconButton15.Location = new System.Drawing.Point(792, 0);
             this.iconButton15.Name = "iconButton15";
             this.iconButton15.Size = new System.Drawing.Size(32, 38);
             this.iconButton15.TabIndex = 66;
@@ -1517,7 +1524,7 @@
             this.iconButton13.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton13.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton13.IconSize = 24;
-            this.iconButton13.Location = new System.Drawing.Point(255, 0);
+            this.iconButton13.Location = new System.Drawing.Point(824, 0);
             this.iconButton13.Name = "iconButton13";
             this.iconButton13.Size = new System.Drawing.Size(32, 38);
             this.iconButton13.TabIndex = 65;
@@ -1538,7 +1545,7 @@
             this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton10.IconSize = 24;
-            this.iconButton10.Location = new System.Drawing.Point(287, 0);
+            this.iconButton10.Location = new System.Drawing.Point(856, 0);
             this.iconButton10.Name = "iconButton10";
             this.iconButton10.Size = new System.Drawing.Size(32, 38);
             this.iconButton10.TabIndex = 64;
@@ -1559,7 +1566,7 @@
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(319, 0);
+            this.iconButton3.Location = new System.Drawing.Point(888, 0);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(32, 38);
             this.iconButton3.TabIndex = 63;
@@ -1571,7 +1578,7 @@
             this.panel37.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel37.Location = new System.Drawing.Point(0, 38);
             this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(351, 2);
+            this.panel37.Size = new System.Drawing.Size(920, 2);
             this.panel37.TabIndex = 60;
             // 
             // panel30
@@ -1581,7 +1588,7 @@
             this.panel30.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel30.Location = new System.Drawing.Point(0, 0);
             this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(351, 41);
+            this.panel30.Size = new System.Drawing.Size(920, 41);
             this.panel30.TabIndex = 62;
             // 
             // panel40
@@ -1672,7 +1679,7 @@
             this.panel38.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel38.Location = new System.Drawing.Point(0, 39);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(351, 2);
+            this.panel38.Size = new System.Drawing.Size(920, 2);
             this.panel38.TabIndex = 60;
             // 
             // panel15
@@ -1683,7 +1690,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel15.Location = new System.Drawing.Point(205, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(351, 69);
+            this.panel15.Size = new System.Drawing.Size(920, 69);
             this.panel15.TabIndex = 62;
             // 
             // iconButton6
@@ -1718,7 +1725,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel16.Location = new System.Drawing.Point(0, 67);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(351, 2);
+            this.panel16.Size = new System.Drawing.Size(920, 2);
             this.panel16.TabIndex = 59;
             // 
             // panel34
@@ -1727,7 +1734,7 @@
             this.panel34.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel34.Location = new System.Drawing.Point(0, 0);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(351, 2);
+            this.panel34.Size = new System.Drawing.Size(920, 2);
             this.panel34.TabIndex = 60;
             // 
             // panel21
@@ -1736,14 +1743,14 @@
             this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel21.Location = new System.Drawing.Point(0, 0);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(351, 2);
+            this.panel21.Size = new System.Drawing.Size(920, 2);
             this.panel21.TabIndex = 58;
             // 
             // splitter2
             // 
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Location = new System.Drawing.Point(556, 0);
+            this.splitter2.Location = new System.Drawing.Point(1125, 0);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(5, 552);
             this.splitter2.TabIndex = 3;
@@ -1758,9 +1765,9 @@
             this.panel4.Controls.Add(this.panel32);
             this.panel4.Controls.Add(this.panel17);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(561, 0);
+            this.panel4.Location = new System.Drawing.Point(1130, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(793, 552);
+            this.panel4.Size = new System.Drawing.Size(224, 552);
             this.panel4.TabIndex = 2;
             // 
             // panel35
@@ -1774,8 +1781,191 @@
             this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel35.Location = new System.Drawing.Point(0, 108);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(793, 39);
+            this.panel35.Size = new System.Drawing.Size(224, 39);
             this.panel35.TabIndex = 62;
+            // 
+            // pnlNoNote
+            // 
+            this.pnlNoNote.BackColor = System.Drawing.Color.Transparent;
+            this.pnlNoNote.Controls.Add(this.label16);
+            this.pnlNoNote.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNoNote.Location = new System.Drawing.Point(466, 0);
+            this.pnlNoNote.Name = "pnlNoNote";
+            this.pnlNoNote.Size = new System.Drawing.Size(193, 38);
+            this.pnlNoNote.TabIndex = 70;
+            this.pnlNoNote.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(220)))), ((int)(((byte)(223)))));
+            this.label16.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
+            this.label16.Location = new System.Drawing.Point(8, 7);
+            this.label16.Margin = new System.Windows.Forms.Padding(3);
+            this.label16.Name = "label16";
+            this.label16.Padding = new System.Windows.Forms.Padding(2);
+            this.label16.Size = new System.Drawing.Size(176, 25);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "নোটে কোন সংযুক্ত পত্র নেই ";
+            // 
+            // pnlNotePotrojari
+            // 
+            this.pnlNotePotrojari.BackColor = System.Drawing.Color.Transparent;
+            this.pnlNotePotrojari.Controls.Add(this.label35);
+            this.pnlNotePotrojari.Controls.Add(this.lbNotePotrojari);
+            this.pnlNotePotrojari.Controls.Add(this.label37);
+            this.pnlNotePotrojari.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNotePotrojari.Location = new System.Drawing.Point(354, 0);
+            this.pnlNotePotrojari.Name = "pnlNotePotrojari";
+            this.pnlNotePotrojari.Size = new System.Drawing.Size(112, 38);
+            this.pnlNotePotrojari.TabIndex = 69;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label35.Location = new System.Drawing.Point(85, 10);
+            this.label35.Margin = new System.Windows.Forms.Padding(0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(22, 21);
+            this.label35.TabIndex = 64;
+            this.label35.Text = "টি";
+            // 
+            // lbNotePotrojari
+            // 
+            this.lbNotePotrojari.AutoSize = true;
+            this.lbNotePotrojari.BackColor = System.Drawing.Color.Azure;
+            this.lbNotePotrojari.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbNotePotrojari.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNotePotrojari.Location = new System.Drawing.Point(63, 9);
+            this.lbNotePotrojari.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNotePotrojari.Name = "lbNotePotrojari";
+            this.lbNotePotrojari.Size = new System.Drawing.Size(19, 21);
+            this.lbNotePotrojari.TabIndex = 63;
+            this.lbNotePotrojari.Text = "২";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label37.Location = new System.Drawing.Point(6, 8);
+            this.label37.Margin = new System.Windows.Forms.Padding(0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(57, 21);
+            this.label37.TabIndex = 19;
+            this.label37.Text = "পত্রজারি";
+            // 
+            // pnlNoteKhoshraWaiting
+            // 
+            this.pnlNoteKhoshraWaiting.BackColor = System.Drawing.Color.Transparent;
+            this.pnlNoteKhoshraWaiting.Controls.Add(this.label32);
+            this.pnlNoteKhoshraWaiting.Controls.Add(this.lbNoteKhoshraWaiting);
+            this.pnlNoteKhoshraWaiting.Controls.Add(this.label34);
+            this.pnlNoteKhoshraWaiting.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNoteKhoshraWaiting.Location = new System.Drawing.Point(155, 0);
+            this.pnlNoteKhoshraWaiting.Name = "pnlNoteKhoshraWaiting";
+            this.pnlNoteKhoshraWaiting.Size = new System.Drawing.Size(199, 38);
+            this.pnlNoteKhoshraWaiting.TabIndex = 67;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label32.Location = new System.Drawing.Point(171, 9);
+            this.label32.Margin = new System.Windows.Forms.Padding(0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(22, 21);
+            this.label32.TabIndex = 64;
+            this.label32.Text = "টি";
+            // 
+            // lbNoteKhoshraWaiting
+            // 
+            this.lbNoteKhoshraWaiting.AutoSize = true;
+            this.lbNoteKhoshraWaiting.BackColor = System.Drawing.Color.Azure;
+            this.lbNoteKhoshraWaiting.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbNoteKhoshraWaiting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteKhoshraWaiting.Location = new System.Drawing.Point(147, 9);
+            this.lbNoteKhoshraWaiting.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNoteKhoshraWaiting.Name = "lbNoteKhoshraWaiting";
+            this.lbNoteKhoshraWaiting.Size = new System.Drawing.Size(19, 21);
+            this.lbNoteKhoshraWaiting.TabIndex = 63;
+            this.lbNoteKhoshraWaiting.Text = "২";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label34.Location = new System.Drawing.Point(6, 8);
+            this.label34.Margin = new System.Windows.Forms.Padding(0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(137, 21);
+            this.label34.TabIndex = 19;
+            this.label34.Text = "অনুমোদনের অপেক্ষায়";
+            // 
+            // pnlNoteKhoshra
+            // 
+            this.pnlNoteKhoshra.BackColor = System.Drawing.Color.Transparent;
+            this.pnlNoteKhoshra.Controls.Add(this.label19);
+            this.pnlNoteKhoshra.Controls.Add(this.lbNoteKhoshra);
+            this.pnlNoteKhoshra.Controls.Add(this.label31);
+            this.pnlNoteKhoshra.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNoteKhoshra.Location = new System.Drawing.Point(54, 0);
+            this.pnlNoteKhoshra.Name = "pnlNoteKhoshra";
+            this.pnlNoteKhoshra.Size = new System.Drawing.Size(101, 38);
+            this.pnlNoteKhoshra.TabIndex = 66;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label19.Location = new System.Drawing.Point(78, 9);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(22, 21);
+            this.label19.TabIndex = 64;
+            this.label19.Text = "টি";
+            // 
+            // lbNoteKhoshra
+            // 
+            this.lbNoteKhoshra.AutoSize = true;
+            this.lbNoteKhoshra.BackColor = System.Drawing.Color.Azure;
+            this.lbNoteKhoshra.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbNoteKhoshra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteKhoshra.Location = new System.Drawing.Point(51, 8);
+            this.lbNoteKhoshra.Name = "lbNoteKhoshra";
+            this.lbNoteKhoshra.Size = new System.Drawing.Size(19, 21);
+            this.lbNoteKhoshra.TabIndex = 63;
+            this.lbNoteKhoshra.Text = "২";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label31.Location = new System.Drawing.Point(6, 8);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(43, 21);
+            this.label31.TabIndex = 19;
+            this.label31.Text = "খসড়া";
+            // 
+            // lbNote
+            // 
+            this.lbNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.lbNote.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNote.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbNote.ForeColor = System.Drawing.Color.White;
+            this.lbNote.Location = new System.Drawing.Point(0, 0);
+            this.lbNote.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNote.Name = "lbNote";
+            this.lbNote.Padding = new System.Windows.Forms.Padding(8);
+            this.lbNote.Size = new System.Drawing.Size(54, 38);
+            this.lbNote.TabIndex = 61;
+            this.lbNote.Text = "নোটঃ";
             // 
             // panel36
             // 
@@ -1783,38 +1973,353 @@
             this.panel36.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel36.Location = new System.Drawing.Point(0, 38);
             this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(793, 1);
+            this.panel36.Size = new System.Drawing.Size(224, 1);
             this.panel36.TabIndex = 59;
             // 
             // panel32
             // 
-            this.panel32.Controls.Add(this.panel44);
-            this.panel32.Controls.Add(this.panel43);
-            this.panel32.Controls.Add(this.panel42);
-            this.panel32.Controls.Add(this.panel41);
-            this.panel32.Controls.Add(this.panel1);
-            this.panel32.Controls.Add(this.label12);
+            this.panel32.Controls.Add(this.pnlNoNothi);
+            this.panel32.Controls.Add(this.pnlNothijato);
+            this.panel32.Controls.Add(this.pnlPotrojari);
+            this.panel32.Controls.Add(this.pnlAllPotro);
+            this.panel32.Controls.Add(this.pnlApproved);
+            this.panel32.Controls.Add(this.pnlKhoshraWaiting);
+            this.panel32.Controls.Add(this.pnlKhoshra);
+            this.panel32.Controls.Add(this.pnlNothi);
             this.panel32.Controls.Add(this.panel33);
             this.panel32.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel32.Location = new System.Drawing.Point(0, 69);
             this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(793, 39);
+            this.panel32.Size = new System.Drawing.Size(224, 39);
             this.panel32.TabIndex = 61;
             // 
-            // label12
+            // pnlNoNothi
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
-            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label12.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(0, 0);
-            this.label12.Margin = new System.Windows.Forms.Padding(0);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(8);
-            this.label12.Size = new System.Drawing.Size(54, 37);
-            this.label12.TabIndex = 60;
-            this.label12.Text = "নথিঃ";
+            this.pnlNoNothi.BackColor = System.Drawing.Color.White;
+            this.pnlNoNothi.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNoNothi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.pnlNoNothi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pnlNoNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.pnlNoNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.pnlNoNothi.IconChar = FontAwesome.Sharp.IconChar.ExclamationTriangle;
+            this.pnlNoNothi.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.pnlNoNothi.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pnlNoNothi.IconSize = 25;
+            this.pnlNoNothi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnlNoNothi.Location = new System.Drawing.Point(827, 0);
+            this.pnlNoNothi.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlNoNothi.Name = "pnlNoNothi";
+            this.pnlNoNothi.Size = new System.Drawing.Size(234, 38);
+            this.pnlNoNothi.TabIndex = 71;
+            this.pnlNoNothi.Text = "নথিতে কোনো পত্র পাওয়া যায়নি";
+            this.pnlNoNothi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.pnlNoNothi.UseVisualStyleBackColor = false;
+            // 
+            // pnlNothijato
+            // 
+            this.pnlNothijato.BackColor = System.Drawing.Color.Transparent;
+            this.pnlNothijato.Controls.Add(this.label28);
+            this.pnlNothijato.Controls.Add(this.label30);
+            this.pnlNothijato.Controls.Add(this.lbNothijato);
+            this.pnlNothijato.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNothijato.Location = new System.Drawing.Point(711, 0);
+            this.pnlNothijato.Name = "pnlNothijato";
+            this.pnlNothijato.Size = new System.Drawing.Size(116, 38);
+            this.pnlNothijato.TabIndex = 70;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label28.Location = new System.Drawing.Point(87, 9);
+            this.label28.Margin = new System.Windows.Forms.Padding(0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(22, 21);
+            this.label28.TabIndex = 64;
+            this.label28.Text = "টি";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label30.Location = new System.Drawing.Point(3, 8);
+            this.label30.Margin = new System.Windows.Forms.Padding(0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(58, 21);
+            this.label30.TabIndex = 19;
+            this.label30.Text = "নথিজাত";
+            // 
+            // lbNothijato
+            // 
+            this.lbNothijato.AutoSize = true;
+            this.lbNothijato.BackColor = System.Drawing.Color.Azure;
+            this.lbNothijato.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbNothijato.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothijato.Location = new System.Drawing.Point(63, 9);
+            this.lbNothijato.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNothijato.Name = "lbNothijato";
+            this.lbNothijato.Size = new System.Drawing.Size(19, 21);
+            this.lbNothijato.TabIndex = 63;
+            this.lbNothijato.Text = "২";
+            // 
+            // pnlPotrojari
+            // 
+            this.pnlPotrojari.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPotrojari.Controls.Add(this.label25);
+            this.pnlPotrojari.Controls.Add(this.lbPotrojari);
+            this.pnlPotrojari.Controls.Add(this.label27);
+            this.pnlPotrojari.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlPotrojari.Location = new System.Drawing.Point(595, 0);
+            this.pnlPotrojari.Name = "pnlPotrojari";
+            this.pnlPotrojari.Size = new System.Drawing.Size(116, 38);
+            this.pnlPotrojari.TabIndex = 69;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label25.Location = new System.Drawing.Point(84, 9);
+            this.label25.Margin = new System.Windows.Forms.Padding(0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(22, 21);
+            this.label25.TabIndex = 64;
+            this.label25.Text = "টি";
+            // 
+            // lbPotrojari
+            // 
+            this.lbPotrojari.AutoSize = true;
+            this.lbPotrojari.BackColor = System.Drawing.Color.Azure;
+            this.lbPotrojari.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbPotrojari.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbPotrojari.Location = new System.Drawing.Point(62, 9);
+            this.lbPotrojari.Margin = new System.Windows.Forms.Padding(0);
+            this.lbPotrojari.Name = "lbPotrojari";
+            this.lbPotrojari.Size = new System.Drawing.Size(19, 21);
+            this.lbPotrojari.TabIndex = 63;
+            this.lbPotrojari.Text = "২";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label27.Location = new System.Drawing.Point(5, 8);
+            this.label27.Margin = new System.Windows.Forms.Padding(0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(57, 21);
+            this.label27.TabIndex = 19;
+            this.label27.Text = "পত্রজারি";
+            // 
+            // pnlAllPotro
+            // 
+            this.pnlAllPotro.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAllPotro.Controls.Add(this.label21);
+            this.pnlAllPotro.Controls.Add(this.lbAllPotro);
+            this.pnlAllPotro.Controls.Add(this.label24);
+            this.pnlAllPotro.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlAllPotro.Location = new System.Drawing.Point(470, 0);
+            this.pnlAllPotro.Name = "pnlAllPotro";
+            this.pnlAllPotro.Size = new System.Drawing.Size(125, 38);
+            this.pnlAllPotro.TabIndex = 68;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label21.Location = new System.Drawing.Point(89, 9);
+            this.label21.Margin = new System.Windows.Forms.Padding(0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(22, 21);
+            this.label21.TabIndex = 64;
+            this.label21.Text = "টি";
+            // 
+            // lbAllPotro
+            // 
+            this.lbAllPotro.AutoSize = true;
+            this.lbAllPotro.BackColor = System.Drawing.Color.Azure;
+            this.lbAllPotro.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbAllPotro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbAllPotro.Location = new System.Drawing.Point(70, 9);
+            this.lbAllPotro.Margin = new System.Windows.Forms.Padding(0);
+            this.lbAllPotro.Name = "lbAllPotro";
+            this.lbAllPotro.Size = new System.Drawing.Size(19, 21);
+            this.lbAllPotro.TabIndex = 63;
+            this.lbAllPotro.Text = "২";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label24.Location = new System.Drawing.Point(5, 8);
+            this.label24.Margin = new System.Windows.Forms.Padding(0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(65, 21);
+            this.label24.TabIndex = 19;
+            this.label24.Text = "সকল পত্র";
+            // 
+            // pnlApproved
+            // 
+            this.pnlApproved.BackColor = System.Drawing.Color.Transparent;
+            this.pnlApproved.Controls.Add(this.label11);
+            this.pnlApproved.Controls.Add(this.lbApprovedPotro);
+            this.pnlApproved.Controls.Add(this.label20);
+            this.pnlApproved.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlApproved.Location = new System.Drawing.Point(354, 0);
+            this.pnlApproved.Name = "pnlApproved";
+            this.pnlApproved.Size = new System.Drawing.Size(116, 38);
+            this.pnlApproved.TabIndex = 67;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label11.Location = new System.Drawing.Point(92, 12);
+            this.label11.Margin = new System.Windows.Forms.Padding(0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(22, 21);
+            this.label11.TabIndex = 64;
+            this.label11.Text = "টি";
+            // 
+            // lbApprovedPotro
+            // 
+            this.lbApprovedPotro.AutoSize = true;
+            this.lbApprovedPotro.BackColor = System.Drawing.Color.Azure;
+            this.lbApprovedPotro.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbApprovedPotro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbApprovedPotro.Location = new System.Drawing.Point(75, 11);
+            this.lbApprovedPotro.Margin = new System.Windows.Forms.Padding(0);
+            this.lbApprovedPotro.Name = "lbApprovedPotro";
+            this.lbApprovedPotro.Size = new System.Drawing.Size(19, 21);
+            this.lbApprovedPotro.TabIndex = 63;
+            this.lbApprovedPotro.Text = "২";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label20.Location = new System.Drawing.Point(5, 10);
+            this.label20.Margin = new System.Windows.Forms.Padding(0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(73, 21);
+            this.label20.TabIndex = 19;
+            this.label20.Text = "অনুমোদিত";
+            // 
+            // pnlKhoshraWaiting
+            // 
+            this.pnlKhoshraWaiting.BackColor = System.Drawing.Color.Transparent;
+            this.pnlKhoshraWaiting.Controls.Add(this.label13);
+            this.pnlKhoshraWaiting.Controls.Add(this.lbKhoshraWaiting);
+            this.pnlKhoshraWaiting.Controls.Add(this.label15);
+            this.pnlKhoshraWaiting.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlKhoshraWaiting.Location = new System.Drawing.Point(155, 0);
+            this.pnlKhoshraWaiting.Name = "pnlKhoshraWaiting";
+            this.pnlKhoshraWaiting.Size = new System.Drawing.Size(199, 38);
+            this.pnlKhoshraWaiting.TabIndex = 66;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label13.Location = new System.Drawing.Point(171, 9);
+            this.label13.Margin = new System.Windows.Forms.Padding(0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(22, 21);
+            this.label13.TabIndex = 64;
+            this.label13.Text = "টি";
+            // 
+            // lbKhoshraWaiting
+            // 
+            this.lbKhoshraWaiting.AutoSize = true;
+            this.lbKhoshraWaiting.BackColor = System.Drawing.Color.Azure;
+            this.lbKhoshraWaiting.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbKhoshraWaiting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbKhoshraWaiting.Location = new System.Drawing.Point(147, 9);
+            this.lbKhoshraWaiting.Margin = new System.Windows.Forms.Padding(0);
+            this.lbKhoshraWaiting.Name = "lbKhoshraWaiting";
+            this.lbKhoshraWaiting.Size = new System.Drawing.Size(19, 21);
+            this.lbKhoshraWaiting.TabIndex = 63;
+            this.lbKhoshraWaiting.Text = "২";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label15.Location = new System.Drawing.Point(6, 8);
+            this.label15.Margin = new System.Windows.Forms.Padding(0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(137, 21);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "অনুমোদনের অপেক্ষায়";
+            // 
+            // pnlKhoshra
+            // 
+            this.pnlKhoshra.BackColor = System.Drawing.Color.Transparent;
+            this.pnlKhoshra.Controls.Add(this.label18);
+            this.pnlKhoshra.Controls.Add(this.lbKhoshra);
+            this.pnlKhoshra.Controls.Add(this.label10);
+            this.pnlKhoshra.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlKhoshra.Location = new System.Drawing.Point(54, 0);
+            this.pnlKhoshra.Name = "pnlKhoshra";
+            this.pnlKhoshra.Size = new System.Drawing.Size(101, 38);
+            this.pnlKhoshra.TabIndex = 65;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label18.Location = new System.Drawing.Point(78, 9);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(22, 21);
+            this.label18.TabIndex = 64;
+            this.label18.Text = "টি";
+            // 
+            // lbKhoshra
+            // 
+            this.lbKhoshra.AutoSize = true;
+            this.lbKhoshra.BackColor = System.Drawing.Color.Azure;
+            this.lbKhoshra.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbKhoshra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbKhoshra.Location = new System.Drawing.Point(51, 8);
+            this.lbKhoshra.Name = "lbKhoshra";
+            this.lbKhoshra.Size = new System.Drawing.Size(19, 21);
+            this.lbKhoshra.TabIndex = 63;
+            this.lbKhoshra.Text = "২";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label10.Location = new System.Drawing.Point(6, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 21);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "খসড়া";
+            // 
+            // pnlNothi
+            // 
+            this.pnlNothi.AutoSize = true;
+            this.pnlNothi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.pnlNothi.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.pnlNothi.ForeColor = System.Drawing.Color.White;
+            this.pnlNothi.Location = new System.Drawing.Point(0, 0);
+            this.pnlNothi.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlNothi.Name = "pnlNothi";
+            this.pnlNothi.Padding = new System.Windows.Forms.Padding(8);
+            this.pnlNothi.Size = new System.Drawing.Size(54, 37);
+            this.pnlNothi.TabIndex = 60;
+            this.pnlNothi.Text = "নথিঃ";
             // 
             // panel33
             // 
@@ -1822,7 +2327,7 @@
             this.panel33.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel33.Location = new System.Drawing.Point(0, 38);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(793, 1);
+            this.panel33.Size = new System.Drawing.Size(224, 1);
             this.panel33.TabIndex = 59;
             // 
             // panel17
@@ -1833,7 +2338,7 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel17.Location = new System.Drawing.Point(0, 0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(793, 69);
+            this.panel17.Size = new System.Drawing.Size(224, 69);
             this.panel17.TabIndex = 60;
             // 
             // iconButton7
@@ -1867,7 +2372,7 @@
             this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel18.Location = new System.Drawing.Point(0, 67);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(793, 2);
+            this.panel18.Size = new System.Drawing.Size(224, 2);
             this.panel18.TabIndex = 59;
             // 
             // panel19
@@ -1876,7 +2381,7 @@
             this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel19.Location = new System.Drawing.Point(0, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(793, 2);
+            this.panel19.Size = new System.Drawing.Size(224, 2);
             this.panel19.TabIndex = 58;
             // 
             // splitter1
@@ -2075,435 +2580,6 @@
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.lbKhoshra);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(54, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(101, 38);
-            this.panel1.TabIndex = 65;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label10.Location = new System.Drawing.Point(6, 8);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 21);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "খসড়া";
-            // 
-            // lbKhoshra
-            // 
-            this.lbKhoshra.AutoSize = true;
-            this.lbKhoshra.BackColor = System.Drawing.Color.Azure;
-            this.lbKhoshra.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbKhoshra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbKhoshra.Location = new System.Drawing.Point(51, 8);
-            this.lbKhoshra.Name = "lbKhoshra";
-            this.lbKhoshra.Size = new System.Drawing.Size(19, 21);
-            this.lbKhoshra.TabIndex = 63;
-            this.lbKhoshra.Text = "২";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label18.Location = new System.Drawing.Point(78, 9);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(22, 21);
-            this.label18.TabIndex = 64;
-            this.label18.Text = "টি";
-            // 
-            // panel41
-            // 
-            this.panel41.BackColor = System.Drawing.Color.Transparent;
-            this.panel41.Controls.Add(this.label13);
-            this.panel41.Controls.Add(this.lbKhoshraWaiting);
-            this.panel41.Controls.Add(this.label15);
-            this.panel41.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel41.Location = new System.Drawing.Point(155, 0);
-            this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(199, 38);
-            this.panel41.TabIndex = 66;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label13.Location = new System.Drawing.Point(171, 9);
-            this.label13.Margin = new System.Windows.Forms.Padding(0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(22, 21);
-            this.label13.TabIndex = 64;
-            this.label13.Text = "টি";
-            // 
-            // lbKhoshraWaiting
-            // 
-            this.lbKhoshraWaiting.AutoSize = true;
-            this.lbKhoshraWaiting.BackColor = System.Drawing.Color.Azure;
-            this.lbKhoshraWaiting.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbKhoshraWaiting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbKhoshraWaiting.Location = new System.Drawing.Point(147, 9);
-            this.lbKhoshraWaiting.Margin = new System.Windows.Forms.Padding(0);
-            this.lbKhoshraWaiting.Name = "lbKhoshraWaiting";
-            this.lbKhoshraWaiting.Size = new System.Drawing.Size(19, 21);
-            this.lbKhoshraWaiting.TabIndex = 63;
-            this.lbKhoshraWaiting.Text = "২";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label15.Location = new System.Drawing.Point(6, 8);
-            this.label15.Margin = new System.Windows.Forms.Padding(0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(137, 21);
-            this.label15.TabIndex = 19;
-            this.label15.Text = "অনুমোদনের অপেক্ষায়";
-            // 
-            // panel42
-            // 
-            this.panel42.BackColor = System.Drawing.Color.Transparent;
-            this.panel42.Controls.Add(this.label21);
-            this.panel42.Controls.Add(this.lbAllPotro);
-            this.panel42.Controls.Add(this.label24);
-            this.panel42.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel42.Location = new System.Drawing.Point(354, 0);
-            this.panel42.Name = "panel42";
-            this.panel42.Size = new System.Drawing.Size(116, 38);
-            this.panel42.TabIndex = 67;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label21.Location = new System.Drawing.Point(90, 10);
-            this.label21.Margin = new System.Windows.Forms.Padding(0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(22, 21);
-            this.label21.TabIndex = 64;
-            this.label21.Text = "টি";
-            // 
-            // lbAllPotro
-            // 
-            this.lbAllPotro.AutoSize = true;
-            this.lbAllPotro.BackColor = System.Drawing.Color.Azure;
-            this.lbAllPotro.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbAllPotro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbAllPotro.Location = new System.Drawing.Point(71, 9);
-            this.lbAllPotro.Margin = new System.Windows.Forms.Padding(0);
-            this.lbAllPotro.Name = "lbAllPotro";
-            this.lbAllPotro.Size = new System.Drawing.Size(19, 21);
-            this.lbAllPotro.TabIndex = 63;
-            this.lbAllPotro.Text = "২";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label24.Location = new System.Drawing.Point(6, 8);
-            this.label24.Margin = new System.Windows.Forms.Padding(0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(65, 21);
-            this.label24.TabIndex = 19;
-            this.label24.Text = "সকল পত্র";
-            // 
-            // panel43
-            // 
-            this.panel43.BackColor = System.Drawing.Color.Transparent;
-            this.panel43.Controls.Add(this.label25);
-            this.panel43.Controls.Add(this.lbPotrojari);
-            this.panel43.Controls.Add(this.label27);
-            this.panel43.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel43.Location = new System.Drawing.Point(470, 0);
-            this.panel43.Name = "panel43";
-            this.panel43.Size = new System.Drawing.Size(112, 38);
-            this.panel43.TabIndex = 68;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label25.Location = new System.Drawing.Point(85, 10);
-            this.label25.Margin = new System.Windows.Forms.Padding(0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(22, 21);
-            this.label25.TabIndex = 64;
-            this.label25.Text = "টি";
-            // 
-            // lbPotrojari
-            // 
-            this.lbPotrojari.AutoSize = true;
-            this.lbPotrojari.BackColor = System.Drawing.Color.Azure;
-            this.lbPotrojari.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbPotrojari.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbPotrojari.Location = new System.Drawing.Point(63, 9);
-            this.lbPotrojari.Margin = new System.Windows.Forms.Padding(0);
-            this.lbPotrojari.Name = "lbPotrojari";
-            this.lbPotrojari.Size = new System.Drawing.Size(19, 21);
-            this.lbPotrojari.TabIndex = 63;
-            this.lbPotrojari.Text = "২";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label27.Location = new System.Drawing.Point(6, 8);
-            this.label27.Margin = new System.Windows.Forms.Padding(0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(57, 21);
-            this.label27.TabIndex = 19;
-            this.label27.Text = "পত্রজারি";
-            // 
-            // panel44
-            // 
-            this.panel44.BackColor = System.Drawing.Color.Transparent;
-            this.panel44.Controls.Add(this.label28);
-            this.panel44.Controls.Add(this.lbNothijato);
-            this.panel44.Controls.Add(this.label30);
-            this.panel44.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel44.Location = new System.Drawing.Point(582, 0);
-            this.panel44.Name = "panel44";
-            this.panel44.Size = new System.Drawing.Size(122, 38);
-            this.panel44.TabIndex = 69;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label28.Location = new System.Drawing.Point(90, 10);
-            this.label28.Margin = new System.Windows.Forms.Padding(0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(22, 21);
-            this.label28.TabIndex = 64;
-            this.label28.Text = "টি";
-            // 
-            // lbNothijato
-            // 
-            this.lbNothijato.AutoSize = true;
-            this.lbNothijato.BackColor = System.Drawing.Color.Azure;
-            this.lbNothijato.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNothijato.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothijato.Location = new System.Drawing.Point(66, 9);
-            this.lbNothijato.Margin = new System.Windows.Forms.Padding(0);
-            this.lbNothijato.Name = "lbNothijato";
-            this.lbNothijato.Size = new System.Drawing.Size(19, 21);
-            this.lbNothijato.TabIndex = 63;
-            this.lbNothijato.Text = "২";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label30.Location = new System.Drawing.Point(6, 8);
-            this.label30.Margin = new System.Windows.Forms.Padding(0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(58, 21);
-            this.label30.TabIndex = 19;
-            this.label30.Text = "নথিজাত";
-            // 
-            // lbNote
-            // 
-            this.lbNote.AutoSize = true;
-            this.lbNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
-            this.lbNote.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbNote.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNote.ForeColor = System.Drawing.Color.White;
-            this.lbNote.Location = new System.Drawing.Point(0, 0);
-            this.lbNote.Margin = new System.Windows.Forms.Padding(0);
-            this.lbNote.Name = "lbNote";
-            this.lbNote.Padding = new System.Windows.Forms.Padding(8);
-            this.lbNote.Size = new System.Drawing.Size(58, 37);
-            this.lbNote.TabIndex = 61;
-            this.lbNote.Text = "নোটঃ";
-            this.lbNote.Visible = false;
-            // 
-            // pnlNoteKhoshra
-            // 
-            this.pnlNoteKhoshra.BackColor = System.Drawing.Color.Transparent;
-            this.pnlNoteKhoshra.Controls.Add(this.label19);
-            this.pnlNoteKhoshra.Controls.Add(this.lbNoteKhoshra);
-            this.pnlNoteKhoshra.Controls.Add(this.label31);
-            this.pnlNoteKhoshra.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlNoteKhoshra.Location = new System.Drawing.Point(58, 0);
-            this.pnlNoteKhoshra.Name = "pnlNoteKhoshra";
-            this.pnlNoteKhoshra.Size = new System.Drawing.Size(101, 38);
-            this.pnlNoteKhoshra.TabIndex = 66;
-            this.pnlNoteKhoshra.Visible = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label19.Location = new System.Drawing.Point(78, 9);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(22, 21);
-            this.label19.TabIndex = 64;
-            this.label19.Text = "টি";
-            // 
-            // lbNoteKhoshra
-            // 
-            this.lbNoteKhoshra.AutoSize = true;
-            this.lbNoteKhoshra.BackColor = System.Drawing.Color.Azure;
-            this.lbNoteKhoshra.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNoteKhoshra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteKhoshra.Location = new System.Drawing.Point(51, 8);
-            this.lbNoteKhoshra.Name = "lbNoteKhoshra";
-            this.lbNoteKhoshra.Size = new System.Drawing.Size(19, 21);
-            this.lbNoteKhoshra.TabIndex = 63;
-            this.lbNoteKhoshra.Text = "২";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label31.Location = new System.Drawing.Point(6, 8);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(43, 21);
-            this.label31.TabIndex = 19;
-            this.label31.Text = "খসড়া";
-            // 
-            // pnlNoteKhoshraWaiting
-            // 
-            this.pnlNoteKhoshraWaiting.BackColor = System.Drawing.Color.Transparent;
-            this.pnlNoteKhoshraWaiting.Controls.Add(this.label32);
-            this.pnlNoteKhoshraWaiting.Controls.Add(this.lbNoteKhoshraWaiting);
-            this.pnlNoteKhoshraWaiting.Controls.Add(this.label34);
-            this.pnlNoteKhoshraWaiting.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlNoteKhoshraWaiting.Location = new System.Drawing.Point(159, 0);
-            this.pnlNoteKhoshraWaiting.Name = "pnlNoteKhoshraWaiting";
-            this.pnlNoteKhoshraWaiting.Size = new System.Drawing.Size(199, 38);
-            this.pnlNoteKhoshraWaiting.TabIndex = 67;
-            this.pnlNoteKhoshraWaiting.Visible = false;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label32.Location = new System.Drawing.Point(171, 9);
-            this.label32.Margin = new System.Windows.Forms.Padding(0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(22, 21);
-            this.label32.TabIndex = 64;
-            this.label32.Text = "টি";
-            // 
-            // lbNoteKhoshraWaiting
-            // 
-            this.lbNoteKhoshraWaiting.AutoSize = true;
-            this.lbNoteKhoshraWaiting.BackColor = System.Drawing.Color.Azure;
-            this.lbNoteKhoshraWaiting.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNoteKhoshraWaiting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteKhoshraWaiting.Location = new System.Drawing.Point(147, 9);
-            this.lbNoteKhoshraWaiting.Margin = new System.Windows.Forms.Padding(0);
-            this.lbNoteKhoshraWaiting.Name = "lbNoteKhoshraWaiting";
-            this.lbNoteKhoshraWaiting.Size = new System.Drawing.Size(19, 21);
-            this.lbNoteKhoshraWaiting.TabIndex = 63;
-            this.lbNoteKhoshraWaiting.Text = "২";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label34.Location = new System.Drawing.Point(6, 8);
-            this.label34.Margin = new System.Windows.Forms.Padding(0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(137, 21);
-            this.label34.TabIndex = 19;
-            this.label34.Text = "অনুমোদনের অপেক্ষায়";
-            // 
-            // pnlNotePotrojari
-            // 
-            this.pnlNotePotrojari.BackColor = System.Drawing.Color.Transparent;
-            this.pnlNotePotrojari.Controls.Add(this.label35);
-            this.pnlNotePotrojari.Controls.Add(this.lbNotePotrojari);
-            this.pnlNotePotrojari.Controls.Add(this.label37);
-            this.pnlNotePotrojari.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlNotePotrojari.Location = new System.Drawing.Point(358, 0);
-            this.pnlNotePotrojari.Name = "pnlNotePotrojari";
-            this.pnlNotePotrojari.Size = new System.Drawing.Size(112, 38);
-            this.pnlNotePotrojari.TabIndex = 69;
-            this.pnlNotePotrojari.Visible = false;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label35.Location = new System.Drawing.Point(85, 10);
-            this.label35.Margin = new System.Windows.Forms.Padding(0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(22, 21);
-            this.label35.TabIndex = 64;
-            this.label35.Text = "টি";
-            // 
-            // lbNotePotrojari
-            // 
-            this.lbNotePotrojari.AutoSize = true;
-            this.lbNotePotrojari.BackColor = System.Drawing.Color.Azure;
-            this.lbNotePotrojari.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNotePotrojari.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNotePotrojari.Location = new System.Drawing.Point(63, 9);
-            this.lbNotePotrojari.Margin = new System.Windows.Forms.Padding(0);
-            this.lbNotePotrojari.Name = "lbNotePotrojari";
-            this.lbNotePotrojari.Size = new System.Drawing.Size(19, 21);
-            this.lbNotePotrojari.TabIndex = 63;
-            this.lbNotePotrojari.Text = "২";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label37.Location = new System.Drawing.Point(6, 8);
-            this.label37.Margin = new System.Windows.Forms.Padding(0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(57, 21);
-            this.label37.TabIndex = 19;
-            this.label37.Text = "পত্রজারি";
-            // 
-            // pnlNoNote
-            // 
-            this.pnlNoNote.BackColor = System.Drawing.Color.Transparent;
-            this.pnlNoNote.Controls.Add(this.label16);
-            this.pnlNoNote.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlNoNote.Location = new System.Drawing.Point(470, 0);
-            this.pnlNoNote.Name = "pnlNoNote";
-            this.pnlNoNote.Size = new System.Drawing.Size(193, 38);
-            this.pnlNoNote.TabIndex = 70;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(220)))), ((int)(((byte)(223)))));
-            this.label16.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
-            this.label16.Location = new System.Drawing.Point(8, 7);
-            this.label16.Margin = new System.Windows.Forms.Padding(3);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(2);
-            this.label16.Size = new System.Drawing.Size(176, 25);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "নোটে কোন সংযুক্ত পত্র নেই ";
-            // 
             // tinyMceEditor
             // 
             this.tinyMceEditor.AutoScroll = true;
@@ -2512,7 +2588,7 @@
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 2);
             this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
             this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(874, 406);
+            this.tinyMceEditor.Size = new System.Drawing.Size(886, 406);
             this.tinyMceEditor.TabIndex = 61;
             // 
             // Note
@@ -2568,9 +2644,28 @@
             this.panel16.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
-            this.panel35.PerformLayout();
+            this.pnlNoNote.ResumeLayout(false);
+            this.pnlNoNote.PerformLayout();
+            this.pnlNotePotrojari.ResumeLayout(false);
+            this.pnlNotePotrojari.PerformLayout();
+            this.pnlNoteKhoshraWaiting.ResumeLayout(false);
+            this.pnlNoteKhoshraWaiting.PerformLayout();
+            this.pnlNoteKhoshra.ResumeLayout(false);
+            this.pnlNoteKhoshra.PerformLayout();
             this.panel32.ResumeLayout(false);
             this.panel32.PerformLayout();
+            this.pnlNothijato.ResumeLayout(false);
+            this.pnlNothijato.PerformLayout();
+            this.pnlPotrojari.ResumeLayout(false);
+            this.pnlPotrojari.PerformLayout();
+            this.pnlAllPotro.ResumeLayout(false);
+            this.pnlAllPotro.PerformLayout();
+            this.pnlApproved.ResumeLayout(false);
+            this.pnlApproved.PerformLayout();
+            this.pnlKhoshraWaiting.ResumeLayout(false);
+            this.pnlKhoshraWaiting.PerformLayout();
+            this.pnlKhoshra.ResumeLayout(false);
+            this.pnlKhoshra.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
@@ -2578,24 +2673,6 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel41.ResumeLayout(false);
-            this.panel41.PerformLayout();
-            this.panel42.ResumeLayout(false);
-            this.panel42.PerformLayout();
-            this.panel43.ResumeLayout(false);
-            this.panel43.PerformLayout();
-            this.panel44.ResumeLayout(false);
-            this.panel44.PerformLayout();
-            this.pnlNoteKhoshra.ResumeLayout(false);
-            this.pnlNoteKhoshra.PerformLayout();
-            this.pnlNoteKhoshraWaiting.ResumeLayout(false);
-            this.pnlNoteKhoshraWaiting.PerformLayout();
-            this.pnlNotePotrojari.ResumeLayout(false);
-            this.pnlNotePotrojari.PerformLayout();
-            this.pnlNoNote.ResumeLayout(false);
-            this.pnlNoNote.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2655,7 +2732,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label pnlNothi;
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.Panel panel36;
@@ -2742,27 +2819,32 @@
         private System.Windows.Forms.Label lbNoteKhoshra;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label lbNote;
-        private System.Windows.Forms.Panel panel44;
+        private System.Windows.Forms.Panel pnlPotrojari;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label lbNothijato;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Panel panel43;
+        private System.Windows.Forms.Panel pnlAllPotro;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label lbPotrojari;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Panel panel42;
+        private System.Windows.Forms.Panel pnlApproved;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label lbAllPotro;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Panel panel41;
+        private System.Windows.Forms.Panel pnlKhoshraWaiting;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lbKhoshraWaiting;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlKhoshra;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lbKhoshra;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel pnlNoNote;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel pnlNothijato;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbApprovedPotro;
+        private System.Windows.Forms.Label label20;
+        private FontAwesome.Sharp.IconButton pnlNoNothi;
     }
 }

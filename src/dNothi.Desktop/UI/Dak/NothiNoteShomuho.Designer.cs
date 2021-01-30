@@ -52,7 +52,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(110, 76);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(110, 72);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1000, 2);
             this.flowLayoutPanel1.TabIndex = 57;
@@ -201,7 +201,7 @@
             // 
             this.lbNoteIssueDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteIssueDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbNoteIssueDate.Location = new System.Drawing.Point(986, 8);
+            this.lbNoteIssueDate.Location = new System.Drawing.Point(973, 8);
             this.lbNoteIssueDate.Name = "lbNoteIssueDate";
             this.lbNoteIssueDate.Size = new System.Drawing.Size(116, 23);
             this.lbNoteIssueDate.TabIndex = 69;
@@ -220,7 +220,7 @@
             this.eyeIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
             this.eyeIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.eyeIcon.IconSize = 24;
-            this.eyeIcon.Location = new System.Drawing.Point(951, 8);
+            this.eyeIcon.Location = new System.Drawing.Point(938, 8);
             this.eyeIcon.Margin = new System.Windows.Forms.Padding(0);
             this.eyeIcon.Name = "eyeIcon";
             this.eyeIcon.Size = new System.Drawing.Size(32, 23);
@@ -244,7 +244,7 @@
             this.panel1.Controls.Add(this.lbOnucched);
             this.panel1.Controls.Add(this.lbKhoshra);
             this.panel1.Controls.Add(this.lbKhoshrawaiting);
-            this.panel1.Location = new System.Drawing.Point(739, 34);
+            this.panel1.Location = new System.Drawing.Point(726, 34);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(363, 35);
             this.panel1.TabIndex = 76;
@@ -294,7 +294,7 @@
             this.Controls.Add(this.iconButton3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "NothiNoteShomuho";
-            this.Size = new System.Drawing.Size(1105, 79);
+            this.Size = new System.Drawing.Size(1100, 75);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

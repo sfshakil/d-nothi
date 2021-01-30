@@ -122,7 +122,20 @@ namespace dNothi.Desktop.UI.Dak
         public string toofficer
         {
             get { return _toofficer; }
-            set { _toofficer = value; lbToOfficer.Text = value; }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            set { _toofficer = value; 
+                if(value == "")
+                {
+                    iconButton5.Visible = false;
+                    lbToOfficer.Visible = false;
+                }
+                else
+                {
+                    iconButton5.Visible = true;
+                    lbToOfficer.Visible = true;
+                    lbToOfficer.Text = value;
+                }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            }
+                
         }
 
         private void btnOption_Click(object sender, EventArgs e)

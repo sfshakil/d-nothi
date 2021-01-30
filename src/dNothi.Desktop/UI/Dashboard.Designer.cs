@@ -498,7 +498,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.label3.Location = new System.Drawing.Point(525, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 18);
+            this.label3.Size = new System.Drawing.Size(105, 21);
             this.label3.TabIndex = 0;
             this.label3.Text = "কোনো ডাক নেই";
             // 
@@ -925,7 +925,7 @@
             this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
             this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
             this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 44);
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 52);
             this.searchOfficeDetailSearch.TabIndex = 53;
             // 
             // officerSearchList
@@ -940,7 +940,7 @@
             this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
             this.officerSearchList.Name = "officerSearchList";
             this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
-            this.officerSearchList.Size = new System.Drawing.Size(516, 44);
+            this.officerSearchList.Size = new System.Drawing.Size(516, 52);
             this.officerSearchList.TabIndex = 52;
             // 
             // label11
@@ -1271,7 +1271,7 @@
             "জরুরি"});
             this.dakPriorityComboBox.Location = new System.Drawing.Point(678, 115);
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
-            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakPriorityComboBox.TabIndex = 6;
             this.dakPriorityComboBox.Text = "অগ্রাধিকার ";
             this.dakPriorityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPriorityComboBox_SelectedIndexChanged);
@@ -1291,7 +1291,7 @@
             "সীমিত"});
             this.dakSecurityComboBox.Location = new System.Drawing.Point(463, 115);
             this.dakSecurityComboBox.Name = "dakSecurityComboBox";
-            this.dakSecurityComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakSecurityComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakSecurityComboBox.TabIndex = 5;
             this.dakSecurityComboBox.Text = "গোপনীয়তা";
             this.dakSecurityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakSecurityComboBox_SelectedIndexChanged);
@@ -1308,7 +1308,7 @@
             "নাগরিক"});
             this.dakTypeComboBox.Location = new System.Drawing.Point(897, 115);
             this.dakTypeComboBox.Name = "dakTypeComboBox";
-            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakTypeComboBox.TabIndex = 4;
             this.dakTypeComboBox.Text = "ডাকের ধরণ";
             this.dakTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakTypeComboBox_SelectedIndexChanged);
@@ -1328,7 +1328,7 @@
             "বিজ্ঞপ্তি/নোটিশ"});
             this.dakPaperTypeComboBox.Location = new System.Drawing.Point(245, 115);
             this.dakPaperTypeComboBox.Name = "dakPaperTypeComboBox";
-            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakPaperTypeComboBox.TabIndex = 3;
             this.dakPaperTypeComboBox.Text = "পত্রের ধরন ";
             this.dakPaperTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPaperTypeComboBox_SelectedIndexChanged);
@@ -1370,7 +1370,7 @@
             " অনুলিপি"});
             this.dakAttentionTypeComboBox.Location = new System.Drawing.Point(21, 115);
             this.dakAttentionTypeComboBox.Name = "dakAttentionTypeComboBox";
-            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 26);
+            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 29);
             this.dakAttentionTypeComboBox.TabIndex = 2;
             this.dakAttentionTypeComboBox.Text = "সকল ";
             this.dakAttentionTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakAttentionTypeComboBox_SelectedIndexChanged);
@@ -1510,7 +1510,7 @@
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(901, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 18);
+            this.label9.Size = new System.Drawing.Size(61, 21);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             // 

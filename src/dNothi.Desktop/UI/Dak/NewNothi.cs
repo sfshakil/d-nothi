@@ -35,6 +35,16 @@ namespace dNothi.Desktop.UI.Dak
             LoadNothiTypeListDropDown();
             SetDefaultFont(this.Controls);
             nothiTalikaPnl.Visible = false;
+            
+        }
+        public void loadNewNothiPage()
+        {
+            cbxNothiType.Text = "বাছাই করুন";
+            lbNothiNo.Text = "**.**.****.***.**.";
+            lbNothilast4digit.Text = "***.**";
+            cbxLast2digitNothiNo.Text = "বাছাই করুন";
+            cbxNothiClass.Text = "বাছাই করুন";
+            nothiTalikaPnl.Visible = false;
         }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
@@ -172,6 +182,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            nothiTalikaPnl.Visible = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             nothiTalikaPnl.Visible = true;
             int i = cbxNothiType.SelectedIndex;
@@ -183,16 +194,20 @@ namespace dNothi.Desktop.UI.Dak
             {
                 if (nothiNoteTalika.data.records.Count > 0)
                 {
-                    
+                    pnlNoData.Visible = false;
+                    nothiTalikaFlowLayoutPnl.Visible = true;
                     LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records);
                     lbTotalNote.Text = "সর্বমোট: " + string.Concat(nothiNoteTalika.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     
                 }
                 else
                 {
+                    pnlNoData.Visible = true;
+                    nothiTalikaFlowLayoutPnl.Visible = false;
                     nothiTalikaFlowLayoutPnl.Controls.Clear();
                     lbNothiNo.Text = "৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')))+".";
                     lbNothilast4digit.Text = "০০১.";
+                    lbTotalNote.Text = " সর্বমোট: ০";
                 }
                 loadLast2digitNothiNo();
 
@@ -225,7 +240,11 @@ namespace dNothi.Desktop.UI.Dak
                 var currentYear = DateTime.Now.ToString("yy");
                 if (english_text.Substring(22, 2) == currentYear)
                 {
-                    flag[i]= Integer.parseInt(english_text.Substring(18, 3));
+                    int num;
+                    if (int.TryParse(english_text.Substring(18, 3), out num)) 
+                    {
+                        flag[i] = Integer.parseInt(english_text.Substring(18, 3));
+                    }
                 }
                 int max = flag.Max()+1;
                 string value = max.ToString("000");
