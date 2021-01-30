@@ -113,7 +113,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.newDecisionAddFormPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.newDecisionTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.newDecisionAddCrossButton = new FontAwesome.Sharp.IconButton();
@@ -1033,7 +1032,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.panel9);
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.newDecisionTextBox);
             this.panel4.Location = new System.Drawing.Point(3, 1);
@@ -1041,13 +1039,6 @@
             this.panel4.Size = new System.Drawing.Size(183, 36);
             this.panel4.TabIndex = 82;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
-            // 
-            // panel9
-            // 
-            this.panel9.Location = new System.Drawing.Point(14, 22);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(200, 100);
-            this.panel9.TabIndex = 82;
             // 
             // panel8
             // 
@@ -1465,7 +1456,6 @@
         private System.Windows.Forms.CheckBox decisionAddCheckBox;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel dakForwardBodyPanel;
         private System.Windows.Forms.Panel HeadingPanel;

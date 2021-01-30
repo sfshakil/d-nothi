@@ -383,7 +383,7 @@ namespace dNothi.Desktop.UI.Dak
 
             var prapokList = prapokDataGridView.DataSource;
 
-            List<ViewDesignationSealList> designationSealListsinGridView = (List<ViewDesignationSealList>)prapokList;
+            IEnumerable<ViewDesignationSealList> designationSealListsinGridView = (IEnumerable<ViewDesignationSealList>)prapokList;
             List<ViewDesignationSealList> NewViewDesignationSealLists = new List<ViewDesignationSealList>();
 
 
@@ -395,7 +395,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 foreach (var des in designationSealListsinGridView)
                 {
-                    if (des.designation.StartsWith(officerSearchXTextBox.Text) || des.employee_name_bng.StartsWith(officerSearchXTextBox.Text))
+                    if (des.designation.Contains(officerSearchXTextBox.Text) || des.employee_name_bng.Contains(officerSearchXTextBox.Text))
                     {
                         NewViewDesignationSealLists.Add(des);
                     }

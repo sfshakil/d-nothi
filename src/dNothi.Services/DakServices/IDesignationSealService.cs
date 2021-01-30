@@ -11,5 +11,6 @@ namespace dNothi.Services.DakServices
     {
         AllDesignationSealListResponse GetAllDesignationSeal(DakUserParam dakListUserParam, int office_id);
         OfficeListResponse GetAllOffice(DakUserParam dakListUserParam);
+        DesignationSealListResponse GetOfficerAddedSealList(DakUserParam dakListUserParam);
     }
 }

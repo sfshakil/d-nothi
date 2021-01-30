@@ -13,6 +13,42 @@ namespace dNothi.Services.DakServices
 {
     public class DesignationSealService : IDesignationSealService
     {
+        public DesignationSealListResponse GetOfficerAddedSealList(DakUserParam dakListUserParam)
+        {
+            try
+            {
+
+                var designationSealList = new RestClient(GetAPIDomain() + GetDesignationSealListEndpoint());
+                designationSealList.Timeout = -1;
+                var designationSealRequest = new RestRequest(Method.POST);
+                designationSealRequest.AddHeader("api-version", GetOldAPIVersion());
+                designationSealRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                designationSealRequest.AlwaysMultipartFormData = true;
+                designationSealRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                designationSealRequest.AddParameter("office_id", dakListUserParam.office_id);
+
+                IRestResponse designationSealResponseAPI = designationSealList.Execute(designationSealRequest);
+
+
+                var designationSealResponseJson = designationSealResponseAPI.Content;
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                DesignationSealListResponse designationSealResponse = JsonConvert.DeserializeObject<DesignationSealListResponse>(designationSealResponseJson);
+                return designationSealResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        protected string GetOldAPIVersion()
+        {
+            return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.NewAPIversion;
+        }
+        protected string GetDesignationSealListEndpoint()
+        {
+            return DefaultAPIConfiguration.GetDesignationSealListEndpoint;
+        }
         public AllDesignationSealListResponse GetAllDesignationSeal(DakUserParam dakListUserParam, int office_id)
         {
             var designationSealAPI = new RestClient(GetAPIDomain() + GetAllDesignationSealEndpoint());

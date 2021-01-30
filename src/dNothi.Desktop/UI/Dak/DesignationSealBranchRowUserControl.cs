@@ -17,6 +17,9 @@ namespace dNothi.Desktop.UI.Dak
 
 
         private List<PrapokDTO> _prapokdtos;
+        private List<PrapokDTO> _designationListAlreadyAdded;
+
+
          
         
             
@@ -52,8 +55,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             InitializeComponent();
         }
-
         public string unitCode { get { return _unitCode; } set { _unitCode = value; } }
+        public List<PrapokDTO> designationListAlreadyAdded { get { return _designationListAlreadyAdded; } set { _designationListAlreadyAdded = value; } }
         public int unitId { get { return _unitid; } set { _unitid = value; } }
 
         public string branchOfficeName { get { return _branchofficeName; } set { _branchofficeName = value; branchNameLabel.Text = value; } }
@@ -78,6 +81,15 @@ namespace dNothi.Desktop.UI.Dak
                         designationSealListOfficerRowUserControl.isNewlyAdded = true;
 
                     }
+                  else if(_designationListAlreadyAdded.Any(a => a.designation_id == prapokDTO.designation_id))
+                    {
+                        designationSealListOfficerRowUserControl.Visible = true;
+                        if(!this.Visible)
+                        {
+                            this.Visible=true;
+                        }
+                    }
+                    
                     else
                     {
                         designationSealListOfficerRowUserControl.Visible = false;
@@ -102,7 +114,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     designation.Visible = false;
                 }
-               if(designation.isNewlyAdded)
+               if(designation.designationid!=designationid && designation.Visible)
                 {
                     isAnyDesignationNewlyAdded = true;
                 }

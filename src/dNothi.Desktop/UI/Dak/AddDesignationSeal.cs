@@ -76,6 +76,9 @@ namespace dNothi.Desktop.UI.Dak
         }
         IDakUploadService _dakuploadservice { get; set; }
         IUserService _userService { get; set; }
+        IDesignationSealService _designationSeal { get; set; }
+        List<PrapokDTO> _addedOwnOfficerDesignationSeal { get; set; }
+        
        
         private DakUserParam _dakUserParam = new DakUserParam();
         private List<OfficeInfoDTO> _officeInfo = new List<OfficeInfoDTO>();
@@ -83,13 +86,18 @@ namespace dNothi.Desktop.UI.Dak
         private List<PrapokDTO> _otherOfficeDesignationList = new List<PrapokDTO>();
         
 
-        public AddDesignationSeal(IDakUploadService dakUploadService, IUserService userService)
+        public AddDesignationSeal(IDakUploadService dakUploadService, IUserService userService, IDesignationSealService designationSealService)
         {
             _dakuploadservice = dakUploadService;
             _userService = userService;
+            _designationSeal = designationSealService;
             InitializeComponent();
+            DesignationSealListResponse designationSealListResponse = new DesignationSealListResponse();
+            _dakUserParam = _userService.GetLocalDakUserParam();
+            designationSealListResponse = _designationSeal.GetOfficerAddedSealList(_dakUserParam);
 
-           
+            _addedOwnOfficerDesignationSeal = designationSealListResponse.data.own_office;
+
             LoadOwnOfficerTree();
             LoadOwnOfficeRight();
            
@@ -112,22 +120,7 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        private void LoadOwnOfficeLeftTree()
-        {
-            searchOfficeListBox.DataSource = null;
-
-            OfficeListResponse officeListResponse = _dakuploadservice.GetAllOffice(_dakUserParam);
-            if(officeListResponse.status=="success")
-            {
-                if(officeListResponse.data != null)
-                {
-                    searchOfficeListBox.DisplayMember = "office_name_bng";
-                        _officeInfo = officeListResponse.data[_dakUserParam.office_id.ToString()];
-                    searchOfficeListBox.DataSource = _officeInfo;
-                }
-            }
-
-        }
+      
 
         private void LoadOwnOfficerTree()
         {
@@ -192,7 +185,13 @@ namespace dNothi.Desktop.UI.Dak
                                 TreeNode childNode = new TreeNode();
                                 childNode.Tag = officer.designation_id;
                                 childNode.Text = officer.NameWithDesignation;
-                               
+                                if(_addedOwnOfficerDesignationSeal.Any(a=>a.designation_id==officer.designation_id))
+                                {
+                                    childNode.Checked = true;
+                                    childNode.ForeColor = Color.Gray;
+
+                                }
+
                                 branchNodeOwnOffice.Nodes.Add(childNode);
 
 
@@ -351,12 +350,15 @@ namespace dNothi.Desktop.UI.Dak
                     designationSealBranchRowUserControl.unitCode = prapokGroupWise.FirstOrDefault().office_unit_code;
                     designationSealBranchRowUserControl.unitId = prapokGroupWise.FirstOrDefault().unit_id;
 
-                    designationSealBranchRowUserControl.prapokDtos = prapokGroupWise;
+                   
 
 
                     designationSealBranchRowUserControl.DesignationDeleteButton += delegate (object sender, EventArgs e) { OfficerDelete_ButtonClick(sender, e, designationSealBranchRowUserControl.isAnyDesignationNewlyAdded,designationSealBranchRowUserControl._designationid); };
 
                     designationSealBranchRowUserControl.Visible = false;
+
+                    designationSealBranchRowUserControl.designationListAlreadyAdded =_addedOwnOfficerDesignationSeal;
+                    designationSealBranchRowUserControl.prapokDtos = prapokGroupWise;
                     ownOfficeRightFlowLayoutPanel.Controls.Add(designationSealBranchRowUserControl);
 
 

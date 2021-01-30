@@ -207,6 +207,7 @@
             this.BottomPanel.Controls.Add(this.label16);
             this.BottomPanel.Controls.Add(this.label17);
             this.BottomPanel.Controls.Add(this.prapokDataGridView);
+            this.BottomPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BottomPanel.Location = new System.Drawing.Point(16, 950);
             this.BottomPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BottomPanel.Name = "BottomPanel";
@@ -255,6 +256,7 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(310, 39);
             this.panel11.TabIndex = 76;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
             // officerSearchXTextBox
             // 
@@ -383,18 +385,18 @@
             this.mul_prapok,
             this.onulipiprapokDataGridViewCheckBoxColumn});
             this.prapokDataGridView.DataSource = this.viewDesignationSealListBindingSource;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(3, 2, 2, 2);
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.prapokDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
             this.prapokDataGridView.EnableHeadersVisualStyles = false;
             this.prapokDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.prapokDataGridView.Location = new System.Drawing.Point(18, 183);
+            this.prapokDataGridView.Location = new System.Drawing.Point(15, 184);
             this.prapokDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.prapokDataGridView.Name = "prapokDataGridView";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -415,8 +417,8 @@
             this.prapokDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prapokDataGridView.RowTemplate.Height = 40;
             this.prapokDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.prapokDataGridView.Size = new System.Drawing.Size(1034, 583);
-            this.prapokDataGridView.TabIndex = 79;
+            this.prapokDataGridView.Size = new System.Drawing.Size(1020, 583);
+            this.prapokDataGridView.TabIndex = 39;
             this.prapokDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokDataGridView_CellContentClick);
             // 
             // ActionButton
@@ -1453,7 +1455,7 @@
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(196, 28);
             this.dateLabel.TabIndex = 66;
-            this.dateLabel.Text = "দাপ্তরিক ডাক আপলোড";
+            this.dateLabel.Text = "নাগরিক ডাক আপলোড";
             // 
             // dakAttachmentButton
             // 
