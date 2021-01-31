@@ -422,7 +422,6 @@
             this.loginBodyTableLayoutPanel.Controls.Add(this.footerTableLayoutPanel, 0, 2);
             this.loginBodyTableLayoutPanel.Location = new System.Drawing.Point(247, 0);
             this.loginBodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.loginBodyTableLayoutPanel.MinimumSize = new System.Drawing.Size(850, 600);
             this.loginBodyTableLayoutPanel.Name = "loginBodyTableLayoutPanel";
             this.loginBodyTableLayoutPanel.RowCount = 3;
             this.loginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.58156F));
@@ -1060,6 +1059,7 @@
             this.aboutTableLayoutPanel.Controls.Add(this.label14, 1, 0);
             this.aboutTableLayoutPanel.Controls.Add(this.label15, 0, 1);
             this.aboutTableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.aboutTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aboutTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.aboutTableLayoutPanel.Name = "aboutTableLayoutPanel";
             this.aboutTableLayoutPanel.Padding = new System.Windows.Forms.Padding(10, 15, 5, 5);
@@ -1068,7 +1068,7 @@
             this.aboutTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.23937F));
             this.aboutTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.378481F));
             this.aboutTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.86076F));
-            this.aboutTableLayoutPanel.Size = new System.Drawing.Size(425, 255);
+            this.aboutTableLayoutPanel.Size = new System.Drawing.Size(434, 255);
             this.aboutTableLayoutPanel.TabIndex = 5;
             // 
             // label18
@@ -1082,7 +1082,7 @@
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.label18.Location = new System.Drawing.Point(13, 185);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(404, 65);
+            this.label18.Size = new System.Drawing.Size(413, 65);
             this.label18.TabIndex = 9;
             this.label18.Text = "অপশন তৈরি করা হয়েছে। এই ক্ষেত্রে পত্রের খসড়া তৈরির সময় \r\nপ্রাপকের মোবাইল নম্বর দি" +
     "য়ে সংশ্লিষ্ট মেসেজ দেওয়া যাবে। প্রাপক ই-\r\nমেইলে সংশ্লিষ্ট পত্রটি এবং মোবাইলে মেস" +
@@ -1099,7 +1099,7 @@
             this.label13.Location = new System.Drawing.Point(10, 15);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(187, 17);
+            this.label13.Size = new System.Drawing.Size(191, 17);
             this.label13.TabIndex = 3;
             this.label13.Text = "ই-নথি সিস্টেমের নতুন আপডেট:";
             // 
@@ -1111,10 +1111,10 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(197, 15);
+            this.label14.Location = new System.Drawing.Point(201, 15);
             this.label14.Margin = new System.Windows.Forms.Padding(0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(223, 17);
+            this.label14.Size = new System.Drawing.Size(228, 17);
             this.label14.TabIndex = 4;
             this.label14.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে";
             // 
@@ -1127,7 +1127,7 @@
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.label15.Location = new System.Drawing.Point(13, 32);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(404, 136);
+            this.label15.Size = new System.Drawing.Size(413, 136);
             this.label15.TabIndex = 5;
             this.label15.Text = resources.GetString("label15.Text");
             // 
@@ -1145,7 +1145,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(410, 17);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(419, 17);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // label16
@@ -1159,7 +1159,7 @@
             this.label16.Location = new System.Drawing.Point(0, 0);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(93, 17);
+            this.label16.Size = new System.Drawing.Size(95, 17);
             this.label16.TabIndex = 6;
             this.label16.Text = "ই-নথি সিস্টেম:";
             // 
@@ -1171,10 +1171,10 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label17.Location = new System.Drawing.Point(93, 0);
+            this.label17.Location = new System.Drawing.Point(95, 0);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(317, 17);
+            this.label17.Size = new System.Drawing.Size(324, 17);
             this.label17.TabIndex = 7;
             this.label17.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে মেসেজ দেওয়ার";
             // 
