@@ -110,6 +110,13 @@
     <Compile Include="Entity\Dak\ToDTO.cs" />
     <Compile Include="Entity\DataDTO.cs" />
     <Compile Include="Entity\EmployeeInfoDTO.cs" />
+    <Compile Include="Entity\Nothi\AllPotroDataDTO.cs" />
+    <Compile Include="Entity\Nothi\AllPotroDataRecordBasicDTO.cs" />
+    <Compile Include="Entity\Nothi\AllPotroDataRecordDTO.cs" />
+    <Compile Include="Entity\Nothi\AllPotroDataRecordMulpotroDTO.cs" />
+    <Compile Include="Entity\Nothi\AllPotroDataRecordNoteOnucchedDTO.cs" />
+    <Compile Include="Entity\Nothi\AllPotroDataRecordNoteOwnerDTO.cs" />
+    <Compile Include="Entity\Nothi\AllPotroResponse.cs" />
     <Compile Include="Entity\Nothi\DeskAllDTO.cs" />
     <Compile Include="Entity\Nothi\DeskNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\DeskOutboxDTO.cs" />

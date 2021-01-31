@@ -160,6 +160,7 @@ namespace dNothi.Desktop
             builder.RegisterType<OnuchhedForwardService>().As<IOnuchhedForwardService>();
             builder.RegisterType<OnucchedDelete>().As<IOnucchedDelete>();
             builder.RegisterType<NothiPotrangshoServices>().As<INothiPotrangshoServices>();
+            builder.RegisterType<AllPotroServices>().As<IAllPotroServices>();
             
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();

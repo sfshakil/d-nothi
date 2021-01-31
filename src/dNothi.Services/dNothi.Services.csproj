@@ -139,7 +139,9 @@
     <Compile Include="DakServices\IDakSearchService.cs" />
     <Compile Include="DakServices\IDakUploadService.cs" />
     <Compile Include="DakServices\IDesignationSealService.cs" />
+    <Compile Include="NothiServices\AllPotroServices.cs" />
     <Compile Include="NothiServices\FileAttachment.cs" />
+    <Compile Include="NothiServices\IAllPotroServices.cs" />
     <Compile Include="NothiServices\INoteDeleteService.cs" />
     <Compile Include="NothiServices\INoteSaveService.cs" />
     <Compile Include="NothiServices\INothiPotrangshoServices.cs" />
