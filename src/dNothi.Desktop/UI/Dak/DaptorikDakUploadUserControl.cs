@@ -203,6 +203,9 @@ namespace dNothi.Desktop.UI.Dak
             MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
             headlineLabel.Font = MemoryFonts.GetFont(0, 14);
             attachmentHeaderLabel.Font = MemoryFonts.GetFont(0, 14);
+
+
+           
         }
 
         private void AttachmentTable_RadioButtonClick(object sender, EventArgs e, long attachmentId)
@@ -266,6 +269,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
 
                     PopulateGrid();
+                    PopulateSenderListBox();
                    
                 }
                 catch
@@ -278,8 +282,14 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-       
 
+        private void PopulateSenderListBox()
+        {
+            searchOfficerRightListBox.DisplayMember = "designationwithname";
+            searchOfficerRightListBox.DataSource = null;
+            searchOfficerRightListBox.DataSource = viewDesignationSealLists;
+            searchOfficerRightListBox.Visible = true;
+        }
 
         int designationColumn = 2;
         private void SaveOnulipiPrapok(int row_index)
@@ -430,7 +440,7 @@ namespace dNothi.Desktop.UI.Dak
 
             var prapokList = prapokDataGridView.DataSource;
 
-            List<ViewDesignationSealList> designationSealListsinGridView = (List<ViewDesignationSealList>)prapokList;
+            IEnumerable<ViewDesignationSealList> designationSealListsinGridView = (IEnumerable<ViewDesignationSealList>)prapokList;
             List<ViewDesignationSealList> NewViewDesignationSealLists = new List<ViewDesignationSealList>();
 
 
@@ -442,7 +452,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 foreach (var des in designationSealListsinGridView)
                 {
-                    if (des.designation.StartsWith(officerSearchXTextBox.Text)|| des.employee_name_bng.StartsWith(officerSearchXTextBox.Text))
+                    if (des.designation.Contains(officerSearchXTextBox.Text)|| des.employee_name_bng.Contains(officerSearchXTextBox.Text))
                     {
                         NewViewDesignationSealLists.Add(des);
                     }
@@ -651,8 +661,7 @@ namespace dNothi.Desktop.UI.Dak
             searchOfficerRightListBox.DataSource = null;
             if (searchOfficerRightXTextBox.Text == "")
             {
-                searchOfficerRightResultLabel.Text = "";
-                searchOfficerRightListBox.Visible = false;
+                PopulateSenderListBox();
 
             }
             else 
@@ -690,7 +699,7 @@ namespace dNothi.Desktop.UI.Dak
             else
             {
                 searchOfficerRightXTextBox.Text = "";
-                searchOfficerRightListBox.Visible = false;
+                //searchOfficerRightListBox.Visible = false;
                 searchOfficerRightPanel.Visible = true;
                 searchOfficerRightResultLabel.Text = "";
                

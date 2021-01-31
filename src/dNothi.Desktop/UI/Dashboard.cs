@@ -193,7 +193,7 @@ namespace dNothi.Desktop.UI
 
                 dakSortMetroPanel.Visible = false;
               
-                dakSearchHeadingPanel.Visible = false;
+                searchHeaderTableLayoutPanel.Visible = false;
                 dakBodyFlowLayoutPanel.Visible = false;
                 detailsFlowLayoutPanel.Visible = true;
                 detailsFlowLayoutPanel.BringToFront();
@@ -575,7 +575,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
@@ -606,7 +606,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
@@ -753,6 +753,7 @@ namespace dNothi.Desktop.UI
             SelectButton(dakInboxButton);
 
             NormalizeDashBoard();
+            selectDakBoxHolderPanel.Visible = true;
             _currentDakCatagory.isInbox = true;
           
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -778,14 +779,14 @@ namespace dNothi.Desktop.UI
                     }
                     else
                     {
-                        noDakPanel.Visible = true;
+                        noDakTableLayoutPanel.Visible = true;
                     }
 
                 }
             }
             catch
             {
-                noDakPanel.Visible = true;
+                noDakTableLayoutPanel.Visible = true;
 
             }
 
@@ -798,6 +799,7 @@ namespace dNothi.Desktop.UI
             SelectButton(dakInboxButton);
 
             NormalizeDashBoard();
+            selectDakBoxHolderPanel.Visible = true;
             _currentDakCatagory.isInbox = true;
           
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -823,14 +825,14 @@ namespace dNothi.Desktop.UI
                     }
                     else
                     {
-                        noDakPanel.Visible = true;
+                        noDakTableLayoutPanel.Visible = true;
                     }
 
                 }
             }
             catch
             {
-                noDakPanel.Visible = true;
+                noDakTableLayoutPanel.Visible = true;
 
             }
 
@@ -1089,7 +1091,8 @@ namespace dNothi.Desktop.UI
 
         private void dakInboxButton_Click_1(object sender, EventArgs e)
         {
-            dakSortMetroPanel.Visible = true;
+          
+            selectDakBoxHolderPanel.Visible = true;
 
             ResetAllMenuButtonSelection();
             SelectButton(dakInboxButton);
@@ -1099,7 +1102,7 @@ namespace dNothi.Desktop.UI
 
         private void ResetAllMenuButtonSelection()
         {
-            IterateControlsReseatSelection(dakMenuPanel.Controls);
+            IterateControlsReseatSelection(menuTableLayoutPanel.Controls);
 
 
 
@@ -1196,7 +1199,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
@@ -1230,7 +1233,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
@@ -1414,13 +1417,13 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
             else
             {
-                noDakPanel.Visible = true;
+                noDakTableLayoutPanel.Visible = true;
             }
 
 
@@ -1453,13 +1456,13 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
             else
             {
-                noDakPanel.Visible = true;
+                noDakTableLayoutPanel.Visible = true;
             }
 
 
@@ -1660,7 +1663,8 @@ namespace dNothi.Desktop.UI
 
         private void NormalizeDashBoard()
         {
-            noDakPanel.Visible = false;
+            selectDakBoxHolderPanel.Visible = false;
+            noDakTableLayoutPanel.Visible = false;
             multipleSelectionPanel.Visible = false;
             dakBodyFlowLayoutPanel.BringToFront();
             dakBodyFlowLayoutPanel.Visible = true;
@@ -1668,7 +1672,7 @@ namespace dNothi.Desktop.UI
             dakBodyFlowLayoutPanel.Visible = true;
             detailsDakSearcPanel.Visible = false;
             dakSortMetroPanel.Visible = true;
-            dakSearchHeadingPanel.Visible = true;
+            searchHeaderTableLayoutPanel.Visible = true;
             designationDetailsPanel.Visible = false;
         }
 
@@ -1697,13 +1701,13 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
             else
             {
-                noDakPanel.Visible = false;
+                noDakTableLayoutPanel.Visible = false;
             }
         }
         private void LoadDakNothijatoUsingSearchParam(string searchParam)
@@ -1731,13 +1735,13 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
             else
             {
-                noDakPanel.Visible = true;
+                noDakTableLayoutPanel.Visible = true;
             }
         }
 
@@ -1871,7 +1875,7 @@ namespace dNothi.Desktop.UI
             NormalizeDashBoard();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
-            DakListLoad();
+            //DakListLoad();
         }
 
         private void dakSortButton_Click(object sender, EventArgs e)
@@ -1907,7 +1911,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
@@ -1935,7 +1939,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
@@ -2138,7 +2142,7 @@ namespace dNothi.Desktop.UI
         private void nagorikDakUploadMenuButton_Click(object sender, EventArgs e)
         {
             dakSortMetroPanel.Visible = false;
-            dakSearchHeadingPanel.Visible = false;
+            searchHeaderTableLayoutPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -2178,12 +2182,12 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
             }
             else
             {
-                noDakPanel.Visible = true;
+                noDakTableLayoutPanel.Visible = true;
             }
         }
         private void LoadDakKhasraListUsingSearchParam(string searchParam)
@@ -2208,13 +2212,13 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    noDakPanel.Visible = true;
+                    noDakTableLayoutPanel.Visible = true;
                 }
 
             }
             else
             {
-                noDakPanel.Visible = true;
+                noDakTableLayoutPanel.Visible = true;
             }
         }
 
@@ -2322,7 +2326,7 @@ namespace dNothi.Desktop.UI
         private void DaptorikDakSavePageLoad(DraftedDakEditResponse dakEditResponse)
         {
             dakSortMetroPanel.Visible = false;
-            dakSearchHeadingPanel.Visible = false;
+            searchHeaderTableLayoutPanel.Visible = false;
             dakBodyFlowLayoutPanel.Controls.Clear();
 
             DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
@@ -2365,7 +2369,7 @@ namespace dNothi.Desktop.UI
         private void NagorikDakSavePageLoad(DraftedDakEditResponse dakEditResponse)
         {
             dakSortMetroPanel.Visible = false;
-            dakSearchHeadingPanel.Visible = false;
+            searchHeaderTableLayoutPanel.Visible = false;
             dakBodyFlowLayoutPanel.Controls.Clear();
 
             NagorikDakUploadUserControl dakUploadUserControl = new NagorikDakUploadUserControl();
@@ -2569,6 +2573,10 @@ namespace dNothi.Desktop.UI
         {
             if (!designationDetailsPanel.Visible)
             {
+                int designationPanleX = this.Width - designationDetailsPanel.Width-25;
+                int designationPanleY = profilePanel.Location.Y + profilePanel.Height;
+                designationDetailsPanel.Location = new Point(designationPanleX, designationPanleY);
+
                 designationDetailsPanel.Visible = true;
                 designationDetailsPanel.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
             }
@@ -3061,7 +3069,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                noDakPanel.Visible = false;
+                noDakTableLayoutPanel.Visible = false;
             }
         }
 

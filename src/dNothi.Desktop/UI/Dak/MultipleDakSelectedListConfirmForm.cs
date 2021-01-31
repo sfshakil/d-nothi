@@ -123,6 +123,30 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+      
+
+        public bool isDakForwardReturn
+        {
+            get
+            {
+                return _isForwarded;
+
+            }
+            set
+            {
+                _isForwarded = value;
+                if (value)
+                {
+                    nothiPanel.Visible = false;
+                    selectedDakListPanel.Visible = false;
+                    confirmButton.Visible = false;
+                    actionButton.Visible = false;
+                }
+            }
+
+        }
+
+
         public bool _isNothijato { get; set; }
 
         public bool isNothijato
@@ -207,6 +231,7 @@ namespace dNothi.Desktop.UI.Dak
                 var parent = this.Parent as Form; if (parent != null) { parent.Hide(); }
             }
         }
+
 
 
 

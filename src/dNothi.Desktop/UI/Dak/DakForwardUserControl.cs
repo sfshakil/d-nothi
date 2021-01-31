@@ -505,117 +505,124 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (_isMultipleDak)
             {
-                DakForwardRequestParam dakForwardRequestParam = new DakForwardRequestParam();
-               
-                DakPriorityList dakPriority = new DakPriorityList();
-                int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
-
-
-
-                DakSecurityList dakSecurityList = new DakSecurityList();
-                int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
-
-
-                dakForwardRequestParam.priority = dak_priority_id;
-                dakForwardRequestParam.security = dak_security_id;
-                dakForwardRequestParam.comment = decisionXTextBox.Text;
-                dakForwardRequestParam.token = _dak_List_User_Param.token;
-
-                var config = new MapperConfiguration(cfg =>
-                          cfg.CreateMap<DakUserParam, DakForwardRequestSenderInfo>()
-                      );
-                var mapper = new Mapper(config);
-                var dakSender = mapper.Map<DakForwardRequestSenderInfo>(_dak_List_User_Param);
-
-
-                dakForwardRequestParam.sender_info = dakForwardRequestParam.CSharpObjtoJson(dakSender);
-
-
-                ViewDesignationSealList mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
-
-                if (mulprapok.nij_Office == true)
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = "অপনি কি সিলেক্টেড ডাকসমূহ প্রেরণ করতে চান?";
+                conditonBoxForm.ShowDialog();
+                if (conditonBoxForm.Yes)
                 {
-                    var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
-                    dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
-                }
-                else
-                {
-                    var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
-                    dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
-                }
+                    DakForwardRequestParam dakForwardRequestParam = new DakForwardRequestParam();
 
-                List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
+                    DakPriorityList dakPriority = new DakPriorityList();
+                    int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
 
-                List<ViewDesignationSealList> viewDesignationSealListsOnulipPrapok = viewDesignationSealLists.Where(a => a.onulipi_prapok == true).ToList();
-                foreach (ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
-                {
-                    if (viewDesignationSeal.nij_Office == true)
+
+
+                    DakSecurityList dakSecurityList = new DakSecurityList();
+                    int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
+
+
+                    dakForwardRequestParam.priority = dak_priority_id;
+                    dakForwardRequestParam.security = dak_security_id;
+                    dakForwardRequestParam.comment = decisionXTextBox.Text;
+                    dakForwardRequestParam.token = _dak_List_User_Param.token;
+
+                    var config = new MapperConfiguration(cfg =>
+                              cfg.CreateMap<DakUserParam, DakForwardRequestSenderInfo>()
+                          );
+                    var mapper = new Mapper(config);
+                    var dakSender = mapper.Map<DakForwardRequestSenderInfo>(_dak_List_User_Param);
+
+
+                    dakForwardRequestParam.sender_info = dakForwardRequestParam.CSharpObjtoJson(dakSender);
+
+
+                    ViewDesignationSealList mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
+
+                    if (mulprapok.nij_Office == true)
                     {
-                        OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                        var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                        dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
                     }
                     else
                     {
-                        OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                        var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                        dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
                     }
-                }
 
-                dakForwardRequestParam.onulipi_info = dakForwardRequestParam.CSharpObjtoJson(OnulipiprapokDTOs);
+                    List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
 
-                var daklist = selectedDakListFlowLayoutPanel.Controls.OfType<SelectedDakListUserControl>().ToList();
-                var ActionResult = FormFactory.Create<MultipleDakActionResultForm>();
-                if (daklist.Count > 0)
-                {
-                    List<SelectedDakListUserControl> dakListSelected = daklist.Where(a => a._isSelected == true).ToList();
-                    if (dakListSelected.Count > 0)
+                    List<ViewDesignationSealList> viewDesignationSealListsOnulipPrapok = viewDesignationSealLists.Where(a => a.onulipi_prapok == true).ToList();
+                    foreach (ViewDesignationSealList viewDesignationSeal in viewDesignationSealListsOnulipPrapok)
                     {
-                       
-                        foreach (SelectedDakListUserControl dakSelected in dakListSelected)
+                        if (viewDesignationSeal.nij_Office == true)
                         {
-                            _totalForwardRequest += 1;
-                            
-                            dakForwardRequestParam.dak_id = dakSelected.dakUserDTO.dak_id;
-                            dakForwardRequestParam.is_copied_dak = dakSelected.dakUserDTO.is_copied_dak;
-                            dakForwardRequestParam.dak_type = dakSelected.dakUserDTO.dak_type;
+                            OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                        }
+                        else
+                        {
+                            OnulipiprapokDTOs.Add(designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                        }
+                    }
 
+                    dakForwardRequestParam.onulipi_info = dakForwardRequestParam.CSharpObjtoJson(OnulipiprapokDTOs);
 
-                            var dakForwardResponse = GetDakForwardResponse(dakForwardRequestParam);
+                    var daklist = selectedDakListFlowLayoutPanel.Controls.OfType<SelectedDakListUserControl>().ToList();
+                    var ActionResult = UserControlFactory.Create<MultipleDakSelectedListConfirmForm>();
+                    if (daklist.Count > 0)
+                    {
+                        List<SelectedDakListUserControl> dakListSelected = daklist.Where(a => a._isSelected == true).ToList();
+                        if (dakListSelected.Count > 0)
+                        {
 
-                            if (dakForwardResponse.status == "success")
+                            foreach (SelectedDakListUserControl dakSelected in dakListSelected)
                             {
+                                _totalForwardRequest += 1;
 
-                                _totalSuccessForwardRequest += 1;
-                                
-                                
-                                
-                               
-                            }
-                            else
-                            {
-                                _totalFailForwardRequest += 1;
-
-                                MultipleDakActionResultDakRowUserControl multipleDakActionResultDakRowUserControl = new MultipleDakActionResultDakRowUserControl();
+                                dakForwardRequestParam.dak_id = dakSelected.dakUserDTO.dak_id;
+                                dakForwardRequestParam.is_copied_dak = dakSelected.dakUserDTO.is_copied_dak;
+                                dakForwardRequestParam.dak_type = dakSelected.dakUserDTO.dak_type;
 
 
-                                multipleDakActionResultDakRowUserControl.dakUserDTO = dakSelected.dakUserDTO;
-                                multipleDakActionResultDakRowUserControl.error = dakForwardResponse.data;
-                                multipleDakActionResultDakRowUserControl.prerok = dakSelected._prerok;
-                                ActionResult.multiplaeDakActionResultAdd.Controls.Add(multipleDakActionResultDakRowUserControl);
+                                var dakForwardResponse = GetDakForwardResponse(dakForwardRequestParam);
 
+                                if (dakForwardResponse.status == "success")
+                                {
+
+                                    _totalSuccessForwardRequest += 1;
+
+
+
+
+                                }
+                                else
+                                {
+                                    _totalFailForwardRequest += 1;
+
+                                    MultipleDakActionResultDakRowUserControl multipleDakActionResultDakRowUserControl = new MultipleDakActionResultDakRowUserControl();
+
+
+                                    multipleDakActionResultDakRowUserControl.dakUserDTO = dakSelected.dakUserDTO;
+                                    multipleDakActionResultDakRowUserControl.error = dakForwardResponse.data;
+                                    multipleDakActionResultDakRowUserControl.prerok = dakSelected._prerok;
+                                    ActionResult.multiplaeDakActionResultAdd.Controls.Add(multipleDakActionResultDakRowUserControl);
+
+                                }
                             }
                         }
                     }
+
+                    ActionResult.isDakForwardReturn = true;
+                    ActionResult.totalRequest = _totalForwardRequest;
+                    ActionResult.totalRequestFail = _totalFailForwardRequest;
+                    ActionResult.totalForwardRequest = _totalSuccessForwardRequest;
+                    Form form = AttachControlToForm(ActionResult);
+                    form.ShowDialog();
+
+
+                    if (this.SucessfullyDakForwarded != null)
+                        this.SucessfullyDakForwarded(sender, e);
+                    this.Hide();
                 }
-
-
-                ActionResult.totalRequest = _totalForwardRequest;
-                ActionResult.totalRequestFail = _totalFailForwardRequest;
-                ActionResult.totalForwardRequest = _totalSuccessForwardRequest;
-
-                ActionResult.ShowDialog();
-                if (this.SucessfullyDakForwarded != null)
-                    this.SucessfullyDakForwarded(sender, e);
-                this.Hide();
-
 
             }
             else
@@ -711,7 +718,21 @@ namespace dNothi.Desktop.UI.Dak
     
 
         }
+        public Form AttachControlToForm(Control control)
+        {
+            Form form = new Form();
 
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.Height = 100;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
         protected string GetAPIVersion()
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
@@ -867,7 +888,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             var prapokList = prapokOwnDataGridView.DataSource;
 
-            List<ViewDesignationSealList> designationSealListsinGridView = (List<ViewDesignationSealList>)prapokList;
+            IEnumerable<ViewDesignationSealList> designationSealListsinGridView = (IEnumerable<ViewDesignationSealList>)prapokList;
             List<ViewDesignationSealList> NewViewDesignationSealLists = new List<ViewDesignationSealList>();
 
 
@@ -879,7 +900,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 foreach (var des in designationSealListsinGridView.Where(a=>a.nij_Office==true))
                 {
-                    if (des.designation.StartsWith(officerSearchOwnXTextBox.Text) || des.employee_name_bng.StartsWith(officerSearchOwnXTextBox.Text))
+                    if (des.designation.Contains(officerSearchOwnXTextBox.Text) || des.employee_name_bng.Contains(officerSearchOwnXTextBox.Text))
                     {
                         NewViewDesignationSealLists.Add(des);
                     }
