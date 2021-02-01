@@ -34,8 +34,10 @@ namespace dNothi.Desktop.UI
         INothiNoteTalikaServices _nothiNoteTalikaServices { get; set; }
         INothiPotrangshoServices _loadPotrangsho { get; set; }
         IAllPotroServices _allPotro { get; set; }
+        IKhoshraPotroServices _khoshraPotro { get; set; }
         public Note(IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
-            IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro)
+            IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
+            IKhoshraPotroServices khoshraPotro)
         {
             _userService = userService;
             _onucchedSave = onucchedSave;
@@ -45,6 +47,7 @@ namespace dNothi.Desktop.UI
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _loadPotrangsho = loadPotrangsho;
             _allPotro = allPotro;
+            _khoshraPotro = khoshraPotro;
 
             InitializeComponent();
             SetDefaultFont(this.Controls);
@@ -1152,30 +1155,91 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
         }
-
+        int i = 0;
         private void lbAllPotro_Click(object sender, EventArgs e)
         {
+            
             lbAllPotro.BackColor = Color.FromArgb(14, 102, 98);
             lbAllPotro.ForeColor = Color.FromArgb(191, 239, 237);
 
             AllPotroResponse allPotro = _allPotro.GetAllPotroInfo(_dakuserparam, nothiListRecords.id);
             if(allPotro.status == "success")
             {
+                NextButtonClick += delegate (object sender1, EventArgs e1) { Next_ButtonClick(allPotro, e1); };
                 int index=0;
                 pnlPotrangshoDetails.Visible = true;
                 if (allPotro.data.total_records > 0)
                 {
-                    if (allPotro.data.records[0].basic.page_numbers.Contains(","))
+                    if (allPotro.data.records[i].basic.page_numbers.Contains(","))
                     {
-                        index = allPotro.data.records[0].basic.page_numbers.IndexOf(",");
+                        index = allPotro.data.records[i].basic.page_numbers.IndexOf(",");
                     }
-                    int totalLength = allPotro.data.records[0].basic.page_numbers.Length;
-                    lbPotroSubject.Text = allPotro.data.records[0].basic.subject+ "(পাতা:" + string.Concat(allPotro.data.records[0].basic.page_numbers.Substring(0,index).ToString().Select(c => (char)('\u09E6' + c - '0')))  + "-"+ string.Concat(allPotro.data.records[0].basic.page_numbers.Substring(index+1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
-                    lbLastIssueDate.Text = allPotro.data.records[0].basic.due_date;
-                    lbSubjectSmall.Text = allPotro.data.records[0].basic.subject;
+                    int totalLength = allPotro.data.records[i].basic.page_numbers.Length;
+                    lbPotroSubject.Text = allPotro.data.records[i].basic.subject+ "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0,index).ToString().Select(c => (char)('\u09E6' + c - '0')))  + "-"+ string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index+1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+                    lbLastIssueDate.Text = allPotro.data.records[i].basic.due_date;
+                    lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
                     lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    picBoxFile.Load(allPotro.data.records[0].mulpotro.url);
+                    if (allPotro.data.records[i].mulpotro.url != "")
+                    {
+                        picBoxFile.Load(allPotro.data.records[i].mulpotro.url);
+                    }
+                    else
+                    {
+                        picBoxFile.Controls.Clear();
+                    }
+                    i++;
                 }
+            }
+        }
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler NextButtonClick;
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (this.NextButtonClick != null)
+                this.NextButtonClick(sender, e);
+        }
+        public void Next_ButtonClick(AllPotroResponse allPotro, EventArgs e)
+        {
+                if (allPotro.data.total_records > i && i > 0)
+                {
+                    int index = 0;
+                    if (allPotro.data.records[i].basic.page_numbers.Contains(","))
+                    {
+                        index = allPotro.data.records[i].basic.page_numbers.IndexOf(",");
+                    }
+                    int totalLength = allPotro.data.records[i].basic.page_numbers.Length;
+                    lbPotroSubject.Text = allPotro.data.records[i].basic.subject + "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) 
+                    + "-" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+                    lbLastIssueDate.Text = allPotro.data.records[i].basic.due_date;
+                    lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
+                    lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    if (allPotro.data.records[i].mulpotro.url != "")
+                    {
+                        picBoxFile.Load(allPotro.data.records[i].mulpotro.url);
+                    }
+                    else
+                    {
+                        picBoxFile.Controls.Clear();
+                    }
+                    i++;
+                }
+                if(allPotro.data.total_records==i)
+                {
+                    i = 0;
+                }
+         }
+
+        private void lbKhoshra_Click(object sender, EventArgs e)
+        {
+            lbKhoshra.BackColor = Color.FromArgb(14, 102, 98);
+            lbKhoshra.ForeColor = Color.FromArgb(191, 239, 237);
+
+            KhoshraPotroResponse khoshraPotro = _khoshraPotro.GetKhoshraPotroInfo(_dakuserparam, nothiListRecords.id);
+            if (khoshraPotro.status == "success")
+            {
+                
             }
         }
     }

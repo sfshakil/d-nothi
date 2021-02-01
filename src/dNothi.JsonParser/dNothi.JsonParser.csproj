@@ -120,6 +120,13 @@
     <Compile Include="Entity\Nothi\DeskAllDTO.cs" />
     <Compile Include="Entity\Nothi\DeskNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\DeskOutboxDTO.cs" />
+    <Compile Include="Entity\Nothi\KhoshraPotroDataDTO.cs" />
+    <Compile Include="Entity\Nothi\KhoshraPotroRecordsBasicDTO.cs" />
+    <Compile Include="Entity\Nothi\KhoshraPotroRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\KhoshraPotroRecordsMulpotroDTO.cs" />
+    <Compile Include="Entity\Nothi\KhoshraPotroRecordsNoteOnucchedDTO.cs" />
+    <Compile Include="Entity\Nothi\KhoshraPotroRecordsNoteOwnerDTO.cs" />
+    <Compile Include="Entity\Nothi\KhoshraPotroResponse.cs" />
     <Compile Include="Entity\Nothi\NoteAllList.cs" />
     <Compile Include="Entity\Nothi\NoteAllListDataDTO.cs" />
     <Compile Include="Entity\Nothi\NoteAllListDataRecordDTO.cs" />

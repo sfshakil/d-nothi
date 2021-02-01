@@ -142,6 +142,7 @@
     <Compile Include="NothiServices\AllPotroServices.cs" />
     <Compile Include="NothiServices\FileAttachment.cs" />
     <Compile Include="NothiServices\IAllPotroServices.cs" />
+    <Compile Include="NothiServices\IKhoshraPotroServices.cs" />
     <Compile Include="NothiServices\INoteDeleteService.cs" />
     <Compile Include="NothiServices\INoteSaveService.cs" />
     <Compile Include="NothiServices\INothiPotrangshoServices.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="NothiServices\INothiTypeListServices.cs" />
     <Compile Include="NothiServices\IOnuchhedForwardService.cs" />
     <Compile Include="NothiServices\IOnumodonService.cs" />
+    <Compile Include="NothiServices\KhoshraPotroServices.cs" />
     <Compile Include="NothiServices\NoteDeleteService.cs" />
     <Compile Include="NothiServices\NoteSaveService.cs" />
     <Compile Include="NothiServices\NothiAllService.cs" />
