@@ -73,6 +73,9 @@ namespace dNothi.Constants
         public const string NothiPotrangshoEndPoint = "/api/nothi/potro/status";
         public const string NothiPotrangshoAllPotroEndPoint = "/api/nothi_all_potro_list";
         public const string NothiPotrangshoKhoshraPotroEndPoint = "/api/nothi_khoshra_potro_list";
+        public const string NothiPotrangshoKhoshraPotroWaitingEndPoint = "/api/nothi_khoshra_waiting_for_approval_list";
+        public const string NothiPotrangshoPotrojariEndPoint = "/api/nothi_potrojari_list";
+        public const string NothiPotrangshoNothijatoEndPoint = "/api/nothi_nothijato_potro_list";
 
 
     }

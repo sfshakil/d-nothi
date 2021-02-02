@@ -134,6 +134,7 @@
             this.pnlPotrangshoDetails = new System.Windows.Forms.Panel();
             this.panel46 = new System.Windows.Forms.Panel();
             this.pnlPictureBox = new System.Windows.Forms.Panel();
+            this.pdfViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.picBoxFile = new System.Windows.Forms.PictureBox();
             this.panel45 = new System.Windows.Forms.Panel();
             this.iconButton22 = new FontAwesome.Sharp.IconButton();
@@ -142,10 +143,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
             this.lbSubjectSmall = new System.Windows.Forms.Label();
+            this.lbNoteId = new System.Windows.Forms.Label();
             this.lbLastIssueDate = new System.Windows.Forms.Label();
             this.lbMulPotroOShonjukti = new System.Windows.Forms.Label();
             this.panel42 = new System.Windows.Forms.Panel();
             this.panel43 = new System.Windows.Forms.Panel();
+            this.btnKhshraNext = new FontAwesome.Sharp.IconButton();
             this.btnNext = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.lbTotal = new System.Windows.Forms.Label();
@@ -1828,20 +1831,32 @@
             this.panel46.AutoScroll = true;
             this.panel46.Controls.Add(this.pnlPictureBox);
             this.panel46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel46.Location = new System.Drawing.Point(0, 195);
+            this.panel46.Location = new System.Drawing.Point(0, 213);
             this.panel46.Name = "panel46";
-            this.panel46.Size = new System.Drawing.Size(838, 210);
+            this.panel46.Size = new System.Drawing.Size(838, 192);
             this.panel46.TabIndex = 2;
             // 
             // pnlPictureBox
             // 
             this.pnlPictureBox.AutoScroll = true;
+            this.pnlPictureBox.Controls.Add(this.pdfViewWebBrowser);
             this.pnlPictureBox.Controls.Add(this.picBoxFile);
             this.pnlPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPictureBox.Location = new System.Drawing.Point(0, 0);
             this.pnlPictureBox.Name = "pnlPictureBox";
-            this.pnlPictureBox.Size = new System.Drawing.Size(838, 210);
+            this.pnlPictureBox.Size = new System.Drawing.Size(838, 192);
             this.pnlPictureBox.TabIndex = 3;
+            // 
+            // pdfViewWebBrowser
+            // 
+            this.pdfViewWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdfViewWebBrowser.Location = new System.Drawing.Point(0, 0);
+            this.pdfViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.pdfViewWebBrowser.Name = "pdfViewWebBrowser";
+            this.pdfViewWebBrowser.Size = new System.Drawing.Size(838, 192);
+            this.pdfViewWebBrowser.TabIndex = 4;
+            this.pdfViewWebBrowser.Url = new System.Uri("https://dev.nothibs.tappware.com/api/content/view?token=NjAxOGYxY2NhODhiOSZvZmZpY" +
+        "2VJZF82NV80MA%3D%3D", System.UriKind.Absolute);
             // 
             // picBoxFile
             // 
@@ -1858,7 +1873,7 @@
             this.panel45.Controls.Add(this.iconButton21);
             this.panel45.Controls.Add(this.iconButton12);
             this.panel45.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel45.Location = new System.Drawing.Point(0, 162);
+            this.panel45.Location = new System.Drawing.Point(0, 180);
             this.panel45.Name = "panel45";
             this.panel45.Size = new System.Drawing.Size(838, 33);
             this.panel45.TabIndex = 1;
@@ -1934,18 +1949,19 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(838, 162);
+            this.panel1.Size = new System.Drawing.Size(838, 180);
             this.panel1.TabIndex = 0;
             // 
             // panel44
             // 
             this.panel44.Controls.Add(this.lbSubjectSmall);
+            this.panel44.Controls.Add(this.lbNoteId);
             this.panel44.Controls.Add(this.lbLastIssueDate);
             this.panel44.Controls.Add(this.lbMulPotroOShonjukti);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel44.Location = new System.Drawing.Point(0, 79);
             this.panel44.Name = "panel44";
-            this.panel44.Size = new System.Drawing.Size(468, 83);
+            this.panel44.Size = new System.Drawing.Size(468, 101);
             this.panel44.TabIndex = 77;
             // 
             // lbSubjectSmall
@@ -1953,11 +1969,25 @@
             this.lbSubjectSmall.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbSubjectSmall.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbSubjectSmall.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbSubjectSmall.Location = new System.Drawing.Point(0, 42);
+            this.lbSubjectSmall.Location = new System.Drawing.Point(0, 63);
             this.lbSubjectSmall.Name = "lbSubjectSmall";
             this.lbSubjectSmall.Size = new System.Drawing.Size(468, 38);
-            this.lbSubjectSmall.TabIndex = 79;
+            this.lbSubjectSmall.TabIndex = 81;
             this.lbSubjectSmall.Text = "Subject";
+            // 
+            // lbNoteId
+            // 
+            this.lbNoteId.AutoSize = true;
+            this.lbNoteId.BackColor = System.Drawing.Color.White;
+            this.lbNoteId.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbNoteId.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbNoteId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteId.Location = new System.Drawing.Point(0, 42);
+            this.lbNoteId.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNoteId.Name = "lbNoteId";
+            this.lbNoteId.Size = new System.Drawing.Size(56, 21);
+            this.lbNoteId.TabIndex = 79;
+            this.lbNoteId.Text = "নোটঃ ০";
             // 
             // lbLastIssueDate
             // 
@@ -1999,6 +2029,7 @@
             // 
             // panel43
             // 
+            this.panel43.Controls.Add(this.btnKhshraNext);
             this.panel43.Controls.Add(this.btnNext);
             this.panel43.Controls.Add(this.iconButton11);
             this.panel43.Controls.Add(this.lbTotal);
@@ -2007,6 +2038,23 @@
             this.panel43.Name = "panel43";
             this.panel43.Size = new System.Drawing.Size(209, 78);
             this.panel43.TabIndex = 62;
+            // 
+            // btnKhshraNext
+            // 
+            this.btnKhshraNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnKhshraNext.FlatAppearance.BorderSize = 0;
+            this.btnKhshraNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnKhshraNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhshraNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnKhshraNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnKhshraNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnKhshraNext.IconSize = 24;
+            this.btnKhshraNext.Location = new System.Drawing.Point(149, 7);
+            this.btnKhshraNext.Name = "btnKhshraNext";
+            this.btnKhshraNext.Size = new System.Drawing.Size(33, 29);
+            this.btnKhshraNext.TabIndex = 69;
+            this.btnKhshraNext.UseVisualStyleBackColor = false;
+            this.btnKhshraNext.Click += new System.EventHandler(this.btnKhshraNext_Click);
             // 
             // btnNext
             // 
@@ -2365,6 +2413,7 @@
             this.lbNothijato.Size = new System.Drawing.Size(19, 21);
             this.lbNothijato.TabIndex = 63;
             this.lbNothijato.Text = "২";
+            this.lbNothijato.Click += new System.EventHandler(this.lbNothijato_Click);
             // 
             // pnlPotrojari
             // 
@@ -2402,6 +2451,7 @@
             this.lbPotrojari.Size = new System.Drawing.Size(19, 21);
             this.lbPotrojari.TabIndex = 63;
             this.lbPotrojari.Text = "২";
+            this.lbPotrojari.Click += new System.EventHandler(this.lbPotrojari_Click);
             // 
             // label27
             // 
@@ -2550,6 +2600,7 @@
             this.lbKhoshraWaiting.Size = new System.Drawing.Size(19, 21);
             this.lbKhoshraWaiting.TabIndex = 63;
             this.lbKhoshraWaiting.Text = "২";
+            this.lbKhoshraWaiting.Click += new System.EventHandler(this.lbKhoshraWaiting_Click);
             // 
             // label15
             // 
@@ -3161,7 +3212,6 @@
         private FontAwesome.Sharp.IconButton iconButton11;
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Panel panel44;
-        private System.Windows.Forms.Label lbSubjectSmall;
         private System.Windows.Forms.Label lbLastIssueDate;
         private System.Windows.Forms.Label lbMulPotroOShonjukti;
         private FontAwesome.Sharp.IconButton iconButton12;
@@ -3171,5 +3221,9 @@
         private System.Windows.Forms.Panel panel46;
         private System.Windows.Forms.Panel pnlPictureBox;
         private System.Windows.Forms.PictureBox picBoxFile;
+        private System.Windows.Forms.Label lbSubjectSmall;
+        private System.Windows.Forms.Label lbNoteId;
+        private FontAwesome.Sharp.IconButton btnKhshraNext;
+        private System.Windows.Forms.WebBrowser pdfViewWebBrowser;
     }
 }
