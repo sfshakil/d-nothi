@@ -165,6 +165,9 @@ namespace dNothi.Desktop
             builder.RegisterType<KhoshraPotroWaitingServices>().As<IKhoshraPotroWaitingServices>();
             builder.RegisterType<PotrojariServices>().As<IPotrojariServices>();
             builder.RegisterType<NothijatoServices>().As<INothijatoServices>();
+            builder.RegisterType<NotePotrojariServices>().As<INotePotrojariServices>();
+            builder.RegisterType<NoteKhshraWaitingListServices>().As<INoteKhshraWaitingListServices>();
+            builder.RegisterType<NoteKhoshraListServices>().As<INoteKhoshraListServices>();
             
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();

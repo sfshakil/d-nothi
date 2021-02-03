@@ -38,9 +38,13 @@ namespace dNothi.Desktop.UI
         IKhoshraPotroWaitingServices _khoshraPotroWaiting { get; set; }
         IPotrojariServices _potrojariList { get; set; }
         INothijatoServices _nothijatoList { get; set; }
+        INotePotrojariServices _notePotrojariList { get; set; }
+        INoteKhshraWaitingListServices _noteKhshraWaitingList { get; set; }
+        INoteKhoshraListServices _noteKhoshraList { get; set; }
         public Note(IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
             IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
-            IKhoshraPotroServices khoshraPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList)
+            IKhoshraPotroServices khoshraPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
+            INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList)
         {
             _userService = userService;
             _onucchedSave = onucchedSave;
@@ -54,6 +58,9 @@ namespace dNothi.Desktop.UI
             _khoshraPotroWaiting = khoshraPotroWaiting;
             _potrojariList = potrojariList;
             _nothijatoList = nothijatoList;
+            _notePotrojariList = notePotrojariList;
+            _noteKhshraWaitingList = noteKhshraWaitingList;
+            _noteKhoshraList = noteKhoshraList;
 
             InitializeComponent();
             SetDefaultFont(this.Controls);
@@ -196,31 +203,32 @@ namespace dNothi.Desktop.UI
                 {
                     pnlNoteKhoshraWaiting.Visible = true;
                     
-                    lbNoteKhoshraWaiting.Text = list.khoshra_waiting_for_approval.ToString();
+                    lbNoteKhoshraWaiting.Text = string.Concat(list.khoshra_waiting_for_approval.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 }
                 else
                 {
                     pnlNoteKhoshraWaiting.Visible = false;
                 }
-                if (list.potrojari > 0)
-                {
-                    pnlNotePotrojari.Visible = true;
-                    lbNotePotrojari.Text = list.potrojari.ToString();
-                }
-                else
-                {
-                    pnlNotePotrojari.Visible = false;
-                }
+                
                 if (list.khoshra_potro > 0)
                 {
                     pnlNoteKhoshra.Visible = true;
-                    lbNoteKhoshra.Text = list.khoshra_potro.ToString();
+                    lbNoteKhoshra.Text = string.Concat(list.khoshra_potro.ToString().Select(c => (char)('\u09E6' + c - '0'))); 
                 }
                 else
                 {
                     pnlNoteKhoshra.Visible = false;
                 }
                 lbNote.Visible = true;
+                if (list.potrojari > 0)
+                {
+                    pnlNotePotrojari.Visible = true;
+                    lbNotePotrojari.Text = string.Concat(list.potrojari.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    pnlNotePotrojari.Visible = false;
+                }
             }
             else
             {
@@ -281,7 +289,9 @@ namespace dNothi.Desktop.UI
         public string noteTotal
         {
             get { return _noteTotal; }
-            set { _noteTotal = value; string vl = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            set { _noteTotal = value; 
+                string vl = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbNoteTotl.Text = "নোটঃ " + vl;
                 lbNoteTtl.Text = vl+ ".০"; }
         }
 
@@ -1319,6 +1329,39 @@ namespace dNothi.Desktop.UI
                 lbSubjectSmall.Text = "পত্র: " + nothijatoList.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(nothijatoList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 picBoxFile.Controls.Clear();
+            }
+        }
+
+        private void lbNoteKhoshra_Click(object sender, EventArgs e)
+        {
+            lbNoteKhoshra.BackColor = Color.FromArgb(14, 102, 98);
+            lbNoteKhoshra.ForeColor = Color.FromArgb(191, 239, 237);
+            NoteKhoshraListResponse noteKhoshraList = _noteKhoshraList.GetnoteKhoshraListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
+            if (noteKhoshraList.status == "success")
+            {
+
+            }
+        }
+
+        private void lbNoteKhoshraWaiting_Click(object sender, EventArgs e)
+        {
+            lbNoteKhoshraWaiting.BackColor = Color.FromArgb(14, 102, 98);
+            lbNoteKhoshraWaiting.ForeColor = Color.FromArgb(191, 239, 237);
+            NoteKhshraWaitingListResponse noteKhshraWaitingList = _noteKhshraWaitingList.GetNoteKhshraWaitingListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
+            if (noteKhshraWaitingList.status == "success")
+            {
+
+            }
+        }
+
+        private void lbNotePotrojari_Click(object sender, EventArgs e)
+        {
+            lbNotePotrojari.BackColor = Color.FromArgb(14, 102, 98);
+            lbNotePotrojari.ForeColor = Color.FromArgb(191, 239, 237);
+            NotePotrojariResponse notePotrojariList = _notePotrojariList.GetPotrojariListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
+            if (notePotrojariList.status == "success")
+            {
+
             }
         }
     }
