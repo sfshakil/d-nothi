@@ -101,7 +101,7 @@
             this.label4.Location = new System.Drawing.Point(21, 11);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 21);
+            this.label4.Size = new System.Drawing.Size(53, 25);
             this.label4.TabIndex = 63;
             this.label4.Text = "বিষয়ঃ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -149,10 +149,10 @@
             this.decisionText.Dock = System.Windows.Forms.DockStyle.Left;
             this.decisionText.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decisionText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.decisionText.Location = new System.Drawing.Point(302, 0);
+            this.decisionText.Location = new System.Drawing.Point(321, 0);
             this.decisionText.Name = "decisionText";
             this.decisionText.Padding = new System.Windows.Forms.Padding(0, 4, 0, 6);
-            this.decisionText.Size = new System.Drawing.Size(181, 28);
+            this.decisionText.Size = new System.Drawing.Size(232, 31);
             this.decisionText.TabIndex = 76;
             this.decisionText.Text = "qewqewqeqw qweqwe qweqw ";
             this.decisionText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,7 +164,7 @@
             this.decisionLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.decisionLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decisionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.decisionLabel.Location = new System.Drawing.Point(254, 0);
+            this.decisionLabel.Location = new System.Drawing.Point(273, 0);
             this.decisionLabel.Margin = new System.Windows.Forms.Padding(0);
             this.decisionLabel.Name = "decisionLabel";
             this.decisionLabel.Size = new System.Drawing.Size(48, 28);
@@ -175,7 +175,7 @@
             // sharokNoSpaceLabel
             // 
             this.sharokNoSpaceLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sharokNoSpaceLabel.Location = new System.Drawing.Point(244, 0);
+            this.sharokNoSpaceLabel.Location = new System.Drawing.Point(263, 0);
             this.sharokNoSpaceLabel.Name = "sharokNoSpaceLabel";
             this.sharokNoSpaceLabel.Size = new System.Drawing.Size(10, 28);
             this.sharokNoSpaceLabel.TabIndex = 74;
@@ -187,10 +187,10 @@
             this.sharokNoText.Dock = System.Windows.Forms.DockStyle.Left;
             this.sharokNoText.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sharokNoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.sharokNoText.Location = new System.Drawing.Point(208, 0);
+            this.sharokNoText.Location = new System.Drawing.Point(217, 0);
             this.sharokNoText.MinimumSize = new System.Drawing.Size(0, 28);
             this.sharokNoText.Name = "sharokNoText";
-            this.sharokNoText.Size = new System.Drawing.Size(36, 28);
+            this.sharokNoText.Size = new System.Drawing.Size(46, 28);
             this.sharokNoText.TabIndex = 72;
             this.sharokNoText.Text = "0000";
             this.sharokNoText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -202,7 +202,7 @@
             this.sharokNoLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sharokNoLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sharokNoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.sharokNoLabel.Location = new System.Drawing.Point(137, 0);
+            this.sharokNoLabel.Location = new System.Drawing.Point(146, 0);
             this.sharokNoLabel.Margin = new System.Windows.Forms.Padding(0);
             this.sharokNoLabel.Name = "sharokNoLabel";
             this.sharokNoLabel.Size = new System.Drawing.Size(71, 28);
@@ -213,7 +213,7 @@
             // docketingNoSpaceLabel
             // 
             this.docketingNoSpaceLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.docketingNoSpaceLabel.Location = new System.Drawing.Point(127, 0);
+            this.docketingNoSpaceLabel.Location = new System.Drawing.Point(136, 0);
             this.docketingNoSpaceLabel.Name = "docketingNoSpaceLabel";
             this.docketingNoSpaceLabel.Size = new System.Drawing.Size(10, 28);
             this.docketingNoSpaceLabel.TabIndex = 72;
@@ -223,7 +223,7 @@
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(127, 0);
+            this.label6.Location = new System.Drawing.Point(136, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 20);
             this.label6.TabIndex = 73;
@@ -238,7 +238,7 @@
             this.docketingNoText.Location = new System.Drawing.Point(67, 0);
             this.docketingNoText.MinimumSize = new System.Drawing.Size(0, 28);
             this.docketingNoText.Name = "docketingNoText";
-            this.docketingNoText.Size = new System.Drawing.Size(60, 28);
+            this.docketingNoText.Size = new System.Drawing.Size(69, 28);
             this.docketingNoText.TabIndex = 72;
             this.docketingNoText.Text = "১২১২১২১";
             this.docketingNoText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -423,7 +423,7 @@
             this.movementStatusDetailsButton.MaximumSize = new System.Drawing.Size(0, 30);
             this.movementStatusDetailsButton.MinimumSize = new System.Drawing.Size(0, 30);
             this.movementStatusDetailsButton.Name = "movementStatusDetailsButton";
-            this.movementStatusDetailsButton.Size = new System.Drawing.Size(278, 30);
+            this.movementStatusDetailsButton.Size = new System.Drawing.Size(320, 30);
             this.movementStatusDetailsButton.TabIndex = 79;
             this.movementStatusDetailsButton.Text = "ন্যাশনাল কনসালটেন্ট ফর ই-নথি ইমপ্লিমেন্টেশন";
             this.movementStatusDetailsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -449,10 +449,10 @@
             this.designationLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.designationLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
-            this.designationLabel.Location = new System.Drawing.Point(86, 0);
+            this.designationLabel.Location = new System.Drawing.Point(103, 0);
             this.designationLabel.Name = "designationLabel";
             this.designationLabel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.designationLabel.Size = new System.Drawing.Size(79, 20);
+            this.designationLabel.Size = new System.Drawing.Size(96, 23);
             this.designationLabel.TabIndex = 1;
             this.designationLabel.Text = "(হাসানুজ্জামান)";
             // 
@@ -464,7 +464,7 @@
             this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
             this.nameLabel.Location = new System.Drawing.Point(0, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(86, 21);
+            this.nameLabel.Size = new System.Drawing.Size(103, 25);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "হাসানুজ্জামান";
             // 
@@ -484,10 +484,10 @@
             this.mainAttachmentTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(86)))), ((int)(((byte)(89)))));
             this.mainAttachmentTabPage.Controls.Add(this.mainAttachmentViewWebBrowser);
             this.mainAttachmentTabPage.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainAttachmentTabPage.Location = new System.Drawing.Point(4, 27);
+            this.mainAttachmentTabPage.Location = new System.Drawing.Point(4, 30);
             this.mainAttachmentTabPage.Name = "mainAttachmentTabPage";
             this.mainAttachmentTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mainAttachmentTabPage.Size = new System.Drawing.Size(1041, 348);
+            this.mainAttachmentTabPage.Size = new System.Drawing.Size(1041, 345);
             this.mainAttachmentTabPage.TabIndex = 0;
             this.mainAttachmentTabPage.Text = "মূলপত্র​";
             // 
@@ -497,17 +497,17 @@
             this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(3, 3);
             this.mainAttachmentViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.mainAttachmentViewWebBrowser.Name = "mainAttachmentViewWebBrowser";
-            this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(1035, 342);
+            this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(1035, 339);
             this.mainAttachmentViewWebBrowser.TabIndex = 0;
             this.mainAttachmentViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.attachmentListFlowLayoutPanel);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1041, 348);
+            this.tabPage2.Size = new System.Drawing.Size(1041, 345);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "সকল সংযুক্তি";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -518,7 +518,7 @@
             this.attachmentListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.attachmentListFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.attachmentListFlowLayoutPanel.Name = "attachmentListFlowLayoutPanel";
-            this.attachmentListFlowLayoutPanel.Size = new System.Drawing.Size(1035, 342);
+            this.attachmentListFlowLayoutPanel.Size = new System.Drawing.Size(1035, 339);
             this.attachmentListFlowLayoutPanel.TabIndex = 0;
             // 
             // iconPictureBox1
@@ -568,7 +568,7 @@
             this.dakCategoryLabel.Location = new System.Drawing.Point(504, 8);
             this.dakCategoryLabel.Margin = new System.Windows.Forms.Padding(0);
             this.dakCategoryLabel.Name = "dakCategoryLabel";
-            this.dakCategoryLabel.Size = new System.Drawing.Size(81, 21);
+            this.dakCategoryLabel.Size = new System.Drawing.Size(96, 25);
             this.dakCategoryLabel.TabIndex = 65;
             this.dakCategoryLabel.Text = "আগত ডাক";
             this.dakCategoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

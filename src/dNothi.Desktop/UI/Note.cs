@@ -33,7 +33,18 @@ namespace dNothi.Desktop.UI
         IOnumodonService _onumodonService { get; set; }
         INothiNoteTalikaServices _nothiNoteTalikaServices { get; set; }
         INothiPotrangshoServices _loadPotrangsho { get; set; }
-        public Note(IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho)
+        IAllPotroServices _allPotro { get; set; }
+        IKhoshraPotroServices _khoshraPotro { get; set; }
+        IKhoshraPotroWaitingServices _khoshraPotroWaiting { get; set; }
+        IPotrojariServices _potrojariList { get; set; }
+        INothijatoServices _nothijatoList { get; set; }
+        INotePotrojariServices _notePotrojariList { get; set; }
+        INoteKhshraWaitingListServices _noteKhshraWaitingList { get; set; }
+        INoteKhoshraListServices _noteKhoshraList { get; set; }
+        public Note(IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
+            IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
+            IKhoshraPotroServices khoshraPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
+            INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList)
         {
             _userService = userService;
             _onucchedSave = onucchedSave;
@@ -42,6 +53,14 @@ namespace dNothi.Desktop.UI
             _dakuserparam = _userService.GetLocalDakUserParam();
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _loadPotrangsho = loadPotrangsho;
+            _allPotro = allPotro;
+            _khoshraPotro = khoshraPotro;
+            _khoshraPotroWaiting = khoshraPotroWaiting;
+            _potrojariList = potrojariList;
+            _nothijatoList = nothijatoList;
+            _notePotrojariList = notePotrojariList;
+            _noteKhshraWaitingList = noteKhshraWaitingList;
+            _noteKhoshraList = noteKhoshraList;
 
             InitializeComponent();
             SetDefaultFont(this.Controls);
@@ -184,31 +203,32 @@ namespace dNothi.Desktop.UI
                 {
                     pnlNoteKhoshraWaiting.Visible = true;
                     
-                    lbNoteKhoshraWaiting.Text = list.khoshra_waiting_for_approval.ToString();
+                    lbNoteKhoshraWaiting.Text = string.Concat(list.khoshra_waiting_for_approval.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 }
                 else
                 {
                     pnlNoteKhoshraWaiting.Visible = false;
                 }
-                if (list.potrojari > 0)
-                {
-                    pnlNotePotrojari.Visible = true;
-                    lbNotePotrojari.Text = list.potrojari.ToString();
-                }
-                else
-                {
-                    pnlNotePotrojari.Visible = false;
-                }
+                
                 if (list.khoshra_potro > 0)
                 {
                     pnlNoteKhoshra.Visible = true;
-                    lbNoteKhoshra.Text = list.khoshra_potro.ToString();
+                    lbNoteKhoshra.Text = string.Concat(list.khoshra_potro.ToString().Select(c => (char)('\u09E6' + c - '0'))); 
                 }
                 else
                 {
                     pnlNoteKhoshra.Visible = false;
                 }
                 lbNote.Visible = true;
+                if (list.potrojari > 0)
+                {
+                    pnlNotePotrojari.Visible = true;
+                    lbNotePotrojari.Text = string.Concat(list.potrojari.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    pnlNotePotrojari.Visible = false;
+                }
             }
             else
             {
@@ -269,7 +289,9 @@ namespace dNothi.Desktop.UI
         public string noteTotal
         {
             get { return _noteTotal; }
-            set { _noteTotal = value; string vl = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            set { _noteTotal = value; 
+                string vl = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbNoteTotl.Text = "নোটঃ " + vl;
                 lbNoteTtl.Text = vl+ ".০"; }
         }
 
@@ -1148,6 +1170,199 @@ namespace dNothi.Desktop.UI
             this.Hide();
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
+        }
+        int i = 0;
+        private void lbAllPotro_Click(object sender, EventArgs e)
+        {
+            
+            lbAllPotro.BackColor = Color.FromArgb(14, 102, 98);
+            lbAllPotro.ForeColor = Color.FromArgb(191, 239, 237);
+            btnNext.Visible = true;
+            btnKhshraNext.Visible = false;
+
+            AllPotroResponse allPotro = _allPotro.GetAllPotroInfo(_dakuserparam, nothiListRecords.id);
+            if(allPotro.status == "success")
+            {
+                i = 0;
+                NextButtonClick += delegate (object sender1, EventArgs e1) { AllPotroNext_ButtonClick(allPotro, e1); };
+                int index=0;
+                pnlPotrangshoDetails.Visible = true;
+                if (allPotro.data.total_records > 0)
+                {
+                    if (allPotro.data.records[i].basic.page_numbers.Contains(","))
+                    {
+                        index = allPotro.data.records[i].basic.page_numbers.IndexOf(",");
+                    }
+                    int totalLength = allPotro.data.records[i].basic.page_numbers.Length;
+                    lbPotroSubject.Text = allPotro.data.records[i].basic.subject+ "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0,index).ToString().Select(c => (char)('\u09E6' + c - '0')))  + "-"+ string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index+1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+                    lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
+                    lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
+                    lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].basic.nothi_note_id.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    if (allPotro.data.records[i].mulpotro.url != "")
+                    {
+                        picBoxFile.Visible = false;
+                        pdfViewWebBrowser.Url = new Uri(allPotro.data.records[i].mulpotro.url);
+                        //picBoxFile.Load(allPotro.data.records[i].mulpotro.url);
+                    }
+                    else
+                    {
+                        picBoxFile.Controls.Clear();
+                    }
+                    i++;
+                }
+            }
+        }
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler NextButtonClick;
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (this.NextButtonClick != null)
+                this.NextButtonClick(sender, e);
+        }
+        public void AllPotroNext_ButtonClick(AllPotroResponse allPotro, EventArgs e)
+        {
+                if (allPotro.data.total_records > i && i > 0)
+                {
+                    int index = 0;
+                    if (allPotro.data.records[i].basic.page_numbers.Contains(","))
+                    {
+                        index = allPotro.data.records[i].basic.page_numbers.IndexOf(",");
+                    }
+                    int totalLength = allPotro.data.records[i].basic.page_numbers.Length;
+                    lbPotroSubject.Text = allPotro.data.records[i].basic.subject + "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) 
+                    + "-" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+                    lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
+                    lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
+                    lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].basic.nothi_note_id.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    if (allPotro.data.records[i].mulpotro.url != "")
+                    {
+                        picBoxFile.Visible = false;
+                        pdfViewWebBrowser.Url = new Uri(allPotro.data.records[i].mulpotro.url);
+                    //picBoxFile.Load(allPotro.data.records[i].mulpotro.url);
+                }
+                    else
+                    {
+                        picBoxFile.Controls.Clear();
+                    }
+                    i++;
+                }
+                if(allPotro.data.total_records==i)
+                {
+                    i = 0;
+                }
+         }
+
+        private void lbKhoshra_Click(object sender, EventArgs e)
+        {
+            lbKhoshra.BackColor = Color.FromArgb(14, 102, 98);
+            lbKhoshra.ForeColor = Color.FromArgb(191, 239, 237);
+            btnNext.Visible = false;
+            btnKhshraNext.Visible = true;
+            KhoshraPotroResponse khoshraPotro = _khoshraPotro.GetKhoshraPotroInfo(_dakuserparam, nothiListRecords.id);
+            if (khoshraPotro.status == "success")
+            {
+                pnlPotrangshoDetails.Visible = true;
+                lbPotroSubject.Text = khoshraPotro.data.records[i].basic.potro_subject;
+                lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + khoshraPotro.data.records[i].basic.created;
+                lbNoteId.Text = "নোটঃ " + string.Concat(khoshraPotro.data.records[i].basic.nothi_note_id.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbSubjectSmall.Text = "পত্র: " + khoshraPotro.data.records[i].basic.potro_subject;
+                lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                picBoxFile.Controls.Clear();
+            }
+        }
+
+        private void btnKhshraNext_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbKhoshraWaiting_Click(object sender, EventArgs e)
+        {
+            lbKhoshraWaiting.BackColor = Color.FromArgb(14, 102, 98);
+            lbKhoshraWaiting.ForeColor = Color.FromArgb(191, 239, 237);
+            KhoshraPotroWaitingResponse khoshraPotroWaiting = _khoshraPotroWaiting.GetKhoshraPotroWaitingInfo(_dakuserparam, nothiListRecords.id);
+            if (khoshraPotroWaiting.status == "success")
+            {
+                pnlPotrangshoDetails.Visible = true;
+                lbPotroSubject.Text = khoshraPotroWaiting.data.records[i].basic.potro_subject;
+                lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + khoshraPotroWaiting.data.records[i].basic.created;
+                lbNoteId.Text = "নোটঃ " + string.Concat(khoshraPotroWaiting.data.records[i].basic.nothi_note_id.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbSubjectSmall.Text = "পত্র: " + khoshraPotroWaiting.data.records[i].basic.potro_subject;
+                lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotroWaiting.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                picBoxFile.Controls.Clear();
+            }
+        }
+
+        private void lbPotrojari_Click(object sender, EventArgs e)
+        {
+            lbPotrojari.BackColor = Color.FromArgb(14, 102, 98);
+            lbPotrojari.ForeColor = Color.FromArgb(191, 239, 237);
+            PotrojariResponse potrojariList = _potrojariList.GetPotrojariListInfo(_dakuserparam, nothiListRecords.id);
+            if (potrojariList.status == "success")
+            {
+                pnlPotrangshoDetails.Visible = true;
+                lbPotroSubject.Text = potrojariList.data.records[i].basic.potro_subject;
+                lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + potrojariList.data.records[i].basic.created;
+                lbNoteId.Text = "নোটঃ " + string.Concat(potrojariList.data.records[i].basic.nothi_note_id.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbSubjectSmall.Text = "পত্র: " + potrojariList.data.records[i].basic.potro_subject;
+                lbTotal.Text = "সর্বমোট: " + string.Concat(potrojariList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                picBoxFile.Controls.Clear();
+            }
+
+        }
+
+        private void lbNothijato_Click(object sender, EventArgs e)
+        {
+            lbNothijato.BackColor = Color.FromArgb(14, 102, 98);
+            lbNothijato.ForeColor = Color.FromArgb(191, 239, 237);
+            NothijatoResponse nothijatoList = _nothijatoList.GetNothijatoListInfo(_dakuserparam, nothiListRecords.id);
+            if (nothijatoList.status == "success")
+            {
+                pnlPotrangshoDetails.Visible = true;
+                lbPotroSubject.Text = nothijatoList.data.records[i].basic.potro_subject;
+                lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + nothijatoList.data.records[i].basic.created;
+                lbNoteId.Text = "নোটঃ " + string.Concat(nothijatoList.data.records[i].basic.nothi_note_id.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbSubjectSmall.Text = "পত্র: " + nothijatoList.data.records[i].basic.potro_subject;
+                lbTotal.Text = "সর্বমোট: " + string.Concat(nothijatoList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                picBoxFile.Controls.Clear();
+            }
+        }
+
+        private void lbNoteKhoshra_Click(object sender, EventArgs e)
+        {
+            lbNoteKhoshra.BackColor = Color.FromArgb(14, 102, 98);
+            lbNoteKhoshra.ForeColor = Color.FromArgb(191, 239, 237);
+            NoteKhoshraListResponse noteKhoshraList = _noteKhoshraList.GetnoteKhoshraListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
+            if (noteKhoshraList.status == "success")
+            {
+
+            }
+        }
+
+        private void lbNoteKhoshraWaiting_Click(object sender, EventArgs e)
+        {
+            lbNoteKhoshraWaiting.BackColor = Color.FromArgb(14, 102, 98);
+            lbNoteKhoshraWaiting.ForeColor = Color.FromArgb(191, 239, 237);
+            NoteKhshraWaitingListResponse noteKhshraWaitingList = _noteKhshraWaitingList.GetNoteKhshraWaitingListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
+            if (noteKhshraWaitingList.status == "success")
+            {
+
+            }
+        }
+
+        private void lbNotePotrojari_Click(object sender, EventArgs e)
+        {
+            lbNotePotrojari.BackColor = Color.FromArgb(14, 102, 98);
+            lbNotePotrojari.ForeColor = Color.FromArgb(191, 239, 237);
+            NotePotrojariResponse notePotrojariList = _notePotrojariList.GetPotrojariListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
+            if (notePotrojariList.status == "success")
+            {
+
+            }
         }
     }
 }
