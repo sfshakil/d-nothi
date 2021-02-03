@@ -45,7 +45,6 @@
             this.mainReceiverLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.rightNextButton = new System.Windows.Forms.Button();
             this.senderLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,25 +55,26 @@
             this.checkBoxPanel = new System.Windows.Forms.Panel();
             this.dakCheckBox = new System.Windows.Forms.CheckBox();
             this.disablePanel = new System.Windows.Forms.Panel();
+            this.dakPriorityIconPanel = new System.Windows.Forms.Panel();
+            this.prioriyLabel = new System.Windows.Forms.Label();
+            this.potrojariPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dakActionPanel = new System.Windows.Forms.Panel();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.dakArchiveButton = new FontAwesome.Sharp.IconButton();
+            this.nothijatoButton = new FontAwesome.Sharp.IconButton();
+            this.nothiteUposthaponButton = new FontAwesome.Sharp.IconButton();
+            this.DakSendButton = new FontAwesome.Sharp.IconButton();
+            this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
             this.newDakImagePanel = new System.Windows.Forms.Panel();
             this.attentionTypeIconPanel = new System.Windows.Forms.Panel();
             this.dakSecurityIconPanel = new System.Windows.Forms.Panel();
-            this.dakPriorityIconPanel = new System.Windows.Forms.Panel();
-            this.prioriyLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dakTypePanel = new System.Windows.Forms.Panel();
-            this.potrojariPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dakActionPanel = new System.Windows.Forms.Panel();
-            this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
-            this.DakSendButton = new FontAwesome.Sharp.IconButton();
-            this.nothiteUposthaponButton = new FontAwesome.Sharp.IconButton();
-            this.nothijatoButton = new FontAwesome.Sharp.IconButton();
-            this.dakArchiveButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
+            this.rightNextButton = new System.Windows.Forms.Button();
             this.nothiPanel.SuspendLayout();
             this.subjectPanel.SuspendLayout();
             this.senderAndReceiverPanel.SuspendLayout();
@@ -111,7 +111,7 @@
             this.nothiNoLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiNoLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiNoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.nothiNoLabel.Location = new System.Drawing.Point(112, 0);
+            this.nothiNoLabel.Location = new System.Drawing.Point(119, 0);
             this.nothiNoLabel.Name = "nothiNoLabel";
             this.nothiNoLabel.Size = new System.Drawing.Size(0, 18);
             this.nothiNoLabel.TabIndex = 67;
@@ -123,9 +123,9 @@
             this.nothiPlainTextLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiPlainTextLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiPlainTextLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nothiPlainTextLabel.Location = new System.Drawing.Point(81, 0);
+            this.nothiPlainTextLabel.Location = new System.Drawing.Point(86, 0);
             this.nothiPlainTextLabel.Name = "nothiPlainTextLabel";
-            this.nothiPlainTextLabel.Size = new System.Drawing.Size(31, 18);
+            this.nothiPlainTextLabel.Size = new System.Drawing.Size(33, 18);
             this.nothiPlainTextLabel.TabIndex = 66;
             this.nothiPlainTextLabel.Text = "নথিঃ";
             this.nothiPlainTextLabel.Visible = false;
@@ -137,7 +137,7 @@
             this.decisionLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.decisionLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decisionLabel.ForeColor = System.Drawing.Color.Goldenrod;
-            this.decisionLabel.Location = new System.Drawing.Point(81, 0);
+            this.decisionLabel.Location = new System.Drawing.Point(86, 0);
             this.decisionLabel.Name = "decisionLabel";
             this.decisionLabel.Size = new System.Drawing.Size(0, 18);
             this.decisionLabel.TabIndex = 63;
@@ -151,7 +151,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label3.Location = new System.Drawing.Point(36, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 18);
+            this.label3.Size = new System.Drawing.Size(50, 18);
             this.label3.TabIndex = 55;
             this.label3.Text = "সিদ্ধান্তঃ";
             // 
@@ -275,19 +275,6 @@
             this.panel6.Size = new System.Drawing.Size(20, 20);
             this.panel6.TabIndex = 68;
             // 
-            // rightNextButton
-            // 
-            this.rightNextButton.BackColor = System.Drawing.Color.Transparent;
-            this.rightNextButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rightNextButton.BackgroundImage")));
-            this.rightNextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.rightNextButton.FlatAppearance.BorderSize = 0;
-            this.rightNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rightNextButton.Location = new System.Drawing.Point(10, 4);
-            this.rightNextButton.Name = "rightNextButton";
-            this.rightNextButton.Size = new System.Drawing.Size(8, 10);
-            this.rightNextButton.TabIndex = 68;
-            this.rightNextButton.UseVisualStyleBackColor = false;
-            // 
             // senderLabel
             // 
             this.senderLabel.AutoSize = true;
@@ -407,11 +394,225 @@
             this.disablePanel.Size = new System.Drawing.Size(530, 34);
             this.disablePanel.TabIndex = 69;
             // 
+            // dakPriorityIconPanel
+            // 
+            this.dakPriorityIconPanel.AutoSize = true;
+            this.dakPriorityIconPanel.BackColor = System.Drawing.Color.White;
+            this.dakPriorityIconPanel.Controls.Add(this.prioriyLabel);
+            this.dakPriorityIconPanel.Controls.Add(this.panel2);
+            this.dakPriorityIconPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakPriorityIconPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakPriorityIconPanel.Location = new System.Drawing.Point(277, 0);
+            this.dakPriorityIconPanel.Name = "dakPriorityIconPanel";
+            this.dakPriorityIconPanel.Size = new System.Drawing.Size(75, 34);
+            this.dakPriorityIconPanel.TabIndex = 21;
+            this.dakPriorityIconPanel.Visible = false;
+            // 
+            // prioriyLabel
+            // 
+            this.prioriyLabel.AutoSize = true;
+            this.prioriyLabel.BackColor = System.Drawing.Color.Transparent;
+            this.prioriyLabel.Enabled = false;
+            this.prioriyLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prioriyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.prioriyLabel.Location = new System.Drawing.Point(33, 6);
+            this.prioriyLabel.Name = "prioriyLabel";
+            this.prioriyLabel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.prioriyLabel.Size = new System.Drawing.Size(39, 21);
+            this.prioriyLabel.TabIndex = 10;
+            this.prioriyLabel.Text = "সীমিত";
+            this.prioriyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // potrojariPanel
+            // 
+            this.potrojariPanel.BackColor = System.Drawing.Color.White;
+            this.potrojariPanel.Controls.Add(this.label1);
+            this.potrojariPanel.Controls.Add(this.panel4);
+            this.potrojariPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.potrojariPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.potrojariPanel.Location = new System.Drawing.Point(432, 0);
+            this.potrojariPanel.Name = "potrojariPanel";
+            this.potrojariPanel.Size = new System.Drawing.Size(98, 34);
+            this.potrojariPanel.TabIndex = 0;
+            this.potrojariPanel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Enabled = false;
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.label1.Location = new System.Drawing.Point(36, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 34);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "পত্রজারি";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dakActionPanel
+            // 
+            this.dakActionPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dakActionPanel.AutoSize = true;
+            this.dakActionPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dakActionPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dakActionPanel.Controls.Add(this.iconButton3);
+            this.dakActionPanel.Controls.Add(this.dakArchiveButton);
+            this.dakActionPanel.Controls.Add(this.nothijatoButton);
+            this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
+            this.dakActionPanel.Controls.Add(this.DakSendButton);
+            this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
+            this.dakActionPanel.Location = new System.Drawing.Point(208, 15);
+            this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
+            this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
+            this.dakActionPanel.Name = "dakActionPanel";
+            this.dakActionPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dakActionPanel.Size = new System.Drawing.Size(192, 34);
+            this.dakActionPanel.TabIndex = 62;
+            this.dakActionPanel.Visible = false;
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.iconButton3.FlatAppearance.BorderSize = 2;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Tags;
+            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 28;
+            this.iconButton3.Location = new System.Drawing.Point(160, 0);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(32, 34);
+            this.iconButton3.TabIndex = 84;
+            this.MyToolTip.SetToolTip(this.iconButton3, "ডাক ট্যাগসমূহ");
+            this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton3.MouseLeave += new System.EventHandler(this.iconButton3_MouseLeave);
+            this.iconButton3.MouseHover += new System.EventHandler(this.iconButton3_MouseHover);
+            // 
+            // dakArchiveButton
+            // 
+            this.dakArchiveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dakArchiveButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakArchiveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.dakArchiveButton.FlatAppearance.BorderSize = 2;
+            this.dakArchiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakArchiveButton.IconChar = FontAwesome.Sharp.IconChar.Archive;
+            this.dakArchiveButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dakArchiveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakArchiveButton.IconSize = 28;
+            this.dakArchiveButton.Location = new System.Drawing.Point(128, 0);
+            this.dakArchiveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakArchiveButton.Name = "dakArchiveButton";
+            this.dakArchiveButton.Size = new System.Drawing.Size(32, 34);
+            this.dakArchiveButton.TabIndex = 85;
+            this.MyToolTip.SetToolTip(this.dakArchiveButton, "আর্কাইভ");
+            this.dakArchiveButton.UseVisualStyleBackColor = false;
+            this.dakArchiveButton.Click += new System.EventHandler(this.dakArchiveButton_Click);
+            this.dakArchiveButton.MouseLeave += new System.EventHandler(this.dakArchiveButton_MouseLeave);
+            this.dakArchiveButton.MouseHover += new System.EventHandler(this.dakArchiveButton_MouseHover);
+            // 
+            // nothijatoButton
+            // 
+            this.nothijatoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.nothijatoButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nothijatoButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.nothijatoButton.FlatAppearance.BorderSize = 2;
+            this.nothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothijatoButton.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
+            this.nothijatoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.nothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nothijatoButton.IconSize = 28;
+            this.nothijatoButton.Location = new System.Drawing.Point(96, 0);
+            this.nothijatoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.nothijatoButton.Name = "nothijatoButton";
+            this.nothijatoButton.Size = new System.Drawing.Size(32, 34);
+            this.nothijatoButton.TabIndex = 83;
+            this.MyToolTip.SetToolTip(this.nothijatoButton, "নথিজাত");
+            this.nothijatoButton.UseVisualStyleBackColor = false;
+            this.nothijatoButton.Click += new System.EventHandler(this.nothijatoButton_Click);
+            this.nothijatoButton.MouseLeave += new System.EventHandler(this.nothijatoButton_MouseLeave);
+            this.nothijatoButton.MouseHover += new System.EventHandler(this.nothijatoButton_MouseHover);
+            // 
+            // nothiteUposthaponButton
+            // 
+            this.nothiteUposthaponButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.nothiteUposthaponButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.Nothijato_Icon;
+            this.nothiteUposthaponButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.nothiteUposthaponButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nothiteUposthaponButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.nothiteUposthaponButton.FlatAppearance.BorderSize = 2;
+            this.nothiteUposthaponButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothiteUposthaponButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.nothiteUposthaponButton.IconColor = System.Drawing.Color.Transparent;
+            this.nothiteUposthaponButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nothiteUposthaponButton.IconSize = 28;
+            this.nothiteUposthaponButton.Location = new System.Drawing.Point(64, 0);
+            this.nothiteUposthaponButton.Margin = new System.Windows.Forms.Padding(2);
+            this.nothiteUposthaponButton.Name = "nothiteUposthaponButton";
+            this.nothiteUposthaponButton.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.nothiteUposthaponButton.Size = new System.Drawing.Size(32, 34);
+            this.nothiteUposthaponButton.TabIndex = 82;
+            this.MyToolTip.SetToolTip(this.nothiteUposthaponButton, "নথিতে উপস্থাপন ");
+            this.nothiteUposthaponButton.UseVisualStyleBackColor = false;
+            this.nothiteUposthaponButton.Click += new System.EventHandler(this.nothiteUposthaponButton_Click);
+            this.nothiteUposthaponButton.MouseLeave += new System.EventHandler(this.nothiteUposthaponButton_MouseLeave);
+            this.nothiteUposthaponButton.MouseHover += new System.EventHandler(this.nothiteUposthaponButton_MouseHover);
+            // 
+            // DakSendButton
+            // 
+            this.DakSendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.DakSendButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DakSendButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.DakSendButton.FlatAppearance.BorderSize = 2;
+            this.DakSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DakSendButton.IconChar = FontAwesome.Sharp.IconChar.Share;
+            this.DakSendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.DakSendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.DakSendButton.IconSize = 28;
+            this.DakSendButton.Location = new System.Drawing.Point(32, 0);
+            this.DakSendButton.Margin = new System.Windows.Forms.Padding(0);
+            this.DakSendButton.Name = "DakSendButton";
+            this.DakSendButton.Size = new System.Drawing.Size(32, 34);
+            this.DakSendButton.TabIndex = 81;
+            this.MyToolTip.SetToolTip(this.DakSendButton, "ডাক প্রেরণ করুন ");
+            this.DakSendButton.UseVisualStyleBackColor = false;
+            this.DakSendButton.Click += new System.EventHandler(this.DakSendButton_Click);
+            this.DakSendButton.MouseLeave += new System.EventHandler(this.DakSendButton_MouseLeave);
+            this.DakSendButton.MouseHover += new System.EventHandler(this.DakSendButton_MouseHover);
+            // 
+            // dakMovementStatusButton
+            // 
+            this.dakMovementStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dakMovementStatusButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.Repeat_alt_New;
+            this.dakMovementStatusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.dakMovementStatusButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakMovementStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.dakMovementStatusButton.FlatAppearance.BorderSize = 2;
+            this.dakMovementStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakMovementStatusButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.dakMovementStatusButton.IconColor = System.Drawing.Color.Transparent;
+            this.dakMovementStatusButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakMovementStatusButton.IconSize = 30;
+            this.dakMovementStatusButton.Location = new System.Drawing.Point(0, 0);
+            this.dakMovementStatusButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakMovementStatusButton.Name = "dakMovementStatusButton";
+            this.dakMovementStatusButton.Size = new System.Drawing.Size(32, 34);
+            this.dakMovementStatusButton.TabIndex = 80;
+            this.MyToolTip.SetToolTip(this.dakMovementStatusButton, "ডাক গতিবিধি");
+            this.dakMovementStatusButton.UseVisualStyleBackColor = false;
+            this.dakMovementStatusButton.Click += new System.EventHandler(this.dakArchiveButton_Click);
+            this.dakMovementStatusButton.MouseLeave += new System.EventHandler(this.dakMovementStatusButton_MouseLeave);
+            this.dakMovementStatusButton.MouseHover += new System.EventHandler(this.dakMovementStatusButton_MouseHover);
+            // 
             // newDakImagePanel
             // 
             this.newDakImagePanel.BackColor = System.Drawing.Color.Transparent;
             this.newDakImagePanel.BackgroundImage = global::dNothi.Desktop.Properties.Resources.NewDak;
-            this.newDakImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.newDakImagePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.newDakImagePanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.newDakImagePanel.Enabled = false;
             this.newDakImagePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -450,35 +651,6 @@
             this.dakSecurityIconPanel.TabIndex = 20;
             this.dakSecurityIconPanel.Visible = false;
             // 
-            // dakPriorityIconPanel
-            // 
-            this.dakPriorityIconPanel.AutoSize = true;
-            this.dakPriorityIconPanel.BackColor = System.Drawing.Color.White;
-            this.dakPriorityIconPanel.Controls.Add(this.prioriyLabel);
-            this.dakPriorityIconPanel.Controls.Add(this.panel2);
-            this.dakPriorityIconPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakPriorityIconPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakPriorityIconPanel.Location = new System.Drawing.Point(277, 0);
-            this.dakPriorityIconPanel.Name = "dakPriorityIconPanel";
-            this.dakPriorityIconPanel.Size = new System.Drawing.Size(75, 34);
-            this.dakPriorityIconPanel.TabIndex = 21;
-            this.dakPriorityIconPanel.Visible = false;
-            // 
-            // prioriyLabel
-            // 
-            this.prioriyLabel.AutoSize = true;
-            this.prioriyLabel.BackColor = System.Drawing.Color.Transparent;
-            this.prioriyLabel.Enabled = false;
-            this.prioriyLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prioriyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.prioriyLabel.Location = new System.Drawing.Point(33, 6);
-            this.prioriyLabel.Name = "prioriyLabel";
-            this.prioriyLabel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.prioriyLabel.Size = new System.Drawing.Size(39, 21);
-            this.prioriyLabel.TabIndex = 10;
-            this.prioriyLabel.Text = "সীমিত";
-            this.prioriyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -506,33 +678,6 @@
             this.dakTypePanel.TabIndex = 20;
             this.dakTypePanel.Visible = false;
             // 
-            // potrojariPanel
-            // 
-            this.potrojariPanel.BackColor = System.Drawing.Color.White;
-            this.potrojariPanel.Controls.Add(this.label1);
-            this.potrojariPanel.Controls.Add(this.panel4);
-            this.potrojariPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.potrojariPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.potrojariPanel.Location = new System.Drawing.Point(432, 0);
-            this.potrojariPanel.Name = "potrojariPanel";
-            this.potrojariPanel.Size = new System.Drawing.Size(98, 34);
-            this.potrojariPanel.TabIndex = 0;
-            this.potrojariPanel.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Enabled = false;
-            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.label1.Location = new System.Drawing.Point(36, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 34);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "পত্রজারি";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
@@ -545,141 +690,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(36, 34);
             this.panel4.TabIndex = 11;
-            // 
-            // dakActionPanel
-            // 
-            this.dakActionPanel.AutoSize = true;
-            this.dakActionPanel.BackColor = System.Drawing.Color.Transparent;
-            this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Controls.Add(this.DakSendButton);
-            this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
-            this.dakActionPanel.Controls.Add(this.nothijatoButton);
-            this.dakActionPanel.Controls.Add(this.dakArchiveButton);
-            this.dakActionPanel.Controls.Add(this.iconButton3);
-            this.dakActionPanel.Location = new System.Drawing.Point(883, 13);
-            this.dakActionPanel.Name = "dakActionPanel";
-            this.dakActionPanel.Size = new System.Drawing.Size(192, 36);
-            this.dakActionPanel.TabIndex = 62;
-            this.dakActionPanel.Visible = false;
-            // 
-            // dakMovementStatusButton
-            // 
-            this.dakMovementStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.dakMovementStatusButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakMovementStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.dakMovementStatusButton.FlatAppearance.BorderSize = 2;
-            this.dakMovementStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakMovementStatusButton.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
-            this.dakMovementStatusButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.dakMovementStatusButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakMovementStatusButton.IconSize = 28;
-            this.dakMovementStatusButton.Location = new System.Drawing.Point(0, 0);
-            this.dakMovementStatusButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakMovementStatusButton.Name = "dakMovementStatusButton";
-            this.dakMovementStatusButton.Size = new System.Drawing.Size(32, 36);
-            this.dakMovementStatusButton.TabIndex = 80;
-            this.MyToolTip.SetToolTip(this.dakMovementStatusButton, "ডাক গতিবিধি");
-            this.dakMovementStatusButton.UseVisualStyleBackColor = false;
-            this.dakMovementStatusButton.Click += new System.EventHandler(this.dakMovementStatusButton_Click);
-            // 
-            // DakSendButton
-            // 
-            this.DakSendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.DakSendButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DakSendButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.DakSendButton.FlatAppearance.BorderSize = 2;
-            this.DakSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DakSendButton.IconChar = FontAwesome.Sharp.IconChar.Share;
-            this.DakSendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.DakSendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.DakSendButton.IconSize = 28;
-            this.DakSendButton.Location = new System.Drawing.Point(32, 0);
-            this.DakSendButton.Margin = new System.Windows.Forms.Padding(0);
-            this.DakSendButton.Name = "DakSendButton";
-            this.DakSendButton.Size = new System.Drawing.Size(32, 36);
-            this.DakSendButton.TabIndex = 81;
-            this.MyToolTip.SetToolTip(this.DakSendButton, "ডাক প্রেরণ করুন ");
-            this.DakSendButton.UseVisualStyleBackColor = false;
-            this.DakSendButton.Click += new System.EventHandler(this.DakSendButton_Click);
-            // 
-            // nothiteUposthaponButton
-            // 
-            this.nothiteUposthaponButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.nothiteUposthaponButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.nothiteUposthaponButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.nothiteUposthaponButton.FlatAppearance.BorderSize = 2;
-            this.nothiteUposthaponButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothiteUposthaponButton.IconChar = FontAwesome.Sharp.IconChar.Book;
-            this.nothiteUposthaponButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.nothiteUposthaponButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.nothiteUposthaponButton.IconSize = 28;
-            this.nothiteUposthaponButton.Location = new System.Drawing.Point(64, 0);
-            this.nothiteUposthaponButton.Margin = new System.Windows.Forms.Padding(0);
-            this.nothiteUposthaponButton.Name = "nothiteUposthaponButton";
-            this.nothiteUposthaponButton.Size = new System.Drawing.Size(32, 36);
-            this.nothiteUposthaponButton.TabIndex = 82;
-            this.MyToolTip.SetToolTip(this.nothiteUposthaponButton, "নথিতে উপস্থাপন ");
-            this.nothiteUposthaponButton.UseVisualStyleBackColor = false;
-            this.nothiteUposthaponButton.Click += new System.EventHandler(this.nothiteUposthaponButton_Click);
-            // 
-            // nothijatoButton
-            // 
-            this.nothijatoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.nothijatoButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.nothijatoButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.nothijatoButton.FlatAppearance.BorderSize = 2;
-            this.nothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothijatoButton.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.nothijatoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.nothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.nothijatoButton.IconSize = 28;
-            this.nothijatoButton.Location = new System.Drawing.Point(96, 0);
-            this.nothijatoButton.Margin = new System.Windows.Forms.Padding(0);
-            this.nothijatoButton.Name = "nothijatoButton";
-            this.nothijatoButton.Size = new System.Drawing.Size(32, 36);
-            this.nothijatoButton.TabIndex = 83;
-            this.MyToolTip.SetToolTip(this.nothijatoButton, "নথিজাত");
-            this.nothijatoButton.UseVisualStyleBackColor = false;
-            this.nothijatoButton.Click += new System.EventHandler(this.nothijatoButton_Click);
-            // 
-            // dakArchiveButton
-            // 
-            this.dakArchiveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.dakArchiveButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakArchiveButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.dakArchiveButton.FlatAppearance.BorderSize = 2;
-            this.dakArchiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakArchiveButton.IconChar = FontAwesome.Sharp.IconChar.Archive;
-            this.dakArchiveButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.dakArchiveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakArchiveButton.IconSize = 28;
-            this.dakArchiveButton.Location = new System.Drawing.Point(128, 0);
-            this.dakArchiveButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakArchiveButton.Name = "dakArchiveButton";
-            this.dakArchiveButton.Size = new System.Drawing.Size(32, 36);
-            this.dakArchiveButton.TabIndex = 85;
-            this.MyToolTip.SetToolTip(this.dakArchiveButton, "আর্কাইভ");
-            this.dakArchiveButton.UseVisualStyleBackColor = false;
-            this.dakArchiveButton.Click += new System.EventHandler(this.dakArchiveButton_Click);
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton3.FlatAppearance.BorderSize = 2;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Tags;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 28;
-            this.iconButton3.Location = new System.Drawing.Point(160, 0);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(32, 36);
-            this.iconButton3.TabIndex = 84;
-            this.MyToolTip.SetToolTip(this.iconButton3, "ডাক ট্যাগসমূহ");
-            this.iconButton3.UseVisualStyleBackColor = false;
             // 
             // dakAttachmentButton
             // 
@@ -699,6 +709,19 @@
             this.dakAttachmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dakAttachmentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.dakAttachmentButton.UseVisualStyleBackColor = true;
+            // 
+            // rightNextButton
+            // 
+            this.rightNextButton.BackColor = System.Drawing.Color.Transparent;
+            this.rightNextButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rightNextButton.BackgroundImage")));
+            this.rightNextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.rightNextButton.FlatAppearance.BorderSize = 0;
+            this.rightNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rightNextButton.Location = new System.Drawing.Point(10, 4);
+            this.rightNextButton.Name = "rightNextButton";
+            this.rightNextButton.Size = new System.Drawing.Size(8, 10);
+            this.rightNextButton.TabIndex = 68;
+            this.rightNextButton.UseVisualStyleBackColor = false;
             // 
             // DakInboxUserControl
             // 

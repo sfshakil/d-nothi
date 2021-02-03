@@ -18,6 +18,7 @@ namespace dNothi.Services.DakServices
         public string incharge_label { get; set; }
 
         public int employee_record_id { get; set; }
+        public string SignBase64 { get; set; }
 
 
         public int designation_id { get; set; }

@@ -630,7 +630,7 @@ namespace dNothi.Desktop.UI
                 dakOutboxUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
 
                 dakOutboxUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
-                dakOutboxUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
+                //dakOutboxUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
 
                 dakOutboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
 
@@ -2039,6 +2039,7 @@ namespace dNothi.Desktop.UI
 
         private void daptorikDakUploadButton_Click(object sender, EventArgs e)
         {
+
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -2046,21 +2047,36 @@ namespace dNothi.Desktop.UI
             DaptorikDakSavePageLoad(null);
         }
 
-        private void DakSend_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakUserParam dakListUserParam)
+        private void DakSend_ButtonClick(object sender, EventArgs e, DakUploadParameter dakUploadParameter, DakUserParam dakListUserParam, bool isDaptorik, string sub, string prerok, string prapok)
         {
 
-            DakSendResponse dakSendResponse = _dakuploadservice.GetDakSendResponse(dakListUserParam, dakUploadParameter);
+            DakUploadResponse dakSendResponse = _dakuploadservice.GetDakSendResponse(dakListUserParam, dakUploadParameter);
             try
             {
                 if (dakSendResponse.status == "error")
                 {
-                    ErrorMessage("ডাকটি প্রেরণ সফল হইনি!");
+                    ErrorMessage("ডাকটি আপলোড সফল হইনি!");
                 }
                 else if (dakSendResponse.status == "success")
                 {
-                    SuccessMessage(dakSendResponse.data.message);
-                    LoadDakOutbox();
+                    DakUploadConfirmationMessage dakUploadConfirmationMessage = new DakUploadConfirmationMessage();
+                    dakUploadConfirmationMessage.isDaptorik = isDaptorik;
+                    dakUploadConfirmationMessage.applicationNo = dakSendResponse.data.dak_receipt_no;
+                    dakUploadConfirmationMessage.applicationNo =prerok;
+                    dakUploadConfirmationMessage.applicationNo = prapok;
+                    dakUploadConfirmationMessage.applicationNo = sub;
+                    dakUploadConfirmationMessage.date = dakSendResponse.data.receiving_date;
+                    dakUploadConfirmationMessage.companyName = dakListUserParam.office;
+                    dakUploadConfirmationMessage.companyWithUnitName = dakListUserParam.designation+" ,"+dakListUserParam.office;
+                    dakUploadConfirmationMessage.userDept = dakListUserParam.designation;
+                    dakUploadConfirmationMessage.userName = dakListUserParam.officer_name;
+                    //dakUploadConfirmationMessage.imageBase64 = dakListUserParam.SignBase64;
 
+
+                    CalPopUpWindow(dakUploadConfirmationMessage);
+
+
+                    LoadDakOutbox();
                 }
             }
             catch (Exception Ex)
@@ -2328,6 +2344,9 @@ namespace dNothi.Desktop.UI
             dakSortMetroPanel.Visible = false;
             searchHeaderTableLayoutPanel.Visible = false;
             dakBodyFlowLayoutPanel.Controls.Clear();
+            detailsFlowLayoutPanel.Visible = false;
+            dakBodyFlowLayoutPanel.Visible = true;
+
 
             DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -2342,7 +2361,7 @@ namespace dNothi.Desktop.UI
             dakUploadUserControl.dakListUserParam = dakListUserParam;
             dakUploadUserControl.KhosraSaveButtonClick += delegate (object khosraSaveSender, EventArgs khosraSaveEvent) { khosraSaveUserControl_ButtonClick(khosraSaveSender, khosraSaveEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
             dakUploadUserControl.AddDesignationButtonClick += delegate (object addDesignationSender, EventArgs addDesignationEvent) { AddDesignationUserControl_ButtonClick(addDesignationSender, addDesignationEvent); };
-            dakUploadUserControl.DakSendButton += delegate (object addDesignationSender, EventArgs addDesignationEvent) { DakSend_ButtonClick(addDesignationSender, addDesignationEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
+            dakUploadUserControl.DakSendButton += delegate (object addDesignationSender, EventArgs addDesignationEvent) { DakSend_ButtonClick(addDesignationSender, addDesignationEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam, true, dakUploadUserControl.sub, dakUploadUserControl.prerokName, dakUploadUserControl.prapokName); };
 
 
 
@@ -2371,6 +2390,8 @@ namespace dNothi.Desktop.UI
             dakSortMetroPanel.Visible = false;
             searchHeaderTableLayoutPanel.Visible = false;
             dakBodyFlowLayoutPanel.Controls.Clear();
+            detailsFlowLayoutPanel.Visible = false;
+            dakBodyFlowLayoutPanel.Visible = true;
 
             NagorikDakUploadUserControl dakUploadUserControl = new NagorikDakUploadUserControl();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -2385,7 +2406,7 @@ namespace dNothi.Desktop.UI
             dakUploadUserControl.dakListUserParam = dakListUserParam;
             dakUploadUserControl.KhosraSaveButtonClick += delegate (object khosraSaveSender, EventArgs khosraSaveEvent) { khosraSaveUserControl_ButtonClick(khosraSaveSender, khosraSaveEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
             dakUploadUserControl.AddDesignationButtonClick += delegate (object addDesignationSender, EventArgs addDesignationEvent) { AddDesignationUserControl_ButtonClick(addDesignationSender, addDesignationEvent); };
-            dakUploadUserControl.DakSendButton += delegate (object addDesignationSender, EventArgs addDesignationEvent) { DakSend_ButtonClick(addDesignationSender, addDesignationEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam); };
+            dakUploadUserControl.DakSendButton += delegate (object addDesignationSender, EventArgs addDesignationEvent) { DakSend_ButtonClick(addDesignationSender, addDesignationEvent, dakUploadUserControl.dakUploadParameter, dakUploadUserControl.dakListUserParam, false, dakUploadUserControl.sub, dakUploadUserControl.prerokName, dakUploadUserControl.prapokName); };
 
 
 
@@ -2431,7 +2452,7 @@ namespace dNothi.Desktop.UI
         private void DraftedDakSend_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak)
         {
 
-            DakSendResponse dakSendResponse = _dakuploadservice.GetDraftedDakSendResponse(_dakuserparam, dak_id, dak_type, is_copied_dak);
+            DakUploadResponse dakSendResponse = _dakuploadservice.GetDraftedDakSendResponse(_dakuserparam, dak_id, dak_type, is_copied_dak);
             try
             {
                 if (dakSendResponse.status == "error")
@@ -2715,7 +2736,7 @@ namespace dNothi.Desktop.UI
 
 
                 dakSendUserControl.designationSealListResponse = designationSealListResponse;
-                dakSendUserControl._dakCount = daks.Count;
+                dakSendUserControl.dakCount = daks.Count;
                 dakSendUserControl.isMultipleDak = true;
                 dakSendUserControl.dakListRecordsDTO = daks;
                 dakSendUserControl.dak_List_User_Param = dakListUserParam;

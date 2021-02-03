@@ -34,7 +34,6 @@
             this.actionButton = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.failDakListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.nothiPanel = new System.Windows.Forms.Panel();
@@ -107,15 +106,15 @@
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel6.Controls.Add(this.panel2);
             this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.label1);
             this.panel6.Controls.Add(this.panel5);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.panel1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(5);
-            this.panel6.Size = new System.Drawing.Size(854, 360);
+            this.panel6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.panel6.Size = new System.Drawing.Size(854, 386);
             this.panel6.TabIndex = 49;
             // 
             // panel2
@@ -124,9 +123,10 @@
             this.panel2.Controls.Add(this.actionButton);
             this.panel2.Controls.Add(this.iconButton7);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(5, 309);
+            this.panel2.Location = new System.Drawing.Point(0, 325);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(844, 46);
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(854, 46);
             this.panel2.TabIndex = 49;
             // 
             // confirmButton
@@ -141,7 +141,7 @@
             this.confirmButton.IconColor = System.Drawing.Color.White;
             this.confirmButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.confirmButton.IconSize = 24;
-            this.confirmButton.Location = new System.Drawing.Point(385, 5);
+            this.confirmButton.Location = new System.Drawing.Point(412, 10);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(169, 36);
             this.confirmButton.TabIndex = 49;
@@ -161,7 +161,7 @@
             this.actionButton.IconColor = System.Drawing.Color.White;
             this.actionButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.actionButton.IconSize = 24;
-            this.actionButton.Location = new System.Drawing.Point(560, 5);
+            this.actionButton.Location = new System.Drawing.Point(587, 10);
             this.actionButton.Name = "actionButton";
             this.actionButton.Size = new System.Drawing.Size(135, 36);
             this.actionButton.TabIndex = 48;
@@ -181,7 +181,7 @@
             this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 20;
-            this.iconButton7.Location = new System.Drawing.Point(701, 5);
+            this.iconButton7.Location = new System.Drawing.Point(728, 10);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(112, 36);
             this.iconButton7.TabIndex = 45;
@@ -194,23 +194,12 @@
             // 
             this.label4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Location = new System.Drawing.Point(5, 308);
+            this.label4.Location = new System.Drawing.Point(0, 324);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label4.Size = new System.Drawing.Size(844, 1);
+            this.label4.Size = new System.Drawing.Size(854, 1);
             this.label4.TabIndex = 50;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(5, 288);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label1.Size = new System.Drawing.Size(844, 20);
-            this.label1.TabIndex = 46;
             // 
             // panel5
             // 
@@ -221,19 +210,20 @@
             this.panel5.Controls.Add(this.selectedDakListPanel);
             this.panel5.Controls.Add(this.resultCountPanel);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(5, 67);
+            this.panel5.Location = new System.Drawing.Point(0, 63);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
-            this.panel5.Size = new System.Drawing.Size(844, 221);
+            this.panel5.Padding = new System.Windows.Forms.Padding(15, 20, 15, 20);
+            this.panel5.Size = new System.Drawing.Size(854, 261);
             this.panel5.TabIndex = 47;
             // 
             // failDakListFlowLayoutPanel
             // 
             this.failDakListFlowLayoutPanel.AutoSize = true;
             this.failDakListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.failDakListFlowLayoutPanel.Location = new System.Drawing.Point(15, 221);
+            this.failDakListFlowLayoutPanel.Location = new System.Drawing.Point(15, 241);
             this.failDakListFlowLayoutPanel.Name = "failDakListFlowLayoutPanel";
-            this.failDakListFlowLayoutPanel.Size = new System.Drawing.Size(814, 0);
+            this.failDakListFlowLayoutPanel.Size = new System.Drawing.Size(824, 0);
             this.failDakListFlowLayoutPanel.TabIndex = 43;
             this.failDakListFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BlueBorder);
             // 
@@ -244,9 +234,9 @@
             this.nothiPanel.Controls.Add(this.panel4);
             this.nothiPanel.Controls.Add(this.label2);
             this.nothiPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.nothiPanel.Location = new System.Drawing.Point(15, 138);
+            this.nothiPanel.Location = new System.Drawing.Point(15, 158);
             this.nothiPanel.Name = "nothiPanel";
-            this.nothiPanel.Size = new System.Drawing.Size(814, 83);
+            this.nothiPanel.Size = new System.Drawing.Size(824, 83);
             this.nothiPanel.TabIndex = 49;
             this.nothiPanel.Visible = false;
             this.nothiPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BlueBorder);
@@ -259,7 +249,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 62);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(814, 21);
+            this.panel7.Size = new System.Drawing.Size(824, 21);
             this.panel7.TabIndex = 7;
             // 
             // nothiBranchLabel
@@ -300,7 +290,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 40);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(814, 22);
+            this.panel4.Size = new System.Drawing.Size(824, 22);
             this.panel4.TabIndex = 6;
             // 
             // noteSubLabel
@@ -370,7 +360,7 @@
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(5, 2, 2, 2);
-            this.label2.Size = new System.Drawing.Size(814, 40);
+            this.label2.Size = new System.Drawing.Size(824, 40);
             this.label2.TabIndex = 5;
             this.label2.Text = "নথি";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -382,9 +372,9 @@
             this.selectedDakListPanel.Controls.Add(this.dakListFlowLayoutPanel);
             this.selectedDakListPanel.Controls.Add(this.label12);
             this.selectedDakListPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.selectedDakListPanel.Location = new System.Drawing.Point(15, 98);
+            this.selectedDakListPanel.Location = new System.Drawing.Point(15, 118);
             this.selectedDakListPanel.Name = "selectedDakListPanel";
-            this.selectedDakListPanel.Size = new System.Drawing.Size(814, 40);
+            this.selectedDakListPanel.Size = new System.Drawing.Size(824, 40);
             this.selectedDakListPanel.TabIndex = 55;
             this.selectedDakListPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BlueBorder);
             // 
@@ -423,7 +413,7 @@
             this.label12.Location = new System.Drawing.Point(0, 0);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(5, 2, 2, 2);
-            this.label12.Size = new System.Drawing.Size(814, 40);
+            this.label12.Size = new System.Drawing.Size(824, 40);
             this.label12.TabIndex = 4;
             this.label12.Text = "মোট সিলেক্টেড ";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -433,10 +423,10 @@
             this.resultCountPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.resultCountPanel.Controls.Add(this.panel3);
             this.resultCountPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.resultCountPanel.Location = new System.Drawing.Point(15, 0);
+            this.resultCountPanel.Location = new System.Drawing.Point(15, 20);
             this.resultCountPanel.Name = "resultCountPanel";
             this.resultCountPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.resultCountPanel.Size = new System.Drawing.Size(814, 98);
+            this.resultCountPanel.Size = new System.Drawing.Size(824, 98);
             this.resultCountPanel.TabIndex = 50;
             this.resultCountPanel.Visible = false;
             this.resultCountPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BlueBorder);
@@ -449,18 +439,19 @@
             this.panel3.Location = new System.Drawing.Point(5, 5);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(804, 88);
+            this.panel3.Size = new System.Drawing.Size(814, 88);
             this.panel3.TabIndex = 2;
             // 
             // panel9
             // 
+            this.panel9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Controls.Add(this.archivePanel);
             this.panel9.Controls.Add(this.NothivuktoPanel);
             this.panel9.Controls.Add(this.nothijatoPanel);
             this.panel9.Controls.Add(this.forwardPanel);
             this.panel9.Controls.Add(this.panel11);
-            this.panel9.Location = new System.Drawing.Point(173, 24);
+            this.panel9.Location = new System.Drawing.Point(202, 24);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(770, 47);
             this.panel9.TabIndex = 1;
@@ -637,7 +628,9 @@
             // label8
             // 
             this.label8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label8.Location = new System.Drawing.Point(0, 66);
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Location = new System.Drawing.Point(0, 62);
+            this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(854, 1);
             this.label8.TabIndex = 40;
@@ -652,10 +645,10 @@
             this.panel1.Controls.Add(this.AddDesignationCloseButton);
             this.panel1.Controls.Add(this.archiveHeadline);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(844, 62);
+            this.panel1.Size = new System.Drawing.Size(854, 62);
             this.panel1.TabIndex = 1;
             // 
             // forwardHeadline
@@ -665,7 +658,7 @@
             this.forwardHeadline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.forwardHeadline.Location = new System.Drawing.Point(364, 0);
             this.forwardHeadline.Name = "forwardHeadline";
-            this.forwardHeadline.Padding = new System.Windows.Forms.Padding(10, 25, 0, 0);
+            this.forwardHeadline.Padding = new System.Windows.Forms.Padding(10, 20, 0, 0);
             this.forwardHeadline.Size = new System.Drawing.Size(86, 62);
             this.forwardHeadline.TabIndex = 45;
             this.forwardHeadline.Text = "প্রেরণ স্থিতি";
@@ -678,7 +671,7 @@
             this.nothijatoHeadline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.nothijatoHeadline.Location = new System.Drawing.Point(251, 0);
             this.nothijatoHeadline.Name = "nothijatoHeadline";
-            this.nothijatoHeadline.Padding = new System.Windows.Forms.Padding(10, 25, 0, 0);
+            this.nothijatoHeadline.Padding = new System.Windows.Forms.Padding(10, 20, 0, 0);
             this.nothijatoHeadline.Size = new System.Drawing.Size(113, 62);
             this.nothijatoHeadline.TabIndex = 43;
             this.nothijatoHeadline.Text = "ডাক নথিজাত";
@@ -691,7 +684,7 @@
             this.nothivuktoHeadline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.nothivuktoHeadline.Location = new System.Drawing.Point(102, 0);
             this.nothivuktoHeadline.Name = "nothivuktoHeadline";
-            this.nothivuktoHeadline.Padding = new System.Windows.Forms.Padding(10, 25, 0, 0);
+            this.nothivuktoHeadline.Padding = new System.Windows.Forms.Padding(10, 20, 0, 0);
             this.nothivuktoHeadline.Size = new System.Drawing.Size(149, 62);
             this.nothivuktoHeadline.TabIndex = 42;
             this.nothivuktoHeadline.Text = "ডাক নথিতে উপস্থাপন ";
@@ -708,7 +701,7 @@
             this.CloseButton.IconColor = System.Drawing.Color.DimGray;
             this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseButton.IconSize = 20;
-            this.CloseButton.Location = new System.Drawing.Point(791, 18);
+            this.CloseButton.Location = new System.Drawing.Point(805, 16);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(28, 31);
             this.CloseButton.TabIndex = 41;
@@ -727,7 +720,7 @@
             this.AddDesignationCloseButton.IconColor = System.Drawing.Color.DimGray;
             this.AddDesignationCloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.AddDesignationCloseButton.IconSize = 20;
-            this.AddDesignationCloseButton.Location = new System.Drawing.Point(1062, 9);
+            this.AddDesignationCloseButton.Location = new System.Drawing.Point(1062, -1);
             this.AddDesignationCloseButton.Name = "AddDesignationCloseButton";
             this.AddDesignationCloseButton.Size = new System.Drawing.Size(28, 31);
             this.AddDesignationCloseButton.TabIndex = 38;
@@ -741,7 +734,7 @@
             this.archiveHeadline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.archiveHeadline.Location = new System.Drawing.Point(0, 0);
             this.archiveHeadline.Name = "archiveHeadline";
-            this.archiveHeadline.Padding = new System.Windows.Forms.Padding(10, 25, 0, 0);
+            this.archiveHeadline.Padding = new System.Windows.Forms.Padding(10, 20, 0, 0);
             this.archiveHeadline.Size = new System.Drawing.Size(102, 62);
             this.archiveHeadline.TabIndex = 0;
             this.archiveHeadline.Text = "ডাক আর্কাইভ";
@@ -839,15 +832,15 @@
             // 
             // MultipleDakSelectedListConfirmForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel6);
             this.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(854, 100);
             this.Name = "MultipleDakSelectedListConfirmForm";
-            this.Size = new System.Drawing.Size(854, 100);
+            this.Size = new System.Drawing.Size(854, 386);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -888,7 +881,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel dakListFlowLayoutPanel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;

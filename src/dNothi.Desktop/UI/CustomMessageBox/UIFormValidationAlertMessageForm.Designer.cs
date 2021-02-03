@@ -50,10 +50,13 @@
             this.messageLabel.ForeColor = System.Drawing.Color.White;
             this.messageLabel.Location = new System.Drawing.Point(2, 21);
             this.messageLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.messageLabel.MaximumSize = new System.Drawing.Size(320, 0);
+            this.messageLabel.MinimumSize = new System.Drawing.Size(320, 0);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(320, 20);
+            this.messageLabel.Size = new System.Drawing.Size(320, 60);
             this.messageLabel.TabIndex = 1;
-            this.messageLabel.Text = "ন্যাশনাল আইডি শুধুমাত্র ১০, ১৩ অথবা ১৭ অঙ্কের হতে পারবে";
+            this.messageLabel.Text = "ন্যাশনাল আইডি শুধুমাত্র ১০, ১৩ অথবা ১৭ অঙ্কের হতে ন্যাশনাল আইডি শুধুমাত্র ১০, ১৩ " +
+    "অথবা ১৭ অঙ্কের হতে ন্যাশনাল আইডি শুধুমাত্র ১০, ১৩ অথবা ১৭ অঙ্কের হতে ";
             this.messageLabel.Click += new System.EventHandler(this.messageLabel_Click);
             // 
             // panel1
@@ -63,23 +66,25 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(84, 0);
+            this.panel1.MaximumSize = new System.Drawing.Size(320, 0);
             this.panel1.MinimumSize = new System.Drawing.Size(313, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(322, 62);
+            this.panel1.Size = new System.Drawing.Size(320, 60);
             this.panel1.TabIndex = 40;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.closeButton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(406, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(36, 62);
+            this.panel2.Size = new System.Drawing.Size(36, 60);
             this.panel2.TabIndex = 41;
             // 
             // closeButton
             // 
+            this.closeButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.closeButton.AutoSize = true;
             this.closeButton.BackColor = System.Drawing.Color.Transparent;
             this.closeButton.FlatAppearance.BorderSize = 0;
@@ -89,7 +94,7 @@
             this.closeButton.IconColor = System.Drawing.Color.White;
             this.closeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.closeButton.IconSize = 20;
-            this.closeButton.Location = new System.Drawing.Point(4, 18);
+            this.closeButton.Location = new System.Drawing.Point(3, 19);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(26, 26);
             this.closeButton.TabIndex = 39;
@@ -109,7 +114,7 @@
             this.checkIconPictureBox.Location = new System.Drawing.Point(0, 0);
             this.checkIconPictureBox.Name = "checkIconPictureBox";
             this.checkIconPictureBox.Padding = new System.Windows.Forms.Padding(5, 15, 0, 0);
-            this.checkIconPictureBox.Size = new System.Drawing.Size(42, 62);
+            this.checkIconPictureBox.Size = new System.Drawing.Size(42, 60);
             this.checkIconPictureBox.TabIndex = 42;
             this.checkIconPictureBox.TabStop = false;
             this.checkIconPictureBox.Visible = false;
@@ -122,7 +127,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(84, 62);
+            this.panel3.Size = new System.Drawing.Size(84, 60);
             this.panel3.TabIndex = 43;
             // 
             // messageIconPictureBox
@@ -137,7 +142,7 @@
             this.messageIconPictureBox.Location = new System.Drawing.Point(42, 0);
             this.messageIconPictureBox.Name = "messageIconPictureBox";
             this.messageIconPictureBox.Padding = new System.Windows.Forms.Padding(5, 15, 0, 0);
-            this.messageIconPictureBox.Size = new System.Drawing.Size(42, 62);
+            this.messageIconPictureBox.Size = new System.Drawing.Size(42, 60);
             this.messageIconPictureBox.TabIndex = 0;
             this.messageIconPictureBox.TabStop = false;
             // 
@@ -146,11 +151,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.ClientSize = new System.Drawing.Size(442, 62);
+            this.ClientSize = new System.Drawing.Size(442, 60);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(442, 0);
             this.Name = "UIFormValidationAlertMessageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UIFormValidationAlertMessageForm";

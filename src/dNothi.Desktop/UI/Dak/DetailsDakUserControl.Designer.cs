@@ -499,6 +499,7 @@
             this.mainAttachmentViewWebBrowser.Name = "mainAttachmentViewWebBrowser";
             this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(1035, 342);
             this.mainAttachmentViewWebBrowser.TabIndex = 0;
+            this.mainAttachmentViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // tabPage2
             // 

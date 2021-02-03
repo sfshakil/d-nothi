@@ -37,7 +37,7 @@
             // 
             this.rightSliderHeadLineLabel.AutoSize = true;
             this.rightSliderHeadLineLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rightSliderHeadLineLabel.Location = new System.Drawing.Point(22, 16);
+            this.rightSliderHeadLineLabel.Location = new System.Drawing.Point(22, 28);
             this.rightSliderHeadLineLabel.Name = "rightSliderHeadLineLabel";
             this.rightSliderHeadLineLabel.Size = new System.Drawing.Size(96, 24);
             this.rightSliderHeadLineLabel.TabIndex = 29;
@@ -45,15 +45,19 @@
             // 
             // sliderCrossButton
             // 
-            this.sliderCrossButton.BackColor = System.Drawing.Color.IndianRed;
+            this.sliderCrossButton.AutoSize = true;
+            this.sliderCrossButton.BackColor = System.Drawing.Color.Transparent;
+            this.sliderCrossButton.FlatAppearance.BorderSize = 0;
             this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sliderCrossButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.sliderCrossButton.Location = new System.Drawing.Point(553, 14);
+            this.sliderCrossButton.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sliderCrossButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.sliderCrossButton.Location = new System.Drawing.Point(542, 19);
             this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
             this.sliderCrossButton.Name = "sliderCrossButton";
-            this.sliderCrossButton.Size = new System.Drawing.Size(21, 21);
+            this.sliderCrossButton.Size = new System.Drawing.Size(30, 34);
             this.sliderCrossButton.TabIndex = 27;
             this.sliderCrossButton.Text = "x";
+            this.sliderCrossButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.sliderCrossButton.UseVisualStyleBackColor = false;
             this.sliderCrossButton.Click += new System.EventHandler(this.sliderCrossButton_Click);
             // 
@@ -62,7 +66,7 @@
             this.dashboardRightSideFlowLayoutPanel.AutoScroll = true;
             this.dashboardRightSideFlowLayoutPanel.AutoSize = true;
             this.dashboardRightSideFlowLayoutPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashboardRightSideFlowLayoutPanel.Location = new System.Drawing.Point(23, 45);
+            this.dashboardRightSideFlowLayoutPanel.Location = new System.Drawing.Point(23, 68);
             this.dashboardRightSideFlowLayoutPanel.MaximumSize = new System.Drawing.Size(551, 700);
             this.dashboardRightSideFlowLayoutPanel.MinimumSize = new System.Drawing.Size(551, 700);
             this.dashboardRightSideFlowLayoutPanel.Name = "dashboardRightSideFlowLayoutPanel";

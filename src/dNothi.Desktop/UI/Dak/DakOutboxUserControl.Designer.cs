@@ -413,7 +413,6 @@
             this.dakRevertButton.TabIndex = 87;
             this.toolTip1.SetToolTip(this.dakRevertButton, "ফেরত");
             this.dakRevertButton.UseVisualStyleBackColor = false;
-            this.dakRevertButton.Visible = false;
             this.dakRevertButton.Click += new System.EventHandler(this.dakRevertButton_Click);
             // 
             // dakTagButton

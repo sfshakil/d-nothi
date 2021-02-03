@@ -29,10 +29,14 @@ namespace dNothi.Services.AccountServices
             if (user != null)
             {
                 var data = Encoding.ASCII.GetBytes(password);
+                
+
                 var sha1 = new SHA1CryptoServiceProvider();
+                
                 var sha1data = sha1.ComputeHash(data);
                 user.PasswordHash = sha1data;
                 user.isRemember = isRemember;
+               
                 _userRepository.Update(user);
             }
             else
@@ -70,6 +74,7 @@ namespace dNothi.Services.AccountServices
                 var sha1data = sha1.ComputeHash(data);
                 user.PasswordHash = sha1data;
                 user.isRemember = isRemember;
+                
                 _userRepository.Update(user);
             }
         }

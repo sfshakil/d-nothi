@@ -368,7 +368,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
             conditonBoxForm.message = "আপনি কি ডাকটি প্রেরণ করতে চান?";
-
+            conditonBoxForm.ShowDialog();
             if (conditonBoxForm.Yes)
             {
 
@@ -392,8 +392,8 @@ namespace dNothi.Desktop.UI.Dak
 
                 ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
                 conditonBoxForm.message = "আপনি কি ডাকটি মুছে ফেলতে চান?";
-
-                if (conditonBoxForm.Yes)
+               conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
                 {
                     if (this.DraftedDakDeleteButtonClick != null)
                     this.DraftedDakDeleteButtonClick(sender, e);
@@ -410,7 +410,7 @@ namespace dNothi.Desktop.UI.Dak
 
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
             conditonBoxForm.message = "আপনি কি ডাকটি সম্পাদন করতে চান?";
-
+            conditonBoxForm.ShowDialog();
             if (conditonBoxForm.Yes)
             { 
                 

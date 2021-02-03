@@ -15,7 +15,7 @@ namespace dNothi.Services.DakServices
         DraftedDakEditResponse GetDraftedDakEditResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
 
         OfficeListResponse GetAllOffice(DakUserParam dakListUserParam);
-        DakSendResponse GetDraftedDakSendResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
+        DakUploadResponse GetDraftedDakSendResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
         AllDesignationSealListResponse GetAllDesignationSeal(DakUserParam dakListUserParam, int office_id);
 
         DakUploadedFileResponse GetDakUploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam);
@@ -23,7 +23,7 @@ namespace dNothi.Services.DakServices
         DakFileDeleteResponse GetFileDeleteResponsse(DakUserParam dakListUserParam, DakUploadFileDeleteParam deleteParam);
 
         DakDraftedResponse GetDakDraftedResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter);
-        DakSendResponse GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter);
+        DakUploadResponse GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter);
 
         DraftedDakDeleteResponse GetDraftedDakDeleteResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
 

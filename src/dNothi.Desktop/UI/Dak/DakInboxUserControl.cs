@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.Properties;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -393,7 +394,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (MouseIsOverControl())
             {
-                this.BackColor = Color.WhiteSmoke;
+                this.BackColor = Color.FromArgb(243, 243, 243);
                 dakActionPanel.Visible = true;
             }
             else
@@ -413,7 +414,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakInboxUserControl_Load(object sender, EventArgs e)
         {
-           
+            dakActionPanel.Location = new Point(this.Width-dakActionPanel.Width, dakActionPanel.Location.Y);
         }
 
         private void DakInboxUserControl_Enter(object sender, EventArgs e)
@@ -502,6 +503,133 @@ namespace dNothi.Desktop.UI.Dak
             isChecked = dakCheckBox.Checked;
             if (this.CheckBoxClick != null)
                 this.CheckBoxClick(sender, e);
+        }
+
+
+       
+
+        private void HoverActionIcon(Control control)
+        {
+            
+            
+            if (control == DakSendButton)
+            {
+
+
+                if (DakSendButton.IconColor != Color.FromArgb(246, 78, 144))
+                {
+                   
+                }
+                else
+                {
+                  
+                }
+            }
+
+            if (control == nothijatoButton)
+            {
+
+                if (nothijatoButton.IconColor != Color.FromArgb(246, 78, 144))
+                {
+                    nothijatoButton.IconColor = Color.FromArgb(246, 78, 144);
+                }
+                else
+                {
+                    nothijatoButton.IconColor = Color.FromArgb(54, 153, 255);
+                }
+            }
+
+
+            if (control == dakArchiveButton)
+            {
+
+                if (dakArchiveButton.IconColor != Color.FromArgb(246, 78, 144))
+                {
+                    dakArchiveButton.IconColor = Color.FromArgb(246, 78, 144);
+                }
+                else
+                {
+                    dakArchiveButton.IconColor = Color.FromArgb(54, 153, 255);
+                }
+            }
+
+            if (control == iconButton3)
+            {
+
+                if (iconButton3.IconColor != Color.FromArgb(246, 78, 144))
+                {
+                    iconButton3.IconColor = Color.FromArgb(246, 78, 144);
+                }
+                else
+                {
+                    iconButton3.IconColor = Color.FromArgb(54, 153, 255);
+                }
+            }
+        }
+
+        private void HoverActionIcon(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dakMovementStatusButton_MouseHover(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeal_alt_Hover;
+        }
+
+        private void dakMovementStatusButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeat_alt_New;
+        }
+
+        private void nothiteUposthaponButton_MouseLeave(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothijato_Icon;
+        }
+
+        private void nothiteUposthaponButton_MouseHover(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothivukto_Icon_Hover;
+        }
+
+        private void DakSendButton_MouseHover(object sender, EventArgs e)
+        {
+            DakSendButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void DakSendButton_MouseLeave(object sender, EventArgs e)
+        {
+            DakSendButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void nothijatoButton_MouseHover(object sender, EventArgs e)
+        {
+            nothijatoButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void nothijatoButton_MouseLeave(object sender, EventArgs e)
+        {
+            nothijatoButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void dakArchiveButton_MouseHover(object sender, EventArgs e)
+        {
+            dakArchiveButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakArchiveButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakArchiveButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void iconButton3_MouseHover(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void iconButton3_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(54, 153, 255);
         }
     }
 }

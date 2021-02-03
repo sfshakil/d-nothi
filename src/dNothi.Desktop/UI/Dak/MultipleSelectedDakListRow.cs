@@ -24,6 +24,7 @@ namespace dNothi.Desktop.UI.Dak
         public bool _isDeleted;
         public DakUserDTO _dakUserDTO;
         public string _prerok;
+      
 
         public DakUserDTO dakUserDTO
         {

@@ -14,9 +14,37 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakMovementStatusListUserControl : UserControl
     {
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+
+
+
+                if (ctrl.Font.Style != FontStyle.Regular)
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+                else
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size);
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
+
+        }
         public DakMovementStatusListUserControl()
         {
             InitializeComponent();
+            SetDefaultFont(this.Controls);
         }
         private string _userType;
         private string _userDesignation;

@@ -363,6 +363,26 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Nothijato_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Nothijato-Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Nothivukto_Icon_Hover {
+            get {
+                object obj = ResourceManager.GetObject("Nothivukto-Icon-Hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Other_File_Icon {
             get {
                 object obj = ResourceManager.GetObject("Other_File_Icon", resourceCulture);
@@ -436,6 +456,36 @@ namespace dNothi.Desktop.Properties {
         internal static System.Drawing.Bitmap Pin {
             get {
                 object obj = ResourceManager.GetObject("Pin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Repeal_alt_Hover {
+            get {
+                object obj = ResourceManager.GetObject("Repeal-alt-Hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Repeat_alt {
+            get {
+                object obj = ResourceManager.GetObject("Repeat-alt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Repeat_alt_New {
+            get {
+                object obj = ResourceManager.GetObject("Repeat-alt-New", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

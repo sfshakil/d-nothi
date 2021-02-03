@@ -45,7 +45,7 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
-        public bool isSelected { get { return _isSelected; } set { _isSelected = value; selectCheckBox.Checked = value; hideButton.Enabled = !value; } }
+        public bool isSelected { get { return _isSelected; } set { _isSelected = value; selectCheckBox.Checked = value; if (value) { hideButton.IconColor = Color.FromArgb(251, 173, 182); } else { hideButton.IconColor = Color.Red; } } }
 
         private void selectCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -59,9 +59,13 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DeleteDakFromList;
         private void hideButton_Click(object sender, EventArgs e)
         {
-            if (this.DeleteDakFromList != null)
-                this.DeleteDakFromList(sender, e);
-            this.Hide();
+            if(!selectCheckBox.Checked)
+            {
+                if (this.DeleteDakFromList != null)
+                    this.DeleteDakFromList(sender, e);
+                this.Hide();
+            }
+           
         }
     }
 }

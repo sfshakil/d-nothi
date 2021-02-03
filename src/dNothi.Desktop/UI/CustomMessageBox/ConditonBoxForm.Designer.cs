@@ -34,15 +34,17 @@
             this.yesButton = new FontAwesome.Sharp.IconButton();
             this.noButton = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 49);
+            this.label1.Location = new System.Drawing.Point(0, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(350, 1);
             this.label1.TabIndex = 0;
@@ -51,13 +53,13 @@
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageLabel.Location = new System.Drawing.Point(29, 13);
+            this.messageLabel.Location = new System.Drawing.Point(29, 15);
             this.messageLabel.MaximumSize = new System.Drawing.Size(280, 0);
             this.messageLabel.MinimumSize = new System.Drawing.Size(280, 0);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(280, 21);
             this.messageLabel.TabIndex = 1;
-            this.messageLabel.Text = "আপনি কি ডাকটি ফেরত আনতে চান ?";
+            this.messageLabel.Text = "আপনি কি ডাকটি ফেরত আনতে চান ? ";
             // 
             // panel1
             // 
@@ -67,7 +69,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.panel1.Size = new System.Drawing.Size(350, 49);
+            this.panel1.Size = new System.Drawing.Size(350, 51);
             this.panel1.TabIndex = 2;
             // 
             // yesButton
@@ -82,7 +84,7 @@
             this.yesButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.yesButton.IconSize = 24;
             this.yesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.yesButton.Location = new System.Drawing.Point(114, 71);
+            this.yesButton.Location = new System.Drawing.Point(131, 13);
             this.yesButton.Name = "yesButton";
             this.yesButton.Size = new System.Drawing.Size(58, 32);
             this.yesButton.TabIndex = 3;
@@ -103,7 +105,7 @@
             this.noButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.noButton.IconSize = 24;
             this.noButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.noButton.Location = new System.Drawing.Point(172, 71);
+            this.noButton.Location = new System.Drawing.Point(189, 13);
             this.noButton.Name = "noButton";
             this.noButton.Size = new System.Drawing.Size(58, 32);
             this.noButton.TabIndex = 5;
@@ -116,8 +118,7 @@
             // 
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.noButton);
-            this.panel2.Controls.Add(this.yesButton);
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -125,6 +126,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(350, 117);
             this.panel2.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.noButton);
+            this.panel3.Controls.Add(this.yesButton);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 52);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(350, 62);
+            this.panel3.TabIndex = 6;
             // 
             // ConditonBoxForm
             // 
@@ -143,6 +154,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +168,6 @@
         private FontAwesome.Sharp.IconButton yesButton;
         private FontAwesome.Sharp.IconButton noButton;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }

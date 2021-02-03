@@ -500,9 +500,15 @@ namespace dNothi.Desktop.UI.Dak
             prapokOthersDataGridView.Refresh();
         }
         public event EventHandler SucessfullyDakForwarded;
-        
+
+       
         private void sendButton_Click(object sender, EventArgs e)
         {
+           if(!ValidateUserInput())
+            {
+                return;
+            }
+
             if (_isMultipleDak)
             {
                 ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
@@ -615,9 +621,12 @@ namespace dNothi.Desktop.UI.Dak
                     ActionResult.totalRequest = _totalForwardRequest;
                     ActionResult.totalRequestFail = _totalFailForwardRequest;
                     ActionResult.totalForwardRequest = _totalSuccessForwardRequest;
+
+                    this.Opacity = .1;
+                    
                     Form form = AttachControlToForm(ActionResult);
                     form.ShowDialog();
-
+                   // this.Opacity = 1;
 
                     if (this.SucessfullyDakForwarded != null)
                         this.SucessfullyDakForwarded(sender, e);
@@ -717,6 +726,35 @@ namespace dNothi.Desktop.UI.Dak
             }
     
 
+        }
+
+        private bool ValidateUserInput()
+        {
+           if(string.IsNullOrEmpty(decisionXTextBox.Text))
+            {
+                ShowAlertMessage("ডাকটি প্রেরণ করার পূর্বে সিদ্ধান্ত বাছাই করুন");
+             
+                return false;
+                
+            }
+
+           var mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
+
+           if (mulprapok == null)
+            {
+                ShowAlertMessage("দয়া করে মূল প্রাপক বাছাই করুন");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
+        {
+            UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
+            alertMessageBox.message = mulpotroNotSelectErrorMessage;
+
+            alertMessageBox.ShowDialog();
         }
         public Form AttachControlToForm(Control control)
         {
@@ -880,7 +918,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void BorderColorBlue(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(235, 237, 243), ButtonBorderStyle.Solid);
 
         }
 
@@ -1107,6 +1145,19 @@ namespace dNothi.Desktop.UI.Dak
                 SetDefaultFont(ctrl.Controls);
             }
 
+        }
+
+        private void sendButton_MouseHover(object sender, EventArgs e)
+        {
+            sendButton.BackColor = Color.FromArgb(137, 80, 252);
+            sendButton.ForeColor = Color.White;
+        }
+
+        private void sendButton_Leave(object sender, EventArgs e)
+        {
+
+            sendButton.BackColor = Color.White;
+            sendButton.ForeColor = Color.FromArgb(137, 80, 252);
         }
     }
 }

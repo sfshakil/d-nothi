@@ -20,7 +20,7 @@ namespace dNothi.JsonParser.Entity.Dak
     }
 
 
-    public class DakSendResponse
+    public class DakUploadResponse
     {
         public string status { get; set; }
         public DakSendResponseMessageDTO data { get; set; }
@@ -29,7 +29,11 @@ namespace dNothi.JsonParser.Entity.Dak
        
     }
 
-         public class DakSendResponseMessageDTO
+  
+
+   
+
+    public class DakSendResponseMessageDTO
         {
             public string message { get; set; }
             public string dak_receipt_no { get; set; }

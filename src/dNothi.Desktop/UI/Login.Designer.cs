@@ -144,7 +144,7 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.loginBodyTableLayoutPanel.SetColumnSpan(this.pictureBox1, 2);
-            this.pictureBox1.Location = new System.Drawing.Point(343, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(345, 8);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(194, 54);
@@ -181,9 +181,6 @@
             // 
             // rightLoginBodyPanel
             // 
-            this.rightLoginBodyPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.rightLoginBodyPanel.AutoSize = true;
             this.rightLoginBodyPanel.BackColor = System.Drawing.SystemColors.Window;
             this.rightLoginBodyPanel.Controls.Add(this.loginFlowLayoutPanel);
@@ -194,11 +191,12 @@
             this.rightLoginBodyPanel.Controls.Add(this.btnUserName);
             this.rightLoginBodyPanel.Controls.Add(this.pnlUserIdTop);
             this.rightLoginBodyPanel.Controls.Add(this.btnUserId);
+            this.rightLoginBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rightLoginBodyPanel.Location = new System.Drawing.Point(440, 71);
             this.rightLoginBodyPanel.Margin = new System.Windows.Forms.Padding(0);
             this.rightLoginBodyPanel.Name = "rightLoginBodyPanel";
             this.rightLoginBodyPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rightLoginBodyPanel.Size = new System.Drawing.Size(440, 538);
+            this.rightLoginBodyPanel.Size = new System.Drawing.Size(445, 538);
             this.rightLoginBodyPanel.TabIndex = 2;
             // 
             // loginFlowLayoutPanel
@@ -398,9 +396,9 @@
             this.loginTableLayoutPanel.AutoSize = true;
             this.loginTableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.loginTableLayoutPanel.ColumnCount = 3;
-            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.42857F));
-            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.57143F));
+            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
             this.loginTableLayoutPanel.Controls.Add(this.loginBodyTableLayoutPanel, 1, 0);
             this.loginTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.loginTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -420,14 +418,15 @@
             this.loginBodyTableLayoutPanel.Controls.Add(this.rightLoginBodyPanel, 1, 1);
             this.loginBodyTableLayoutPanel.Controls.Add(this.pictureBox1, 0, 0);
             this.loginBodyTableLayoutPanel.Controls.Add(this.footerTableLayoutPanel, 0, 2);
-            this.loginBodyTableLayoutPanel.Location = new System.Drawing.Point(247, 0);
+            this.loginBodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loginBodyTableLayoutPanel.Location = new System.Drawing.Point(245, 0);
             this.loginBodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.loginBodyTableLayoutPanel.Name = "loginBodyTableLayoutPanel";
             this.loginBodyTableLayoutPanel.RowCount = 3;
             this.loginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.58156F));
             this.loginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.36172F));
             this.loginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.05672F));
-            this.loginBodyTableLayoutPanel.Size = new System.Drawing.Size(880, 678);
+            this.loginBodyTableLayoutPanel.Size = new System.Drawing.Size(885, 678);
             this.loginBodyTableLayoutPanel.TabIndex = 55;
             // 
             // leftLoginBodyTableLayoutPanel
@@ -1193,7 +1192,7 @@
             this.footerTableLayoutPanel.RowCount = 1;
             this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.footerTableLayoutPanel.Size = new System.Drawing.Size(880, 59);
+            this.footerTableLayoutPanel.Size = new System.Drawing.Size(885, 59);
             this.footerTableLayoutPanel.TabIndex = 8;
             // 
             // leftFooterTableLayoutPanel
@@ -1212,7 +1211,7 @@
             this.leftFooterTableLayoutPanel.Name = "leftFooterTableLayoutPanel";
             this.leftFooterTableLayoutPanel.RowCount = 1;
             this.leftFooterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.leftFooterTableLayoutPanel.Size = new System.Drawing.Size(440, 59);
+            this.leftFooterTableLayoutPanel.Size = new System.Drawing.Size(442, 59);
             this.leftFooterTableLayoutPanel.TabIndex = 2;
             // 
             // linkLabel1
@@ -1225,10 +1224,10 @@
             this.linkLabel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(103)))), ((int)(((byte)(221)))));
-            this.linkLabel1.Location = new System.Drawing.Point(148, 0);
+            this.linkLabel1.Location = new System.Drawing.Point(149, 0);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(292, 59);
+            this.linkLabel1.Size = new System.Drawing.Size(293, 59);
             this.linkLabel1.TabIndex = 12;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "ট্যাপওয়্যার সলিউশনস লিমিটেড";
@@ -1245,7 +1244,7 @@
             this.label1.Location = new System.Drawing.Point(44, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 59);
+            this.label1.Size = new System.Drawing.Size(105, 59);
             this.label1.TabIndex = 11;
             this.label1.Text = " কারিগরি সহায়তায় ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1277,12 +1276,12 @@
             this.rightfooterTableLayoutPanel.Controls.Add(this.button5, 4, 0);
             this.rightfooterTableLayoutPanel.Controls.Add(this.button4, 3, 0);
             this.rightfooterTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightfooterTableLayoutPanel.Location = new System.Drawing.Point(440, 0);
+            this.rightfooterTableLayoutPanel.Location = new System.Drawing.Point(442, 0);
             this.rightfooterTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.rightfooterTableLayoutPanel.Name = "rightfooterTableLayoutPanel";
             this.rightfooterTableLayoutPanel.RowCount = 1;
             this.rightfooterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.rightfooterTableLayoutPanel.Size = new System.Drawing.Size(440, 59);
+            this.rightfooterTableLayoutPanel.Size = new System.Drawing.Size(443, 59);
             this.rightfooterTableLayoutPanel.TabIndex = 1;
             // 
             // button3
@@ -1345,7 +1344,7 @@
             this.button5.Location = new System.Drawing.Point(367, 15);
             this.button5.Margin = new System.Windows.Forms.Padding(15);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(58, 29);
+            this.button5.Size = new System.Drawing.Size(61, 29);
             this.button5.TabIndex = 8;
             this.button5.UseVisualStyleBackColor = true;
             // 

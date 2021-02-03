@@ -146,7 +146,8 @@ namespace dNothi.Services.DakServices
     public class DakUploadAttachment
     {
         public int mulpotro { get; set; }
-        public DakAttachmentDTO file_info { get; set; }
+        public DakAttachmentDTO file_infoModel { get; set; }
+        public string file_info { get; set; }
 
        
 

@@ -36,6 +36,10 @@ namespace dNothi.Desktop.UI.Dak
         public PrapokDTO _mul_prapok = new PrapokDTO();
         public Dictionary<string, PrapokDTO> _onulipi;
 
+        public string prerokName;
+        public string prapokName;
+        public string sub;
+
 
         int mulPrapokColumn = 9;
         int onulipiColumn = 10;
@@ -482,7 +486,8 @@ namespace dNothi.Desktop.UI.Dak
         private void fileUploadButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
-            //opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
+
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
                 _dakFileUploadParam.user_file_name = new System.IO.FileInfo(opnfd.FileName).Name;
@@ -490,16 +495,18 @@ namespace dNothi.Desktop.UI.Dak
 
 
                 //Read the contents of the file into a stream
-                var fileStream = opnfd.OpenFile();
+                // var fileStream = opnfd.OpenFile();
 
-                using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    _dakFileUploadParam.content = reader.ReadToEnd();
-                }
+                // using (StreamReader reader = new StreamReader(opnfd.FileName, Encoding.UTF8))
+                // {
+                //     _dakFileUploadParam.content = reader.ReadToEnd();
+                // }
 
+                //// _dakFileUploadParam.content = File.ReadAllText(opnfd.FileName);
+                // // _dakFileUploadParam.file_size_in_kb=opnfd.
 
-                // _dakFileUploadParam.file_size_in_kb=opnfd.
-
+                Byte[] bytes = File.ReadAllBytes(opnfd.FileName);
+                _dakFileUploadParam.content = Convert.ToBase64String(bytes);
 
                 var size = new System.IO.FileInfo(opnfd.FileName).Length;
 
@@ -525,23 +532,22 @@ namespace dNothi.Desktop.UI.Dak
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             dakUploadAttachmentTableRow._isAllowedforOCR = true;
                             dakUploadAttachmentTableRow.imgSource = opnfd.FileName;
-                            using (Image image = Image.FromFile(opnfd.FileName))
-                            {
-                                using (MemoryStream m = new MemoryStream())
-                                {
-                                    image.Save(m, image.RawFormat);
-                                    byte[] imageBytes = m.ToArray();
+                            //using (Image image = Image.FromFile(opnfd.FileName))
+                            //{
+                            //    using (MemoryStream m = new MemoryStream())
+                            //    {
+                            //        image.Save(m, image.RawFormat);
+                            //        byte[] imageBytes = m.ToArray();
 
-                                    // Convert byte[] to Base64 String
-                                    dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
+                            //        // Convert byte[] to Base64 String
+                            //        dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
 
-                                }
-                            }
-
-
+                            //    }
+                            //}
 
 
                         }
+
                         else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
@@ -553,6 +559,7 @@ namespace dNothi.Desktop.UI.Dak
                         }
 
 
+                        dakUploadAttachmentTableRow.imageBase64String = _dakFileUploadParam.content;
 
                         dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
                         dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._dakAttachment); };
@@ -571,6 +578,7 @@ namespace dNothi.Desktop.UI.Dak
                         attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
                     }
                 }
+
 
             }
 
@@ -687,6 +695,10 @@ namespace dNothi.Desktop.UI.Dak
 
         private void SetDakUploadData()
         {
+
+            prerokName = nameBanglaXTextBox.Text;
+            sub = subjectXTextBox.Text;
+
             //uploader
 
             var config = new MapperConfiguration(cfg =>
@@ -720,15 +732,18 @@ namespace dNothi.Desktop.UI.Dak
                 }
 
 
-                dakUploadAttachment.file_info = attachment._dakAttachment;
-                dakUploadAttachment.file_info.user_file_name = attachment._attachmentName;
+                dakUploadAttachment.file_infoModel = attachment._dakAttachment;
+                dakUploadAttachment.file_infoModel.user_file_name = attachment._attachmentName;
+                dakUploadAttachment.file_infoModel.img_base64 = attachment.imageBase64String;
+                dakUploadAttachment.file_info = dakUploadParameter.CSharpObjtoJson(dakUploadAttachment.file_infoModel);
+
 
                 dakUploadAttachments.Add(dakUploadAttachment);
 
 
             }
 
-            dak.attachment = dakUploadAttachments.ToDictionary(a => a.file_info.id.ToString());
+            dak.attachment = dakUploadAttachments.ToDictionary(a => a.file_infoModel.id.ToString());
 
             dak.national_idendity_no = nationalIdXTextBox.Text;
             dak.birth_registration_number = birthCertificateNoXTextBox.Text;
@@ -788,6 +803,7 @@ namespace dNothi.Desktop.UI.Dak
                 var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
                 dakUploadReceiver.mul_prapok = receiver_info;
             }
+            prapokName = dakUploadReceiver.mul_prapok.officer_name + " ," + dakUploadReceiver.mul_prapok.designation_bng + "," + dakUploadReceiver.mul_prapok.unit_name_bng + "," + dakUploadReceiver.mul_prapok.office_bng;
 
 
             // onulipi
@@ -880,7 +896,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-            if (nationalIdXTextBox.Text.Length != 10 || nationalIdXTextBox.Text.Length != 13 || nationalIdXTextBox.Text.Length != 17)
+            if (nationalIdXTextBox.Text.Length != 10 && nationalIdXTextBox.Text.Length != 13 && nationalIdXTextBox.Text.Length != 17 && !string.IsNullOrEmpty(nationalIdXTextBox.Text))
             {
 
                 nationalIdXTextBox.Focus();
@@ -1028,7 +1044,7 @@ namespace dNothi.Desktop.UI.Dak
         private void nameBanglaXTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             char inputChar = e.KeyChar;
-            var regexItem = new Regex("^[a-zA-Z0-9$@$!%*?&#^-_. +`\b]+$");
+            var regexItem = new Regex("^[a-zA-Z0-9$@$!%*?&#^-_.+`\b]+$");
             string pressedChar = inputChar.ToString();
             if (!char.IsControl(e.KeyChar) && regexItem.IsMatch(pressedChar))
             {

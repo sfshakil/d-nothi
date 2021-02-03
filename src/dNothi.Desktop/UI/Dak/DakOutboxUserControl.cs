@@ -74,12 +74,12 @@ namespace dNothi.Desktop.UI.Dak
 
         private int _dakAttachmentCount;
 
-        [Category("Custom Props")]
-        public string dakViewStatus
-        {
-            get { return _dak_view_status; }
-            set { _dak_view_status = value;  if (value == "New") { dakRevertButton.Visible = true; } }
-        }
+       // [Category("Custom Props")]
+        //public string dakViewStatus
+        //{
+        //    get { return _dak_view_status; }
+        //    set { _dak_view_status = value;  if (value == "New") { dakRevertButton.Visible = true; } }
+        //}
 
 
         [Category("Custom Props")]

@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using Autofac;
 using dNothi.Desktop.Interfaces;
 using System.Text.RegularExpressions;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI
 {
@@ -67,7 +68,13 @@ namespace dNothi.Desktop.UI
             Controls.Add(ucPasswordResetPanel);
             ucPasswordResetPanel.BringToFront();
         }
+        private void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
+        {
+            UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
+            alertMessageBox.message = mulpotroNotSelectErrorMessage;
 
+            alertMessageBox.ShowDialog();
+        }
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
@@ -82,6 +89,10 @@ namespace dNothi.Desktop.UI
                 if (resmessage.status == "success")
                 {
                     _accountService.SaveOrUpdateUser(userName, password, isRemember);
+
+                    // Sign Assign
+                    resmessage.data.user.SignBase64 = resmessage.data.signature.encode_sign;
+
                     SaveOrUpdateUser(resmessage?.data?.user);
                     SaveOrUpdateEmployee(resmessage?.data?.employee_info);
                     SaveOrUpdateOffice(resmessage?.data?.office_info);
@@ -96,10 +107,10 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    MessageBox.Show("Invalid User Id or Password!");
+                    ShowAlertMessage("আপনি ভূল ইউজার নেম অথবা পাসওয়ার্ড ইনপুট দিয়েছেন।");
                 }
             }
-            catch
+            catch(Exception Ex)
             {
                 var appUser = _accountService.LoginUser(userName, password);
                 if (appUser != null)
@@ -310,7 +321,7 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Dashboard>();
             form.Hide();
 
-            //SetDefaultFont(this.Controls);
+            SetDefaultFont(this.Controls);
             //Screen scr = Screen.FromPoint(this.Location);
             //this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
             //this.Size = Screen.PrimaryScreen.WorkingArea.Size;

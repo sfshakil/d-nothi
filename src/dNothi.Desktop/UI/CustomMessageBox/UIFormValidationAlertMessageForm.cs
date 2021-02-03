@@ -64,10 +64,36 @@ namespace dNothi.Desktop.UI.CustomMessageBox
             Screen scr = Screen.FromPoint(this.Location);
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (this.Size.Width / 2), scr.WorkingArea.Top);
 
-            
+            SetDefaultFont(this.Controls);
            
         }
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
 
+
+
+
+                if (ctrl.Font.Style != FontStyle.Regular)
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+                else
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size);
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
+
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

@@ -26,7 +26,7 @@ namespace dNothi.Services.DakServices
                 var dakFileUploadRequest = new RestRequest(Method.POST);
                 dakFileUploadRequest.AddHeader("api-version", GetAPIVersion());
                 dakFileUploadRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-                dakFileUploadRequest.AddHeader("model", dakFileUploadParam.model);
+              //  dakFileUploadRequest.AddHeader("model", dakFileUploadParam.model);
                 dakFileUploadRequest.AlwaysMultipartFormData = true;
                 dakFileUploadRequest.AddParameter("designation_id", dakListUserParam.designation_id);
                 dakFileUploadRequest.AddParameter("office_id", dakListUserParam.office_id);
@@ -211,7 +211,7 @@ namespace dNothi.Services.DakServices
 
         
 
-        DakSendResponse IDakUploadService.GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
+        DakUploadResponse IDakUploadService.GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
         {
             var dakSendAPI = new RestClient(GetAPIDomain() + GetDakSendEndpoint());
             dakSendAPI.Timeout = -1;
@@ -230,7 +230,7 @@ namespace dNothi.Services.DakServices
             IRestResponse dakSendIRestResponse = dakSendAPI.Execute(dakSendRequest);
             var dakSendResponseJson = dakSendIRestResponse.Content;
 
-            var dakSendResponse = JsonConvert.DeserializeObject<DakSendResponse>(dakSendResponseJson, new JsonSerializerSettings
+            var dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(dakSendResponseJson, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });
@@ -246,7 +246,7 @@ namespace dNothi.Services.DakServices
             errorArgs.ErrorContext.Handled = true;
         }
 
-        public DakSendResponse GetDraftedDakSendResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
+        public DakUploadResponse GetDraftedDakSendResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
         {
             var draftedDakSendAPI = new RestClient(GetAPIDomain() + GetDraftedDakSendEndpoint());
             draftedDakSendAPI.Timeout = -1;
@@ -261,7 +261,7 @@ namespace dNothi.Services.DakServices
             IRestResponse dakSendIRestResponse = draftedDakSendAPI.Execute(draftedDakSendRequest);
             var dakSendResponseJson = dakSendIRestResponse.Content;
 
-            var dakSendResponse = JsonConvert.DeserializeObject<DakSendResponse>(dakSendResponseJson, new JsonSerializerSettings
+            var dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(dakSendResponseJson, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });

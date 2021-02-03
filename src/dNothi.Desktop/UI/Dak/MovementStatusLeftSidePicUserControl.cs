@@ -14,9 +14,37 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class MovementStatusLeftSidePicUserControl : UserControl
     {
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+
+
+
+                if (ctrl.Font.Style != FontStyle.Regular)
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+                else
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size);
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
+
+        }
         public MovementStatusLeftSidePicUserControl()
         {
             InitializeComponent();
+            SetDefaultFont(this.Controls);
         }
 
         private MovementStatusDTO _dakMovementStatus;
@@ -116,7 +144,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     movementStatusDetailsUserControlSender.userType = "প্রেরক           :";
                     movementStatusDetailsUserControlSender.userDesignation = value.from.officer;
-                    movementStatusDetailsUserControlSender.userDesignation += "(" + value.from.designation + "," + value.from.office_unit + "," + value.from.office + ")";
+                    movementStatusDetailsUserControlSender.userDesignation += " (" + value.from.designation + "," + value.from.office_unit + "," + value.from.office + ")";
                     movementStatusdetailsFlowLayoutPanel.Controls.Add(movementStatusDetailsUserControlSender);
                 }
                 catch
@@ -133,7 +161,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
                     movementStatusDetailsUserControlReceiver.userDesignation = toDTO.officer;
-                    movementStatusDetailsUserControlReceiver.userDesignation += "(" + toDTO.designation + "," + toDTO.office_unit + "," + toDTO.office + ")";
+                    movementStatusDetailsUserControlReceiver.userDesignation += " (" + toDTO.designation + "," + toDTO.office_unit + "," + toDTO.office + ")";
                     movementStatusdetailsFlowLayoutPanel.Controls.Add(movementStatusDetailsUserControlReceiver);
                 }
                 catch
@@ -150,7 +178,7 @@ namespace dNothi.Desktop.UI.Dak
 
                         movementStatusDetailsUserControlOnulipi.userType = type;
                         movementStatusDetailsUserControlOnulipi.userDesignation = toDTO.officer;
-                        movementStatusDetailsUserControlOnulipi.userDesignation += "(" + toDTO.designation + "," + toDTO.office_unit + "," + toDTO.office + ")";
+                        movementStatusDetailsUserControlOnulipi.userDesignation += " (" + toDTO.designation + "," + toDTO.office_unit + "," + toDTO.office + ")";
                         movementStatusdetailsFlowLayoutPanel.Controls.Add(movementStatusDetailsUserControlOnulipi);
                         type = "";
                     }
