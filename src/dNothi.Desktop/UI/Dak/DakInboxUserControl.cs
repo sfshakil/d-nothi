@@ -415,6 +415,7 @@ namespace dNothi.Desktop.UI.Dak
         private void DakInboxUserControl_Load(object sender, EventArgs e)
         {
             dakActionPanel.Location = new Point(this.Width-dakActionPanel.Width, dakActionPanel.Location.Y);
+            disablePanel.Location = new Point(this.Width-disablePanel.Width, dakActionPanel.Location.Y);
         }
 
         private void DakInboxUserControl_Enter(object sender, EventArgs e)

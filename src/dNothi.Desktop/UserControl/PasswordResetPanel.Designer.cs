@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordResetPanel));
             this.button9 = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtUserNamePassword = new PlaceholderTextBox.PlaceholderTextBox();
             this.userIdPanel = new System.Windows.Forms.Panel();
             this.txtUserName = new PlaceholderTextBox.PlaceholderTextBox();
-            this.panel9.SuspendLayout();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.userIdPanel.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // button9
@@ -57,27 +57,6 @@
             this.button9.Text = "অনুরোধ করুন";
             this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button9.UseVisualStyleBackColor = false;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Moccasin;
-            this.panel9.Controls.Add(this.label2);
-            this.panel9.Location = new System.Drawing.Point(19, 73);
-            this.panel9.MaximumSize = new System.Drawing.Size(232, 62);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(232, 52);
-            this.panel9.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label2.Location = new System.Drawing.Point(7, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 42);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "ইউজার আইডি ও ইমেইল \r\nপাঠান";
             // 
             // panel3
             // 
@@ -124,6 +103,27 @@
             this.txtUserName.TabIndex = 3;
             this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label2.Location = new System.Drawing.Point(7, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 42);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "ইউজার আইডি ও ইমেইল \r\nপাঠান";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Moccasin;
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Location = new System.Drawing.Point(19, 73);
+            this.panel9.MaximumSize = new System.Drawing.Size(232, 62);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(232, 52);
+            this.panel9.TabIndex = 15;
+            // 
             // PasswordResetPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -136,12 +136,12 @@
             this.MinimumSize = new System.Drawing.Size(406, 150);
             this.Name = "PasswordResetPanel";
             this.Size = new System.Drawing.Size(406, 150);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.userIdPanel.ResumeLayout(false);
             this.userIdPanel.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -149,11 +149,11 @@
         #endregion
 
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private PlaceholderTextBox.PlaceholderTextBox txtUserNamePassword;
         private System.Windows.Forms.Panel userIdPanel;
         private PlaceholderTextBox.PlaceholderTextBox txtUserName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel9;
     }
 }

@@ -363,6 +363,16 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap newDakIcon_PNG {
+            get {
+                object obj = ResourceManager.GetObject("newDakIcon-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nothijato_Icon {
             get {
                 object obj = ResourceManager.GetObject("Nothijato-Icon", resourceCulture);

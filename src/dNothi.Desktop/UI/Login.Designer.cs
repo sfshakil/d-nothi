@@ -33,9 +33,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.rightLoginBodyPanel = new System.Windows.Forms.Panel();
-            this.loginFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlUserId = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtPassword = new PlaceholderTextBox.PlaceholderTextBox();
             this.userIdPanel = new System.Windows.Forms.Panel();
@@ -43,26 +40,10 @@
             this.userLoginByUserIdButton = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pnlUserIdNamePasswordBottom = new System.Windows.Forms.Panel();
-            this.pnlPasswordResetTop = new System.Windows.Forms.Panel();
-            this.btnPasswordReset = new System.Windows.Forms.Button();
-            this.pnlUserNameTop = new System.Windows.Forms.Panel();
-            this.btnUserName = new System.Windows.Forms.Button();
-            this.pnlUserIdTop = new System.Windows.Forms.Panel();
-            this.btnUserId = new System.Windows.Forms.Button();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.loginTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.loginBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.leftLoginBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.linkTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.iconPictureBox20 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox16 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox17 = new FontAwesome.Sharp.IconPictureBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.iconPictureBox18 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox19 = new FontAwesome.Sharp.IconPictureBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -74,26 +55,16 @@
             this.iconPictureBox23 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox24 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox25 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox26 = new FontAwesome.Sharp.IconPictureBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.aboutTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label18 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.leftFooterTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -104,21 +75,59 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.loginTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.placeholderTextBox1 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.placeholderTextBox2 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.placeholderTextBox3 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.placeholderTextBox4 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.iconPictureBox5 = new FontAwesome.Sharp.IconPictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.rightLoginBodyPanel.SuspendLayout();
-            this.loginFlowLayoutPanel.SuspendLayout();
-            this.pnlUserId.SuspendLayout();
             this.panel3.SuspendLayout();
             this.userIdPanel.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.loginTableLayoutPanel.SuspendLayout();
-            this.loginBodyTableLayoutPanel.SuspendLayout();
             this.leftLoginBodyTableLayoutPanel.SuspendLayout();
-            this.linkTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox15)).BeginInit();
@@ -127,117 +136,104 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox26)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.aboutTableLayoutPanel.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.footerTableLayoutPanel.SuspendLayout();
             this.leftFooterTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.rightfooterTableLayoutPanel.SuspendLayout();
+            this.loginTableLayoutPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.loginBodyTableLayoutPanel.SetColumnSpan(this.pictureBox1, 2);
-            this.pictureBox1.Location = new System.Drawing.Point(345, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(297, 36);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 54);
+            this.pictureBox1.Size = new System.Drawing.Size(188, 50);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // panel11
             // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel11.BackColor = System.Drawing.Color.Indigo;
-            this.tableLayoutPanel1.SetColumnSpan(this.panel11, 2);
-            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Location = new System.Drawing.Point(10, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(420, 4);
+            this.panel11.Size = new System.Drawing.Size(370, 2);
             this.panel11.TabIndex = 7;
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(3, 4);
+            this.label9.Location = new System.Drawing.Point(11, 4);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(204, 29);
+            this.label9.Size = new System.Drawing.Size(77, 21);
             this.label9.TabIndex = 8;
             this.label9.Text = "হেল্প ডেস্ক";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rightLoginBodyPanel
-            // 
-            this.rightLoginBodyPanel.AutoSize = true;
-            this.rightLoginBodyPanel.BackColor = System.Drawing.SystemColors.Window;
-            this.rightLoginBodyPanel.Controls.Add(this.loginFlowLayoutPanel);
-            this.rightLoginBodyPanel.Controls.Add(this.pnlUserIdNamePasswordBottom);
-            this.rightLoginBodyPanel.Controls.Add(this.pnlPasswordResetTop);
-            this.rightLoginBodyPanel.Controls.Add(this.btnPasswordReset);
-            this.rightLoginBodyPanel.Controls.Add(this.pnlUserNameTop);
-            this.rightLoginBodyPanel.Controls.Add(this.btnUserName);
-            this.rightLoginBodyPanel.Controls.Add(this.pnlUserIdTop);
-            this.rightLoginBodyPanel.Controls.Add(this.btnUserId);
-            this.rightLoginBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightLoginBodyPanel.Location = new System.Drawing.Point(440, 71);
-            this.rightLoginBodyPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.rightLoginBodyPanel.Name = "rightLoginBodyPanel";
-            this.rightLoginBodyPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rightLoginBodyPanel.Size = new System.Drawing.Size(445, 538);
-            this.rightLoginBodyPanel.TabIndex = 2;
-            // 
-            // loginFlowLayoutPanel
-            // 
-            this.loginFlowLayoutPanel.Controls.Add(this.pnlUserId);
-            this.loginFlowLayoutPanel.Location = new System.Drawing.Point(13, 64);
-            this.loginFlowLayoutPanel.Name = "loginFlowLayoutPanel";
-            this.loginFlowLayoutPanel.Size = new System.Drawing.Size(423, 317);
-            this.loginFlowLayoutPanel.TabIndex = 8;
-            // 
-            // pnlUserId
-            // 
-            this.pnlUserId.Controls.Add(this.panel3);
-            this.pnlUserId.Controls.Add(this.userIdPanel);
-            this.pnlUserId.Controls.Add(this.userLoginByUserIdButton);
-            this.pnlUserId.Controls.Add(this.panel9);
-            this.pnlUserId.Location = new System.Drawing.Point(3, 4);
-            this.pnlUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlUserId.Name = "pnlUserId";
-            this.pnlUserId.Size = new System.Drawing.Size(411, 211);
-            this.pnlUserId.TabIndex = 7;
-            // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.txtPassword);
-            this.panel3.Location = new System.Drawing.Point(208, 29);
+            this.panel3.Location = new System.Drawing.Point(185, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(187, 39);
+            this.panel3.Size = new System.Drawing.Size(177, 38);
             this.panel3.TabIndex = 78;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
             // 
             // txtPassword
             // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.BackColor = System.Drawing.Color.White;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(5, 10);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PlaceholderText = "পাসওয়ার্ড";
-            this.txtPassword.Size = new System.Drawing.Size(177, 19);
+            this.txtPassword.Size = new System.Drawing.Size(167, 19);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress_1);
@@ -245,39 +241,46 @@
             // 
             // userIdPanel
             // 
+            this.userIdPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.userIdPanel.BackColor = System.Drawing.Color.Transparent;
             this.userIdPanel.Controls.Add(this.txtUser);
-            this.userIdPanel.Location = new System.Drawing.Point(13, 29);
+            this.userIdPanel.Location = new System.Drawing.Point(3, 3);
             this.userIdPanel.Name = "userIdPanel";
-            this.userIdPanel.Size = new System.Drawing.Size(187, 39);
+            this.userIdPanel.Size = new System.Drawing.Size(176, 38);
             this.userIdPanel.TabIndex = 77;
             this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
             // 
             // txtUser
             // 
+            this.txtUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUser.BackColor = System.Drawing.Color.White;
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.Location = new System.Drawing.Point(5, 10);
             this.txtUser.Name = "txtUser";
             this.txtUser.PlaceholderText = "ইউজার আইডি ";
-            this.txtUser.Size = new System.Drawing.Size(177, 19);
+            this.txtUser.Size = new System.Drawing.Size(166, 19);
             this.txtUser.TabIndex = 3;
             this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
             this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
             // 
             // userLoginByUserIdButton
             // 
+            this.userLoginByUserIdButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.userLoginByUserIdButton.BackColor = System.Drawing.SystemColors.HotTrack;
             this.userLoginByUserIdButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.userLoginByUserIdButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userLoginByUserIdButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userLoginByUserIdButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.userLoginByUserIdButton.Image = ((System.Drawing.Image)(resources.GetObject("userLoginByUserIdButton.Image")));
-            this.userLoginByUserIdButton.Location = new System.Drawing.Point(303, 89);
+            this.userLoginByUserIdButton.Location = new System.Drawing.Point(256, 4);
             this.userLoginByUserIdButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.userLoginByUserIdButton.Name = "userLoginByUserIdButton";
-            this.userLoginByUserIdButton.Size = new System.Drawing.Size(94, 71);
+            this.userLoginByUserIdButton.Size = new System.Drawing.Size(106, 59);
             this.userLoginByUserIdButton.TabIndex = 9;
             this.userLoginByUserIdButton.Text = "প্রবেশ";
             this.userLoginByUserIdButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -286,12 +289,14 @@
             // 
             // panel9
             // 
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BackColor = System.Drawing.Color.Moccasin;
             this.panel9.Controls.Add(this.label2);
-            this.panel9.Location = new System.Drawing.Point(14, 89);
+            this.panel9.Location = new System.Drawing.Point(3, 4);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(284, 71);
+            this.panel9.Size = new System.Drawing.Size(247, 59);
             this.panel9.TabIndex = 9;
             // 
             // label2
@@ -305,592 +310,258 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "ইউজার আইডি ব্যবহার করে প্রবেশ \r\nকরুন";
             // 
-            // pnlUserIdNamePasswordBottom
-            // 
-            this.pnlUserIdNamePasswordBottom.Location = new System.Drawing.Point(24, 57);
-            this.pnlUserIdNamePasswordBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlUserIdNamePasswordBottom.Name = "pnlUserIdNamePasswordBottom";
-            this.pnlUserIdNamePasswordBottom.Size = new System.Drawing.Size(386, 1);
-            this.pnlUserIdNamePasswordBottom.TabIndex = 6;
-            // 
-            // pnlPasswordResetTop
-            // 
-            this.pnlPasswordResetTop.Location = new System.Drawing.Point(286, 17);
-            this.pnlPasswordResetTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlPasswordResetTop.Name = "pnlPasswordResetTop";
-            this.pnlPasswordResetTop.Size = new System.Drawing.Size(129, 2);
-            this.pnlPasswordResetTop.TabIndex = 5;
-            // 
-            // btnPasswordReset
-            // 
-            this.btnPasswordReset.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnPasswordReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnPasswordReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnPasswordReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPasswordReset.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPasswordReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.btnPasswordReset.Location = new System.Drawing.Point(286, 18);
-            this.btnPasswordReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnPasswordReset.Name = "btnPasswordReset";
-            this.btnPasswordReset.Size = new System.Drawing.Size(129, 39);
-            this.btnPasswordReset.TabIndex = 4;
-            this.btnPasswordReset.Text = "পাসওয়ার্ড রিসেট";
-            this.btnPasswordReset.UseVisualStyleBackColor = true;
-            this.btnPasswordReset.Click += new System.EventHandler(this.btnPasswordReset_Click);
-            this.btnPasswordReset.MouseHover += new System.EventHandler(this.btnPasswordReset_MouseHover);
-            // 
-            // pnlUserNameTop
-            // 
-            this.pnlUserNameTop.Location = new System.Drawing.Point(156, 17);
-            this.pnlUserNameTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlUserNameTop.Name = "pnlUserNameTop";
-            this.pnlUserNameTop.Size = new System.Drawing.Size(111, 2);
-            this.pnlUserNameTop.TabIndex = 3;
-            // 
-            // btnUserName
-            // 
-            this.btnUserName.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnUserName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnUserName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnUserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserName.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.btnUserName.Location = new System.Drawing.Point(156, 18);
-            this.btnUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnUserName.Name = "btnUserName";
-            this.btnUserName.Size = new System.Drawing.Size(111, 39);
-            this.btnUserName.TabIndex = 2;
-            this.btnUserName.Text = "ইউজার নেম";
-            this.btnUserName.UseVisualStyleBackColor = true;
-            this.btnUserName.Click += new System.EventHandler(this.btnUserName_Click);
-            this.btnUserName.MouseHover += new System.EventHandler(this.btnUserName_MouseHover);
-            // 
-            // pnlUserIdTop
-            // 
-            this.pnlUserIdTop.Location = new System.Drawing.Point(24, 17);
-            this.pnlUserIdTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlUserIdTop.Name = "pnlUserIdTop";
-            this.pnlUserIdTop.Size = new System.Drawing.Size(111, 2);
-            this.pnlUserIdTop.TabIndex = 1;
-            // 
-            // btnUserId
-            // 
-            this.btnUserId.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnUserId.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnUserId.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnUserId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserId.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.btnUserId.Location = new System.Drawing.Point(24, 18);
-            this.btnUserId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnUserId.Name = "btnUserId";
-            this.btnUserId.Size = new System.Drawing.Size(111, 39);
-            this.btnUserId.TabIndex = 0;
-            this.btnUserId.Text = "ইউজার আইডি";
-            this.btnUserId.UseVisualStyleBackColor = true;
-            this.btnUserId.Click += new System.EventHandler(this.btnUserId_Click);
-            this.btnUserId.MouseHover += new System.EventHandler(this.btnUserId_MouseHover);
-            // 
-            // loginTableLayoutPanel
-            // 
-            this.loginTableLayoutPanel.AutoSize = true;
-            this.loginTableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this.loginTableLayoutPanel.ColumnCount = 3;
-            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.loginTableLayoutPanel.Controls.Add(this.loginBodyTableLayoutPanel, 1, 0);
-            this.loginTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loginTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.loginTableLayoutPanel.Name = "loginTableLayoutPanel";
-            this.loginTableLayoutPanel.RowCount = 1;
-            this.loginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.loginTableLayoutPanel.Size = new System.Drawing.Size(1362, 693);
-            this.loginTableLayoutPanel.TabIndex = 55;
-            // 
-            // loginBodyTableLayoutPanel
-            // 
-            this.loginBodyTableLayoutPanel.AutoSize = true;
-            this.loginBodyTableLayoutPanel.ColumnCount = 2;
-            this.loginBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.loginBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.loginBodyTableLayoutPanel.Controls.Add(this.leftLoginBodyTableLayoutPanel, 1, 0);
-            this.loginBodyTableLayoutPanel.Controls.Add(this.rightLoginBodyPanel, 1, 1);
-            this.loginBodyTableLayoutPanel.Controls.Add(this.pictureBox1, 0, 0);
-            this.loginBodyTableLayoutPanel.Controls.Add(this.footerTableLayoutPanel, 0, 2);
-            this.loginBodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loginBodyTableLayoutPanel.Location = new System.Drawing.Point(245, 0);
-            this.loginBodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.loginBodyTableLayoutPanel.Name = "loginBodyTableLayoutPanel";
-            this.loginBodyTableLayoutPanel.RowCount = 3;
-            this.loginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.58156F));
-            this.loginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.36172F));
-            this.loginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.05672F));
-            this.loginBodyTableLayoutPanel.Size = new System.Drawing.Size(885, 678);
-            this.loginBodyTableLayoutPanel.TabIndex = 55;
-            // 
             // leftLoginBodyTableLayoutPanel
             // 
-            this.leftLoginBodyTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
+            this.leftLoginBodyTableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.leftLoginBodyTableLayoutPanel.ColumnCount = 1;
             this.leftLoginBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.leftLoginBodyTableLayoutPanel.Controls.Add(this.linkTableLayoutPanel, 0, 2);
-            this.leftLoginBodyTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 1);
-            this.leftLoginBodyTableLayoutPanel.Controls.Add(this.aboutTableLayoutPanel, 0, 0);
+            this.leftLoginBodyTableLayoutPanel.Controls.Add(this.panel12, 0, 0);
+            this.leftLoginBodyTableLayoutPanel.Controls.Add(this.panel13, 0, 1);
+            this.leftLoginBodyTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 2);
             this.leftLoginBodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leftLoginBodyTableLayoutPanel.Location = new System.Drawing.Point(0, 71);
-            this.leftLoginBodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.leftLoginBodyTableLayoutPanel.Location = new System.Drawing.Point(0, 5);
+            this.leftLoginBodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.leftLoginBodyTableLayoutPanel.Name = "leftLoginBodyTableLayoutPanel";
+            this.leftLoginBodyTableLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.leftLoginBodyTableLayoutPanel.RowCount = 3;
-            this.leftLoginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.51485F));
-            this.leftLoginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.930693F));
-            this.leftLoginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.55445F));
-            this.leftLoginBodyTableLayoutPanel.Size = new System.Drawing.Size(440, 538);
+            this.leftLoginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.05485F));
+            this.leftLoginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.172996F));
+            this.leftLoginBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.98312F));
+            this.leftLoginBodyTableLayoutPanel.Size = new System.Drawing.Size(390, 486);
             this.leftLoginBodyTableLayoutPanel.TabIndex = 7;
-            // 
-            // linkTableLayoutPanel
-            // 
-            this.linkTableLayoutPanel.ColumnCount = 6;
-            this.linkTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.41366F));
-            this.linkTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.62049F));
-            this.linkTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.03415F));
-            this.linkTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.41366F));
-            this.linkTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.80952F));
-            this.linkTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.70851F));
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox20, 0, 6);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox16, 0, 0);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox17, 3, 0);
-            this.linkTableLayoutPanel.Controls.Add(this.label25, 4, 0);
-            this.linkTableLayoutPanel.Controls.Add(this.label12, 1, 0);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox18, 0, 1);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox19, 0, 2);
-            this.linkTableLayoutPanel.Controls.Add(this.label26, 1, 1);
-            this.linkTableLayoutPanel.Controls.Add(this.label27, 1, 2);
-            this.linkTableLayoutPanel.Controls.Add(this.label28, 1, 3);
-            this.linkTableLayoutPanel.Controls.Add(this.label10, 1, 5);
-            this.linkTableLayoutPanel.Controls.Add(this.label11, 1, 6);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox7, 0, 3);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox15, 0, 4);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox21, 0, 5);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox22, 3, 5);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox23, 3, 4);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox24, 3, 3);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox25, 3, 2);
-            this.linkTableLayoutPanel.Controls.Add(this.iconPictureBox26, 3, 1);
-            this.linkTableLayoutPanel.Controls.Add(this.label29, 1, 4);
-            this.linkTableLayoutPanel.Controls.Add(this.label30, 2, 4);
-            this.linkTableLayoutPanel.Controls.Add(this.label32, 4, 2);
-            this.linkTableLayoutPanel.Controls.Add(this.label33, 4, 4);
-            this.linkTableLayoutPanel.Controls.Add(this.label31, 4, 5);
-            this.linkTableLayoutPanel.Controls.Add(this.label34, 4, 3);
-            this.linkTableLayoutPanel.Controls.Add(this.label35, 4, 1);
-            this.linkTableLayoutPanel.Controls.Add(this.label36, 5, 3);
-            this.linkTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.linkTableLayoutPanel.Location = new System.Drawing.Point(20, 308);
-            this.linkTableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 10, 20, 0);
-            this.linkTableLayoutPanel.Name = "linkTableLayoutPanel";
-            this.linkTableLayoutPanel.RowCount = 8;
-            this.linkTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.linkTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.linkTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.linkTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.linkTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.linkTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.linkTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.linkTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16F));
-            this.linkTableLayoutPanel.Size = new System.Drawing.Size(400, 230);
-            this.linkTableLayoutPanel.TabIndex = 4;
             // 
             // iconPictureBox20
             // 
-            this.iconPictureBox20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox20.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
             this.iconPictureBox20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.iconPictureBox20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox20.IconChar = FontAwesome.Sharp.IconChar.Chrome;
             this.iconPictureBox20.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox20.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox20.IconSize = 20;
-            this.iconPictureBox20.Location = new System.Drawing.Point(3, 166);
-            this.iconPictureBox20.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.iconPictureBox20.IconSize = 17;
+            this.iconPictureBox20.Location = new System.Drawing.Point(9, 147);
+            this.iconPictureBox20.Margin = new System.Windows.Forms.Padding(0);
             this.iconPictureBox20.Name = "iconPictureBox20";
-            this.iconPictureBox20.Size = new System.Drawing.Size(35, 20);
+            this.iconPictureBox20.Size = new System.Drawing.Size(25, 17);
             this.iconPictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox20.TabIndex = 61;
             this.iconPictureBox20.TabStop = false;
             // 
-            // iconPictureBox16
-            // 
-            this.iconPictureBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBox16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
-            this.iconPictureBox16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
-            this.iconPictureBox16.IconChar = FontAwesome.Sharp.IconChar.PhoneSquare;
-            this.iconPictureBox16.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
-            this.iconPictureBox16.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox16.IconSize = 20;
-            this.iconPictureBox16.Location = new System.Drawing.Point(0, 4);
-            this.iconPictureBox16.Margin = new System.Windows.Forms.Padding(0, 4, 10, 3);
-            this.iconPictureBox16.Name = "iconPictureBox16";
-            this.iconPictureBox16.Rotation = 90D;
-            this.iconPictureBox16.Size = new System.Drawing.Size(31, 20);
-            this.iconPictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iconPictureBox16.TabIndex = 51;
-            this.iconPictureBox16.TabStop = false;
-            // 
-            // iconPictureBox17
-            // 
-            this.iconPictureBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
-            this.iconPictureBox17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
-            this.iconPictureBox17.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
-            this.iconPictureBox17.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
-            this.iconPictureBox17.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox17.IconSize = 20;
-            this.iconPictureBox17.Location = new System.Drawing.Point(210, 4);
-            this.iconPictureBox17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
-            this.iconPictureBox17.Name = "iconPictureBox17";
-            this.iconPictureBox17.Size = new System.Drawing.Size(35, 20);
-            this.iconPictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iconPictureBox17.TabIndex = 50;
-            this.iconPictureBox17.TabStop = false;
-            // 
-            // label25
-            // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label25.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label25, 2);
-            this.label25.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label25.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Indigo;
-            this.label25.Location = new System.Drawing.Point(251, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(146, 27);
-            this.label25.TabIndex = 49;
-            this.label25.Text = "আপনার জিজ্ঞাসা";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label12, 2);
-            this.label12.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Indigo;
-            this.label12.Location = new System.Drawing.Point(44, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(160, 27);
-            this.label12.TabIndex = 48;
-            this.label12.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৭";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // iconPictureBox18
-            // 
-            this.iconPictureBox18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
-            this.iconPictureBox18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
-            this.iconPictureBox18.IconChar = FontAwesome.Sharp.IconChar.PhoneSquare;
-            this.iconPictureBox18.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
-            this.iconPictureBox18.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox18.IconSize = 20;
-            this.iconPictureBox18.Location = new System.Drawing.Point(0, 31);
-            this.iconPictureBox18.Margin = new System.Windows.Forms.Padding(0, 4, 10, 3);
-            this.iconPictureBox18.Name = "iconPictureBox18";
-            this.iconPictureBox18.Rotation = 90D;
-            this.iconPictureBox18.Size = new System.Drawing.Size(31, 20);
-            this.iconPictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iconPictureBox18.TabIndex = 52;
-            this.iconPictureBox18.TabStop = false;
-            // 
             // iconPictureBox19
             // 
-            this.iconPictureBox19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox19.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
             this.iconPictureBox19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox19.IconChar = FontAwesome.Sharp.IconChar.PhoneSquare;
             this.iconPictureBox19.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox19.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox19.IconSize = 20;
-            this.iconPictureBox19.Location = new System.Drawing.Point(0, 58);
-            this.iconPictureBox19.Margin = new System.Windows.Forms.Padding(0, 4, 10, 3);
+            this.iconPictureBox19.IconSize = 17;
+            this.iconPictureBox19.Location = new System.Drawing.Point(5, 51);
+            this.iconPictureBox19.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.iconPictureBox19.Name = "iconPictureBox19";
             this.iconPictureBox19.Rotation = 90D;
-            this.iconPictureBox19.Size = new System.Drawing.Size(31, 20);
+            this.iconPictureBox19.Size = new System.Drawing.Size(25, 17);
             this.iconPictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox19.TabIndex = 53;
             this.iconPictureBox19.TabStop = false;
             // 
-            // label26
-            // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label26.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label26, 2);
-            this.label26.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.Indigo;
-            this.label26.Location = new System.Drawing.Point(44, 27);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(160, 27);
-            this.label26.TabIndex = 54;
-            this.label26.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৮";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label27
             // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label27.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label27, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.label27, 2);
             this.label27.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.Indigo;
-            this.label27.Location = new System.Drawing.Point(44, 54);
+            this.label27.Location = new System.Drawing.Point(37, 50);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(160, 27);
+            this.label27.Size = new System.Drawing.Size(132, 20);
             this.label27.TabIndex = 55;
             this.label27.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৯";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label28
             // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label28.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label28, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.label28, 2);
             this.label28.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label28.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.Indigo;
-            this.label28.Location = new System.Drawing.Point(44, 81);
+            this.label28.Location = new System.Drawing.Point(37, 75);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(160, 27);
+            this.label28.Size = new System.Drawing.Size(129, 18);
             this.label28.TabIndex = 56;
             this.label28.Text = "support@nothi.org.bd";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label10, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.label10, 2);
             this.label10.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Indigo;
-            this.label10.Location = new System.Drawing.Point(44, 135);
+            this.label10.Location = new System.Drawing.Point(37, 122);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(160, 27);
+            this.label10.Size = new System.Drawing.Size(106, 20);
             this.label10.TabIndex = 57;
             this.label10.Text = "নথি মোবাইল অ্যাপ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label11, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.label11, 2);
             this.label11.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Indigo;
-            this.label11.Location = new System.Drawing.Point(44, 162);
+            this.label11.Location = new System.Drawing.Point(37, 146);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(160, 27);
+            this.label11.Size = new System.Drawing.Size(108, 20);
             this.label11.TabIndex = 58;
             this.label11.Text = "ব্রাউজার ক্যাশ মুছুন";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // iconPictureBox7
             // 
-            this.iconPictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
             this.iconPictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.iconPictureBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox7.IconChar = FontAwesome.Sharp.IconChar.Envelope;
             this.iconPictureBox7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox7.IconSize = 20;
-            this.iconPictureBox7.Location = new System.Drawing.Point(3, 85);
-            this.iconPictureBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.iconPictureBox7.IconSize = 17;
+            this.iconPictureBox7.Location = new System.Drawing.Point(9, 75);
+            this.iconPictureBox7.Margin = new System.Windows.Forms.Padding(0);
             this.iconPictureBox7.Name = "iconPictureBox7";
-            this.iconPictureBox7.Size = new System.Drawing.Size(35, 20);
+            this.iconPictureBox7.Size = new System.Drawing.Size(25, 17);
             this.iconPictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox7.TabIndex = 59;
             this.iconPictureBox7.TabStop = false;
             // 
             // iconPictureBox15
             // 
-            this.iconPictureBox15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
             this.iconPictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.iconPictureBox15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox15.IconChar = FontAwesome.Sharp.IconChar.Facebook;
             this.iconPictureBox15.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox15.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox15.IconSize = 20;
-            this.iconPictureBox15.Location = new System.Drawing.Point(3, 112);
-            this.iconPictureBox15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.iconPictureBox15.IconSize = 17;
+            this.iconPictureBox15.Location = new System.Drawing.Point(9, 99);
+            this.iconPictureBox15.Margin = new System.Windows.Forms.Padding(0);
             this.iconPictureBox15.Name = "iconPictureBox15";
-            this.iconPictureBox15.Size = new System.Drawing.Size(35, 20);
+            this.iconPictureBox15.Size = new System.Drawing.Size(25, 17);
             this.iconPictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox15.TabIndex = 60;
             this.iconPictureBox15.TabStop = false;
             // 
             // iconPictureBox21
             // 
-            this.iconPictureBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox21.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
             this.iconPictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.iconPictureBox21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox21.IconChar = FontAwesome.Sharp.IconChar.Mobile;
             this.iconPictureBox21.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox21.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox21.IconSize = 20;
-            this.iconPictureBox21.Location = new System.Drawing.Point(3, 139);
-            this.iconPictureBox21.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.iconPictureBox21.IconSize = 17;
+            this.iconPictureBox21.Location = new System.Drawing.Point(9, 123);
+            this.iconPictureBox21.Margin = new System.Windows.Forms.Padding(0);
             this.iconPictureBox21.Name = "iconPictureBox21";
-            this.iconPictureBox21.Size = new System.Drawing.Size(35, 20);
+            this.iconPictureBox21.Size = new System.Drawing.Size(25, 17);
             this.iconPictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox21.TabIndex = 62;
             this.iconPictureBox21.TabStop = false;
             // 
             // iconPictureBox22
             // 
-            this.iconPictureBox22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox22.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
             this.iconPictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.iconPictureBox22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(57)))), ((int)(((byte)(122)))));
             this.iconPictureBox22.IconChar = FontAwesome.Sharp.IconChar.Video;
             this.iconPictureBox22.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(57)))), ((int)(((byte)(122)))));
             this.iconPictureBox22.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox22.IconSize = 20;
-            this.iconPictureBox22.Location = new System.Drawing.Point(210, 139);
-            this.iconPictureBox22.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.iconPictureBox22.IconSize = 17;
+            this.iconPictureBox22.Location = new System.Drawing.Point(209, 99);
+            this.iconPictureBox22.Margin = new System.Windows.Forms.Padding(0);
             this.iconPictureBox22.Name = "iconPictureBox22";
-            this.iconPictureBox22.Size = new System.Drawing.Size(35, 20);
+            this.iconPictureBox22.Size = new System.Drawing.Size(23, 17);
             this.iconPictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox22.TabIndex = 63;
             this.iconPictureBox22.TabStop = false;
             // 
             // iconPictureBox23
             // 
-            this.iconPictureBox23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox23.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
             this.iconPictureBox23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.iconPictureBox23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(57)))), ((int)(((byte)(122)))));
             this.iconPictureBox23.IconChar = FontAwesome.Sharp.IconChar.Video;
             this.iconPictureBox23.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(57)))), ((int)(((byte)(122)))));
             this.iconPictureBox23.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox23.IconSize = 20;
-            this.iconPictureBox23.Location = new System.Drawing.Point(210, 112);
-            this.iconPictureBox23.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.iconPictureBox23.IconSize = 17;
+            this.iconPictureBox23.Location = new System.Drawing.Point(209, 123);
+            this.iconPictureBox23.Margin = new System.Windows.Forms.Padding(0);
             this.iconPictureBox23.Name = "iconPictureBox23";
-            this.iconPictureBox23.Size = new System.Drawing.Size(35, 20);
+            this.iconPictureBox23.Size = new System.Drawing.Size(23, 17);
             this.iconPictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox23.TabIndex = 64;
             this.iconPictureBox23.TabStop = false;
             // 
             // iconPictureBox24
             // 
-            this.iconPictureBox24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox24.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
             this.iconPictureBox24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.iconPictureBox24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox24.IconChar = FontAwesome.Sharp.IconChar.Book;
             this.iconPictureBox24.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox24.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox24.IconSize = 20;
-            this.iconPictureBox24.Location = new System.Drawing.Point(210, 85);
-            this.iconPictureBox24.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.iconPictureBox24.IconSize = 16;
+            this.iconPictureBox24.Location = new System.Drawing.Point(209, 76);
+            this.iconPictureBox24.Margin = new System.Windows.Forms.Padding(0);
             this.iconPictureBox24.Name = "iconPictureBox24";
-            this.iconPictureBox24.Size = new System.Drawing.Size(35, 20);
+            this.iconPictureBox24.Size = new System.Drawing.Size(23, 16);
             this.iconPictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox24.TabIndex = 65;
             this.iconPictureBox24.TabStop = false;
             // 
             // iconPictureBox25
             // 
-            this.iconPictureBox25.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox25.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.iconPictureBox25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
             this.iconPictureBox25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.iconPictureBox25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox25.IconChar = FontAwesome.Sharp.IconChar.Bell;
             this.iconPictureBox25.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
             this.iconPictureBox25.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox25.IconSize = 20;
-            this.iconPictureBox25.Location = new System.Drawing.Point(210, 58);
-            this.iconPictureBox25.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.iconPictureBox25.IconSize = 17;
+            this.iconPictureBox25.Location = new System.Drawing.Point(209, 51);
+            this.iconPictureBox25.Margin = new System.Windows.Forms.Padding(0);
             this.iconPictureBox25.Name = "iconPictureBox25";
-            this.iconPictureBox25.Size = new System.Drawing.Size(35, 20);
+            this.iconPictureBox25.Size = new System.Drawing.Size(23, 17);
             this.iconPictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconPictureBox25.TabIndex = 66;
             this.iconPictureBox25.TabStop = false;
             // 
-            // iconPictureBox26
-            // 
-            this.iconPictureBox26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconPictureBox26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
-            this.iconPictureBox26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.iconPictureBox26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
-            this.iconPictureBox26.IconChar = FontAwesome.Sharp.IconChar.Bullhorn;
-            this.iconPictureBox26.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
-            this.iconPictureBox26.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox26.IconSize = 20;
-            this.iconPictureBox26.Location = new System.Drawing.Point(210, 31);
-            this.iconPictureBox26.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
-            this.iconPictureBox26.Name = "iconPictureBox26";
-            this.iconPictureBox26.Size = new System.Drawing.Size(35, 20);
-            this.iconPictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iconPictureBox26.TabIndex = 67;
-            this.iconPictureBox26.TabStop = false;
-            // 
             // label29
             // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label29.AutoSize = true;
             this.label29.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label29.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.Indigo;
-            this.label29.Location = new System.Drawing.Point(44, 108);
+            this.label29.Location = new System.Drawing.Point(37, 99);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(56, 27);
+            this.label29.Size = new System.Drawing.Size(49, 18);
             this.label29.TabIndex = 68;
             this.label29.Text = "নথি গ্রূপ";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -898,177 +569,61 @@
             // 
             // label30
             // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label30.AutoSize = true;
             this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(34)))));
             this.label30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label30.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label30.Location = new System.Drawing.Point(108, 113);
-            this.label30.Margin = new System.Windows.Forms.Padding(5, 5, 20, 5);
+            this.label30.Location = new System.Drawing.Point(122, 99);
+            this.label30.Margin = new System.Windows.Forms.Padding(0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(79, 17);
+            this.label30.Size = new System.Drawing.Size(69, 18);
             this.label30.TabIndex = 69;
             this.label30.Text = "ফেসবুক গ্রূপ";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label32
-            // 
-            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label32.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label32, 2);
-            this.label32.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label32.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.Indigo;
-            this.label32.Location = new System.Drawing.Point(251, 54);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(146, 27);
-            this.label32.TabIndex = 71;
-            this.label32.Text = "নোটিশ";
-            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label33
-            // 
-            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label33.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label33, 2);
-            this.label33.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label33.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.Color.Indigo;
-            this.label33.Location = new System.Drawing.Point(251, 108);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(146, 27);
-            this.label33.TabIndex = 72;
-            this.label33.Text = "ভিডিও টিউটোরিয়াল";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label31
             // 
-            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label31.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label31, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.label31, 2);
             this.label31.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label31.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.Indigo;
-            this.label31.Location = new System.Drawing.Point(251, 135);
+            this.label31.Location = new System.Drawing.Point(235, 123);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(146, 27);
+            this.label31.Size = new System.Drawing.Size(118, 18);
             this.label31.TabIndex = 70;
             this.label31.Text = "ই নথি অনলাইন কোর্স ";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label34
-            // 
-            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label34.AutoSize = true;
-            this.label34.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label34.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.Indigo;
-            this.label34.Location = new System.Drawing.Point(251, 81);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(89, 27);
-            this.label34.TabIndex = 73;
-            this.label34.Text = "ব্যবহার সহায়িকা";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label35
-            // 
-            this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label35.AutoSize = true;
-            this.linkTableLayoutPanel.SetColumnSpan(this.label35, 2);
-            this.label35.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label35.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.Indigo;
-            this.label35.Location = new System.Drawing.Point(251, 27);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(146, 27);
-            this.label35.TabIndex = 74;
-            this.label35.Text = "আপডেট";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label36
             // 
-            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label36.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(57)))), ((int)(((byte)(122)))));
             this.label36.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label36.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.SystemColors.Control;
-            this.label36.Location = new System.Drawing.Point(348, 86);
-            this.label36.Margin = new System.Windows.Forms.Padding(5);
+            this.label36.Location = new System.Drawing.Point(330, 75);
+            this.label36.Margin = new System.Windows.Forms.Padding(0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(47, 17);
+            this.label36.Size = new System.Drawing.Size(52, 18);
             this.label36.TabIndex = 75;
-            this.label36.Text = "ভার্সনঃ ১৫";
+            this.label36.Text = "ভার্সনঃ ২";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 261);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(420, 37);
-            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel1.BackColor = System.Drawing.Color.Indigo;
-            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
-            this.panel1.Location = new System.Drawing.Point(0, 33);
+            this.panel1.Location = new System.Drawing.Point(10, 25);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(420, 4);
+            this.panel1.Size = new System.Drawing.Size(370, 2);
             this.panel1.TabIndex = 9;
-            // 
-            // aboutTableLayoutPanel
-            // 
-            this.aboutTableLayoutPanel.ColumnCount = 2;
-            this.aboutTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.78313F));
-            this.aboutTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.21687F));
-            this.aboutTableLayoutPanel.Controls.Add(this.label18, 0, 3);
-            this.aboutTableLayoutPanel.Controls.Add(this.label13, 0, 0);
-            this.aboutTableLayoutPanel.Controls.Add(this.label14, 1, 0);
-            this.aboutTableLayoutPanel.Controls.Add(this.label15, 0, 1);
-            this.aboutTableLayoutPanel.Controls.Add(this.tableLayoutPanel2, 0, 2);
-            this.aboutTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aboutTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.aboutTableLayoutPanel.Name = "aboutTableLayoutPanel";
-            this.aboutTableLayoutPanel.Padding = new System.Windows.Forms.Padding(10, 15, 5, 5);
-            this.aboutTableLayoutPanel.RowCount = 4;
-            this.aboutTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.521387F));
-            this.aboutTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.23937F));
-            this.aboutTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.378481F));
-            this.aboutTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.86076F));
-            this.aboutTableLayoutPanel.Size = new System.Drawing.Size(434, 255);
-            this.aboutTableLayoutPanel.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label18
             // 
@@ -1076,76 +631,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.aboutTableLayoutPanel.SetColumnSpan(this.label18, 2);
             this.label18.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label18.Location = new System.Drawing.Point(13, 185);
+            this.label18.Location = new System.Drawing.Point(11, 177);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(413, 65);
+            this.label18.Size = new System.Drawing.Size(342, 54);
             this.label18.TabIndex = 9;
             this.label18.Text = "অপশন তৈরি করা হয়েছে। এই ক্ষেত্রে পত্রের খসড়া তৈরির সময় \r\nপ্রাপকের মোবাইল নম্বর দি" +
     "য়ে সংশ্লিষ্ট মেসেজ দেওয়া যাবে। প্রাপক ই-\r\nমেইলে সংশ্লিষ্ট পত্রটি এবং মোবাইলে মেস" +
     "েজ যাবে।";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(10, 15);
-            this.label13.Margin = new System.Windows.Forms.Padding(0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(191, 17);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "ই-নথি সিস্টেমের নতুন আপডেট:";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(201, 15);
-            this.label14.Margin = new System.Windows.Forms.Padding(0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(228, 17);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.aboutTableLayoutPanel.SetColumnSpan(this.label15, 2);
-            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(13, 32);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(413, 136);
-            this.label15.TabIndex = 5;
-            this.label15.Text = resources.GetString("label15.Text");
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.aboutTableLayoutPanel.SetColumnSpan(this.tableLayoutPanel2, 2);
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.89157F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.10844F));
-            this.tableLayoutPanel2.Controls.Add(this.label16, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label17, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(10, 168);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(419, 17);
-            this.tableLayoutPanel2.TabIndex = 8;
             // 
             // label16
             // 
@@ -1155,10 +649,10 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Location = new System.Drawing.Point(9, 160);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(95, 17);
+            this.label16.Size = new System.Drawing.Size(91, 18);
             this.label16.TabIndex = 6;
             this.label16.Text = "ই-নথি সিস্টেম:";
             // 
@@ -1170,64 +664,77 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label17.Location = new System.Drawing.Point(95, 0);
+            this.label17.Location = new System.Drawing.Point(97, 160);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(324, 17);
+            this.label17.Size = new System.Drawing.Size(254, 18);
             this.label17.TabIndex = 7;
             this.label17.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে মেসেজ দেওয়ার";
             // 
-            // footerTableLayoutPanel
+            // label14
             // 
-            this.footerTableLayoutPanel.ColumnCount = 2;
-            this.loginBodyTableLayoutPanel.SetColumnSpan(this.footerTableLayoutPanel, 2);
-            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.footerTableLayoutPanel.Controls.Add(this.leftFooterTableLayoutPanel, 0, 0);
-            this.footerTableLayoutPanel.Controls.Add(this.rightfooterTableLayoutPanel, 1, 0);
-            this.footerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.footerTableLayoutPanel.Location = new System.Drawing.Point(0, 609);
-            this.footerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.footerTableLayoutPanel.Name = "footerTableLayoutPanel";
-            this.footerTableLayoutPanel.RowCount = 1;
-            this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.footerTableLayoutPanel.Size = new System.Drawing.Size(885, 59);
-            this.footerTableLayoutPanel.TabIndex = 8;
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.label14.Location = new System.Drawing.Point(195, 7);
+            this.label14.Margin = new System.Windows.Forms.Padding(0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(172, 18);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "পত্র প্রেরণের সময় মোবাইল নম্বরে";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(9, 7);
+            this.label13.Margin = new System.Windows.Forms.Padding(0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(187, 18);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "ই-নথি সিস্টেমের নতুন আপডেট:";
             // 
             // leftFooterTableLayoutPanel
             // 
+            this.leftFooterTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.leftFooterTableLayoutPanel.BackColor = System.Drawing.Color.White;
             this.leftFooterTableLayoutPanel.ColumnCount = 3;
-            this.leftFooterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.20408F));
-            this.leftFooterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.89791F));
-            this.leftFooterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.12529F));
+            this.leftFooterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.08993F));
+            this.leftFooterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.21255F));
+            this.leftFooterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.69752F));
             this.leftFooterTableLayoutPanel.Controls.Add(this.linkLabel1, 0, 0);
             this.leftFooterTableLayoutPanel.Controls.Add(this.label1, 0, 0);
             this.leftFooterTableLayoutPanel.Controls.Add(this.pictureBox3, 0, 0);
-            this.leftFooterTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leftFooterTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftFooterTableLayoutPanel.Location = new System.Drawing.Point(0, 491);
             this.leftFooterTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.leftFooterTableLayoutPanel.Name = "leftFooterTableLayoutPanel";
             this.leftFooterTableLayoutPanel.RowCount = 1;
             this.leftFooterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.leftFooterTableLayoutPanel.Size = new System.Drawing.Size(442, 59);
+            this.leftFooterTableLayoutPanel.Size = new System.Drawing.Size(390, 56);
             this.leftFooterTableLayoutPanel.TabIndex = 2;
             // 
             // linkLabel1
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(103)))), ((int)(((byte)(221)))));
-            this.linkLabel1.Location = new System.Drawing.Point(149, 0);
+            this.linkLabel1.Location = new System.Drawing.Point(145, 0);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(293, 59);
+            this.linkLabel1.Size = new System.Drawing.Size(165, 56);
             this.linkLabel1.TabIndex = 12;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "ট্যাপওয়্যার সলিউশনস লিমিটেড";
@@ -1235,16 +742,15 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(74)))));
-            this.label1.Location = new System.Drawing.Point(44, 0);
+            this.label1.Location = new System.Drawing.Point(43, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 59);
+            this.label1.Size = new System.Drawing.Size(102, 56);
             this.label1.TabIndex = 11;
             this.label1.Text = " কারিগরি সহায়তায় ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1257,12 +763,15 @@
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(44, 59);
+            this.pictureBox3.Size = new System.Drawing.Size(43, 56);
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
             // rightfooterTableLayoutPanel
             // 
+            this.rightfooterTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rightfooterTableLayoutPanel.BackColor = System.Drawing.Color.White;
             this.rightfooterTableLayoutPanel.ColumnCount = 5;
             this.rightfooterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -1275,13 +784,12 @@
             this.rightfooterTableLayoutPanel.Controls.Add(this.button1, 0, 0);
             this.rightfooterTableLayoutPanel.Controls.Add(this.button5, 4, 0);
             this.rightfooterTableLayoutPanel.Controls.Add(this.button4, 3, 0);
-            this.rightfooterTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightfooterTableLayoutPanel.Location = new System.Drawing.Point(442, 0);
+            this.rightfooterTableLayoutPanel.Location = new System.Drawing.Point(0, 491);
             this.rightfooterTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.rightfooterTableLayoutPanel.Name = "rightfooterTableLayoutPanel";
             this.rightfooterTableLayoutPanel.RowCount = 1;
             this.rightfooterTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.rightfooterTableLayoutPanel.Size = new System.Drawing.Size(443, 59);
+            this.rightfooterTableLayoutPanel.Size = new System.Drawing.Size(390, 56);
             this.rightfooterTableLayoutPanel.TabIndex = 1;
             // 
             // button3
@@ -1293,10 +801,10 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(191, 15);
-            this.button3.Margin = new System.Windows.Forms.Padding(15);
+            this.button3.Location = new System.Drawing.Point(166, 10);
+            this.button3.Margin = new System.Windows.Forms.Padding(10);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(58, 29);
+            this.button3.Size = new System.Drawing.Size(58, 36);
             this.button3.TabIndex = 5;
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -1309,10 +817,10 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(103, 15);
-            this.button2.Margin = new System.Windows.Forms.Padding(15);
+            this.button2.Location = new System.Drawing.Point(88, 10);
+            this.button2.Margin = new System.Windows.Forms.Padding(10);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 29);
+            this.button2.Size = new System.Drawing.Size(58, 36);
             this.button2.TabIndex = 4;
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -1325,10 +833,10 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(15, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(15);
+            this.button1.Location = new System.Drawing.Point(10, 10);
+            this.button1.Margin = new System.Windows.Forms.Padding(10);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 29);
+            this.button1.Size = new System.Drawing.Size(58, 36);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -1341,10 +849,10 @@
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(367, 15);
-            this.button5.Margin = new System.Windows.Forms.Padding(15);
+            this.button5.Location = new System.Drawing.Point(322, 10);
+            this.button5.Margin = new System.Windows.Forms.Padding(10);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(61, 29);
+            this.button5.Size = new System.Drawing.Size(58, 36);
             this.button5.TabIndex = 8;
             this.button5.UseVisualStyleBackColor = true;
             // 
@@ -1357,51 +865,764 @@
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(279, 15);
-            this.button4.Margin = new System.Windows.Forms.Padding(15);
+            this.button4.Location = new System.Drawing.Point(244, 10);
+            this.button4.Margin = new System.Windows.Forms.Padding(10);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(58, 29);
+            this.button4.Size = new System.Drawing.Size(58, 36);
             this.button4.TabIndex = 6;
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // loginTableLayoutPanel
+            // 
+            this.loginTableLayoutPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.loginTableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.loginTableLayoutPanel.ColumnCount = 1;
+            this.loginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.loginTableLayoutPanel.Controls.Add(this.panel2, 0, 0);
+            this.loginTableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.loginTableLayoutPanel.Location = new System.Drawing.Point(295, 36);
+            this.loginTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.loginTableLayoutPanel.Name = "loginTableLayoutPanel";
+            this.loginTableLayoutPanel.RowCount = 2;
+            this.loginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.36735F));
+            this.loginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.63265F));
+            this.loginTableLayoutPanel.Size = new System.Drawing.Size(780, 669);
+            this.loginTableLayoutPanel.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(780, 122);
+            this.panel2.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 122);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(780, 547);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.leftFooterTableLayoutPanel, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.leftLoginBodyTableLayoutPanel, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.85287F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.14713F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(390, 547);
+            this.tableLayoutPanel5.TabIndex = 10;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(254)))), ((int)(((byte)(251)))));
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.rightfooterTableLayoutPanel, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tabControl1, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(390, 0);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.85283F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.14717F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(390, 547);
+            this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(0, 15);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.tabControl1.Multiline = true;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(0, 10);
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(390, 476);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControl1.TabIndex = 2;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.tableLayoutPanel6);
+            this.tabPage1.Location = new System.Drawing.Point(4, 41);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(382, 431);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "ইউজার আইডি";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.tableLayoutPanel9);
+            this.tabPage2.Location = new System.Drawing.Point(4, 41);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(382, 431);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "ইউজার নেম";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.tableLayoutPanel12);
+            this.tabPage3.Location = new System.Drawing.Point(4, 41);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(382, 431);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "পাসওয়ার্ড রিসেট";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel8, 0, 1);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(7, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.95266F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.04734F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(371, 177);
+            this.tableLayoutPanel6.TabIndex = 0;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.userIdPanel, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(365, 50);
+            this.tableLayoutPanel7.TabIndex = 0;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel8.Controls.Add(this.userLoginByUserIdButton, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.panel9, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 59);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(365, 115);
+            this.tableLayoutPanel8.TabIndex = 1;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel9.ColumnCount = 1;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel11, 0, 1);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(6, 4);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.95266F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.04734F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(371, 177);
+            this.tableLayoutPanel9.TabIndex = 1;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.panel4, 1, 0);
+            this.tableLayoutPanel10.Controls.Add(this.panel5, 0, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(365, 50);
+            this.tableLayoutPanel10.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.placeholderTextBox1);
+            this.panel4.Location = new System.Drawing.Point(185, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(177, 38);
+            this.panel4.TabIndex = 78;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
+            // 
+            // placeholderTextBox1
+            // 
+            this.placeholderTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.placeholderTextBox1.BackColor = System.Drawing.Color.White;
+            this.placeholderTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.placeholderTextBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholderTextBox1.Location = new System.Drawing.Point(5, 10);
+            this.placeholderTextBox1.Name = "placeholderTextBox1";
+            this.placeholderTextBox1.PlaceholderText = "পাসওয়ার্ড";
+            this.placeholderTextBox1.Size = new System.Drawing.Size(167, 19);
+            this.placeholderTextBox1.TabIndex = 3;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.placeholderTextBox2);
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(176, 38);
+            this.panel5.TabIndex = 77;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
+            // 
+            // placeholderTextBox2
+            // 
+            this.placeholderTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.placeholderTextBox2.BackColor = System.Drawing.Color.White;
+            this.placeholderTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.placeholderTextBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholderTextBox2.Location = new System.Drawing.Point(5, 10);
+            this.placeholderTextBox2.Name = "placeholderTextBox2";
+            this.placeholderTextBox2.PlaceholderText = "ইউজার নেম";
+            this.placeholderTextBox2.Size = new System.Drawing.Size(166, 19);
+            this.placeholderTextBox2.TabIndex = 3;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel11.Controls.Add(this.button6, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.panel6, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 59);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(365, 115);
+            this.tableLayoutPanel11.TabIndex = 1;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(256, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(106, 39);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "প্রবেশ";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // panel6
+            // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.BackColor = System.Drawing.Color.Moccasin;
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Location = new System.Drawing.Point(3, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(247, 39);
+            this.panel6.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label3.Location = new System.Drawing.Point(1, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(232, 21);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "ইউজার নেম ব্যবহার করে প্রবেশ করুন";
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel12.ColumnCount = 1;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel13, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel14, 0, 1);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(6, 3);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 2;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.95266F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.04734F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(358, 165);
+            this.tableLayoutPanel12.TabIndex = 2;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 2;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.Controls.Add(this.panel7, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.panel8, 0, 0);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 1;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(352, 46);
+            this.tableLayoutPanel13.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.BackColor = System.Drawing.Color.Transparent;
+            this.panel7.Controls.Add(this.placeholderTextBox3);
+            this.panel7.Location = new System.Drawing.Point(179, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(170, 38);
+            this.panel7.TabIndex = 78;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
+            // 
+            // placeholderTextBox3
+            // 
+            this.placeholderTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.placeholderTextBox3.BackColor = System.Drawing.Color.White;
+            this.placeholderTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.placeholderTextBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholderTextBox3.Location = new System.Drawing.Point(5, 10);
+            this.placeholderTextBox3.Name = "placeholderTextBox3";
+            this.placeholderTextBox3.PlaceholderText = "পাসওয়ার্ড";
+            this.placeholderTextBox3.Size = new System.Drawing.Size(160, 19);
+            this.placeholderTextBox3.TabIndex = 3;
+            // 
+            // panel8
+            // 
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.Controls.Add(this.placeholderTextBox4);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(170, 38);
+            this.panel8.TabIndex = 77;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
+            // 
+            // placeholderTextBox4
+            // 
+            this.placeholderTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.placeholderTextBox4.BackColor = System.Drawing.Color.White;
+            this.placeholderTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.placeholderTextBox4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholderTextBox4.Location = new System.Drawing.Point(5, 10);
+            this.placeholderTextBox4.Name = "placeholderTextBox4";
+            this.placeholderTextBox4.PlaceholderText = "ইউজার আইডি/নেম";
+            this.placeholderTextBox4.Size = new System.Drawing.Size(160, 19);
+            this.placeholderTextBox4.TabIndex = 3;
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 2;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel14.Controls.Add(this.button9, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.panel10, 0, 0);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 55);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 1;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(352, 107);
+            this.tableLayoutPanel14.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel10.BackColor = System.Drawing.Color.Moccasin;
+            this.panel10.Controls.Add(this.label4);
+            this.panel10.Location = new System.Drawing.Point(3, 4);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(234, 57);
+            this.panel10.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label4.Location = new System.Drawing.Point(6, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(163, 42);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "ইউজার আইডি ও ইমেইল \r\nপাঠান";
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.Location = new System.Drawing.Point(243, 3);
+            this.button9.MaximumSize = new System.Drawing.Size(141, 62);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(106, 58);
+            this.button9.TabIndex = 17;
+            this.button9.Text = "অনুরোধ করুন";
+            this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // panel12
+            // 
+            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel12.Controls.Add(this.label18);
+            this.panel12.Controls.Add(this.label16);
+            this.panel12.Controls.Add(this.label17);
+            this.panel12.Controls.Add(this.label15);
+            this.panel12.Controls.Add(this.label13);
+            this.panel12.Controls.Add(this.label14);
+            this.panel12.Location = new System.Drawing.Point(3, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(384, 235);
+            this.panel12.TabIndex = 5;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.label15.Location = new System.Drawing.Point(11, 24);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(351, 126);
+            this.label15.TabIndex = 6;
+            this.label15.Text = resources.GetString("label15.Text");
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.panel1);
+            this.panel13.Controls.Add(this.panel11);
+            this.panel13.Controls.Add(this.label9);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(3, 244);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(384, 27);
+            this.panel13.TabIndex = 6;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.167405F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.42781F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.01042F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.15625F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.78125F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.80208F));
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox2, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox19, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox7, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label27, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox5, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label19, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox23, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label21, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox25, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox22, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox24, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label36, 5, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label20, 4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label31, 4, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox20, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox21, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label29, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label30, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.iconPictureBox15, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label28, 1, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 277);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 194);
+            this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.PhoneSquare;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 17;
+            this.iconPictureBox1.Location = new System.Drawing.Point(5, 3);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Rotation = 90D;
+            this.iconPictureBox1.Size = new System.Drawing.Size(25, 17);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureBox1.TabIndex = 52;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label5, 2);
+            this.label5.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Indigo;
+            this.label5.Location = new System.Drawing.Point(37, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 20);
+            this.label5.TabIndex = 53;
+            this.label5.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৭";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
+            this.iconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
+            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox2.IconSize = 17;
+            this.iconPictureBox2.Location = new System.Drawing.Point(209, 3);
+            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(23, 17);
+            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureBox2.TabIndex = 54;
+            this.iconPictureBox2.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label6, 2);
+            this.label6.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Indigo;
+            this.label6.Location = new System.Drawing.Point(235, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 18);
+            this.label6.TabIndex = 55;
+            this.label6.Text = "আপনার জিজ্ঞাসা";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.iconPictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
+            this.iconPictureBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
+            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.PhoneSquare;
+            this.iconPictureBox3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
+            this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox3.IconSize = 17;
+            this.iconPictureBox3.Location = new System.Drawing.Point(5, 27);
+            this.iconPictureBox3.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Rotation = 90D;
+            this.iconPictureBox3.Size = new System.Drawing.Size(25, 17);
+            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureBox3.TabIndex = 56;
+            this.iconPictureBox3.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label7, 2);
+            this.label7.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Indigo;
+            this.label7.Location = new System.Drawing.Point(37, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(133, 20);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "+৮৮ ০১৩১৫-৬৫৪০৪৮";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // iconPictureBox5
+            // 
+            this.iconPictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.iconPictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(235)))));
+            this.iconPictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.iconPictureBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
+            this.iconPictureBox5.IconChar = FontAwesome.Sharp.IconChar.Bullhorn;
+            this.iconPictureBox5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(18)))), ((int)(((byte)(172)))));
+            this.iconPictureBox5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox5.IconSize = 17;
+            this.iconPictureBox5.Location = new System.Drawing.Point(209, 27);
+            this.iconPictureBox5.Margin = new System.Windows.Forms.Padding(0);
+            this.iconPictureBox5.Name = "iconPictureBox5";
+            this.iconPictureBox5.Size = new System.Drawing.Size(23, 17);
+            this.iconPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureBox5.TabIndex = 68;
+            this.iconPictureBox5.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label8.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label8, 2);
+            this.label8.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Indigo;
+            this.label8.Location = new System.Drawing.Point(235, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 18);
+            this.label8.TabIndex = 75;
+            this.label8.Text = "আপডেট";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label19.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label19, 2);
+            this.label19.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label19.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Indigo;
+            this.label19.Location = new System.Drawing.Point(235, 51);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(40, 18);
+            this.label19.TabIndex = 76;
+            this.label19.Text = "নোটিশ";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label20.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label20, 2);
+            this.label20.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label20.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Indigo;
+            this.label20.Location = new System.Drawing.Point(235, 99);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(108, 18);
+            this.label20.TabIndex = 77;
+            this.label20.Text = "ভিডিও টিউটোরিয়াল";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label20.Click += new System.EventHandler(this.label20_Click);
+            // 
+            // label21
+            // 
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label21.AutoSize = true;
+            this.label21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label21.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Indigo;
+            this.label21.Location = new System.Drawing.Point(235, 75);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(88, 18);
+            this.label21.TabIndex = 78;
+            this.label21.Text = "ব্যবহার সহায়িকা";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1362, 693);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.loginTableLayoutPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(879, 687);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.rightLoginBodyPanel.ResumeLayout(false);
-            this.loginFlowLayoutPanel.ResumeLayout(false);
-            this.pnlUserId.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.userIdPanel.ResumeLayout(false);
             this.userIdPanel.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.loginTableLayoutPanel.ResumeLayout(false);
-            this.loginTableLayoutPanel.PerformLayout();
-            this.loginBodyTableLayoutPanel.ResumeLayout(false);
-            this.loginBodyTableLayoutPanel.PerformLayout();
             this.leftLoginBodyTableLayoutPanel.ResumeLayout(false);
-            this.linkTableLayoutPanel.ResumeLayout(false);
-            this.linkTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox15)).EndInit();
@@ -1410,36 +1631,57 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox26)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.aboutTableLayoutPanel.ResumeLayout(false);
-            this.aboutTableLayoutPanel.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.footerTableLayoutPanel.ResumeLayout(false);
             this.leftFooterTableLayoutPanel.ResumeLayout(false);
             this.leftFooterTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.rightfooterTableLayoutPanel.ResumeLayout(false);
+            this.loginTableLayoutPanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel rightLoginBodyPanel;
-        private System.Windows.Forms.Button btnUserId;
-        private System.Windows.Forms.Panel pnlPasswordResetTop;
-        private System.Windows.Forms.Button btnPasswordReset;
-        private System.Windows.Forms.Panel pnlUserNameTop;
-        private System.Windows.Forms.Button btnUserName;
-        private System.Windows.Forms.Panel pnlUserIdTop;
-        private System.Windows.Forms.Panel pnlUserIdNamePasswordBottom;
-        private System.Windows.Forms.FlowLayoutPanel loginFlowLayoutPanel;
-        private System.Windows.Forms.Panel pnlUserId;
         private System.Windows.Forms.Button userLoginByUserIdButton;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label2;
@@ -1450,30 +1692,20 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.ToolTip MyToolTip;
-        private System.Windows.Forms.TableLayoutPanel loginTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel leftLoginBodyTableLayoutPanel;
-        private System.Windows.Forms.TableLayoutPanel loginBodyTableLayoutPanel;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TableLayoutPanel footerTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel leftFooterTableLayoutPanel;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TableLayoutPanel rightfooterTableLayoutPanel;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TableLayoutPanel linkTableLayoutPanel;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox16;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox17;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label12;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox18;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox19;
         private System.Windows.Forms.Label label29;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox20;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label10;
@@ -1485,23 +1717,61 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox23;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox24;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox25;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox26;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TableLayoutPanel aboutTableLayoutPanel;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TableLayoutPanel loginTableLayoutPanel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.Panel panel4;
+        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox1;
+        private System.Windows.Forms.Panel panel5;
+        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.Panel panel7;
+        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox3;
+        private System.Windows.Forms.Panel panel8;
+        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private System.Windows.Forms.Label label5;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private System.Windows.Forms.Label label6;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
+        private System.Windows.Forms.Label label7;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label19;
     }
 }

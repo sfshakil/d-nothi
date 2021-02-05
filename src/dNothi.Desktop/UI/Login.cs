@@ -31,22 +31,13 @@ namespace dNothi.Desktop.UI
         {
             InitializeComponent();
             select_UserID();
-            this.pnlUserId.Show();
+         //   this.pnlUserId.Show();
             _userService = userService;
             _accountService = accountService;
         }
         public void select_UserID()
         {
-            this.btnUserId.ForeColor = Color.Indigo;
-            this.pnlUserIdTop.BackColor = Color.Indigo;
-            this.btnUserId.FlatAppearance.BorderColor = Color.Gainsboro;
-            this.pnlUserIdNamePasswordBottom.BackColor = Color.Gainsboro;
-            this.btnUserName.ForeColor = Color.Black;
-            this.pnlUserNameTop.BackColor = Color.White;
-            this.btnUserName.FlatAppearance.BorderColor = Color.White;
-            this.btnPasswordReset.ForeColor = Color.Black;
-            this.pnlPasswordResetTop.BackColor = Color.White;
-            this.btnPasswordReset.FlatAppearance.BorderColor = Color.White;
+           
         }
 
 
@@ -213,89 +204,16 @@ namespace dNothi.Desktop.UI
        
 
         
-        private void btnUserId_MouseHover(object sender, EventArgs e)
-        {
-            this.btnUserId.ForeColor = Color.Indigo;
-            this.pnlUserIdTop.BackColor = Color.Indigo;
-            this.btnUserId.FlatAppearance.BorderColor = Color.Gainsboro;
-        }
+       
 
-        private void btnUserId_Click(object sender, EventArgs e)
-        {
-            loginFlowLayoutPanel.Controls.Clear();
-            loginFlowLayoutPanel.Controls.Add(pnlUserId);
+      
 
-            this.pnlUserIdNamePasswordBottom.BackColor = Color.Gainsboro;
-            this.btnUserName.ForeColor = Color.Black;
-            this.pnlUserNameTop.BackColor = Color.White;
-            this.btnUserName.FlatAppearance.BorderColor = Color.White;
-            this.btnPasswordReset.ForeColor = Color.Black;
-            this.pnlPasswordResetTop.BackColor = Color.White;
-            this.btnPasswordReset.FlatAppearance.BorderColor = Color.White;
-            
-            ucUserNamePanel.Visible = false;
-            ucPasswordResetPanel.Visible = false;
-            this.pnlUserId.Show();
-            this.AcceptButton = userLoginByUserIdButton;
+        
 
-        }
+        
+     
 
-        private void btnUserName_MouseHover(object sender, EventArgs e)
-        {
-            this.btnUserName.ForeColor = Color.Indigo;
-            this.pnlUserNameTop.BackColor = Color.Indigo;
-            this.btnUserName.FlatAppearance.BorderColor = Color.Gainsboro;
-        }
-
-        private void btnUserName_Click(object sender, EventArgs e)
-        {
-            loginFlowLayoutPanel.Controls.Clear();
-            UserNamePanel ucUserNamePanel = new UserNamePanel();
-            ucUserNamePanel.PasswordBoxPressEventClick += delegate (object s, EventArgs ev) { validateTxtPass(ucUserNamePanel.passPressEvent); };
-
-
-            loginFlowLayoutPanel.Controls.Add(ucUserNamePanel);
-
-            this.btnUserId.ForeColor = Color.Black;
-            this.pnlUserIdTop.BackColor = Color.White;
-            this.btnUserId.FlatAppearance.BorderColor = Color.White;
-            this.pnlUserIdNamePasswordBottom.BackColor = Color.Gainsboro;
-            this.btnUserName.ForeColor = Color.Indigo;
-            this.pnlUserNameTop.BackColor = Color.Indigo;
-            this.btnUserName.FlatAppearance.BorderColor = Color.Gainsboro;
-            this.btnPasswordReset.ForeColor = Color.Black;
-            this.pnlPasswordResetTop.BackColor = Color.White;
-            this.btnPasswordReset.FlatAppearance.BorderColor = Color.White;
-        }
-
-        private void btnPasswordReset_MouseHover(object sender, EventArgs e)
-        {
-            this.btnPasswordReset.ForeColor = Color.Indigo;
-            this.pnlPasswordResetTop.BackColor = Color.Indigo;
-            this.btnPasswordReset.FlatAppearance.BorderColor = Color.Gainsboro;
-        }
-
-        private void btnPasswordReset_Click(object sender, EventArgs e)
-        {
-            loginFlowLayoutPanel.Controls.Clear();
-            PasswordResetPanel passwordResetPanel = new PasswordResetPanel();
-            passwordResetPanel.PasswordBoxPressEventClick += delegate (object s, EventArgs ev) { validateTxtPass(passwordResetPanel.passPressEvent); };
-
-            loginFlowLayoutPanel.Controls.Add(passwordResetPanel);
-
-
-            this.btnUserId.ForeColor = Color.Black;
-            this.pnlUserIdTop.BackColor = Color.White;
-            this.btnUserId.FlatAppearance.BorderColor = Color.White;
-            this.pnlUserIdNamePasswordBottom.BackColor = Color.Gainsboro;
-            this.btnUserName.ForeColor = Color.Black;
-            this.pnlUserNameTop.BackColor = Color.White;
-            this.btnUserName.FlatAppearance.BorderColor = Color.White;
-            this.btnPasswordReset.ForeColor = Color.Indigo;
-            this.pnlPasswordResetTop.BackColor = Color.Indigo;
-            this.btnPasswordReset.FlatAppearance.BorderColor = Color.Gainsboro;
-        }
-
+        
         //private void txtUserId_Enter(object sender, EventArgs e)
         //{
         //    txtUserId.Visible = false;
@@ -439,6 +357,21 @@ namespace dNothi.Desktop.UI
         }
 
         private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
 
         }
