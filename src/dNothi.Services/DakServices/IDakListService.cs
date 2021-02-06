@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity.Dak;
+﻿using dNothi.Core.Entities;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace dNothi.Services.DakServices
         DakDetailsResponse GetDakDetailsbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
         DakAttachmentResponse GetDakAttachmentbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
         DakMovementStatusResponse GetDakMovementStatusListbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
+        List<DakList> GetDakList();
 
 
         //void SaveOrUpdateFrom(FromDTO fromdto);
