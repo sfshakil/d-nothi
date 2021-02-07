@@ -69,6 +69,30 @@ namespace dNothi.JsonParser.Entity.Dak
         public int is_rollback_to_dak { get; set; }
         public bool from_potrojari { get; set; }
         public int potrojari_id { get; set; }
+
+
+
+        public int dak_type_id { get; set; }
+        public string name_eng { get; set; }
+        public string name_bng { get; set; }
+        public string national_idendity_no { get; set; }
+        public string birth_registration_number { get; set; }
+        public string passport { get; set; }
+        public string father_name { get; set; }
+        public string mother_name { get; set; }
+        public string address { get; set; }
+        public string parmanent_address { get; set; }
+        public string email { get; set; }
+        public string phone_no { get; set; }
+        public string mobile_no { get; set; }
+        public string gender { get; set; }
+        public string nationality { get; set; }
+        public string religion { get; set; }
+        public int feedback_type { get; set; }
+        public int nothi_master_id { get; set; }
+        public string application_origin { get; set; }
+        
+
         public List<DakAttachmentDTO> attachments { get; set; }
     }
 }

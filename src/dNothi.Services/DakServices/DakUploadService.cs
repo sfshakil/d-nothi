@@ -168,7 +168,15 @@ namespace dNothi.Services.DakServices
             dakDraftedRequest.AddParameter("designation_id", dakUploadParameter.designation_id);
             IRestResponse dakDraftedIRestResponse = dakDraftedAPI.Execute(dakDraftedRequest);
             var dakDraftedResponseJson = dakDraftedIRestResponse.Content;
-            var dakDraftedResponse = JsonConvert.DeserializeObject<DakDraftedResponse>(dakDraftedResponseJson, new JsonSerializerSettings
+            int firstStringIndex = dakDraftedResponseJson.IndexOf("{\"status\":");
+
+            var jsonStringDiscardedGarbage = dakDraftedResponseJson.Substring(firstStringIndex, dakDraftedResponseJson.Length - firstStringIndex);
+            //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+            // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+
+
+
+            var dakDraftedResponse = JsonConvert.DeserializeObject<DakDraftedResponse>(jsonStringDiscardedGarbage, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });
@@ -261,7 +269,15 @@ namespace dNothi.Services.DakServices
             IRestResponse dakSendIRestResponse = draftedDakSendAPI.Execute(draftedDakSendRequest);
             var dakSendResponseJson = dakSendIRestResponse.Content;
 
-            var dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(dakSendResponseJson, new JsonSerializerSettings
+            int firstStringIndex = dakSendResponseJson.IndexOf("{\"status\":");
+
+            var jsonStringDiscardedGarbage = dakSendResponseJson.Substring(firstStringIndex, dakSendResponseJson.Length - firstStringIndex);
+            //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+            // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+          
+
+
+            var dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(jsonStringDiscardedGarbage, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });

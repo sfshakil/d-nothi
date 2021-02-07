@@ -509,69 +509,7 @@ namespace dNothi.Desktop.UI.Dak
 
        
 
-        private void HoverActionIcon(Control control)
-        {
-            
-            
-            if (control == DakSendButton)
-            {
-
-
-                if (DakSendButton.IconColor != Color.FromArgb(246, 78, 144))
-                {
-                   
-                }
-                else
-                {
-                  
-                }
-            }
-
-            if (control == nothijatoButton)
-            {
-
-                if (nothijatoButton.IconColor != Color.FromArgb(246, 78, 144))
-                {
-                    nothijatoButton.IconColor = Color.FromArgb(246, 78, 144);
-                }
-                else
-                {
-                    nothijatoButton.IconColor = Color.FromArgb(54, 153, 255);
-                }
-            }
-
-
-            if (control == dakArchiveButton)
-            {
-
-                if (dakArchiveButton.IconColor != Color.FromArgb(246, 78, 144))
-                {
-                    dakArchiveButton.IconColor = Color.FromArgb(246, 78, 144);
-                }
-                else
-                {
-                    dakArchiveButton.IconColor = Color.FromArgb(54, 153, 255);
-                }
-            }
-
-            if (control == iconButton3)
-            {
-
-                if (iconButton3.IconColor != Color.FromArgb(246, 78, 144))
-                {
-                    iconButton3.IconColor = Color.FromArgb(246, 78, 144);
-                }
-                else
-                {
-                    iconButton3.IconColor = Color.FromArgb(54, 153, 255);
-                }
-            }
-        }
-
-        private void HoverActionIcon(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void dakMovementStatusButton_MouseHover(object sender, EventArgs e)
         {

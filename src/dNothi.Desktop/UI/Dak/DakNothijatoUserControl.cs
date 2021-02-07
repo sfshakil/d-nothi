@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.Properties;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -333,6 +334,15 @@ namespace dNothi.Desktop.UI.Dak
                 this.ButtonClick(sender, e);
         }
 
+        public event EventHandler NothiteUposthapitoButtonClick;
+
+
+        private void nothijatoButton_Click(object sender, EventArgs e)
+        {
+            if (this.NothiteUposthapitoButtonClick != null)
+                this.NothiteUposthapitoButtonClick(sender, e);
+        }
+
         private void DakNothijatoUserControl_MouseEnter(object sender, EventArgs e)
         {
             MouseHoverAction();
@@ -345,21 +355,21 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NothijatoRevertButtonClick;
         private void dakRevertButton_Click(object sender, EventArgs e)
         {
-            
-
-                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
-                conditonBoxForm.message = "আপনি কি ডাকটি ফেরত আনতে চান?";
-                conditonBoxForm.ShowDialog();
 
 
-
-
-                if (conditonBoxForm.Yes)
-                {
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি ডাকটি ফেরত আনতে চান?";
+            conditonBoxForm.ShowDialog();
 
 
 
-                    if (this.NothijatoRevertButtonClick != null)
+
+            if (conditonBoxForm.Yes)
+            {
+
+
+
+                if (this.NothijatoRevertButtonClick != null)
                     this.NothijatoRevertButtonClick(sender, e);
 
 
@@ -373,6 +383,64 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.ButtonClick != null)
                 this.ButtonClick(sender, e);
+        }
+
+
+
+
+
+
+        private void DakNothijatoUserControl_Load(object sender, EventArgs e)
+        {
+            dakActionPanel.Location = new Point(this.Width - dakActionPanel.Width, dakActionPanel.Location.Y);
+            disablePanel.Location = new Point(this.Width - disablePanel.Width, disablePanel.Location.Y);
+
+        }
+
+        private void dakRevertButton_MouseHover(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakMovementStatusButton_MouseHover(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeal_alt_Hover;
+        }
+
+        private void dakMovementStatusButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeat_alt_New;
+        }
+
+
+
+
+
+        private void nothijatoButton_MouseHover(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothivukto_Icon_Hover;
+        }
+
+        private void nothijatoButton_MouseLeave(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothijato_Icon;
+        }
+
+
+
+        private void iconButton3_MouseHover(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void iconButton3_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void dakRevertButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(54, 153, 255);
         }
     }
 }

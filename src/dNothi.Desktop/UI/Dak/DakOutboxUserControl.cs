@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.Properties;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -16,8 +17,8 @@ namespace dNothi.Desktop.UI.Dak
     {
         public DakOutboxUserControl()
         {
-            InitializeComponent(); 
-            
+            InitializeComponent();
+
             IterateControls(this.Controls);
             SetDefaultFont(this.Controls);
 
@@ -44,7 +45,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
-                if(ctrl.Name== "dakActionPanel")
+                if (ctrl.Name == "dakActionPanel")
                 {
                     continue;
                 }
@@ -63,7 +64,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _date;
         private string _dak_view_status;
 
-     
+
 
         private string _attentionTypeIconValue;
         private string _dakSecurityIconValue;
@@ -74,7 +75,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private int _dakAttachmentCount;
 
-       // [Category("Custom Props")]
+        // [Category("Custom Props")]
         //public string dakViewStatus
         //{
         //    get { return _dak_view_status; }
@@ -230,7 +231,7 @@ namespace dNothi.Desktop.UI.Dak
                 _attentionTypeIconValue = value;
                 if (value == "0")
                 {
-                   // dakArchiveButton.Visible = true;
+                    // dakArchiveButton.Visible = true;
                 }
                 else
                 {
@@ -317,7 +318,7 @@ namespace dNothi.Desktop.UI.Dak
             set { _date = value; dateLabel.Text = value; }
         }
 
-       
+
 
         [Browsable(true)]
         [Category("Action")]
@@ -416,6 +417,51 @@ namespace dNothi.Desktop.UI.Dak
 
                 SetDefaultFont(ctrl.Controls);
             }
+
+        }
+
+        private void dakRevertButton_MouseHover(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakMovementStatusButton_MouseHover(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeal_alt_Hover;
+        }
+
+        private void dakMovementStatusButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeat_alt_New;
+        }
+
+
+
+
+
+
+
+
+
+        private void iconButton3_MouseHover(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void iconButton3_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void dakRevertButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void DakOutboxUserControl_Load(object sender, EventArgs e)
+        {
+            dakActionPanel.Location = new Point(this.Width - dakActionPanel.Width, dakActionPanel.Location.Y);
+            disablePanel.Location = new Point(this.Width - disablePanel.Width, disablePanel.Location.Y);
 
         }
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DraftedDakUserControl));
             this.dateLabel = new System.Windows.Forms.Label();
             this.disablePanel = new System.Windows.Forms.Panel();
@@ -60,6 +61,7 @@
             this.subjectLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.disablePanel.SuspendLayout();
             this.dakPriorityIconPanel.SuspendLayout();
             this.potrojariPanel.SuspendLayout();
@@ -238,7 +240,7 @@
             // dakActionPanel
             // 
             this.dakActionPanel.AutoSize = true;
-            this.dakActionPanel.BackColor = System.Drawing.Color.Transparent;
+            this.dakActionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.dakActionPanel.Controls.Add(this.dakEditButton);
             this.dakActionPanel.Controls.Add(this.dakSendButton);
             this.dakActionPanel.Controls.Add(this.dakDeleteButton);
@@ -252,7 +254,7 @@
             // 
             this.dakEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.dakEditButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakEditButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.dakEditButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.dakEditButton.FlatAppearance.BorderSize = 2;
             this.dakEditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dakEditButton.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
@@ -264,14 +266,17 @@
             this.dakEditButton.Name = "dakEditButton";
             this.dakEditButton.Size = new System.Drawing.Size(32, 32);
             this.dakEditButton.TabIndex = 70;
+            this.toolTip1.SetToolTip(this.dakEditButton, "সম্পাদন");
             this.dakEditButton.UseVisualStyleBackColor = false;
             this.dakEditButton.Click += new System.EventHandler(this.dakEditButton_Click);
+            this.dakEditButton.MouseLeave += new System.EventHandler(this.dakEditButton_MouseLeave);
+            this.dakEditButton.MouseHover += new System.EventHandler(this.dakEditButton_MouseHover);
             // 
             // dakSendButton
             // 
             this.dakSendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.dakSendButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakSendButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.dakSendButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.dakSendButton.FlatAppearance.BorderSize = 2;
             this.dakSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dakSendButton.IconChar = FontAwesome.Sharp.IconChar.Share;
@@ -283,14 +288,17 @@
             this.dakSendButton.Name = "dakSendButton";
             this.dakSendButton.Size = new System.Drawing.Size(32, 32);
             this.dakSendButton.TabIndex = 71;
+            this.toolTip1.SetToolTip(this.dakSendButton, "ডাক প্রেরণ করুন");
             this.dakSendButton.UseVisualStyleBackColor = false;
             this.dakSendButton.Click += new System.EventHandler(this.dakSendButton_Click);
+            this.dakSendButton.MouseLeave += new System.EventHandler(this.dakSendButton_MouseLeave);
+            this.dakSendButton.MouseHover += new System.EventHandler(this.dakSendButton_MouseHover);
             // 
             // dakDeleteButton
             // 
             this.dakDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.dakDeleteButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakDeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.dakDeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.dakDeleteButton.FlatAppearance.BorderSize = 2;
             this.dakDeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dakDeleteButton.IconChar = FontAwesome.Sharp.IconChar.Trash;
@@ -302,8 +310,11 @@
             this.dakDeleteButton.Name = "dakDeleteButton";
             this.dakDeleteButton.Size = new System.Drawing.Size(32, 32);
             this.dakDeleteButton.TabIndex = 69;
+            this.toolTip1.SetToolTip(this.dakDeleteButton, "মুছুন");
             this.dakDeleteButton.UseVisualStyleBackColor = false;
             this.dakDeleteButton.Click += new System.EventHandler(this.dakDeleteButton_Click);
+            this.dakDeleteButton.MouseLeave += new System.EventHandler(this.dakDeleteButton_MouseLeave);
+            this.dakDeleteButton.MouseHover += new System.EventHandler(this.dakDeleteButton_MouseHover);
             // 
             // dakAttachmentButton
             // 
@@ -552,5 +563,6 @@
         private System.Windows.Forms.Label subjectLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

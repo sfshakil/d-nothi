@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using dNothi.Utility;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Constants;
+using dNothi.Desktop.Properties;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -27,7 +28,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
-                if(ctrl.Name== "dakActionPanel")
+                if (ctrl.Name == "dakActionPanel")
                 {
                     continue;
                 }
@@ -39,7 +40,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
         private string _source;
-       
+
         private string _sender;
         private string _receiver;
         private string _subject;
@@ -254,7 +255,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (dakViewStatus == "New")
                 {
                     newDakImagePanel.Visible = true;
-                  //  subjectLabel.Font = new Font(Label.def, FontStyle.Bold);
+                    //  subjectLabel.Font = new Font(Label.def, FontStyle.Bold);
 
                 }
                 else
@@ -313,7 +314,7 @@ namespace dNothi.Desktop.UI.Dak
         public string nothiNo
         {
             get { return _nothiNo; }
-            set { _nothiNo = value; if (value == null) { nothiPlainTextLabel.Visible = false; } else { nothiPlainTextLabel.Visible = true;nothiNoLabel.Text = value; } }
+            set { _nothiNo = value; if (value == null) { nothiPlainTextLabel.Visible = false; } else { nothiPlainTextLabel.Visible = true; nothiNoLabel.Text = value; } }
         }
 
 
@@ -326,9 +327,11 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-       
+
         private void DakArchiveUserControl_Load(object sender, EventArgs e)
         {
+            dakActionPanel.Location = new Point(this.Width - dakActionPanel.Width, dakActionPanel.Location.Y);
+            disablePanel.Location = new Point(this.Width - disablePanel.Width, disablePanel.Location.Y);
 
         }
 
@@ -362,7 +365,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-          
+
             if (conditonBoxForm.Yes)
             {
 
@@ -371,15 +374,48 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        private void dakMovementStatusButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dakMovementStatusButton_Click_1(object sender, EventArgs e)
         {
             if (this.ButtonClick != null)
                 this.ButtonClick(sender, e);
+        }
+
+        private void dakRevertButton_MouseHover(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakMovementStatusButton_MouseHover(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeal_alt_Hover;
+        }
+
+        private void dakMovementStatusButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeat_alt_New;
+        }
+
+
+
+
+
+
+
+
+
+        private void iconButton3_MouseHover(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void iconButton3_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void dakRevertButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(54, 153, 255);
         }
     }
 }

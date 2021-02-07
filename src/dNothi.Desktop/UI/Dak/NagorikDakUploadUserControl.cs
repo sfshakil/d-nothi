@@ -80,16 +80,61 @@ namespace dNothi.Desktop.UI.Dak
 
                 dakDescriptionXTextBox.Text = value.dak_description;
 
-                mobileXTextBox.Text = value.sender_mobile;
-                nameBanglaXTextBox.Text = value.sender_name;
-                permenantAddressXTextBox.Text = value.sender_address;
-                presentAddressXTextBox.Text = value.sender_address;
+                mobileXTextBox.Text = value.mobile_no;
+                emailXTextBox.Text = value.email;
+
+                if(value.gender!="")
+                {
+                    genderSearchButton.searchButtonText = value.gender;
+                }
+                 if(value.nationality != "")
+                {
+                    searchNationalityUserController1.searchButtonText = value.nationality;
+                }
+                   if(value.religion != "")
+                {
+                    searchReligionUserController.searchButtonText = value.religion;
+                }
+                    if(value.religion != "")
+                {
+                    searchReligionUserController.searchButtonText = value.religion;
+                }
+
+            
+                nameBanglaXTextBox.Text = value.name_bng;
+                NameEnglishXTextBox.Text = value.name_eng;
+                nationalIdXTextBox.Text = value.national_idendity_no;
+                birthCertificateNoXTextBox.Text = value.birth_registration_number;
+                nameFatherorHusbandXTextBox.Text = value.father_name;
+                nameMotherXTextBox.Text = value.mother_name;
+                passportNoXTextBox.Text = value.passport;
+                permenantAddressXTextBox.Text = value.parmanent_address;
+                presentAddressXTextBox.Text = value.address;
+               
+               // nameFatherorHusbandXTextBox.Text=value.
+
+
+                if (value.dak_priority_level != "0")
+                {
+                    DakPriorityList dakPriority = new DakPriorityList();
+                    prioritySearchButton.searchButtonText = dakPriority.GetDakPriorityName(value.dak_priority_level);
 
 
 
 
-                prioritySearchButton.Text = value.dak_priority_level;
-                seurityLevelSearchButton.Text = value.dak_security_level;
+
+                }
+                if (value.dak_security_level != "0")
+                {
+                    DakSecurityList dakSecurityList = new DakSecurityList();
+                    seurityLevelSearchButton.searchButtonText = dakSecurityList.GetDakSecuritiesName(value.dak_security_level);
+
+
+                }
+
+
+
+
 
 
 
@@ -776,8 +821,9 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
+
             DakSecurityList dakSecurityList = new DakSecurityList();
-            int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(seurityLevelSearchButton.searchButtonText.ToString()));
+            int dak_security_id = Convert.ToInt32(dakSecurityList.GetDakSecuritiesId(seurityLevelSearchButton.searchButtonText.ToString()));
 
             dak.priority = dak_priority_id.ToString();
             dak.dak_priority = prioritySearchButton.ToString();

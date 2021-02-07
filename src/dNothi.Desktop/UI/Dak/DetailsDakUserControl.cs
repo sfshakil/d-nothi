@@ -13,6 +13,7 @@ using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using dNothi.Services.DakServices;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Constants;
+using dNothi.Desktop.Properties;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -387,7 +388,11 @@ namespace dNothi.Desktop.UI.Dak
         public string sharokNo
         {
             get { return _sharokNo; }
-            set { _sharokNo = value; sharokNoText.Text = value; if (sharokNo == "" || sharokNo == null) { sharokNoLabel.Visible = false;sharokNoText.Visible = false;sharokNoSpaceLabel.Visible = false; } }
+            set { _sharokNo = value; 
+                sharokNoText.Text = value;
+                try { sharokNoText.Text= string.Concat(value.Select(c => (char)('\u09E6' + c - '0'))); } catch(Exception Ex) { }
+                if (sharokNo == "" || sharokNo == null) { sharokNoLabel.Visible = false;sharokNoText.Visible = false;sharokNoSpaceLabel.Visible = false; }
+            }
         }
 
         public string subject
@@ -434,9 +439,11 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DetailsDakUserControl_Load(object sender, EventArgs e)
         {
+          //  dakActionPanel.Location = new Point(this.Width - dakActionPanel.Width, dakActionPanel.Location.Y);
+          //  disablePanel.Location = new Point(this.Width - disablePanel.Width, dakActionPanel.Location.Y);
 
         }
-        
+
         public event EventHandler BackButtonClick;        
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -508,9 +515,68 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
+        private void dakMovementStatusButton_MouseHover(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeal_alt_Hover;
+        }
 
+        private void dakMovementStatusButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeat_alt_New;
+        }
 
+        private void nothiteUposthaponButton_MouseLeave(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothijato_Icon;
+        }
 
-       
+        private void nothiteUposthaponButton_MouseHover(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothivukto_Icon_Hover;
+        }
+
+        private void dakRevertButton_MouseHover(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakRevertButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+        private void DakSendButton_MouseHover(object sender, EventArgs e)
+        {
+            DakSendButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void DakSendButton_MouseLeave(object sender, EventArgs e)
+        {
+            DakSendButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void nothijatoButton_MouseHover(object sender, EventArgs e)
+        {
+            nothijatoButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void nothijatoButton_MouseLeave(object sender, EventArgs e)
+        {
+            nothijatoButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void dakArchiveButton_MouseHover(object sender, EventArgs e)
+        {
+            dakArchiveButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakArchiveButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakArchiveButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void mainAttachmentViewWebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            mainAttachmentViewWebBrowser.Document.Body.Style = "zoom:100%";
+        }
     }
 }
