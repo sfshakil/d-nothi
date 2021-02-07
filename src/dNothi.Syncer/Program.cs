@@ -1,21 +1,15 @@
-﻿using dNothi.Constants;
-using dNothi.Services.DakServices;
+﻿using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Autofac;
-using Autofac.Core;
 using dNothi.Infrastructure;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.Services.AccountServices;
 using dNothi.Services.NothiServices;
 using dNothi.JsonParser;
+using dNothi.Services.SyncServices;
+using System;
+using System.Threading.Tasks;
 
 namespace dNothi.Syncer
 {
@@ -23,13 +17,35 @@ namespace dNothi.Syncer
     {
         private static IContainer container;
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            Console.WriteLine("----------------Begin-------------------");
             log4net.Config.XmlConfigurator.Configure();
             _log.Info("Application Stated!");
-            Bootstrap();
+            var container=Bootstrap();
+            try 
+            {
+                using (var scope = container.BeginLifetimeScope())
+                {
+                    var svc = scope.Resolve<ISyncerService>();
+                    var data = await svc.GetSource();
+                    var dbdata = svc.GetDestination();
+                    Console.WriteLine("Dak Ids From API");
+                    Console.WriteLine(string.Join(",", data.ToArray()));
+                    Console.WriteLine("Dak Ids In Database");
+                    Console.WriteLine(string.Join(",", dbdata.ToArray()));
+                }
+            } 
+            catch(Exception ex)
+            {
+                _log.Error(ex.ToString());
+            }
+            Console.WriteLine("----------------END-------------------");
+            Console.ReadLine();
+
+
         }
-        private static void Bootstrap()
+        private static IContainer Bootstrap()
         {
             var builder = new ContainerBuilder();
 
@@ -73,58 +89,11 @@ namespace dNothi.Syncer
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
             builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>();
             builder.RegisterType<UserMessageParser>().As<IUserMessageParser>();
+            builder.RegisterType<SyncerService>().As<ISyncerService>();
 
             container = (builder.Build());
+            return container;
         }
-        public static List<long> GetSource()
-        {
-            try
-            {
-                using (var client = new HttpClient())
-                {
-                    //var url = GetAPIDomain() + GetLoginEndpoint();
-                    //var json = JsonConvert.SerializeObject(userParam);
-                    //var data = new StringContent(json, Encoding.UTF8, "application/json");
-                    //client.DefaultRequestHeaders.Add("api-version", GetAPIVersion());
-                    //client.DefaultRequestHeaders.Add("device-id", GetDeviceId());
-                    //client.DefaultRequestHeaders.Add("device-type", GetDeviceType());
-                    //var response = await client.PostAsync(url, data);
-                    //string result = await response.Content.ReadAsStringAsync();
-                    //UserMessage responsemessage = _userMessageParser.ParseMessage(result);
-                    //return responsemessage;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return null;
-        }
-        protected static string GetAPIDomain()
-        {
-            return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
-        }
-        protected static string GetLoginEndpoint()
-        {
-            return DefaultAPIConfiguration.LoginEndPoint;
-        }
-        protected static string GetAPIVersion()
-        {
-            return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;
-        }
-
-        protected static string GetDeviceId()
-        {
-            return ReadAppSettings("device-id") ?? DefaultAPIConfiguration.DefaultDeviceId;
-        }
-        protected static string GetDeviceType()
-        {
-            return ReadAppSettings("device-type") ?? DefaultAPIConfiguration.DefaultDeviceType;
-        }
-
-        protected static string ReadAppSettings(string key)
-        {
-            return ConfigurationManager.AppSettings[key];
-        }
+        
     }
 }
