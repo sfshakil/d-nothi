@@ -892,7 +892,7 @@
             this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
             this.officerSearchList.Name = "officerSearchList";
             this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
-            this.officerSearchList.Size = new System.Drawing.Size(516, 52);
+            this.officerSearchList.Size = new System.Drawing.Size(516, 44);
             this.officerSearchList.TabIndex = 52;
             // 
             // label11
@@ -2534,16 +2534,18 @@
             // 
             // designationDetailsPanel
             // 
+            this.designationDetailsPanel._designationId = 0;
+            this.designationDetailsPanel._officeInfos = null;
+            this.designationDetailsPanel.AutoSize = true;
+            this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.designationDetailsPanel.dakTotalNumber = 5;
-            this.designationDetailsPanel.designationLinkText = null;
             this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.designationDetailsPanel.Location = new System.Drawing.Point(926, 52);
+            this.designationDetailsPanel.Location = new System.Drawing.Point(919, 49);
             this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
             this.designationDetailsPanel.Name = "designationDetailsPanel";
-            this.designationDetailsPanel.nothiTotalNumber = 9;
-            this.designationDetailsPanel.Size = new System.Drawing.Size(428, 150);
+            this.designationDetailsPanel.officeInfos = null;
+            this.designationDetailsPanel.Size = new System.Drawing.Size(434, 91);
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
@@ -2621,6 +2623,7 @@
             this.footerTableLayoutPanel.ResumeLayout(false);
             this.footerTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

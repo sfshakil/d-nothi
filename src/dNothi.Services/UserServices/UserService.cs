@@ -79,15 +79,64 @@ namespace dNothi.Services.UserServices
             return employeeInfoDTO;
         }
 
+
+
         public OfficeInfoDTO GetOfficeInfo()
         {
-            var empInfo = _officeRepository.Table.FirstOrDefault();
+            var empInfo = _officeRepository.Table.FirstOrDefault(a=>a.is_current==true);
+            if(empInfo == null)
+            {
+                empInfo= _officeRepository.Table.FirstOrDefault();
+            }
+
             var config = new MapperConfiguration(cfg =>
                     cfg.CreateMap<OfficeInfo, OfficeInfoDTO>()
                 );
             var mapper = new Mapper(config);
             var officeInfoDTO = mapper.Map<OfficeInfoDTO>(empInfo);
             return officeInfoDTO;
+        }
+
+        public List<OfficeInfoDTO> GetAllLocalOfficeInfo()
+        {
+            List<OfficeInfo> officeInfos = _officeRepository.Table.ToList();
+            List<OfficeInfoDTO> officeInfoDTOs = new List<OfficeInfoDTO>();
+
+            if(officeInfos.Count>0)
+            {
+                var config = new MapperConfiguration(cfg =>
+                  cfg.CreateMap<OfficeInfo, OfficeInfoDTO>()
+              );
+                foreach (var office in officeInfos)
+                {
+                   
+                    var mapper = new Mapper(config);
+                    var officeInfoDTO = mapper.Map<OfficeInfoDTO>(office);
+                    officeInfoDTOs.Add(officeInfoDTO);
+                }
+            }
+            return officeInfoDTOs;
+        }
+
+        public void MakeThisOfficeCurrent(int designationId)
+        {
+            var officeInfo = _officeRepository.Table.FirstOrDefault(a => a.office_unit_organogram_id == designationId);
+            if(officeInfo != null)
+            {
+                officeInfo.is_current = true;
+                _officeRepository.Update(officeInfo);
+
+                List<OfficeInfo> officeInfos = _officeRepository.Table.Where(a => a.office_unit_organogram_id != designationId && a.is_current==true).ToList();
+                if(officeInfos.Count>0)
+                {
+                    foreach(var office in officeInfos)
+                    {
+                        office.is_current = false;
+                        _officeRepository.Update(office);
+                    }
+                }
+
+            }
         }
         public UserDTO GetUserInfo()
         {
@@ -187,33 +236,44 @@ namespace dNothi.Services.UserServices
             foreach (var officeinfodto in officeinfodtos)
             {
                 var ofcInfo = mapper.Map<OfficeInfo>(officeinfodto);
-                var dboffice = _officeRepository.Table.FirstOrDefault();
-                if (dboffice == null)
-                {
+               // var dboffice = _officeRepository.Table.FirstOrDefault();
+                //if (dboffice == null)
+                //{
                     _officeRepository.Insert(ofcInfo);
-                }
-                else
-                {
-                    dboffice.office_id = ofcInfo.office_id;
+                //}
+                //else
+                //{
+                //    dboffice.office_id = ofcInfo.office_id;
 
-                    dboffice.office_unit_id = ofcInfo.office_unit_id;
-                    dboffice.office_unit_organogram_id = ofcInfo.office_unit_organogram_id;
-                    dboffice.office_name_bn = ofcInfo.office_name_bn;
-                    dboffice.unit_name_bn = ofcInfo.unit_name_bn;
+                //    dboffice.office_unit_id = ofcInfo.office_unit_id;
+                //    dboffice.office_unit_organogram_id = ofcInfo.office_unit_organogram_id;
+                //    dboffice.office_name_bn = ofcInfo.office_name_bn;
+                //    dboffice.unit_name_bn = ofcInfo.unit_name_bn;
                  
-                    dboffice.employee_record_id = ofcInfo.employee_record_id;
+                //    dboffice.employee_record_id = ofcInfo.employee_record_id;
 
-                    dboffice.designation=ofcInfo.designation;
-                    dboffice.incharge_label=ofcInfo.incharge_label;
+                //    dboffice.designation=ofcInfo.designation;
+                //    dboffice.incharge_label=ofcInfo.incharge_label;
 
-                    dboffice.office_unit_organogram_id = ofcInfo.office_unit_organogram_id;
-                    dboffice.office_id = ofcInfo.office_id;
+                //    dboffice.office_unit_organogram_id = ofcInfo.office_unit_organogram_id;
+                //    dboffice.office_id = ofcInfo.office_id;
 
-                    _officeRepository.Update(dboffice);
-                }
+                //    _officeRepository.Update(dboffice);
+                //}
             }
         }
+        public void DeleteLocalOfficeInfo()
+        {
 
+           
+                var dboffices = _officeRepository.Table.ToList();
+                if (dboffices.Count>0)
+                {
+                    _officeRepository.Delete(dboffices);
+                }
+                
+            
+        }
         public void SaveOrUpdateToken(string token)
         {
             var dbtoken = _userTokenRepository.Table.FirstOrDefault();

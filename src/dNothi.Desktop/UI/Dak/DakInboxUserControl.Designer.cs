@@ -405,7 +405,7 @@
             this.disablePanel.Controls.Add(this.newDakImagePanel);
             this.disablePanel.Enabled = false;
             this.disablePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.disablePanel.Location = new System.Drawing.Point(-2075, 15);
+            this.disablePanel.Location = new System.Drawing.Point(-2599, 15);
             this.disablePanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.disablePanel.MinimumSize = new System.Drawing.Size(0, 34);
             this.disablePanel.Name = "disablePanel";
@@ -564,7 +564,7 @@
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-950, 15);
+            this.dakActionPanel.Location = new System.Drawing.Point(-1142, 15);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);

@@ -35,5 +35,8 @@ namespace dNothi.Core.Entities
         [StringLength(500)]
         public string domain { get; set; }
         public bool is_admin { get; set; }
+
+
+        public bool is_current { get; set; }
     }
 }

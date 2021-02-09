@@ -45,12 +45,13 @@
             this.docketingNoLabel = new System.Windows.Forms.Label();
             this.movementStatusDetailsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.movementStatusDetailsButton = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.designationLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.AttachmentDetails = new System.Windows.Forms.TabControl();
             this.mainAttachmentTabPage = new System.Windows.Forms.TabPage();
+            this.txtFileRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.pdfViewerControl = new Patagames.Pdf.Net.Controls.WinForms.PdfViewer();
             this.mainAttachmentViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.attachmentListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -60,14 +61,6 @@
             this.dakCategoryLabel = new System.Windows.Forms.Label();
             this.backButton = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dakActionPanel = new System.Windows.Forms.Panel();
-            this.dakRevertButton = new FontAwesome.Sharp.IconButton();
-            this.dakArchiveButton = new FontAwesome.Sharp.IconButton();
-            this.nothijatoButton = new FontAwesome.Sharp.IconButton();
-            this.nothiteUposthaponButton = new FontAwesome.Sharp.IconButton();
-            this.DakSendButton = new FontAwesome.Sharp.IconButton();
-            this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.disablePanel = new System.Windows.Forms.Panel();
             this.potrojariPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -79,6 +72,15 @@
             this.dakSecurityIconPanel = new System.Windows.Forms.Panel();
             this.attentionTypeIconPanel = new System.Windows.Forms.Panel();
             this.newDakImagePanel = new System.Windows.Forms.Panel();
+            this.dakActionPanel = new System.Windows.Forms.Panel();
+            this.dakRevertButton = new FontAwesome.Sharp.IconButton();
+            this.dakArchiveButton = new FontAwesome.Sharp.IconButton();
+            this.nothijatoButton = new FontAwesome.Sharp.IconButton();
+            this.nothiteUposthaponButton = new FontAwesome.Sharp.IconButton();
+            this.DakSendButton = new FontAwesome.Sharp.IconButton();
+            this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
+            this.movementStatusDetailsButton = new FontAwesome.Sharp.IconButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.AttachmentDetails.SuspendLayout();
@@ -88,10 +90,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.dakActionPanel.SuspendLayout();
             this.disablePanel.SuspendLayout();
             this.potrojariPanel.SuspendLayout();
             this.dakPriorityIconPanel.SuspendLayout();
+            this.dakActionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -274,14 +276,14 @@
             this.movementStatusDetailsPanel.AutoScroll = true;
             this.movementStatusDetailsPanel.AutoSize = true;
             this.movementStatusDetailsPanel.BackColor = System.Drawing.Color.White;
-            this.movementStatusDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.movementStatusDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.movementStatusDetailsPanel.Location = new System.Drawing.Point(58, 139);
+            this.movementStatusDetailsPanel.Location = new System.Drawing.Point(58, 136);
             this.movementStatusDetailsPanel.MaximumSize = new System.Drawing.Size(642, 314);
             this.movementStatusDetailsPanel.Name = "movementStatusDetailsPanel";
-            this.movementStatusDetailsPanel.Size = new System.Drawing.Size(498, 183);
+            this.movementStatusDetailsPanel.Size = new System.Drawing.Size(439, 183);
             this.movementStatusDetailsPanel.TabIndex = 80;
             this.movementStatusDetailsPanel.Visible = false;
+            this.movementStatusDetailsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.movementStatusDetailsPanel_Paint);
             // 
             // dateLabel
             // 
@@ -294,40 +296,19 @@
             this.dateLabel.TabIndex = 82;
             this.dateLabel.Text = "২৮/১২/২০ ৮:১৪ AM";
             // 
-            // movementStatusDetailsButton
-            // 
-            this.movementStatusDetailsButton.AutoSize = true;
-            this.movementStatusDetailsButton.BackColor = System.Drawing.Color.Transparent;
-            this.movementStatusDetailsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.movementStatusDetailsButton.FlatAppearance.BorderSize = 0;
-            this.movementStatusDetailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.movementStatusDetailsButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.movementStatusDetailsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
-            this.movementStatusDetailsButton.Image = global::dNothi.Desktop.Properties.Resources.icons8_expand_arrow_24__1_;
-            this.movementStatusDetailsButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.movementStatusDetailsButton.Location = new System.Drawing.Point(54, 106);
-            this.movementStatusDetailsButton.Margin = new System.Windows.Forms.Padding(0);
-            this.movementStatusDetailsButton.MaximumSize = new System.Drawing.Size(0, 30);
-            this.movementStatusDetailsButton.MinimumSize = new System.Drawing.Size(0, 30);
-            this.movementStatusDetailsButton.Name = "movementStatusDetailsButton";
-            this.movementStatusDetailsButton.Size = new System.Drawing.Size(320, 30);
-            this.movementStatusDetailsButton.TabIndex = 79;
-            this.movementStatusDetailsButton.Text = "ন্যাশনাল কনসালটেন্ট ফর ই-নথি ইমপ্লিমেন্টেশন";
-            this.movementStatusDetailsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.movementStatusDetailsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.movementStatusDetailsButton.UseVisualStyleBackColor = false;
-            this.movementStatusDetailsButton.Click += new System.EventHandler(this.movementStatusDetailsButton_Click);
-            // 
             // panel7
             // 
             this.panel7.AutoSize = true;
+            this.panel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Controls.Add(this.designationLabel);
             this.panel7.Controls.Add(this.nameLabel);
             this.panel7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(56, 91);
+            this.panel7.Location = new System.Drawing.Point(56, 88);
+            this.panel7.MaximumSize = new System.Drawing.Size(0, 20);
+            this.panel7.MinimumSize = new System.Drawing.Size(287, 20);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(434, 17);
+            this.panel7.Size = new System.Drawing.Size(287, 20);
             this.panel7.TabIndex = 87;
             // 
             // designationLabel
@@ -336,7 +317,8 @@
             this.designationLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.designationLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
-            this.designationLabel.Location = new System.Drawing.Point(86, 0);
+            this.designationLabel.Location = new System.Drawing.Point(201, 0);
+            this.designationLabel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.designationLabel.Name = "designationLabel";
             this.designationLabel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.designationLabel.Size = new System.Drawing.Size(79, 20);
@@ -350,10 +332,11 @@
             this.nameLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
             this.nameLabel.Location = new System.Drawing.Point(0, 0);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(86, 21);
+            this.nameLabel.Size = new System.Drawing.Size(201, 21);
             this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "হাসানুজ্জামান";
+            this.nameLabel.Text = "হাসানুজ্জামান dfgdfgf dgfdgfd d";
             // 
             // AttachmentDetails
             // 
@@ -364,20 +347,67 @@
             this.AttachmentDetails.Name = "AttachmentDetails";
             this.AttachmentDetails.Padding = new System.Drawing.Point(10, 6);
             this.AttachmentDetails.SelectedIndex = 0;
-            this.AttachmentDetails.Size = new System.Drawing.Size(1049, 422);
+            this.AttachmentDetails.Size = new System.Drawing.Size(1049, 431);
             this.AttachmentDetails.TabIndex = 89;
             // 
             // mainAttachmentTabPage
             // 
             this.mainAttachmentTabPage.BackColor = System.Drawing.Color.Transparent;
+            this.mainAttachmentTabPage.Controls.Add(this.txtFileRichTextBox);
+            this.mainAttachmentTabPage.Controls.Add(this.pdfViewerControl);
             this.mainAttachmentTabPage.Controls.Add(this.mainAttachmentViewWebBrowser);
             this.mainAttachmentTabPage.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainAttachmentTabPage.Location = new System.Drawing.Point(4, 33);
             this.mainAttachmentTabPage.Name = "mainAttachmentTabPage";
             this.mainAttachmentTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mainAttachmentTabPage.Size = new System.Drawing.Size(1041, 385);
+            this.mainAttachmentTabPage.Size = new System.Drawing.Size(1041, 394);
             this.mainAttachmentTabPage.TabIndex = 0;
             this.mainAttachmentTabPage.Text = "মূলপত্র​";
+            // 
+            // txtFileRichTextBox
+            // 
+            this.txtFileRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFileRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFileRichTextBox.Location = new System.Drawing.Point(3, 3);
+            this.txtFileRichTextBox.Name = "txtFileRichTextBox";
+            this.txtFileRichTextBox.Size = new System.Drawing.Size(1035, 388);
+            this.txtFileRichTextBox.TabIndex = 2;
+            this.txtFileRichTextBox.Text = "asdasfsa";
+            // 
+            // pdfViewerControl
+            // 
+            this.pdfViewerControl.BackColor = System.Drawing.Color.Transparent;
+            this.pdfViewerControl.CurrentIndex = -1;
+            this.pdfViewerControl.CurrentPageHighlightColor = System.Drawing.Color.Transparent;
+            this.pdfViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdfViewerControl.Document = null;
+            this.pdfViewerControl.FormHighlightColor = System.Drawing.Color.Transparent;
+            this.pdfViewerControl.FormsBlendMode = Patagames.Pdf.Enums.BlendTypes.FXDIB_BLEND_MULTIPLY;
+            this.pdfViewerControl.LoadingIconText = "Loading...";
+            this.pdfViewerControl.Location = new System.Drawing.Point(3, 3);
+            this.pdfViewerControl.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.pdfViewerControl.MouseMode = Patagames.Pdf.Net.Controls.WinForms.MouseModes.Default;
+            this.pdfViewerControl.Name = "pdfViewerControl";
+            this.pdfViewerControl.OptimizedLoadThreshold = 1000;
+            this.pdfViewerControl.Padding = new System.Windows.Forms.Padding(10);
+            this.pdfViewerControl.PageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pdfViewerControl.PageAutoDispose = true;
+            this.pdfViewerControl.PageBackColor = System.Drawing.Color.White;
+            this.pdfViewerControl.PageBorderColor = System.Drawing.Color.WhiteSmoke;
+            this.pdfViewerControl.PageMargin = new System.Windows.Forms.Padding(10);
+            this.pdfViewerControl.PageSeparatorColor = System.Drawing.Color.Gray;
+            this.pdfViewerControl.RenderFlags = ((Patagames.Pdf.Enums.RenderFlags)((Patagames.Pdf.Enums.RenderFlags.FPDF_LCD_TEXT | Patagames.Pdf.Enums.RenderFlags.FPDF_NO_CATCH)));
+            this.pdfViewerControl.ShowCurrentPageHighlight = true;
+            this.pdfViewerControl.ShowLoadingIcon = true;
+            this.pdfViewerControl.ShowPageSeparator = true;
+            this.pdfViewerControl.Size = new System.Drawing.Size(1035, 388);
+            this.pdfViewerControl.SizeMode = Patagames.Pdf.Net.Controls.WinForms.SizeModes.FitToWidth;
+            this.pdfViewerControl.TabIndex = 1;
+            this.pdfViewerControl.TextSelectColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(130)))), ((int)(((byte)(180)))));
+            this.pdfViewerControl.TilesCount = 2;
+            this.pdfViewerControl.UseProgressiveRender = true;
+            this.pdfViewerControl.ViewMode = Patagames.Pdf.Net.Controls.WinForms.ViewModes.Vertical;
+            this.pdfViewerControl.Zoom = 1F;
             // 
             // mainAttachmentViewWebBrowser
             // 
@@ -385,7 +415,7 @@
             this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(3, 3);
             this.mainAttachmentViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.mainAttachmentViewWebBrowser.Name = "mainAttachmentViewWebBrowser";
-            this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(1035, 379);
+            this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(1035, 388);
             this.mainAttachmentViewWebBrowser.TabIndex = 0;
             this.mainAttachmentViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             this.mainAttachmentViewWebBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.mainAttachmentViewWebBrowser_DocumentCompleted);
@@ -396,7 +426,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1041, 385);
+            this.tabPage2.Size = new System.Drawing.Size(1041, 394);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "সকল সংযুক্তি";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -407,7 +437,7 @@
             this.attachmentListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.attachmentListFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.attachmentListFlowLayoutPanel.Name = "attachmentListFlowLayoutPanel";
-            this.attachmentListFlowLayoutPanel.Size = new System.Drawing.Size(1035, 379);
+            this.attachmentListFlowLayoutPanel.Size = new System.Drawing.Size(1035, 388);
             this.attachmentListFlowLayoutPanel.TabIndex = 0;
             // 
             // iconPictureBox1
@@ -418,7 +448,7 @@
             this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 24;
-            this.iconPictureBox1.Location = new System.Drawing.Point(925, 117);
+            this.iconPictureBox1.Location = new System.Drawing.Point(928, 117);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(24, 24);
             this.iconPictureBox1.TabIndex = 1;
@@ -431,7 +461,7 @@
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
             this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox2.Location = new System.Drawing.Point(25, 99);
+            this.iconPictureBox2.Location = new System.Drawing.Point(25, 96);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(32, 42);
             this.iconPictureBox2.TabIndex = 90;
@@ -480,6 +510,7 @@
             // 
             // panel6
             // 
+            this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel6.Controls.Add(this.disablePanel);
             this.panel6.Controls.Add(this.dakActionPanel);
             this.panel6.Controls.Add(this.iconPictureBox2);
@@ -490,166 +521,16 @@
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.subjectLabel);
-            this.panel6.Controls.Add(this.movementStatusDetailsButton);
             this.panel6.Controls.Add(this.movementStatusDetailsPanel);
             this.panel6.Controls.Add(this.AttachmentDetails);
+            this.panel6.Controls.Add(this.movementStatusDetailsButton);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 43);
+            this.panel6.MaximumSize = new System.Drawing.Size(0, 600);
+            this.panel6.MinimumSize = new System.Drawing.Size(0, 600);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1088, 579);
+            this.panel6.Size = new System.Drawing.Size(1088, 600);
             this.panel6.TabIndex = 0;
-            // 
-            // dakActionPanel
-            // 
-            this.dakActionPanel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.dakActionPanel.AutoSize = true;
-            this.dakActionPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.dakActionPanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dakActionPanel.Controls.Add(this.dakRevertButton);
-            this.dakActionPanel.Controls.Add(this.dakArchiveButton);
-            this.dakActionPanel.Controls.Add(this.nothijatoButton);
-            this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
-            this.dakActionPanel.Controls.Add(this.DakSendButton);
-            this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(878, 33);
-            this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
-            this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
-            this.dakActionPanel.Name = "dakActionPanel";
-            this.dakActionPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dakActionPanel.Size = new System.Drawing.Size(192, 34);
-            this.dakActionPanel.TabIndex = 91;
-            // 
-            // dakRevertButton
-            // 
-            this.dakRevertButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakRevertButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dakRevertButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.dakRevertButton.FlatAppearance.BorderSize = 2;
-            this.dakRevertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakRevertButton.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
-            this.dakRevertButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.dakRevertButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakRevertButton.IconSize = 28;
-            this.dakRevertButton.Location = new System.Drawing.Point(160, 0);
-            this.dakRevertButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakRevertButton.Name = "dakRevertButton";
-            this.dakRevertButton.Size = new System.Drawing.Size(32, 34);
-            this.dakRevertButton.TabIndex = 86;
-            this.dakRevertButton.UseVisualStyleBackColor = false;
-            this.dakRevertButton.Click += new System.EventHandler(this.revertButton_Click);
-            this.dakRevertButton.MouseLeave += new System.EventHandler(this.dakRevertButton_MouseLeave);
-            this.dakRevertButton.MouseHover += new System.EventHandler(this.dakRevertButton_MouseHover);
-            // 
-            // dakArchiveButton
-            // 
-            this.dakArchiveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakArchiveButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dakArchiveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.dakArchiveButton.FlatAppearance.BorderSize = 2;
-            this.dakArchiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakArchiveButton.IconChar = FontAwesome.Sharp.IconChar.Archive;
-            this.dakArchiveButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.dakArchiveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakArchiveButton.IconSize = 28;
-            this.dakArchiveButton.Location = new System.Drawing.Point(128, 0);
-            this.dakArchiveButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakArchiveButton.Name = "dakArchiveButton";
-            this.dakArchiveButton.Size = new System.Drawing.Size(32, 34);
-            this.dakArchiveButton.TabIndex = 85;
-            this.dakArchiveButton.UseVisualStyleBackColor = false;
-            this.dakArchiveButton.Click += new System.EventHandler(this.dakArchiveButton_Click);
-            this.dakArchiveButton.MouseLeave += new System.EventHandler(this.dakArchiveButton_MouseLeave);
-            this.dakArchiveButton.MouseHover += new System.EventHandler(this.dakArchiveButton_MouseHover);
-            // 
-            // nothijatoButton
-            // 
-            this.nothijatoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.nothijatoButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.nothijatoButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.nothijatoButton.FlatAppearance.BorderSize = 2;
-            this.nothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothijatoButton.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.nothijatoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.nothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.nothijatoButton.IconSize = 28;
-            this.nothijatoButton.Location = new System.Drawing.Point(96, 0);
-            this.nothijatoButton.Margin = new System.Windows.Forms.Padding(0);
-            this.nothijatoButton.Name = "nothijatoButton";
-            this.nothijatoButton.Size = new System.Drawing.Size(32, 34);
-            this.nothijatoButton.TabIndex = 83;
-            this.nothijatoButton.UseVisualStyleBackColor = false;
-            this.nothijatoButton.Click += new System.EventHandler(this.nothijatoButton_Click);
-            this.nothijatoButton.MouseLeave += new System.EventHandler(this.nothijatoButton_MouseLeave);
-            this.nothijatoButton.MouseHover += new System.EventHandler(this.nothijatoButton_MouseHover);
-            // 
-            // nothiteUposthaponButton
-            // 
-            this.nothiteUposthaponButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.nothiteUposthaponButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.Nothijato_Icon;
-            this.nothiteUposthaponButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.nothiteUposthaponButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.nothiteUposthaponButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.nothiteUposthaponButton.FlatAppearance.BorderSize = 2;
-            this.nothiteUposthaponButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothiteUposthaponButton.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.nothiteUposthaponButton.IconColor = System.Drawing.Color.Transparent;
-            this.nothiteUposthaponButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.nothiteUposthaponButton.IconSize = 28;
-            this.nothiteUposthaponButton.Location = new System.Drawing.Point(64, 0);
-            this.nothiteUposthaponButton.Margin = new System.Windows.Forms.Padding(2);
-            this.nothiteUposthaponButton.Name = "nothiteUposthaponButton";
-            this.nothiteUposthaponButton.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.nothiteUposthaponButton.Size = new System.Drawing.Size(32, 34);
-            this.nothiteUposthaponButton.TabIndex = 82;
-            this.nothiteUposthaponButton.UseVisualStyleBackColor = false;
-            this.nothiteUposthaponButton.Click += new System.EventHandler(this.nothiteUposthaponButton_Click);
-            this.nothiteUposthaponButton.MouseLeave += new System.EventHandler(this.nothiteUposthaponButton_MouseLeave);
-            this.nothiteUposthaponButton.MouseHover += new System.EventHandler(this.nothiteUposthaponButton_MouseHover);
-            // 
-            // DakSendButton
-            // 
-            this.DakSendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.DakSendButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DakSendButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.DakSendButton.FlatAppearance.BorderSize = 2;
-            this.DakSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DakSendButton.IconChar = FontAwesome.Sharp.IconChar.Share;
-            this.DakSendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.DakSendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.DakSendButton.IconSize = 28;
-            this.DakSendButton.Location = new System.Drawing.Point(32, 0);
-            this.DakSendButton.Margin = new System.Windows.Forms.Padding(0);
-            this.DakSendButton.Name = "DakSendButton";
-            this.DakSendButton.Size = new System.Drawing.Size(32, 34);
-            this.DakSendButton.TabIndex = 81;
-            this.DakSendButton.UseVisualStyleBackColor = false;
-            this.DakSendButton.Click += new System.EventHandler(this.DakSendButton_Click);
-            this.DakSendButton.MouseLeave += new System.EventHandler(this.DakSendButton_MouseLeave);
-            this.DakSendButton.MouseHover += new System.EventHandler(this.DakSendButton_MouseHover);
-            // 
-            // dakMovementStatusButton
-            // 
-            this.dakMovementStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakMovementStatusButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.Repeat_alt_New;
-            this.dakMovementStatusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dakMovementStatusButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dakMovementStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.dakMovementStatusButton.FlatAppearance.BorderSize = 2;
-            this.dakMovementStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakMovementStatusButton.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.dakMovementStatusButton.IconColor = System.Drawing.Color.Transparent;
-            this.dakMovementStatusButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakMovementStatusButton.IconSize = 30;
-            this.dakMovementStatusButton.Location = new System.Drawing.Point(0, 0);
-            this.dakMovementStatusButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakMovementStatusButton.Name = "dakMovementStatusButton";
-            this.dakMovementStatusButton.Size = new System.Drawing.Size(32, 34);
-            this.dakMovementStatusButton.TabIndex = 80;
-            this.dakMovementStatusButton.UseVisualStyleBackColor = false;
-            this.dakMovementStatusButton.Click += new System.EventHandler(this.dakMovementButton_Click);
-            this.dakMovementStatusButton.MouseLeave += new System.EventHandler(this.dakMovementStatusButton_MouseLeave);
-            this.dakMovementStatusButton.MouseHover += new System.EventHandler(this.dakMovementStatusButton_MouseHover);
             // 
             // disablePanel
             // 
@@ -665,7 +546,7 @@
             this.disablePanel.Controls.Add(this.newDakImagePanel);
             this.disablePanel.Enabled = false;
             this.disablePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.disablePanel.Location = new System.Drawing.Point(546, 76);
+            this.disablePanel.Location = new System.Drawing.Point(550, 78);
             this.disablePanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.disablePanel.MinimumSize = new System.Drawing.Size(0, 34);
             this.disablePanel.Name = "disablePanel";
@@ -812,6 +693,183 @@
             this.newDakImagePanel.TabIndex = 22;
             this.newDakImagePanel.Visible = false;
             // 
+            // dakActionPanel
+            // 
+            this.dakActionPanel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dakActionPanel.AutoSize = true;
+            this.dakActionPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dakActionPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dakActionPanel.Controls.Add(this.dakRevertButton);
+            this.dakActionPanel.Controls.Add(this.dakArchiveButton);
+            this.dakActionPanel.Controls.Add(this.nothijatoButton);
+            this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
+            this.dakActionPanel.Controls.Add(this.DakSendButton);
+            this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
+            this.dakActionPanel.Location = new System.Drawing.Point(882, 31);
+            this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
+            this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
+            this.dakActionPanel.Name = "dakActionPanel";
+            this.dakActionPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dakActionPanel.Size = new System.Drawing.Size(192, 34);
+            this.dakActionPanel.TabIndex = 91;
+            // 
+            // dakRevertButton
+            // 
+            this.dakRevertButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dakRevertButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakRevertButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.dakRevertButton.FlatAppearance.BorderSize = 2;
+            this.dakRevertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakRevertButton.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
+            this.dakRevertButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dakRevertButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakRevertButton.IconSize = 28;
+            this.dakRevertButton.Location = new System.Drawing.Point(160, 0);
+            this.dakRevertButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakRevertButton.Name = "dakRevertButton";
+            this.dakRevertButton.Size = new System.Drawing.Size(32, 34);
+            this.dakRevertButton.TabIndex = 86;
+            this.dakRevertButton.UseVisualStyleBackColor = false;
+            this.dakRevertButton.Click += new System.EventHandler(this.revertButton_Click);
+            this.dakRevertButton.MouseLeave += new System.EventHandler(this.dakRevertButton_MouseLeave);
+            this.dakRevertButton.MouseHover += new System.EventHandler(this.dakRevertButton_MouseHover);
+            // 
+            // dakArchiveButton
+            // 
+            this.dakArchiveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dakArchiveButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakArchiveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.dakArchiveButton.FlatAppearance.BorderSize = 2;
+            this.dakArchiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakArchiveButton.IconChar = FontAwesome.Sharp.IconChar.Archive;
+            this.dakArchiveButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dakArchiveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakArchiveButton.IconSize = 28;
+            this.dakArchiveButton.Location = new System.Drawing.Point(128, 0);
+            this.dakArchiveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakArchiveButton.Name = "dakArchiveButton";
+            this.dakArchiveButton.Size = new System.Drawing.Size(32, 34);
+            this.dakArchiveButton.TabIndex = 85;
+            this.dakArchiveButton.UseVisualStyleBackColor = false;
+            this.dakArchiveButton.Click += new System.EventHandler(this.dakArchiveButton_Click);
+            this.dakArchiveButton.MouseLeave += new System.EventHandler(this.dakArchiveButton_MouseLeave);
+            this.dakArchiveButton.MouseHover += new System.EventHandler(this.dakArchiveButton_MouseHover);
+            // 
+            // nothijatoButton
+            // 
+            this.nothijatoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.nothijatoButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nothijatoButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.nothijatoButton.FlatAppearance.BorderSize = 2;
+            this.nothijatoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothijatoButton.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
+            this.nothijatoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.nothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nothijatoButton.IconSize = 28;
+            this.nothijatoButton.Location = new System.Drawing.Point(96, 0);
+            this.nothijatoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.nothijatoButton.Name = "nothijatoButton";
+            this.nothijatoButton.Size = new System.Drawing.Size(32, 34);
+            this.nothijatoButton.TabIndex = 83;
+            this.nothijatoButton.UseVisualStyleBackColor = false;
+            this.nothijatoButton.Click += new System.EventHandler(this.nothijatoButton_Click);
+            this.nothijatoButton.MouseLeave += new System.EventHandler(this.nothijatoButton_MouseLeave);
+            this.nothijatoButton.MouseHover += new System.EventHandler(this.nothijatoButton_MouseHover);
+            // 
+            // nothiteUposthaponButton
+            // 
+            this.nothiteUposthaponButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.nothiteUposthaponButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.Nothijato_Icon;
+            this.nothiteUposthaponButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.nothiteUposthaponButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nothiteUposthaponButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.nothiteUposthaponButton.FlatAppearance.BorderSize = 2;
+            this.nothiteUposthaponButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothiteUposthaponButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.nothiteUposthaponButton.IconColor = System.Drawing.Color.Transparent;
+            this.nothiteUposthaponButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nothiteUposthaponButton.IconSize = 28;
+            this.nothiteUposthaponButton.Location = new System.Drawing.Point(64, 0);
+            this.nothiteUposthaponButton.Margin = new System.Windows.Forms.Padding(2);
+            this.nothiteUposthaponButton.Name = "nothiteUposthaponButton";
+            this.nothiteUposthaponButton.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.nothiteUposthaponButton.Size = new System.Drawing.Size(32, 34);
+            this.nothiteUposthaponButton.TabIndex = 82;
+            this.nothiteUposthaponButton.UseVisualStyleBackColor = false;
+            this.nothiteUposthaponButton.Click += new System.EventHandler(this.nothiteUposthaponButton_Click);
+            this.nothiteUposthaponButton.MouseLeave += new System.EventHandler(this.nothiteUposthaponButton_MouseLeave);
+            this.nothiteUposthaponButton.MouseHover += new System.EventHandler(this.nothiteUposthaponButton_MouseHover);
+            // 
+            // DakSendButton
+            // 
+            this.DakSendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.DakSendButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DakSendButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.DakSendButton.FlatAppearance.BorderSize = 2;
+            this.DakSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DakSendButton.IconChar = FontAwesome.Sharp.IconChar.Share;
+            this.DakSendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.DakSendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.DakSendButton.IconSize = 28;
+            this.DakSendButton.Location = new System.Drawing.Point(32, 0);
+            this.DakSendButton.Margin = new System.Windows.Forms.Padding(0);
+            this.DakSendButton.Name = "DakSendButton";
+            this.DakSendButton.Size = new System.Drawing.Size(32, 34);
+            this.DakSendButton.TabIndex = 81;
+            this.DakSendButton.UseVisualStyleBackColor = false;
+            this.DakSendButton.Click += new System.EventHandler(this.DakSendButton_Click);
+            this.DakSendButton.MouseLeave += new System.EventHandler(this.DakSendButton_MouseLeave);
+            this.DakSendButton.MouseHover += new System.EventHandler(this.DakSendButton_MouseHover);
+            // 
+            // dakMovementStatusButton
+            // 
+            this.dakMovementStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dakMovementStatusButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.Repeat_alt_New;
+            this.dakMovementStatusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.dakMovementStatusButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakMovementStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.dakMovementStatusButton.FlatAppearance.BorderSize = 2;
+            this.dakMovementStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakMovementStatusButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.dakMovementStatusButton.IconColor = System.Drawing.Color.Transparent;
+            this.dakMovementStatusButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakMovementStatusButton.IconSize = 30;
+            this.dakMovementStatusButton.Location = new System.Drawing.Point(0, 0);
+            this.dakMovementStatusButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakMovementStatusButton.Name = "dakMovementStatusButton";
+            this.dakMovementStatusButton.Size = new System.Drawing.Size(32, 34);
+            this.dakMovementStatusButton.TabIndex = 80;
+            this.dakMovementStatusButton.UseVisualStyleBackColor = false;
+            this.dakMovementStatusButton.Click += new System.EventHandler(this.dakMovementButton_Click);
+            this.dakMovementStatusButton.MouseLeave += new System.EventHandler(this.dakMovementStatusButton_MouseLeave);
+            this.dakMovementStatusButton.MouseHover += new System.EventHandler(this.dakMovementStatusButton_MouseHover);
+            // 
+            // movementStatusDetailsButton
+            // 
+            this.movementStatusDetailsButton.AutoSize = true;
+            this.movementStatusDetailsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.movementStatusDetailsButton.BackColor = System.Drawing.Color.Transparent;
+            this.movementStatusDetailsButton.FlatAppearance.BorderSize = 0;
+            this.movementStatusDetailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.movementStatusDetailsButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.movementStatusDetailsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
+            this.movementStatusDetailsButton.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
+            this.movementStatusDetailsButton.IconColor = System.Drawing.Color.Black;
+            this.movementStatusDetailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.movementStatusDetailsButton.IconSize = 24;
+            this.movementStatusDetailsButton.Location = new System.Drawing.Point(54, 105);
+            this.movementStatusDetailsButton.MaximumSize = new System.Drawing.Size(0, 30);
+            this.movementStatusDetailsButton.MinimumSize = new System.Drawing.Size(0, 30);
+            this.movementStatusDetailsButton.Name = "movementStatusDetailsButton";
+            this.movementStatusDetailsButton.Size = new System.Drawing.Size(278, 30);
+            this.movementStatusDetailsButton.TabIndex = 0;
+            this.movementStatusDetailsButton.Text = "ন্যাশনাল কনসালটেন্ট ফর ই-নথি ইমপ্লিমেন্টেশন";
+            this.movementStatusDetailsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.movementStatusDetailsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.movementStatusDetailsButton.UseVisualStyleBackColor = false;
+            this.movementStatusDetailsButton.Click += new System.EventHandler(this.movementStatusDetailsButton_Click);
+            // 
             // DetailsDakUserControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -819,7 +877,7 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel2);
             this.Name = "DetailsDakUserControl";
-            this.Size = new System.Drawing.Size(1088, 635);
+            this.Size = new System.Drawing.Size(1088, 643);
             this.Load += new System.EventHandler(this.DetailsDakUserControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -834,12 +892,12 @@
             this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.dakActionPanel.ResumeLayout(false);
             this.disablePanel.ResumeLayout(false);
             this.disablePanel.PerformLayout();
             this.potrojariPanel.ResumeLayout(false);
             this.dakPriorityIconPanel.ResumeLayout(false);
             this.dakPriorityIconPanel.PerformLayout();
+            this.dakActionPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -859,7 +917,6 @@
         private System.Windows.Forms.Label sharokNoLabel;
         private System.Windows.Forms.Label docketingNoSpaceLabel;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button movementStatusDetailsButton;
         private System.Windows.Forms.FlowLayoutPanel movementStatusDetailsPanel;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Panel panel7;
@@ -895,5 +952,8 @@
         private System.Windows.Forms.Panel dakSecurityIconPanel;
         private System.Windows.Forms.Panel attentionTypeIconPanel;
         private System.Windows.Forms.Panel newDakImagePanel;
+        private FontAwesome.Sharp.IconButton movementStatusDetailsButton;
+        private Patagames.Pdf.Net.Controls.WinForms.PdfViewer pdfViewerControl;
+        private System.Windows.Forms.RichTextBox txtFileRichTextBox;
     }
 }

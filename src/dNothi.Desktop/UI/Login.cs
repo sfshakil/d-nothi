@@ -135,6 +135,7 @@ namespace dNothi.Desktop.UI
 
         private void SaveOrUpdateOffice(List<OfficeInfoDTO> officeInfoDTO)
         {
+            _userService.DeleteLocalOfficeInfo();
             _userService.SaveOrUpdateUserOfficeInfo(officeInfoDTO);
         }
 

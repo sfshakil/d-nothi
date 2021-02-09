@@ -445,6 +445,16 @@
   <metadata name="MyToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="label15.Text" xml:space="preserve">
+    <value>মেসেজ দেওয়ার অপশন তৈরি করা হয়েছে। এই ক্ষেত্রে পত্রের খসড়া 
+তৈরির সময় প্রাপকের মোবাইল নম্বর দিয়ে সংশ্লিষ্ট মেসেজ দেওয়া 
+যাবে। প্রাপক ই-মেইলে সংশ্লিষ্ট পত্রটি এবং মোবাইলে মেসেজ যাবে।
+
+বাংলা বানান নিরীক্ষক (Spell Checker) অর্ন্তভূক্ত করা হয়েছে। কোন 
+শব্দের বানান নিরীক্ষা করতে হলে, সংশ্লিষ্ট শব্দের উপর কার্সর রেখে ডান 
+বাটন ক্লিক করলে সিস্টেম ইউজারকে সঠিক শব্দটি সাজেশন দিবে।
+</value>
+  </data>
   <data name="pictureBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1295,17 +1305,6 @@
         AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD//Z
 </value>
   </data>
-  <data name="button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        bwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEZSURBVDhPpdI7
-        TgJRFIDhyyM89uAOkMbSmtBJTWJiQQ+SWLgEaxMSVqAFrMAHFYmNnSQEFoCFBQkN0Zg4/gfOXO69XBON
-        J/mYmfNimMEkSfIv8aQxR5jJMVZ37Se2w0vIRTOsh/yL3fAIf1tApMOPKEOSD2jjGHl30M5tPnbD9yhr
-        7hxjvEES8kwa7rD22eE7lMIGbapggC8MYe9G4hlTRIddRA1r3CCrOdOBnHWD5hwKbk7zdbzjYnOtyS68
-        JcREc/KNr+jhQGvXmiu6m70len6FU1xijg/0UYXcRcsuCJfo0f4PCPlJZ1jgBU+49RZoYzrsLXDq8kZW
-        Wp95RacpXXLyQ10e5CfWe8UUcYhMrCaIFsbR4u8l5hspvfXKgJ8FyQAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="button6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAVtJREFUOE/F
@@ -1317,14 +1316,15 @@
         buA08MDLZWTmgbO/vroLVqtz7FOOMAvP4AWbfALe2+AsYTb5BIxGn9NMtWFkpKs5AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="label15.Text" xml:space="preserve">
-    <value>মেসেজ দেওয়ার অপশন তৈরি করা হয়েছে। এই ক্ষেত্রে পত্রের খসড়া 
-তৈরির সময় প্রাপকের মোবাইল নম্বর দিয়ে সংশ্লিষ্ট মেসেজ দেওয়া 
-যাবে। প্রাপক ই-মেইলে সংশ্লিষ্ট পত্রটি এবং মোবাইলে মেসেজ যাবে।
-
-বাংলা বানান নিরীক্ষক (Spell Checker) অর্ন্তভূক্ত করা হয়েছে। কোন 
-শব্দের বানান নিরীক্ষা করতে হলে, সংশ্লিষ্ট শব্দের উপর কার্সর রেখে ডান 
-বাটন ক্লিক করলে সিস্টেম ইউজারকে সঠিক শব্দটি সাজেশন দিবে।
+  <data name="button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        bwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEZSURBVDhPpdI7
+        TgJRFIDhyyM89uAOkMbSmtBJTWJiQQ+SWLgEaxMSVqAFrMAHFYmNnSQEFoCFBQkN0Zg4/gfOXO69XBON
+        J/mYmfNimMEkSfIv8aQxR5jJMVZ37Se2w0vIRTOsh/yL3fAIf1tApMOPKEOSD2jjGHl30M5tPnbD9yhr
+        7hxjvEES8kwa7rD22eE7lMIGbapggC8MYe9G4hlTRIddRA1r3CCrOdOBnHWD5hwKbk7zdbzjYnOtyS68
+        JcREc/KNr+jhQGvXmiu6m70len6FU1xijg/0UYXcRcsuCJfo0f4PCPlJZ1jgBU+49RZoYzrsLXDq8kZW
+        Wp95RacpXXLyQ10e5CfWe8UUcYhMrCaIFsbR4u8l5hspvfXKgJ8FyQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

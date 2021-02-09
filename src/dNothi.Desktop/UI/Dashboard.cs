@@ -745,11 +745,6 @@ namespace dNothi.Desktop.UI
 
 
 
-
-
-
-          
-
         }
 
 
@@ -2609,12 +2604,56 @@ namespace dNothi.Desktop.UI
                 designationDetailsPanel.Location = new Point(designationPanleX, designationPanleY);
 
                 designationDetailsPanel.Visible = true;
-                designationDetailsPanel.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+               
+
             }
             else
             {
                 designationDetailsPanel.Visible = false;
             }
+        }
+
+        private void ChageUser(int designationId)
+        {
+            _userService.MakeThisOfficeCurrent(designationId);
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
+
+            RefreshdDakList();
+    }
+
+        private void RefreshdDakList()
+        {
+            NormalizeDashBoard();
+            if (_currentDakCatagory._isArchived)
+            {
+                LoadDakArchive();
+            }
+            else if (_currentDakCatagory._isInbox)
+            {
+                LoadDakInbox();
+            }
+            else if (_currentDakCatagory._isKhosra)
+            {
+                LoadDakKhasraList();
+            }
+            else if (_currentDakCatagory._isNothijato)
+            {
+                LoadDakNothijato();
+            }
+            else if (_currentDakCatagory._isNothivukto)
+            {
+                LoadDakNothivukto();
+            }
+            else if (_currentDakCatagory._isOutbox)
+            {
+                LoadDakOutbox();
+            }
+            else if (_currentDakCatagory._isSorted)
+            {
+                LoadDakListSorted();
+            }
+          
         }
 
         private void profileShowArrowButton_Enter(object sender, EventArgs e)
@@ -2879,6 +2918,11 @@ namespace dNothi.Desktop.UI
             LoadDakInbox();
             LoadDetailsOffice();
             LoadDetailsOfficer();
+
+            designationDetailsPanel.officeInfos = _userService.GetAllLocalOfficeInfo();
+
+            designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
