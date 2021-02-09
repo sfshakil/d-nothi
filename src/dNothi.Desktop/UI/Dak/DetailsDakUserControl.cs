@@ -13,6 +13,11 @@ using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using dNothi.Services.DakServices;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Constants;
+using dNothi.Desktop.Properties;
+using System.IO;
+using Patagames.Pdf.Net;
+using System.Net;
+
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -97,29 +102,73 @@ namespace dNothi.Desktop.UI.Dak
 
                 try
                 {
+
                     DakAttachmentDTO dakAttachmentDTO = dakAttachmentResponse.data.FirstOrDefault(a => a.is_main == 1);
-                    mainAttachmentViewWebBrowser.Url = new Uri(dakAttachmentDTO.url);
-                    attachmentListFlowLayoutPanel.Controls.Clear();
-                    DetailsAttachmentListUserControl detailsAttachmentListUserControl = new DetailsAttachmentListUserControl();
-                    try
+                   
+                    if(dakAttachmentDTO.attachment_type.ToLower().Contains("text") || dakAttachmentDTO.attachment_type.ToLower().Contains("txt"))
                     {
+                      
+                        txtFileRichTextBox.Text = _dakDetailsResponse.data.dak_origin.dak_description;
+                        txtFileRichTextBox.Visible = true;
+                        pdfViewerControl.Visible = false;
+                        //mainAttachmentViewWebBrowser.DocumentText = "<html><body>Please enter your name:<br/>" + "<input type='text' name='userName'/><br/>" +"<a href='http://www.microsoft.com'>continue</a>" +"</body></html>";
+                        // mainAttachmentViewWebBrowser.DocumentText=_dakDetailsResponse.data.dak_origin.dak_description;
+                        mainAttachmentViewWebBrowser.Visible = false;
+                        //mainAttachmentViewWebBrowser.Navigate("about:blank");
+                        //if (mainAttachmentViewWebBrowser.Document != null)
+                        //{
+                        //    mainAttachmentViewWebBrowser.Document.Write(string.Empty);
+                        //}
+                        //mainAttachmentViewWebBrowser.DocumentText ="<Html><body>"+ _dakDetailsResponse.data.dak_origin.dak_description + "</body></Html>";
 
-                        detailsAttachmentListUserControl.dakAttachmentDTOs = _dakAttachmentResponse.data;
-                        detailsAttachmentListUserControl.allattachmentdownloadlink = "";
-                        attachmentListFlowLayoutPanel.Controls.Add(detailsAttachmentListUserControl);
                     }
-                    catch
+                   else if(dakAttachmentDTO.attachment_type.ToLower().Contains("pdf"))
                     {
+                        mainAttachmentViewWebBrowser.Visible = false;
+                        txtFileRichTextBox.Visible = false;
+                        pdfViewerControl.Visible = true;
+                        WebClient myClient = new WebClient();
+                        byte[] bytes = myClient.DownloadData(dakAttachmentDTO.url);
+                        var stream = new MemoryStream(bytes);
+                       
+                       
+                        var pdfDocument = PdfDocument.Load(stream);
+
+
+                        pdfViewerControl.Document= pdfDocument;
 
                     }
+
+                    else
+                    {
+                        mainAttachmentViewWebBrowser.Visible = true;
+                        pdfViewerControl.Visible = false;
+                        txtFileRichTextBox.Visible = false;
+                        mainAttachmentViewWebBrowser.Url = new Uri(dakAttachmentDTO.url);
+                        attachmentListFlowLayoutPanel.Controls.Clear();
+                    }
+                    
                 }
                 catch(Exception ex)
                 {
 
                 }
 
-            
-            
+                DetailsAttachmentListUserControl detailsAttachmentListUserControl = new DetailsAttachmentListUserControl();
+                try
+                {
+
+                    detailsAttachmentListUserControl.dakAttachmentDTOs = _dakAttachmentResponse.data;
+                    detailsAttachmentListUserControl.allattachmentdownloadlink = "";
+                    attachmentListFlowLayoutPanel.Controls.Add(detailsAttachmentListUserControl);
+                }
+                catch
+                {
+
+                }
+
+
+
             }
         }
 
@@ -128,29 +177,27 @@ namespace dNothi.Desktop.UI.Dak
             get { return _dakDetailsResponse; }
             set { _dakDetailsResponse = value;
                 movementStatusDetailsPanel.Controls.Clear();
-                MovementStatusDetailsUserControl movementStatusDetailsUserControlSource = new MovementStatusDetailsUserControl();
+                DakMovementStatusListUserControl movementStatusDetailsUserControlSource = new DakMovementStatusListUserControl();
 
                 movementStatusDetailsUserControlSource.userType = "উৎসঃ";
-                movementStatusDetailsUserControlSource.userName = dakDetailsResponse.data.dak_origin.sender_name;
-                movementStatusDetailsUserControlSource.userDesignation ="("+dakDetailsResponse.data.dak_origin.sender_officer_designation_label+","+ dakDetailsResponse.data.dak_origin.sender_office_unit_name + ","+ dakDetailsResponse.data.dak_origin.sender_office_name+")";
+               
+                movementStatusDetailsUserControlSource.userDesignation = dakDetailsResponse.data.dak_origin.sender_name+ "(" +dakDetailsResponse.data.dak_origin.sender_officer_designation_label+","+ dakDetailsResponse.data.dak_origin.sender_office_unit_name + ","+ dakDetailsResponse.data.dak_origin.sender_office_name+")";
                 movementStatusDetailsPanel.Controls.Add(movementStatusDetailsUserControlSource);
 
 
-                MovementStatusDetailsUserControl movementStatusDetailsUserControlMainReceiver = new MovementStatusDetailsUserControl();
+                DakMovementStatusListUserControl movementStatusDetailsUserControlMainReceiver = new DakMovementStatusListUserControl();
 
                 movementStatusDetailsUserControlMainReceiver.userType = "মূল প্রাপকঃ";
-                movementStatusDetailsUserControlMainReceiver.userName = dakDetailsResponse.data.dak_origin.receiving_officer_name;
-                movementStatusDetailsUserControlMainReceiver.userDesignation = "(" + dakDetailsResponse.data.dak_origin.receiving_officer_designation_label + ","+ dakDetailsResponse.data.dak_origin.receiving_office_unit_name + "," + dakDetailsResponse.data.dak_origin.receiving_office_name + ")";
+                movementStatusDetailsUserControlMainReceiver.userDesignation = dakDetailsResponse.data.dak_origin.receiving_officer_name + "(" + dakDetailsResponse.data.dak_origin.receiving_officer_designation_label + ","+ dakDetailsResponse.data.dak_origin.receiving_office_unit_name + "," + dakDetailsResponse.data.dak_origin.receiving_office_name + ")";
                 movementStatusDetailsPanel.Controls.Add(movementStatusDetailsUserControlMainReceiver);
 
 
-                MovementStatusDetailsUserControl movementStatusDetailsUserControlSender = new MovementStatusDetailsUserControl();
+                DakMovementStatusListUserControl movementStatusDetailsUserControlSender = new DakMovementStatusListUserControl();
 
                 try
                 {
                     movementStatusDetailsUserControlSender.userType = "প্রেরকঃ";
-                    movementStatusDetailsUserControlSender.userName = dakDetailsResponse.data.movement_status.from.officer;
-                    movementStatusDetailsUserControlSender.userDesignation = "(" + dakDetailsResponse.data.movement_status.from.designation + ","+ dakDetailsResponse.data.movement_status.from.office_unit + ","+ dakDetailsResponse.data.movement_status.from.office + ")";
+                    movementStatusDetailsUserControlSender.userDesignation = dakDetailsResponse.data.movement_status.from.officer + "(" + dakDetailsResponse.data.movement_status.from.designation + ","+ dakDetailsResponse.data.movement_status.from.office_unit + ","+ dakDetailsResponse.data.movement_status.from.office + ")";
                     movementStatusDetailsPanel.Controls.Add(movementStatusDetailsUserControlSender);
                 }
                 catch
@@ -158,16 +205,14 @@ namespace dNothi.Desktop.UI.Dak
 
                 }
 
-                MovementStatusDetailsUserControl movementStatusDetailsUserControlReceiver = new MovementStatusDetailsUserControl();
+                DakMovementStatusListUserControl movementStatusDetailsUserControlReceiver = new DakMovementStatusListUserControl();
 
                 try
                 {
                     movementStatusDetailsUserControlReceiver.userType = "প্রাপকঃ";
                     ToDTO toDTO = dakDetailsResponse.data.movement_status.to.FirstOrDefault(a => a.designation_id!=dakDetailsResponse.data.dak_origin.receiving_officer_designation_id && a.attention_type=="1");
 
-
-                    movementStatusDetailsUserControlReceiver.userName = toDTO.officer;
-                    movementStatusDetailsUserControlReceiver.userDesignation = "(" +toDTO.designation + ","+toDTO.office_unit+","+ toDTO.office + ")";
+                    movementStatusDetailsUserControlReceiver.userDesignation = toDTO.officer+"(" +toDTO.designation + ","+toDTO.office_unit+","+ toDTO.office + ")";
                     movementStatusDetailsPanel.Controls.Add(movementStatusDetailsUserControlReceiver);
                 }
                 catch
@@ -180,11 +225,10 @@ namespace dNothi.Desktop.UI.Dak
                     string type= "অনুলিপি প্রাপকঃ";
                     foreach (ToDTO toDTO in dakDetailsResponse.data.movement_status.to.Where(a=>a.attention_type!="1"))
                     {
-                        MovementStatusDetailsUserControl movementStatusDetailsUserControlOnulipi = new MovementStatusDetailsUserControl();
+                        DakMovementStatusListUserControl movementStatusDetailsUserControlOnulipi = new DakMovementStatusListUserControl();
 
                         movementStatusDetailsUserControlOnulipi.userType =type;
-                        movementStatusDetailsUserControlOnulipi.userName = toDTO.officer;
-                        movementStatusDetailsUserControlOnulipi.userDesignation = "(" + toDTO.designation + "," + toDTO.office_unit + "," + toDTO.office + ")";
+                        movementStatusDetailsUserControlOnulipi.userDesignation = toDTO.officer + "(" + toDTO.designation + "," + toDTO.office_unit + "," + toDTO.office + ")";
                         movementStatusDetailsPanel.Controls.Add(movementStatusDetailsUserControlOnulipi);
                         type = "";
                     }
@@ -387,7 +431,12 @@ namespace dNothi.Desktop.UI.Dak
         public string sharokNo
         {
             get { return _sharokNo; }
-            set { _sharokNo = value; sharokNoText.Text = value; if (sharokNo == "" || sharokNo == null) { sharokNoLabel.Visible = false;sharokNoText.Visible = false;sharokNoSpaceLabel.Visible = false; } }
+            set { _sharokNo = value; 
+                sharokNoText.Text = value;
+                //try { sharokNoText.Text= string.Concat(value.Select(c => (char)('\u09E6' + c - '0'))); } catch(Exception Ex) { }
+
+                if (sharokNo == "" || sharokNo == null) { sharokNoLabel.Visible = false;sharokNoText.Visible = false;sharokNoSpaceLabel.Visible = false; }
+            }
         }
 
         public string subject
@@ -434,9 +483,11 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DetailsDakUserControl_Load(object sender, EventArgs e)
         {
+          //  dakActionPanel.Location = new Point(this.Width - dakActionPanel.Width, dakActionPanel.Location.Y);
+          //  disablePanel.Location = new Point(this.Width - disablePanel.Width, dakActionPanel.Location.Y);
 
         }
-        
+
         public event EventHandler BackButtonClick;        
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -508,9 +559,74 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
+        private void dakMovementStatusButton_MouseHover(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeal_alt_Hover;
+        }
 
+        private void dakMovementStatusButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeat_alt_New;
+        }
 
+        private void nothiteUposthaponButton_MouseLeave(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothijato_Icon;
+        }
 
-       
+        private void nothiteUposthaponButton_MouseHover(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothivukto_Icon_Hover;
+        }
+
+        private void dakRevertButton_MouseHover(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakRevertButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakRevertButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+        private void DakSendButton_MouseHover(object sender, EventArgs e)
+        {
+            DakSendButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void DakSendButton_MouseLeave(object sender, EventArgs e)
+        {
+            DakSendButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void nothijatoButton_MouseHover(object sender, EventArgs e)
+        {
+            nothijatoButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void nothijatoButton_MouseLeave(object sender, EventArgs e)
+        {
+            nothijatoButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void dakArchiveButton_MouseHover(object sender, EventArgs e)
+        {
+            dakArchiveButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakArchiveButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakArchiveButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void mainAttachmentViewWebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            mainAttachmentViewWebBrowser.Document.Body.Style = "zoom:100%";
+        }
+
+        private void movementStatusDetailsPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(235, 237, 243), ButtonBorderStyle.Solid);
+
+        }
     }
 }

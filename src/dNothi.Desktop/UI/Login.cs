@@ -113,7 +113,7 @@ namespace dNothi.Desktop.UI
 
                 else
                 {
-                    MessageBox.Show("Login Failed!");
+                    ShowAlertMessage("Login Failed!");
                 }
 
             }
@@ -135,6 +135,7 @@ namespace dNothi.Desktop.UI
 
         private void SaveOrUpdateOffice(List<OfficeInfoDTO> officeInfoDTO)
         {
+            _userService.DeleteLocalOfficeInfo();
             _userService.SaveOrUpdateUserOfficeInfo(officeInfoDTO);
         }
 
@@ -325,7 +326,7 @@ namespace dNothi.Desktop.UI
         {
             if (!_userService.ValidatePassword(e.KeyChar))
             {
-                MessageBox.Show(_userService.InvalidPasswordMessage());
+               ShowAlertMessage(_userService.InvalidPasswordMessage());
                 e.Handled = true;
             }
            

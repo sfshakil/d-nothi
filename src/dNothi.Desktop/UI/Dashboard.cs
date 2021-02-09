@@ -192,11 +192,12 @@ namespace dNothi.Desktop.UI
             {
 
                 dakSortMetroPanel.Visible = false;
-              
+                bodyTableLayoutPanel.RowStyles[6] = new RowStyle(SizeType.AutoSize);
                 searchHeaderTableLayoutPanel.Visible = false;
                 dakBodyFlowLayoutPanel.Visible = false;
                 detailsFlowLayoutPanel.Visible = true;
                 detailsFlowLayoutPanel.BringToFront();
+               
 
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
@@ -741,6 +742,8 @@ namespace dNothi.Desktop.UI
         {
             _dakuserparam = _userService.GetLocalDakUserParam();
             userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
+
+
 
         }
 
@@ -1663,6 +1666,8 @@ namespace dNothi.Desktop.UI
 
         private void NormalizeDashBoard()
         {
+            bodyTableLayoutPanel.RowStyles[6] = new RowStyle(SizeType.Percent);
+            bodyTableLayoutPanel.RowStyles[6].Height = 100;
             selectDakBoxHolderPanel.Visible = false;
             noDakTableLayoutPanel.Visible = false;
             multipleSelectionPanel.Visible = false;
@@ -2062,15 +2067,15 @@ namespace dNothi.Desktop.UI
                     DakUploadConfirmationMessage dakUploadConfirmationMessage = new DakUploadConfirmationMessage();
                     dakUploadConfirmationMessage.isDaptorik = isDaptorik;
                     dakUploadConfirmationMessage.applicationNo = dakSendResponse.data.dak_receipt_no;
-                    dakUploadConfirmationMessage.applicationNo =prerok;
-                    dakUploadConfirmationMessage.applicationNo = prapok;
-                    dakUploadConfirmationMessage.applicationNo = sub;
+                    dakUploadConfirmationMessage.prerokName =prerok;
+                    dakUploadConfirmationMessage.prapokName = prapok;
+                    dakUploadConfirmationMessage.subject = sub;
                     dakUploadConfirmationMessage.date = dakSendResponse.data.receiving_date;
                     dakUploadConfirmationMessage.companyName = dakListUserParam.office;
                     dakUploadConfirmationMessage.companyWithUnitName = dakListUserParam.designation+" ,"+dakListUserParam.office;
                     dakUploadConfirmationMessage.userDept = dakListUserParam.designation;
                     dakUploadConfirmationMessage.userName = dakListUserParam.officer_name;
-                    //dakUploadConfirmationMessage.imageBase64 = dakListUserParam.SignBase64;
+                    dakUploadConfirmationMessage.imageBase64 = dakListUserParam.SignBase64;
 
 
                     CalPopUpWindow(dakUploadConfirmationMessage);
@@ -2139,7 +2144,7 @@ namespace dNothi.Desktop.UI
                 }
                 else if (dakDraftedResponse.status == "success")
                 {
-                    SuccessMessage(dakDraftedResponse.message);
+                    SuccessMessage(dakDraftedResponse.data);
                     ResetAllMenuButtonSelection();
                     SelectButton(khasraDakButton);
                     LoadDakKhasraList();
@@ -2599,12 +2604,56 @@ namespace dNothi.Desktop.UI
                 designationDetailsPanel.Location = new Point(designationPanleX, designationPanleY);
 
                 designationDetailsPanel.Visible = true;
-                designationDetailsPanel.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+               
+
             }
             else
             {
                 designationDetailsPanel.Visible = false;
             }
+        }
+
+        private void ChageUser(int designationId)
+        {
+            _userService.MakeThisOfficeCurrent(designationId);
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
+
+            RefreshdDakList();
+    }
+
+        private void RefreshdDakList()
+        {
+            NormalizeDashBoard();
+            if (_currentDakCatagory._isArchived)
+            {
+                LoadDakArchive();
+            }
+            else if (_currentDakCatagory._isInbox)
+            {
+                LoadDakInbox();
+            }
+            else if (_currentDakCatagory._isKhosra)
+            {
+                LoadDakKhasraList();
+            }
+            else if (_currentDakCatagory._isNothijato)
+            {
+                LoadDakNothijato();
+            }
+            else if (_currentDakCatagory._isNothivukto)
+            {
+                LoadDakNothivukto();
+            }
+            else if (_currentDakCatagory._isOutbox)
+            {
+                LoadDakOutbox();
+            }
+            else if (_currentDakCatagory._isSorted)
+            {
+                LoadDakListSorted();
+            }
+          
         }
 
         private void profileShowArrowButton_Enter(object sender, EventArgs e)
@@ -2869,6 +2918,11 @@ namespace dNothi.Desktop.UI
             LoadDakInbox();
             LoadDetailsOffice();
             LoadDetailsOfficer();
+
+            designationDetailsPanel.officeInfos = _userService.GetAllLocalOfficeInfo();
+
+            designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

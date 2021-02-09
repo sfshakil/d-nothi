@@ -17,6 +17,7 @@ using System.Net;
 using System.Net.Http;
 using dNothi.Constants;
 using dNothi.Desktop.UI.CustomMessageBox;
+using System.Drawing.Text;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -67,20 +68,41 @@ namespace dNothi.Desktop.UI.Dak
                 _dakInfoDTO = value; 
                 _prerokId = value.sender_officer_designation_id; 
                 selectedPrerokLabel.Text = value.receiving_officer_name + "," + value.receiving_officer_designation_label + "," + value.receiving_office_unit_name + "," + value.receiving_office_name;
+                
+                
                 sharokNoTextBox.Text = value.sender_sarok_no;
                 //sharokdateTimePicker.Text = value.sending_date;
               
                 subjectXTextBox.Text=value.dak_subject;
                 _dakId = value.id;
                
-                sendMediumSearchButton.searchButtonText=value.dak_sending_media;
+                if(value.dak_sending_media !="")
+                {
+                    sendMediumSearchButton.searchButtonText = value.dak_sending_media;
+                }
+            
 
-               dakDescriptionXTextBox.Text=value.dak_description;
+                dakDescriptionXTextBox.Text=value.dak_description;
+
+
+                if(value.dak_priority_level !="0")
+                {
+                    DakPriorityList dakPriority = new DakPriorityList();
+                    prioritySearchButton.searchButtonText = dakPriority.GetDakPriorityName(value.dak_priority_level);
 
 
 
-                prioritySearchButton.Text = value.dak_priority_level;
-                seurityLevelSearchButton.Text = value.dak_security_level;
+                   
+                 
+                }
+                if (value.dak_security_level != "0")
+                {
+                    DakSecurityList dakSecurityList = new DakSecurityList();
+                    seurityLevelSearchButton.searchButtonText = dakSecurityList.GetDakSecuritiesName(value.dak_security_level);
+
+                   
+                }
+              
                
                
 
@@ -762,6 +784,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void HoverColorChangeSenderSearchButton()
         {
+            starLabel.BackColor = Color.FromArgb(54, 153, 255);
             senderSearchButton.BackColor = Color.FromArgb(54, 153, 255);
             senderSearchButton.ForeColor = Color.White;
             senderSearchButton.IconColor = Color.White;
@@ -770,6 +793,7 @@ namespace dNothi.Desktop.UI.Dak
         private void NormalColorSenderSearchButton()
         {
             senderSearchButton.BackColor = Color.Transparent;
+            starLabel.BackColor = Color.Transparent;
             senderSearchButton.ForeColor = Color.FromArgb(54, 153, 255);
             senderSearchButton.IconColor = Color.FromArgb(54, 153, 255);
 
@@ -903,12 +927,12 @@ namespace dNothi.Desktop.UI.Dak
 
 
             DakPriorityList dakPriority = new DakPriorityList();
-            int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.Text.ToString()));
+            int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.searchButtonText.ToString()));
 
 
 
             DakSecurityList dakSecurityList = new DakSecurityList();
-            int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(seurityLevelSearchButton.Text.ToString()));
+            int dak_security_id = Convert.ToInt32(dakSecurityList.GetDakSecuritiesId(seurityLevelSearchButton.searchButtonText.ToString()));
 
             dak.priority = dak_priority_id.ToString();
             dak.dak_priority = prioritySearchButton.ToString();
@@ -1076,6 +1100,31 @@ namespace dNothi.Desktop.UI.Dak
 
         private void searchOfficerRightListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void searchOfficerRightListBox_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+           e.ItemHeight = 60;
+            
+        }
+
+        private void searchOfficerRightListBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+
+           
+
+            var lbx = sender as ListBox;
+            string itemText = lbx.GetItemText(lbx.Items[e.Index]);
+
+            e.DrawBackground();
+            e.Graphics.DrawString(itemText, e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+
+        }
+
+        private void DaptorikDakUploadUserControl_Load(object sender, EventArgs e)
+        {
+            searchOfficerRightListBox.Height = searchOfficerRightListBox.PreferredHeight;
 
         }
     }

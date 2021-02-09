@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Desktop.UI;
+using dNothi.Core.Entities;
+using dNothi.JsonParser.Entity;
 
 namespace dNothi.Desktop
 {
@@ -17,47 +19,60 @@ namespace dNothi.Desktop
         {
             InitializeComponent();
         }
-        private string _designationLinkText;
-        private int _dakTotalNumber;
-        private int _nothiTotalNumber;
 
-        public string designationLinkText
-        {
-            get
-            {
-                return _designationLinkText;
-            }
+        
+        public int _designationId { get; set; }
+
+
+        public List<OfficeInfoDTO> _officeInfos { get; set; }
+
+        public List<OfficeInfoDTO> officeInfos {
+            get { return _officeInfos; }
             set
             {
-                _designationLinkText = value;
-                linkLabel.Text = value;
+                _officeInfos = value;
+                designationRowFlowLayoutPanel.Controls.Clear();
+                if(value != null)
+                {
+                    foreach (var officeInfo in officeInfos)
+                    {
+                        DesignationRow designationRow = new DesignationRow();
+                        designationRow.designationId = officeInfo.office_unit_organogram_id;
+                        designationRow.designationLinkText = officeInfo.designation + "," + officeInfo.unit_name_bn + "," + officeInfo.office_name_bn;
+                        designationRow.User += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUserClick(changeButtonSender, changeButtonEvent, designationRow._designationId); };
+
+
+                        designationRowFlowLayoutPanel.Controls.Add(designationRow);
+
+                    }
+                }
             }
+             
+
+            }
+
+
+        public event EventHandler ChangeUserClick;
+        private void ChageUserClick(object changeButtonSender, EventArgs changeButtonEvent, int designationId)
+        {
+            _designationId = designationId;
+
+            if (this.ChangeUserClick != null)
+                this.ChangeUserClick(changeButtonSender, changeButtonEvent);
         }
 
-        public int dakTotalNumber
+      
+
+     
+
+        private void DakInboxUserControl_Click(object sender, EventArgs e)
         {
-            get
-            {
-                return _dakTotalNumber;
-            }
-            set
-            {
-                _dakTotalNumber = value;
-                dakCountButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')))+ " টি ডাক";
-            }
+
+
+           
         }
-        public int nothiTotalNumber
-        {
-            get
-            {
-                return _nothiTotalNumber;
-            }
-            set
-            {
-                _nothiTotalNumber = value;
-                nothiCountButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) + " টি নথি";
-            }
-        }
+
+
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when user clicks button")]

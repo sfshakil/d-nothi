@@ -15,9 +15,11 @@ namespace dNothi.Utility
             _dakPriority.Add(new DakPriority("6", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
             _dakPriority.Add(new DakPriority("5", "অবিলম্বে", "অবিলম্বে"));
             _dakPriority.Add(new DakPriority("4", "জরুরি", "জরুরি"));
+         
             _dakPriority.Add(new DakPriority("3", "তাগিদপত্র", "তাগিদপত্র"));
             _dakPriority.Add(new DakPriority("2", "দৃষ্টি আকর্ষণ", "দৃষ্টি আকর্ষণ"));
-           
+            _dakPriority.Add(new DakPriority("1", "জরুরি", "জরুরি"));
+
 
         }
 

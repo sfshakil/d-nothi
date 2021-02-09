@@ -422,5 +422,35 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
+
+        private void dakEditButton_MouseHover(object sender, EventArgs e)
+        {
+            dakEditButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakEditButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakEditButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void dakSendButton_MouseHover(object sender, EventArgs e)
+        {
+            dakSendButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakSendButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakSendButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void dakDeleteButton_MouseHover(object sender, EventArgs e)
+        {
+            dakDeleteButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakDeleteButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakDeleteButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
     }
 }

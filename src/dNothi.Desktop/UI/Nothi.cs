@@ -683,7 +683,7 @@ namespace dNothi.Desktop.UI
             if (designationDetailsPanelNothi.Width == 428)
             {
                 designationDetailsPanelNothi.Visible = true;
-                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+            //    designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
                 designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
@@ -704,7 +704,7 @@ namespace dNothi.Desktop.UI
             if (designationDetailsPanelNothi.Width == 428)
             {
                 designationDetailsPanelNothi.Visible = true;
-                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+               // designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
                 designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
@@ -723,7 +723,7 @@ namespace dNothi.Desktop.UI
             if (designationDetailsPanelNothi.Width == 428)
             {
                 designationDetailsPanelNothi.Visible = true;
-                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+             //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
                 designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
@@ -742,7 +742,7 @@ namespace dNothi.Desktop.UI
             if (designationDetailsPanelNothi.Width == 428)
             {
                 designationDetailsPanelNothi.Visible = true;
-                designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+          //      designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
                 designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();

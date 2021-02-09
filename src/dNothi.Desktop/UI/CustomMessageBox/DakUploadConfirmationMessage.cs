@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -42,7 +43,16 @@ namespace dNothi.Desktop.UI.CustomMessageBox
             set
             {
                 _imageBase64 = value;
-                byte[] bytes = Convert.FromBase64String(value);
+
+              
+                int firstStringIndex = value.IndexOf(",")+1;
+
+                var base64data = value.Substring(firstStringIndex, value.Length - firstStringIndex);
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+              
+
+                byte[] bytes = Convert.FromBase64String(base64data);
 
                 using (MemoryStream ms = new MemoryStream(bytes))
                 {
@@ -87,8 +97,7 @@ namespace dNothi.Desktop.UI.CustomMessageBox
         public string _userDept;
         public string userDept { get { return _userDept; } set { _userDept = value; userDeptLabel.Text = value; } }
 
-        
-
+        public PrintDocument PrintDoc1 { get; private set; }
 
         private void fullBodyTableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -141,6 +150,37 @@ namespace dNothi.Desktop.UI.CustomMessageBox
                 SetDefaultFont(ctrl.Controls);
             }
 
+        }
+        Bitmap bitmap;
+        private void printButton_Click(object sender, EventArgs e)
+        {
+            //Add a Panel control.
+            Panel panel = new Panel();
+            this.Controls.Add(panel);
+
+            //Create a Bitmap of size same as that of the Form.
+            Graphics grp = panel.CreateGraphics();
+            Size formSize = bodyTableLayoutPanel.ClientSize;
+            bitmap = new Bitmap(bodyHeadlineTableLayoutPanel.Width + bodyTableLayoutPanel.Width, bodyHeadlineTableLayoutPanel.Height+ bodyTableLayoutPanel.Height, grp);
+            grp = Graphics.FromImage(bitmap);
+
+            formSize.Width = bodyHeadlineTableLayoutPanel.Width + bodyTableLayoutPanel.Width;
+            formSize.Height = bodyHeadlineTableLayoutPanel.Height + bodyTableLayoutPanel.Height;
+
+            //Copy screen area that that the Panel covers.
+            Point panelLocation = PointToScreen(bodyHeadlineTableLayoutPanel.Location);
+            grp.CopyFromScreen(panelLocation.X, panelLocation.Y,0, 0,formSize);
+
+            //Show the Print Preview Dialog.
+            dakUploadPrintPreviewDialog.Document = printDocument1;
+            dakUploadPrintPreviewDialog.PrintPreviewControl.Zoom = 1;
+            printDocument1.DefaultPageSettings.Landscape = true;
+            dakUploadPrintPreviewDialog.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bitmap, 0, 0);
         }
     }
 }

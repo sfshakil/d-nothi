@@ -18,19 +18,19 @@ namespace dNothi.Services.DakServices
 {
   public class DakListService:IDakListService
     {
-        IRepository<DakTag> _daktags;
-        IRepository<DakUser> _dakuser;
-        IRepository<DakType> _daktype;
+        IRepository<DakTag> _dakTagsRepo;
+        IRepository<DakUser> _dakUserRepo;
+        IRepository<DakType> _dakTypeRepo;
        
-        IRepository<DakList> _daklist;
+        IRepository<DakList> _dakListRepo;
      
-        IRepository<DakOrigin> _dakOrigin;
-        IRepository<Officer> _from;
-        IRepository<To> _to;
-        IRepository<Other> _other;
-        IRepository<MovementStatus> _movementStatus;
+        IRepository<DakOrigin> _dakOriginRepo;
+        IRepository<Officer> _fromRepo;
+        IRepository<To> _toRepo;
+        IRepository<Other> _otherRepo;
+        IRepository<MovementStatus> _movementStatusRepo;
        
-        IRepository<DakNothi> _dakNothi;
+        IRepository<DakNothi> _dakNothiRepo;
         public DakListService(IRepository<DakTag> daktags,
             IRepository<DakUser> dakuser,
             IRepository<Officer> from,
@@ -47,18 +47,18 @@ namespace dNothi.Services.DakServices
         
             )
         {
-            this._daktags = daktags;
-            this._dakuser = dakuser;
-            this._from = from;
-            this._other = other;
+            this._dakTagsRepo = daktags;
+            this._dakUserRepo = dakuser;
+            this._fromRepo = from;
+            this._otherRepo = other;
        
-            this._to = to;
-            this._movementStatus = movementStatus;
-            this._daktype = daktype;
-            this._dakNothi = dakNothi;
-            this._dakOrigin = dakOrigin;
+            this._toRepo = to;
+            this._movementStatusRepo = movementStatus;
+            this._dakTypeRepo = daktype;
+            this._dakNothiRepo = dakNothi;
+            this._dakOriginRepo = dakOrigin;
        
-            this._daklist = dakList;
+            this._dakListRepo = dakList;
         
         }
 
@@ -75,15 +75,15 @@ namespace dNothi.Services.DakServices
             var mapper = new Mapper(config);
             var dakNothi = mapper.Map<DakNothi>(nothiDTO);
             dakNothi.nothi_id = nothiDTO.nothi_id;
-            var dbdakNothi = _dakNothi.Table.Where(q => q.dak_id == nothiDTO.dak_id).FirstOrDefault();
+            var dbdakNothi = _dakNothiRepo.Table.Where(q => q.dak_id == nothiDTO.dak_id).FirstOrDefault();
             if (dbdakNothi == null)
             {
-                _dakNothi.Insert(dakNothi);
+                _dakNothiRepo.Insert(dakNothi);
             }
             else
             {
                 dakNothi.Id = dbdakNothi.Id;
-                _dakNothi.Update(dakNothi);
+                _dakNothiRepo.Update(dakNothi);
             }
 
             return dakNothi.Id;
@@ -104,15 +104,15 @@ namespace dNothi.Services.DakServices
             {
                 movementStatus.other_id = SaveOrUpdateOther(movement_statusDTO.other);
 
-                var dbmovementstatus = _movementStatus.Table.FirstOrDefault(a => a.other.otherId == movement_statusDTO.other.dak_origin_id);
+                var dbmovementstatus = _movementStatusRepo.Table.FirstOrDefault(a => a.other.otherId == movement_statusDTO.other.dak_origin_id);
                 if (dbmovementstatus != null)
                 {
                     movementStatus.Id = dbmovementstatus.Id;
-                    _movementStatus.Update(movementStatus);
+                    _movementStatusRepo.Update(movementStatus);
                 }
                 else
                 {
-                    _movementStatus.Insert(movementStatus);
+                    _movementStatusRepo.Insert(movementStatus);
 
                 }
             }
@@ -160,16 +160,16 @@ namespace dNothi.Services.DakServices
 
 
 
-            var dbto = _to.Table.FirstOrDefault(a => a.to_id == to.to_id && a.movement_status_id == to.movement_status_id);
+            var dbto = _toRepo.Table.FirstOrDefault(a => a.to_id == to.to_id && a.movement_status_id == to.movement_status_id);
             
             if(dbto != null)
             {
                 to.Id = dbto.Id;
-                _to.Update(to);
+                _toRepo.Update(to);
             }
             else
             {
-                _to.Insert(to);
+                _toRepo.Insert(to);
             }
                
           
@@ -184,15 +184,15 @@ namespace dNothi.Services.DakServices
             var mapper = new Mapper(config);
             var other = mapper.Map<Other>(otherDTO);
             other.otherId = otherDTO.dak_origin_id;
-            var dbother = _other.Table.Where(q => q.otherId == otherDTO.dak_origin_id).FirstOrDefault();
+            var dbother = _otherRepo.Table.Where(q => q.otherId == otherDTO.dak_origin_id).FirstOrDefault();
             if (dbother == null)
             {
-                _other.Insert(other);
+                _otherRepo.Insert(other);
             }
             else
             {
                 other.Id = dbother.Id;
-                _other.Update(other);
+                _otherRepo.Update(other);
             }
 
             return other.Id;
@@ -205,15 +205,15 @@ namespace dNothi.Services.DakServices
                   );
             var mapper = new Mapper(config);
             var from = mapper.Map<Officer>(fromDTO);
-            var dbfrom = _from.Table.FirstOrDefault(a => a.designation_id == fromDTO.designation_id);
+            var dbfrom = _fromRepo.Table.FirstOrDefault(a => a.designation_id == fromDTO.designation_id);
             if(dbfrom != null)
             {
                 from.Id = dbfrom.Id;
-                _from.Update(from);
+                _fromRepo.Update(from);
             }
             else
             {
-                _from.Insert(from);
+                _fromRepo.Insert(from);
             }
            
                
@@ -230,15 +230,15 @@ namespace dNothi.Services.DakServices
             var mapper = new Mapper(config);
             var dakorigin = mapper.Map<DakOrigin>(dak_origin);
             dakorigin.dak_origin_id = dak_origin.dak_origin_id;
-            var dbdakOrigin = _dakOrigin.Table.Where(q => q.dak_origin_id == dak_origin.dak_origin_id).FirstOrDefault();
+            var dbdakOrigin = _dakOriginRepo.Table.Where(q => q.dak_origin_id == dak_origin.dak_origin_id).FirstOrDefault();
             if (dbdakOrigin == null)
             {
-                _dakOrigin.Insert(dakorigin);
+                _dakOriginRepo.Insert(dakorigin);
             }
             else
             {
                 dakorigin.Id = dbdakOrigin.Id;
-                _dakOrigin.Update(dakorigin);
+                _dakOriginRepo.Update(dakorigin);
             }
 
             return dakorigin.Id;
@@ -253,15 +253,15 @@ namespace dNothi.Services.DakServices
             var daktag = mapper.Map<DakTag>(dak_Tagsdto);
             daktag.dak_tag_id = dak_Tagsdto.id;
             daktag.dak_list_id = id;
-            var dbdaktag = _daktags.Table.Where(q => q.dak_tag_id == dak_Tagsdto.id ).FirstOrDefault();
+            var dbdaktag = _dakTagsRepo.Table.Where(q => q.dak_tag_id == dak_Tagsdto.id ).FirstOrDefault();
             if (dbdaktag == null)
             {
-                _daktags.Insert(daktag);
+                _dakTagsRepo.Insert(daktag);
             }
             else
             {
                 daktag.Id = dbdaktag.Id;
-                _daktags.Update(daktag);
+                _dakTagsRepo.Update(daktag);
             }
 
             return daktag.Id;
@@ -274,15 +274,15 @@ namespace dNothi.Services.DakServices
                  );
             var mapper = new Mapper(config);
             var dakuser = mapper.Map<DakUser>(dak_Userdto);
-            var dbdaktuser = _dakuser.Table.Where(q => q.dak_id == dak_Userdto.dak_id).FirstOrDefault();
+            var dbdaktuser = _dakUserRepo.Table.Where(q => q.dak_id == dak_Userdto.dak_id).FirstOrDefault();
             if (dbdaktuser == null)
             {
-                _dakuser.Insert(dakuser);
+                _dakUserRepo.Insert(dakuser);
             }
             else
             {
                 dakuser.Id = dbdaktuser.Id;
-                _dakuser.Update(dakuser);
+                _dakUserRepo.Update(dakuser);
             }
 
             return dakuser.Id;
@@ -344,15 +344,15 @@ namespace dNothi.Services.DakServices
                                 dakList.dak_nothi_id = null;
                             }
 
-                            var dbdaklist = _daklist.Table.FirstOrDefault(a => a.dak_user.dak_id == dakListRecordsDTO.dak_user.dak_id);
+                            var dbdaklist = _dakListRepo.Table.FirstOrDefault(a => a.dak_user.dak_id == dakListRecordsDTO.dak_user.dak_id);
                             if(dbdaklist == null)
                             {
-                                _daklist.Insert(dakList);
+                                _dakListRepo.Insert(dakList);
                             }
                             else
                             {
                                 dakList.Id = dbdaklist.Id;
-                                _daklist.Update(dakList);
+                                _dakListRepo.Update(dakList);
                             }
                             
 
@@ -372,10 +372,17 @@ namespace dNothi.Services.DakServices
             
         }
 
+        public List<DakList> GetDakList()
+        {
+            var dbdakType = _dakTypeRepo.Table.FirstOrDefault(a => a.is_inbox == true);
+            var dakList=_dakListRepo.Table.Where(d => d.dak_List_type_Id == dbdakType.Id).ToList();
+            return dakList;
+        }
+
         public DakListDTO GetLocalDakListbyType(long dakTypeId, DakUserParam dakListUserParam)
         {
             DakListDTO dakListDTO = new DakListDTO();
-            var dbdaklist = _daklist.Table.Include(a=>a.dak_origin).Include(a => a.dak_user).Include(a => a.dak_Tags).Include(a => a.nothi).Include(a => a.movement_status).Where(a => a.dak_List_type_Id == dakTypeId).ToList();
+            var dbdaklist = _dakListRepo.Table.Include(a=>a.dak_origin).Include(a => a.dak_user).Include(a => a.dak_Tags).Include(a => a.nothi).Include(a => a.movement_status).Where(a => a.dak_List_type_Id == dakTypeId).ToList();
             List<DakListRecordsDTO> dakListRecords = new List<DakListRecordsDTO>();
 
             if (dbdaklist.Count>0)
