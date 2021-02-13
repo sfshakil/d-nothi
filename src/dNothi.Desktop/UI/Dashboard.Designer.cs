@@ -434,7 +434,6 @@
             // 
             // detailsFlowLayoutPanel
             // 
-            this.detailsFlowLayoutPanel.AutoScroll = true;
             this.detailsFlowLayoutPanel.AutoSize = true;
             this.detailsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(0, 607);

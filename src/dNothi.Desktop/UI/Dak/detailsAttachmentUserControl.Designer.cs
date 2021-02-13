@@ -139,7 +139,7 @@
             this.Controls.Add(this.attchmentTypePanel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "DetailsAttachmentUserControl";
-            this.Size = new System.Drawing.Size(846, 40);
+            this.Size = new System.Drawing.Size(846, 47);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

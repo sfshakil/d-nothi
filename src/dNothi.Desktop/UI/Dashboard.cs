@@ -962,8 +962,14 @@ namespace dNothi.Desktop.UI
             DakArchiveResponse dakArchiveResponse = _dakArchiveService.GetDakArcivedResponse(_dakuserparam, dakid, dak_type, is_copied_dak);
             if (dakArchiveResponse.status == "success")
             {
-
                 SuccessMessage(dakArchiveResponse.data);
+                if (detailsFlowLayoutPanel.Visible)
+                {
+                    LoadDakArchive();
+                }
+
+
+              
                 ReloadBodyPanel();
                 
             }

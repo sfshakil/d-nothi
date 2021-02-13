@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DakForwardUserControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Subjectlabel = new System.Windows.Forms.Label();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -60,12 +60,9 @@
             this.nothivuktoRadioButton = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.BottomPanel = new System.Windows.Forms.Panel();
-            this.officerSearchOwnButton = new FontAwesome.Sharp.IconButton();
             this.sendButton = new System.Windows.Forms.Button();
             this.ownOfficerTabControl = new System.Windows.Forms.TabControl();
             this.ownOfficeTabPage = new System.Windows.Forms.TabPage();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.officerSearchOwnXTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.addDesignationButton_Click = new FontAwesome.Sharp.IconButton();
             this.prapokOwnDataGridView = new System.Windows.Forms.DataGridView();
             this.ActionButton = new System.Windows.Forms.DataGridViewImageColumn();
@@ -81,7 +78,6 @@
             this.onulipiprapokDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.viewDesignationSealListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.otherOfficerTabPage = new System.Windows.Forms.TabPage();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.prapokOthersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,7 +90,6 @@
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn4 = new dNothi.Desktop.DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn();
             this.dataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.officerSearchOthersXTextBox = new dNothi.Desktop.XTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.newDecisionAddButton = new System.Windows.Forms.Button();
@@ -135,13 +130,19 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.officerSearchOwnXTextBox = new PlaceholderTextBox.PlaceholderTextBox();
+            this.officerSearchOwnButton = new FontAwesome.Sharp.IconButton();
+            this.placeholderTextBox1 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.TopPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.ownOfficerTabControl.SuspendLayout();
             this.ownOfficeTabPage.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prapokOwnDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).BeginInit();
             this.otherOfficerTabPage.SuspendLayout();
@@ -158,6 +159,8 @@
             this.HeadingPanel.SuspendLayout();
             this.selectedDakListPanel.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // Subjectlabel
@@ -331,7 +334,6 @@
             // BottomPanel
             // 
             this.BottomPanel.AutoSize = true;
-            this.BottomPanel.Controls.Add(this.officerSearchOwnButton);
             this.BottomPanel.Controls.Add(this.sendButton);
             this.BottomPanel.Controls.Add(this.ownOfficerTabControl);
             this.BottomPanel.Controls.Add(this.label4);
@@ -342,22 +344,6 @@
             this.BottomPanel.Size = new System.Drawing.Size(520, 569);
             this.BottomPanel.TabIndex = 35;
             this.BottomPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
-            // 
-            // officerSearchOwnButton
-            // 
-            this.officerSearchOwnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.officerSearchOwnButton.FlatAppearance.BorderSize = 0;
-            this.officerSearchOwnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.officerSearchOwnButton.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.officerSearchOwnButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.officerSearchOwnButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.officerSearchOwnButton.IconSize = 24;
-            this.officerSearchOwnButton.Location = new System.Drawing.Point(141, 99);
-            this.officerSearchOwnButton.Name = "officerSearchOwnButton";
-            this.officerSearchOwnButton.Size = new System.Drawing.Size(33, 33);
-            this.officerSearchOwnButton.TabIndex = 41;
-            this.officerSearchOwnButton.UseVisualStyleBackColor = false;
-            this.officerSearchOwnButton.Click += new System.EventHandler(this.officerSearchOwnXTextBox_TextChanged);
             // 
             // sendButton
             // 
@@ -396,6 +382,7 @@
             // 
             // ownOfficeTabPage
             // 
+            this.ownOfficeTabPage.Controls.Add(this.officerSearchOwnButton);
             this.ownOfficeTabPage.Controls.Add(this.panel3);
             this.ownOfficeTabPage.Controls.Add(this.addDesignationButton_Click);
             this.ownOfficeTabPage.Controls.Add(this.prapokOwnDataGridView);
@@ -407,26 +394,6 @@
             this.ownOfficeTabPage.TabIndex = 0;
             this.ownOfficeTabPage.Text = "নিজ অফিস";
             this.ownOfficeTabPage.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.officerSearchOwnXTextBox);
-            this.panel3.Location = new System.Drawing.Point(10, 9);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(129, 33);
-            this.panel3.TabIndex = 81;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
-            // 
-            // officerSearchOwnXTextBox
-            // 
-            this.officerSearchOwnXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.officerSearchOwnXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officerSearchOwnXTextBox.Location = new System.Drawing.Point(3, 7);
-            this.officerSearchOwnXTextBox.Name = "officerSearchOwnXTextBox";
-            this.officerSearchOwnXTextBox.PlaceholderText = "অফিসার খুঁজুন";
-            this.officerSearchOwnXTextBox.Size = new System.Drawing.Size(124, 19);
-            this.officerSearchOwnXTextBox.TabIndex = 80;
-            this.officerSearchOwnXTextBox.TextChanged += new System.EventHandler(this.officerSearchOwnXTextBox_TextChanged);
             // 
             // addDesignationButton_Click
             // 
@@ -448,21 +415,22 @@
             // prapokOwnDataGridView
             // 
             this.prapokOwnDataGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prapokOwnDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prapokOwnDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.prapokOwnDataGridView.AutoGenerateColumns = false;
             this.prapokOwnDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.prapokOwnDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.prapokOwnDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 8, 8, 8);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prapokOwnDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.prapokOwnDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5, 8, 8, 8);
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prapokOwnDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.prapokOwnDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prapokOwnDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ActionButton,
@@ -477,15 +445,15 @@
             this.mulprapokDataGridViewCheckBoxColumn,
             this.onulipiprapokDataGridViewCheckBoxColumn});
             this.prapokOwnDataGridView.DataSource = this.viewDesignationSealListBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(4, 2, 2, 2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prapokOwnDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(4, 2, 2, 2);
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prapokOwnDataGridView.DefaultCellStyle = dataGridViewCellStyle22;
             this.prapokOwnDataGridView.EnableHeadersVisualStyles = false;
             this.prapokOwnDataGridView.Location = new System.Drawing.Point(0, 48);
             this.prapokOwnDataGridView.Name = "prapokOwnDataGridView";
@@ -493,9 +461,9 @@
             this.prapokOwnDataGridView.RowHeadersVisible = false;
             this.prapokOwnDataGridView.RowHeadersWidth = 5;
             this.prapokOwnDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prapokOwnDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prapokOwnDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle23;
             this.prapokOwnDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prapokOwnDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.prapokOwnDataGridView.RowTemplate.Height = 100;
@@ -504,13 +472,14 @@
             this.prapokOwnDataGridView.Size = new System.Drawing.Size(501, 378);
             this.prapokOwnDataGridView.TabIndex = 42;
             this.prapokOwnDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokOwnDataGridView_CellContentClick);
+            this.prapokOwnDataGridView.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
             // 
             // ActionButton
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            this.ActionButton.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle19.NullValue")));
+            this.ActionButton.DefaultCellStyle = dataGridViewCellStyle19;
             this.ActionButton.HeaderText = "+";
             this.ActionButton.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.ActionButton.MinimumWidth = 2;
@@ -561,8 +530,8 @@
             // designationDataGridViewTextBoxColumn
             // 
             this.designationDataGridViewTextBoxColumn.DataPropertyName = "designation";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
             this.designationDataGridViewTextBoxColumn.HeaderText = "পদ";
             this.designationDataGridViewTextBoxColumn.MinimumWidth = 170;
             this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
@@ -572,8 +541,8 @@
             // employeenamebngDataGridViewTextBoxColumn
             // 
             this.employeenamebngDataGridViewTextBoxColumn.DataPropertyName = "employee_name_bng";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeenamebngDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeenamebngDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
             this.employeenamebngDataGridViewTextBoxColumn.HeaderText = "নাম";
             this.employeenamebngDataGridViewTextBoxColumn.MinimumWidth = 90;
             this.employeenamebngDataGridViewTextBoxColumn.Name = "employeenamebngDataGridViewTextBoxColumn";
@@ -612,8 +581,9 @@
             // otherOfficerTabPage
             // 
             this.otherOfficerTabPage.Controls.Add(this.iconButton2);
+            this.otherOfficerTabPage.Controls.Add(this.iconButton1);
+            this.otherOfficerTabPage.Controls.Add(this.panel8);
             this.otherOfficerTabPage.Controls.Add(this.prapokOthersDataGridView);
-            this.otherOfficerTabPage.Controls.Add(this.officerSearchOthersXTextBox);
             this.otherOfficerTabPage.Location = new System.Drawing.Point(4, 41);
             this.otherOfficerTabPage.Margin = new System.Windows.Forms.Padding(5);
             this.otherOfficerTabPage.Name = "otherOfficerTabPage";
@@ -623,39 +593,24 @@
             this.otherOfficerTabPage.Text = "অন্যান্য অফিস";
             this.otherOfficerTabPage.UseVisualStyleBackColor = true;
             // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton2.IconColor = System.Drawing.Color.Red;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 16;
-            this.iconButton2.Location = new System.Drawing.Point(13, 55);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(18, 23);
-            this.iconButton2.TabIndex = 79;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
             // prapokOthersDataGridView
             // 
             this.prapokOthersDataGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prapokOthersDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prapokOthersDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
             this.prapokOthersDataGridView.AutoGenerateColumns = false;
             this.prapokOthersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.prapokOthersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.prapokOthersDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(8);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prapokOthersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.Padding = new System.Windows.Forms.Padding(8);
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prapokOthersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.prapokOthersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prapokOthersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewImageColumn3,
@@ -670,15 +625,15 @@
             this.dataGridViewCheckBoxColumn4,
             this.dataGridViewCheckBoxColumn5});
             this.prapokOthersDataGridView.DataSource = this.viewDesignationSealListBindingSource;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(4, 2, 2, 2);
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prapokOthersDataGridView.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle29.Padding = new System.Windows.Forms.Padding(4, 2, 2, 2);
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prapokOthersDataGridView.DefaultCellStyle = dataGridViewCellStyle29;
             this.prapokOthersDataGridView.EnableHeadersVisualStyles = false;
             this.prapokOthersDataGridView.Location = new System.Drawing.Point(2, 45);
             this.prapokOthersDataGridView.Name = "prapokOthersDataGridView";
@@ -686,9 +641,9 @@
             this.prapokOthersDataGridView.RowHeadersVisible = false;
             this.prapokOthersDataGridView.RowHeadersWidth = 5;
             this.prapokOthersDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.prapokOthersDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prapokOthersDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle30;
             this.prapokOthersDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prapokOthersDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.prapokOthersDataGridView.RowTemplate.Height = 100;
@@ -700,10 +655,10 @@
             // 
             // dataGridViewImageColumn3
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle10.NullValue")));
-            this.dataGridViewImageColumn3.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle26.NullValue")));
+            this.dataGridViewImageColumn3.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewImageColumn3.HeaderText = "+";
             this.dataGridViewImageColumn3.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn3.MinimumWidth = 2;
@@ -754,8 +709,8 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "designation";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewTextBoxColumn13.HeaderText = "পদ";
             this.dataGridViewTextBoxColumn13.MinimumWidth = 170;
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
@@ -765,8 +720,8 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "employee_name_bng";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn14.HeaderText = "নাম";
             this.dataGridViewTextBoxColumn14.MinimumWidth = 90;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
@@ -797,18 +752,6 @@
             this.dataGridViewCheckBoxColumn5.Name = "dataGridViewCheckBoxColumn5";
             this.dataGridViewCheckBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewCheckBoxColumn5.Width = 105;
-            // 
-            // officerSearchOthersXTextBox
-            // 
-            this.officerSearchOthersXTextBox.BackColor = System.Drawing.Color.White;
-            this.officerSearchOthersXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officerSearchOthersXTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.officerSearchOthersXTextBox.Location = new System.Drawing.Point(12, 12);
-            this.officerSearchOthersXTextBox.Multiline = true;
-            this.officerSearchOthersXTextBox.Name = "officerSearchOthersXTextBox";
-            this.officerSearchOthersXTextBox.Size = new System.Drawing.Size(119, 30);
-            this.officerSearchOthersXTextBox.TabIndex = 44;
-            this.officerSearchOthersXTextBox.Text = "অফিসার খুঁজুন";
             // 
             // label4
             // 
@@ -873,16 +816,15 @@
             // 
             // newDecisionAddPanel
             // 
-            this.newDecisionAddPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.newDecisionAddPanel.Controls.Add(this.panel5);
             this.newDecisionAddPanel.Controls.Add(this.panel6);
             this.newDecisionAddPanel.Controls.Add(this.label7);
             this.newDecisionAddPanel.Controls.Add(this.label6);
             this.newDecisionAddPanel.Controls.Add(this.label5);
             this.newDecisionAddPanel.Controls.Add(this.iconPictureBox1);
-            this.newDecisionAddPanel.Location = new System.Drawing.Point(39, 115);
+            this.newDecisionAddPanel.Location = new System.Drawing.Point(31, 115);
             this.newDecisionAddPanel.Name = "newDecisionAddPanel";
-            this.newDecisionAddPanel.Size = new System.Drawing.Size(506, 108);
+            this.newDecisionAddPanel.Size = new System.Drawing.Size(521, 694);
             this.newDecisionAddPanel.TabIndex = 35;
             this.newDecisionAddPanel.Visible = false;
             this.newDecisionAddPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
@@ -893,7 +835,7 @@
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.decisionListFlowLayoutPanel);
             this.panel5.Controls.Add(this.tableLayoutPanel1);
-            this.panel5.Location = new System.Drawing.Point(23, 143);
+            this.panel5.Location = new System.Drawing.Point(36, 143);
             this.panel5.MaximumSize = new System.Drawing.Size(448, 0);
             this.panel5.MinimumSize = new System.Drawing.Size(448, 0);
             this.panel5.Name = "panel5";
@@ -1014,7 +956,7 @@
             // 
             this.panel6.Controls.Add(this.newDecisionAddFormPanel);
             this.panel6.Controls.Add(this.newDecisionAddButton);
-            this.panel6.Location = new System.Drawing.Point(24, 86);
+            this.panel6.Location = new System.Drawing.Point(37, 86);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(447, 38);
             this.panel6.TabIndex = 86;
@@ -1097,13 +1039,14 @@
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label7.Location = new System.Drawing.Point(2, 42);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(503, 1);
+            this.label7.Size = new System.Drawing.Size(517, 1);
             this.label7.TabIndex = 3;
             // 
             // label6
@@ -1111,7 +1054,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label6.Location = new System.Drawing.Point(23, 65);
+            this.label6.Location = new System.Drawing.Point(36, 65);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(314, 18);
             this.label6.TabIndex = 2;
@@ -1122,7 +1065,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label5.Location = new System.Drawing.Point(53, 10);
+            this.label5.Location = new System.Drawing.Point(63, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 21);
             this.label5.TabIndex = 1;
@@ -1136,7 +1079,7 @@
             this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 28;
-            this.iconPictureBox1.Location = new System.Drawing.Point(23, 6);
+            this.iconPictureBox1.Location = new System.Drawing.Point(33, 6);
             this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(28, 28);
@@ -1311,10 +1254,10 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle15.NullValue")));
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle31.NullValue")));
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle31;
             this.dataGridViewImageColumn1.HeaderText = "+";
             this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn1.MinimumWidth = 2;
@@ -1324,10 +1267,10 @@
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle16.NullValue")));
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle32.NullValue")));
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridViewImageColumn2.HeaderText = "+";
             this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
@@ -1343,6 +1286,93 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(583, 21);
             this.panel10.TabIndex = 38;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.officerSearchOwnXTextBox);
+            this.panel3.Location = new System.Drawing.Point(10, 9);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(445, 33);
+            this.panel3.TabIndex = 81;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
+            // 
+            // officerSearchOwnXTextBox
+            // 
+            this.officerSearchOwnXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.officerSearchOwnXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.officerSearchOwnXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchOwnXTextBox.Location = new System.Drawing.Point(3, 7);
+            this.officerSearchOwnXTextBox.Name = "officerSearchOwnXTextBox";
+            this.officerSearchOwnXTextBox.PlaceholderText = "অফিসার খুঁজুন";
+            this.officerSearchOwnXTextBox.Size = new System.Drawing.Size(437, 19);
+            this.officerSearchOwnXTextBox.TabIndex = 80;
+            this.officerSearchOwnXTextBox.TextChanged += new System.EventHandler(this.officerSearchOwnXTextBox_TextChanged);
+            // 
+            // officerSearchOwnButton
+            // 
+            this.officerSearchOwnButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.officerSearchOwnButton.FlatAppearance.BorderSize = 0;
+            this.officerSearchOwnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.officerSearchOwnButton.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.officerSearchOwnButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.officerSearchOwnButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.officerSearchOwnButton.IconSize = 24;
+            this.officerSearchOwnButton.Location = new System.Drawing.Point(456, 10);
+            this.officerSearchOwnButton.Name = "officerSearchOwnButton";
+            this.officerSearchOwnButton.Size = new System.Drawing.Size(33, 33);
+            this.officerSearchOwnButton.TabIndex = 41;
+            this.officerSearchOwnButton.UseVisualStyleBackColor = false;
+            this.officerSearchOwnButton.Click += new System.EventHandler(this.officerSearchOwnXTextBox_TextChanged);
+            // 
+            // placeholderTextBox1
+            // 
+            this.placeholderTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.placeholderTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.placeholderTextBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholderTextBox1.Location = new System.Drawing.Point(3, 7);
+            this.placeholderTextBox1.Name = "placeholderTextBox1";
+            this.placeholderTextBox1.PlaceholderText = "অফিসার খুঁজুন";
+            this.placeholderTextBox1.Size = new System.Drawing.Size(437, 19);
+            this.placeholderTextBox1.TabIndex = 80;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 24;
+            this.iconButton1.Location = new System.Drawing.Point(453, 7);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(33, 33);
+            this.iconButton1.TabIndex = 82;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.placeholderTextBox1);
+            this.panel8.Location = new System.Drawing.Point(7, 6);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(445, 33);
+            this.panel8.TabIndex = 83;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 16;
+            this.iconButton2.Location = new System.Drawing.Point(11, 56);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(18, 23);
+            this.iconButton2.TabIndex = 84;
+            this.iconButton2.UseVisualStyleBackColor = false;
             // 
             // DakForwardUserControl
             // 
@@ -1368,12 +1398,9 @@
             this.BottomPanel.ResumeLayout(false);
             this.ownOfficerTabControl.ResumeLayout(false);
             this.ownOfficeTabPage.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prapokOwnDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).EndInit();
             this.otherOfficerTabPage.ResumeLayout(false);
-            this.otherOfficerTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prapokOthersDataGridView)).EndInit();
             this.newDecisionAddPanel.ResumeLayout(false);
             this.newDecisionAddPanel.PerformLayout();
@@ -1395,6 +1422,10 @@
             this.selectedDakListPanel.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1434,13 +1465,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabControl ownOfficerTabControl;
         private System.Windows.Forms.TabPage ownOfficeTabPage;
-        private System.Windows.Forms.Panel panel3;
-        private PlaceholderTextBox.PlaceholderTextBox officerSearchOwnXTextBox;
         private FontAwesome.Sharp.IconButton addDesignationButton_Click;
         private System.Windows.Forms.DataGridView prapokOwnDataGridView;
         private System.Windows.Forms.TabPage otherOfficerTabPage;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private XTextBox officerSearchOthersXTextBox;
         private System.Windows.Forms.Panel newDecisionAddFormPanel;
         private FontAwesome.Sharp.IconButton newDecisionAddCrossButton;
         private System.Windows.Forms.CheckBox newDecisionCheckBox;
@@ -1466,7 +1493,6 @@
         private System.Windows.Forms.FlowLayoutPanel selectedDakListFlowLayoutPanel;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private FontAwesome.Sharp.IconButton sliderCrossButton;
-        private FontAwesome.Sharp.IconButton officerSearchOwnButton;
         private DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn mul_prapok;
         private System.Windows.Forms.DataGridView prapokOthersDataGridView;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
@@ -1492,5 +1518,12 @@
         private DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn mulprapokDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn onulipiprapokDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Panel panel10;
+        private FontAwesome.Sharp.IconButton officerSearchOwnButton;
+        private System.Windows.Forms.Panel panel3;
+        private PlaceholderTextBox.PlaceholderTextBox officerSearchOwnXTextBox;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Panel panel8;
+        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox1;
     }
 }

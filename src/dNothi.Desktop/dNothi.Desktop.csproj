@@ -403,6 +403,12 @@
     <Compile Include="UI\Dak\DakNothijatoForm.Designer.cs">
       <DependentUpon>DakNothijatoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakRightTopInfoIconUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakRightTopInfoIconUserControl.Designer.cs">
+      <DependentUpon>DakRightTopInfoIconUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\MultipleDakActionResultDakRowUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -839,6 +845,9 @@
     <EmbeddedResource Include="UI\Dak\DakNothijatoForm.resx">
       <DependentUpon>DakNothijatoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakRightTopInfoIconUserControl.resx">
+      <DependentUpon>DakRightTopInfoIconUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\MultipleDakActionResultDakRowUserControl.resx">
       <DependentUpon>MultipleDakActionResultDakRowUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1135,6 +1144,29 @@
     <None Include="Resources\Nothijato-Icon.png" />
     <None Include="Resources\Nothivukto-Icon-Hover.png" />
     <None Include="Resources\newDakIcon-PNG.png" />
+    <None Include="Resources\অনুলিপি-PNG.png" />
+    <None Include="Resources\মূল-প্রাপক-PNG.png" />
+    <None Include="Resources\অনুলিপি-PNG1.png" />
+    <None Include="Resources\মূল-প্রাপক-PNG1.png" />
+    <None Include="Resources\বিশেষ গোপনীয়-PNG.png" />
+    <None Include="Resources\বিশেষ গোপনীয়-PNG1.png" />
+    <None Include="Resources\সীমিত-PNG1.png" />
+    <None Include="Resources\সীমিত-PNG2.png" />
+    <None Include="Resources\গোপনীয়-PNG.png" />
+    <None Include="Resources\অতি গোপনীয়-PNG.png" />
+    <None Include="Resources\নাগরিক-PNG.png" />
+    <None Include="Resources\সর্বোচ্চ অগ্রাধিকার-PNG.png" />
+    <None Include="Resources\অনুলিপি-PNG2.png" />
+    <None Include="Resources\মূল-প্রাপক-PNG2.png" />
+    <None Include="Resources\অনুলিপি-PNG3.png" />
+    <None Include="Resources\মূল-প্রাপক-PNG3.png" />
+    <None Include="Resources\সর্বোচ্চ অগ্রাধিকার-PNG1.png" />
+    <None Include="Resources\নাগরিক-Icon-PNG.png" />
+    <None Include="Resources\অতি গোপনীয়-Icon-PNG.png" />
+    <None Include="Resources\গোপনীয়-Icon-PNG.png" />
+    <None Include="Resources\বিশেষ গোপনীয়-Icon-PNG.png" />
+    <None Include="Resources\সীমিত-Icon-PNG2.png" />
+    <None Include="Resources\মূল-প্রাপক-Icon_PNG.png" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />
