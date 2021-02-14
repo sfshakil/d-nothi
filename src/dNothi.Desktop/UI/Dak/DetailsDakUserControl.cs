@@ -17,7 +17,8 @@ using dNothi.Desktop.Properties;
 using System.IO;
 using Patagames.Pdf.Net;
 using System.Net;
-
+using System.Web;
+using com.sun.org.apache.xalan.@internal.xsltc;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -37,6 +38,7 @@ namespace dNothi.Desktop.UI.Dak
         private double _zoomIn;
         private double _limit;
         private string _mainimageSrc;
+        private string _imageName;
        
         private string _sharokNo;
         private string _subject;
@@ -125,20 +127,22 @@ namespace dNothi.Desktop.UI.Dak
                         //txtFileRichTextBox.Text = System.Net.WebUtility.HtmlDecode(_dakDetailsResponse.data.dak_origin.dak_description);
                         imagePanel.Visible = false;
                         pdfViewerControl.Visible = false;
-                        //mainAttachmentViewWebBrowser.DocumentText = "<html><body>Please enter your name:<br/>" + "<input type='text' name='userName'/><br/>" +"<a href='http://www.microsoft.com'>continue</a>" +"</body></html>";
-                        //mainAttachmentViewWebBrowser.DocumentText=_dakDetailsResponse.data.dak_origin.dak_description;
+                          //mainAttachmentViewWebBrowser.DocumentText=_dakDetailsResponse.data.dak_origin.dak_description;
                         mainAttachmentViewWebBrowser.Visible = true;
-                       // mainAttachmentViewWebBrowser.Navigate("about:blank");
+                         mainAttachmentViewWebBrowser.Navigate("about:blank");
                         if (mainAttachmentViewWebBrowser.Document != null)
                         {
-                            mainAttachmentViewWebBrowser.Document.Write(string.Empty);
+                        mainAttachmentViewWebBrowser.Document.Write(string.Empty);
                         }
-                        // mainAttachmentViewWebBrowser.DocumentText = "<Html><body>" + System.Net.WebUtility.HtmlDecode(_dakDetailsResponse.data.dak_origin.dak_description) + "</body></Html>";
-                       //    mainAttachmentViewWebBrowser.Refresh();
-                          mainAttachmentViewWebBrowser.DocumentText= System.Net.WebUtility.HtmlDecode(dakAttachmentDTO.dak_description);
-                        
-                       
-                    }
+
+
+                        StringWriter writer = new StringWriter();
+                        System.Net.WebUtility.HtmlDecode(dakAttachmentDTO.dak_description, writer);
+                        String DecodedString = writer.ToString();
+                        mainAttachmentViewWebBrowser.DocumentText =""+ System.Net.WebUtility.HtmlDecode(DecodedString) +"";
+                            
+                           
+                            }
                    else if(dakAttachmentDTO.attachment_type.ToLower().Contains("pdf"))
                     {
 
@@ -708,8 +712,8 @@ namespace dNothi.Desktop.UI.Dak
 
 
                 Bitmap bitmap = new Bitmap(pictureBox.Image, imgHeight, imgWidth);
-                Graphics graphics = Graphics.FromImage(bitmap);
-                graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+               Graphics graphics = Graphics.FromImage(bitmap);
+               graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
                 imageViewPictureBox.Image = bitmap;
             }
@@ -718,7 +722,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void zoomOutButton_Click(object sender, EventArgs e)
         {
-            if (_zoomIn > 1)
+            if (_zoomIn > .7)
             {
                 _zoomIn -= 0.1;
                 if(_zoomIn==1)
@@ -726,8 +730,8 @@ namespace dNothi.Desktop.UI.Dak
                     imageViewPictureBox.Load(_mainimageSrc);
                     return;
                 }
-                int imgHeight = Convert.ToInt32(_imgHeight + _imgHeight * _zoomIn);
-                int imgWidth = Convert.ToInt32(_imgWidth + _imgWidth * _zoomIn);
+                int imgHeight = Convert.ToInt32(_imgHeight * _zoomIn);
+                int imgWidth = Convert.ToInt32( _imgWidth * _zoomIn);
 
 
                 Bitmap bitmap = new Bitmap(pictureBox.Image, imgHeight, imgWidth);
@@ -736,6 +740,44 @@ namespace dNothi.Desktop.UI.Dak
 
                 imageViewPictureBox.Image = bitmap;
             }
+        }
+
+        private void imageSaveButton_Click(object sender, EventArgs e)
+        {
+
+
+            string dummyFileName = "Image File Name";
+           
+
+            SaveFileDialog sf = new SaveFileDialog();
+            // Feed the dummy name to the save dialog
+            sf.FileName = dummyFileName;
+            sf.DefaultExt = ".jpg";
+            sf.Filter = "Image|*.jpg;*.jpeg;*.png;";
+
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                // Now here's our save folder
+               // string savePath = Path.GetDirectoryName(sf.FileName);
+
+
+                WebClient wc = new WebClient();
+                byte[] bytes = wc.DownloadData(_mainimageSrc);
+                MemoryStream ms = new MemoryStream(bytes);
+                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+
+                img.Save(sf.FileName);
+            }
+
+            
+               
+
+                
+
+
+               
+               
+            
         }
     }
 }

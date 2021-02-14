@@ -50,7 +50,15 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.AttachmentDetails = new System.Windows.Forms.TabControl();
             this.mainAttachmentTabPage = new System.Windows.Forms.TabPage();
+            this.zoomInOutPanel = new System.Windows.Forms.Panel();
+            this.imageSaveButton = new FontAwesome.Sharp.IconButton();
+            this.resetButton = new FontAwesome.Sharp.IconButton();
+            this.zoomOutButton = new FontAwesome.Sharp.IconButton();
+            this.zoomInButton = new FontAwesome.Sharp.IconButton();
+            this.imagePanel = new System.Windows.Forms.Panel();
+            this.imageViewPictureBox = new System.Windows.Forms.PictureBox();
             this.mainAttachmentViewWebBrowser = new System.Windows.Forms.WebBrowser();
+            this.pdfViewerControl = new AxAcroPDFLib.AxAcroPDF();
             this.attachmentListTabPage = new System.Windows.Forms.TabPage();
             this.attachmentListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.headerPanel = new System.Windows.Forms.Panel();
@@ -77,17 +85,14 @@
             this.bodySubjectTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.docketingNoPanel = new System.Windows.Forms.Panel();
             this.subPanel = new System.Windows.Forms.Panel();
-            this.imageViewPictureBox = new System.Windows.Forms.PictureBox();
             this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
-            this.imagePanel = new System.Windows.Forms.Panel();
-            this.pdfViewerControl = new AxAcroPDFLib.AxAcroPDF();
-            this.zoomInOutPanel = new System.Windows.Forms.Panel();
-            this.zoomInButton = new FontAwesome.Sharp.IconButton();
-            this.zoomOutButton = new FontAwesome.Sharp.IconButton();
-            this.resetButton = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.AttachmentDetails.SuspendLayout();
             this.mainAttachmentTabPage.SuspendLayout();
+            this.zoomInOutPanel.SuspendLayout();
+            this.imagePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageViewPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pdfViewerControl)).BeginInit();
             this.attachmentListTabPage.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.dakActionPanel.SuspendLayout();
@@ -102,10 +107,6 @@
             this.bodySubjectTableLayoutPanel.SuspendLayout();
             this.docketingNoPanel.SuspendLayout();
             this.subPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageViewPictureBox)).BeginInit();
-            this.imagePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pdfViewerControl)).BeginInit();
-            this.zoomInOutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -373,10 +374,10 @@
             // 
             this.mainAttachmentTabPage.AutoScroll = true;
             this.mainAttachmentTabPage.BackColor = System.Drawing.Color.Transparent;
-            this.mainAttachmentTabPage.Controls.Add(this.zoomInOutPanel);
-            this.mainAttachmentTabPage.Controls.Add(this.pdfViewerControl);
-            this.mainAttachmentTabPage.Controls.Add(this.imagePanel);
             this.mainAttachmentTabPage.Controls.Add(this.mainAttachmentViewWebBrowser);
+            this.mainAttachmentTabPage.Controls.Add(this.zoomInOutPanel);
+            this.mainAttachmentTabPage.Controls.Add(this.imagePanel);
+            this.mainAttachmentTabPage.Controls.Add(this.pdfViewerControl);
             this.mainAttachmentTabPage.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainAttachmentTabPage.Location = new System.Drawing.Point(4, 33);
             this.mainAttachmentTabPage.Margin = new System.Windows.Forms.Padding(0);
@@ -386,16 +387,156 @@
             this.mainAttachmentTabPage.TabIndex = 0;
             this.mainAttachmentTabPage.Text = "মূলপত্র​";
             // 
+            // zoomInOutPanel
+            // 
+            this.zoomInOutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.zoomInOutPanel.AutoSize = true;
+            this.zoomInOutPanel.BackColor = System.Drawing.Color.Gray;
+            this.zoomInOutPanel.Controls.Add(this.imageSaveButton);
+            this.zoomInOutPanel.Controls.Add(this.resetButton);
+            this.zoomInOutPanel.Controls.Add(this.zoomOutButton);
+            this.zoomInOutPanel.Controls.Add(this.zoomInButton);
+            this.zoomInOutPanel.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.zoomInOutPanel.Location = new System.Drawing.Point(482, 485);
+            this.zoomInOutPanel.Name = "zoomInOutPanel";
+            this.zoomInOutPanel.Size = new System.Drawing.Size(172, 39);
+            this.zoomInOutPanel.TabIndex = 0;
+            this.zoomInOutPanel.TabStop = true;
+            this.zoomInOutPanel.Visible = false;
+            // 
+            // imageSaveButton
+            // 
+            this.imageSaveButton.BackColor = System.Drawing.Color.Transparent;
+            this.imageSaveButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.imageSaveButton.FlatAppearance.BorderSize = 0;
+            this.imageSaveButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.imageSaveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.imageSaveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.imageSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.imageSaveButton.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.imageSaveButton.IconColor = System.Drawing.Color.Silver;
+            this.imageSaveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.imageSaveButton.IconSize = 32;
+            this.imageSaveButton.Location = new System.Drawing.Point(129, 0);
+            this.imageSaveButton.Name = "imageSaveButton";
+            this.imageSaveButton.Size = new System.Drawing.Size(43, 39);
+            this.imageSaveButton.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.imageSaveButton, "Save");
+            this.imageSaveButton.UseVisualStyleBackColor = false;
+            this.imageSaveButton.Click += new System.EventHandler(this.imageSaveButton_Click);
+            // 
+            // resetButton
+            // 
+            this.resetButton.BackColor = System.Drawing.Color.Transparent;
+            this.resetButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.resetButton.FlatAppearance.BorderSize = 0;
+            this.resetButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.resetButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.resetButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resetButton.IconChar = FontAwesome.Sharp.IconChar.Recycle;
+            this.resetButton.IconColor = System.Drawing.Color.Silver;
+            this.resetButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.resetButton.IconSize = 32;
+            this.resetButton.Location = new System.Drawing.Point(86, 0);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(43, 39);
+            this.resetButton.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.resetButton, "Reset");
+            this.resetButton.UseVisualStyleBackColor = false;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // zoomOutButton
+            // 
+            this.zoomOutButton.BackColor = System.Drawing.Color.Transparent;
+            this.zoomOutButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.zoomOutButton.FlatAppearance.BorderSize = 0;
+            this.zoomOutButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.zoomOutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.zoomOutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.zoomOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.zoomOutButton.IconChar = FontAwesome.Sharp.IconChar.MinusCircle;
+            this.zoomOutButton.IconColor = System.Drawing.Color.Silver;
+            this.zoomOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.zoomOutButton.IconSize = 32;
+            this.zoomOutButton.Location = new System.Drawing.Point(43, 0);
+            this.zoomOutButton.Name = "zoomOutButton";
+            this.zoomOutButton.Size = new System.Drawing.Size(43, 39);
+            this.zoomOutButton.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.zoomOutButton, "Zoom Out");
+            this.zoomOutButton.UseVisualStyleBackColor = false;
+            this.zoomOutButton.Click += new System.EventHandler(this.zoomOutButton_Click);
+            // 
+            // zoomInButton
+            // 
+            this.zoomInButton.BackColor = System.Drawing.Color.Transparent;
+            this.zoomInButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.zoomInButton.FlatAppearance.BorderSize = 0;
+            this.zoomInButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.zoomInButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.zoomInButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.zoomInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.zoomInButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.zoomInButton.IconColor = System.Drawing.Color.Silver;
+            this.zoomInButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.zoomInButton.IconSize = 32;
+            this.zoomInButton.Location = new System.Drawing.Point(0, 0);
+            this.zoomInButton.Name = "zoomInButton";
+            this.zoomInButton.Size = new System.Drawing.Size(43, 39);
+            this.zoomInButton.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.zoomInButton, "Zoom in");
+            this.zoomInButton.UseVisualStyleBackColor = false;
+            this.zoomInButton.Click += new System.EventHandler(this.zoomInButton_Click);
+            // 
+            // imagePanel
+            // 
+            this.imagePanel.AutoScroll = true;
+            this.imagePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.imagePanel.Controls.Add(this.imageViewPictureBox);
+            this.imagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imagePanel.Location = new System.Drawing.Point(3, 3);
+            this.imagePanel.Margin = new System.Windows.Forms.Padding(0);
+            this.imagePanel.Name = "imagePanel";
+            this.imagePanel.Size = new System.Drawing.Size(1027, 557);
+            this.imagePanel.TabIndex = 3;
+            this.imagePanel.MouseLeave += new System.EventHandler(this.imagePanel_MouseLeave);
+            this.imagePanel.MouseHover += new System.EventHandler(this.imagePanel_MouseHover);
+            // 
+            // imageViewPictureBox
+            // 
+            this.imageViewPictureBox.ErrorImage = global::dNothi.Desktop.Properties.Resources.PDF_File_Icon;
+            this.imageViewPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.imageViewPictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.imageViewPictureBox.Name = "imageViewPictureBox";
+            this.imageViewPictureBox.Size = new System.Drawing.Size(1110, 803);
+            this.imageViewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imageViewPictureBox.TabIndex = 2;
+            this.imageViewPictureBox.TabStop = false;
+            this.imageViewPictureBox.WaitOnLoad = true;
+            this.imageViewPictureBox.Click += new System.EventHandler(this.imageViewPictureBox_Click);
+            this.imageViewPictureBox.MouseLeave += new System.EventHandler(this.imagePanel_MouseLeave);
+            this.imageViewPictureBox.MouseHover += new System.EventHandler(this.imagePanel_MouseHover);
+            // 
             // mainAttachmentViewWebBrowser
             // 
-            this.mainAttachmentViewWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(3, 3);
+            this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(0, 0);
             this.mainAttachmentViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.mainAttachmentViewWebBrowser.Name = "mainAttachmentViewWebBrowser";
             this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(1027, 557);
             this.mainAttachmentViewWebBrowser.TabIndex = 0;
             this.mainAttachmentViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             this.mainAttachmentViewWebBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.mainAttachmentViewWebBrowser_DocumentCompleted);
+            // 
+            // pdfViewerControl
+            // 
+            this.pdfViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdfViewerControl.Enabled = true;
+            this.pdfViewerControl.Location = new System.Drawing.Point(3, 3);
+            this.pdfViewerControl.Name = "pdfViewerControl";
+            this.pdfViewerControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("pdfViewerControl.OcxState")));
+            this.pdfViewerControl.Size = new System.Drawing.Size(1027, 557);
+            this.pdfViewerControl.TabIndex = 0;
             // 
             // attachmentListTabPage
             // 
@@ -824,22 +965,6 @@
             this.subPanel.Size = new System.Drawing.Size(1086, 38);
             this.subPanel.TabIndex = 0;
             // 
-            // imageViewPictureBox
-            // 
-            this.imageViewPictureBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.imageViewPictureBox.ErrorImage = global::dNothi.Desktop.Properties.Resources.PDF_File_Icon;
-            this.imageViewPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.imageViewPictureBox.Margin = new System.Windows.Forms.Padding(0);
-            this.imageViewPictureBox.Name = "imageViewPictureBox";
-            this.imageViewPictureBox.Size = new System.Drawing.Size(1010, 800);
-            this.imageViewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imageViewPictureBox.TabIndex = 2;
-            this.imageViewPictureBox.TabStop = false;
-            this.imageViewPictureBox.WaitOnLoad = true;
-            this.imageViewPictureBox.Click += new System.EventHandler(this.imageViewPictureBox_Click);
-            this.imageViewPictureBox.MouseLeave += new System.EventHandler(this.imagePanel_MouseLeave);
-            this.imageViewPictureBox.MouseHover += new System.EventHandler(this.imagePanel_MouseHover);
-            // 
             // rightInfoPanel
             // 
             this.rightInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -858,95 +983,6 @@
             this.rightInfoPanel.Size = new System.Drawing.Size(20, 32);
             this.rightInfoPanel.TabIndex = 71;
             // 
-            // imagePanel
-            // 
-            this.imagePanel.AutoScroll = true;
-            this.imagePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.imagePanel.Controls.Add(this.imageViewPictureBox);
-            this.imagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imagePanel.Location = new System.Drawing.Point(3, 3);
-            this.imagePanel.Margin = new System.Windows.Forms.Padding(0);
-            this.imagePanel.Name = "imagePanel";
-            this.imagePanel.Size = new System.Drawing.Size(1027, 557);
-            this.imagePanel.TabIndex = 3;
-            this.imagePanel.MouseLeave += new System.EventHandler(this.imagePanel_MouseLeave);
-            this.imagePanel.MouseHover += new System.EventHandler(this.imagePanel_MouseHover);
-            // 
-            // pdfViewerControl
-            // 
-            this.pdfViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pdfViewerControl.Enabled = true;
-            this.pdfViewerControl.Location = new System.Drawing.Point(3, 3);
-            this.pdfViewerControl.Name = "pdfViewerControl";
-            this.pdfViewerControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("pdfViewerControl.OcxState")));
-            this.pdfViewerControl.Size = new System.Drawing.Size(1027, 557);
-            this.pdfViewerControl.TabIndex = 0;
-            // 
-            // zoomInOutPanel
-            // 
-            this.zoomInOutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.zoomInOutPanel.AutoSize = true;
-            this.zoomInOutPanel.Controls.Add(this.resetButton);
-            this.zoomInOutPanel.Controls.Add(this.zoomOutButton);
-            this.zoomInOutPanel.Controls.Add(this.zoomInButton);
-            this.zoomInOutPanel.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.zoomInOutPanel.Location = new System.Drawing.Point(839, 20);
-            this.zoomInOutPanel.Name = "zoomInOutPanel";
-            this.zoomInOutPanel.Size = new System.Drawing.Size(129, 39);
-            this.zoomInOutPanel.TabIndex = 0;
-            this.zoomInOutPanel.Visible = false;
-            // 
-            // zoomInButton
-            // 
-            this.zoomInButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.zoomInButton.FlatAppearance.BorderSize = 0;
-            this.zoomInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.zoomInButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.zoomInButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.zoomInButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.zoomInButton.IconSize = 32;
-            this.zoomInButton.Location = new System.Drawing.Point(0, 0);
-            this.zoomInButton.Name = "zoomInButton";
-            this.zoomInButton.Size = new System.Drawing.Size(43, 39);
-            this.zoomInButton.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.zoomInButton, "Zoom in");
-            this.zoomInButton.UseVisualStyleBackColor = true;
-            this.zoomInButton.Click += new System.EventHandler(this.zoomInButton_Click);
-            // 
-            // zoomOutButton
-            // 
-            this.zoomOutButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.zoomOutButton.FlatAppearance.BorderSize = 0;
-            this.zoomOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.zoomOutButton.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.zoomOutButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.zoomOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.zoomOutButton.IconSize = 32;
-            this.zoomOutButton.Location = new System.Drawing.Point(43, 0);
-            this.zoomOutButton.Name = "zoomOutButton";
-            this.zoomOutButton.Size = new System.Drawing.Size(43, 39);
-            this.zoomOutButton.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.zoomOutButton, "Zoom Out");
-            this.zoomOutButton.UseVisualStyleBackColor = true;
-            this.zoomOutButton.Click += new System.EventHandler(this.zoomOutButton_Click);
-            // 
-            // resetButton
-            // 
-            this.resetButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.resetButton.FlatAppearance.BorderSize = 0;
-            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetButton.IconChar = FontAwesome.Sharp.IconChar.Recycle;
-            this.resetButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.resetButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.resetButton.IconSize = 32;
-            this.resetButton.Location = new System.Drawing.Point(86, 0);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(43, 39);
-            this.resetButton.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.resetButton, "Reset");
-            this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
-            // 
             // DetailsDakUserControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -962,6 +998,11 @@
             this.AttachmentDetails.ResumeLayout(false);
             this.mainAttachmentTabPage.ResumeLayout(false);
             this.mainAttachmentTabPage.PerformLayout();
+            this.zoomInOutPanel.ResumeLayout(false);
+            this.imagePanel.ResumeLayout(false);
+            this.imagePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageViewPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pdfViewerControl)).EndInit();
             this.attachmentListTabPage.ResumeLayout(false);
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
@@ -984,11 +1025,6 @@
             this.docketingNoPanel.PerformLayout();
             this.subPanel.ResumeLayout(false);
             this.subPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageViewPictureBox)).EndInit();
-            this.imagePanel.ResumeLayout(false);
-            this.imagePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pdfViewerControl)).EndInit();
-            this.zoomInOutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1051,5 +1087,6 @@
         private FontAwesome.Sharp.IconButton zoomInButton;
         private FontAwesome.Sharp.IconButton resetButton;
         private FontAwesome.Sharp.IconButton zoomOutButton;
+        private FontAwesome.Sharp.IconButton imageSaveButton;
     }
 }

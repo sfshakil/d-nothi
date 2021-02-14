@@ -358,7 +358,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakNothivuktoUserControl_Load(object sender, EventArgs e)
         {
-            dakActionPanel.Location = new Point(this.Width - dakActionPanel.Width, dakActionPanel.Location.Y);
+            dakActionPanel.Location = new Point(this.Width, dakActionPanel.Location.Y);
         //    disablePanel.Location = new Point(this.Width - disablePanel.Width, disablePanel.Location.Y);
 
         }
