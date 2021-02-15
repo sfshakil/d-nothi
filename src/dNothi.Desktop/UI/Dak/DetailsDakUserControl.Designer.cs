@@ -50,6 +50,7 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.AttachmentDetails = new System.Windows.Forms.TabControl();
             this.mainAttachmentTabPage = new System.Windows.Forms.TabPage();
+            this.mainAttachmentViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.zoomInOutPanel = new System.Windows.Forms.Panel();
             this.imageSaveButton = new FontAwesome.Sharp.IconButton();
             this.resetButton = new FontAwesome.Sharp.IconButton();
@@ -57,7 +58,6 @@
             this.zoomInButton = new FontAwesome.Sharp.IconButton();
             this.imagePanel = new System.Windows.Forms.Panel();
             this.imageViewPictureBox = new System.Windows.Forms.PictureBox();
-            this.mainAttachmentViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.pdfViewerControl = new AxAcroPDFLib.AxAcroPDF();
             this.attachmentListTabPage = new System.Windows.Forms.TabPage();
             this.attachmentListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -82,10 +82,10 @@
             this.movementStatusDetailsButton = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.bodySubjectTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.docketingNoPanel = new System.Windows.Forms.Panel();
             this.subPanel = new System.Windows.Forms.Panel();
-            this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.panel1.SuspendLayout();
             this.AttachmentDetails.SuspendLayout();
             this.mainAttachmentTabPage.SuspendLayout();
@@ -387,6 +387,17 @@
             this.mainAttachmentTabPage.TabIndex = 0;
             this.mainAttachmentTabPage.Text = "মূলপত্র​";
             // 
+            // mainAttachmentViewWebBrowser
+            // 
+            this.mainAttachmentViewWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(3, 3);
+            this.mainAttachmentViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.mainAttachmentViewWebBrowser.Name = "mainAttachmentViewWebBrowser";
+            this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(1027, 557);
+            this.mainAttachmentViewWebBrowser.TabIndex = 0;
+            this.mainAttachmentViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
+            this.mainAttachmentViewWebBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.mainAttachmentViewWebBrowser_DocumentCompleted);
+            // 
             // zoomInOutPanel
             // 
             this.zoomInOutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -517,16 +528,6 @@
             this.imageViewPictureBox.Click += new System.EventHandler(this.imageViewPictureBox_Click);
             this.imageViewPictureBox.MouseLeave += new System.EventHandler(this.imagePanel_MouseLeave);
             this.imageViewPictureBox.MouseHover += new System.EventHandler(this.imagePanel_MouseHover);
-            // 
-            // mainAttachmentViewWebBrowser
-            // 
-            this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(0, 0);
-            this.mainAttachmentViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.mainAttachmentViewWebBrowser.Name = "mainAttachmentViewWebBrowser";
-            this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(1027, 557);
-            this.mainAttachmentViewWebBrowser.TabIndex = 0;
-            this.mainAttachmentViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
-            this.mainAttachmentViewWebBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.mainAttachmentViewWebBrowser_DocumentCompleted);
             // 
             // pdfViewerControl
             // 
@@ -922,6 +923,24 @@
             this.iconPictureBox1.TabIndex = 1;
             this.iconPictureBox1.TabStop = false;
             // 
+            // rightInfoPanel
+            // 
+            this.rightInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.rightInfoPanel.attentionTypeIconValue = null;
+            this.rightInfoPanel.AutoSize = true;
+            this.rightInfoPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rightInfoPanel.BackColor = System.Drawing.Color.Transparent;
+            this.rightInfoPanel.dakPrioriy = null;
+            this.rightInfoPanel.dakSecurityIconValue = null;
+            this.rightInfoPanel.dakType = null;
+            this.rightInfoPanel.dakViewStatus = null;
+            this.rightInfoPanel.Location = new System.Drawing.Point(1063, 3);
+            this.rightInfoPanel.Name = "rightInfoPanel";
+            this.rightInfoPanel.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.rightInfoPanel.potrojari = 0;
+            this.rightInfoPanel.Size = new System.Drawing.Size(20, 32);
+            this.rightInfoPanel.TabIndex = 71;
+            // 
             // bodySubjectTableLayoutPanel
             // 
             this.bodySubjectTableLayoutPanel.AutoSize = true;
@@ -964,24 +983,6 @@
             this.subPanel.Padding = new System.Windows.Forms.Padding(21, 11, 0, 0);
             this.subPanel.Size = new System.Drawing.Size(1086, 38);
             this.subPanel.TabIndex = 0;
-            // 
-            // rightInfoPanel
-            // 
-            this.rightInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.rightInfoPanel.attentionTypeIconValue = null;
-            this.rightInfoPanel.AutoSize = true;
-            this.rightInfoPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.rightInfoPanel.BackColor = System.Drawing.Color.Transparent;
-            this.rightInfoPanel.dakPrioriy = null;
-            this.rightInfoPanel.dakSecurityIconValue = null;
-            this.rightInfoPanel.dakType = null;
-            this.rightInfoPanel.dakViewStatus = null;
-            this.rightInfoPanel.Location = new System.Drawing.Point(1063, 3);
-            this.rightInfoPanel.Name = "rightInfoPanel";
-            this.rightInfoPanel.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.rightInfoPanel.potrojari = 0;
-            this.rightInfoPanel.Size = new System.Drawing.Size(20, 32);
-            this.rightInfoPanel.TabIndex = 71;
             // 
             // DetailsDakUserControl
             // 

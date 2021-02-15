@@ -19,6 +19,7 @@ using Patagames.Pdf.Net;
 using System.Net;
 using System.Web;
 using com.sun.org.apache.xalan.@internal.xsltc;
+using System.Text.RegularExpressions;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -129,17 +130,27 @@ namespace dNothi.Desktop.UI.Dak
                         pdfViewerControl.Visible = false;
                           //mainAttachmentViewWebBrowser.DocumentText=_dakDetailsResponse.data.dak_origin.dak_description;
                         mainAttachmentViewWebBrowser.Visible = true;
-                         mainAttachmentViewWebBrowser.Navigate("about:blank");
+                        //mainAttachmentViewWebBrowser.Navigate("about:blank");
                         if (mainAttachmentViewWebBrowser.Document != null)
                         {
                         mainAttachmentViewWebBrowser.Document.Write(string.Empty);
                         }
+                        string DecodedString = dakAttachmentDTO.dak_description;
+                        int loopCount = 0;
+                        do
+                        {
+
+                            StringWriter writer = new StringWriter();
+                            System.Net.WebUtility.HtmlDecode(DecodedString, writer);
+                            DecodedString = writer.ToString();
+                            loopCount += 1;
 
 
-                        StringWriter writer = new StringWriter();
-                        System.Net.WebUtility.HtmlDecode(dakAttachmentDTO.dak_description, writer);
-                        String DecodedString = writer.ToString();
-                        mainAttachmentViewWebBrowser.DocumentText =""+ System.Net.WebUtility.HtmlDecode(DecodedString) +"";
+                        } while (!DecodedString.StartsWith("<") && loopCount<5);
+
+                        
+
+                        mainAttachmentViewWebBrowser.DocumentText = DecodedString;
                             
                            
                             }
@@ -430,10 +441,22 @@ namespace dNothi.Desktop.UI.Dak
         public string sharokNo
         {
             get { return _sharokNo; }
-            set { _sharokNo = value; 
-                sharokNoText.Text = value;
-                //try { sharokNoText.Text= string.Concat(value.Select(c => (char)('\u09E6' + c - '0'))); } catch(Exception Ex) { }
+            set { _sharokNo = value;
+                var isValidNumber = Regex.IsMatch(value, @"^[0-9]+(\.[0-9]+)?$");
+                if (isValidNumber)
+                {
 
+                    try { sharokNoText.Text = string.Concat(value.Select(c => (char)('\u09E6' + c - '0'))); } catch (Exception Ex) { }
+
+
+                }
+                else
+                {
+                    sharokNoText.Text = value;
+                }
+
+              
+              
                 if (sharokNo == "" || sharokNo == null) { sharokNoLabel.Visible = false;sharokNoText.Visible = false;sharokNoSpaceLabel.Visible = false; }
             }
         }
