@@ -260,7 +260,17 @@ namespace dNothi.Desktop.UI
                             try
                             {
                                 detailsDakUserControl.officerName = dakDetailsResponse.data.movement_status.from.officer;
-                                detailsDakUserControl.officerDesignation = "(" + dakDetailsResponse.data.movement_status.from.designation + ")";
+
+                                if(dakDetailsResponse.data.movement_status.from.designation !="")
+                                {
+                                    detailsDakUserControl.officerDesignation = "(" + dakDetailsResponse.data.movement_status.from.designation + ")";
+
+                                }
+                                else
+                                {
+                                    detailsDakUserControl.officerDesignation = "";
+
+                                }
                                 detailsDakUserControl.officeName = dakDetailsResponse.data.movement_status.from.office;
 
                             }

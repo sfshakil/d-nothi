@@ -216,7 +216,7 @@
             // 
             this.dateLabel.BackColor = System.Drawing.Color.Transparent;
             this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(930, 59);
+            this.dateLabel.Location = new System.Drawing.Point(952, 59);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(134, 23);
             this.dateLabel.TabIndex = 90;
@@ -358,14 +358,15 @@
             // 
             this.dakAttachmentButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.dakAttachmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakAttachmentButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakAttachmentButton.IconChar = FontAwesome.Sharp.IconChar.Link;
             this.dakAttachmentButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(132)))));
             this.dakAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakAttachmentButton.IconSize = 24;
+            this.dakAttachmentButton.IconSize = 20;
             this.dakAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakAttachmentButton.Location = new System.Drawing.Point(885, 57);
+            this.dakAttachmentButton.Location = new System.Drawing.Point(909, 57);
             this.dakAttachmentButton.Name = "dakAttachmentButton";
-            this.dakAttachmentButton.Size = new System.Drawing.Size(45, 29);
+            this.dakAttachmentButton.Size = new System.Drawing.Size(42, 26);
             this.dakAttachmentButton.TabIndex = 69;
             this.dakAttachmentButton.TabStop = false;
             this.dakAttachmentButton.Text = "1";
@@ -382,7 +383,7 @@
             this.dakActionPanel.Controls.Add(this.iconButton3);
             this.dakActionPanel.Controls.Add(this.dakRevertButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-175, 15);
+            this.dakActionPanel.Location = new System.Drawing.Point(-271, 15);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);

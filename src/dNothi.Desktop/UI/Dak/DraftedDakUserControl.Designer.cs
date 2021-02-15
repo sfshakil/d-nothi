@@ -60,9 +60,10 @@
             // 
             // dateLabel
             // 
+            this.dateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dateLabel.BackColor = System.Drawing.Color.Transparent;
             this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(904, 54);
+            this.dateLabel.Location = new System.Drawing.Point(943, 57);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(156, 23);
             this.dateLabel.TabIndex = 64;
@@ -75,7 +76,7 @@
             this.dakActionPanel.Controls.Add(this.dakEditButton);
             this.dakActionPanel.Controls.Add(this.dakSendButton);
             this.dakActionPanel.Controls.Add(this.dakDeleteButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(985, 15);
+            this.dakActionPanel.Location = new System.Drawing.Point(1005, 15);
             this.dakActionPanel.Name = "dakActionPanel";
             this.dakActionPanel.Size = new System.Drawing.Size(96, 34);
             this.dakActionPanel.TabIndex = 82;
@@ -149,16 +150,17 @@
             // 
             // dakAttachmentButton
             // 
+            this.dakAttachmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dakAttachmentButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.dakAttachmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dakAttachmentButton.IconChar = FontAwesome.Sharp.IconChar.Link;
             this.dakAttachmentButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(132)))));
             this.dakAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakAttachmentButton.IconSize = 24;
+            this.dakAttachmentButton.IconSize = 20;
             this.dakAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakAttachmentButton.Location = new System.Drawing.Point(857, 51);
+            this.dakAttachmentButton.Location = new System.Drawing.Point(899, 55);
             this.dakAttachmentButton.Name = "dakAttachmentButton";
-            this.dakAttachmentButton.Size = new System.Drawing.Size(45, 29);
+            this.dakAttachmentButton.Size = new System.Drawing.Size(42, 26);
             this.dakAttachmentButton.TabIndex = 83;
             this.dakAttachmentButton.TabStop = false;
             this.dakAttachmentButton.Text = "1";
@@ -175,7 +177,7 @@
             this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1095, 41);
+            this.panel1.Size = new System.Drawing.Size(1107, 41);
             this.panel1.TabIndex = 85;
             // 
             // panel3
@@ -291,7 +293,7 @@
             this.subjectPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectPanel.Location = new System.Drawing.Point(0, 61);
             this.subjectPanel.Name = "subjectPanel";
-            this.subjectPanel.Size = new System.Drawing.Size(1095, 18);
+            this.subjectPanel.Size = new System.Drawing.Size(1107, 18);
             this.subjectPanel.TabIndex = 87;
             // 
             // subjectLabel
@@ -339,7 +341,7 @@
             this.rightInfoPanel.dakSecurityIconValue = null;
             this.rightInfoPanel.dakType = null;
             this.rightInfoPanel.dakViewStatus = null;
-            this.rightInfoPanel.Location = new System.Drawing.Point(1091, 15);
+            this.rightInfoPanel.Location = new System.Drawing.Point(1103, 15);
             this.rightInfoPanel.Name = "rightInfoPanel";
             this.rightInfoPanel.potrojari = 0;
             this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
@@ -358,7 +360,7 @@
             this.Controls.Add(this.senderAndReceiverPanel);
             this.Controls.Add(this.panel1);
             this.Name = "DraftedDakUserControl";
-            this.Size = new System.Drawing.Size(1095, 84);
+            this.Size = new System.Drawing.Size(1107, 84);
             this.Load += new System.EventHandler(this.DraftedDakUserControl_Load);
             this.MouseEnter += new System.EventHandler(this.DraftedDakUserControl_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.DraftedDakUserControl_MouseLeave);

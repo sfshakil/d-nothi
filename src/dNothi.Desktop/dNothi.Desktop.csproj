@@ -379,6 +379,12 @@
     <Compile Include="UI\Dak\Attachment.Designer.cs">
       <DependentUpon>Attachment.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\AttachmentViewPopUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\AttachmentViewPopUpForm.Designer.cs">
+      <DependentUpon>AttachmentViewPopUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\CreateNewNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -832,6 +838,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Attachment.resx">
       <DependentUpon>Attachment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\AttachmentViewPopUpForm.resx">
+      <DependentUpon>AttachmentViewPopUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\CreateNewNotes.resx">
       <DependentUpon>CreateNewNotes.cs</DependentUpon>

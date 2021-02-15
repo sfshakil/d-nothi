@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
 using System.Net;
+using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -26,9 +27,18 @@ namespace dNothi.Desktop.UI.Dak
         private string _attachmenttype;
         private string _attachmentlink;
         private int _attachmentid;
+      
+        public DakAttachmentDTO _dakAttachmentDTO { get; set; }
+        public DakAttachmentDTO dakAttachmentDTO
+        {
+            get { return _dakAttachmentDTO; }
+            set
+            {
+                _dakAttachmentDTO = value;
+            }
+        }
 
-
-        private void attachmentLink_Click(object sender, EventArgs e)
+                private void attachmentLink_Click(object sender, EventArgs e)
         {
            
         }
@@ -59,6 +69,8 @@ namespace dNothi.Desktop.UI.Dak
                     //string part2Bangla = string.Concat(part2.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     string part3Bangla = string.Concat(part3.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     attachmentSizeLabel.Text = part1Bangla+part2+part3Bangla + " KB";
+
+
                 
                 }
 
@@ -110,14 +122,37 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+            Screen scr = Screen.FromPoint(this.Location);
 
+            hideform.BackColor = Color.Black;
+            hideform.Width=scr.WorkingArea.Width;
+            hideform.Height=scr.WorkingArea.Height;
+            hideform.Opacity = .6;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
         private void attachmentNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (_attachmentlink != null)
-            {
-                System.Diagnostics.Process.Start(_attachmentlink);
-            }
-           
+
+            AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
+            attachmentViewPopUpForm.dakAttachmentDTO = _dakAttachmentDTO;
+            CalPopUpWindow(attachmentViewPopUpForm);
         }
 
         private void downloadButton_Click(object sender, EventArgs e)

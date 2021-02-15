@@ -876,7 +876,7 @@
             this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
             this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
             this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 52);
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 44);
             this.searchOfficeDetailSearch.TabIndex = 53;
             // 
             // officerSearchList
@@ -926,18 +926,18 @@
             // 
             // label13
             // 
-            this.label13.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.label13.BackColor = System.Drawing.SystemColors.MenuBar;
             this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label13.Location = new System.Drawing.Point(-87, 317);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(1236, 1);
+            this.label13.Size = new System.Drawing.Size(1236, 2);
             this.label13.TabIndex = 50;
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.label2.BackColor = System.Drawing.SystemColors.MenuBar;
             this.label2.Location = new System.Drawing.Point(23, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1075, 1);
@@ -954,7 +954,7 @@
             this.timeLimitFromDateTimePicker.Cursor = System.Windows.Forms.Cursors.Default;
             this.timeLimitFromDateTimePicker.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLimitFromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeLimitFromDateTimePicker.Location = new System.Drawing.Point(553, 53);
+            this.timeLimitFromDateTimePicker.Location = new System.Drawing.Point(553, 55);
             this.timeLimitFromDateTimePicker.MinimumSize = new System.Drawing.Size(4, 43);
             this.timeLimitFromDateTimePicker.Name = "timeLimitFromDateTimePicker";
             this.timeLimitFromDateTimePicker.Size = new System.Drawing.Size(252, 43);
@@ -965,7 +965,7 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
             this.panel9.Controls.Add(this.detailSearchApplicationAcceptNumberTextBox);
-            this.panel9.Location = new System.Drawing.Point(287, 53);
+            this.panel9.Location = new System.Drawing.Point(287, 55);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(250, 43);
             this.panel9.TabIndex = 6;
@@ -976,7 +976,7 @@
             this.detailSearchApplicationAcceptNumberTextBox.BackColor = System.Drawing.Color.White;
             this.detailSearchApplicationAcceptNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.detailSearchApplicationAcceptNumberTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailSearchApplicationAcceptNumberTextBox.Location = new System.Drawing.Point(10, 10);
+            this.detailSearchApplicationAcceptNumberTextBox.Location = new System.Drawing.Point(10, 12);
             this.detailSearchApplicationAcceptNumberTextBox.Name = "detailSearchApplicationAcceptNumberTextBox";
             this.detailSearchApplicationAcceptNumberTextBox.PlaceholderText = "আবেদন গ্রহন নাম্বার";
             this.detailSearchApplicationAcceptNumberTextBox.Size = new System.Drawing.Size(217, 19);
@@ -986,7 +986,7 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
             this.panel8.Controls.Add(this.detailsSearchDocketingNoTextBox);
-            this.panel8.Location = new System.Drawing.Point(23, 53);
+            this.panel8.Location = new System.Drawing.Point(23, 55);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(250, 43);
             this.panel8.TabIndex = 5;
@@ -997,7 +997,7 @@
             this.detailsSearchDocketingNoTextBox.BackColor = System.Drawing.Color.White;
             this.detailsSearchDocketingNoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.detailsSearchDocketingNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailsSearchDocketingNoTextBox.Location = new System.Drawing.Point(10, 10);
+            this.detailsSearchDocketingNoTextBox.Location = new System.Drawing.Point(10, 12);
             this.detailsSearchDocketingNoTextBox.Name = "detailsSearchDocketingNoTextBox";
             this.detailsSearchDocketingNoTextBox.PlaceholderText = "ডকেটিং নং";
             this.detailsSearchDocketingNoTextBox.Size = new System.Drawing.Size(217, 19);
@@ -1010,7 +1010,7 @@
             this.timeLimitToDateTimePicker.Cursor = System.Windows.Forms.Cursors.Default;
             this.timeLimitToDateTimePicker.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLimitToDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeLimitToDateTimePicker.Location = new System.Drawing.Point(830, 53);
+            this.timeLimitToDateTimePicker.Location = new System.Drawing.Point(830, 55);
             this.timeLimitToDateTimePicker.MinimumSize = new System.Drawing.Size(252, 43);
             this.timeLimitToDateTimePicker.Name = "timeLimitToDateTimePicker";
             this.timeLimitToDateTimePicker.Size = new System.Drawing.Size(267, 43);
@@ -1201,7 +1201,7 @@
             // 
             // label10
             // 
-            this.label10.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.label10.BackColor = System.Drawing.SystemColors.MenuBar;
             this.label10.Location = new System.Drawing.Point(23, 108);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(1075, 1);
@@ -1296,7 +1296,7 @@
             this.detailSearchStopButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.detailSearchStopButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchStopButton.Image")));
             this.detailSearchStopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailSearchStopButton.Location = new System.Drawing.Point(258, 326);
+            this.detailSearchStopButton.Location = new System.Drawing.Point(258, 330);
             this.detailSearchStopButton.Name = "detailSearchStopButton";
             this.detailSearchStopButton.Size = new System.Drawing.Size(114, 42);
             this.detailSearchStopButton.TabIndex = 25;
@@ -1338,7 +1338,7 @@
             this.detailsSearchResetButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.detailsSearchResetButton.Image = ((System.Drawing.Image)(resources.GetObject("detailsSearchResetButton.Image")));
             this.detailsSearchResetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailsSearchResetButton.Location = new System.Drawing.Point(136, 325);
+            this.detailsSearchResetButton.Location = new System.Drawing.Point(136, 329);
             this.detailsSearchResetButton.Name = "detailsSearchResetButton";
             this.detailsSearchResetButton.Size = new System.Drawing.Size(121, 44);
             this.detailsSearchResetButton.TabIndex = 31;
@@ -1354,13 +1354,13 @@
             this.detailSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.detailSearchButton.FlatAppearance.BorderSize = 0;
             this.detailSearchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSeaGreen;
-            this.detailSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Turquoise;
+            this.detailSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
             this.detailSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.detailSearchButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detailSearchButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.detailSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchButton.Image")));
             this.detailSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailSearchButton.Location = new System.Drawing.Point(16, 325);
+            this.detailSearchButton.Location = new System.Drawing.Point(16, 329);
             this.detailSearchButton.Name = "detailSearchButton";
             this.detailSearchButton.Size = new System.Drawing.Size(121, 44);
             this.detailSearchButton.TabIndex = 30;

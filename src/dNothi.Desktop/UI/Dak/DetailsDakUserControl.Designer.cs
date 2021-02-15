@@ -126,21 +126,25 @@
             // 
             // subjectLabel
             // 
+            this.subjectLabel.AutoSize = true;
             this.subjectLabel.BackColor = System.Drawing.Color.Transparent;
-            this.subjectLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.subjectLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.subjectLabel.Location = new System.Drawing.Point(67, 11);
             this.subjectLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.subjectLabel.MaximumSize = new System.Drawing.Size(800, 0);
             this.subjectLabel.Name = "subjectLabel";
-            this.subjectLabel.Size = new System.Drawing.Size(635, 27);
+            this.subjectLabel.Size = new System.Drawing.Size(777, 42);
             this.subjectLabel.TabIndex = 64;
-            this.subjectLabel.Text = "ন্যাশনাল কনসালটেন্ট ফর ই-নথি ইমপ্লিমেন্টেশন";
+            this.subjectLabel.Text = "ন্যাশনাল কনসালটেন্ট ফন্যাশনাল কনসালটেন্ট ফর ই-নথি ইমপ্লিমেন্টেশন sjfdfhjdashfjkds" +
+    "agfbdsafjdsagfdhkasfgakgadhkfgad hagfgvb hagfhagdaj fadhgfadbvhadbfhadbfhdabfhad" +
+    " fadhfghadk bf র ই-নথি ইমপ্লিমেন্টেশন ";
             // 
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(243)))));
-            this.label10.Location = new System.Drawing.Point(3, 76);
+            this.label10.Location = new System.Drawing.Point(3, 110);
+            this.label10.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(1080, 1);
             this.label10.TabIndex = 69;
@@ -157,10 +161,10 @@
             this.panel1.Controls.Add(this.docketingNoText);
             this.panel1.Controls.Add(this.docketingNoLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(25, 0);
+            this.panel1.Location = new System.Drawing.Point(25, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 38);
+            this.panel1.Size = new System.Drawing.Size(780, 37);
             this.panel1.TabIndex = 71;
             // 
             // decisionText
@@ -200,7 +204,7 @@
             this.sharokNoSpaceLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sharokNoSpaceLabel.Location = new System.Drawing.Point(241, 0);
             this.sharokNoSpaceLabel.Name = "sharokNoSpaceLabel";
-            this.sharokNoSpaceLabel.Size = new System.Drawing.Size(5, 38);
+            this.sharokNoSpaceLabel.Size = new System.Drawing.Size(5, 37);
             this.sharokNoSpaceLabel.TabIndex = 74;
             // 
             // sharokNoText
@@ -241,7 +245,7 @@
             this.docketingNoSpaceLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.docketingNoSpaceLabel.Location = new System.Drawing.Point(135, 0);
             this.docketingNoSpaceLabel.Name = "docketingNoSpaceLabel";
-            this.docketingNoSpaceLabel.Size = new System.Drawing.Size(5, 38);
+            this.docketingNoSpaceLabel.Size = new System.Drawing.Size(5, 37);
             this.docketingNoSpaceLabel.TabIndex = 72;
             // 
             // label6
@@ -293,9 +297,10 @@
             this.movementStatusDetailsPanel.AutoSize = true;
             this.movementStatusDetailsPanel.BackColor = System.Drawing.Color.White;
             this.movementStatusDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.movementStatusDetailsPanel.Location = new System.Drawing.Point(57, 182);
+            this.movementStatusDetailsPanel.Location = new System.Drawing.Point(58, 215);
             this.movementStatusDetailsPanel.MaximumSize = new System.Drawing.Size(642, 314);
             this.movementStatusDetailsPanel.Name = "movementStatusDetailsPanel";
+            this.movementStatusDetailsPanel.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.movementStatusDetailsPanel.Size = new System.Drawing.Size(439, 183);
             this.movementStatusDetailsPanel.TabIndex = 80;
             this.movementStatusDetailsPanel.Visible = false;
@@ -353,6 +358,7 @@
             this.nameLabel.Size = new System.Drawing.Size(495, 21);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "হাসানুজ্জামান dfgdfgf dgfdgfd d asdfafadf adfadfaf hvgjhvgjh n mbn nm nnb ";
+            this.nameLabel.Click += new System.EventHandler(this.nameLabel_Click);
             // 
             // AttachmentDetails
             // 
@@ -616,7 +622,7 @@
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
             this.dakActionPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakActionPanel.Location = new System.Drawing.Point(869, 0);
+            this.dakActionPanel.Location = new System.Drawing.Point(869, 10);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -780,7 +786,7 @@
             this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.bodyTableLayoutPanel.Controls.Add(this.bodyInfoTableLayoutPanel, 0, 1);
             this.bodyTableLayoutPanel.Controls.Add(this.bodySubjectTableLayoutPanel, 0, 0);
-            this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.bodyTableLayoutPanel.Location = new System.Drawing.Point(0, 41);
             this.bodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bodyTableLayoutPanel.MaximumSize = new System.Drawing.Size(0, 550);
@@ -800,7 +806,7 @@
             this.bodyInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.bodyInfoTableLayoutPanel.Controls.Add(this.AttachmentDetails, 0, 1);
             this.bodyInfoTableLayoutPanel.Controls.Add(this.nameAndDesignationableLayoutPanel, 0, 0);
-            this.bodyInfoTableLayoutPanel.Location = new System.Drawing.Point(0, 77);
+            this.bodyInfoTableLayoutPanel.Location = new System.Drawing.Point(0, 111);
             this.bodyInfoTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bodyInfoTableLayoutPanel.Name = "bodyInfoTableLayoutPanel";
             this.bodyInfoTableLayoutPanel.RowCount = 2;
@@ -882,16 +888,17 @@
             this.movementStatusDetailsButton.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
             this.movementStatusDetailsButton.IconColor = System.Drawing.Color.Black;
             this.movementStatusDetailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.movementStatusDetailsButton.IconSize = 24;
+            this.movementStatusDetailsButton.IconSize = 18;
+            this.movementStatusDetailsButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.movementStatusDetailsButton.Location = new System.Drawing.Point(56, 38);
             this.movementStatusDetailsButton.Margin = new System.Windows.Forms.Padding(0);
             this.movementStatusDetailsButton.MaximumSize = new System.Drawing.Size(0, 30);
             this.movementStatusDetailsButton.MinimumSize = new System.Drawing.Size(0, 30);
             this.movementStatusDetailsButton.Name = "movementStatusDetailsButton";
-            this.movementStatusDetailsButton.Size = new System.Drawing.Size(278, 30);
+            this.movementStatusDetailsButton.Size = new System.Drawing.Size(272, 30);
             this.movementStatusDetailsButton.TabIndex = 0;
             this.movementStatusDetailsButton.Text = "ন্যাশনাল কনসালটেন্ট ফর ই-নথি ইমপ্লিমেন্টেশন";
-            this.movementStatusDetailsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.movementStatusDetailsButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.movementStatusDetailsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.movementStatusDetailsButton.UseVisualStyleBackColor = false;
             this.movementStatusDetailsButton.Click += new System.EventHandler(this.movementStatusDetailsButton_Click);
@@ -953,35 +960,40 @@
             this.bodySubjectTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bodySubjectTableLayoutPanel.Name = "bodySubjectTableLayoutPanel";
             this.bodySubjectTableLayoutPanel.RowCount = 3;
-            this.bodySubjectTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.bodySubjectTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.bodySubjectTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.bodySubjectTableLayoutPanel.Size = new System.Drawing.Size(1086, 77);
+            this.bodySubjectTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.bodySubjectTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.bodySubjectTableLayoutPanel.Size = new System.Drawing.Size(1086, 111);
             this.bodySubjectTableLayoutPanel.TabIndex = 0;
             // 
             // docketingNoPanel
             // 
+            this.docketingNoPanel.AutoSize = true;
             this.docketingNoPanel.Controls.Add(this.panel1);
             this.docketingNoPanel.Controls.Add(this.dakActionPanel);
-            this.docketingNoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.docketingNoPanel.Location = new System.Drawing.Point(0, 38);
+            this.docketingNoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.docketingNoPanel.Location = new System.Drawing.Point(0, 53);
             this.docketingNoPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.docketingNoPanel.MaximumSize = new System.Drawing.Size(0, 42);
+            this.docketingNoPanel.MinimumSize = new System.Drawing.Size(0, 47);
             this.docketingNoPanel.Name = "docketingNoPanel";
-            this.docketingNoPanel.Padding = new System.Windows.Forms.Padding(25, 0, 25, 0);
-            this.docketingNoPanel.Size = new System.Drawing.Size(1086, 38);
+            this.docketingNoPanel.Padding = new System.Windows.Forms.Padding(25, 10, 25, 0);
+            this.docketingNoPanel.Size = new System.Drawing.Size(1086, 47);
             this.docketingNoPanel.TabIndex = 1;
             // 
             // subPanel
             // 
             this.subPanel.AutoSize = true;
+            this.subPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.subPanel.Controls.Add(this.subjectLabel);
             this.subPanel.Controls.Add(this.label4);
-            this.subPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.subPanel.Location = new System.Drawing.Point(0, 0);
             this.subPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.subPanel.MinimumSize = new System.Drawing.Size(0, 38);
             this.subPanel.Name = "subPanel";
             this.subPanel.Padding = new System.Windows.Forms.Padding(21, 11, 0, 0);
-            this.subPanel.Size = new System.Drawing.Size(1086, 38);
+            this.subPanel.Size = new System.Drawing.Size(1086, 53);
             this.subPanel.TabIndex = 0;
             // 
             // DetailsDakUserControl

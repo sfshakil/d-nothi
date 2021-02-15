@@ -204,8 +204,9 @@ namespace dNothi.Desktop.UI.Dak
                 DetailsAttachmentListUserControl detailsAttachmentListUserControl = new DetailsAttachmentListUserControl();
                 try
                 {
-
+                    detailsAttachmentListUserControl.dakSub = _subject;
                     detailsAttachmentListUserControl.dakAttachmentDTOs = _dakAttachmentResponse.data;
+                 
                     detailsAttachmentListUserControl.allattachmentdownloadlink = "";
                     attachmentListFlowLayoutPanel.Controls.Add(detailsAttachmentListUserControl);
                 }
@@ -801,6 +802,11 @@ namespace dNothi.Desktop.UI.Dak
                
                
             
+        }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
