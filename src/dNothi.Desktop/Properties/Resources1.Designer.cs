@@ -523,6 +523,26 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap অতি_গোপনীয়_Icon_PNG {
+            get {
+                object obj = ResourceManager.GetObject("অতি গোপনীয়-Icon-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap অতি_গোপনীয়_PNG {
+            get {
+                object obj = ResourceManager.GetObject("অতি গোপনীয়-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap অনুলিপি {
             get {
                 object obj = ResourceManager.GetObject("অনুলিপি", resourceCulture);
@@ -533,9 +553,69 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap অনুলিপি_PNG {
+            get {
+                object obj = ResourceManager.GetObject("অনুলিপি-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap অনুলিপি_PNG1 {
+            get {
+                object obj = ResourceManager.GetObject("অনুলিপি-PNG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap অনুলিপি_PNG2 {
+            get {
+                object obj = ResourceManager.GetObject("অনুলিপি-PNG2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap অনুলিপি_PNG3 {
+            get {
+                object obj = ResourceManager.GetObject("অনুলিপি-PNG3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap গোপনীয় {
             get {
                 object obj = ResourceManager.GetObject("গোপনীয়", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap গোপনীয়_Icon_PNG {
+            get {
+                object obj = ResourceManager.GetObject("গোপনীয়-Icon-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap গোপনীয়_PNG {
+            get {
+                object obj = ResourceManager.GetObject("গোপনীয়-PNG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -563,9 +643,59 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap নাগরিক_Icon_PNG {
+            get {
+                object obj = ResourceManager.GetObject("নাগরিক-Icon-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap নাগরিক_PNG {
+            get {
+                object obj = ResourceManager.GetObject("নাগরিক-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap বিশেষ_গোপনীয় {
             get {
                 object obj = ResourceManager.GetObject("বিশেষ গোপনীয়", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap বিশেষ_গোপনীয়_Icon_PNG {
+            get {
+                object obj = ResourceManager.GetObject("বিশেষ গোপনীয়-Icon-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap বিশেষ_গোপনীয়_PNG {
+            get {
+                object obj = ResourceManager.GetObject("বিশেষ গোপনীয়-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap বিশেষ_গোপনীয়_PNG1 {
+            get {
+                object obj = ResourceManager.GetObject("বিশেষ গোপনীয়-PNG1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -583,9 +713,109 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap মূল_প্রাপক_Icon_PNG {
+            get {
+                object obj = ResourceManager.GetObject("মূল-প্রাপক-Icon_PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap মূল_প্রাপক_PNG {
+            get {
+                object obj = ResourceManager.GetObject("মূল-প্রাপক-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap মূল_প্রাপক_PNG1 {
+            get {
+                object obj = ResourceManager.GetObject("মূল-প্রাপক-PNG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap মূল_প্রাপক_PNG2 {
+            get {
+                object obj = ResourceManager.GetObject("মূল-প্রাপক-PNG2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap মূল_প্রাপক_PNG3 {
+            get {
+                object obj = ResourceManager.GetObject("মূল-প্রাপক-PNG3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap সর্বোচ্চ_অগ্রাধিকার_PNG {
+            get {
+                object obj = ResourceManager.GetObject("সর্বোচ্চ অগ্রাধিকার-PNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap সর্বোচ্চ_অগ্রাধিকার_PNG1 {
+            get {
+                object obj = ResourceManager.GetObject("সর্বোচ্চ অগ্রাধিকার-PNG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap সীমিত {
             get {
                 object obj = ResourceManager.GetObject("সীমিত", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap সীমিত_Icon_PNG2 {
+            get {
+                object obj = ResourceManager.GetObject("সীমিত-Icon-PNG2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap সীমিত_PNG1 {
+            get {
+                object obj = ResourceManager.GetObject("সীমিত-PNG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap সীমিত_PNG2 {
+            get {
+                object obj = ResourceManager.GetObject("সীমিত-PNG2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -20,14 +20,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             InitializeComponent();
             InitializeComponent();
-            dakPriorityIconPanel.Visible = false;
-            dakSecurityIconPanel.Visible = false;
-            attentionTypeIconPanel.Visible = false;
-            newDakImagePanel.Visible = false;
-            dakTypePanel.Visible = false;
-            potrojariPanel.Visible = false;
-
-            disablePanel.BringToFront();
+          
             dakActionPanel.BringToFront();
             IterateControls(this.Controls);
         }
@@ -94,7 +87,6 @@ namespace dNothi.Desktop.UI.Dak
             get { return _dakid; }
             set { _dakid = value; }
         }
-
         [Category("Custom Props")]
         public int potrojari
         {
@@ -105,14 +97,8 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                if (value == 1)
-                {
-                    potrojariPanel.Visible = true;
-                }
-                else
-                {
-                    potrojariPanel.Visible = false;
-                }
+                rightInfoPanel.potrojari = value;
+
 
 
 
@@ -131,20 +117,9 @@ namespace dNothi.Desktop.UI.Dak
                 _dakPriority = value;
 
 
-                DakPriorityList dakPriorityList = new DakPriorityList();
-                string priorityName = dakPriorityList.GetDakPriorityName(value);
 
 
-                if (priorityName == "")
-                {
-                    dakPriorityIconPanel.Visible = false;
-                }
-                else
-                {
-                    dakPriorityIconPanel.Visible = true;
-                    prioriyLabel.Text = priorityName;
-
-                }
+                rightInfoPanel.dakPrioriy = value;
 
 
 
@@ -167,17 +142,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                dakTypePanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(value);
-
-                if (dakTypePanel.BackgroundImage == null)
-                {
-                    dakTypePanel.Visible = false;
-                }
-                else
-                {
-                    dakTypePanel.Visible = true;
-
-                }
+                rightInfoPanel.dakType = value;
 
 
 
@@ -198,20 +163,8 @@ namespace dNothi.Desktop.UI.Dak
             {
                 _dakSecurityIconValue = value;
 
-                DakSecurityList dakSecurityList = new DakSecurityList();
-                string icon = dakSecurityList.GetDakSecuritiesIcon(value);
+                rightInfoPanel.dakSecurityIconValue = value;
 
-                dakSecurityIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
-
-                if (dakSecurityIconPanel.BackgroundImage == null)
-                {
-                    dakSecurityIconPanel.Visible = false;
-                }
-                else
-                {
-                    dakSecurityIconPanel.Visible = true;
-
-                }
 
 
 
@@ -234,21 +187,9 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _attentionTypeIconValue = value;
+               
+                rightInfoPanel.attentionTypeIconValue = value;
 
-                AttentionTypeList attentionTypeIconList = new AttentionTypeList();
-                string icon = attentionTypeIconList.GetAttentionTypeIcon(value);
-
-                attentionTypeIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
-
-                if (attentionTypeIconPanel.BackgroundImage == null)
-                {
-                    attentionTypeIconPanel.Visible = false;
-                }
-                else
-                {
-                    attentionTypeIconPanel.Visible = true;
-
-                }
 
 
 
@@ -256,6 +197,21 @@ namespace dNothi.Desktop.UI.Dak
 
 
             }
+        }
+
+
+
+        [Category("Custom Props")]
+        public string dakViewStatus
+        {
+            get { return _dakViewStatus; }
+            set
+            {
+                _dakViewStatus = value;
+                rightInfoPanel.dakViewStatus = value;
+
+            }
+
         }
 
         [Category("Custom Props")]
@@ -266,25 +222,7 @@ namespace dNothi.Desktop.UI.Dak
         }
 
        
-        public string dakViewStatus
-        {
-            get { return _dakViewStatus; }
-            set
-            {
-                _dakViewStatus = value;
-                if (dakViewStatus == "New")
-                {
-                    newDakImagePanel.Visible = true;
-
-
-                }
-                else
-                {
-                    newDakImagePanel.Visible = false;
-                }
-
-            }
-        }
+      
 
 
        
@@ -451,6 +389,12 @@ namespace dNothi.Desktop.UI.Dak
         private void dakDeleteButton_MouseLeave(object sender, EventArgs e)
         {
             dakDeleteButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void DraftedDakUserControl_Load(object sender, EventArgs e)
+        {
+            //disablePanel.Location = new Point(this.Width - disablePanel.Width, disablePanel.Location.Y);
+
         }
     }
 }

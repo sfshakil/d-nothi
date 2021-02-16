@@ -13,6 +13,7 @@ namespace dNothi.JsonParser.Entity.Dak
         public int id { get; set; }
         public int is_main { get; set; }
         public string attachment_type { get; set; }
+        public string dak_description { get; set; }
         public string img_base64 { get; set; }
         public string attachment_description { get; set; }
         public string content_cover { get; set; }

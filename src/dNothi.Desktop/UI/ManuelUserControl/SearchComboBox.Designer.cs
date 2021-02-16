@@ -39,16 +39,16 @@
             // searchPanel
             // 
             this.searchPanel.AutoSize = true;
-            this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchPanel.Controls.Add(this.searchListBox);
             this.searchPanel.Controls.Add(this.panel1);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 32);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Padding = new System.Windows.Forms.Padding(5);
-            this.searchPanel.Size = new System.Drawing.Size(148, 92);
+            this.searchPanel.Size = new System.Drawing.Size(148, 90);
             this.searchPanel.TabIndex = 88;
             this.searchPanel.Visible = false;
+            this.searchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchButton_Paint);
             // 
             // searchListBox
             // 
@@ -62,7 +62,7 @@
             this.searchListBox.MaximumSize = new System.Drawing.Size(0, 60);
             this.searchListBox.MinimumSize = new System.Drawing.Size(0, 60);
             this.searchListBox.Name = "searchListBox";
-            this.searchListBox.Size = new System.Drawing.Size(136, 54);
+            this.searchListBox.Size = new System.Drawing.Size(138, 54);
             this.searchListBox.TabIndex = 32;
             this.searchListBox.Click += new System.EventHandler(this.searchListBox_SelectedIndexChanged);
             this.searchListBox.Enter += new System.EventHandler(this.searchListBox_Enter);
@@ -75,7 +75,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(2, 5, 2, 2);
-            this.panel1.Size = new System.Drawing.Size(136, 26);
+            this.panel1.Size = new System.Drawing.Size(138, 26);
             this.panel1.TabIndex = 34;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.searchButton_Paint);
             // 
@@ -89,7 +89,7 @@
             this.searchXTextBox.Location = new System.Drawing.Point(2, 5);
             this.searchXTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.searchXTextBox.Name = "searchXTextBox";
-            this.searchXTextBox.Size = new System.Drawing.Size(132, 19);
+            this.searchXTextBox.Size = new System.Drawing.Size(134, 19);
             this.searchXTextBox.TabIndex = 33;
             this.searchXTextBox.TextChanged += new System.EventHandler(this.searchXTextBox_TextChanged);
             // 

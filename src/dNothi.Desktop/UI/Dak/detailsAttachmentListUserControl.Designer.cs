@@ -48,6 +48,8 @@
             // 
             // attachmentListFlowLayoutPanel
             // 
+            this.attachmentListFlowLayoutPanel.AutoSize = true;
+            this.attachmentListFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.attachmentListFlowLayoutPanel.Location = new System.Drawing.Point(3, 4);
             this.attachmentListFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.attachmentListFlowLayoutPanel.Name = "attachmentListFlowLayoutPanel";
@@ -56,6 +58,7 @@
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.attachmentListFlowLayoutPanel);
             this.panel1.Location = new System.Drawing.Point(13, 30);
             this.panel1.Name = "panel1";
@@ -83,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.attachmentZipDownloadButton);
             this.Controls.Add(this.panel1);
@@ -91,6 +94,7 @@
             this.Name = "DetailsAttachmentListUserControl";
             this.Size = new System.Drawing.Size(858, 430);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

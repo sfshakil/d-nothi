@@ -17,17 +17,29 @@ using dNothi.Desktop.Properties;
 using System.IO;
 using Patagames.Pdf.Net;
 using System.Net;
-
+using System.Web;
+using com.sun.org.apache.xalan.@internal.xsltc;
+using System.Text.RegularExpressions;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class DetailsDakUserControl : UserControl
     {
+        private bool MouseIsOverControl() =>
+   mainAttachmentTabPage.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
+        PictureBox pictureBox = new PictureBox();
         public DetailsDakUserControl()
         {
             InitializeComponent();
+         
         }
         private int _docketingNo;
+        private int _imgHeight;
+        private int _imgWidth;
+        private double _zoomIn;
+        private double _limit;
+        private string _mainimageSrc;
+        private string _imageName;
        
         private string _sharokNo;
         private string _subject;
@@ -74,6 +86,11 @@ namespace dNothi.Desktop.UI.Dak
             get { return _isOnulipi; ; }
             set { _isOnulipi = value; if (value) { dakArchiveButton.Visible = true; } }
         }
+        public int dakid
+        {
+            get { return _dakid; }
+            set { _dakid = value; }
+        }
 
         public string officerName
         {
@@ -99,7 +116,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _dakAttachmentResponse; }
             set { _dakAttachmentResponse = value;
-
+                  
                 try
                 {
 
@@ -107,45 +124,75 @@ namespace dNothi.Desktop.UI.Dak
                    
                     if(dakAttachmentDTO.attachment_type.ToLower().Contains("text") || dakAttachmentDTO.attachment_type.ToLower().Contains("txt"))
                     {
-                      
-                        txtFileRichTextBox.Text = _dakDetailsResponse.data.dak_origin.dak_description;
-                        txtFileRichTextBox.Visible = true;
-                        pdfViewerControl.Visible = false;
-                        //mainAttachmentViewWebBrowser.DocumentText = "<html><body>Please enter your name:<br/>" + "<input type='text' name='userName'/><br/>" +"<a href='http://www.microsoft.com'>continue</a>" +"</body></html>";
-                        // mainAttachmentViewWebBrowser.DocumentText=_dakDetailsResponse.data.dak_origin.dak_description;
-                        mainAttachmentViewWebBrowser.Visible = false;
-                        //mainAttachmentViewWebBrowser.Navigate("about:blank");
-                        //if (mainAttachmentViewWebBrowser.Document != null)
-                        //{
-                        //    mainAttachmentViewWebBrowser.Document.Write(string.Empty);
-                        //}
-                        //mainAttachmentViewWebBrowser.DocumentText ="<Html><body>"+ _dakDetailsResponse.data.dak_origin.dak_description + "</body></Html>";
 
-                    }
+                        //txtFileRichTextBox.Text = System.Net.WebUtility.HtmlDecode(_dakDetailsResponse.data.dak_origin.dak_description);
+                        imagePanel.Visible = false;
+                        pdfViewerControl.Visible = false;
+                          //mainAttachmentViewWebBrowser.DocumentText=_dakDetailsResponse.data.dak_origin.dak_description;
+                        mainAttachmentViewWebBrowser.Visible = true;
+                        //mainAttachmentViewWebBrowser.Navigate("about:blank");
+                        if (mainAttachmentViewWebBrowser.Document != null)
+                        {
+                        mainAttachmentViewWebBrowser.Document.Write(string.Empty);
+                        }
+                        string DecodedString = dakAttachmentDTO.dak_description;
+                        int loopCount = 0;
+                        do
+                        {
+
+                            StringWriter writer = new StringWriter();
+                            System.Net.WebUtility.HtmlDecode(DecodedString, writer);
+                            DecodedString = writer.ToString();
+                            loopCount += 1;
+
+
+                        } while (!DecodedString.StartsWith("<") && loopCount<5);
+
+                        
+
+                        mainAttachmentViewWebBrowser.DocumentText = DecodedString;
+                            
+                           
+                            }
                    else if(dakAttachmentDTO.attachment_type.ToLower().Contains("pdf"))
                     {
+
                         mainAttachmentViewWebBrowser.Visible = false;
-                        txtFileRichTextBox.Visible = false;
+                        imagePanel.Visible = false;
                         pdfViewerControl.Visible = true;
                         WebClient myClient = new WebClient();
                         byte[] bytes = myClient.DownloadData(dakAttachmentDTO.url);
                         var stream = new MemoryStream(bytes);
-                       
-                       
-                        var pdfDocument = PdfDocument.Load(stream);
+                        pdfViewerControl.src = dakAttachmentDTO.url;
+
+                      //  var pdfDocument = PdfDocument.Load(stream);
 
 
-                        pdfViewerControl.Document= pdfDocument;
-
+                        //      pdfViewerControl.Document= pdfDocument;
+                        // pdfViewerControl.MouseWheel += new MouseEventHandler(this.pdfViewerControl_MouseWheel);
                     }
 
                     else
                     {
-                        mainAttachmentViewWebBrowser.Visible = true;
+                        _zoomIn = 1;
+                        _limit = 2.2;
+                        
+                        mainAttachmentViewWebBrowser.Visible = false;
                         pdfViewerControl.Visible = false;
-                        txtFileRichTextBox.Visible = false;
-                        mainAttachmentViewWebBrowser.Url = new Uri(dakAttachmentDTO.url);
-                        attachmentListFlowLayoutPanel.Controls.Clear();
+                        imagePanel.Visible = true;
+                        imageViewPictureBox.Load(dakAttachmentDTO.url);
+                    //    imagePanel.MouseWheel += new MouseEventHandler(this.imagePanel_MouseWheel);
+                        pictureBox.Load(dakAttachmentDTO.url);
+                        _imgHeight = pictureBox.Image.Height;
+                        _imgWidth = pictureBox.Image.Width;
+                        _mainimageSrc = dakAttachmentDTO.url;
+                        mainAttachmentTabPage.MouseHover += imagePanel_MouseHover;
+                        mainAttachmentTabPage.MouseLeave += imagePanel_MouseLeave;
+
+                        zoomInOutPanel.MouseHover += imagePanel_MouseHover;
+                        zoomInOutPanel.MouseLeave += imagePanel_MouseLeave;
+
+
                     }
                     
                 }
@@ -153,12 +200,13 @@ namespace dNothi.Desktop.UI.Dak
                 {
 
                 }
-
+                attachmentListFlowLayoutPanel.Controls.Clear();
                 DetailsAttachmentListUserControl detailsAttachmentListUserControl = new DetailsAttachmentListUserControl();
                 try
                 {
-
+                    detailsAttachmentListUserControl.dakSub = _subject;
                     detailsAttachmentListUserControl.dakAttachmentDTOs = _dakAttachmentResponse.data;
+                 
                     detailsAttachmentListUserControl.allattachmentdownloadlink = "";
                     attachmentListFlowLayoutPanel.Controls.Add(detailsAttachmentListUserControl);
                 }
@@ -170,6 +218,19 @@ namespace dNothi.Desktop.UI.Dak
 
 
             }
+        }
+
+      
+
+        private void pdfViewerControl_MouseWheel(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void imagePanel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            
+               
         }
 
         public DakDetailsResponse dakDetailsResponse
@@ -246,14 +307,6 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-
-        [Category("Custom Props")]
-        public int dakid
-        {
-            get { return _dakid; }
-            set { _dakid = value; }
-        }
-
         [Category("Custom Props")]
         public int potrojari
         {
@@ -264,14 +317,8 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                if (value == 1)
-                {
-                    potrojariPanel.Visible = true;
-                }
-                else
-                {
-                    potrojariPanel.Visible = false;
-                }
+                rightInfoPanel.potrojari = value;
+
 
 
 
@@ -290,20 +337,9 @@ namespace dNothi.Desktop.UI.Dak
                 _dakPriority = value;
 
 
-                DakPriorityList dakPriorityList = new DakPriorityList();
-                string priorityName = dakPriorityList.GetDakPriorityName(value);
 
 
-                if (priorityName == "")
-                {
-                    dakPriorityIconPanel.Visible = false;
-                }
-                else
-                {
-                    dakPriorityIconPanel.Visible = true;
-                    prioriyLabel.Text = priorityName;
-
-                }
+                rightInfoPanel.dakPrioriy = value;
 
 
 
@@ -326,17 +362,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                dakTypePanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(value);
-
-                if (dakTypePanel.BackgroundImage == null)
-                {
-                    dakTypePanel.Visible = false;
-                }
-                else
-                {
-                    dakTypePanel.Visible = true;
-
-                }
+                rightInfoPanel.dakType = value;
 
 
 
@@ -357,20 +383,8 @@ namespace dNothi.Desktop.UI.Dak
             {
                 _dakSecurityIconValue = value;
 
-                DakSecurityList dakSecurityList = new DakSecurityList();
-                string icon = dakSecurityList.GetDakSecuritiesIcon(value);
+                rightInfoPanel.dakSecurityIconValue = value;
 
-                dakSecurityIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
-
-                if (dakSecurityIconPanel.BackgroundImage == null)
-                {
-                    dakSecurityIconPanel.Visible = false;
-                }
-                else
-                {
-                    dakSecurityIconPanel.Visible = true;
-
-                }
 
 
 
@@ -393,21 +407,16 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _attentionTypeIconValue = value;
-
-                AttentionTypeList attentionTypeIconList = new AttentionTypeList();
-                string icon = attentionTypeIconList.GetAttentionTypeIcon(value);
-
-                attentionTypeIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
-
-                if (attentionTypeIconPanel.BackgroundImage == null)
+                if (value == "0")
                 {
-                    attentionTypeIconPanel.Visible = false;
+                    dakArchiveButton.Visible = true;
                 }
                 else
                 {
-                    attentionTypeIconPanel.Visible = true;
-
+                    dakArchiveButton.Visible = false;
                 }
+                rightInfoPanel.attentionTypeIconValue = value;
+
 
 
 
@@ -417,7 +426,9 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-      
+
+
+       
         public int docketingNo
         {
             get { return _docketingNo; }
@@ -431,10 +442,22 @@ namespace dNothi.Desktop.UI.Dak
         public string sharokNo
         {
             get { return _sharokNo; }
-            set { _sharokNo = value; 
-                sharokNoText.Text = value;
-                //try { sharokNoText.Text= string.Concat(value.Select(c => (char)('\u09E6' + c - '0'))); } catch(Exception Ex) { }
+            set { _sharokNo = value;
+                var isValidNumber = Regex.IsMatch(value, @"^[0-9]+(\.[0-9]+)?$");
+                if (isValidNumber)
+                {
 
+                    try { sharokNoText.Text = string.Concat(value.Select(c => (char)('\u09E6' + c - '0'))); } catch (Exception Ex) { }
+
+
+                }
+                else
+                {
+                    sharokNoText.Text = value;
+                }
+
+              
+              
                 if (sharokNo == "" || sharokNo == null) { sharokNoLabel.Visible = false;sharokNoText.Visible = false;sharokNoSpaceLabel.Visible = false; }
             }
         }
@@ -524,8 +547,15 @@ namespace dNothi.Desktop.UI.Dak
         private void dakArchiveButton_Click(object sender, EventArgs e)
         {
 
-            if (this.DakArchiveButtonClick != null)
-                this.DakArchiveButtonClick(sender, e);
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "অপনি কি ডাকটি আর্কাইভ করতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
+            {
+
+                if (this.DakArchiveButtonClick != null)
+                    this.DakArchiveButtonClick(sender, e);
+            }
         }
 
         
@@ -626,6 +656,156 @@ namespace dNothi.Desktop.UI.Dak
         private void movementStatusDetailsPanel_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(235, 237, 243), ButtonBorderStyle.Solid);
+          //  movementStatusDetailsPanel.Location = new Point(movementStatusDetailsButton.Location.X, movementStatusDetailsButton.Location.Y+ movementStatusDetailsButton.Height+1);
+
+        }
+
+        private void imageViewPictureBox_Click(object sender, EventArgs e)
+        {
+            //if(imageViewPictureBox.SizeMode==PictureBoxSizeMode.Normal)
+            //{
+            //    imageViewPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            //}
+            //else
+            //{
+            //    imageViewPictureBox.SizeMode = PictureBoxSizeMode.Normal;
+            //}
+        }
+
+        protected override void OnMouseWheel(MouseEventArgs e)
+        {
+            
+        }
+
+        private void pdfViewerControl_MouseUp(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void pdfViewerControl_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        
+        private void bodyTableLayoutPanel_Scroll(object sender, ScrollEventArgs e)
+        {
+            movementStatusDetailsPanel.Visible = false;
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            _zoomIn = 1;
+
+            
+            imageViewPictureBox.Load(_mainimageSrc);
+
+        }
+
+        private void imagePanel_MouseHover(object sender, EventArgs e)
+        {
+            zoomInOutPanelShow();
+          
+        }
+
+        private void zoomInOutPanelShow()
+        {
+           if(MouseIsOverControl())
+            {
+                zoomInOutPanel.Visible = true;
+            }
+            else
+            {
+                zoomInOutPanel.Visible = false;
+            }
+        }
+
+        private void imagePanel_MouseLeave(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void zoomInButton_Click(object sender, EventArgs e)
+        {
+            
+            if(_zoomIn < _limit)
+            {
+                _zoomIn +=0.1;
+                int imgHeight =Convert.ToInt32(_imgHeight * _zoomIn);
+                int imgWidth = Convert.ToInt32(_imgWidth * _zoomIn);
+
+
+                Bitmap bitmap = new Bitmap(pictureBox.Image, imgHeight, imgWidth);
+               Graphics graphics = Graphics.FromImage(bitmap);
+               graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+                imageViewPictureBox.Image = bitmap;
+            }
+            
+        }
+
+        private void zoomOutButton_Click(object sender, EventArgs e)
+        {
+            if (_zoomIn > .7)
+            {
+                _zoomIn -= 0.1;
+                if(_zoomIn==1)
+                {
+                    imageViewPictureBox.Load(_mainimageSrc);
+                    return;
+                }
+                int imgHeight = Convert.ToInt32(_imgHeight * _zoomIn);
+                int imgWidth = Convert.ToInt32( _imgWidth * _zoomIn);
+
+
+                Bitmap bitmap = new Bitmap(pictureBox.Image, imgHeight, imgWidth);
+                Graphics graphics = Graphics.FromImage(bitmap);
+                graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+                imageViewPictureBox.Image = bitmap;
+            }
+        }
+
+        private void imageSaveButton_Click(object sender, EventArgs e)
+        {
+
+
+            string dummyFileName = "Image File Name";
+           
+
+            SaveFileDialog sf = new SaveFileDialog();
+            // Feed the dummy name to the save dialog
+            sf.FileName = dummyFileName;
+            sf.DefaultExt = ".jpg";
+            sf.Filter = "Image|*.jpg;*.jpeg;*.png;";
+
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                // Now here's our save folder
+               // string savePath = Path.GetDirectoryName(sf.FileName);
+
+
+                WebClient wc = new WebClient();
+                byte[] bytes = wc.DownloadData(_mainimageSrc);
+                MemoryStream ms = new MemoryStream(bytes);
+                System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+
+                img.Save(sf.FileName);
+            }
+
+            
+               
+
+                
+
+
+               
+               
+            
+        }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
 
         }
     }

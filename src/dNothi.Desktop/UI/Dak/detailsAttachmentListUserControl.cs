@@ -20,9 +20,14 @@ namespace dNothi.Desktop.UI.Dak
 
         private List<DakAttachmentDTO> _dakAttachmentDTOs;
         private int _attachmentcount;
+        private string  _dakSub;
         private string _allattachmentdownloadlink;
-       
 
+        public string dakSub
+        {
+            get { return _dakSub; }
+            set { _dakSub = value; }
+        }
 
         public string allattachmentdownloadlink
         {
@@ -43,7 +48,19 @@ namespace dNothi.Desktop.UI.Dak
                     {
                         DetailsAttachmentUserControl detailsAttachmentUserControl = new DetailsAttachmentUserControl();
                         detailsAttachmentUserControl.mainattachment = dakAttachmentDTO.is_main;
-                        detailsAttachmentUserControl.attachmentName = dakAttachmentDTO.file_name;
+
+                        if(dakAttachmentDTO.is_main==1 && dakAttachmentDTO.attachment_type.ToUpper().Contains("TEXT"))
+                        {
+
+                            detailsAttachmentUserControl.attachmentName = _dakSub;
+                        }
+                        else
+                        {
+
+                            detailsAttachmentUserControl.attachmentName = dakAttachmentDTO.user_file_name;
+                        }
+
+                        detailsAttachmentUserControl.dakAttachmentDTO = dakAttachmentDTO;
                         detailsAttachmentUserControl.attachmentsize = Convert.ToDouble(dakAttachmentDTO.file_size_in_kb);
                         detailsAttachmentUserControl.attachmentdownload = dakAttachmentDTO.download_url;
                         detailsAttachmentUserControl.attachmenttype = dakAttachmentDTO.attachment_type;

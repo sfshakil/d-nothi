@@ -12,10 +12,10 @@ namespace dNothi.Utility
 
         public DakSecurityList()
         {
-            _dakSecurities.Add(new DakSecurity("2", "সীমিত", "সীমিত"));
-            _dakSecurities.Add(new DakSecurity("3", "গোপনীয়", "গোপনীয়"));
-            _dakSecurities.Add(new DakSecurity("4", "বিশেষ গোপনীয়", "বিশেষ গোপনীয়"));
-            _dakSecurities.Add(new DakSecurity("5", "অতি গোপনীয়", "অতি গোপনীয়"));
+            _dakSecurities.Add(new DakSecurity("2", "সীমিত", "সীমিত-Icon-PNG2"));
+            _dakSecurities.Add(new DakSecurity("3", "গোপনীয়", "গোপনীয়-Icon-PNG"));
+            _dakSecurities.Add(new DakSecurity("4", "বিশেষ গোপনীয়", "বিশেষ গোপনীয়-Icon-PNG"));
+            _dakSecurities.Add(new DakSecurity("5", "অতি গোপনীয়", "অতি গোপনীয়-Icon-PNG"));
 
 
         }

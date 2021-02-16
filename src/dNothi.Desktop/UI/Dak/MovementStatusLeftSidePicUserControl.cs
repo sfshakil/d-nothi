@@ -99,18 +99,22 @@ namespace dNothi.Desktop.UI.Dak
 
                 DakSecurityList dakSecurityList = new DakSecurityList();
                 string icon = dakSecurityList.GetDakSecuritiesIcon(value);
+                string Name = dakSecurityList.GetDakSecuritiesName(value);
 
-                dakSecurityIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
+                dakSecurityIcon.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
 
-                if (dakSecurityIconPanel.BackgroundImage == null)
+                if (Name == "")
                 {
                     securityPanel.Visible = false;
                 }
                 else
                 {
                     securityPanel.Visible = true;
+                    dakSecurityLabel.Text = Name;
 
                 }
+
+                
 
 
 
@@ -198,6 +202,16 @@ namespace dNothi.Desktop.UI.Dak
 
 
             }
+        }
+
+        private void MovementStatusLeftSidePicUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

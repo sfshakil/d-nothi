@@ -54,12 +54,13 @@
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.mainAttachmentIconPanel);
             this.panel1.Controls.Add(this.attachmentNameLabel);
             this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(43, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(501, 21);
+            this.panel1.Size = new System.Drawing.Size(724, 21);
             this.panel1.TabIndex = 3;
             // 
             // mainAttachmentIconPanel
@@ -68,7 +69,7 @@
             this.mainAttachmentIconPanel.BackgroundImage = global::dNothi.Desktop.Properties.Resources.mulpotro;
             this.mainAttachmentIconPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainAttachmentIconPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.mainAttachmentIconPanel.Location = new System.Drawing.Point(385, 0);
+            this.mainAttachmentIconPanel.Location = new System.Drawing.Point(690, 0);
             this.mainAttachmentIconPanel.Name = "mainAttachmentIconPanel";
             this.mainAttachmentIconPanel.Size = new System.Drawing.Size(34, 21);
             this.mainAttachmentIconPanel.TabIndex = 2;
@@ -80,11 +81,13 @@
             this.attachmentNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attachmentNameLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.attachmentNameLabel.Location = new System.Drawing.Point(0, 0);
+            this.attachmentNameLabel.MaximumSize = new System.Drawing.Size(700, 0);
             this.attachmentNameLabel.Name = "attachmentNameLabel";
-            this.attachmentNameLabel.Size = new System.Drawing.Size(385, 18);
+            this.attachmentNameLabel.Size = new System.Drawing.Size(690, 36);
             this.attachmentNameLabel.TabIndex = 6;
             this.attachmentNameLabel.TabStop = true;
-            this.attachmentNameLabel.Text = "ই-ফাইল ব্যবহার সহায়িকা-১(লগইন প্রক্রিয়া ও প্রোফাইল ব্যবস্থাপনা) (1).pdf";
+            this.attachmentNameLabel.Text = "ই-ফাইল ব্যবহার সহায়িকা-১(লগইন প্রক্রিয়া ও প্রোফাইল ব্যবস্থাপনা) (1).pdf dbghasdgb" +
+    "vhas hgsahdgvashghsahasgdhasd hasgdh hsagdhas ";
             this.attachmentNameLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.attachmentNameLabel_LinkClicked);
             // 
             // attchmentTypePanel
@@ -137,9 +140,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.attachmentSizeLabel);
             this.Controls.Add(this.attchmentTypePanel);
-            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.Name = "DetailsAttachmentUserControl";
-            this.Size = new System.Drawing.Size(846, 40);
+            this.Size = new System.Drawing.Size(846, 47);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
