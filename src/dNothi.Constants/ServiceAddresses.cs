@@ -78,6 +78,8 @@ namespace dNothi.Constants
         public const string NothiPotrangshoNothijatoEndPoint = "/api/nothi_nothijato_potro_list";
         public const string NothiPotrangshoNotePotrojariEndPoint = "/api/nothi_potrojari_list";
         public const string NothiPotrangshoNoteKhshrapotroEndPoint = "/api/nothi_khoshra_potro_list";
+        public const string NothiNoteSingleOnucchedEndPoint = "/api/nothi/note/onucched";
+        public const string NothiNoteOnucchedListEndPoint = "/api/nothi/note/onucched/list";
 
 
     }

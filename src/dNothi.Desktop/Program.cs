@@ -168,6 +168,8 @@ namespace dNothi.Desktop
             builder.RegisterType<NotePotrojariServices>().As<INotePotrojariServices>();
             builder.RegisterType<NoteKhshraWaitingListServices>().As<INoteKhshraWaitingListServices>();
             builder.RegisterType<NoteKhoshraListServices>().As<INoteKhoshraListServices>();
+            builder.RegisterType<OnuchhedListServices>().As<IOnuchhedListServices>();
+            builder.RegisterType<SingleOnucchedServices>().As<ISingleOnucchedServices>();
             
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();

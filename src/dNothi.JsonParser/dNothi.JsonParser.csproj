@@ -211,6 +211,10 @@
     <Compile Include="Entity\Nothi\NothiTypeSaveDTO.cs" />
     <Compile Include="Entity\Nothi\NothiTypeSaveResponse.cs" />
     <Compile Include="Entity\Nothi\OnucchedDeleteResponseDTO.cs" />
+    <Compile Include="Entity\Nothi\OnucchedListDataDTO.cs" />
+    <Compile Include="Entity\Nothi\OnucchedListDataRecordDTO.cs" />
+    <Compile Include="Entity\Nothi\OnucchedListDataRecordPotroDTO.cs" />
+    <Compile Include="Entity\Nothi\OnucchedListResponse.cs" />
     <Compile Include="Entity\Nothi\OnuchhedForwardData.cs" />
     <Compile Include="Entity\Nothi\OnuchhedForwardResponse.cs" />
     <Compile Include="Entity\Nothi\OnuchhedSaveWithFile.cs" />
@@ -224,6 +228,15 @@
     <Compile Include="Entity\Nothi\PotrojariDataRecordNoteOnucchedDTO.cs" />
     <Compile Include="Entity\Nothi\PotrojariDataRecordNoteOwnerDTO.cs" />
     <Compile Include="Entity\Nothi\PotrojariResponse.cs" />
+    <Compile Include="Entity\Nothi\SingleOnucchedDataDTO.cs" />
+    <Compile Include="Entity\Nothi\SingleOnucchedRecordDTO.cs" />
+    <Compile Include="Entity\Nothi\SingleOnucchedRecordOnucchedDTO.cs" />
+    <Compile Include="Entity\Nothi\SingleOnucchedRecordSignature1DTO.cs" />
+    <Compile Include="Entity\Nothi\SingleOnucchedRecordSignature2DTO.cs" />
+    <Compile Include="Entity\Nothi\SingleOnucchedRecordSignature3DTO.cs" />
+    <Compile Include="Entity\Nothi\SingleOnucchedRecordSignature4DTO.cs" />
+    <Compile Include="Entity\Nothi\SingleOnucchedRecordSignatureDTO.cs" />
+    <Compile Include="Entity\Nothi\SingleOnucchedResponse.cs" />
     <Compile Include="Entity\Nothi\StatusAllDTO.cs" />
     <Compile Include="Entity\Nothi\ToNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\ToOutboxDTO.cs" />

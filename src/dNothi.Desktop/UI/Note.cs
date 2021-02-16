@@ -41,10 +41,13 @@ namespace dNothi.Desktop.UI
         INotePotrojariServices _notePotrojariList { get; set; }
         INoteKhshraWaitingListServices _noteKhshraWaitingList { get; set; }
         INoteKhoshraListServices _noteKhoshraList { get; set; }
+        IOnuchhedListServices _onuchhedList { get; set; }
+        ISingleOnucchedServices _singleOnucched { get; set; }
         public Note(IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
             IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
             IKhoshraPotroServices khoshraPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
-            INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList)
+            INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
+            IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched)
         {
             _userService = userService;
             _onucchedSave = onucchedSave;
@@ -61,6 +64,8 @@ namespace dNothi.Desktop.UI
             _notePotrojariList = notePotrojariList;
             _noteKhshraWaitingList = noteKhshraWaitingList;
             _noteKhoshraList = noteKhoshraList;
+            _onuchhedList = onuchhedList;
+            _singleOnucched = singleOnucched;
 
             InitializeComponent();
             SetDefaultFont(this.Controls);
@@ -195,7 +200,33 @@ namespace dNothi.Desktop.UI
         }
         private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
         {
-            if(list.khoshra_potro > 0 || list.khoshra_waiting_for_approval > 0 || list.potrojari > 0)
+            //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
+            OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
+            if (onucchedList.data.total_records > 0)
+            {
+                foreach(OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
+                {
+                    SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, onucchedsingleListRec.id);
+                    if(singleOnucched.data.total_records > 0)
+                    {
+                        var rec = singleOnucched.data.records;
+                        lbNoteTotl.Text = "নোটঃ " + list.note_status;
+                        lbNoteSubject.Text = list.note_subject_sub_text;
+                        lbNothiLastDate.Text = list.date;
+
+                        onuchhedheaderPnl.Visible = false;
+                        btnSave.Visible = false;
+                        btnSaveArrow.Visible = false;
+                        btnCancel.Visible = false;
+
+                        btnWriteOnuchhed.Visible = true;
+                        btnSend.Visible = true;
+                        panel14.Visible = false;
+                    }
+                }
+            }
+                
+            if (list.khoshra_potro > 0 || list.khoshra_waiting_for_approval > 0 || list.potrojari > 0)
             {
                 pnlNoNote.Visible = false;
                 
@@ -414,6 +445,7 @@ namespace dNothi.Desktop.UI
                         {
                             noteView.noteSubject = inboxList.note.note_subject_sub_text;
                         }
+                        noteView.nothiNoteID = inboxList.note.nothi_note_id;
                         noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
                         noteView.nothiLastDate = inboxList.desk.issue_date;
                         noteView.nothivukto = inboxList.note.nothivukto_potro.ToString();
@@ -452,6 +484,7 @@ namespace dNothi.Desktop.UI
                         {
                             noteView.noteSubject = sentList.note.note_subject_sub_text;
                         }
+                        noteView.nothiNoteID = sentList.note.nothi_note_id;
                         noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
                         noteView.nothiLastDate = sentList.desk.issue_date; 
                         noteView.nothivukto = sentList.note.nothivukto_potro.ToString();
@@ -493,6 +526,7 @@ namespace dNothi.Desktop.UI
                             {
                                 noteView.noteSubject = allList.note.note_subject_sub_text;
                             }
+                            noteView.nothiNoteID = allList.note.nothi_note_id;
                             noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
                             noteView.nothiLastDate = allList.deskDtoList[0].issue_date;
                             noteView.nothivukto = allList.note.nothivukto_potro.ToString();
