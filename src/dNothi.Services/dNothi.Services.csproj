@@ -164,8 +164,10 @@
     <Compile Include="NothiServices\INothiOutboxServices.cs" />
     <Compile Include="NothiServices\INothiTypeListServices.cs" />
     <Compile Include="NothiServices\IOnuchhedForwardService.cs" />
+    <Compile Include="NothiServices\IOnuchhedListServices.cs" />
     <Compile Include="NothiServices\IOnumodonService.cs" />
     <Compile Include="NothiServices\IPotrojariServices.cs" />
+    <Compile Include="NothiServices\ISingleOnucchedServices.cs" />
     <Compile Include="NothiServices\KhoshraPotroServices.cs" />
     <Compile Include="NothiServices\KhoshraPotroWaitingServices.cs" />
     <Compile Include="NothiServices\NoteDeleteService.cs" />
@@ -187,9 +189,11 @@
     <Compile Include="NothiServices\NothiTypeSaveService.cs" />
     <Compile Include="NothiServices\OnucchedDelete.cs" />
     <Compile Include="NothiServices\OnuchhedForwardService.cs" />
+    <Compile Include="NothiServices\OnuchhedListServices.cs" />
     <Compile Include="NothiServices\OnuchhedSave.cs" />
     <Compile Include="NothiServices\OnumodonService.cs" />
     <Compile Include="NothiServices\PotrojariServices.cs" />
+    <Compile Include="NothiServices\SingleOnucchedServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncServices\SyncerService.cs" />
     <Compile Include="UserServices\IUserService.cs" />
