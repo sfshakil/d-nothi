@@ -709,6 +709,12 @@
     <Compile Include="UI\Dak\NothiTypeList.Designer.cs">
       <DependentUpon>NothiTypeList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\OnucchedSignature.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\OnucchedSignature.Designer.cs">
+      <DependentUpon>OnucchedSignature.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\OnuchhedAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1009,6 +1015,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiTypeList.resx">
       <DependentUpon>NothiTypeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\OnucchedSignature.resx">
+      <DependentUpon>OnucchedSignature.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\OnuchhedAdd.resx">
       <DependentUpon>OnuchhedAdd.cs</DependentUpon>
