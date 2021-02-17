@@ -727,6 +727,12 @@
     <Compile Include="UI\Dak\SelectedDakListUserControl.Designer.cs">
       <DependentUpon>SelectedDakListUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\SeparateOnuchhed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\SeparateOnuchhed.Designer.cs">
+      <DependentUpon>SeparateOnuchhed.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\TinyMCE.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1012,6 +1018,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SelectedDakListUserControl.resx">
       <DependentUpon>SelectedDakListUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\SeparateOnuchhed.resx">
+      <DependentUpon>SeparateOnuchhed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\TinyMCE.resx">
       <DependentUpon>TinyMCE.cs</DependentUpon>
