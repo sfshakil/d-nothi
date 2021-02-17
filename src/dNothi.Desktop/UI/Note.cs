@@ -204,7 +204,8 @@ namespace dNothi.Desktop.UI
             OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
             if (onucchedList.data.total_records > 0)
             {
-                foreach(OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
+                onuchhedFLP.Controls.Clear();
+                foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                 {
                     SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, onucchedsingleListRec.id);
                     if(singleOnucched.data.total_records > 0)
@@ -222,6 +223,9 @@ namespace dNothi.Desktop.UI
                         btnWriteOnuchhed.Visible = true;
                         btnSend.Visible = true;
                         panel14.Visible = false;
+
+                        var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                        onuchhedFLP.Controls.Add(separateOnucched);
                     }
                 }
             }
