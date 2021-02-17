@@ -194,7 +194,7 @@ namespace dNothi.Desktop.UI
                 dakSortMetroPanel.Visible = false;
                 bodyTableLayoutPanel.RowStyles[6] = new RowStyle(SizeType.AutoSize);
                 searchHeaderTableLayoutPanel.Visible = false;
-                dakBodyFlowLayoutPanel.Visible = false;
+                bodyPanel.Visible = false;
                 detailsFlowLayoutPanel.Visible = true;
                 detailsFlowLayoutPanel.BringToFront();
                
@@ -671,12 +671,15 @@ namespace dNothi.Desktop.UI
             }
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.AutoScroll = true;
-            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakBodyFlowLayoutPanel.WrapContents = false;
+           
 
             for (int j = 0; j <= dakOutboxUserControls.Count - 1; j++)
             {
-                dakBodyFlowLayoutPanel.Controls.Add(dakOutboxUserControls[j]);
+                dakOutboxUserControls[j].Dock = DockStyle.Fill;
+                int row = dakBodyFlowLayoutPanel.RowCount++;
+                dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+                dakBodyFlowLayoutPanel.Controls.Add(dakOutboxUserControls[j], 0, row);
+
             }
         }
 
@@ -893,12 +896,17 @@ namespace dNothi.Desktop.UI
             }
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.AutoScroll = true;
-            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakBodyFlowLayoutPanel.WrapContents = false;
+           
+     
 
             for (int j = 0; j <= dakInboxUserControls.Count - 1; j++)
             {
-                dakBodyFlowLayoutPanel.Controls.Add(dakInboxUserControls[j]);
+                dakInboxUserControls[j].Dock = DockStyle.Fill;
+                int row = dakBodyFlowLayoutPanel.RowCount++;
+                dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+                dakBodyFlowLayoutPanel.Controls.Add(dakInboxUserControls[j], 0, row);
+
+                
             }
 
 
@@ -1013,7 +1021,7 @@ namespace dNothi.Desktop.UI
             
             
 
-            if (!dakBodyFlowLayoutPanel.Visible)
+            if (!bodyPanel.Visible)
             {
                 return;
             }
@@ -1302,12 +1310,14 @@ namespace dNothi.Desktop.UI
             }
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.AutoScroll = true;
-            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakBodyFlowLayoutPanel.WrapContents = false;
 
             for (int j = 0; j <= dakNothivuktoUserControls.Count - 1; j++)
             {
-                dakBodyFlowLayoutPanel.Controls.Add(dakNothivuktoUserControls[j]);
+                dakNothivuktoUserControls[j].Dock = DockStyle.Fill;
+                int row = dakBodyFlowLayoutPanel.RowCount++;
+                dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+                dakBodyFlowLayoutPanel.Controls.Add(dakNothivuktoUserControls[j], 0, row);
+
             }
 
 
@@ -1540,12 +1550,15 @@ namespace dNothi.Desktop.UI
             }
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.AutoScroll = true;
-            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakBodyFlowLayoutPanel.WrapContents = false;
+          
 
             for (int j = 0; j <= dakArchiveUserControls.Count - 1; j++)
             {
-                dakBodyFlowLayoutPanel.Controls.Add(dakArchiveUserControls[j]);
+                dakArchiveUserControls[j].Dock = DockStyle.Fill;
+                int row = dakBodyFlowLayoutPanel.RowCount++;
+                dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+                dakBodyFlowLayoutPanel.Controls.Add(dakArchiveUserControls[j], 0, row);
+
             }
 
 
@@ -1688,9 +1701,9 @@ namespace dNothi.Desktop.UI
             noDakTableLayoutPanel.Visible = false;
             multipleSelectionPanel.Visible = false;
             dakBodyFlowLayoutPanel.BringToFront();
-            dakBodyFlowLayoutPanel.Visible = true;
+            bodyPanel.Visible = true;
             detailsFlowLayoutPanel.Visible = false;
-            dakBodyFlowLayoutPanel.Visible = true;
+           
             detailsDakSearcPanel.Visible = false;
             dakSortMetroPanel.Visible = true;
             searchHeaderTableLayoutPanel.Visible = true;
@@ -1808,12 +1821,15 @@ namespace dNothi.Desktop.UI
             }
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.AutoScroll = true;
-            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakBodyFlowLayoutPanel.WrapContents = false;
+            
 
             for (int j = 0; j <= dakNothijatoUserControls.Count - 1; j++)
             {
-                dakBodyFlowLayoutPanel.Controls.Add(dakNothijatoUserControls[j]);
+                dakNothijatoUserControls[j].Dock = DockStyle.Fill;
+                int row = dakBodyFlowLayoutPanel.RowCount++;
+                dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+                dakBodyFlowLayoutPanel.Controls.Add(dakNothijatoUserControls[j], 0, row);
+
             }
 
 
@@ -2005,12 +2021,15 @@ namespace dNothi.Desktop.UI
             }
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.AutoScroll = true;
-            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakBodyFlowLayoutPanel.WrapContents = false;
+          
 
             for (int j = 0; j <= dakSortedUserControls.Count - 1; j++)
             {
-                dakBodyFlowLayoutPanel.Controls.Add(dakSortedUserControls[j]);
+                dakSortedUserControls[j].Dock = DockStyle.Fill;
+                int row = dakBodyFlowLayoutPanel.RowCount++;
+                dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+                dakBodyFlowLayoutPanel.Controls.Add(dakSortedUserControls[j], 0, row);
+
             }
         }
 
@@ -2045,12 +2064,16 @@ namespace dNothi.Desktop.UI
 
 
 
-            dakBodyFlowLayoutPanel.Controls.Add(dakSortedUserControl);
-            
+            dakSortedUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(dakSortedUserControl, 0, row);
+
+
         }
 
 
-        
+
         private void sliderCrossButton_Click(object sender, EventArgs e)
         {
            
@@ -2296,12 +2319,15 @@ namespace dNothi.Desktop.UI
             }
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.AutoScroll = true;
-            dakBodyFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            dakBodyFlowLayoutPanel.WrapContents = false;
+          
 
             for (int j = 0; j <= draftedDakUserControls.Count - 1; j++)
             {
-                dakBodyFlowLayoutPanel.Controls.Add(draftedDakUserControls[j]);
+                draftedDakUserControls[j].Dock = DockStyle.Fill;
+                int row = dakBodyFlowLayoutPanel.RowCount++;
+                dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+                dakBodyFlowLayoutPanel.Controls.Add(draftedDakUserControls[j], 0, row);
+
             }
         }
         private void LoadDakKhosrainPanel(DakListRecordsDTO dakListInboxRecordsDTO)
@@ -2366,7 +2392,7 @@ namespace dNothi.Desktop.UI
             searchHeaderTableLayoutPanel.Visible = false;
             dakBodyFlowLayoutPanel.Controls.Clear();
             detailsFlowLayoutPanel.Visible = false;
-            dakBodyFlowLayoutPanel.Visible = true;
+            bodyPanel.Visible = true;
 
 
             DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
@@ -2412,7 +2438,7 @@ namespace dNothi.Desktop.UI
             searchHeaderTableLayoutPanel.Visible = false;
             dakBodyFlowLayoutPanel.Controls.Clear();
             detailsFlowLayoutPanel.Visible = false;
-            dakBodyFlowLayoutPanel.Visible = true;
+            bodyPanel.Visible = true;
 
             NagorikDakUploadUserControl dakUploadUserControl = new NagorikDakUploadUserControl();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -2928,16 +2954,18 @@ namespace dNothi.Desktop.UI
 
         private void Dashboard_Shown(object sender, EventArgs e)
         {
-            NormalizeDashBoard();
-         
-            SetDefaultFont(this.Controls);
+            
             LoadDakInbox();
             LoadDetailsOffice();
             LoadDetailsOfficer();
 
-            designationDetailsPanel.officeInfos = _userService.GetAllLocalOfficeInfo();
 
-            designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
+           designationDetailsPanel.officeInfos = _userService.GetAllLocalOfficeInfo();
+
+          designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
+          NormalizeDashBoard();
+
+           SetDefaultFont(this.Controls);
 
         }
 

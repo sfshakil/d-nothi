@@ -46,7 +46,6 @@
             this.moduleDakCountLabel = new System.Windows.Forms.Label();
             this.dakSearchSubTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.detailsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.dakBodyFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.settingsPanel = new System.Windows.Forms.Panel();
@@ -171,6 +170,8 @@
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.dakBodyFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.bodyPanel = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -205,6 +206,7 @@
             this.searchHeaderTableLayoutPanel.SuspendLayout();
             this.headerTableLayoutPanel.SuspendLayout();
             this.footerTableLayoutPanel.SuspendLayout();
+            this.bodyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -442,16 +444,6 @@
             this.detailsFlowLayoutPanel.Size = new System.Drawing.Size(1120, 1);
             this.detailsFlowLayoutPanel.TabIndex = 16;
             this.detailsFlowLayoutPanel.Visible = false;
-            // 
-            // dakBodyFlowLayoutPanel
-            // 
-            this.dakBodyFlowLayoutPanel.AutoScroll = true;
-            this.dakBodyFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dakBodyFlowLayoutPanel.Location = new System.Drawing.Point(3, 499);
-            this.dakBodyFlowLayoutPanel.Name = "dakBodyFlowLayoutPanel";
-            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1114, 105);
-            this.dakBodyFlowLayoutPanel.TabIndex = 15;
-            this.dakBodyFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.moduleDakCountLabel_Paint);
             // 
             // label3
             // 
@@ -2389,11 +2381,11 @@
             // 
             this.bodyTableLayoutPanel.ColumnCount = 1;
             this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.bodyTableLayoutPanel.Controls.Add(this.bodyPanel, 0, 6);
             this.bodyTableLayoutPanel.Controls.Add(this.dakSortMetroPanel, 0, 3);
             this.bodyTableLayoutPanel.Controls.Add(this.noDakTableLayoutPanel, 0, 5);
             this.bodyTableLayoutPanel.Controls.Add(this.searchHeaderTableLayoutPanel, 0, 0);
             this.bodyTableLayoutPanel.Controls.Add(this.detailsFlowLayoutPanel, 0, 7);
-            this.bodyTableLayoutPanel.Controls.Add(this.dakBodyFlowLayoutPanel, 0, 6);
             this.bodyTableLayoutPanel.Controls.Add(this.label15, 0, 4);
             this.bodyTableLayoutPanel.Controls.Add(this.label21, 0, 2);
             this.bodyTableLayoutPanel.Controls.Add(this.detailsDakSearcPanel, 0, 1);
@@ -2549,6 +2541,32 @@
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
             // 
+            // dakBodyFlowLayoutPanel
+            // 
+            this.dakBodyFlowLayoutPanel.AutoSize = true;
+            this.dakBodyFlowLayoutPanel.ColumnCount = 1;
+            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.dakBodyFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dakBodyFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.dakBodyFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakBodyFlowLayoutPanel.Name = "dakBodyFlowLayoutPanel";
+            this.dakBodyFlowLayoutPanel.RowCount = 1;
+            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1114, 0);
+            this.dakBodyFlowLayoutPanel.TabIndex = 55;
+            // 
+            // bodyPanel
+            // 
+            this.bodyPanel.AutoScroll = true;
+            this.bodyPanel.Controls.Add(this.dakBodyFlowLayoutPanel);
+            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyPanel.Location = new System.Drawing.Point(3, 499);
+            this.bodyPanel.Name = "bodyPanel";
+            this.bodyPanel.Size = new System.Drawing.Size(1114, 105);
+            this.bodyPanel.TabIndex = 0;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2621,6 +2639,8 @@
             this.headerTableLayoutPanel.PerformLayout();
             this.footerTableLayoutPanel.ResumeLayout(false);
             this.footerTableLayoutPanel.PerformLayout();
+            this.bodyPanel.ResumeLayout(false);
+            this.bodyPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2668,7 +2688,6 @@
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.CheckBox selectAllCheckBox;
         private System.Windows.Forms.Panel detailsDakSearcPanel;
-        private System.Windows.Forms.FlowLayoutPanel dakBodyFlowLayoutPanel;
         private System.Windows.Forms.DateTimePicker timeLimitFromDateTimePicker;
         private System.Windows.Forms.ComboBox dakAttentionTypeComboBox;
         private System.Windows.Forms.ComboBox dakPriorityComboBox;
@@ -2771,6 +2790,8 @@
         private System.Windows.Forms.TableLayoutPanel noDakTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel searchHeaderTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel dakSortMetroPanel;
+        private System.Windows.Forms.TableLayoutPanel dakBodyFlowLayoutPanel;
+        private System.Windows.Forms.Panel bodyPanel;
     }
 }
 

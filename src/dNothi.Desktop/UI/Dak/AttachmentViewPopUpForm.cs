@@ -32,38 +32,15 @@ namespace dNothi.Desktop.UI.Dak
             {
                 _dakAttachmentDTO = value;
 
-                if (dakAttachmentDTO.attachment_type.ToLower().Contains("text") || dakAttachmentDTO.attachment_type.ToLower().Contains("txt"))
+                if (dakAttachmentDTO.attachment_type.ToLower().Contains("image") || dakAttachmentDTO.attachment_type.ToLower().Contains("img"))
                 {
-
-                    //txtFileRichTextBox.Text = System.Net.WebUtility.HtmlDecode(_dakDetailsResponse.data.dak_origin.dak_description);
-                    imageViewPictureBox.Visible = false;
+                    mainAttachmentViewWebBrowser.Visible = false;
                     pdfViewerControl.Visible = false;
-                    //mainAttachmentViewWebBrowser.DocumentText=_dakDetailsResponse.data.dak_origin.dak_description;
-                    mainAttachmentViewWebBrowser.Visible = true;
-                    //mainAttachmentViewWebBrowser.Navigate("about:blank");
-                    if (mainAttachmentViewWebBrowser.Document != null)
-                    {
-                        mainAttachmentViewWebBrowser.Document.Write(string.Empty);
-                    }
-                    string DecodedString = dakAttachmentDTO.dak_description;
-                    int loopCount = 0;
-                    do
-                    {
-
-                        StringWriter writer = new StringWriter();
-                        System.Net.WebUtility.HtmlDecode(DecodedString, writer);
-                        DecodedString = writer.ToString();
-                        loopCount += 1;
+                    imagePanel.Visible = true;
 
 
-                    } while (!DecodedString.StartsWith("<") && loopCount < 5);
-
-
-
-                    mainAttachmentViewWebBrowser.DocumentText = DecodedString;
-                  
-
-                 
+                    imageViewPictureBox.Load(dakAttachmentDTO.url);
+                   
                 }
                 else if (dakAttachmentDTO.attachment_type.ToLower().Contains("pdf"))
                 {
@@ -85,16 +62,35 @@ namespace dNothi.Desktop.UI.Dak
 
                 else
                 {
-                    
 
-                    mainAttachmentViewWebBrowser.Visible = true;
+
+
+                    imagePanel.Visible = false;
                     pdfViewerControl.Visible = false;
-                    imageViewPictureBox.Visible = false;
+                    mainAttachmentViewWebBrowser.Visible = true;
+                    if (mainAttachmentViewWebBrowser.Document != null)
+                    {
+                        mainAttachmentViewWebBrowser.Document.Write(string.Empty);
+                    }
+                    string DecodedString = dakAttachmentDTO.dak_description;
+                    int loopCount = 0;
+                    do
+                    {
+
+                        StringWriter writer = new StringWriter();
+                        System.Net.WebUtility.HtmlDecode(DecodedString, writer);
+                        DecodedString = writer.ToString();
+                        loopCount += 1;
 
 
-                    mainAttachmentViewWebBrowser.Url=new Uri(dakAttachmentDTO.url);
-                    //    imagePanel.MouseWheel += new MouseEventHandler(this.imagePanel_MouseWheel);
-                   
+                    } while (!DecodedString.StartsWith("<") && loopCount < 5);
+
+
+
+                    mainAttachmentViewWebBrowser.DocumentText = DecodedString;
+
+
+
                 }
             }
         }
