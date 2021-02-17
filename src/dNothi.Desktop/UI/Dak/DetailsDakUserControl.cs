@@ -121,40 +121,34 @@ namespace dNothi.Desktop.UI.Dak
                 {
 
                     DakAttachmentDTO dakAttachmentDTO = dakAttachmentResponse.data.FirstOrDefault(a => a.is_main == 1);
-                   
-                    if(dakAttachmentDTO.attachment_type.ToLower().Contains("text") || dakAttachmentDTO.attachment_type.ToLower().Contains("txt"))
+
+                    if (dakAttachmentDTO.attachment_type.ToLower().Contains("image") || dakAttachmentDTO.attachment_type.ToLower().Contains("img"))
                     {
 
-                        //txtFileRichTextBox.Text = System.Net.WebUtility.HtmlDecode(_dakDetailsResponse.data.dak_origin.dak_description);
-                        imagePanel.Visible = false;
+
+                        _zoomIn = 1;
+                        _limit = 2.2;
+
+                        mainAttachmentViewWebBrowser.Visible = false;
                         pdfViewerControl.Visible = false;
-                          //mainAttachmentViewWebBrowser.DocumentText=_dakDetailsResponse.data.dak_origin.dak_description;
-                        mainAttachmentViewWebBrowser.Visible = true;
-                        //mainAttachmentViewWebBrowser.Navigate("about:blank");
-                        if (mainAttachmentViewWebBrowser.Document != null)
-                        {
-                        mainAttachmentViewWebBrowser.Document.Write(string.Empty);
-                        }
-                        string DecodedString = dakAttachmentDTO.dak_description;
-                        int loopCount = 0;
-                        do
-                        {
+                        imagePanel.Visible = true;
+                        imageViewPictureBox.Load(dakAttachmentDTO.url);
+                        pictureBox.Load(dakAttachmentDTO.url);
+                        _imgHeight = pictureBox.Image.Height;
+                        _imgWidth = pictureBox.Image.Width;
+                        _mainimageSrc = dakAttachmentDTO.url;
+                        mainAttachmentTabPage.MouseHover += imagePanel_MouseHover;
+                        mainAttachmentTabPage.MouseLeave += imagePanel_MouseLeave;
 
-                            StringWriter writer = new StringWriter();
-                            System.Net.WebUtility.HtmlDecode(DecodedString, writer);
-                            DecodedString = writer.ToString();
-                            loopCount += 1;
+                        zoomInOutPanel.MouseHover += imagePanel_MouseHover;
+                        zoomInOutPanel.MouseLeave += imagePanel_MouseLeave;
 
 
-                        } while (!DecodedString.StartsWith("<") && loopCount<5);
 
-                        
 
-                        mainAttachmentViewWebBrowser.DocumentText = DecodedString;
-                            
-                           
-                            }
-                   else if(dakAttachmentDTO.attachment_type.ToLower().Contains("pdf"))
+
+                    }
+                    else if(dakAttachmentDTO.attachment_type.ToLower().Contains("pdf"))
                     {
 
                         mainAttachmentViewWebBrowser.Visible = false;
@@ -174,25 +168,32 @@ namespace dNothi.Desktop.UI.Dak
 
                     else
                     {
-                        _zoomIn = 1;
-                        _limit = 2.2;
-                        
-                        mainAttachmentViewWebBrowser.Visible = false;
+                        //txtFileRichTextBox.Text = System.Net.WebUtility.HtmlDecode(_dakDetailsResponse.data.dak_origin.dak_description);
+                        imagePanel.Visible = false;
                         pdfViewerControl.Visible = false;
-                        imagePanel.Visible = true;
-                        imageViewPictureBox.Load(dakAttachmentDTO.url);
-                    //    imagePanel.MouseWheel += new MouseEventHandler(this.imagePanel_MouseWheel);
-                        pictureBox.Load(dakAttachmentDTO.url);
-                        _imgHeight = pictureBox.Image.Height;
-                        _imgWidth = pictureBox.Image.Width;
-                        _mainimageSrc = dakAttachmentDTO.url;
-                        mainAttachmentTabPage.MouseHover += imagePanel_MouseHover;
-                        mainAttachmentTabPage.MouseLeave += imagePanel_MouseLeave;
+                        //mainAttachmentViewWebBrowser.DocumentText=_dakDetailsResponse.data.dak_origin.dak_description;
+                        mainAttachmentViewWebBrowser.Visible = true;
+                        //mainAttachmentViewWebBrowser.Navigate("about:blank");
+                        if (mainAttachmentViewWebBrowser.Document != null)
+                        {
+                            mainAttachmentViewWebBrowser.Document.Write(string.Empty);
+                        }
+                        string DecodedString = dakAttachmentDTO.dak_description;
+                        int loopCount = 0;
+                        do
+                        {
 
-                        zoomInOutPanel.MouseHover += imagePanel_MouseHover;
-                        zoomInOutPanel.MouseLeave += imagePanel_MouseLeave;
+                            StringWriter writer = new StringWriter();
+                            System.Net.WebUtility.HtmlDecode(DecodedString, writer);
+                            DecodedString = writer.ToString();
+                            loopCount += 1;
 
 
+                        } while (!DecodedString.StartsWith("<") && loopCount < 5);
+
+
+
+                        mainAttachmentViewWebBrowser.DocumentText = DecodedString;
                     }
                     
                 }
