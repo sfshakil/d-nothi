@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dateLabel = new System.Windows.Forms.Label();
             this.dakActionPanel = new System.Windows.Forms.Panel();
             this.dakEditButton = new FontAwesome.Sharp.IconButton();
             this.dakSendButton = new FontAwesome.Sharp.IconButton();
             this.dakDeleteButton = new FontAwesome.Sharp.IconButton();
-            this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,23 +49,16 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
+            this.attachmentAndDatePanel = new System.Windows.Forms.Panel();
+            this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
+            this.dateLabel = new System.Windows.Forms.Label();
             this.dakActionPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.senderAndReceiverPanel.SuspendLayout();
             this.subjectPanel.SuspendLayout();
+            this.attachmentAndDatePanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dateLabel
-            // 
-            this.dateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateLabel.BackColor = System.Drawing.Color.Transparent;
-            this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(943, 57);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(156, 23);
-            this.dateLabel.TabIndex = 64;
-            this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dakActionPanel
             // 
@@ -147,26 +138,6 @@
             this.dakDeleteButton.Click += new System.EventHandler(this.dakDeleteButton_Click);
             this.dakDeleteButton.MouseLeave += new System.EventHandler(this.dakDeleteButton_MouseLeave);
             this.dakDeleteButton.MouseHover += new System.EventHandler(this.dakDeleteButton_MouseHover);
-            // 
-            // dakAttachmentButton
-            // 
-            this.dakAttachmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.dakAttachmentButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
-            this.dakAttachmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakAttachmentButton.IconChar = FontAwesome.Sharp.IconChar.Link;
-            this.dakAttachmentButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(132)))));
-            this.dakAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakAttachmentButton.IconSize = 20;
-            this.dakAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakAttachmentButton.Location = new System.Drawing.Point(899, 55);
-            this.dakAttachmentButton.Name = "dakAttachmentButton";
-            this.dakAttachmentButton.Size = new System.Drawing.Size(42, 26);
-            this.dakAttachmentButton.TabIndex = 83;
-            this.dakAttachmentButton.TabStop = false;
-            this.dakAttachmentButton.Text = "1";
-            this.dakAttachmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.dakAttachmentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.dakAttachmentButton.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -347,15 +318,67 @@
             this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
             this.rightInfoPanel.TabIndex = 88;
             // 
+            // attachmentAndDatePanel
+            // 
+            this.attachmentAndDatePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.attachmentAndDatePanel.AutoSize = true;
+            this.attachmentAndDatePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.attachmentAndDatePanel.Controls.Add(this.dakAttachmentButton);
+            this.attachmentAndDatePanel.Controls.Add(this.dateLabel);
+            this.attachmentAndDatePanel.Location = new System.Drawing.Point(1015, 51);
+            this.attachmentAndDatePanel.MinimumSize = new System.Drawing.Size(0, 32);
+            this.attachmentAndDatePanel.Name = "attachmentAndDatePanel";
+            this.attachmentAndDatePanel.Size = new System.Drawing.Size(87, 32);
+            this.attachmentAndDatePanel.TabIndex = 100;
+            // 
+            // dakAttachmentButton
+            // 
+            this.dakAttachmentButton.AutoSize = true;
+            this.dakAttachmentButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dakAttachmentButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakAttachmentButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.dakAttachmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakAttachmentButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakAttachmentButton.IconChar = FontAwesome.Sharp.IconChar.Link;
+            this.dakAttachmentButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(132)))));
+            this.dakAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakAttachmentButton.IconSize = 20;
+            this.dakAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dakAttachmentButton.Location = new System.Drawing.Point(0, 0);
+            this.dakAttachmentButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakAttachmentButton.Name = "dakAttachmentButton";
+            this.dakAttachmentButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dakAttachmentButton.Size = new System.Drawing.Size(47, 32);
+            this.dakAttachmentButton.TabIndex = 64;
+            this.dakAttachmentButton.TabStop = false;
+            this.dakAttachmentButton.Text = "1";
+            this.dakAttachmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.dakAttachmentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.dakAttachmentButton.UseVisualStyleBackColor = true;
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.BackColor = System.Drawing.Color.Transparent;
+            this.dateLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.dateLabel.Location = new System.Drawing.Point(47, 0);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.dateLabel.Size = new System.Drawing.Size(40, 25);
+            this.dateLabel.TabIndex = 64;
+            this.dateLabel.Text = "[date]";
+            this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // DraftedDakUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.attachmentAndDatePanel);
             this.Controls.Add(this.dakActionPanel);
             this.Controls.Add(this.rightInfoPanel);
-            this.Controls.Add(this.dateLabel);
-            this.Controls.Add(this.dakAttachmentButton);
             this.Controls.Add(this.subjectPanel);
             this.Controls.Add(this.senderAndReceiverPanel);
             this.Controls.Add(this.panel1);
@@ -372,18 +395,18 @@
             this.senderAndReceiverPanel.PerformLayout();
             this.subjectPanel.ResumeLayout(false);
             this.subjectPanel.PerformLayout();
+            this.attachmentAndDatePanel.ResumeLayout(false);
+            this.attachmentAndDatePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Panel dakActionPanel;
         private FontAwesome.Sharp.IconButton dakEditButton;
         private FontAwesome.Sharp.IconButton dakSendButton;
         private FontAwesome.Sharp.IconButton dakDeleteButton;
-        private FontAwesome.Sharp.IconButton dakAttachmentButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
@@ -400,5 +423,8 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.ToolTip toolTip1;
         private DakRightTopInfoIconUserControl rightInfoPanel;
+        private System.Windows.Forms.Panel attachmentAndDatePanel;
+        private FontAwesome.Sharp.IconButton dakAttachmentButton;
+        private System.Windows.Forms.Label dateLabel;
     }
 }

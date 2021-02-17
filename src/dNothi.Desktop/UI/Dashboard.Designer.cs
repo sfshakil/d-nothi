@@ -70,8 +70,6 @@
             this.selectAllCheckBox = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.detailsDakSearcPanel = new System.Windows.Forms.Panel();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
-            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -164,14 +162,16 @@
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.bodyPanel = new System.Windows.Forms.Panel();
+            this.dakBodyFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.dakSortMetroPanel = new System.Windows.Forms.TableLayoutPanel();
             this.noDakTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.searchHeaderTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
-            this.dakBodyFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.bodyPanel = new System.Windows.Forms.Panel();
+            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
+            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -201,12 +201,12 @@
             this.dashboardBodyTableLayoutPanel.SuspendLayout();
             this.rightDashboardBodyTableLayoutPanel.SuspendLayout();
             this.bodyTableLayoutPanel.SuspendLayout();
+            this.bodyPanel.SuspendLayout();
             this.dakSortMetroPanel.SuspendLayout();
             this.noDakTableLayoutPanel.SuspendLayout();
             this.searchHeaderTableLayoutPanel.SuspendLayout();
             this.headerTableLayoutPanel.SuspendLayout();
             this.footerTableLayoutPanel.SuspendLayout();
-            this.bodyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -856,36 +856,6 @@
             this.detailsDakSearcPanel.TabIndex = 0;
             this.detailsDakSearcPanel.Visible = false;
             // 
-            // searchOfficeDetailSearch
-            // 
-            this.searchOfficeDetailSearch.AutoSize = true;
-            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
-            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeDetailSearch.isListShown = false;
-            this.searchOfficeDetailSearch.itemList = null;
-            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 207);
-            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
-            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
-            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 52);
-            this.searchOfficeDetailSearch.TabIndex = 53;
-            // 
-            // officerSearchList
-            // 
-            this.officerSearchList.AutoSize = true;
-            this.officerSearchList.BackColor = System.Drawing.Color.White;
-            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officerSearchList.isListShown = false;
-            this.officerSearchList.itemList = null;
-            this.officerSearchList.Location = new System.Drawing.Point(21, 207);
-            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
-            this.officerSearchList.Name = "officerSearchList";
-            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
-            this.officerSearchList.Size = new System.Drawing.Size(516, 52);
-            this.officerSearchList.TabIndex = 52;
-            // 
             // label11
             // 
             this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -1214,7 +1184,7 @@
             "জরুরি"});
             this.dakPriorityComboBox.Location = new System.Drawing.Point(678, 115);
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
-            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakPriorityComboBox.TabIndex = 6;
             this.dakPriorityComboBox.Text = "অগ্রাধিকার ";
             this.dakPriorityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPriorityComboBox_SelectedIndexChanged);
@@ -1234,7 +1204,7 @@
             "সীমিত"});
             this.dakSecurityComboBox.Location = new System.Drawing.Point(463, 115);
             this.dakSecurityComboBox.Name = "dakSecurityComboBox";
-            this.dakSecurityComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakSecurityComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakSecurityComboBox.TabIndex = 5;
             this.dakSecurityComboBox.Text = "গোপনীয়তা";
             this.dakSecurityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakSecurityComboBox_SelectedIndexChanged);
@@ -1251,7 +1221,7 @@
             "নাগরিক"});
             this.dakTypeComboBox.Location = new System.Drawing.Point(897, 115);
             this.dakTypeComboBox.Name = "dakTypeComboBox";
-            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakTypeComboBox.TabIndex = 4;
             this.dakTypeComboBox.Text = "ডাকের ধরণ";
             this.dakTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakTypeComboBox_SelectedIndexChanged);
@@ -1271,7 +1241,7 @@
             "বিজ্ঞপ্তি/নোটিশ"});
             this.dakPaperTypeComboBox.Location = new System.Drawing.Point(245, 115);
             this.dakPaperTypeComboBox.Name = "dakPaperTypeComboBox";
-            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakPaperTypeComboBox.TabIndex = 3;
             this.dakPaperTypeComboBox.Text = "পত্রের ধরন ";
             this.dakPaperTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPaperTypeComboBox_SelectedIndexChanged);
@@ -1313,7 +1283,7 @@
             " অনুলিপি"});
             this.dakAttentionTypeComboBox.Location = new System.Drawing.Point(21, 115);
             this.dakAttentionTypeComboBox.Name = "dakAttentionTypeComboBox";
-            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakAttentionTypeComboBox.TabIndex = 2;
             this.dakAttentionTypeComboBox.Text = "সকল ";
             this.dakAttentionTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakAttentionTypeComboBox_SelectedIndexChanged);
@@ -1425,9 +1395,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(895, 0);
+            this.label9.Location = new System.Drawing.Point(904, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 29);
+            this.label9.Size = new System.Drawing.Size(52, 29);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2346,8 +2316,8 @@
             // dashboardBodyTableLayoutPanel
             // 
             this.dashboardBodyTableLayoutPanel.ColumnCount = 2;
-            this.dashboardBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.32F));
-            this.dashboardBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.68F));
+            this.dashboardBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.dashboardBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.dashboardBodyTableLayoutPanel.Controls.Add(this.rightDashboardBodyTableLayoutPanel, 1, 0);
             this.dashboardBodyTableLayoutPanel.Controls.Add(this.leftMenuBarTableLayoutPanel, 0, 0);
             this.dashboardBodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2404,6 +2374,32 @@
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1120, 607);
             this.bodyTableLayoutPanel.TabIndex = 54;
+            // 
+            // bodyPanel
+            // 
+            this.bodyPanel.AutoScroll = true;
+            this.bodyPanel.Controls.Add(this.dakBodyFlowLayoutPanel);
+            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyPanel.Location = new System.Drawing.Point(3, 499);
+            this.bodyPanel.Name = "bodyPanel";
+            this.bodyPanel.Size = new System.Drawing.Size(1114, 105);
+            this.bodyPanel.TabIndex = 0;
+            // 
+            // dakBodyFlowLayoutPanel
+            // 
+            this.dakBodyFlowLayoutPanel.AutoSize = true;
+            this.dakBodyFlowLayoutPanel.ColumnCount = 1;
+            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.dakBodyFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dakBodyFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.dakBodyFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakBodyFlowLayoutPanel.Name = "dakBodyFlowLayoutPanel";
+            this.dakBodyFlowLayoutPanel.RowCount = 1;
+            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1114, 0);
+            this.dakBodyFlowLayoutPanel.TabIndex = 55;
             // 
             // dakSortMetroPanel
             // 
@@ -2527,6 +2523,7 @@
             // 
             this.designationDetailsPanel._designationId = 0;
             this.designationDetailsPanel._officeInfos = null;
+            this.designationDetailsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.designationDetailsPanel.AutoSize = true;
             this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
@@ -2541,31 +2538,35 @@
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
             // 
-            // dakBodyFlowLayoutPanel
+            // searchOfficeDetailSearch
             // 
-            this.dakBodyFlowLayoutPanel.AutoSize = true;
-            this.dakBodyFlowLayoutPanel.ColumnCount = 1;
-            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.dakBodyFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakBodyFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.dakBodyFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.dakBodyFlowLayoutPanel.Name = "dakBodyFlowLayoutPanel";
-            this.dakBodyFlowLayoutPanel.RowCount = 1;
-            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1114, 0);
-            this.dakBodyFlowLayoutPanel.TabIndex = 55;
+            this.searchOfficeDetailSearch.AutoSize = true;
+            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
+            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeDetailSearch.isListShown = false;
+            this.searchOfficeDetailSearch.itemList = null;
+            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 207);
+            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
+            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
+            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 52);
+            this.searchOfficeDetailSearch.TabIndex = 53;
             // 
-            // bodyPanel
+            // officerSearchList
             // 
-            this.bodyPanel.AutoScroll = true;
-            this.bodyPanel.Controls.Add(this.dakBodyFlowLayoutPanel);
-            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyPanel.Location = new System.Drawing.Point(3, 499);
-            this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(1114, 105);
-            this.bodyPanel.TabIndex = 0;
+            this.officerSearchList.AutoSize = true;
+            this.officerSearchList.BackColor = System.Drawing.Color.White;
+            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchList.isListShown = false;
+            this.officerSearchList.itemList = null;
+            this.officerSearchList.Location = new System.Drawing.Point(21, 207);
+            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
+            this.officerSearchList.Name = "officerSearchList";
+            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
+            this.officerSearchList.Size = new System.Drawing.Size(516, 52);
+            this.officerSearchList.TabIndex = 52;
             // 
             // Dashboard
             // 
@@ -2630,6 +2631,8 @@
             this.rightDashboardBodyTableLayoutPanel.PerformLayout();
             this.bodyTableLayoutPanel.ResumeLayout(false);
             this.bodyTableLayoutPanel.PerformLayout();
+            this.bodyPanel.ResumeLayout(false);
+            this.bodyPanel.PerformLayout();
             this.dakSortMetroPanel.ResumeLayout(false);
             this.dakSortMetroPanel.PerformLayout();
             this.noDakTableLayoutPanel.ResumeLayout(false);
@@ -2639,8 +2642,6 @@
             this.headerTableLayoutPanel.PerformLayout();
             this.footerTableLayoutPanel.ResumeLayout(false);
             this.footerTableLayoutPanel.PerformLayout();
-            this.bodyPanel.ResumeLayout(false);
-            this.bodyPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
