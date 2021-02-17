@@ -736,7 +736,7 @@ namespace dNothi.Desktop.UI.Dak
                 int imgWidth = Convert.ToInt32(_imgWidth * _zoomIn);
 
 
-                Bitmap bitmap = new Bitmap(pictureBox.Image, imgHeight, imgWidth);
+                Bitmap bitmap = new Bitmap(pictureBox.Image, imgWidth, imgHeight);
                Graphics graphics = Graphics.FromImage(bitmap);
                graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
@@ -759,7 +759,7 @@ namespace dNothi.Desktop.UI.Dak
                 int imgWidth = Convert.ToInt32( _imgWidth * _zoomIn);
 
 
-                Bitmap bitmap = new Bitmap(pictureBox.Image, imgHeight, imgWidth);
+                Bitmap bitmap = new Bitmap(pictureBox.Image, imgWidth, imgHeight);
                 Graphics graphics = Graphics.FromImage(bitmap);
                 graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 

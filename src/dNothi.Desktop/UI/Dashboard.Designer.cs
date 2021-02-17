@@ -45,7 +45,6 @@
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.moduleDakCountLabel = new System.Windows.Forms.Label();
             this.dakSearchSubTextBox = new PlaceholderTextBox.PlaceholderTextBox();
-            this.detailsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.settingsPanel = new System.Windows.Forms.Panel();
@@ -164,14 +163,15 @@
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.bodyPanel = new System.Windows.Forms.Panel();
+            this.dakBodyFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.dakSortMetroPanel = new System.Windows.Forms.TableLayoutPanel();
             this.noDakTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.searchHeaderTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
-            this.dakBodyFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.bodyPanel = new System.Windows.Forms.Panel();
+            this.detailsFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -201,12 +201,12 @@
             this.dashboardBodyTableLayoutPanel.SuspendLayout();
             this.rightDashboardBodyTableLayoutPanel.SuspendLayout();
             this.bodyTableLayoutPanel.SuspendLayout();
+            this.bodyPanel.SuspendLayout();
             this.dakSortMetroPanel.SuspendLayout();
             this.noDakTableLayoutPanel.SuspendLayout();
             this.searchHeaderTableLayoutPanel.SuspendLayout();
             this.headerTableLayoutPanel.SuspendLayout();
             this.footerTableLayoutPanel.SuspendLayout();
-            this.bodyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -434,17 +434,6 @@
             this.dakSearchSubTextBox.Size = new System.Drawing.Size(983, 19);
             this.dakSearchSubTextBox.TabIndex = 3;
             // 
-            // detailsFlowLayoutPanel
-            // 
-            this.detailsFlowLayoutPanel.AutoSize = true;
-            this.detailsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(0, 607);
-            this.detailsFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.detailsFlowLayoutPanel.Name = "detailsFlowLayoutPanel";
-            this.detailsFlowLayoutPanel.Size = new System.Drawing.Size(1120, 1);
-            this.detailsFlowLayoutPanel.TabIndex = 16;
-            this.detailsFlowLayoutPanel.Visible = false;
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -477,7 +466,7 @@
             this.settingsPanel.Controls.Add(this.infoHideShowButton);
             this.settingsPanel.Controls.Add(this.RefreshButton);
             this.settingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.settingsPanel.Location = new System.Drawing.Point(575, 3);
+            this.settingsPanel.Location = new System.Drawing.Point(587, 3);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.settingsPanel.Size = new System.Drawing.Size(90, 34);
@@ -532,7 +521,7 @@
             this.multipleSelectionPanel.Controls.Add(this.multipleDakForwardButton);
             this.multipleSelectionPanel.Controls.Add(this.starButton);
             this.multipleSelectionPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.multipleSelectionPanel.Location = new System.Drawing.Point(671, 3);
+            this.multipleSelectionPanel.Location = new System.Drawing.Point(683, 3);
             this.multipleSelectionPanel.Name = "multipleSelectionPanel";
             this.multipleSelectionPanel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.multipleSelectionPanel.Size = new System.Drawing.Size(225, 34);
@@ -652,7 +641,8 @@
             this.shortSearchPanel.Controls.Add(this.comboBox8);
             this.shortSearchPanel.Controls.Add(this.comboBox7);
             this.shortSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shortSearchPanel.Location = new System.Drawing.Point(44, 3);
+            this.shortSearchPanel.Location = new System.Drawing.Point(56, 3);
+            this.shortSearchPanel.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.shortSearchPanel.Name = "shortSearchPanel";
             this.shortSearchPanel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.shortSearchPanel.Size = new System.Drawing.Size(525, 34);
@@ -799,7 +789,6 @@
             this.selectDakBoxHolderPanel.Name = "selectDakBoxHolderPanel";
             this.selectDakBoxHolderPanel.Size = new System.Drawing.Size(35, 34);
             this.selectDakBoxHolderPanel.TabIndex = 27;
-            this.selectDakBoxHolderPanel.Visible = false;
             // 
             // selectAllCheckBox
             // 
@@ -1214,7 +1203,7 @@
             "জরুরি"});
             this.dakPriorityComboBox.Location = new System.Drawing.Point(678, 115);
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
-            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakPriorityComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakPriorityComboBox.TabIndex = 6;
             this.dakPriorityComboBox.Text = "অগ্রাধিকার ";
             this.dakPriorityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPriorityComboBox_SelectedIndexChanged);
@@ -1234,7 +1223,7 @@
             "সীমিত"});
             this.dakSecurityComboBox.Location = new System.Drawing.Point(463, 115);
             this.dakSecurityComboBox.Name = "dakSecurityComboBox";
-            this.dakSecurityComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakSecurityComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakSecurityComboBox.TabIndex = 5;
             this.dakSecurityComboBox.Text = "গোপনীয়তা";
             this.dakSecurityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakSecurityComboBox_SelectedIndexChanged);
@@ -1251,7 +1240,7 @@
             "নাগরিক"});
             this.dakTypeComboBox.Location = new System.Drawing.Point(897, 115);
             this.dakTypeComboBox.Name = "dakTypeComboBox";
-            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakTypeComboBox.TabIndex = 4;
             this.dakTypeComboBox.Text = "ডাকের ধরণ";
             this.dakTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakTypeComboBox_SelectedIndexChanged);
@@ -1271,7 +1260,7 @@
             "বিজ্ঞপ্তি/নোটিশ"});
             this.dakPaperTypeComboBox.Location = new System.Drawing.Point(245, 115);
             this.dakPaperTypeComboBox.Name = "dakPaperTypeComboBox";
-            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakPaperTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakPaperTypeComboBox.TabIndex = 3;
             this.dakPaperTypeComboBox.Text = "পত্রের ধরন ";
             this.dakPaperTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPaperTypeComboBox_SelectedIndexChanged);
@@ -1313,7 +1302,7 @@
             " অনুলিপি"});
             this.dakAttentionTypeComboBox.Location = new System.Drawing.Point(21, 115);
             this.dakAttentionTypeComboBox.Name = "dakAttentionTypeComboBox";
-            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 29);
+            this.dakAttentionTypeComboBox.Size = new System.Drawing.Size(197, 26);
             this.dakAttentionTypeComboBox.TabIndex = 2;
             this.dakAttentionTypeComboBox.Text = "সকল ";
             this.dakAttentionTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dakAttentionTypeComboBox_SelectedIndexChanged);
@@ -1425,9 +1414,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(895, 0);
+            this.label9.Location = new System.Drawing.Point(904, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 29);
+            this.label9.Size = new System.Drawing.Size(52, 29);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2346,8 +2335,8 @@
             // dashboardBodyTableLayoutPanel
             // 
             this.dashboardBodyTableLayoutPanel.ColumnCount = 2;
-            this.dashboardBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.32F));
-            this.dashboardBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.68F));
+            this.dashboardBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.dashboardBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.dashboardBodyTableLayoutPanel.Controls.Add(this.rightDashboardBodyTableLayoutPanel, 1, 0);
             this.dashboardBodyTableLayoutPanel.Controls.Add(this.leftMenuBarTableLayoutPanel, 0, 0);
             this.dashboardBodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2381,11 +2370,11 @@
             // 
             this.bodyTableLayoutPanel.ColumnCount = 1;
             this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.bodyTableLayoutPanel.Controls.Add(this.detailsFlowLayoutPanel, 0, 7);
             this.bodyTableLayoutPanel.Controls.Add(this.bodyPanel, 0, 6);
             this.bodyTableLayoutPanel.Controls.Add(this.dakSortMetroPanel, 0, 3);
             this.bodyTableLayoutPanel.Controls.Add(this.noDakTableLayoutPanel, 0, 5);
             this.bodyTableLayoutPanel.Controls.Add(this.searchHeaderTableLayoutPanel, 0, 0);
-            this.bodyTableLayoutPanel.Controls.Add(this.detailsFlowLayoutPanel, 0, 7);
             this.bodyTableLayoutPanel.Controls.Add(this.label15, 0, 4);
             this.bodyTableLayoutPanel.Controls.Add(this.label21, 0, 2);
             this.bodyTableLayoutPanel.Controls.Add(this.detailsDakSearcPanel, 0, 1);
@@ -2402,8 +2391,35 @@
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1120, 607);
             this.bodyTableLayoutPanel.TabIndex = 54;
+            // 
+            // bodyPanel
+            // 
+            this.bodyPanel.AutoScroll = true;
+            this.bodyPanel.Controls.Add(this.dakBodyFlowLayoutPanel);
+            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyPanel.Location = new System.Drawing.Point(3, 499);
+            this.bodyPanel.Name = "bodyPanel";
+            this.bodyPanel.Size = new System.Drawing.Size(1114, 99);
+            this.bodyPanel.TabIndex = 0;
+            // 
+            // dakBodyFlowLayoutPanel
+            // 
+            this.dakBodyFlowLayoutPanel.AutoSize = true;
+            this.dakBodyFlowLayoutPanel.ColumnCount = 1;
+            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.dakBodyFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dakBodyFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.dakBodyFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakBodyFlowLayoutPanel.Name = "dakBodyFlowLayoutPanel";
+            this.dakBodyFlowLayoutPanel.RowCount = 1;
+            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1114, 0);
+            this.dakBodyFlowLayoutPanel.TabIndex = 55;
             // 
             // dakSortMetroPanel
             // 
@@ -2527,6 +2543,7 @@
             // 
             this.designationDetailsPanel._designationId = 0;
             this.designationDetailsPanel._officeInfos = null;
+            this.designationDetailsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.designationDetailsPanel.AutoSize = true;
             this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
@@ -2541,31 +2558,18 @@
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
             // 
-            // dakBodyFlowLayoutPanel
+            // detailsFlowLayoutPanel
             // 
-            this.dakBodyFlowLayoutPanel.AutoSize = true;
-            this.dakBodyFlowLayoutPanel.ColumnCount = 1;
-            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.dakBodyFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.dakBodyFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakBodyFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.dakBodyFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.dakBodyFlowLayoutPanel.Name = "dakBodyFlowLayoutPanel";
-            this.dakBodyFlowLayoutPanel.RowCount = 1;
-            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1114, 0);
-            this.dakBodyFlowLayoutPanel.TabIndex = 55;
-            // 
-            // bodyPanel
-            // 
-            this.bodyPanel.AutoScroll = true;
-            this.bodyPanel.Controls.Add(this.dakBodyFlowLayoutPanel);
-            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyPanel.Location = new System.Drawing.Point(3, 499);
-            this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(1114, 105);
-            this.bodyPanel.TabIndex = 0;
+            this.detailsFlowLayoutPanel.AutoSize = true;
+            this.detailsFlowLayoutPanel.ColumnCount = 1;
+            this.detailsFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.detailsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(3, 604);
+            this.detailsFlowLayoutPanel.Name = "detailsFlowLayoutPanel";
+            this.detailsFlowLayoutPanel.RowCount = 1;
+            this.detailsFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.detailsFlowLayoutPanel.Size = new System.Drawing.Size(1114, 1);
+            this.detailsFlowLayoutPanel.TabIndex = 56;
             // 
             // Dashboard
             // 
@@ -2630,6 +2634,8 @@
             this.rightDashboardBodyTableLayoutPanel.PerformLayout();
             this.bodyTableLayoutPanel.ResumeLayout(false);
             this.bodyTableLayoutPanel.PerformLayout();
+            this.bodyPanel.ResumeLayout(false);
+            this.bodyPanel.PerformLayout();
             this.dakSortMetroPanel.ResumeLayout(false);
             this.dakSortMetroPanel.PerformLayout();
             this.noDakTableLayoutPanel.ResumeLayout(false);
@@ -2639,8 +2645,6 @@
             this.headerTableLayoutPanel.PerformLayout();
             this.footerTableLayoutPanel.ResumeLayout(false);
             this.footerTableLayoutPanel.PerformLayout();
-            this.bodyPanel.ResumeLayout(false);
-            this.bodyPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2747,7 +2751,6 @@
         private FontAwesome.Sharp.IconPictureBox userPictureBox;
         private System.Windows.Forms.Panel profilePanel;
         private designationSelect designationDetailsPanel;
-        private System.Windows.Forms.FlowLayoutPanel detailsFlowLayoutPanel;
         private FontAwesome.Sharp.IconButton dakShareButton;
         private System.Windows.Forms.ToolTip MyToolTip;
         private System.Windows.Forms.Panel settingsPanel;
@@ -2792,6 +2795,7 @@
         private System.Windows.Forms.TableLayoutPanel dakSortMetroPanel;
         private System.Windows.Forms.TableLayoutPanel dakBodyFlowLayoutPanel;
         private System.Windows.Forms.Panel bodyPanel;
+        private System.Windows.Forms.TableLayoutPanel detailsFlowLayoutPanel;
     }
 }
 
