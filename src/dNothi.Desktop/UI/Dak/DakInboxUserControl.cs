@@ -352,7 +352,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakInboxUserControl_Load(object sender, EventArgs e)
         {
-            dakActionPanel.Location = new Point(this.Width-dakActionPanel.Width, dakActionPanel.Location.Y);
+            dakActionPanel.Location = new Point(this.Width, dakActionPanel.Location.Y);
          // rightInfoPanel.Location = new Point(this.Width- rightInfoPanel.Width, rightInfoPanel.Location.Y);
         }
 

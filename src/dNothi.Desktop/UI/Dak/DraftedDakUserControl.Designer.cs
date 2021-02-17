@@ -382,6 +382,7 @@
             this.Controls.Add(this.subjectPanel);
             this.Controls.Add(this.senderAndReceiverPanel);
             this.Controls.Add(this.panel1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "DraftedDakUserControl";
             this.Size = new System.Drawing.Size(1107, 84);
             this.Load += new System.EventHandler(this.DraftedDakUserControl_Load);

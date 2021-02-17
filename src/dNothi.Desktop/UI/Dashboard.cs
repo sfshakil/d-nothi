@@ -296,7 +296,7 @@ namespace dNothi.Desktop.UI
                                     detailsDakUserControl.dakAttachmentResponse = dakAttachmentResponse;
                                 }
                             }
-
+                            detailsDakUserControl.Dock = DockStyle.Fill;
                             detailsFlowLayoutPanel.Controls.Add(detailsDakUserControl);
 
                         }
@@ -2972,7 +2972,7 @@ namespace dNothi.Desktop.UI
 
         private void Dashboard_Shown(object sender, EventArgs e)
         {
-            
+           
             LoadDakInbox();
             LoadDetailsOffice();
             LoadDetailsOfficer();
@@ -2981,9 +2981,11 @@ namespace dNothi.Desktop.UI
            designationDetailsPanel.officeInfos = _userService.GetAllLocalOfficeInfo();
 
           designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
-          NormalizeDashBoard();
 
-           SetDefaultFont(this.Controls);
+          
+            NormalizeDashBoard();
+            selectDakBoxHolderPanel.Visible = true;
+            SetDefaultFont(this.Controls);
 
         }
 

@@ -355,7 +355,7 @@
             this.dakActionPanel.Controls.Add(this.iconButton3);
             this.dakActionPanel.Controls.Add(this.dakRevertButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-557, 15);
+            this.dakActionPanel.Location = new System.Drawing.Point(-653, 15);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -513,6 +513,7 @@
             this.Controls.Add(this.subjectPanel);
             this.Controls.Add(this.senderAndReceiverPanel);
             this.Controls.Add(this.sourcePanel);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "DakOutboxUserControl";
             this.Size = new System.Drawing.Size(1095, 107);
             this.Load += new System.EventHandler(this.DakOutboxUserControl_Load);

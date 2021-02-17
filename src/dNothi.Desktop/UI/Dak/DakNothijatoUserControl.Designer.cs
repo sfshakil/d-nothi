@@ -80,7 +80,7 @@
             this.decisionLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.decisionLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decisionLabel.ForeColor = System.Drawing.Color.Goldenrod;
-            this.decisionLabel.Location = new System.Drawing.Point(57, 2);
+            this.decisionLabel.Location = new System.Drawing.Point(62, 2);
             this.decisionLabel.Name = "decisionLabel";
             this.decisionLabel.Size = new System.Drawing.Size(0, 18);
             this.decisionLabel.TabIndex = 63;
@@ -94,7 +94,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label3.Location = new System.Drawing.Point(12, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 18);
+            this.label3.Size = new System.Drawing.Size(50, 18);
             this.label3.TabIndex = 55;
             this.label3.Text = "সিদ্ধান্তঃ";
             // 
@@ -156,7 +156,7 @@
             this.nothiNoLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiNoLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiNoLabel.ForeColor = System.Drawing.Color.Black;
-            this.nothiNoLabel.Location = new System.Drawing.Point(88, 2);
+            this.nothiNoLabel.Location = new System.Drawing.Point(95, 2);
             this.nothiNoLabel.Name = "nothiNoLabel";
             this.nothiNoLabel.Size = new System.Drawing.Size(0, 18);
             this.nothiNoLabel.TabIndex = 67;
@@ -168,9 +168,9 @@
             this.nothiPlainTextLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiPlainTextLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiPlainTextLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nothiPlainTextLabel.Location = new System.Drawing.Point(57, 2);
+            this.nothiPlainTextLabel.Location = new System.Drawing.Point(62, 2);
             this.nothiPlainTextLabel.Name = "nothiPlainTextLabel";
-            this.nothiPlainTextLabel.Size = new System.Drawing.Size(31, 18);
+            this.nothiPlainTextLabel.Size = new System.Drawing.Size(33, 18);
             this.nothiPlainTextLabel.TabIndex = 66;
             this.nothiPlainTextLabel.Text = "নথিঃ";
             this.nothiPlainTextLabel.Visible = false;
@@ -357,7 +357,7 @@
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.dakRevertButton);
             this.dakActionPanel.Controls.Add(this.iconButton3);
-            this.dakActionPanel.Location = new System.Drawing.Point(315, 15);
+            this.dakActionPanel.Location = new System.Drawing.Point(187, 15);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -538,6 +538,7 @@
             this.Controls.Add(this.subjectPanel);
             this.Controls.Add(this.senderAndReceiverPanel);
             this.Controls.Add(this.sourcePanel);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "DakNothijatoUserControl";
             this.Size = new System.Drawing.Size(1089, 104);
             this.Load += new System.EventHandler(this.DakNothijatoUserControl_Load);
