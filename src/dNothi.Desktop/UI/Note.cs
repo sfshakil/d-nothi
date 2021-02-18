@@ -199,7 +199,7 @@ namespace dNothi.Desktop.UI
             return i;
         }
         private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
-        {
+        {  
             //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
             OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
             if (onucchedList.data.total_records > 0)
