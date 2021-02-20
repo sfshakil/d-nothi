@@ -199,7 +199,7 @@ namespace dNothi.Desktop.UI
             return i;
         }
         private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
-        {
+        {  
             //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
             OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
             if (onucchedList.data.total_records > 0)
@@ -225,6 +225,14 @@ namespace dNothi.Desktop.UI
                         panel14.Visible = false;
 
                         var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                        separateOnucched.office = onucchedsingleListRec.employee_name+" "+ onucchedsingleListRec.created;
+                        separateOnucched.noteNo(lbNoteTotl.Text.Substring(lbNoteTotl.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
+                        separateOnucched.createDate = onucchedsingleListRec.created;
+                        separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
+                        foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
+                        {
+                            separateOnucched.loadOnuchhedSignature(singleRecSignature);
+                        }
                         onuchhedFLP.Controls.Add(separateOnucched);
                     }
                 }
@@ -319,7 +327,6 @@ namespace dNothi.Desktop.UI
         }
         private string _nothiLastDate;
         private string _noteSubject;
-
         [Category("Custom Props")]
         public string noteTotal
         {
