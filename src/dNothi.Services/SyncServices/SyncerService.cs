@@ -1,4 +1,6 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity;
 using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
@@ -21,12 +23,14 @@ namespace dNothi.Services.SyncServices
         IDakInboxServices _dakInboxService;
         IAccountService _accountService;
         IDakListService _dakListService;
-        public SyncerService(IDakInboxServices dakInboxService, IUserService userService, IAccountService accountService, IDakListService dakListService)
+        IRepository<SyncStatus> _sycnRepository;
+        public SyncerService(IDakInboxServices dakInboxService, IUserService userService, IAccountService accountService, IDakListService dakListService, IRepository<SyncStatus> sycnRepository)
         {
             _userService = userService;
             _dakInboxService = dakInboxService;
             _accountService = accountService;
             _dakListService = dakListService;
+            _sycnRepository = sycnRepository;
         }
         /****************=========================================================================***************************
          ****************=========================================================================***************************
@@ -44,33 +48,34 @@ namespace dNothi.Services.SyncServices
 
 
         //src will be Remote and dst will be Local
-        public void Synctolocal(List<long> src,List<long> dst,List<long> status)
+        public void SyncDak(List<long> src,List<long> dst,List<long> status)
         {
             List<long> diff = src.Except(status).ToList();
-            SaveMessageToLocal(diff);
+            CopyMessageToDest(diff);
             SaveMessageToStatus(diff);
             status = GetUpdatedStatus();
             List<long> diff2 = status.Except(src).ToList();
-            DeleteFromLocal(diff2);
+            DeleteFromDest(diff2);
             DeleteFromStatus(diff2);
         }
+        
         public List<long> GetStatus()
         {
-            return new List<long>() { 1, 3 };
+            return _sycnRepository.Table.Select(s => s.Id).ToList();
         }
         private void DeleteFromStatus(List<long> diff2)
         {
             throw new NotImplementedException();
         }
 
-        private void DeleteFromLocal(List<long> diff2)
+        private void DeleteFromDest(List<long> diff2)
         {
             throw new NotImplementedException();
         }
 
         private List<long> GetUpdatedStatus()
         {
-            throw new NotImplementedException();
+            return _sycnRepository.Table.Select(s => s.Id).ToList();
         }
 
         private void SaveMessageToStatus(List<long> diff)
@@ -78,7 +83,7 @@ namespace dNothi.Services.SyncServices
             throw new NotImplementedException();
         }
 
-        private void SaveMessageToLocal(List<long> diff)
+        private void CopyMessageToDest(List<long> diff)
         {
             throw new NotImplementedException();
         }
