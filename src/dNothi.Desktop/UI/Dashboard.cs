@@ -19,6 +19,7 @@ using dNothi.Desktop.UI.VIew;
 using System.Drawing.Imaging;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.ManuelUserControl;
+using System.Web.Script.Serialization;
 
 namespace dNothi.Desktop.UI
 {
@@ -33,7 +34,12 @@ namespace dNothi.Desktop.UI
         public string potro_type = "";
         public string dak_view_status = "";
 
-        
+        public DakUserDTO _dak_user { get; set; }
+        public DakOriginDTO _dak_origin { get; set; }
+        public MovementStatusDTO _movement_status { get; set; }
+        public List<DakTagDTO> _dak_Tags { get; set; }
+        public NothiDTO nothi { get; set; }
+
 
 
         IUserService _userService { get; set; }
@@ -293,10 +299,15 @@ namespace dNothi.Desktop.UI
                             {
                                 if (dakAttachmentResponse.data != null)
                                 {
-                                    detailsDakUserControl.dakAttachmentResponse = dakAttachmentResponse;
+                                 
+                                   // detailsDakUserControl.dakAttachmentResponse = dakAttachmentResponse;
+                                    string attachmentjson = new JavaScriptSerializer().Serialize(detailsDakUserControl.dakAttachmentResponse.data);
+
                                 }
                             }
-                            detailsDakUserControl.Dock = DockStyle.Fill;
+
+                            //string jsondetails = new JavaScriptSerializer().Serialize(dakDetailsResponse.data); 
+                              detailsDakUserControl.Dock = DockStyle.Fill;
                             detailsFlowLayoutPanel.Controls.Add(detailsDakUserControl);
 
                         }
