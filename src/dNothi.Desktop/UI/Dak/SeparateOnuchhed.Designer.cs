@@ -33,6 +33,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbOffice = new System.Windows.Forms.Label();
             this.lbNoteNo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnPlusSquare = new FontAwesome.Sharp.IconButton();
             this.topPnl = new System.Windows.Forms.Panel();
             this.lbCreateDate = new System.Windows.Forms.Label();
             this.middlePnl = new System.Windows.Forms.Panel();
@@ -40,7 +41,6 @@ namespace dNothi.Desktop.UI.Dak
             this.label5 = new System.Windows.Forms.Label();
             this.SubjectBrowser = new System.Windows.Forms.WebBrowser();
             this.SignatureFLP = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnPlusSquare = new FontAwesome.Sharp.IconButton();
             this.onuchhedheaderPnl.SuspendLayout();
             this.topPnl.SuspendLayout();
             this.middlePnl.SuspendLayout();
@@ -103,6 +103,29 @@ namespace dNothi.Desktop.UI.Dak
             this.label6.Size = new System.Drawing.Size(76, 36);
             this.label6.TabIndex = 71;
             this.label6.Text = "অনুচ্ছেদ";
+            // 
+            // btnPlusSquare
+            // 
+            this.btnPlusSquare.BackColor = System.Drawing.Color.White;
+            this.btnPlusSquare.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPlusSquare.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPlusSquare.FlatAppearance.BorderSize = 0;
+            this.btnPlusSquare.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPlusSquare.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPlusSquare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlusSquare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlusSquare.ForeColor = System.Drawing.Color.White;
+            this.btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.btnPlusSquare.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
+            this.btnPlusSquare.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPlusSquare.IconSize = 18;
+            this.btnPlusSquare.Location = new System.Drawing.Point(0, 0);
+            this.btnPlusSquare.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPlusSquare.Name = "btnPlusSquare";
+            this.btnPlusSquare.Size = new System.Drawing.Size(33, 37);
+            this.btnPlusSquare.TabIndex = 70;
+            this.btnPlusSquare.UseVisualStyleBackColor = false;
+            this.btnPlusSquare.Click += new System.EventHandler(this.btnPlusSquare_Click);
             // 
             // topPnl
             // 
@@ -190,29 +213,6 @@ namespace dNothi.Desktop.UI.Dak
             this.SignatureFLP.Size = new System.Drawing.Size(1297, 0);
             this.SignatureFLP.TabIndex = 5;
             this.SignatureFLP.WrapContents = false;
-            // 
-            // btnPlusSquare
-            // 
-            this.btnPlusSquare.BackColor = System.Drawing.Color.White;
-            this.btnPlusSquare.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnPlusSquare.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnPlusSquare.FlatAppearance.BorderSize = 0;
-            this.btnPlusSquare.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnPlusSquare.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnPlusSquare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlusSquare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlusSquare.ForeColor = System.Drawing.Color.White;
-            this.btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.btnPlusSquare.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
-            this.btnPlusSquare.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPlusSquare.IconSize = 18;
-            this.btnPlusSquare.Location = new System.Drawing.Point(0, 0);
-            this.btnPlusSquare.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPlusSquare.Name = "btnPlusSquare";
-            this.btnPlusSquare.Size = new System.Drawing.Size(33, 37);
-            this.btnPlusSquare.TabIndex = 70;
-            this.btnPlusSquare.UseVisualStyleBackColor = false;
-            this.btnPlusSquare.Click += new System.EventHandler(this.btnPlusSquare_Click);
             // 
             // SeparateOnuchhed
             // 

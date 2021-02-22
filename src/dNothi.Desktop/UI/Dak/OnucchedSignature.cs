@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,27 +29,152 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-        private string _createDate;
-        private string _office;
-        private string _subjectBrowser;
+        private string _employeeName1;
+        private string _signatureDate1;
+        private string _employeeDesignation1;
+        private byte[] _pbSign1;
 
         [Category("Custom Props")]
         public string SignatureDate1
         {
-            get { return _office; }
-            set { _office = value; lbSignatureDate1.Text = "(" + value + ")"; }
+            get { return _signatureDate1; }
+            set { _signatureDate1 = value; lbSignatureDate1.Text = "(" + value + ")"; }
+        }
+        [Category("Custom Props")]
+        public byte[] pbSign1
+        {
+            get { return _pbSign1; }
+            set { _pbSign1 = value;
+
+                using (MemoryStream ms = new MemoryStream(value))
+                {
+                    pbSignature1.Image = Image.FromStream(ms)
+;
+                }
+            }
         }
         [Category("Custom Props")]
         public string EmployeeName1
         {
-            get { return _createDate; }
-            set { _createDate = value; lbEmployeeName1.Text = "(" + value + ")"; }
+            get { return _employeeName1; }
+            set { _employeeName1 = value; lbEmployeeName1.Text = "(" + value + ")"; }
         }
         [Category("Custom Props")]
         public string EmployeeDesignation1
         {
-            get { return _subjectBrowser; }
-            set { _subjectBrowser = value; lbEmployeeDesignation1.Text = value; }
+            get { return _employeeDesignation1; }
+            set { _employeeDesignation1 = value; lbEmployeeDesignation1.Text = value; }
+        }
+
+        private string _employeeName2;
+        private string _signatureDate2;
+        private string _employeeDesignation2;
+        private byte[] _pbSign2;
+
+        [Category("Custom Props")]
+        public string SignatureDate2
+        {
+            get { return _signatureDate2; }
+            set { _signatureDate2 = value; lbSignatureDate2.Text = "(" + value + ")"; }
+        }
+        [Category("Custom Props")]
+        public byte[] pbSign2
+        {
+            get { return _pbSign2; }
+            set { _pbSign2 = value;
+
+                using (MemoryStream ms = new MemoryStream(value))
+                {
+                    pbSignature2.Image = Image.FromStream(ms)
+;
+                }
+            }
+        }
+        [Category("Custom Props")]
+        public string EmployeeName2
+        {
+            get { return _employeeName2; }
+            set { _employeeName2 = value; lbEmployeeName2.Text = "(" + value + ")"; }
+        }
+        [Category("Custom Props")]
+        public string EmployeeDesignation2
+        {
+            get { return _employeeDesignation2; }
+            set { _employeeDesignation2 = value; lbEmployeeDesignation2.Text = value; }
+        }
+
+        private string _employeeName3;
+        private string _signatureDate3;
+        private string _employeeDesignation3;
+        private byte[] _pbSign3;
+
+        [Category("Custom Props")]
+        public string SignatureDate3
+        {
+            get { return _signatureDate3; }
+            set { _signatureDate3 = value; lbSignatureDate3.Text = "(" + value + ")"; }
+        }
+        [Category("Custom Props")]
+        public byte[] pbSign3
+        {
+            get { return _pbSign3; }
+            set { _pbSign3 = value;
+
+                using (MemoryStream ms = new MemoryStream(value))
+                {
+                    pbSignature3.Image = Image.FromStream(ms)
+;
+                }
+            }
+        }
+        [Category("Custom Props")]
+        public string EmployeeName3
+        {
+            get { return _employeeName3; }
+            set { _employeeName3 = value; lbEmployeeName3.Text = "(" + value + ")"; }
+        }
+        [Category("Custom Props")]
+        public string EmployeeDesignation3
+        {
+            get { return _employeeDesignation3; }
+            set { _employeeDesignation3 = value; lbEmployeeDesignation3.Text = value; }
+        }
+        
+        private string _employeeName4;
+        private string _signatureDate4;
+        private string _employeeDesignation4;
+        private byte[] _pbSign4;
+
+        [Category("Custom Props")]
+        public string SignatureDate4
+        {
+            get { return _signatureDate4; }
+            set { _signatureDate4 = value; lbSignatureDate4.Text = "(" + value + ")"; }
+        }
+        [Category("Custom Props")]
+        public byte[] pbSign4
+        {
+            get { return _pbSign4; }
+            set { _pbSign4 = value;
+
+                using (MemoryStream ms = new MemoryStream(value))
+                {
+                    pbSignature4.Image = Image.FromStream(ms)
+;
+                }
+            }
+        }
+        [Category("Custom Props")]
+        public string EmployeeName4
+        {
+            get { return _employeeName4; }
+            set { _employeeName4 = value; lbEmployeeName4.Text = "(" + value + ")"; }
+        }
+        [Category("Custom Props")]
+        public string EmployeeDesignation4
+        {
+            get { return _employeeDesignation4; }
+            set { _employeeDesignation4 = value; lbEmployeeDesignation4.Text = value; }
         }
         public void showSignature1element()
         {
