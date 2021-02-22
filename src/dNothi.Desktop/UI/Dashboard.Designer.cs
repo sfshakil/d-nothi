@@ -233,8 +233,8 @@
             this.profilePanel.Controls.Add(this.userNameLabel);
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.profilePanel.Location = new System.Drawing.Point(1047, 6);
-            this.profilePanel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.profilePanel.Location = new System.Drawing.Point(500, 5);
+            this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.profilePanel.Name = "profilePanel";
             this.profilePanel.Padding = new System.Windows.Forms.Padding(4, 6, 13, 6);
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -441,7 +441,7 @@
             this.dakSearchSubTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dakSearchSubTextBox.Name = "dakSearchSubTextBox";
             this.dakSearchSubTextBox.PlaceholderText = "বিষয়/সিদ্ধান্ত দিয়ে খুঁজুন ";
-            this.dakSearchSubTextBox.Size = new System.Drawing.Size(1311, 23);
+            this.dakSearchSubTextBox.Size = new System.Drawing.Size(718, 19);
             this.dakSearchSubTextBox.TabIndex = 3;
             // 
             // label3
@@ -455,7 +455,7 @@
             this.label3.Location = new System.Drawing.Point(4, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1477, 25);
+            this.label3.Size = new System.Drawing.Size(843, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "কোনো ডাক নেই";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -468,7 +468,7 @@
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
             this.label15.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label15.Size = new System.Drawing.Size(1493, 1);
+            this.label15.Size = new System.Drawing.Size(855, 1);
             this.label15.TabIndex = 51;
             // 
             // settingsPanel
@@ -756,8 +756,8 @@
             this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 24;
-            this.iconButton4.Location = new System.Drawing.Point(1448, 4);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.iconButton4.Location = new System.Drawing.Point(821, 3);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(45, 42);
             this.iconButton4.TabIndex = 32;
@@ -774,8 +774,8 @@
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(1403, 4);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.iconButton3.Location = new System.Drawing.Point(787, 3);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(45, 42);
             this.iconButton3.TabIndex = 31;
@@ -787,8 +787,7 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.label6.Location = new System.Drawing.Point(1306, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(710, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 50);
             this.label6.TabIndex = 7;
@@ -826,7 +825,7 @@
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
             this.label21.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label21.Size = new System.Drawing.Size(1493, 1);
+            this.label21.Size = new System.Drawing.Size(855, 1);
             this.label21.TabIndex = 53;
             // 
             // detailsDakSearcPanel
@@ -857,7 +856,7 @@
             this.detailsDakSearcPanel.Location = new System.Drawing.Point(0, 49);
             this.detailsDakSearcPanel.Margin = new System.Windows.Forms.Padding(0);
             this.detailsDakSearcPanel.Name = "detailsDakSearcPanel";
-            this.detailsDakSearcPanel.Size = new System.Drawing.Size(1493, 478);
+            this.detailsDakSearcPanel.Size = new System.Drawing.Size(855, 388);
             this.detailsDakSearcPanel.TabIndex = 0;
             this.detailsDakSearcPanel.Visible = false;
             // 
@@ -888,7 +887,7 @@
             this.officerSearchList.MinimumSize = new System.Drawing.Size(187, 0);
             this.officerSearchList.Name = "officerSearchList";
             this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
-            this.officerSearchList.Size = new System.Drawing.Size(688, 78);
+            this.officerSearchList.Size = new System.Drawing.Size(516, 44);
             this.officerSearchList.TabIndex = 52;
             // 
             // label11
@@ -898,7 +897,7 @@
             this.label11.Location = new System.Drawing.Point(0, 58);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(1493, 1);
+            this.label11.Size = new System.Drawing.Size(855, 1);
             this.label11.TabIndex = 34;
             // 
             // panel5
@@ -908,7 +907,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1493, 58);
+            this.panel5.Size = new System.Drawing.Size(855, 47);
             this.panel5.TabIndex = 51;
             // 
             // label8
@@ -946,6 +945,7 @@
             // 
             // timeLimitFromDateTimePicker
             // 
+            this.timeLimitFromDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.timeLimitFromDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLimitFromDateTimePicker.CalendarForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.timeLimitFromDateTimePicker.CalendarMonthBackground = System.Drawing.Color.Transparent;
@@ -955,8 +955,7 @@
             this.timeLimitFromDateTimePicker.Cursor = System.Windows.Forms.Cursors.Default;
             this.timeLimitFromDateTimePicker.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLimitFromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeLimitFromDateTimePicker.Location = new System.Drawing.Point(737, 68);
-            this.timeLimitFromDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeLimitFromDateTimePicker.Location = new System.Drawing.Point(288, 55);
             this.timeLimitFromDateTimePicker.MinimumSize = new System.Drawing.Size(4, 43);
             this.timeLimitFromDateTimePicker.Name = "timeLimitFromDateTimePicker";
             this.timeLimitFromDateTimePicker.Size = new System.Drawing.Size(335, 43);
@@ -965,17 +964,23 @@
             // 
             // panel9
             // 
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BackColor = System.Drawing.Color.White;
             this.panel9.Controls.Add(this.detailSearchApplicationAcceptNumberTextBox);
             this.panel9.Location = new System.Drawing.Point(383, 68);
             this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(333, 53);
+            this.panel9.Size = new System.Drawing.Size(0, 43);
             this.panel9.TabIndex = 6;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
             // 
             // detailSearchApplicationAcceptNumberTextBox
             // 
+            this.detailSearchApplicationAcceptNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.detailSearchApplicationAcceptNumberTextBox.BackColor = System.Drawing.Color.White;
             this.detailSearchApplicationAcceptNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.detailSearchApplicationAcceptNumberTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -983,22 +988,28 @@
             this.detailSearchApplicationAcceptNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.detailSearchApplicationAcceptNumberTextBox.Name = "detailSearchApplicationAcceptNumberTextBox";
             this.detailSearchApplicationAcceptNumberTextBox.PlaceholderText = "আবেদন গ্রহন নাম্বার";
-            this.detailSearchApplicationAcceptNumberTextBox.Size = new System.Drawing.Size(289, 23);
+            this.detailSearchApplicationAcceptNumberTextBox.Size = new System.Drawing.Size(0, 19);
             this.detailSearchApplicationAcceptNumberTextBox.TabIndex = 3;
             // 
             // panel8
             // 
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BackColor = System.Drawing.Color.White;
             this.panel8.Controls.Add(this.detailsSearchDocketingNoTextBox);
             this.panel8.Location = new System.Drawing.Point(31, 68);
             this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(333, 53);
+            this.panel8.Size = new System.Drawing.Size(0, 43);
             this.panel8.TabIndex = 5;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
             // 
             // detailsSearchDocketingNoTextBox
             // 
+            this.detailsSearchDocketingNoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.detailsSearchDocketingNoTextBox.BackColor = System.Drawing.Color.White;
             this.detailsSearchDocketingNoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.detailsSearchDocketingNoTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1006,19 +1017,19 @@
             this.detailsSearchDocketingNoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.detailsSearchDocketingNoTextBox.Name = "detailsSearchDocketingNoTextBox";
             this.detailsSearchDocketingNoTextBox.PlaceholderText = "ডকেটিং নং";
-            this.detailsSearchDocketingNoTextBox.Size = new System.Drawing.Size(289, 23);
+            this.detailsSearchDocketingNoTextBox.Size = new System.Drawing.Size(0, 19);
             this.detailsSearchDocketingNoTextBox.TabIndex = 3;
             // 
             // timeLimitToDateTimePicker
             // 
+            this.timeLimitToDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.timeLimitToDateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLimitToDateTimePicker.CalendarMonthBackground = System.Drawing.Color.Transparent;
             this.timeLimitToDateTimePicker.Cursor = System.Windows.Forms.Cursors.Default;
             this.timeLimitToDateTimePicker.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLimitToDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeLimitToDateTimePicker.Location = new System.Drawing.Point(1107, 68);
-            this.timeLimitToDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.timeLimitToDateTimePicker.MinimumSize = new System.Drawing.Size(335, 43);
+            this.timeLimitToDateTimePicker.Location = new System.Drawing.Point(565, 55);
+            this.timeLimitToDateTimePicker.MinimumSize = new System.Drawing.Size(252, 43);
             this.timeLimitToDateTimePicker.Name = "timeLimitToDateTimePicker";
             this.timeLimitToDateTimePicker.Size = new System.Drawing.Size(355, 43);
             this.timeLimitToDateTimePicker.TabIndex = 48;
@@ -1413,7 +1424,7 @@
             this.dakSearchUsingTextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
             this.dakSearchUsingTextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakSearchUsingTextButton.IconSize = 32;
-            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(1448, 0);
+            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(821, 0);
             this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
             this.dakSearchUsingTextButton.Size = new System.Drawing.Size(45, 49);
@@ -1430,7 +1441,7 @@
             this.searchBoxPanel.Location = new System.Drawing.Point(47, 0);
             this.searchBoxPanel.Margin = new System.Windows.Forms.Padding(0);
             this.searchBoxPanel.Name = "searchBoxPanel";
-            this.searchBoxPanel.Size = new System.Drawing.Size(1401, 49);
+            this.searchBoxPanel.Size = new System.Drawing.Size(786, 40);
             this.searchBoxPanel.TabIndex = 4;
             this.searchBoxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchBoxPanel_Paint);
             // 
@@ -1465,8 +1476,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1198, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(639, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 36);
             this.label9.TabIndex = 33;
@@ -1514,8 +1524,7 @@
             this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30.Location = new System.Drawing.Point(1284, 4);
-            this.button30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button30.Location = new System.Drawing.Point(697, 3);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(33, 28);
             this.button30.TabIndex = 29;
@@ -1531,8 +1540,7 @@
             this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.Location = new System.Drawing.Point(1325, 4);
-            this.button29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button29.Location = new System.Drawing.Point(728, 3);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(33, 28);
             this.button29.TabIndex = 28;
@@ -1548,8 +1556,7 @@
             this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Location = new System.Drawing.Point(1366, 4);
-            this.button28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button28.Location = new System.Drawing.Point(759, 3);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(33, 28);
             this.button28.TabIndex = 27;
@@ -1565,8 +1572,7 @@
             this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Location = new System.Drawing.Point(1407, 4);
-            this.button27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button27.Location = new System.Drawing.Point(790, 3);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(33, 28);
             this.button27.TabIndex = 26;
@@ -1582,8 +1588,7 @@
             this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Location = new System.Drawing.Point(1448, 4);
-            this.button26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button26.Location = new System.Drawing.Point(821, 3);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(33, 28);
             this.button26.TabIndex = 25;
@@ -1842,8 +1847,8 @@
             this.leftMenuBarTableLayoutPanel.RowCount = 2;
             this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.leftMenuBarTableLayoutPanel.Size = new System.Drawing.Size(312, 850);
+            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.leftMenuBarTableLayoutPanel.Size = new System.Drawing.Size(234, 587);
             this.leftMenuBarTableLayoutPanel.TabIndex = 47;
             // 
             // menuTableLayoutPanel
@@ -1885,18 +1890,18 @@
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.menuTableLayoutPanel.Size = new System.Drawing.Size(312, 788);
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.Size = new System.Drawing.Size(234, 537);
             this.menuTableLayoutPanel.TabIndex = 47;
             // 
             // dakSortingUserFlowLayoutPanel
@@ -2409,7 +2414,7 @@
             this.dashboardBodyTableLayoutPanel.Name = "dashboardBodyTableLayoutPanel";
             this.dashboardBodyTableLayoutPanel.RowCount = 1;
             this.dashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.dashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1805, 850);
+            this.dashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1089, 587);
             this.dashboardBodyTableLayoutPanel.TabIndex = 4;
             // 
             // rightDashboardBodyTableLayoutPanel
@@ -2427,8 +2432,8 @@
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.rightDashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1493, 850);
+            this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.rightDashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(855, 587);
             this.rightDashboardBodyTableLayoutPanel.TabIndex = 29;
             // 
             // bodyTableLayoutPanel
@@ -2456,8 +2461,8 @@
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1493, 745);
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(855, 503);
             this.bodyTableLayoutPanel.TabIndex = 54;
             // 
             // detailsFlowLayoutPanel
@@ -2466,12 +2471,11 @@
             this.detailsFlowLayoutPanel.ColumnCount = 1;
             this.detailsFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.detailsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(4, 741);
-            this.detailsFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(3, 500);
             this.detailsFlowLayoutPanel.Name = "detailsFlowLayoutPanel";
             this.detailsFlowLayoutPanel.RowCount = 1;
             this.detailsFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.detailsFlowLayoutPanel.Size = new System.Drawing.Size(1485, 1);
+            this.detailsFlowLayoutPanel.Size = new System.Drawing.Size(849, 1);
             this.detailsFlowLayoutPanel.TabIndex = 56;
             // 
             // bodyPanel
@@ -2482,7 +2486,7 @@
             this.bodyPanel.Location = new System.Drawing.Point(4, 616);
             this.bodyPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(1485, 117);
+            this.bodyPanel.Size = new System.Drawing.Size(849, 1);
             this.bodyPanel.TabIndex = 0;
             // 
             // dakBodyFlowLayoutPanel
@@ -2498,7 +2502,7 @@
             this.dakBodyFlowLayoutPanel.RowCount = 1;
             this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1485, 0);
+            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(849, 0);
             this.dakBodyFlowLayoutPanel.TabIndex = 55;
             // 
             // dakSortMetroPanel
@@ -2527,14 +2531,14 @@
             this.dakSortMetroPanel.Name = "dakSortMetroPanel";
             this.dakSortMetroPanel.RowCount = 1;
             this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.dakSortMetroPanel.Size = new System.Drawing.Size(1493, 50);
+            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.dakSortMetroPanel.Size = new System.Drawing.Size(855, 40);
             this.dakSortMetroPanel.TabIndex = 54;
             // 
             // noDakTableLayoutPanel
@@ -2548,7 +2552,7 @@
             this.noDakTableLayoutPanel.Name = "noDakTableLayoutPanel";
             this.noDakTableLayoutPanel.RowCount = 1;
             this.noDakTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.noDakTableLayoutPanel.Size = new System.Drawing.Size(1485, 25);
+            this.noDakTableLayoutPanel.Size = new System.Drawing.Size(849, 20);
             this.noDakTableLayoutPanel.TabIndex = 0;
             // 
             // searchHeaderTableLayoutPanel
@@ -2566,8 +2570,8 @@
             this.searchHeaderTableLayoutPanel.Name = "searchHeaderTableLayoutPanel";
             this.searchHeaderTableLayoutPanel.RowCount = 1;
             this.searchHeaderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchHeaderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.searchHeaderTableLayoutPanel.Size = new System.Drawing.Size(1493, 49);
+            this.searchHeaderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.searchHeaderTableLayoutPanel.Size = new System.Drawing.Size(855, 40);
             this.searchHeaderTableLayoutPanel.TabIndex = 4;
             // 
             // headerTableLayoutPanel
@@ -2587,8 +2591,8 @@
             this.headerTableLayoutPanel.Name = "headerTableLayoutPanel";
             this.headerTableLayoutPanel.RowCount = 1;
             this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.headerTableLayoutPanel.Size = new System.Drawing.Size(1493, 61);
+            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.headerTableLayoutPanel.Size = new System.Drawing.Size(855, 49);
             this.headerTableLayoutPanel.TabIndex = 9;
             // 
             // footerTableLayoutPanel
@@ -2612,13 +2616,12 @@
             this.footerTableLayoutPanel.Controls.Add(this.button27, 7, 0);
             this.footerTableLayoutPanel.Controls.Add(this.button26, 8, 0);
             this.footerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.footerTableLayoutPanel.Location = new System.Drawing.Point(4, 810);
-            this.footerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.footerTableLayoutPanel.Location = new System.Drawing.Point(3, 555);
             this.footerTableLayoutPanel.Name = "footerTableLayoutPanel";
             this.footerTableLayoutPanel.RowCount = 1;
             this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.footerTableLayoutPanel.Size = new System.Drawing.Size(1485, 36);
+            this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.footerTableLayoutPanel.Size = new System.Drawing.Size(849, 29);
             this.footerTableLayoutPanel.TabIndex = 34;
             // 
             // designationDetailsPanel
@@ -2646,7 +2649,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1805, 850);
+            this.ClientSize = new System.Drawing.Size(1089, 587);
             this.Controls.Add(this.designationDetailsPanel);
             this.Controls.Add(this.dashboardBodyTableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);

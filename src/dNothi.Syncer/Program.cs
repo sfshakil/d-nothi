@@ -34,6 +34,8 @@ namespace dNothi.Syncer
                     Console.WriteLine(string.Join(",", data.ToArray()));
                     Console.WriteLine("Dak Ids In Database");
                     Console.WriteLine(string.Join(",", dbdata.ToArray()));
+                    //syncto(R, L, S) (download changes)
+                    //syncto(L, R, S) (upload changes)
                 }
             } 
             catch(Exception ex)
@@ -72,6 +74,7 @@ namespace dNothi.Syncer
 
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
             builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
+            builder.RegisterType<EfRepository<SyncStatus>>().As<IRepository<SyncStatus>>();
             builder.RegisterType<EfRepository<UserToken>>().As<IRepository<UserToken>>();
             builder.RegisterType<EfRepository<NothiListRecords>>().As<IRepository<NothiListRecords>>();
 
