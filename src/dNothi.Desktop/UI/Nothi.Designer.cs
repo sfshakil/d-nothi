@@ -126,7 +126,7 @@
             this.panel1.Controls.Add(this.btnNothiIcon);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(311, 846);
             this.panel1.TabIndex = 12;
@@ -144,7 +144,7 @@
             this.RightSign.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RightSign.IconSize = 24;
             this.RightSign.Location = new System.Drawing.Point(269, 16);
-            this.RightSign.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RightSign.Margin = new System.Windows.Forms.Padding(4);
             this.RightSign.Name = "RightSign";
             this.RightSign.Size = new System.Drawing.Size(13, 37);
             this.RightSign.TabIndex = 23;
@@ -163,7 +163,7 @@
             this.LeftSign.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.LeftSign.IconSize = 24;
             this.LeftSign.Location = new System.Drawing.Point(257, 16);
-            this.LeftSign.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LeftSign.Margin = new System.Windows.Forms.Padding(4);
             this.LeftSign.Name = "LeftSign";
             this.LeftSign.Size = new System.Drawing.Size(13, 37);
             this.LeftSign.TabIndex = 24;
@@ -174,7 +174,7 @@
             this.dakMenuButton.BackColor = System.Drawing.Color.Transparent;
             this.dakMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dakMenuButton.Location = new System.Drawing.Point(244, 0);
-            this.dakMenuButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dakMenuButton.Margin = new System.Windows.Forms.Padding(4);
             this.dakMenuButton.Name = "dakMenuButton";
             this.dakMenuButton.Size = new System.Drawing.Size(67, 74);
             this.dakMenuButton.TabIndex = 25;
@@ -187,7 +187,7 @@
             this.panel4.Controls.Add(this.btnNothiOutbox);
             this.panel4.Controls.Add(this.btnNothiInbox);
             this.panel4.Location = new System.Drawing.Point(0, 74);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(311, 775);
             this.panel4.TabIndex = 4;
@@ -201,13 +201,14 @@
             this.btnNewNothi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.btnNewNothi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewNothi.Font = new System.Drawing.Font("SolaimanLipi", 15.75F);
+            this.btnNewNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
             this.btnNewNothi.IconChar = FontAwesome.Sharp.IconChar.BookMedical;
             this.btnNewNothi.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.btnNewNothi.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNewNothi.IconSize = 25;
             this.btnNewNothi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNewNothi.Location = new System.Drawing.Point(0, 186);
-            this.btnNewNothi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewNothi.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewNothi.Name = "btnNewNothi";
             this.btnNewNothi.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnNewNothi.Size = new System.Drawing.Size(311, 62);
@@ -226,13 +227,14 @@
             this.btnNothiAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.btnNothiAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiAll.Font = new System.Drawing.Font("SolaimanLipi", 15.75F);
+            this.btnNothiAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
             this.btnNothiAll.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
             this.btnNothiAll.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.btnNothiAll.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNothiAll.IconSize = 25;
             this.btnNothiAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNothiAll.Location = new System.Drawing.Point(0, 124);
-            this.btnNothiAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNothiAll.Margin = new System.Windows.Forms.Padding(4);
             this.btnNothiAll.Name = "btnNothiAll";
             this.btnNothiAll.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnNothiAll.Size = new System.Drawing.Size(311, 62);
@@ -251,13 +253,14 @@
             this.btnNothiOutbox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.btnNothiOutbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiOutbox.Font = new System.Drawing.Font("SolaimanLipi", 15.75F);
+            this.btnNothiOutbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
             this.btnNothiOutbox.IconChar = FontAwesome.Sharp.IconChar.Inbox;
             this.btnNothiOutbox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.btnNothiOutbox.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNothiOutbox.IconSize = 25;
             this.btnNothiOutbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNothiOutbox.Location = new System.Drawing.Point(0, 62);
-            this.btnNothiOutbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNothiOutbox.Margin = new System.Windows.Forms.Padding(4);
             this.btnNothiOutbox.Name = "btnNothiOutbox";
             this.btnNothiOutbox.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnNothiOutbox.Size = new System.Drawing.Size(311, 62);
@@ -284,7 +287,7 @@
             this.btnNothiInbox.IconSize = 25;
             this.btnNothiInbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNothiInbox.Location = new System.Drawing.Point(0, 0);
-            this.btnNothiInbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNothiInbox.Margin = new System.Windows.Forms.Padding(4);
             this.btnNothiInbox.Name = "btnNothiInbox";
             this.btnNothiInbox.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnNothiInbox.Size = new System.Drawing.Size(311, 62);
@@ -302,7 +305,7 @@
             this.btnNothiIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNothiIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiIcon.Location = new System.Drawing.Point(35, 0);
-            this.btnNothiIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNothiIcon.Margin = new System.Windows.Forms.Padding(4);
             this.btnNothiIcon.Name = "btnNothiIcon";
             this.btnNothiIcon.Size = new System.Drawing.Size(208, 74);
             this.btnNothiIcon.TabIndex = 2;
@@ -317,7 +320,7 @@
             this.panel2.Controls.Add(this.dakModulePanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(311, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1229, 74);
             this.panel2.TabIndex = 13;
@@ -330,9 +333,9 @@
             this.profilePanel.Controls.Add(this.userNameLabel);
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Location = new System.Drawing.Point(660, 18);
-            this.profilePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profilePanel.Margin = new System.Windows.Forms.Padding(4);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profilePanel.Padding = new System.Windows.Forms.Padding(4);
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.profilePanel.Size = new System.Drawing.Size(568, 41);
             this.profilePanel.TabIndex = 29;
@@ -390,7 +393,7 @@
             this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.profileShowArrowButton.IconSize = 20;
             this.profileShowArrowButton.Location = new System.Drawing.Point(547, 4);
-            this.profileShowArrowButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profileShowArrowButton.Margin = new System.Windows.Forms.Padding(4);
             this.profileShowArrowButton.Name = "profileShowArrowButton";
             this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.profileShowArrowButton.Size = new System.Drawing.Size(17, 33);
@@ -407,7 +410,7 @@
             this.nothiModulePanel.Controls.Add(this.iconButton2);
             this.nothiModulePanel.Controls.Add(this.label22);
             this.nothiModulePanel.Location = new System.Drawing.Point(160, 14);
-            this.nothiModulePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nothiModulePanel.Margin = new System.Windows.Forms.Padding(4);
             this.nothiModulePanel.Name = "nothiModulePanel";
             this.nothiModulePanel.Size = new System.Drawing.Size(160, 53);
             this.nothiModulePanel.TabIndex = 27;
@@ -437,7 +440,7 @@
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 22;
             this.iconButton2.Location = new System.Drawing.Point(8, 10);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(48, 37);
             this.iconButton2.TabIndex = 4;
@@ -466,7 +469,7 @@
             this.dakModulePanel.Controls.Add(this.iconButton1);
             this.dakModulePanel.Controls.Add(this.moduleDakCountLabel);
             this.dakModulePanel.Location = new System.Drawing.Point(1, 14);
-            this.dakModulePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dakModulePanel.Margin = new System.Windows.Forms.Padding(4);
             this.dakModulePanel.Name = "dakModulePanel";
             this.dakModulePanel.Size = new System.Drawing.Size(159, 53);
             this.dakModulePanel.TabIndex = 26;
@@ -500,7 +503,7 @@
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 25;
             this.iconButton1.Location = new System.Drawing.Point(8, 9);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(48, 37);
             this.iconButton1.TabIndex = 4;
@@ -537,7 +540,7 @@
             this.pnlNothiNoteTalika.Controls.Add(this.btnNothiTalika);
             this.pnlNothiNoteTalika.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNothiNoteTalika.Location = new System.Drawing.Point(0, 0);
-            this.pnlNothiNoteTalika.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlNothiNoteTalika.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNothiNoteTalika.Name = "pnlNothiNoteTalika";
             this.pnlNothiNoteTalika.Size = new System.Drawing.Size(1229, 58);
             this.pnlNothiNoteTalika.TabIndex = 14;
@@ -547,7 +550,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(0, 57);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1229, 1);
             this.panel7.TabIndex = 65;
@@ -563,7 +566,7 @@
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 24;
             this.iconButton5.Location = new System.Drawing.Point(1449, 4);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton5.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(45, 50);
             this.iconButton5.TabIndex = 35;
@@ -580,7 +583,7 @@
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 24;
             this.iconButton6.Location = new System.Drawing.Point(1404, 4);
-            this.iconButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton6.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Size = new System.Drawing.Size(45, 50);
             this.iconButton6.TabIndex = 34;
@@ -625,7 +628,7 @@
             this.btnNothiTalika.ForeColor = System.Drawing.Color.White;
             this.btnNothiTalika.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNothiTalika.Location = new System.Drawing.Point(4, 4);
-            this.btnNothiTalika.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNothiTalika.Margin = new System.Windows.Forms.Padding(4);
             this.btnNothiTalika.Name = "btnNothiTalika";
             this.btnNothiTalika.Size = new System.Drawing.Size(136, 50);
             this.btnNothiTalika.TabIndex = 17;
@@ -645,7 +648,7 @@
             this.panel6.Controls.Add(this.button26);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(311, 804);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1229, 42);
             this.panel6.TabIndex = 15;
@@ -697,7 +700,7 @@
             this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button30.Location = new System.Drawing.Point(1046, 0);
-            this.button30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button30.Margin = new System.Windows.Forms.Padding(4);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(33, 42);
             this.button30.TabIndex = 29;
@@ -712,7 +715,7 @@
             this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button29.Location = new System.Drawing.Point(1079, 0);
-            this.button29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button29.Margin = new System.Windows.Forms.Padding(4);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(33, 42);
             this.button29.TabIndex = 28;
@@ -727,7 +730,7 @@
             this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button28.Location = new System.Drawing.Point(1112, 0);
-            this.button28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button28.Margin = new System.Windows.Forms.Padding(4);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(33, 42);
             this.button28.TabIndex = 27;
@@ -742,7 +745,7 @@
             this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button27.Location = new System.Drawing.Point(1145, 0);
-            this.button27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button27.Margin = new System.Windows.Forms.Padding(4);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(33, 42);
             this.button27.TabIndex = 26;
@@ -757,7 +760,7 @@
             this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button26.Location = new System.Drawing.Point(1178, 0);
-            this.button26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button26.Margin = new System.Windows.Forms.Padding(4);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(51, 42);
             this.button26.TabIndex = 25;
@@ -810,7 +813,7 @@
             this.placeholderTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.placeholderTextBox2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeholderTextBox2.Location = new System.Drawing.Point(25, 11);
-            this.placeholderTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.placeholderTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.placeholderTextBox2.Name = "placeholderTextBox2";
             this.placeholderTextBox2.PlaceholderText = "নথি নম্বর/নথি বিষয় দিয়ে খুঁজুন";
             this.placeholderTextBox2.Size = new System.Drawing.Size(1316, 27);
@@ -845,7 +848,7 @@
             this.pnlNothiBody.Controls.Add(this.nothiSearchHeadingPanel);
             this.pnlNothiBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNothiBody.Location = new System.Drawing.Point(311, 74);
-            this.pnlNothiBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlNothiBody.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNothiBody.Name = "pnlNothiBody";
             this.pnlNothiBody.Size = new System.Drawing.Size(1229, 730);
             this.pnlNothiBody.TabIndex = 54;
@@ -857,7 +860,7 @@
             this.panel3.Controls.Add(this.pnlNothiNoteTalika);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 527);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1229, 203);
             this.panel3.TabIndex = 55;
@@ -867,7 +870,7 @@
             this.nothiListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nothiListFlowLayoutPanel.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(0, 85);
-            this.nothiListFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nothiListFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.nothiListFlowLayoutPanel.Name = "nothiListFlowLayoutPanel";
             this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(1229, 118);
             this.nothiListFlowLayoutPanel.TabIndex = 17;
@@ -877,7 +880,7 @@
             this.pnlNoData.Controls.Add(this.label3);
             this.pnlNoData.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNoData.Location = new System.Drawing.Point(0, 58);
-            this.pnlNoData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlNoData.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNoData.Name = "pnlNoData";
             this.pnlNoData.Size = new System.Drawing.Size(1229, 27);
             this.pnlNoData.TabIndex = 15;
@@ -917,7 +920,7 @@
             this.detailsNothiSearcPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsNothiSearcPanel.ForeColor = System.Drawing.Color.White;
             this.detailsNothiSearcPanel.Location = new System.Drawing.Point(0, 49);
-            this.detailsNothiSearcPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.detailsNothiSearcPanel.Margin = new System.Windows.Forms.Padding(4);
             this.detailsNothiSearcPanel.Name = "detailsNothiSearcPanel";
             this.detailsNothiSearcPanel.Size = new System.Drawing.Size(1229, 478);
             this.detailsNothiSearcPanel.TabIndex = 54;
@@ -999,7 +1002,7 @@
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.iconButton3);
             this.panel5.Location = new System.Drawing.Point(447, 198);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(165, 50);
             this.panel5.TabIndex = 53;
@@ -1014,7 +1017,7 @@
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 24;
             this.iconButton4.Location = new System.Drawing.Point(128, 17);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(28, 20);
             this.iconButton4.TabIndex = 20;
@@ -1042,7 +1045,7 @@
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 24;
             this.iconButton3.Location = new System.Drawing.Point(91, 12);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(35, 27);
             this.iconButton3.TabIndex = 4;
@@ -1160,7 +1163,7 @@
             this.detailSearchStopButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchStopButton.Image")));
             this.detailSearchStopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.detailSearchStopButton.Location = new System.Drawing.Point(368, 358);
-            this.detailSearchStopButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.detailSearchStopButton.Margin = new System.Windows.Forms.Padding(4);
             this.detailSearchStopButton.Name = "detailSearchStopButton";
             this.detailSearchStopButton.Size = new System.Drawing.Size(169, 54);
             this.detailSearchStopButton.TabIndex = 32;
@@ -1180,7 +1183,7 @@
             this.detailsSearchResetButton.Image = ((System.Drawing.Image)(resources.GetObject("detailsSearchResetButton.Image")));
             this.detailsSearchResetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.detailsSearchResetButton.Location = new System.Drawing.Point(207, 358);
-            this.detailsSearchResetButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.detailsSearchResetButton.Margin = new System.Windows.Forms.Padding(4);
             this.detailsSearchResetButton.Name = "detailsSearchResetButton";
             this.detailsSearchResetButton.Size = new System.Drawing.Size(161, 54);
             this.detailsSearchResetButton.TabIndex = 31;
@@ -1199,7 +1202,7 @@
             this.detailSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("detailSearchButton.Image")));
             this.detailSearchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.detailSearchButton.Location = new System.Drawing.Point(47, 358);
-            this.detailSearchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.detailSearchButton.Margin = new System.Windows.Forms.Padding(4);
             this.detailSearchButton.Name = "detailSearchButton";
             this.detailSearchButton.Size = new System.Drawing.Size(161, 54);
             this.detailSearchButton.TabIndex = 30;
@@ -1218,7 +1221,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1449, 691);
             this.Name = "Nothi";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

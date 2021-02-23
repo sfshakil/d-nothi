@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace dNothi.Desktop.UI.Dak
@@ -70,8 +71,17 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (btnPlusSquare.IconChar == FontAwesome.Sharp.IconChar.PlusSquare)
             {
-                this.Height = 400 + originalHeight;
-                this.Width = originalWidth;
+                if(SubjectBrowser.DocumentText != "" && SignatureFLP.Controls.Count > 0)
+                {
+                    this.Height = 400 + originalHeight;
+                    this.Width = originalWidth;
+                }
+                else
+                {
+
+                    this.Height = 174 + originalHeight;
+                    this.Width = originalWidth;
+                }
                 topPnl.Visible = true;
                 middlePnl.Visible = true;
                 SignatureFLP.Visible = true;
@@ -96,17 +106,66 @@ namespace dNothi.Desktop.UI.Dak
         }
         public void loadOnuchhedSignature(SingleOnucchedRecordSignatureDTO singleRecSignature)
         {
-            if(singleRecSignature.Signature1 != null)
+            if(singleRecSignature.Signature1 != null || singleRecSignature.Signature2 != null || singleRecSignature.Signature3 != null || singleRecSignature.Signature4 != null)
             {
-                
                 var onucchedSignature = UserControlFactory.Create<OnucchedSignature>();
-                onucchedSignature.showSignature1element();
-                onucchedSignature.SignatureDate1 = singleRecSignature.Signature1.signature_date;
-                onucchedSignature.EmployeeName1 = singleRecSignature.Signature1.employee_name;
-                onucchedSignature.EmployeeDesignation1 = singleRecSignature.Signature1.employee_designation;
+                if (singleRecSignature.Signature1 != null)
+                {
+
+                    onucchedSignature.showSignature1element();
+                    onucchedSignature.SignatureDate1 = singleRecSignature.Signature1.signature_date;
+                    onucchedSignature.EmployeeName1 = singleRecSignature.Signature1.employee_name;
+                    onucchedSignature.EmployeeDesignation1 = singleRecSignature.Signature1.employee_designation;
+                    if (singleRecSignature.Signature1.encode_sign != "")
+                    {
+                        var str = singleRecSignature.Signature1.encode_sign.Substring(singleRecSignature.Signature1.encode_sign.IndexOf(",") + 1);
+                        onucchedSignature.pbSign1 = Convert.FromBase64String(str);
+                    }
+                    
+
+                }
+                if (singleRecSignature.Signature2 != null)
+                {
+                    onucchedSignature.showSignature2element();
+                    onucchedSignature.SignatureDate2 = singleRecSignature.Signature1.signature_date;
+                    onucchedSignature.EmployeeName2 = singleRecSignature.Signature1.employee_name;
+                    onucchedSignature.EmployeeDesignation2 = singleRecSignature.Signature1.employee_designation;
+                    if (singleRecSignature.Signature2.encode_sign != "")
+                    {
+                        var str = singleRecSignature.Signature2.encode_sign.Substring(singleRecSignature.Signature2.encode_sign.IndexOf(",") + 1);
+                        onucchedSignature.pbSign2 = Convert.FromBase64String(str);
+                    }
+                }
+                if (singleRecSignature.Signature3 != null)
+                {
+                    onucchedSignature.showSignature3element();
+                    onucchedSignature.SignatureDate3 = singleRecSignature.Signature1.signature_date;
+                    onucchedSignature.EmployeeName3 = singleRecSignature.Signature1.employee_name;
+                    onucchedSignature.EmployeeDesignation3 = singleRecSignature.Signature1.employee_designation;
+                    if (singleRecSignature.Signature1.encode_sign != "")
+                    {
+                        var str = singleRecSignature.Signature3.encode_sign.Substring(singleRecSignature.Signature1.encode_sign.IndexOf(",") + 1);
+                        onucchedSignature.pbSign3 = Convert.FromBase64String(str);
+                    }
+                    
+                }
+                if (singleRecSignature.Signature4 != null)
+                {
+                    onucchedSignature.showSignature4element();
+                    onucchedSignature.SignatureDate1 = singleRecSignature.Signature1.signature_date;
+                    onucchedSignature.EmployeeName1 = singleRecSignature.Signature1.employee_name;
+                    onucchedSignature.EmployeeDesignation1 = singleRecSignature.Signature1.employee_designation;
+                    if (singleRecSignature.Signature1.encode_sign != "")
+                    {
+                        var str = singleRecSignature.Signature1.encode_sign.Substring(singleRecSignature.Signature1.encode_sign.IndexOf(",") + 1);
+                        onucchedSignature.pbSign1 = Convert.FromBase64String(str);
+                    }
+                    
+                }
                 SignatureFLP.Controls.Add(onucchedSignature);
             }
             
+
         }
     }
 }

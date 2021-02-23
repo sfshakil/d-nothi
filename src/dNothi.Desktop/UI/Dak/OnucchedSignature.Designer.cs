@@ -226,36 +226,43 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // pbSignature1
             // 
-            this.pbSignature1.Location = new System.Drawing.Point(117, 18);
+            this.pbSignature1.Location = new System.Drawing.Point(78, 7);
+            this.pbSignature1.Margin = new System.Windows.Forms.Padding(0);
             this.pbSignature1.Name = "pbSignature1";
-            this.pbSignature1.Size = new System.Drawing.Size(100, 50);
+            this.pbSignature1.Size = new System.Drawing.Size(188, 50);
+            this.pbSignature1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbSignature1.TabIndex = 16;
             this.pbSignature1.TabStop = false;
             this.pbSignature1.Visible = false;
             // 
             // pbSignature2
             // 
-            this.pbSignature2.Location = new System.Drawing.Point(429, 18);
+            this.pbSignature2.Location = new System.Drawing.Point(389, 7);
+            this.pbSignature2.Margin = new System.Windows.Forms.Padding(0);
             this.pbSignature2.Name = "pbSignature2";
-            this.pbSignature2.Size = new System.Drawing.Size(100, 50);
+            this.pbSignature2.Size = new System.Drawing.Size(188, 50);
+            this.pbSignature2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbSignature2.TabIndex = 17;
             this.pbSignature2.TabStop = false;
             this.pbSignature2.Visible = false;
             // 
             // pbSignature3
             // 
-            this.pbSignature3.Location = new System.Drawing.Point(750, 18);
+            this.pbSignature3.Location = new System.Drawing.Point(698, 7);
+            this.pbSignature3.Margin = new System.Windows.Forms.Padding(0);
             this.pbSignature3.Name = "pbSignature3";
-            this.pbSignature3.Size = new System.Drawing.Size(100, 50);
+            this.pbSignature3.Size = new System.Drawing.Size(188, 50);
+            this.pbSignature3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbSignature3.TabIndex = 18;
             this.pbSignature3.TabStop = false;
             this.pbSignature3.Visible = false;
             // 
             // pbSignature4
             // 
-            this.pbSignature4.Location = new System.Drawing.Point(1068, 18);
+            this.pbSignature4.Location = new System.Drawing.Point(1015, 7);
             this.pbSignature4.Name = "pbSignature4";
-            this.pbSignature4.Size = new System.Drawing.Size(100, 50);
+            this.pbSignature4.Size = new System.Drawing.Size(188, 50);
+            this.pbSignature4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbSignature4.TabIndex = 19;
             this.pbSignature4.TabStop = false;
             this.pbSignature4.Visible = false;
