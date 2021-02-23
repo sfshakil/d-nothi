@@ -176,7 +176,7 @@ namespace dNothi.Desktop.UI
                 noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
                 noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
                 noteView.checkBox = "1";
-
+                noteView.nothiNoteID = notedata.note_id;
 
                 //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
                 form.loadNoteData(notedata);

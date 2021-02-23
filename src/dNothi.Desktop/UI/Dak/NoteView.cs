@@ -137,6 +137,10 @@ namespace dNothi.Desktop.UI.Dak
                     cbNote.Checked = false;
             }
         }
+        public void checkcbNote()
+        {
+            cbNote.Checked = false;
+        }
 
         [Browsable(true)]
         [Category("Action")]
@@ -154,6 +158,10 @@ namespace dNothi.Desktop.UI.Dak
             List1.note_status = lbTotalNothi.Text;
             List1.note_subject_sub_text = lbNoteSubject.Text;
             List1.date = lbNothiLastDate.Text;
+            if (eyeSlashIcon.Visible == true)
+            {
+                List1.can_revert = 1;
+            }
                 if (this.CheckBoxClick != null)
                     this.CheckBoxClick(List1, e);
 

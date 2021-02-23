@@ -43,11 +43,12 @@ namespace dNothi.Desktop.UI
         INoteKhoshraListServices _noteKhoshraList { get; set; }
         IOnuchhedListServices _onuchhedList { get; set; }
         ISingleOnucchedServices _singleOnucched { get; set; }
+        INoteOnucchedRevertServices _noteOnucchedRevert { get; set; }
         public Note(IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
             IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
             IKhoshraPotroServices khoshraPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
-            IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched)
+            IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert)
         {
             _userService = userService;
             _onucchedSave = onucchedSave;
@@ -66,6 +67,7 @@ namespace dNothi.Desktop.UI
             _noteKhoshraList = noteKhoshraList;
             _onuchhedList = onuchhedList;
             _singleOnucched = singleOnucched;
+            _noteOnucchedRevert = noteOnucchedRevert;
 
             InitializeComponent();
             SetDefaultFont(this.Controls);
@@ -198,12 +200,15 @@ namespace dNothi.Desktop.UI
             noteView.CheckBoxClick += delegate (object sender, EventArgs e) { checkBox_Click(sender as NoteListDataRecordNoteDTO, e, newNoteView); };
             return i;
         }
+        private string checkSub;
+        private int checkNoteId;
         private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
         {  
             //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
             OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
             if (onucchedList.data.total_records > 0)
             {
+                onuchhedFLP.Visible = true;
                 onuchhedFLP.Controls.Clear();
                 foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                 {
@@ -220,6 +225,8 @@ namespace dNothi.Desktop.UI
                         btnSaveArrow.Visible = false;
                         btnCancel.Visible = false;
 
+                        //onuchhedheaderPnl.Visible = true;
+                        //onuchhedFLP.Visible = true;
                         btnWriteOnuchhed.Visible = true;
                         btnSend.Visible = true;
                         panel14.Visible = false;
@@ -234,6 +241,17 @@ namespace dNothi.Desktop.UI
                             separateOnucched.loadOnuchhedSignature(singleRecSignature);
                         }
                         onuchhedFLP.Controls.Add(separateOnucched);
+                        if(list.can_revert == 1)
+                        {
+                            checkSub = list.note_subject_sub_text;
+                            checkNoteId = list.nothi_note_id;
+                            btnCanRevert.Visible = true;
+                            btnWriteOnuchhed.Visible = false;
+                            btnSend.Visible = false;
+                            btnSave.Visible = false;
+                            btnSaveArrow.Visible = false;
+                            btnCancel.Visible = false;
+                        }
                     }
                 }
             }
@@ -275,11 +293,37 @@ namespace dNothi.Desktop.UI
             }
             else
             {
+                lbNoteTotl.Text = "নোটঃ " + list.note_status;
+                lbNoteSubject.Text = list.note_subject_sub_text;
+                lbNothiLastDate.Text = list.date;
+
+                onuchhedheaderPnl.Visible = false;
+                onuchhedFLP.Visible = false;
+
                 lbNote.Visible = false;
                 pnlNoteKhoshra.Visible = false;
                 pnlNoteKhoshraWaiting.Visible = false;
                 pnlNotePotrojari.Visible = false;
                 pnlNoNote.Visible = true;
+
+                btnCanRevert.Visible = false;
+                btnWriteOnuchhed.Visible = false;
+                btnSend.Visible = false;
+
+                btnSave.Visible = true;
+                btnSaveArrow.Visible = true;
+                btnCancel.Visible = true;
+
+                panel14.Visible = true;
+                panel22.Visible = true;
+                tinyMceEditor.Visible = true;
+                panel24.Visible = true;
+                panel28.Visible = true;
+                tinyMceEditor.HtmlContent = "";
+                fileAddFLP.Controls.Clear();
+                noteFileUploads.Clear();
+
+
             }
             //string str = list.note_status;
             //if (str == "System.Windows.Forms.CheckBox, CheckState: 0")
@@ -426,7 +470,6 @@ namespace dNothi.Desktop.UI
 
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             string selectedItem = cbxNothiType.Items[cbxNothiType.SelectedIndex].ToString() ;
             if (selectedItem == "বাছাইকৃত নোট")
             {
@@ -860,6 +903,7 @@ namespace dNothi.Desktop.UI
 
         private void btnOnuchhedSave_Click(object sender, EventArgs e)
         {
+            onuchhedFLP.Controls.Clear();
             PnlSave.Visible = false;
             string noteId = "0";
             if (updateNoteID > 0)
@@ -899,6 +943,10 @@ namespace dNothi.Desktop.UI
                 
                 if (onucchedSave.status == "success")
                 {
+
+                    onuchhedheaderPnl.Visible = true;
+                    onuchhedFLP.Visible = true;
+
                     onuchhed.onucchedId = onucchedSave.data.id;
                     //panel22.Visible = false;
                     tinyMceEditor.Visible = false;
@@ -938,6 +986,7 @@ namespace dNothi.Desktop.UI
 
         private void btnSaveWithNewOnuchhed_Click(object sender, EventArgs e)
         {
+            onuchhedFLP.Controls.Clear();
             PnlSave.Visible = false;
             string noteId = "0";
             if (updateNoteID > 0)
@@ -976,6 +1025,9 @@ namespace dNothi.Desktop.UI
                 var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(noteId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                 if (onucchedSave.status == "success")
                 {
+                    onuchhedheaderPnl.Visible = true;
+                    onuchhedFLP.Visible = true;
+
                     onuchhed.onucchedId = onucchedSave.data.id;
                     panel22.Visible = true;
                     tinyMceEditor.Visible = true;
@@ -1406,6 +1458,23 @@ namespace dNothi.Desktop.UI
             NotePotrojariResponse notePotrojariList = _notePotrojariList.GetPotrojariListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
             if (notePotrojariList.status == "success")
             {
+
+            }
+        }
+
+        private void btnCanRevert_Click(object sender, EventArgs e)
+        {
+            newnotedata.note_subject = checkSub;
+            newnotedata.note_id = checkNoteId;
+            NoteOnucchedRevertResPonse noteOnucchedRevert = _noteOnucchedRevert.GetNoteOnucchedRevert(_dakuserparam, nothiListRecords, newnotedata);
+            if (noteOnucchedRevert.status == "success")
+            {
+                MessageBox.Show(noteOnucchedRevert.data);
+                newNoteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
+                lbNothiType.Text = "বাছাইকৃত নোট (১)";
+                noteViewFLP.Controls.Clear();
+                newNoteView.checkcbNote();
+                noteViewFLP.Controls.Add(newNoteView);
 
             }
         }

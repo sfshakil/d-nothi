@@ -170,6 +170,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NoteKhoshraListServices>().As<INoteKhoshraListServices>();
             builder.RegisterType<OnuchhedListServices>().As<IOnuchhedListServices>();
             builder.RegisterType<SingleOnucchedServices>().As<ISingleOnucchedServices>();
+            builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
             
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();

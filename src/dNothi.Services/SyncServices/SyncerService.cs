@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace dNothi.Services.SyncServices
 {
-    public class SyncerService:ISyncerService
+    public class SyncerService: ISyncerService
     {
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         IUserService _userService;
@@ -189,6 +189,11 @@ namespace dNothi.Services.SyncServices
         private void SaveOrUpdateOffice(List<OfficeInfoDTO> officeInfoDTO)
         {
             _userService.SaveOrUpdateUserOfficeInfo(officeInfoDTO);
+        }
+
+        public void Synctolocal(List<long> src, List<long> dst, List<long> status)
+        {
+            throw new NotImplementedException();
         }
     }
 

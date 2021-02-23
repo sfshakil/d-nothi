@@ -147,6 +147,7 @@
     <Compile Include="NothiServices\INoteDeleteService.cs" />
     <Compile Include="NothiServices\INoteKhoshraListServices.cs" />
     <Compile Include="NothiServices\INoteKhshraWaitingListServices.cs" />
+    <Compile Include="NothiServices\INoteOnucchedRevertServices.cs" />
     <Compile Include="NothiServices\INotePotrojariServices.cs" />
     <Compile Include="NothiServices\INoteSaveService.cs" />
     <Compile Include="NothiServices\INothijatoServices.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="NothiServices\NoteDeleteService.cs" />
     <Compile Include="NothiServices\NoteKhoshraListServices.cs" />
     <Compile Include="NothiServices\NoteKhshraWaitingListServices.cs" />
+    <Compile Include="NothiServices\NoteOnucchedRevertServices.cs" />
     <Compile Include="NothiServices\NotePotrojariServices.cs" />
     <Compile Include="NothiServices\NoteSaveService.cs" />
     <Compile Include="NothiServices\NothiAllService.cs" />
