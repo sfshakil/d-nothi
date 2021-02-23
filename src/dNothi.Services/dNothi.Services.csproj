@@ -223,6 +223,8 @@
   <ItemGroup>
     <None Include=".editorconfig" />
     <None Include="App.config" />
+    <None Include="FakeJsonData\FakeDakDetails.json" />
+    <None Include="FakeJsonData\FakeDakList.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

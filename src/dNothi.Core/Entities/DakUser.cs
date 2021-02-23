@@ -24,6 +24,8 @@ namespace dNothi.Core.Entities
         public string last_movement_date { get; set; }
         public string dak_category { get; set; }
         public string dak_subject { get; set; }
+        public int archived_dak_user_id { get; set; }
+
         public string dak_decision { get; set; }
         [MaxLength]
         public string drafted_decisions { get; set; }

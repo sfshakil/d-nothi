@@ -34,9 +34,8 @@ namespace dNothi.Core.Entities
         public long? dak_nothi_id { get; set; }
 
         public virtual DakNothi nothi { get; set; }
-        
-       
 
+      
 
         [ForeignKey("daklistType")]
         public long dak_List_type_Id { get; set; }
@@ -44,6 +43,10 @@ namespace dNothi.Core.Entities
 
 
         public virtual ICollection<DakTag> dak_Tags { get; set; }
+        public virtual ICollection<DakAttachment> attachment { get; set; }
+
+
+        
 
     }
 }

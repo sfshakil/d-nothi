@@ -100,6 +100,10 @@ namespace dNothi.Desktop.UI.Dak
             //If dockstyle = fill
             this.Width = mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Width + 10;//Border
             this.Height = mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Height + 10;//Border
+            Screen scr = Screen.FromPoint(this.Location);
+            int heightLoc =Convert.ToInt32((scr.WorkingArea.Bottom - this.Height) / 2);
+            int widthLoc =Convert.ToInt32((scr.WorkingArea.Right - this.Width) / 2);
+            this.Location = new Point(widthLoc, heightLoc);
         }
     }
 }

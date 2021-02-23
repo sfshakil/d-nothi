@@ -57,7 +57,7 @@ namespace dNothi.Desktop.UI.Dak
                         else
                         {
 
-                            detailsAttachmentUserControl.attachmentName = dakAttachmentDTO.user_file_name;
+                            detailsAttachmentUserControl.attachmentName = dakAttachmentDTO.file_name;
                         }
 
                         detailsAttachmentUserControl.dakAttachmentDTO = dakAttachmentDTO;

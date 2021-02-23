@@ -1,0 +1,53 @@
+{
+  "status": "success",
+  "data": {
+    "records": [
+      {
+        "dak_id": "12345",
+        "dak_type": "daptorik",
+        "is_copied_dak": "1",
+        "dak_category": "inbox",
+        "dak_hash": "1234567890sdfghj"
+      },
+      {
+        "dak_id": "12346",
+        "dak_type": "daptorik",
+        "is_copied_dak": "1",
+        "dak_category": "inbox",
+        "dak_hash": "1234567890sdfghj"
+      },
+      {
+        "dak_id": "12347",
+        "dak_type": "daptorik",
+        "dak_category": "Sent",
+        "is_copied_dak": "1",
+        "dak_hash": "1234567890sdfghj"
+      },
+      {
+        "dak_id": "12352",
+        "dak_type": "daptorik",
+        "is_copied_dak": "1",
+        "dak_category": "nothijato",
+        "dak_hash": "1234567890sdfghj"
+      },
+      {
+        "dak_id": "12353",
+        "dak_type": "daptorik",
+        "is_copied_dak": "1",
+        "dak_category": "nothivukto",
+        "dak_hash": "1234567890sdfghj"
+      },
+    
+      {
+        "dak_id": "12355",
+        "dak_type": "daptorik",
+        "is_copied_dak": "1",
+        "dak_category": "archive",
+        "dak_hash": "1234567890sdfghj"
+      }
+    
+     
+    ],
+    "total_records": 14
+  }
+}
