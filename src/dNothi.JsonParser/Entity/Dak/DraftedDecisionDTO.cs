@@ -17,7 +17,7 @@ namespace dNothi.JsonParser.Entity.Dak
         public string decision { get; set; }
         public string priority { get; set; }
         public string security { get; set; }
-        public Recipients recipients { get; set; }
+        public RecipientsInfoDTO recipients { get; set; }
     }
     public class MulPrapok
     {
@@ -59,7 +59,7 @@ public class Onulipi
     
     }
 
-    public class Recipients
+    public class RecipientsInfoDTO
 {
     public MulPrapok mul_prapok { get; set; }
     public Onulipi onulipi { get; set; }

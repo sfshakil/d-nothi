@@ -9,5 +9,6 @@ namespace dNothi.Core.Entities
 {
     public class SyncStatus : BaseEntity
     {
+        public int dak_id { get; set; }
     }
 }

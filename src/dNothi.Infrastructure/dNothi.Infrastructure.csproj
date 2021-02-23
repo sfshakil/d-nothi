@@ -72,6 +72,7 @@
     <Compile Include="EfRepository.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mappings\AppUsers\AppUserMap.cs" />
+    <Compile Include="Mappings\Dak\DakAttachmentMap.cs" />
     <Compile Include="Mappings\Dak\DakListMap.cs" />
     <Compile Include="Mappings\Dak\DakTypeMap.cs" />
     <Compile Include="Mappings\Dak\DakOriginMap.cs" />

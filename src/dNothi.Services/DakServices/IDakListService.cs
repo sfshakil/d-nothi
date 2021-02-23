@@ -11,16 +11,22 @@ namespace dNothi.Services.DakServices
 {
    public interface IDakListService
     {
-        
+        void DakDeleteUsingId(long id);
+      
 
-     
+        List<long> GetLocalDakIdList();
         void SaveOrUpdateDakList(DakListDTO data, long dakTypeId);
+        void SaveOrUpdateDakList(List<DakListWithDetailsRecordDTO> records);
         DakListDTO GetLocalDakListbyType(long dakTypeId, DakUserParam dakListUserParam);
 
         DakDetailsResponse GetDakDetailsbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
         DakAttachmentResponse GetDakAttachmentbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
         DakMovementStatusResponse GetDakMovementStatusListbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
         List<DakList> GetDakList();
+
+
+        DakIdListResponse GetRemoteDakIdList(DakUserParam dakUserParam);
+        DakListWithDetailsResponse GetRemoteDakListDetails(DakUserParam dakUserParam);
 
 
         //void SaveOrUpdateFrom(FromDTO fromdto);

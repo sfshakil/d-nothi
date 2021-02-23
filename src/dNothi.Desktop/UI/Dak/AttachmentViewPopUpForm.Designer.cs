@@ -46,7 +46,7 @@
             this.closeButton.BackColor = System.Drawing.Color.Transparent;
             this.closeButton.FlatAppearance.BorderSize = 0;
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.ForeColor = System.Drawing.Color.Black;
+            this.closeButton.ForeColor = System.Drawing.Color.Transparent;
             this.closeButton.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
             this.closeButton.IconColor = System.Drawing.Color.DimGray;
             this.closeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -61,21 +61,21 @@
             // 
             // pdfViewerControl
             // 
-            this.pdfViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdfViewerControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.pdfViewerControl.Enabled = true;
             this.pdfViewerControl.Location = new System.Drawing.Point(0, 0);
             this.pdfViewerControl.Name = "pdfViewerControl";
             this.pdfViewerControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("pdfViewerControl.OcxState")));
-            this.pdfViewerControl.Size = new System.Drawing.Size(767, 520);
+            this.pdfViewerControl.Size = new System.Drawing.Size(767, 650);
             this.pdfViewerControl.TabIndex = 3;
             // 
             // mainAttachmentViewWebBrowser
             // 
             this.mainAttachmentViewWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(0, 0);
+            this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(0, 650);
             this.mainAttachmentViewWebBrowser.Name = "mainAttachmentViewWebBrowser";
             this.mainAttachmentViewWebBrowser.ScrollBarsEnabled = false;
-            this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(767, 520);
+            this.mainAttachmentViewWebBrowser.Size = new System.Drawing.Size(767, 0);
             this.mainAttachmentViewWebBrowser.TabIndex = 1;
             this.mainAttachmentViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             this.mainAttachmentViewWebBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.mainAttachmentViewWebBrowser_DocumentCompleted);
@@ -87,11 +87,11 @@
             this.imagePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.imagePanel.Controls.Add(this.imageViewPictureBox);
             this.imagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imagePanel.Location = new System.Drawing.Point(0, 0);
+            this.imagePanel.Location = new System.Drawing.Point(0, 650);
             this.imagePanel.Margin = new System.Windows.Forms.Padding(0);
             this.imagePanel.MaximumSize = new System.Drawing.Size(867, 620);
             this.imagePanel.Name = "imagePanel";
-            this.imagePanel.Size = new System.Drawing.Size(767, 520);
+            this.imagePanel.Size = new System.Drawing.Size(767, 0);
             this.imagePanel.TabIndex = 4;
             // 
             // imageViewPictureBox

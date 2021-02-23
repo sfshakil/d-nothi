@@ -16,6 +16,7 @@ using Autofac;
 using dNothi.Desktop.Interfaces;
 using System.Text.RegularExpressions;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Services.SyncServices;
 
 namespace dNothi.Desktop.UI
 {
@@ -26,14 +27,16 @@ namespace dNothi.Desktop.UI
 
         IAccountService _accountService { get; set; }
         IUserService _userService { get; set; }
+        ISyncerService _syncerservice { get; set; }
         
-        public Login(IUserService userService, IAccountService accountService)
+        public Login(IUserService userService, IAccountService accountService, ISyncerService syncerservice)
         {
             InitializeComponent();
             select_UserID();
-         //   this.pnlUserId.Show();
+            //this.pnlUserId.Show();
             _userService = userService;
             _accountService = accountService;
+            _syncerservice = syncerservice;
         }
         public void select_UserID()
         {
@@ -89,6 +92,8 @@ namespace dNothi.Desktop.UI
                     SaveOrUpdateOffice(resmessage?.data?.office_info);
                     SaveOrUpdateToken(resmessage?.data?.token);
 
+                    DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                   // _syncerservice.SyncDak(dakUserParam);
 
                     this.Hide();
                     var form = FormFactory.Create<Dashboard>();

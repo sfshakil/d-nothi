@@ -72,6 +72,8 @@
     <Compile Include="Entity\Dak\DakDecisionAddResponse.cs" />
     <Compile Include="Entity\Dak\DakDecisionListResponse.cs" />
     <Compile Include="Entity\Dak\DakForwardRevertResponse.cs" />
+    <Compile Include="Entity\Dak\DakIdListResponse.cs" />
+    <Compile Include="Entity\Dak\DakListWithDetailsResponse.cs" />
     <Compile Include="Entity\Dak\DakNothijatoResponse.cs" />
     <Compile Include="Entity\Dak\DakNothivuktoResponse.cs" />
     <Compile Include="Entity\Dak\DakNothivuktoRevertResponse.cs" />

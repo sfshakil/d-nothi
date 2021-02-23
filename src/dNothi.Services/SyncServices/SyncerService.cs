@@ -2,6 +2,7 @@
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
@@ -48,17 +49,71 @@ namespace dNothi.Services.SyncServices
 
 
         //src will be Remote and dst will be Local
-        public void SyncDak(List<long> src,List<long> dst,List<long> status)
+
+
+        List<long> RemoteDakIdList(DakUserParam userParam)
+        {
+            List<long> ids = new List<long>();
+            var response = _dakListService.GetRemoteDakIdList(userParam);
+           
+                if(response.data.records.Count>0)
+                {
+                    foreach(DakIdListRecordDTO dakIdListRecordDTO in response.data.records)
+                    {
+                        ids.Add(dakIdListRecordDTO.dak_id);
+                    }
+                }
+
+            return ids;
+            
+        }
+        public void SyncDak(DakUserParam userParam)
+        {
+            List<long> src =RemoteDakIdList(userParam);
+            List<long> des = _dakListService.GetLocalDakIdList();
+
+            List<long> diff = des.Except(src).ToList();
+           // CopyMessageToDest(diff);
+           // SaveMessageToStatus(diff);
+           // status = GetUpdatedStatus();
+            //List<long> diff2 = status.Except(src).ToList();
+            DeleteFromDest(diff);
+            AddToDest(diff,userParam);
+        }
+
+
+        public void SyncTo(List<long> src, List<long> des, List<long> status )
         {
             List<long> diff = src.Except(status).ToList();
-            CopyMessageToDest(diff);
-            SaveMessageToStatus(diff);
-            status = GetUpdatedStatus();
+
+             //AddToDest(diff);
+            // SaveMessageToStatus(diff);
+
             List<long> diff2 = status.Except(src).ToList();
+           
             DeleteFromDest(diff2);
-            DeleteFromStatus(diff2);
+            DeleteFromStatus(diff2);// Status Store Only Id
         }
-        
+
+        private void AddToDest(List<long> diff2, DakUserParam dakUserParam)
+        {
+            DakListWithDetailsResponse dakListWithDetailsResponse = _dakListService.GetRemoteDakListDetails(dakUserParam);
+            if(dakListWithDetailsResponse.data.records.Count>0)
+            {
+               var dakListWithDetailsRecordDTOs =from c in dakListWithDetailsResponse.data.records
+                                                                                where !diff2.Any(o => o == c.dak_user.dak_id)
+                                                                                             select c;
+
+                if(dakListWithDetailsRecordDTOs != null)
+                {
+                    _dakListService.SaveOrUpdateDakList(dakListWithDetailsRecordDTOs.ToList());
+                }
+                
+                    
+                
+            }
+        }
+
         public List<long> GetStatus()
         {
             return _sycnRepository.Table.Select(s => s.Id).ToList();
@@ -68,9 +123,16 @@ namespace dNothi.Services.SyncServices
             throw new NotImplementedException();
         }
 
-        private void DeleteFromDest(List<long> diff2)
+        private void DeleteFromDest(List<long> diff)
         {
-            throw new NotImplementedException();
+            if(diff.Count>0)
+            {
+                foreach(long id in diff)
+                {
+                    _dakListService.DakDeleteUsingId(id);
+
+                }
+            }
         }
 
         private List<long> GetUpdatedStatus()
@@ -107,7 +169,7 @@ namespace dNothi.Services.SyncServices
 
                         SaveOrUpdateUser(resmessage?.data?.user);
                         SaveOrUpdateEmployee(resmessage?.data?.employee_info);
-                        SaveOrUpdateOffice(resmessage?.data?.office_info);
+                        //SaveOrUpdateOffice(resmessage?.data?.office_info);
                         SaveOrUpdateToken(resmessage?.data?.token);
 
 
@@ -186,16 +248,15 @@ namespace dNothi.Services.SyncServices
             _userService.SaveOrUpdateUserEmployeeInfo(employeeInfoDTO);
         }
 
-        private void SaveOrUpdateOffice(List<OfficeInfoDTO> officeInfoDTO)
-        {
-            _userService.SaveOrUpdateUserOfficeInfo(officeInfoDTO);
-        }
+       
+
+       
     }
 
     public interface ISyncerService
     {
         List<long> GetDestination();
         Task<List<long>> GetSource();
-        void Synctolocal(List<long> src, List<long> dst, List<long> status);
+        void SyncDak(DakUserParam userParam);
     }
 }

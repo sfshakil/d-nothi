@@ -21,6 +21,7 @@ using dNothi.Services.NothiServices;
 using dNothi.Desktop.UI;
 using System.Threading;
 using dNothi.Desktop.UI.Dak;
+using dNothi.Services.SyncServices;
 
 namespace dNothi.Desktop
 {
@@ -110,6 +111,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakTag>>().As<IRepository<dNothi.Core.Entities.DakTag>>();
            
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakType>>().As<IRepository<dNothi.Core.Entities.DakType>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.SyncStatus>>().As<IRepository<dNothi.Core.Entities.SyncStatus>>();
            
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakList>>().As<IRepository<dNothi.Core.Entities.DakList>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.Officer>>().As<IRepository<dNothi.Core.Entities.Officer>>();
@@ -120,6 +122,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakNothi>>().As<IRepository<dNothi.Core.Entities.DakNothi>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakUser>>().As<IRepository<dNothi.Core.Entities.DakUser>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakOrigin>>().As<IRepository<dNothi.Core.Entities.DakOrigin>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakAttachment>>().As<IRepository<dNothi.Core.Entities.DakAttachment>>();
        
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
             builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
@@ -127,6 +130,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<NothiListRecords>>().As<IRepository<NothiListRecords>>();
             builder.RegisterType<AccountService>().As<IAccountService>();
             builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
+            builder.RegisterType<SyncerService>().As<ISyncerService>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<DakInboxService>().As<IDakInboxServices>();
             builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
