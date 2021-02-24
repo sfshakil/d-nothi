@@ -38,22 +38,25 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dakUploadAttachmentNameTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.attachmentLink)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dakAttachmentTableRadioButton
             // 
             this.dakAttachmentTableRadioButton.BackColor = System.Drawing.Color.White;
+            this.dakAttachmentTableRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dakAttachmentTableRadioButton.FlatAppearance.BorderSize = 0;
             this.dakAttachmentTableRadioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakAttachmentTableRadioButton.Location = new System.Drawing.Point(11, 11);
-            this.dakAttachmentTableRadioButton.Margin = new System.Windows.Forms.Padding(10);
+            this.dakAttachmentTableRadioButton.Location = new System.Drawing.Point(1, 1);
+            this.dakAttachmentTableRadioButton.Margin = new System.Windows.Forms.Padding(1);
             this.dakAttachmentTableRadioButton.Name = "dakAttachmentTableRadioButton";
             this.dakAttachmentTableRadioButton.Padding = new System.Windows.Forms.Padding(50);
-            this.dakAttachmentTableRadioButton.Size = new System.Drawing.Size(73, 43);
+            this.dakAttachmentTableRadioButton.Size = new System.Drawing.Size(118, 63);
             this.dakAttachmentTableRadioButton.TabIndex = 0;
             this.dakAttachmentTableRadioButton.TabStop = true;
             this.dakAttachmentTableRadioButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -65,10 +68,11 @@
             // 
             this.attachmentLink.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.attachmentLink.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.attachmentLink.Location = new System.Drawing.Point(125, 4);
+            this.attachmentLink.Location = new System.Drawing.Point(121, 1);
+            this.attachmentLink.Margin = new System.Windows.Forms.Padding(1);
             this.attachmentLink.Name = "attachmentLink";
             this.attachmentLink.Padding = new System.Windows.Forms.Padding(25, 5, 25, 5);
-            this.attachmentLink.Size = new System.Drawing.Size(194, 57);
+            this.attachmentLink.Size = new System.Drawing.Size(198, 63);
             this.attachmentLink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.attachmentLink.TabIndex = 6;
             this.attachmentLink.TabStop = false;
@@ -96,7 +100,7 @@
             this.attachmentOCRButton.IconColor = System.Drawing.Color.White;
             this.attachmentOCRButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.attachmentOCRButton.IconSize = 24;
-            this.attachmentOCRButton.Location = new System.Drawing.Point(78, 6);
+            this.attachmentOCRButton.Location = new System.Drawing.Point(78, 10);
             this.attachmentOCRButton.Name = "attachmentOCRButton";
             this.attachmentOCRButton.Size = new System.Drawing.Size(138, 44);
             this.attachmentOCRButton.TabIndex = 11;
@@ -115,7 +119,7 @@
             this.attachmentDeleteButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(149)))), ((int)(((byte)(160)))));
             this.attachmentDeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.attachmentDeleteButton.IconSize = 24;
-            this.attachmentDeleteButton.Location = new System.Drawing.Point(17, 6);
+            this.attachmentDeleteButton.Location = new System.Drawing.Point(17, 10);
             this.attachmentDeleteButton.Name = "attachmentDeleteButton";
             this.attachmentDeleteButton.Size = new System.Drawing.Size(55, 44);
             this.attachmentDeleteButton.TabIndex = 10;
@@ -124,7 +128,6 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
@@ -142,27 +145,27 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1024, 65);
             this.tableLayoutPanel2.TabIndex = 12;
+            this.tableLayoutPanel2.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel2_CellPaint);
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dakUploadAttachmentNameTextBox);
-            this.panel2.Location = new System.Drawing.Point(326, 16);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(321, 1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(279, 37);
+            this.panel2.Size = new System.Drawing.Size(279, 62);
             this.panel2.TabIndex = 12;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // dakUploadAttachmentNameTextBox
             // 
+            this.dakUploadAttachmentNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dakUploadAttachmentNameTextBox.BackColor = System.Drawing.Color.White;
             this.dakUploadAttachmentNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dakUploadAttachmentNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakUploadAttachmentNameTextBox.Location = new System.Drawing.Point(10, 10);
+            this.dakUploadAttachmentNameTextBox.Location = new System.Drawing.Point(6, 7);
             this.dakUploadAttachmentNameTextBox.Name = "dakUploadAttachmentNameTextBox";
-            this.dakUploadAttachmentNameTextBox.Size = new System.Drawing.Size(259, 19);
+            this.dakUploadAttachmentNameTextBox.Size = new System.Drawing.Size(247, 19);
             this.dakUploadAttachmentNameTextBox.TabIndex = 8;
             this.dakUploadAttachmentNameTextBox.TextChanged += new System.EventHandler(this.dakUploadAttachmentNameTextBox_TextChanged);
             // 
@@ -170,10 +173,22 @@
             // 
             this.panel1.Controls.Add(this.attachmentOCRButton);
             this.panel1.Controls.Add(this.attachmentDeleteButton);
-            this.panel1.Location = new System.Drawing.Point(612, 4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(606, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(339, 57);
+            this.panel1.Size = new System.Drawing.Size(418, 63);
             this.panel1.TabIndex = 7;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.dakUploadAttachmentNameTextBox);
+            this.panel3.Location = new System.Drawing.Point(9, 17);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(260, 32);
+            this.panel3.TabIndex = 9;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // DakUploadAttachmentTableRow
             // 
@@ -189,8 +204,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.attachmentLink)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -205,5 +221,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox dakUploadAttachmentNameTextBox;
+        private System.Windows.Forms.Panel panel3;
     }
 }

@@ -187,5 +187,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             _attachmentName = dakUploadAttachmentNameTextBox.Text;
         }
+
+        private void tableLayoutPanel2_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.FromArgb(203, 225, 248)), e.CellBounds);
+        }
     }
 }

@@ -241,9 +241,21 @@ namespace dNothi.Desktop.UI.Dak
                 movementStatusDetailsPanel.Controls.Clear();
                 DakMovementStatusListUserControl movementStatusDetailsUserControlSource = new DakMovementStatusListUserControl();
 
-                movementStatusDetailsUserControlSource.userType = "উৎসঃ";
+                CheckNagorikDakType checkNagorikDakType = new CheckNagorikDakType(dakDetailsResponse.data.dak_user.dak_type);
                
-                movementStatusDetailsUserControlSource.userDesignation = dakDetailsResponse.data.dak_origin.sender_name+ "(" +dakDetailsResponse.data.dak_origin.sender_officer_designation_label+","+ dakDetailsResponse.data.dak_origin.sender_office_unit_name + ","+ dakDetailsResponse.data.dak_origin.sender_office_name+")";
+                movementStatusDetailsUserControlSource.userType = "উৎসঃ";
+
+                if (!checkNagorikDakType.IsNagarik)
+                {
+                    movementStatusDetailsUserControlSource.userDesignation = dakDetailsResponse.data.dak_origin.sender_name + "(" + dakDetailsResponse.data.dak_origin.sender_officer_designation_label + "," + dakDetailsResponse.data.dak_origin.sender_office_unit_name + "," + dakDetailsResponse.data.dak_origin.sender_office_name + ")";
+
+
+                }
+                else
+                {
+                    movementStatusDetailsUserControlSource.userDesignation = dakDetailsResponse.data.dak_origin.name_bng;
+
+                }
                 movementStatusDetailsPanel.Controls.Add(movementStatusDetailsUserControlSource);
 
 
@@ -444,22 +456,22 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _sharokNo; }
             set { _sharokNo = value;
-                var isValidNumber = Regex.IsMatch(value, @"^[0-9]+(\.[0-9]+)?$");
-                if (isValidNumber)
-                {
+               // var isValidNumber = Regex.IsMatch(value, @"^[0-9]+(\.[0-9]+)?$");
+               // if (isValidNumber)
+              //  {
 
-                    try { sharokNoText.Text = string.Concat(value.Select(c => (char)('\u09E6' + c - '0'))); } catch (Exception Ex) { }
+              //      try { sharokNoText.Text = string.Concat(value.Select(c => (char)('\u09E6' + c - '0'))); } catch (Exception Ex) { }
 
 
-                }
-                else
-                {
+              //  }
+                //else
+              //  {
                     sharokNoText.Text = value;
-                }
+              //  }
 
               
               
-                if (sharokNo == "" || sharokNo == null) { sharokNoLabel.Visible = false;sharokNoText.Visible = false;sharokNoSpaceLabel.Visible = false; }
+               if (sharokNo == "" || sharokNo == null) { sharokNoLabel.Visible = false;sharokNoText.Visible = false;sharokNoSpaceLabel.Visible = false; }
             }
         }
 

@@ -167,16 +167,16 @@
             // 
             this.Subjectlabel.AutoSize = true;
             this.Subjectlabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Subjectlabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Subjectlabel.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Subjectlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(210)))));
             this.Subjectlabel.Location = new System.Drawing.Point(0, 0);
             this.Subjectlabel.MaximumSize = new System.Drawing.Size(583, 0);
             this.Subjectlabel.MinimumSize = new System.Drawing.Size(583, 0);
             this.Subjectlabel.Name = "Subjectlabel";
             this.Subjectlabel.Padding = new System.Windows.Forms.Padding(31, 0, 32, 0);
-            this.Subjectlabel.Size = new System.Drawing.Size(583, 21);
+            this.Subjectlabel.Size = new System.Drawing.Size(583, 24);
             this.Subjectlabel.TabIndex = 0;
-            this.Subjectlabel.Text = "E-Nothi";
+            this.Subjectlabel.Text = "ই-নথির মাধ্যমে দাপ্তরিক নথি কার্যক্রম";
             this.Subjectlabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // TopPanel
@@ -1182,7 +1182,7 @@
             this.dakForwardBodyPanel.Controls.Add(this.TopPanel);
             this.dakForwardBodyPanel.Controls.Add(this.BottomPanel);
             this.dakForwardBodyPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakForwardBodyPanel.Location = new System.Drawing.Point(0, 142);
+            this.dakForwardBodyPanel.Location = new System.Drawing.Point(0, 145);
             this.dakForwardBodyPanel.Name = "dakForwardBodyPanel";
             this.dakForwardBodyPanel.Size = new System.Drawing.Size(583, 825);
             this.dakForwardBodyPanel.TabIndex = 37;
@@ -1371,7 +1371,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 121);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(583, 21);
+            this.panel10.Size = new System.Drawing.Size(583, 24);
             this.panel10.TabIndex = 38;
             // 
             // DakForwardUserControl

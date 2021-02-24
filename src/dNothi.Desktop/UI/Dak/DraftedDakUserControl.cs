@@ -19,9 +19,9 @@ namespace dNothi.Desktop.UI.Dak
         public DraftedDakUserControl()
         {
             InitializeComponent();
-            InitializeComponent();
+           // InitializeComponent();
           
-            dakActionPanel.BringToFront();
+          //  dakActionPanel.BringToFront();
             IterateControls(this.Controls);
         }
         void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
@@ -78,7 +78,11 @@ namespace dNothi.Desktop.UI.Dak
         public int dakAttachmentCount
         {
             get { return _dakAttachmentCount; }
-            set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            set { _dakAttachmentCount = value; 
+              dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+               // attachmentButton.Text= string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            }
         }
 
         [Category("Custom Props")]
@@ -253,7 +257,9 @@ namespace dNothi.Desktop.UI.Dak
         public string date
         {
             get { return _date; }
-            set { _date = value; dateLabel.Text = value; dateLabel.BringToFront(); }
+            set { _date = value;
+                dateLabel.Text = value;
+            }
         }
 
         private void DraftedDakUserControl_MouseEnter(object sender, EventArgs e)
@@ -301,6 +307,7 @@ namespace dNothi.Desktop.UI.Dak
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when user clicks button")]
+      
         public event EventHandler DraftedDakSendButtonClick;
         private void dakSendButton_Click(object sender, EventArgs e)
         {

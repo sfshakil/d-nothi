@@ -47,7 +47,9 @@ namespace dNothi.Desktop.UI.Dak
                     foreach(DakAttachmentDTO dakAttachmentDTO in dakAttachmentDTOs)
                     {
                         DetailsAttachmentUserControl detailsAttachmentUserControl = new DetailsAttachmentUserControl();
+                        
                         detailsAttachmentUserControl.mainattachment = dakAttachmentDTO.is_main;
+                        detailsAttachmentUserControl.dakAttachmentDTOs = dakAttachmentDTOs;
 
                         if(dakAttachmentDTO.is_main==1 && dakAttachmentDTO.attachment_type.ToUpper().Contains("TEXT"))
                         {
@@ -65,7 +67,16 @@ namespace dNothi.Desktop.UI.Dak
                         detailsAttachmentUserControl.attachmentdownload = dakAttachmentDTO.download_url;
                         detailsAttachmentUserControl.attachmenttype = dakAttachmentDTO.attachment_type;
                         detailsAttachmentUserControl.attachmentid = dakAttachmentDTO.attachment_id;
-                        detailsAttachmentUserControl.attachmentlink = dakAttachmentDTO.url;
+
+
+                        if (dakAttachmentDTO.attachment_type.ToLower().Contains("image") || dakAttachmentDTO.attachment_type.ToLower().Contains("img") || dakAttachmentDTO.attachment_type.ToLower().Contains("pdf")|| dakAttachmentDTO.attachment_type.ToLower().Contains("txt")|| dakAttachmentDTO.attachment_type.ToLower().Contains("text"))
+                        {
+                            detailsAttachmentUserControl.attachmentlink = dakAttachmentDTO.url;
+                        }
+                        else
+                        {
+                            detailsAttachmentUserControl.attachmentlink = "";
+                        }
                         attachmentListFlowLayoutPanel.Controls.Add(detailsAttachmentUserControl);
                     }
                 }

@@ -644,6 +644,7 @@ namespace dNothi.Desktop.UI.Dak
             if (response.status == "success")
 
             {
+                SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
                 var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
 
                 foreach (var attachment in attachmentList)
@@ -657,7 +658,17 @@ namespace dNothi.Desktop.UI.Dak
 
 
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
 
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
         private void OCRControl_ButtonClick(object sender, EventArgs e, string imageBase64String, DakAttachmentDTO dakAttachment, string Extension)
         {
             OCRParameter oCRParameter = new OCRParameter();

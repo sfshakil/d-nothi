@@ -62,14 +62,15 @@
             // 
             // dakActionPanel
             // 
+            this.dakActionPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dakActionPanel.AutoSize = true;
             this.dakActionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.dakActionPanel.Controls.Add(this.dakEditButton);
             this.dakActionPanel.Controls.Add(this.dakSendButton);
             this.dakActionPanel.Controls.Add(this.dakDeleteButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(1005, 15);
+            this.dakActionPanel.Location = new System.Drawing.Point(979, 15);
             this.dakActionPanel.Name = "dakActionPanel";
-            this.dakActionPanel.Size = new System.Drawing.Size(96, 34);
+            this.dakActionPanel.Size = new System.Drawing.Size(96, 32);
             this.dakActionPanel.TabIndex = 82;
             this.dakActionPanel.Visible = false;
             // 
@@ -87,7 +88,7 @@
             this.dakEditButton.Location = new System.Drawing.Point(0, 0);
             this.dakEditButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakEditButton.Name = "dakEditButton";
-            this.dakEditButton.Size = new System.Drawing.Size(32, 34);
+            this.dakEditButton.Size = new System.Drawing.Size(32, 32);
             this.dakEditButton.TabIndex = 70;
             this.toolTip1.SetToolTip(this.dakEditButton, "সম্পাদন");
             this.dakEditButton.UseVisualStyleBackColor = false;
@@ -109,7 +110,7 @@
             this.dakSendButton.Location = new System.Drawing.Point(32, 0);
             this.dakSendButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSendButton.Name = "dakSendButton";
-            this.dakSendButton.Size = new System.Drawing.Size(32, 34);
+            this.dakSendButton.Size = new System.Drawing.Size(32, 32);
             this.dakSendButton.TabIndex = 71;
             this.toolTip1.SetToolTip(this.dakSendButton, "ডাক প্রেরণ করুন");
             this.dakSendButton.UseVisualStyleBackColor = false;
@@ -131,7 +132,7 @@
             this.dakDeleteButton.Location = new System.Drawing.Point(64, 0);
             this.dakDeleteButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakDeleteButton.Name = "dakDeleteButton";
-            this.dakDeleteButton.Size = new System.Drawing.Size(32, 34);
+            this.dakDeleteButton.Size = new System.Drawing.Size(32, 32);
             this.dakDeleteButton.TabIndex = 69;
             this.toolTip1.SetToolTip(this.dakDeleteButton, "মুছুন");
             this.dakDeleteButton.UseVisualStyleBackColor = false;
@@ -148,7 +149,7 @@
             this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1107, 41);
+            this.panel1.Size = new System.Drawing.Size(1080, 41);
             this.panel1.TabIndex = 85;
             // 
             // panel3
@@ -264,7 +265,7 @@
             this.subjectPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectPanel.Location = new System.Drawing.Point(0, 61);
             this.subjectPanel.Name = "subjectPanel";
-            this.subjectPanel.Size = new System.Drawing.Size(1107, 18);
+            this.subjectPanel.Size = new System.Drawing.Size(1080, 18);
             this.subjectPanel.TabIndex = 87;
             // 
             // subjectLabel
@@ -312,7 +313,7 @@
             this.rightInfoPanel.dakSecurityIconValue = null;
             this.rightInfoPanel.dakType = null;
             this.rightInfoPanel.dakViewStatus = null;
-            this.rightInfoPanel.Location = new System.Drawing.Point(1103, 15);
+            this.rightInfoPanel.Location = new System.Drawing.Point(1076, 15);
             this.rightInfoPanel.Name = "rightInfoPanel";
             this.rightInfoPanel.potrojari = 0;
             this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
@@ -325,11 +326,11 @@
             this.attachmentAndDatePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.attachmentAndDatePanel.Controls.Add(this.dakAttachmentButton);
             this.attachmentAndDatePanel.Controls.Add(this.dateLabel);
-            this.attachmentAndDatePanel.Location = new System.Drawing.Point(1015, 51);
+            this.attachmentAndDatePanel.Location = new System.Drawing.Point(988, 49);
             this.attachmentAndDatePanel.MinimumSize = new System.Drawing.Size(0, 32);
             this.attachmentAndDatePanel.Name = "attachmentAndDatePanel";
             this.attachmentAndDatePanel.Size = new System.Drawing.Size(87, 32);
-            this.attachmentAndDatePanel.TabIndex = 100;
+            this.attachmentAndDatePanel.TabIndex = 89;
             // 
             // dakAttachmentButton
             // 
@@ -382,9 +383,8 @@
             this.Controls.Add(this.subjectPanel);
             this.Controls.Add(this.senderAndReceiverPanel);
             this.Controls.Add(this.panel1);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "DraftedDakUserControl";
-            this.Size = new System.Drawing.Size(1107, 84);
+            this.Size = new System.Drawing.Size(1080, 84);
             this.Load += new System.EventHandler(this.DraftedDakUserControl_Load);
             this.MouseEnter += new System.EventHandler(this.DraftedDakUserControl_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.DraftedDakUserControl_MouseLeave);

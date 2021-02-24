@@ -117,8 +117,8 @@
             this.officerSearchOfficerIdLabel = new System.Windows.Forms.Label();
             this.officerSearchOfficerNameLabel = new System.Windows.Forms.Label();
             this.searchOfficerRightPanel = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.searchOfficerRightListBox = new System.Windows.Forms.ListBox();
-            this.searchOfficerRightResultLabel = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.searchOfficerRightXTextBox = new dNothi.Desktop.XTextBox();
@@ -145,21 +145,27 @@
             this.searchLayerRightControl = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.searchDirectOfficeRightUserControl = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel18 = new System.Windows.Forms.Panel();
             this.mobileAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.emailAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.unitAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.officeAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.designationManualEntryXTextBox = new dNothi.Desktop.XTextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.officerManualEntryXTextBox = new dNothi.Desktop.XTextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.prerokBachaiOwnRightButton = new System.Windows.Forms.Button();
-            this.emailAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
-            this.unitAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
-            this.officeAddressManualEntryXTextBox = new dNothi.Desktop.XTextBox();
-            this.designationManualEntryXTextBox = new dNothi.Desktop.XTextBox();
-            this.officerManualEntryXTextBox = new dNothi.Desktop.XTextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.sliderCrossButton = new System.Windows.Forms.Button();
             this.sqlCeDataAdapter1 = new System.Data.SqlServerCe.SqlCeDataAdapter();
@@ -193,11 +199,18 @@
             this.prerokBachaiTabControl.SuspendLayout();
             this.officerSearchTabPage.SuspendLayout();
             this.searchOfficerRightPanel.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel12.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1013,7 +1026,7 @@
             this.starLabel.BackColor = System.Drawing.Color.Transparent;
             this.starLabel.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.starLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.starLabel.Location = new System.Drawing.Point(138, 75);
+            this.starLabel.Location = new System.Drawing.Point(141, 75);
             this.starLabel.Name = "starLabel";
             this.starLabel.Size = new System.Drawing.Size(12, 12);
             this.starLabel.TabIndex = 73;
@@ -1023,7 +1036,7 @@
             // 
             this.senderSearchButton.BackColor = System.Drawing.Color.Transparent;
             this.senderSearchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.senderSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.senderSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.senderSearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.senderSearchButton.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
             this.senderSearchButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
@@ -1173,6 +1186,7 @@
             this.prerokBachaiTabControl.Location = new System.Drawing.Point(34, 64);
             this.prerokBachaiTabControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.prerokBachaiTabControl.Name = "prerokBachaiTabControl";
+            this.prerokBachaiTabControl.Padding = new System.Drawing.Point(12, 8);
             this.prerokBachaiTabControl.SelectedIndex = 0;
             this.prerokBachaiTabControl.Size = new System.Drawing.Size(435, 597);
             this.prerokBachaiTabControl.TabIndex = 68;
@@ -1185,11 +1199,11 @@
             this.officerSearchTabPage.Controls.Add(this.prerokBachaiOfficerButton);
             this.officerSearchTabPage.Controls.Add(this.label19);
             this.officerSearchTabPage.Controls.Add(this.searchOfficerRightButton);
-            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 27);
+            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 37);
             this.officerSearchTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerSearchTabPage.Name = "officerSearchTabPage";
             this.officerSearchTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchTabPage.Size = new System.Drawing.Size(427, 566);
+            this.officerSearchTabPage.Size = new System.Drawing.Size(427, 556);
             this.officerSearchTabPage.TabIndex = 0;
             this.officerSearchTabPage.Text = "অফিসার খুঁজুন";
             this.officerSearchTabPage.UseVisualStyleBackColor = true;
@@ -1220,20 +1234,32 @@
             // searchOfficerRightPanel
             // 
             this.searchOfficerRightPanel.AutoScroll = true;
-            this.searchOfficerRightPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchOfficerRightPanel.Controls.Add(this.searchOfficerRightListBox);
-            this.searchOfficerRightPanel.Controls.Add(this.searchOfficerRightResultLabel);
+            this.searchOfficerRightPanel.Controls.Add(this.panel19);
             this.searchOfficerRightPanel.Controls.Add(this.panel8);
             this.searchOfficerRightPanel.Location = new System.Drawing.Point(13, 97);
             this.searchOfficerRightPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchOfficerRightPanel.Name = "searchOfficerRightPanel";
-            this.searchOfficerRightPanel.Size = new System.Drawing.Size(363, 261);
+            this.searchOfficerRightPanel.Size = new System.Drawing.Size(363, 310);
             this.searchOfficerRightPanel.TabIndex = 88;
             this.searchOfficerRightPanel.Visible = false;
+            this.searchOfficerRightPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.searchOfficerRightListBox);
+            this.panel19.Location = new System.Drawing.Point(6, 50);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(351, 242);
+            this.panel19.TabIndex = 94;
+            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
             // searchOfficerRightListBox
             // 
+            this.searchOfficerRightListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchOfficerRightListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchOfficerRightListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.searchOfficerRightListBox.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficerRightListBox.ForeColor = System.Drawing.SystemColors.GrayText;
             this.searchOfficerRightListBox.FormattingEnabled = true;
             this.MyErrorProvider.SetIconAlignment(this.searchOfficerRightListBox, System.Windows.Forms.ErrorIconAlignment.TopLeft);
             this.searchOfficerRightListBox.ItemHeight = 50;
@@ -1242,28 +1268,16 @@
             "মোহাম্মদ আশরাফুল ইসলাম মোল্লা গোপনীয় সহকারী, শিক্ষা ও আইসিটি, জেলা প্রশাসকের কার্" +
                 "যালয়, নরসিংদী",
             "জি.এম. ফয়সাল আহমদ সিস্টেম এনালিস্ট, আইসিটি সেল, নৌ-পরিবহন মন্ত্রণালয়"});
-            this.searchOfficerRightListBox.Location = new System.Drawing.Point(0, 49);
+            this.searchOfficerRightListBox.Location = new System.Drawing.Point(0, 0);
             this.searchOfficerRightListBox.Margin = new System.Windows.Forms.Padding(10);
-            this.searchOfficerRightListBox.MaximumSize = new System.Drawing.Size(361, 148);
+            this.searchOfficerRightListBox.MaximumSize = new System.Drawing.Size(350, 248);
             this.searchOfficerRightListBox.Name = "searchOfficerRightListBox";
-            this.searchOfficerRightListBox.Size = new System.Drawing.Size(361, 148);
+            this.searchOfficerRightListBox.Size = new System.Drawing.Size(350, 242);
             this.searchOfficerRightListBox.TabIndex = 35;
             this.searchOfficerRightListBox.Click += new System.EventHandler(this.searchOfficerRightListBox_Click);
             this.searchOfficerRightListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.searchOfficerRightListBox_DrawItem);
             this.searchOfficerRightListBox.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.searchOfficerRightListBox_MeasureItem);
             this.searchOfficerRightListBox.SelectedIndexChanged += new System.EventHandler(this.searchOfficerRightListBox_SelectedIndexChanged_1);
-            // 
-            // searchOfficerRightResultLabel
-            // 
-            this.searchOfficerRightResultLabel.BackColor = System.Drawing.Color.Transparent;
-            this.searchOfficerRightResultLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchOfficerRightResultLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficerRightResultLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.searchOfficerRightResultLabel.Location = new System.Drawing.Point(0, 49);
-            this.searchOfficerRightResultLabel.Name = "searchOfficerRightResultLabel";
-            this.searchOfficerRightResultLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.searchOfficerRightResultLabel.Size = new System.Drawing.Size(361, 32);
-            this.searchOfficerRightResultLabel.TabIndex = 69;
             // 
             // panel8
             // 
@@ -1272,7 +1286,7 @@
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(361, 49);
+            this.panel8.Size = new System.Drawing.Size(363, 49);
             this.panel8.TabIndex = 34;
             // 
             // panel12
@@ -1280,20 +1294,23 @@
             this.panel12.Controls.Add(this.searchOfficerRightXTextBox);
             this.panel12.Location = new System.Drawing.Point(6, 7);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(342, 37);
+            this.panel12.Size = new System.Drawing.Size(351, 37);
             this.panel12.TabIndex = 34;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
             // searchOfficerRightXTextBox
             // 
+            this.searchOfficerRightXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
             this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchOfficerRightXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(3, 9);
+            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(6, 9);
             this.searchOfficerRightXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
-            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(336, 19);
+            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(342, 19);
             this.searchOfficerRightXTextBox.TabIndex = 33;
             this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
             // 
@@ -1328,6 +1345,7 @@
             // 
             this.searchOfficerRightButton.BackColor = System.Drawing.Color.Transparent;
             this.searchOfficerRightButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.searchOfficerRightButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(225)))), ((int)(((byte)(248)))));
             this.searchOfficerRightButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.searchOfficerRightButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.searchOfficerRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1365,11 +1383,11 @@
             this.tabPage2.Controls.Add(this.searchOriginRightControl);
             this.tabPage2.Controls.Add(this.searchLayerRightControl);
             this.tabPage2.Controls.Add(this.searchDirectOfficeRightUserControl);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Location = new System.Drawing.Point(4, 37);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(427, 566);
+            this.tabPage2.Size = new System.Drawing.Size(427, 556);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "অফিস বাছাই করুন";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1634,41 +1652,190 @@
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
-            this.tabPage3.Controls.Add(this.mobileAddressManualEntryXTextBox);
+            this.tabPage3.Controls.Add(this.panel18);
+            this.tabPage3.Controls.Add(this.panel17);
+            this.tabPage3.Controls.Add(this.panel16);
+            this.tabPage3.Controls.Add(this.label32);
+            this.tabPage3.Controls.Add(this.panel15);
+            this.tabPage3.Controls.Add(this.panel14);
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Controls.Add(this.panel13);
             this.tabPage3.Controls.Add(this.label35);
             this.tabPage3.Controls.Add(this.label34);
             this.tabPage3.Controls.Add(this.label33);
-            this.tabPage3.Controls.Add(this.label32);
             this.tabPage3.Controls.Add(this.label31);
             this.tabPage3.Controls.Add(this.label30);
-            this.tabPage3.Controls.Add(this.label29);
             this.tabPage3.Controls.Add(this.label25);
             this.tabPage3.Controls.Add(this.prerokBachaiOwnRightButton);
-            this.tabPage3.Controls.Add(this.emailAddressManualEntryXTextBox);
-            this.tabPage3.Controls.Add(this.unitAddressManualEntryXTextBox);
-            this.tabPage3.Controls.Add(this.officeAddressManualEntryXTextBox);
-            this.tabPage3.Controls.Add(this.designationManualEntryXTextBox);
-            this.tabPage3.Controls.Add(this.officerManualEntryXTextBox);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 37);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Size = new System.Drawing.Size(427, 566);
+            this.tabPage3.Size = new System.Drawing.Size(427, 556);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "নিজে তথ্য লিখুন";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.mobileAddressManualEntryXTextBox);
+            this.panel18.Location = new System.Drawing.Point(12, 420);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(382, 40);
+            this.panel18.TabIndex = 113;
+            this.panel18.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
             // mobileAddressManualEntryXTextBox
             // 
+            this.mobileAddressManualEntryXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.mobileAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
+            this.mobileAddressManualEntryXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mobileAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mobileAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.mobileAddressManualEntryXTextBox.Location = new System.Drawing.Point(9, 428);
+            this.mobileAddressManualEntryXTextBox.Location = new System.Drawing.Point(6, 11);
             this.mobileAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.mobileAddressManualEntryXTextBox.Multiline = true;
             this.mobileAddressManualEntryXTextBox.Name = "mobileAddressManualEntryXTextBox";
-            this.mobileAddressManualEntryXTextBox.Size = new System.Drawing.Size(384, 43);
-            this.mobileAddressManualEntryXTextBox.TabIndex = 107;
+            this.mobileAddressManualEntryXTextBox.ShortcutsEnabled = false;
+            this.mobileAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
+            this.mobileAddressManualEntryXTextBox.TabIndex = 33;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.emailAddressManualEntryXTextBox);
+            this.panel17.Location = new System.Drawing.Point(12, 341);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(382, 40);
+            this.panel17.TabIndex = 112;
+            this.panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // emailAddressManualEntryXTextBox
+            // 
+            this.emailAddressManualEntryXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.emailAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
+            this.emailAddressManualEntryXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emailAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.emailAddressManualEntryXTextBox.Location = new System.Drawing.Point(6, 11);
+            this.emailAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.emailAddressManualEntryXTextBox.Name = "emailAddressManualEntryXTextBox";
+            this.emailAddressManualEntryXTextBox.ShortcutsEnabled = false;
+            this.emailAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
+            this.emailAddressManualEntryXTextBox.TabIndex = 33;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.unitAddressManualEntryXTextBox);
+            this.panel16.Location = new System.Drawing.Point(11, 265);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(382, 40);
+            this.panel16.TabIndex = 111;
+            this.panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // unitAddressManualEntryXTextBox
+            // 
+            this.unitAddressManualEntryXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.unitAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
+            this.unitAddressManualEntryXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.unitAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unitAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.unitAddressManualEntryXTextBox.Location = new System.Drawing.Point(6, 11);
+            this.unitAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.unitAddressManualEntryXTextBox.Name = "unitAddressManualEntryXTextBox";
+            this.unitAddressManualEntryXTextBox.ShortcutsEnabled = false;
+            this.unitAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
+            this.unitAddressManualEntryXTextBox.TabIndex = 33;
+            // 
+            // label32
+            // 
+            this.label32.BackColor = System.Drawing.Color.Transparent;
+            this.label32.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label32.Location = new System.Drawing.Point(92, 163);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(17, 17);
+            this.label32.TabIndex = 101;
+            this.label32.Text = "*";
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.officeAddressManualEntryXTextBox);
+            this.panel15.Location = new System.Drawing.Point(10, 187);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(382, 40);
+            this.panel15.TabIndex = 110;
+            this.panel15.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // officeAddressManualEntryXTextBox
+            // 
+            this.officeAddressManualEntryXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.officeAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
+            this.officeAddressManualEntryXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.officeAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officeAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.officeAddressManualEntryXTextBox.Location = new System.Drawing.Point(6, 11);
+            this.officeAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officeAddressManualEntryXTextBox.Name = "officeAddressManualEntryXTextBox";
+            this.officeAddressManualEntryXTextBox.ShortcutsEnabled = false;
+            this.officeAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
+            this.officeAddressManualEntryXTextBox.TabIndex = 33;
+            this.officeAddressManualEntryXTextBox.TextChanged += new System.EventHandler(this.officeAddressManualEntryXTextBox_TextChanged);
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.designationManualEntryXTextBox);
+            this.panel14.Location = new System.Drawing.Point(10, 110);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(382, 40);
+            this.panel14.TabIndex = 109;
+            this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // designationManualEntryXTextBox
+            // 
+            this.designationManualEntryXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.designationManualEntryXTextBox.BackColor = System.Drawing.Color.White;
+            this.designationManualEntryXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.designationManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.designationManualEntryXTextBox.Location = new System.Drawing.Point(6, 11);
+            this.designationManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.designationManualEntryXTextBox.Name = "designationManualEntryXTextBox";
+            this.designationManualEntryXTextBox.ShortcutsEnabled = false;
+            this.designationManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
+            this.designationManualEntryXTextBox.TabIndex = 33;
+            // 
+            // label29
+            // 
+            this.label29.BackColor = System.Drawing.Color.Transparent;
+            this.label29.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label29.Location = new System.Drawing.Point(53, 8);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(17, 17);
+            this.label29.TabIndex = 96;
+            this.label29.Text = "*";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.officerManualEntryXTextBox);
+            this.panel13.Location = new System.Drawing.Point(10, 32);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(382, 40);
+            this.panel13.TabIndex = 108;
+            this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // officerManualEntryXTextBox
+            // 
+            this.officerManualEntryXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.officerManualEntryXTextBox.BackColor = System.Drawing.Color.White;
+            this.officerManualEntryXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.officerManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.officerManualEntryXTextBox.Location = new System.Drawing.Point(6, 11);
+            this.officerManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerManualEntryXTextBox.Name = "officerManualEntryXTextBox";
+            this.officerManualEntryXTextBox.ShortcutsEnabled = false;
+            this.officerManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
+            this.officerManualEntryXTextBox.TabIndex = 33;
             // 
             // label35
             // 
@@ -1697,21 +1864,11 @@
             this.label33.TabIndex = 102;
             this.label33.Text = "দপ্তর/শাখা";
             // 
-            // label32
-            // 
-            this.label32.BackColor = System.Drawing.Color.Transparent;
-            this.label32.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label32.Location = new System.Drawing.Point(104, 168);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(17, 17);
-            this.label32.TabIndex = 101;
-            this.label32.Text = "*";
-            // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(9, 166);
+            this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(88, 18);
             this.label31.TabIndex = 99;
@@ -1726,21 +1883,11 @@
             this.label30.TabIndex = 97;
             this.label30.Text = "পদ";
             // 
-            // label29
-            // 
-            this.label29.BackColor = System.Drawing.Color.Transparent;
-            this.label29.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label29.Location = new System.Drawing.Point(63, 8);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(17, 17);
-            this.label29.TabIndex = 96;
-            this.label29.Text = "*";
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(7, 10);
+            this.label25.Margin = new System.Windows.Forms.Padding(0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(49, 18);
             this.label25.TabIndex = 94;
@@ -1754,7 +1901,7 @@
             this.prerokBachaiOwnRightButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.prerokBachaiOwnRightButton.Image = ((System.Drawing.Image)(resources.GetObject("prerokBachaiOwnRightButton.Image")));
             this.prerokBachaiOwnRightButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.prerokBachaiOwnRightButton.Location = new System.Drawing.Point(8, 494);
+            this.prerokBachaiOwnRightButton.Location = new System.Drawing.Point(8, 484);
             this.prerokBachaiOwnRightButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.prerokBachaiOwnRightButton.Name = "prerokBachaiOwnRightButton";
             this.prerokBachaiOwnRightButton.Size = new System.Drawing.Size(139, 50);
@@ -1763,66 +1910,6 @@
             this.prerokBachaiOwnRightButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.prerokBachaiOwnRightButton.UseVisualStyleBackColor = false;
             this.prerokBachaiOwnRightButton.Click += new System.EventHandler(this.prerokBachaiOwnRightButton_Click);
-            // 
-            // emailAddressManualEntryXTextBox
-            // 
-            this.emailAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.emailAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.emailAddressManualEntryXTextBox.Location = new System.Drawing.Point(9, 350);
-            this.emailAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.emailAddressManualEntryXTextBox.Multiline = true;
-            this.emailAddressManualEntryXTextBox.Name = "emailAddressManualEntryXTextBox";
-            this.emailAddressManualEntryXTextBox.Size = new System.Drawing.Size(384, 43);
-            this.emailAddressManualEntryXTextBox.TabIndex = 105;
-            // 
-            // unitAddressManualEntryXTextBox
-            // 
-            this.unitAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.unitAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.unitAddressManualEntryXTextBox.Location = new System.Drawing.Point(8, 273);
-            this.unitAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.unitAddressManualEntryXTextBox.Multiline = true;
-            this.unitAddressManualEntryXTextBox.Name = "unitAddressManualEntryXTextBox";
-            this.unitAddressManualEntryXTextBox.Size = new System.Drawing.Size(384, 43);
-            this.unitAddressManualEntryXTextBox.TabIndex = 103;
-            // 
-            // officeAddressManualEntryXTextBox
-            // 
-            this.officeAddressManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.officeAddressManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officeAddressManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.officeAddressManualEntryXTextBox.Location = new System.Drawing.Point(9, 195);
-            this.officeAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officeAddressManualEntryXTextBox.Multiline = true;
-            this.officeAddressManualEntryXTextBox.Name = "officeAddressManualEntryXTextBox";
-            this.officeAddressManualEntryXTextBox.Size = new System.Drawing.Size(384, 43);
-            this.officeAddressManualEntryXTextBox.TabIndex = 100;
-            // 
-            // designationManualEntryXTextBox
-            // 
-            this.designationManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.designationManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.designationManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.designationManualEntryXTextBox.Location = new System.Drawing.Point(8, 118);
-            this.designationManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.designationManualEntryXTextBox.Multiline = true;
-            this.designationManualEntryXTextBox.Name = "designationManualEntryXTextBox";
-            this.designationManualEntryXTextBox.Size = new System.Drawing.Size(384, 43);
-            this.designationManualEntryXTextBox.TabIndex = 98;
-            // 
-            // officerManualEntryXTextBox
-            // 
-            this.officerManualEntryXTextBox.BackColor = System.Drawing.Color.White;
-            this.officerManualEntryXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officerManualEntryXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.officerManualEntryXTextBox.Location = new System.Drawing.Point(8, 40);
-            this.officerManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerManualEntryXTextBox.Multiline = true;
-            this.officerManualEntryXTextBox.Name = "officerManualEntryXTextBox";
-            this.officerManualEntryXTextBox.Size = new System.Drawing.Size(384, 43);
-            this.officerManualEntryXTextBox.TabIndex = 95;
             // 
             // label18
             // 
@@ -1967,6 +2054,7 @@
             this.officerSearchTabPage.ResumeLayout(false);
             this.officerSearchTabPage.PerformLayout();
             this.searchOfficerRightPanel.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
@@ -1975,6 +2063,18 @@
             this.panel7.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -2032,7 +2132,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button searchOfficerRightButton;
         private System.Windows.Forms.Panel searchOfficerRightPanel;
-        private System.Windows.Forms.Label searchOfficerRightResultLabel;
         private System.Windows.Forms.ListBox searchOfficerRightListBox;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button prerokBachaiOfficerButton;
@@ -2058,18 +2157,12 @@
         private System.Windows.Forms.Button prerokBachaifroOfficeRightButton;
         private System.Windows.Forms.Button prerokBachaiOwnRightButton;
         private System.Windows.Forms.Label label29;
-        private XTextBox officerManualEntryXTextBox;
         private System.Windows.Forms.Label label25;
-        private XTextBox mobileAddressManualEntryXTextBox;
         private System.Windows.Forms.Label label35;
-        private XTextBox emailAddressManualEntryXTextBox;
         private System.Windows.Forms.Label label34;
-        private XTextBox unitAddressManualEntryXTextBox;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
-        private XTextBox officeAddressManualEntryXTextBox;
         private System.Windows.Forms.Label label31;
-        private XTextBox designationManualEntryXTextBox;
         private System.Windows.Forms.Label label30;
         private SearchUserController prioritySearchButton;
         private SearchUserController sendMediumSearchButton;
@@ -2112,5 +2205,18 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn onulipiprapokDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel15;
+        private XTextBox officeAddressManualEntryXTextBox;
+        private System.Windows.Forms.Panel panel14;
+        private XTextBox designationManualEntryXTextBox;
+        private System.Windows.Forms.Panel panel13;
+        private XTextBox officerManualEntryXTextBox;
+        private System.Windows.Forms.Panel panel18;
+        private XTextBox mobileAddressManualEntryXTextBox;
+        private System.Windows.Forms.Panel panel17;
+        private XTextBox emailAddressManualEntryXTextBox;
+        private System.Windows.Forms.Panel panel16;
+        private XTextBox unitAddressManualEntryXTextBox;
+        private System.Windows.Forms.Panel panel19;
     }
 }

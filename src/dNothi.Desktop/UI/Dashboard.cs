@@ -2219,23 +2219,7 @@ namespace dNothi.Desktop.UI
                 }
                 else if (dakSendResponse.status == "success")
                 {
-                    DakUploadConfirmationMessage dakUploadConfirmationMessage = new DakUploadConfirmationMessage();
-                    dakUploadConfirmationMessage.isDaptorik = isDaptorik;
-                    dakUploadConfirmationMessage.applicationNo = dakSendResponse.data.dak_receipt_no;
-                    dakUploadConfirmationMessage.prerokName =prerok;
-                    dakUploadConfirmationMessage.prapokName = prapok;
-                    dakUploadConfirmationMessage.subject = sub;
-                    dakUploadConfirmationMessage.date = dakSendResponse.data.receiving_date;
-                    dakUploadConfirmationMessage.companyName = dakListUserParam.office;
-                    dakUploadConfirmationMessage.companyWithUnitName = dakListUserParam.designation+" ,"+dakListUserParam.office;
-                    dakUploadConfirmationMessage.userDept = dakListUserParam.designation;
-                    dakUploadConfirmationMessage.userName = dakListUserParam.officer_name;
-                    dakUploadConfirmationMessage.imageBase64 = dakListUserParam.SignBase64;
-
-
-                    CalPopUpWindow(dakUploadConfirmationMessage);
-
-
+                    ShowDakUploadMessageWindow(dakSendResponse,isDaptorik,sub,prerok,prapok, dakListUserParam);
                     LoadDakOutbox();
                 }
             }
@@ -2243,6 +2227,27 @@ namespace dNothi.Desktop.UI
             {
                 LoadDakOutbox();
             }
+        }
+
+        private void ShowDakUploadMessageWindow(DakUploadResponse dakSendResponse, bool isDaptorik, string sub, string prerok, string prapok, DakUserParam dakListUserParam)
+        {
+            DakUploadConfirmationMessage dakUploadConfirmationMessage = new DakUploadConfirmationMessage();
+            dakUploadConfirmationMessage.isDaptorik = isDaptorik;
+            dakUploadConfirmationMessage.applicationNo = dakSendResponse.data.dak_receipt_no;
+            dakUploadConfirmationMessage.prerokName = prerok;
+            dakUploadConfirmationMessage.prapokName = prapok;
+            dakUploadConfirmationMessage.subject = sub;
+            dakUploadConfirmationMessage.date = dakSendResponse.data.receiving_date;
+            dakUploadConfirmationMessage.companyName = dakListUserParam.office;
+            dakUploadConfirmationMessage.companyWithUnitName = dakListUserParam.designation + " ," + dakListUserParam.office;
+            dakUploadConfirmationMessage.userDept = dakListUserParam.designation;
+            dakUploadConfirmationMessage.userName = dakListUserParam.officer_name;
+            dakUploadConfirmationMessage.imageBase64 = dakListUserParam.SignBase64;
+
+
+            CalPopUpWindow(dakUploadConfirmationMessage);
+
+
         }
 
         private void AddDesignationUserControl_ButtonClick(object sender, EventArgs e)
@@ -2404,12 +2409,27 @@ namespace dNothi.Desktop.UI
             int i = 0;
             foreach (DakListRecordsDTO dakListInboxRecordsDTO in dakLists)
             {
+                bool is_Daptorik=false;
+                string prerok = "";
+              
+                CheckNagorikDakType checkNagorikDakType = new CheckNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type);
+               if(!checkNagorikDakType.IsNagarik)
+                {
+                    is_Daptorik = true;
+                    prerok = dakListInboxRecordsDTO.dak_origin.sender_name + "," + dakListInboxRecordsDTO.dak_origin.sender_officer_designation_label + "," + dakListInboxRecordsDTO.dak_origin.sender_office_unit_name + "," + dakListInboxRecordsDTO.dak_origin.sender_office_name;
+
+                }
+                else
+                {
+                    prerok = dakListInboxRecordsDTO.dak_origin.name_bng;
+                }
+
+
 
 
                 DraftedDakUserControl draftedDakUserControl = new DraftedDakUserControl();
                 draftedDakUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
-
-
+                
                 draftedDakUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
 
 
@@ -2417,14 +2437,14 @@ namespace dNothi.Desktop.UI
 
 
 
-                draftedDakUserControl.receiver = dakListInboxRecordsDTO.dak_origin.receiving_officer_name + "," + dakListInboxRecordsDTO.dak_origin.receiving_officer_designation_label + "," + dakListInboxRecordsDTO.dak_origin.receiving_office_unit_name + "," + dakListInboxRecordsDTO.dak_origin.receiving_office_name;
+             draftedDakUserControl.receiver = dakListInboxRecordsDTO.dak_origin.receiving_officer_name + "," + dakListInboxRecordsDTO.dak_origin.receiving_officer_designation_label + "," + dakListInboxRecordsDTO.dak_origin.receiving_office_unit_name + "," + dakListInboxRecordsDTO.dak_origin.receiving_office_name;
                 draftedDakUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
                 draftedDakUserControl.dakSecurityIconValue = dakListInboxRecordsDTO.dak_user.dak_security;
                 draftedDakUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
                 draftedDakUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
                 draftedDakUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
                 draftedDakUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
-                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak,prerok, is_Daptorik, draftedDakUserControl.receiver, draftedDakUserControl.subject); };
                 draftedDakUserControl.DraftedDakDeleteButtonClick += delegate (object sender, EventArgs e) { DraftedDakDelete_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 draftedDakUserControl.DraftedDakEditButtonClick += delegate (object sender, EventArgs e) { DraftedDakEdit_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
 
@@ -2453,8 +2473,21 @@ namespace dNothi.Desktop.UI
                 DraftedDakUserControl draftedDakUserControl = new DraftedDakUserControl();
                 draftedDakUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
 
+                bool is_Daptorik = false;
+            string prerok = "";
 
-                draftedDakUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
+            CheckNagorikDakType checkNagorikDakType = new CheckNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type);
+            if (!checkNagorikDakType.IsNagarik)
+            {
+                is_Daptorik = true;
+                prerok = dakListInboxRecordsDTO.dak_origin.name_bng + "," + dakListInboxRecordsDTO.dak_origin.sender_officer_designation_label + "," + dakListInboxRecordsDTO.dak_origin.sender_office_unit_name + "," + dakListInboxRecordsDTO.dak_origin.sender_office_name;
+
+            }
+            else
+            {
+                prerok = dakListInboxRecordsDTO.dak_origin.sender_name;
+            }
+            draftedDakUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
 
 
                 draftedDakUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
@@ -2468,7 +2501,7 @@ namespace dNothi.Desktop.UI
                 draftedDakUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
                 draftedDakUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
                 draftedDakUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
-                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, prerok, is_Daptorik, draftedDakUserControl.receiver, draftedDakUserControl.subject); };
                 draftedDakUserControl.DraftedDakDeleteButtonClick += delegate (object sender, EventArgs e) { DraftedDakDelete_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 draftedDakUserControl.DraftedDakEditButtonClick += delegate (object sender, EventArgs e) { DraftedDakEdit_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
 
@@ -2615,7 +2648,7 @@ namespace dNothi.Desktop.UI
             }
         }
 
-        private void DraftedDakSend_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak)
+        private void DraftedDakSend_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak, string prerok, bool is_Daptorik, string receiver,string sub)
         {
 
             DakUploadResponse dakSendResponse = _dakuploadservice.GetDraftedDakSendResponse(_dakuserparam, dak_id, dak_type, is_copied_dak);
@@ -2627,7 +2660,9 @@ namespace dNothi.Desktop.UI
                 }
                 else if (dakSendResponse.status == "success")
                 {
-                    SuccessMessage(dakSendResponse.data.message);
+                    //SuccessMessage(dakSendResponse.data.message);
+                    ShowDakUploadMessageWindow(dakSendResponse, is_Daptorik, sub, prerok, receiver, _dakuserparam);
+
                     LoadDakKhasraList();
 
                 }

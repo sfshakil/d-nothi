@@ -745,6 +745,12 @@
     <Compile Include="UI\Dak\TinyMCE.Designer.cs">
       <DependentUpon>TinyMCE.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\WaitWindowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\WaitWindowForm.Designer.cs">
+      <DependentUpon>WaitWindowForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DesignationRow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1033,6 +1039,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\TinyMCE.resx">
       <DependentUpon>TinyMCE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\WaitWindowForm.resx">
+      <DependentUpon>WaitWindowForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DesignationRow.resx">
       <DependentUpon>DesignationRow.cs</DependentUpon>

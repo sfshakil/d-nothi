@@ -27,7 +27,13 @@ namespace dNothi.Desktop.UI.Dak
         private string _attachmenttype;
         private string _attachmentlink;
         private int _attachmentid;
-      
+
+        public List<DakAttachmentDTO> _dakAttachmentDTOs { get; set; }
+        public List<DakAttachmentDTO> dakAttachmentDTOs { get { return _dakAttachmentDTOs; } set { _dakAttachmentDTOs = value; } }
+
+
+
+
         public DakAttachmentDTO _dakAttachmentDTO { get; set; }
         public DakAttachmentDTO dakAttachmentDTO
         {
@@ -58,33 +64,48 @@ namespace dNothi.Desktop.UI.Dak
             get { return _attachmentsize; }
             set { _attachmentsize = value;
 
-                try
+              if(value==0)
                 {
-                    string part1 = value.ToString().Substring(0, value.ToString().IndexOf('.'));
-                    string part2 = ".";
-                    
-                    string part3 = value.ToString().Substring(value.ToString().IndexOf('.')+1);
+                    attachmentSizeLabel.Visible = false;
+                   // attachmentNameLabel.Padding = new Padding(0,10,0,0);
+                }
+                else
+                {
+                    try
+                    {
+                        string part1 = value.ToString().Substring(0, value.ToString().IndexOf('.'));
+                        string part2 = ".";
 
-                    string part1Bangla = string.Concat(part1.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    //string part2Bangla = string.Concat(part2.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    string part3Bangla = string.Concat(part3.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    attachmentSizeLabel.Text = part1Bangla+part2+part3Bangla + " KB";
+                        string part3 = value.ToString().Substring(value.ToString().IndexOf('.') + 1);
+
+                        string part1Bangla = string.Concat(part1.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        //string part2Bangla = string.Concat(part2.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        string part3Bangla = string.Concat(part3.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        attachmentSizeLabel.Text = part1Bangla + part2 + part3Bangla + " KB";
 
 
-                
+
+                    }
+
+
+                    catch
+                    {
+                        attachmentSizeLabel.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) + " KB";
+                    }
                 }
 
-                
-                catch
-                {
-                        attachmentSizeLabel.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')))+" KB"; }
-                }
-               
+            }
         }
         public string attachmentlink
         {
             get { return _attachmentlink; }
-            set { _attachmentlink = value;  }
+            set { _attachmentlink = value; 
+            
+            if(value =="")
+                {
+                    attachmentNameLabel.LinkColor = Color.Gray;
+                }
+            }
         }
         public string attachmentdownload
         {
@@ -145,13 +166,83 @@ namespace dNothi.Desktop.UI.Dak
 
             (sender as Form).Hide();
 
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+            
         }
         private void attachmentNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
             AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
             attachmentViewPopUpForm.dakAttachmentDTO = _dakAttachmentDTO;
+            attachmentViewPopUpForm.dakAttachmentDTOs = _dakAttachmentDTOs;
+            attachmentViewPopUpForm.PreviousButton += delegate (object os, EventArgs ev) { Previous(_dakAttachmentDTO, _dakAttachmentDTOs); };
+            attachmentViewPopUpForm.NextButton += delegate (object os, EventArgs ev) { Next(_dakAttachmentDTO, _dakAttachmentDTOs); };
+
+            CalPopUpWindow(attachmentViewPopUpForm);
+        }
+
+        private void Next(DakAttachmentDTO dakAttachmentDTO, List<DakAttachmentDTO> dakAttachmentDTOs)
+        {
+            AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
+
+            attachmentViewPopUpForm.dakAttachmentDTOs = dakAttachmentDTOs;
+         
+            
+            if (_dakAttachmentDTOs != null)
+            {
+                for (int i = 0; i <= _dakAttachmentDTOs.Count - 1; i++)
+                {
+                    if (_dakAttachmentDTOs[i].attachment_id == dakAttachmentDTO.attachment_id)
+                    {
+                        if (i == _dakAttachmentDTOs.Count - 1)
+                        {
+                            attachmentViewPopUpForm.dakAttachmentDTO = _dakAttachmentDTOs[0];
+                        }
+                        else
+                        {
+
+                            attachmentViewPopUpForm.dakAttachmentDTO = _dakAttachmentDTOs[i + 1];
+                        }
+                        break;
+                    }
+                }
+            }
+
+            attachmentViewPopUpForm.PreviousButton += delegate (object os, EventArgs ev) { Previous(attachmentViewPopUpForm._dakAttachmentDTO, _dakAttachmentDTOs); };
+            attachmentViewPopUpForm.NextButton += delegate (object os, EventArgs ev) { Next(attachmentViewPopUpForm._dakAttachmentDTO, _dakAttachmentDTOs); };
+
+            CalPopUpWindow(attachmentViewPopUpForm);
+
+        }
+
+        private void Previous(DakAttachmentDTO dakAttachmentDTO, List<DakAttachmentDTO> dakAttachmentDTOs)
+        {
+            AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
+           
+            attachmentViewPopUpForm.dakAttachmentDTOs = dakAttachmentDTOs;
+          
+            if (dakAttachmentDTOs != null)
+            {
+                for (int i = dakAttachmentDTOs.Count - 1; i >= 0; i--)
+                {
+                    if (dakAttachmentDTOs[i].attachment_id == dakAttachmentDTO.attachment_id)
+                    {
+                        if (i == 0)
+                        {
+                            attachmentViewPopUpForm.dakAttachmentDTO = dakAttachmentDTOs[_dakAttachmentDTOs.Count - 1];
+                        }
+
+                        else
+                        {
+                            attachmentViewPopUpForm.dakAttachmentDTO = dakAttachmentDTOs[i - 1];
+                        }
+                        break;
+                    }
+                }
+            }
+
+            attachmentViewPopUpForm.PreviousButton += delegate (object os, EventArgs ev) { Previous(attachmentViewPopUpForm._dakAttachmentDTO, _dakAttachmentDTOs); };
+            attachmentViewPopUpForm.NextButton += delegate (object os, EventArgs ev) { Next(attachmentViewPopUpForm._dakAttachmentDTO, _dakAttachmentDTOs); };
+
             CalPopUpWindow(attachmentViewPopUpForm);
         }
 

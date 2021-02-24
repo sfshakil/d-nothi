@@ -633,6 +633,7 @@ namespace dNothi.Desktop.UI.Dak
             if (response.status == "success")
 
             {
+                SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
                 var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
 
                 foreach (var attachment in attachmentList)
@@ -645,6 +646,18 @@ namespace dNothi.Desktop.UI.Dak
             }
 
                    
+        }
+
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
         }
 
         private void OCRControl_ButtonClick(object sender, EventArgs e, string imageBase64String, DakAttachmentDTO dakAttachment,string Extension)
@@ -711,7 +724,7 @@ namespace dNothi.Desktop.UI.Dak
                 else
                 {
                     searchOfficerRightListBox.Visible = false;
-                    searchOfficerRightResultLabel.Text = "";
+                    //searchOfficerRightResultLabel.Text = "";
                 }
 
             }
@@ -729,7 +742,7 @@ namespace dNothi.Desktop.UI.Dak
                 searchOfficerRightXTextBox.Text = "";
                 //searchOfficerRightListBox.Visible = false;
                 searchOfficerRightPanel.Visible = true;
-                searchOfficerRightResultLabel.Text = "";
+               // searchOfficerRightResultLabel.Text = "";
                
                 searchOfficerRightXTextBox.Focus();
             }
@@ -1125,6 +1138,16 @@ namespace dNothi.Desktop.UI.Dak
         private void DaptorikDakUploadUserControl_Load(object sender, EventArgs e)
         {
             searchOfficerRightListBox.Height = searchOfficerRightListBox.PreferredHeight;
+
+        }
+
+        private void officeAddressManualEntryXTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchOfficerRightPanel_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
