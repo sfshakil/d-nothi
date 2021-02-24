@@ -248,7 +248,7 @@ namespace dNothi.Services.SyncServices
             _userService.SaveOrUpdateUserEmployeeInfo(employeeInfoDTO);
         }
 
-        private void SaveOrUpdateOffice(List<OfficeInfoDTO> officeInfoDTO)
+        private void SaveOrUpdateOffice(List<JsonParser.Entity.OfficeInfoDTO> officeInfoDTO)
         {
             _userService.SaveOrUpdateUserOfficeInfo(officeInfoDTO);
         }

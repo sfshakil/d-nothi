@@ -67,7 +67,7 @@
             this.allNothiInbox.Controls.Add(this.panel1);
             this.allNothiInbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allNothiInbox.Location = new System.Drawing.Point(0, 0);
-            this.allNothiInbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.allNothiInbox.Margin = new System.Windows.Forms.Padding(4);
             this.allNothiInbox.Name = "allNothiInbox";
             this.allNothiInbox.Size = new System.Drawing.Size(1480, 103);
             this.allNothiInbox.TabIndex = 0;
@@ -77,7 +77,7 @@
             this.panel4.Controls.Add(this.newAllNoteFlowLayoutPanel);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 145);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1480, 0);
             this.panel4.TabIndex = 20;
@@ -86,7 +86,7 @@
             // 
             this.newAllNoteFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newAllNoteFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.newAllNoteFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newAllNoteFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.newAllNoteFlowLayoutPanel.Name = "newAllNoteFlowLayoutPanel";
             this.newAllNoteFlowLayoutPanel.Size = new System.Drawing.Size(1480, 0);
             this.newAllNoteFlowLayoutPanel.TabIndex = 21;
@@ -104,7 +104,7 @@
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel2);
             this.pnlNewAllNote.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNewAllNote.Location = new System.Drawing.Point(0, 102);
-            this.pnlNewAllNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlNewAllNote.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNewAllNote.Name = "pnlNewAllNote";
             this.pnlNewAllNote.Size = new System.Drawing.Size(1480, 43);
             this.pnlNewAllNote.TabIndex = 19;
@@ -120,7 +120,7 @@
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 24;
             this.iconButton6.Location = new System.Drawing.Point(1431, 4);
-            this.iconButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton6.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Size = new System.Drawing.Size(44, 36);
             this.iconButton6.TabIndex = 65;
@@ -137,7 +137,7 @@
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 24;
             this.iconButton7.Location = new System.Drawing.Point(1385, 4);
-            this.iconButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton7.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(45, 36);
             this.iconButton7.TabIndex = 64;
@@ -165,7 +165,7 @@
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 22;
             this.iconButton5.Location = new System.Drawing.Point(720, 9);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton5.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(37, 26);
             this.iconButton5.TabIndex = 62;
@@ -187,7 +187,7 @@
             this.iconButton4.IconSize = 22;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton4.Location = new System.Drawing.Point(288, 4);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.iconButton4.Size = new System.Drawing.Size(141, 36);
@@ -212,7 +212,7 @@
             this.iconButton2.IconSize = 22;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.Location = new System.Drawing.Point(144, 4);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.iconButton2.Size = new System.Drawing.Size(141, 36);
@@ -237,7 +237,7 @@
             this.btnNewNote.IconSize = 22;
             this.btnNewNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNewNote.Location = new System.Drawing.Point(0, 4);
-            this.btnNewNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewNote.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewNote.Name = "btnNewNote";
             this.btnNewNote.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.btnNewNote.Size = new System.Drawing.Size(141, 36);
@@ -252,7 +252,7 @@
             this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.MenuBar;
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 41);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(1480, 2);
             this.flowLayoutPanel3.TabIndex = 58;
@@ -262,7 +262,7 @@
             this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.MenuBar;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1480, 2);
             this.flowLayoutPanel2.TabIndex = 57;
@@ -305,7 +305,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.MenuBar;
             this.panel2.Location = new System.Drawing.Point(147, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(3, 98);
             this.panel2.TabIndex = 57;
@@ -315,7 +315,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 100);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1480, 2);
             this.flowLayoutPanel1.TabIndex = 56;
@@ -325,7 +325,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.MenuBar;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1480, 2);
             this.panel3.TabIndex = 55;
@@ -340,7 +340,7 @@
             this.btnNothiInboxOnumodon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNothiInboxOnumodon.IconSize = 32;
             this.btnNothiInboxOnumodon.Location = new System.Drawing.Point(75, 23);
-            this.btnNothiInboxOnumodon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNothiInboxOnumodon.Margin = new System.Windows.Forms.Padding(4);
             this.btnNothiInboxOnumodon.Name = "btnNothiInboxOnumodon";
             this.btnNothiInboxOnumodon.Size = new System.Drawing.Size(55, 50);
             this.btnNothiInboxOnumodon.TabIndex = 54;
@@ -357,7 +357,7 @@
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 32;
             this.iconButton3.Location = new System.Drawing.Point(19, 23);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(55, 50);
             this.iconButton3.TabIndex = 53;
