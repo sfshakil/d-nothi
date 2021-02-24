@@ -115,7 +115,44 @@ namespace dNothi.Desktop.UI.Dak
             Controls.Add(nothiGuidelines);
             nothiGuidelines.BringToFront();
         }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
 
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+        public Form AttachControlToForm(Control control)
+        {
+            Form form = new Form();
+
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.Height = 100;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = this.Size;
+            hideform.Opacity = .6;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
         private void btnNothiTypeList_Click_1(object sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)
@@ -129,6 +166,8 @@ namespace dNothi.Desktop.UI.Dak
             form.Controls.Add(nothiType);
             nothiType.BringToFront();
             form.ShowDialog();
+            //var form = AttachControlToForm(nothiType);
+            //CalPopUpWindow(form);
         }
 
         private void btnNothiTypeList_MouseHover(object sender, EventArgs e)

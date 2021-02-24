@@ -80,6 +80,7 @@ namespace dNothi.Constants
         public const string NothiPotrangshoNoteKhshrapotroEndPoint = "/api/nothi_khoshra_potro_list";
         public const string NothiNoteSingleOnucchedEndPoint = "/api/nothi/note/onucched";
         public const string NothiNoteOnucchedListEndPoint = "/api/nothi/note/onucched/list";
+        public const string NothiNoteOnucchedRevertEndPoint = "/api/nothi/note/onucched/revert";
 
 
     }
