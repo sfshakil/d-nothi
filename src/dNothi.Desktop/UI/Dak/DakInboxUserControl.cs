@@ -62,6 +62,10 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     continue;
                 }
+                if(ctrl== dakAttachmentButton)
+                {
+                    continue;
+                }
                 
                
                 ctrl.Click += DakInboxUserControl_Click;
@@ -374,10 +378,19 @@ namespace dNothi.Desktop.UI.Dak
                 this.ButtonClick(sender, e);
         }
 
-      
 
 
-      
+
+        public event EventHandler DakAttachmentButton;
+
+        private void DakAttachmentButton_Click(object sender, EventArgs e)
+        {
+
+
+            if (this.DakAttachmentButton != null)
+                this.DakAttachmentButton(sender, e);
+        }
+
         private void dakMovementButton_Click(object sender, EventArgs e)
         {
             if (this.ButtonClick != null)

@@ -356,6 +356,7 @@
             this.dakAttachmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dakAttachmentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.dakAttachmentButton.UseVisualStyleBackColor = true;
+            this.dakAttachmentButton.Click += new System.EventHandler(this.DakAttachmentButton_Click);
             // 
             // dateLabel
             // 

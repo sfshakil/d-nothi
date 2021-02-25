@@ -26,6 +26,15 @@ namespace dNothi.Desktop.UI.Dak
 
 
         }
+        public event EventHandler DakAttachmentButton;
+
+        private void DakAttachmentButton_Click(object sender, EventArgs e)
+        {
+
+
+            if (this.DakAttachmentButton != null)
+                this.DakAttachmentButton(sender, e);
+        }
         private bool MouseIsOverControl() =>
       this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
         private void MouseHoverAction()
@@ -46,6 +55,10 @@ namespace dNothi.Desktop.UI.Dak
             foreach (Control ctrl in collection)
             {
                 if (ctrl.Name == "dakActionPanel")
+                {
+                    continue;
+                }
+                if (ctrl == dakAttachmentButton)
                 {
                     continue;
                 }

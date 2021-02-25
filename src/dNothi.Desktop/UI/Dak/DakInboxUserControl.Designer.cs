@@ -414,7 +414,7 @@
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-359, 10);
+            this.dakActionPanel.Location = new System.Drawing.Point(-935, 10);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -584,6 +584,7 @@
             this.dakAttachmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dakAttachmentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.dakAttachmentButton.UseVisualStyleBackColor = true;
+            this.dakAttachmentButton.Click += new System.EventHandler(this.DakAttachmentButton_Click);
             // 
             // rightInfoPanel
             // 

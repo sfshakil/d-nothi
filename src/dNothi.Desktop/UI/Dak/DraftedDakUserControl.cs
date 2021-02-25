@@ -28,13 +28,25 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
-
+                if (ctrl == dakAttachmentButton)
+                {
+                    continue;
+                }
                 ctrl.Click += DraftedDakUserControl_Click;
                 ctrl.MouseEnter += DraftedDakUserControl_MouseEnter;
                 ctrl.MouseLeave += DraftedDakUserControl_MouseLeave;
                 IterateControls(ctrl.Controls);
             }
 
+        }
+        public event EventHandler DakAttachmentButton;
+
+        private void DakAttachmentButton_Click(object sender, EventArgs e)
+        {
+
+
+            if (this.DakAttachmentButton != null)
+                this.DakAttachmentButton(sender, e);
         }
 
 

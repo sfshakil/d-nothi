@@ -24,11 +24,24 @@ namespace dNothi.Desktop.UI.Dak
             InitializeComponent();
             IterateControls(this.Controls);
         }
+        public event EventHandler DakAttachmentButton;
+
+        private void DakAttachmentButton_Click(object sender, EventArgs e)
+        {
+
+
+            if (this.DakAttachmentButton != null)
+                this.DakAttachmentButton(sender, e);
+        }
         void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
         {
             foreach (Control ctrl in collection)
             {
                 if (ctrl.Name == "dakActionPanel")
+                {
+                    continue;
+                }
+                if (ctrl == dakAttachmentButton)
                 {
                     continue;
                 }

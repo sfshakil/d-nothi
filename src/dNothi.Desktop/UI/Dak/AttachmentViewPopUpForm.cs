@@ -222,7 +222,7 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Clear();
             this.InitializeComponent();
             waitPictureBox.Visible = true;
-
+ 
 
             if (_dakAttachmentDTOs != null)
                 {
