@@ -19,6 +19,20 @@ namespace dNothi.Utility
             _dakPriority.Add(new DakPriority("3", "তাগিদপত্র", "তাগিদপত্র"));
             _dakPriority.Add(new DakPriority("2", "দৃষ্টি আকর্ষণ", "দৃষ্টি আকর্ষণ"));
             _dakPriority.Add(new DakPriority("1", "জরুরি", "জরুরি"));
+           // _dakPriority.Add(new DakPriority("0", "বাছাই করুন", ""));
+
+
+        }
+        public DakPriorityList(bool IsCombobox)
+        {
+            _dakPriority.Add(new DakPriority("6", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
+            _dakPriority.Add(new DakPriority("5", "অবিলম্বে", "অবিলম্বে"));
+            _dakPriority.Add(new DakPriority("4", "জরুরি", "জরুরি"));
+
+            _dakPriority.Add(new DakPriority("3", "তাগিদপত্র", "তাগিদপত্র"));
+            _dakPriority.Add(new DakPriority("2", "দৃষ্টি আকর্ষণ", "দৃষ্টি আকর্ষণ"));
+            _dakPriority.Add(new DakPriority("1", "জরুরি", "জরুরি"));
+             _dakPriority.Add(new DakPriority("0", "বাছাই করুন", ""));
 
 
         }
@@ -26,6 +40,12 @@ namespace dNothi.Utility
         public string GetDakPriorityIcon(string id)
         {
             DakPriority dakPriority = _dakPriority.FirstOrDefault(a => a._id == id);
+            
+            if(id=="0")
+            {
+                return "";
+            }
+
             if (dakPriority != null)
             {
                 return dakPriority._icon;

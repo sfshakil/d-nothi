@@ -34,7 +34,7 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _dakViewStatus = value;
-                if (dakViewStatus == "New")
+                if (value == "New")
                 {
                     newDakImagePanel.Visible = true;
 

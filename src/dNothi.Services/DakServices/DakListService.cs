@@ -2,6 +2,7 @@
 using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
+using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using Newtonsoft.Json;
@@ -744,6 +745,39 @@ namespace dNothi.Services.DakServices
         protected string GetDakMovementStatusListEndpoint()
         {
             return DefaultAPIConfiguration.DakMovementStatusListEndpoint;
+        }
+
+        protected string GetPotroTemplateEndpoint()
+        {
+            return DefaultAPIConfiguration.PotroTemplateEndPoint;
+        }
+        public PotroTemplateResponse GetPotroTemplate(DakUserParam dakListUserParam)
+        {
+            try
+            {
+
+                var potroTemplateApi = new RestClient(GetAPIDomain() + GetPotroTemplateEndpoint());
+                potroTemplateApi.Timeout = -1;
+                var potroTemplateRequest = new RestRequest(Method.POST);
+                potroTemplateRequest.AddHeader("api-version", GetOldAPIVersion());
+                potroTemplateRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                potroTemplateRequest.AlwaysMultipartFormData = true;
+                potroTemplateRequest.AddParameter("cdesk", "{\"office_id\":\"" + dakListUserParam.office_id + "\",\"office_unit_id\":\"" + dakListUserParam.office_unit_id + "\",\"designation_id\":\"" + dakListUserParam.designation_id + "\"}");
+                IRestResponse potroTemplateResponseAPI = potroTemplateApi.Execute(potroTemplateRequest);
+
+
+                var potroTemplateResponseJson = potroTemplateResponseAPI.Content;
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                PotroTemplateResponse potroTemplateResponse = JsonConvert.DeserializeObject<PotroTemplateResponse>(potroTemplateResponseJson);
+                
+                
+                return potroTemplateResponse;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public DakAttachmentResponse GetDakAttachmentbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam)

@@ -102,6 +102,7 @@
     <Compile Include="AccountServices\TokenService.cs" />
     <Compile Include="DakServices\DakAttachmentListinGrid.cs" />
     <Compile Include="DakServices\DakCatagoryList.cs" />
+    <Compile Include="DakServices\DakComboBoxList.cs" />
     <Compile Include="DakServices\DakFileUploadParam.cs" />
     <Compile Include="DakServices\DakForwardRequestParam.cs" />
     <Compile Include="DakServices\DakForwardService.cs" />

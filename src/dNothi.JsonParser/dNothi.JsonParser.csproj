@@ -244,6 +244,7 @@
     <Compile Include="Entity\Nothi\ToNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\ToOutboxDTO.cs" />
     <Compile Include="Entity\OfficeInfoDTO.cs" />
+    <Compile Include="Entity\PotroTemplateResponse.cs" />
     <Compile Include="Entity\UserMessage.cs" />
     <Compile Include="Entity\SignatureDTO.cs" />
     <Compile Include="Entity\UserDTO.cs" />

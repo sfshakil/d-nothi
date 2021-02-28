@@ -21,6 +21,8 @@ using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.ManuelUserControl;
 using System.Web.Script.Serialization;
 using dNothi.Core.Entities;
+using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity;
 
 namespace dNothi.Desktop.UI
 {
@@ -34,6 +36,9 @@ namespace dNothi.Desktop.UI
         public string dak_type = "";
         public string potro_type = "";
         public string dak_view_status = "";
+
+        public DateTime dateFrom = new DateTime();
+        public DateTime dateTo = new DateTime();
 
         public DakUserDTO _dak_user { get; set; }
         public DakOriginDTO _dak_origin { get; set; }
@@ -461,7 +466,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadReadDakComboBox()
         {
-            dakAttentionTypeComboBox.SelectedIndex = comboBox1.Items.IndexOf("সকল");
+            searchDakStatusComboBox.SelectedIndex = comboBox1.Items.IndexOf("সকল");
         }
 
         private void HideSubmenu()
@@ -770,14 +775,102 @@ namespace dNothi.Desktop.UI
 
         private void OnLoad(object sender, EventArgs e)
         {
+            dateFrom = DateTime.Now;
+            dateTo = DateTime.Now;
+
             _dakuserparam = _userService.GetLocalDakUserParam();
             userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
 
-
+            LoadDakPriority();
+            LoadDakSecurite();
+            LoadDakType();
+            LoadPotroTemplate();
+            LoadDakStatus();
+            LoadThirtPartyService();
 
         }
 
+        private void LoadThirtPartyService()
+        {
+            ThirdPartyServiceList thirdParty = new ThirdPartyServiceList();
+          
+            searchThirdPartyComboBox.DataSource = null;
 
+            searchThirdPartyComboBox.DataSource = thirdParty.thirdPartyServices.OrderBy(a => a._id).ToList();
+            searchThirdPartyComboBox.DisplayMember = "_typeName";
+            searchThirdPartyComboBox.ValueMember = "_id";
+
+        }
+
+        private void LoadDakStatus()
+        {
+            DakStatusList dakStatus = new DakStatusList();
+            dakStatusComboBox.DataSource = null;
+            searchDakStatusComboBox.DataSource = null;
+            dakStatusComboBox.DataSource = dakStatus._dakStatus.OrderBy(a => a._id).ToList();
+            searchDakStatusComboBox.DataSource = dakStatus._dakStatus.OrderBy(a => a._id).ToList();
+            dakStatusComboBox.DisplayMember = "_typeName";  searchDakStatusComboBox.DisplayMember = "_typeName";
+            dakStatusComboBox.ValueMember = "_id";  searchDakStatusComboBox.ValueMember = "_id";
+
+        }
+
+        private void LoadPotroTemplate()
+        {
+            PotroTemplateResponse potroTemplateResponse = _dakListService.GetPotroTemplate(_dakuserparam);
+            if(potroTemplateResponse.status=="success")
+            {
+                if(potroTemplateResponse.data.Count>0)
+                {
+                    PotroTemplateDTO potroTemplateDTO = new PotroTemplateDTO();
+                    potroTemplateDTO.id = 0;
+                    potroTemplateDTO.template_name = "পত্রের ধরন";
+                    potroTemplateResponse.data.Add(potroTemplateDTO);
+
+
+                    searchDakPotroTypeComboBox.DataSource = null;
+                    searchDakPotroTypeComboBox.DataSource = potroTemplateResponse.data.OrderBy(a=>a.id).ToList();
+                    searchDakPotroTypeComboBox.DisplayMember = "template_name";
+                    searchDakPotroTypeComboBox.ValueMember = "id";
+                }
+            }
+        }
+
+        private void LoadDakType()
+        {
+            DakTypeList dakTypeList = new DakTypeList();
+            dakTypeComboBox.DataSource = null;
+            searchDakTypeComboBox.DataSource = null;
+            dakTypeComboBox.DataSource = dakTypeList._dakTypes.OrderBy(a => a._id).ToList();
+            searchDakTypeComboBox.DataSource = dakTypeList._dakTypes.OrderBy(a => a._id).ToList();
+            dakTypeComboBox.DisplayMember = searchDakTypeComboBox.DisplayMember = "_typeName";
+            dakTypeComboBox.ValueMember = searchDakTypeComboBox.ValueMember = "_id";
+
+        }
+
+        private void LoadDakSecurite()
+        {
+            DakSecurityList dakSecurityList = new DakSecurityList(true);
+            searchDakSecurityComboBox.DataSource = null;
+            dakSecretComboBox.DataSource = null;
+
+            dakSecretComboBox.DataSource=searchDakSecurityComboBox.DataSource = dakSecurityList._dakSecurities.OrderBy(a => a._id).ToList();
+            dakSecretComboBox.DisplayMember= "_typeName";
+            searchDakSecurityComboBox.DisplayMember= "_typeName";
+            dakSecretComboBox.ValueMember= "_id";
+            searchDakSecurityComboBox.ValueMember= "_id";
+
+        }
+
+        private void LoadDakPriority()
+        {
+            DakPriorityList dakPriorityList = new DakPriorityList(true);
+            dakPriorityComboBox.DataSource = null;
+            searchDakPriorityComboBox.DataSource = null;
+            dakPriorityComboBox.DataSource = dakPriorityList._dakPriority.OrderBy(a=>a._id).ToList();
+            searchDakPriorityComboBox.DataSource = dakPriorityList._dakPriority.OrderBy(a => a._id).ToList();
+            searchDakPriorityComboBox.DisplayMember=dakPriorityComboBox.DisplayMember = "_typeName";
+            searchDakPriorityComboBox.ValueMember=dakPriorityComboBox.ValueMember = "_id";
+        }
 
         private async void LoadDakInbox()
         {
@@ -1045,7 +1138,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadSingleDakInboxinPanel(DakListRecordsDTO dakLists)
         {
-            List<DakInboxUserControl> dakInboxUserControls = new List<DakInboxUserControl>();
+                 List<DakInboxUserControl> dakInboxUserControls = new List<DakInboxUserControl>();
            
 
                 DakInboxUserControl dakInboxUserControl = new DakInboxUserControl();
@@ -1079,7 +1172,7 @@ namespace dNothi.Desktop.UI
 
             dakInboxUserControl.dak = dakLists;
 
-
+            dakInboxUserControl.Dock = DockStyle.Fill;
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(dakInboxUserControl, 0, row);
@@ -2060,6 +2153,10 @@ namespace dNothi.Desktop.UI
         {
             _currentDakCatagory.MakeAllFalse();
             NormalizeDashBoard();
+            dakBodyFlowLayoutPanel.Controls.Clear();
+           
+            noDakTableLayoutPanel.Visible = true;
+
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             //DakListLoad();
@@ -2815,7 +2912,7 @@ namespace dNothi.Desktop.UI
 
         private void dakTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dak_type =dakTypeComboBox.SelectedItem.ToString();
+            dak_type =searchDakTypeComboBox.SelectedItem.ToString();
         }
 
         private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
@@ -3224,10 +3321,11 @@ namespace dNothi.Desktop.UI
 
                 if (officeListResponse.data.Count > 0)
                 {
-                    List<OfficeInfoDTO> officeDTOs = new List<OfficeInfoDTO>();
+                    List<JsonParser.Entity.OfficeInfoDTO> officeDTOs = new List<OfficeInfoDTO>();
                     officeDTOs = officeListResponse.data[_dakuserparam.office_id.ToString()];
                     foreach (OfficeInfoDTO officeInfo in officeDTOs)
                     {
+
                         comboBoxItems.Add(new ComboBoxItems { id = officeInfo.id, Name = officeInfo.office_name_bng });
                     }
 
@@ -3389,13 +3487,13 @@ namespace dNothi.Desktop.UI
         {
             string searchParam = "";
           //  if(dakSearchSubTextBox.Text !=""){ searchParam += "dak_subject=" + dakSearchSubTextBox.Text; }
-           if(dak_security!="")
+           if(searchDakSecurityComboBox.SelectedValue!= null && searchDakSecurityComboBox.SelectedValue.ToString() !="0" && searchDakSecurityComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_security=" + dak_security;
-            } 
-            if(dak_priority != "")
+                searchParam += " & dak_security=" + searchDakSecurityComboBox.SelectedValue.ToString();
+            }
+            if(searchDakPriorityComboBox.SelectedValue!= null && searchDakPriorityComboBox.SelectedValue.ToString() != "0" && searchDakPriorityComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_priority=" + dak_priority;
+                searchParam += " & dak_priority=" + searchDakPriorityComboBox.SelectedValue.ToString();
             }
           
            if(last_modified_date != "")
@@ -3403,25 +3501,29 @@ namespace dNothi.Desktop.UI
                 searchParam += " & last_modified_date=" + last_modified_date;
             }
           
-            if(dak_type != "")
+            if(searchDakTypeComboBox.SelectedValue != null && searchDakTypeComboBox.SelectedValue.ToString() != "0" && searchDakTypeComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_type=" + dak_type;
+                searchParam += " & dak_type=" + searchDakTypeComboBox.SelectedValue.ToString();
             }
           
-           if(potro_type != "")
+           if( searchDakPotroTypeComboBox.SelectedValue!=null && searchDakPotroTypeComboBox.SelectedValue.ToString() != "0" && searchDakPotroTypeComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & potro_type=" + potro_type;
+                searchParam += " & potro_type=" + searchDakPotroTypeComboBox.SelectedValue.ToString();
             }
           
-           if(dak_view_status != "")
+           if(searchDakStatusComboBox.SelectedValue != null && searchDakStatusComboBox.SelectedValue.ToString() != "0" && searchDakStatusComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_view_status=" + dak_view_status;
+                searchParam += " & dak_view_status=" + searchDakStatusComboBox.SelectedValue.ToString();
             }
-          
-           
-            
-            
-            if(detailSearchApplicationAcceptNumberTextBox.Text.ToString() !="")
+            if (searchThirdPartyComboBox.SelectedValue != null && searchThirdPartyComboBox.SelectedValue.ToString() != "0" && searchThirdPartyComboBox.SelectedValue.ToString() != "")
+            {
+                searchParam += " & daak_service=" + searchThirdPartyComboBox.SelectedValue.ToString();
+            }
+
+
+
+
+            if (detailSearchApplicationAcceptNumberTextBox.Text.ToString() !="")
             {
                 searchParam += " & dak_receipt_no=" + detailSearchApplicationAcceptNumberTextBox.Text.ToString();
             }
@@ -3455,9 +3557,14 @@ namespace dNothi.Desktop.UI
             {
                 searchParam += " & to_office_id=" + searchOfficeDetailSearch._id;
             }
-            int strLength = searchParam.Length-3;
+            string subStringWithoutFirstLetter = "";
+            if (searchParam !="")
+            {
+                int strLength = searchParam.Length - 3;
 
-            string subStringWithoutFirstLetter = searchParam.Substring(3, strLength);
+                subStringWithoutFirstLetter = searchParam.Substring(3, strLength);
+
+            }
 
             SearchDak(subStringWithoutFirstLetter);
             RefreshDetailsSearchAllInput();
@@ -3466,15 +3573,16 @@ namespace dNothi.Desktop.UI
 
         private void RefreshDetailsSearchAllInput()
         {
-            timeLimitFromDateTimePicker.Text = DateTime.Now.Date.ToString();
-            timeLimitToDateTimePicker.Text = DateTime.Now.Date.ToString();
+           // timeLimitFromDateTimePicker.Text = DateTime.Now.Date.ToString();
+           // timeLimitToDateTimePicker.Text = DateTime.Now.Date.ToString();
             dakSearchSubTextBox.Text = "";
 
-            dakAttentionTypeComboBox.Text = "সকল ";
-            dakPaperTypeComboBox.Text = "পত্রের ধরন ";
-            dakSecurityComboBox.Text = "গোপনীয়তা";
-            dakPriorityComboBox.Text = "অগ্রাধিকার ";
-            dakTypeComboBox.Text = "ডাকের ধরণ";
+            searchDakStatusComboBox.Text = "সকল";
+            searchDakPotroTypeComboBox.Text = "পত্রের ধরন"; 
+            searchDakSecurityComboBox.Text = "গোপনীয়তা"; 
+            searchDakPriorityComboBox.Text = "অগ্রাধিকার"; 
+            searchDakTypeComboBox.Text = "ডাকের ধরণ"; 
+            searchThirdPartyComboBox.Text = "সার্ভিস"; 
           
             
             officerSourceCheckBox.Checked = false;
@@ -3488,10 +3596,9 @@ namespace dNothi.Desktop.UI
             officerSearchList._id = 0;
             searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
             searchOfficeDetailSearch._id = 0;
-            dak_category = "";
-            dak_security = "";
-            dak_priority = "";
+           
             last_modified_date = "";
+            dateRangeTextBox.Text = "";
             dak_type = "";
             potro_type = "";
             dak_view_status = "";
@@ -3529,7 +3636,7 @@ namespace dNothi.Desktop.UI
 
         private void SetDateRange()
         {
-            last_modified_date = timeLimitFromDateTimePicker.Value.Date.ToString("yyyy/MM/dd") + "-" + timeLimitToDateTimePicker.Value.Date.ToString("yyyy/MM/dd");
+           // last_modified_date = timeLimitFromDateTimePicker.Value.Date.ToString("yyyy/MM/dd") + ":" + timeLimitToDateTimePicker.Value.Date.ToString("yyyy/MM/dd");
 
 
 
@@ -3537,7 +3644,7 @@ namespace dNothi.Desktop.UI
 
         private void dakAttentionTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dak_view_status= dakAttentionTypeComboBox.SelectedItem.ToString();
+            //dak_view_status= searchDakStatusComboBox.SelectedValue.ToString();
 
 
          
@@ -3545,18 +3652,97 @@ namespace dNothi.Desktop.UI
 
         private void dakPaperTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            potro_type= dakPaperTypeComboBox.SelectedItem.ToString();
+           // potro_type= searchDakPotroTypeComboBox.SelectedValue.ToString();
         }
 
         private void dakSecurityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dak_security= dakSecurityComboBox.SelectedItem.ToString();
+          //  dak_security= searchDakSecurityComboBox.SelectedValue.ToString();
         }
 
         private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-                dak_priority =dakPriorityComboBox.SelectedItem.ToString();
+               // dak_priority =searchDakPriorityComboBox.SelectedValue.ToString();
         }
+
+        private void searchComboBoxTableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(235, 237, 243), ButtonBorderStyle.Solid);
+
+        }
+
+        private void comboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            var combo = sender as ComboBox;
+
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.White), e.Bounds);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(SystemColors.Window), e.Bounds);
+            }
+
+            try
+            {
+                e.Graphics.DrawString(combo.Items[e.Index].ToString(),
+                                         e.Font,
+                                         new SolidBrush(Color.Black),
+                                         new Point(e.Bounds.X, e.Bounds.Y));
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void dateRangeSelect_Click(object sender, EventArgs e)
+        {
+            if(customDatePicker.Visible)
+            {
+                customDatePicker.Visible = false;
+            }
+            else
+            {
+                customDatePicker.Visible = true;
+              //  customDatePicker.Location =new Point(datePickerTableLayoutPanel.Location.X, datePickerTableLayoutPanel.Location.Y+datePickerTableLayoutPanel.Height);
+                    
+            }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void customDatePicker_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void customDatePicker_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void customDatePicker_OptionClick(object sender, EventArgs e)
+        {
+            last_modified_date = customDatePicker._date;
+            dateRangeTextBox.Text = customDatePicker._date;
+
+            customDatePicker.Visible = false;
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+           
+
+
+            //monthCalendar1.SelectionRange = new SelectionRange(projectStart, projectEnd);
+        }
+
+      
     }
 
 

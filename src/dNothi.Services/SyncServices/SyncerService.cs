@@ -51,8 +51,9 @@ namespace dNothi.Services.SyncServices
         //src will be Remote and dst will be Local
 
 
-        List<long> RemoteDakIdList(DakUserParam userParam)
+       public List<long> RemoteDakIdList()
         {
+            DakUserParam userParam = _userService.GetLocalDakUserParam();
             List<long> ids = new List<long>();
             var response = _dakListService.GetRemoteDakIdList(userParam);
            
@@ -69,25 +70,25 @@ namespace dNothi.Services.SyncServices
         }
         public void SyncDak(DakUserParam userParam)
         {
-            List<long> src =RemoteDakIdList(userParam);
+            //List<long> src =RemoteDakIdList(userParam);
             List<long> des = _dakListService.GetLocalDakIdList();
 
-            List<long> diff = des.Except(src).ToList();
-           // CopyMessageToDest(diff);
-           // SaveMessageToStatus(diff);
+          //  List<long> diff = des.Except(src).ToList();
+            // CopyMessageToDest(diff);
+            // SaveMessageToStatus(diff);
            // status = GetUpdatedStatus();
             //List<long> diff2 = status.Except(src).ToList();
-            DeleteFromDest(diff);
-            AddToDest(diff,userParam);
+         //   DeleteFromDest(diff);
+            //AddToDest(diff,userParam);
         }
 
 
-        public void SyncTo(List<long> src, List<long> des, List<long> status )
+        public void SyncDakTo(List<long> src, List<long> des, List<long> status )
         {
             List<long> diff = src.Except(status).ToList();
 
-             //AddToDest(diff);
-            // SaveMessageToStatus(diff);
+             AddToDest(diff);
+             SaveToStatus(diff);
 
             List<long> diff2 = status.Except(src).ToList();
            
@@ -95,8 +96,9 @@ namespace dNothi.Services.SyncServices
             DeleteFromStatus(diff2);// Status Store Only Id
         }
 
-        private void AddToDest(List<long> diff2, DakUserParam dakUserParam)
+        private void AddToDest(List<long> diff2)
         {
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
             DakListWithDetailsResponse dakListWithDetailsResponse = _dakListService.GetRemoteDakListDetails(dakUserParam);
             if(dakListWithDetailsResponse.data.records.Count>0)
             {
@@ -118,9 +120,21 @@ namespace dNothi.Services.SyncServices
         {
             return _sycnRepository.Table.Select(s => s.Id).ToList();
         }
-        private void DeleteFromStatus(List<long> diff2)
+        private void DeleteFromStatus(List<long> diff)
         {
-            throw new NotImplementedException();
+            if (diff.Count > 0)
+            {
+                foreach (long id in diff)
+                {
+                    var statusDB = _sycnRepository.Table.FirstOrDefault(a => a.dak_id == id);
+                    if(statusDB != null)
+                    {
+                        _sycnRepository.Delete(statusDB);
+
+                    }
+
+                }
+            }
         }
 
         private void DeleteFromDest(List<long> diff)
@@ -140,9 +154,18 @@ namespace dNothi.Services.SyncServices
             return _sycnRepository.Table.Select(s => s.Id).ToList();
         }
 
-        private void SaveMessageToStatus(List<long> diff)
+        private void SaveToStatus(List<long> diff)
         {
-            throw new NotImplementedException();
+            if (diff.Count > 0)
+            {
+                foreach (long id in diff)
+                {
+                    SyncStatus syncStatus = new SyncStatus();
+                    syncStatus.dak_id = id;
+                   _sycnRepository.Insert(syncStatus);
+
+                }
+            }
         }
 
         private void CopyMessageToDest(List<long> diff)
@@ -257,12 +280,17 @@ namespace dNothi.Services.SyncServices
         {
             throw new NotImplementedException();
         }
+
+       
     }
 
     public interface ISyncerService
     {
+        List<long> RemoteDakIdList();
         List<long> GetDestination();
         Task<List<long>> GetSource();
+        List<long> GetStatus();
         void SyncDak(DakUserParam userParam);
+        void SyncDakTo(List<long> src, List<long> des, List<long> status);
     }
 }

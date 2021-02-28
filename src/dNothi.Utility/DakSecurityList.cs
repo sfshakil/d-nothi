@@ -8,7 +8,7 @@ namespace dNothi.Utility
 {
    public class DakSecurityList
     {
-        List<DakSecurity> _dakSecurities = new List<DakSecurity>();
+       public  List<DakSecurity> _dakSecurities = new List<DakSecurity>();
 
         public DakSecurityList()
         {
@@ -16,6 +16,17 @@ namespace dNothi.Utility
             _dakSecurities.Add(new DakSecurity("3", "গোপনীয়", "গোপনীয়-Icon-PNG"));
             _dakSecurities.Add(new DakSecurity("4", "বিশেষ গোপনীয়", "বিশেষ গোপনীয়-Icon-PNG"));
             _dakSecurities.Add(new DakSecurity("5", "অতি গোপনীয়", "অতি গোপনীয়-Icon-PNG"));
+           // _dakSecurities.Add(new DakSecurity("0", "বাছাই করুন", ""));
+
+
+        }
+        public DakSecurityList(bool isCombobox)
+        {
+            _dakSecurities.Add(new DakSecurity("2", "সীমিত", "সীমিত-Icon-PNG2"));
+            _dakSecurities.Add(new DakSecurity("3", "গোপনীয়", "গোপনীয়-Icon-PNG"));
+            _dakSecurities.Add(new DakSecurity("4", "বিশেষ গোপনীয়", "বিশেষ গোপনীয়-Icon-PNG"));
+            _dakSecurities.Add(new DakSecurity("5", "অতি গোপনীয়", "অতি গোপনীয়-Icon-PNG"));
+            _dakSecurities.Add(new DakSecurity("0", "বাছাই করুন", ""));
 
 
         }
@@ -23,7 +34,12 @@ namespace dNothi.Utility
         public string GetDakSecuritiesIcon(string id)
         {
             DakSecurity dakSecurity = _dakSecurities.FirstOrDefault(a => a._id == id);
-            if(dakSecurity != null)
+            if (id == "0")
+            {
+                return "";
+            }
+
+            if (dakSecurity != null)
             {
                 return dakSecurity._icon;
             }

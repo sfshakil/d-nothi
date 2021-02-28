@@ -1,4 +1,5 @@
 ﻿using dNothi.Core.Entities;
+using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using System;
@@ -27,7 +28,7 @@ namespace dNothi.Services.DakServices
 
         DakIdListResponse GetRemoteDakIdList(DakUserParam dakUserParam);
         DakListWithDetailsResponse GetRemoteDakListDetails(DakUserParam dakUserParam);
-
+        PotroTemplateResponse GetPotroTemplate(DakUserParam dakListUserParam);
 
         //void SaveOrUpdateFrom(FromDTO fromdto);
         //void SaveOrUpdateTo(ToDTO todto);

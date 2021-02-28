@@ -775,6 +775,12 @@
     <Compile Include="UI\DesignationRow.Designer.cs">
       <DependentUpon>DesignationRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ManuelUserControl\DakCustomDatePickerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ManuelUserControl\DakCustomDatePickerUserControl.Designer.cs">
+      <DependentUpon>DakCustomDatePickerUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ManuelUserControl\SearchComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1072,6 +1078,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DesignationRow.resx">
       <DependentUpon>DesignationRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ManuelUserControl\DakCustomDatePickerUserControl.resx">
+      <DependentUpon>DakCustomDatePickerUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ManuelUserControl\SearchComboBox.resx">
       <DependentUpon>SearchComboBox.cs</DependentUpon>

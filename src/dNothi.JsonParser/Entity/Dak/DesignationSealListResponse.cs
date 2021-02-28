@@ -19,12 +19,12 @@ namespace dNothi.JsonParser.Entity.Dak
        
         public List<OfficeInfoDTO> officeInfos { get; set; }
     }
-    public class OfficeInfoDTO{
-    public int id { get; set; }
-    public string office_name_eng { get; set; }
-    public string office_name_bng { get; set; }
-    public int parent_office_id { get; set; }
-}
+//    public class OfficeDakInfoDTO{
+//    public int id { get; set; }
+//    public string office_name_eng { get; set; }
+//    public string office_name_bng { get; set; }
+//    public int parent_office_id { get; set; }
+//}
 
 public class DesignationSealListResponse
     {
