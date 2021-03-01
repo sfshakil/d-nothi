@@ -226,5 +226,10 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
+
+        private void sliderCrossButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

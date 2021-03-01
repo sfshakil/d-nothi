@@ -38,20 +38,20 @@ namespace dNothi.Desktop.UI.Dak
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.HeadingPanel = new System.Windows.Forms.Panel();
+            this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.searchPanel = new System.Windows.Forms.Panel();
-            this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.actionTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.personalFolderTreeView = new System.Windows.Forms.TreeView();
-            this.MyImageList = new System.Windows.Forms.ImageList(this.components);
-            this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.dakListButton = new FontAwesome.Sharp.IconButton();
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.editButton = new FontAwesome.Sharp.IconButton();
             this.addButton = new FontAwesome.Sharp.IconButton();
+            this.personalFolderTreeView = new System.Windows.Forms.TreeView();
+            this.MyImageList = new System.Windows.Forms.ImageList(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.HeadingPanel.SuspendLayout();
@@ -73,6 +73,28 @@ namespace dNothi.Desktop.UI.Dak
             this.HeadingPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.HeadingPanel.Size = new System.Drawing.Size(510, 69);
             this.HeadingPanel.TabIndex = 38;
+            // 
+            // sliderCrossButton
+            // 
+            this.sliderCrossButton.BackColor = System.Drawing.Color.White;
+            this.sliderCrossButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.sliderCrossButton.FlatAppearance.BorderSize = 0;
+            this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sliderCrossButton.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.sliderCrossButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sliderCrossButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.sliderCrossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.sliderCrossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.sliderCrossButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.sliderCrossButton.IconSize = 18;
+            this.sliderCrossButton.Location = new System.Drawing.Point(486, 25);
+            this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
+            this.sliderCrossButton.MaximumSize = new System.Drawing.Size(0, 32);
+            this.sliderCrossButton.Name = "sliderCrossButton";
+            this.sliderCrossButton.Size = new System.Drawing.Size(24, 32);
+            this.sliderCrossButton.TabIndex = 38;
+            this.sliderCrossButton.UseVisualStyleBackColor = false;
+            this.sliderCrossButton.Click += new System.EventHandler(this.sliderCrossButton_Click);
             // 
             // singleDakHeaderLabel
             // 
@@ -130,6 +152,19 @@ namespace dNothi.Desktop.UI.Dak
             this.searchPanel.TabIndex = 0;
             this.searchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BlueBorder);
             // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox.Location = new System.Drawing.Point(8, 10);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(487, 19);
+            this.searchTextBox.TabIndex = 0;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            // 
             // bodyTableLayoutPanel
             // 
             this.bodyTableLayoutPanel.AutoScroll = true;
@@ -145,19 +180,6 @@ namespace dNothi.Desktop.UI.Dak
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 449F));
             this.bodyTableLayoutPanel.Size = new System.Drawing.Size(504, 527);
             this.bodyTableLayoutPanel.TabIndex = 40;
-            // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(8, 10);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(487, 19);
-            this.searchTextBox.TabIndex = 0;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // actionTableLayoutPanel
             // 
@@ -180,59 +202,6 @@ namespace dNothi.Desktop.UI.Dak
             this.actionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.actionTableLayoutPanel.Size = new System.Drawing.Size(504, 38);
             this.actionTableLayoutPanel.TabIndex = 0;
-            // 
-            // personalFolderTreeView
-            // 
-            this.personalFolderTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.personalFolderTreeView.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personalFolderTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
-            this.personalFolderTreeView.ImageIndex = 0;
-            this.personalFolderTreeView.ImageList = this.MyImageList;
-            this.personalFolderTreeView.Location = new System.Drawing.Point(5, 53);
-            this.personalFolderTreeView.Margin = new System.Windows.Forms.Padding(5);
-            this.personalFolderTreeView.Name = "personalFolderTreeView";
-            treeNode1.Name = "privateNode";
-            treeNode1.Tag = "0";
-            treeNode1.Text = "ব্যক্তিগত";
-            treeNode2.Name = "publicNode";
-            treeNode2.Tag = "0";
-            treeNode2.Text = "পাবলিক";
-            this.personalFolderTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            this.personalFolderTreeView.SelectedImageIndex = 0;
-            this.personalFolderTreeView.Size = new System.Drawing.Size(494, 469);
-            this.personalFolderTreeView.TabIndex = 1;
-            this.personalFolderTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.personalFolderTreeView_AfterSelect);
-            this.personalFolderTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.personalFolderTreeView_NodeMouseClick);
-            this.personalFolderTreeView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.personalFolderTreeView_MouseClick);
-            // 
-            // MyImageList
-            // 
-            this.MyImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("MyImageList.ImageStream")));
-            this.MyImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.MyImageList.Images.SetKeyName(0, "icons8-file-folder-24.png");
-            // 
-            // sliderCrossButton
-            // 
-            this.sliderCrossButton.BackColor = System.Drawing.Color.White;
-            this.sliderCrossButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.sliderCrossButton.FlatAppearance.BorderSize = 0;
-            this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sliderCrossButton.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
-            this.sliderCrossButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sliderCrossButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.sliderCrossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.sliderCrossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.sliderCrossButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.sliderCrossButton.IconSize = 18;
-            this.sliderCrossButton.Location = new System.Drawing.Point(486, 25);
-            this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
-            this.sliderCrossButton.MaximumSize = new System.Drawing.Size(0, 32);
-            this.sliderCrossButton.Name = "sliderCrossButton";
-            this.sliderCrossButton.Size = new System.Drawing.Size(24, 32);
-            this.sliderCrossButton.TabIndex = 38;
-            this.sliderCrossButton.UseVisualStyleBackColor = false;
             // 
             // dakListButton
             // 
@@ -325,6 +294,38 @@ namespace dNothi.Desktop.UI.Dak
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Visible = false;
+            // 
+            // personalFolderTreeView
+            // 
+            this.personalFolderTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.personalFolderTreeView.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.personalFolderTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
+            this.personalFolderTreeView.ImageIndex = 0;
+            this.personalFolderTreeView.ImageList = this.MyImageList;
+            this.personalFolderTreeView.Location = new System.Drawing.Point(5, 53);
+            this.personalFolderTreeView.Margin = new System.Windows.Forms.Padding(5);
+            this.personalFolderTreeView.Name = "personalFolderTreeView";
+            treeNode1.Name = "privateNode";
+            treeNode1.Tag = "0";
+            treeNode1.Text = "ব্যক্তিগত";
+            treeNode2.Name = "publicNode";
+            treeNode2.Tag = "0";
+            treeNode2.Text = "পাবলিক";
+            this.personalFolderTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            this.personalFolderTreeView.SelectedImageIndex = 0;
+            this.personalFolderTreeView.Size = new System.Drawing.Size(494, 469);
+            this.personalFolderTreeView.TabIndex = 1;
+            this.personalFolderTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.personalFolderTreeView_AfterSelect);
+            this.personalFolderTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.personalFolderTreeView_NodeMouseClick);
+            this.personalFolderTreeView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.personalFolderTreeView_MouseClick);
+            // 
+            // MyImageList
+            // 
+            this.MyImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("MyImageList.ImageStream")));
+            this.MyImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.MyImageList.Images.SetKeyName(0, "icons8-file-folder-24.png");
             // 
             // dataGridViewImageColumn1
             // 
