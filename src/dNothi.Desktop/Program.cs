@@ -133,6 +133,7 @@ namespace dNothi.Desktop
             builder.RegisterType<SyncerService>().As<ISyncerService>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<DakInboxService>().As<IDakInboxServices>();
+            builder.RegisterType<DakFolderService>().As<IDakFolderService>();
             builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
             builder.RegisterType<DakListService>().As<IDakListService>();
             builder.RegisterType<DesignationSealService>().As<IDesignationSealService>();
@@ -186,6 +187,8 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
 
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();
+            builder.RegisterType<UI.Dak.DakFolderForm>().AsSelf();
+            builder.RegisterType<UI.Dak.FolderCreatePopUpForm>().AsSelf();
             builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf(); 
             builder.RegisterType<UI.Dak.NothiOnumodonDesignationSeal>().AsSelf();
             builder.RegisterType<UI.Dak.NothiNextStep>().AsSelf();

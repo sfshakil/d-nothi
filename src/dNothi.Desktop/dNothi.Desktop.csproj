@@ -415,6 +415,12 @@
     <Compile Include="UI\Dak\DakDecisionTableUserControl.Designer.cs">
       <DependentUpon>DakDecisionTableUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakFolderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakFolderForm.Designer.cs">
+      <DependentUpon>DakFolderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DakMovementDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -739,6 +745,12 @@
     <Compile Include="UI\Dak\OnuchhedAdd.Designer.cs">
       <DependentUpon>OnuchhedAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\FolderCreatePopUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\FolderCreatePopUpForm.Designer.cs">
+      <DependentUpon>FolderCreatePopUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\SearchUserController.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -898,6 +910,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakDecisionTableUserControl.resx">
       <DependentUpon>DakDecisionTableUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakFolderForm.resx">
+      <DependentUpon>DakFolderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakMovementDetailsForm.resx">
       <DependentUpon>DakMovementDetailsForm.cs</DependentUpon>
@@ -1060,6 +1075,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\OnuchhedAdd.resx">
       <DependentUpon>OnuchhedAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\FolderCreatePopUpForm.resx">
+      <DependentUpon>FolderCreatePopUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SearchUserController.resx">
       <DependentUpon>SearchUserController.cs</DependentUpon>

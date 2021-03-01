@@ -139,6 +139,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.leftMenuBarTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.menuTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.dakSortingUserFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.dakSortedUserButton = new FontAwesome.Sharp.IconButton();
             this.personalFolderButton = new FontAwesome.Sharp.IconButton();
@@ -1844,19 +1846,22 @@
             this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.leftMenuBarTableLayoutPanel.Size = new System.Drawing.Size(234, 587);
+            this.leftMenuBarTableLayoutPanel.Size = new System.Drawing.Size(234, 669);
             this.leftMenuBarTableLayoutPanel.TabIndex = 47;
             // 
             // menuTableLayoutPanel
             // 
+            this.menuTableLayoutPanel.AutoScroll = true;
             this.menuTableLayoutPanel.AutoScrollMargin = new System.Drawing.Size(5, 5);
             this.menuTableLayoutPanel.AutoSize = true;
+            this.menuTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.menuTableLayoutPanel.ColumnCount = 1;
             this.menuTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.menuTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.Controls.Add(this.dakSortingUserFlowLayoutPanel, 0, 12);
-            this.menuTableLayoutPanel.Controls.Add(this.dakSortedUserButton, 0, 11);
-            this.menuTableLayoutPanel.Controls.Add(this.personalFolderButton, 0, 10);
+            this.menuTableLayoutPanel.Controls.Add(this.label12, 0, 13);
+            this.menuTableLayoutPanel.Controls.Add(this.label2, 0, 10);
+            this.menuTableLayoutPanel.Controls.Add(this.dakSortingUserFlowLayoutPanel, 0, 13);
+            this.menuTableLayoutPanel.Controls.Add(this.dakSortedUserButton, 0, 12);
+            this.menuTableLayoutPanel.Controls.Add(this.personalFolderButton, 0, 11);
             this.menuTableLayoutPanel.Controls.Add(this.khasraDakButton, 0, 9);
             this.menuTableLayoutPanel.Controls.Add(this.dakUploadDropDownPanel, 0, 8);
             this.menuTableLayoutPanel.Controls.Add(this.dakUploadButton, 0, 7);
@@ -1871,7 +1876,7 @@
             this.menuTableLayoutPanel.Location = new System.Drawing.Point(0, 50);
             this.menuTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.menuTableLayoutPanel.Name = "menuTableLayoutPanel";
-            this.menuTableLayoutPanel.RowCount = 24;
+            this.menuTableLayoutPanel.RowCount = 15;
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1886,25 +1891,34 @@
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTableLayoutPanel.Size = new System.Drawing.Size(234, 537);
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.Size = new System.Drawing.Size(234, 619);
             this.menuTableLayoutPanel.TabIndex = 47;
+            this.menuTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuTableLayoutPanel_Paint);
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Location = new System.Drawing.Point(3, 570);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(228, 1);
+            this.label12.TabIndex = 59;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(3, 477);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(228, 1);
+            this.label2.TabIndex = 58;
             // 
             // dakSortingUserFlowLayoutPanel
             // 
             this.dakSortingUserFlowLayoutPanel.AutoSize = true;
             this.dakSortingUserFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(3, 572);
+            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(3, 574);
             this.dakSortingUserFlowLayoutPanel.MaximumSize = new System.Drawing.Size(227, 0);
             this.dakSortingUserFlowLayoutPanel.MinimumSize = new System.Drawing.Size(227, 0);
             this.dakSortingUserFlowLayoutPanel.Name = "dakSortingUserFlowLayoutPanel";
@@ -1930,7 +1944,7 @@
             this.dakSortedUserButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakSortedUserButton.IconSize = 24;
             this.dakSortedUserButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakSortedUserButton.Location = new System.Drawing.Point(0, 523);
+            this.dakSortedUserButton.Location = new System.Drawing.Point(0, 524);
             this.dakSortedUserButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSortedUserButton.Name = "dakSortedUserButton";
             this.dakSortedUserButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -1960,7 +1974,7 @@
             this.personalFolderButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.personalFolderButton.IconSize = 24;
             this.personalFolderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personalFolderButton.Location = new System.Drawing.Point(0, 477);
+            this.personalFolderButton.Location = new System.Drawing.Point(0, 478);
             this.personalFolderButton.Margin = new System.Windows.Forms.Padding(0);
             this.personalFolderButton.Name = "personalFolderButton";
             this.personalFolderButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -2404,7 +2418,7 @@
             this.dashboardBodyTableLayoutPanel.Name = "dashboardBodyTableLayoutPanel";
             this.dashboardBodyTableLayoutPanel.RowCount = 1;
             this.dashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.dashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1350, 587);
+            this.dashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1350, 669);
             this.dashboardBodyTableLayoutPanel.TabIndex = 4;
             // 
             // rightDashboardBodyTableLayoutPanel
@@ -2423,7 +2437,7 @@
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.rightDashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1116, 587);
+            this.rightDashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1116, 669);
             this.rightDashboardBodyTableLayoutPanel.TabIndex = 29;
             // 
             // bodyTableLayoutPanel
@@ -2452,7 +2466,7 @@
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1116, 503);
+            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1116, 585);
             this.bodyTableLayoutPanel.TabIndex = 54;
             // 
             // detailsFlowLayoutPanel
@@ -2461,7 +2475,7 @@
             this.detailsFlowLayoutPanel.ColumnCount = 1;
             this.detailsFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.detailsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(3, 500);
+            this.detailsFlowLayoutPanel.Location = new System.Drawing.Point(3, 582);
             this.detailsFlowLayoutPanel.Name = "detailsFlowLayoutPanel";
             this.detailsFlowLayoutPanel.RowCount = 1;
             this.detailsFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -2475,7 +2489,7 @@
             this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyPanel.Location = new System.Drawing.Point(3, 536);
             this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(1110, 1);
+            this.bodyPanel.Size = new System.Drawing.Size(1110, 40);
             this.bodyPanel.TabIndex = 0;
             // 
             // dakBodyFlowLayoutPanel
@@ -2604,7 +2618,7 @@
             this.footerTableLayoutPanel.Controls.Add(this.button27, 7, 0);
             this.footerTableLayoutPanel.Controls.Add(this.button26, 8, 0);
             this.footerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.footerTableLayoutPanel.Location = new System.Drawing.Point(3, 555);
+            this.footerTableLayoutPanel.Location = new System.Drawing.Point(3, 637);
             this.footerTableLayoutPanel.Name = "footerTableLayoutPanel";
             this.footerTableLayoutPanel.RowCount = 1;
             this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -2636,10 +2650,15 @@
             this.customDatePicker._date = null;
             this.customDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.customDatePicker.AutoSize = true;
+            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.customDatePicker.BackColor = System.Drawing.Color.White;
-            this.customDatePicker.Location = new System.Drawing.Point(749, 96);
+            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
+            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
+            this.customDatePicker.Location = new System.Drawing.Point(721, 96);
+            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
             this.customDatePicker.Name = "customDatePicker";
-            this.customDatePicker.Size = new System.Drawing.Size(124, 220);
+            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
             this.customDatePicker.TabIndex = 57;
             this.customDatePicker.Visible = false;
             this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
@@ -2682,7 +2701,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1350, 587);
+            this.ClientSize = new System.Drawing.Size(1350, 669);
             this.Controls.Add(this.designationDetailsPanel);
             this.Controls.Add(this.dashboardBodyTableLayoutPanel);
             this.MinimumSize = new System.Drawing.Size(1091, 572);
@@ -2916,6 +2935,8 @@
         private FontAwesome.Sharp.IconPictureBox calenderIconPictureBox;
         private ManuelUserControl.DakCustomDatePickerUserControl customDatePicker;
         private PlaceholderTextBox.PlaceholderTextBox dateRangeTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label12;
     }
 }
 

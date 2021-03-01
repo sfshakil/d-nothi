@@ -790,5 +790,10 @@ namespace dNothi.Desktop.UI.Dak
             successMessage.ShowDialog();
 
         }
+
+        private void prapokSearchOwnOfficeTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

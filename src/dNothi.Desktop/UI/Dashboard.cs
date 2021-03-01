@@ -49,6 +49,7 @@ namespace dNothi.Desktop.UI
 
 
         IUserService _userService { get; set; }
+        IDakFolderService _dakFolderService { get; set; }
         IDakSearchService _dakSearchService { get; set; }
         IDesignationSealService _designationSealService { get; set; }
 
@@ -79,6 +80,7 @@ namespace dNothi.Desktop.UI
             IDakUploadService dakUploadService,
             IDesignationSealService designationSealService,
             IDakSearchService dakSearchService,
+             IDakFolderService dakFolderService,
             IDakNothijatoService dakNothijatoService)
         {
             _dakNothivuktoService = dakNothivuktoService;
@@ -95,6 +97,7 @@ namespace dNothi.Desktop.UI
             _dakkhosraservice = dakKhosraService;
             _dakuploadservice = dakUploadService;
             _currentDakCatagory = new DakCatagoryList();
+             _dakFolderService = dakFolderService;
             InitializeComponent();
 
            
@@ -3003,10 +3006,20 @@ namespace dNothi.Desktop.UI
 
         private void personalFolderButton_Click(object sender, EventArgs e)
         {
-            NormalizeDashBoard();
+            //NormalizeDashBoard();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
+          
+            FolderListResponse folderListResponse = _dakFolderService.GetFolderList(_dakuserparam);
+
+            var dakFolderForm = FormFactory.Create<DakFolderForm>();
+            dakFolderForm.folderListDataDTO = folderListResponse.data;
+            CalPopUpWindow(dakFolderForm);
+
+
         }
+
+       
 
         private void dakSortedUserButton_Click(object sender, EventArgs e)
         {
@@ -3014,6 +3027,8 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             dakSortingUserFlowLayoutPanel.Controls.Clear();
+
+            
 
 
 
@@ -3742,7 +3757,10 @@ namespace dNothi.Desktop.UI
             //monthCalendar1.SelectionRange = new SelectionRange(projectStart, projectEnd);
         }
 
-      
+        private void menuTableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 
