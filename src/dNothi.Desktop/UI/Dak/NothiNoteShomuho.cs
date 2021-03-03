@@ -137,7 +137,14 @@ namespace dNothi.Desktop.UI.Dak
             }
                 
         }
+        public event EventHandler NoteDetailsButton;
+        private void NoteDetailsButton_Click(object sender, EventArgs e)
+        {
+            if (this.NoteDetailsButton != null)
+                this.NoteDetailsButton(sender, e);
 
+
+        }
         private void btnOption_Click(object sender, EventArgs e)
         {
             string message = "নোটটি মুছে ফেলুন";

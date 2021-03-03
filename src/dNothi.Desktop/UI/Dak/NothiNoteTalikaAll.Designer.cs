@@ -158,7 +158,7 @@
             this.sourcePanel.Margin = new System.Windows.Forms.Padding(0);
             this.sourcePanel.MinimumSize = new System.Drawing.Size(0, 30);
             this.sourcePanel.Name = "sourcePanel";
-            this.sourcePanel.Size = new System.Drawing.Size(775, 30);
+            this.sourcePanel.Size = new System.Drawing.Size(772, 30);
             this.sourcePanel.TabIndex = 97;
             // 
             // subjectLabel
@@ -312,7 +312,7 @@
             this.senderAndReceiverPanel.Location = new System.Drawing.Point(96, 30);
             this.senderAndReceiverPanel.MinimumSize = new System.Drawing.Size(0, 24);
             this.senderAndReceiverPanel.Name = "senderAndReceiverPanel";
-            this.senderAndReceiverPanel.Size = new System.Drawing.Size(775, 24);
+            this.senderAndReceiverPanel.Size = new System.Drawing.Size(772, 24);
             this.senderAndReceiverPanel.TabIndex = 98;
             // 
             // preritoNotePrapokPanel
@@ -324,7 +324,7 @@
             this.preritoNotePrapokPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.preritoNotePrapokPanel.Location = new System.Drawing.Point(308, 0);
             this.preritoNotePrapokPanel.Name = "preritoNotePrapokPanel";
-            this.preritoNotePrapokPanel.Size = new System.Drawing.Size(467, 24);
+            this.preritoNotePrapokPanel.Size = new System.Drawing.Size(464, 24);
             this.preritoNotePrapokPanel.TabIndex = 99;
             this.preritoNotePrapokPanel.Visible = false;
             // 
@@ -464,7 +464,7 @@
             this.subjectPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectPanel.Location = new System.Drawing.Point(96, 0);
             this.subjectPanel.Name = "subjectPanel";
-            this.subjectPanel.Size = new System.Drawing.Size(775, 0);
+            this.subjectPanel.Size = new System.Drawing.Size(772, 0);
             this.subjectPanel.TabIndex = 99;
             // 
             // potrojariLabel
@@ -521,7 +521,7 @@
             this.panel5.Location = new System.Drawing.Point(96, 108);
             this.panel5.MinimumSize = new System.Drawing.Size(0, 28);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(775, 28);
+            this.panel5.Size = new System.Drawing.Size(772, 28);
             this.panel5.TabIndex = 106;
             // 
             // label1
@@ -532,7 +532,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(100, 0, 3, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(1018, 1);
+            this.label1.Size = new System.Drawing.Size(1015, 1);
             this.label1.TabIndex = 106;
             // 
             // panel6
@@ -541,7 +541,7 @@
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(871, 0);
+            this.panel6.Location = new System.Drawing.Point(868, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(243, 136);
             this.panel6.TabIndex = 93;
@@ -645,7 +645,7 @@
             this.preritoNoteCDeskPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.preritoNoteCDeskPanel.Location = new System.Drawing.Point(96, 84);
             this.preritoNoteCDeskPanel.Name = "preritoNoteCDeskPanel";
-            this.preritoNoteCDeskPanel.Size = new System.Drawing.Size(775, 24);
+            this.preritoNoteCDeskPanel.Size = new System.Drawing.Size(772, 24);
             this.preritoNoteCDeskPanel.TabIndex = 99;
             this.preritoNoteCDeskPanel.Visible = false;
             // 
@@ -682,7 +682,7 @@
             this.preritoNoteDatePanel.Location = new System.Drawing.Point(96, 54);
             this.preritoNoteDatePanel.Name = "preritoNoteDatePanel";
             this.preritoNoteDatePanel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.preritoNoteDatePanel.Size = new System.Drawing.Size(775, 30);
+            this.preritoNoteDatePanel.Size = new System.Drawing.Size(772, 30);
             this.preritoNoteDatePanel.TabIndex = 100;
             this.preritoNoteDatePanel.Visible = false;
             // 
@@ -733,7 +733,7 @@
             this.MinimumSize = new System.Drawing.Size(1121, 0);
             this.Name = "NothiNoteTalikaAll";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.Size = new System.Drawing.Size(1124, 137);
+            this.Size = new System.Drawing.Size(1121, 137);
             this.sourcePanel.ResumeLayout(false);
             this.sourcePanel.PerformLayout();
             this.senderAndReceiverPanel.ResumeLayout(false);

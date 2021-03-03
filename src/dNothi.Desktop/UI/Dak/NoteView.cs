@@ -40,7 +40,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _approved;
         private string _potrojari;
         private string _nothivukto;
-        private int _nothiNoteID;
+        public int _nothiNoteID;
 
         public void loadEyeIcon(int i)
         {

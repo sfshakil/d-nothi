@@ -80,7 +80,8 @@ namespace dNothi.Desktop.UI
             loadPotrangshoNotePanel();
             loadPotrangshoNothiPanel();
         }
-
+        public NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO { get; set; }
+        public NothiListInboxNoteRecordsDTO noteAllListDataRecordDTO { get { return _NoteAllListDataRecordDTO; } set { _NoteAllListDataRecordDTO = value; } }
         public void loadPotrangshoNothiPanel()
         {
             pnlNothi.Visible = false;
@@ -202,9 +203,149 @@ namespace dNothi.Desktop.UI
         }
         private string checkSub;
         private int checkNoteId;
-        private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
+        private void checkBox_Change(NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, NoteView noteView)
         {  
             //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
+            OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, nothiListInboxNoteRecordsDTO.note.nothi_note_id);
+            if (onucchedList.data.total_records > 0)
+            {
+                onuchhedFLP.Visible = true;
+                onuchhedFLP.Controls.Clear();
+                foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
+                {
+                    SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, nothiListInboxNoteRecordsDTO.note.nothi_note_id, onucchedsingleListRec.id);
+                    if(singleOnucched.data.total_records > 0)
+                    {
+                        var rec = singleOnucched.data.records;
+                        lbNoteTotl.Text = "নোটঃ " + nothiListInboxNoteRecordsDTO.note.note_subject;
+                        lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
+                        lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.to.issue_date;
+
+                        onuchhedheaderPnl.Visible = false;
+                        btnSave.Visible = false;
+                        btnSaveArrow.Visible = false;
+                        btnCancel.Visible = false;
+
+                        //onuchhedheaderPnl.Visible = true;
+                        //onuchhedFLP.Visible = true;
+                        btnWriteOnuchhed.Visible = true;
+                        btnSend.Visible = true;
+                        panel14.Visible = false;
+
+                        var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                        separateOnucched.office = onucchedsingleListRec.employee_name+" "+ onucchedsingleListRec.created;
+                        separateOnucched.noteNo(lbNoteTotl.Text.Substring(lbNoteTotl.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
+                        separateOnucched.createDate = onucchedsingleListRec.created;
+                        try
+                        {
+                            separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
+                        }
+                        catch
+                        {
+
+                        }
+                        foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
+                        {
+                            separateOnucched.loadOnuchhedSignature(singleRecSignature);
+                        }
+                        onuchhedFLP.Controls.Add(separateOnucched);
+                        if(nothiListInboxNoteRecordsDTO.note.can_revert == 1)
+                        {
+                            checkSub = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
+                            checkNoteId = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+                            btnCanRevert.Visible = true;
+                            btnWriteOnuchhed.Visible = false;
+                            btnSend.Visible = false;
+                            btnSave.Visible = false;
+                            btnSaveArrow.Visible = false;
+                            btnCancel.Visible = false;
+                        }
+                    }
+                }
+            }
+                
+            if (nothiListInboxNoteRecordsDTO.note.khoshra_potro > 0 || nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval > 0 || nothiListInboxNoteRecordsDTO.note.potrojari > 0)
+            {
+                pnlNoNote.Visible = false;
+                
+                if (nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval > 0)
+                {
+                    pnlNoteKhoshraWaiting.Visible = true;
+                    
+                    lbNoteKhoshraWaiting.Text = string.Concat(nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    pnlNoteKhoshraWaiting.Visible = false;
+                }
+                
+                if (nothiListInboxNoteRecordsDTO.note.khoshra_potro > 0)
+                {
+                    pnlNoteKhoshra.Visible = true;
+                    lbNoteKhoshra.Text = string.Concat(nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString().Select(c => (char)('\u09E6' + c - '0'))); 
+                }
+                else
+                {
+                    pnlNoteKhoshra.Visible = false;
+                }
+                lbNote.Visible = true;
+                if (nothiListInboxNoteRecordsDTO.note.potrojari > 0)
+                {
+                    pnlNotePotrojari.Visible = true;
+                    lbNotePotrojari.Text = string.Concat(nothiListInboxNoteRecordsDTO.note.potrojari.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    pnlNotePotrojari.Visible = false;
+                }
+            }
+            else
+            {
+                lbNoteTotl.Text = "নোটঃ " + nothiListInboxNoteRecordsDTO.note.note_subject;
+                lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
+                lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.nothi.nothi_created_date;
+
+                onuchhedheaderPnl.Visible = false;
+                onuchhedFLP.Visible = false;
+
+                lbNote.Visible = false;
+                pnlNoteKhoshra.Visible = false;
+                pnlNoteKhoshraWaiting.Visible = false;
+                pnlNotePotrojari.Visible = false;
+                pnlNoNote.Visible = true;
+
+                btnCanRevert.Visible = false;
+                btnWriteOnuchhed.Visible = false;
+                btnSend.Visible = false;
+
+                btnSave.Visible = true;
+                btnSaveArrow.Visible = true;
+                btnCancel.Visible = true;
+
+                panel14.Visible = true;
+                panel22.Visible = true;
+                tinyMceEditor.Visible = true;
+                panel24.Visible = true;
+                panel28.Visible = true;
+                tinyMceEditor.HtmlContent = "";
+                fileAddFLP.Controls.Clear();
+                noteFileUploads.Clear();
+
+
+            }
+            //string str = list.note_status;
+            //if (str == "System.Windows.Forms.CheckBox, CheckState: 0")
+            //{
+            //    NoteFullPanel.Hide();
+            //    NoteFullPanel.Visible = false;
+            //}
+            //else
+            //    NoteFullPanel.Visible = true;
+
+        }
+
+        private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
+        {
             OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
             if (onucchedList.data.total_records > 0)
             {
@@ -213,7 +354,7 @@ namespace dNothi.Desktop.UI
                 foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                 {
                     SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, onucchedsingleListRec.id);
-                    if(singleOnucched.data.total_records > 0)
+                    if (singleOnucched.data.total_records > 0)
                     {
                         var rec = singleOnucched.data.records;
                         lbNoteTotl.Text = "নোটঃ " + list.note_status;
@@ -232,16 +373,23 @@ namespace dNothi.Desktop.UI
                         panel14.Visible = false;
 
                         var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-                        separateOnucched.office = onucchedsingleListRec.employee_name+" "+ onucchedsingleListRec.created;
+                        separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                         separateOnucched.noteNo(lbNoteTotl.Text.Substring(lbNoteTotl.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
                         separateOnucched.createDate = onucchedsingleListRec.created;
-                        separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
+                        try
+                        {
+                            separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
+                        }
+                        catch
+                        {
+
+                        }
                         foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
                         {
                             separateOnucched.loadOnuchhedSignature(singleRecSignature);
                         }
                         onuchhedFLP.Controls.Add(separateOnucched);
-                        if(list.can_revert == 1)
+                        if (list.can_revert == 1)
                         {
                             checkSub = list.note_subject_sub_text;
                             checkNoteId = list.nothi_note_id;
@@ -255,26 +403,26 @@ namespace dNothi.Desktop.UI
                     }
                 }
             }
-                
+
             if (list.khoshra_potro > 0 || list.khoshra_waiting_for_approval > 0 || list.potrojari > 0)
             {
                 pnlNoNote.Visible = false;
-                
+
                 if (list.khoshra_waiting_for_approval > 0)
                 {
                     pnlNoteKhoshraWaiting.Visible = true;
-                    
+
                     lbNoteKhoshraWaiting.Text = string.Concat(list.khoshra_waiting_for_approval.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 }
                 else
                 {
                     pnlNoteKhoshraWaiting.Visible = false;
                 }
-                
+
                 if (list.khoshra_potro > 0)
                 {
                     pnlNoteKhoshra.Visible = true;
-                    lbNoteKhoshra.Text = string.Concat(list.khoshra_potro.ToString().Select(c => (char)('\u09E6' + c - '0'))); 
+                    lbNoteKhoshra.Text = string.Concat(list.khoshra_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 }
                 else
                 {
@@ -325,15 +473,6 @@ namespace dNothi.Desktop.UI
 
 
             }
-            //string str = list.note_status;
-            //if (str == "System.Windows.Forms.CheckBox, CheckState: 0")
-            //{
-            //    NoteFullPanel.Hide();
-            //    NoteFullPanel.Visible = false;
-            //}
-            //else
-            //    NoteFullPanel.Visible = true;
-
         }
 
         private string _nothiShakha;
@@ -499,6 +638,11 @@ namespace dNothi.Desktop.UI
                         {
                             noteView.noteSubject = inboxList.note.note_subject_sub_text;
                         }
+
+                        if(inboxList.note.nothi_note_id== newNoteView._nothiNoteID)
+                        {
+                            noteView.checkBox = "1";
+                        }
                         noteView.nothiNoteID = inboxList.note.nothi_note_id;
                         noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
                         noteView.nothiLastDate = inboxList.desk.issue_date;
@@ -537,6 +681,10 @@ namespace dNothi.Desktop.UI
                         else
                         {
                             noteView.noteSubject = sentList.note.note_subject_sub_text;
+                        }
+                        if (sentList.note.nothi_note_id == newNoteView._nothiNoteID)
+                        {
+                            noteView.checkBox = "1";
                         }
                         noteView.nothiNoteID = sentList.note.nothi_note_id;
                         noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
@@ -579,6 +727,10 @@ namespace dNothi.Desktop.UI
                             else
                             {
                                 noteView.noteSubject = allList.note.note_subject_sub_text;
+                            }
+                            if (allList.note.nothi_note_id == newNoteView._nothiNoteID)
+                            {
+                                noteView.checkBox = "1";
                             }
                             noteView.nothiNoteID = allList.note.nothi_note_id;
                             noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
@@ -1477,6 +1629,16 @@ namespace dNothi.Desktop.UI
                 noteViewFLP.Controls.Add(newNoteView);
 
             }
+        }
+
+        private void pdfViewWebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void Note_Load(object sender, EventArgs e)
+        {
+            checkBox_Change(_NoteAllListDataRecordDTO, newNoteView);
         }
     }
 }

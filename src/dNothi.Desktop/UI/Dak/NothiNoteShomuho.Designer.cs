@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.detailsButton = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnOption = new FontAwesome.Sharp.IconButton();
             this.lbNoteNumber = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbOnucched = new System.Windows.Forms.Label();
             this.lbKhoshra = new System.Windows.Forms.Label();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,20 +59,22 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1000, 2);
             this.flowLayoutPanel1.TabIndex = 57;
             // 
-            // iconButton3
+            // detailsButton
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 18;
-            this.iconButton3.Location = new System.Drawing.Point(13, 13);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(30, 30);
-            this.iconButton3.TabIndex = 58;
-            this.iconButton3.UseVisualStyleBackColor = false;
+            this.detailsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.detailsButton.FlatAppearance.BorderSize = 0;
+            this.detailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.detailsButton.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.detailsButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.detailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.detailsButton.IconSize = 18;
+            this.detailsButton.Location = new System.Drawing.Point(13, 13);
+            this.detailsButton.Name = "detailsButton";
+            this.detailsButton.Size = new System.Drawing.Size(30, 30);
+            this.detailsButton.TabIndex = 58;
+            this.MyToolTip.SetToolTip(this.detailsButton, "নোটের বিস্তারিত");
+            this.detailsButton.UseVisualStyleBackColor = false;
+            this.detailsButton.Click += new System.EventHandler(this.NoteDetailsButton_Click);
             // 
             // iconButton1
             // 
@@ -136,7 +140,7 @@
             this.lbNoteSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteSubject.Location = new System.Drawing.Point(143, 13);
             this.lbNoteSubject.Name = "lbNoteSubject";
-            this.lbNoteSubject.Size = new System.Drawing.Size(135, 21);
+            this.lbNoteSubject.Size = new System.Drawing.Size(104, 18);
             this.lbNoteSubject.TabIndex = 63;
             this.lbNoteSubject.Text = "noteSubjectLabel";
             // 
@@ -146,7 +150,7 @@
             this.lbDeskOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDeskOfficer.Location = new System.Drawing.Point(145, 39);
             this.lbDeskOfficer.Name = "lbDeskOfficer";
-            this.lbDeskOfficer.Size = new System.Drawing.Size(130, 21);
+            this.lbDeskOfficer.Size = new System.Drawing.Size(100, 18);
             this.lbDeskOfficer.TabIndex = 64;
             this.lbDeskOfficer.Text = "deskOfficerLabel";
             // 
@@ -171,7 +175,7 @@
             this.lbToOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbToOfficer.Location = new System.Drawing.Point(320, 39);
             this.lbToOfficer.Name = "lbToOfficer";
-            this.lbToOfficer.Size = new System.Drawing.Size(109, 21);
+            this.lbToOfficer.Size = new System.Drawing.Size(84, 18);
             this.lbToOfficer.TabIndex = 66;
             this.lbToOfficer.Text = "toOfficerLabel";
             // 
@@ -291,7 +295,7 @@
             this.Controls.Add(this.lbNoteNumber);
             this.Controls.Add(this.btnOption);
             this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.iconButton3);
+            this.Controls.Add(this.detailsButton);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "NothiNoteShomuho";
             this.Size = new System.Drawing.Size(1100, 75);
@@ -304,7 +308,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton detailsButton;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnOption;
         private System.Windows.Forms.Label lbNoteNumber;
@@ -321,5 +325,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbOnucched;
         private System.Windows.Forms.Label lbKhoshra;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }

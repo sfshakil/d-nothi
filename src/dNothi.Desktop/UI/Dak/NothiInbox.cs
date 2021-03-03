@@ -18,6 +18,10 @@ namespace dNothi.Desktop.UI.Dak
         IUserService _userService { get; set; }
         INothiInboxNoteServices _nothiInboxNote { get; set; }
 
+        public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
+
+
+
         private int originalWidth;
         private int originalHeight;
         public NothiInbox(IUserService userService, INothiInboxNoteServices nothiInboxNote)
@@ -47,6 +51,14 @@ namespace dNothi.Desktop.UI.Dak
         private string _shakha;
         private string _totalnothi;
         private string _lastdate;
+        
+       
+        public NothiListRecordsDTO _nothiListRecordsDTO;
+        
+        public NothiListRecordsDTO nothiListRecordsDTO { get { return _nothiListRecordsDTO; } set { _nothiListRecordsDTO = value; } }
+
+
+
 
         [Category("Custom Props")]
         public string nothi
@@ -140,6 +152,8 @@ namespace dNothi.Desktop.UI.Dak
                 nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
                 nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
                 nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
+                nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender1, e1, nothiListInboxNoteRecordsDTO); };
+
 
                 if (nothiListInboxNoteRecordsDTO.note.onucched_count>0)
                 {
@@ -192,6 +206,15 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+        public event EventHandler NoteDetailsButton;
+        
+        private void NoteDetails_ButtonClick(object sender1, EventArgs e1, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+            _nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
+            if (this.NoteDetailsButton != null)
+                this.NoteDetailsButton(sender1, e1);
+        }
+
         private void iconButton3_MouseHover_1(object sender, EventArgs e)
         {
             iconButton3.IconColor = Color.White;
@@ -215,6 +238,10 @@ namespace dNothi.Desktop.UI.Dak
             
             
         }
+
+
+        //public event EventHandler NoteEditButtonClick;
+        
 
         [Browsable(true)]
         [Category("Action")]
