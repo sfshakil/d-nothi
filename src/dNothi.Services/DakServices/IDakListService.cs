@@ -18,11 +18,14 @@ namespace dNothi.Services.DakServices
         List<long> GetLocalDakIdList();
         void SaveOrUpdateDakList(DakListDTO data, long dakTypeId);
         void SaveOrUpdateDakList(List<DakListWithDetailsRecordDTO> records);
-        DakListDTO GetLocalDakListbyType(long dakTypeId, DakUserParam dakListUserParam);
+        DakListDTO GetLocalDakListbyType(string dakCategory, DakUserParam dakListUserParam);
+        DakDetailsResponse GetDakLocalDetailsbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
 
         DakDetailsResponse GetDakDetailsbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
         DakAttachmentResponse GetDakAttachmentbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
+        DakAttachmentResponse GetLocalDakAttachmentbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
         DakMovementStatusResponse GetDakMovementStatusListbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
+        DakMovementStatusResponse GetLocalDakMovementStatusListbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam);
         List<DakList> GetDakList();
 
 

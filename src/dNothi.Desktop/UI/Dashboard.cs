@@ -217,7 +217,7 @@ namespace dNothi.Desktop.UI
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
-                DakDetailsResponse dakDetailsResponse = _dakListService.GetDakDetailsbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
+                DakDetailsResponse dakDetailsResponse = _dakListService.GetDakLocalDetailsbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
 
                 detailsFlowLayoutPanel.Controls.Clear();
 
@@ -303,7 +303,8 @@ namespace dNothi.Desktop.UI
                                 }
                             }
                             // Attachment Call
-                            DakAttachmentResponse dakAttachmentResponse = _dakListService.GetDakAttachmentbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
+                           // DakAttachmentResponse dakAttachmentResponse = _dakListService.GetDakAttachmentbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
+                            DakAttachmentResponse dakAttachmentResponse = _dakListService.GetLocalDakAttachmentbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
                             if (dakAttachmentResponse != null)
                             {
                                 if (dakAttachmentResponse.data != null)
@@ -589,26 +590,39 @@ namespace dNothi.Desktop.UI
             _currentDakCatagory.isOutbox = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-            // Satic Class
+     
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
             dakListUserParam.api = "https://a2i.nothibs.tappware.com/api/dak/outbox";
 
-            DakListOutboxResponse dakListOutboxResponse = _dakOutboxService.GetDakOutbox(dakListUserParam);
+            //  DakListOutboxResponse dakListOutboxResponse = _dakOutboxService.GetDakOutbox(dakListUserParam);
 
-            if (dakListOutboxResponse.status == "success")
+            //if (dakListOutboxResponse.status == "success")
+            //{
+            //    _dakOutboxService.SaveorUpdateDakOutbox(dakListOutboxResponse);
+
+            //    if (dakListOutboxResponse.data.records.Count > 0)
+            //    {
+            //        LoadDakOutboxinPanel(dakListOutboxResponse.data.records);
+            //    }
+            //    else
+            //    {
+            //        noDakTableLayoutPanel.Visible = true;
+            //    }
+
+            //}
+           
+            //Local 
+            
+            var dakOutbox = _dakListService.GetLocalDakListbyType(_currentDakCatagory.GetNameEng, dakListUserParam);
+
+            if (dakOutbox.records.Count > 0)
             {
-                _dakOutboxService.SaveorUpdateDakOutbox(dakListOutboxResponse);
-
-                if (dakListOutboxResponse.data.records.Count > 0)
-                {
-                    LoadDakOutboxinPanel(dakListOutboxResponse.data.records);
-                }
-                else
-                {
-                    noDakTableLayoutPanel.Visible = true;
-                }
-
+                LoadDakOutboxinPanel(dakOutbox.records);
+            }
+            else
+            {
+                noDakTableLayoutPanel.Visible = true;
             }
         }
         private void LoadDakOutboxUsingSearchParam(string searchParam)
@@ -875,7 +889,7 @@ namespace dNothi.Desktop.UI
             searchDakPriorityComboBox.ValueMember=dakPriorityComboBox.ValueMember = "_id";
         }
 
-        private async void LoadDakInbox()
+        private  void LoadDakInbox()
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
@@ -885,64 +899,64 @@ namespace dNothi.Desktop.UI
             selectDakBoxHolderPanel.Visible = true;
             _currentDakCatagory.isInbox = true;
           
-            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+          //  DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-            dakListUserParam.limit = 10;
-            dakListUserParam.page = 1;
+            //dakListUserParam.limit = 10;
+            //dakListUserParam.page = 1;
+
+            ////  try
+            // {
+            //      var dakInbox = await Task.Run(() => _dakInbox.GetDakInbox(dakListUserParam));
+            //      if (dakInbox.status == "success")
+            //      {
+
+
+            //          _dakInbox.SaveorUpdateDakInbox(dakInbox);
+            //          if (dakInbox.data.records.Count > 0)
+            //          {
+
+            //              LoadDakInboxinPanel(dakInbox.data.records);
+
+            //          }
+            //          else
+            //          {
+            //              noDakTableLayoutPanel.Visible = true;
+            //          }
+
+            //      }
+            //  }
+            //  catch
+            //  {
+            //      noDakTableLayoutPanel.Visible = true;
+
+            //  }
 
             try
             {
-                var dakInbox = await Task.Run(() => _dakInbox.GetDakInbox(dakListUserParam));
-                if (dakInbox.status == "success")
+                // var dakInbox = await Task.Run(() => _dakInbox.GetDakInbox(dakListUserParam));
+                var dakInbox = _dakListService.GetLocalDakListbyType(_currentDakCatagory.GetNameEng,_dakuserparam);
+
+                if (dakInbox.records.Count>0)
                 {
 
 
-                    _dakInbox.SaveorUpdateDakInbox(dakInbox);
-                    if (dakInbox.data.records.Count > 0)
-                    {
 
-                        LoadDakInboxinPanel(dakInbox.data.records);
 
-                    }
-                    else
-                    {
-                        noDakTableLayoutPanel.Visible = true;
-                    }
+                    LoadDakInboxinPanel(dakInbox.records);
 
                 }
+                else
+                {
+                    noDakTableLayoutPanel.Visible = true;
+                }
+
+
             }
             catch
             {
                 noDakTableLayoutPanel.Visible = true;
 
             }
-
-            //try
-            //{
-            //    // var dakInbox = await Task.Run(() => _dakInbox.GetDakInbox(dakListUserParam));
-            //    var dakInbox = _dakListService.GetDakList();
-
-            //    if (dakInbox.Any(a => a.dak_user.dak_category == "Inbox"))
-            //    {
-
-
-
-
-            //        LoadLocalDakInboxinPanel(dakInbox.Where(a=>a.dak_user.dak_category=="Inbox").ToList());
-
-            //    }
-            //    else
-            //    {
-            //        noDakTableLayoutPanel.Visible = true;
-            //    }
-
-                
-            //}
-            //catch
-            //{
-            //    noDakTableLayoutPanel.Visible = true;
-
-            //}
 
 
         }
@@ -970,7 +984,7 @@ namespace dNothi.Desktop.UI
                 {
 
 
-                    _dakInbox.SaveorUpdateDakInbox(dakInbox);
+                   // _dakInbox.SaveorUpdateDakInbox(dakInbox);
                     if (dakInbox.data.records.Count > 0)
                     {
 
@@ -1121,7 +1135,8 @@ namespace dNothi.Desktop.UI
         private void DakAttachmentShow_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
         {
             
-            DakAttachmentResponse dakAttachmentResponse = _dakListService.GetDakAttachmentbyDakId(dakid, dak_type, is_copied_dak, _dakuserparam);
+           // DakAttachmentResponse dakAttachmentResponse = _dakListService.GetDakAttachmentbyDakId(dakid, dak_type, is_copied_dak, _dakuserparam);
+            DakAttachmentResponse dakAttachmentResponse = _dakListService.GetLocalDakAttachmentbyDakId(dakid, dak_type, is_copied_dak, _dakuserparam);
             if (dakAttachmentResponse != null)
             {
                 if (dakAttachmentResponse.data != null)
@@ -1443,22 +1458,34 @@ namespace dNothi.Desktop.UI
 
 
 
-            var dakInbox = _dakNothivuktoService.GetNothivuktoDakList(dakListUserParam);
-            if (dakInbox.status == "success")
+            //var dakInbox = _dakNothivuktoService.GetNothivuktoDakList(dakListUserParam);
+            //if (dakInbox.status == "success")
+            //{
+            //    _dakNothivuktoService.SaveorUpdateDakNothivukto(dakInbox);
+
+            //    if (dakInbox.data.records.Count > 0)
+            //    {
+
+            //        LoadDakNothivuktoinPanel(dakInbox.data.records);
+
+            //    }
+            //    else
+            //    {
+            //        noDakTableLayoutPanel.Visible = true;
+            //    }
+
+            //}
+
+
+            var daklist = _dakListService.GetLocalDakListbyType(_currentDakCatagory.GetNameEng, dakListUserParam);
+
+            if (daklist.records.Count > 0)
             {
-                _dakNothivuktoService.SaveorUpdateDakNothivukto(dakInbox);
-
-                if (dakInbox.data.records.Count > 0)
-                {
-
-                    LoadDakNothivuktoinPanel(dakInbox.data.records);
-
-                }
-                else
-                {
-                    noDakTableLayoutPanel.Visible = true;
-                }
-
+                LoadDakNothivuktoinPanel(daklist.records);
+            }
+            else
+            {
+                noDakTableLayoutPanel.Visible = true;
             }
         }
         private void LoadDakNothivuktoUsingSearchParam(string searchParam)
@@ -1480,7 +1507,7 @@ namespace dNothi.Desktop.UI
             var dakInbox = _dakNothivuktoService.GetNothivuktoDakList(dakListUserParam,searchParam);
             if (dakInbox.status == "success")
             {
-                _dakNothivuktoService.SaveorUpdateDakNothivukto(dakInbox);
+              //  _dakNothivuktoService.SaveorUpdateDakNothivukto(dakInbox);
 
                 if (dakInbox.data.records.Count > 0)
                 {
@@ -1669,21 +1696,33 @@ namespace dNothi.Desktop.UI
 
 
 
-            var dakArchive = _dakArchiveService.GetDakList(dakListUserParam);
-            if (dakArchive.status == "success")
+            //var dakArchive = _dakArchiveService.GetDakList(dakListUserParam);
+            //if (dakArchive.status == "success")
+            //{
+            //    _dakArchiveService.SaveorUpdateDakArchive(dakArchive);
+            //    if (dakArchive.data.records.Count > 0)
+            //    {
+
+            //        LoadDakArchiveinPanel(dakArchive.data.records);
+
+            //    }
+            //    else
+            //    {
+            //        noDakTableLayoutPanel.Visible = true;
+            //    }
+
+            //}
+            //else
+            //{
+            //    noDakTableLayoutPanel.Visible = true;
+            //}
+
+
+             var daklist = _dakListService.GetLocalDakListbyType(_currentDakCatagory.GetNameEng, dakListUserParam);
+
+            if (daklist.records.Count > 0)
             {
-                _dakArchiveService.SaveorUpdateDakArchive(dakArchive);
-                if (dakArchive.data.records.Count > 0)
-                {
-
-                    LoadDakArchiveinPanel(dakArchive.data.records);
-
-                }
-                else
-                {
-                    noDakTableLayoutPanel.Visible = true;
-                }
-
+                LoadDakArchiveinPanel(daklist.records);
             }
             else
             {
@@ -1711,7 +1750,7 @@ namespace dNothi.Desktop.UI
             var dakArchive = _dakArchiveService.GetDakList(dakListUserParam,searchParam);
             if (dakArchive.status == "success")
             {
-                _dakArchiveService.SaveorUpdateDakArchive(dakArchive);
+               // _dakArchiveService.SaveorUpdateDakArchive(dakArchive);
                 if (dakArchive.data.records.Count > 0)
                 {
 
@@ -1963,25 +2002,36 @@ namespace dNothi.Desktop.UI
             dakListUserParam.page = 1;
 
 
-            var dakNothijato = _dakNothijatoService.GetNothijatoDak(dakListUserParam);
-            if (dakNothijato.status == "success")
+            //var dakNothijato = _dakNothijatoService.GetNothijatoDak(dakListUserParam);
+            //if (dakNothijato.status == "success")
+            //{
+            //    _dakNothijatoService.SaveorUpdateDakNothijato(dakNothijato);
+            //    if (dakNothijato.data.records.Count > 0)
+            //    {
+
+            //        LoadDakNothijatoinPanel(dakNothijato.data.records);
+
+            //    }
+            //    else
+            //    {
+            //        noDakTableLayoutPanel.Visible = true;
+            //    }
+
+            //}
+            //else
+            //{
+            //    noDakTableLayoutPanel.Visible = false;
+            //}
+
+            var daklist = _dakListService.GetLocalDakListbyType(_currentDakCatagory.GetNameEng, dakListUserParam);
+
+            if (daklist.records.Count > 0)
             {
-                _dakNothijatoService.SaveorUpdateDakNothijato(dakNothijato);
-                if (dakNothijato.data.records.Count > 0)
-                {
-
-                    LoadDakNothijatoinPanel(dakNothijato.data.records);
-
-                }
-                else
-                {
-                    noDakTableLayoutPanel.Visible = true;
-                }
-
+                LoadDakNothijatoinPanel(daklist.records);
             }
             else
             {
-                noDakTableLayoutPanel.Visible = false;
+                noDakTableLayoutPanel.Visible = true;
             }
         }
         private void LoadDakNothijatoUsingSearchParam(string searchParam)
@@ -2000,7 +2050,7 @@ namespace dNothi.Desktop.UI
             var dakNothijato = _dakNothijatoService.GetNothijatoDak(dakListUserParam,searchParam);
             if (dakNothijato.status == "success")
             {
-                _dakNothijatoService.SaveorUpdateDakNothijato(dakNothijato);
+               // _dakNothijatoService.SaveorUpdateDakNothijato(dakNothijato);
                 if (dakNothijato.data.records.Count > 0)
                 {
 

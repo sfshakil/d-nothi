@@ -10,6 +10,7 @@ using dNothi.JsonParser;
 using dNothi.Services.SyncServices;
 using System;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace dNothi.Syncer
 {
@@ -23,12 +24,17 @@ namespace dNothi.Syncer
             log4net.Config.XmlConfigurator.Configure();
             _log.Info("Application Stated!");
             var container=Bootstrap();
+
+            while (true)
+            {
+                // code here
+               
             try 
             {
                 using (var scope = container.BeginLifetimeScope())
                 {
                     var svc = scope.Resolve<ISyncerService>();
-                    var dakListService = scope.Resolve<IDakListService>();
+                     var dakListService = scope.Resolve<IDakListService>();
 
                     var data = svc.RemoteDakIdList();
                     var dbdata = dakListService.GetLocalDakIdList();
@@ -43,14 +49,21 @@ namespace dNothi.Syncer
                     Console.WriteLine(string.Join(",", dbdata.ToArray()));
 
                     svc.SyncDakTo(data,dbdata,dbstatus);
-                }
+                    Console.WriteLine("----------------END-------------------");
+                  
+                   
+                    }
             } 
             catch(Exception ex)
             {
                 _log.Error(ex.ToString());
             }
-            Console.WriteLine("----------------END-------------------");
+
+                Thread.Sleep(5000);
+            }
             Console.ReadLine();
+
+
 
 
         }

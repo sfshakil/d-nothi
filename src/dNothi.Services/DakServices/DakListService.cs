@@ -417,7 +417,7 @@ namespace dNothi.Services.DakServices
             
         }
 
-       public void SaveOrUpdateDakList(List<DakListWithDetailsRecordDTO> records)
+        public void SaveOrUpdateDakList(List<DakListWithDetailsRecordDTO> records)
         {
 
 
@@ -524,8 +524,8 @@ namespace dNothi.Services.DakServices
         public List<long> GetLocalDakIdList()
         {
             List<long> ids=new List<long>();
-            var dbdakType = _dakTypeRepo.Table.FirstOrDefault(a => a.is_inbox == true);
-            var dakList = _dakListRepo.Table.Where(d => d.dak_List_type_Id == dbdakType.Id).ToList();
+           // var dbdakType = _dakTypeRepo.Table.FirstOrDefault(a => a.is_inbox == true);
+            var dakList = _dakListRepo.Table.ToList();
             if(dakList !=null)
             {
                 foreach(DakList dakList1 in dakList)
@@ -537,27 +537,29 @@ namespace dNothi.Services.DakServices
             return ids;
         }
 
-        public DakListDTO GetLocalDakListbyType(long dakTypeId, DakUserParam dakListUserParam)
+        public DakListDTO GetLocalDakListbyType(string dakCategory, DakUserParam dakListUserParam)
         {
             DakListDTO dakListDTO = new DakListDTO();
-            var dbdaklist = _dakListRepo.Table.Include(a=>a.dak_origin).Include(a => a.dak_user).Include(a => a.dak_Tags).Include(a => a.nothi).Include(a => a.movement_status).Where(a => a.dak_List_type_Id == dakTypeId).ToList();
+            var dbdaklist = _dakListRepo.Table.Include(a => a.attachment).Include(a=>a.dak_origin).Include(a => a.dak_user).Include(a => a.dak_Tags).Include(a => a.nothi).Include(a => a.movement_status).Where(a => a.dak_user.dak_category.ToLower().Contains(dakCategory)).ToList();
             List<DakListRecordsDTO> dakListRecords = new List<DakListRecordsDTO>();
 
             if (dbdaklist.Count>0)
             {
                 
                dakListDTO.total_records = dbdaklist.Count;
-               dbdaklist = dbdaklist.Take(dakListUserParam.limit + 1).ToList();
+            
                
                 foreach(DakList dakList in dbdaklist)
                 {
                     DakListRecordsDTO dakListRecordsDTO = new DakListRecordsDTO();
                     dakListRecordsDTO.attachment_count = dakList.attachment_count;
+                  
                     dakListRecordsDTO.dak_origin = MapDakOrigintoDakOriginDTO(dakList.dak_origin);
                     dakListRecordsDTO.dak_user = MapDakUsertoDakUserDTO(dakList.dak_user);
                     dakListRecordsDTO.dak_Tags = MapDakTagtoDakTagDTO(dakList.dak_Tags);
                     dakListRecordsDTO.movement_status = MapMovementStatustoMovementStatusDTO(dakList.movement_status);
                     dakListRecordsDTO.nothi = MapNothitoNothiDTO(dakList.nothi);
+                    dakListRecordsDTO.dakAttachmentDTOs = MapDakAttachmenttoDakAttachmentDTO(dakList.attachment);
 
                     dakListRecords.Add(dakListRecordsDTO);
                 }
@@ -655,6 +657,27 @@ namespace dNothi.Services.DakServices
                 }
             }
             return dakTagDTOs;
+        }
+
+        private List<DakAttachmentDTO> MapDakAttachmenttoDakAttachmentDTO(ICollection<DakAttachment> dakAttachments)
+        {
+            List<DakAttachmentDTO> dakAttachmentDTOs = new List<DakAttachmentDTO>();
+            if (dakAttachments.Count > 0)
+            {
+                foreach (DakAttachment dakAttachment in dakAttachments)
+                {
+
+                    var config = new MapperConfiguration(cfg =>
+                  cfg.CreateMap<DakAttachment, DakAttachmentDTO>()
+                      );
+                    var mapper = new Mapper(config);
+                    var dakAttachmentDTO = mapper.Map<DakAttachmentDTO>(dakAttachment);
+
+
+                    dakAttachmentDTOs.Add(dakAttachmentDTO);
+                }
+            }
+            return dakAttachmentDTOs;
         }
 
         private DakUserDTO MapDakUsertoDakUserDTO(DakUser dak_user)
@@ -874,8 +897,81 @@ namespace dNothi.Services.DakServices
 
         }
 
-       
+        public DakDetailsResponse GetDakLocalDetailsbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam)
+        {
+            DakDetailsResponse dakDetailsResponse = new DakDetailsResponse();
+            var dbdaklist = _dakListRepo.Table.Include(a => a.dak_origin).Include(a => a.dak_user).Include(a => a.dak_Tags).Include(a => a.nothi).Include(a => a.movement_status).FirstOrDefault(a => a.dak_user.dak_id == dak_id && a.dak_user.is_copied_dak==is_copied_dak && a.dak_user.dak_type==dak_type);
+            DakListRecordsDTO dakListRecordsDTO = new DakListRecordsDTO();
 
-      
+            if (dbdaklist!=null)
+            {
+
+               
+
+                
+                
+                    dakListRecordsDTO.attachment_count = dbdaklist.attachment_count;
+                    dakListRecordsDTO.dak_origin = MapDakOrigintoDakOriginDTO(dbdaklist.dak_origin);
+                    dakListRecordsDTO.dak_user = MapDakUsertoDakUserDTO(dbdaklist.dak_user);
+                    dakListRecordsDTO.dak_Tags = MapDakTagtoDakTagDTO(dbdaklist.dak_Tags);
+                    dakListRecordsDTO.movement_status = MapMovementStatustoMovementStatusDTO(dbdaklist.movement_status);
+                    dakListRecordsDTO.nothi = MapNothitoNothiDTO(dbdaklist.nothi);
+
+                    
+                
+
+            }
+            dakDetailsResponse.data = dakListRecordsDTO;
+
+
+
+            return dakDetailsResponse;
+        }
+
+        public DakAttachmentResponse GetLocalDakAttachmentbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam)
+        {
+            DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse();
+            var dbdaklist = _dakListRepo.Table.Include(a=>a.attachment).Include(a => a.dak_origin).Include(a => a.dak_user).Include(a => a.dak_Tags).Include(a => a.nothi).Include(a => a.movement_status).FirstOrDefault(a => a.dak_user.dak_id == dak_id && a.dak_user.is_copied_dak == is_copied_dak && a.dak_user.dak_type == dak_type);
+           
+
+            if (dbdaklist != null)
+            {
+
+
+
+                dakAttachmentResponse.data = MapDakAttachmenttoDakAttachmentDTO(dbdaklist.attachment);
+
+
+
+
+
+
+            }
+            
+
+
+
+            return dakAttachmentResponse;
+        }
+
+        public DakMovementStatusResponse GetLocalDakMovementStatusListbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam)
+        {
+            DakMovementStatusResponse dakMovementStatusResponse = new DakMovementStatusResponse();
+            var dbdaklist = _dakListRepo.Table.Include(a => a.attachment).Include(a => a.dak_origin).Include(a => a.dak_user).Include(a => a.dak_Tags).Include(a => a.nothi).Include(a => a.movement_status).FirstOrDefault(a => a.dak_user.dak_id == dak_id && a.dak_user.is_copied_dak == is_copied_dak && a.dak_user.dak_type == dak_type);
+
+
+            if (dbdaklist != null)
+            {
+
+
+
+              //  dakMovementStatusResponse.data.records = MapMovementStatustoMovementStatusDTO(dbdaklist.movement_status);
+
+
+
+            }
+
+            return dakMovementStatusResponse;
+        }
     }
 }

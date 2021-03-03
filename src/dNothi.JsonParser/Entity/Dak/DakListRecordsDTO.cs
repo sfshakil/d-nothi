@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dNothi.JsonParser.Entity.Dak;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace dNothi.JsonParser.Entity.Dak_List_Inbox
         public DakOriginDTO dak_origin { get; set; }
         public MovementStatusDTO movement_status { get; set; }
         public List<DakTagDTO> dak_Tags { get; set; }
+
+        public List<DakAttachmentDTO> dakAttachmentDTOs { get; set; }
         public int attachment_count { get; set; }
         public NothiDTO nothi { get; set; }
 

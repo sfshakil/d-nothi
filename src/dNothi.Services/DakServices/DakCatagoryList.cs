@@ -161,7 +161,47 @@ namespace dNothi.Services.DakServices
         
         }
 
-       
+        public string GetNameEng
+        {
+            get
+            {
+                if (_isInbox)
+                {
+                    Name = "inbox";
+                }
+                else if (_isOutbox)
+                {
+                    Name = "sent";
+                }
+                else if (_isNothijato)
+                {
+                    Name = "nothijato";
+                }
+                else if (_isNothivukto)
+                {
+                    Name = "nothivukto";
+                }
+                else if (_isSorted)
+                {
+                    Name = "sorted";
+                }
+                else if (_isArchived)
+                {
+                    Name = "archive";
+                }
+                else if (_isKhosra)
+                {
+                    Name = "draft";
+                }
+
+
+
+                return Name;
+
+
+            }
+
+        }
 
         public string SetCategory
         {

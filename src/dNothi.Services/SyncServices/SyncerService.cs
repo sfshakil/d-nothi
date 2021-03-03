@@ -78,13 +78,16 @@ namespace dNothi.Services.SyncServices
             // SaveMessageToStatus(diff);
            // status = GetUpdatedStatus();
             //List<long> diff2 = status.Except(src).ToList();
-         //   DeleteFromDest(diff);
+           //DeleteFromDest(diff);
             //AddToDest(diff,userParam);
         }
 
 
         public void SyncDakTo(List<long> src, List<long> des, List<long> status )
         {
+
+            //DeleteFromDest(des);
+            //DeleteFromDest(des);
             List<long> diff = src.Except(status).ToList();
 
              AddToDest(diff);
@@ -94,31 +97,41 @@ namespace dNothi.Services.SyncServices
            
             DeleteFromDest(diff2);
             DeleteFromStatus(diff2);// Status Store Only Id
+
+            List<long> diff3 = des.Except(status).ToList();
+            DeleteFromDest(diff3);
+          
+            List<long> diff4 = status.Except(des).ToList();
+            AddToDest(diff4);
+
         }
 
         private void AddToDest(List<long> diff2)
         {
-            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
-            DakListWithDetailsResponse dakListWithDetailsResponse = _dakListService.GetRemoteDakListDetails(dakUserParam);
-            if(dakListWithDetailsResponse.data.records.Count>0)
+            if (diff2.Count > 0)
             {
-               var dakListWithDetailsRecordDTOs =from c in dakListWithDetailsResponse.data.records
-                                                                                where !diff2.Any(o => o == c.dak_user.dak_id)
-                                                                                             select c;
-
-                if(dakListWithDetailsRecordDTOs != null)
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                DakListWithDetailsResponse dakListWithDetailsResponse = _dakListService.GetRemoteDakListDetails(dakUserParam);
+                if (dakListWithDetailsResponse.data.records.Count > 0)
                 {
-                    _dakListService.SaveOrUpdateDakList(dakListWithDetailsRecordDTOs.ToList());
+                    var dakListWithDetailsRecordDTOs = from c in dakListWithDetailsResponse.data.records
+                                                       where diff2.Any(o => o == c.dak_user.dak_id)
+                                                       select c;
+
+                    if (dakListWithDetailsRecordDTOs != null)
+                    {
+                        _dakListService.SaveOrUpdateDakList(dakListWithDetailsRecordDTOs.ToList());
+                    }
+
+
+
                 }
-                
-                    
-                
             }
         }
 
         public List<long> GetStatus()
         {
-            return _sycnRepository.Table.Select(s => s.Id).ToList();
+            return _sycnRepository.Table.Select(s => s.dak_id).ToList();
         }
         private void DeleteFromStatus(List<long> diff)
         {
@@ -151,7 +164,7 @@ namespace dNothi.Services.SyncServices
 
         private List<long> GetUpdatedStatus()
         {
-            return _sycnRepository.Table.Select(s => s.Id).ToList();
+            return _sycnRepository.Table.Select(s => s.dak_id).ToList();
         }
 
         private void SaveToStatus(List<long> diff)

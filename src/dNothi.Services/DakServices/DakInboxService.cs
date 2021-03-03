@@ -33,6 +33,8 @@ namespace dNothi.Services.DakServices
             try
             {
 
+
+
               
                 var dakInboxApi = new RestClient(GetAPIDomain()+GetDakListInboxEndpoint());
                 dakInboxApi.Timeout = -1;
@@ -48,8 +50,6 @@ namespace dNothi.Services.DakServices
 
 
                 var dakInboxResponseJson = dakInboxResponse.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 DakListInboxResponse dakListInboxResponse = JsonConvert.DeserializeObject<DakListInboxResponse>(dakInboxResponseJson);
                 return dakListInboxResponse;
             }
@@ -119,24 +119,7 @@ namespace dNothi.Services.DakServices
            
         }
 
-        public DakListInboxResponse GetLocalDakInbox(DakUserParam dakListUserParam)
-        {
-            var dbdakInbox = _daktype.Table.FirstOrDefault(a=>a.is_inbox==true);
-
-           
-            DakListInboxResponse dakListInboxResponse = new DakListInboxResponse();
-            if(dbdakInbox != null)
-            {
-                DakListDTO dakListDTO = new DakListDTO();
-                dakListDTO.total_records = dbdakInbox.total_records;
-                dakListInboxResponse.data = dakListDTO;
-                dakListInboxResponse.data = _dakListService.GetLocalDakListbyType(dbdakInbox.Id, dakListUserParam);
-            }
-            
-            
-           
-            return dakListInboxResponse;
-        }
+        
         protected string GetAPIVersion()
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
