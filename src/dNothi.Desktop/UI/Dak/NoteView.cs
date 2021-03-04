@@ -30,6 +30,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
         private string _totalNothi;
+        public bool _checkBoxValue;
         private string _noteSubject;
         private string _officerInfo;
         private string _nothiLastDate;
@@ -149,6 +150,16 @@ namespace dNothi.Desktop.UI.Dak
 
         private void cbNote_Click_1(object sender, EventArgs e)
         {
+            if (cbNote.Checked)
+            {
+                _checkBoxValue = true;
+            }
+            else
+            {
+                _checkBoxValue = false;
+            }
+
+
             NoteListDataRecordNoteDTO List1 = new NoteListDataRecordNoteDTO();
             List1.khoshra_potro = Convert.ToInt32(_khosraPotro);
             List1.khoshra_waiting_for_approval = Convert.ToInt32(khoshraWaiting);
@@ -162,11 +173,18 @@ namespace dNothi.Desktop.UI.Dak
             {
                 List1.can_revert = 1;
             }
-                if (this.CheckBoxClick != null)
-                    this.CheckBoxClick(List1, e);
+            if (this.CheckBoxClick != null)
+                this.CheckBoxClick(List1, e);
 
         }
-    
+
+        private void cbNote_CheckedChanged(object sender, EventArgs e)
+        {
+           
+
+
+        }
+
         //private void cbNote_Click(object sender, EventArgs e)
         //{
         //    if (cbNote.Checked == false)
