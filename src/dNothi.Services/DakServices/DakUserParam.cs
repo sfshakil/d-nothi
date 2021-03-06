@@ -37,6 +37,7 @@ namespace dNothi.Services.DakServices
         public string designation { get { return designation_label; } }
         public string officer { get { return officer_name; } }
         public int designation_level { get; set; }
+       
         public string  json_String { get; set; }
 
     }

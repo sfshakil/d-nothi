@@ -104,6 +104,7 @@
     <Compile Include="DakServices\DakCatagoryList.cs" />
     <Compile Include="DakServices\DakComboBoxList.cs" />
     <Compile Include="DakServices\DakFileUploadParam.cs" />
+    <Compile Include="DakServices\DakFolderParam.cs" />
     <Compile Include="DakServices\DakFolderService.cs" />
     <Compile Include="DakServices\DakForwardRequestParam.cs" />
     <Compile Include="DakServices\DakForwardService.cs" />

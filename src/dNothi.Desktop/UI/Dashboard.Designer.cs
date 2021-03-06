@@ -48,6 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.settingsPanel = new System.Windows.Forms.Panel();
+            this.folderName = new System.Windows.Forms.Label();
             this.infoHideShowButton = new FontAwesome.Sharp.IconButton();
             this.RefreshButton = new FontAwesome.Sharp.IconButton();
             this.multipleSelectionPanel = new System.Windows.Forms.Panel();
@@ -477,6 +478,7 @@
             // settingsPanel
             // 
             this.settingsPanel.AutoSize = true;
+            this.settingsPanel.Controls.Add(this.folderName);
             this.settingsPanel.Controls.Add(this.infoHideShowButton);
             this.settingsPanel.Controls.Add(this.RefreshButton);
             this.settingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -485,6 +487,21 @@
             this.settingsPanel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.settingsPanel.Size = new System.Drawing.Size(90, 34);
             this.settingsPanel.TabIndex = 34;
+            // 
+            // folderName
+            // 
+            this.folderName.AutoSize = true;
+            this.folderName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
+            this.folderName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.folderName.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.folderName.Location = new System.Drawing.Point(90, 5);
+            this.folderName.Margin = new System.Windows.Forms.Padding(0);
+            this.folderName.Name = "folderName";
+            this.folderName.Padding = new System.Windows.Forms.Padding(0, 6, 0, 5);
+            this.folderName.Size = new System.Drawing.Size(0, 29);
+            this.folderName.TabIndex = 33;
+            this.folderName.Tag = "FolderName";
+            this.folderName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // infoHideShowButton
             // 
@@ -2720,6 +2737,7 @@
             this.dakModulePanel.ResumeLayout(false);
             this.dakModulePanel.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
+            this.settingsPanel.PerformLayout();
             this.multipleSelectionPanel.ResumeLayout(false);
             this.shortSearchPanel.ResumeLayout(false);
             this.selectDakBoxHolderPanel.ResumeLayout(false);
@@ -2937,6 +2955,7 @@
         private PlaceholderTextBox.PlaceholderTextBox dateRangeTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label folderName;
     }
 }
 

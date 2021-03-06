@@ -71,6 +71,7 @@
     <Compile Include="Entity\Dak\DakArchiveRevertResponse.cs" />
     <Compile Include="Entity\Dak\DakDecisionAddResponse.cs" />
     <Compile Include="Entity\Dak\DakDecisionListResponse.cs" />
+    <Compile Include="Entity\Dak\DakFolderAddResponse.cs" />
     <Compile Include="Entity\Dak\DakForwardRevertResponse.cs" />
     <Compile Include="Entity\Dak\DakIdListResponse.cs" />
     <Compile Include="Entity\Dak\DakListWithDetailsResponse.cs" />
