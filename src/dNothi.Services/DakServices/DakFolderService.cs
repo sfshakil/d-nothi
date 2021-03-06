@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace dNothi.Services.DakServices
 {
@@ -43,8 +44,81 @@ namespace dNothi.Services.DakServices
 
            
         }
+        public DakFolderDeleteResponse GetDakFolderDeleteResponse(DakUserParam dakUserParam,int folder_id)
+        {
+            DakFolderDeleteResponse dakFolderDeleteResponse = new DakFolderDeleteResponse();
+
+            try
+            {
+                var dakFolderDeleteApi = new RestClient(GetAPIDomain() + GetDakFolderDeleteEndPoint());
+                dakFolderDeleteApi.Timeout = -1;
+                var dakFolderDeleteRequest = new RestRequest(Method.POST);
+                dakFolderDeleteRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakFolderDeleteRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                dakFolderDeleteRequest.AlwaysMultipartFormData = true;
+                dakFolderDeleteRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                dakFolderDeleteRequest.AddParameter("office_id", dakUserParam.office_id);
+                dakFolderDeleteRequest.AddParameter("id", folder_id);
+
+              
+                IRestResponse dakFolderDeleteResponseIRest = dakFolderDeleteApi.Execute(dakFolderDeleteRequest);
 
 
+
+
+                var dakFolderDeleteResponseJson = dakFolderDeleteResponseIRest.Content;
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                dakFolderDeleteResponse = JsonConvert.DeserializeObject<DakFolderDeleteResponse>(dakFolderDeleteResponseJson);
+                return dakFolderDeleteResponse;
+            }
+            catch (Exception ex)
+            {
+                return dakFolderDeleteResponse;
+            }
+
+
+        }
+
+        public DakFolderAddResponse GetDakFolderAddResponse(DakUserParam dakUserParam,DakFolderParam dakFolderParam)
+        {
+            DakFolderAddResponse dakFolderAddResponse = new DakFolderAddResponse();
+
+            try
+            {
+                var dakFolderAddApi = new RestClient(GetAPIDomain() + GetDakFolderAddEndPoint());
+                dakFolderAddApi.Timeout = -1;
+                var dakFolderAddRequest = new RestRequest(Method.POST);
+                dakFolderAddRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakFolderAddRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                dakFolderAddRequest.AlwaysMultipartFormData = true;
+                dakFolderAddRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                dakFolderAddRequest.AddParameter("office_id", dakUserParam.office_id);
+
+                var cDeskJsonString = new JavaScriptSerializer().Serialize(dakUserParam);
+                dakFolderAddRequest.AddParameter("cdesk", cDeskJsonString);
+               
+                var folderJsonString = new JavaScriptSerializer().Serialize(dakFolderParam);
+                dakFolderAddRequest.AddParameter("folder", folderJsonString);
+               
+                IRestResponse dakFolderAddResponseIRest = dakFolderAddApi.Execute(dakFolderAddRequest);
+
+              
+
+
+                var dakFolderAddResponseJson = dakFolderAddResponseIRest.Content;
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                dakFolderAddResponse = JsonConvert.DeserializeObject<DakFolderAddResponse>(dakFolderAddResponseJson);
+                return dakFolderAddResponse;
+            }
+            catch (Exception ex)
+            {
+                return dakFolderAddResponse;
+            }
+
+
+        }
         protected string GetAPIVersion()
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
@@ -68,10 +142,20 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.DakFolderListEndPoint;
         }
+        protected string GetDakFolderAddEndPoint()
+        {
+            return DefaultAPIConfiguration.DakFolderAddEndPoint;
+        }
+        protected string GetDakFolderDeleteEndPoint()
+        {
+            return DefaultAPIConfiguration.DakFolderDeleteEndPoint;
+        }
     }
 
     public interface IDakFolderService
     {
         FolderListResponse GetFolderList(DakUserParam dakUserParam);
+        DakFolderAddResponse GetDakFolderAddResponse(DakUserParam dakUserParam, DakFolderParam dakFolderParam);
+        DakFolderDeleteResponse GetDakFolderDeleteResponse(DakUserParam dakUserParam, int folder_id);
     }
 }

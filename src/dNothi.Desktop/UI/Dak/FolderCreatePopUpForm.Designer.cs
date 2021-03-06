@@ -77,7 +77,6 @@
             this.deleteButton.TabIndex = 32;
             this.deleteButton.Text = "বাতিল";
             this.deleteButton.UseVisualStyleBackColor = false;
-            this.deleteButton.Visible = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // saveButton
@@ -101,7 +100,7 @@
             this.saveButton.TabIndex = 31;
             this.saveButton.Text = "সংরক্ষণ";
             this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Visible = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // textPanel
             // 
@@ -140,7 +139,7 @@
             this.headerLabel.TabIndex = 29;
             this.headerLabel.Text = "ব্যক্তিগত ফোল্ডারসমূহ";
             // 
-            // personalFolderCreatePopUpForm
+            // FolderCreatePopUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,8 +147,10 @@
             this.ClientSize = new System.Drawing.Size(428, 299);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "personalFolderCreatePopUpForm";
+            this.Name = "FolderCreatePopUpForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "personalFolderCreatePopUpForm";
+            this.Load += new System.EventHandler(this.FolderCreatePopUpForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.textPanel.ResumeLayout(false);

@@ -30,6 +30,8 @@ namespace dNothi.Services.DakServices
         DakListWithDetailsResponse GetRemoteDakListDetails(DakUserParam dakUserParam);
         PotroTemplateResponse GetPotroTemplate(DakUserParam dakListUserParam);
 
+        DakSearchResponse GetDakListFromFolderResponse(DakUserParam dakListUserParam, int folder_id);
+
         //void SaveOrUpdateFrom(FromDTO fromdto);
         //void SaveOrUpdateTo(ToDTO todto);
         //void SaveOrUpdateOther(OtherDTO otherdto);

@@ -200,6 +200,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();
+            builder.RegisterType<FolderCreatePopUpForm>().AsSelf();
             builder.RegisterType<NothiTypeList>().AsSelf();
             builder.RegisterType<CreateNewNothiType>().AsSelf();
             builder.RegisterType<DakForwardUserControl>().AsSelf();

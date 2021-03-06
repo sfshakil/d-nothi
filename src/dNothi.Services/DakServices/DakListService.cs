@@ -746,6 +746,10 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.DakMovementStatusListEndpoint;
         }
+        protected string GetDakListFromFolderEndPoint()
+        {
+            return DefaultAPIConfiguration.DakListFromFolderEndPoint;
+        }
 
         protected string GetPotroTemplateEndpoint()
         {
@@ -874,8 +878,43 @@ namespace dNothi.Services.DakServices
 
         }
 
-       
 
-      
+        public DakSearchResponse GetDakListFromFolderResponse(DakUserParam dakListUserParam, int  folder_id)
+        {
+            DakSearchResponse dakSearchResponse = new DakSearchResponse();
+            try
+            {
+
+
+                var dakSearchApi = new RestClient(GetAPIDomain() + GetDakListFromFolderEndPoint());
+                dakSearchApi.Timeout = -1;
+                var dakSearchRequest = new RestRequest(Method.POST);
+                dakSearchRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakSearchRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                dakSearchRequest.AlwaysMultipartFormData = true;
+                dakSearchRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakSearchRequest.AddParameter("office_id", dakListUserParam.office_id);
+                dakSearchRequest.AddParameter("page", dakListUserParam.page);
+                dakSearchRequest.AddParameter("limit", dakListUserParam.limit);
+                dakSearchRequest.AddParameter("custom_folder_id", folder_id);
+            
+                IRestResponse dakInboxResponse = dakSearchApi.Execute(dakSearchRequest);
+
+
+                var dakResponseJson = dakInboxResponse.Content;
+               // int firstStringIndex = dakResponseJson.IndexOf("{\"status\":");
+
+               // var jsonStringDiscardedGarbage = dakResponseJson.Substring(firstStringIndex, dakResponseJson.Length - firstStringIndex);
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                dakSearchResponse = JsonConvert.DeserializeObject<DakSearchResponse>(dakResponseJson);
+                return dakSearchResponse;
+            }
+            catch (Exception ex)
+            {
+                return dakSearchResponse;
+            }
+        }
+
     }
 }

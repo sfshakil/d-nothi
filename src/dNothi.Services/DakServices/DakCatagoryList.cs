@@ -173,43 +173,43 @@ namespace dNothi.Services.DakServices
             {
                 Name = value;
 
-                if (SetCategory=="Inbox")
+                if (SetCategory.ToString().ToLower().Contains("inbox"))
                 {
                     MakeAllFalse();
                     _isInbox =true;
 
                 }
-                else if (SetCategory == "Forward")
+                else if (SetCategory.ToString().ToLower().Contains("sent"))
                 {
                     MakeAllFalse();
                     _isOutbox = true;
 
                 }
-                else if (SetCategory == "Nothijato")
+                else if (SetCategory.ToString().ToLower().Contains("nothijato"))
                 {
                     MakeAllFalse();
                     _isNothijato = true;
 
                 }
-                else if (SetCategory == "Nothivukto")
+                else if (SetCategory.ToString().ToLower().Contains("nothivukto"))
                 {
                     MakeAllFalse();
                     _isNothivukto = true;
 
                 }
-                else if (SetCategory == "Archive")
+                else if (SetCategory.ToString().ToLower().Contains("archive"))
                 {
                     MakeAllFalse();
                     _isArchived = true;
 
                 }
-                else if (SetCategory == "Sorted")
+                else if (SetCategory.ToString().ToLower().Contains("sorted"))
                 {
                     MakeAllFalse();
                     _isSorted = true;
 
                 }
-                else if (SetCategory == "Draft")
+                else if (SetCategory.ToString().ToLower().Contains("draft"))
                 {
                     MakeAllFalse();
                     _isKhosra = true;

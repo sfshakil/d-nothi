@@ -1940,6 +1940,7 @@ namespace dNothi.Desktop.UI
             selectDakBoxHolderPanel.Visible = false;
             noDakTableLayoutPanel.Visible = false;
             multipleSelectionPanel.Visible = false;
+            folderName.Text ="";
             dakBodyFlowLayoutPanel.BringToFront();
             bodyPanel.Visible = true;
             detailsFlowLayoutPanel.Visible = false;
@@ -3014,12 +3015,52 @@ namespace dNothi.Desktop.UI
 
             var dakFolderForm = FormFactory.Create<DakFolderForm>();
             dakFolderForm.folderListDataDTO = folderListResponse.data;
+            dakFolderForm.ShowDakListButton += delegate (object showDakListButton, EventArgs showDakListEvent) { ShowDakList_ButtonClick(showDakListButton, showDakListEvent, dakFolderForm._selectedFolderId, dakFolderForm._selectedFolderName); };
+
             CalPopUpWindow(dakFolderForm);
 
 
         }
 
-       
+        private void ShowDakList_ButtonClick(object showDakListButton, EventArgs showDakListEvent, int selectedFolderId, string selectedFolderName)
+        {
+          
+
+
+            DakSearchResponse dakSearchResponse = _dakListService.GetDakListFromFolderResponse(_dakuserparam, selectedFolderId);
+
+            NormalizeDashBoard();
+            folderName.Text = selectedFolderName;
+
+
+            try
+            {
+
+                if (dakSearchResponse.status == "success")
+                {
+
+
+
+                    if (dakSearchResponse.data.records.Count > 0)
+                    {
+
+                        LoadDakAllinPanel(dakSearchResponse.data.records);
+
+                    }
+
+                }
+            }
+            catch
+            {
+
+
+            }
+        }
+
+        private void ShowDakList(int selectedFolderId, string selectedFolderName)
+        {
+            
+        }
 
         private void dakSortedUserButton_Click(object sender, EventArgs e)
         {
@@ -3455,6 +3496,9 @@ namespace dNothi.Desktop.UI
             if (records.Count > 0)
             {
 
+                dakBodyFlowLayoutPanel.Controls.Clear();
+
+                dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
 
                 foreach (DakListRecordsDTO dakListRecordsDTO in records)
                 {
