@@ -25,13 +25,13 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
-                request.AddParameter("nothi", "{\"nothi_id\":\""+id+ "\", \"nothi_office\":\"" + dakUserParam.office_id + "\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\"}");
                 IRestResponse response = client.Execute(request);
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["data"].ToString();
-                var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["data"].ToString();
+                //var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 AllPotroResponse allPotroResponse = JsonConvert.DeserializeObject<AllPotroResponse>(responseJson);
                 return allPotroResponse;
             }
@@ -39,7 +39,7 @@ namespace dNothi.Services.NothiServices
             {
                 throw;
             }
-            
+
         }
         protected string GetAPIVersion()
         {

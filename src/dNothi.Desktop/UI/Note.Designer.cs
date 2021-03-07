@@ -141,9 +141,9 @@
             this.khosraViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.picBoxFile = new System.Windows.Forms.PictureBox();
             this.panel45 = new System.Windows.Forms.Panel();
-            this.iconButton22 = new FontAwesome.Sharp.IconButton();
-            this.iconButton21 = new FontAwesome.Sharp.IconButton();
-            this.iconButton12 = new FontAwesome.Sharp.IconButton();
+            this.btnEdit = new FontAwesome.Sharp.IconButton();
+            this.btnClone = new FontAwesome.Sharp.IconButton();
+            this.btnDraftHistory = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
             this.lbSubjectSmall = new System.Windows.Forms.Label();
@@ -152,11 +152,12 @@
             this.lbMulPotroOShonjukti = new System.Windows.Forms.Label();
             this.panel42 = new System.Windows.Forms.Panel();
             this.panel43 = new System.Windows.Forms.Panel();
+            this.btnPotrojariNext = new FontAwesome.Sharp.IconButton();
             this.btnAllPotroNext = new FontAwesome.Sharp.IconButton();
             this.btnKhoshraWaitingNext = new FontAwesome.Sharp.IconButton();
             this.lbTotalRange = new System.Windows.Forms.Label();
             this.btnKhshraNext = new FontAwesome.Sharp.IconButton();
-            this.iconButton11 = new FontAwesome.Sharp.IconButton();
+            this.btnKhoshraPrevious = new FontAwesome.Sharp.IconButton();
             this.lbTotal = new System.Windows.Forms.Label();
             this.lbPotroSubject = new System.Windows.Forms.Label();
             this.panel41 = new System.Windows.Forms.Panel();
@@ -225,8 +226,16 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.btnNothijatoNext = new FontAwesome.Sharp.IconButton();
+            this.btnKhoshraWaitingPrevious = new FontAwesome.Sharp.IconButton();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
-            this.btnPotrojariNext = new FontAwesome.Sharp.IconButton();
+            this.btnAllPotroPrevious = new FontAwesome.Sharp.IconButton();
+            this.btnPotrojariPrevious = new FontAwesome.Sharp.IconButton();
+            this.btnNothijatoPrevious = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.btnApprove = new FontAwesome.Sharp.IconButton();
+            this.btnUnapprove = new FontAwesome.Sharp.IconButton();
+            this.btnPotrojari = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -1944,77 +1953,84 @@
             // 
             // panel45
             // 
-            this.panel45.Controls.Add(this.iconButton22);
-            this.panel45.Controls.Add(this.iconButton21);
-            this.panel45.Controls.Add(this.iconButton12);
+            this.panel45.Controls.Add(this.btnPotrojari);
+            this.panel45.Controls.Add(this.btnUnapprove);
+            this.panel45.Controls.Add(this.btnApprove);
+            this.panel45.Controls.Add(this.btnDelete);
+            this.panel45.Controls.Add(this.btnEdit);
+            this.panel45.Controls.Add(this.btnClone);
+            this.panel45.Controls.Add(this.btnDraftHistory);
             this.panel45.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel45.Location = new System.Drawing.Point(0, 180);
             this.panel45.Name = "panel45";
             this.panel45.Size = new System.Drawing.Size(825, 33);
             this.panel45.TabIndex = 1;
             // 
-            // iconButton22
+            // btnEdit
             // 
-            this.iconButton22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton22.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton22.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton22.FlatAppearance.BorderSize = 3;
-            this.iconButton22.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton22.ForeColor = System.Drawing.Color.White;
-            this.iconButton22.IconChar = FontAwesome.Sharp.IconChar.File;
-            this.iconButton22.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton22.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton22.IconSize = 24;
-            this.iconButton22.Location = new System.Drawing.Point(64, 0);
-            this.iconButton22.Name = "iconButton22";
-            this.iconButton22.Size = new System.Drawing.Size(32, 33);
-            this.iconButton22.TabIndex = 77;
-            this.iconButton22.UseVisualStyleBackColor = false;
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.BorderSize = 3;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEdit.IconSize = 24;
+            this.btnEdit.Location = new System.Drawing.Point(64, 0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(32, 33);
+            this.btnEdit.TabIndex = 77;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Visible = false;
             // 
-            // iconButton21
+            // btnClone
             // 
-            this.iconButton21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton21.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton21.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton21.FlatAppearance.BorderSize = 3;
-            this.iconButton21.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton21.ForeColor = System.Drawing.Color.White;
-            this.iconButton21.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.iconButton21.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton21.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton21.IconSize = 24;
-            this.iconButton21.Location = new System.Drawing.Point(32, 0);
-            this.iconButton21.Name = "iconButton21";
-            this.iconButton21.Size = new System.Drawing.Size(32, 33);
-            this.iconButton21.TabIndex = 76;
-            this.iconButton21.UseVisualStyleBackColor = false;
+            this.btnClone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnClone.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnClone.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnClone.FlatAppearance.BorderSize = 3;
+            this.btnClone.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnClone.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnClone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClone.ForeColor = System.Drawing.Color.White;
+            this.btnClone.IconChar = FontAwesome.Sharp.IconChar.Clone;
+            this.btnClone.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnClone.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnClone.IconSize = 24;
+            this.btnClone.Location = new System.Drawing.Point(32, 0);
+            this.btnClone.Name = "btnClone";
+            this.btnClone.Size = new System.Drawing.Size(32, 33);
+            this.btnClone.TabIndex = 76;
+            this.btnClone.UseVisualStyleBackColor = false;
+            this.btnClone.Visible = false;
             // 
-            // iconButton12
+            // btnDraftHistory
             // 
-            this.iconButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton12.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton12.FlatAppearance.BorderSize = 3;
-            this.iconButton12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton12.ForeColor = System.Drawing.Color.White;
-            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.History;
-            this.iconButton12.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton12.IconSize = 24;
-            this.iconButton12.Location = new System.Drawing.Point(0, 0);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Size = new System.Drawing.Size(32, 33);
-            this.iconButton12.TabIndex = 75;
-            this.iconButton12.UseVisualStyleBackColor = false;
+            this.btnDraftHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnDraftHistory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDraftHistory.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDraftHistory.FlatAppearance.BorderSize = 3;
+            this.btnDraftHistory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDraftHistory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDraftHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDraftHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDraftHistory.ForeColor = System.Drawing.Color.White;
+            this.btnDraftHistory.IconChar = FontAwesome.Sharp.IconChar.History;
+            this.btnDraftHistory.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnDraftHistory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDraftHistory.IconSize = 24;
+            this.btnDraftHistory.Location = new System.Drawing.Point(0, 0);
+            this.btnDraftHistory.Name = "btnDraftHistory";
+            this.btnDraftHistory.Size = new System.Drawing.Size(32, 33);
+            this.btnDraftHistory.TabIndex = 75;
+            this.btnDraftHistory.UseVisualStyleBackColor = false;
+            this.btnDraftHistory.Visible = false;
             // 
             // panel1
             // 
@@ -2104,18 +2120,41 @@
             // 
             // panel43
             // 
+            this.panel43.Controls.Add(this.btnNothijatoPrevious);
+            this.panel43.Controls.Add(this.btnPotrojariPrevious);
+            this.panel43.Controls.Add(this.btnAllPotroPrevious);
+            this.panel43.Controls.Add(this.btnKhoshraWaitingPrevious);
+            this.panel43.Controls.Add(this.btnNothijatoNext);
             this.panel43.Controls.Add(this.btnPotrojariNext);
             this.panel43.Controls.Add(this.btnAllPotroNext);
             this.panel43.Controls.Add(this.btnKhoshraWaitingNext);
             this.panel43.Controls.Add(this.lbTotalRange);
             this.panel43.Controls.Add(this.btnKhshraNext);
-            this.panel43.Controls.Add(this.iconButton11);
+            this.panel43.Controls.Add(this.btnKhoshraPrevious);
             this.panel43.Controls.Add(this.lbTotal);
             this.panel43.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel43.Location = new System.Drawing.Point(544, 0);
             this.panel43.Name = "panel43";
             this.panel43.Size = new System.Drawing.Size(281, 78);
             this.panel43.TabIndex = 62;
+            // 
+            // btnPotrojariNext
+            // 
+            this.btnPotrojariNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnPotrojariNext.FlatAppearance.BorderSize = 0;
+            this.btnPotrojariNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnPotrojariNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPotrojariNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnPotrojariNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnPotrojariNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPotrojariNext.IconSize = 24;
+            this.btnPotrojariNext.Location = new System.Drawing.Point(227, 7);
+            this.btnPotrojariNext.Name = "btnPotrojariNext";
+            this.btnPotrojariNext.Size = new System.Drawing.Size(33, 29);
+            this.btnPotrojariNext.TabIndex = 73;
+            this.btnPotrojariNext.UseVisualStyleBackColor = false;
+            this.btnPotrojariNext.Visible = false;
+            this.btnPotrojariNext.Click += new System.EventHandler(this.btnPotrojariNext_Click);
             // 
             // btnAllPotroNext
             // 
@@ -2182,21 +2221,23 @@
             this.btnKhshraNext.Visible = false;
             this.btnKhshraNext.Click += new System.EventHandler(this.btnKhshraNext_Click);
             // 
-            // iconButton11
+            // btnKhoshraPrevious
             // 
-            this.iconButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.iconButton11.FlatAppearance.BorderSize = 0;
-            this.iconButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.IconSize = 24;
-            this.iconButton11.Location = new System.Drawing.Point(193, 7);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Size = new System.Drawing.Size(34, 29);
-            this.iconButton11.TabIndex = 67;
-            this.iconButton11.UseVisualStyleBackColor = false;
+            this.btnKhoshraPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnKhoshraPrevious.FlatAppearance.BorderSize = 0;
+            this.btnKhoshraPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnKhoshraPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhoshraPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnKhoshraPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnKhoshraPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnKhoshraPrevious.IconSize = 24;
+            this.btnKhoshraPrevious.Location = new System.Drawing.Point(193, 7);
+            this.btnKhoshraPrevious.Name = "btnKhoshraPrevious";
+            this.btnKhoshraPrevious.Size = new System.Drawing.Size(34, 29);
+            this.btnKhoshraPrevious.TabIndex = 67;
+            this.btnKhoshraPrevious.UseVisualStyleBackColor = false;
+            this.btnKhoshraPrevious.Visible = false;
+            this.btnKhoshraPrevious.Click += new System.EventHandler(this.btnKhoshraPrevious_Click);
             // 
             // lbTotal
             // 
@@ -2216,7 +2257,7 @@
             this.lbPotroSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbPotroSubject.Location = new System.Drawing.Point(0, 0);
             this.lbPotroSubject.Name = "lbPotroSubject";
-            this.lbPotroSubject.Size = new System.Drawing.Size(468, 78);
+            this.lbPotroSubject.Size = new System.Drawing.Size(540, 78);
             this.lbPotroSubject.TabIndex = 61;
             this.lbPotroSubject.Text = "Subject";
             // 
@@ -2301,9 +2342,9 @@
             this.lbNotePotrojari.Location = new System.Drawing.Point(63, 9);
             this.lbNotePotrojari.Margin = new System.Windows.Forms.Padding(0);
             this.lbNotePotrojari.Name = "lbNotePotrojari";
-            this.lbNotePotrojari.Size = new System.Drawing.Size(19, 21);
+            this.lbNotePotrojari.Size = new System.Drawing.Size(20, 21);
             this.lbNotePotrojari.TabIndex = 63;
-            this.lbNotePotrojari.Text = "২";
+            this.lbNotePotrojari.Text = "০";
             this.lbNotePotrojari.Click += new System.EventHandler(this.lbNotePotrojari_Click);
             // 
             // label37
@@ -2351,9 +2392,9 @@
             this.lbNoteKhoshraWaiting.Location = new System.Drawing.Point(147, 9);
             this.lbNoteKhoshraWaiting.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteKhoshraWaiting.Name = "lbNoteKhoshraWaiting";
-            this.lbNoteKhoshraWaiting.Size = new System.Drawing.Size(19, 21);
+            this.lbNoteKhoshraWaiting.Size = new System.Drawing.Size(20, 21);
             this.lbNoteKhoshraWaiting.TabIndex = 63;
-            this.lbNoteKhoshraWaiting.Text = "২";
+            this.lbNoteKhoshraWaiting.Text = "০";
             this.lbNoteKhoshraWaiting.Click += new System.EventHandler(this.lbNoteKhoshraWaiting_Click);
             // 
             // label34
@@ -2399,9 +2440,9 @@
             this.lbNoteKhoshra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNoteKhoshra.Location = new System.Drawing.Point(51, 8);
             this.lbNoteKhoshra.Name = "lbNoteKhoshra";
-            this.lbNoteKhoshra.Size = new System.Drawing.Size(19, 21);
+            this.lbNoteKhoshra.Size = new System.Drawing.Size(20, 21);
             this.lbNoteKhoshra.TabIndex = 63;
-            this.lbNoteKhoshra.Text = "২";
+            this.lbNoteKhoshra.Text = "০";
             this.lbNoteKhoshra.Click += new System.EventHandler(this.lbNoteKhoshra_Click);
             // 
             // label31
@@ -2522,9 +2563,9 @@
             this.lbNothijato.Location = new System.Drawing.Point(63, 9);
             this.lbNothijato.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothijato.Name = "lbNothijato";
-            this.lbNothijato.Size = new System.Drawing.Size(19, 21);
+            this.lbNothijato.Size = new System.Drawing.Size(20, 21);
             this.lbNothijato.TabIndex = 63;
-            this.lbNothijato.Text = "২";
+            this.lbNothijato.Text = "০";
             this.lbNothijato.Click += new System.EventHandler(this.lbNothijato_Click);
             // 
             // pnlPotrojari
@@ -2560,9 +2601,9 @@
             this.lbPotrojari.Location = new System.Drawing.Point(62, 9);
             this.lbPotrojari.Margin = new System.Windows.Forms.Padding(0);
             this.lbPotrojari.Name = "lbPotrojari";
-            this.lbPotrojari.Size = new System.Drawing.Size(19, 21);
+            this.lbPotrojari.Size = new System.Drawing.Size(20, 21);
             this.lbPotrojari.TabIndex = 63;
-            this.lbPotrojari.Text = "২";
+            this.lbPotrojari.Text = "০";
             this.lbPotrojari.Click += new System.EventHandler(this.lbPotrojari_Click);
             // 
             // label27
@@ -2610,9 +2651,9 @@
             this.lbAllPotro.Location = new System.Drawing.Point(70, 9);
             this.lbAllPotro.Margin = new System.Windows.Forms.Padding(0);
             this.lbAllPotro.Name = "lbAllPotro";
-            this.lbAllPotro.Size = new System.Drawing.Size(19, 21);
+            this.lbAllPotro.Size = new System.Drawing.Size(20, 21);
             this.lbAllPotro.TabIndex = 63;
-            this.lbAllPotro.Text = "২";
+            this.lbAllPotro.Text = "০";
             this.lbAllPotro.Click += new System.EventHandler(this.lbAllPotro_Click);
             // 
             // label24
@@ -2660,9 +2701,9 @@
             this.lbApprovedPotro.Location = new System.Drawing.Point(75, 11);
             this.lbApprovedPotro.Margin = new System.Windows.Forms.Padding(0);
             this.lbApprovedPotro.Name = "lbApprovedPotro";
-            this.lbApprovedPotro.Size = new System.Drawing.Size(19, 21);
+            this.lbApprovedPotro.Size = new System.Drawing.Size(20, 21);
             this.lbApprovedPotro.TabIndex = 63;
-            this.lbApprovedPotro.Text = "২";
+            this.lbApprovedPotro.Text = "০";
             // 
             // label20
             // 
@@ -2709,9 +2750,9 @@
             this.lbKhoshraWaiting.Location = new System.Drawing.Point(147, 9);
             this.lbKhoshraWaiting.Margin = new System.Windows.Forms.Padding(0);
             this.lbKhoshraWaiting.Name = "lbKhoshraWaiting";
-            this.lbKhoshraWaiting.Size = new System.Drawing.Size(19, 21);
+            this.lbKhoshraWaiting.Size = new System.Drawing.Size(20, 21);
             this.lbKhoshraWaiting.TabIndex = 63;
-            this.lbKhoshraWaiting.Text = "২";
+            this.lbKhoshraWaiting.Text = "০";
             this.lbKhoshraWaiting.Click += new System.EventHandler(this.lbKhoshraWaiting_Click);
             // 
             // label15
@@ -2757,9 +2798,9 @@
             this.lbKhoshra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbKhoshra.Location = new System.Drawing.Point(51, 8);
             this.lbKhoshra.Name = "lbKhoshra";
-            this.lbKhoshra.Size = new System.Drawing.Size(19, 21);
+            this.lbKhoshra.Size = new System.Drawing.Size(20, 21);
             this.lbKhoshra.TabIndex = 63;
-            this.lbKhoshra.Text = "২";
+            this.lbKhoshra.Text = "০";
             this.lbKhoshra.Click += new System.EventHandler(this.lbKhoshra_Click);
             // 
             // label10
@@ -3047,6 +3088,42 @@
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
             // 
+            // btnNothijatoNext
+            // 
+            this.btnNothijatoNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnNothijatoNext.FlatAppearance.BorderSize = 0;
+            this.btnNothijatoNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnNothijatoNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothijatoNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnNothijatoNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNothijatoNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothijatoNext.IconSize = 24;
+            this.btnNothijatoNext.Location = new System.Drawing.Point(227, 7);
+            this.btnNothijatoNext.Name = "btnNothijatoNext";
+            this.btnNothijatoNext.Size = new System.Drawing.Size(33, 29);
+            this.btnNothijatoNext.TabIndex = 74;
+            this.btnNothijatoNext.UseVisualStyleBackColor = false;
+            this.btnNothijatoNext.Visible = false;
+            this.btnNothijatoNext.Click += new System.EventHandler(this.btnNothijatoNext_Click);
+            // 
+            // btnKhoshraWaitingPrevious
+            // 
+            this.btnKhoshraWaitingPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnKhoshraWaitingPrevious.FlatAppearance.BorderSize = 0;
+            this.btnKhoshraWaitingPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnKhoshraWaitingPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhoshraWaitingPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnKhoshraWaitingPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnKhoshraWaitingPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnKhoshraWaitingPrevious.IconSize = 24;
+            this.btnKhoshraWaitingPrevious.Location = new System.Drawing.Point(193, 7);
+            this.btnKhoshraWaitingPrevious.Name = "btnKhoshraWaitingPrevious";
+            this.btnKhoshraWaitingPrevious.Size = new System.Drawing.Size(34, 29);
+            this.btnKhoshraWaitingPrevious.TabIndex = 75;
+            this.btnKhoshraWaitingPrevious.UseVisualStyleBackColor = false;
+            this.btnKhoshraWaitingPrevious.Visible = false;
+            this.btnKhoshraWaitingPrevious.Click += new System.EventHandler(this.btnKhoshraWaitingPrevious_Click);
+            // 
             // tinyMceEditor
             // 
             this.tinyMceEditor.AutoScroll = true;
@@ -3058,23 +3135,147 @@
             this.tinyMceEditor.Size = new System.Drawing.Size(874, 406);
             this.tinyMceEditor.TabIndex = 61;
             // 
-            // btnPotrojariNext
+            // btnAllPotroPrevious
             // 
-            this.btnPotrojariNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.btnPotrojariNext.FlatAppearance.BorderSize = 0;
-            this.btnPotrojariNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.btnPotrojariNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPotrojariNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.btnPotrojariNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.btnPotrojariNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPotrojariNext.IconSize = 24;
-            this.btnPotrojariNext.Location = new System.Drawing.Point(227, 7);
-            this.btnPotrojariNext.Name = "btnPotrojariNext";
-            this.btnPotrojariNext.Size = new System.Drawing.Size(33, 29);
-            this.btnPotrojariNext.TabIndex = 73;
-            this.btnPotrojariNext.UseVisualStyleBackColor = false;
-            this.btnPotrojariNext.Visible = false;
-            this.btnPotrojariNext.Click += new System.EventHandler(this.btnPotrojariNext_Click);
+            this.btnAllPotroPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnAllPotroPrevious.FlatAppearance.BorderSize = 0;
+            this.btnAllPotroPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnAllPotroPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAllPotroPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnAllPotroPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnAllPotroPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAllPotroPrevious.IconSize = 24;
+            this.btnAllPotroPrevious.Location = new System.Drawing.Point(193, 7);
+            this.btnAllPotroPrevious.Name = "btnAllPotroPrevious";
+            this.btnAllPotroPrevious.Size = new System.Drawing.Size(34, 29);
+            this.btnAllPotroPrevious.TabIndex = 76;
+            this.btnAllPotroPrevious.UseVisualStyleBackColor = false;
+            this.btnAllPotroPrevious.Visible = false;
+            this.btnAllPotroPrevious.Click += new System.EventHandler(this.btnAllPotroPrevious_Click);
+            // 
+            // btnPotrojariPrevious
+            // 
+            this.btnPotrojariPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnPotrojariPrevious.FlatAppearance.BorderSize = 0;
+            this.btnPotrojariPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnPotrojariPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPotrojariPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnPotrojariPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnPotrojariPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPotrojariPrevious.IconSize = 24;
+            this.btnPotrojariPrevious.Location = new System.Drawing.Point(193, 7);
+            this.btnPotrojariPrevious.Name = "btnPotrojariPrevious";
+            this.btnPotrojariPrevious.Size = new System.Drawing.Size(34, 29);
+            this.btnPotrojariPrevious.TabIndex = 77;
+            this.btnPotrojariPrevious.UseVisualStyleBackColor = false;
+            this.btnPotrojariPrevious.Visible = false;
+            this.btnPotrojariPrevious.Click += new System.EventHandler(this.btnPotrojariPrevious_Click);
+            // 
+            // btnNothijatoPrevious
+            // 
+            this.btnNothijatoPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnNothijatoPrevious.FlatAppearance.BorderSize = 0;
+            this.btnNothijatoPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnNothijatoPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothijatoPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnNothijatoPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNothijatoPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothijatoPrevious.IconSize = 24;
+            this.btnNothijatoPrevious.Location = new System.Drawing.Point(193, 7);
+            this.btnNothijatoPrevious.Name = "btnNothijatoPrevious";
+            this.btnNothijatoPrevious.Size = new System.Drawing.Size(34, 29);
+            this.btnNothijatoPrevious.TabIndex = 78;
+            this.btnNothijatoPrevious.UseVisualStyleBackColor = false;
+            this.btnNothijatoPrevious.Visible = false;
+            this.btnNothijatoPrevious.Click += new System.EventHandler(this.btnNothijatoPrevious_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDelete.FlatAppearance.BorderSize = 3;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 24;
+            this.btnDelete.Location = new System.Drawing.Point(96, 0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(32, 33);
+            this.btnDelete.TabIndex = 78;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            // 
+            // btnApprove
+            // 
+            this.btnApprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnApprove.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnApprove.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnApprove.FlatAppearance.BorderSize = 3;
+            this.btnApprove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnApprove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApprove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApprove.ForeColor = System.Drawing.Color.White;
+            this.btnApprove.IconChar = FontAwesome.Sharp.IconChar.UserShield;
+            this.btnApprove.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnApprove.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnApprove.IconSize = 24;
+            this.btnApprove.Location = new System.Drawing.Point(128, 0);
+            this.btnApprove.Name = "btnApprove";
+            this.btnApprove.Size = new System.Drawing.Size(32, 33);
+            this.btnApprove.TabIndex = 79;
+            this.btnApprove.UseVisualStyleBackColor = false;
+            this.btnApprove.Visible = false;
+            // 
+            // btnUnapprove
+            // 
+            this.btnUnapprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnUnapprove.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnUnapprove.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnUnapprove.FlatAppearance.BorderSize = 3;
+            this.btnUnapprove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUnapprove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnUnapprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnapprove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnapprove.ForeColor = System.Drawing.Color.White;
+            this.btnUnapprove.IconChar = FontAwesome.Sharp.IconChar.UserSlash;
+            this.btnUnapprove.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnUnapprove.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUnapprove.IconSize = 24;
+            this.btnUnapprove.Location = new System.Drawing.Point(160, 0);
+            this.btnUnapprove.Name = "btnUnapprove";
+            this.btnUnapprove.Size = new System.Drawing.Size(32, 33);
+            this.btnUnapprove.TabIndex = 80;
+            this.btnUnapprove.UseVisualStyleBackColor = false;
+            this.btnUnapprove.Visible = false;
+            // 
+            // btnPotrojari
+            // 
+            this.btnPotrojari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnPotrojari.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPotrojari.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPotrojari.FlatAppearance.BorderSize = 3;
+            this.btnPotrojari.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPotrojari.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPotrojari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPotrojari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPotrojari.ForeColor = System.Drawing.Color.White;
+            this.btnPotrojari.IconChar = FontAwesome.Sharp.IconChar.Share;
+            this.btnPotrojari.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnPotrojari.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPotrojari.IconSize = 24;
+            this.btnPotrojari.Location = new System.Drawing.Point(192, 0);
+            this.btnPotrojari.Name = "btnPotrojari";
+            this.btnPotrojari.Size = new System.Drawing.Size(32, 33);
+            this.btnPotrojari.TabIndex = 81;
+            this.btnPotrojari.UseVisualStyleBackColor = false;
+            this.btnPotrojari.Visible = false;
             // 
             // Note
             // 
@@ -3330,15 +3531,15 @@
         private System.Windows.Forms.Panel panel42;
         private System.Windows.Forms.Panel panel43;
         private System.Windows.Forms.Label lbPotroSubject;
-        private FontAwesome.Sharp.IconButton iconButton11;
+        private FontAwesome.Sharp.IconButton btnKhoshraPrevious;
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Panel panel44;
         private System.Windows.Forms.Label lbLastIssueDate;
         private System.Windows.Forms.Label lbMulPotroOShonjukti;
-        private FontAwesome.Sharp.IconButton iconButton12;
+        private FontAwesome.Sharp.IconButton btnDraftHistory;
         private System.Windows.Forms.Panel panel45;
-        private FontAwesome.Sharp.IconButton iconButton22;
-        private FontAwesome.Sharp.IconButton iconButton21;
+        private FontAwesome.Sharp.IconButton btnEdit;
+        private FontAwesome.Sharp.IconButton btnClone;
         private System.Windows.Forms.Panel panel46;
         private System.Windows.Forms.Panel pnlPictureBox;
         private System.Windows.Forms.PictureBox picBoxFile;
@@ -3381,5 +3582,14 @@
         private FontAwesome.Sharp.IconButton btnKhoshraWaitingNext;
         private FontAwesome.Sharp.IconButton btnAllPotroNext;
         private FontAwesome.Sharp.IconButton btnPotrojariNext;
+        private FontAwesome.Sharp.IconButton btnNothijatoNext;
+        private FontAwesome.Sharp.IconButton btnKhoshraWaitingPrevious;
+        private FontAwesome.Sharp.IconButton btnAllPotroPrevious;
+        private FontAwesome.Sharp.IconButton btnPotrojariPrevious;
+        private FontAwesome.Sharp.IconButton btnNothijatoPrevious;
+        private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnPotrojari;
+        private FontAwesome.Sharp.IconButton btnUnapprove;
+        private FontAwesome.Sharp.IconButton btnApprove;
     }
 }
