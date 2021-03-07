@@ -703,11 +703,17 @@
     <Compile Include="UI\Dak\NothiNoteShomuho.Designer.cs">
       <DependentUpon>NothiNoteShomuho.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\NothiOnumodonRow.cs">
+    <Compile Include="UI\Dak\NothiOnumodonLevel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\NothiOnumodonRow.Designer.cs">
-      <DependentUpon>NothiOnumodonRow.cs</DependentUpon>
+    <Compile Include="UI\Dak\NothiOnumodonLevel.Designer.cs">
+      <DependentUpon>NothiOnumodonLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiOnumodonOfficer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiOnumodonOfficer.Designer.cs">
+      <DependentUpon>NothiOnumodonOfficer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\NothiOutbox.cs">
       <SubType>UserControl</SubType>
@@ -1055,8 +1061,11 @@
     <EmbeddedResource Include="UI\Dak\NothiNoteShomuho.resx">
       <DependentUpon>NothiNoteShomuho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\NothiOnumodonRow.resx">
-      <DependentUpon>NothiOnumodonRow.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\NothiOnumodonLevel.resx">
+      <DependentUpon>NothiOnumodonLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiOnumodonOfficer.resx">
+      <DependentUpon>NothiOnumodonOfficer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutbox.resx">
       <DependentUpon>NothiOutbox.cs</DependentUpon>
