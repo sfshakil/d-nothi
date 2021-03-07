@@ -50,7 +50,7 @@ namespace dNothi.Desktop.UI.Dak
                 eyeIcon.Visible = true;
                 eyeSlashIcon.Visible = false;
             }
-            else if (i== 1)
+            else if (i == 1)
             {
                 eyeIcon.Visible = false;
                 eyeSlashIcon.Visible = true;
@@ -131,7 +131,9 @@ namespace dNothi.Desktop.UI.Dak
         public string checkBox
         {
             get { return _checkBox; }
-            set { _checkBox = value;
+            set
+            {
+                _checkBox = value;
                 if (value == "1")
                     cbNote.Checked = true;
                 else
@@ -180,7 +182,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void cbNote_CheckedChanged(object sender, EventArgs e)
         {
-           
+
 
 
         }
