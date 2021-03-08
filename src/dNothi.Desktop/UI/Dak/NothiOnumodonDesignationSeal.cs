@@ -26,6 +26,8 @@ namespace dNothi.Desktop.UI.Dak
         private const int TV_FIRST = 0x1100;
         private const int TVM_SETITEM = TV_FIRST + 63;
 
+        private OnumodonResponse _onumodonResponse { get; set; }
+
         [StructLayout(LayoutKind.Sequential, Pack = 8, CharSet = CharSet.Auto)]
         private struct TVITEM
         {
@@ -137,7 +139,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        NothiListRecordsDTO nothiListRecord = new NothiListRecordsDTO();
+        public NothiListRecordsDTO nothiListRecord = new NothiListRecordsDTO();
 
         public void GetNothiInboxRecords(NothiListRecordsDTO nothiListRecordsDTO)
         {
@@ -145,41 +147,37 @@ namespace dNothi.Desktop.UI.Dak
             var onumodonList = _onumodonService.GetOnumodonMembers(_dakUserParam, nothiListRecord);
             if (onumodonList.status == "success")
             {
+                _onumodonResponse = onumodonList;
 
                 if (onumodonList.data.records.Count > 0)
                 {
-                    foreach (onumodonDataRecordDTO record in onumodonList.data.records)
+
+                    var groupLevel = onumodonList.data.records.GroupBy(a => a.layer_index);
+                    foreach (var group in groupLevel)
                     {
 
-                        var nothiOnumodonSearch = nothiOnumodonFLP.Controls.OfType<NothiOnumodonLevel>().FirstOrDefault(a=>a._layerIndex==level);
+                     
 
-                        if (nothiOnumodonSearch!=null)
+                        NothiOnumodonLevel nothiOnumodonRow = new NothiOnumodonLevel();
+                        nothiOnumodonRow.level = group.Key.ToString();
+                        nothiOnumodonRow.layerIndex = group.Key;
+
+
+
+
+                        foreach (var officer in group)
                         {
+                            
+                            nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name);
 
-                            nothiOnumodonSearch.AddNewOfficer(record.officer, record.designation_id, record.designation + "," + record.office_unit + "," + record.nothi_office_name);
 
                         }
-                        else
-                        {
-                            NothiOnumodonLevel nothiOnumodonRow = new NothiOnumodonLevel();
-                            nothiOnumodonRow.AddNewOfficer(record.officer, record.designation_id, record.designation + "," + record.office_unit + "," + record.nothi_office_name);
-                            nothiOnumodonRow.level = level.ToString();
-                            nothiOnumodonRow.layerIndex = level;
-                            level++;
-                            nothiOnumodonRows.Add(nothiOnumodonRow);
 
-                            NothiOnumodonRowDTO nothiOnumodon = new NothiOnumodonRowDTO();
-                            nothiOnumodon.designation_id = record.designation_id.ToString();
-                            nothiOnumodons.Add(nothiOnumodon);
-
-                            nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
-                        }
+                        nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
 
 
-                      
+
                     }
-                  
-                    
                 }
                 LoadOwnOfficerTree();
 
@@ -256,18 +254,17 @@ namespace dNothi.Desktop.UI.Dak
                                 childNode.Name = officer.designation_id.ToString();
                               
 
-                                foreach (NothiOnumodonRowDTO nothiOnumodonRow in nothiOnumodons)
-                                {
-                                    if (officer.designation_id.ToString() == nothiOnumodonRow.designation_id)
-                                        childNode.Checked = true;
-                                }
+                              
                                 
 
                                   branchNodeOwnOffice.Nodes.Add(childNode);
-                                
 
 
-                               
+                                if (_onumodonResponse.data.records.Any(a => a.designation_id == officer.designation_id))
+                                {
+                                    CheckUncheckTreeNode(branchNodeOwnOffice.Nodes, true, officer.designation_id);
+                                }
+
 
 
                             }
@@ -511,9 +508,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (TreeNode trNode in trNodeCollection)
             {
-                if(Convert.ToInt32(trNode.Tag)==designationid)
+                if(Convert.ToInt32(trNode.Name)==designationid)
                 {
                     trNode.Checked = isCheck;
+                    trNode.ForeColor = Color.Gray;
                     break;
                 }
 
@@ -769,7 +767,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void nothiOnumodonFLP_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = DragDropEffects.Move;
+            //e.Effect = DragDropEffects.Move;
         }
 
         private void nothiOnumodonFLP_DragDrop(object sender, DragEventArgs e)

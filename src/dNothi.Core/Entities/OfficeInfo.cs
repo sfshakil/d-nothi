@@ -34,7 +34,7 @@ namespace dNothi.Core.Entities
         public int protikolpo_status { get; set; }
         [StringLength(500)]
         public string domain { get; set; }
-        public bool is_admin { get; set; }
+        public string is_admin { get; set; }
 
 
         public bool is_current { get; set; }

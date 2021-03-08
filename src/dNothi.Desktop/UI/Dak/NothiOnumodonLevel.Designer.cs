@@ -119,7 +119,7 @@
             this.deleteButton.IconColor = System.Drawing.Color.Red;
             this.deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.deleteButton.IconSize = 18;
-            this.deleteButton.Location = new System.Drawing.Point(214, 18);
+            this.deleteButton.Location = new System.Drawing.Point(208, 17);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(25, 23);
             this.deleteButton.TabIndex = 57;
@@ -143,12 +143,15 @@
             this.officerTableLayoutPanel.ColumnCount = 1;
             this.officerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.officerTableLayoutPanel.Location = new System.Drawing.Point(61, 43);
+            this.officerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.officerTableLayoutPanel.Name = "officerTableLayoutPanel";
             this.officerTableLayoutPanel.RowCount = 1;
             this.officerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.officerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.officerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.officerTableLayoutPanel.Size = new System.Drawing.Size(429, 26);
             this.officerTableLayoutPanel.TabIndex = 8;
+            this.officerTableLayoutPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.officerTableLayoutPanel_DragDrop);
+            this.officerTableLayoutPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.officerTableLayoutPanel_DragEnter);
             // 
             // movementStatusSliderPanel1
             // 
