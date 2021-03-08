@@ -15,6 +15,7 @@ using System.Configuration;
 using dNothi.Services.DakServices;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
+using RestSharp;
 
 namespace dNothi.Services.UserServices
 {
@@ -47,16 +48,27 @@ namespace dNothi.Services.UserServices
             {
                 using (var client = new HttpClient())
                 {
-                    var url = GetAPIDomain() + GetLoginEndpoint();
-                    var json = JsonConvert.SerializeObject(userParam);
-                    var data = new StringContent(json, Encoding.UTF8, "application/json");
-                    client.DefaultRequestHeaders.Add("api-version", GetAPIVersion());
-                    client.DefaultRequestHeaders.Add("device-id", GetDeviceId());
-                    client.DefaultRequestHeaders.Add("device-type", GetDeviceType());
-                    var response = await client.PostAsync(url, data);
-                    string result = await response.Content.ReadAsStringAsync();
-                    UserMessage responsemessage = _userMessageParser.ParseMessage(result);
-                    return responsemessage;
+
+
+                    var loginApi = new RestClient(GetAPIDomain() + GetLoginEndpoint());
+                    loginApi.Timeout = -1;
+                    var loginRequest = new RestRequest(Method.POST);
+                    loginRequest.AddHeader("api-version", GetAPIVersion());
+                    loginRequest.AddHeader("device-id", GetDeviceId());
+                    loginRequest.AddHeader("device-type", GetDeviceType());
+                    loginRequest.AlwaysMultipartFormData = true;
+                    loginRequest.AddParameter("username", userParam.username);
+                    loginRequest.AddParameter("password", userParam.password);
+
+
+
+                    IRestResponse loginResponse = loginApi.Execute(loginRequest);
+
+
+                    var loginResponseJson = loginResponse.Content;
+                    UserMessage userResponse = JsonConvert.DeserializeObject<UserMessage>(loginResponseJson);
+                    return userResponse;
+                    
                 }
             }
             catch (Exception ex)

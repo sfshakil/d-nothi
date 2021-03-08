@@ -222,7 +222,7 @@
             this.prapokownOfficeTreeView.TabIndex = 0;
             this.prapokownOfficeTreeView.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.prapokownOfficeTreeView_BeforeCheck);
             this.prapokownOfficeTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.prapokownOfficeTreeView_AfterCheck);
-            this.prapokownOfficeTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.prapokownOfficeTreeView_DrawNode);
+            this.prapokownOfficeTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.prapokotherOfficeTreeView_DrawNode);
             this.prapokownOfficeTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.prapokownOfficeTreeView_AfterSelect);
             // 
             // otherOfficeTabPageLeft

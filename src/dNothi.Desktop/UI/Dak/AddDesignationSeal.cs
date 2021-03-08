@@ -529,15 +529,6 @@ namespace dNothi.Desktop.UI.Dak
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
-
-        private void prapokownOfficeTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
-        {
-            if (e.Node.Nodes.Count != 0)
-            {
-                e.Node.Checked = false;
-            }
-            e.DrawDefault = true;
-        }
         private void prapokotherOfficeTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
         {
             if (e.Node.Nodes.Count != 0)
@@ -546,6 +537,8 @@ namespace dNothi.Desktop.UI.Dak
             }
             e.DrawDefault = true;
         }
+
+        
 
         private void otherOfficeTreeView_AfterCheck(object sender, TreeViewEventArgs e)
         {

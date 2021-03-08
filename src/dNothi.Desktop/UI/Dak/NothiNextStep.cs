@@ -68,11 +68,11 @@ namespace dNothi.Desktop.UI.Dak
             records.Add(record);
             if (_userService.GetOfficeInfo().office_unit_id != record.office_unit_id && _userService.GetOfficeInfo().office_unit_organogram_id != record.designation_id)
             {
-                NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
-                nothiOnumodonRow.name = record.officer;
-                nothiOnumodonRow.designation = record.designation + "," + record.office_unit + "," + record.nothi_office_name;
-                nothiOnumodonRow.level = i.ToString();
-                nothiOnumodonRow.flag = 1;
+                NothiOnumodonLevel nothiOnumodonRow = new NothiOnumodonLevel();
+             //   nothiOnumodonRow.name = record.officer;
+           //     nothiOnumodonRow.designation = record.designation + "," + record.office_unit + "," + record.nothi_office_name;
+              //  nothiOnumodonRow.level = i.ToString();
+              //  nothiOnumodonRow.flag = 1;
                 nothiOnumodonRow.CheckboxButtonClick += delegate (object sender, EventArgs e) { Checkbox_ButtonClick(sender, e, record); };
                 DesignationFLP.Controls.Add(nothiOnumodonRow);
                 i++;
@@ -94,15 +94,15 @@ namespace dNothi.Desktop.UI.Dak
             DesignationFLP.Controls.Clear();
             foreach (onumodonDataRecordDTO record in records)
             {
-                NothiOnumodonRow nothiOnumodonRow = new NothiOnumodonRow();
-                nothiOnumodonRow.name = record.officer;
-                nothiOnumodonRow.designation = record.designation + "," + record.office_unit + "," + record.nothi_office_name;
-                nothiOnumodonRow.level = j.ToString();
-                nothiOnumodonRow.flag = 1;
+                NothiOnumodonLevel nothiOnumodonRow = new NothiOnumodonLevel();
+               // nothiOnumodonRow.name = record.officer;
+              //  nothiOnumodonRow.designation = record.designation + "," + record.office_unit + "," + record.nothi_office_name;
+             //   nothiOnumodonRow.level = j.ToString();
+             //   nothiOnumodonRow.flag = 1;
                 j++;
                 if (_userService.GetOfficeInfo().office_unit_id==record.office_unit_id && _userService.GetOfficeInfo().office_unit_organogram_id == record.designation_id)
                 {
-                    nothiOnumodonRow.flag = 2;
+                   // nothiOnumodonRow.flag = 2;
                 }
                 nothiOnumodonRow.CheckboxButtonClick += delegate (object sender1, EventArgs e1) { Checkbox_ButtonClick(sender1, e1, record); };
                 DesignationFLP.Controls.Add(nothiOnumodonRow);

@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class DesignationSealListOfficerRowUserControl : UserControl
+    public partial class NothiOnumodonOfficer : UserControl
     {
-        private string _officeName;
 
-        private int _designationid;
-        private bool _isNewAdded;
-        public DesignationSealListOfficerRowUserControl()
+        public string _officeName;
+        public int _designationid;
+        public bool _isNewAdded;
+        public string _designation;
+
+        public NothiOnumodonOfficer()
         {
             InitializeComponent();
         }
-
 
         public string officerName
         {
@@ -32,9 +33,17 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-     
 
+        public string designation
+        {
+            get { return _designation; }
+            set
+            {
+                _designation = value;
+                lbDesignation.Text = value;
+            }
 
+        }
 
         public int designationid
         {
@@ -42,11 +51,11 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _designationid = value;
-               
+
             }
 
         }
-       
+
         public bool isNewlyAdded
         {
             get { return _isNewAdded; }
@@ -54,26 +63,29 @@ namespace dNothi.Desktop.UI.Dak
             {
                 _isNewAdded = value;
 
-                if(value)
+                if (value)
                 {
                     deleteButton.Visible = true;
                 }
                 else
-                   
+
                 {
                     deleteButton.Visible = false;
                 }
-               
+
             }
 
         }
 
         public event EventHandler DeleteButton;
-        private void deleteButton_Click(object sender, EventArgs e)
+        
+
+        private void deleteButton_Click_1(object sender, EventArgs e)
         {
             isNewlyAdded = false;
             if (this.DeleteButton != null)
                 this.DeleteButton(sender, e);
+            this.Hide();
         }
     }
 }
