@@ -90,7 +90,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label4.Location = new System.Drawing.Point(12, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 18);
+            this.label4.Size = new System.Drawing.Size(47, 21);
             this.label4.TabIndex = 56;
             this.label4.Text = "বিষয়ঃ";
             // 
@@ -100,7 +100,7 @@
             this.panel3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(12, 18);
+            this.panel3.Size = new System.Drawing.Size(12, 21);
             this.panel3.TabIndex = 63;
             // 
             // mainReceiverLabel
@@ -109,9 +109,9 @@
             this.mainReceiverLabel.BackColor = System.Drawing.Color.Transparent;
             this.mainReceiverLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainReceiverLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainReceiverLabel.Location = new System.Drawing.Point(148, 0);
+            this.mainReceiverLabel.Location = new System.Drawing.Point(156, 0);
             this.mainReceiverLabel.Name = "mainReceiverLabel";
-            this.mainReceiverLabel.Size = new System.Drawing.Size(0, 18);
+            this.mainReceiverLabel.Size = new System.Drawing.Size(0, 21);
             this.mainReceiverLabel.TabIndex = 61;
             // 
             // label6
@@ -121,9 +121,9 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(79, 0);
+            this.label6.Location = new System.Drawing.Point(82, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 18);
+            this.label6.Size = new System.Drawing.Size(74, 21);
             this.label6.TabIndex = 60;
             this.label6.Text = "মূল প্রাপকঃ";
             // 
@@ -133,9 +133,9 @@
             this.senderLabel.BackColor = System.Drawing.Color.Transparent;
             this.senderLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.senderLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.senderLabel.Location = new System.Drawing.Point(59, 0);
+            this.senderLabel.Location = new System.Drawing.Point(62, 0);
             this.senderLabel.Name = "senderLabel";
-            this.senderLabel.Size = new System.Drawing.Size(0, 18);
+            this.senderLabel.Size = new System.Drawing.Size(0, 21);
             this.senderLabel.TabIndex = 59;
             // 
             // label5
@@ -147,7 +147,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label5.Location = new System.Drawing.Point(12, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 18);
+            this.label5.Size = new System.Drawing.Size(50, 21);
             this.label5.TabIndex = 57;
             this.label5.Text = "প্রেরকঃ";
             // 
@@ -179,7 +179,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label2.Location = new System.Drawing.Point(-1, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 21);
+            this.label2.Size = new System.Drawing.Size(53, 25);
             this.label2.TabIndex = 67;
             this.label2.Text = "উৎসঃ";
             // 
@@ -190,7 +190,7 @@
             this.sourceLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sourceLabel.Location = new System.Drawing.Point(43, 18);
             this.sourceLabel.Name = "sourceLabel";
-            this.sourceLabel.Size = new System.Drawing.Size(0, 21);
+            this.sourceLabel.Size = new System.Drawing.Size(0, 25);
             this.sourceLabel.TabIndex = 68;
             // 
             // subjectLabel
@@ -201,7 +201,7 @@
             this.subjectLabel.Location = new System.Drawing.Point(54, 0);
             this.subjectLabel.MaximumSize = new System.Drawing.Size(660, 0);
             this.subjectLabel.Name = "subjectLabel";
-            this.subjectLabel.Size = new System.Drawing.Size(452, 18);
+            this.subjectLabel.Size = new System.Drawing.Size(589, 21);
             this.subjectLabel.TabIndex = 62;
             this.subjectLabel.Text = "asa hbfhjfvghaf hfddaksj  hvfbghsadvjf hvfsadj hvgfdhsagv hddgvfhsad hgvsafjsad";
             // 
@@ -221,9 +221,9 @@
             this.decisionLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.decisionLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decisionLabel.ForeColor = System.Drawing.Color.Goldenrod;
-            this.decisionLabel.Location = new System.Drawing.Point(62, 2);
+            this.decisionLabel.Location = new System.Drawing.Point(65, 2);
             this.decisionLabel.Name = "decisionLabel";
-            this.decisionLabel.Size = new System.Drawing.Size(0, 18);
+            this.decisionLabel.Size = new System.Drawing.Size(0, 21);
             this.decisionLabel.TabIndex = 63;
             // 
             // label3
@@ -235,7 +235,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label3.Location = new System.Drawing.Point(12, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 18);
+            this.label3.Size = new System.Drawing.Size(53, 21);
             this.label3.TabIndex = 55;
             this.label3.Text = "সিদ্ধান্তঃ";
             // 
@@ -243,7 +243,7 @@
             // 
             this.panel6.Controls.Add(this.rightNextButton);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(59, 0);
+            this.panel6.Location = new System.Drawing.Point(62, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(20, 22);
             this.panel6.TabIndex = 68;
@@ -289,11 +289,11 @@
             this.nothiPanel.Controls.Add(this.panel5);
             this.nothiPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.nothiPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiPanel.Location = new System.Drawing.Point(0, 81);
+            this.nothiPanel.Location = new System.Drawing.Point(0, 84);
             this.nothiPanel.MinimumSize = new System.Drawing.Size(0, 20);
             this.nothiPanel.Name = "nothiPanel";
             this.nothiPanel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.nothiPanel.Size = new System.Drawing.Size(1095, 20);
+            this.nothiPanel.Size = new System.Drawing.Size(2028, 20);
             this.nothiPanel.TabIndex = 95;
             // 
             // nothiNoLabel
@@ -303,9 +303,9 @@
             this.nothiNoLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiNoLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiNoLabel.ForeColor = System.Drawing.Color.Black;
-            this.nothiNoLabel.Location = new System.Drawing.Point(95, 2);
+            this.nothiNoLabel.Location = new System.Drawing.Point(103, 2);
             this.nothiNoLabel.Name = "nothiNoLabel";
-            this.nothiNoLabel.Size = new System.Drawing.Size(0, 18);
+            this.nothiNoLabel.Size = new System.Drawing.Size(0, 21);
             this.nothiNoLabel.TabIndex = 67;
             // 
             // nothiPlainTextLabel
@@ -315,9 +315,9 @@
             this.nothiPlainTextLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiPlainTextLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiPlainTextLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nothiPlainTextLabel.Location = new System.Drawing.Point(62, 2);
+            this.nothiPlainTextLabel.Location = new System.Drawing.Point(65, 2);
             this.nothiPlainTextLabel.Name = "nothiPlainTextLabel";
-            this.nothiPlainTextLabel.Size = new System.Drawing.Size(33, 18);
+            this.nothiPlainTextLabel.Size = new System.Drawing.Size(38, 21);
             this.nothiPlainTextLabel.TabIndex = 66;
             this.nothiPlainTextLabel.Text = "নথিঃ";
             this.nothiPlainTextLabel.Visible = false;
@@ -332,7 +332,7 @@
             this.subjectPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectPanel.Location = new System.Drawing.Point(0, 63);
             this.subjectPanel.Name = "subjectPanel";
-            this.subjectPanel.Size = new System.Drawing.Size(1095, 18);
+            this.subjectPanel.Size = new System.Drawing.Size(2028, 21);
             this.subjectPanel.TabIndex = 94;
             // 
             // sourcePanel
@@ -343,7 +343,7 @@
             this.sourcePanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sourcePanel.Location = new System.Drawing.Point(0, 0);
             this.sourcePanel.Name = "sourcePanel";
-            this.sourcePanel.Size = new System.Drawing.Size(1095, 41);
+            this.sourcePanel.Size = new System.Drawing.Size(2028, 41);
             this.sourcePanel.TabIndex = 92;
             // 
             // dakActionPanel
@@ -355,7 +355,7 @@
             this.dakActionPanel.Controls.Add(this.iconButton3);
             this.dakActionPanel.Controls.Add(this.dakRevertButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-845, 15);
+            this.dakActionPanel.Location = new System.Drawing.Point(-8, 15);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -441,7 +441,7 @@
             this.rightInfoPanel.dakSecurityIconValue = null;
             this.rightInfoPanel.dakType = null;
             this.rightInfoPanel.dakViewStatus = null;
-            this.rightInfoPanel.Location = new System.Drawing.Point(1076, 15);
+            this.rightInfoPanel.Location = new System.Drawing.Point(2009, 15);
             this.rightInfoPanel.Name = "rightInfoPanel";
             this.rightInfoPanel.potrojari = 0;
             this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
@@ -454,10 +454,10 @@
             this.attachmentAndDatePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.attachmentAndDatePanel.Controls.Add(this.dakAttachmentButton);
             this.attachmentAndDatePanel.Controls.Add(this.dateLabel);
-            this.attachmentAndDatePanel.Location = new System.Drawing.Point(1002, 61);
+            this.attachmentAndDatePanel.Location = new System.Drawing.Point(1922, 61);
             this.attachmentAndDatePanel.MinimumSize = new System.Drawing.Size(0, 32);
             this.attachmentAndDatePanel.Name = "attachmentAndDatePanel";
-            this.attachmentAndDatePanel.Size = new System.Drawing.Size(87, 32);
+            this.attachmentAndDatePanel.Size = new System.Drawing.Size(100, 32);
             this.attachmentAndDatePanel.TabIndex = 100;
             // 
             // dakAttachmentButton
@@ -477,7 +477,7 @@
             this.dakAttachmentButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakAttachmentButton.Name = "dakAttachmentButton";
             this.dakAttachmentButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dakAttachmentButton.Size = new System.Drawing.Size(47, 32);
+            this.dakAttachmentButton.Size = new System.Drawing.Size(51, 32);
             this.dakAttachmentButton.TabIndex = 64;
             this.dakAttachmentButton.TabStop = false;
             this.dakAttachmentButton.Text = "1";
@@ -493,10 +493,10 @@
             this.dateLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.dateLabel.Location = new System.Drawing.Point(47, 0);
+            this.dateLabel.Location = new System.Drawing.Point(51, 0);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.dateLabel.Size = new System.Drawing.Size(40, 25);
+            this.dateLabel.Size = new System.Drawing.Size(49, 28);
             this.dateLabel.TabIndex = 64;
             this.dateLabel.Text = "[date]";
             this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -516,7 +516,7 @@
             this.Controls.Add(this.sourcePanel);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "DakOutboxUserControl";
-            this.Size = new System.Drawing.Size(1095, 107);
+            this.Size = new System.Drawing.Size(2028, 107);
             this.Load += new System.EventHandler(this.DakOutboxUserControl_Load);
             this.Click += new System.EventHandler(this.DakOutboxUserControl_Click);
             this.Enter += new System.EventHandler(this.DakOutboxUserControl_Enter);

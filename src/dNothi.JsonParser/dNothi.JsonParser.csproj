@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllPotroParser.cs" />
     <Compile Include="Entity\Dak\DakArchiveResponse.cs" />
     <Compile Include="Entity\Dak\DakArchiveRevertResponse.cs" />
     <Compile Include="Entity\Dak\DakDecisionAddResponse.cs" />
@@ -250,6 +251,7 @@
     <Compile Include="Entity\UserMessage.cs" />
     <Compile Include="Entity\SignatureDTO.cs" />
     <Compile Include="Entity\UserDTO.cs" />
+    <Compile Include="IAllPotroParser.cs" />
     <Compile Include="INoteListParser.cs" />
     <Compile Include="IUserMessageParser.cs" />
     <Compile Include="NoteListParser.cs" />
