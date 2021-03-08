@@ -1512,8 +1512,11 @@ namespace dNothi.Desktop.UI
             btnApprove.Visible = false;
             btnUnapprove.Visible = false;
             btnPotrojari.Visible = false;
+            btnEndrosement.Visible = false;
+            btnKhoshra.Visible = false;
         }
-        public void allMulpotroButtonsVisibilityOn(int draft_history, int clone, int edit, int delete, int approve, int unapprove, int potrojari)
+        public void allMulpotroButtonsVisibilityOn(int draft_history, int clone, int edit, int delete, 
+            int approve, int unapprove, int potrojari, int endrosement, int khoshra)
         {
             if (draft_history == 1)
             {
@@ -1543,6 +1546,14 @@ namespace dNothi.Desktop.UI
             {
                 btnPotrojari.Visible = true;
             }
+            if (endrosement == 1)
+            {
+                btnEndrosement.Visible = true;
+            }
+            if (khoshra == 1)
+            {
+                btnKhoshra.Visible = true;
+            }
         }
 
         public void allLbelButtonPreviousColor()
@@ -1564,6 +1575,13 @@ namespace dNothi.Desktop.UI
 
             lbNothijato.BackColor = Color.Azure;
             lbNothijato.ForeColor = Color.FromArgb(63, 66, 84);
+        }
+
+        public void mulpotroOshongjuktiVisibilityOff()
+        {
+            //pnlMulPotroOShonjukti.Visible = false;
+            lbMulPotroOShonjukti.Visible = false;
+            btnMulPotroOShonjukti.Visible = false;
         }
 
         int i;
@@ -1766,7 +1784,8 @@ namespace dNothi.Desktop.UI
                 lbSubjectSmall.Text = "পত্র: " + khoshraPotro.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 
-                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0;
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
                 foreach (string btnName in khoshraPotro.data.records[i].mulpotro.buttons)
                 {
                     if(btnName == "draft_history")
@@ -1797,8 +1816,18 @@ namespace dNothi.Desktop.UI
                     {
                         potrojari = 1;
                     }
+                    if(btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if(btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement , khoshra);
+                
+                mulpotroOshongjuktiVisibilityOff();
 
                 totalRange = (i+1).ToString();
                 picBoxFile.Visible = false;
@@ -1840,7 +1869,8 @@ namespace dNothi.Desktop.UI
                 lbSubjectSmall.Text = "পত্র: " + khoshraPotro.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 allMulpotroButtonsVisibilityOff();
-                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0;
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
                 foreach (string btnName in khoshraPotro.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -1871,9 +1901,17 @@ namespace dNothi.Desktop.UI
                     {
                         potrojari = 1;
                     }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari);
-
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
                 khosraViewWebBrowser.Visible = true;
@@ -1904,7 +1942,8 @@ namespace dNothi.Desktop.UI
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
 
                 allMulpotroButtonsVisibilityOff();
-                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0;
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
                 foreach (string btnName in khoshraPotro.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -1935,9 +1974,17 @@ namespace dNothi.Desktop.UI
                     {
                         potrojari = 1;
                     }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari);
-
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
                 khosraViewWebBrowser.Visible = true;
@@ -1980,7 +2027,8 @@ namespace dNothi.Desktop.UI
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
 
                 allMulpotroButtonsVisibilityOff();
-                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0;
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
                 foreach (string btnName in khoshraPotro.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2011,9 +2059,17 @@ namespace dNothi.Desktop.UI
                     {
                         potrojari = 1;
                     }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari);
-
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
                 khosraViewWebBrowser.Visible = true;
@@ -2062,6 +2118,51 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(khoshraPotroWaiting.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + khoshraPotroWaiting.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotroWaiting.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
+                foreach (string btnName in khoshraPotroWaiting.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -2101,6 +2202,51 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(khoshraPotroWaiting.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + khoshraPotroWaiting.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotroWaiting.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
+                foreach (string btnName in khoshraPotroWaiting.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
                 khosraViewWebBrowser.Visible = true;
@@ -2129,6 +2275,51 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(khoshraPotroWaiting.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + khoshraPotroWaiting.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotroWaiting.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
+                foreach (string btnName in khoshraPotroWaiting.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
                 khosraViewWebBrowser.Visible = true;
@@ -2167,6 +2358,51 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(khoshraPotroWaiting.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + khoshraPotroWaiting.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotroWaiting.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
+                foreach (string btnName in khoshraPotroWaiting.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
                 khosraViewWebBrowser.Visible = true;
@@ -2215,6 +2451,64 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(potrojariList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + potrojariList.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(potrojariList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
+                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                
+                if (potrojariList.data.records[i].mulpotro.is_main == 1)
+                {
+                    pnlMulPotroOShonjukti.Visible = true;
+                    lbMulPotroOShonjukti.Visible = true;
+                    btnMulPotroOShonjukti.Visible = true;
+
+                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].mulpotro.is_main.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    mulpotroOshongjuktiVisibilityOff();
+                }
+
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -2261,6 +2555,62 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(potrojariList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + potrojariList.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(potrojariList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
+                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                if (potrojariList.data.records[i].mulpotro.is_main == 1)
+                {
+                    pnlMulPotroOShonjukti.Visible = true;
+                    lbMulPotroOShonjukti.Visible = true;
+                    btnMulPotroOShonjukti.Visible = true;
+
+                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].mulpotro.is_main.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    mulpotroOshongjuktiVisibilityOff();
+                }
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -2296,6 +2646,62 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(potrojariList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + potrojariList.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(potrojariList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
+                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                if (potrojariList.data.records[i].mulpotro.is_main == 1)
+                {
+                    pnlMulPotroOShonjukti.Visible = true;
+                    lbMulPotroOShonjukti.Visible = true;
+                    btnMulPotroOShonjukti.Visible = true;
+
+                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].mulpotro.is_main.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    mulpotroOshongjuktiVisibilityOff();
+                }
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -2341,6 +2747,62 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(potrojariList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + potrojariList.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(potrojariList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0;
+                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                if (potrojariList.data.records[i].mulpotro.is_main == 1)
+                {
+                    pnlMulPotroOShonjukti.Visible = true;
+                    lbMulPotroOShonjukti.Visible = true;
+                    btnMulPotroOShonjukti.Visible = true;
+
+                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].mulpotro.is_main.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    mulpotroOshongjuktiVisibilityOff();
+                }
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -2616,5 +3078,112 @@ namespace dNothi.Desktop.UI
             checkBox_Change(_NoteAllListDataRecordDTO, newNoteView,true);
         }
 
+        private void btnDraftHistory_MouseHover(object sender, EventArgs e)
+        {
+            btnDraftHistory.IconColor = Color.FromArgb(246, 78, 96);
+            btnDraftHistory.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void btnDraftHistory_MouseLeave(object sender, EventArgs e)
+        {
+            btnDraftHistory.IconColor = Color.FromArgb(54, 153, 255);
+            btnDraftHistory.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void btnClone_MouseHover(object sender, EventArgs e)
+        {
+            btnClone.IconColor = Color.FromArgb(246, 78, 96);
+            btnClone.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void btnClone_MouseLeave(object sender, EventArgs e)
+        {
+            btnClone.IconColor = Color.FromArgb(54, 153, 255);
+            btnClone.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void btnEdit_MouseHover(object sender, EventArgs e)
+        {
+            btnEdit.IconColor = Color.FromArgb(246, 78, 96);
+            btnEdit.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void btnEdit_MouseLeave(object sender, EventArgs e)
+        {
+            btnEdit.IconColor = Color.FromArgb(54, 153, 255);
+            btnEdit.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void btnDelete_MouseHover(object sender, EventArgs e)
+        {
+            btnDelete.IconColor = Color.FromArgb(246, 78, 96);
+            btnDelete.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void btnDelete_MouseLeave(object sender, EventArgs e)
+        {
+            btnDelete.IconColor = Color.FromArgb(54, 153, 255);
+            btnDelete.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void btnApprove_MouseHover(object sender, EventArgs e)
+        {
+            btnApprove.IconColor = Color.FromArgb(246, 78, 96);
+            btnApprove.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void btnApprove_MouseLeave(object sender, EventArgs e)
+        {
+            btnApprove.IconColor = Color.FromArgb(54, 153, 255);
+            btnApprove.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void btnUnapprove_MouseHover(object sender, EventArgs e)
+        {
+            btnUnapprove.IconColor = Color.FromArgb(246, 78, 96);
+            btnUnapprove.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void btnUnapprove_MouseLeave(object sender, EventArgs e)
+        {
+            btnUnapprove.IconColor = Color.FromArgb(54, 153, 255);
+            btnUnapprove.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void btnPotrojari_MouseHover(object sender, EventArgs e)
+        {
+            btnPotrojari.IconColor = Color.FromArgb(246, 78, 96);
+            btnPotrojari.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void btnPotrojari_MouseLeave(object sender, EventArgs e)
+        {
+            btnPotrojari.IconColor = Color.FromArgb(54, 153, 255);
+            btnPotrojari.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void btnEndrosement_MouseHover(object sender, EventArgs e)
+        {
+            btnEndrosement.IconColor = Color.FromArgb(246, 78, 96);
+            btnEndrosement.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void btnEndrosement_MouseLeave(object sender, EventArgs e)
+        {
+            btnEndrosement.IconColor = Color.FromArgb(54, 153, 255);
+            btnEndrosement.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void btnKhoshra_MouseHover(object sender, EventArgs e)
+        {
+            btnKhoshra.IconColor = Color.FromArgb(246, 78, 96);
+            btnKhoshra.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void btnKhoshra_MouseLeave(object sender, EventArgs e)
+        {
+            btnKhoshra.IconColor = Color.FromArgb(54, 153, 255);
+            btnKhoshra.BackColor = Color.FromArgb(243, 246, 249);
+        }
     }
 }

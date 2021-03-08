@@ -1,4 +1,5 @@
 ﻿using dNothi.Constants;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -14,6 +15,11 @@ namespace dNothi.Services.NothiServices
 {
     public class AllPotroServices : IAllPotroServices
     {
+        private readonly IAllPotroParser _allPotroParser;
+        public AllPotroServices(IAllPotroParser allPotroParser)
+        {
+            _allPotroParser = allPotroParser;
+        }
         public AllPotroResponse GetAllPotroInfo(DakUserParam dakUserParam, long id)
         {
             try
@@ -30,9 +36,9 @@ namespace dNothi.Services.NothiServices
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["data"].ToString();
-                //var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                AllPotroResponse allPotroResponse = JsonConvert.DeserializeObject<AllPotroResponse>(responseJson);
+                var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["data"].ToString();
+                var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                AllPotroResponse allPotroResponse = _allPotroParser.ParseMessage(responseJson);
                 return allPotroResponse;
             }
             catch (Exception ex)
