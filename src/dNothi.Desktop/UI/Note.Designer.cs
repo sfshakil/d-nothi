@@ -88,6 +88,7 @@
             this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
             this.iconButton20 = new FontAwesome.Sharp.IconButton();
             this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel29 = new System.Windows.Forms.Panel();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
             this.btnCanRevert = new FontAwesome.Sharp.IconButton();
@@ -141,6 +142,8 @@
             this.khosraViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.picBoxFile = new System.Windows.Forms.PictureBox();
             this.panel45 = new System.Windows.Forms.Panel();
+            this.btnKhoshra = new FontAwesome.Sharp.IconButton();
+            this.btnEndrosement = new FontAwesome.Sharp.IconButton();
             this.btnPotrojari = new FontAwesome.Sharp.IconButton();
             this.btnUnapprove = new FontAwesome.Sharp.IconButton();
             this.btnApprove = new FontAwesome.Sharp.IconButton();
@@ -150,6 +153,13 @@
             this.btnDraftHistory = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel44 = new System.Windows.Forms.Panel();
+            this.lbSubjectSmall = new System.Windows.Forms.Label();
+            this.lbNoteId = new System.Windows.Forms.Label();
+            this.lbLastIssueDate = new System.Windows.Forms.Label();
+            this.pnlMulPotroOShonjukti = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.iconButton11 = new FontAwesome.Sharp.IconButton();
+            this.btnMulPotroOShonjukti = new FontAwesome.Sharp.IconButton();
             this.lbMulPotroOShonjukti = new System.Windows.Forms.Label();
             this.panel42 = new System.Windows.Forms.Panel();
             this.panel43 = new System.Windows.Forms.Panel();
@@ -232,16 +242,6 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.btnEndrosement = new FontAwesome.Sharp.IconButton();
-            this.btnKhoshra = new FontAwesome.Sharp.IconButton();
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
-            this.pnlMulPotroOShonjukti = new System.Windows.Forms.Panel();
-            this.btnMulPotroOShonjukti = new FontAwesome.Sharp.IconButton();
-            this.lbSubjectSmall = new System.Windows.Forms.Label();
-            this.lbNoteId = new System.Windows.Forms.Label();
-            this.lbLastIssueDate = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -278,6 +278,8 @@
             this.panel45.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel44.SuspendLayout();
+            this.pnlMulPotroOShonjukti.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel42.SuspendLayout();
             this.panel43.SuspendLayout();
             this.panel35.SuspendLayout();
@@ -297,8 +299,6 @@
             this.panel20.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.pnlMulPotroOShonjukti.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -384,7 +384,7 @@
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Location = new System.Drawing.Point(716, 15);
             this.profilePanel.Name = "profilePanel";
-            this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.profilePanel.Padding = new System.Windows.Forms.Padding(3);
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.profilePanel.Size = new System.Drawing.Size(426, 33);
             this.profilePanel.TabIndex = 29;
@@ -1138,6 +1138,17 @@
             this.btnOnuchhedSave.UseVisualStyleBackColor = false;
             this.btnOnuchhedSave.Click += new System.EventHandler(this.btnOnuchhedSave_Click);
             // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = null;
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 1);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(874, 406);
+            this.tinyMceEditor.TabIndex = 61;
+            // 
             // panel29
             // 
             this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
@@ -1459,7 +1470,7 @@
             this.lbNothiLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNothiLastDate.Location = new System.Drawing.Point(134, 0);
             this.lbNothiLastDate.Name = "lbNothiLastDate";
-            this.lbNothiLastDate.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lbNothiLastDate.Padding = new System.Windows.Forms.Padding(5);
             this.lbNothiLastDate.Size = new System.Drawing.Size(150, 31);
             this.lbNothiLastDate.TabIndex = 71;
             this.lbNothiLastDate.Text = "lbNothiLastDate";
@@ -1473,7 +1484,7 @@
             this.lbNoteSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNoteSubject.Location = new System.Drawing.Point(0, 0);
             this.lbNoteSubject.Name = "lbNoteSubject";
-            this.lbNoteSubject.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lbNoteSubject.Padding = new System.Windows.Forms.Padding(5);
             this.lbNoteSubject.Size = new System.Drawing.Size(134, 31);
             this.lbNoteSubject.TabIndex = 70;
             this.lbNoteSubject.Text = "lbNoteSubject";
@@ -1976,6 +1987,48 @@
             this.panel45.Size = new System.Drawing.Size(825, 33);
             this.panel45.TabIndex = 1;
             // 
+            // btnKhoshra
+            // 
+            this.btnKhoshra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnKhoshra.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnKhoshra.FlatAppearance.BorderSize = 2;
+            this.btnKhoshra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhoshra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKhoshra.ForeColor = System.Drawing.Color.White;
+            this.btnKhoshra.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.btnKhoshra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnKhoshra.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnKhoshra.IconSize = 24;
+            this.btnKhoshra.Location = new System.Drawing.Point(256, 0);
+            this.btnKhoshra.Name = "btnKhoshra";
+            this.btnKhoshra.Size = new System.Drawing.Size(32, 33);
+            this.btnKhoshra.TabIndex = 83;
+            this.btnKhoshra.UseVisualStyleBackColor = false;
+            this.btnKhoshra.Visible = false;
+            this.btnKhoshra.MouseLeave += new System.EventHandler(this.btnKhoshra_MouseLeave);
+            this.btnKhoshra.MouseHover += new System.EventHandler(this.btnKhoshra_MouseHover);
+            // 
+            // btnEndrosement
+            // 
+            this.btnEndrosement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnEndrosement.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEndrosement.FlatAppearance.BorderSize = 2;
+            this.btnEndrosement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndrosement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEndrosement.ForeColor = System.Drawing.Color.White;
+            this.btnEndrosement.IconChar = FontAwesome.Sharp.IconChar.FileSignature;
+            this.btnEndrosement.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnEndrosement.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEndrosement.IconSize = 24;
+            this.btnEndrosement.Location = new System.Drawing.Point(224, 0);
+            this.btnEndrosement.Name = "btnEndrosement";
+            this.btnEndrosement.Size = new System.Drawing.Size(32, 33);
+            this.btnEndrosement.TabIndex = 82;
+            this.btnEndrosement.UseVisualStyleBackColor = false;
+            this.btnEndrosement.Visible = false;
+            this.btnEndrosement.MouseLeave += new System.EventHandler(this.btnEndrosement_MouseLeave);
+            this.btnEndrosement.MouseHover += new System.EventHandler(this.btnEndrosement_MouseHover);
+            // 
             // btnPotrojari
             // 
             this.btnPotrojari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
@@ -2145,6 +2198,116 @@
             this.panel44.Name = "panel44";
             this.panel44.Size = new System.Drawing.Size(540, 117);
             this.panel44.TabIndex = 77;
+            // 
+            // lbSubjectSmall
+            // 
+            this.lbSubjectSmall.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbSubjectSmall.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbSubjectSmall.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbSubjectSmall.Location = new System.Drawing.Point(0, 77);
+            this.lbSubjectSmall.Name = "lbSubjectSmall";
+            this.lbSubjectSmall.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
+            this.lbSubjectSmall.Size = new System.Drawing.Size(540, 38);
+            this.lbSubjectSmall.TabIndex = 85;
+            this.lbSubjectSmall.Text = "Subject";
+            // 
+            // lbNoteId
+            // 
+            this.lbNoteId.AutoSize = true;
+            this.lbNoteId.BackColor = System.Drawing.Color.White;
+            this.lbNoteId.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbNoteId.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbNoteId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteId.Location = new System.Drawing.Point(0, 54);
+            this.lbNoteId.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNoteId.Name = "lbNoteId";
+            this.lbNoteId.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
+            this.lbNoteId.Size = new System.Drawing.Size(59, 23);
+            this.lbNoteId.TabIndex = 84;
+            this.lbNoteId.Text = "নোটঃ ০";
+            // 
+            // lbLastIssueDate
+            // 
+            this.lbLastIssueDate.AutoSize = true;
+            this.lbLastIssueDate.BackColor = System.Drawing.Color.White;
+            this.lbLastIssueDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbLastIssueDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbLastIssueDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbLastIssueDate.Location = new System.Drawing.Point(0, 31);
+            this.lbLastIssueDate.Margin = new System.Windows.Forms.Padding(0);
+            this.lbLastIssueDate.Name = "lbLastIssueDate";
+            this.lbLastIssueDate.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
+            this.lbLastIssueDate.Size = new System.Drawing.Size(150, 23);
+            this.lbLastIssueDate.TabIndex = 83;
+            this.lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :";
+            // 
+            // pnlMulPotroOShonjukti
+            // 
+            this.pnlMulPotroOShonjukti.Controls.Add(this.panel4);
+            this.pnlMulPotroOShonjukti.Controls.Add(this.btnMulPotroOShonjukti);
+            this.pnlMulPotroOShonjukti.Controls.Add(this.lbMulPotroOShonjukti);
+            this.pnlMulPotroOShonjukti.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMulPotroOShonjukti.Location = new System.Drawing.Point(0, 0);
+            this.pnlMulPotroOShonjukti.Name = "pnlMulPotroOShonjukti";
+            this.pnlMulPotroOShonjukti.Size = new System.Drawing.Size(540, 31);
+            this.pnlMulPotroOShonjukti.TabIndex = 79;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.iconButton11);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(165, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(142, 31);
+            this.panel4.TabIndex = 79;
+            // 
+            // iconButton11
+            // 
+            this.iconButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton11.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton11.IconSize = 28;
+            this.iconButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton11.Location = new System.Drawing.Point(9, 0);
+            this.iconButton11.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.iconButton11.Name = "iconButton11";
+            this.iconButton11.Size = new System.Drawing.Size(133, 31);
+            this.iconButton11.TabIndex = 81;
+            this.iconButton11.Text = "প্রাপকের তালিকা";
+            this.iconButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton11.UseVisualStyleBackColor = false;
+            // 
+            // btnMulPotroOShonjukti
+            // 
+            this.btnMulPotroOShonjukti.AutoSize = true;
+            this.btnMulPotroOShonjukti.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMulPotroOShonjukti.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnMulPotroOShonjukti.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.btnMulPotroOShonjukti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMulPotroOShonjukti.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMulPotroOShonjukti.IconChar = FontAwesome.Sharp.IconChar.Link;
+            this.btnMulPotroOShonjukti.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(132)))));
+            this.btnMulPotroOShonjukti.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMulPotroOShonjukti.IconSize = 20;
+            this.btnMulPotroOShonjukti.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMulPotroOShonjukti.Location = new System.Drawing.Point(117, 0);
+            this.btnMulPotroOShonjukti.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMulPotroOShonjukti.Name = "btnMulPotroOShonjukti";
+            this.btnMulPotroOShonjukti.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnMulPotroOShonjukti.Size = new System.Drawing.Size(48, 31);
+            this.btnMulPotroOShonjukti.TabIndex = 78;
+            this.btnMulPotroOShonjukti.TabStop = false;
+            this.btnMulPotroOShonjukti.Text = "০";
+            this.btnMulPotroOShonjukti.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMulPotroOShonjukti.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnMulPotroOShonjukti.UseVisualStyleBackColor = true;
+            this.btnMulPotroOShonjukti.Visible = false;
             // 
             // lbMulPotroOShonjukti
             // 
@@ -2447,9 +2610,9 @@
             this.label16.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             this.label16.Location = new System.Drawing.Point(8, 7);
-            this.label16.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.label16.Margin = new System.Windows.Forms.Padding(3);
             this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.label16.Padding = new System.Windows.Forms.Padding(2);
             this.label16.Size = new System.Drawing.Size(176, 25);
             this.label16.TabIndex = 19;
             this.label16.Text = "নোটে কোন সংযুক্ত পত্র নেই ";
@@ -2610,7 +2773,7 @@
             this.lbNote.Location = new System.Drawing.Point(0, 0);
             this.lbNote.Margin = new System.Windows.Forms.Padding(0);
             this.lbNote.Name = "lbNote";
-            this.lbNote.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.lbNote.Padding = new System.Windows.Forms.Padding(8);
             this.lbNote.Size = new System.Drawing.Size(54, 38);
             this.lbNote.TabIndex = 61;
             this.lbNote.Text = "নোটঃ";
@@ -2969,7 +3132,7 @@
             this.pnlNothi.Location = new System.Drawing.Point(0, 0);
             this.pnlNothi.Margin = new System.Windows.Forms.Padding(0);
             this.pnlNothi.Name = "pnlNothi";
-            this.pnlNothi.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pnlNothi.Padding = new System.Windows.Forms.Padding(8);
             this.pnlNothi.Size = new System.Drawing.Size(54, 37);
             this.pnlNothi.TabIndex = 60;
             this.pnlNothi.Text = "নথিঃ";
@@ -3112,7 +3275,7 @@
             this.lbNothiType.Location = new System.Drawing.Point(11, 4);
             this.lbNothiType.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiType.Name = "lbNothiType";
-            this.lbNothiType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbNothiType.Padding = new System.Windows.Forms.Padding(4);
             this.lbNothiType.Size = new System.Drawing.Size(66, 29);
             this.lbNothiType.TabIndex = 72;
             this.lbNothiType.Text = "অনুচ্ছেদ";
@@ -3164,9 +3327,9 @@
             this.btnNewNote.IconSize = 20;
             this.btnNewNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNewNote.Location = new System.Drawing.Point(0, 69);
-            this.btnNewNote.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnNewNote.Margin = new System.Windows.Forms.Padding(5);
             this.btnNewNote.Name = "btnNewNote";
-            this.btnNewNote.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnNewNote.Padding = new System.Windows.Forms.Padding(5);
             this.btnNewNote.Size = new System.Drawing.Size(200, 41);
             this.btnNewNote.TabIndex = 41;
             this.btnNewNote.Text = " নতুন নোট ";
@@ -3232,169 +3395,6 @@
             // 
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
-            // 
-            // btnEndrosement
-            // 
-            this.btnEndrosement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnEndrosement.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnEndrosement.FlatAppearance.BorderSize = 2;
-            this.btnEndrosement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEndrosement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEndrosement.ForeColor = System.Drawing.Color.White;
-            this.btnEndrosement.IconChar = FontAwesome.Sharp.IconChar.FileSignature;
-            this.btnEndrosement.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnEndrosement.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEndrosement.IconSize = 24;
-            this.btnEndrosement.Location = new System.Drawing.Point(224, 0);
-            this.btnEndrosement.Name = "btnEndrosement";
-            this.btnEndrosement.Size = new System.Drawing.Size(32, 33);
-            this.btnEndrosement.TabIndex = 82;
-            this.btnEndrosement.UseVisualStyleBackColor = false;
-            this.btnEndrosement.Visible = false;
-            this.btnEndrosement.MouseLeave += new System.EventHandler(this.btnEndrosement_MouseLeave);
-            this.btnEndrosement.MouseHover += new System.EventHandler(this.btnEndrosement_MouseHover);
-            // 
-            // btnKhoshra
-            // 
-            this.btnKhoshra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnKhoshra.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnKhoshra.FlatAppearance.BorderSize = 2;
-            this.btnKhoshra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKhoshra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhoshra.ForeColor = System.Drawing.Color.White;
-            this.btnKhoshra.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.btnKhoshra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnKhoshra.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnKhoshra.IconSize = 24;
-            this.btnKhoshra.Location = new System.Drawing.Point(256, 0);
-            this.btnKhoshra.Name = "btnKhoshra";
-            this.btnKhoshra.Size = new System.Drawing.Size(32, 33);
-            this.btnKhoshra.TabIndex = 83;
-            this.btnKhoshra.UseVisualStyleBackColor = false;
-            this.btnKhoshra.Visible = false;
-            this.btnKhoshra.MouseLeave += new System.EventHandler(this.btnKhoshra_MouseLeave);
-            this.btnKhoshra.MouseHover += new System.EventHandler(this.btnKhoshra_MouseHover);
-            // 
-            // tinyMceEditor
-            // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = null;
-            this.tinyMceEditor.Location = new System.Drawing.Point(0, 1);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
-            this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(874, 406);
-            this.tinyMceEditor.TabIndex = 61;
-            // 
-            // pnlMulPotroOShonjukti
-            // 
-            this.pnlMulPotroOShonjukti.Controls.Add(this.panel4);
-            this.pnlMulPotroOShonjukti.Controls.Add(this.btnMulPotroOShonjukti);
-            this.pnlMulPotroOShonjukti.Controls.Add(this.lbMulPotroOShonjukti);
-            this.pnlMulPotroOShonjukti.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMulPotroOShonjukti.Location = new System.Drawing.Point(0, 0);
-            this.pnlMulPotroOShonjukti.Name = "pnlMulPotroOShonjukti";
-            this.pnlMulPotroOShonjukti.Size = new System.Drawing.Size(540, 31);
-            this.pnlMulPotroOShonjukti.TabIndex = 79;
-            // 
-            // btnMulPotroOShonjukti
-            // 
-            this.btnMulPotroOShonjukti.AutoSize = true;
-            this.btnMulPotroOShonjukti.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnMulPotroOShonjukti.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnMulPotroOShonjukti.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
-            this.btnMulPotroOShonjukti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMulPotroOShonjukti.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMulPotroOShonjukti.IconChar = FontAwesome.Sharp.IconChar.Link;
-            this.btnMulPotroOShonjukti.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(132)))));
-            this.btnMulPotroOShonjukti.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMulPotroOShonjukti.IconSize = 20;
-            this.btnMulPotroOShonjukti.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMulPotroOShonjukti.Location = new System.Drawing.Point(117, 0);
-            this.btnMulPotroOShonjukti.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMulPotroOShonjukti.Name = "btnMulPotroOShonjukti";
-            this.btnMulPotroOShonjukti.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnMulPotroOShonjukti.Size = new System.Drawing.Size(48, 31);
-            this.btnMulPotroOShonjukti.TabIndex = 78;
-            this.btnMulPotroOShonjukti.TabStop = false;
-            this.btnMulPotroOShonjukti.Text = "০";
-            this.btnMulPotroOShonjukti.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMulPotroOShonjukti.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnMulPotroOShonjukti.UseVisualStyleBackColor = true;
-            this.btnMulPotroOShonjukti.Visible = false;
-            // 
-            // lbSubjectSmall
-            // 
-            this.lbSubjectSmall.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbSubjectSmall.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbSubjectSmall.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbSubjectSmall.Location = new System.Drawing.Point(0, 77);
-            this.lbSubjectSmall.Name = "lbSubjectSmall";
-            this.lbSubjectSmall.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
-            this.lbSubjectSmall.Size = new System.Drawing.Size(540, 38);
-            this.lbSubjectSmall.TabIndex = 85;
-            this.lbSubjectSmall.Text = "Subject";
-            // 
-            // lbNoteId
-            // 
-            this.lbNoteId.AutoSize = true;
-            this.lbNoteId.BackColor = System.Drawing.Color.White;
-            this.lbNoteId.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbNoteId.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNoteId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteId.Location = new System.Drawing.Point(0, 54);
-            this.lbNoteId.Margin = new System.Windows.Forms.Padding(0);
-            this.lbNoteId.Name = "lbNoteId";
-            this.lbNoteId.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
-            this.lbNoteId.Size = new System.Drawing.Size(59, 23);
-            this.lbNoteId.TabIndex = 84;
-            this.lbNoteId.Text = "নোটঃ ০";
-            // 
-            // lbLastIssueDate
-            // 
-            this.lbLastIssueDate.AutoSize = true;
-            this.lbLastIssueDate.BackColor = System.Drawing.Color.White;
-            this.lbLastIssueDate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbLastIssueDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbLastIssueDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLastIssueDate.Location = new System.Drawing.Point(0, 31);
-            this.lbLastIssueDate.Margin = new System.Windows.Forms.Padding(0);
-            this.lbLastIssueDate.Name = "lbLastIssueDate";
-            this.lbLastIssueDate.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
-            this.lbLastIssueDate.Size = new System.Drawing.Size(150, 23);
-            this.lbLastIssueDate.TabIndex = 83;
-            this.lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.iconButton11);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(165, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(142, 31);
-            this.panel4.TabIndex = 79;
-            // 
-            // iconButton11
-            // 
-            this.iconButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.iconButton11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton11.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.IconSize = 28;
-            this.iconButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton11.Location = new System.Drawing.Point(9, 0);
-            this.iconButton11.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Size = new System.Drawing.Size(133, 31);
-            this.iconButton11.TabIndex = 81;
-            this.iconButton11.Text = "প্রাপকের তালিকা";
-            this.iconButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton11.UseVisualStyleBackColor = false;
             // 
             // Note
             // 
@@ -3464,6 +3464,9 @@
             this.panel1.ResumeLayout(false);
             this.panel44.ResumeLayout(false);
             this.panel44.PerformLayout();
+            this.pnlMulPotroOShonjukti.ResumeLayout(false);
+            this.pnlMulPotroOShonjukti.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.panel42.ResumeLayout(false);
             this.panel43.ResumeLayout(false);
             this.panel43.PerformLayout();
@@ -3497,9 +3500,6 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
-            this.pnlMulPotroOShonjukti.ResumeLayout(false);
-            this.pnlMulPotroOShonjukti.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
