@@ -12,7 +12,9 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class NothiOnumodonLevel : UserControl
     {
-        private int _designationId;
+        public int _designationId;
+
+        public List<int> _designationIds;
         public NothiOnumodonLevel()
         {
             InitializeComponent();
@@ -36,6 +38,24 @@ namespace dNothi.Desktop.UI.Dak
         public int _layerIndex;
         private string _name;
         private string _designation;
+        public bool _checked;
+       
+        public bool checkedBox { 
+            get
+            { return _checked; } 
+           set { _checked = value;
+            if(value)
+                {
+                    cbxNiontron.Checked = true;
+                }
+            else
+                {
+                    cbxNiontron.Checked = false;
+                }
+            
+            }
+        }
+
         public int layerIndex
         {
             get { return _layerIndex; }
@@ -87,28 +107,49 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DeleteButtonClick;
         private void deleteButton_Click(object sender, EventArgs e, int id)
         {
-            _designationId = id;
+            var nothiOfficer = officerTableLayoutPanel.Controls.OfType<NothiOnumodonOfficer>().Where(a=>a.Visible==true).ToList();
+            
+                _designationId = id;
             if (this.DeleteButtonClick != null)
                 this.DeleteButtonClick(sender, e);
-
+            if (nothiOfficer != null && nothiOfficer.Count==1)
+            {
+                this.Hide();
+            }
         }
+       
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when user clicks button")]
         public event EventHandler CheckboxButtonClick;
         private void cbxControl_CheckedChanged(object sender, EventArgs e)
         {
+            
             if (this.CheckboxButtonClick != null)
                 this.CheckboxButtonClick(sender, e);
         }
 
-
+       
         public event EventHandler DeleteLevelButtonClick;
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            var nothiOfficer = officerTableLayoutPanel.Controls.OfType<NothiOnumodonOfficer>().ToList();
+            _designationIds.Clear();
+            if (nothiOfficer != null && nothiOfficer.Count>0)
+            {
+                foreach(NothiOnumodonOfficer nothiOnumodonOfficer in nothiOfficer)
+                {
+                    _designationIds.Add(nothiOnumodonOfficer._designationid);
+                }
+            }
             
-            if (this.DeleteButtonClick != null)
-                this.DeleteButtonClick(sender, e);
+
+
+
+            if (this.DeleteLevelButtonClick != null)
+                this.DeleteLevelButtonClick(sender, e);
+
+
             this.Hide();
         }
 
