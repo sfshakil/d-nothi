@@ -12,5 +12,7 @@ namespace dNothi.JsonParser.Entity
         public List<OfficeInfoDTO> office_info { get; set; }
         public string token { get; set; }
         public SignatureDTO signature { get; set; }
+
+        public int office_sync { get; set; }
     }
 }

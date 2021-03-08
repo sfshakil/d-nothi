@@ -61,13 +61,13 @@ namespace dNothi.Desktop.UI.Dak
 
 
             nothiOnumodonOfficer.officerName = officerName;
-            nothiOnumodonOfficer.Name = designation;
+            nothiOnumodonOfficer.designation = designation;
             nothiOnumodonOfficer.designationid = designationId;
             nothiOnumodonOfficer.DeleteButton += delegate (object sender, EventArgs e) { deleteButton_Click(sender, e, nothiOnumodonOfficer._designationid); };
 
 
 
-            nothiOnumodonOfficer.Dock = DockStyle.Fill;
+            //nothiOnumodonOfficer.Dock = DockStyle.Fill;
 
             int row = this.officerTableLayoutPanel.RowCount++;
 
@@ -110,6 +110,30 @@ namespace dNothi.Desktop.UI.Dak
             if (this.DeleteButtonClick != null)
                 this.DeleteButtonClick(sender, e);
             this.Hide();
+        }
+
+        private void officerTableLayoutPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void officerTableLayoutPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            NothiOnumodonLevel data = (NothiOnumodonLevel)e.Data.GetData(typeof(NothiOnumodonLevel));
+
+            TableLayoutPanel _destination = (TableLayoutPanel)sender;
+            TableLayoutPanel _source = (TableLayoutPanel)data.Parent;
+
+            if (_source == _destination)
+            {
+                // Just add the control to the new panel.
+                // No need to remove from the other panel, this changes the Control.Parent property.
+                Point p = _destination.PointToClient(new Point(e.X, e.Y));
+                var item = _destination.GetChildAtPoint(p);
+                int index = _destination.Controls.GetChildIndex(item, false);
+                _destination.Controls.SetChildIndex(data, index);
+                _destination.Invalidate();
+            }
         }
     }
 }
