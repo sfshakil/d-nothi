@@ -1617,7 +1617,10 @@ namespace dNothi.Desktop.UI
                     lbPotroSubject.Text = allPotro.data.records[i].basic.subject+ "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0,index).ToString().Select(c => (char)('\u09E6' + c - '0')))  + "-"+ string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index+1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
                     lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
-                    lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    if (allPotro.data.records[i].note_ownerDTOList.Count > 0)
+                    {
+                        lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_ownerDTOList[0].note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
                     lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
@@ -1662,7 +1665,10 @@ namespace dNothi.Desktop.UI
                     lbPotroSubject.Text = allPotro.data.records[i].basic.subject + "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) + "-" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
                     lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
-                    lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    if (allPotro.data.records[i].note_ownerDTOList.Count > 0)
+                    {
+                        lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_ownerDTOList[0].note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
                     lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
@@ -1696,7 +1702,10 @@ namespace dNothi.Desktop.UI
                     lbPotroSubject.Text = allPotro.data.records[i].basic.subject + "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) + "-" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
                     lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
-                    lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    if (allPotro.data.records[i].note_ownerDTOList.Count > 0)
+                    {
+                        lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_ownerDTOList[0].note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
                     lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
@@ -1739,7 +1748,10 @@ namespace dNothi.Desktop.UI
                     lbPotroSubject.Text = allPotro.data.records[i].basic.subject + "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) + "-" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
                     lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
-                    lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    if (allPotro.data.records[i].note_ownerDTOList.Count > 0)
+                    {
+                        lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_ownerDTOList[0].note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
                     lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
