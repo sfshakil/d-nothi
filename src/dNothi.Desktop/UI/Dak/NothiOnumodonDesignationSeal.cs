@@ -843,6 +843,8 @@ namespace dNothi.Desktop.UI.Dak
             {
                 onumodonDataRecordDTO.layer_index = id + 1;
             }
+            List<onumodonDataRecordDTO> countOnumodonDataRecordDTO = _currentOnumodonRow.Where(a => a.layer_index == onumodonDataRecordDTO.layer_index).ToList();
+
 
             onumodonDataRecordDTO.officer_id = officer.officer_id;
             onumodonDataRecordDTO.office_id = officer.office_id;
@@ -853,13 +855,12 @@ namespace dNothi.Desktop.UI.Dak
             onumodonDataRecordDTO.designation_level = officer.designation_level;
             onumodonDataRecordDTO.designation_id = officer.designation_id;
             onumodonDataRecordDTO.designation = officer.designation;
-            
+            onumodonDataRecordDTO.route_index = countOnumodonDataRecordDTO.Count + 1 ;
+          
 
             _currentOnumodonRow.Add(onumodonDataRecordDTO);
 
-            var countOnumodonDataRecordDTO= _currentOnumodonRow.Where(a=>a.layer_index== onumodonDataRecordDTO.layer_index)
-
-            LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a=>a.layer_index).ToList());
+                LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a=>a.layer_index).ToList());
 
             
         }
