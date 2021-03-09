@@ -1481,7 +1481,7 @@ namespace dNothi.Desktop.UI
             }
             catch
             {
-                decodedString = decodedString.Replace('-', '+').Replace('_', '/').Replace(',', '=');
+                decodedString = decodedString.Replace('-', '+').Replace('_', '/').Replace(',', '=').Replace("&quot;", "");
                 byte[] data = Convert.FromBase64String(decodedString);
                 decodedString = Encoding.UTF8.GetString(data);// &quot;
                 return decodedString;
@@ -1514,9 +1514,11 @@ namespace dNothi.Desktop.UI
             btnPotrojari.Visible = false;
             btnEndrosement.Visible = false;
             btnKhoshra.Visible = false;
+            btnFullEditable.Visible = false;
+            btnCustom.Visible = false;
         }
         public void allMulpotroButtonsVisibilityOn(int draft_history, int clone, int edit, int delete, 
-            int approve, int unapprove, int potrojari, int endrosement, int khoshra)
+            int approve, int unapprove, int potrojari, int endrosement, int khoshra, int fulleditable, int custom)
         {
             if (draft_history == 1)
             {
@@ -1553,6 +1555,14 @@ namespace dNothi.Desktop.UI
             if (khoshra == 1)
             {
                 btnKhoshra.Visible = true;
+            }
+            if (fulleditable == 1)
+            {
+                btnFullEditable.Visible = true;
+            }
+            if (custom == 1)
+            {
+                btnCustom.Visible = true;
             }
         }
 
@@ -1616,12 +1626,79 @@ namespace dNothi.Desktop.UI
                     int totalLength = allPotro.data.records[i].basic.page_numbers.Length;
                     lbPotroSubject.Text = allPotro.data.records[i].basic.subject+ "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0,index).ToString().Select(c => (char)('\u09E6' + c - '0')))  + "-"+ string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index+1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
-                    lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
+                    lbSubjectSmall.Text = "পত্র: " + allPotro.data.records[i].basic.subject;
                     if (allPotro.data.records[i].note_ownerDTOList.Count > 0)
                     {
                         lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_ownerDTOList[0].note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     }
                     lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                    allMulpotroButtonsVisibilityOff();
+                    int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                        endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttons)
+                    {
+                        if (btnName == "draft_history")
+                        {
+                            draft_history = 1;
+                        }
+                        if (btnName == "clone")
+                        {
+                            clone = 1;
+                        }
+                        if (btnName == "edit")
+                        {
+                            edit = 1;
+                        }
+                        if (btnName == "delete")
+                        {
+                            delete = 1;
+                        }
+                        if (btnName == "approve")
+                        {
+                            approve = 1;
+                        }
+                        if (btnName == "unapprove")
+                        {
+                            unapprove = 1;
+                        }
+                        if (btnName == "potrojari")
+                        {
+                            potrojari = 1;
+                        }
+                        if (btnName == "endorsement")
+                        {
+                            endrosement = 1;
+                        }
+                        if (btnName == "khoshra")
+                        {
+                            khoshra = 1;
+                        }
+                        if (btnName == "full_editable")
+                        {
+                            fulleditable = 1;
+                        }
+                        if (btnName == "custom")
+                        {
+                            custom = 1;
+                        }
+                    }
+                    allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, 
+                        unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                    if (allPotro.data.records[i].mulpotro.is_main == 1)
+                    {
+                        pnlMulPotroOShonjukti.Visible = true;
+                        lbMulPotroOShonjukti.Visible = true;
+                        btnMulPotroOShonjukti.Visible = true;
+
+                        btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        mulpotroOshongjuktiVisibilityOff();
+                    }
+
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
                     {
@@ -1664,12 +1741,79 @@ namespace dNothi.Desktop.UI
                     int totalLength = allPotro.data.records[i].basic.page_numbers.Length;
                     lbPotroSubject.Text = allPotro.data.records[i].basic.subject + "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) + "-" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
-                    lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
+                    lbSubjectSmall.Text = "পত্র: " + allPotro.data.records[i].basic.subject;
                     if (allPotro.data.records[i].note_ownerDTOList.Count > 0)
                     {
                         lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_ownerDTOList[0].note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     }
                     lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                    allMulpotroButtonsVisibilityOff();
+                    int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                        endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttons)
+                    {
+                        if (btnName == "draft_history")
+                        {
+                            draft_history = 1;
+                        }
+                        if (btnName == "clone")
+                        {
+                            clone = 1;
+                        }
+                        if (btnName == "edit")
+                        {
+                            edit = 1;
+                        }
+                        if (btnName == "delete")
+                        {
+                            delete = 1;
+                        }
+                        if (btnName == "approve")
+                        {
+                            approve = 1;
+                        }
+                        if (btnName == "unapprove")
+                        {
+                            unapprove = 1;
+                        }
+                        if (btnName == "potrojari")
+                        {
+                            potrojari = 1;
+                        }
+                        if (btnName == "endorsement")
+                        {
+                            endrosement = 1;
+                        }
+                        if (btnName == "khoshra")
+                        {
+                            khoshra = 1;
+                        }
+                        if (btnName == "full_editable")
+                        {
+                            fulleditable = 1;
+                        }
+                        if (btnName == "custom")
+                        {
+                            custom = 1;
+                        }
+                    }
+                    allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                        unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                    if (allPotro.data.records[i].mulpotro.is_main == 1)
+                    {
+                        pnlMulPotroOShonjukti.Visible = true;
+                        lbMulPotroOShonjukti.Visible = true;
+                        btnMulPotroOShonjukti.Visible = true;
+
+                        btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        mulpotroOshongjuktiVisibilityOff();
+                    }
+
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
                     {
@@ -1701,12 +1845,79 @@ namespace dNothi.Desktop.UI
                     int totalLength = allPotro.data.records[i].basic.page_numbers.Length;
                     lbPotroSubject.Text = allPotro.data.records[i].basic.subject + "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) + "-" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
-                    lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
+                    lbSubjectSmall.Text = "পত্র: " + allPotro.data.records[i].basic.subject;
                     if (allPotro.data.records[i].note_ownerDTOList.Count > 0)
                     {
                         lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_ownerDTOList[0].note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     }
                     lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                    allMulpotroButtonsVisibilityOff();
+                    int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                        endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttons)
+                    {
+                        if (btnName == "draft_history")
+                        {
+                            draft_history = 1;
+                        }
+                        if (btnName == "clone")
+                        {
+                            clone = 1;
+                        }
+                        if (btnName == "edit")
+                        {
+                            edit = 1;
+                        }
+                        if (btnName == "delete")
+                        {
+                            delete = 1;
+                        }
+                        if (btnName == "approve")
+                        {
+                            approve = 1;
+                        }
+                        if (btnName == "unapprove")
+                        {
+                            unapprove = 1;
+                        }
+                        if (btnName == "potrojari")
+                        {
+                            potrojari = 1;
+                        }
+                        if (btnName == "endorsement")
+                        {
+                            endrosement = 1;
+                        }
+                        if (btnName == "khoshra")
+                        {
+                            khoshra = 1;
+                        }
+                        if (btnName == "full_editable")
+                        {
+                            fulleditable = 1;
+                        }
+                        if (btnName == "custom")
+                        {
+                            custom = 1;
+                        }
+                    }
+                    allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                        unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                    if (allPotro.data.records[i].mulpotro.is_main == 1)
+                    {
+                        pnlMulPotroOShonjukti.Visible = true;
+                        lbMulPotroOShonjukti.Visible = true;
+                        btnMulPotroOShonjukti.Visible = true;
+
+                        btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        mulpotroOshongjuktiVisibilityOff();
+                    }
+
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
                     {
@@ -1747,12 +1958,79 @@ namespace dNothi.Desktop.UI
                     int totalLength = allPotro.data.records[i].basic.page_numbers.Length;
                     lbPotroSubject.Text = allPotro.data.records[i].basic.subject + "(পাতা:" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) + "-" + string.Concat(allPotro.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + allPotro.data.records[i].basic.due_date;
-                    lbSubjectSmall.Text = allPotro.data.records[i].basic.subject;
+                    lbSubjectSmall.Text = "পত্র: " + allPotro.data.records[i].basic.subject;
                     if (allPotro.data.records[i].note_ownerDTOList.Count > 0)
                     {
                         lbNoteId.Text = "নোটঃ " + string.Concat(allPotro.data.records[i].note_ownerDTOList[0].note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     }
                     lbTotal.Text = "সর্বমোট: " + string.Concat(allPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                    allMulpotroButtonsVisibilityOff();
+                    int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                        endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttons)
+                    {
+                        if (btnName == "draft_history")
+                        {
+                            draft_history = 1;
+                        }
+                        if (btnName == "clone")
+                        {
+                            clone = 1;
+                        }
+                        if (btnName == "edit")
+                        {
+                            edit = 1;
+                        }
+                        if (btnName == "delete")
+                        {
+                            delete = 1;
+                        }
+                        if (btnName == "approve")
+                        {
+                            approve = 1;
+                        }
+                        if (btnName == "unapprove")
+                        {
+                            unapprove = 1;
+                        }
+                        if (btnName == "potrojari")
+                        {
+                            potrojari = 1;
+                        }
+                        if (btnName == "endorsement")
+                        {
+                            endrosement = 1;
+                        }
+                        if (btnName == "khoshra")
+                        {
+                            khoshra = 1;
+                        }
+                        if (btnName == "full_editable")
+                        {
+                            fulleditable = 1;
+                        }
+                        if (btnName == "custom")
+                        {
+                            custom = 1;
+                        }
+                    }
+                    allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                        unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                    if (allPotro.data.records[i].mulpotro.is_main == 1)
+                    {
+                        pnlMulPotroOShonjukti.Visible = true;
+                        lbMulPotroOShonjukti.Visible = true;
+                        btnMulPotroOShonjukti.Visible = true;
+
+                        btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        mulpotroOshongjuktiVisibilityOff();
+                    }
+
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
                     {
@@ -1795,50 +2073,58 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(khoshraPotro.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + khoshraPotro.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                
+
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in khoshraPotro.data.records[i].mulpotro.buttons)
                 {
-                    if(btnName == "draft_history")
+                    if (btnName == "draft_history")
                     {
                         draft_history = 1;
                     }
-                    if(btnName == "clone")
+                    if (btnName == "clone")
                     {
                         clone = 1;
                     }
-                    if(btnName == "edit")
+                    if (btnName == "edit")
                     {
                         edit = 1;
                     }
-                    if(btnName == "delete")
+                    if (btnName == "delete")
                     {
                         delete = 1;
                     }
-                    if(btnName == "approve")
+                    if (btnName == "approve")
                     {
                         approve = 1;
                     }
-                    if(btnName == "unapprove")
+                    if (btnName == "unapprove")
                     {
                         unapprove = 1;
                     }
-                    if(btnName == "potrojari")
+                    if (btnName == "potrojari")
                     {
                         potrojari = 1;
                     }
-                    if(btnName == "endorsement")
+                    if (btnName == "endorsement")
                     {
                         endrosement = 1;
                     }
-                    if(btnName == "khoshra")
+                    if (btnName == "khoshra")
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement , khoshra);
-                
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
                 mulpotroOshongjuktiVisibilityOff();
 
                 totalRange = (i+1).ToString();
@@ -1882,7 +2168,7 @@ namespace dNothi.Desktop.UI
                 lbTotal.Text = "সর্বমোট: " + string.Concat(khoshraPotro.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in khoshraPotro.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -1921,9 +2207,19 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom); 
                 mulpotroOshongjuktiVisibilityOff();
+
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
                 khosraViewWebBrowser.Visible = true;
@@ -1955,7 +2251,7 @@ namespace dNothi.Desktop.UI
 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in khoshraPotro.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -1994,8 +2290,17 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom); 
                 mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
@@ -2040,7 +2345,7 @@ namespace dNothi.Desktop.UI
 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in khoshraPotro.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2079,8 +2384,17 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom); 
                 mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
@@ -2133,7 +2447,7 @@ namespace dNothi.Desktop.UI
                 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in khoshraPotroWaiting.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2172,8 +2486,17 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom); 
                 mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
 
@@ -2217,7 +2540,7 @@ namespace dNothi.Desktop.UI
 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in khoshraPotroWaiting.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2256,8 +2579,17 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom); 
                 mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
@@ -2290,7 +2622,7 @@ namespace dNothi.Desktop.UI
 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in khoshraPotroWaiting.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2329,8 +2661,17 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom); 
                 mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
@@ -2373,7 +2714,7 @@ namespace dNothi.Desktop.UI
 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in khoshraPotroWaiting.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2412,8 +2753,17 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom); 
                 mulpotroOshongjuktiVisibilityOff();
                 totalRange = (i + 1).ToString();
                 picBoxFile.Visible = false;
@@ -2466,7 +2816,7 @@ namespace dNothi.Desktop.UI
 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2505,16 +2855,24 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
-                
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
                 if (potrojariList.data.records[i].mulpotro.is_main == 1)
                 {
                     pnlMulPotroOShonjukti.Visible = true;
                     lbMulPotroOShonjukti.Visible = true;
                     btnMulPotroOShonjukti.Visible = true;
 
-                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].mulpotro.is_main.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 }
                 else
                 {
@@ -2570,7 +2928,7 @@ namespace dNothi.Desktop.UI
 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2609,15 +2967,24 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom); 
                 if (potrojariList.data.records[i].mulpotro.is_main == 1)
                 {
                     pnlMulPotroOShonjukti.Visible = true;
                     lbMulPotroOShonjukti.Visible = true;
                     btnMulPotroOShonjukti.Visible = true;
 
-                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].mulpotro.is_main.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 }
                 else
                 {
@@ -2661,7 +3028,7 @@ namespace dNothi.Desktop.UI
 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2700,15 +3067,24 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
                 if (potrojariList.data.records[i].mulpotro.is_main == 1)
                 {
                     pnlMulPotroOShonjukti.Visible = true;
                     lbMulPotroOShonjukti.Visible = true;
                     btnMulPotroOShonjukti.Visible = true;
 
-                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].mulpotro.is_main.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 }
                 else
                 {
@@ -2762,7 +3138,7 @@ namespace dNothi.Desktop.UI
 
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
-                    endrosement = 0, khoshra = 0;
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
                 foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
                 {
                     if (btnName == "draft_history")
@@ -2801,15 +3177,24 @@ namespace dNothi.Desktop.UI
                     {
                         khoshra = 1;
                     }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
                 }
-                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve, unapprove, potrojari, endrosement, khoshra);
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
                 if (potrojariList.data.records[i].mulpotro.is_main == 1)
                 {
                     pnlMulPotroOShonjukti.Visible = true;
                     lbMulPotroOShonjukti.Visible = true;
                     btnMulPotroOShonjukti.Visible = true;
 
-                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].mulpotro.is_main.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 }
                 else
                 {
@@ -3197,5 +3582,6 @@ namespace dNothi.Desktop.UI
             btnKhoshra.IconColor = Color.FromArgb(54, 153, 255);
             btnKhoshra.BackColor = Color.FromArgb(243, 246, 249);
         }
+
     }
 }
