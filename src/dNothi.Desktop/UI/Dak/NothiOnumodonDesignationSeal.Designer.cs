@@ -63,7 +63,7 @@
             this.saveDesignationSealButton = new FontAwesome.Sharp.IconButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.nothiOnumodonFLP = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.allCheckBox = new System.Windows.Forms.CheckBox();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
@@ -466,7 +466,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.nothiOnumodonFLP);
-            this.panel5.Controls.Add(this.checkBox1);
+            this.panel5.Controls.Add(this.allCheckBox);
             this.panel5.Location = new System.Drawing.Point(564, 133);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(524, 533);
@@ -489,19 +489,20 @@
             this.nothiOnumodonFLP.DragDrop += new System.Windows.Forms.DragEventHandler(this.nothiOnumodonFLP_DragDrop);
             this.nothiOnumodonFLP.DragEnter += new System.Windows.Forms.DragEventHandler(this.nothiOnumodonFLP_DragEnter);
             // 
-            // checkBox1
+            // allCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.checkBox1.Location = new System.Drawing.Point(0, 0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Padding = new System.Windows.Forms.Padding(20);
-            this.checkBox1.Size = new System.Drawing.Size(524, 62);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "সকল নিয়ন্ত্রিত";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.allCheckBox.AutoSize = true;
+            this.allCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.allCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.allCheckBox.Location = new System.Drawing.Point(0, 0);
+            this.allCheckBox.Name = "allCheckBox";
+            this.allCheckBox.Padding = new System.Windows.Forms.Padding(20);
+            this.allCheckBox.Size = new System.Drawing.Size(524, 62);
+            this.allCheckBox.TabIndex = 0;
+            this.allCheckBox.Text = "সকল নিয়ন্ত্রিত";
+            this.allCheckBox.UseVisualStyleBackColor = true;
+            this.allCheckBox.CheckedChanged += new System.EventHandler(this.allCheckBox_CheckedChanged);
             // 
             // iconButton7
             // 
@@ -618,7 +619,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox allCheckBox;
         private System.Windows.Forms.FlowLayoutPanel nothiOnumodonFLP;
     }
 }
