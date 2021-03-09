@@ -114,6 +114,8 @@ namespace dNothi.Desktop.UI.Dak
                 this.DeleteButtonClick(sender, e);
             if (nothiOfficer != null && nothiOfficer.Count==1)
             {
+                if (this.DeleteLevelButtonClick != null)
+                    this.DeleteLevelButtonClick(sender, e);
                 this.Hide();
             }
         }
@@ -133,15 +135,7 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DeleteLevelButtonClick;
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            var nothiOfficer = officerTableLayoutPanel.Controls.OfType<NothiOnumodonOfficer>().ToList();
-            _designationIds.Clear();
-            if (nothiOfficer != null && nothiOfficer.Count>0)
-            {
-                foreach(NothiOnumodonOfficer nothiOnumodonOfficer in nothiOfficer)
-                {
-                    _designationIds.Add(nothiOnumodonOfficer._designationid);
-                }
-            }
+           
             
 
 
@@ -175,6 +169,11 @@ namespace dNothi.Desktop.UI.Dak
                 _destination.Controls.SetChildIndex(data, index);
                 _destination.Invalidate();
             }
+        }
+
+        private void cbxNiontron_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -40,7 +40,15 @@ namespace dNothi.Desktop.UI.ManuelUserControl
                 searchButton.Text = value;
             }
         }
-
+        public int selectedId
+        {
+            get { return _id; }
+            set
+            {
+                _id = value;
+             
+            }
+        }
         private void searchButton_Click(object sender, EventArgs e)
         {
             if (searchPanel.Visible)
@@ -146,6 +154,17 @@ namespace dNothi.Desktop.UI.ManuelUserControl
                 }
             }
         
+        }
+        public void isSearchBoxShown(bool decision)
+        {
+            if(decision)
+            {
+                searchBoxPanel.Visible = true;
+            }
+            else
+            {
+                searchBoxPanel.Visible = false;
+            }
         }
 
     }

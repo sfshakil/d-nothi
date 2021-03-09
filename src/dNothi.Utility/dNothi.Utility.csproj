@@ -79,6 +79,7 @@
     <Compile Include="IScheduleJobRunner.cs" />
     <Compile Include="LongExtensions.cs" />
     <Compile Include="Md5EncryptDecryptor.cs" />
+    <Compile Include="OnumodonLevel.cs" />
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />
