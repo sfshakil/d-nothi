@@ -1,4 +1,6 @@
-﻿using dNothi.JsonParser.Entity;
+﻿
+using dNothi.Desktop.UI.NothiUI;
+using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
@@ -166,7 +168,7 @@ namespace dNothi.Desktop.UI.Dak
                         nothiOnumodonRow.level = group.Key.ToString();
                         nothiOnumodonRow.layerIndex = group.Key;
                         nothiOnumodonRow.DeleteButtonClick += delegate (object sender, EventArgs e) { officerdeleteButton_Click(sender, e, nothiOnumodonRow._designationId); };
-                        nothiOnumodonRow.DeleteLevelButtonClick += delegate (object sender, EventArgs e) { leveldeleteButton_Click(sender, e, nothiOnumodonRow._designationIds); };
+                        nothiOnumodonRow.DeleteLevelButtonClick += delegate (object sender, EventArgs e) { leveldeleteButton_Click(sender, e, nothiOnumodonRow._layerIndex); };
 
 
 
@@ -192,29 +194,41 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        private void leveldeleteButton_Click(object sender, EventArgs e, List<int> designationIds)
+        private void leveldeleteButton_Click(object sender, EventArgs e, int level)
         {
 
+            var onumodonRowforThisLevel = _currentOnumodonRow.Where(a => a.layer_index == level).ToList();
 
-
-            foreach (int id in designationIds)
+            if(onumodonRowforThisLevel != null && onumodonRowforThisLevel.Count>0)
             {
+                foreach(var singleOnumodon in onumodonRowforThisLevel)
+                {
+                    CheckUncheckTreeNode(prapokownOfficeTreeView.Nodes, false, singleOnumodon.designation_id);
+                   
+                }
 
-                CheckUncheckTreeNode(prapokownOfficeTreeView.Nodes, false, id);
+                _deletedOnumodonRow.AddRange(onumodonRowforThisLevel);
+                _currentOnumodonRow = _currentOnumodonRow.Except(onumodonRowforThisLevel).ToList();
+
 
             }
 
-            if (designationIds.Count>0)
+            if(level < _currentOnumodonRow.Max(a=>a.layer_index))
             {
-                List<onumodonDataRecordDTO> onumodonDataRecordDTOs = _currentOnumodonRow.Where(a => designationIds.Contains(a.designation_id)).ToList();
-               if(onumodonDataRecordDTOs !=null && onumodonDataRecordDTOs.Count>0)
-               {
-                    _deletedOnumodonRow.AddRange(onumodonDataRecordDTOs);
-                    _addedOnumodonRow = _addedOnumodonRow.Except(onumodonDataRecordDTOs).ToList();
-
-                    
-               }
+                var highLevelOnumodonRow = _currentOnumodonRow.Where(a => a.layer_index > level).ToList();
+                if(highLevelOnumodonRow != null && highLevelOnumodonRow.Count>0)
+                {
+                    foreach(var onumodonRow in highLevelOnumodonRow)
+                    {
+                        onumodonRow.layer_index -= 1;
+                    }
+                }
             }
+
+
+            LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a => a.layer_index).ToList());
+
+            
 
         }
 
@@ -253,7 +267,7 @@ namespace dNothi.Desktop.UI.Dak
             if(onumodonDataRecordDTOs != null)
             {
                 _deletedOnumodonRow.Add(onumodonDataRecordDTOs);
-                _addedOnumodonRow = _addedOnumodonRow.Where(a=>a.designation_id!=designationid).ToList();
+                _currentOnumodonRow = _currentOnumodonRow.Where(a=>a.designation_id!=designationid).ToList();
 
             }
 
@@ -737,8 +751,16 @@ namespace dNothi.Desktop.UI.Dak
         
         private void prapokownOfficeTreeView_AfterCheck(object sender, TreeViewEventArgs e)
         {
-            
-            if(e.Node.Parent==null)
+
+
+          
+
+
+
+
+
+
+            if (e.Node.Parent==null)
             {
                 e.Node.Checked = false;
             }
@@ -747,32 +769,164 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (e.Node.Checked == true)
                 {
+                    int maxLevel = _currentOnumodonRow.Max(a => a.layer_index);
+
+                    var nothiLevelAddForm = FormFactory.Create<NothiLevelAddForm>();
+
+                    nothiLevelAddForm.SetLevelComboBox(maxLevel);
+                    
+                    PrapokDTO officer = _ownOfficeDesignationList.FirstOrDefault(a => a.designation_id == Convert.ToInt32(e.Node.Name));
+
+                    nothiLevelAddForm.SaveButtonClick += delegate (object saveSender, EventArgs saveEvent) { newOfficerSaveButton_Click(saveSender, saveEvent, nothiLevelAddForm._selectedLevel, officer); };
+                  
+
+                    CalPopUpWindow(nothiLevelAddForm);
                    
 
-
-                    var nothiOnumodonSearch = nothiOnumodonFLP.Controls.OfType<NothiOnumodonLevel>().First();
-
-                    if (nothiOnumodonSearch != null)
-                    {
-                        PrapokDTO officer = _ownOfficeDesignationList.FirstOrDefault(a => a.designation_id == Convert.ToInt32(e.Node.Name));
-                       
-                        
-                        nothiOnumodonSearch.AddNewOfficer(officer.office_name_bng, officer.designation_id, (string)e.Node.Tag);
-
-                    }
-
-                    var newAddedOnumodon = _addedOnumodonRow.FirstOrDefault(a => a.designation_id == Convert.ToInt32(e.Node.Name));
-                    if(newAddedOnumodon != null)
-                    {
-                        _addedOnumodonRow.Add(newAddedOnumodon);
-                    }
+                   
                 }
              
 
             }
             
         }
-        
+
+        private void newOfficerSaveButton_Click(object saveSender, EventArgs saveEvent, int selectedLevel, PrapokDTO officer)
+        {
+            AddNewOfficerTotheLevel(officer, selectedLevel);
+        }
+
+        private void AddNewOfficerTotheLevel(PrapokDTO officer, int selectedLevel)
+        {
+
+            var officerSearch = _currentOnumodonRow.FirstOrDefault(a => a.layer_index == selectedLevel);
+
+           if(selectedLevel==0 || officerSearch ==null)
+            {
+                ReorderLevel(selectedLevel, officer);
+            }
+           else
+            {
+                var nothiOnumodonSearch = nothiOnumodonFLP.Controls.OfType<NothiOnumodonLevel>().First();
+
+                if (nothiOnumodonSearch != null)
+                {
+
+
+                    nothiOnumodonSearch.AddNewOfficer(officer.office_name_bng, officer.designation_id, officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng);
+
+                }
+            }
+        }
+
+        private void ReorderLevel(int selectedLevel, PrapokDTO officer)
+        {
+            var onumodonDataRecordFrom_current = _currentOnumodonRow.First();
+            onumodonDataRecordDTO onumodonDataRecordDTO = new onumodonDataRecordDTO();
+
+
+            int id = _currentOnumodonRow.Max(a => a.layer_index);
+
+
+
+            if(selectedLevel==0)
+            {
+                onumodonDataRecordDTO.layer_index = 1;
+                foreach (var onumodon in _currentOnumodonRow)
+                {
+                    onumodon.layer_index += 1;
+                }
+               
+               
+            }
+            else
+            {
+                onumodonDataRecordDTO.layer_index = id + 1;
+            }
+            List<onumodonDataRecordDTO> countOnumodonDataRecordDTO = _currentOnumodonRow.Where(a => a.layer_index == onumodonDataRecordDTO.layer_index).ToList();
+
+
+            onumodonDataRecordDTO.officer_id = officer.officer_id;
+            onumodonDataRecordDTO.office_id = officer.office_id;
+            onumodonDataRecordDTO.office_unit = officer.office_unit;
+            onumodonDataRecordDTO.office_unit_id = officer.office_unit_id;
+            onumodonDataRecordDTO.officer = officer.officer;
+            onumodonDataRecordDTO.office = officer.office;
+            onumodonDataRecordDTO.designation_level = officer.designation_level;
+            onumodonDataRecordDTO.designation_id = officer.designation_id;
+            onumodonDataRecordDTO.designation = officer.designation;
+            onumodonDataRecordDTO.route_index = countOnumodonDataRecordDTO.Count + 1 ;
+          
+
+            _currentOnumodonRow.Add(onumodonDataRecordDTO);
+
+                LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a=>a.layer_index).ToList());
+
+            
+        }
+       
+        private void LoadOnumodonLevelinRightSide(List<onumodonDataRecordDTO> onumodonList)
+        {
+
+            nothiOnumodonFLP.Controls.Clear();
+
+            var groupLevel = onumodonList.GroupBy(a => a.layer_index);
+            foreach (var group in groupLevel)
+            {
+
+
+
+                NothiOnumodonLevel nothiOnumodonRow = new NothiOnumodonLevel();
+                nothiOnumodonRow.level = group.Key.ToString();
+                nothiOnumodonRow.layerIndex = group.Key;
+                nothiOnumodonRow.DeleteButtonClick += delegate (object sender, EventArgs e) { officerdeleteButton_Click(sender, e, nothiOnumodonRow._designationId); };
+                nothiOnumodonRow.DeleteLevelButtonClick += delegate (object sender, EventArgs e) { leveldeleteButton_Click(sender, e, nothiOnumodonRow._layerIndex); };
+
+
+
+
+
+
+                foreach (var officer in group)
+                {
+
+                    nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name);
+
+
+                }
+
+                nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
+
+
+
+            }
+        }
+
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = this.Size;
+            hideform.Opacity = .6;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog(this);
+        }
+
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+
+            form.ShowDialog(this);
+
+            (sender as Form).Hide();
+
+           
+        }
+
         private void prapokownOfficeTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             

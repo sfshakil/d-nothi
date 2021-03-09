@@ -22,6 +22,7 @@ using dNothi.Desktop.UI;
 using System.Threading;
 using dNothi.Desktop.UI.Dak;
 using dNothi.Services.SyncServices;
+using dNothi.Desktop.UI.NothiUI;
 
 namespace dNothi.Desktop
 {
@@ -188,6 +189,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
 
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();
+            builder.RegisterType<NothiLevelAddForm>().AsSelf();
             builder.RegisterType<UI.Dak.DakFolderForm>().AsSelf();
             builder.RegisterType<UI.Dak.FolderCreatePopUpForm>().AsSelf();
             builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf(); 

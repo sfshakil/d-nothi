@@ -841,6 +841,12 @@
     <Compile Include="UI\NothiCreateNextStep.Designer.cs">
       <DependentUpon>NothiCreateNextStep.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NothiUI\NothiLevelAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiLevelAddForm.Designer.cs">
+      <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\VIew\DakListView.cs" />
     <Compile Include="UserControlFactory.cs" />
     <Compile Include="UserControl\DesignationSelect.cs">
@@ -1129,6 +1135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiCreateNextStep.resx">
       <DependentUpon>NothiCreateNextStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiLevelAddForm.resx">
+      <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\DesignationSelect.resx">
       <DependentUpon>DesignationSelect.cs</DependentUpon>
