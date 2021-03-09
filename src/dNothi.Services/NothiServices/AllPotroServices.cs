@@ -36,8 +36,8 @@ namespace dNothi.Services.NothiServices
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["data"].ToString();
-                var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["data"].ToString();
+                //var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 AllPotroResponse allPotroResponse = _allPotroParser.ParseMessage(responseJson);
                 return allPotroResponse;
             }
