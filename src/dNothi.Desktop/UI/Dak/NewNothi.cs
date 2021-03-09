@@ -218,40 +218,6 @@ namespace dNothi.Desktop.UI.Dak
         {
                 
         }
-
-        private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            nothiTalikaPnl.Visible = true;
-            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            nothiTalikaPnl.Visible = true;
-            int i = cbxNothiType.SelectedIndex;
-            var nothi_type_code = nothi_type_codes[i];
-            var nothi_type_id = ids[i];
-            var token = _userService.GetToken();
-            var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(dakListUserParam, Convert.ToString(nothi_type_id));
-            if (nothiNoteTalika.status == "success")
-            {
-                if (nothiNoteTalika.data.records.Count > 0)
-                {
-                    pnlNoData.Visible = false;
-                    nothiTalikaFlowLayoutPnl.Visible = true;
-                    LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records);
-                    lbTotalNote.Text = "সর্বমোট: " + string.Concat(nothiNoteTalika.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    
-                }
-                else
-                {
-                    pnlNoData.Visible = true;
-                    nothiTalikaFlowLayoutPnl.Visible = false;
-                    nothiTalikaFlowLayoutPnl.Controls.Clear();
-                    lbNothiNo.Text = "৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')))+".";
-                    lbNothilast4digit.Text = "০০১.";
-                    lbTotalNote.Text = " সর্বমোট: ০";
-                }
-                loadLast2digitNothiNo();
-
-            }
-        }
         private void LoadNothiNoteTalikaListinPanel(List<NothiNoteTalikaRecordsDTO> nothiNotetalikaLists)
         {
             List<NothiTalika> nothiTalikas = new List<NothiTalika>();
