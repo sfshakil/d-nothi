@@ -37,11 +37,50 @@ namespace dNothi.Desktop.UI.Dak
             nothiTalikaPnl.Visible = false;
             
         }
+        private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbNothilast4digitText.Visible = false;
+            lbNothiNoText.Visible = false;
+            nothiTalikaPnl.Visible = true;
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            nothiTalikaPnl.Visible = true;
+            int i = cbxNothiType.SelectedIndex;
+            var nothi_type_code = nothi_type_codes[i];
+            var nothi_type_id = ids[i];
+            var token = _userService.GetToken();
+            var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(dakListUserParam, Convert.ToString(nothi_type_id));
+            if (nothiNoteTalika.status == "success")
+            {
+                if (nothiNoteTalika.data.records.Count > 0)
+                {
+                    pnlNoData.Visible = false;
+                    nothiTalikaFlowLayoutPnl.Visible = true;
+                    LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records);
+                    lbTotalNote.Text = "সর্বমোট: " + string.Concat(nothiNoteTalika.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                }
+                else
+                {
+                    pnlNoData.Visible = true;
+                    nothiTalikaFlowLayoutPnl.Visible = false;
+                    nothiTalikaFlowLayoutPnl.Controls.Clear();
+                    lbNothiNo.Text = "৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ".";
+                    lbNothilast4digit.Text = "০০১.";
+                    lbTotalNote.Text = " সর্বমোট: ০";
+                }
+                loadLast2digitNothiNo();
+
+            }
+        }
         public void loadNewNothiPage()
         {
             cbxNothiType.Text = "বাছাই করুন";
-            lbNothiNo.Text = "**.**.****.***.**.";
-            lbNothilast4digit.Text = "***.**";
+            lbNothilast4digitText.Visible = true;
+            lbNothiNoText.Visible = true;
+            lbNothiNo.Text = "";
+            lbNothiNoText.Text = "**.**.****.***.**.";
+            lbNothilast4digitText.Text = "***.**";
+            lbNothilast4digit.Text = "";
             cbxLast2digitNothiNo.Text = "বাছাই করুন";
             cbxNothiClass.Text = "বাছাই করুন";
             nothiTalikaPnl.Visible = false;
@@ -109,11 +148,18 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnGuidelines_Click(object sender, EventArgs e)
         {
-            NothiGuidelines nothiGuidelines = new NothiGuidelines();
+            //NothiGuidelines nothiGuidelines = new NothiGuidelines();
+            //nothiGuidelines.Visible = true;
+            //nothiGuidelines.Location = new System.Drawing.Point(0,0);
+            //Controls.Add(nothiGuidelines);
+            //nothiGuidelines.BringToFront();
+
+            var nothiGuidelines = UserControlFactory.Create<NothiGuidelines>();
             nothiGuidelines.Visible = true;
-            nothiGuidelines.Location = new System.Drawing.Point(0,0);
-            Controls.Add(nothiGuidelines);
-            nothiGuidelines.BringToFront();
+            nothiGuidelines.Enabled = true;
+            nothiGuidelines.Location = new System.Drawing.Point(0, 0);
+            var nothiTypeform = AttachNothiGuidelinesControlToForm(nothiGuidelines);
+            CalPopUpWindow(nothiTypeform);
         }
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
@@ -124,16 +170,35 @@ namespace dNothi.Desktop.UI.Dak
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
-        public Form AttachControlToForm(Control control)
+        public Form AttachNothiGuidelinesControlToForm(Control control)
         {
             Form form = new Form();
 
-            form.StartPosition = FormStartPosition.CenterScreen;
+            form.StartPosition = FormStartPosition.Manual;
             form.FormBorderStyle = FormBorderStyle.None;
             form.BackColor = Color.White;
 
             form.AutoSize = true;
-            form.Height = 100;
+            form.Location = new System.Drawing.Point(100, 100);
+            control.Location = new System.Drawing.Point(0, 0);
+            form.Size = control.Size;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
+        public Form AttachNothiTypeListControlToForm(Control control)
+        {
+            Form form = new Form();
+
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(845, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            form.Size = control.Size;
             form.Controls.Add(control);
             control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
@@ -143,10 +208,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             Form hideform = new Form();
 
-
             hideform.BackColor = Color.Black;
-            hideform.Size = this.Size;
-            hideform.Opacity = .6;
+            hideform.Height = 744; //{Width = 1382 Height = 744}
+            hideform.Width = 1382; //{Width = 1382 Height = 744}
+            hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
@@ -155,19 +220,12 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void btnNothiTypeList_Click_1(object sender, EventArgs e)
         {
-            foreach (Form f in Application.OpenForms)
-            { f.Hide(); }
-            var form = FormFactory.Create<Nothi>();
-            form.ForceLoadNewNothi();
             var nothiType = UserControlFactory.Create<NothiType>();
             nothiType.Visible = true;
             nothiType.Enabled = true;
             nothiType.Location = new System.Drawing.Point(845, 0);
-            form.Controls.Add(nothiType);
-            nothiType.BringToFront();
-            form.ShowDialog();
-            //var form = AttachControlToForm(nothiType);
-            //CalPopUpWindow(form);
+            var nothiTypeform = AttachNothiTypeListControlToForm(nothiType);
+            CalPopUpWindow(nothiTypeform);
         }
 
         private void btnNothiTypeList_MouseHover(object sender, EventArgs e)
@@ -312,9 +370,10 @@ namespace dNothi.Desktop.UI.Dak
                 
                 var form = FormFactory.Create<NothiCreateNextStep>();
                 //form.Location = new System.Drawing.Point(108, 219);
-                form.BringToFront();
-                form.ShowDialog();
-                
+                //form.BringToFront();
+                //form.ShowDialog();
+                CalPopUpWindow(form);
+
             }
             else
                 MessageBox.Show("নথি  নম্বর  ইতিমধ্যে  বিদ্যমান");
@@ -322,5 +381,14 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        private void lbNothilast4digit_MouseClick(object sender, MouseEventArgs e)
+        {
+            lbNothilast4digitText.Visible = false;
+        }
+
+        private void lbNothilast4digit_MouseLeave(object sender, EventArgs e)
+        {
+            lbNothilast4digitText.Visible = true;
+        }
     }
 }

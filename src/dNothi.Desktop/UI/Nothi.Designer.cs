@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nothi));
             this.panel1 = new System.Windows.Forms.Panel();
             this.RightSign = new FontAwesome.Sharp.IconButton();
@@ -49,14 +50,18 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.label22 = new System.Windows.Forms.Label();
             this.dakModulePanel = new System.Windows.Forms.Panel();
+            this.moduleDakCountLabel = new System.Windows.Forms.Label();
             this.dakModuleNameLabel = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.moduleDakCountLabel = new System.Windows.Forms.Label();
             this.pnlNothiNoteTalika = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.lbTotalNothi = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnNext = new FontAwesome.Sharp.IconButton();
+            this.btnPrevious = new FontAwesome.Sharp.IconButton();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.noteListButton = new System.Windows.Forms.Button();
             this.btnNothiTalika = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -98,6 +103,7 @@
             this.detailSearchStopButton = new System.Windows.Forms.Button();
             this.detailsSearchResetButton = new System.Windows.Forms.Button();
             this.detailSearchButton = new System.Windows.Forms.Button();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -106,6 +112,10 @@
             this.nothiModulePanel.SuspendLayout();
             this.dakModulePanel.SuspendLayout();
             this.pnlNothiNoteTalika.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.nothiSearchHeadingPanel.SuspendLayout();
             this.searchBoxPanel.SuspendLayout();
@@ -142,7 +152,7 @@
             this.RightSign.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(243)))));
             this.RightSign.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RightSign.IconSize = 24;
-            this.RightSign.Location = new System.Drawing.Point(215, 13);
+            this.RightSign.Location = new System.Drawing.Point(204, 12);
             this.RightSign.Name = "RightSign";
             this.RightSign.Size = new System.Drawing.Size(10, 30);
             this.RightSign.TabIndex = 23;
@@ -160,7 +170,7 @@
             this.LeftSign.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
             this.LeftSign.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.LeftSign.IconSize = 24;
-            this.LeftSign.Location = new System.Drawing.Point(209, 12);
+            this.LeftSign.Location = new System.Drawing.Point(212, 12);
             this.LeftSign.Name = "LeftSign";
             this.LeftSign.Size = new System.Drawing.Size(10, 30);
             this.LeftSign.TabIndex = 24;
@@ -182,9 +192,9 @@
             this.panel4.Controls.Add(this.btnNothiAll);
             this.panel4.Controls.Add(this.btnNothiOutbox);
             this.panel4.Controls.Add(this.btnNothiInbox);
-            this.panel4.Location = new System.Drawing.Point(0, 60);
+            this.panel4.Location = new System.Drawing.Point(0, 50);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(233, 630);
+            this.panel4.Size = new System.Drawing.Size(233, 640);
             this.panel4.TabIndex = 4;
             // 
             // btnNewNothi
@@ -398,9 +408,9 @@
             this.nothiModulePanel.Controls.Add(this.nothiModuleNameLabel);
             this.nothiModulePanel.Controls.Add(this.iconButton2);
             this.nothiModulePanel.Controls.Add(this.label22);
-            this.nothiModulePanel.Location = new System.Drawing.Point(142, 2);
+            this.nothiModulePanel.Location = new System.Drawing.Point(127, 6);
             this.nothiModulePanel.Name = "nothiModulePanel";
-            this.nothiModulePanel.Size = new System.Drawing.Size(134, 43);
+            this.nothiModulePanel.Size = new System.Drawing.Size(113, 40);
             this.nothiModulePanel.TabIndex = 27;
             this.nothiModulePanel.Click += new System.EventHandler(this.nothiModulePanel_Click);
             this.nothiModulePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
@@ -408,11 +418,13 @@
             // nothiModuleNameLabel
             // 
             this.nothiModuleNameLabel.AutoSize = true;
+            this.nothiModuleNameLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiModuleNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiModuleNameLabel.ForeColor = System.Drawing.Color.Blue;
-            this.nothiModuleNameLabel.Location = new System.Drawing.Point(37, 10);
+            this.nothiModuleNameLabel.Location = new System.Drawing.Point(31, 0);
             this.nothiModuleNameLabel.Name = "nothiModuleNameLabel";
-            this.nothiModuleNameLabel.Size = new System.Drawing.Size(37, 25);
+            this.nothiModuleNameLabel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.nothiModuleNameLabel.Size = new System.Drawing.Size(37, 33);
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
             this.nothiModuleNameLabel.Click += new System.EventHandler(this.nothiModuleNameLabel_Click);
@@ -420,15 +432,16 @@
             // iconButton2
             // 
             this.iconButton2.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Left;
             this.iconButton2.FlatAppearance.BorderSize = 0;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Book;
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 22;
-            this.iconButton2.Location = new System.Drawing.Point(6, 8);
+            this.iconButton2.Location = new System.Drawing.Point(0, 0);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(36, 30);
+            this.iconButton2.Size = new System.Drawing.Size(31, 40);
             this.iconButton2.TabIndex = 4;
             this.iconButton2.UseVisualStyleBackColor = false;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
@@ -440,7 +453,7 @@
             this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
             this.label22.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label22.Location = new System.Drawing.Point(75, 12);
+            this.label22.Location = new System.Drawing.Point(70, 11);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(36, 21);
             this.label22.TabIndex = 18;
@@ -450,26 +463,45 @@
             // dakModulePanel
             // 
             this.dakModulePanel.BackColor = System.Drawing.Color.Transparent;
+            this.dakModulePanel.Controls.Add(this.moduleDakCountLabel);
             this.dakModulePanel.Controls.Add(this.dakModuleNameLabel);
             this.dakModulePanel.Controls.Add(this.iconButton1);
-            this.dakModulePanel.Controls.Add(this.moduleDakCountLabel);
-            this.dakModulePanel.Location = new System.Drawing.Point(3, 2);
+            this.dakModulePanel.Location = new System.Drawing.Point(4, 6);
             this.dakModulePanel.Name = "dakModulePanel";
-            this.dakModulePanel.Size = new System.Drawing.Size(134, 43);
+            this.dakModulePanel.Size = new System.Drawing.Size(117, 40);
             this.dakModulePanel.TabIndex = 26;
             this.dakModulePanel.Click += new System.EventHandler(this.dakModulePanel_Click);
             this.dakModulePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
             this.dakModulePanel.MouseLeave += new System.EventHandler(this.dakModulePanel_MouseLeave);
             this.dakModulePanel.MouseHover += new System.EventHandler(this.dakModulePanel_MouseHover);
             // 
+            // moduleDakCountLabel
+            // 
+            this.moduleDakCountLabel.AutoEllipsis = true;
+            this.moduleDakCountLabel.AutoSize = true;
+            this.moduleDakCountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.moduleDakCountLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moduleDakCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.moduleDakCountLabel.Location = new System.Drawing.Point(76, 10);
+            this.moduleDakCountLabel.Name = "moduleDakCountLabel";
+            this.moduleDakCountLabel.Size = new System.Drawing.Size(27, 21);
+            this.moduleDakCountLabel.TabIndex = 18;
+            this.moduleDakCountLabel.Text = "১২";
+            this.moduleDakCountLabel.Click += new System.EventHandler(this.moduleDakCountLabel_Click);
+            this.moduleDakCountLabel.MouseLeave += new System.EventHandler(this.moduleDakCountLabel_MouseLeave);
+            this.moduleDakCountLabel.MouseHover += new System.EventHandler(this.moduleDakCountLabel_MouseHover);
+            // 
             // dakModuleNameLabel
             // 
             this.dakModuleNameLabel.AutoSize = true;
+            this.dakModuleNameLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.dakModuleNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakModuleNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.dakModuleNameLabel.Location = new System.Drawing.Point(40, 8);
+            this.dakModuleNameLabel.Location = new System.Drawing.Point(30, 0);
+            this.dakModuleNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.dakModuleNameLabel.Name = "dakModuleNameLabel";
-            this.dakModuleNameLabel.Size = new System.Drawing.Size(42, 25);
+            this.dakModuleNameLabel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.dakModuleNameLabel.Size = new System.Drawing.Size(42, 33);
             this.dakModuleNameLabel.TabIndex = 19;
             this.dakModuleNameLabel.Text = "ডাক";
             this.dakModuleNameLabel.Click += new System.EventHandler(this.dakModuleNameLabel_Click);
@@ -479,44 +511,28 @@
             // iconButton1
             // 
             this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Left;
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Inbox;
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 25;
-            this.iconButton1.Location = new System.Drawing.Point(6, 7);
+            this.iconButton1.Location = new System.Drawing.Point(0, 0);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(36, 30);
+            this.iconButton1.Size = new System.Drawing.Size(30, 40);
             this.iconButton1.TabIndex = 4;
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             this.iconButton1.MouseLeave += new System.EventHandler(this.iconButton1_MouseLeave);
             this.iconButton1.MouseHover += new System.EventHandler(this.iconButton1_MouseHover);
             // 
-            // moduleDakCountLabel
-            // 
-            this.moduleDakCountLabel.AutoEllipsis = true;
-            this.moduleDakCountLabel.AutoSize = true;
-            this.moduleDakCountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.moduleDakCountLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.moduleDakCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.moduleDakCountLabel.Location = new System.Drawing.Point(86, 11);
-            this.moduleDakCountLabel.Name = "moduleDakCountLabel";
-            this.moduleDakCountLabel.Size = new System.Drawing.Size(27, 21);
-            this.moduleDakCountLabel.TabIndex = 18;
-            this.moduleDakCountLabel.Text = "১২";
-            this.moduleDakCountLabel.Click += new System.EventHandler(this.moduleDakCountLabel_Click);
-            this.moduleDakCountLabel.MouseLeave += new System.EventHandler(this.moduleDakCountLabel_MouseLeave);
-            this.moduleDakCountLabel.MouseHover += new System.EventHandler(this.moduleDakCountLabel_MouseHover);
-            // 
             // pnlNothiNoteTalika
             // 
             this.pnlNothiNoteTalika.BackColor = System.Drawing.Color.White;
+            this.pnlNothiNoteTalika.Controls.Add(this.panel9);
+            this.pnlNothiNoteTalika.Controls.Add(this.panel8);
             this.pnlNothiNoteTalika.Controls.Add(this.panel7);
-            this.pnlNothiNoteTalika.Controls.Add(this.iconButton5);
-            this.pnlNothiNoteTalika.Controls.Add(this.iconButton6);
-            this.pnlNothiNoteTalika.Controls.Add(this.lbTotalNothi);
             this.pnlNothiNoteTalika.Controls.Add(this.noteListButton);
             this.pnlNothiNoteTalika.Controls.Add(this.btnNothiTalika);
             this.pnlNothiNoteTalika.Dock = System.Windows.Forms.DockStyle.Top;
@@ -524,6 +540,88 @@
             this.pnlNothiNoteTalika.Name = "pnlNothiNoteTalika";
             this.pnlNothiNoteTalika.Size = new System.Drawing.Size(1117, 47);
             this.pnlNothiNoteTalika.TabIndex = 14;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel9.Location = new System.Drawing.Point(945, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(96, 46);
+            this.panel9.TabIndex = 67;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(96, 40);
+            this.panel10.TabIndex = 68;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.lbTotalNothi);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel11.Location = new System.Drawing.Point(0, 13);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(96, 27);
+            this.panel11.TabIndex = 69;
+            // 
+            // lbTotalNothi
+            // 
+            this.lbTotalNothi.AutoSize = true;
+            this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbTotalNothi.Location = new System.Drawing.Point(18, 0);
+            this.lbTotalNothi.Name = "lbTotalNothi";
+            this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
+            this.lbTotalNothi.TabIndex = 33;
+            this.lbTotalNothi.Text = " সর্বমোট: ০";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnNext);
+            this.panel8.Controls.Add(this.btnPrevious);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(1041, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(76, 46);
+            this.panel8.TabIndex = 66;
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNext.IconSize = 24;
+            this.btnNext.Location = new System.Drawing.Point(37, 7);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(34, 33);
+            this.btnNext.TabIndex = 35;
+            this.MyToolTip.SetToolTip(this.btnNext, "পরবর্তী");
+            this.btnNext.UseVisualStyleBackColor = false;
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnPrevious.FlatAppearance.BorderSize = 0;
+            this.btnPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrevious.IconSize = 24;
+            this.btnPrevious.Location = new System.Drawing.Point(3, 7);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(34, 33);
+            this.btnPrevious.TabIndex = 34;
+            this.MyToolTip.SetToolTip(this.btnPrevious, "পূর্ববর্তী");
+            this.btnPrevious.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -533,48 +631,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1117, 1);
             this.panel7.TabIndex = 65;
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 24;
-            this.iconButton5.Location = new System.Drawing.Point(1087, 3);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(34, 41);
-            this.iconButton5.TabIndex = 35;
-            this.iconButton5.UseVisualStyleBackColor = false;
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.iconButton6.FlatAppearance.BorderSize = 0;
-            this.iconButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.IconSize = 24;
-            this.iconButton6.Location = new System.Drawing.Point(1053, 3);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(34, 41);
-            this.iconButton6.TabIndex = 34;
-            this.iconButton6.UseVisualStyleBackColor = false;
-            // 
-            // lbTotalNothi
-            // 
-            this.lbTotalNothi.AutoSize = true;
-            this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbTotalNothi.Location = new System.Drawing.Point(968, 14);
-            this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
-            this.lbTotalNothi.TabIndex = 33;
-            this.lbTotalNothi.Text = " সর্বমোট: ০";
             // 
             // noteListButton
             // 
@@ -783,6 +839,7 @@
             this.placeholderTextBox2.PlaceholderText = "নথি নম্বর/নথি বিষয় দিয়ে খুঁজুন";
             this.placeholderTextBox2.Size = new System.Drawing.Size(987, 22);
             this.placeholderTextBox2.TabIndex = 3;
+            this.MyToolTip.SetToolTip(this.placeholderTextBox2, "নথি নম্বর/নথি বিষয় দিয়ে খুঁজুন");
             // 
             // detailPanelDropDownButton
             // 
@@ -833,6 +890,7 @@
             this.nothiListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nothiListFlowLayoutPanel.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiListFlowLayoutPanel.Location = new System.Drawing.Point(0, 69);
+            this.nothiListFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.nothiListFlowLayoutPanel.Name = "nothiListFlowLayoutPanel";
             this.nothiListFlowLayoutPanel.Size = new System.Drawing.Size(1117, 88);
             this.nothiListFlowLayoutPanel.TabIndex = 17;
@@ -1182,7 +1240,11 @@
             this.dakModulePanel.ResumeLayout(false);
             this.dakModulePanel.PerformLayout();
             this.pnlNothiNoteTalika.ResumeLayout(false);
-            this.pnlNothiNoteTalika.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.nothiSearchHeadingPanel.ResumeLayout(false);
@@ -1251,8 +1313,6 @@
         private Dak.SearchUserController nothiShakhaSrchUC;
         private Dak.SearchUserController ogradhikarSrchUC;
         private Dak.SearchUserController nothiDhoronSrchUC;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton iconButton6;
         private System.Windows.Forms.Label lbTotalNothi;
         private FontAwesome.Sharp.IconButton btnNothiInbox;
         private FontAwesome.Sharp.IconButton btnNothiOutbox;
@@ -1271,5 +1331,12 @@
         private FontAwesome.Sharp.IconPictureBox userPictureBox;
         private System.Windows.Forms.Label userNameLabel;
         private FontAwesome.Sharp.IconButton profileShowArrowButton;
+        private System.Windows.Forms.ToolTip MyToolTip;
+        private System.Windows.Forms.Panel panel8;
+        private FontAwesome.Sharp.IconButton btnPrevious;
+        private FontAwesome.Sharp.IconButton btnNext;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
     }
 }

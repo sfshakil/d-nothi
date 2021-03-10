@@ -89,7 +89,11 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnNothiTypeCross_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            foreach (Form f in Application.OpenForms)
+            { f.Hide(); }
+            var form = FormFactory.Create<Nothi>();
+            form.forceLoadNewNothi();
+            form.ShowDialog();
         }
         private string _totalNothi;
 

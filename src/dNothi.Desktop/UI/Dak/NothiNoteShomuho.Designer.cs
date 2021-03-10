@@ -89,6 +89,7 @@
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(30, 30);
             this.iconButton1.TabIndex = 59;
+            this.MyToolTip.SetToolTip(this.iconButton1, "নোটের বিস্তারিত (নতুন ট্যাব)");
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
             // btnOption
@@ -140,7 +141,7 @@
             this.lbNoteSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteSubject.Location = new System.Drawing.Point(143, 13);
             this.lbNoteSubject.Name = "lbNoteSubject";
-            this.lbNoteSubject.Size = new System.Drawing.Size(104, 18);
+            this.lbNoteSubject.Size = new System.Drawing.Size(135, 21);
             this.lbNoteSubject.TabIndex = 63;
             this.lbNoteSubject.Text = "noteSubjectLabel";
             // 
@@ -150,7 +151,7 @@
             this.lbDeskOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDeskOfficer.Location = new System.Drawing.Point(145, 39);
             this.lbDeskOfficer.Name = "lbDeskOfficer";
-            this.lbDeskOfficer.Size = new System.Drawing.Size(100, 18);
+            this.lbDeskOfficer.Size = new System.Drawing.Size(130, 21);
             this.lbDeskOfficer.TabIndex = 64;
             this.lbDeskOfficer.Text = "deskOfficerLabel";
             // 
@@ -175,7 +176,7 @@
             this.lbToOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbToOfficer.Location = new System.Drawing.Point(320, 39);
             this.lbToOfficer.Name = "lbToOfficer";
-            this.lbToOfficer.Size = new System.Drawing.Size(84, 18);
+            this.lbToOfficer.Size = new System.Drawing.Size(109, 21);
             this.lbToOfficer.TabIndex = 66;
             this.lbToOfficer.Text = "toOfficerLabel";
             // 
@@ -297,8 +298,9 @@
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.detailsButton);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiNoteShomuho";
-            this.Size = new System.Drawing.Size(1100, 75);
+            this.Size = new System.Drawing.Size(1090, 75);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

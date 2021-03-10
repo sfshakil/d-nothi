@@ -22,7 +22,11 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnCross_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            foreach (Form f in Application.OpenForms)
+            { f.Hide(); }
+            var form = FormFactory.Create<Nothi>();
+            form.forceLoadNewNothi();
+            form.ShowDialog();
 
         }
     }

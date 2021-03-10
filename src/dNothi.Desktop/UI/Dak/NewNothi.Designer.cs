@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.btnNothiTypeList = new FontAwesome.Sharp.IconButton();
@@ -38,8 +39,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.nothiTalikaFlowLayoutPnl = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlNewAllNote = new System.Windows.Forms.Panel();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.lbTotalNote = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -49,6 +50,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lbNothiNoText = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -70,6 +72,7 @@
             this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.last2DigitNothiNoSUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.lbNothilast4digitText = new System.Windows.Forms.Label();
             this.lbNothilast4digit = new System.Windows.Forms.TextBox();
             this.lbNothiNo = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -81,6 +84,7 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.txtNothiSubject = new PlaceholderTextBox.PlaceholderTextBox();
             this.searchUserController1 = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.nothiTalikaPnl.SuspendLayout();
@@ -131,11 +135,10 @@
             this.btnNothiTypeList.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
             this.btnNothiTypeList.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNothiTypeList.IconSize = 24;
-            this.btnNothiTypeList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNothiTypeList.Location = new System.Drawing.Point(984, 8);
             this.btnNothiTypeList.Margin = new System.Windows.Forms.Padding(0);
             this.btnNothiTypeList.Name = "btnNothiTypeList";
-            this.btnNothiTypeList.Size = new System.Drawing.Size(124, 43);
+            this.btnNothiTypeList.Size = new System.Drawing.Size(125, 43);
             this.btnNothiTypeList.TabIndex = 39;
             this.btnNothiTypeList.Text = "ধরনের তালিকা";
             this.btnNothiTypeList.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -213,8 +216,8 @@
             // 
             // pnlNewAllNote
             // 
-            this.pnlNewAllNote.Controls.Add(this.iconButton6);
             this.pnlNewAllNote.Controls.Add(this.iconButton7);
+            this.pnlNewAllNote.Controls.Add(this.iconButton6);
             this.pnlNewAllNote.Controls.Add(this.lbTotalNote);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel3);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel2);
@@ -225,25 +228,10 @@
             this.pnlNewAllNote.Size = new System.Drawing.Size(1132, 35);
             this.pnlNewAllNote.TabIndex = 20;
             // 
-            // iconButton6
-            // 
-            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.iconButton6.FlatAppearance.BorderSize = 0;
-            this.iconButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.IconSize = 24;
-            this.iconButton6.Location = new System.Drawing.Point(1083, 3);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(33, 29);
-            this.iconButton6.TabIndex = 65;
-            this.iconButton6.UseVisualStyleBackColor = false;
-            // 
             // iconButton7
             // 
             this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.iconButton7.Dock = System.Windows.Forms.DockStyle.Right;
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -251,11 +239,30 @@
             this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 24;
-            this.iconButton7.Location = new System.Drawing.Point(1049, 3);
+            this.iconButton7.Location = new System.Drawing.Point(1065, 2);
             this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Size = new System.Drawing.Size(34, 29);
+            this.iconButton7.Size = new System.Drawing.Size(34, 31);
             this.iconButton7.TabIndex = 64;
+            this.MyToolTip.SetToolTip(this.iconButton7, "পূর্ববর্তী");
             this.iconButton7.UseVisualStyleBackColor = false;
+            // 
+            // iconButton6
+            // 
+            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton6.FlatAppearance.BorderSize = 0;
+            this.iconButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.IconSize = 24;
+            this.iconButton6.Location = new System.Drawing.Point(1099, 2);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(33, 31);
+            this.iconButton6.TabIndex = 65;
+            this.MyToolTip.SetToolTip(this.iconButton6, "পরবর্তী");
+            this.iconButton6.UseVisualStyleBackColor = false;
             // 
             // lbTotalNote
             // 
@@ -337,6 +344,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.lbNothiNoText);
             this.panel4.Controls.Add(this.panel19);
             this.panel4.Controls.Add(this.panel18);
             this.panel4.Controls.Add(this.panel17);
@@ -362,6 +370,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1100, 246);
             this.panel4.TabIndex = 1;
+            // 
+            // lbNothiNoText
+            // 
+            this.lbNothiNoText.AutoSize = true;
+            this.lbNothiNoText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.lbNothiNoText.Font = new System.Drawing.Font("SolaimanLipi", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiNoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothiNoText.Location = new System.Drawing.Point(348, 74);
+            this.lbNothiNoText.Name = "lbNothiNoText";
+            this.lbNothiNoText.Size = new System.Drawing.Size(59, 12);
+            this.lbNothiNoText.TabIndex = 84;
+            this.lbNothiNoText.Text = "**.**.****.***.**.";
             // 
             // panel19
             // 
@@ -596,6 +616,7 @@
             this.cbxNothiType.Size = new System.Drawing.Size(172, 29);
             this.cbxNothiType.TabIndex = 69;
             this.cbxNothiType.Text = "বাছাই করুন";
+            this.cbxNothiType.SelectedIndexChanged += new System.EventHandler(this.cbxNothiType_SelectedIndexChanged);
             // 
             // searchOfficeDetailSearch
             // 
@@ -633,12 +654,25 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.panel11.Controls.Add(this.lbNothilast4digitText);
             this.panel11.Controls.Add(this.lbNothilast4digit);
             this.panel11.Location = new System.Drawing.Point(483, 57);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(229, 41);
             this.panel11.TabIndex = 65;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint_1);
+            // 
+            // lbNothilast4digitText
+            // 
+            this.lbNothilast4digitText.AutoSize = true;
+            this.lbNothilast4digitText.Font = new System.Drawing.Font("SolaimanLipi", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothilast4digitText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothilast4digitText.Location = new System.Drawing.Point(7, 17);
+            this.lbNothilast4digitText.Name = "lbNothilast4digitText";
+            this.lbNothilast4digitText.Size = new System.Drawing.Size(23, 12);
+            this.lbNothilast4digitText.TabIndex = 85;
+            this.lbNothilast4digitText.Text = "***.**";
+            this.lbNothilast4digitText.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbNothilast4digit_MouseClick);
             // 
             // lbNothilast4digit
             // 
@@ -651,7 +685,7 @@
             this.lbNothilast4digit.Name = "lbNothilast4digit";
             this.lbNothilast4digit.Size = new System.Drawing.Size(207, 27);
             this.lbNothilast4digit.TabIndex = 72;
-            this.lbNothilast4digit.Text = "***.**";
+            this.lbNothilast4digit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbNothilast4digit_MouseClick);
             // 
             // lbNothiNo
             // 
@@ -663,7 +697,6 @@
             this.lbNothiNo.Name = "lbNothiNo";
             this.lbNothiNo.Size = new System.Drawing.Size(146, 41);
             this.lbNothiNo.TabIndex = 64;
-            this.lbNothiNo.Text = "**.**.****.***.**.";
             this.lbNothiNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbNothiNo.Paint += new System.Windows.Forms.PaintEventHandler(this.label14_Paint);
             // 
@@ -873,5 +906,8 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbNothiNoText;
+        private System.Windows.Forms.Label lbNothilast4digitText;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }
