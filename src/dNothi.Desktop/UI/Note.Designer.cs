@@ -1742,17 +1742,6 @@
             this.iconButton9.TabIndex = 70;
             this.iconButton9.UseVisualStyleBackColor = false;
             // 
-            // lbNoteTotl1
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.label12.Location = new System.Drawing.Point(39, 8);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(42, 18);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "নোটঃ০";
-            // 
             // iconButton14
             // 
             this.iconButton14.BackColor = System.Drawing.Color.Transparent;
@@ -1768,74 +1757,6 @@
             this.iconButton14.Size = new System.Drawing.Size(36, 40);
             this.iconButton14.TabIndex = 4;
             this.iconButton14.UseVisualStyleBackColor = false;
-            // 
-            // btnNreTab
-            // 
-            this.btnNreTab.BackColor = System.Drawing.Color.Transparent;
-            this.btnNreTab.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNreTab.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNreTab.FlatAppearance.BorderSize = 0;
-            this.btnNreTab.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnNreTab.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnNreTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNreTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNreTab.ForeColor = System.Drawing.Color.White;
-            this.btnNreTab.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
-            this.btnNreTab.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
-            this.btnNreTab.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNreTab.IconSize = 20;
-            this.btnNreTab.Location = new System.Drawing.Point(117, 0);
-            this.btnNreTab.Name = "btnNreTab";
-            this.btnNreTab.Size = new System.Drawing.Size(36, 40);
-            this.btnNreTab.TabIndex = 71;
-            this.btnNreTab.UseVisualStyleBackColor = false;
-            // 
-            // btnCross
-            // 
-            this.btnCross.BackColor = System.Drawing.Color.Transparent;
-            this.btnCross.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCross.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnCross.FlatAppearance.BorderSize = 0;
-            this.btnCross.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCross.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCross.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCross.ForeColor = System.Drawing.Color.White;
-            this.btnCross.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
-            this.btnCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCross.IconSize = 20;
-            this.btnCross.Location = new System.Drawing.Point(153, 0);
-            this.btnCross.Name = "btnCross";
-            this.btnCross.Size = new System.Drawing.Size(32, 40);
-            this.btnCross.TabIndex = 70;
-            this.btnCross.UseVisualStyleBackColor = false;
-            // 
-            // lbNoteTotl
-            // 
-            this.lbNoteTotl.AutoSize = true;
-            this.lbNoteTotl.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNoteTotl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.lbNoteTotl.Location = new System.Drawing.Point(39, 8);
-            this.lbNoteTotl.Name = "lbNoteTotl";
-            this.lbNoteTotl.Size = new System.Drawing.Size(42, 18);
-            this.lbNoteTotl.TabIndex = 19;
-            this.lbNoteTotl.Text = "নোটঃ০";
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.Tasks;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 30;
-            this.iconButton5.Location = new System.Drawing.Point(5, 5);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(36, 30);
-            this.iconButton5.TabIndex = 4;
-            this.iconButton5.UseVisualStyleBackColor = false;
             // 
             // panel38
             // 
