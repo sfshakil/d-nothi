@@ -52,6 +52,21 @@ namespace dNothi.Desktop.UI
             noteListButton.BackColor = Color.LightSteelBlue;
             btnNothiTalika.BackColor = Color.MediumSlateBlue;
         }
+        public void forceLoadNewNothi()
+        {
+            newNothi.loadNewNothiPage();
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(btnNewNothi as Button);
+            newNothi.Visible = true;
+            newNothi.Location = new System.Drawing.Point(233, 50);
+            Controls.Add(newNothi);
+            newNothi.BringToFront();
+            newNothi.BackColor = Color.WhiteSmoke;
+        }
 
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
@@ -69,13 +84,13 @@ namespace dNothi.Desktop.UI
             
         }
 
-        private void LoadNothiInbox()
+        private async void LoadNothiInbox()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
             var token = _userService.GetToken();
-            var nothiInbox = _nothiInbox.GetNothiInbox(dakListUserParam);
+            var nothiInbox = await Task.Run(() => _nothiInbox.GetNothiInbox(dakListUserParam));
             if (nothiInbox.status == "success")
             {
                 _nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
@@ -93,6 +108,7 @@ namespace dNothi.Desktop.UI
                     nothiListFlowLayoutPanel.Controls.Clear();
                 }
             }
+
         }
         NothiListRecordsDTO nothiInboxRecord;
         private void LoadNothiInboxinPanel(List<NothiListRecordsDTO> nothiLists)
@@ -185,7 +201,7 @@ namespace dNothi.Desktop.UI
 
             hideform.BackColor = Color.Black;
             hideform.Size = this.Size;
-            hideform.Opacity = .4;
+            hideform.Opacity = .6;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
@@ -494,7 +510,7 @@ namespace dNothi.Desktop.UI
 
         private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+
         }
 
         private void detailPanelDropDownButton_Click(object sender, EventArgs e)
@@ -687,10 +703,6 @@ namespace dNothi.Desktop.UI
         }
         public void ForceLoadNothiALL()
         {
-            agotoNothiSelected = 0;
-            preritoNothiSelected = 0;
-            shokolNothiSelected = 1;
-            _nothiCurrentCategory.isAll = true;
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
@@ -738,21 +750,6 @@ namespace dNothi.Desktop.UI
             LoadNothiAll();
         }
 
-        public void forceLoadNewNothi()
-        {
-            newNothi.loadNewNothiPage();
-            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
-            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
-            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
-            btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
-            ResetAllMenuButtonSelection();
-            SelectButton(btnNewNothi as Button);
-            newNothi.Visible = true;
-            newNothi.Location = new System.Drawing.Point(233, 50);
-            Controls.Add(newNothi);
-            newNothi.BringToFront();
-            newNothi.BackColor = Color.WhiteSmoke;
-        }
         private void btnNewNothi_Click(object sender, EventArgs e)
         {
             newNothi.loadNewNothiPage();
@@ -763,7 +760,7 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             newNothi.Visible = true;
-            newNothi.Location = new System.Drawing.Point(233, 50);
+            newNothi.Location = new System.Drawing.Point(233, 60);
             Controls.Add(newNothi);
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
@@ -778,7 +775,7 @@ namespace dNothi.Desktop.UI
             btnNewNothi.BackColor = Color.FromArgb(243, 246, 249);
             btnNewNothi.ForeColor = Color.FromArgb(78, 165, 254);
             newNothi.Visible = true;
-            newNothi.Location = new System.Drawing.Point(233, 50);
+            newNothi.Location = new System.Drawing.Point(233, 60);
             Controls.Add(newNothi);
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
@@ -787,83 +784,80 @@ namespace dNothi.Desktop.UI
         
         private void profilePanel_Click(object sender, EventArgs e)
         {
-            //_dakuserparam = _userService.GetLocalDakUserParam();
-            if (designationDetailsPanelNothi.Width == 434 && !designationDetailsPanelNothi.Visible)
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            if (designationDetailsPanelNothi.Width == 428)
             {
                 designationDetailsPanelNothi.Visible = true;
             //    designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
-                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 50);
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
                 designationDetailsPanelNothi.Width = 427;
-                designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
+                
 
             }
             else
             {
                 designationDetailsPanelNothi.Visible = false;
-                designationDetailsPanelNothi.Width = 434;
+                designationDetailsPanelNothi.Width = 428;
             }
         }
         
 
         private void userPictureBox_Click(object sender, EventArgs e)
         {
-            if (designationDetailsPanelNothi.Width == 434 && !designationDetailsPanelNothi.Visible)
+            if (designationDetailsPanelNothi.Width == 428)
             {
                 designationDetailsPanelNothi.Visible = true;
                // designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
-                designationDetailsPanelNothi.Location = new Point(227 + 689, 50);
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
                 designationDetailsPanelNothi.Width = 427;
-                designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
 
             }
             else
             {
                 designationDetailsPanelNothi.Visible = false;
-                designationDetailsPanelNothi.Width = 434;
+                designationDetailsPanelNothi.Width = 428;
             }
         }
         
         private void userNameLabel_Click(object sender, EventArgs e)
         {
-            if (designationDetailsPanelNothi.Width == 434 && !designationDetailsPanelNothi.Visible)
+            if (designationDetailsPanelNothi.Width == 428)
             {
                 designationDetailsPanelNothi.Visible = true;
              //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
-                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 50);
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
                 designationDetailsPanelNothi.Width = 427;
-                designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
 
             }
             else
             {
                 designationDetailsPanelNothi.Visible = false;
-                designationDetailsPanelNothi.Width = 434;
+                designationDetailsPanelNothi.Width = 428;
             }
         }
 
         private void profileShowArrowButton_Click(object sender, EventArgs e)
         {
-            if (designationDetailsPanelNothi.Width == 434 && !designationDetailsPanelNothi.Visible)
+            if (designationDetailsPanelNothi.Width == 428)
             {
                 designationDetailsPanelNothi.Visible = true;
           //      designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
-                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 50);
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 60);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
                 designationDetailsPanelNothi.Width = 427;
-                designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
 
             }
             else
             {
                 designationDetailsPanelNothi.Visible = false;
-                designationDetailsPanelNothi.Width = 434;
+                designationDetailsPanelNothi.Width = 428;
             }
         }
 
@@ -1063,6 +1057,5 @@ namespace dNothi.Desktop.UI
         {
 
         }
-
     }
 }
