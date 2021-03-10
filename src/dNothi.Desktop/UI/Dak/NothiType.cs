@@ -39,11 +39,12 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+        public NothiTypeListResponse nothiType;
         private void LoadNothiTypeList()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             var token = _userService.GetToken();
-            var nothiType = _nothiType.GetNothiTypeList(dakListUserParam);
+            nothiType = _nothiType.GetNothiTypeList(dakListUserParam);
             if (nothiType.status == "success")
             {
                 if (nothiType.data.Count > 0)
@@ -107,6 +108,14 @@ namespace dNothi.Desktop.UI.Dak
         private void btnNewNothiCreate_Click(object sender, EventArgs e)
         {
             var createNewNothiType = UserControlFactory.Create<CreateNewNothiType>();
+            createNewNothiType.nothiTypeList(nothiType.data);
+            foreach (NothiTypeListDTO nothiTypeListDTO in nothiType.data)
+            {
+                string vl = nothiTypeListDTO.nothi_type + Environment.NewLine + string.Concat(nothiTypeListDTO.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                createNewNothiType.nothiType = vl;
+                
+            }
+            
             createNewNothiType.Visible = true;
             createNewNothiType.Location = new System.Drawing.Point(0, 74);
             Controls.Add(createNewNothiType);
@@ -117,5 +126,6 @@ namespace dNothi.Desktop.UI.Dak
         {
            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(210, 234, 255), ButtonBorderStyle.Solid);
         }
+
     }
 }

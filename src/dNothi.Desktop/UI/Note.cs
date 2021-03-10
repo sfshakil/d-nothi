@@ -197,10 +197,6 @@ namespace dNothi.Desktop.UI
             var i = allNoteList.data.total_records;
             noteView.totalNothi = i.ToString();
          
-            
-
-
-
             lbNothiType.Text = "বাছাইকৃত নোট (১)";
             noteViewFLP.Controls.Clear();
             newNoteView = noteView;
@@ -234,8 +230,8 @@ namespace dNothi.Desktop.UI
                         if (singleOnucched.data.total_records > 0)
                         {
                             var rec = singleOnucched.data.records;
-                            lbNoteTotl.Text = "নোটঃ " + nothiListInboxNoteRecordsDTO.note.note_subject;
-                            lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
+                            //lbNoteTotl1.Text = "নোটঃ " + nothiListInboxNoteRecordsDTO.note.note_subject;
+                            lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject;
                             lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.to.issue_date;
 
                             onuchhedheaderPnl.Visible = false;
@@ -251,7 +247,7 @@ namespace dNothi.Desktop.UI
 
                             var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                             separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
-                            separateOnucched.noteNo(lbNoteTotl.Text.Substring(lbNoteTotl.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
+                            separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
                             separateOnucched.createDate = onucchedsingleListRec.created;
                             try
                             {
@@ -318,9 +314,9 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    lbNoteTotl.Text = "নোটঃ " + nothiListInboxNoteRecordsDTO.note.note_subject;
-                    lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
-                    lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.nothi.nothi_created_date;
+                    //lbNoteTotl1.Text = "নোটঃ " + nothiListInboxNoteRecordsDTO.note.note_subject;
+                    lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject;
+                    lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.to.issue_date;
 
                     onuchhedheaderPnl.Visible = false;
                     onuchhedFLP.Visible = false;
@@ -389,7 +385,7 @@ namespace dNothi.Desktop.UI
                         if (singleOnucched.data.total_records > 0)
                         {
                             var rec = singleOnucched.data.records;
-                            lbNoteTotl.Text = "নোটঃ " + list.note_status;
+                            lbNoteTotl1.Text = "নোটঃ " + list.note_status;
                             lbNoteSubject.Text = list.note_subject_sub_text;
                             lbNothiLastDate.Text = list.date;
 
@@ -404,7 +400,7 @@ namespace dNothi.Desktop.UI
 
                             var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                             separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
-                            separateOnucched.noteNo(lbNoteTotl.Text.Substring(lbNoteTotl.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
+                            separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
                             separateOnucched.createDate = onucchedsingleListRec.created;
                             try
                             {
@@ -471,7 +467,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    lbNoteTotl.Text = "নোটঃ " + list.note_status;
+                    lbNoteTotl1.Text = "নোটঃ " + list.note_status;
                     lbNoteSubject.Text = list.note_subject_sub_text;
                     lbNothiLastDate.Text = list.date;
 
@@ -556,7 +552,7 @@ namespace dNothi.Desktop.UI
             get { return _noteTotal; }
             set { _noteTotal = value; 
                 string vl = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                lbNoteTotl.Text = "নোটঃ " + vl;
+                lbNoteTotl1.Text = "নোটঃ " + vl;
                 lbNoteTtl.Text = vl+ ".০"; }
         }
         public string totalRange
@@ -3583,5 +3579,39 @@ namespace dNothi.Desktop.UI
             btnKhoshra.BackColor = Color.FromArgb(243, 246, 249);
         }
 
+        private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void userNameLabel_Click_1(object sender, EventArgs e)
+        {
+            if (designationDetailsPanelNothi.Width == 434 && !designationDetailsPanelNothi.Visible)
+            {
+                designationDetailsPanelNothi.Visible = true;
+                //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 50);
+                Controls.Add(designationDetailsPanelNothi);
+                designationDetailsPanelNothi.BringToFront();
+                designationDetailsPanelNothi.Width = 427;
+                designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
+
+            }
+            else
+            {
+                designationDetailsPanelNothi.Visible = false;
+                designationDetailsPanelNothi.Width = 434;
+            }
+        }
+
+        private void userNameLabel_MouseHover(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.FromArgb(245, 245, 249);
+        }
+
+        private void userNameLabel_MouseLeave(object sender, EventArgs e)
+        {
+            profilePanel.BackColor = Color.Transparent;
+        }
     }
 }

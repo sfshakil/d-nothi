@@ -219,6 +219,7 @@ namespace dNothi.Desktop.UI
             {
                 NoteSaveDTO notedata = noteSave.data;
                 this.Hide();
+                
                 var form = FormFactory.Create<Note>();
                 _dakuserparam = _userService.GetLocalDakUserParam();
 

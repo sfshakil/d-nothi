@@ -31,8 +31,10 @@
             this.btnNewNothiCreate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.detailsSearchDocketingNoTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -101,6 +101,15 @@
             this.panel2.Size = new System.Drawing.Size(534, 129);
             this.panel2.TabIndex = 45;
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1, 128);
+            this.panel7.TabIndex = 66;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
@@ -128,6 +137,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(534, 133);
             this.panel3.TabIndex = 46;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1, 133);
+            this.panel8.TabIndex = 67;
             // 
             // panel11
             // 
@@ -245,7 +263,7 @@
             this.nothiTypeListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.nothiTypeListFlowLayoutPanel.Location = new System.Drawing.Point(3, 336);
             this.nothiTypeListFlowLayoutPanel.Name = "nothiTypeListFlowLayoutPanel";
-            this.nothiTypeListFlowLayoutPanel.Size = new System.Drawing.Size(531, 368);
+            this.nothiTypeListFlowLayoutPanel.Size = new System.Drawing.Size(531, 389);
             this.nothiTypeListFlowLayoutPanel.TabIndex = 47;
             // 
             // label1
@@ -307,31 +325,13 @@
             this.panel5.Size = new System.Drawing.Size(1, 73);
             this.panel5.TabIndex = 65;
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1, 128);
-            this.panel7.TabIndex = 66;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1, 133);
-            this.panel8.TabIndex = 67;
-            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel9.Location = new System.Drawing.Point(0, 336);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1, 368);
+            this.panel9.Size = new System.Drawing.Size(1, 389);
             this.panel9.TabIndex = 66;
             // 
             // NothiType
@@ -346,7 +346,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "NothiType";
-            this.Size = new System.Drawing.Size(534, 704);
+            this.Size = new System.Drawing.Size(534, 725);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
