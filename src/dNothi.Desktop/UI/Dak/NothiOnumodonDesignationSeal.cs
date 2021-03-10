@@ -1,4 +1,5 @@
 ﻿
+using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.NothiUI;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
@@ -91,10 +92,13 @@ namespace dNothi.Desktop.UI.Dak
         private List<PrapokDTO> _ownOfficeDesignationList = new List<PrapokDTO>();
         private List<PrapokDTO> _otherOfficeDesignationList = new List<PrapokDTO>();
     
-        private List<onumodonDataRecordDTO> _currentOnumodonRow = new List<onumodonDataRecordDTO>();
-        private List<onumodonDataRecordDTO> _deletedOnumodonRow = new List<onumodonDataRecordDTO>();
-        private List<onumodonDataRecordDTO> _addedOnumodonRow = new List<onumodonDataRecordDTO>();
-        
+        public List<onumodonDataRecordDTO> _currentOnumodonRow = new List<onumodonDataRecordDTO>();
+        public List<onumodonDataRecordDTO> _deletedOnumodonRow = new List<onumodonDataRecordDTO>();
+        public List<onumodonDataRecordDTO> _addedOnumodonRow = new List<onumodonDataRecordDTO>();
+
+        public NothiListRecordsDTO _nothiListRecordsDTO;
+
+        public NothiListRecordsDTO nothiListRecordsDTO { get { return _nothiListRecordsDTO; } set { _nothiListRecordsDTO = value; } }
 
         public NothiOnumodonDesignationSeal(IDakUploadService dakUploadService, IUserService userService, INothiNotePermissionService nothiNotePermission, IOnumodonService onumodonService)
         {
@@ -204,12 +208,12 @@ namespace dNothi.Desktop.UI.Dak
                 foreach(var singleOnumodon in onumodonRowforThisLevel)
                 {
                     CheckUncheckTreeNode(prapokownOfficeTreeView.Nodes, false, singleOnumodon.designation_id);
-                   
+                    
+
                 }
-
+                _currentOnumodonRow = _currentOnumodonRow.Where(a=>a.layer_index!=level).ToList();
                 _deletedOnumodonRow.AddRange(onumodonRowforThisLevel);
-                _currentOnumodonRow = _currentOnumodonRow.Except(onumodonRowforThisLevel).ToList();
-
+               
 
             }
 
@@ -812,8 +816,25 @@ namespace dNothi.Desktop.UI.Dak
                 if (nothiOnumodonSearch != null)
                 {
 
+                    nothiOnumodonSearch.AddNewOfficer(officer.employee_name_bng, officer.designation_id, officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng);
+                    List<onumodonDataRecordDTO> countOnumodonDataRecordDTO = _currentOnumodonRow.Where(a => a.layer_index == selectedLevel).ToList();
 
-                    nothiOnumodonSearch.AddNewOfficer(officer.office_name_bng, officer.designation_id, officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng);
+                    onumodonDataRecordDTO onumodonDataRecordDTO = new onumodonDataRecordDTO();
+                    onumodonDataRecordDTO.officer_id = officer.officer_id;
+                    onumodonDataRecordDTO.layer_index = selectedLevel;
+                    onumodonDataRecordDTO.office_id = officer.office_id;
+                    onumodonDataRecordDTO.office_unit = officer.office_unit;
+                    onumodonDataRecordDTO.office_unit_id = officer.office_unit_id;
+                    onumodonDataRecordDTO.officer = officer.officer;
+                    onumodonDataRecordDTO.office = officer.office;
+                    onumodonDataRecordDTO.designation_level = officer.designation_level;
+                    onumodonDataRecordDTO.designation_id = officer.designation_id;
+                    onumodonDataRecordDTO.designation = officer.designation;
+                    onumodonDataRecordDTO.route_index = countOnumodonDataRecordDTO.Count + 1;
+                    onumodonDataRecordDTO.nothi_master_id = Convert.ToInt32(_nothiListRecordsDTO.id);
+                    onumodonDataRecordDTO.is_active = 1;
+
+                    _currentOnumodonRow.Add(onumodonDataRecordDTO);
 
                 }
             }
@@ -856,8 +877,11 @@ namespace dNothi.Desktop.UI.Dak
             onumodonDataRecordDTO.designation_id = officer.designation_id;
             onumodonDataRecordDTO.designation = officer.designation;
             onumodonDataRecordDTO.route_index = countOnumodonDataRecordDTO.Count + 1 ;
-          
+            onumodonDataRecordDTO.nothi_master_id =Convert.ToInt32(_nothiListRecordsDTO.id);
+            onumodonDataRecordDTO.is_active =1;
 
+           
+            
             _currentOnumodonRow.Add(onumodonDataRecordDTO);
 
                 LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a=>a.layer_index).ToList());
@@ -981,35 +1005,39 @@ namespace dNothi.Desktop.UI.Dak
                 e.Cancel = true;
             }
         }
-        
+
+        public event EventHandler SuccessfullyOnumodonSaveButton;
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
-            DialogResult DialogResultSttring = MessageBox.Show("আপনি কি সফলভাবে সংরক্ষণ করতে চান??\n",
-                               "Conditional", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResultSttring == DialogResult.Yes)
+           
+
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি সফলভাবে সংরক্ষণ করতে চান?";
+            conditonBoxForm.ShowDialog(this);
+
+            if (conditonBoxForm.Yes)
             {
-                var nothiNotePermission = _nothiNotePermission.GetNothiNotePermission(_dakUserParam,nothiOnumodons);
+                var nothiNotePermission = _nothiNotePermission.GetNothiPermission(_dakUserParam,_currentOnumodonRow.OrderByDescending(a=>a.layer_index).ToList(),_nothiListRecordsDTO,Convert.ToInt32(_nothiListRecordsDTO.office_id));
 
                 if (nothiNotePermission.status == "success")
                 {
-                    MessageBox.Show("সফলভাবে তথ্য সংরক্ষণ করা হয়েছে");
-                    foreach (Form f in Application.OpenForms)
-                    { f.Hide(); }
-                    var form = FormFactory.Create<Nothi>();
-                    form.ForceLoadNothiALL();
-                    form.ShowDialog();
+                    SuccessMessage("সফলভাবে তথ্য সংরক্ষণ করা হয়েছে");
+
+                    
+                    if (this.SuccessfullyOnumodonSaveButton != null)
+                        this.SuccessfullyOnumodonSaveButton(sender, e);
+
+
+                    this.Hide();
 
                 }
                 else
                 {
-                    MessageBox.Show("সংরক্ষণ সফল হ​য়নি।।");
+                    ErrorMessage("সংরক্ষণ সফল হ​য়নি।।");
                 }
 
             }
-            else
-            {
-
-            }
+      
             
             
         }
@@ -1055,5 +1083,27 @@ namespace dNothi.Desktop.UI.Dak
 
           
         }
+
+
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
+
+
     }
 }

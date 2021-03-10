@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,9 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string office_unit { get; set; }
         public string designation { get; set; }
         public int designation_level { get; set; }
-        public string created { get; set; }
+    
+        [JsonProperty("created")]
+        public string createDate { get; set; }
         public string modified { get; set; }
         public int is_strict_route { get; set; }
         public int route_index { get; set; }

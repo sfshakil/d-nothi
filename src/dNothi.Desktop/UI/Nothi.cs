@@ -112,8 +112,11 @@ namespace dNothi.Desktop.UI
                 nothiInbox.NewNoteButtonClick += delegate (object sender, EventArgs e) { NewNote_ButtonClick(sender, e, nothiListRecordsDTO); };
                 nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
                 nothiInbox.NothiOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiOnumodon_ButtonClick(sender, e, nothiListRecordsDTO); };
-                //delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
 
+              
+
+                //delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                nothiInbox.nothiListRecordsDTO = nothiListRecordsDTO;
                 i = i + 1;
                 nothiInboxs.Add(nothiInbox);
             }
@@ -206,8 +209,11 @@ namespace dNothi.Desktop.UI
         {
             NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.nothiListRecordsDTO = nothiListRecordsDTO;
             form.GetNothiInboxRecords(nothiListRecords);
-            form.ShowDialog();
+            form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
+
+            CalPopUpWindow(form);
 
         }
         private void SaveNewNote_ButtonClick(object sender, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
@@ -705,6 +711,24 @@ namespace dNothi.Desktop.UI
             btnNothiAll.IconColor = Color.FromArgb(78, 165, 254);
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
+            LoadNothiAll();
+        }
+
+        private void ClickNothiAll()
+        {
+            agotoNothiSelected = 0;
+            preritoNothiSelected = 0;
+            shokolNothiSelected = 1;
+            _nothiCurrentCategory.isAll = true;
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(btnNothiAll);
             nothiListFlowLayoutPanel.Visible = true;
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
