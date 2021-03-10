@@ -82,7 +82,7 @@
             this.btnYES.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnYES.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnYES.IconSize = 32;
-            this.btnYES.Location = new System.Drawing.Point(16, 71);
+            this.btnYES.Location = new System.Drawing.Point(16, 97);
             this.btnYES.Name = "btnYES";
             this.btnYES.Size = new System.Drawing.Size(41, 33);
             this.btnYES.TabIndex = 109;
@@ -102,7 +102,7 @@
             this.btnNO.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
             this.btnNO.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNO.IconSize = 32;
-            this.btnNO.Location = new System.Drawing.Point(57, 71);
+            this.btnNO.Location = new System.Drawing.Point(57, 97);
             this.btnNO.Name = "btnNO";
             this.btnNO.Size = new System.Drawing.Size(41, 33);
             this.btnNO.TabIndex = 110;
@@ -114,7 +114,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 108);
+            this.panel1.Location = new System.Drawing.Point(0, 140);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1221, 2);
@@ -137,7 +137,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 2);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(2, 106);
+            this.panel4.Size = new System.Drawing.Size(2, 138);
             this.panel4.TabIndex = 113;
             // 
             // panel5
@@ -147,7 +147,7 @@
             this.panel5.Location = new System.Drawing.Point(1219, 2);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(2, 106);
+            this.panel5.Size = new System.Drawing.Size(2, 138);
             this.panel5.TabIndex = 114;
             // 
             // NothiCreateNextStep
@@ -155,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(1221, 110);
+            this.ClientSize = new System.Drawing.Size(1221, 142);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
@@ -166,7 +166,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(100, 400);
+            this.Location = new System.Drawing.Point(100, 300);
             this.Name = "NothiCreateNextStep";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "NothiCreateNextStep";
