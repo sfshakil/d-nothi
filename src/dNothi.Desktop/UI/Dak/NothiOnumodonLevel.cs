@@ -74,8 +74,10 @@ namespace dNothi.Desktop.UI.Dak
         }
 
        
-        public void AddNewOfficer(string officerName, int designationId, string designation)
+        public void AddNewOfficer( string officerName, int designationId, string designation)
         {
+
+
 
             NothiOnumodonOfficer nothiOnumodonOfficer = new NothiOnumodonOfficer();
 
@@ -89,15 +91,17 @@ namespace dNothi.Desktop.UI.Dak
 
             //nothiOnumodonOfficer.Dock = DockStyle.Fill;
 
-            int row = this.officerTableLayoutPanel.RowCount++;
+            //int row = this.officerTableLayoutPanel.RowCount++;
 
-            officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
-            if (row == 1)
-            {
-                row = officerTableLayoutPanel.RowCount++;
-                officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
-            }
-            officerTableLayoutPanel.Controls.Add(nothiOnumodonOfficer, 0, row);
+            //officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            //if (row == 1)
+            //{
+            //    row = officerTableLayoutPanel.RowCount++;
+            //    officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            //}
+            // officerTableLayoutPanel.Controls.Add(nothiOnumodonOfficer, 0, row);
+
+            officerTableLayoutPanel.Controls.Add(nothiOnumodonOfficer);
 
         }
 
@@ -154,15 +158,32 @@ namespace dNothi.Desktop.UI.Dak
 
         private void officerTableLayoutPanel_DragDrop(object sender, DragEventArgs e)
         {
-            NothiOnumodonLevel data = (NothiOnumodonLevel)e.Data.GetData(typeof(NothiOnumodonLevel));
+            NothiOnumodonOfficer data = (NothiOnumodonOfficer)e.Data.GetData(typeof(NothiOnumodonOfficer));
 
-            TableLayoutPanel _destination = (TableLayoutPanel)sender;
-            TableLayoutPanel _source = (TableLayoutPanel)data.Parent;
+            FlowLayoutPanel _destination = (FlowLayoutPanel)sender;
+            FlowLayoutPanel _source = (FlowLayoutPanel)data.Parent;
 
-            if (_source == _destination)
+            if (_source != _destination)
+            {
+                // Add control to panel
+                _destination.Controls.Add(data);
+                data.Size = new Size(_destination.Width, 50);
+
+                // Reorder
+                Point p = _destination.PointToClient(new Point(e.X, e.Y));
+                var item = _destination.GetChildAtPoint(p);
+                int index = _destination.Controls.GetChildIndex(item, false);
+                _destination.Controls.SetChildIndex(data, index);
+
+                // Invalidate to paint!
+                _destination.Invalidate();
+                _source.Invalidate();
+            }
+            else
             {
                 // Just add the control to the new panel.
-                // No need to remove from the other panel, this changes the Control.Parent property.
+                // No need to remove from the other panel,
+                // this changes the Control.Parent property.
                 Point p = _destination.PointToClient(new Point(e.X, e.Y));
                 var item = _destination.GetChildAtPoint(p);
                 int index = _destination.Controls.GetChildIndex(item, false);

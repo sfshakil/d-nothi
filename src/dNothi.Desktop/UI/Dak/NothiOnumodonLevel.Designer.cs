@@ -36,7 +36,7 @@
             this.cbxNiontron = new System.Windows.Forms.CheckBox();
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.officerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.officerTableLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.LeftPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -149,15 +149,11 @@
             // officerTableLayoutPanel
             // 
             this.officerTableLayoutPanel.AutoSize = true;
-            this.officerTableLayoutPanel.ColumnCount = 1;
-            this.officerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.officerTableLayoutPanel.Location = new System.Drawing.Point(61, 43);
-            this.officerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.officerTableLayoutPanel.Location = new System.Drawing.Point(61, 44);
+            this.officerTableLayoutPanel.MaximumSize = new System.Drawing.Size(429, 0);
+            this.officerTableLayoutPanel.MinimumSize = new System.Drawing.Size(429, 0);
             this.officerTableLayoutPanel.Name = "officerTableLayoutPanel";
-            this.officerTableLayoutPanel.RowCount = 1;
-            this.officerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.officerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.officerTableLayoutPanel.Size = new System.Drawing.Size(429, 26);
+            this.officerTableLayoutPanel.Size = new System.Drawing.Size(429, 0);
             this.officerTableLayoutPanel.TabIndex = 8;
             this.officerTableLayoutPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.officerTableLayoutPanel_DragDrop);
             this.officerTableLayoutPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.officerTableLayoutPanel_DragEnter);
@@ -191,6 +187,6 @@
         private System.Windows.Forms.CheckBox cbxNiontron;
         private FontAwesome.Sharp.IconButton deleteButton;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel officerTableLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel officerTableLayoutPanel;
     }
 }
