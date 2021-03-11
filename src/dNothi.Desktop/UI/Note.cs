@@ -794,7 +794,6 @@ namespace dNothi.Desktop.UI
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
-
         public Form AttachNothiTypeListControlToForm(Control control)
         {
             Form form = new Form();
@@ -1526,7 +1525,8 @@ namespace dNothi.Desktop.UI
                 this.NoteDetailsButton(sender, e);
 
         }
-            public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records)
+
+        public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records)
         {
             var nothiType = UserControlFactory.Create<NothiNextStep>();
             nothiType.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e); };
@@ -1538,11 +1538,7 @@ namespace dNothi.Desktop.UI
             nothiType.loadNewNoteData(newnotedata);
             nothiType.loadlistInboxRecord(nothiListRecords);
             //nothiType.Location = new System.Drawing.Point(0, 0);
-            foreach (onumodonDataRecordDTO  record in records)
-            {
-                nothiType.loadFlowLayout(record);
-
-            }
+            nothiType.GetNothiInboxRecords(records);
             this.Controls.Add(nothiType);
             //nothiType.BringToFront();
             var form = AttachNothiTypeListControlToForm(nothiType);

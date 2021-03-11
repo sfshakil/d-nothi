@@ -186,6 +186,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             nothiListRecord = nothiInboxRecord;
         }
+        public event EventHandler NoteSuccessfullySend;
         private void btnSend_Click(object sender, EventArgs e)
         {
             List<onumodonDataRecordDTO> newrecords = new List<onumodonDataRecordDTO>();
@@ -202,7 +203,11 @@ namespace dNothi.Desktop.UI.Dak
             var onuchhedForwardResponse = _onuchhedForward.GetOnuchhedForwardResponse(dakListUserParam, newnotedata, nothiListRecord, newrecords);
             if (onuchhedForwardResponse.status == "success")
             {
+
                 MessageBox.Show("প্রক্রিয়াটি সম্পন্ন হয়েছে");
+                foreach (Form f in Application.OpenForms)
+                { f.Hide(); }
+                
 
             }
         }
