@@ -30,13 +30,13 @@
         {
             this.btnChair = new FontAwesome.Sharp.IconButton();
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.lbLevel = new System.Windows.Forms.Label();
             this.btnKarjodibosh = new FontAwesome.Sharp.IconButton();
             this.cbxNiontron = new System.Windows.Forms.CheckBox();
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.officerTableLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.LeftPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,14 @@
             this.LeftPanel.Name = "LeftPanel";
             this.LeftPanel.Size = new System.Drawing.Size(58, 72);
             this.LeftPanel.TabIndex = 6;
+            // 
+            // movementStatusSliderPanel1
+            // 
+            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(41, 0);
+            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
+            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(74, 86);
+            this.movementStatusSliderPanel1.TabIndex = 0;
             // 
             // lbLevel
             // 
@@ -148,14 +156,6 @@
             this.officerTableLayoutPanel.Name = "officerTableLayoutPanel";
             this.officerTableLayoutPanel.Size = new System.Drawing.Size(429, 0);
             this.officerTableLayoutPanel.TabIndex = 8;
-            // 
-            // movementStatusSliderPanel1
-            // 
-            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(41, 0);
-            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
-            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(74, 86);
-            this.movementStatusSliderPanel1.TabIndex = 0;
             // 
             // NothiOnumodonLevel
             // 
