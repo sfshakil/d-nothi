@@ -1525,7 +1525,8 @@ namespace dNothi.Desktop.UI
                 this.NoteDetailsButton(sender, e);
 
         }
-            public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records)
+
+        public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records)
         {
             var nothiType = UserControlFactory.Create<NothiNextStep>();
             nothiType.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e); };

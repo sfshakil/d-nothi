@@ -154,6 +154,7 @@ namespace dNothi.Desktop.UI
             _dakuserparam = _userService.GetLocalDakUserParam();
 
             form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+            
             NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
             form.nothiNo = nothiListRecords.nothi_no;
             form.nothiShakha = nothiListRecords.office_unit_name + " " + _dakuserparam.office_label;
@@ -269,6 +270,10 @@ namespace dNothi.Desktop.UI
 
                 form.ShowDialog();
 
+            }
+            else
+            {
+                MessageBox.Show(noteSave.status);
             }
 
             
