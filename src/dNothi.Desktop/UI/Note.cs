@@ -1668,6 +1668,7 @@ namespace dNothi.Desktop.UI
             btnAllPotroPrevious.Visible = false;
             btnPotrojariPrevious.Visible = false;
             btnNothijatoPrevious.Visible = false;
+            btnNoteKhoshraPrevious.Visible = false;
         }
         public void allMulpotroButtonsVisibilityOff()
         {
@@ -3583,8 +3584,6 @@ namespace dNothi.Desktop.UI
         NoteKhoshraListResponse noteKhoshraList = new NoteKhoshraListResponse();
         private void lbNoteKhoshra_Click(object sender, EventArgs e)
         {
-            
-            
             allLbelButtonPreviousColor();
             lbNoteKhoshra.BackColor = Color.FromArgb(14, 102, 98);
             lbNoteKhoshra.ForeColor = Color.FromArgb(191, 239, 237);
@@ -3684,6 +3683,182 @@ namespace dNothi.Desktop.UI
             }
             
         }
+        private void btnNoteKhoshraPrevious_Click(object sender, EventArgs e)
+        {
+            i--;
+            if (i == 0)
+            {
+                pnlPotrangshoDetails.Visible = true;
+                lbPotroSubject.Text = noteKhoshraList.data.records[i].basic.potro_subject;
+                lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + noteKhoshraList.data.records[i].basic.created;
+                lbNoteId.Text = "নোটঃ " + string.Concat(noteKhoshraList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbSubjectSmall.Text = "পত্র: " + noteKhoshraList.data.records[i].basic.potro_subject;
+                lbTotal.Text = "সর্বমোট: " + string.Concat(noteKhoshraList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                foreach (string btnName in noteKhoshraList.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                mulpotroOshongjuktiVisibilityOff();
+
+                totalRange = (i + 1).ToString();
+
+                picBoxFile.Visible = false;
+                khosraViewWebBrowser.Visible = true;
+                if (khosraViewWebBrowser.Document != null)
+                {
+                    khosraViewWebBrowser.Document.Write(string.Empty);
+                }
+
+                if (noteKhoshraList.data.total_records > 0)
+                {
+                    allNextButtonVisibilityOff();
+                    btnNoteKhoshraNext.Visible = true;
+
+                    allPreviousButtonVisibilityOff();
+                    string DecodedString = noteKhoshraList.data.records[i].mulpotro.potro_description;
+                    khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+                }
+            }
+            if (noteKhoshraList.data.total_records != i && i > 0)
+            {
+                pnlPotrangshoDetails.Visible = true;
+                lbPotroSubject.Text = noteKhoshraList.data.records[i].basic.potro_subject;
+                lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + noteKhoshraList.data.records[i].basic.created;
+                lbNoteId.Text = "নোটঃ " + string.Concat(noteKhoshraList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbSubjectSmall.Text = "পত্র: " + noteKhoshraList.data.records[i].basic.potro_subject;
+                lbTotal.Text = "সর্বমোট: " + string.Concat(noteKhoshraList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                foreach (string btnName in noteKhoshraList.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                mulpotroOshongjuktiVisibilityOff();
+
+                totalRange = (i + 1).ToString();
+
+                picBoxFile.Visible = false;
+                khosraViewWebBrowser.Visible = true;
+                if (khosraViewWebBrowser.Document != null)
+                {
+                    khosraViewWebBrowser.Document.Write(string.Empty);
+                }
+
+                if (noteKhoshraList.data.total_records > 0)
+                {
+                    allNextButtonVisibilityOff();
+                    btnNoteKhoshraNext.Visible = true;
+
+                    allPreviousButtonVisibilityOff();
+                    btnNoteKhoshraPrevious.Visible = true;
+                    string DecodedString = noteKhoshraList.data.records[i].mulpotro.potro_description;
+                    khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+                }
+            }
+            if (noteKhoshraList.data.total_records < 0 || i < 0)
+            {
+                i = 0;
+                allPreviousButtonVisibilityOff();
+            }
+        }
         private void btnNoteKhoshraNext_Click(object sender, EventArgs e)
         {
             i++;
@@ -3766,6 +3941,7 @@ namespace dNothi.Desktop.UI
                     btnNoteKhoshraNext.Visible = true;
 
                     allPreviousButtonVisibilityOff();
+                    btnNoteKhoshraPrevious.Visible = true;
                     string DecodedString = noteKhoshraList.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                 }
@@ -3970,7 +4146,5 @@ namespace dNothi.Desktop.UI
         {
             profilePanel.BackColor = Color.Transparent;
         }
-
-
     }
 }

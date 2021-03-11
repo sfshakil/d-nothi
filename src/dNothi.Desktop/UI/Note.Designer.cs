@@ -89,6 +89,7 @@
             this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
             this.iconButton20 = new FontAwesome.Sharp.IconButton();
             this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel29 = new System.Windows.Forms.Panel();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
             this.btnCanRevert = new FontAwesome.Sharp.IconButton();
@@ -119,8 +120,8 @@
             this.panel37 = new System.Windows.Forms.Panel();
             this.noteTabpanel = new System.Windows.Forms.Panel();
             this.tabButtonPanel = new System.Windows.Forms.Panel();
-            this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
+            this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.lbNoteTotl1 = new System.Windows.Forms.Label();
             this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.panel38 = new System.Windows.Forms.Panel();
@@ -165,6 +166,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel48 = new System.Windows.Forms.Panel();
             this.panel50 = new System.Windows.Forms.Panel();
+            this.btnNoteKhoshraNext = new FontAwesome.Sharp.IconButton();
             this.btnNothijatoNext = new FontAwesome.Sharp.IconButton();
             this.btnNothijatoPrevious = new FontAwesome.Sharp.IconButton();
             this.btnPotrojariPrevious = new FontAwesome.Sharp.IconButton();
@@ -254,8 +256,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.btnNoteKhoshraNext = new FontAwesome.Sharp.IconButton();
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
+            this.btnNoteKhoshraPrevious = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -1177,6 +1178,17 @@
             this.btnOnuchhedSave.UseVisualStyleBackColor = false;
             this.btnOnuchhedSave.Click += new System.EventHandler(this.btnOnuchhedSave_Click);
             // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = null;
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 1);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(874, 406);
+            this.tinyMceEditor.TabIndex = 61;
+            // 
             // panel29
             // 
             this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
@@ -1703,6 +1715,27 @@
             this.tabButtonPanel.Size = new System.Drawing.Size(156, 40);
             this.tabButtonPanel.TabIndex = 72;
             // 
+            // iconButton9
+            // 
+            this.iconButton9.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton9.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.iconButton9.FlatAppearance.BorderSize = 0;
+            this.iconButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton9.ForeColor = System.Drawing.Color.White;
+            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
+            this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton9.IconSize = 15;
+            this.iconButton9.Location = new System.Drawing.Point(126, 0);
+            this.iconButton9.Name = "iconButton9";
+            this.iconButton9.Size = new System.Drawing.Size(25, 40);
+            this.iconButton9.TabIndex = 70;
+            this.iconButton9.UseVisualStyleBackColor = false;
+            // 
             // iconButton8
             // 
             this.iconButton8.BackColor = System.Drawing.Color.Transparent;
@@ -1724,27 +1757,6 @@
             this.iconButton8.Size = new System.Drawing.Size(25, 40);
             this.iconButton8.TabIndex = 71;
             this.iconButton8.UseVisualStyleBackColor = false;
-            // 
-            // iconButton9
-            // 
-            this.iconButton9.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton9.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton9.FlatAppearance.BorderSize = 0;
-            this.iconButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton9.ForeColor = System.Drawing.Color.White;
-            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
-            this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton9.IconSize = 15;
-            this.iconButton9.Location = new System.Drawing.Point(126, 0);
-            this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Size = new System.Drawing.Size(25, 40);
-            this.iconButton9.TabIndex = 70;
-            this.iconButton9.UseVisualStyleBackColor = false;
             // 
             // lbNoteTotl1
             // 
@@ -2398,6 +2410,7 @@
             // 
             // panel50
             // 
+            this.panel50.Controls.Add(this.btnNoteKhoshraPrevious);
             this.panel50.Controls.Add(this.btnNoteKhoshraNext);
             this.panel50.Controls.Add(this.btnNothijatoNext);
             this.panel50.Controls.Add(this.btnNothijatoPrevious);
@@ -2414,6 +2427,24 @@
             this.panel50.Name = "panel50";
             this.panel50.Size = new System.Drawing.Size(71, 55);
             this.panel50.TabIndex = 81;
+            // 
+            // btnNoteKhoshraNext
+            // 
+            this.btnNoteKhoshraNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnNoteKhoshraNext.FlatAppearance.BorderSize = 0;
+            this.btnNoteKhoshraNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnNoteKhoshraNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNoteKhoshraNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnNoteKhoshraNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNoteKhoshraNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNoteKhoshraNext.IconSize = 24;
+            this.btnNoteKhoshraNext.Location = new System.Drawing.Point(37, 3);
+            this.btnNoteKhoshraNext.Name = "btnNoteKhoshraNext";
+            this.btnNoteKhoshraNext.Size = new System.Drawing.Size(33, 29);
+            this.btnNoteKhoshraNext.TabIndex = 86;
+            this.btnNoteKhoshraNext.UseVisualStyleBackColor = false;
+            this.btnNoteKhoshraNext.Visible = false;
+            this.btnNoteKhoshraNext.Click += new System.EventHandler(this.btnNoteKhoshraNext_Click);
             // 
             // btnNothijatoNext
             // 
@@ -3586,34 +3617,23 @@
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
             // 
-            // btnNoteKhoshraNext
+            // btnNoteKhoshraPrevious
             // 
-            this.btnNoteKhoshraNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.btnNoteKhoshraNext.FlatAppearance.BorderSize = 0;
-            this.btnNoteKhoshraNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.btnNoteKhoshraNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNoteKhoshraNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.btnNoteKhoshraNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.btnNoteKhoshraNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNoteKhoshraNext.IconSize = 24;
-            this.btnNoteKhoshraNext.Location = new System.Drawing.Point(37, 3);
-            this.btnNoteKhoshraNext.Name = "btnNoteKhoshraNext";
-            this.btnNoteKhoshraNext.Size = new System.Drawing.Size(33, 29);
-            this.btnNoteKhoshraNext.TabIndex = 86;
-            this.btnNoteKhoshraNext.UseVisualStyleBackColor = false;
-            this.btnNoteKhoshraNext.Visible = false;
-            this.btnNoteKhoshraNext.Click += new System.EventHandler(this.btnNoteKhoshraNext_Click);
-            // 
-            // tinyMceEditor
-            // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = null;
-            this.tinyMceEditor.Location = new System.Drawing.Point(0, 1);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
-            this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(874, 406);
-            this.tinyMceEditor.TabIndex = 61;
+            this.btnNoteKhoshraPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnNoteKhoshraPrevious.FlatAppearance.BorderSize = 0;
+            this.btnNoteKhoshraPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnNoteKhoshraPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNoteKhoshraPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnNoteKhoshraPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNoteKhoshraPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNoteKhoshraPrevious.IconSize = 24;
+            this.btnNoteKhoshraPrevious.Location = new System.Drawing.Point(4, 3);
+            this.btnNoteKhoshraPrevious.Name = "btnNoteKhoshraPrevious";
+            this.btnNoteKhoshraPrevious.Size = new System.Drawing.Size(34, 29);
+            this.btnNoteKhoshraPrevious.TabIndex = 86;
+            this.btnNoteKhoshraPrevious.UseVisualStyleBackColor = false;
+            this.btnNoteKhoshraPrevious.Visible = false;
+            this.btnNoteKhoshraPrevious.Click += new System.EventHandler(this.btnNoteKhoshraPrevious_Click);
             // 
             // Note
             // 
@@ -3964,5 +3984,6 @@
         private System.Windows.Forms.Panel panel48;
         private System.Windows.Forms.Panel panel50;
         private FontAwesome.Sharp.IconButton btnNoteKhoshraNext;
+        private FontAwesome.Sharp.IconButton btnNoteKhoshraPrevious;
     }
 }
