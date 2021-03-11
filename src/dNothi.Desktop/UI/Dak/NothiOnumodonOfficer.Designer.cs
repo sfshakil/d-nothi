@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbxControl = new System.Windows.Forms.CheckBox();
             this.lbDesignation = new System.Windows.Forms.Label();
             this.officerNameLabel = new System.Windows.Forms.Label();
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.btnUser = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.upButton = new FontAwesome.Sharp.IconButton();
+            this.downButton = new FontAwesome.Sharp.IconButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbxControl
@@ -43,10 +49,12 @@
             this.cbxControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbxControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.cbxControl.Location = new System.Drawing.Point(44, 37);
+            this.cbxControl.Location = new System.Drawing.Point(10, 37);
             this.cbxControl.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.cbxControl.MaximumSize = new System.Drawing.Size(24, 32);
+            this.cbxControl.MinimumSize = new System.Drawing.Size(24, 32);
             this.cbxControl.Name = "cbxControl";
-            this.cbxControl.Size = new System.Drawing.Size(15, 28);
+            this.cbxControl.Size = new System.Drawing.Size(24, 32);
             this.cbxControl.TabIndex = 63;
             this.cbxControl.UseVisualStyleBackColor = true;
             this.cbxControl.Visible = false;
@@ -97,10 +105,12 @@
             this.deleteButton.IconColor = System.Drawing.Color.Red;
             this.deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.deleteButton.IconSize = 18;
-            this.deleteButton.Location = new System.Drawing.Point(0, 34);
+            this.deleteButton.Location = new System.Drawing.Point(400, 0);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.deleteButton.MaximumSize = new System.Drawing.Size(24, 32);
+            this.deleteButton.MinimumSize = new System.Drawing.Size(24, 32);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(34, 34);
+            this.deleteButton.Size = new System.Drawing.Size(24, 32);
             this.deleteButton.TabIndex = 62;
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click_1);
@@ -132,15 +142,70 @@
             this.flowLayoutPanel1.Controls.Add(this.lbDesignation);
             this.flowLayoutPanel1.Controls.Add(this.deleteButton);
             this.flowLayoutPanel1.Controls.Add(this.cbxControl);
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(425, 70);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(425, 105);
             this.flowLayoutPanel1.TabIndex = 64;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.downButton);
+            this.panel1.Controls.Add(this.upButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(37, 34);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.MaximumSize = new System.Drawing.Size(0, 60);
+            this.panel1.MinimumSize = new System.Drawing.Size(24, 60);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(31, 60);
+            this.panel1.TabIndex = 64;
+            // 
+            // upButton
+            // 
+            this.upButton.AutoSize = true;
+            this.upButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.upButton.FlatAppearance.BorderSize = 0;
+            this.upButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.upButton.IconChar = FontAwesome.Sharp.IconChar.ArrowUp;
+            this.upButton.IconColor = System.Drawing.Color.Silver;
+            this.upButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.upButton.IconSize = 24;
+            this.upButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.upButton.Location = new System.Drawing.Point(0, 0);
+            this.upButton.Margin = new System.Windows.Forms.Padding(0);
+            this.upButton.Name = "upButton";
+            this.upButton.Size = new System.Drawing.Size(31, 30);
+            this.upButton.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.upButton, "উপরে");
+            this.upButton.UseVisualStyleBackColor = true;
+            this.upButton.Click += new System.EventHandler(this.upButton_Click);
+            // 
+            // downButton
+            // 
+            this.downButton.AutoSize = true;
+            this.downButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.downButton.FlatAppearance.BorderSize = 0;
+            this.downButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.downButton.IconChar = FontAwesome.Sharp.IconChar.ArrowDown;
+            this.downButton.IconColor = System.Drawing.Color.Silver;
+            this.downButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.downButton.IconSize = 24;
+            this.downButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.downButton.Location = new System.Drawing.Point(0, 30);
+            this.downButton.Margin = new System.Windows.Forms.Padding(0);
+            this.downButton.Name = "downButton";
+            this.downButton.Size = new System.Drawing.Size(31, 30);
+            this.downButton.TabIndex = 65;
+            this.toolTip1.SetToolTip(this.downButton, "নিচে");
+            this.downButton.UseVisualStyleBackColor = true;
+            this.downButton.Click += new System.EventHandler(this.downButton_Click);
             // 
             // NothiOnumodonOfficer
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
@@ -150,9 +215,11 @@
             this.MaximumSize = new System.Drawing.Size(425, 0);
             this.MinimumSize = new System.Drawing.Size(425, 70);
             this.Name = "NothiOnumodonOfficer";
-            this.Size = new System.Drawing.Size(425, 70);
+            this.Size = new System.Drawing.Size(425, 105);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -164,5 +231,9 @@
         private System.Windows.Forms.Label officerNameLabel;
         private FontAwesome.Sharp.IconButton btnUser;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton downButton;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private FontAwesome.Sharp.IconButton upButton;
     }
 }
