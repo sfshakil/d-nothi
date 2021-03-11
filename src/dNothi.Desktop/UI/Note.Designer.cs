@@ -89,7 +89,6 @@
             this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
             this.iconButton20 = new FontAwesome.Sharp.IconButton();
             this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel29 = new System.Windows.Forms.Panel();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
             this.btnCanRevert = new FontAwesome.Sharp.IconButton();
@@ -255,6 +254,8 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnNoteKhoshraNext = new FontAwesome.Sharp.IconButton();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -435,8 +436,8 @@
             this.userNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
             this.userNameLabel.Location = new System.Drawing.Point(32, 5);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.userNameLabel.Size = new System.Drawing.Size(287, 25);
+            this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.userNameLabel.Size = new System.Drawing.Size(287, 28);
             this.userNameLabel.TabIndex = 23;
             this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি) ";
             this.userNameLabel.Click += new System.EventHandler(this.userNameLabel_Click_1);
@@ -477,6 +478,7 @@
             this.btnNothiIcon.Size = new System.Drawing.Size(173, 50);
             this.btnNothiIcon.TabIndex = 30;
             this.btnNothiIcon.UseVisualStyleBackColor = false;
+            this.btnNothiIcon.Click += new System.EventHandler(this.dakModuleNameLabel_Click);
             // 
             // nothiModulePanel
             // 
@@ -604,7 +606,7 @@
             this.pnlNothiNoteTalika.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNothiNoteTalika.Location = new System.Drawing.Point(0, 50);
             this.pnlNothiNoteTalika.Name = "pnlNothiNoteTalika";
-            this.pnlNothiNoteTalika.Size = new System.Drawing.Size(1350, 41);
+            this.pnlNothiNoteTalika.Size = new System.Drawing.Size(1350, 35);
             this.pnlNothiNoteTalika.TabIndex = 15;
             // 
             // lbSubject
@@ -614,7 +616,7 @@
             this.lbSubject.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbSubject.Location = new System.Drawing.Point(486, 1);
+            this.lbSubject.Location = new System.Drawing.Point(480, 1);
             this.lbSubject.Name = "lbSubject";
             this.lbSubject.Size = new System.Drawing.Size(77, 21);
             this.lbSubject.TabIndex = 73;
@@ -627,7 +629,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label4.Location = new System.Drawing.Point(441, 1);
+            this.label4.Location = new System.Drawing.Point(435, 1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 21);
             this.label4.TabIndex = 72;
@@ -640,7 +642,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
             this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label5.Location = new System.Drawing.Point(427, 1);
+            this.label5.Location = new System.Drawing.Point(421, 1);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(14, 21);
             this.label5.TabIndex = 71;
@@ -653,7 +655,7 @@
             this.lbNothiNo.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbNothiNo.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNothiNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbNothiNo.Location = new System.Drawing.Point(345, 1);
+            this.lbNothiNo.Location = new System.Drawing.Point(339, 1);
             this.lbNothiNo.Name = "lbNothiNo";
             this.lbNothiNo.Size = new System.Drawing.Size(82, 21);
             this.lbNothiNo.TabIndex = 70;
@@ -666,7 +668,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label2.Location = new System.Drawing.Point(280, 1);
+            this.label2.Location = new System.Drawing.Point(274, 1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 21);
             this.label2.TabIndex = 69;
@@ -679,7 +681,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label1.Location = new System.Drawing.Point(266, 1);
+            this.label1.Location = new System.Drawing.Point(260, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 21);
             this.label1.TabIndex = 64;
@@ -692,7 +694,7 @@
             this.lbNoteShakha.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbNoteShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbNoteShakha.Location = new System.Drawing.Point(154, 1);
+            this.lbNoteShakha.Location = new System.Drawing.Point(148, 1);
             this.lbNoteShakha.Name = "lbNoteShakha";
             this.lbNoteShakha.Size = new System.Drawing.Size(112, 21);
             this.lbNoteShakha.TabIndex = 63;
@@ -705,7 +707,7 @@
             this.Shakha.Dock = System.Windows.Forms.DockStyle.Left;
             this.Shakha.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.Shakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.Shakha.Location = new System.Drawing.Point(111, 1);
+            this.Shakha.Location = new System.Drawing.Point(105, 1);
             this.Shakha.Name = "Shakha";
             this.Shakha.Size = new System.Drawing.Size(43, 21);
             this.Shakha.TabIndex = 62;
@@ -715,10 +717,10 @@
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(111, 0);
+            this.panel11.Location = new System.Drawing.Point(105, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1145, 1);
+            this.panel11.Size = new System.Drawing.Size(1149, 1);
             this.panel11.TabIndex = 61;
             // 
             // btnAllNothi
@@ -734,10 +736,10 @@
             this.btnAllNothi.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAllNothi.IconSize = 20;
             this.btnAllNothi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllNothi.Location = new System.Drawing.Point(1256, 0);
+            this.btnAllNothi.Location = new System.Drawing.Point(1254, 0);
             this.btnAllNothi.Margin = new System.Windows.Forms.Padding(0);
             this.btnAllNothi.Name = "btnAllNothi";
-            this.btnAllNothi.Size = new System.Drawing.Size(94, 41);
+            this.btnAllNothi.Size = new System.Drawing.Size(96, 35);
             this.btnAllNothi.TabIndex = 60;
             this.btnAllNothi.Text = "নথিসমূহ";
             this.btnAllNothi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -761,7 +763,7 @@
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Margin = new System.Windows.Forms.Padding(0);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(111, 41);
+            this.btnBack.Size = new System.Drawing.Size(105, 35);
             this.btnBack.TabIndex = 39;
             this.btnBack.Text = "ফেরত যান";
             this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -922,9 +924,9 @@
             this.pnl.Controls.Add(this.splitter1);
             this.pnl.Controls.Add(this.pnlNoteList);
             this.pnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl.Location = new System.Drawing.Point(0, 91);
+            this.pnl.Location = new System.Drawing.Point(0, 85);
             this.pnl.Name = "pnl";
-            this.pnl.Size = new System.Drawing.Size(1350, 544);
+            this.pnl.Size = new System.Drawing.Size(1350, 550);
             this.pnl.TabIndex = 17;
             // 
             // NoteFullPanel
@@ -934,7 +936,7 @@
             this.NoteFullPanel.Location = new System.Drawing.Point(192, 69);
             this.NoteFullPanel.Margin = new System.Windows.Forms.Padding(0);
             this.NoteFullPanel.Name = "NoteFullPanel";
-            this.NoteFullPanel.Size = new System.Drawing.Size(930, 475);
+            this.NoteFullPanel.Size = new System.Drawing.Size(735, 481);
             this.NoteFullPanel.TabIndex = 65;
             this.NoteFullPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
@@ -950,7 +952,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(930, 475);
+            this.panel5.Size = new System.Drawing.Size(735, 481);
             this.panel5.TabIndex = 6;
             // 
             // onucchedEditorPanel
@@ -962,7 +964,7 @@
             this.onucchedEditorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onucchedEditorPanel.Location = new System.Drawing.Point(0, 230);
             this.onucchedEditorPanel.Name = "onucchedEditorPanel";
-            this.onucchedEditorPanel.Size = new System.Drawing.Size(930, 245);
+            this.onucchedEditorPanel.Size = new System.Drawing.Size(735, 251);
             this.onucchedEditorPanel.TabIndex = 19;
             // 
             // panel28
@@ -974,7 +976,7 @@
             this.panel28.Location = new System.Drawing.Point(0, 406);
             this.panel28.Margin = new System.Windows.Forms.Padding(0);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(913, 247);
+            this.panel28.Size = new System.Drawing.Size(718, 247);
             this.panel28.TabIndex = 73;
             // 
             // fileAddFLP
@@ -985,7 +987,7 @@
             this.fileAddFLP.Location = new System.Drawing.Point(0, 44);
             this.fileAddFLP.Margin = new System.Windows.Forms.Padding(0);
             this.fileAddFLP.Name = "fileAddFLP";
-            this.fileAddFLP.Size = new System.Drawing.Size(913, 203);
+            this.fileAddFLP.Size = new System.Drawing.Size(718, 203);
             this.fileAddFLP.TabIndex = 75;
             this.fileAddFLP.WrapContents = false;
             // 
@@ -995,7 +997,7 @@
             this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel39.Location = new System.Drawing.Point(0, 0);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(913, 44);
+            this.panel39.Size = new System.Drawing.Size(718, 44);
             this.panel39.TabIndex = 0;
             // 
             // fileUploadPanel
@@ -1051,7 +1053,7 @@
             this.panel24.Location = new System.Drawing.Point(0, 365);
             this.panel24.Margin = new System.Windows.Forms.Padding(0);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(913, 41);
+            this.panel24.Size = new System.Drawing.Size(718, 41);
             this.panel24.TabIndex = 63;
             // 
             // label3
@@ -1072,7 +1074,7 @@
             this.panel26.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel26.Location = new System.Drawing.Point(0, 40);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(913, 1);
+            this.panel26.Size = new System.Drawing.Size(718, 1);
             this.panel26.TabIndex = 62;
             // 
             // panel25
@@ -1081,7 +1083,7 @@
             this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel25.Location = new System.Drawing.Point(0, 0);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(913, 1);
+            this.panel25.Size = new System.Drawing.Size(718, 1);
             this.panel25.TabIndex = 61;
             // 
             // panel22
@@ -1094,7 +1096,7 @@
             this.panel22.Location = new System.Drawing.Point(0, 0);
             this.panel22.Margin = new System.Windows.Forms.Padding(0);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(913, 365);
+            this.panel22.Size = new System.Drawing.Size(718, 365);
             this.panel22.TabIndex = 62;
             // 
             // PnlSave
@@ -1175,24 +1177,13 @@
             this.btnOnuchhedSave.UseVisualStyleBackColor = false;
             this.btnOnuchhedSave.Click += new System.EventHandler(this.btnOnuchhedSave_Click);
             // 
-            // tinyMceEditor
-            // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = null;
-            this.tinyMceEditor.Location = new System.Drawing.Point(0, 1);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
-            this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(896, 406);
-            this.tinyMceEditor.TabIndex = 61;
-            // 
             // panel29
             // 
             this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel29.Location = new System.Drawing.Point(0, 0);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(896, 1);
+            this.panel29.Size = new System.Drawing.Size(874, 1);
             this.panel29.TabIndex = 60;
             // 
             // onucchedActionPanel
@@ -1208,7 +1199,7 @@
             this.onucchedActionPanel.Location = new System.Drawing.Point(0, 188);
             this.onucchedActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.onucchedActionPanel.Name = "onucchedActionPanel";
-            this.onucchedActionPanel.Size = new System.Drawing.Size(930, 42);
+            this.onucchedActionPanel.Size = new System.Drawing.Size(735, 42);
             this.onucchedActionPanel.TabIndex = 18;
             // 
             // btnCanRevert
@@ -1224,7 +1215,7 @@
             this.btnCanRevert.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCanRevert.IconSize = 20;
             this.btnCanRevert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCanRevert.Location = new System.Drawing.Point(297, 0);
+            this.btnCanRevert.Location = new System.Drawing.Point(102, 0);
             this.btnCanRevert.Margin = new System.Windows.Forms.Padding(0);
             this.btnCanRevert.Name = "btnCanRevert";
             this.btnCanRevert.Size = new System.Drawing.Size(127, 42);
@@ -1249,7 +1240,7 @@
             this.btnWriteOnuchhed.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnWriteOnuchhed.IconSize = 20;
             this.btnWriteOnuchhed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWriteOnuchhed.Location = new System.Drawing.Point(424, 0);
+            this.btnWriteOnuchhed.Location = new System.Drawing.Point(229, 0);
             this.btnWriteOnuchhed.Margin = new System.Windows.Forms.Padding(0);
             this.btnWriteOnuchhed.Name = "btnWriteOnuchhed";
             this.btnWriteOnuchhed.Size = new System.Drawing.Size(138, 42);
@@ -1258,6 +1249,7 @@
             this.btnWriteOnuchhed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnWriteOnuchhed.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnWriteOnuchhed.UseVisualStyleBackColor = false;
+            this.btnWriteOnuchhed.Visible = false;
             this.btnWriteOnuchhed.Click += new System.EventHandler(this.btnWriteOnuchhed_Click);
             // 
             // btnSend
@@ -1273,7 +1265,7 @@
             this.btnSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSend.IconSize = 20;
             this.btnSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSend.Location = new System.Drawing.Point(562, 0);
+            this.btnSend.Location = new System.Drawing.Point(367, 0);
             this.btnSend.Margin = new System.Windows.Forms.Padding(0);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(125, 42);
@@ -1298,7 +1290,7 @@
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 20;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(687, 0);
+            this.btnSave.Location = new System.Drawing.Point(492, 0);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 42);
@@ -1321,7 +1313,7 @@
             this.btnSaveArrow.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSaveArrow.IconSize = 20;
             this.btnSaveArrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveArrow.Location = new System.Drawing.Point(782, 0);
+            this.btnSaveArrow.Location = new System.Drawing.Point(587, 0);
             this.btnSaveArrow.Margin = new System.Windows.Forms.Padding(0);
             this.btnSaveArrow.Name = "btnSaveArrow";
             this.btnSaveArrow.Size = new System.Drawing.Size(30, 42);
@@ -1343,7 +1335,7 @@
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.IconSize = 20;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(812, 0);
+            this.btnCancel.Location = new System.Drawing.Point(617, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(118, 42);
@@ -1359,7 +1351,7 @@
             this.splitter3.Location = new System.Drawing.Point(0, 183);
             this.splitter3.Margin = new System.Windows.Forms.Padding(0);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(930, 5);
+            this.splitter3.Size = new System.Drawing.Size(735, 5);
             this.splitter3.TabIndex = 2;
             this.splitter3.TabStop = false;
             // 
@@ -1373,7 +1365,7 @@
             this.noteHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.noteHeaderPanel.Margin = new System.Windows.Forms.Padding(0);
             this.noteHeaderPanel.Name = "noteHeaderPanel";
-            this.noteHeaderPanel.Size = new System.Drawing.Size(930, 183);
+            this.noteHeaderPanel.Size = new System.Drawing.Size(735, 183);
             this.noteHeaderPanel.TabIndex = 1;
             // 
             // onuchhedPnl
@@ -1385,7 +1377,7 @@
             this.onuchhedPnl.Location = new System.Drawing.Point(0, 81);
             this.onuchhedPnl.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedPnl.Name = "onuchhedPnl";
-            this.onuchhedPnl.Size = new System.Drawing.Size(930, 102);
+            this.onuchhedPnl.Size = new System.Drawing.Size(735, 102);
             this.onuchhedPnl.TabIndex = 65;
             // 
             // onuchhedFLP
@@ -1396,7 +1388,7 @@
             this.onuchhedFLP.Location = new System.Drawing.Point(0, 30);
             this.onuchhedFLP.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedFLP.Name = "onuchhedFLP";
-            this.onuchhedFLP.Size = new System.Drawing.Size(930, 72);
+            this.onuchhedFLP.Size = new System.Drawing.Size(735, 72);
             this.onuchhedFLP.TabIndex = 1;
             this.onuchhedFLP.WrapContents = false;
             // 
@@ -1410,7 +1402,7 @@
             this.onuchhedheaderPnl.Location = new System.Drawing.Point(0, 0);
             this.onuchhedheaderPnl.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedheaderPnl.Name = "onuchhedheaderPnl";
-            this.onuchhedheaderPnl.Size = new System.Drawing.Size(930, 30);
+            this.onuchhedheaderPnl.Size = new System.Drawing.Size(735, 30);
             this.onuchhedheaderPnl.TabIndex = 0;
             // 
             // lbOffice
@@ -1495,7 +1487,7 @@
             this.noteSubjectPanel.Location = new System.Drawing.Point(0, 41);
             this.noteSubjectPanel.Margin = new System.Windows.Forms.Padding(0);
             this.noteSubjectPanel.Name = "noteSubjectPanel";
-            this.noteSubjectPanel.Size = new System.Drawing.Size(930, 40);
+            this.noteSubjectPanel.Size = new System.Drawing.Size(735, 40);
             this.noteSubjectPanel.TabIndex = 64;
             // 
             // lbNothiLastDate
@@ -1541,7 +1533,7 @@
             this.iconButton18.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton18.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton18.IconSize = 24;
-            this.iconButton18.Location = new System.Drawing.Point(706, 0);
+            this.iconButton18.Location = new System.Drawing.Point(511, 0);
             this.iconButton18.Name = "iconButton18";
             this.iconButton18.Size = new System.Drawing.Size(32, 39);
             this.iconButton18.TabIndex = 69;
@@ -1563,7 +1555,7 @@
             this.iconButton17.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton17.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton17.IconSize = 24;
-            this.iconButton17.Location = new System.Drawing.Point(738, 0);
+            this.iconButton17.Location = new System.Drawing.Point(543, 0);
             this.iconButton17.Name = "iconButton17";
             this.iconButton17.Size = new System.Drawing.Size(32, 39);
             this.iconButton17.TabIndex = 68;
@@ -1585,7 +1577,7 @@
             this.iconButton16.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton16.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton16.IconSize = 24;
-            this.iconButton16.Location = new System.Drawing.Point(770, 0);
+            this.iconButton16.Location = new System.Drawing.Point(575, 0);
             this.iconButton16.Name = "iconButton16";
             this.iconButton16.Size = new System.Drawing.Size(32, 39);
             this.iconButton16.TabIndex = 67;
@@ -1606,7 +1598,7 @@
             this.iconButton15.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton15.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton15.IconSize = 24;
-            this.iconButton15.Location = new System.Drawing.Point(802, 0);
+            this.iconButton15.Location = new System.Drawing.Point(607, 0);
             this.iconButton15.Name = "iconButton15";
             this.iconButton15.Size = new System.Drawing.Size(32, 39);
             this.iconButton15.TabIndex = 66;
@@ -1628,7 +1620,7 @@
             this.iconButton13.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton13.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton13.IconSize = 24;
-            this.iconButton13.Location = new System.Drawing.Point(834, 0);
+            this.iconButton13.Location = new System.Drawing.Point(639, 0);
             this.iconButton13.Name = "iconButton13";
             this.iconButton13.Size = new System.Drawing.Size(32, 39);
             this.iconButton13.TabIndex = 65;
@@ -1650,7 +1642,7 @@
             this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton10.IconSize = 24;
-            this.iconButton10.Location = new System.Drawing.Point(866, 0);
+            this.iconButton10.Location = new System.Drawing.Point(671, 0);
             this.iconButton10.Name = "iconButton10";
             this.iconButton10.Size = new System.Drawing.Size(32, 39);
             this.iconButton10.TabIndex = 64;
@@ -1672,7 +1664,7 @@
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(898, 0);
+            this.iconButton3.Location = new System.Drawing.Point(703, 0);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(32, 39);
             this.iconButton3.TabIndex = 63;
@@ -1685,7 +1677,7 @@
             this.panel37.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel37.Location = new System.Drawing.Point(0, 39);
             this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(930, 1);
+            this.panel37.Size = new System.Drawing.Size(735, 1);
             this.panel37.TabIndex = 60;
             // 
             // noteTabpanel
@@ -1695,26 +1687,26 @@
             this.noteTabpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.noteTabpanel.Location = new System.Drawing.Point(0, 0);
             this.noteTabpanel.Name = "noteTabpanel";
-            this.noteTabpanel.Size = new System.Drawing.Size(930, 41);
+            this.noteTabpanel.Size = new System.Drawing.Size(735, 41);
             this.noteTabpanel.TabIndex = 62;
             // 
             // tabButtonPanel
             // 
             this.tabButtonPanel.BackColor = System.Drawing.Color.Transparent;
-            this.tabButtonPanel.Controls.Add(this.iconButton8);
             this.tabButtonPanel.Controls.Add(this.iconButton9);
+            this.tabButtonPanel.Controls.Add(this.iconButton8);
             this.tabButtonPanel.Controls.Add(this.lbNoteTotl1);
             this.tabButtonPanel.Controls.Add(this.iconButton14);
             this.tabButtonPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabButtonPanel.Location = new System.Drawing.Point(0, 0);
             this.tabButtonPanel.Name = "tabButtonPanel";
-            this.tabButtonPanel.Size = new System.Drawing.Size(172, 40);
+            this.tabButtonPanel.Size = new System.Drawing.Size(156, 40);
             this.tabButtonPanel.TabIndex = 72;
             // 
             // iconButton8
             // 
             this.iconButton8.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton8.Dock = System.Windows.Forms.DockStyle.Left;
             this.iconButton8.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.iconButton8.FlatAppearance.BorderSize = 0;
             this.iconButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -1725,17 +1717,18 @@
             this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
             this.iconButton8.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
             this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton8.IconSize = 20;
-            this.iconButton8.Location = new System.Drawing.Point(104, 0);
+            this.iconButton8.IconSize = 15;
+            this.iconButton8.Location = new System.Drawing.Point(101, 0);
+            this.iconButton8.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Size = new System.Drawing.Size(36, 40);
+            this.iconButton8.Size = new System.Drawing.Size(25, 40);
             this.iconButton8.TabIndex = 71;
             this.iconButton8.UseVisualStyleBackColor = false;
             // 
             // iconButton9
             // 
             this.iconButton9.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton9.Dock = System.Windows.Forms.DockStyle.Left;
             this.iconButton9.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.iconButton9.FlatAppearance.BorderSize = 0;
             this.iconButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -1746,10 +1739,10 @@
             this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
             this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton9.IconSize = 20;
-            this.iconButton9.Location = new System.Drawing.Point(140, 0);
+            this.iconButton9.IconSize = 15;
+            this.iconButton9.Location = new System.Drawing.Point(126, 0);
             this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Size = new System.Drawing.Size(32, 40);
+            this.iconButton9.Size = new System.Drawing.Size(25, 40);
             this.iconButton9.TabIndex = 70;
             this.iconButton9.UseVisualStyleBackColor = false;
             // 
@@ -1788,7 +1781,7 @@
             this.panel38.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel38.Location = new System.Drawing.Point(0, 40);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(930, 1);
+            this.panel38.Size = new System.Drawing.Size(735, 1);
             this.panel38.TabIndex = 60;
             // 
             // panel15
@@ -1799,7 +1792,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel15.Location = new System.Drawing.Point(192, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(930, 69);
+            this.panel15.Size = new System.Drawing.Size(735, 69);
             this.panel15.TabIndex = 62;
             // 
             // iconButton6
@@ -1816,12 +1809,11 @@
             this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 24;
-            this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton6.Location = new System.Drawing.Point(0, 1);
             this.iconButton6.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.iconButton6.Size = new System.Drawing.Size(126, 66);
+            this.iconButton6.Size = new System.Drawing.Size(117, 66);
             this.iconButton6.TabIndex = 60;
             this.iconButton6.Text = "নোটাংশ";
             this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1834,7 +1826,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel16.Location = new System.Drawing.Point(0, 67);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(930, 2);
+            this.panel16.Size = new System.Drawing.Size(735, 2);
             this.panel16.TabIndex = 59;
             // 
             // panel34
@@ -1843,7 +1835,7 @@
             this.panel34.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel34.Location = new System.Drawing.Point(0, 1);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(930, 1);
+            this.panel34.Size = new System.Drawing.Size(735, 1);
             this.panel34.TabIndex = 60;
             // 
             // panel21
@@ -1852,16 +1844,16 @@
             this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel21.Location = new System.Drawing.Point(0, 0);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(930, 1);
+            this.panel21.Size = new System.Drawing.Size(735, 1);
             this.panel21.TabIndex = 58;
             // 
             // splitter2
             // 
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Location = new System.Drawing.Point(1122, 0);
+            this.splitter2.Location = new System.Drawing.Point(927, 0);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(5, 544);
+            this.splitter2.Size = new System.Drawing.Size(5, 550);
             this.splitter2.TabIndex = 3;
             this.splitter2.TabStop = false;
             // 
@@ -1874,10 +1866,10 @@
             this.potrangsoPanel.Controls.Add(this.pmlPotrangshoNothi);
             this.potrangsoPanel.Controls.Add(this.panel17);
             this.potrangsoPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.potrangsoPanel.Location = new System.Drawing.Point(1127, 0);
+            this.potrangsoPanel.Location = new System.Drawing.Point(932, 0);
             this.potrangsoPanel.Name = "potrangsoPanel";
             this.potrangsoPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.potrangsoPanel.Size = new System.Drawing.Size(223, 544);
+            this.potrangsoPanel.Size = new System.Drawing.Size(418, 550);
             this.potrangsoPanel.TabIndex = 2;
             // 
             // pnlPotrangshoDetails
@@ -1889,7 +1881,7 @@
             this.pnlPotrangshoDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPotrangshoDetails.Location = new System.Drawing.Point(0, 147);
             this.pnlPotrangshoDetails.Name = "pnlPotrangshoDetails";
-            this.pnlPotrangshoDetails.Size = new System.Drawing.Size(223, 397);
+            this.pnlPotrangshoDetails.Size = new System.Drawing.Size(418, 403);
             this.pnlPotrangshoDetails.TabIndex = 63;
             this.pnlPotrangshoDetails.Visible = false;
             // 
@@ -1899,7 +1891,7 @@
             this.panel46.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel46.Location = new System.Drawing.Point(0, 229);
             this.panel46.Name = "panel46";
-            this.panel46.Size = new System.Drawing.Size(223, 168);
+            this.panel46.Size = new System.Drawing.Size(418, 174);
             this.panel46.TabIndex = 2;
             // 
             // pnlPictureBox
@@ -1910,7 +1902,7 @@
             this.pnlPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPictureBox.Location = new System.Drawing.Point(0, 0);
             this.pnlPictureBox.Name = "pnlPictureBox";
-            this.pnlPictureBox.Size = new System.Drawing.Size(223, 168);
+            this.pnlPictureBox.Size = new System.Drawing.Size(418, 174);
             this.pnlPictureBox.TabIndex = 3;
             // 
             // khosraViewWebBrowser
@@ -1919,7 +1911,7 @@
             this.khosraViewWebBrowser.Location = new System.Drawing.Point(0, 0);
             this.khosraViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.khosraViewWebBrowser.Name = "khosraViewWebBrowser";
-            this.khosraViewWebBrowser.Size = new System.Drawing.Size(223, 168);
+            this.khosraViewWebBrowser.Size = new System.Drawing.Size(418, 174);
             this.khosraViewWebBrowser.TabIndex = 4;
             this.khosraViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             this.khosraViewWebBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.pdfViewWebBrowser_DocumentCompleted);
@@ -1949,7 +1941,7 @@
             this.panel45.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel45.Location = new System.Drawing.Point(0, 196);
             this.panel45.Name = "panel45";
-            this.panel45.Size = new System.Drawing.Size(223, 33);
+            this.panel45.Size = new System.Drawing.Size(418, 33);
             this.panel45.TabIndex = 1;
             // 
             // btnCustom
@@ -2198,7 +2190,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(223, 196);
+            this.panel1.Size = new System.Drawing.Size(418, 196);
             this.panel1.TabIndex = 0;
             // 
             // panel44
@@ -2347,7 +2339,7 @@
             this.panel42.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel42.Location = new System.Drawing.Point(0, 1);
             this.panel42.Name = "panel42";
-            this.panel42.Size = new System.Drawing.Size(223, 78);
+            this.panel42.Size = new System.Drawing.Size(418, 78);
             this.panel42.TabIndex = 62;
             // 
             // panel43
@@ -2356,7 +2348,7 @@
             this.panel43.Controls.Add(this.lbTotal);
             this.panel43.Controls.Add(this.panel3);
             this.panel43.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel43.Location = new System.Drawing.Point(36, 0);
+            this.panel43.Location = new System.Drawing.Point(231, 0);
             this.panel43.Name = "panel43";
             this.panel43.Size = new System.Drawing.Size(187, 78);
             this.panel43.TabIndex = 62;
@@ -2406,6 +2398,7 @@
             // 
             // panel50
             // 
+            this.panel50.Controls.Add(this.btnNoteKhoshraNext);
             this.panel50.Controls.Add(this.btnNothijatoNext);
             this.panel50.Controls.Add(this.btnNothijatoPrevious);
             this.panel50.Controls.Add(this.btnPotrojariPrevious);
@@ -2619,7 +2612,7 @@
             this.panel41.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel41.Location = new System.Drawing.Point(0, 0);
             this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(223, 1);
+            this.panel41.Size = new System.Drawing.Size(418, 1);
             this.panel41.TabIndex = 60;
             // 
             // pnlPotrangshoNote
@@ -2633,7 +2626,7 @@
             this.pnlPotrangshoNote.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlPotrangshoNote.Location = new System.Drawing.Point(0, 108);
             this.pnlPotrangshoNote.Name = "pnlPotrangshoNote";
-            this.pnlPotrangshoNote.Size = new System.Drawing.Size(223, 39);
+            this.pnlPotrangshoNote.Size = new System.Drawing.Size(418, 39);
             this.pnlPotrangshoNote.TabIndex = 62;
             // 
             // pnlNoNote
@@ -2882,7 +2875,7 @@
             this.panel36.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel36.Location = new System.Drawing.Point(0, 38);
             this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(223, 1);
+            this.panel36.Size = new System.Drawing.Size(418, 1);
             this.panel36.TabIndex = 59;
             // 
             // pmlPotrangshoNothi
@@ -2899,7 +2892,7 @@
             this.pmlPotrangshoNothi.Dock = System.Windows.Forms.DockStyle.Top;
             this.pmlPotrangshoNothi.Location = new System.Drawing.Point(0, 69);
             this.pmlPotrangshoNothi.Name = "pmlPotrangshoNothi";
-            this.pmlPotrangshoNothi.Size = new System.Drawing.Size(223, 39);
+            this.pmlPotrangshoNothi.Size = new System.Drawing.Size(418, 39);
             this.pmlPotrangshoNothi.TabIndex = 61;
             // 
             // pnlNoNothi
@@ -3340,7 +3333,7 @@
             this.panel33.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel33.Location = new System.Drawing.Point(0, 38);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(223, 1);
+            this.panel33.Size = new System.Drawing.Size(418, 1);
             this.panel33.TabIndex = 59;
             // 
             // panel17
@@ -3351,7 +3344,7 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel17.Location = new System.Drawing.Point(0, 0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(223, 69);
+            this.panel17.Size = new System.Drawing.Size(418, 69);
             this.panel17.TabIndex = 60;
             // 
             // iconButton7
@@ -3385,7 +3378,7 @@
             this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel18.Location = new System.Drawing.Point(0, 68);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(223, 1);
+            this.panel18.Size = new System.Drawing.Size(418, 1);
             this.panel18.TabIndex = 59;
             // 
             // panel19
@@ -3394,7 +3387,7 @@
             this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel19.Location = new System.Drawing.Point(0, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(223, 1);
+            this.panel19.Size = new System.Drawing.Size(418, 1);
             this.panel19.TabIndex = 58;
             // 
             // splitter1
@@ -3402,7 +3395,7 @@
             this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter1.Location = new System.Drawing.Point(187, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(5, 544);
+            this.splitter1.Size = new System.Drawing.Size(5, 550);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
@@ -3417,7 +3410,7 @@
             this.pnlNoteList.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNoteList.Location = new System.Drawing.Point(0, 0);
             this.pnlNoteList.Name = "pnlNoteList";
-            this.pnlNoteList.Size = new System.Drawing.Size(187, 544);
+            this.pnlNoteList.Size = new System.Drawing.Size(187, 550);
             this.pnlNoteList.TabIndex = 0;
             // 
             // noteViewFLP
@@ -3426,7 +3419,7 @@
             this.noteViewFLP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.noteViewFLP.Location = new System.Drawing.Point(0, 150);
             this.noteViewFLP.Name = "noteViewFLP";
-            this.noteViewFLP.Size = new System.Drawing.Size(187, 351);
+            this.noteViewFLP.Size = new System.Drawing.Size(187, 357);
             this.noteViewFLP.TabIndex = 70;
             // 
             // panel20
@@ -3434,7 +3427,7 @@
             this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(220)))), ((int)(((byte)(254)))));
             this.panel20.Controls.Add(this.txtNothiSubject);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel20.Location = new System.Drawing.Point(0, 501);
+            this.panel20.Location = new System.Drawing.Point(0, 507);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(187, 43);
             this.panel20.TabIndex = 69;
@@ -3593,6 +3586,35 @@
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
             // 
+            // btnNoteKhoshraNext
+            // 
+            this.btnNoteKhoshraNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.btnNoteKhoshraNext.FlatAppearance.BorderSize = 0;
+            this.btnNoteKhoshraNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.btnNoteKhoshraNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNoteKhoshraNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnNoteKhoshraNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnNoteKhoshraNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNoteKhoshraNext.IconSize = 24;
+            this.btnNoteKhoshraNext.Location = new System.Drawing.Point(37, 3);
+            this.btnNoteKhoshraNext.Name = "btnNoteKhoshraNext";
+            this.btnNoteKhoshraNext.Size = new System.Drawing.Size(33, 29);
+            this.btnNoteKhoshraNext.TabIndex = 86;
+            this.btnNoteKhoshraNext.UseVisualStyleBackColor = false;
+            this.btnNoteKhoshraNext.Visible = false;
+            this.btnNoteKhoshraNext.Click += new System.EventHandler(this.btnNoteKhoshraNext_Click);
+            // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = null;
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 1);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(874, 406);
+            this.tinyMceEditor.TabIndex = 61;
+            // 
             // Note
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3608,7 +3630,6 @@
             this.Name = "Note";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            //this.Load += new System.EventHandler(this.Note_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.profilePanel.ResumeLayout(false);
@@ -3942,5 +3963,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel48;
         private System.Windows.Forms.Panel panel50;
+        private FontAwesome.Sharp.IconButton btnNoteKhoshraNext;
     }
 }
