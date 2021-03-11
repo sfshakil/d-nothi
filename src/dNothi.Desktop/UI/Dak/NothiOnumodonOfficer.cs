@@ -18,6 +18,7 @@ namespace dNothi.Desktop.UI.Dak
         public bool _isNewAdded;
         public string _designation;
         public int _routeIndex;
+        public bool _isChecked;
 
         public NothiOnumodonOfficer()
         {
@@ -89,6 +90,10 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+
+
+
+
         public event EventHandler DeleteButton;
         
 
@@ -112,6 +117,27 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.DownButton != null)
                 this.DownButton(sender, e);
+        }
+       
+
+        public void Check_Box_Show()
+        {
+            cbxControl.Visible = true;
+            upDownPanel.Visible = false;
+            deleteButton.Visible = false;
+
+
+        }
+
+
+        public event EventHandler CheckedButton;
+        private void cbxControl_CheckedChanged(object sender, EventArgs e)
+        {
+            _isChecked = cbxControl.Checked;
+
+
+            if (this.CheckedButton != null)
+                this.CheckedButton(sender, e);
         }
     }
 }
