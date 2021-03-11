@@ -794,6 +794,7 @@ namespace dNothi.Desktop.UI
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
+
         public Form AttachNothiTypeListControlToForm(Control control)
         {
             Form form = new Form();
