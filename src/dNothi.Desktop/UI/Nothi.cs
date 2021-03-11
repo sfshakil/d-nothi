@@ -177,7 +177,7 @@ namespace dNothi.Desktop.UI
             noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
            
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
-          //  form.loadNoteData(notedata);
+            //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
             form.noteTotal = form.loadNoteView(noteView).ToString();
 
@@ -244,9 +244,6 @@ namespace dNothi.Desktop.UI
                 
                 var form = FormFactory.Create<Note>();
                 _dakuserparam = _userService.GetLocalDakUserParam();
-
-
-
 
                 NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
                 form.nothiNo = nothiListRecords.nothi_no;

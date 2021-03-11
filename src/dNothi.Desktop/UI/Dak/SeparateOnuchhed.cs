@@ -127,9 +127,9 @@ namespace dNothi.Desktop.UI.Dak
                 if (singleRecSignature.Signature2 != null)
                 {
                     onucchedSignature.showSignature2element();
-                    onucchedSignature.SignatureDate2 = singleRecSignature.Signature1.signature_date;
-                    onucchedSignature.EmployeeName2 = singleRecSignature.Signature1.employee_name;
-                    onucchedSignature.EmployeeDesignation2 = singleRecSignature.Signature1.employee_designation;
+                    onucchedSignature.SignatureDate2 = singleRecSignature.Signature2.signature_date;
+                    onucchedSignature.EmployeeName2 = singleRecSignature.Signature2.employee_name;
+                    onucchedSignature.EmployeeDesignation2 = singleRecSignature.Signature2.employee_designation;
                     if (singleRecSignature.Signature2.encode_sign != "")
                     {
                         var str = singleRecSignature.Signature2.encode_sign.Substring(singleRecSignature.Signature2.encode_sign.IndexOf(",") + 1);
@@ -139,12 +139,12 @@ namespace dNothi.Desktop.UI.Dak
                 if (singleRecSignature.Signature3 != null)
                 {
                     onucchedSignature.showSignature3element();
-                    onucchedSignature.SignatureDate3 = singleRecSignature.Signature1.signature_date;
-                    onucchedSignature.EmployeeName3 = singleRecSignature.Signature1.employee_name;
-                    onucchedSignature.EmployeeDesignation3 = singleRecSignature.Signature1.employee_designation;
-                    if (singleRecSignature.Signature1.encode_sign != "")
+                    onucchedSignature.SignatureDate3 = singleRecSignature.Signature3.signature_date;
+                    onucchedSignature.EmployeeName3 = singleRecSignature.Signature3.employee_name;
+                    onucchedSignature.EmployeeDesignation3 = singleRecSignature.Signature3.employee_designation;
+                    if (singleRecSignature.Signature3.encode_sign != "")
                     {
-                        var str = singleRecSignature.Signature3.encode_sign.Substring(singleRecSignature.Signature1.encode_sign.IndexOf(",") + 1);
+                        var str = singleRecSignature.Signature3.encode_sign.Substring(singleRecSignature.Signature3.encode_sign.IndexOf(",") + 1);
                         onucchedSignature.pbSign3 = Convert.FromBase64String(str);
                     }
                     
@@ -152,13 +152,13 @@ namespace dNothi.Desktop.UI.Dak
                 if (singleRecSignature.Signature4 != null)
                 {
                     onucchedSignature.showSignature4element();
-                    onucchedSignature.SignatureDate1 = singleRecSignature.Signature1.signature_date;
-                    onucchedSignature.EmployeeName1 = singleRecSignature.Signature1.employee_name;
-                    onucchedSignature.EmployeeDesignation1 = singleRecSignature.Signature1.employee_designation;
-                    if (singleRecSignature.Signature1.encode_sign != "")
+                    onucchedSignature.SignatureDate4 = singleRecSignature.Signature4.signature_date;
+                    onucchedSignature.EmployeeName4 = singleRecSignature.Signature4.employee_name;
+                    onucchedSignature.EmployeeDesignation4 = singleRecSignature.Signature4.employee_designation;
+                    if (singleRecSignature.Signature4.encode_sign != "")
                     {
-                        var str = singleRecSignature.Signature1.encode_sign.Substring(singleRecSignature.Signature1.encode_sign.IndexOf(",") + 1);
-                        onucchedSignature.pbSign1 = Convert.FromBase64String(str);
+                        var str = singleRecSignature.Signature4.encode_sign.Substring(singleRecSignature.Signature4.encode_sign.IndexOf(",") + 1);
+                        onucchedSignature.pbSign4 = Convert.FromBase64String(str);
                     }
                     
                 }

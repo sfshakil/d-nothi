@@ -418,9 +418,9 @@
             this.lbNothiNoteID.Location = new System.Drawing.Point(245, 0);
             this.lbNothiNoteID.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiNoteID.Name = "lbNothiNoteID";
-            this.lbNothiNoteID.Size = new System.Drawing.Size(20, 21);
+            this.lbNothiNoteID.Size = new System.Drawing.Size(19, 21);
             this.lbNothiNoteID.TabIndex = 77;
-            this.lbNothiNoteID.Text = "০";
+            this.lbNothiNoteID.Text = "0";
             this.lbNothiNoteID.Visible = false;
             // 
             // lbOnuchhed
@@ -476,6 +476,7 @@
             this.cbNote.Size = new System.Drawing.Size(15, 24);
             this.cbNote.TabIndex = 0;
             this.cbNote.UseVisualStyleBackColor = true;
+            this.cbNote.CheckedChanged += new System.EventHandler(this.cbNote_CheckedChanged);
             this.cbNote.Click += new System.EventHandler(this.cbNote_Click_1);
             // 
             // NoteView
