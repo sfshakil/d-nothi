@@ -157,22 +157,22 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnAllOnumodonkari_Click(object sender, EventArgs e)
         {
-            DesignationFLP.Controls.Clear();
-            foreach (onumodonDataRecordDTO record in records)
-            {
-                NothiOnumodonLevel nothiOnumodonRow = new NothiOnumodonLevel();
-               // nothiOnumodonRow.name = record.officer;
-              //  nothiOnumodonRow.designation = record.designation + "," + record.office_unit + "," + record.nothi_office_name;
-             //   nothiOnumodonRow.level = j.ToString();
-             //   nothiOnumodonRow.flag = 1;
-                j++;
-                if (_userService.GetOfficeInfo().office_unit_id==record.office_unit_id && _userService.GetOfficeInfo().office_unit_organogram_id == record.designation_id)
-                {
-                   // nothiOnumodonRow.flag = 2;
-                }
-                nothiOnumodonRow.CheckboxButtonClick += delegate (object sender1, EventArgs e1) { Checkbox_ButtonClick(sender1, e1, record); };
-                DesignationFLP.Controls.Add(nothiOnumodonRow);
-            }
+            ////DesignationFLP.Controls.Clear();
+            ////foreach (onumodonDataRecordDTO record in records)
+            ////{
+            ////    NothiOnumodonLevel nothiOnumodonRow = new NothiOnumodonLevel();
+            ////   // nothiOnumodonRow.name = record.officer;
+            ////  //  nothiOnumodonRow.designation = record.designation + "," + record.office_unit + "," + record.nothi_office_name;
+            //// //   nothiOnumodonRow.level = j.ToString();
+            //// //   nothiOnumodonRow.flag = 1;
+            ////    j++;
+            ////    if (_userService.GetOfficeInfo().office_unit_id==record.office_unit_id && _userService.GetOfficeInfo().office_unit_organogram_id == record.designation_id)
+            ////    {
+            ////       // nothiOnumodonRow.flag = 2;
+            ////    }
+            ////    nothiOnumodonRow.CheckboxButtonClick += delegate (object sender1, EventArgs e1) { Checkbox_ButtonClick(sender1, e1, record); };
+            ////    DesignationFLP.Controls.Add(nothiOnumodonRow);
+            ////}
         }
         NoteSaveDTO newnotedata = new NoteSaveDTO();
 
@@ -186,7 +186,6 @@ namespace dNothi.Desktop.UI.Dak
         {
             nothiListRecord = nothiInboxRecord;
         }
-        public event EventHandler NoteSuccessfullySend;
         private void btnSend_Click(object sender, EventArgs e)
         {
             List<onumodonDataRecordDTO> newrecords = new List<onumodonDataRecordDTO>();
@@ -207,10 +206,44 @@ namespace dNothi.Desktop.UI.Dak
                 MessageBox.Show("প্রক্রিয়াটি সম্পন্ন হয়েছে");
                 foreach (Form f in Application.OpenForms)
                 { f.Hide(); }
-                
+                var form = FormFactory.Create<Nothi>();
+                form.ShowDialog();
 
             }
         }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
 
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = this.Size;
+            hideform.Opacity = .4;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            NothiListRecordsDTO nothiListRecords = nothiListRecord;
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.nothiListRecordsDTO = nothiListRecord;
+            form.GetNothiInboxRecords(nothiListRecords);
+            //form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
+
+            CalPopUpWindow(form);
+        }
     }
 }

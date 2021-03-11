@@ -246,6 +246,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MyToolTip.SetToolTip(this.btnEdit, "অনুমোদন পর্যালোচনা করুন");
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // panel7
             // 
