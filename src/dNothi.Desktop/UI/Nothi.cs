@@ -153,9 +153,7 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Note>();
             _dakuserparam = _userService.GetLocalDakUserParam();
 
-
-
-
+            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
             NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
             form.nothiNo = nothiListRecords.nothi_no;
             form.nothiShakha = nothiListRecords.office_unit_name + " " + _dakuserparam.office_label;
@@ -201,7 +199,7 @@ namespace dNothi.Desktop.UI
 
             hideform.BackColor = Color.Black;
             hideform.Size = this.Size;
-            hideform.Opacity = .6;
+            hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
@@ -758,7 +756,7 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             newNothi.Visible = true;
-            newNothi.Location = new System.Drawing.Point(233, 60);
+            newNothi.Location = new System.Drawing.Point(233, 50);
             Controls.Add(newNothi);
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
@@ -773,7 +771,7 @@ namespace dNothi.Desktop.UI
             btnNewNothi.BackColor = Color.FromArgb(243, 246, 249);
             btnNewNothi.ForeColor = Color.FromArgb(78, 165, 254);
             newNothi.Visible = true;
-            newNothi.Location = new System.Drawing.Point(233, 60);
+            newNothi.Location = new System.Drawing.Point(233, 50);
             Controls.Add(newNothi);
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
