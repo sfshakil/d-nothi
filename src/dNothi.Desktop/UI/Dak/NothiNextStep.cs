@@ -125,7 +125,6 @@ namespace dNothi.Desktop.UI.Dak
             List<onumodonDataRecordDTO> newrecords = new List<onumodonDataRecordDTO>();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-            //
             foreach (onumodonDataRecordDTO record in records)
             {
                 if (record.extra == 1)
@@ -141,5 +140,6 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
+
     }
 }

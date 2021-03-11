@@ -29,6 +29,7 @@ namespace dNothi.Desktop.UI.Dak
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnCross = new FontAwesome.Sharp.IconButton();
@@ -49,6 +50,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -181,6 +183,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(37, 33);
             this.btnSend.TabIndex = 73;
+            this.MyToolTip.SetToolTip(this.btnSend, "প্রেরণ করুন");
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
@@ -200,6 +203,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnAllOnumodonkari.Name = "btnAllOnumodonkari";
             this.btnAllOnumodonkari.Size = new System.Drawing.Size(37, 33);
             this.btnAllOnumodonkari.TabIndex = 72;
+            this.MyToolTip.SetToolTip(this.btnAllOnumodonkari, "অন্যান্য অনুমোদনকারী দেখুন");
             this.btnAllOnumodonkari.UseVisualStyleBackColor = false;
             this.btnAllOnumodonkari.Click += new System.EventHandler(this.btnAllOnumodonkari_Click);
             // 
@@ -219,6 +223,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(37, 33);
             this.btnEdit.TabIndex = 71;
+            this.MyToolTip.SetToolTip(this.btnEdit, "অনুমোদন পর্যালোচনা করুন");
             this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // panel7
@@ -257,7 +262,7 @@ namespace dNothi.Desktop.UI.Dak
             this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
             this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
             this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
-            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(418, 51);
+            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(418, 52);
             this.nothiDhoronSrchUC.TabIndex = 74;
             // 
             // label3
@@ -364,5 +369,6 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.FlowLayoutPanel DesignationFLP;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }
