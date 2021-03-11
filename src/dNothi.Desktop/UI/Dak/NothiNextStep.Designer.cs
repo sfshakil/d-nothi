@@ -38,23 +38,34 @@ namespace dNothi.Desktop.UI.Dak
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DesignationFLP = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnlFooter = new System.Windows.Forms.Panel();
             this.btnSend = new FontAwesome.Sharp.IconButton();
             this.btnAllOnumodonkari = new FontAwesome.Sharp.IconButton();
             this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.label3 = new System.Windows.Forms.Label();
             this.lbNoteSubject = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.pnlFooter.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,23 +134,24 @@ namespace dNothi.Desktop.UI.Dak
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label1.Location = new System.Drawing.Point(10, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(264, 25);
+            this.label1.Size = new System.Drawing.Size(253, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "পরবর্তী কার্যক্রমের জন্যে প্রেরণ করুন";
+            this.label1.Text = "পরবর্তী কার্যক্রমের জন্যে প্রেরণ করুন        ";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.DesignationFLP);
-            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.pnlFooter);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 74);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(462, 636);
+            this.panel2.Size = new System.Drawing.Size(462, 651);
             this.panel2.TabIndex = 2;
             // 
             // DesignationFLP
@@ -150,26 +162,27 @@ namespace dNothi.Desktop.UI.Dak
             this.DesignationFLP.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DesignationFLP.Location = new System.Drawing.Point(0, 129);
             this.DesignationFLP.Name = "DesignationFLP";
-            this.DesignationFLP.Size = new System.Drawing.Size(462, 448);
+            this.DesignationFLP.Size = new System.Drawing.Size(462, 414);
             this.DesignationFLP.TabIndex = 73;
             this.DesignationFLP.WrapContents = false;
             // 
-            // panel5
+            // pnlFooter
             // 
-            this.panel5.Controls.Add(this.btnSend);
-            this.panel5.Controls.Add(this.btnAllOnumodonkari);
-            this.panel5.Controls.Add(this.btnEdit);
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(0, 577);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(462, 59);
-            this.panel5.TabIndex = 72;
+            this.pnlFooter.Controls.Add(this.panel10);
+            this.pnlFooter.Controls.Add(this.panel13);
+            this.pnlFooter.Controls.Add(this.panel4);
+            this.pnlFooter.Controls.Add(this.panel7);
+            this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlFooter.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlFooter.Location = new System.Drawing.Point(0, 543);
+            this.pnlFooter.Name = "pnlFooter";
+            this.pnlFooter.Size = new System.Drawing.Size(462, 108);
+            this.pnlFooter.TabIndex = 72;
             // 
             // btnSend
             // 
             this.btnSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSend.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,11 +191,13 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSend.IconColor = System.Drawing.Color.White;
             this.btnSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSend.IconSize = 24;
-            this.btnSend.Location = new System.Drawing.Point(327, 12);
+            this.btnSend.Location = new System.Drawing.Point(321, 0);
             this.btnSend.Margin = new System.Windows.Forms.Padding(0);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(37, 33);
+            this.btnSend.Size = new System.Drawing.Size(127, 43);
             this.btnSend.TabIndex = 73;
+            this.btnSend.Text = "প্রেরণ করুন";
+            this.btnSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MyToolTip.SetToolTip(this.btnSend, "প্রেরণ করুন");
             this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
@@ -190,6 +205,7 @@ namespace dNothi.Desktop.UI.Dak
             // btnAllOnumodonkari
             // 
             this.btnAllOnumodonkari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnAllOnumodonkari.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnAllOnumodonkari.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
             this.btnAllOnumodonkari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAllOnumodonkari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,11 +214,13 @@ namespace dNothi.Desktop.UI.Dak
             this.btnAllOnumodonkari.IconColor = System.Drawing.Color.White;
             this.btnAllOnumodonkari.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAllOnumodonkari.IconSize = 24;
-            this.btnAllOnumodonkari.Location = new System.Drawing.Point(364, 12);
+            this.btnAllOnumodonkari.Location = new System.Drawing.Point(0, 0);
             this.btnAllOnumodonkari.Margin = new System.Windows.Forms.Padding(0);
             this.btnAllOnumodonkari.Name = "btnAllOnumodonkari";
-            this.btnAllOnumodonkari.Size = new System.Drawing.Size(37, 33);
+            this.btnAllOnumodonkari.Size = new System.Drawing.Size(215, 43);
             this.btnAllOnumodonkari.TabIndex = 72;
+            this.btnAllOnumodonkari.Text = "অন্যান্য অনুমোদনকারী দেখুন";
+            this.btnAllOnumodonkari.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MyToolTip.SetToolTip(this.btnAllOnumodonkari, "অন্যান্য অনুমোদনকারী দেখুন");
             this.btnAllOnumodonkari.UseVisualStyleBackColor = false;
             this.btnAllOnumodonkari.Click += new System.EventHandler(this.btnAllOnumodonkari_Click);
@@ -210,6 +228,7 @@ namespace dNothi.Desktop.UI.Dak
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -218,11 +237,13 @@ namespace dNothi.Desktop.UI.Dak
             this.btnEdit.IconColor = System.Drawing.Color.White;
             this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEdit.IconSize = 24;
-            this.btnEdit.Location = new System.Drawing.Point(400, 12);
+            this.btnEdit.Location = new System.Drawing.Point(215, 0);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(37, 33);
+            this.btnEdit.Size = new System.Drawing.Size(218, 43);
             this.btnEdit.TabIndex = 71;
+            this.btnEdit.Text = "অনুমোদন পর্যালোচনা করুন";
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MyToolTip.SetToolTip(this.btnEdit, "অনুমোদন পর্যালোচনা করুন");
             this.btnEdit.UseVisualStyleBackColor = false;
             // 
@@ -247,23 +268,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(462, 129);
             this.panel3.TabIndex = 70;
-            // 
-            // nothiDhoronSrchUC
-            // 
-            this.nothiDhoronSrchUC.AutoSize = true;
-            this.nothiDhoronSrchUC.BackColor = System.Drawing.Color.White;
-            this.nothiDhoronSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiDhoronSrchUC.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.nothiDhoronSrchUC.Location = new System.Drawing.Point(19, 68);
-            this.nothiDhoronSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
-            this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
-            this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
-            this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
-            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(418, 52);
-            this.nothiDhoronSrchUC.TabIndex = 74;
             // 
             // label3
             // 
@@ -324,8 +328,79 @@ namespace dNothi.Desktop.UI.Dak
             this.panel8.Location = new System.Drawing.Point(0, 74);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(2, 636);
+            this.panel8.Size = new System.Drawing.Size(2, 651);
             this.panel8.TabIndex = 65;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 1);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(462, 43);
+            this.panel4.TabIndex = 74;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnSend);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(448, 43);
+            this.panel5.TabIndex = 75;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 62);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(462, 43);
+            this.panel10.TabIndex = 75;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(448, 43);
+            this.panel11.TabIndex = 0;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.btnEdit);
+            this.panel12.Controls.Add(this.btnAllOnumodonkari);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel12.Location = new System.Drawing.Point(15, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(433, 43);
+            this.panel12.TabIndex = 0;
+            // 
+            // panel13
+            // 
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 44);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(462, 18);
+            this.panel13.TabIndex = 76;
+            // 
+            // nothiDhoronSrchUC
+            // 
+            this.nothiDhoronSrchUC.AutoSize = true;
+            this.nothiDhoronSrchUC.BackColor = System.Drawing.Color.White;
+            this.nothiDhoronSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiDhoronSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.nothiDhoronSrchUC.Location = new System.Drawing.Point(19, 68);
+            this.nothiDhoronSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
+            this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
+            this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
+            this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
+            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(418, 52);
+            this.nothiDhoronSrchUC.TabIndex = 74;
             // 
             // NothiNextStep
             // 
@@ -336,13 +411,18 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "NothiNextStep";
-            this.Size = new System.Drawing.Size(462, 710);
+            this.Size = new System.Drawing.Size(462, 725);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
+            this.pnlFooter.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -360,7 +440,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label lbNoteSubject;
         private System.Windows.Forms.Label lbTotalNothi;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pnlFooter;
         private System.Windows.Forms.Panel panel7;
         private FontAwesome.Sharp.IconButton btnSend;
         private FontAwesome.Sharp.IconButton btnAllOnumodonkari;
@@ -370,5 +450,11 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.FlowLayoutPanel DesignationFLP;
         private System.Windows.Forms.ToolTip MyToolTip;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
     }
 }

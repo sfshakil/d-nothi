@@ -794,6 +794,23 @@ namespace dNothi.Desktop.UI
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
+        public Form AttachNothiTypeListControlToForm(Control control)
+        {
+            Form form = new Form();
+
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(903, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            form.Size = control.Size;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
         private void CalPopUpWindow(Form form)
         {
             Form hideform = new Form();
@@ -801,7 +818,7 @@ namespace dNothi.Desktop.UI
 
             hideform.BackColor = Color.Black;
             hideform.Size = this.Size;
-            hideform.Opacity = .6;
+            hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
@@ -1501,25 +1518,35 @@ namespace dNothi.Desktop.UI
 
             
         }
-        public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records)
+        public event EventHandler NoteDetailsButton;
+        private void NoteDetails_ButtonClick(object sender, EventArgs e)
+        {
+            if (this.NoteDetailsButton != null)
+                this.NoteDetailsButton(sender, e);
+
+        }
+            public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records)
         {
             var nothiType = UserControlFactory.Create<NothiNextStep>();
+            nothiType.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e); };
+            //nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
             nothiType.Visible = true;
             nothiType.Enabled = true;
             nothiType.noteTotal = newNoteView.totalNothi;
             nothiType.noteSubject = newNoteView.noteSubject;
             nothiType.loadNewNoteData(newnotedata);
             nothiType.loadlistInboxRecord(nothiListRecords);
-            nothiType.Location = new System.Drawing.Point(903, 0);
+            //nothiType.Location = new System.Drawing.Point(0, 0);
             foreach (onumodonDataRecordDTO  record in records)
             {
                 nothiType.loadFlowLayout(record);
 
             }
             this.Controls.Add(nothiType);
-            nothiType.BringToFront();
+            //nothiType.BringToFront();
+            var form = AttachNothiTypeListControlToForm(nothiType);
+            CalPopUpWindow(form);
 
-            
         }
         designationSelect designationDetailsPanelNothi = new designationSelect();
         private void userNameLabel_Click(object sender, EventArgs e)

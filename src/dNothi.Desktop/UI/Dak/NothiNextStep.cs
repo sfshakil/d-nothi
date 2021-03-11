@@ -26,10 +26,15 @@ namespace dNothi.Desktop.UI.Dak
             SetDefaultFont(this.Controls);
         }
 
+        public event EventHandler NoteDetailsButton;
         private void btnCross_Click(object sender, EventArgs e)
         {
-            this.Hide();
-        }
+            foreach (Form f in Application.OpenForms)
+            { f.Hide(); }
+            if (this.NoteDetailsButton != null)
+                this.NoteDetailsButton(sender, e);
+
+    }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
             foreach (Control ctrl in collection)
