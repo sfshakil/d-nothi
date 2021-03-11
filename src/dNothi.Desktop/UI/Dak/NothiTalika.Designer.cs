@@ -58,7 +58,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1121, 83);
+            this.panel1.Size = new System.Drawing.Size(1128, 83);
             this.panel1.TabIndex = 19;
             // 
             // lblextra
@@ -87,7 +87,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 81);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1121, 2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1128, 2);
             this.flowLayoutPanel1.TabIndex = 56;
             // 
             // panel3
@@ -96,7 +96,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1121, 2);
+            this.panel3.Size = new System.Drawing.Size(1128, 2);
             this.panel3.TabIndex = 55;
             // 
             // btnNoteView
@@ -118,11 +118,11 @@
             // 
             this.lbNoteLastDate.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteLastDate.Location = new System.Drawing.Point(850, 15);
+            this.lbNoteLastDate.Location = new System.Drawing.Point(991, 15);
             this.lbNoteLastDate.Name = "lbNoteLastDate";
-            this.lbNoteLastDate.Size = new System.Drawing.Size(263, 23);
+            this.lbNoteLastDate.Size = new System.Drawing.Size(134, 33);
             this.lbNoteLastDate.TabIndex = 52;
-            this.lbNoteLastDate.Text = "noteLastDateLabel";
+            this.lbNoteLastDate.Text = "১০/৩/২১ ১২:১৬ PM";
             // 
             // lbShakha
             // 
@@ -175,8 +175,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiTalika";
-            this.Size = new System.Drawing.Size(1121, 84);
+            this.Size = new System.Drawing.Size(1128, 84);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

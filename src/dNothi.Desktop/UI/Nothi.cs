@@ -756,7 +756,7 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             newNothi.Visible = true;
-            newNothi.Location = new System.Drawing.Point(233, 60);
+            newNothi.Location = new System.Drawing.Point(233, 50);
             Controls.Add(newNothi);
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
@@ -771,7 +771,7 @@ namespace dNothi.Desktop.UI
             btnNewNothi.BackColor = Color.FromArgb(243, 246, 249);
             btnNewNothi.ForeColor = Color.FromArgb(78, 165, 254);
             newNothi.Visible = true;
-            newNothi.Location = new System.Drawing.Point(233, 60);
+            newNothi.Location = new System.Drawing.Point(233, 50);
             Controls.Add(newNothi);
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;

@@ -129,7 +129,7 @@ namespace dNothi.Desktop.UI.Dak
                     if (string.Concat(st.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0'))) != txtDhoronCode.Text)
                     {
                         string english_text = string.Concat(txtDhoronCode.Text.Select(c => (char)('0' + c - '\u09E6')));
-                        int parsed_number = int.Parse(english_text);
+                        //int parsed_number = int.Parse(english_text);
                         DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                         var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, english_text);
                         if (nothiTypeSave.status == "success")
