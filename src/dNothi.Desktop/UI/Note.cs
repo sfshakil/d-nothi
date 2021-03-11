@@ -1511,11 +1511,7 @@ namespace dNothi.Desktop.UI
             nothiType.loadNewNoteData(newnotedata);
             nothiType.loadlistInboxRecord(nothiListRecords);
             nothiType.Location = new System.Drawing.Point(903, 0);
-            foreach (onumodonDataRecordDTO  record in records)
-            {
-                nothiType.loadFlowLayout(record);
-
-            }
+            nothiType.GetNothiInboxRecords(records);
             this.Controls.Add(nothiType);
             nothiType.BringToFront();
 

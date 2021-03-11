@@ -63,6 +63,54 @@ namespace dNothi.Desktop.UI.Dak
         int i = 1;
         int j = 1;
         List<onumodonDataRecordDTO> records = new List<onumodonDataRecordDTO>();
+
+        public void GetNothiInboxRecords(List<onumodonDataRecordDTO> onumodonList)
+        {
+
+
+                 records = onumodonList;
+
+                if (onumodonList.Count > 0)
+                {
+                    records = onumodonList.OrderByDescending(a => a.layer_index).ThenBy(a => a.route_index).ToList();
+                    var groupLevel = records.GroupBy(a => a.layer_index);
+                    foreach (var group in groupLevel)
+                    {
+
+
+
+                        NothiOnumodonLevel nothiOnumodonRow = new NothiOnumodonLevel();
+                        nothiOnumodonRow.level = group.Key.ToString();
+                        nothiOnumodonRow.layerIndex = group.Key;
+                        nothiOnumodonRow.isFromNothiNextStep = true;
+                        nothiOnumodonRow.CheckBoxButton += delegate (object sender, EventArgs e) { CheckboxOfficer_ButtonClick(sender, e, nothiOnumodonRow._designationId, nothiOnumodonRow._isChecked); };
+
+
+
+
+
+
+
+                    foreach (var officer in group)
+                        {
+
+                            nothiOnumodonRow.AddNewOfficerFromNothiNextStep(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index);
+                            
+
+                        }
+
+                    DesignationFLP.Controls.Add(nothiOnumodonRow);
+
+
+
+                    }
+                }
+              
+
+            
+        }
+
+
         public void loadFlowLayout(onumodonDataRecordDTO record)
         {
             records.Add(record);
@@ -73,12 +121,25 @@ namespace dNothi.Desktop.UI.Dak
            //     nothiOnumodonRow.designation = record.designation + "," + record.office_unit + "," + record.nothi_office_name;
               //  nothiOnumodonRow.level = i.ToString();
               //  nothiOnumodonRow.flag = 1;
-                nothiOnumodonRow.CheckboxButtonClick += delegate (object sender, EventArgs e) { Checkbox_ButtonClick(sender, e, record); };
+                nothiOnumodonRow.CheckBoxButton += delegate (object sender, EventArgs e) { CheckboxOfficer_ButtonClick(sender, e, nothiOnumodonRow._designationId,nothiOnumodonRow._isChecked); };
                 DesignationFLP.Controls.Add(nothiOnumodonRow);
                 i++;
             }
             
         }
+
+        private void CheckboxOfficer_ButtonClick(object sender, EventArgs e, int designationId, bool isChecked)
+        {
+            if (isChecked)
+            {
+                records.FirstOrDefault(a => a.designation_id == designationId).extra = 1;
+            }
+            else
+            {
+                records.FirstOrDefault(a => a.designation_id == designationId).extra = 0;
+            }
+        }
+
         private void Checkbox_ButtonClick(object sender, EventArgs e, onumodonDataRecordDTO record)
         {
             var sen = (CheckBox)sender;

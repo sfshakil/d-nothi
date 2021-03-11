@@ -35,12 +35,12 @@
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.btnUser = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.upDownPanel = new System.Windows.Forms.Panel();
             this.downButton = new FontAwesome.Sharp.IconButton();
             this.upButton = new FontAwesome.Sharp.IconButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.flowLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.upDownPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbxControl
@@ -58,6 +58,7 @@
             this.cbxControl.TabIndex = 63;
             this.cbxControl.UseVisualStyleBackColor = true;
             this.cbxControl.Visible = false;
+            this.cbxControl.CheckedChanged += new System.EventHandler(this.cbxControl_CheckedChanged);
             // 
             // lbDesignation
             // 
@@ -142,7 +143,7 @@
             this.flowLayoutPanel1.Controls.Add(this.lbDesignation);
             this.flowLayoutPanel1.Controls.Add(this.deleteButton);
             this.flowLayoutPanel1.Controls.Add(this.cbxControl);
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.upDownPanel);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -150,18 +151,18 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(425, 70);
             this.flowLayoutPanel1.TabIndex = 64;
             // 
-            // panel1
+            // upDownPanel
             // 
-            this.panel1.Controls.Add(this.downButton);
-            this.panel1.Controls.Add(this.upButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(37, 34);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.MaximumSize = new System.Drawing.Size(0, 60);
-            this.panel1.MinimumSize = new System.Drawing.Size(24, 60);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(24, 60);
-            this.panel1.TabIndex = 64;
+            this.upDownPanel.Controls.Add(this.downButton);
+            this.upDownPanel.Controls.Add(this.upButton);
+            this.upDownPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDownPanel.Location = new System.Drawing.Point(37, 34);
+            this.upDownPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.upDownPanel.MaximumSize = new System.Drawing.Size(0, 60);
+            this.upDownPanel.MinimumSize = new System.Drawing.Size(24, 60);
+            this.upDownPanel.Name = "upDownPanel";
+            this.upDownPanel.Size = new System.Drawing.Size(24, 60);
+            this.upDownPanel.TabIndex = 64;
             // 
             // downButton
             // 
@@ -218,8 +219,8 @@
             this.Size = new System.Drawing.Size(425, 70);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.upDownPanel.ResumeLayout(false);
+            this.upDownPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -231,7 +232,7 @@
         private System.Windows.Forms.Label officerNameLabel;
         private FontAwesome.Sharp.IconButton btnUser;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel upDownPanel;
         private FontAwesome.Sharp.IconButton downButton;
         private System.Windows.Forms.ToolTip toolTip1;
         private FontAwesome.Sharp.IconButton upButton;

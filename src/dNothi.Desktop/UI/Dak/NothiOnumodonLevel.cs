@@ -12,8 +12,27 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class NothiOnumodonLevel : UserControl
     {
-        public int _designationId;
 
+        public bool _isFromNothiNextStep{get;set;}
+
+        public bool isFromNothiNextStep
+        {
+            get { return _isFromNothiNextStep; }
+            set { _isFromNothiNextStep = value;
+                if(value)
+                {
+                    cbxNiontron.Visible = false;
+                    deleteButton.Visible = false;
+                }
+            
+            
+            }
+        
+        }
+
+
+        public int _designationId;
+        public bool _isChecked;
         public List<int> _designationIds;
         public int _selectedRouteIndex;
         public NothiOnumodonLevel()
@@ -168,6 +187,50 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        public void AddNewOfficerFromNothiNextStep(string officerName, int designationId, string designation, int routeIndexs)
+        {
+            Size s = new Size(officerTableLayoutPanel.Width, 50);
+            DragAndDropOfficerPanel dragAndDropOfficerPanel;
+
+            dragAndDropOfficerPanel = new DragAndDropOfficerPanel();
+            dragAndDropOfficerPanel.Padding = new Padding(5);
+            dragAndDropOfficerPanel.LeftText = "1";
+            dragAndDropOfficerPanel.MainText = "47x100x5400 - 20/100";
+            dragAndDropOfficerPanel.FillDegree = 20;
+            dragAndDropOfficerPanel.RightText = "1";
+            dragAndDropOfficerPanel.StatusText = "Raw";
+            dragAndDropOfficerPanel.StatusBarColor = 0;
+            dragAndDropOfficerPanel.Size = s;
+            dragAndDropOfficerPanel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            dragAndDropOfficerPanel.officerName = officerName;
+            dragAndDropOfficerPanel.designation = designation;
+            dragAndDropOfficerPanel.designationid = designationId;
+            dragAndDropOfficerPanel.routeIndex = routeIndexs;
+
+            dragAndDropOfficerPanel.Check_Box_Show();
+           
+
+            dragAndDropOfficerPanel.CheckedButton += delegate (object sender, EventArgs e) { checkBoxButton_Click(sender, e, dragAndDropOfficerPanel._designationid,dragAndDropOfficerPanel._isChecked); };
+           
+
+            this.officerTableLayoutPanel.Controls.Add(dragAndDropOfficerPanel);
+
+
+          
+
+        }
+
+
+        public event EventHandler CheckBoxButton;
+        private void checkBoxButton_Click(object sender, EventArgs e, int designationid, bool isChecked)
+        {
+            _isChecked = isChecked;
+            _designationId = designationid;
+
+
+            if (this.CheckBoxButton != null)
+                this.CheckBoxButton(sender, e);
+        }
 
         public event EventHandler DownButton;
         private void DownButton_Click(object sender, EventArgs e, int routeIndex)
