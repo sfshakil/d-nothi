@@ -17,6 +17,7 @@ namespace dNothi.Desktop.UI.Dak
         public int _designationid;
         public bool _isNewAdded;
         public string _designation;
+        public int _routeIndex;
 
         public NothiOnumodonOfficer()
         {
@@ -56,6 +57,17 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        public int routeIndex
+        {
+            get { return _routeIndex; }
+            set
+            {
+                _routeIndex = value;
+
+            }
+
+        }
+
         public bool isNewlyAdded
         {
             get { return _isNewAdded; }
@@ -86,6 +98,20 @@ namespace dNothi.Desktop.UI.Dak
             if (this.DeleteButton != null)
                 this.DeleteButton(sender, e);
             this.Hide();
+        }
+        
+        public event EventHandler UpButton;
+        private void upButton_Click(object sender, EventArgs e)
+        {
+            if (this.UpButton != null)
+                this.UpButton(sender, e);
+        }
+       
+        public event EventHandler DownButton;
+        private void downButton_Click(object sender, EventArgs e)
+        {
+            if (this.DownButton != null)
+                this.DownButton(sender, e);
         }
     }
 }

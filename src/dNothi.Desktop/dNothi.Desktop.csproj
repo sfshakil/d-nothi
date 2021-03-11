@@ -439,6 +439,10 @@
     <Compile Include="UI\Dak\DakRightTopInfoIconUserControl.Designer.cs">
       <DependentUpon>DakRightTopInfoIconUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DragAndDropOfficerPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\GraphicsExtension.cs" />
     <Compile Include="UI\Dak\MultipleDakActionResultDakRowUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -161,8 +161,8 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (onumodonList.data.records.Count > 0)
                 {
-                    _currentOnumodonRow = onumodonList.data.records;
-                    var groupLevel = onumodonList.data.records.GroupBy(a => a.layer_index);
+                    _currentOnumodonRow = onumodonList.data.records.OrderByDescending(a=>a.layer_index).ThenBy(a=>a.route_index).ToList();
+                    var groupLevel = _currentOnumodonRow.GroupBy(a => a.layer_index);
                     foreach (var group in groupLevel)
                     {
 
@@ -173,6 +173,9 @@ namespace dNothi.Desktop.UI.Dak
                         nothiOnumodonRow.layerIndex = group.Key;
                         nothiOnumodonRow.DeleteButtonClick += delegate (object sender, EventArgs e) { officerdeleteButton_Click(sender, e, nothiOnumodonRow._designationId); };
                         nothiOnumodonRow.DeleteLevelButtonClick += delegate (object sender, EventArgs e) { leveldeleteButton_Click(sender, e, nothiOnumodonRow._layerIndex); };
+                        nothiOnumodonRow.UpButton += delegate (object sender, EventArgs e) { officerUpButton_Click(sender, e,nothiOnumodonRow._layerIndex, nothiOnumodonRow._selectedRouteIndex); };
+                        nothiOnumodonRow.DownButton += delegate (object sender, EventArgs e) { officerDownButton_Click(sender, e, nothiOnumodonRow._layerIndex, nothiOnumodonRow._selectedRouteIndex); };
+
 
 
 
@@ -182,7 +185,7 @@ namespace dNothi.Desktop.UI.Dak
                         foreach (var officer in group)
                         {
                             
-                            nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name);
+                            nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index);
 
 
                         }
@@ -196,6 +199,28 @@ namespace dNothi.Desktop.UI.Dak
                 LoadOwnOfficerTree();
 
             }
+        }
+
+        private void officerDownButton_Click(object sender, EventArgs e, int layerIndex, int selectedRouteIndex)
+        {
+           // this.Hide();
+       
+          var sourceOnumodonRow=  _currentOnumodonRow.FirstOrDefault(a => a.layer_index == layerIndex && a.route_index == selectedRouteIndex);
+          var destOnumodonRow=  _currentOnumodonRow.FirstOrDefault(a => a.layer_index == layerIndex && a.route_index == selectedRouteIndex+1);
+
+            sourceOnumodonRow.route_index = selectedRouteIndex + 1;
+            destOnumodonRow.route_index = selectedRouteIndex;
+
+        }
+
+        private void officerUpButton_Click(object sender, EventArgs e, int layerIndex, int selectedRouteIndex)
+        {
+         
+            var sourceOnumodonRow = _currentOnumodonRow.FirstOrDefault(a => a.layer_index == layerIndex && a.route_index == selectedRouteIndex);
+            var destOnumodonRow = _currentOnumodonRow.FirstOrDefault(a => a.layer_index == layerIndex && a.route_index == selectedRouteIndex - 1);
+
+            sourceOnumodonRow.route_index = selectedRouteIndex - 1;
+            destOnumodonRow.route_index = selectedRouteIndex;
         }
 
         private void leveldeleteButton_Click(object sender, EventArgs e, int level)
@@ -802,6 +827,8 @@ namespace dNothi.Desktop.UI.Dak
 
         private void AddNewOfficerTotheLevel(PrapokDTO officer, int selectedLevel)
         {
+           
+
 
             var officerSearch = _currentOnumodonRow.FirstOrDefault(a => a.layer_index == selectedLevel);
 
@@ -811,12 +838,11 @@ namespace dNothi.Desktop.UI.Dak
             }
            else
             {
-                var nothiOnumodonSearch = nothiOnumodonFLP.Controls.OfType<NothiOnumodonLevel>().First();
+                var nothiOnumodonSearch = nothiOnumodonFLP.Controls.OfType<NothiOnumodonLevel>().FirstOrDefault(a=>a._layerIndex==selectedLevel);
 
                 if (nothiOnumodonSearch != null)
                 {
 
-                    nothiOnumodonSearch.AddNewOfficer(officer.employee_name_bng, officer.designation_id, officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng);
                     List<onumodonDataRecordDTO> countOnumodonDataRecordDTO = _currentOnumodonRow.Where(a => a.layer_index == selectedLevel).ToList();
 
                     onumodonDataRecordDTO onumodonDataRecordDTO = new onumodonDataRecordDTO();
@@ -835,6 +861,7 @@ namespace dNothi.Desktop.UI.Dak
                     onumodonDataRecordDTO.is_active = 1;
 
                     _currentOnumodonRow.Add(onumodonDataRecordDTO);
+                    nothiOnumodonSearch.AddNewOfficer(officer.employee_name_bng, officer.designation_id, officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng, onumodonDataRecordDTO.route_index);
 
                 }
             }
@@ -884,7 +911,7 @@ namespace dNothi.Desktop.UI.Dak
             
             _currentOnumodonRow.Add(onumodonDataRecordDTO);
 
-                LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a=>a.layer_index).ToList());
+                LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a=>a.layer_index).ThenBy(a=>a.route_index).ToList());
 
             
         }
@@ -914,7 +941,7 @@ namespace dNothi.Desktop.UI.Dak
                 foreach (var officer in group)
                 {
 
-                    nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name);
+                    nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name,officer.route_index);
 
 
                 }
@@ -1009,15 +1036,14 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler SuccessfullyOnumodonSaveButton;
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
-           
-
+          
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
             conditonBoxForm.message = "আপনি কি সফলভাবে সংরক্ষণ করতে চান?";
             conditonBoxForm.ShowDialog(this);
 
             if (conditonBoxForm.Yes)
             {
-                var nothiNotePermission = _nothiNotePermission.GetNothiPermission(_dakUserParam,_currentOnumodonRow.OrderByDescending(a=>a.layer_index).ToList(),_nothiListRecordsDTO,Convert.ToInt32(_nothiListRecordsDTO.office_id));
+                var nothiNotePermission = _nothiNotePermission.GetNothiPermission(_dakUserParam,_currentOnumodonRow.OrderByDescending(a=>a.layer_index).ThenBy(a => a.route_index).ToList(),_nothiListRecordsDTO,Convert.ToInt32(_nothiListRecordsDTO.office_id));
 
                 if (nothiNotePermission.status == "success")
                 {
