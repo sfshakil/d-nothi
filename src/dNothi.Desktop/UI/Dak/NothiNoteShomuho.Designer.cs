@@ -195,7 +195,7 @@
             // 
             this.lbNoteSubText.AutoSize = true;
             this.lbNoteSubText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNoteSubText.Location = new System.Drawing.Point(470, 23);
+            this.lbNoteSubText.Location = new System.Drawing.Point(520, 23);
             this.lbNoteSubText.Name = "lbNoteSubText";
             this.lbNoteSubText.Size = new System.Drawing.Size(114, 20);
             this.lbNoteSubText.TabIndex = 68;

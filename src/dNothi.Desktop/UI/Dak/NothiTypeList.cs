@@ -60,7 +60,20 @@ namespace dNothi.Desktop.UI.Dak
         public string nothiCode
         {
             get { return _nothiCode; }
-            set { _nothiCode = value; lbNothiCode.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            set { _nothiCode = value;
+                try
+                {
+                    int val = Int32.Parse(value);
+                    lbNothiCode.Text = string.Concat(val.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                catch
+                {
+                    string vl = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbNothiCode.Text = string.Concat(vl.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                
+                
+            }
         }
 
         [Category("Custom Props")]
@@ -100,12 +113,6 @@ namespace dNothi.Desktop.UI.Dak
                     { f.Hide(); }
                     var form = FormFactory.Create<Nothi>();
                     form.ForceLoadNewNothi();
-                    var nothiType = UserControlFactory.Create<NothiType>();
-                    nothiType.Visible = true;
-                    nothiType.Enabled = true;
-                    nothiType.Location = new System.Drawing.Point(845, 0);
-                    form.Controls.Add(nothiType);
-                    nothiType.BringToFront();
                     form.ShowDialog();
                 }
             }

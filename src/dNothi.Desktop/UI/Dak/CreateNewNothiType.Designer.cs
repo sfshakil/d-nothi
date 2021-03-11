@@ -44,36 +44,39 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 8);
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 20);
+            this.label2.Size = new System.Drawing.Size(85, 21);
             this.label2.TabIndex = 46;
             this.label2.Text = "বিষয়ের ধরন";
             // 
             // cbxNothiType
             // 
             this.cbxNothiType.BackColor = System.Drawing.Color.White;
+            this.cbxNothiType.DropDownHeight = 150;
+            this.cbxNothiType.DropDownWidth = 350;
             this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxNothiType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNothiType.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cbxNothiType.FormattingEnabled = true;
             this.cbxNothiType.IntegralHeight = false;
-            this.cbxNothiType.ItemHeight = 20;
+            this.cbxNothiType.ItemHeight = 21;
             this.cbxNothiType.Location = new System.Drawing.Point(3, 1);
             this.cbxNothiType.MaxDropDownItems = 100;
             this.cbxNothiType.Name = "cbxNothiType";
-            this.cbxNothiType.Size = new System.Drawing.Size(369, 28);
+            this.cbxNothiType.Size = new System.Drawing.Size(329, 29);
             this.cbxNothiType.TabIndex = 47;
             this.cbxNothiType.Text = "বিষয়ের ধরন";
+            this.cbxNothiType.SelectedIndexChanged += new System.EventHandler(this.cbxNothiType_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(387, 5);
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(372, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 20);
+            this.label1.Size = new System.Drawing.Size(138, 21);
             this.label1.TabIndex = 48;
             this.label1.Text = "২ ডিজিটের ধরন কোড";
             // 
@@ -82,12 +85,12 @@
             this.btnNothiDhoron.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnNothiDhoron.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnNothiDhoron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiDhoron.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNothiDhoron.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNothiDhoron.ForeColor = System.Drawing.Color.White;
             this.btnNothiDhoron.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNothiDhoron.Location = new System.Drawing.Point(317, 64);
+            this.btnNothiDhoron.Location = new System.Drawing.Point(280, 64);
             this.btnNothiDhoron.Name = "btnNothiDhoron";
-            this.btnNothiDhoron.Size = new System.Drawing.Size(97, 43);
+            this.btnNothiDhoron.Size = new System.Drawing.Size(118, 43);
             this.btnNothiDhoron.TabIndex = 50;
             this.btnNothiDhoron.Text = "সংরক্ষণ করুন";
             this.btnNothiDhoron.UseVisualStyleBackColor = false;
@@ -98,12 +101,12 @@
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(413, 64);
+            this.btnCancel.Location = new System.Drawing.Point(398, 64);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(92, 43);
+            this.btnCancel.Size = new System.Drawing.Size(114, 43);
             this.btnCancel.TabIndex = 51;
             this.btnCancel.Text = "বাতিল করুন";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -128,9 +131,10 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.cbxNothiType);
+            this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(9, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(375, 30);
+            this.panel1.Size = new System.Drawing.Size(333, 32);
             this.panel1.TabIndex = 64;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -138,20 +142,21 @@
             // 
             this.txtDhoronCode.BackColor = System.Drawing.Color.White;
             this.txtDhoronCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDhoronCode.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDhoronCode.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDhoronCode.Location = new System.Drawing.Point(7, 5);
             this.txtDhoronCode.Name = "txtDhoronCode";
             this.txtDhoronCode.PlaceholderText = "২ ডিজিটের ধরন কোড";
-            this.txtDhoronCode.Size = new System.Drawing.Size(119, 19);
+            this.txtDhoronCode.Size = new System.Drawing.Size(138, 22);
             this.txtDhoronCode.TabIndex = 3;
+            this.txtDhoronCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDhoronCode_KeyPress);
             // 
             // userIdPanel
             // 
             this.userIdPanel.BackColor = System.Drawing.Color.Transparent;
             this.userIdPanel.Controls.Add(this.txtDhoronCode);
-            this.userIdPanel.Location = new System.Drawing.Point(388, 28);
+            this.userIdPanel.Location = new System.Drawing.Point(363, 28);
             this.userIdPanel.Name = "userIdPanel";
-            this.userIdPanel.Size = new System.Drawing.Size(129, 30);
+            this.userIdPanel.Size = new System.Drawing.Size(150, 30);
             this.userIdPanel.TabIndex = 78;
             this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
             // 
