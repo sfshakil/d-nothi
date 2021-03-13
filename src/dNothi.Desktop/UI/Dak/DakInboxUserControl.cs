@@ -66,8 +66,12 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     continue;
                 }
-                
-               
+                if (ctrl == dakTagPanel)
+                {
+                    continue;
+                }
+
+
                 ctrl.Click += DakInboxUserControl_Click;
                 ctrl.MouseEnter += DakInboxUserControl_MouseEnter;
                 ctrl.MouseLeave += DakInboxUserControl_MouseLeave;
@@ -96,7 +100,37 @@ namespace dNothi.Desktop.UI.Dak
         public DakListRecordsDTO _dak;
 
 
+        public List<DakTagDTO> _dak_Tags { get; set; }
+        public List<DakTagDTO> dak_Tags { 
+            get
+            {
+                return _dak_Tags;
+            }
+
+
+            set
+            {
+                _dak_Tags = value;
+                if(value.Count>0)
+                {
+                    dakLabel.Text = value[0].tag;
+                    dakTagPanel.Visible = true;
+                    if(value.Count>1)
+                    {
+                        dakTagListButton.Visible = true;
+                    }
+                   
+                }
+
+
+            }
+        
+        
+        }
         public DakListRecordsDTO dak { get { return _dak; }set { _dak = value; } }
+
+
+
 
         public bool isChecked { get { return _isChecked; } set { _isChecked = value; dakCheckBox.Checked = value; } }
 
@@ -514,12 +548,26 @@ namespace dNothi.Desktop.UI.Dak
 
         private void iconButton3_MouseHover(object sender, EventArgs e)
         {
-            iconButton3.IconColor = Color.FromArgb(246, 78, 144);
+            dakTagButton.IconColor = Color.FromArgb(246, 78, 144);
         }
 
         private void iconButton3_MouseLeave(object sender, EventArgs e)
         {
-            iconButton3.IconColor = Color.FromArgb(54, 153, 255);
+            dakTagButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+
+        public event EventHandler DakTagButtonCLick;
+        private void dakTagButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakTagButtonCLick != null)
+                this.DakTagButtonCLick(sender, e);
+        }
+        public event EventHandler DakTagShowButtonCLick;
+        private void dakTagListButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakTagShowButtonCLick != null)
+                this.DakTagShowButtonCLick(sender, e);
         }
     }
 }
