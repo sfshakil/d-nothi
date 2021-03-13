@@ -451,6 +451,12 @@
     <Compile Include="UI\Dak\DakRightTopInfoIconUserControl.Designer.cs">
       <DependentUpon>DakRightTopInfoIconUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakTagForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakTagForm.Designer.cs">
+      <DependentUpon>DakTagForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DragAndDropOfficerPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -950,6 +956,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakRightTopInfoIconUserControl.resx">
       <DependentUpon>DakRightTopInfoIconUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakTagForm.resx">
+      <DependentUpon>DakTagForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\MultipleDakActionResultDakRowUserControl.resx">
       <DependentUpon>MultipleDakActionResultDakRowUserControl.cs</DependentUpon>

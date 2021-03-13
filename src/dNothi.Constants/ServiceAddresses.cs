@@ -9,6 +9,7 @@ namespace dNothi.Constants
     public class DefaultAPIConfiguration
     {
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";
+        public const string DakFolderMapEndPoint = "/api/dak/custom/folder/map";
         public const string DakListFromFolderEndPoint = "/api/dak/personal";
         public const string DakFolderListEndPoint = "/api/dak/customlabel/designation";
         public const string DakFolderDeleteEndPoint = "/api/dak/customlabel/delete";

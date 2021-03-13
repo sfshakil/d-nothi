@@ -1073,6 +1073,7 @@ namespace dNothi.Desktop.UI
                 dakInboxUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
                 dakInboxUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
                 dakInboxUserControl.dakid = dakListInboxRecordsDTO.dak_user.dak_id;
+                dakInboxUserControl.dak_Tags = dakListInboxRecordsDTO.dak_Tags;
                 dakInboxUserControl.dakArchiveUserId = dakListInboxRecordsDTO.dak_user.archived_dak_user_id;
 
 
@@ -1084,6 +1085,11 @@ namespace dNothi.Desktop.UI
                 dakInboxUserControl.DakArchiveButtonClick += delegate (object sender, EventArgs e) { DakArchive_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakInboxUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakInboxUserControl.NothijatoButtonClick += delegate (object sender, EventArgs e) { Nothitejato_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                
+                dakInboxUserControl.DakTagButtonCLick += delegate (object sender, EventArgs e) { DakTag_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_Tags, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak);};
+                dakInboxUserControl.DakTagShowButtonCLick += delegate (object sender, EventArgs e) { DakTagShow_ButtonClick(dakListInboxRecordsDTO.dak_Tags);};
+                
+                
                 dakInboxUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDak(); };
                 dakInboxUserControl.dak = dakListInboxRecordsDTO;
 
@@ -1115,6 +1121,53 @@ namespace dNothi.Desktop.UI
 
 
 
+
+        }
+
+        private void DakTagShow_ButtonClick(List<DakTagDTO> dak_Tags)
+        {
+          if(dakTagPanel.Visible)
+            {
+                dakTagListBox.Items.Clear();
+                dakTagPanel.Visible = false;
+            }
+            else
+            {
+                for (int i = 1; i <= dak_Tags.Count - 1; i++)
+                {
+
+
+                    dakTagListBox.Items.Add(dak_Tags[i].tag);
+
+                }
+                dakTagPanel.Location = System.Windows.Forms.Cursor.Position;
+                dakTagPanel.Visible = true;
+            }
+        }
+
+        private void DakTag_ButtonClick(object sender, EventArgs e, int dakid, List<DakTagDTO> dak_Tags, string dak_subject,string dak_Type, int is_copied_dak)
+        {
+
+
+          
+
+            FolderListResponse folderListResponse = _dakFolderService.GetFolderList(_dakuserparam);
+
+            var dakTagForm = FormFactory.Create<DakTagForm>();
+            dakTagForm.folderListDataDTO = folderListResponse.data;
+            dakTagForm.dak_Tags = dak_Tags;
+            dakTagForm.dakId = dakid;
+            dakTagForm.is_copied_Id = is_copied_dak;
+            dakTagForm.dak_Type = dak_Type;
+
+            dakTagForm.SuccessfullButton += delegate (object dakTagsender, EventArgs dakTagEvent) { ReloadBodyPanel(); };
+
+
+
+
+            CalPopUpWindow(dakTagForm);
+
+          
 
         }
 
@@ -1935,6 +1988,9 @@ namespace dNothi.Desktop.UI
 
         private void NormalizeDashBoard()
         {
+
+            dakTagPanel.Visible = false;
+
             bodyTableLayoutPanel.RowStyles[6] = new RowStyle(SizeType.Percent);
             bodyTableLayoutPanel.RowStyles[6].Height = 100;
             selectDakBoxHolderPanel.Visible = false;

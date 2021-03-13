@@ -150,10 +150,54 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.DakFolderDeleteEndPoint;
         }
+
+        protected string GetDakFolderMapEndPoint()
+        {
+            return DefaultAPIConfiguration.DakFolderMapEndPoint;
+        }
+
+        public DakFolderMapResponse GetDakFolderMapResponse(DakUserParam dakUserParam, int dak_id, int is_copied_dak, string dak_Type, string dak_Folder)
+        {
+            DakFolderMapResponse dakFolderAddResponse = new DakFolderMapResponse();
+
+            try
+            {
+                var dakFolderMapApi = new RestClient(GetAPIDomain() + GetDakFolderMapEndPoint());
+                dakFolderMapApi.Timeout = -1;
+                var dakFolderMapRequest = new RestRequest(Method.POST);
+                dakFolderMapRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakFolderMapRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                dakFolderMapRequest.AlwaysMultipartFormData = true;
+                dakFolderMapRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                dakFolderMapRequest.AddParameter("office_id", dakUserParam.office_id);
+
+                var cDeskJsonString = new JavaScriptSerializer().Serialize(dakUserParam);
+                dakFolderMapRequest.AddParameter("cdesk", cDeskJsonString);
+
+              
+                dakFolderMapRequest.AddParameter("daak_custom_folder", "{\"folders\":"+dak_Folder+",\"dak_id\":\""+dak_id+"\",\"dak_type\":\""+dak_Type+"\",\"is_copied_dak\":"+is_copied_dak+"}");
+
+                IRestResponse dakFolderMapResponseIRest = dakFolderMapApi.Execute(dakFolderMapRequest);
+
+
+
+
+                var dakFolderMapResponseJson = dakFolderMapResponseIRest.Content;
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                dakFolderAddResponse = JsonConvert.DeserializeObject<DakFolderMapResponse>(dakFolderMapResponseJson);
+                return dakFolderAddResponse;
+            }
+            catch (Exception ex)
+            {
+                return dakFolderAddResponse;
+            }
+        }
     }
 
     public interface IDakFolderService
     {
+        DakFolderMapResponse GetDakFolderMapResponse(DakUserParam dakUserParam, int dak_id, int is_copied_dak, string dak_Type, string dak_Folder);
         FolderListResponse GetFolderList(DakUserParam dakUserParam);
         DakFolderAddResponse GetDakFolderAddResponse(DakUserParam dakUserParam, DakFolderParam dakFolderParam);
         DakFolderDeleteResponse GetDakFolderDeleteResponse(DakUserParam dakUserParam, int folder_id);

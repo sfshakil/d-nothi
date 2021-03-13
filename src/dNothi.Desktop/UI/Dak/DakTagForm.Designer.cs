@@ -2,7 +2,7 @@
 
 namespace dNothi.Desktop.UI.Dak
 {
-    partial class DakFolderForm
+    partial class DakTagForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,34 +31,29 @@ namespace dNothi.Desktop.UI.Dak
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("ব্যক্তিগত");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("পাবলিক");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DakFolderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("ব্যক্তিগত");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("পাবলিক");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.actionTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.dakListButton = new FontAwesome.Sharp.IconButton();
-            this.deleteButton = new FontAwesome.Sharp.IconButton();
-            this.editButton = new FontAwesome.Sharp.IconButton();
-            this.addButton = new FontAwesome.Sharp.IconButton();
             this.personalFolderTreeView = new System.Windows.Forms.TreeView();
             this.MyImageList = new System.Windows.Forms.ImageList(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tagButton = new FontAwesome.Sharp.IconButton();
             this.HeadingPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.searchPanel.SuspendLayout();
             this.bodyTableLayoutPanel.SuspendLayout();
-            this.actionTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // HeadingPanel
@@ -112,30 +107,45 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.searchPanel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.searchPanel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.HeadingPanel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.bodyTableLayoutPanel, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.bodyTableLayoutPanel, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tagButton, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 50);
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(550, 726);
             this.tableLayoutPanel1.TabIndex = 39;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(23, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 21);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "খসড়া অফিস স্মারক চেক";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(167)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(23, 115);
+            this.label1.Location = new System.Drawing.Point(23, 182);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(216, 18);
@@ -146,7 +156,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.searchPanel.Controls.Add(this.searchTextBox);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchPanel.Location = new System.Drawing.Point(23, 72);
+            this.searchPanel.Location = new System.Drawing.Point(23, 139);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(504, 40);
             this.searchPanel.TabIndex = 0;
@@ -162,7 +172,7 @@ namespace dNothi.Desktop.UI.Dak
             this.searchTextBox.Location = new System.Drawing.Point(8, 10);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(487, 19);
-            this.searchTextBox.TabIndex = 0;
+            this.searchTextBox.TabIndex = 100;
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // bodyTableLayoutPanel
@@ -170,156 +180,39 @@ namespace dNothi.Desktop.UI.Dak
             this.bodyTableLayoutPanel.AutoScroll = true;
             this.bodyTableLayoutPanel.ColumnCount = 1;
             this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.bodyTableLayoutPanel.Controls.Add(this.actionTableLayoutPanel, 0, 0);
             this.bodyTableLayoutPanel.Controls.Add(this.personalFolderTreeView, 0, 1);
             this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyTableLayoutPanel.Location = new System.Drawing.Point(23, 146);
+            this.bodyTableLayoutPanel.Location = new System.Drawing.Point(23, 213);
             this.bodyTableLayoutPanel.Name = "bodyTableLayoutPanel";
             this.bodyTableLayoutPanel.RowCount = 2;
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 449F));
-            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(504, 527);
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(504, 460);
             this.bodyTableLayoutPanel.TabIndex = 40;
-            // 
-            // actionTableLayoutPanel
-            // 
-            this.actionTableLayoutPanel.AutoSize = true;
-            this.actionTableLayoutPanel.ColumnCount = 5;
-            this.actionTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.actionTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.actionTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.actionTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.actionTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.actionTableLayoutPanel.Controls.Add(this.dakListButton, 3, 0);
-            this.actionTableLayoutPanel.Controls.Add(this.deleteButton, 2, 0);
-            this.actionTableLayoutPanel.Controls.Add(this.editButton, 1, 0);
-            this.actionTableLayoutPanel.Controls.Add(this.addButton, 0, 0);
-            this.actionTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.actionTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.actionTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.actionTableLayoutPanel.Name = "actionTableLayoutPanel";
-            this.actionTableLayoutPanel.RowCount = 1;
-            this.actionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.actionTableLayoutPanel.Size = new System.Drawing.Size(504, 38);
-            this.actionTableLayoutPanel.TabIndex = 0;
-            // 
-            // dakListButton
-            // 
-            this.dakListButton.AutoSize = true;
-            this.dakListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
-            this.dakListButton.FlatAppearance.BorderSize = 0;
-            this.dakListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakListButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakListButton.ForeColor = System.Drawing.Color.White;
-            this.dakListButton.IconChar = FontAwesome.Sharp.IconChar.Link;
-            this.dakListButton.IconColor = System.Drawing.Color.White;
-            this.dakListButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.dakListButton.IconSize = 24;
-            this.dakListButton.Location = new System.Drawing.Point(283, 0);
-            this.dakListButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakListButton.Name = "dakListButton";
-            this.dakListButton.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.dakListButton.Size = new System.Drawing.Size(116, 38);
-            this.dakListButton.TabIndex = 3;
-            this.dakListButton.Text = "ডাক তালিকা";
-            this.dakListButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.dakListButton.UseVisualStyleBackColor = false;
-            this.dakListButton.Visible = false;
-            this.dakListButton.Click += new System.EventHandler(this.dakListButton_Click);
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.AutoSize = true;
-            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.deleteButton.FlatAppearance.BorderSize = 0;
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.deleteButton.IconColor = System.Drawing.Color.White;
-            this.deleteButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.deleteButton.IconSize = 24;
-            this.deleteButton.Location = new System.Drawing.Point(175, 0);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(0);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.deleteButton.Size = new System.Drawing.Size(108, 38);
-            this.deleteButton.TabIndex = 2;
-            this.deleteButton.Text = "মুছে ফেলুন";
-            this.deleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.deleteButton.UseVisualStyleBackColor = false;
-            this.deleteButton.Visible = false;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // editButton
-            // 
-            this.editButton.AutoSize = true;
-            this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.editButton.FlatAppearance.BorderSize = 0;
-            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.editButton.IconColor = System.Drawing.Color.White;
-            this.editButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.editButton.IconSize = 24;
-            this.editButton.Location = new System.Drawing.Point(79, 0);
-            this.editButton.Margin = new System.Windows.Forms.Padding(0);
-            this.editButton.Name = "editButton";
-            this.editButton.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.editButton.Size = new System.Drawing.Size(96, 38);
-            this.editButton.TabIndex = 1;
-            this.editButton.Text = "সংশোধন";
-            this.editButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.editButton.UseVisualStyleBackColor = false;
-            this.editButton.Visible = false;
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
-            // 
-            // addButton
-            // 
-            this.addButton.AutoSize = true;
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.addButton.FlatAppearance.BorderSize = 0;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.ForeColor = System.Drawing.Color.White;
-            this.addButton.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
-            this.addButton.IconColor = System.Drawing.Color.White;
-            this.addButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.addButton.IconSize = 24;
-            this.addButton.Location = new System.Drawing.Point(0, 0);
-            this.addButton.Margin = new System.Windows.Forms.Padding(0);
-            this.addButton.Name = "addButton";
-            this.addButton.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.addButton.Size = new System.Drawing.Size(79, 38);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = " নতুন";
-            this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Visible = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // personalFolderTreeView
             // 
+            this.personalFolderTreeView.CheckBoxes = true;
             this.personalFolderTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.personalFolderTreeView.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personalFolderTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
             this.personalFolderTreeView.ImageIndex = 0;
             this.personalFolderTreeView.ImageList = this.MyImageList;
-            this.personalFolderTreeView.Location = new System.Drawing.Point(5, 53);
+            this.personalFolderTreeView.Location = new System.Drawing.Point(5, 5);
             this.personalFolderTreeView.Margin = new System.Windows.Forms.Padding(5);
             this.personalFolderTreeView.Name = "personalFolderTreeView";
-            treeNode1.Name = "privateNode";
-            treeNode1.Tag = "0";
-            treeNode1.Text = "ব্যক্তিগত";
-            treeNode2.Name = "publicNode";
-            treeNode2.Tag = "0";
-            treeNode2.Text = "পাবলিক";
+            treeNode3.Name = "privateNode";
+            treeNode3.Tag = "0";
+            treeNode3.Text = "ব্যক্তিগত";
+            treeNode4.Name = "publicNode";
+            treeNode4.Tag = "0";
+            treeNode4.Text = "পাবলিক";
             this.personalFolderTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            treeNode3,
+            treeNode4});
             this.personalFolderTreeView.SelectedImageIndex = 0;
-            this.personalFolderTreeView.Size = new System.Drawing.Size(494, 469);
+            this.personalFolderTreeView.Size = new System.Drawing.Size(494, 525);
             this.personalFolderTreeView.TabIndex = 1;
             this.personalFolderTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.personalFolderTreeView_AfterSelect);
             this.personalFolderTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.personalFolderTreeView_NodeMouseClick);
@@ -327,16 +220,16 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // MyImageList
             // 
-            this.MyImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("MyImageList.ImageStream")));
+            this.MyImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.MyImageList.ImageSize = new System.Drawing.Size(16, 16);
             this.MyImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.MyImageList.Images.SetKeyName(0, "icons8-file-folder-24.png");
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewImageColumn1.HeaderText = "+";
             this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn1.MinimumWidth = 2;
@@ -346,17 +239,39 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewImageColumn2.HeaderText = "+";
             this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 23;
             // 
-            // DakFolderForm
+            // tagButton
+            // 
+            this.tagButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.tagButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tagButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tagButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.tagButton.IconChar = FontAwesome.Sharp.IconChar.Tags;
+            this.tagButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.tagButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.tagButton.IconSize = 36;
+            this.tagButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tagButton.Location = new System.Drawing.Point(23, 93);
+            this.tagButton.Name = "tagButton";
+            this.tagButton.Size = new System.Drawing.Size(118, 40);
+            this.tagButton.TabIndex = 42;
+            this.tagButton.Text = "ট্যাগ করুন";
+            this.tagButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.tagButton.UseVisualStyleBackColor = true;
+            this.tagButton.Click += new System.EventHandler(this.tagButton_Click);
+            this.tagButton.MouseLeave += new System.EventHandler(this.tagButton_MouseLeave);
+            this.tagButton.MouseHover += new System.EventHandler(this.tagButton_MouseHover);
+            // 
+            // DakTagForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
@@ -366,7 +281,7 @@ namespace dNothi.Desktop.UI.Dak
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(550, 726);
             this.MinimumSize = new System.Drawing.Size(550, 726);
-            this.Name = "DakFolderForm";
+            this.Name = "DakTagForm";
             this.Load += new System.EventHandler(this.DakFolderForm_Load);
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
@@ -375,15 +290,12 @@ namespace dNothi.Desktop.UI.Dak
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.bodyTableLayoutPanel.ResumeLayout(false);
-            this.bodyTableLayoutPanel.PerformLayout();
-            this.actionTableLayoutPanel.ResumeLayout(false);
-            this.actionTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
-       
-        
+
+
 
 
         #endregion
@@ -399,12 +311,9 @@ namespace dNothi.Desktop.UI.Dak
         private Panel searchPanel;
         private Label label1;
         private TextBox searchTextBox;
-        private TableLayoutPanel actionTableLayoutPanel;
-        private FontAwesome.Sharp.IconButton dakListButton;
-        private FontAwesome.Sharp.IconButton deleteButton;
-        private FontAwesome.Sharp.IconButton editButton;
-        private FontAwesome.Sharp.IconButton addButton;
         private TreeView personalFolderTreeView;
         private ImageList MyImageList;
+        private Label label2;
+        private FontAwesome.Sharp.IconButton tagButton;
     }
 }

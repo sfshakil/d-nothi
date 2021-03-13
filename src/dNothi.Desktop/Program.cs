@@ -191,6 +191,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();
             builder.RegisterType<NothiLevelAddForm>().AsSelf();
             builder.RegisterType<UI.Dak.DakFolderForm>().AsSelf();
+            builder.RegisterType<UI.Dak.DakTagForm>().AsSelf();
             builder.RegisterType<UI.Dak.FolderCreatePopUpForm>().AsSelf();
             builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf(); 
             builder.RegisterType<UI.Dak.NothiOnumodonDesignationSeal>().AsSelf();
