@@ -63,7 +63,7 @@ namespace dNothi.Desktop.UI.Dak
         public string noteTotal
         {
             get { return _noteTotal; }
-            set { _noteTotal = value; lbTotalNothi.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            set { _noteTotal = value; lbTotalNothi.Text = value; }
         }
         int i = 1;
         int j = 1;
@@ -182,9 +182,17 @@ namespace dNothi.Desktop.UI.Dak
         {
             newnotedata = notedata;
         }
+        public NoteSaveDTO getNewNoteData()
+        {
+            return newnotedata;
+        }
         public void loadlistInboxRecord(NothiListRecordsDTO nothiInboxRecord)
         {
             nothiListRecord = nothiInboxRecord;
+        }
+        public NothiListRecordsDTO getlistInboxRecord()
+        {
+            return nothiListRecord;
         }
         private void btnSend_Click(object sender, EventArgs e)
         {
@@ -241,8 +249,6 @@ namespace dNothi.Desktop.UI.Dak
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiListRecord;
             form.GetNothiInboxRecords(nothiListRecords);
-            //form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
-
             CalPopUpWindow(form);
         }
     }

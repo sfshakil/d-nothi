@@ -203,12 +203,15 @@ namespace dNothi.Desktop.UI
 
             noteViewFLP.Controls.Add(noteView);
             noteView.CheckBoxClick += delegate (object sender, EventArgs e) { checkBox_Click(sender as NoteListDataRecordNoteDTO, e, newNoteView); };
+
             return i;
         }
         private string checkSub;
         private int checkNoteId;
+        NoteListDataRecordNoteDTO notelist = new NoteListDataRecordNoteDTO();
         private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
         {
+            notelist = list;
             //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
             OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
             if (onucchedList.data.total_records > 0)
@@ -1284,7 +1287,7 @@ namespace dNothi.Desktop.UI
 
         private void btnOnuchhedSave_Click(object sender, EventArgs e)
         {
-            onuchhedFLP.Controls.Clear();
+            //onuchhedFLP.Controls.Clear();
             PnlSave.Visible = false;
             string noteId = "0";
             if (updateNoteID > 0)
@@ -1497,26 +1500,67 @@ namespace dNothi.Desktop.UI
         {
             PnlSave.Visible = false;
         }
-
-        private void btnSend_Click(object sender, EventArgs e)
+        public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records,NothiNextStep nns, NothiListRecordsDTO nothiListRecords, NoteListDataRecordNoteDTO notelist)
         {
+            this.Hide();
 
+            var nothiType = UserControlFactory.Create<NothiNextStep>();
+
+            nothiType.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e); };
+            //nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
+            nothiType.Visible = true;
+            nothiType.Enabled = true;
+            //nothiType.noteTotal = notelist.note_status;
+            //nothiType.noteSubject = notelist.note_subject_sub_text;
+            //nothiType.loadNewNoteData(nns.getNewNoteData());
+            nothiType.loadlistInboxRecord(nothiListRecords);
+
+            //nothiType.Location = new System.Drawing.Point(0, 0);
+            nothiType.GetNothiInboxRecords(records);
+
+            //var invi = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            //invi.loadNewNoteDataFromNote(nothiType);
+            //invi.Visible = false;
+
+            this.Controls.Add(nothiType);
+            //nothiType.BringToFront();
+            var form = AttachNothiTypeListControlToForm(nothiType);
+            CalPopUpWindow(form);
+
+        }
+        public void loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(NothiListRecordsDTO nothiListRecords, NothiNextStep nns, NoteListDataRecordNoteDTO notelist)
+        {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-
             var onumodonList = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
             if (onumodonList.status == "success")
             {
                 if (onumodonList.data.records.Count > 0)
                 {
-                    
+
+                    LoadOnumodonListinPanel(onumodonList.data.records,nns, nothiListRecords,notelist);
+                }
+
+                //this.ShowDialog();
+            }
+        }
+        public void btnSend_Click(object sender, EventArgs e)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            var onumodonList = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
+            if (onumodonList.status == "success")
+            {
+                if (onumodonList.data.records.Count > 0)
+                {
+
                     LoadOnumodonListinPanel(onumodonList.data.records);
                 }
-                
+
                 //this.ShowDialog();
             }
 
 
-            
+
+
         }
         public event EventHandler NoteDetailsButton;
         private void NoteDetails_ButtonClick(object sender, EventArgs e)
@@ -1529,16 +1573,24 @@ namespace dNothi.Desktop.UI
         public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records)
         {
             var nothiType = UserControlFactory.Create<NothiNextStep>();
+            
             nothiType.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e); };
             //nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
             nothiType.Visible = true;
             nothiType.Enabled = true;
-            nothiType.noteTotal = newNoteView.totalNothi;
-            nothiType.noteSubject = newNoteView.noteSubject;
-            nothiType.loadNewNoteData(newnotedata);
+            nothiType.noteTotal = notelist.note_status;
+            nothiType.noteSubject = notelist.note_subject_sub_text;
+            //nothiType.loadNewNoteData(newnotedata);
             nothiType.loadlistInboxRecord(nothiListRecords);
+
             //nothiType.Location = new System.Drawing.Point(0, 0);
             nothiType.GetNothiInboxRecords(records);
+
+            var invi = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            invi.loadNewNoteDataFromNote(nothiType);
+            invi.loadNoteList(notelist);
+            //invi.Visible = false;
+
             this.Controls.Add(nothiType);
             //nothiType.BringToFront();
             var form = AttachNothiTypeListControlToForm(nothiType);
@@ -4809,7 +4861,8 @@ namespace dNothi.Desktop.UI
 
         private void Note_Load(object sender, EventArgs e)
         {
-            //checkBox_Click(_NoteAllListDataRecordDTO, newNoteView);
+            //
+            //_Click(_NoteAllListDataRecordDTO, newNoteView);
         }
 
         private void btnDraftHistory_MouseHover(object sender, EventArgs e)
