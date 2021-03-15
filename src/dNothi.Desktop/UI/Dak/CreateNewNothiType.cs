@@ -44,6 +44,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
         private string _nothiType;
+        private string _invisibleNothiType;
 
         [Category("Custom Props")]
         public string nothiType
@@ -54,6 +55,15 @@ namespace dNothi.Desktop.UI.Dak
                 cbxNothiType.Items.Add(value);
                 cbxNothiType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 cbxNothiType.AutoCompleteSource = AutoCompleteSource.ListItems;
+                }
+        }
+        [Category("Custom Props")]
+        public string invisibleNothiType
+        {
+            get { return _invisibleNothiType; }
+            set {
+                _invisibleNothiType = value;
+                invisiblecbxNothiType.Items.Add(value);
                 }
         }
 
@@ -122,15 +132,48 @@ namespace dNothi.Desktop.UI.Dak
             if (cbxNothiType.Text != "বিষয়ের ধরন" && txtDhoronCode.Text != "")
             {
                 int i = cbxNothiType.SelectedIndex;
-                if (i>=0)
+                int index = cbxNothiType.Items.IndexOf(txtDhoronCode.Text);
+                if (index >= 0 || i >= 0)
                 {
-                    var st = nothiTypeLists[i];
-                    //cbxNothiType.Text = st.nothi_type;
-                    if (string.Concat(st.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0'))) != txtDhoronCode.Text)
+                    MessageBox.Show("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
+                    
+                }
+                else
+                {
+                    bool eng =  IsEnglishDigitsOnly(txtDhoronCode.Text);
+                    if (eng)
+                    {
+                        string bng = string.Concat(txtDhoronCode.Text.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        int index1 = cbxNothiType.Items.IndexOf(bng);
+                        if (index1 >= 0)
+                        {
+                            MessageBox.Show("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
+                        }
+                        else
+                        {
+                            //string english_text = string.Concat(txtDhoronCode.Text.Select(c => (char)('0' + c - '\u09E6')));
+
+                            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                            //int parsed_number = int.Parse(english_text);
+                            var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, txtDhoronCode.Text);
+                            if (nothiTypeSave.status == "success")
+                            {
+                                MessageBox.Show("নথি ধরন সংরক্ষন হয়েছে।");
+                                foreach (Form f in Application.OpenForms)
+                                { f.Hide(); }
+                                var form = FormFactory.Create<Nothi>();
+                                form.ForceLoadNewNothi();
+                                form.ShowDialog();
+
+                            }
+                        }
+                    }
+                    else
                     {
                         string english_text = string.Concat(txtDhoronCode.Text.Select(c => (char)('0' + c - '\u09E6')));
-                        //int parsed_number = int.Parse(english_text);
+
                         DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                        //int parsed_number = int.Parse(english_text);
                         var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, english_text);
                         if (nothiTypeSave.status == "success")
                         {
@@ -141,59 +184,7 @@ namespace dNothi.Desktop.UI.Dak
                             form.ForceLoadNewNothi();
                             form.ShowDialog();
 
-
-                            //var form = FormFactory.Create<Nothi>();
-                            //form.ForceLoadNewNothi();
-                            //var nothiType = UserControlFactory.Create<NothiType>();
-
-                            //nothiType.Visible = true;
-                            //nothiType.Enabled = true;
-                            //nothiType.Location = new System.Drawing.Point(845, 0);
-                            //form.Controls.Add(nothiType);
-                            //nothiType.BringToFront();
-                            //form.ShowDialog();
-
                         }
-                        else
-                        {
-                            MessageBox.Show("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
-                        }
-
-                    }
-                    else
-                    {
-
-                        MessageBox.Show("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
-                    }
-                }
-                else
-                {
-                    string english_text = string.Concat(txtDhoronCode.Text.Select(c => (char)('0' + c - '\u09E6')));
-
-                    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                    //int parsed_number = int.Parse(english_text);
-                    var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, english_text);
-                    if (nothiTypeSave.status == "success")
-                    {
-                        MessageBox.Show("নথি ধরন সংরক্ষন হয়েছে।");
-                        foreach (Form f in Application.OpenForms)
-                        { f.Hide(); }
-                        var form = FormFactory.Create<Nothi>();
-                        form.ForceLoadNewNothi();
-                        form.ShowDialog();
-                        //foreach (Form f in Application.OpenForms)
-                        //{ f.Hide(); }
-                        //var form = FormFactory.Create<Nothi>();
-                        //form.ForceLoadNewNothi();
-                        //var nothiType = UserControlFactory.Create<NothiType>();
-
-                        //nothiType.Visible = true;
-                        //nothiType.Enabled = true;
-                        //nothiType.Location = new System.Drawing.Point(845, 0);
-                        //form.Controls.Add(nothiType);
-                        //nothiType.BringToFront();
-                        //form.ShowDialog();
-
                     }
                 }
                 
@@ -203,6 +194,16 @@ namespace dNothi.Desktop.UI.Dak
                 MessageBox.Show("দুঃখিত! ধরন ফাকা রাখা যাবে না।");
             }
             
+        }
+        public bool IsEnglishDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
         }
 
         private void userIdPanel_Paint(object sender, PaintEventArgs e)
@@ -217,27 +218,22 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //cbxNothiType.ItemHeight = 45;
-            int i = cbxNothiType.SelectedIndex;
-            int lastcheck = 0;
-            int check = CheckArray(i);
-            if (i == 0 || check == 1)
+            try
             {
-                if (i == 0)
-                {
-                    lastcheck = i;
-                }
-                else
-                {
-                    lastcheck = i-2;
-                }
+                int index = invisiblecbxNothiType.Items.IndexOf(cbxNothiType.SelectedItem);
+                int i = cbxNothiType.SelectedIndex;
+                int checking = CheckArray(i);
+                if (checking == 2 || checking == 3)
+                    cbxNothiType.SelectedIndex = -1;
+                var st = nothiTypeLists[index];
+                txtDhoronCode.Text = string.Concat(st.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
             }
-            var st = nothiTypeLists[lastcheck];
-            //cbxNothiType.Controls.Clear(); //= st.nothi_type;
-            //cbxNothiType.Items.Clear();
-            //var s = cbxNothiType.SelectedValue;
-            //pTB.Text = st.nothi_type;
-            txtDhoronCode.Text = string.Concat(st.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            catch
+            {
+                cbxNothiType.Text = "বাছাই করুন";
+                txtDhoronCode.Text = "";
+            }
+            
         }
         private int CheckArray(int i)
         {
@@ -278,6 +274,26 @@ namespace dNothi.Desktop.UI.Dak
                 MessageBox.Show("Can Enter only two Digit in this Textbox");
                 e.Handled = true;
             }
+        }
+        Font myFont = new Font("Aerial", 10, FontStyle.Regular);
+        private void invisiblecbxNothiType_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index == 1)//We are disabling item based on Index, you can have your logic here
+            {
+                e.Graphics.DrawString(invisiblecbxNothiType.Items[e.Index].ToString(), myFont, Brushes.LightGray, e.Bounds);
+            }
+            else
+            {
+                e.DrawBackground();
+                e.Graphics.DrawString(invisiblecbxNothiType.Items[e.Index].ToString(), myFont, Brushes.Black, e.Bounds);
+                e.DrawFocusRectangle();
+            }
+        }
+
+        private void invisiblecbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (invisiblecbxNothiType.SelectedIndex == 1)
+                invisiblecbxNothiType.SelectedIndex = -1;
         }
     }
 }

@@ -112,8 +112,10 @@ namespace dNothi.Desktop.UI.Dak
             foreach (NothiTypeListDTO nothiTypeListDTO in nothiType.data)
             {
                 createNewNothiType.nothiType = nothiTypeListDTO.nothi_type;
+                createNewNothiType.invisibleNothiType = nothiTypeListDTO.nothi_type;
                 createNewNothiType.nothiType = string.Concat(nothiTypeListDTO.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 createNewNothiType.nothiType = Environment.NewLine;
+
             }
             
             createNewNothiType.Visible = true;
