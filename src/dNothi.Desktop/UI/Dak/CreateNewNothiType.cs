@@ -217,14 +217,56 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //cbxNothiType.ItemHeight = 45;
             int i = cbxNothiType.SelectedIndex;
-            var st = nothiTypeLists[i];
-
+            int lastcheck = 0;
+            int check = CheckArray(i);
+            if (i == 0 || check == 1)
+            {
+                if (i == 0)
+                {
+                    lastcheck = i;
+                }
+                else
+                {
+                    lastcheck = i-2;
+                }
+            }
+            var st = nothiTypeLists[lastcheck];
             //cbxNothiType.Controls.Clear(); //= st.nothi_type;
             //cbxNothiType.Items.Clear();
             //var s = cbxNothiType.SelectedValue;
-            cbxNothiType.Text = st.nothi_type;
+            //pTB.Text = st.nothi_type;
             txtDhoronCode.Text = string.Concat(st.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
+        }
+        private int CheckArray(int i)
+        {
+            int checking = 0;
+            for (int a=0; a<=100; a=a+3)
+            {
+                if (i == a)
+                { 
+                    checking =  1; 
+                }
+
+            }
+            for (int a = 1; a <= 100; a = a + 3)
+            {
+                if (i == a)
+                {
+                    checking = 2;
+                }
+
+            }
+            for (int a = 2; a <= 100; a = a + 3)
+            {
+                if (i == a)
+                {
+                    checking = 3;
+                }
+
+            }
+            return checking;
         }
 
         private void txtDhoronCode_KeyPress(object sender, KeyPressEventArgs e)

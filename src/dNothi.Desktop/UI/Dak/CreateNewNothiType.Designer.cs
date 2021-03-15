@@ -54,20 +54,21 @@
             // cbxNothiType
             // 
             this.cbxNothiType.BackColor = System.Drawing.Color.White;
-            this.cbxNothiType.DropDownHeight = 150;
-            this.cbxNothiType.DropDownWidth = 350;
+            this.cbxNothiType.DropDownHeight = 500;
+            this.cbxNothiType.DropDownWidth = 400;
             this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNothiType.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cbxNothiType.FormattingEnabled = true;
             this.cbxNothiType.IntegralHeight = false;
-            this.cbxNothiType.ItemHeight = 21;
+            this.cbxNothiType.ItemHeight = 22;
             this.cbxNothiType.Location = new System.Drawing.Point(3, 1);
+            this.cbxNothiType.Margin = new System.Windows.Forms.Padding(0);
             this.cbxNothiType.MaxDropDownItems = 100;
             this.cbxNothiType.Name = "cbxNothiType";
-            this.cbxNothiType.Size = new System.Drawing.Size(329, 29);
-            this.cbxNothiType.TabIndex = 47;
-            this.cbxNothiType.Text = "বিষয়ের ধরন";
+            this.cbxNothiType.Size = new System.Drawing.Size(329, 30);
+            this.cbxNothiType.TabIndex = 0;
+            this.cbxNothiType.Text = "বাছাই করুন";
             this.cbxNothiType.SelectedIndexChanged += new System.EventHandler(this.cbxNothiType_SelectedIndexChanged);
             // 
             // label1
@@ -131,8 +132,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.cbxNothiType);
-            this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(9, 28);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(333, 32);
             this.panel1.TabIndex = 64;
