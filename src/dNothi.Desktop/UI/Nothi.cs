@@ -226,8 +226,6 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiListRecordsDTO;
             form.GetNothiInboxRecords(nothiListRecords);
-
-
             form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
 
             CalPopUpWindow(form);
@@ -406,6 +404,32 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(form);
 
         }
+        private void NothiAllOnumodon_ButtonClick(object sender, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO)
+        {
+            NothiListRecordsDTO nothiAllListRecords = new NothiListRecordsDTO();
+            NothiAllDTO nothi = nothiAllListDTO.nothi;
+
+            nothiAllListRecords.id = nothi.id;
+            nothiAllListRecords.office_id = nothi.office_id;
+            nothiAllListRecords.office_name = nothi.office_name;
+            nothiAllListRecords.office_unit_id = nothi.office_unit_id;
+            nothiAllListRecords.office_unit_name = nothi.office_unit_name;
+            nothiAllListRecords.office_unit_organogram_id = nothi.office_unit_organogram_id;
+            nothiAllListRecords.office_designation_name = nothi.office_designation_name;
+            nothiAllListRecords.nothi_no = nothi.nothi_no;
+            nothiAllListRecords.subject = nothi.subject;
+            nothiAllListRecords.nothi_class = nothi.nothi_class;
+            nothiAllListRecords.last_note_date = nothi.last_note_date;
+
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.nothiListRecordsDTO = nothiAllListRecords;
+            form.GetNothiInboxRecords(nothiAllListRecords);
+
+            form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
+
+            CalPopUpWindow(form);
+
+        }
 
         private void LoadNothiAll()
         {
@@ -437,6 +461,10 @@ namespace dNothi.Desktop.UI
             foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
             {
                 NothiAll nothiAll = new NothiAll();
+
+                nothiAll.NothiAllOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiAllOnumodon_ButtonClick(sender, e, nothiAllListDTO); };
+                nothiAll.nothiAllListDTO = nothiAllListDTO;
+
                 if (nothiAllListDTO.desk != null && nothiAllListDTO.status != null)
                 {
                     
@@ -449,6 +477,7 @@ namespace dNothi.Desktop.UI
                     nothiAll.nishponno = nothiAllListDTO.status.nishponno;
                     nothiAll.archived = nothiAllListDTO.status.archived;
                     nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
+                    
                     i = i + 1;
                     
                 }
