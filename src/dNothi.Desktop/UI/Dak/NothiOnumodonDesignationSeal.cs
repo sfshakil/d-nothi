@@ -1064,12 +1064,12 @@ namespace dNothi.Desktop.UI.Dak
                         this.SuccessfullyOnumodonSaveButton(sender, e);
                     
                     this.Hide();
-
-                    var invi = FormFactory.Create <Note>();
-                    invi.loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(_nothiListRecordsDTO, nothiType, notelist);
-
-                    
-
+                    if (notelist.note_status != null)
+                    {
+                        var invi = FormFactory.Create<Note>();
+                        invi.loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(_nothiListRecordsDTO, nothiType, notelist);
+                    }
+                          
                 }
                 else
                 {

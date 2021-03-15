@@ -24,17 +24,29 @@ namespace dNothi.Desktop.UI.Dak
             _onuchhedForward = onuchhedForward;
             InitializeComponent();
             SetDefaultFont(this.Controls);
+            cbxPriorityType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbxPriorityType.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public event EventHandler NoteDetailsButton;
         private void btnCross_Click(object sender, EventArgs e)
         {
-            foreach (Form f in Application.OpenForms)
-            { f.Hide(); }
-            if (this.NoteDetailsButton != null)
-                this.NoteDetailsButton(sender, e);
+            //foreach (Form f in Application.OpenForms)
+            //{ f.Hide(); }
+            //if (this.NoteDetailsButton != null)
+            //    this.NoteDetailsButton(sender, e);
+            List<Form> openForms = new List<Form>();
 
-    }
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name != "Note")
+                    f.Close();
+            }
+
+        }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
             foreach (Control ctrl in collection)
@@ -242,14 +254,33 @@ namespace dNothi.Desktop.UI.Dak
             hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
             hideform.ShowDialog();
         }
+        //NothiNextStep nothiType = UserControlFactory.Create<NothiNextStep>();
+        //public void loadNewNoteDataFromNote(NothiNextStep newNoteViewFromNote)
+        //{
+        //    nothiType = newNoteViewFromNote;
+        //}
+        NoteListDataRecordNoteDTO notelist = new NoteListDataRecordNoteDTO();
+        public void loadNoteList(NoteListDataRecordNoteDTO notelistFromNote)
+        {
+            notelist = notelistFromNote;
+        }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             NothiListRecordsDTO nothiListRecords = nothiListRecord;
+            
+            
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiListRecord;
             form.GetNothiInboxRecords(nothiListRecords);
+            //form.loadNewNoteDataFromNote(nothiType);
+            form.loadNoteList(notelist);
             CalPopUpWindow(form);
+        }
+
+        private void searchOfficeDetailSearch_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(210, 234, 255), ButtonBorderStyle.Solid);
         }
     }
 }

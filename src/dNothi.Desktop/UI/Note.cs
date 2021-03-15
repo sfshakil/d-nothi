@@ -1510,15 +1510,15 @@ namespace dNothi.Desktop.UI
             //nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
             nothiType.Visible = true;
             nothiType.Enabled = true;
-            //nothiType.noteTotal = notelist.note_status;
-            //nothiType.noteSubject = notelist.note_subject_sub_text;
+            nothiType.noteTotal = notelist.note_status;
+            nothiType.noteSubject = notelist.note_subject_sub_text;
             //nothiType.loadNewNoteData(nns.getNewNoteData());
             nothiType.loadlistInboxRecord(nothiListRecords);
 
             //nothiType.Location = new System.Drawing.Point(0, 0);
             nothiType.GetNothiInboxRecords(records);
-
-            //var invi = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            nothiType.loadNoteList(notelist);
+            //var invi = UserControlFactory.Create<NothiNextStep>();
             //invi.loadNewNoteDataFromNote(nothiType);
             //invi.Visible = false;
 
@@ -1586,9 +1586,9 @@ namespace dNothi.Desktop.UI
             //nothiType.Location = new System.Drawing.Point(0, 0);
             nothiType.GetNothiInboxRecords(records);
 
-            var invi = FormFactory.Create<NothiOnumodonDesignationSeal>();
-            invi.loadNewNoteDataFromNote(nothiType);
-            invi.loadNoteList(notelist);
+            //var invi = UserControlFactory.Create<NothiNextStep>();
+            //nothiType.loadNewNoteDataFromNote(nothiType);
+            nothiType.loadNoteList(notelist);
             //invi.Visible = false;
 
             this.Controls.Add(nothiType);
