@@ -403,9 +403,9 @@
             // 
             this.lbLastNoteDate.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLastNoteDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLastNoteDate.Location = new System.Drawing.Point(825, 85);
+            this.lbLastNoteDate.Location = new System.Drawing.Point(875, 85);
             this.lbLastNoteDate.Name = "lbLastNoteDate";
-            this.lbLastNoteDate.Size = new System.Drawing.Size(279, 23);
+            this.lbLastNoteDate.Size = new System.Drawing.Size(237, 25);
             this.lbLastNoteDate.TabIndex = 67;
             this.lbLastNoteDate.Text = "noteLastDateLabel";
             // 

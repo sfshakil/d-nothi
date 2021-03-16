@@ -237,7 +237,7 @@
             // btnNote
             // 
             this.btnNote.BackColor = System.Drawing.Color.Transparent;
-            this.btnNote.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNote.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnNote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -319,7 +319,7 @@
             // btnArchive
             // 
             this.btnArchive.BackColor = System.Drawing.Color.Transparent;
-            this.btnArchive.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnArchive.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -369,7 +369,7 @@
             // btnNishponno
             // 
             this.btnNishponno.BackColor = System.Drawing.Color.Transparent;
-            this.btnNishponno.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNishponno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnNishponno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNishponno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNishponno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -398,7 +398,7 @@
             // btnOnishponno
             // 
             this.btnOnishponno.BackColor = System.Drawing.Color.Transparent;
-            this.btnOnishponno.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnOnishponno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnOnishponno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnOnishponno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnOnishponno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -427,7 +427,7 @@
             // btnOnumodito
             // 
             this.btnOnumodito.BackColor = System.Drawing.Color.Transparent;
-            this.btnOnumodito.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnOnumodito.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnOnumodito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnOnumodito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnOnumodito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -457,9 +457,9 @@
             // 
             this.lbNoteLastDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteLastDate.Location = new System.Drawing.Point(840, 54);
+            this.lbNoteLastDate.Location = new System.Drawing.Point(873, 54);
             this.lbNoteLastDate.Name = "lbNoteLastDate";
-            this.lbNoteLastDate.Size = new System.Drawing.Size(263, 23);
+            this.lbNoteLastDate.Size = new System.Drawing.Size(237, 25);
             this.lbNoteLastDate.TabIndex = 91;
             this.lbNoteLastDate.Text = "noteLastDateLabel";
             // 
