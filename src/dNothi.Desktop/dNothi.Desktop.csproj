@@ -901,6 +901,9 @@
     </Compile>
     <Compile Include="UI\VIew\DakListView.cs" />
     <Compile Include="UserControlFactory.cs" />
+    <Compile Include="UserControl\AdvancedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControl\DesignationSelect.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -932,6 +935,7 @@
     <Compile Include="UI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\RoundedRectangle.cs" />
     <Compile Include="UserControl\UserNamePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>

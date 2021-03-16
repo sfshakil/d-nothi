@@ -1032,7 +1032,17 @@ namespace dNothi.Desktop.UI.Dak
                 e.Cancel = true;
             }
         }
-
+        NothiNextStep nothiType = UserControlFactory.Create<NothiNextStep>();
+        
+        public void loadNewNoteDataFromNote(NothiNextStep newNoteViewFromNote)
+        {
+            nothiType = newNoteViewFromNote;
+        }
+        NoteListDataRecordNoteDTO notelist = new NoteListDataRecordNoteDTO();
+        public void loadNoteList(NoteListDataRecordNoteDTO notelistFromNote)
+        {
+            notelist = notelistFromNote;
+        }
         public event EventHandler SuccessfullyOnumodonSaveButton;
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
@@ -1052,10 +1062,14 @@ namespace dNothi.Desktop.UI.Dak
                     
                     if (this.SuccessfullyOnumodonSaveButton != null)
                         this.SuccessfullyOnumodonSaveButton(sender, e);
-
-
+                    
                     this.Hide();
-
+                    if (notelist.note_status != null)
+                    {
+                        var invi = FormFactory.Create<Note>();
+                        invi.loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(_nothiListRecordsDTO, nothiType, notelist);
+                    }
+                          
                 }
                 else
                 {

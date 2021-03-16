@@ -53,10 +53,11 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(110, 72);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1000, 2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1000, 1);
             this.flowLayoutPanel1.TabIndex = 57;
             // 
             // detailsButton
@@ -65,7 +66,7 @@
             this.detailsButton.FlatAppearance.BorderSize = 0;
             this.detailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.detailsButton.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.detailsButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.detailsButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.detailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.detailsButton.IconSize = 18;
             this.detailsButton.Location = new System.Drawing.Point(13, 13);
@@ -82,7 +83,7 @@
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 18;
             this.iconButton1.Location = new System.Drawing.Point(43, 13);
@@ -98,7 +99,7 @@
             this.btnOption.FlatAppearance.BorderSize = 0;
             this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption.IconChar = FontAwesome.Sharp.IconChar.EllipsisV;
-            this.btnOption.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnOption.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.btnOption.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOption.IconSize = 18;
             this.btnOption.Location = new System.Drawing.Point(73, 13);
@@ -129,7 +130,7 @@
             this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 24;
-            this.iconButton4.Location = new System.Drawing.Point(119, 40);
+            this.iconButton4.Location = new System.Drawing.Point(119, 42);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(20, 20);
             this.iconButton4.TabIndex = 62;
@@ -149,7 +150,7 @@
             // 
             this.lbDeskOfficer.AutoSize = true;
             this.lbDeskOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDeskOfficer.Location = new System.Drawing.Point(145, 39);
+            this.lbDeskOfficer.Location = new System.Drawing.Point(145, 41);
             this.lbDeskOfficer.Name = "lbDeskOfficer";
             this.lbDeskOfficer.Size = new System.Drawing.Size(130, 21);
             this.lbDeskOfficer.TabIndex = 64;
@@ -164,7 +165,7 @@
             this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 15;
-            this.iconButton5.Location = new System.Drawing.Point(291, 41);
+            this.iconButton5.Location = new System.Drawing.Point(291, 43);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(20, 20);
             this.iconButton5.TabIndex = 65;
@@ -174,7 +175,7 @@
             // 
             this.lbToOfficer.AutoSize = true;
             this.lbToOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbToOfficer.Location = new System.Drawing.Point(320, 39);
+            this.lbToOfficer.Location = new System.Drawing.Point(320, 41);
             this.lbToOfficer.Name = "lbToOfficer";
             this.lbToOfficer.Size = new System.Drawing.Size(109, 21);
             this.lbToOfficer.TabIndex = 66;
@@ -282,7 +283,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.eyeIcon);
             this.Controls.Add(this.lbNoteIssueDate);

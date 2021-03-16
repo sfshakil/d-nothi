@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtDhoronCode = new PlaceholderTextBox.PlaceholderTextBox();
             this.userIdPanel = new System.Windows.Forms.Panel();
+            this.invisiblecbxNothiType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.userIdPanel.SuspendLayout();
             this.SuspendLayout();
@@ -54,20 +55,21 @@
             // cbxNothiType
             // 
             this.cbxNothiType.BackColor = System.Drawing.Color.White;
-            this.cbxNothiType.DropDownHeight = 150;
-            this.cbxNothiType.DropDownWidth = 350;
+            this.cbxNothiType.DropDownHeight = 500;
+            this.cbxNothiType.DropDownWidth = 400;
             this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNothiType.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cbxNothiType.FormattingEnabled = true;
             this.cbxNothiType.IntegralHeight = false;
-            this.cbxNothiType.ItemHeight = 21;
+            this.cbxNothiType.ItemHeight = 22;
             this.cbxNothiType.Location = new System.Drawing.Point(3, 1);
+            this.cbxNothiType.Margin = new System.Windows.Forms.Padding(0);
             this.cbxNothiType.MaxDropDownItems = 100;
             this.cbxNothiType.Name = "cbxNothiType";
-            this.cbxNothiType.Size = new System.Drawing.Size(329, 29);
-            this.cbxNothiType.TabIndex = 47;
-            this.cbxNothiType.Text = "বিষয়ের ধরন";
+            this.cbxNothiType.Size = new System.Drawing.Size(329, 30);
+            this.cbxNothiType.TabIndex = 0;
+            this.cbxNothiType.Text = "বাছাই করুন";
             this.cbxNothiType.SelectedIndexChanged += new System.EventHandler(this.cbxNothiType_SelectedIndexChanged);
             // 
             // label1
@@ -131,8 +133,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.cbxNothiType);
-            this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(9, 28);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(333, 32);
             this.panel1.TabIndex = 64;
@@ -160,11 +163,34 @@
             this.userIdPanel.TabIndex = 78;
             this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
             // 
+            // invisiblecbxNothiType
+            // 
+            this.invisiblecbxNothiType.BackColor = System.Drawing.Color.White;
+            this.invisiblecbxNothiType.DropDownHeight = 500;
+            this.invisiblecbxNothiType.DropDownWidth = 400;
+            this.invisiblecbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.invisiblecbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invisiblecbxNothiType.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.invisiblecbxNothiType.FormattingEnabled = true;
+            this.invisiblecbxNothiType.IntegralHeight = false;
+            this.invisiblecbxNothiType.ItemHeight = 22;
+            this.invisiblecbxNothiType.Location = new System.Drawing.Point(194, -6);
+            this.invisiblecbxNothiType.Margin = new System.Windows.Forms.Padding(0);
+            this.invisiblecbxNothiType.MaxDropDownItems = 100;
+            this.invisiblecbxNothiType.Name = "invisiblecbxNothiType";
+            this.invisiblecbxNothiType.Size = new System.Drawing.Size(23, 30);
+            this.invisiblecbxNothiType.TabIndex = 79;
+            this.invisiblecbxNothiType.Text = "বাছাই করুন";
+            this.invisiblecbxNothiType.Visible = false;
+            this.invisiblecbxNothiType.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.invisiblecbxNothiType_DrawItem);
+            this.invisiblecbxNothiType.SelectedIndexChanged += new System.EventHandler(this.invisiblecbxNothiType_SelectedIndexChanged);
+            // 
             // CreateNewNothiType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.invisiblecbxNothiType);
             this.Controls.Add(this.userIdPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnInfo);
@@ -195,5 +221,6 @@
         private System.Windows.Forms.Panel panel1;
         private PlaceholderTextBox.PlaceholderTextBox txtDhoronCode;
         private System.Windows.Forms.Panel userIdPanel;
+        private System.Windows.Forms.ComboBox invisiblecbxNothiType;
     }
 }

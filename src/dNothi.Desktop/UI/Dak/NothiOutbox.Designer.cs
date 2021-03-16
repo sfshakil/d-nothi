@@ -43,7 +43,6 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -239,26 +238,28 @@
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 33);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(1121, 2);
             this.flowLayoutPanel3.TabIndex = 58;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1121, 2);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1121, 1);
             this.flowLayoutPanel2.TabIndex = 57;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lbTotalNothi);
             this.panel1.Controls.Add(this.label1);
@@ -273,27 +274,19 @@
             this.panel1.Controls.Add(this.lbShakha);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1121, 113);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 111);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 112);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1121, 2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1121, 1);
             this.flowLayoutPanel1.TabIndex = 78;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1121, 2);
-            this.panel3.TabIndex = 77;
             // 
             // label2
             // 
@@ -345,10 +338,11 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.panel2.Location = new System.Drawing.Point(99, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2, 110);
+            this.panel2.Size = new System.Drawing.Size(1, 110);
             this.panel2.TabIndex = 72;
             // 
             // btnNothiOutboxOnumodon
@@ -409,9 +403,9 @@
             // 
             this.lbLastNoteDate.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLastNoteDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLastNoteDate.Location = new System.Drawing.Point(825, 85);
+            this.lbLastNoteDate.Location = new System.Drawing.Point(875, 85);
             this.lbLastNoteDate.Name = "lbLastNoteDate";
-            this.lbLastNoteDate.Size = new System.Drawing.Size(279, 23);
+            this.lbLastNoteDate.Size = new System.Drawing.Size(237, 25);
             this.lbLastNoteDate.TabIndex = 67;
             this.lbLastNoteDate.Text = "noteLastDateLabel";
             // 
@@ -441,6 +435,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.allNothiOutbox);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiOutbox";
             this.Size = new System.Drawing.Size(1121, 113);
             this.allNothiOutbox.ResumeLayout(false);
@@ -458,7 +453,6 @@
         private System.Windows.Forms.Panel allNothiOutbox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbTotalNothi;
         private System.Windows.Forms.Label label1;

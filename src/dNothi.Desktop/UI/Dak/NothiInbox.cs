@@ -233,6 +233,21 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NothiOnumodonButtonClick;
         private void btnNothiInboxOnumodon_Click(object sender, EventArgs e)
         {
+            List<Form> openForms = new List<Form>();
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "Nothi")
+                { openForms.Add(f); }
+            }
+            
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name != "Nothi")
+                { f.Close(); f.Hide(); }
+            }
+
             if (this.NothiOnumodonButtonClick != null)
                 this.NothiOnumodonButtonClick(sender, e);
             

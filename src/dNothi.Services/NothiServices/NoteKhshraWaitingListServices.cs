@@ -55,7 +55,7 @@ namespace dNothi.Services.NothiServices
 
         protected string GetNothiPotrangshoNotePotrojariEndPoint()
         {
-            return DefaultAPIConfiguration.NothiPotrangshoNotePotrojariEndPoint;
+            return DefaultAPIConfiguration.NothiPotrangshoKhoshraPotroWaitingEndPoint;
         }
     }
 }

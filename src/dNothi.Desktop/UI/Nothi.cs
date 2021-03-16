@@ -51,6 +51,7 @@ namespace dNothi.Desktop.UI
             shokolNothiSelected = 0;
             noteListButton.BackColor = Color.LightSteelBlue;
             btnNothiTalika.BackColor = Color.MediumSlateBlue;
+
         }
         public void forceLoadNewNothi()
         {
@@ -361,6 +362,9 @@ namespace dNothi.Desktop.UI
                 if(nothiOutboxListDTO.desk !=null)
                 nothiOutbox.bortomanDesk = nothiOutboxListDTO.desk.officer+" "+ nothiOutboxListDTO.desk.designation +","+ nothiOutboxListDTO.desk.office_unit +","+ nothiOutboxListDTO.desk.office;
                 nothiOutbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiOutboxListDTO.nothi.last_note_date;
+                nothiOutbox.NothiOutboxOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiOutboxOnumodon_ButtonClick(sender, e, nothiOutboxListDTO); };
+                
+                nothiOutbox.nothiOutboxListRecordsDTO = nothiOutboxListDTO;
                 i = i + 1;
                 nothiOutboxs.Add(nothiOutbox);
 
@@ -374,6 +378,57 @@ namespace dNothi.Desktop.UI
             {
                 nothiListFlowLayoutPanel.Controls.Add(nothiOutboxs[j]);
             }
+        }
+        private void NothiOutboxOnumodon_ButtonClick(object sender, EventArgs e, NothiOutboxListRecordsDTO nothiOutboxListDTO)
+        {
+            NothiListRecordsDTO nothiOutboxListRecords = new NothiListRecordsDTO();
+            NothiOutboxDTO nothi = nothiOutboxListDTO.nothi;
+
+            nothiOutboxListRecords.id = nothi.id;
+            nothiOutboxListRecords.office_id = nothi.office_id;
+            nothiOutboxListRecords.office_name = nothi.office_name;
+            nothiOutboxListRecords.office_unit_id = nothi.office_unit_id;
+            nothiOutboxListRecords.office_unit_name = nothi.office_unit_name;
+            nothiOutboxListRecords.office_unit_organogram_id = nothi.office_unit_organogram_id;
+            nothiOutboxListRecords.office_designation_name = nothi.office_designation_name;
+            nothiOutboxListRecords.nothi_no = nothi.nothi_no;
+            nothiOutboxListRecords.subject = nothi.subject;
+            nothiOutboxListRecords.nothi_class = nothi.nothi_class;
+            nothiOutboxListRecords.last_note_date = nothi.last_note_date;
+
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.nothiListRecordsDTO = nothiOutboxListRecords;
+            form.GetNothiInboxRecords(nothiOutboxListRecords);
+            form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
+
+            CalPopUpWindow(form);
+
+        }
+        private void NothiAllOnumodon_ButtonClick(object sender, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO)
+        {
+            NothiListRecordsDTO nothiAllListRecords = new NothiListRecordsDTO();
+            NothiAllDTO nothi = nothiAllListDTO.nothi;
+
+            nothiAllListRecords.id = nothi.id;
+            nothiAllListRecords.office_id = nothi.office_id;
+            nothiAllListRecords.office_name = nothi.office_name;
+            nothiAllListRecords.office_unit_id = nothi.office_unit_id;
+            nothiAllListRecords.office_unit_name = nothi.office_unit_name;
+            nothiAllListRecords.office_unit_organogram_id = nothi.office_unit_organogram_id;
+            nothiAllListRecords.office_designation_name = nothi.office_designation_name;
+            nothiAllListRecords.nothi_no = nothi.nothi_no;
+            nothiAllListRecords.subject = nothi.subject;
+            nothiAllListRecords.nothi_class = nothi.nothi_class;
+            nothiAllListRecords.last_note_date = nothi.last_note_date;
+
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.nothiListRecordsDTO = nothiAllListRecords;
+            form.GetNothiInboxRecords(nothiAllListRecords);
+
+            form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
+
+            CalPopUpWindow(form);
+
         }
 
         private void LoadNothiAll()
@@ -406,6 +461,10 @@ namespace dNothi.Desktop.UI
             foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
             {
                 NothiAll nothiAll = new NothiAll();
+
+                nothiAll.NothiAllOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiAllOnumodon_ButtonClick(sender, e, nothiAllListDTO); };
+                nothiAll.nothiAllListDTO = nothiAllListDTO;
+
                 if (nothiAllListDTO.desk != null && nothiAllListDTO.status != null)
                 {
                     
@@ -418,6 +477,7 @@ namespace dNothi.Desktop.UI
                     nothiAll.nishponno = nothiAllListDTO.status.nishponno;
                     nothiAll.archived = nothiAllListDTO.status.archived;
                     nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
+                    
                     i = i + 1;
                     
                 }
@@ -511,7 +571,7 @@ namespace dNothi.Desktop.UI
 
         private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
         {
-
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
 
         private void detailPanelDropDownButton_Click(object sender, EventArgs e)
@@ -1015,5 +1075,23 @@ namespace dNothi.Desktop.UI
         {
 
         }
+
+        private void searchBoxPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void nothiModulePanel_MouseHover(object sender, EventArgs e)
+        {
+            nothiModulePanel.BackColor = Color.FromArgb(245, 245, 249);
+            nothiModulePanel.ForeColor = Color.Blue;
+        }
+
+        private void nothiModulePanel_MouseLeave(object sender, EventArgs e)
+        {
+            nothiModulePanel.BackColor = Color.Transparent;
+            nothiModulePanel.ForeColor = Color.Black;
+        }
+
     }
 }

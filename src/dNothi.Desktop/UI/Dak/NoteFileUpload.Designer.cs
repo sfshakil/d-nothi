@@ -142,7 +142,7 @@
             this.attachmentPicturebox.Location = new System.Drawing.Point(44, 14);
             this.attachmentPicturebox.Name = "attachmentPicturebox";
             this.attachmentPicturebox.Size = new System.Drawing.Size(100, 50);
-            this.attachmentPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.attachmentPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.attachmentPicturebox.TabIndex = 60;
             this.attachmentPicturebox.TabStop = false;
             // 

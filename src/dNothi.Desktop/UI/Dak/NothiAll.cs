@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Nothi;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -181,12 +182,18 @@ namespace dNothi.Desktop.UI.Dak
             nothiShompadonIcon.IconColor = Color.FromArgb(54, 153, 255);
         }
 
+        public NothiListAllRecordsDTO _nothiAllListDTO;
 
+        public NothiListAllRecordsDTO nothiAllListDTO { get { return _nothiAllListDTO; } set { _nothiAllListDTO = value; } }
+
+        public event EventHandler NothiAllOnumodonButtonClick;
         private void btnOnumodon_Click(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            if (this.NothiAllOnumodonButtonClick != null)
+                this.NothiAllOnumodonButtonClick(sender, e);
+            //var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
 
-            form.ShowDialog();
+           //form.ShowDialog();
         }
 
         private void btnNewNote_Click(object sender, EventArgs e)

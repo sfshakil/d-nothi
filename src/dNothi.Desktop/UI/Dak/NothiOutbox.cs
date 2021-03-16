@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.JsonParser.Entity.Nothi;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -118,11 +119,17 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
+        public NothiOutboxListRecordsDTO _nothioutboxListRecordsDTO;
 
+        public NothiOutboxListRecordsDTO nothiOutboxListRecordsDTO { get { return _nothioutboxListRecordsDTO; } set { _nothioutboxListRecordsDTO = value; } }
+
+        public event EventHandler NothiOutboxOnumodonButtonClick;
         private void btnNothiOutboxOnumodon_Click(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
-            form.ShowDialog();
+            if (this.NothiOutboxOnumodonButtonClick != null)
+                this.NothiOutboxOnumodonButtonClick(sender, e);
+            //var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            //form.ShowDialog();
         }
 
         private void dakSearchButton_Click(object sender, EventArgs e)

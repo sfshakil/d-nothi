@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Xamarin.Forms;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -17,6 +18,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             InitializeComponent();
         }
+
         public string HtmlContent
         {
             get
@@ -49,15 +51,9 @@ namespace dNothi.Desktop.UI.Dak
             {
                 MessageBox.Show("Could not find the tinyMCE script directory. Please ensure the directory is in the same location as tinymce.htm", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            // Check if the main script file exist being used by the HTML page
-            //if (File.Exists(Path.Combine(@"C:\Users\Shakil Ahmed Reja\source\repos\dNothi\d-nothi\src\dNothi.Desktop\UI\Dak\tinymce\jscripts\tiny_mce\tiny_mce.js")))
-            //{
-            //    webBrowser.Url = new Uri(@"file:///" + Path.Combine(@"C:\Users\Shakil Ahmed Reja\source\repos\dNothi\d-nothi\src\dNothi.Desktop\UI\Dak\tinymce\tinymce.htm").Replace('\\', '/'));
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Could not find the tinyMCE script directory. Please ensure the directory is in the same location as tinymce.htm", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            
         }
+
+        
     }
 }
