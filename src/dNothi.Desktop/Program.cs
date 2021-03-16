@@ -23,6 +23,7 @@ using System.Threading;
 using dNothi.Desktop.UI.Dak;
 using dNothi.Services.SyncServices;
 using dNothi.Desktop.UI.NothiUI;
+using dNothi.Services.KhasraService;
 
 namespace dNothi.Desktop
 {
@@ -178,12 +179,14 @@ namespace dNothi.Desktop
             builder.RegisterType<SingleOnucchedServices>().As<ISingleOnucchedServices>();
             builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
+            builder.RegisterType<KhasraTemplateService>().As<IKhasraTemplateService>();
             builder.RegisterType<PotrojariParser>().As<IPotrojariParser>();
             
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            
             builder.RegisterType<UI.Nothi>().AsSelf();
+            builder.RegisterType<UI.Khosra>().AsSelf();
             builder.RegisterType<UI.Note>().AsSelf();
             builder.RegisterType<DakModuleSokolNothiListUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.CreateNewNotes>().AsSelf();

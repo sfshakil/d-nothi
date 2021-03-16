@@ -31,25 +31,25 @@ namespace dNothi.Desktop.UI.Dak
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("ব্যক্তিগত");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("পাবলিক");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("ব্যক্তিগত");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("পাবলিক");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dakSubLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.personalFolderTreeView = new System.Windows.Forms.TreeView();
             this.MyImageList = new System.Windows.Forms.ImageList(this.components);
+            this.tagButton = new FontAwesome.Sharp.IconButton();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tagButton = new FontAwesome.Sharp.IconButton();
             this.HeadingPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.searchPanel.SuspendLayout();
@@ -107,7 +107,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dakSubLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.searchPanel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.HeadingPanel, 0, 0);
@@ -128,17 +128,17 @@ namespace dNothi.Desktop.UI.Dak
             this.tableLayoutPanel1.Size = new System.Drawing.Size(550, 726);
             this.tableLayoutPanel1.TabIndex = 39;
             // 
-            // label2
+            // dakSubLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(23, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 21);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "খসড়া অফিস স্মারক চেক";
+            this.dakSubLabel.AutoSize = true;
+            this.dakSubLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakSubLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSubLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dakSubLabel.Location = new System.Drawing.Point(23, 69);
+            this.dakSubLabel.Name = "dakSubLabel";
+            this.dakSubLabel.Size = new System.Drawing.Size(155, 21);
+            this.dakSubLabel.TabIndex = 41;
+            this.dakSubLabel.Text = "খসড়া অফিস স্মারক চেক";
             // 
             // label1
             // 
@@ -202,17 +202,17 @@ namespace dNothi.Desktop.UI.Dak
             this.personalFolderTreeView.Location = new System.Drawing.Point(5, 5);
             this.personalFolderTreeView.Margin = new System.Windows.Forms.Padding(5);
             this.personalFolderTreeView.Name = "personalFolderTreeView";
-            treeNode3.Name = "privateNode";
-            treeNode3.Tag = "0";
-            treeNode3.Text = "ব্যক্তিগত";
-            treeNode4.Name = "publicNode";
-            treeNode4.Tag = "0";
-            treeNode4.Text = "পাবলিক";
+            treeNode1.Name = "privateNode";
+            treeNode1.Tag = "0";
+            treeNode1.Text = "ব্যক্তিগত";
+            treeNode2.Name = "publicNode";
+            treeNode2.Tag = "0";
+            treeNode2.Text = "পাবলিক";
             this.personalFolderTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
+            treeNode1,
+            treeNode2});
             this.personalFolderTreeView.SelectedImageIndex = 0;
-            this.personalFolderTreeView.Size = new System.Drawing.Size(494, 525);
+            this.personalFolderTreeView.Size = new System.Drawing.Size(494, 450);
             this.personalFolderTreeView.TabIndex = 1;
             this.personalFolderTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.personalFolderTreeView_AfterSelect);
             this.personalFolderTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.personalFolderTreeView_NodeMouseClick);
@@ -223,31 +223,6 @@ namespace dNothi.Desktop.UI.Dak
             this.MyImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.MyImageList.ImageSize = new System.Drawing.Size(16, 16);
             this.MyImageList.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewImageColumn1.HeaderText = "+";
-            this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
-            this.dataGridViewImageColumn1.MinimumWidth = 2;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 27;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.NullValue = null;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewImageColumn2.HeaderText = "+";
-            this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.Width = 23;
             // 
             // tagButton
             // 
@@ -270,6 +245,31 @@ namespace dNothi.Desktop.UI.Dak
             this.tagButton.Click += new System.EventHandler(this.tagButton_Click);
             this.tagButton.MouseLeave += new System.EventHandler(this.tagButton_MouseLeave);
             this.tagButton.MouseHover += new System.EventHandler(this.tagButton_MouseHover);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewImageColumn1.HeaderText = "+";
+            this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewImageColumn1.MinimumWidth = 2;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 27;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewImageColumn2.HeaderText = "+";
+            this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.Width = 23;
             // 
             // DakTagForm
             // 
@@ -313,7 +313,7 @@ namespace dNothi.Desktop.UI.Dak
         private TextBox searchTextBox;
         private TreeView personalFolderTreeView;
         private ImageList MyImageList;
-        private Label label2;
+        private Label dakSubLabel;
         private FontAwesome.Sharp.IconButton tagButton;
     }
 }

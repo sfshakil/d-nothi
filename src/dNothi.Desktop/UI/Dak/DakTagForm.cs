@@ -77,6 +77,9 @@ namespace dNothi.Desktop.UI.Dak
         public string _dak_Type { get; set; }
         public string dak_Type { get { return _dak_Type; } set { _dak_Type = value; } }
 
+        public string _dak_Sub { get; set; }
+        public string dak_Sub { get { return _dak_Sub; } set { _dak_Sub = value; dakSubLabel.Text = value; } }
+
 
         public string _selectedFolderName { get; set; }
         public List<DakTagDTO> _dak_Tags { get; set; }

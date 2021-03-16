@@ -1156,6 +1156,7 @@ namespace dNothi.Desktop.UI
             var dakTagForm = FormFactory.Create<DakTagForm>();
             dakTagForm.folderListDataDTO = folderListResponse.data;
             dakTagForm.dak_Tags = dak_Tags;
+            dakTagForm.dak_Sub = dak_subject;
             dakTagForm.dakId = dakid;
             dakTagForm.is_copied_Id = is_copied_dak;
             dakTagForm.dak_Type = dak_Type;
@@ -3858,6 +3859,33 @@ namespace dNothi.Desktop.UI
         }
 
         private void menuTableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void khosraButton_Click(object sender, EventArgs e)
+        {
+            modulePanel.Visible = false;
+            var form = FormFactory.Create<Khosra>();
+            form.ShowDialog();
+
+        }
+
+        private void moduleButton_Click(object sender, EventArgs e)
+        {
+            if(!modulePanel.Visible)
+            {
+              //  modulePanel.Location = new Point(moduleButton.Location.Y , moduleButton.Location.X + moduleButton.Height);
+                modulePanel.Visible = true;
+            }
+            else
+            {
+                modulePanel.Visible = false;
+            }
+            
+        }
+
+        private void detailsDakSearcPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

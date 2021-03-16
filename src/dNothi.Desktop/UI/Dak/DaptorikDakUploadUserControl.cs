@@ -1111,11 +1111,6 @@ namespace dNothi.Desktop.UI.Dak
             alertMessageBox.ShowDialog();
         }
 
-        private void searchOfficerRightListBox_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void searchOfficerRightListBox_MeasureItem(object sender, MeasureItemEventArgs e)
         {
            e.ItemHeight = 60;
