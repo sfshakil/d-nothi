@@ -19,7 +19,7 @@
             }
             base.Dispose(disposing);
         }
-        private System.Windows.Forms.WebBrowser webBrowser;
+
         #region Component Designer generated code
 
         /// <summary> 
@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.webBrowser = new System.Windows.Forms.WebBrowser();
+            this.webBrowserControl = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // webBrowser
+            // webBrowserControl
             // 
-            this.webBrowser.AllowWebBrowserDrop = false;
-            this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser.IsWebBrowserContextMenuEnabled = false;
-            this.webBrowser.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser.Name = "webBrowser";
-            this.webBrowser.ScrollBarsEnabled = false;
-            this.webBrowser.Size = new System.Drawing.Size(944, 348);
-            this.webBrowser.TabIndex = 0;
-            this.webBrowser.Url = new System.Uri("", System.UriKind.Relative);
+            this.webBrowserControl.AllowWebBrowserDrop = false;
+            this.webBrowserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserControl.IsWebBrowserContextMenuEnabled = false;
+            this.webBrowserControl.Location = new System.Drawing.Point(0, 0);
+            this.webBrowserControl.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowserControl.Name = "webBrowserControl";
+            this.webBrowserControl.ScrollBarsEnabled = false;
+            this.webBrowserControl.Size = new System.Drawing.Size(561, 360);
+            this.webBrowserControl.TabIndex = 0;
             // 
             // TinyMCE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.Controls.Add(this.webBrowser);
+            this.Controls.Add(this.webBrowserControl);
             this.Name = "TinyMCE";
-            this.Size = new System.Drawing.Size(944, 348);
+            this.Size = new System.Drawing.Size(561, 360);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.WebBrowser webBrowserControl;
     }
 }

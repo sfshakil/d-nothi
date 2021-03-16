@@ -19,41 +19,56 @@ namespace dNothi.Desktop.UI.Dak
             InitializeComponent();
         }
 
+        public object ActiveXInstance
+        {
+            get { return webBrowserControl.ActiveXInstance; }
+        }
+
+        /// <summary>
+        /// HTML Content of TinyMCE editor
+        /// </summary>
         public string HtmlContent
         {
             get
             {
                 string content = string.Empty;
-                if (webBrowser.Document != null)
+                if (webBrowserControl.Document != null)
                 {
-                    object html = webBrowser.Document.InvokeScript("GetContent");
+                    object html = webBrowserControl.Document.InvokeScript("GetContent");
                     content = html as string;
                 }
                 return content;
             }
             set
             {
-                if (webBrowser.Document != null)
-                {
-                    webBrowser.Document.InvokeScript("SetContent", new object[] { value });
-                }
+                webBrowserControl.Document?.InvokeScript("SetContent", new object[] { value });
             }
         }
 
+        /// <summary>
+        /// Set tinyMCE to fullscreen mode
+        /// </summary>
+        public void SetFullscreen()
+        {
+            webBrowserControl.Document?.InvokeScript("tinyMCE.execCommand('mceFullScreen')");
+        }
+
+        /// <summary>
+        /// Create editor instance
+        /// </summary>
         public void CreateEditor()
         {
-            string str = AppDomain.CurrentDomain.BaseDirectory;
-            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"tinymce\jscripts\tiny_mce\tiny_mce.js")))
+            webBrowserControl.ScriptErrorsSuppressed = true;
+
+            // Check if the main script used by the HTML page exists
+            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"tinymce\js\tinymce\tinymce.min.js")))
             {
-                webBrowser.Url = new Uri(@"file:///" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tinymce.htm").Replace('\\', '/'));
+                webBrowserControl.Url = new Uri(@"file:///" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"tinymce/tinymce.htm").Replace('\\', '/'));
             }
             else
             {
                 MessageBox.Show("Could not find the tinyMCE script directory. Please ensure the directory is in the same location as tinymce.htm", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
-
-        
     }
 }

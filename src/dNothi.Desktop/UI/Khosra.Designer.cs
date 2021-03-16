@@ -1881,7 +1881,7 @@
             this.tinyMceEditor.AutoScroll = true;
             this.tinyMceEditor.AutoSize = true;
             this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tinyMceEditor.HtmlContent = null;
+            this.tinyMceEditor.HtmlContent = "";
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
             this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
             this.tinyMceEditor.Name = "tinyMceEditor";
