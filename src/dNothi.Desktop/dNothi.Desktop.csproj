@@ -460,7 +460,19 @@
     <Compile Include="UI\Dak\DragAndDropOfficerPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UI\Dak\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Khosra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra.Designer.cs">
+      <DependentUpon>Khosra.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\MultipleDakActionResultDakRowUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -821,6 +833,12 @@
     <Compile Include="UI\ManuelUserControl\DakCustomDatePickerUserControl.Designer.cs">
       <DependentUpon>DakCustomDatePickerUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ManuelUserControl\KhosraTemplateButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ManuelUserControl\KhosraTemplateButton.Designer.cs">
+      <DependentUpon>KhosraTemplateButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ManuelUserControl\SearchComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -868,6 +886,18 @@
     </Compile>
     <Compile Include="UI\NothiUI\NothiLevelAddForm.Designer.cs">
       <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OfficerRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\OfficerRowUserControl.Designer.cs">
+      <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SelectOfficerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SelectOfficerForm.Designer.cs">
+      <DependentUpon>SelectOfficerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\VIew\DakListView.cs" />
     <Compile Include="UserControlFactory.cs" />
@@ -959,6 +989,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakTagForm.resx">
       <DependentUpon>DakTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra.resx">
+      <DependentUpon>Khosra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\MultipleDakActionResultDakRowUserControl.resx">
       <DependentUpon>MultipleDakActionResultDakRowUserControl.cs</DependentUpon>
@@ -1140,6 +1176,9 @@
     <EmbeddedResource Include="UI\ManuelUserControl\DakCustomDatePickerUserControl.resx">
       <DependentUpon>DakCustomDatePickerUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ManuelUserControl\KhosraTemplateButton.resx">
+      <DependentUpon>KhosraTemplateButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ManuelUserControl\SearchComboBox.resx">
       <DependentUpon>SearchComboBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -1163,6 +1202,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiUI\NothiLevelAddForm.resx">
       <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
+      <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SelectOfficerForm.resx">
+      <DependentUpon>SelectOfficerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\DesignationSelect.resx">
       <DependentUpon>DesignationSelect.cs</DependentUpon>
@@ -1300,6 +1345,7 @@
     <None Include="Resources\বিশেষ গোপনীয়-Icon-PNG.png" />
     <None Include="Resources\সীমিত-Icon-PNG2.png" />
     <None Include="Resources\মূল-প্রাপক-Icon_PNG.png" />
+    <None Include="Resources\khoshra-1.png" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />

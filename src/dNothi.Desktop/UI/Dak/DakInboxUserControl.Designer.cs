@@ -51,6 +51,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.sourcePanel = new System.Windows.Forms.Panel();
             this.padspofjipsod = new System.Windows.Forms.Panel();
+            this.dakRightTopInfoIconUserControl1 = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.label2 = new System.Windows.Forms.Label();
             this.sourceLabel = new System.Windows.Forms.Label();
             this.checkBoxPanel = new System.Windows.Forms.Panel();
@@ -63,13 +64,12 @@
             this.DakSendButton = new FontAwesome.Sharp.IconButton();
             this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.dakTagListButton = new FontAwesome.Sharp.IconButton();
             this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.attachmentAndDatePanel = new System.Windows.Forms.Panel();
             this.dakTagPanel = new System.Windows.Forms.Panel();
             this.dakLabel = new System.Windows.Forms.Label();
-            this.dakTagListButton = new FontAwesome.Sharp.IconButton();
             this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
-            this.dakRightTopInfoIconUserControl1 = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.nothiPanel.SuspendLayout();
             this.subjectPanel.SuspendLayout();
             this.senderAndReceiverPanel.SuspendLayout();
@@ -343,6 +343,22 @@
             this.padspofjipsod.Size = new System.Drawing.Size(419, 41);
             this.padspofjipsod.TabIndex = 70;
             // 
+            // dakRightTopInfoIconUserControl1
+            // 
+            this.dakRightTopInfoIconUserControl1.attentionTypeIconValue = null;
+            this.dakRightTopInfoIconUserControl1.AutoSize = true;
+            this.dakRightTopInfoIconUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dakRightTopInfoIconUserControl1.BackColor = System.Drawing.Color.Transparent;
+            this.dakRightTopInfoIconUserControl1.dakPrioriy = null;
+            this.dakRightTopInfoIconUserControl1.dakSecurityIconValue = null;
+            this.dakRightTopInfoIconUserControl1.dakType = null;
+            this.dakRightTopInfoIconUserControl1.dakViewStatus = null;
+            this.dakRightTopInfoIconUserControl1.Location = new System.Drawing.Point(58, 25);
+            this.dakRightTopInfoIconUserControl1.Name = "dakRightTopInfoIconUserControl1";
+            this.dakRightTopInfoIconUserControl1.potrojari = 0;
+            this.dakRightTopInfoIconUserControl1.Size = new System.Drawing.Size(0, 32);
+            this.dakRightTopInfoIconUserControl1.TabIndex = 69;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -402,7 +418,7 @@
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-5159, 10);
+            this.dakActionPanel.Location = new System.Drawing.Point(-5351, 10);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -549,6 +565,28 @@
             this.dakMovementStatusButton.MouseLeave += new System.EventHandler(this.dakMovementStatusButton_MouseLeave);
             this.dakMovementStatusButton.MouseHover += new System.EventHandler(this.dakMovementStatusButton_MouseHover);
             // 
+            // dakTagListButton
+            // 
+            this.dakTagListButton.BackColor = System.Drawing.Color.Transparent;
+            this.dakTagListButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakTagListButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.dakTagListButton.FlatAppearance.BorderSize = 0;
+            this.dakTagListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakTagListButton.IconChar = FontAwesome.Sharp.IconChar.EllipsisV;
+            this.dakTagListButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.dakTagListButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakTagListButton.IconSize = 24;
+            this.dakTagListButton.Location = new System.Drawing.Point(81, 0);
+            this.dakTagListButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakTagListButton.Name = "dakTagListButton";
+            this.dakTagListButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.dakTagListButton.Size = new System.Drawing.Size(32, 32);
+            this.dakTagListButton.TabIndex = 85;
+            this.MyToolTip.SetToolTip(this.dakTagListButton, "ডাক ট্যাগসমূহ");
+            this.dakTagListButton.UseVisualStyleBackColor = false;
+            this.dakTagListButton.Visible = false;
+            this.dakTagListButton.Click += new System.EventHandler(this.dakTagListButton_Click);
+            // 
             // dakAttachmentButton
             // 
             this.dakAttachmentButton.AutoSize = true;
@@ -619,28 +657,6 @@
             this.dakLabel.Text = "[টেস্ট ১ টেস্ট ১]";
             this.dakLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dakTagListButton
-            // 
-            this.dakTagListButton.BackColor = System.Drawing.Color.Transparent;
-            this.dakTagListButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dakTagListButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.dakTagListButton.FlatAppearance.BorderSize = 0;
-            this.dakTagListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakTagListButton.IconChar = FontAwesome.Sharp.IconChar.EllipsisV;
-            this.dakTagListButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.dakTagListButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakTagListButton.IconSize = 24;
-            this.dakTagListButton.Location = new System.Drawing.Point(81, 0);
-            this.dakTagListButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakTagListButton.Name = "dakTagListButton";
-            this.dakTagListButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.dakTagListButton.Size = new System.Drawing.Size(32, 32);
-            this.dakTagListButton.TabIndex = 85;
-            this.MyToolTip.SetToolTip(this.dakTagListButton, "ডাক ট্যাগসমূহ");
-            this.dakTagListButton.UseVisualStyleBackColor = false;
-            this.dakTagListButton.Visible = false;
-            this.dakTagListButton.Click += new System.EventHandler(this.dakTagListButton_Click);
-            // 
             // rightInfoPanel
             // 
             this.rightInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -657,22 +673,6 @@
             this.rightInfoPanel.potrojari = 0;
             this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
             this.rightInfoPanel.TabIndex = 70;
-            // 
-            // dakRightTopInfoIconUserControl1
-            // 
-            this.dakRightTopInfoIconUserControl1.attentionTypeIconValue = null;
-            this.dakRightTopInfoIconUserControl1.AutoSize = true;
-            this.dakRightTopInfoIconUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.dakRightTopInfoIconUserControl1.BackColor = System.Drawing.Color.Transparent;
-            this.dakRightTopInfoIconUserControl1.dakPrioriy = null;
-            this.dakRightTopInfoIconUserControl1.dakSecurityIconValue = null;
-            this.dakRightTopInfoIconUserControl1.dakType = null;
-            this.dakRightTopInfoIconUserControl1.dakViewStatus = null;
-            this.dakRightTopInfoIconUserControl1.Location = new System.Drawing.Point(58, 25);
-            this.dakRightTopInfoIconUserControl1.Name = "dakRightTopInfoIconUserControl1";
-            this.dakRightTopInfoIconUserControl1.potrojari = 0;
-            this.dakRightTopInfoIconUserControl1.Size = new System.Drawing.Size(0, 32);
-            this.dakRightTopInfoIconUserControl1.TabIndex = 69;
             // 
             // DakInboxUserControl
             // 

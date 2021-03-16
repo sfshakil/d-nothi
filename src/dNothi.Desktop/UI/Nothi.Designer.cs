@@ -423,7 +423,7 @@
             this.nothiModuleNameLabel.Location = new System.Drawing.Point(31, 0);
             this.nothiModuleNameLabel.Name = "nothiModuleNameLabel";
             this.nothiModuleNameLabel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.nothiModuleNameLabel.Size = new System.Drawing.Size(37, 33);
+            this.nothiModuleNameLabel.Size = new System.Drawing.Size(32, 29);
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
             this.nothiModuleNameLabel.Click += new System.EventHandler(this.nothiModuleNameLabel_Click);
@@ -454,7 +454,7 @@
             this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label22.Location = new System.Drawing.Point(70, 11);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(36, 21);
+            this.label22.Size = new System.Drawing.Size(31, 18);
             this.label22.TabIndex = 18;
             this.label22.Text = "১২২";
             this.label22.Click += new System.EventHandler(this.label22_Click);
@@ -483,7 +483,7 @@
             this.moduleDakCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.moduleDakCountLabel.Location = new System.Drawing.Point(76, 10);
             this.moduleDakCountLabel.Name = "moduleDakCountLabel";
-            this.moduleDakCountLabel.Size = new System.Drawing.Size(27, 21);
+            this.moduleDakCountLabel.Size = new System.Drawing.Size(23, 18);
             this.moduleDakCountLabel.TabIndex = 18;
             this.moduleDakCountLabel.Text = "১২";
             this.moduleDakCountLabel.Click += new System.EventHandler(this.moduleDakCountLabel_Click);
@@ -500,7 +500,7 @@
             this.dakModuleNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.dakModuleNameLabel.Name = "dakModuleNameLabel";
             this.dakModuleNameLabel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.dakModuleNameLabel.Size = new System.Drawing.Size(42, 33);
+            this.dakModuleNameLabel.Size = new System.Drawing.Size(35, 29);
             this.dakModuleNameLabel.TabIndex = 19;
             this.dakModuleNameLabel.Text = "ডাক";
             this.dakModuleNameLabel.Click += new System.EventHandler(this.dakModuleNameLabel_Click);
@@ -572,9 +572,9 @@
             this.lbTotalNothi.AutoSize = true;
             this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbTotalNothi.Location = new System.Drawing.Point(18, 0);
+            this.lbTotalNothi.Location = new System.Drawing.Point(30, 0);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
+            this.lbTotalNothi.Size = new System.Drawing.Size(66, 18);
             this.lbTotalNothi.TabIndex = 33;
             this.lbTotalNothi.Text = " সর্বমোট: ০";
             // 
@@ -687,9 +687,9 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.linkLabel2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.linkLabel2.Location = new System.Drawing.Point(145, 0);
+            this.linkLabel2.Location = new System.Drawing.Point(116, 0);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(99, 21);
+            this.linkLabel2.Size = new System.Drawing.Size(83, 18);
             this.linkLabel2.TabIndex = 31;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "এটুআই প্রোগ্রাম";
@@ -701,7 +701,7 @@
             this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 21);
+            this.label7.Size = new System.Drawing.Size(116, 18);
             this.label7.TabIndex = 30;
             this.label7.Text = "© Copyright ২০২০, ";
             // 
@@ -710,10 +710,10 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label9.Location = new System.Drawing.Point(918, 0);
+            this.label9.Location = new System.Drawing.Point(927, 0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label9.Size = new System.Drawing.Size(61, 26);
+            this.label9.Size = new System.Drawing.Size(52, 23);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             // 
@@ -836,7 +836,7 @@
             this.placeholderTextBox2.Location = new System.Drawing.Point(19, 9);
             this.placeholderTextBox2.Name = "placeholderTextBox2";
             this.placeholderTextBox2.PlaceholderText = "নথি নম্বর/নথি বিষয় দিয়ে খুঁজুন";
-            this.placeholderTextBox2.Size = new System.Drawing.Size(987, 22);
+            this.placeholderTextBox2.Size = new System.Drawing.Size(987, 19);
             this.placeholderTextBox2.TabIndex = 3;
             this.MyToolTip.SetToolTip(this.placeholderTextBox2, "নথি নম্বর/নথি বিষয় দিয়ে খুঁজুন");
             // 
@@ -911,7 +911,7 @@
             this.label3.Location = new System.Drawing.Point(501, -6);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(203, 26);
+            this.label3.Size = new System.Drawing.Size(171, 23);
             this.label3.TabIndex = 24;
             this.label3.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
             // 
@@ -1045,7 +1045,7 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(3, 11);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 21);
+            this.label12.Size = new System.Drawing.Size(54, 18);
             this.label12.TabIndex = 19;
             this.label12.Text = "সময়সীমা";
             // 

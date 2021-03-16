@@ -116,6 +116,7 @@
     <Compile Include="Entity\Dak\ToDTO.cs" />
     <Compile Include="Entity\DataDTO.cs" />
     <Compile Include="Entity\EmployeeInfoDTO.cs" />
+    <Compile Include="Entity\Khosra\KhasraPotroTemplateResponse.cs" />
     <Compile Include="Entity\Nothi\AllPotroDataDTO.cs" />
     <Compile Include="Entity\Nothi\AllPotroDataRecordBasicDTO.cs" />
     <Compile Include="Entity\Nothi\AllPotroDataRecordDTO.cs" />

@@ -54,16 +54,22 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.failureDakCount = new dNothi.Desktop.CircularButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.archivePanel = new System.Windows.Forms.Panel();
+            this.archiveDakCount = new dNothi.Desktop.CircularButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.NothivuktoPanel = new System.Windows.Forms.Panel();
+            this.nothivuktoDakCount = new dNothi.Desktop.CircularButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.nothijatoPanel = new System.Windows.Forms.Panel();
+            this.nothijatoDakCount = new dNothi.Desktop.CircularButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.forwardPanel = new System.Windows.Forms.Panel();
+            this.forwardDakCount = new dNothi.Desktop.CircularButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.selectedDakCount = new dNothi.Desktop.CircularButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -73,12 +79,6 @@
             this.CloseButton = new FontAwesome.Sharp.IconButton();
             this.AddDesignationCloseButton = new FontAwesome.Sharp.IconButton();
             this.archiveHeadline = new System.Windows.Forms.Label();
-            this.failureDakCount = new dNothi.Desktop.CircularButton();
-            this.archiveDakCount = new dNothi.Desktop.CircularButton();
-            this.nothivuktoDakCount = new dNothi.Desktop.CircularButton();
-            this.nothijatoDakCount = new dNothi.Desktop.CircularButton();
-            this.forwardDakCount = new dNothi.Desktop.CircularButton();
-            this.selectedDakCount = new dNothi.Desktop.CircularButton();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -467,6 +467,21 @@
             this.panel10.Size = new System.Drawing.Size(119, 47);
             this.panel10.TabIndex = 9;
             // 
+            // failureDakCount
+            // 
+            this.failureDakCount.AutoSize = true;
+            this.failureDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.failureDakCount.FlatAppearance.BorderSize = 0;
+            this.failureDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.failureDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.failureDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.failureDakCount.Location = new System.Drawing.Point(70, 9);
+            this.failureDakCount.Name = "failureDakCount";
+            this.failureDakCount.Size = new System.Drawing.Size(31, 30);
+            this.failureDakCount.TabIndex = 1;
+            this.failureDakCount.Text = "1";
+            this.failureDakCount.UseVisualStyleBackColor = false;
+            // 
             // iconButton6
             // 
             this.iconButton6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
@@ -495,6 +510,21 @@
             this.archivePanel.Size = new System.Drawing.Size(141, 47);
             this.archivePanel.TabIndex = 8;
             this.archivePanel.Visible = false;
+            // 
+            // archiveDakCount
+            // 
+            this.archiveDakCount.AutoSize = true;
+            this.archiveDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
+            this.archiveDakCount.FlatAppearance.BorderSize = 0;
+            this.archiveDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.archiveDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.archiveDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.archiveDakCount.Location = new System.Drawing.Point(102, 9);
+            this.archiveDakCount.Name = "archiveDakCount";
+            this.archiveDakCount.Size = new System.Drawing.Size(31, 30);
+            this.archiveDakCount.TabIndex = 1;
+            this.archiveDakCount.Text = "1";
+            this.archiveDakCount.UseVisualStyleBackColor = false;
             // 
             // iconButton5
             // 
@@ -525,6 +555,21 @@
             this.NothivuktoPanel.TabIndex = 7;
             this.NothivuktoPanel.Visible = false;
             // 
+            // nothivuktoDakCount
+            // 
+            this.nothivuktoDakCount.AutoSize = true;
+            this.nothivuktoDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
+            this.nothivuktoDakCount.FlatAppearance.BorderSize = 0;
+            this.nothivuktoDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothivuktoDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothivuktoDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nothivuktoDakCount.Location = new System.Drawing.Point(129, 9);
+            this.nothivuktoDakCount.Name = "nothivuktoDakCount";
+            this.nothivuktoDakCount.Size = new System.Drawing.Size(31, 30);
+            this.nothivuktoDakCount.TabIndex = 1;
+            this.nothivuktoDakCount.Text = "1";
+            this.nothivuktoDakCount.UseVisualStyleBackColor = false;
+            // 
             // iconButton4
             // 
             this.iconButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
@@ -552,6 +597,21 @@
             this.nothijatoPanel.Size = new System.Drawing.Size(126, 47);
             this.nothijatoPanel.TabIndex = 6;
             this.nothijatoPanel.Visible = false;
+            // 
+            // nothijatoDakCount
+            // 
+            this.nothijatoDakCount.AutoSize = true;
+            this.nothijatoDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
+            this.nothijatoDakCount.FlatAppearance.BorderSize = 0;
+            this.nothijatoDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothijatoDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothijatoDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nothijatoDakCount.Location = new System.Drawing.Point(79, 9);
+            this.nothijatoDakCount.Name = "nothijatoDakCount";
+            this.nothijatoDakCount.Size = new System.Drawing.Size(31, 30);
+            this.nothijatoDakCount.TabIndex = 1;
+            this.nothijatoDakCount.Text = "1";
+            this.nothijatoDakCount.UseVisualStyleBackColor = false;
             // 
             // iconButton2
             // 
@@ -581,6 +641,21 @@
             this.forwardPanel.TabIndex = 5;
             this.forwardPanel.Visible = false;
             // 
+            // forwardDakCount
+            // 
+            this.forwardDakCount.AutoSize = true;
+            this.forwardDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
+            this.forwardDakCount.FlatAppearance.BorderSize = 0;
+            this.forwardDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forwardDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forwardDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.forwardDakCount.Location = new System.Drawing.Point(76, 9);
+            this.forwardDakCount.Name = "forwardDakCount";
+            this.forwardDakCount.Size = new System.Drawing.Size(31, 30);
+            this.forwardDakCount.TabIndex = 1;
+            this.forwardDakCount.Text = "1";
+            this.forwardDakCount.UseVisualStyleBackColor = false;
+            // 
             // iconButton3
             // 
             this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
@@ -607,6 +682,21 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(137, 47);
             this.panel11.TabIndex = 4;
+            // 
+            // selectedDakCount
+            // 
+            this.selectedDakCount.AutoSize = true;
+            this.selectedDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.selectedDakCount.FlatAppearance.BorderSize = 0;
+            this.selectedDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectedDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectedDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.selectedDakCount.Location = new System.Drawing.Point(90, 9);
+            this.selectedDakCount.Name = "selectedDakCount";
+            this.selectedDakCount.Size = new System.Drawing.Size(31, 30);
+            this.selectedDakCount.TabIndex = 1;
+            this.selectedDakCount.Text = "1";
+            this.selectedDakCount.UseVisualStyleBackColor = false;
             // 
             // iconButton1
             // 
@@ -739,96 +829,6 @@
             this.archiveHeadline.TabIndex = 0;
             this.archiveHeadline.Text = "ডাক আর্কাইভ";
             this.archiveHeadline.Visible = false;
-            // 
-            // failureDakCount
-            // 
-            this.failureDakCount.AutoSize = true;
-            this.failureDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.failureDakCount.FlatAppearance.BorderSize = 0;
-            this.failureDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.failureDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.failureDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.failureDakCount.Location = new System.Drawing.Point(70, 9);
-            this.failureDakCount.Name = "failureDakCount";
-            this.failureDakCount.Size = new System.Drawing.Size(31, 30);
-            this.failureDakCount.TabIndex = 1;
-            this.failureDakCount.Text = "1";
-            this.failureDakCount.UseVisualStyleBackColor = false;
-            // 
-            // archiveDakCount
-            // 
-            this.archiveDakCount.AutoSize = true;
-            this.archiveDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
-            this.archiveDakCount.FlatAppearance.BorderSize = 0;
-            this.archiveDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.archiveDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.archiveDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.archiveDakCount.Location = new System.Drawing.Point(102, 9);
-            this.archiveDakCount.Name = "archiveDakCount";
-            this.archiveDakCount.Size = new System.Drawing.Size(31, 30);
-            this.archiveDakCount.TabIndex = 1;
-            this.archiveDakCount.Text = "1";
-            this.archiveDakCount.UseVisualStyleBackColor = false;
-            // 
-            // nothivuktoDakCount
-            // 
-            this.nothivuktoDakCount.AutoSize = true;
-            this.nothivuktoDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
-            this.nothivuktoDakCount.FlatAppearance.BorderSize = 0;
-            this.nothivuktoDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothivuktoDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothivuktoDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.nothivuktoDakCount.Location = new System.Drawing.Point(129, 9);
-            this.nothivuktoDakCount.Name = "nothivuktoDakCount";
-            this.nothivuktoDakCount.Size = new System.Drawing.Size(31, 30);
-            this.nothivuktoDakCount.TabIndex = 1;
-            this.nothivuktoDakCount.Text = "1";
-            this.nothivuktoDakCount.UseVisualStyleBackColor = false;
-            // 
-            // nothijatoDakCount
-            // 
-            this.nothijatoDakCount.AutoSize = true;
-            this.nothijatoDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
-            this.nothijatoDakCount.FlatAppearance.BorderSize = 0;
-            this.nothijatoDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothijatoDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothijatoDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.nothijatoDakCount.Location = new System.Drawing.Point(79, 9);
-            this.nothijatoDakCount.Name = "nothijatoDakCount";
-            this.nothijatoDakCount.Size = new System.Drawing.Size(31, 30);
-            this.nothijatoDakCount.TabIndex = 1;
-            this.nothijatoDakCount.Text = "1";
-            this.nothijatoDakCount.UseVisualStyleBackColor = false;
-            // 
-            // forwardDakCount
-            // 
-            this.forwardDakCount.AutoSize = true;
-            this.forwardDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(200)))), ((int)(((byte)(192)))));
-            this.forwardDakCount.FlatAppearance.BorderSize = 0;
-            this.forwardDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.forwardDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forwardDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.forwardDakCount.Location = new System.Drawing.Point(76, 9);
-            this.forwardDakCount.Name = "forwardDakCount";
-            this.forwardDakCount.Size = new System.Drawing.Size(31, 30);
-            this.forwardDakCount.TabIndex = 1;
-            this.forwardDakCount.Text = "1";
-            this.forwardDakCount.UseVisualStyleBackColor = false;
-            // 
-            // selectedDakCount
-            // 
-            this.selectedDakCount.AutoSize = true;
-            this.selectedDakCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.selectedDakCount.FlatAppearance.BorderSize = 0;
-            this.selectedDakCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.selectedDakCount.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectedDakCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.selectedDakCount.Location = new System.Drawing.Point(90, 9);
-            this.selectedDakCount.Name = "selectedDakCount";
-            this.selectedDakCount.Size = new System.Drawing.Size(31, 30);
-            this.selectedDakCount.TabIndex = 1;
-            this.selectedDakCount.Text = "1";
-            this.selectedDakCount.UseVisualStyleBackColor = false;
             // 
             // MultipleDakSelectedListConfirmForm
             // 
