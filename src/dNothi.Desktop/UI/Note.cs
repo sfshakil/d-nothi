@@ -1902,7 +1902,7 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOff();
                     int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
                         endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
-                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttons)
+                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttonsDTOList)
                     {
                         if (btnName == "draft_history")
                         {
@@ -2017,7 +2017,7 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOff();
                     int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
                         endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
-                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttons)
+                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttonsDTOList)
                     {
                         if (btnName == "draft_history")
                         {
@@ -2121,7 +2121,7 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOff();
                     int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
                         endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
-                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttons)
+                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttonsDTOList)
                     {
                         if (btnName == "draft_history")
                         {
@@ -2234,7 +2234,7 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOff();
                     int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
                         endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
-                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttons)
+                    foreach (string btnName in allPotro.data.records[i].mulpotro.buttonsDTOList)
                     {
                         if (btnName == "draft_history")
                         {
@@ -3083,7 +3083,7 @@ namespace dNothi.Desktop.UI
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
                     endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
-                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
+                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttonsDTOList)
                 {
                     if (btnName == "draft_history")
                     {
@@ -3195,7 +3195,7 @@ namespace dNothi.Desktop.UI
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
                     endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
-                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
+                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttonsDTOList)
                 {
                     if (btnName == "draft_history")
                     {
@@ -3295,7 +3295,7 @@ namespace dNothi.Desktop.UI
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
                     endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
-                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
+                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttonsDTOList)
                 {
                     if (btnName == "draft_history")
                     {
@@ -3405,7 +3405,7 @@ namespace dNothi.Desktop.UI
                 allMulpotroButtonsVisibilityOff();
                 int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
                     endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
-                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttons)
+                foreach (string btnName in potrojariList.data.records[i].mulpotro.buttonsDTOList)
                 {
                     if (btnName == "draft_history")
                     {
@@ -5104,6 +5104,40 @@ namespace dNothi.Desktop.UI
         {
             iconButton3.IconColor = Color.FromArgb(54, 153, 255);
             iconButton3.BackColor = Color.FromArgb(243, 246, 249);
+        }
+        private static Pen _dashedPen = new Pen(Color.FromArgb(63, 66, 84), 1);
+        
+        private void splitter1_Paint(object sender, PaintEventArgs e)
+        {
+            Splitter s = sender as Splitter;
+            int gripLineWidth = 9;
+            _dashedPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            e.Graphics.DrawLine(_dashedPen, ((s.ClientRectangle.Width / 2) - (gripLineWidth / 2)), ((s.Height / 2)-12) + s.Width / 2, ((s.ClientRectangle.Width / 2) + (gripLineWidth / 2)), ((s.Height / 2) - 12) + s.Width / 2);
+            e.Graphics.DrawLine(_dashedPen, ((s.ClientRectangle.Width / 2) - (gripLineWidth / 2)), ((s.Height / 2)-9) + s.Width / 2, ((s.ClientRectangle.Width / 2) + (gripLineWidth / 2)), ((s.Height / 2) - 9) + s.Width / 2);
+            e.Graphics.DrawLine(_dashedPen, ((s.ClientRectangle.Width / 2) - (gripLineWidth / 2)), ((s.Height / 2)-6) + s.Width / 2, ((s.ClientRectangle.Width / 2) + (gripLineWidth / 2)), ((s.Height / 2) - 6) + s.Width / 2);
+            e.Graphics.DrawLine(_dashedPen, ((s.ClientRectangle.Width / 2) - (gripLineWidth / 2)), ((s.Height / 2)-3) + s.Width / 2, ((s.ClientRectangle.Width / 2) + (gripLineWidth / 2)), ((s.Height / 2) - 3) + s.Width / 2);
+            e.Graphics.DrawLine(_dashedPen, ((s.ClientRectangle.Width / 2) - (gripLineWidth / 2)), (s.Height / 2) + s.Width / 2, ((s.ClientRectangle.Width / 2) + (gripLineWidth / 2)), (s.Height / 2) + s.Width / 2);
+            e.Graphics.DrawLine(_dashedPen, ((s.ClientRectangle.Width / 2) - (gripLineWidth / 2)), ((s.Height / 2)+3) + s.Width / 2, ((s.ClientRectangle.Width / 2) + (gripLineWidth / 2)), ((s.Height / 2) + 3) + s.Width / 2);
+            e.Graphics.DrawLine(_dashedPen, ((s.ClientRectangle.Width / 2) - (gripLineWidth / 2)), ((s.Height / 2)+6) + s.Width / 2, ((s.ClientRectangle.Width / 2) + (gripLineWidth / 2)), ((s.Height / 2) + 6) + s.Width / 2);
+            e.Graphics.DrawLine(_dashedPen, ((s.ClientRectangle.Width / 2) - (gripLineWidth / 2)), ((s.Height / 2)+9) + s.Width / 2, ((s.ClientRectangle.Width / 2) + (gripLineWidth / 2)), ((s.Height / 2) + 9) + s.Width / 2);
+            e.Graphics.DrawLine(_dashedPen, ((s.ClientRectangle.Width / 2) - (gripLineWidth / 2)), ((s.Height / 2)+12) + s.Width / 2, ((s.ClientRectangle.Width / 2) + (gripLineWidth / 2)), ((s.Height / 2) + 12) + s.Width / 2);
+        }
+
+        private void splitter3_Paint(object sender, PaintEventArgs e)
+        {
+            Splitter s = sender as Splitter;
+            int gripLineWidth = 9;
+            _dashedPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) - 12) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)), ((s.Width / 2) - 12) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
+            e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) - 9) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  ((s.Width / 2) - 9) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
+            e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) - 6) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  ((s.Width / 2) - 6) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
+            e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) - 3) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  ((s.Width / 2) - 3) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
+            e.Graphics.DrawLine(_dashedPen, (s.Width / 2) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  (s.Width / 2) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
+            e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) + 3) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  ((s.Width / 2) + 3) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
+            e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) + 6) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  ((s.Width / 2) + 6) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
+            e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) + 9) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  ((s.Width / 2) + 9) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
+            e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) + 12) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  ((s.Width / 2) + 12) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
+
         }
     }
 }

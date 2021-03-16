@@ -178,6 +178,7 @@ namespace dNothi.Desktop
             builder.RegisterType<SingleOnucchedServices>().As<ISingleOnucchedServices>();
             builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
+            builder.RegisterType<PotrojariParser>().As<IPotrojariParser>();
             
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();

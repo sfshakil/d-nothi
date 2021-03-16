@@ -63,6 +63,7 @@
             this.btnBack = new FontAwesome.Sharp.IconButton();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel47 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.button26 = new System.Windows.Forms.Button();
@@ -79,6 +80,10 @@
             this.panel28 = new System.Windows.Forms.Panel();
             this.fileAddFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.panel39 = new System.Windows.Forms.Panel();
+            this.panel54 = new System.Windows.Forms.Panel();
+            this.fileUploadPanel = new System.Windows.Forms.Panel();
+            this.fileUploadButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
@@ -259,12 +264,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.panel54 = new System.Windows.Forms.Panel();
-            this.fileUploadPanel = new System.Windows.Forms.Panel();
-            this.fileUploadButton = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -282,6 +282,8 @@
             this.onucchedEditorPanel.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel39.SuspendLayout();
+            this.panel54.SuspendLayout();
+            this.fileUploadPanel.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel22.SuspendLayout();
             this.PnlSave.SuspendLayout();
@@ -337,8 +339,6 @@
             this.panel20.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel54.SuspendLayout();
-            this.fileUploadPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -844,6 +844,17 @@
             this.panel6.Size = new System.Drawing.Size(1350, 34);
             this.panel6.TabIndex = 16;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label12.Location = new System.Drawing.Point(147, 6);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 21);
+            this.label12.TabIndex = 64;
+            this.label12.Text = "এটুআই প্রোগ্রাম";
+            // 
             // panel47
             // 
             this.panel47.Controls.Add(this.label9);
@@ -1051,6 +1062,65 @@
             this.panel39.Name = "panel39";
             this.panel39.Size = new System.Drawing.Size(914, 44);
             this.panel39.TabIndex = 0;
+            // 
+            // panel54
+            // 
+            this.panel54.Controls.Add(this.fileUploadPanel);
+            this.panel54.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel54.Location = new System.Drawing.Point(0, 0);
+            this.panel54.Margin = new System.Windows.Forms.Padding(0);
+            this.panel54.Name = "panel54";
+            this.panel54.Size = new System.Drawing.Size(284, 44);
+            this.panel54.TabIndex = 0;
+            // 
+            // fileUploadPanel
+            // 
+            this.fileUploadPanel.BackColor = System.Drawing.Color.Transparent;
+            this.fileUploadPanel.Controls.Add(this.fileUploadButton);
+            this.fileUploadPanel.Controls.Add(this.label8);
+            this.fileUploadPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.fileUploadPanel.Location = new System.Drawing.Point(95, 0);
+            this.fileUploadPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.fileUploadPanel.Name = "fileUploadPanel";
+            this.fileUploadPanel.Size = new System.Drawing.Size(189, 44);
+            this.fileUploadPanel.TabIndex = 75;
+            this.MyToolTip.SetToolTip(this.fileUploadPanel, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট");
+            this.fileUploadPanel.Click += new System.EventHandler(this.fileUploadPanel_Click_1);
+            this.fileUploadPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // fileUploadButton
+            // 
+            this.fileUploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.fileUploadButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.fileUploadButton.FlatAppearance.BorderSize = 0;
+            this.fileUploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fileUploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileUploadButton.Location = new System.Drawing.Point(99, 0);
+            this.fileUploadButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fileUploadButton.Name = "fileUploadButton";
+            this.fileUploadButton.Size = new System.Drawing.Size(90, 44);
+            this.fileUploadButton.TabIndex = 69;
+            this.fileUploadButton.Text = "ব্রাউজ ";
+            this.MyToolTip.SetToolTip(this.fileUploadButton, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট");
+            this.fileUploadButton.UseVisualStyleBackColor = false;
+            this.fileUploadButton.Click += new System.EventHandler(this.fileUploadButton_Click_1);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(12, 10, 0, 0);
+            this.label8.Size = new System.Drawing.Size(90, 30);
+            this.label8.TabIndex = 68;
+            this.label8.Text = "ফাইল নির্বাচন";
+            this.MyToolTip.SetToolTip(this.label8, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট");
+            this.label8.Click += new System.EventHandler(this.fileUploadPanel_Click_1);
             // 
             // panel24
             // 
@@ -1364,6 +1434,7 @@
             this.splitter3.Size = new System.Drawing.Size(931, 5);
             this.splitter3.TabIndex = 2;
             this.splitter3.TabStop = false;
+            this.splitter3.Paint += new System.Windows.Forms.PaintEventHandler(this.splitter3_Paint);
             // 
             // noteHeaderPanel
             // 
@@ -1889,6 +1960,7 @@
             this.splitter2.Size = new System.Drawing.Size(5, 550);
             this.splitter2.TabIndex = 3;
             this.splitter2.TabStop = false;
+            this.splitter2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitter1_Paint);
             // 
             // potrangsoPanel
             // 
@@ -3562,10 +3634,12 @@
             // 
             this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter1.Location = new System.Drawing.Point(197, 0);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(0);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(5, 550);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
+            this.splitter1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitter1_Paint);
             // 
             // pnlNoteList
             // 
@@ -3758,65 +3832,6 @@
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
             // 
-            // panel54
-            // 
-            this.panel54.Controls.Add(this.fileUploadPanel);
-            this.panel54.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel54.Location = new System.Drawing.Point(0, 0);
-            this.panel54.Margin = new System.Windows.Forms.Padding(0);
-            this.panel54.Name = "panel54";
-            this.panel54.Size = new System.Drawing.Size(284, 44);
-            this.panel54.TabIndex = 0;
-            // 
-            // fileUploadPanel
-            // 
-            this.fileUploadPanel.BackColor = System.Drawing.Color.Transparent;
-            this.fileUploadPanel.Controls.Add(this.fileUploadButton);
-            this.fileUploadPanel.Controls.Add(this.label8);
-            this.fileUploadPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.fileUploadPanel.Location = new System.Drawing.Point(95, 0);
-            this.fileUploadPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.fileUploadPanel.Name = "fileUploadPanel";
-            this.fileUploadPanel.Size = new System.Drawing.Size(189, 44);
-            this.fileUploadPanel.TabIndex = 75;
-            this.MyToolTip.SetToolTip(this.fileUploadPanel, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট");
-            this.fileUploadPanel.Click += new System.EventHandler(this.fileUploadPanel_Click_1);
-            this.fileUploadPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
-            // 
-            // fileUploadButton
-            // 
-            this.fileUploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.fileUploadButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.fileUploadButton.FlatAppearance.BorderSize = 0;
-            this.fileUploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fileUploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileUploadButton.Location = new System.Drawing.Point(99, 0);
-            this.fileUploadButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.fileUploadButton.Name = "fileUploadButton";
-            this.fileUploadButton.Size = new System.Drawing.Size(90, 44);
-            this.fileUploadButton.TabIndex = 69;
-            this.fileUploadButton.Text = "ব্রাউজ ";
-            this.MyToolTip.SetToolTip(this.fileUploadButton, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট");
-            this.fileUploadButton.UseVisualStyleBackColor = false;
-            this.fileUploadButton.Click += new System.EventHandler(this.fileUploadButton_Click_1);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(12, 10, 0, 0);
-            this.label8.Size = new System.Drawing.Size(90, 30);
-            this.label8.TabIndex = 68;
-            this.label8.Text = "ফাইল নির্বাচন";
-            this.MyToolTip.SetToolTip(this.label8, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট");
-            this.label8.Click += new System.EventHandler(this.fileUploadPanel_Click_1);
-            // 
             // tinyMceEditor
             // 
             this.tinyMceEditor.AutoScroll = true;
@@ -3828,17 +3843,6 @@
             this.tinyMceEditor.Size = new System.Drawing.Size(897, 406);
             this.tinyMceEditor.TabIndex = 61;
             this.tinyMceEditor.Click += new System.EventHandler(this.tinyMceEditor_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label12.Location = new System.Drawing.Point(147, 6);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 21);
-            this.label12.TabIndex = 64;
-            this.label12.Text = "এটুআই প্রোগ্রাম";
             // 
             // Note
             // 
@@ -3879,6 +3883,9 @@
             this.onucchedEditorPanel.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel39.ResumeLayout(false);
+            this.panel54.ResumeLayout(false);
+            this.fileUploadPanel.ResumeLayout(false);
+            this.fileUploadPanel.PerformLayout();
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
             this.panel22.ResumeLayout(false);
@@ -3959,9 +3966,6 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
-            this.panel54.ResumeLayout(false);
-            this.fileUploadPanel.ResumeLayout(false);
-            this.fileUploadPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }

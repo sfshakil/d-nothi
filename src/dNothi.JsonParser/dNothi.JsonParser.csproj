@@ -254,8 +254,10 @@
     <Compile Include="Entity\UserDTO.cs" />
     <Compile Include="IAllPotroParser.cs" />
     <Compile Include="INoteListParser.cs" />
+    <Compile Include="IPotrojariParser.cs" />
     <Compile Include="IUserMessageParser.cs" />
     <Compile Include="NoteListParser.cs" />
+    <Compile Include="PotrojariParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserMessageParser.cs" />
   </ItemGroup>
