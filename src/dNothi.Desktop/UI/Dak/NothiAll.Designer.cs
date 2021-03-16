@@ -39,7 +39,6 @@
             this.lbNoteTotal = new System.Windows.Forms.Label();
             this.btnNote = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnOnumodon = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -82,7 +81,6 @@
             this.panel1.Controls.Add(this.lbNoteTotal);
             this.panel1.Controls.Add(this.btnNote);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnOnumodon);
             this.panel1.Controls.Add(this.iconButton3);
@@ -101,6 +99,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1115, 84);
             this.panel1.TabIndex = 0;
@@ -254,28 +253,21 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 82);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 83);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1115, 2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1115, 1);
             this.flowLayoutPanel1.TabIndex = 107;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1115, 2);
-            this.panel3.TabIndex = 106;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.panel2.Location = new System.Drawing.Point(100, 1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2, 82);
+            this.panel2.Size = new System.Drawing.Size(1, 82);
             this.panel2.TabIndex = 105;
             // 
             // btnOnumodon
@@ -628,26 +620,27 @@
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 33);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 34);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1115, 2);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1115, 1);
             this.flowLayoutPanel3.TabIndex = 58;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1115, 2);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1115, 1);
             this.flowLayoutPanel2.TabIndex = 57;
             // 
             // NothiAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.newAllNoteFlowLayoutPanel);
             this.Controls.Add(this.pnlNewAllNote);
             this.Controls.Add(this.panel1);
@@ -673,7 +666,6 @@
         private System.Windows.Forms.Label lbNoteTotal;
         private System.Windows.Forms.Button btnNote;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton btnOnumodon;
         private FontAwesome.Sharp.IconButton iconButton3;

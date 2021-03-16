@@ -50,14 +50,15 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSend = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbxPriorityType = new System.Windows.Forms.ComboBox();
+            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.label3 = new System.Windows.Forms.Label();
             this.lbNoteSubject = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.cbxPriorityType = new System.Windows.Forms.ComboBox();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlFooter.SuspendLayout();
@@ -67,6 +68,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,7 +102,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnCross.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.btnCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.btnCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCross.IconSize = 32;
+            this.btnCross.IconSize = 20;
             this.btnCross.Location = new System.Drawing.Point(414, 22);
             this.btnCross.Name = "btnCross";
             this.btnCross.Size = new System.Drawing.Size(34, 35);
@@ -314,79 +316,15 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.pnlHeader);
             this.panel3.Controls.Add(this.cbxPriorityType);
             this.panel3.Controls.Add(this.searchOfficeDetailSearch);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.lbNoteSubject);
-            this.panel3.Controls.Add(this.lbTotalNothi);
-            this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(462, 129);
             this.panel3.TabIndex = 70;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.label3.Location = new System.Drawing.Point(15, 42);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 21);
-            this.label3.TabIndex = 73;
-            this.label3.Text = "অগ্রাধিকার বাছাই করুন";
-            // 
-            // lbNoteSubject
-            // 
-            this.lbNoteSubject.AutoSize = true;
-            this.lbNoteSubject.BackColor = System.Drawing.Color.Transparent;
-            this.lbNoteSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNoteSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteSubject.Location = new System.Drawing.Point(78, 11);
-            this.lbNoteSubject.Margin = new System.Windows.Forms.Padding(0);
-            this.lbNoteSubject.Name = "lbNoteSubject";
-            this.lbNoteSubject.Size = new System.Drawing.Size(67, 21);
-            this.lbNoteSubject.TabIndex = 72;
-            this.lbNoteSubject.Text = "টেস্ট নোট";
-            // 
-            // lbTotalNothi
-            // 
-            this.lbTotalNothi.AutoSize = true;
-            this.lbTotalNothi.BackColor = System.Drawing.Color.Azure;
-            this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.lbTotalNothi.Location = new System.Drawing.Point(59, 11);
-            this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
-            this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(19, 21);
-            this.lbTotalNothi.TabIndex = 71;
-            this.lbTotalNothi.Text = "২";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Azure;
-            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.label2.Location = new System.Drawing.Point(15, 11);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 21);
-            this.label2.TabIndex = 70;
-            this.label2.Text = "নোট :";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(0, 74);
-            this.panel8.Margin = new System.Windows.Forms.Padding(0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(2, 651);
-            this.panel8.TabIndex = 65;
             // 
             // cbxPriorityType
             // 
@@ -429,6 +367,82 @@ namespace dNothi.Desktop.UI.Dak
             this.searchOfficeDetailSearch.TabIndex = 74;
             this.searchOfficeDetailSearch.Paint += new System.Windows.Forms.PaintEventHandler(this.searchOfficeDetailSearch_Paint);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.label3.Location = new System.Drawing.Point(15, 42);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(145, 21);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "অগ্রাধিকার বাছাই করুন";
+            // 
+            // lbNoteSubject
+            // 
+            this.lbNoteSubject.AutoSize = true;
+            this.lbNoteSubject.BackColor = System.Drawing.Color.Transparent;
+            this.lbNoteSubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNoteSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteSubject.Location = new System.Drawing.Point(63, 0);
+            this.lbNoteSubject.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNoteSubject.Name = "lbNoteSubject";
+            this.lbNoteSubject.Size = new System.Drawing.Size(67, 21);
+            this.lbNoteSubject.TabIndex = 72;
+            this.lbNoteSubject.Text = "টেস্ট নোট";
+            // 
+            // lbTotalNothi
+            // 
+            this.lbTotalNothi.AutoSize = true;
+            this.lbTotalNothi.BackColor = System.Drawing.Color.Azure;
+            this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
+            this.lbTotalNothi.Location = new System.Drawing.Point(44, 0);
+            this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
+            this.lbTotalNothi.Name = "lbTotalNothi";
+            this.lbTotalNothi.Size = new System.Drawing.Size(19, 21);
+            this.lbTotalNothi.TabIndex = 71;
+            this.lbTotalNothi.Text = "২";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(0, 74);
+            this.panel8.Margin = new System.Windows.Forms.Padding(0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(2, 651);
+            this.panel8.TabIndex = 65;
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.Controls.Add(this.lbNoteSubject);
+            this.pnlHeader.Controls.Add(this.lbTotalNothi);
+            this.pnlHeader.Controls.Add(this.label2);
+            this.pnlHeader.Location = new System.Drawing.Point(15, 6);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(444, 33);
+            this.pnlHeader.TabIndex = 76;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Azure;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 21);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "নোট :";
+            // 
             // NothiNextStep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,6 +464,8 @@ namespace dNothi.Desktop.UI.Dak
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -466,7 +482,6 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbNoteSubject;
         private System.Windows.Forms.Label lbTotalNothi;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlFooter;
         private System.Windows.Forms.Panel panel7;
         private FontAwesome.Sharp.IconButton btnSend;
@@ -484,5 +499,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.ComboBox cbxPriorityType;
         private SearchUserController searchOfficeDetailSearch;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Label label2;
     }
 }

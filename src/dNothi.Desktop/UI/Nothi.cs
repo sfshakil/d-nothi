@@ -571,7 +571,7 @@ namespace dNothi.Desktop.UI
 
         private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
         {
-
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
 
         private void detailPanelDropDownButton_Click(object sender, EventArgs e)
@@ -1075,5 +1075,23 @@ namespace dNothi.Desktop.UI
         {
 
         }
+
+        private void searchBoxPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void nothiModulePanel_MouseHover(object sender, EventArgs e)
+        {
+            nothiModulePanel.BackColor = Color.FromArgb(245, 245, 249);
+            nothiModulePanel.ForeColor = Color.Blue;
+        }
+
+        private void nothiModulePanel_MouseLeave(object sender, EventArgs e)
+        {
+            nothiModulePanel.BackColor = Color.Transparent;
+            nothiModulePanel.ForeColor = Color.Black;
+        }
+
     }
 }

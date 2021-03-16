@@ -761,7 +761,7 @@ namespace dNothi.Desktop.UI
 
         private void fileUploadPanel_Paint(object sender, PaintEventArgs e)
         {
-
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
 
         private void panel20_Paint(object sender, PaintEventArgs e)
@@ -1512,7 +1512,7 @@ namespace dNothi.Desktop.UI
             nothiType.Enabled = true;
             nothiType.noteTotal = notelist.note_status;
             nothiType.noteSubject = notelist.note_subject_sub_text;
-            //nothiType.loadNewNoteData(nns.getNewNoteData());
+            nothiType.loadNewNoteData(nns.getNewNoteData());
             nothiType.loadlistInboxRecord(nothiListRecords);
 
             //nothiType.Location = new System.Drawing.Point(0, 0);
@@ -1578,9 +1578,18 @@ namespace dNothi.Desktop.UI
             //nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
             nothiType.Visible = true;
             nothiType.Enabled = true;
-            nothiType.noteTotal = notelist.note_status;
-            nothiType.noteSubject = notelist.note_subject_sub_text;
-            //nothiType.loadNewNoteData(newnotedata);
+            if (notelist.note_status !=null || notelist.note_subject_sub_text!=null)
+            {
+                nothiType.noteTotal = notelist.note_status;
+                nothiType.noteSubject = notelist.note_subject_sub_text;
+            }
+            else
+            {
+                nothiType.noteTotal = lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2);
+                nothiType.noteSubject = lbNoteSubject.Text;
+            }
+            
+            nothiType.loadNewNoteData(newnotedata);
             nothiType.loadlistInboxRecord(nothiListRecords);
 
             //nothiType.Location = new System.Drawing.Point(0, 0);
@@ -5011,6 +5020,90 @@ namespace dNothi.Desktop.UI
         private void tinyMceEditor_Click(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
+        }
+
+        private void iconButton18_MouseHover(object sender, EventArgs e)
+        {
+            iconButton18.IconColor = Color.FromArgb(246, 78, 96);
+            iconButton18.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void iconButton18_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton18.IconColor = Color.FromArgb(54, 153, 255);
+            iconButton18.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void iconButton17_MouseHover(object sender, EventArgs e)
+        {
+            iconButton17.IconColor = Color.FromArgb(246, 78, 96);
+            iconButton17.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void iconButton17_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton17.IconColor = Color.FromArgb(54, 153, 255);
+            iconButton17.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void iconButton16_MouseHover(object sender, EventArgs e)
+        {
+            iconButton16.IconColor = Color.FromArgb(246, 78, 96);
+            iconButton16.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void iconButton16_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton16.IconColor = Color.FromArgb(54, 153, 255);
+            iconButton16.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void iconButton15_MouseHover(object sender, EventArgs e)
+        {
+            iconButton15.IconColor = Color.FromArgb(246, 78, 96);
+            iconButton15.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void iconButton15_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton15.IconColor = Color.FromArgb(54, 153, 255);
+            iconButton15.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void iconButton13_MouseHover(object sender, EventArgs e)
+        {
+            iconButton13.IconColor = Color.FromArgb(246, 78, 96);
+            iconButton13.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void iconButton13_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton13.IconColor = Color.FromArgb(54, 153, 255);
+            iconButton13.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void iconButton10_MouseHover(object sender, EventArgs e)
+        {
+            iconButton10.IconColor = Color.FromArgb(246, 78, 96);
+            iconButton10.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void iconButton10_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton10.IconColor = Color.FromArgb(54, 153, 255);
+            iconButton10.BackColor = Color.FromArgb(243, 246, 249);
+        }
+
+        private void iconButton3_MouseHover(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(246, 78, 96);
+            iconButton3.BackColor = Color.FromArgb(228, 230, 239);
+        }
+
+        private void iconButton3_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton3.IconColor = Color.FromArgb(54, 153, 255);
+            iconButton3.BackColor = Color.FromArgb(243, 246, 249);
         }
     }
 }

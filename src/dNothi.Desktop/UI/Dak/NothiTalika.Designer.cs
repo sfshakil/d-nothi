@@ -32,7 +32,6 @@
             this.lblextra = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.btnNoteView = new FontAwesome.Sharp.IconButton();
             this.lbNoteLastDate = new System.Windows.Forms.Label();
             this.lbShakha = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.panel1.Controls.Add(this.lblextra);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnNoteView);
             this.panel1.Controls.Add(this.lbNoteLastDate);
             this.panel1.Controls.Add(this.lbShakha);
@@ -75,33 +73,26 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.panel2.Location = new System.Drawing.Point(70, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2, 80);
+            this.panel2.Size = new System.Drawing.Size(1, 80);
             this.panel2.TabIndex = 57;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 81);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 82);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1128, 2);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1128, 1);
             this.flowLayoutPanel1.TabIndex = 56;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1128, 2);
-            this.panel3.TabIndex = 55;
             // 
             // btnNoteView
             // 
-            this.btnNoteView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnNoteView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.btnNoteView.FlatAppearance.BorderSize = 0;
             this.btnNoteView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNoteView.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkAlt;
@@ -174,6 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiTalika";
@@ -189,7 +181,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel3;
         private FontAwesome.Sharp.IconButton btnNoteView;
         private System.Windows.Forms.Label lbNoteLastDate;
         private System.Windows.Forms.Label lbShakha;
