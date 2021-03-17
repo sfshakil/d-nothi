@@ -126,7 +126,7 @@ namespace dNothi.Desktop.UI
                 nothiInbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiListRecordsDTO.last_note_date;
                 nothiInbox.nothiId = Convert.ToString(nothiListRecordsDTO.id);
                 nothiInbox.NewNoteButtonClick += delegate (object sender, EventArgs e) { NewNote_ButtonClick(sender, e, nothiListRecordsDTO); };
-                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
+                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender as string, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
                 nothiInbox.NothiOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiOnumodon_ButtonClick(sender, e, nothiListRecordsDTO); };
 
               
@@ -147,14 +147,14 @@ namespace dNothi.Desktop.UI
             }
         }
 
-        private void NoteDetails_ButtonClick(object sender, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        private void NoteDetails_ButtonClick(string noteID , EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
            
             this.Hide();
             var form = FormFactory.Create<Note>();
             _dakuserparam = _userService.GetLocalDakUserParam();
-
-            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+            form.noteIdfromNothiInboxNoteShomuho = noteID;
+            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteID, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
             
             NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
             form.nothiNo = nothiListRecords.nothi_no;

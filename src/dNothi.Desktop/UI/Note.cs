@@ -704,6 +704,17 @@ namespace dNothi.Desktop.UI
         }
         private string _nothiLastDate;
         private string _noteSubject;
+        private string _noteIdfromNothiInboxNoteShomuho;
+
+        [Category("Custom Props")]
+        public string noteIdfromNothiInboxNoteShomuho
+        {
+            get { return _noteIdfromNothiInboxNoteShomuho; }
+            set {
+                _noteIdfromNothiInboxNoteShomuho = value;
+                NoteIdfromNothiInboxNoteShomuho.Text = value;
+            }
+        }
         [Category("Custom Props")]
         public string noteTotal
         {
@@ -1289,9 +1300,11 @@ namespace dNothi.Desktop.UI
         {
             //onuchhedFLP.Controls.Clear();
             PnlSave.Visible = false;
-            string noteId = "0";
-            if (updateNoteID > 0)
-                noteId = updateNoteID.ToString();
+            string onuchhedId = "0";
+            if (updateOnuchhedId > 0)
+                onuchhedId = updateOnuchhedId.ToString();
+            if (Convert.ToInt32(_noteIdfromNothiInboxNoteShomuho) > 0)
+                newnotedata.note_id = Convert.ToInt32(_noteIdfromNothiInboxNoteShomuho);
             //string editortext = tinyMceEditor.HtmlContent;
             string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
 
@@ -1323,7 +1336,7 @@ namespace dNothi.Desktop.UI
                 }
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(noteId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
+                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(onuchhedId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                 
                 if (onucchedSave.status == "success")
                 {
@@ -1370,11 +1383,13 @@ namespace dNothi.Desktop.UI
 
         private void btnSaveWithNewOnuchhed_Click(object sender, EventArgs e)
         {
-            onuchhedFLP.Controls.Clear();
+            //onuchhedFLP.Controls.Clear();
             PnlSave.Visible = false;
-            string noteId = "0";
-            if (updateNoteID > 0)
-                noteId = updateNoteID.ToString();
+            string onuchhedId = "0";
+            if (updateOnuchhedId > 0)
+                onuchhedId = updateOnuchhedId.ToString();
+            if (Convert.ToInt32(_noteIdfromNothiInboxNoteShomuho) > 0)
+                newnotedata.note_id = Convert.ToInt32(_noteIdfromNothiInboxNoteShomuho);
             //string editortext = tinyMceEditor.HtmlContent;
             string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
 
@@ -1406,7 +1421,7 @@ namespace dNothi.Desktop.UI
                 }
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(noteId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
+                var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(onuchhedId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                 if (onucchedSave.status == "success")
                 {
                     onuchhedheaderPnl.Visible = true;
@@ -1439,7 +1454,7 @@ namespace dNothi.Desktop.UI
 
             //tinyMceEditor.Controls.Clear();
         }
-        private int updateNoteID;
+        private int updateOnuchhedId;
         public void EditButton_Click(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, DakUserParam dakListUserParam, NothiListRecordsDTO nothiListRecords, NoteSaveDTO newnotedata)
         {
             //onuchhed.onucchedId = onucchedSave.data.id;
@@ -1453,7 +1468,7 @@ namespace dNothi.Desktop.UI
             panel24.Visible = true;
             panel28.Visible = true;
             tinyMceEditor.HtmlContent = noteListDataRecordNoteDTO.note_subject;
-            updateNoteID = noteListDataRecordNoteDTO.nothi_note_id;
+            updateOnuchhedId = noteListDataRecordNoteDTO.nothi_note_id; ///////////////////////////////////////////////////////////////////////Jhamela ache ekhane.(onuchhed ID boshate hobe ekhane)//////////////////////////////
             //onuchhedFLP.Controls.Add(onuchhed);
             fileAddFLP.Controls.Clear();
             noteFileUploads.Clear();

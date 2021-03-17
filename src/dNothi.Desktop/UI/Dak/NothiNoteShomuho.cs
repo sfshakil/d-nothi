@@ -141,7 +141,7 @@ namespace dNothi.Desktop.UI.Dak
         private void NoteDetailsButton_Click(object sender, EventArgs e)
         {
             if (this.NoteDetailsButton != null)
-                this.NoteDetailsButton(sender, e);
+                this.NoteDetailsButton(lbNoteId.Text, e);
 
 
         }

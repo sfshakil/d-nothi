@@ -265,6 +265,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
+            this.NoteIdfromNothiInboxNoteShomuho = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -344,6 +345,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.NoteIdfromNothiInboxNoteShomuho);
             this.panel2.Controls.Add(this.RightSign);
             this.panel2.Controls.Add(this.LeftSign);
             this.panel2.Controls.Add(this.dakMenuButton);
@@ -3836,13 +3838,28 @@
             // 
             this.tinyMceEditor.AutoScroll = true;
             this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = null;
+            this.tinyMceEditor.HtmlContent = "";
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 1);
             this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
             this.tinyMceEditor.Name = "tinyMceEditor";
             this.tinyMceEditor.Size = new System.Drawing.Size(897, 406);
             this.tinyMceEditor.TabIndex = 61;
             this.tinyMceEditor.Click += new System.EventHandler(this.tinyMceEditor_Click);
+            // 
+            // NoteIdfromNothiInboxNoteShomuho
+            // 
+            this.NoteIdfromNothiInboxNoteShomuho.AutoSize = true;
+            this.NoteIdfromNothiInboxNoteShomuho.BackColor = System.Drawing.Color.Azure;
+            this.NoteIdfromNothiInboxNoteShomuho.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NoteIdfromNothiInboxNoteShomuho.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.NoteIdfromNothiInboxNoteShomuho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.NoteIdfromNothiInboxNoteShomuho.Location = new System.Drawing.Point(0, 0);
+            this.NoteIdfromNothiInboxNoteShomuho.Margin = new System.Windows.Forms.Padding(0);
+            this.NoteIdfromNothiInboxNoteShomuho.Name = "NoteIdfromNothiInboxNoteShomuho";
+            this.NoteIdfromNothiInboxNoteShomuho.Size = new System.Drawing.Size(19, 21);
+            this.NoteIdfromNothiInboxNoteShomuho.TabIndex = 83;
+            this.NoteIdfromNothiInboxNoteShomuho.Text = "0";
+            this.NoteIdfromNothiInboxNoteShomuho.Visible = false;
             // 
             // Note
             // 
@@ -4207,5 +4224,6 @@
         private System.Windows.Forms.Button fileUploadButton;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label NoteIdfromNothiInboxNoteShomuho;
     }
 }

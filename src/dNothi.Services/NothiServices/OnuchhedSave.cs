@@ -16,7 +16,7 @@ namespace dNothi.Services.NothiServices
 {
     public class OnuchhedSave : IOnucchedSave
     {
-        public NothiOnuchhedSaveResponse GetNothiOnuchhedSave(string noteId, DakUserParam dakUserParam, List<DakUploadedFileResponse> onuchhedSaveWithAttachments, NothiListRecordsDTO nothiListRecordsDTO, NoteSaveDTO newnotedata, string editorEncodedData)
+        public NothiOnuchhedSaveResponse GetNothiOnuchhedSave(string onuchhedId, DakUserParam dakUserParam, List<DakUploadedFileResponse> onuchhedSaveWithAttachments, NothiListRecordsDTO nothiListRecordsDTO, NoteSaveDTO newnotedata, string editorEncodedData)
         {
             try
             {
@@ -48,11 +48,11 @@ namespace dNothi.Services.NothiServices
                 
 
                 Onuchhed o1 = new Onuchhed();
-                o1.nothi_id = newnotedata.nothi_id.ToString();
-                o1.nothi_office = newnotedata.office_id.ToString();
+                o1.nothi_id = nothiListRecordsDTO.id.ToString();
+                o1.nothi_office = nothiListRecordsDTO.office_id.ToString();
                 o1.note_description = editorEncodedData;
                 o1.note_id = newnotedata.note_id.ToString();
-                o1.id = noteId;
+                o1.id = onuchhedId;
                 o1.attachment = attachment;
 
                 var onuchhed = JsonConvert.SerializeObject(o1);

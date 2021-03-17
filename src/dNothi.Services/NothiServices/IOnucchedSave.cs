@@ -11,6 +11,6 @@ namespace dNothi.Services.DakServices
 {
     public interface IOnucchedSave
     {
-        NothiOnuchhedSaveResponse GetNothiOnuchhedSave(string noteId, DakUserParam dakUserParam, List<DakUploadedFileResponse> onuchhedSaveWithAttachment, NothiListRecordsDTO nothiListRecordsDTO, NoteSaveDTO newnotedata, string editorEncodedData);
+        NothiOnuchhedSaveResponse GetNothiOnuchhedSave(string onuchhedId, DakUserParam dakUserParam, List<DakUploadedFileResponse> onuchhedSaveWithAttachment, NothiListRecordsDTO nothiListRecordsDTO, NoteSaveDTO newnotedata, string editorEncodedData);
     }
 }

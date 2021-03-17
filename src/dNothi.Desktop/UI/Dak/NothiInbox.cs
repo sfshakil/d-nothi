@@ -152,7 +152,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
                 nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
                 nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
-                nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender1, e1, nothiListInboxNoteRecordsDTO); };
+                nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender1 as string, e1, nothiListInboxNoteRecordsDTO); };
 
 
                 if (nothiListInboxNoteRecordsDTO.note.onucched_count>0)
@@ -208,11 +208,11 @@ namespace dNothi.Desktop.UI.Dak
         }
         public event EventHandler NoteDetailsButton;
         
-        private void NoteDetails_ButtonClick(object sender1, EventArgs e1, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        private void NoteDetails_ButtonClick(string noteID, EventArgs e1, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
             _nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
             if (this.NoteDetailsButton != null)
-                this.NoteDetailsButton(sender1, e1);
+                this.NoteDetailsButton(noteID, e1);
         }
 
         private void iconButton3_MouseHover_1(object sender, EventArgs e)
