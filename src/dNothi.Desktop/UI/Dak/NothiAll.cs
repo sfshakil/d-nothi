@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.UserServices;
+using dNothi.Services.NothiServices;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -16,8 +18,14 @@ namespace dNothi.Desktop.UI.Dak
     {
         private int originalWidth;
         private int originalHeight;
-        public NothiAll()
+        IUserService _userService { get; set; }
+        INothiInboxNoteServices _nothiInboxNote { get; set; }
+
+        public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
+        public NothiAll(IUserService userService, INothiInboxNoteServices nothiInboxNote)
         {
+            _userService = userService;
+            _nothiInboxNote = nothiInboxNote;
             InitializeComponent();
             originalWidth = this.Width;
             originalHeight = this.Height;
@@ -46,6 +54,14 @@ namespace dNothi.Desktop.UI.Dak
         public int _archived;
         public string _noteLastDate;
         public int _flag;
+        private string _nothiId;
+
+        [Category("Custom Props")]
+        public string nothiId
+        {
+            get { return _nothiId; }
+            set { _nothiId = value; lbNothiId.Text = value; }
+        }
 
         [Category("Custom Props")]
         public string nothi
@@ -66,7 +82,10 @@ namespace dNothi.Desktop.UI.Dak
         public string desk
         {
             get { return _desk; }
-            set { _desk = value; lbDesk.Text = value; }
+            set
+            {
+                _desk = value; lbDesk.Text = "ডেস্ক: " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            }
         }
         //public int id
         //{
@@ -77,33 +96,37 @@ namespace dNothi.Desktop.UI.Dak
         public int noteTotal
         {
             get { return _noteTotal; }
-            set { _noteTotal = value; lbNoteTotal.Text = value.ToString(); }
+            set { _noteTotal = value; 
+                lbNoteTotal.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbNoteTotal1.Text = "সর্বমোট: " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            }
         }
 
         [Category("Custom Props")]
         public int permitted
         {
             get { return _permitted; }
-            set { _permitted = value; lbPermitted.Text = value.ToString(); }
+            set { _permitted = value; lbPermitted.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+            
         }
 
         [Category("Custom Props")]
         public int onishponno
         {
             get { return _onishponno; }
-            set { _onishponno = value; lbOnishponno.Text = value.ToString(); }
+            set { _onishponno = value; lbOnishponno.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
         [Category("Custom Props")]
         public int nishponno
         {
             get { return _nishponno; }
-            set { _nishponno = value; lbNishponno.Text = value.ToString(); }
+            set { _nishponno = value; lbNishponno.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
         [Category("Custom Props")]
         public int archived
         {
             get { return _archived; }
-            set { _archived = value; lbArchived.Text = value.ToString(); }
+            set { _archived = value; lbArchived.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
         [Category("Custom Props")]
         public string noteLastDate
@@ -131,16 +154,20 @@ namespace dNothi.Desktop.UI.Dak
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.Plus)
+            if (btnNothiAllNoteShomuho.IconChar == FontAwesome.Sharp.IconChar.Plus)
             {
                 //int totalNote = Convert.ToInt32(totalnothi.Substring(9));
-                this.Height = 100 + originalHeight;
+                int totalNote = Convert.ToInt32(_noteTotal);
+                //int totalNote1 = Convert.ToInt32(_desk.Substring(_desk.IndexOf("ডেস্ক:") + 2));
+                this.Height = totalNote * 100 + originalHeight;
+                //this.Height = 100 + originalHeight;
                 this.Width = originalWidth;
                 pnlNewAllNote.Visible = true;
                 newAllNoteFlowLayoutPanel.Visible = true;
-                iconButton3.IconChar = FontAwesome.Sharp.IconChar.Minus;
-                iconButton3.IconColor = Color.White;
-                iconButton3.BackColor = Color.FromArgb(27, 197, 189);
+                btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.Minus;
+                btnNothiAllNoteShomuho.IconColor = Color.White;
+                btnNothiAllNoteShomuho.BackColor = Color.FromArgb(27, 197, 189);
+                loadnewAllNoteFlowLayoutPanel();
             }
             else
             {
@@ -150,24 +177,117 @@ namespace dNothi.Desktop.UI.Dak
                 pnlNewAllNote.Visible = false;
                 newAllNoteFlowLayoutPanel.Visible = false;
 
-                iconButton3.IconChar = FontAwesome.Sharp.IconChar.Plus;
-                iconButton3.IconColor = Color.White;
-                iconButton3.BackColor = Color.FromArgb(27, 197, 189);
+                btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.Plus;
+                btnNothiAllNoteShomuho.IconColor = Color.White;
+                btnNothiAllNoteShomuho.BackColor = Color.FromArgb(27, 197, 189);
             }
+        }
+        private void loadnewAllNoteFlowLayoutPanel()
+        {
+            var eachNothiId = lbNothiId.Text;
+            var nothiListUserParam = _userService.GetLocalDakUserParam();
+            string note_category = "all";
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(nothiListUserParam, eachNothiId, note_category);
+
+            if (nothiInboxNote.status == "success")
+            {
+
+                if (nothiInboxNote.data.records.Count > 0)
+                {
+
+                    LoadNothiNoteAllinPanel(nothiInboxNote.data.records);
+
+                }
+            }
+        }
+        public event EventHandler NoteDetailsButton;
+
+        private void NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e1, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+            _nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
+            if (this.NoteDetailsButton != null)
+                this.NoteDetailsButton(noteListDataRecordNoteDTO, e1);
+        }
+        public void LoadNothiNoteAllinPanel(List<NothiListInboxNoteRecordsDTO> nothiNoteInboxLists)
+        {
+            List<NothiNoteShomuho> nothiNoteShomuhos = new List<NothiNoteShomuho>();
+            int i = 0;
+            foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
+            {
+                var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
+
+                nothiNoteShomuho.note_ID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
+                //nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
+                nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
+                nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
+                nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
+                nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
+
+
+                if (nothiListInboxNoteRecordsDTO.note.onucched_count > 0)
+                {
+                    nothiNoteShomuho.onucched = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+                }
+                if (nothiListInboxNoteRecordsDTO.note.khoshra_potro > 0)
+                {
+                    nothiNoteShomuho.khosra = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+                }
+                if (nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval > 0)
+                {
+                    nothiNoteShomuho.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
+                }
+                if (nothiListInboxNoteRecordsDTO.note.note_subject != null && nothiListInboxNoteRecordsDTO.note.note_subject_sub_text != "")
+                {
+                    nothiNoteShomuho.note_subject = nothiListInboxNoteRecordsDTO.note.note_subject + " (" + nothiListInboxNoteRecordsDTO.note.note_subject_sub_text + ")";
+                }
+                else
+                {
+                    nothiNoteShomuho.note_subject = nothiListInboxNoteRecordsDTO.note.note_subject;
+                }
+                if (nothiListInboxNoteRecordsDTO.desk.officer != null)
+                {
+                    nothiNoteShomuho.deskofficer = nothiListInboxNoteRecordsDTO.desk.officer;
+                }
+                else
+                {
+                    nothiNoteShomuho.deskofficer = " ";
+                }
+                if (nothiListInboxNoteRecordsDTO.to.officer != null && nothiListInboxNoteRecordsDTO.desk.officer != nothiListInboxNoteRecordsDTO.to.officer)
+                {
+                    nothiNoteShomuho.toofficer = nothiListInboxNoteRecordsDTO.to.officer;
+                }
+                else
+                {
+                    nothiNoteShomuho.toofficer = "";
+                }
+                i = i + 1;
+                nothiNoteShomuhos.Add(nothiNoteShomuho);
+
+            }
+            newAllNoteFlowLayoutPanel.Controls.Clear();
+            //newAllNoteFlowLayoutPanel.AutoScroll = true;
+            newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            newAllNoteFlowLayoutPanel.WrapContents = false;
+
+            for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
+            {
+                newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
+            }
+
         }
 
         private void iconButton3_MouseHover(object sender, EventArgs e)
         {
-            iconButton3.IconColor = Color.White;
-            iconButton3.BackColor = Color.FromArgb(27, 197, 189);
+            btnNothiAllNoteShomuho.IconColor = Color.White;
+            btnNothiAllNoteShomuho.BackColor = Color.FromArgb(27, 197, 189);
         }
 
         private void iconButton3_MouseLeave(object sender, EventArgs e)
         {
-            if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.Plus)
+            if (btnNothiAllNoteShomuho.IconChar == FontAwesome.Sharp.IconChar.Plus)
             {
-                iconButton3.IconColor = Color.FromArgb(27, 197, 189);
-                iconButton3.BackColor = Color.FromArgb(201, 247, 245);
+                btnNothiAllNoteShomuho.IconColor = Color.FromArgb(27, 197, 189);
+                btnNothiAllNoteShomuho.BackColor = Color.FromArgb(201, 247, 245);
 
             }
         }

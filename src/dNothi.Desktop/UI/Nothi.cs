@@ -126,7 +126,7 @@ namespace dNothi.Desktop.UI
                 nothiInbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiListRecordsDTO.last_note_date;
                 nothiInbox.nothiId = Convert.ToString(nothiListRecordsDTO.id);
                 nothiInbox.NewNoteButtonClick += delegate (object sender, EventArgs e) { NewNote_ButtonClick(sender, e, nothiListRecordsDTO); };
-                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender as string, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
+                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
                 nothiInbox.NothiOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiOnumodon_ButtonClick(sender, e, nothiListRecordsDTO); };
 
               
@@ -146,15 +146,64 @@ namespace dNothi.Desktop.UI
                 nothiListFlowLayoutPanel.Controls.Add(nothiInboxs[j]);
             }
         }
+        private void NoteAllDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
 
-        private void NoteDetails_ButtonClick(string noteID , EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+            this.Hide();
+            var form = FormFactory.Create<Note>();
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
+            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteAllDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiAllListDTO, nothiListInboxNoteRecordsDTO); };
+
+            NothiListAllRecordsDTO nothiAllListRecords = nothiAllListDTO;
+            form.nothiNo = nothiAllListRecords.nothi.nothi_no;
+            form.nothiShakha = nothiAllListRecords.nothi.office_unit_name + " " + _dakuserparam.office_label;
+            form.nothiSubject = nothiAllListRecords.nothi.subject;
+            form.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+            form.nothiLastDate = nothiAllListRecords.nothi.last_note_date;
+            form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+
+            //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
+            //totalnothi.ToString();
+            form.office = "( " + nothiAllListRecords.nothi.office_name + " " + nothiAllListRecords.nothi.last_note_date + ")";
+
+            NoteView noteView = new NoteView();
+            noteView.totalNothi = noteListDataRecordNoteDTO.note_no.ToString();
+            noteView.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+            noteView.nothiLastDate = nothiAllListRecords.nothi.last_note_date;
+            noteView.officerInfo = _dakuserparam.officer + "," + nothiAllListRecords.nothi.office_designation_name + "," + nothiAllListRecords.nothi.office_unit_name + "," + _dakuserparam.office_label;
+            noteView.checkBox = "1";
+            noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+
+            //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
+            //form.loadNoteData(notedata);
+            NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+            nothiListRecordsDTO.id = nothiAllListDTO.nothi.id;
+            nothiListRecordsDTO.office_id = nothiAllListDTO.nothi.office_id;
+            nothiListRecordsDTO.office_name = nothiAllListDTO.nothi.office_name;
+            nothiListRecordsDTO.office_unit_id = nothiAllListDTO.nothi.office_unit_id;
+            nothiListRecordsDTO.office_unit_name = nothiAllListDTO.nothi.office_unit_name;
+            nothiListRecordsDTO.office_unit_organogram_id = nothiAllListDTO.nothi.office_unit_organogram_id;
+            nothiListRecordsDTO.office_designation_name = nothiAllListDTO.nothi.office_designation_name;
+            nothiListRecordsDTO.nothi_no = nothiAllListDTO.nothi.nothi_no;
+            nothiListRecordsDTO.subject = nothiAllListDTO.nothi.subject;
+            nothiListRecordsDTO.nothi_class = nothiAllListDTO.nothi.nothi_class;
+            nothiListRecordsDTO.last_note_date = nothiAllListDTO.nothi.last_note_date;
+            form.loadNothiInboxRecords(nothiListRecordsDTO);///////////////////////////////////////
+            form.loadNoteView(noteView);
+            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
+
+
+            form.ShowDialog();
+        }
+        private void NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
            
             this.Hide();
             var form = FormFactory.Create<Note>();
             _dakuserparam = _userService.GetLocalDakUserParam();
-            form.noteIdfromNothiInboxNoteShomuho = noteID;
-            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteID, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+            form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
+            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
             
             NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
             form.nothiNo = nothiListRecords.nothi_no;
@@ -169,7 +218,7 @@ namespace dNothi.Desktop.UI
             form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
 
             NoteView noteView = new NoteView();
-            //noteView.totalNothi = totalnothi.ToString();
+            noteView.totalNothi = noteListDataRecordNoteDTO.note_no.ToString();
             noteView.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
             noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
             noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
@@ -179,7 +228,8 @@ namespace dNothi.Desktop.UI
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
-            form.noteTotal = form.loadNoteView(noteView).ToString();
+            form.loadNoteView(noteView);
+            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString(); 
 
 
             form.ShowDialog();
@@ -251,12 +301,13 @@ namespace dNothi.Desktop.UI
                 form.nothiSubject = nothiListRecords.subject;
                 form.noteSubject = sender.ToString();
                 form.nothiLastDate = nothiListRecordsDTO.last_note_date;
+                form.noteIdfromNothiInboxNoteShomuho = notedata.note_id.ToString();
                 //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
                 //totalnothi.ToString();
                 form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
 
                 NoteView noteView = new NoteView();
-                //noteView.totalNothi = totalnothi.ToString();
+                noteView.totalNothi = notedata.note_no.ToString();
                 noteView.noteSubject = sender.ToString();
                 noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
                 noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
@@ -266,8 +317,9 @@ namespace dNothi.Desktop.UI
                 //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
                 form.loadNoteData(notedata);
                 form.loadNothiInboxRecords(nothiListRecordsDTO);
-                form.noteTotal = form.loadNoteView(noteView).ToString();
-                
+                form.loadNoteView(noteView);
+                form.noteTotal = notedata.note_no.ToString();
+
 
                 form.ShowDialog();
 
@@ -444,6 +496,7 @@ namespace dNothi.Desktop.UI
                 if (nothiAll.data.records.Count > 0)
                 {
                     pnlNoData.Visible = false;
+                    lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiAll.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     LoadNothiAllinPanel(nothiAll.data.records);
                 }
                 else
@@ -460,9 +513,9 @@ namespace dNothi.Desktop.UI
             int i = 0;
             foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
             {
-                NothiAll nothiAll = new NothiAll();
-
+                NothiAll nothiAll = UserControlFactory.Create<NothiAll>();
                 nothiAll.NothiAllOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiAllOnumodon_ButtonClick(sender, e, nothiAllListDTO); };
+                nothiAll.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteAllDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiAllListDTO, nothiAll._nothiListInboxNoteRecordsDTO); };
                 nothiAll.nothiAllListDTO = nothiAllListDTO;
 
                 if (nothiAllListDTO.desk != null && nothiAllListDTO.status != null)
@@ -470,14 +523,15 @@ namespace dNothi.Desktop.UI
                     
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
-                    nothiAll.desk = "ডেস্ক: " + nothiAllListDTO.desk.note_count.ToString();
+                    nothiAll.desk =  nothiAllListDTO.desk.note_count.ToString();
                     nothiAll.noteTotal = nothiAllListDTO.status.total;
                     nothiAll.permitted = nothiAllListDTO.status.permitted;
                     nothiAll.onishponno = nothiAllListDTO.status.onishponno;
                     nothiAll.nishponno = nothiAllListDTO.status.nishponno;
                     nothiAll.archived = nothiAllListDTO.status.archived;
                     nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
-                    
+                    nothiAll.nothiId = Convert.ToString(nothiAllListDTO.nothi.id);
+
                     i = i + 1;
                     
                 }
@@ -486,6 +540,7 @@ namespace dNothi.Desktop.UI
                     //NothiAll nothiAll = new NothiAll();
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
+                    nothiAll.nothiId = Convert.ToString(nothiAllListDTO.nothi.id);
                     nothiAll.flag = 1;
                 }
                 nothiAlls.Add(nothiAll);

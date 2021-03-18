@@ -69,7 +69,7 @@
             this.allNothiOutbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allNothiOutbox.Location = new System.Drawing.Point(0, 0);
             this.allNothiOutbox.Name = "allNothiOutbox";
-            this.allNothiOutbox.Size = new System.Drawing.Size(1121, 113);
+            this.allNothiOutbox.Size = new System.Drawing.Size(1121, 112);
             this.allNothiOutbox.TabIndex = 0;
             // 
             // panel4
@@ -434,10 +434,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.allNothiOutbox);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiOutbox";
-            this.Size = new System.Drawing.Size(1121, 113);
+            this.Size = new System.Drawing.Size(1121, 112);
             this.allNothiOutbox.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.pnlNewAllNote.ResumeLayout(false);

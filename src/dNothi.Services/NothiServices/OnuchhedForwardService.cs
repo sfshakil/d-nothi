@@ -36,7 +36,7 @@ namespace dNothi.Services.NothiServices
 
                 //}
                 //var serializedRecordsObject = JsonConvert.SerializeObject(newrecords);
-                request.AddParameter("recipient", "{\"office_id\":\"" + newrecords[0].office_id + "\",\"office\":\"" + newrecords[0].office + "\",\"office_unit_id\":\"" + newrecords[0].office_unit_id + "\",\"office_unit\":\"" + newrecords[0].office_unit + "\",\"designation_id\":\"" + newrecords[0].designation_id + "\",\"designation\":\"" + newrecords[0].designation + "\",\"officer_id\":\"" + newrecords[0].officer_id + "\",\"officer\":\"" + newrecords[0].officer + "\",\"designation_level\":\"" + newrecords[0].designation_level + "\"}");
+                request.AddParameter("recipient", "{\"office_id\":\"" + newrecords[0].nothi_office + "\",\"office\":\"" + newrecords[0].office + "\",\"office_unit_id\":\"" + newrecords[0].office_unit_id + "\",\"office_unit\":\"" + newrecords[0].office_unit + "\",\"designation_id\":\"" + newrecords[0].designation_id + "\",\"designation\":\"" + newrecords[0].designation + "\",\"officer_id\":\"" + newrecords[0].officer_id + "\",\"officer\":\"" + newrecords[0].officer + "\",\"designation_level\":\"" + newrecords[0].designation_level + "\"}");
 
                 IRestResponse response = client.Execute(request);
                 Console.WriteLine(response.Content);

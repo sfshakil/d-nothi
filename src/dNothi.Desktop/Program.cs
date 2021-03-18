@@ -190,6 +190,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Note>().AsSelf();
             builder.RegisterType<DakModuleSokolNothiListUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.CreateNewNotes>().AsSelf();
+            builder.RegisterType<NothiAll>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
 
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();

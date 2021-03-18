@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using dNothi.Services.UserServices;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
+using dNothi.JsonParser.Entity.Nothi;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -140,8 +141,11 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NoteDetailsButton;
         private void NoteDetailsButton_Click(object sender, EventArgs e)
         {
+            NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
+            noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
+            noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_note_no);
             if (this.NoteDetailsButton != null)
-                this.NoteDetailsButton(lbNoteId.Text, e);
+                this.NoteDetailsButton(noteListDataRecordNoteDTO, e);
 
 
         }
