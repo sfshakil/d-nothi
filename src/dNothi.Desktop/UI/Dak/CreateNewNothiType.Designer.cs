@@ -151,7 +151,6 @@
             this.txtDhoronCode.PlaceholderText = "২ ডিজিটের ধরন কোড";
             this.txtDhoronCode.Size = new System.Drawing.Size(138, 22);
             this.txtDhoronCode.TabIndex = 3;
-            this.txtDhoronCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDhoronCode_KeyPress);
             // 
             // userIdPanel
             // 
