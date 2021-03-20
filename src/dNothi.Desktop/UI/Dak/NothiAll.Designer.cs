@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbNothiId = new System.Windows.Forms.Label();
             this.nothiShompadonIcon = new FontAwesome.Sharp.IconButton();
             this.lbFlag = new System.Windows.Forms.Label();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
@@ -61,11 +62,10 @@
             this.lbNoteTotal1 = new System.Windows.Forms.Label();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
-            this.iconButton12 = new FontAwesome.Sharp.IconButton();
+            this.NothiNoteAllButton = new FontAwesome.Sharp.IconButton();
             this.btnNewNote = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lbNothiId = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -109,6 +109,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1115, 84);
             this.panel1.TabIndex = 0;
+            // 
+            // lbNothiId
+            // 
+            this.lbNothiId.AutoSize = true;
+            this.lbNothiId.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbNothiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothiId.Location = new System.Drawing.Point(556, 54);
+            this.lbNothiId.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNothiId.Name = "lbNothiId";
+            this.lbNothiId.Size = new System.Drawing.Size(98, 21);
+            this.lbNothiId.TabIndex = 117;
+            this.lbNothiId.Text = "nothiIdLabel";
+            this.lbNothiId.Visible = false;
             // 
             // nothiShompadonIcon
             // 
@@ -501,7 +514,7 @@
             this.pnlNewAllNote.Controls.Add(this.lbNoteTotal1);
             this.pnlNewAllNote.Controls.Add(this.iconButton10);
             this.pnlNewAllNote.Controls.Add(this.iconButton11);
-            this.pnlNewAllNote.Controls.Add(this.iconButton12);
+            this.pnlNewAllNote.Controls.Add(this.NothiNoteAllButton);
             this.pnlNewAllNote.Controls.Add(this.btnNewNote);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel3);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel2);
@@ -592,29 +605,30 @@
             this.iconButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton11.UseVisualStyleBackColor = false;
             // 
-            // iconButton12
+            // NothiNoteAllButton
             // 
-            this.iconButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.iconButton12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton12.FlatAppearance.BorderSize = 0;
-            this.iconButton12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.iconButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton12.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.Copy;
-            this.iconButton12.IconColor = System.Drawing.Color.DimGray;
-            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton12.IconSize = 22;
-            this.iconButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton12.Location = new System.Drawing.Point(96, 3);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton12.Size = new System.Drawing.Size(101, 29);
-            this.iconButton12.TabIndex = 60;
-            this.iconButton12.Text = "সকল নোট";
-            this.iconButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton12.UseVisualStyleBackColor = false;
+            this.NothiNoteAllButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.NothiNoteAllButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.NothiNoteAllButton.FlatAppearance.BorderSize = 0;
+            this.NothiNoteAllButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.NothiNoteAllButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.NothiNoteAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NothiNoteAllButton.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NothiNoteAllButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.NothiNoteAllButton.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.NothiNoteAllButton.IconColor = System.Drawing.Color.DimGray;
+            this.NothiNoteAllButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.NothiNoteAllButton.IconSize = 22;
+            this.NothiNoteAllButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NothiNoteAllButton.Location = new System.Drawing.Point(96, 3);
+            this.NothiNoteAllButton.Name = "NothiNoteAllButton";
+            this.NothiNoteAllButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.NothiNoteAllButton.Size = new System.Drawing.Size(101, 29);
+            this.NothiNoteAllButton.TabIndex = 60;
+            this.NothiNoteAllButton.Text = "সকল নোট";
+            this.NothiNoteAllButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.NothiNoteAllButton.UseVisualStyleBackColor = false;
+            this.NothiNoteAllButton.Click += new System.EventHandler(this.NothiNoteAllButton_Click);
             // 
             // btnNewNote
             // 
@@ -659,19 +673,6 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1115, 1);
             this.flowLayoutPanel2.TabIndex = 57;
             // 
-            // lbNothiId
-            // 
-            this.lbNothiId.AutoSize = true;
-            this.lbNothiId.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNothiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothiId.Location = new System.Drawing.Point(556, 54);
-            this.lbNothiId.Margin = new System.Windows.Forms.Padding(0);
-            this.lbNothiId.Name = "lbNothiId";
-            this.lbNothiId.Size = new System.Drawing.Size(98, 21);
-            this.lbNothiId.TabIndex = 117;
-            this.lbNothiId.Text = "nothiIdLabel";
-            this.lbNothiId.Visible = false;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel4);
@@ -679,7 +680,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 84);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1115, 0);
+            this.panel3.Size = new System.Drawing.Size(1115, 1);
             this.panel3.TabIndex = 23;
             // 
             // panel4
@@ -700,7 +701,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiAll";
-            this.Size = new System.Drawing.Size(1115, 83);
+            this.Size = new System.Drawing.Size(1115, 85);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlNewAllNote.ResumeLayout(false);
@@ -744,7 +745,7 @@
         private System.Windows.Forms.Label lbNoteTotal1;
         private FontAwesome.Sharp.IconButton iconButton10;
         private FontAwesome.Sharp.IconButton iconButton11;
-        private FontAwesome.Sharp.IconButton iconButton12;
+        private FontAwesome.Sharp.IconButton NothiNoteAllButton;
         private FontAwesome.Sharp.IconButton btnNewNote;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;

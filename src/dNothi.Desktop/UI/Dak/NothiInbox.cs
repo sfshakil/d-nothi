@@ -19,6 +19,7 @@ namespace dNothi.Desktop.UI.Dak
         INothiInboxNoteServices _nothiInboxNote { get; set; }
 
         public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
+        NothiListInboxNoteRecordsDTO _noteListForNoteAll = new NothiListInboxNoteRecordsDTO();
 
 
 
@@ -147,9 +148,11 @@ namespace dNothi.Desktop.UI.Dak
             foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
             {
                 var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
+
+                _noteListForNoteAll = nothiNoteInboxLists[0];
                 
                 nothiNoteShomuho.note_ID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
-                //nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
+                nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
                 nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
                 nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
                 nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
@@ -216,6 +219,13 @@ namespace dNothi.Desktop.UI.Dak
                 this.NoteDetailsButton(noteListDataRecordNoteDTO, e1);
         }
 
+        public event EventHandler NoteAllButton;
+        private void btnAllNote_Click(object sender, EventArgs e)
+        {
+            if (this.NoteAllButton != null)
+                this.NoteAllButton(_noteListForNoteAll, e);
+        }
+
         private void iconButton3_MouseHover_1(object sender, EventArgs e)
         {
             iconButton3.IconColor = Color.White;
@@ -272,6 +282,7 @@ namespace dNothi.Desktop.UI.Dak
                 this.NewNoteButtonClick(sender, e);
 
         }
+
         
     }
 }

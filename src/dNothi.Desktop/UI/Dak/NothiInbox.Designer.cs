@@ -38,7 +38,7 @@
             this.lbTotalNote = new System.Windows.Forms.Label();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnAllNote = new FontAwesome.Sharp.IconButton();
             this.btnNewNote = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -110,7 +110,7 @@
             this.pnlNewAllNote.Controls.Add(this.lbTotalNote);
             this.pnlNewAllNote.Controls.Add(this.iconButton5);
             this.pnlNewAllNote.Controls.Add(this.iconButton4);
-            this.pnlNewAllNote.Controls.Add(this.iconButton2);
+            this.pnlNewAllNote.Controls.Add(this.btnAllNote);
             this.pnlNewAllNote.Controls.Add(this.btnNewNote);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel3);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel2);
@@ -212,30 +212,31 @@
             this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton4.UseVisualStyleBackColor = false;
             // 
-            // iconButton2
+            // btnAllNote
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("SolaimanLipi", 9.75F);
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Copy;
-            this.iconButton2.IconColor = System.Drawing.Color.DimGray;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 22;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(108, 3);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton2.Size = new System.Drawing.Size(106, 29);
-            this.iconButton2.TabIndex = 60;
-            this.iconButton2.Text = "সকল নোট";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.btnAllNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnAllNote.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnAllNote.FlatAppearance.BorderSize = 0;
+            this.btnAllNote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnAllNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnAllNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAllNote.Font = new System.Drawing.Font("SolaimanLipi", 9.75F);
+            this.btnAllNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnAllNote.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.btnAllNote.IconColor = System.Drawing.Color.DimGray;
+            this.btnAllNote.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAllNote.IconSize = 22;
+            this.btnAllNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAllNote.Location = new System.Drawing.Point(108, 3);
+            this.btnAllNote.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAllNote.Name = "btnAllNote";
+            this.btnAllNote.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAllNote.Size = new System.Drawing.Size(106, 29);
+            this.btnAllNote.TabIndex = 60;
+            this.btnAllNote.Text = "সকল নোট";
+            this.btnAllNote.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAllNote.UseVisualStyleBackColor = false;
+            this.btnAllNote.Click += new System.EventHandler(this.btnAllNote_Click);
             // 
             // btnNewNote
             // 
@@ -542,7 +543,7 @@
         private System.Windows.Forms.Panel pnlNewAllNote;
         private FontAwesome.Sharp.IconButton iconButton5;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnAllNote;
         private FontAwesome.Sharp.IconButton btnNewNote;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;

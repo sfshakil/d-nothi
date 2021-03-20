@@ -467,6 +467,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\NothiOutboxNoteShomuho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiOutboxNoteShomuho.Designer.cs">
+      <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -996,6 +1002,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiOutboxNoteShomuho.resx">
+      <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra.resx">
       <DependentUpon>Khosra.cs</DependentUpon>

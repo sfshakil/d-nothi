@@ -34,7 +34,7 @@
             this.pnlNewAllNote = new System.Windows.Forms.Panel();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbNoteTotal = new System.Windows.Forms.Label();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -42,6 +42,7 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbNothiId = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
@@ -69,7 +70,7 @@
             this.allNothiOutbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allNothiOutbox.Location = new System.Drawing.Point(0, 0);
             this.allNothiOutbox.Name = "allNothiOutbox";
-            this.allNothiOutbox.Size = new System.Drawing.Size(1121, 112);
+            this.allNothiOutbox.Size = new System.Drawing.Size(1115, 113);
             this.allNothiOutbox.TabIndex = 0;
             // 
             // panel4
@@ -78,22 +79,25 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 148);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1121, 0);
+            this.panel4.Size = new System.Drawing.Size(1115, 0);
             this.panel4.TabIndex = 24;
             // 
             // newAllNoteFlowLayoutPanel
             // 
+            this.newAllNoteFlowLayoutPanel.AutoScroll = true;
             this.newAllNoteFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newAllNoteFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.newAllNoteFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.newAllNoteFlowLayoutPanel.Name = "newAllNoteFlowLayoutPanel";
-            this.newAllNoteFlowLayoutPanel.Size = new System.Drawing.Size(1121, 0);
+            this.newAllNoteFlowLayoutPanel.Size = new System.Drawing.Size(1115, 0);
             this.newAllNoteFlowLayoutPanel.TabIndex = 23;
+            this.newAllNoteFlowLayoutPanel.WrapContents = false;
             // 
             // pnlNewAllNote
             // 
             this.pnlNewAllNote.Controls.Add(this.iconButton6);
             this.pnlNewAllNote.Controls.Add(this.iconButton7);
-            this.pnlNewAllNote.Controls.Add(this.label3);
+            this.pnlNewAllNote.Controls.Add(this.lbNoteTotal);
             this.pnlNewAllNote.Controls.Add(this.iconButton5);
             this.pnlNewAllNote.Controls.Add(this.iconButton4);
             this.pnlNewAllNote.Controls.Add(this.iconButton2);
@@ -103,7 +107,7 @@
             this.pnlNewAllNote.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNewAllNote.Location = new System.Drawing.Point(0, 113);
             this.pnlNewAllNote.Name = "pnlNewAllNote";
-            this.pnlNewAllNote.Size = new System.Drawing.Size(1121, 35);
+            this.pnlNewAllNote.Size = new System.Drawing.Size(1115, 35);
             this.pnlNewAllNote.TabIndex = 22;
             // 
             // iconButton6
@@ -116,7 +120,7 @@
             this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 24;
-            this.iconButton6.Location = new System.Drawing.Point(1085, 3);
+            this.iconButton6.Location = new System.Drawing.Point(1063, 3);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Size = new System.Drawing.Size(33, 29);
             this.iconButton6.TabIndex = 65;
@@ -132,21 +136,21 @@
             this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 24;
-            this.iconButton7.Location = new System.Drawing.Point(1051, 3);
+            this.iconButton7.Location = new System.Drawing.Point(1029, 3);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(34, 29);
             this.iconButton7.TabIndex = 64;
             this.iconButton7.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // lbNoteTotal
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(969, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 21);
-            this.label3.TabIndex = 63;
-            this.label3.Text = " সর্বমোট: ১২";
+            this.lbNoteTotal.AutoSize = true;
+            this.lbNoteTotal.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteTotal.Location = new System.Drawing.Point(942, 7);
+            this.lbNoteTotal.Name = "lbNoteTotal";
+            this.lbNoteTotal.Size = new System.Drawing.Size(85, 21);
+            this.lbNoteTotal.TabIndex = 63;
+            this.lbNoteTotal.Text = " সর্বমোট: ১২";
             // 
             // iconButton5
             // 
@@ -243,7 +247,7 @@
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 33);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1121, 2);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1115, 2);
             this.flowLayoutPanel3.TabIndex = 58;
             // 
             // flowLayoutPanel2
@@ -253,12 +257,13 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1121, 1);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1115, 1);
             this.flowLayoutPanel2.TabIndex = 57;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel1.Controls.Add(this.lbNothiId);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lbTotalNothi);
@@ -276,8 +281,20 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1121, 113);
+            this.panel1.Size = new System.Drawing.Size(1115, 113);
             this.panel1.TabIndex = 0;
+            // 
+            // lbNothiId
+            // 
+            this.lbNothiId.AutoSize = true;
+            this.lbNothiId.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbNothiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothiId.Location = new System.Drawing.Point(512, 84);
+            this.lbNothiId.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNothiId.Name = "lbNothiId";
+            this.lbNothiId.Size = new System.Drawing.Size(98, 21);
+            this.lbNothiId.TabIndex = 79;
+            this.lbNothiId.Text = "nothiIdLabel";
             // 
             // flowLayoutPanel1
             // 
@@ -285,7 +302,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 112);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1121, 1);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1115, 1);
             this.flowLayoutPanel1.TabIndex = 78;
             // 
             // label2
@@ -294,7 +311,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
-            this.label2.Location = new System.Drawing.Point(528, 44);
+            this.label2.Location = new System.Drawing.Point(527, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 21);
             this.label2.TabIndex = 76;
@@ -306,7 +323,7 @@
             this.lbTotalNothi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
             this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
-            this.lbTotalNothi.Location = new System.Drawing.Point(557, 4);
+            this.lbTotalNothi.Location = new System.Drawing.Point(561, 4);
             this.lbTotalNothi.Name = "lbTotalNothi";
             this.lbTotalNothi.Size = new System.Drawing.Size(45, 21);
             this.lbTotalNothi.TabIndex = 75;
@@ -318,7 +335,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
             this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
-            this.label1.Location = new System.Drawing.Point(106, 42);
+            this.label1.Location = new System.Drawing.Point(101, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 21);
             this.label1.TabIndex = 74;
@@ -330,7 +347,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
-            this.label6.Location = new System.Drawing.Point(106, 4);
+            this.label6.Location = new System.Drawing.Point(101, 4);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 21);
             this.label6.TabIndex = 73;
@@ -339,7 +356,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.panel2.Location = new System.Drawing.Point(99, 2);
+            this.panel2.Location = new System.Drawing.Point(96, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1, 110);
@@ -383,9 +400,9 @@
             // 
             this.lbNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothi.Location = new System.Drawing.Point(150, 4);
+            this.lbNothi.Location = new System.Drawing.Point(145, 4);
             this.lbNothi.Name = "lbNothi";
-            this.lbNothi.Size = new System.Drawing.Size(402, 39);
+            this.lbNothi.Size = new System.Drawing.Size(410, 39);
             this.lbNothi.TabIndex = 69;
             this.lbNothi.Text = "nothiLabel";
             // 
@@ -393,7 +410,7 @@
             // 
             this.lblPrapok.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrapok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lblPrapok.Location = new System.Drawing.Point(606, 4);
+            this.lblPrapok.Location = new System.Drawing.Point(610, 4);
             this.lblPrapok.Name = "lblPrapok";
             this.lblPrapok.Size = new System.Drawing.Size(500, 39);
             this.lblPrapok.TabIndex = 68;
@@ -403,7 +420,7 @@
             // 
             this.lbLastNoteDate.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLastNoteDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLastNoteDate.Location = new System.Drawing.Point(875, 85);
+            this.lbLastNoteDate.Location = new System.Drawing.Point(874, 85);
             this.lbLastNoteDate.Name = "lbLastNoteDate";
             this.lbLastNoteDate.Size = new System.Drawing.Size(237, 25);
             this.lbLastNoteDate.TabIndex = 67;
@@ -413,7 +430,7 @@
             // 
             this.lblPresentDesk.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPresentDesk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lblPresentDesk.Location = new System.Drawing.Point(606, 44);
+            this.lblPresentDesk.Location = new System.Drawing.Point(611, 44);
             this.lblPresentDesk.Name = "lblPresentDesk";
             this.lblPresentDesk.Size = new System.Drawing.Size(500, 39);
             this.lblPresentDesk.TabIndex = 66;
@@ -424,7 +441,7 @@
             this.lbShakha.AutoSize = true;
             this.lbShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbShakha.Location = new System.Drawing.Point(150, 43);
+            this.lbShakha.Location = new System.Drawing.Point(145, 43);
             this.lbShakha.Name = "lbShakha";
             this.lbShakha.Size = new System.Drawing.Size(102, 21);
             this.lbShakha.TabIndex = 65;
@@ -438,7 +455,7 @@
             this.Controls.Add(this.allNothiOutbox);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiOutbox";
-            this.Size = new System.Drawing.Size(1121, 112);
+            this.Size = new System.Drawing.Size(1115, 113);
             this.allNothiOutbox.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.pnlNewAllNote.ResumeLayout(false);
@@ -469,14 +486,15 @@
         private System.Windows.Forms.Panel pnlNewAllNote;
         private FontAwesome.Sharp.IconButton iconButton6;
         private FontAwesome.Sharp.IconButton iconButton7;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbNoteTotal;
         private FontAwesome.Sharp.IconButton iconButton5;
         private FontAwesome.Sharp.IconButton iconButton4;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton dakSearchButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.FlowLayoutPanel newAllNoteFlowLayoutPanel;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lbNothiId;
+        private System.Windows.Forms.FlowLayoutPanel newAllNoteFlowLayoutPanel;
     }
 }

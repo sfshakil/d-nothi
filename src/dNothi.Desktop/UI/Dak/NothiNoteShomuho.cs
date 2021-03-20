@@ -144,9 +144,9 @@ namespace dNothi.Desktop.UI.Dak
             NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
             noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
             noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_note_no);
+            noteListDataRecordNoteDTO.is_editable = 0; // is editable ==0 means not new tab;
             if (this.NoteDetailsButton != null)
                 this.NoteDetailsButton(noteListDataRecordNoteDTO, e);
-
 
         }
         private void btnOption_Click(object sender, EventArgs e)
@@ -171,6 +171,16 @@ namespace dNothi.Desktop.UI.Dak
             {
                 
             }
+        }
+
+        private void detailsButtonNewTab_Click(object sender, EventArgs e)
+        {
+            NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
+            noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
+            noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_note_no);
+            noteListDataRecordNoteDTO.is_editable = 1; // is editable ==1 means new tab;
+            if (this.NoteDetailsButton != null)
+                this.NoteDetailsButton(noteListDataRecordNoteDTO, e);
         }
     }
 }

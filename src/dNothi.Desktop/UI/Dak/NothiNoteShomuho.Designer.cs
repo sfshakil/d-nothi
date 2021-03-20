@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.detailsButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.detailsButtonNewTab = new FontAwesome.Sharp.IconButton();
             this.btnOption = new FontAwesome.Sharp.IconButton();
             this.lbNoteNumber = new System.Windows.Forms.Label();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
@@ -77,21 +77,22 @@
             this.detailsButton.UseVisualStyleBackColor = false;
             this.detailsButton.Click += new System.EventHandler(this.NoteDetailsButton_Click);
             // 
-            // iconButton1
+            // detailsButtonNewTab
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 18;
-            this.iconButton1.Location = new System.Drawing.Point(43, 13);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(30, 30);
-            this.iconButton1.TabIndex = 59;
-            this.MyToolTip.SetToolTip(this.iconButton1, "নোটের বিস্তারিত (নতুন ট্যাব)");
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.detailsButtonNewTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.detailsButtonNewTab.FlatAppearance.BorderSize = 0;
+            this.detailsButtonNewTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.detailsButtonNewTab.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
+            this.detailsButtonNewTab.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.detailsButtonNewTab.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.detailsButtonNewTab.IconSize = 18;
+            this.detailsButtonNewTab.Location = new System.Drawing.Point(43, 13);
+            this.detailsButtonNewTab.Name = "detailsButtonNewTab";
+            this.detailsButtonNewTab.Size = new System.Drawing.Size(30, 30);
+            this.detailsButtonNewTab.TabIndex = 59;
+            this.MyToolTip.SetToolTip(this.detailsButtonNewTab, "নোটের বিস্তারিত (নতুন ট্যাব)");
+            this.detailsButtonNewTab.UseVisualStyleBackColor = false;
+            this.detailsButtonNewTab.Click += new System.EventHandler(this.detailsButtonNewTab_Click);
             // 
             // btnOption
             // 
@@ -201,7 +202,6 @@
             this.lbNoteSubText.Size = new System.Drawing.Size(114, 20);
             this.lbNoteSubText.TabIndex = 68;
             this.lbNoteSubText.Text = "lbNoteSubText";
-            this.lbNoteSubText.Visible = false;
             // 
             // lbNoteIssueDate
             // 
@@ -296,7 +296,7 @@
             this.Controls.Add(this.iconButton4);
             this.Controls.Add(this.lbNoteNumber);
             this.Controls.Add(this.btnOption);
-            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.detailsButtonNewTab);
             this.Controls.Add(this.detailsButton);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
@@ -312,7 +312,7 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton detailsButton;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton detailsButtonNewTab;
         private FontAwesome.Sharp.IconButton btnOption;
         private System.Windows.Forms.Label lbNoteNumber;
         private FontAwesome.Sharp.IconButton iconButton4;

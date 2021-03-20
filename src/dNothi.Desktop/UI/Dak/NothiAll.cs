@@ -200,6 +200,8 @@ namespace dNothi.Desktop.UI.Dak
                 }
             }
         }
+        NothiListInboxNoteRecordsDTO _noteListForNoteAll = new NothiListInboxNoteRecordsDTO();
+
         public event EventHandler NoteDetailsButton;
 
         private void NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e1, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
@@ -208,6 +210,12 @@ namespace dNothi.Desktop.UI.Dak
             if (this.NoteDetailsButton != null)
                 this.NoteDetailsButton(noteListDataRecordNoteDTO, e1);
         }
+        public event EventHandler NoteAllButton;
+        private void NothiNoteAllButton_Click(object sender, EventArgs e)
+        {
+            if (this.NoteAllButton != null)
+                this.NoteAllButton(_noteListForNoteAll, e);
+        }
         public void LoadNothiNoteAllinPanel(List<NothiListInboxNoteRecordsDTO> nothiNoteInboxLists)
         {
             List<NothiNoteShomuho> nothiNoteShomuhos = new List<NothiNoteShomuho>();
@@ -215,6 +223,7 @@ namespace dNothi.Desktop.UI.Dak
             foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
             {
                 var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
+                _noteListForNoteAll = nothiNoteInboxLists[0];
 
                 nothiNoteShomuho.note_ID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
                 //nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
@@ -316,13 +325,20 @@ namespace dNothi.Desktop.UI.Dak
            //form.ShowDialog();
         }
 
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+        public event EventHandler NothiAllNewNoteButtonClick;
         private void btnNewNote_Click(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<CreateNewNotes>();
+            //var form = FormFactory.Create<CreateNewNotes>();
 
-            form.ShowDialog();
-            
+            //form.ShowDialog();
+            if (this.NothiAllNewNoteButtonClick != null)
+                this.NothiAllNewNoteButtonClick(sender, e);
+
 
         }
+        
     }
 }
