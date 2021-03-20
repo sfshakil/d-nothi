@@ -85,13 +85,13 @@ namespace dNothi.Desktop.UI
             
         }
 
-        private async void LoadNothiInbox()
+        private void LoadNothiInbox()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
             var token = _userService.GetToken();
-            var nothiInbox = await Task.Run(() => _nothiInbox.GetNothiInbox(dakListUserParam));
+            var nothiInbox = _nothiInbox.GetNothiInbox(dakListUserParam);
             if (nothiInbox.status == "success")
             {
                 _nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
@@ -553,7 +553,7 @@ namespace dNothi.Desktop.UI
         private void LoadNothiAll()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            dakListUserParam.limit = 30;
+            dakListUserParam.limit = 1000;
             dakListUserParam.page = 1;
             var token = _userService.GetToken();
             var nothiAll = _nothiAll.GetNothiAll(dakListUserParam);
@@ -563,6 +563,7 @@ namespace dNothi.Desktop.UI
                 if (nothiAll.data.records.Count > 0)
                 {
                     pnlNoData.Visible = false;
+                    nothiListFlowLayoutPanel.Controls.Clear();
                     lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiAll.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     LoadNothiAllinPanel(nothiAll.data.records);
                 }
@@ -919,6 +920,10 @@ namespace dNothi.Desktop.UI
         }
         public void ForceLoadNothiALL()
         {
+            agotoNothiSelected = 0;
+            preritoNothiSelected = 0;
+            shokolNothiSelected = 1;
+            _nothiCurrentCategory.isAll = true;
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);

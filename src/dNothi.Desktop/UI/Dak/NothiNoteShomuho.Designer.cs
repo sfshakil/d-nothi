@@ -202,6 +202,7 @@
             this.lbNoteSubText.Size = new System.Drawing.Size(114, 20);
             this.lbNoteSubText.TabIndex = 68;
             this.lbNoteSubText.Text = "lbNoteSubText";
+            this.lbNoteSubText.Visible = false;
             // 
             // lbNoteIssueDate
             // 

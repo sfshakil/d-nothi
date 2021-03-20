@@ -295,6 +295,7 @@
             this.lbNothiId.Size = new System.Drawing.Size(98, 21);
             this.lbNothiId.TabIndex = 79;
             this.lbNothiId.Text = "nothiIdLabel";
+            this.lbNothiId.Visible = false;
             // 
             // flowLayoutPanel1
             // 
