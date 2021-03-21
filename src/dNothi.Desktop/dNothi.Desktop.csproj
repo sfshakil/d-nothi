@@ -467,6 +467,24 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\NoteMovement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NoteMovement.Designer.cs">
+      <DependentUpon>NoteMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteAllAttachement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteAllAttachement.Designer.cs">
+      <DependentUpon>NothiNoteAllAttachement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteMovementList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteMovementList.Designer.cs">
+      <DependentUpon>NothiNoteMovementList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiOutboxNoteShomuho.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1002,6 +1020,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NoteMovement.resx">
+      <DependentUpon>NoteMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiNoteAllAttachement.resx">
+      <DependentUpon>NothiNoteAllAttachement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiNoteMovementList.resx">
+      <DependentUpon>NothiNoteMovementList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutboxNoteShomuho.resx">
       <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>

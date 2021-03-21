@@ -31,6 +31,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbNoteID = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnCross = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -59,7 +60,6 @@ namespace dNothi.Desktop.UI.Dak
             this.label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lbNoteID = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlFooter.SuspendLayout();
@@ -85,6 +85,21 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(462, 74);
             this.panel1.TabIndex = 1;
+            // 
+            // lbNoteID
+            // 
+            this.lbNoteID.AutoSize = true;
+            this.lbNoteID.BackColor = System.Drawing.Color.Azure;
+            this.lbNoteID.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNoteID.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
+            this.lbNoteID.Location = new System.Drawing.Point(2, 0);
+            this.lbNoteID.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNoteID.Name = "lbNoteID";
+            this.lbNoteID.Size = new System.Drawing.Size(19, 21);
+            this.lbNoteID.TabIndex = 72;
+            this.lbNoteID.Text = "0";
+            this.lbNoteID.Visible = false;
             // 
             // panel9
             // 
@@ -444,21 +459,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(2, 651);
             this.panel8.TabIndex = 65;
-            // 
-            // lbNoteID
-            // 
-            this.lbNoteID.AutoSize = true;
-            this.lbNoteID.BackColor = System.Drawing.Color.Azure;
-            this.lbNoteID.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbNoteID.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNoteID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.lbNoteID.Location = new System.Drawing.Point(2, 0);
-            this.lbNoteID.Margin = new System.Windows.Forms.Padding(0);
-            this.lbNoteID.Name = "lbNoteID";
-            this.lbNoteID.Size = new System.Drawing.Size(19, 21);
-            this.lbNoteID.TabIndex = 72;
-            this.lbNoteID.Text = "0";
-            this.lbNoteID.Visible = false;
             // 
             // NothiNextStep
             // 

@@ -5336,14 +5336,14 @@ namespace dNothi.Desktop.UI
 
         private void iconButton17_MouseHover(object sender, EventArgs e)
         {
-            iconButton17.IconColor = Color.FromArgb(246, 78, 96);
-            iconButton17.BackColor = Color.FromArgb(228, 230, 239);
+            btnNothiNoteMovementList.IconColor = Color.FromArgb(246, 78, 96);
+            btnNothiNoteMovementList.BackColor = Color.FromArgb(228, 230, 239);
         }
 
         private void iconButton17_MouseLeave(object sender, EventArgs e)
         {
-            iconButton17.IconColor = Color.FromArgb(54, 153, 255);
-            iconButton17.BackColor = Color.FromArgb(243, 246, 249);
+            btnNothiNoteMovementList.IconColor = Color.FromArgb(54, 153, 255);
+            btnNothiNoteMovementList.BackColor = Color.FromArgb(243, 246, 249);
         }
 
         private void iconButton16_MouseHover(object sender, EventArgs e)
@@ -5384,14 +5384,14 @@ namespace dNothi.Desktop.UI
 
         private void iconButton10_MouseHover(object sender, EventArgs e)
         {
-            iconButton10.IconColor = Color.FromArgb(246, 78, 96);
-            iconButton10.BackColor = Color.FromArgb(228, 230, 239);
+            btnAllAttachement.IconColor = Color.FromArgb(246, 78, 96);
+            btnAllAttachement.BackColor = Color.FromArgb(228, 230, 239);
         }
 
         private void iconButton10_MouseLeave(object sender, EventArgs e)
         {
-            iconButton10.IconColor = Color.FromArgb(54, 153, 255);
-            iconButton10.BackColor = Color.FromArgb(243, 246, 249);
+            btnAllAttachement.IconColor = Color.FromArgb(54, 153, 255);
+            btnAllAttachement.BackColor = Color.FromArgb(243, 246, 249);
         }
 
         private void iconButton3_MouseHover(object sender, EventArgs e)
@@ -5438,6 +5438,36 @@ namespace dNothi.Desktop.UI
             e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) + 9) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  ((s.Width / 2) + 9) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
             e.Graphics.DrawLine(_dashedPen, ((s.Width / 2) + 12) + s.Height / 2, ((s.ClientRectangle.Height / 2) - (gripLineWidth / 2)),  ((s.Width / 2) + 12) + s.Height / 2, ((s.ClientRectangle.Height / 2) + (gripLineWidth / 2)));
 
+        }
+        public Form AttachNothiGuidelinesControlToForm(Control control)
+        {
+            Form form = new Form();
+
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(785, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            form.Size = control.Size;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
+        private void btnNothiNoteMovementList_Click(object sender, EventArgs e)
+        {
+            NothiNoteMovementList form = new NothiNoteMovementList();
+            var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
+            CalPopUpWindow(nothiNoteMovementListform);
+        }
+
+        private void btnAllAttachement_Click(object sender, EventArgs e)
+        {
+            NothiNoteAllAttachement form = new NothiNoteAllAttachement();
+            var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
+            CalPopUpWindow(nothiNoteMovementListform);
         }
     }
 }
