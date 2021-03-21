@@ -32,18 +32,18 @@ namespace dNothi.Desktop.UI.Dak
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -77,6 +77,24 @@ namespace dNothi.Desktop.UI.Dak
             this.panel6.Size = new System.Drawing.Size(579, 1);
             this.panel6.TabIndex = 64;
             // 
+            // btnNothiTypeCross
+            // 
+            this.btnNothiTypeCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnNothiTypeCross.FlatAppearance.BorderSize = 0;
+            this.btnNothiTypeCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiTypeCross.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNothiTypeCross.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btnNothiTypeCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnNothiTypeCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiTypeCross.IconSize = 24;
+            this.btnNothiTypeCross.Location = new System.Drawing.Point(530, 22);
+            this.btnNothiTypeCross.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiTypeCross.Name = "btnNothiTypeCross";
+            this.btnNothiTypeCross.Size = new System.Drawing.Size(34, 35);
+            this.btnNothiTypeCross.TabIndex = 63;
+            this.btnNothiTypeCross.UseVisualStyleBackColor = false;
+            this.btnNothiTypeCross.Click += new System.EventHandler(this.btnNothiTypeCross_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -99,34 +117,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Size = new System.Drawing.Size(579, 37);
             this.panel1.TabIndex = 4;
             // 
-            // btnNothiTypeCross
-            // 
-            this.btnNothiTypeCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.btnNothiTypeCross.FlatAppearance.BorderSize = 0;
-            this.btnNothiTypeCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiTypeCross.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNothiTypeCross.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnNothiTypeCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.btnNothiTypeCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiTypeCross.IconSize = 24;
-            this.btnNothiTypeCross.Location = new System.Drawing.Point(530, 22);
-            this.btnNothiTypeCross.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNothiTypeCross.Name = "btnNothiTypeCross";
-            this.btnNothiTypeCross.Size = new System.Drawing.Size(34, 35);
-            this.btnNothiTypeCross.TabIndex = 63;
-            this.btnNothiTypeCross.UseVisualStyleBackColor = false;
-            this.btnNothiTypeCross.Click += new System.EventHandler(this.btnNothiTypeCross_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(123, 37);
-            this.panel2.TabIndex = 5;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.iconButton8);
@@ -135,19 +125,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(123, 37);
             this.panel3.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label2.Location = new System.Drawing.Point(51, 5);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "সংযুক্তি(০)";
             // 
             // iconButton8
             // 
@@ -171,6 +148,29 @@ namespace dNothi.Desktop.UI.Dak
             this.iconButton8.TabIndex = 72;
             this.iconButton8.UseVisualStyleBackColor = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(123, 37);
+            this.panel2.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label2.Location = new System.Drawing.Point(51, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 21);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "সংযুক্তি(০)";
+            // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -192,9 +192,9 @@ namespace dNothi.Desktop.UI.Dak
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

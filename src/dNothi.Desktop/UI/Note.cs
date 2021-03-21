@@ -199,10 +199,12 @@ namespace dNothi.Desktop.UI
             OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
             if (onucchedList.data.total_records > 0)
             {
+                int flag = 0;
                 onuchhedFLP.Visible = true;
                 onuchhedFLP.Controls.Clear();
                 foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                 {
+                    flag++;
                     SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, onucchedsingleListRec.id);
                     if (singleOnucched.data.total_records > 0)
                     {
@@ -241,6 +243,10 @@ namespace dNothi.Desktop.UI
                         foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
                         {
                             separateOnucched.loadOnuchhedSignature(singleRecSignature);
+                        }
+                        if (onucchedList.data.total_records == flag)
+                        {
+                            separateOnucched.lastopenOnuchhed();
                         }
                         onuchhedFLP.Controls.Add(separateOnucched);
                         //if (list.can_revert == 1)
@@ -378,10 +384,12 @@ namespace dNothi.Desktop.UI
             OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
             if (onucchedList.data.total_records > 0)
             {
+                int flag = 0;
                 onuchhedFLP.Visible = true;
                 onuchhedFLP.Controls.Clear();
                 foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                 {
+                    flag++;
                     SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, onucchedsingleListRec.id);
                     if (singleOnucched.data.total_records > 0)
                     {
@@ -420,6 +428,10 @@ namespace dNothi.Desktop.UI
                         foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
                         {
                             separateOnucched.loadOnuchhedSignature(singleRecSignature);
+                        }
+                        if (onucchedList.data.total_records == flag)
+                        {
+                            separateOnucched.lastopenOnuchhed();
                         }
                         onuchhedFLP.Controls.Add(separateOnucched);
                         //if (list.can_revert == 1)
@@ -541,10 +553,12 @@ namespace dNothi.Desktop.UI
                 OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, nothiListInboxNoteRecordsDTO.note.nothi_note_id);
                 if (onucchedList.data.total_records > 0)
                 {
+                    int flag = 0;
                     onuchhedFLP.Visible = true;
                     onuchhedFLP.Controls.Clear();
                     foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
+                        flag++;
                         SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, nothiListInboxNoteRecordsDTO.note.nothi_note_id, onucchedsingleListRec.id);
                         if (singleOnucched.data.total_records > 0)
                         {
@@ -579,6 +593,10 @@ namespace dNothi.Desktop.UI
                             foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
                             {
                                 separateOnucched.loadOnuchhedSignature(singleRecSignature);
+                            }
+                            if (onucchedList.data.total_records == flag)
+                            {
+                                separateOnucched.lastopenOnuchhed();
                             }
                             onuchhedFLP.Controls.Add(separateOnucched);
                             //if (nothiListInboxNoteRecordsDTO.note.can_revert == 1)
@@ -696,11 +714,13 @@ namespace dNothi.Desktop.UI
                 OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
                 if (onucchedList.data.total_records > 0)
                 {
+                    int flag = 0;
                    // onuchhedFLP.Visible = true;
                     onuchhedheaderPnl.Visible = false;
                     onuchhedFLP.Controls.Clear();
                     foreach(OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
+                        flag++;
                         SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, onucchedsingleListRec.id);
                         if (singleOnucched.data.total_records > 0)
                         {
@@ -733,6 +753,10 @@ namespace dNothi.Desktop.UI
                             foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
                             {
                                 separateOnucched.loadOnuchhedSignature(singleRecSignature);
+                            }
+                            if (onucchedList.data.total_records == flag)
+                            {
+                                separateOnucched.lastopenOnuchhed();
                             }
                             onuchhedFLP.Controls.Add(separateOnucched);
                             //if (list.can_revert == 1)
@@ -1594,10 +1618,12 @@ namespace dNothi.Desktop.UI
                     OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, newnotedata.note_id);
                     if (onucchedList.data.total_records > 0)
                     {
+                        int flag = 0;
                         onuchhedFLP.Visible = true;
                         onuchhedFLP.Controls.Clear();
                         foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                         {
+                            flag++;
                             SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, newnotedata.note_id, onucchedsingleListRec.id);
                             if (singleOnucched.data.total_records > 0)
                             {
@@ -1633,6 +1659,10 @@ namespace dNothi.Desktop.UI
                                 foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
                                 {
                                     separateOnucched.loadOnuchhedSignature(singleRecSignature);
+                                }
+                                if (onucchedList.data.total_records == flag)
+                                {
+                                    separateOnucched.lastopenOnuchhed();
                                 }
                                 onuchhedFLP.Controls.Add(separateOnucched);
                                 
