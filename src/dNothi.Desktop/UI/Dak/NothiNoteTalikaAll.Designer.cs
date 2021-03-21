@@ -76,6 +76,8 @@
             this.preritoNoteDatePanel = new System.Windows.Forms.Panel();
             this.preritoNoteCDeskLabel = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.sourcePanel.SuspendLayout();
             this.senderAndReceiverPanel.SuspendLayout();
             this.preritoNotePrapokPanel.SuspendLayout();
@@ -170,7 +172,7 @@
             this.subjectLabel.Location = new System.Drawing.Point(32, 8);
             this.subjectLabel.MaximumSize = new System.Drawing.Size(260, 0);
             this.subjectLabel.Name = "subjectLabel";
-            this.subjectLabel.Size = new System.Drawing.Size(88, 18);
+            this.subjectLabel.Size = new System.Drawing.Size(114, 21);
             this.subjectLabel.TabIndex = 62;
             this.subjectLabel.Text = "asa hbfhjfvgha";
             // 
@@ -218,9 +220,9 @@
             this.iconButton4.FlatAppearance.BorderSize = 0;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkAlt;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 24;
+            this.iconButton4.IconSize = 18;
             this.iconButton4.Location = new System.Drawing.Point(30, 0);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(30, 30);
@@ -250,9 +252,9 @@
             this.optionButton.FlatAppearance.BorderSize = 0;
             this.optionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.optionButton.IconChar = FontAwesome.Sharp.IconChar.EllipsisV;
-            this.optionButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.optionButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.optionButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.optionButton.IconSize = 24;
+            this.optionButton.IconSize = 18;
             this.optionButton.Location = new System.Drawing.Point(60, 0);
             this.optionButton.Name = "optionButton";
             this.optionButton.Size = new System.Drawing.Size(30, 30);
@@ -266,9 +268,9 @@
             this.iconButton5.FlatAppearance.BorderSize = 0;
             this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 24;
+            this.iconButton5.IconSize = 18;
             this.iconButton5.Location = new System.Drawing.Point(0, 0);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(30, 30);
@@ -282,10 +284,10 @@
             this.lbToOfficer.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbToOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbToOfficer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(93)))), ((int)(((byte)(106)))));
-            this.lbToOfficer.Location = new System.Drawing.Point(218, 0);
+            this.lbToOfficer.Location = new System.Drawing.Point(264, 0);
             this.lbToOfficer.Name = "lbToOfficer";
             this.lbToOfficer.Padding = new System.Windows.Forms.Padding(3);
-            this.lbToOfficer.Size = new System.Drawing.Size(90, 24);
+            this.lbToOfficer.Size = new System.Drawing.Size(115, 27);
             this.lbToOfficer.TabIndex = 70;
             this.lbToOfficer.Text = "toOfficerLabel";
             // 
@@ -298,7 +300,7 @@
             this.lbDeskOfficer.Location = new System.Drawing.Point(31, 0);
             this.lbDeskOfficer.Name = "lbDeskOfficer";
             this.lbDeskOfficer.Padding = new System.Windows.Forms.Padding(3);
-            this.lbDeskOfficer.Size = new System.Drawing.Size(171, 24);
+            this.lbDeskOfficer.Size = new System.Drawing.Size(217, 27);
             this.lbDeskOfficer.TabIndex = 68;
             this.lbDeskOfficer.Text = "deskOfficerLabel adafdasf s ";
             // 
@@ -322,9 +324,10 @@
             this.preritoNotePrapokPanel.Controls.Add(this.preritoNotePrapokLabel);
             this.preritoNotePrapokPanel.Controls.Add(this.prapokHeadlineLabel);
             this.preritoNotePrapokPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.preritoNotePrapokPanel.Location = new System.Drawing.Point(308, 0);
+            this.preritoNotePrapokPanel.Location = new System.Drawing.Point(379, 0);
+            this.preritoNotePrapokPanel.Margin = new System.Windows.Forms.Padding(0);
             this.preritoNotePrapokPanel.Name = "preritoNotePrapokPanel";
-            this.preritoNotePrapokPanel.Size = new System.Drawing.Size(464, 24);
+            this.preritoNotePrapokPanel.Size = new System.Drawing.Size(393, 24);
             this.preritoNotePrapokPanel.TabIndex = 99;
             this.preritoNotePrapokPanel.Visible = false;
             // 
@@ -338,7 +341,7 @@
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 27;
-            this.iconButton3.Location = new System.Drawing.Point(141, 0);
+            this.iconButton3.Location = new System.Drawing.Point(163, 0);
             this.iconButton3.Margin = new System.Windows.Forms.Padding(5);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(30, 24);
@@ -356,7 +359,7 @@
             this.preritoNotePrapokLabel.MaximumSize = new System.Drawing.Size(700, 0);
             this.preritoNotePrapokLabel.Name = "preritoNotePrapokLabel";
             this.preritoNotePrapokLabel.Padding = new System.Windows.Forms.Padding(3);
-            this.preritoNotePrapokLabel.Size = new System.Drawing.Size(83, 24);
+            this.preritoNotePrapokLabel.Size = new System.Drawing.Size(105, 27);
             this.preritoNotePrapokLabel.TabIndex = 71;
             this.preritoNotePrapokLabel.Text = "prapokLabel";
             // 
@@ -382,7 +385,7 @@
             this.sokolNoteNoteDeskPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sokolNoteNoteDeskPanel.Location = new System.Drawing.Point(0, 0);
             this.sokolNoteNoteDeskPanel.Name = "sokolNoteNoteDeskPanel";
-            this.sokolNoteNoteDeskPanel.Size = new System.Drawing.Size(308, 24);
+            this.sokolNoteNoteDeskPanel.Size = new System.Drawing.Size(379, 24);
             this.sokolNoteNoteDeskPanel.TabIndex = 100;
             // 
             // iconButton6
@@ -395,7 +398,7 @@
             this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 24;
-            this.iconButton6.Location = new System.Drawing.Point(202, 0);
+            this.iconButton6.Location = new System.Drawing.Point(248, 0);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Padding = new System.Windows.Forms.Padding(2);
             this.iconButton6.Size = new System.Drawing.Size(16, 24);
@@ -509,16 +512,18 @@
             this.branchNoteSubLabel.MinimumSize = new System.Drawing.Size(750, 0);
             this.branchNoteSubLabel.Name = "branchNoteSubLabel";
             this.branchNoteSubLabel.Padding = new System.Windows.Forms.Padding(3);
-            this.branchNoteSubLabel.Size = new System.Drawing.Size(750, 24);
+            this.branchNoteSubLabel.Size = new System.Drawing.Size(750, 27);
             this.branchNoteSubLabel.TabIndex = 104;
             this.branchNoteSubLabel.Text = "Subject";
             // 
             // panel5
             // 
             this.panel5.AutoSize = true;
+            this.panel5.Controls.Add(this.flowLayoutPanel1);
             this.panel5.Controls.Add(this.branchNoteSubLabel);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(96, 108);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.MinimumSize = new System.Drawing.Size(0, 28);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(772, 28);
@@ -537,11 +542,13 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.flowLayoutPanel2);
             this.panel6.Controls.Add(this.panel9);
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel6.Location = new System.Drawing.Point(868, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(243, 136);
             this.panel6.TabIndex = 93;
@@ -553,6 +560,7 @@
             this.panel9.Controls.Add(this.potrojariLabel);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 58);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
             this.panel9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.panel9.Size = new System.Drawing.Size(243, 24);
@@ -605,6 +613,7 @@
             this.panel7.Controls.Add(this.dateLabel);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.panel7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -633,6 +642,7 @@
             // 
             this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(96, 137);
             this.panel13.TabIndex = 106;
@@ -644,6 +654,7 @@
             this.preritoNoteCDeskPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.preritoNoteCDeskPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.preritoNoteCDeskPanel.Location = new System.Drawing.Point(96, 84);
+            this.preritoNoteCDeskPanel.Margin = new System.Windows.Forms.Padding(0);
             this.preritoNoteCDeskPanel.Name = "preritoNoteCDeskPanel";
             this.preritoNoteCDeskPanel.Size = new System.Drawing.Size(772, 24);
             this.preritoNoteCDeskPanel.TabIndex = 99;
@@ -658,7 +669,7 @@
             this.cDeskLabel.Location = new System.Drawing.Point(85, 4);
             this.cDeskLabel.MaximumSize = new System.Drawing.Size(700, 0);
             this.cDeskLabel.Name = "cDeskLabel";
-            this.cDeskLabel.Size = new System.Drawing.Size(88, 18);
+            this.cDeskLabel.Size = new System.Drawing.Size(114, 21);
             this.cDeskLabel.TabIndex = 71;
             this.cDeskLabel.Text = "asa hbfhjfvgha";
             // 
@@ -680,6 +691,7 @@
             this.preritoNoteDatePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.preritoNoteDatePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.preritoNoteDatePanel.Location = new System.Drawing.Point(96, 54);
+            this.preritoNoteDatePanel.Margin = new System.Windows.Forms.Padding(0);
             this.preritoNoteDatePanel.Name = "preritoNoteDatePanel";
             this.preritoNoteDatePanel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.preritoNoteDatePanel.Size = new System.Drawing.Size(772, 30);
@@ -716,10 +728,31 @@
             this.panel14.Size = new System.Drawing.Size(90, 30);
             this.panel14.TabIndex = 93;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 27);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(772, 1);
+            this.flowLayoutPanel1.TabIndex = 105;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 135);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(243, 1);
+            this.flowLayoutPanel2.TabIndex = 58;
+            // 
             // NothiNoteTalikaAll
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.preritoNoteCDeskPanel);
@@ -730,6 +763,7 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel13);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(1121, 0);
             this.Name = "NothiNoteTalikaAll";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -810,5 +844,7 @@
         private System.Windows.Forms.Panel sokolNoteNoteDeskPanel;
         private System.Windows.Forms.Panel panel14;
         private FontAwesome.Sharp.IconButton usersButton;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

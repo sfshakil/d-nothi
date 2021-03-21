@@ -20,6 +20,7 @@ namespace dNothi.Desktop.UI.Dak
 
         IUserService _userService { get; set; }
         INothiInboxNoteServices _nothiInboxNote { get; set; }
+        NothiListInboxNoteRecordsDTO _noteListForNoteAll = new NothiListInboxNoteRecordsDTO();
         public NothiOutbox(IUserService userService, INothiInboxNoteServices nothiInboxNote)
         {
             _userService = userService;
@@ -157,6 +158,10 @@ namespace dNothi.Desktop.UI.Dak
             foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
             {
                 var nothiNoteShomuho = new NothiOutboxNoteShomuho();
+
+                _noteListForNoteAll = nothiNoteInboxLists[0];
+                
+                nothiNoteShomuho.noteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
                 nothiNoteShomuho.noteNumber = nothiListInboxNoteRecordsDTO.note.note_no.ToString();
                 nothiNoteShomuho.notesubject = nothiListInboxNoteRecordsDTO.note.note_subject.ToString();
                 nothiNoteShomuho.prapok = nothiListInboxNoteRecordsDTO.to.officer+","+
@@ -180,6 +185,9 @@ namespace dNothi.Desktop.UI.Dak
 
                 nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
                 nothiNoteShomuho.canRevert = nothiListInboxNoteRecordsDTO.note.can_revert;
+
+                nothiNoteShomuho.OutboxNoteDetailsButton += delegate (object sender1, EventArgs e1) { OutboxNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
+
                 //nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.note_subject.ToString();
                 //nothiNoteShomuho.note_ID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
                 ////nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
@@ -240,6 +248,14 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+        public event EventHandler OutboxNoteDetailsButton;
+        public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
+        private void OutboxNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e1, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+            _nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
+            if (this.OutboxNoteDetailsButton != null)
+                this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e1);
+        }
 
         private void iconButton3_MouseHover(object sender, EventArgs e)
         {
@@ -279,6 +295,13 @@ namespace dNothi.Desktop.UI.Dak
             //form.ShowDialog();
             if (this.NewNoteButtonClick != null)
                 this.NewNoteButtonClick(sender, e);
+        }
+
+        public event EventHandler NoteAllButton;
+        private void btnAllNote_Click(object sender, EventArgs e)
+        {
+            if (this.NoteAllButton != null)
+                this.NoteAllButton(_noteListForNoteAll, e);
         }
     }
 }

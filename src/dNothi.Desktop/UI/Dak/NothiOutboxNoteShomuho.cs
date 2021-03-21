@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dNothi.JsonParser.Entity.Nothi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,8 +28,14 @@ namespace dNothi.Desktop.UI.Dak
         private string _noteIssueDate;
         private string _noteAttachment;
         private int _canRevert;
+        private int _noteID;
 
         [Category("Custom Props")]
+        public int noteID
+        {
+            get { return _noteID; }
+            set { _noteID = value; lbNoteId.Text = value.ToString(); }
+        }
         public string noteNumber
         {
             get { return _noteNumber; }
@@ -84,6 +91,25 @@ namespace dNothi.Desktop.UI.Dak
                     eyeIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
         }
+        public event EventHandler OutboxNoteDetailsButton;
+        private void NoteDetailsButton_Click(object sender, EventArgs e)
+        {
+            NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
+            noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
+            noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_noteNumber);
+            noteListDataRecordNoteDTO.is_editable = 0; // is editable ==0 means not new tab;
+            if (this.OutboxNoteDetailsButton != null)
+                this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e);
+        }
 
+        private void nothiOutboxDetBtnNewTab_Click(object sender, EventArgs e)
+        {
+            NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
+            noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
+            noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_noteNumber);
+            noteListDataRecordNoteDTO.is_editable = 1; // is editable ==1 means new tab;
+            if (this.OutboxNoteDetailsButton != null)
+                this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e);
+        }
     }
 }

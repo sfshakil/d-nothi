@@ -84,7 +84,8 @@ namespace dNothi.Desktop.UI
 
 
             hideform.BackColor = Color.Black;
-            hideform.Size = this.Size;
+            hideform.Height = 744;//{Width = 1382 Height = 744}
+            hideform.Width = 1382;
             hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;

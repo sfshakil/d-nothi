@@ -51,7 +51,14 @@ namespace dNothi.Desktop.UI
             shokolNothiSelected = 0;
             noteListButton.BackColor = Color.LightSteelBlue;
             btnNothiTalika.BackColor = Color.MediumSlateBlue;
+            loadNothiInboxTptal();
 
+        }
+        public void loadNothiInboxTptal()
+        {
+            var noteList = _nothiNoteTalikaServices.GetNothiNoteListInbox(_dakuserparam, -1);
+            lbTotalNothi.Text = "সর্বমোট: " + string.Concat(noteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            NothiInboxTotal.Text = string.Concat(noteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
         }
         public void forceLoadNewNothi()
         {
@@ -482,7 +489,37 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date; 
                     NewNote_ButtonClick(sender, e, nothiListRecordsDTO); 
                 };
-                
+
+                nothiOutbox.OutboxNoteDetailsButton += delegate (object sender, EventArgs e) {
+                    NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+                    nothiListRecordsDTO.id = nothiOutboxListDTO.nothi.id;
+                    nothiListRecordsDTO.office_id = nothiOutboxListDTO.nothi.office_id;
+                    nothiListRecordsDTO.office_name = nothiOutboxListDTO.nothi.office_name;
+                    nothiListRecordsDTO.office_unit_id = nothiOutboxListDTO.nothi.office_unit_id;
+                    nothiListRecordsDTO.office_unit_name = nothiOutboxListDTO.nothi.office_unit_name;
+                    nothiListRecordsDTO.office_unit_organogram_id = nothiOutboxListDTO.nothi.office_unit_organogram_id;
+                    nothiListRecordsDTO.office_designation_name = nothiOutboxListDTO.nothi.office_designation_name;
+                    nothiListRecordsDTO.nothi_no = nothiOutboxListDTO.nothi.nothi_no;
+                    nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
+                    nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
+                    nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
+                    NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiOutbox._nothiListInboxNoteRecordsDTO); };
+
+                nothiOutbox.NoteAllButton += delegate (object sender, EventArgs e) {
+                    NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+                    nothiListRecordsDTO.id = nothiOutboxListDTO.nothi.id;
+                    nothiListRecordsDTO.office_id = nothiOutboxListDTO.nothi.office_id;
+                    nothiListRecordsDTO.office_name = nothiOutboxListDTO.nothi.office_name;
+                    nothiListRecordsDTO.office_unit_id = nothiOutboxListDTO.nothi.office_unit_id;
+                    nothiListRecordsDTO.office_unit_name = nothiOutboxListDTO.nothi.office_unit_name;
+                    nothiListRecordsDTO.office_unit_organogram_id = nothiOutboxListDTO.nothi.office_unit_organogram_id;
+                    nothiListRecordsDTO.office_designation_name = nothiOutboxListDTO.nothi.office_designation_name;
+                    nothiListRecordsDTO.nothi_no = nothiOutboxListDTO.nothi.nothi_no;
+                    nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
+                    nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
+                    nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
+                    NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO); };
+
                 nothiOutbox.nothiOutboxListRecordsDTO = nothiOutboxListDTO;
                 i = i + 1;
                 nothiOutboxs.Add(nothiOutbox);
@@ -1113,7 +1150,6 @@ namespace dNothi.Desktop.UI
             if(noteList.data!=null)
             {
                 List<NothiNoteTalikaAll> noteListUserControls = new List<NothiNoteTalikaAll>();
-
                 foreach (NothiNoteListRecordDTO noteDTO in noteList.data.records)
                 {
                     NothiNoteTalikaAll dakNothiteUposthaponNoteList = new NothiNoteTalikaAll();
