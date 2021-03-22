@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttentionTypeIConList.cs" />
+    <Compile Include="ConversionMethod.cs" />
     <Compile Include="DaakStatus.cs" />
     <Compile Include="DakAttachmentTypeIconList.cs" />
     <Compile Include="DakPriorityList.cs" />

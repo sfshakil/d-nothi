@@ -143,6 +143,17 @@
             this.button7 = new System.Windows.Forms.Button();
             this.leftMenuBarTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.menuTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.protibedonPanel = new System.Windows.Forms.Panel();
+            this.nothijatoListReportButton = new System.Windows.Forms.Button();
+            this.PotrojariListReportButton = new System.Windows.Forms.Button();
+            this.nothiteUposthapitoListReportButton = new System.Windows.Forms.Button();
+            this.resolvedReportButton = new System.Windows.Forms.Button();
+            this.pendingReportButton = new System.Windows.Forms.Button();
+            this.registerPanel = new System.Windows.Forms.Panel();
+            this.registerDiaryButton = new System.Windows.Forms.Button();
+            this.registerBiliButton = new System.Windows.Forms.Button();
+            this.registerGrohonButton = new System.Windows.Forms.Button();
+            this.registerButton = new FontAwesome.Sharp.IconButton();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dakSortingUserFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -160,6 +171,7 @@
             this.dakSortButton = new FontAwesome.Sharp.IconButton();
             this.dakInboxButton = new FontAwesome.Sharp.IconButton();
             this.dakSearchButton = new FontAwesome.Sharp.IconButton();
+            this.protibedonButton = new FontAwesome.Sharp.IconButton();
             this.logoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.dakMenuButton = new System.Windows.Forms.Panel();
@@ -222,6 +234,8 @@
             this.panel3.SuspendLayout();
             this.leftMenuBarTableLayoutPanel.SuspendLayout();
             this.menuTableLayoutPanel.SuspendLayout();
+            this.protibedonPanel.SuspendLayout();
+            this.registerPanel.SuspendLayout();
             this.dakUploadDropDownPanel.SuspendLayout();
             this.logoTableLayoutPanel.SuspendLayout();
             this.dakMenuButton.SuspendLayout();
@@ -715,6 +729,7 @@
             this.dakShareButton.TabIndex = 30;
             this.MyToolTip.SetToolTip(this.dakShareButton, "ডাক বক্স শেয়ারিং");
             this.dakShareButton.UseVisualStyleBackColor = false;
+            this.dakShareButton.Click += new System.EventHandler(this.dakShareButton_Click);
             // 
             // dakPriorityComboBox
             // 
@@ -1942,6 +1957,9 @@
             this.menuTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.menuTableLayoutPanel.ColumnCount = 1;
             this.menuTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.menuTableLayoutPanel.Controls.Add(this.protibedonPanel, 0, 18);
+            this.menuTableLayoutPanel.Controls.Add(this.registerPanel, 0, 16);
+            this.menuTableLayoutPanel.Controls.Add(this.registerButton, 0, 15);
             this.menuTableLayoutPanel.Controls.Add(this.label12, 0, 13);
             this.menuTableLayoutPanel.Controls.Add(this.label2, 0, 10);
             this.menuTableLayoutPanel.Controls.Add(this.dakSortingUserFlowLayoutPanel, 0, 13);
@@ -1957,11 +1975,16 @@
             this.menuTableLayoutPanel.Controls.Add(this.dakSortButton, 0, 2);
             this.menuTableLayoutPanel.Controls.Add(this.dakInboxButton, 0, 1);
             this.menuTableLayoutPanel.Controls.Add(this.dakSearchButton, 0, 0);
+            this.menuTableLayoutPanel.Controls.Add(this.protibedonButton, 0, 17);
             this.menuTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuTableLayoutPanel.Location = new System.Drawing.Point(0, 50);
             this.menuTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.menuTableLayoutPanel.Name = "menuTableLayoutPanel";
-            this.menuTableLayoutPanel.RowCount = 15;
+            this.menuTableLayoutPanel.RowCount = 19;
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1981,11 +2004,262 @@
             this.menuTableLayoutPanel.TabIndex = 47;
             this.menuTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuTableLayoutPanel_Paint);
             // 
+            // protibedonPanel
+            // 
+            this.protibedonPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.protibedonPanel.Controls.Add(this.nothijatoListReportButton);
+            this.protibedonPanel.Controls.Add(this.PotrojariListReportButton);
+            this.protibedonPanel.Controls.Add(this.nothiteUposthapitoListReportButton);
+            this.protibedonPanel.Controls.Add(this.resolvedReportButton);
+            this.protibedonPanel.Controls.Add(this.pendingReportButton);
+            this.protibedonPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.protibedonPanel.Location = new System.Drawing.Point(0, 769);
+            this.protibedonPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.protibedonPanel.Name = "protibedonPanel";
+            this.protibedonPanel.Size = new System.Drawing.Size(234, 160);
+            this.protibedonPanel.TabIndex = 63;
+            this.protibedonPanel.Visible = false;
+            // 
+            // nothijatoListReportButton
+            // 
+            this.nothijatoListReportButton.AutoSize = true;
+            this.nothijatoListReportButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.nothijatoListReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.nothijatoListReportButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nothijatoListReportButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.nothijatoListReportButton.FlatAppearance.BorderSize = 0;
+            this.nothijatoListReportButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.nothijatoListReportButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.nothijatoListReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothijatoListReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothijatoListReportButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.nothijatoListReportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nothijatoListReportButton.Location = new System.Drawing.Point(0, 120);
+            this.nothijatoListReportButton.Name = "nothijatoListReportButton";
+            this.nothijatoListReportButton.Size = new System.Drawing.Size(234, 30);
+            this.nothijatoListReportButton.TabIndex = 25;
+            this.nothijatoListReportButton.Text = "         - নথিজাত ডাক তালিকা";
+            this.nothijatoListReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nothijatoListReportButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.nothijatoListReportButton.UseVisualStyleBackColor = false;
+            this.nothijatoListReportButton.Click += new System.EventHandler(this.nothijatoListReportButton_Click);
+            // 
+            // PotrojariListReportButton
+            // 
+            this.PotrojariListReportButton.AutoSize = true;
+            this.PotrojariListReportButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PotrojariListReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.PotrojariListReportButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PotrojariListReportButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.PotrojariListReportButton.FlatAppearance.BorderSize = 0;
+            this.PotrojariListReportButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.PotrojariListReportButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.PotrojariListReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PotrojariListReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PotrojariListReportButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.PotrojariListReportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PotrojariListReportButton.Location = new System.Drawing.Point(0, 90);
+            this.PotrojariListReportButton.Name = "PotrojariListReportButton";
+            this.PotrojariListReportButton.Size = new System.Drawing.Size(234, 30);
+            this.PotrojariListReportButton.TabIndex = 24;
+            this.PotrojariListReportButton.Text = "         - পত্রজারি ডাক তালিকা";
+            this.PotrojariListReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PotrojariListReportButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.PotrojariListReportButton.UseVisualStyleBackColor = false;
+            this.PotrojariListReportButton.Click += new System.EventHandler(this.PotrojariListReportButton_Click);
+            // 
+            // nothiteUposthapitoListReportButton
+            // 
+            this.nothiteUposthapitoListReportButton.AutoSize = true;
+            this.nothiteUposthapitoListReportButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.nothiteUposthapitoListReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.nothiteUposthapitoListReportButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nothiteUposthapitoListReportButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.nothiteUposthapitoListReportButton.FlatAppearance.BorderSize = 0;
+            this.nothiteUposthapitoListReportButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.nothiteUposthapitoListReportButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.nothiteUposthapitoListReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothiteUposthapitoListReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiteUposthapitoListReportButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.nothiteUposthapitoListReportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nothiteUposthapitoListReportButton.Location = new System.Drawing.Point(0, 60);
+            this.nothiteUposthapitoListReportButton.Name = "nothiteUposthapitoListReportButton";
+            this.nothiteUposthapitoListReportButton.Size = new System.Drawing.Size(234, 30);
+            this.nothiteUposthapitoListReportButton.TabIndex = 23;
+            this.nothiteUposthapitoListReportButton.Text = "         - নথিতে উপস্থাপিত ডাক তালিকা";
+            this.nothiteUposthapitoListReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nothiteUposthapitoListReportButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.nothiteUposthapitoListReportButton.UseVisualStyleBackColor = false;
+            this.nothiteUposthapitoListReportButton.Click += new System.EventHandler(this.nothiteUposthapitoListReportButton_Click);
+            // 
+            // resolvedReportButton
+            // 
+            this.resolvedReportButton.AutoSize = true;
+            this.resolvedReportButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.resolvedReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.resolvedReportButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.resolvedReportButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.resolvedReportButton.FlatAppearance.BorderSize = 0;
+            this.resolvedReportButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.resolvedReportButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.resolvedReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resolvedReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resolvedReportButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.resolvedReportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resolvedReportButton.Location = new System.Drawing.Point(0, 30);
+            this.resolvedReportButton.Name = "resolvedReportButton";
+            this.resolvedReportButton.Size = new System.Drawing.Size(234, 30);
+            this.resolvedReportButton.TabIndex = 22;
+            this.resolvedReportButton.Text = "         - মীমাংসিত ডাক তালিকা";
+            this.resolvedReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resolvedReportButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.resolvedReportButton.UseVisualStyleBackColor = false;
+            this.resolvedReportButton.Click += new System.EventHandler(this.resolvedReportButton_Click);
+            // 
+            // pendingReportButton
+            // 
+            this.pendingReportButton.AutoSize = true;
+            this.pendingReportButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pendingReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.pendingReportButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pendingReportButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.pendingReportButton.FlatAppearance.BorderSize = 0;
+            this.pendingReportButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.pendingReportButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.pendingReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pendingReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pendingReportButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.pendingReportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pendingReportButton.Location = new System.Drawing.Point(0, 0);
+            this.pendingReportButton.Name = "pendingReportButton";
+            this.pendingReportButton.Size = new System.Drawing.Size(234, 30);
+            this.pendingReportButton.TabIndex = 21;
+            this.pendingReportButton.Text = "         -অমীমাংসিত ডাক তালিকা";
+            this.pendingReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pendingReportButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.pendingReportButton.UseVisualStyleBackColor = false;
+            this.pendingReportButton.Click += new System.EventHandler(this.pendingReportButton_Click);
+            // 
+            // registerPanel
+            // 
+            this.registerPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.registerPanel.Controls.Add(this.registerDiaryButton);
+            this.registerPanel.Controls.Add(this.registerBiliButton);
+            this.registerPanel.Controls.Add(this.registerGrohonButton);
+            this.registerPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.registerPanel.Location = new System.Drawing.Point(0, 623);
+            this.registerPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.registerPanel.Name = "registerPanel";
+            this.registerPanel.Size = new System.Drawing.Size(234, 100);
+            this.registerPanel.TabIndex = 61;
+            this.registerPanel.Visible = false;
+            // 
+            // registerDiaryButton
+            // 
+            this.registerDiaryButton.AutoSize = true;
+            this.registerDiaryButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.registerDiaryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerDiaryButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.registerDiaryButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.registerDiaryButton.FlatAppearance.BorderSize = 0;
+            this.registerDiaryButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerDiaryButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.registerDiaryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registerDiaryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerDiaryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.registerDiaryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerDiaryButton.Location = new System.Drawing.Point(0, 60);
+            this.registerDiaryButton.Name = "registerDiaryButton";
+            this.registerDiaryButton.Size = new System.Drawing.Size(234, 30);
+            this.registerDiaryButton.TabIndex = 23;
+            this.registerDiaryButton.Text = "         - শাখা ডায়েরি নিবন্ধন বহি";
+            this.registerDiaryButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerDiaryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.registerDiaryButton.UseVisualStyleBackColor = false;
+            this.registerDiaryButton.Click += new System.EventHandler(this.registerDiaryButton_Click);
+            // 
+            // registerBiliButton
+            // 
+            this.registerBiliButton.AutoSize = true;
+            this.registerBiliButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.registerBiliButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerBiliButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.registerBiliButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.registerBiliButton.FlatAppearance.BorderSize = 0;
+            this.registerBiliButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerBiliButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.registerBiliButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registerBiliButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerBiliButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.registerBiliButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerBiliButton.Location = new System.Drawing.Point(0, 30);
+            this.registerBiliButton.Name = "registerBiliButton";
+            this.registerBiliButton.Size = new System.Drawing.Size(234, 30);
+            this.registerBiliButton.TabIndex = 22;
+            this.registerBiliButton.Text = "         - ডাক বিলি নিবন্ধন বহি";
+            this.registerBiliButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerBiliButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.registerBiliButton.UseVisualStyleBackColor = false;
+            this.registerBiliButton.Click += new System.EventHandler(this.registerBiliButton_Click);
+            // 
+            // registerGrohonButton
+            // 
+            this.registerGrohonButton.AutoSize = true;
+            this.registerGrohonButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.registerGrohonButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerGrohonButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.registerGrohonButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.registerGrohonButton.FlatAppearance.BorderSize = 0;
+            this.registerGrohonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerGrohonButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.registerGrohonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registerGrohonButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerGrohonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.registerGrohonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerGrohonButton.Location = new System.Drawing.Point(0, 0);
+            this.registerGrohonButton.Name = "registerGrohonButton";
+            this.registerGrohonButton.Size = new System.Drawing.Size(234, 30);
+            this.registerGrohonButton.TabIndex = 21;
+            this.registerGrohonButton.Text = "         -ডাক গ্রহণ নিবন্ধন বহি";
+            this.registerGrohonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerGrohonButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.registerGrohonButton.UseVisualStyleBackColor = false;
+            this.registerGrohonButton.Click += new System.EventHandler(this.registerGrohonButton_Click);
+            // 
+            // registerButton
+            // 
+            this.registerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.registerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.registerButton.FlatAppearance.BorderSize = 0;
+            this.registerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.registerButton.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.registerButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.registerButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.registerButton.IconSize = 24;
+            this.registerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerButton.Location = new System.Drawing.Point(0, 577);
+            this.registerButton.Margin = new System.Windows.Forms.Padding(0);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.registerButton.Size = new System.Drawing.Size(234, 46);
+            this.registerButton.TabIndex = 60;
+            this.registerButton.Text = "   নিবন্ধন বহি";
+            this.registerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.registerButton.UseVisualStyleBackColor = false;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            // 
             // label12
             // 
             this.label12.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(3, 570);
+            this.label12.Location = new System.Drawing.Point(3, 576);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(228, 1);
             this.label12.TabIndex = 59;
@@ -2003,7 +2277,7 @@
             // 
             this.dakSortingUserFlowLayoutPanel.AutoSize = true;
             this.dakSortingUserFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(3, 574);
+            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(3, 573);
             this.dakSortingUserFlowLayoutPanel.MaximumSize = new System.Drawing.Size(227, 0);
             this.dakSortingUserFlowLayoutPanel.MinimumSize = new System.Drawing.Size(227, 0);
             this.dakSortingUserFlowLayoutPanel.Name = "dakSortingUserFlowLayoutPanel";
@@ -2386,6 +2660,35 @@
             this.dakSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.dakSearchButton.UseVisualStyleBackColor = false;
             this.dakSearchButton.Click += new System.EventHandler(this.dakSearchButton_Click);
+            // 
+            // protibedonButton
+            // 
+            this.protibedonButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.protibedonButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.protibedonButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.protibedonButton.FlatAppearance.BorderSize = 0;
+            this.protibedonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.protibedonButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.protibedonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protibedonButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.protibedonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.protibedonButton.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.protibedonButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.protibedonButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.protibedonButton.IconSize = 24;
+            this.protibedonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.protibedonButton.Location = new System.Drawing.Point(0, 723);
+            this.protibedonButton.Margin = new System.Windows.Forms.Padding(0);
+            this.protibedonButton.Name = "protibedonButton";
+            this.protibedonButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.protibedonButton.Size = new System.Drawing.Size(234, 46);
+            this.protibedonButton.TabIndex = 62;
+            this.protibedonButton.Text = "   প্রতিবেদনসমূহ";
+            this.protibedonButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.protibedonButton.UseVisualStyleBackColor = false;
+            this.protibedonButton.Click += new System.EventHandler(this.protibedonButton_Click);
             // 
             // logoTableLayoutPanel
             // 
@@ -2992,6 +3295,10 @@
             this.leftMenuBarTableLayoutPanel.PerformLayout();
             this.menuTableLayoutPanel.ResumeLayout(false);
             this.menuTableLayoutPanel.PerformLayout();
+            this.protibedonPanel.ResumeLayout(false);
+            this.protibedonPanel.PerformLayout();
+            this.registerPanel.ResumeLayout(false);
+            this.registerPanel.PerformLayout();
             this.dakUploadDropDownPanel.ResumeLayout(false);
             this.dakUploadDropDownPanel.PerformLayout();
             this.logoTableLayoutPanel.ResumeLayout(false);
@@ -3189,6 +3496,18 @@
         private FontAwesome.Sharp.IconButton khosraPotroButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel registerPanel;
+        private System.Windows.Forms.Button registerDiaryButton;
+        private System.Windows.Forms.Button registerBiliButton;
+        private System.Windows.Forms.Button registerGrohonButton;
+        private FontAwesome.Sharp.IconButton registerButton;
+        private System.Windows.Forms.Panel protibedonPanel;
+        private System.Windows.Forms.Button nothijatoListReportButton;
+        private System.Windows.Forms.Button PotrojariListReportButton;
+        private System.Windows.Forms.Button nothiteUposthapitoListReportButton;
+        private System.Windows.Forms.Button resolvedReportButton;
+        private System.Windows.Forms.Button pendingReportButton;
+        private FontAwesome.Sharp.IconButton protibedonButton;
     }
 }
 

@@ -23,6 +23,7 @@ using System.Web.Script.Serialization;
 using dNothi.Core.Entities;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity;
+using dNothi.Desktop.View_Model;
 
 namespace dNothi.Desktop.UI
 {
@@ -49,8 +50,10 @@ namespace dNothi.Desktop.UI
 
 
         IUserService _userService { get; set; }
+        IRegisterService _registerService { get; set; }
         IDakFolderService _dakFolderService { get; set; }
         IDakSearchService _dakSearchService { get; set; }
+        IProtibedonService _protibedonService { get; set; }
         IDesignationSealService _designationSealService { get; set; }
 
         private DakUserParam _dakuserparam = new DakUserParam();
@@ -80,12 +83,15 @@ namespace dNothi.Desktop.UI
             IDakUploadService dakUploadService,
             IDesignationSealService designationSealService,
             IDakSearchService dakSearchService,
+            IRegisterService registerService,
              IDakFolderService dakFolderService,
+             IProtibedonService protibedonService,
             IDakNothijatoService dakNothijatoService)
         {
             _dakNothivuktoService = dakNothivuktoService;
             _userService = userService;
             _dakSearchService = dakSearchService;
+            _registerService = registerService;
             _designationSealService = designationSealService;
             _dakOutboxService = dakOutboxService;
             _dakInbox = dakInbox;
@@ -96,6 +102,7 @@ namespace dNothi.Desktop.UI
             _dakForwardService = dakForwardService;
             _dakkhosraservice = dakKhosraService;
             _dakuploadservice = dakUploadService;
+            _protibedonService = protibedonService;
             _currentDakCatagory = new DakCatagoryList();
              _dakFolderService = dakFolderService;
             InitializeComponent();
@@ -2320,8 +2327,19 @@ namespace dNothi.Desktop.UI
                 DakCatagoryList dakCatagoryList = new DakCatagoryList();
                 dakCatagoryList.isSorted = true;
 
+               // dakSortedUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
+                // dakSortedUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakSortedUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
-               // dakSortedUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakSortedUserControl.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakSortedUserControl.DakArchiveButtonClick += delegate (object sender, EventArgs e) { DakArchive_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakSortedUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakSortedUserControl.NothijatoButtonClick += delegate (object sender, EventArgs e) { Nothitejato_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+
+                dakSortedUserControl.DakTagButtonCLick += delegate (object sender, EventArgs e) { DakTag_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_Tags, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakSortedUserControl.DakTagShowButtonCLick += delegate (object sender, EventArgs e) { DakTagShow_ButtonClick(dakListInboxRecordsDTO.dak_Tags); };
+
+
+                dakSortedUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDak(); };
 
 
                 i = i + 1;
@@ -3888,6 +3906,197 @@ namespace dNothi.Desktop.UI
         private void detailsDakSearcPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            if(registerPanel.Visible)
+            {
+                registerPanel.Visible = false;
+            }
+            else
+            {
+                registerPanel.Visible = true;
+            }
+        }
+
+        private void registerGrohonButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(_dakuserparam, null, null, null);
+            RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
+            registerReportUserControl.isDakGrohon = true;
+            registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
+
+
+            registerReportUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize,0F));
+            dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+        }
+
+        private void registerBiliButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(_dakuserparam, null, null, null);
+            RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
+            registerReportUserControl.isDakBili = true;
+            registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
+
+
+            registerReportUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+        }
+
+        private void registerDiaryButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(_dakuserparam, null, null, null);
+            RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
+            registerReportUserControl.isDakDiary = true;
+            registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
+
+
+            registerReportUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+        }
+
+        private void pendingReportButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+            dakSortMetroPanel.Visible = false;
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(_dakuserparam, null, null, null);
+            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            protibedonUserControl.isPending = true;
+            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+
+
+
+            protibedonUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+        }
+
+        private void resolvedReportButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            ProtibedonResponse protibedonResponse = _protibedonService.GetResolvedProtibedonResponse(_dakuserparam, null, null, null);
+            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            protibedonUserControl.isResolved = true;
+            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+
+
+
+            protibedonUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+        }
+
+        private void protibedonButton_Click(object sender, EventArgs e)
+        {
+            if(protibedonPanel.Visible)
+            {
+                protibedonPanel.Visible = false;
+            }
+            else
+            {
+                protibedonPanel.Visible = true;
+            }
+
+        }
+
+        private void nothiteUposthapitoListReportButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            DakProtibedonResponse protibedonResponse = _protibedonService.GetNothiteUposthapitoProtibedonResponse(_dakuserparam, null, null, null);
+            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            protibedonUserControl.isNothiteUposthapito = true;
+            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+
+
+
+
+            protibedonUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+        }
+
+        private void PotrojariListReportButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            DakProtibedonResponse protibedonResponse = _protibedonService.GetPotrojariProtibedonResponse(_dakuserparam, null, null, null);
+            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            protibedonUserControl.isPotrojari = true;
+            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+
+
+
+            protibedonUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+        }
+
+        private void nothijatoListReportButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            DakProtibedonResponse protibedonResponse = _protibedonService.GetNothijatoProtibedonResponse(_dakuserparam, null, null, null);
+            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            protibedonUserControl.isNothijato = true;
+            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+
+
+
+            protibedonUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+        }
+
+        private void dakShareButton_Click(object sender, EventArgs e)
+        {
+            var dakBoxSharingForm = FormFactory.Create<DakBoxSharingForm>();
+            
+            CalPopUpWindow(dakBoxSharingForm);
         }
     }
 

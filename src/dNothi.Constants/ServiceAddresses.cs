@@ -9,7 +9,15 @@ namespace dNothi.Constants
     public class DefaultAPIConfiguration
     {
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";
+        public const string NothijatoProtibedonEndPoint = "/api/reports/dak/nothijato";
+        public const string NothiteUposthapitoProtibedonEndPoint = "/api/reports/dak/nothite_uposthapito";
+        public const string PotrojariProtibedonEndPoint = "/api/reports/dak/jarikrito";
+        public const string PendingProtibedonEndPoint = "/api/reports/dak/pending";
+        public const string ResolvesProtibedonEndPoint = "/api/reports/dak/resolved";
         public const string KhosraTemplateEndpoint = "/api/potro/templates";
+        public const string DakGrohonEndPoint = "/api/register/dak/grohon";
+        public const string DakBiliAddEndPoint = "/api/register/dak/bili";
+        public const string DakDiaryEndPoint = "/api/register/dak/diary";
         public const string DakFolderMapEndPoint = "/api/dak/custom/folder/map";
         public const string DakListFromFolderEndPoint = "/api/dak/personal";
         public const string DakFolderListEndPoint = "/api/dak/customlabel/designation";

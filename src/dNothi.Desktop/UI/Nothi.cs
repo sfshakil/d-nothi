@@ -1093,5 +1093,9 @@ namespace dNothi.Desktop.UI
             nothiModulePanel.ForeColor = Color.Black;
         }
 
+        private void Nothi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
