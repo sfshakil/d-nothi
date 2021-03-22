@@ -46,6 +46,11 @@ namespace dNothi.Desktop.UI
         IOnuchhedListServices _onuchhedList { get; set; }
         ISingleOnucchedServices _singleOnucched { get; set; }
         INoteOnucchedRevertServices _noteOnucchedRevert { get; set; }
+
+        private int _noteFormHeight;
+        private int _noteFormWidth;
+        private int _collapseExpandeHeight;
+        private int _collapseExpandeWidth;
         public Note(IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
             IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
             IKhoshraPotroServices khoshraPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
@@ -76,11 +81,18 @@ namespace dNothi.Desktop.UI
             tinyMceEditor.CreateEditor();
             cbxNothiType.SelectedIndex = 0;
             cbxNothiType.ItemHeight = 30;
-            onuchhedheaderPnl.Visible = false;
             PnlSave.Visible = false;
             userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
             loadPotrangshoNotePanel();
             loadPotrangshoNothiPanel();
+            loadCollapseExpandSize();
+        }
+        public void loadCollapseExpandSize() 
+        {
+            _noteFormHeight = this.Height;
+            _noteFormWidth = this.Width;
+            _collapseExpandeHeight = CollapseExpandPanel.Height;
+            _collapseExpandeWidth = CollapseExpandPanel.Width;
         }
         public NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO { get; set; }
         public NothiListInboxNoteRecordsDTO noteAllListDataRecordDTO { get { return _NoteAllListDataRecordDTO; } set { _NoteAllListDataRecordDTO = value; } }
@@ -213,7 +225,6 @@ namespace dNothi.Desktop.UI
                         lbNoteSubject.Text = list.note_subject_sub_text;
                         lbNothiLastDate.Text = list.date;
 
-                        onuchhedheaderPnl.Visible = false;
                         btnSave.Visible = false;
                         btnSaveArrow.Visible = false;
                         btnCancel.Visible = false;
@@ -273,7 +284,6 @@ namespace dNothi.Desktop.UI
                 lbNoteSubject.Text = list.note_subject_sub_text;
                 lbNothiLastDate.Text = list.date;
 
-                onuchhedheaderPnl.Visible = false;
                 onuchhedFLP.Visible = false;
 
                 lbNote.Visible = false;
@@ -293,8 +303,9 @@ namespace dNothi.Desktop.UI
                 //panel14.Visible = true;
                 panel22.Visible = true;
                 tinyMceEditor.Visible = true;
-                panel24.Visible = true;
                 panel28.Visible = true;
+                panel24.Visible = true;
+                panel22.SendToBack();
                 tinyMceEditor.HtmlContent = "";
                 fileAddFLP.Controls.Clear();
                 noteFileUploads.Clear();
@@ -398,7 +409,6 @@ namespace dNothi.Desktop.UI
                         lbNoteSubject.Text = list.note_subject_sub_text;
                         lbNothiLastDate.Text = list.date;
 
-                        onuchhedheaderPnl.Visible = false;
                         btnSave.Visible = false;
                         btnSaveArrow.Visible = false;
                         btnCancel.Visible = false;
@@ -458,7 +468,6 @@ namespace dNothi.Desktop.UI
                 lbNoteSubject.Text = list.note_subject_sub_text;
                 lbNothiLastDate.Text = list.date;
 
-                onuchhedheaderPnl.Visible = false;
                 onuchhedFLP.Visible = false;
 
                 lbNote.Visible = false;
@@ -478,8 +487,9 @@ namespace dNothi.Desktop.UI
                 //panel14.Visible = true;
                 panel22.Visible = true;
                 tinyMceEditor.Visible = true;
-                panel24.Visible = true;
                 panel28.Visible = true;
+                panel24.Visible = true;
+                panel22.SendToBack();
                 tinyMceEditor.HtmlContent = "";
                 fileAddFLP.Controls.Clear();
                 noteFileUploads.Clear();
@@ -567,7 +577,6 @@ namespace dNothi.Desktop.UI
                             lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject;
                             lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.to.issue_date;
 
-                            onuchhedheaderPnl.Visible = false;
                             btnSave.Visible = false;
                             btnSaveArrow.Visible = false;
                             btnCancel.Visible = false;
@@ -619,7 +628,6 @@ namespace dNothi.Desktop.UI
                     lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject;
                     lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.to.issue_date;
 
-                    onuchhedheaderPnl.Visible = false;
                     onuchhedFLP.Visible = false;
 
                     lbNote.Visible = false;
@@ -639,8 +647,9 @@ namespace dNothi.Desktop.UI
                     onucchedEditorPanel.Visible = true;
                     panel22.Visible = true;
                     tinyMceEditor.Visible = true;
-                    panel24.Visible = true;
                     panel28.Visible = true;
+                    panel24.Visible = true; 
+                    panel22.SendToBack();
                     tinyMceEditor.HtmlContent = "";
                     fileAddFLP.Controls.Clear();
                     noteFileUploads.Clear();
@@ -716,7 +725,6 @@ namespace dNothi.Desktop.UI
                 {
                     int flag = 0;
                    // onuchhedFLP.Visible = true;
-                    onuchhedheaderPnl.Visible = false;
                     onuchhedFLP.Controls.Clear();
                     foreach(OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
@@ -815,7 +823,6 @@ namespace dNothi.Desktop.UI
                     lbNoteSubject.Text = list.note_subject_sub_text;
                     lbNothiLastDate.Text = list.date;
 
-                    onuchhedheaderPnl.Visible = false;
                     onuchhedFLP.Visible = false;
 
                     lbNote.Visible = false;
@@ -835,8 +842,9 @@ namespace dNothi.Desktop.UI
                     onucchedEditorPanel.Visible = true;
                     panel22.Visible = true;
                     tinyMceEditor.Visible = true;
-                    panel24.Visible = true;
                     panel28.Visible = true;
+                    panel24.Visible = true;
+                    panel22.SendToBack();
                     tinyMceEditor.HtmlContent = "";
                     fileAddFLP.Controls.Clear();
                     noteFileUploads.Clear();
@@ -865,7 +873,7 @@ namespace dNothi.Desktop.UI
         public string office
         {
             get { return _office; }
-            set { _office = value; lbOffice.Text = value; }
+            set { _office = value;}
         }
 
         [Category("Custom Props")]
@@ -907,8 +915,7 @@ namespace dNothi.Desktop.UI
             get { return _noteTotal; }
             set { _noteTotal = value; 
                 string vl = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                lbNoteTotl1.Text = "নোটঃ " + vl;
-                lbNoteTtl.Text = vl+ ".০"; }
+                lbNoteTotl1.Text = "নোটঃ " + vl;}
         }
         public string totalRange
         {
@@ -1197,7 +1204,7 @@ namespace dNothi.Desktop.UI
             noteViewFLP.Controls.Clear();
             NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
             lbNothiType.Text = "সকল নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
-            onuchhedheaderPnl.Visible = false;
+            
             btnSave.Visible = false;
             btnSaveArrow.Visible = false;
             btnCancel.Visible = false;
@@ -1516,7 +1523,6 @@ namespace dNothi.Desktop.UI
                 MessageBox.Show("সফলভাবে অনুচ্ছেদটি মুছে ফেলা হয়েছে");
                 if (onuchhedint == 1)
                 {
-                    onuchhedheaderPnl.Visible = false;
                 }
                 onuchhedint--;
             }
@@ -1566,7 +1572,6 @@ namespace dNothi.Desktop.UI
             {
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(editortext);
                 var encodedEditorText = System.Convert.ToBase64String(plainTextBytes);
-                onuchhedheaderPnl.Visible = false;
                 OnuchhedAdd onuchhed = new OnuchhedAdd();
                 onuchhed.currentDate = DateTime.Now.ToString("dd");
                 onuchhed.currentMonth = DateTime.Now.ToString("MM");
@@ -1629,7 +1634,6 @@ namespace dNothi.Desktop.UI
                             {
                                 var rec = singleOnucched.data.records;
 
-                                onuchhedheaderPnl.Visible = false;
                                 btnSave.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
@@ -1743,8 +1747,9 @@ namespace dNothi.Desktop.UI
                     onuchhed.onucchedId = onucchedSave.data.id;
                     panel22.Visible = true;
                     tinyMceEditor.Visible = true;
-                    panel24.Visible = true;
                     panel28.Visible = true;
+                    panel24.Visible = true;
+                    panel22.SendToBack();
                     tinyMceEditor.HtmlContent = "";
                     onuchhedFLP.Controls.Add(onuchhed);
                     fileAddFLP.Controls.Clear();
@@ -1778,8 +1783,9 @@ namespace dNothi.Desktop.UI
             btnCancel.Visible = true;
             panel22.Visible = true;
             tinyMceEditor.Visible = true;
-            panel24.Visible = true;
             panel28.Visible = true;
+            panel24.Visible = true;
+            panel22.SendToBack();
             tinyMceEditor.HtmlContent = noteListDataRecordNoteDTO.note_subject;
             updateOnuchhedId = noteListDataRecordNoteDTO.nothi_note_id; ///////////////////////////////////////////////////////////////////////Jhamela ache ekhane.(onuchhed ID boshate hobe ekhane)//////////////////////////////
             //onuchhedFLP.Controls.Add(onuchhed);
@@ -1788,7 +1794,7 @@ namespace dNothi.Desktop.UI
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //panel22.Visible = false;
+            panel22.Visible = false;
             tinyMceEditor.Visible = false;
             panel24.Visible = false;
             panel28.Visible = false;
@@ -1816,8 +1822,10 @@ namespace dNothi.Desktop.UI
             PnlSave.Visible = false;
             panel22.Visible = true;
             tinyMceEditor.Visible = true;
-            panel24.Visible = true;
             panel28.Visible = true;
+            panel22.SendToBack();
+            panel24.Visible = true;
+            //panel24.SendToBack();
             tinyMceEditor.HtmlContent = "";
             fileAddFLP.Controls.Clear();
             noteFileUploads.Clear();
@@ -1922,16 +1930,10 @@ namespace dNothi.Desktop.UI
             nothiType.loadNewNoteData(newnotedata);
             nothiType.loadlistInboxRecord(nothiListRecords);
 
-            //nothiType.Location = new System.Drawing.Point(0, 0);
             nothiType.GetNothiInboxRecords(records);
-
-            //var invi = UserControlFactory.Create<NothiNextStep>();
-            //nothiType.loadNewNoteDataFromNote(nothiType);
             nothiType.loadNoteList(notelist);
-            //invi.Visible = false;
 
             this.Controls.Add(nothiType);
-            //nothiType.BringToFront();
             var form = AttachNothiTypeListControlToForm(nothiType);
             CalPopUpWindow(form);
 
@@ -5402,14 +5404,14 @@ namespace dNothi.Desktop.UI
 
         private void iconButton13_MouseHover(object sender, EventArgs e)
         {
-            iconButton13.IconColor = Color.FromArgb(246, 78, 96);
-            iconButton13.BackColor = Color.FromArgb(228, 230, 239);
+            btnNothiOnumodonList.IconColor = Color.FromArgb(246, 78, 96);
+            btnNothiOnumodonList.BackColor = Color.FromArgb(228, 230, 239);
         }
 
         private void iconButton13_MouseLeave(object sender, EventArgs e)
         {
-            iconButton13.IconColor = Color.FromArgb(54, 153, 255);
-            iconButton13.BackColor = Color.FromArgb(243, 246, 249);
+            btnNothiOnumodonList.IconColor = Color.FromArgb(54, 153, 255);
+            btnNothiOnumodonList.BackColor = Color.FromArgb(243, 246, 249);
         }
 
         private void iconButton10_MouseHover(object sender, EventArgs e)
@@ -5426,14 +5428,14 @@ namespace dNothi.Desktop.UI
 
         private void iconButton3_MouseHover(object sender, EventArgs e)
         {
-            iconButton3.IconColor = Color.FromArgb(246, 78, 96);
-            iconButton3.BackColor = Color.FromArgb(228, 230, 239);
+            btnCollapseExpand.IconColor = Color.FromArgb(246, 78, 96);
+            btnCollapseExpand.BackColor = Color.FromArgb(228, 230, 239);
         }
 
         private void iconButton3_MouseLeave(object sender, EventArgs e)
         {
-            iconButton3.IconColor = Color.FromArgb(54, 153, 255);
-            iconButton3.BackColor = Color.FromArgb(243, 246, 249);
+            btnCollapseExpand.IconColor = Color.FromArgb(54, 153, 255);
+            btnCollapseExpand.BackColor = Color.FromArgb(243, 246, 249);
         }
         private static Pen _dashedPen = new Pen(Color.FromArgb(63, 66, 84), 1);
         
@@ -5498,6 +5500,72 @@ namespace dNothi.Desktop.UI
             NothiNoteAllAttachement form = new NothiNoteAllAttachement();
             var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
             CalPopUpWindow(nothiNoteMovementListform);
+        }
+
+        private void btnCollapseExpand_Click(object sender, EventArgs e)
+        {
+            if (btnCollapseExpand.IconChar == FontAwesome.Sharp.IconChar.WindowMaximize)
+            {
+                noteTabpanel.Visible = false;
+                panel2.Visible = false;
+                pnlNoteList.Visible = false;
+                panel15.Visible = false;
+                potrangsoPanel.Visible = false;
+                pnlNothiNoteTalika.Visible = false;
+                //CollapseExpandPanel.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Left);
+                CollapseExpandPanel.Size = this.Size;
+                btnCollapseExpand.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            }
+            else
+            {
+                noteTabpanel.Visible = true;
+                panel2.Visible = true;
+                pnlNoteList.Visible = true;
+                panel15.Visible = true;
+                potrangsoPanel.Visible = true;
+                pnlNothiNoteTalika.Visible = true;
+                CollapseExpandPanel.Height = _collapseExpandeHeight;
+                CollapseExpandPanel.Width = _collapseExpandeWidth;
+                btnCollapseExpand.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            }
+        }
+
+        private void btnNothiOnumodonList_Click(object sender, EventArgs e)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            var onumodonList = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
+            if (onumodonList.status == "success")
+            {
+                if (onumodonList.data.records.Count > 0)
+                {
+
+                    loadOnumodonList(onumodonList.data.records);
+                }
+
+                //this.ShowDialog();
+            }
+        }
+        public void loadOnumodonList(List<onumodonDataRecordDTO> records)
+        {
+            OnumoditoPodobi onumoditoPodobi = new  OnumoditoPodobi();
+
+            onumoditoPodobi.GetNothiInboxRecords(records);
+
+            var form = AttachNothiGuidelinesControlToForm(onumoditoPodobi);
+            CalPopUpWindow(form);
+        }
+
+        private void btnPrapokerTalika_Click(object sender, EventArgs e)
+        {
+            PotrangshoPrapokerTalika form = new PotrangshoPrapokerTalika();
+            var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
+            CalPopUpWindow(nothiNoteMovementListform);
+        }
+
+        private void btnClone_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Khosra>();
+            form.ShowDialog();
         }
     }
 }

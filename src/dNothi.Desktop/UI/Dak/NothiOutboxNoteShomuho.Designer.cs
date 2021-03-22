@@ -109,6 +109,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbNoteId.Size = new System.Drawing.Size(69, 20);
             this.lbNoteId.TabIndex = 68;
             this.lbNoteId.Text = "lbNoteId";
+            this.lbNoteId.Visible = false;
             // 
             // panel1
             // 

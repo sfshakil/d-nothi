@@ -92,6 +92,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 66);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // panel3
             // 
@@ -154,7 +156,6 @@
             this.AddDesignationCloseButton.TabIndex = 38;
             this.AddDesignationCloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.AddDesignationCloseButton.UseVisualStyleBackColor = false;
-            this.AddDesignationCloseButton.Visible = false;
             this.AddDesignationCloseButton.Click += new System.EventHandler(this.AddDesignationCloseButton_Click);
             // 
             // label1
@@ -507,7 +508,7 @@
             // 
             // iconButton7
             // 
-            this.iconButton7.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(218)))), ((int)(((byte)(231)))));
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.iconButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -557,6 +558,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.metroPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "NothiOnumodonDesignationSeal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

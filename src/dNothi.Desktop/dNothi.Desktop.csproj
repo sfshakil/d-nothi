@@ -491,6 +491,24 @@
     <Compile Include="UI\Dak\NothiOutboxNoteShomuho.Designer.cs">
       <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\OnumoditoPodobi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\OnumoditoPodobi.Designer.cs">
+      <DependentUpon>OnumoditoPodobi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\PotrangshoPrapokerTalika.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\PotrangshoPrapokerTalika.Designer.cs">
+      <DependentUpon>PotrangshoPrapokerTalika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\Prapok.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\Prapok.Designer.cs">
+      <DependentUpon>Prapok.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1018,6 +1036,9 @@
     <EmbeddedResource Include="UI\Dak\DakTagForm.resx">
       <DependentUpon>DakTagForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DragAndDropOfficerPanel.resx">
+      <DependentUpon>DragAndDropOfficerPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -1032,6 +1053,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutboxNoteShomuho.resx">
       <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\OnumoditoPodobi.resx">
+      <DependentUpon>OnumoditoPodobi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\PotrangshoPrapokerTalika.resx">
+      <DependentUpon>PotrangshoPrapokerTalika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\Prapok.resx">
+      <DependentUpon>Prapok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra.resx">
       <DependentUpon>Khosra.cs</DependentUpon>

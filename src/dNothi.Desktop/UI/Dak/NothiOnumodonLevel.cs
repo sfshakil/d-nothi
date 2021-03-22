@@ -187,7 +187,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        public void AddNewOfficerFromNothiNextStep(string officerName, int designationId, string designation, int routeIndexs)
+        public void AddNewOfficerFromNothiNextStep(string officerName, int designationId, string designation, int routeIndexs, int flag)
         {
             Size s = new Size(officerTableLayoutPanel.Width, 50);
             DragAndDropOfficerPanel dragAndDropOfficerPanel;
@@ -206,8 +206,15 @@ namespace dNothi.Desktop.UI.Dak
             dragAndDropOfficerPanel.designation = designation;
             dragAndDropOfficerPanel.designationid = designationId;
             dragAndDropOfficerPanel.routeIndex = routeIndexs;
-
-            dragAndDropOfficerPanel.Check_Box_Show();
+            if (flag == 1)
+            {
+                dragAndDropOfficerPanel.Check_Box_Hide();
+            }
+            else
+            {
+                dragAndDropOfficerPanel.Check_Box_Show();
+            }
+            
            
 
             dragAndDropOfficerPanel.CheckedButton += delegate (object sender, EventArgs e) { checkBoxButton_Click(sender, e, dragAndDropOfficerPanel._designationid,dragAndDropOfficerPanel._isChecked); };
@@ -334,6 +341,11 @@ namespace dNothi.Desktop.UI.Dak
         private void cbxNiontron_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void NothiOnumodonLevel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
     }
 }
