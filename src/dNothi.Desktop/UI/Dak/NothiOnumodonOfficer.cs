@@ -128,6 +128,14 @@ namespace dNothi.Desktop.UI.Dak
 
 
         }
+        public void Check_Box_Hide()
+        {
+            cbxControl.Visible = false;
+            upDownPanel.Visible = false;
+            deleteButton.Visible = false;
+
+
+        }
 
 
         public event EventHandler CheckedButton;

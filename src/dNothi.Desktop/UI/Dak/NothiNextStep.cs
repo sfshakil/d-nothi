@@ -63,6 +63,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private string _noteTotal;
         private string _noteSubject;
+        public string _noteID;
 
         [Category("Custom Props")]
         public string noteSubject
@@ -111,7 +112,7 @@ namespace dNothi.Desktop.UI.Dak
                     foreach (var officer in group)
                         {
 
-                            nothiOnumodonRow.AddNewOfficerFromNothiNextStep(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index);
+                            nothiOnumodonRow.AddNewOfficerFromNothiNextStep(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index,0);
                             
 
                         }
@@ -219,17 +220,40 @@ namespace dNothi.Desktop.UI.Dak
                 }               
 
             }
-            var onuchhedForwardResponse = _onuchhedForward.GetOnuchhedForwardResponse(dakListUserParam, newnotedata, nothiListRecord, newrecords);
-            if (onuchhedForwardResponse.status == "success")
+            if (newrecords.Count == 0)
             {
+                MessageBox.Show("দয়া করে প্রাপক বাছাই করুন");
+            }
+            else
+            {
+                if (newnotedata.note_no == null)
+                {
+                    string english_text = string.Concat(_noteTotal.Select(c => (char)('0' + c - '\u09E6'))); // "1234567890"
 
-                MessageBox.Show("প্রক্রিয়াটি সম্পন্ন হয়েছে");
-                foreach (Form f in Application.OpenForms)
-                { f.Hide(); }
-                var form = FormFactory.Create<Nothi>();
-                form.ShowDialog();
+                    int parsed_number = int.Parse(english_text); // 1234567890
+                    newnotedata.note_no = parsed_number;
+                    newnotedata.note_subject = _noteSubject;
+                    newnotedata.nothi_id = Convert.ToInt32(nothiListRecord.id);
+                    newnotedata.note_id = Convert.ToInt32(_noteID);
+                }
+                var onuchhedForwardResponse = _onuchhedForward.GetOnuchhedForwardResponse(dakListUserParam, newnotedata, nothiListRecord, newrecords);
+                if (onuchhedForwardResponse.status == "success")
+                {
+
+                    MessageBox.Show("প্রক্রিয়াটি সম্পন্ন হয়েছে");
+                    foreach (Form f in Application.OpenForms)
+                    { f.Hide(); }
+                    var form = FormFactory.Create<Nothi>();
+                    form.ShowDialog();
+
+                }
+                else
+                {
+                    MessageBox.Show(onuchhedForwardResponse.message);
+                }
 
             }
+            
         }
         void hideform_Shown(object sender, EventArgs e, Form form)
         {

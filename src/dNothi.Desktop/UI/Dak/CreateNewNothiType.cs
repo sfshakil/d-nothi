@@ -265,16 +265,7 @@ namespace dNothi.Desktop.UI.Dak
             return checking;
         }
 
-        private void txtDhoronCode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //txtDhoronCode.MaxLength = 2;
-            
-            if (txtDhoronCode.Text.Length >= 2)
-            {
-                MessageBox.Show("Can Enter only two Digit in this Textbox");
-                e.Handled = true;
-            }
-        }
+        
         Font myFont = new Font("Aerial", 10, FontStyle.Regular);
         private void invisiblecbxNothiType_DrawItem(object sender, DrawItemEventArgs e)
         {

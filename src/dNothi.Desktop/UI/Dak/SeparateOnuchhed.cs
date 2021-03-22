@@ -27,6 +27,25 @@ namespace dNothi.Desktop.UI.Dak
         private string _createDate;
         private string _office;
         private string _subjectBrowser;
+        public void lastopenOnuchhed()
+        {
+            if (SubjectBrowser.DocumentText != "" && SignatureFLP.Controls.Count > 0)
+            {
+                this.Height = 400 + originalHeight;
+                this.Width = originalWidth;
+            }
+            else
+            {
+
+                this.Height = 174 + originalHeight;
+                this.Width = originalWidth;
+            }
+            topPnl.Visible = true;
+            middlePnl.Visible = true;
+            SignatureFLP.Visible = true;
+            SubjectBrowser.Visible = true;
+            btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.MinusSquare;
+        }
 
         [Category("Custom Props")]
         public string office
@@ -167,5 +186,6 @@ namespace dNothi.Desktop.UI.Dak
             
 
         }
+
     }
 }

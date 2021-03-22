@@ -144,7 +144,7 @@ namespace dNothi.Desktop.UI.Dak
         public string note_no
         {
             get { return _note_no; }
-            set { _note_no = value; noteNoLabel.Text = value; }
+            set { _note_no = value; noteNoLabel.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
 
         [Category("Custom Props")]

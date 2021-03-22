@@ -10,6 +10,6 @@ namespace dNothi.Services.NothiServices
 {
     public interface INothiInboxNoteServices
     {
-        NothiListInboxNoteResponse GetNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId);
+        NothiListInboxNoteResponse GetNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category);
     }
 }

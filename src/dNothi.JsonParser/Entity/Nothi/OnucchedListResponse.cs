@@ -9,6 +9,7 @@ namespace dNothi.JsonParser.Entity.Nothi
     public class OnucchedListResponse
     {
         public string status { get; set; }
+        public string message { get; set; }
         public OnucchedListDataDTO data { get; set; }
     }
 }

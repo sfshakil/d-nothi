@@ -83,7 +83,7 @@
             this.lbLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbLevel.Location = new System.Drawing.Point(6, 18);
             this.lbLevel.Name = "lbLevel";
-            this.lbLevel.Size = new System.Drawing.Size(55, 18);
+            this.lbLevel.Size = new System.Drawing.Size(63, 21);
             this.lbLevel.TabIndex = 50;
             this.lbLevel.Text = "লেভেল ১";
             // 
@@ -112,7 +112,7 @@
             this.cbxNiontron.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.cbxNiontron.Location = new System.Drawing.Point(140, 17);
             this.cbxNiontron.Name = "cbxNiontron";
-            this.cbxNiontron.Size = new System.Drawing.Size(65, 22);
+            this.cbxNiontron.Size = new System.Drawing.Size(75, 25);
             this.cbxNiontron.TabIndex = 56;
             this.cbxNiontron.Text = "নিয়ন্ত্রিত";
             this.cbxNiontron.UseVisualStyleBackColor = true;
@@ -169,6 +169,7 @@
             this.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.Name = "NothiOnumodonLevel";
             this.Size = new System.Drawing.Size(493, 72);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.NothiOnumodonLevel_Paint);
             this.LeftPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

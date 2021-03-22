@@ -115,7 +115,7 @@ namespace dNothi.Services.NothiServices
 
 
                 request.AddParameter("cdesk", dakUserParam.json_String);
-                request.AddParameter("length", "10");
+                request.AddParameter("length", "1000");
                 request.AddParameter("page", "1");
                 request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi__id + "\",\"note_category\":\"Inbox\"}");
                 IRestResponse response = client.Execute(request);

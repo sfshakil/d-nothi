@@ -1,4 +1,5 @@
 ﻿using dNothi.Desktop.UI.Dak;
+using dNothi.JsonParser.Entity.Nothi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,11 @@ namespace dNothi.Desktop.UI
             }
 
         }
+        NothiCreateDTO _nothiCreate = new NothiCreateDTO();
+        public void loadNewNothiInfo(NothiCreateDTO newNothiCreate)
+        {
+            _nothiCreate = newNothiCreate;
+        }
 
         private void btnNO_Click(object sender, EventArgs e)
         {
@@ -36,14 +42,65 @@ namespace dNothi.Desktop.UI
             { f.Hide(); }
             var form = FormFactory.Create<Nothi>();
             form.ForceLoadNothiALL();
+            //form.Visible = true;
+            //form.BringToFront();
             form.ShowDialog();
         }
 
         private void btnYES_Click(object sender, EventArgs e)
         {
             this.Hide();
+            //var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            //form.ShowDialog();
+
+            NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+            nothiListRecordsDTO.id = _nothiCreate.id;
+            nothiListRecordsDTO.office_id = _nothiCreate.office_id;
+            nothiListRecordsDTO.office_name = _nothiCreate.office_name;
+            nothiListRecordsDTO.office_unit_id = _nothiCreate.office_unit_id;
+            nothiListRecordsDTO.office_unit_name = _nothiCreate.office_unit_name;
+            nothiListRecordsDTO.office_unit_organogram_id = _nothiCreate.office_unit_organogram_id;
+            nothiListRecordsDTO.office_designation_name = _nothiCreate.office_designation_name;
+            nothiListRecordsDTO.nothi_no = _nothiCreate.nothi_no;
+            nothiListRecordsDTO.subject = _nothiCreate.subject;
+            nothiListRecordsDTO.nothi_class = _nothiCreate.nothi_class;
+
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.nothiListRecordsDTO = nothiListRecordsDTO;
+            form.GetNothiInboxRecords(nothiListRecordsDTO);
+            form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) {
+                foreach (Form f in Application.OpenForms)
+                { f.Hide(); }
+                var form1 = FormFactory.Create<Nothi>();
+                form1.ForceLoadNothiALL();
+                form1.ShowDialog();
+            };
+
+            CalPopUpWindow(form);
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Height = 744;//{Width = 1382 Height = 744}
+            hideform.Width = 1382;
+            hideform.Opacity = .4;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+
             form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
     }
 }

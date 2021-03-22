@@ -29,17 +29,17 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-        private string _totalNothi;
+        public string _totalNothi;
         public bool _checkBoxValue;
-        private string _noteSubject;
+        public string _noteSubject;
         private string _officerInfo;
-        private string _nothiLastDate;
+        public string _nothiLastDate;
         private string _checkBox;
         private string _onucchedCount;
-        private string _khosraPotro;
-        private string _khoshraWaiting;
+        public string _khosraPotro;
+        public string _khoshraWaiting;
         private string _approved;
-        private string _potrojari;
+        public string _potrojari;
         private string _nothivukto;
         public int _nothiNoteID;
 
@@ -156,7 +156,7 @@ namespace dNothi.Desktop.UI.Dak
             List1.khoshra_potro = Convert.ToInt32(_khosraPotro);
             List1.khoshra_waiting_for_approval = Convert.ToInt32(khoshraWaiting);
             List1.potrojari = Convert.ToInt32(potrojari);
-            List1.note_status = sender.ToString();
+            //List1.note_status = sender.ToString();
             List1.nothi_note_id = Convert.ToInt32(lbNothiNoteID.Text);
             List1.note_status = lbTotalNothi.Text;
             List1.note_subject_sub_text = lbNoteSubject.Text;
@@ -176,7 +176,7 @@ namespace dNothi.Desktop.UI.Dak
             List1.khoshra_potro = Convert.ToInt32(_khosraPotro);
             List1.khoshra_waiting_for_approval = Convert.ToInt32(khoshraWaiting);
             List1.potrojari = Convert.ToInt32(potrojari);
-            List1.note_status = sender.ToString();
+            //List1.note_status = sender.ToString();
             List1.nothi_note_id = Convert.ToInt32(lbNothiNoteID.Text);
             List1.note_status = lbTotalNothi.Text;
             List1.note_subject_sub_text = lbNoteSubject.Text;

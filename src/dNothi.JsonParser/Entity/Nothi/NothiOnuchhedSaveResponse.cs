@@ -9,6 +9,7 @@ namespace dNothi.JsonParser.Entity.Nothi
     public class NothiOnuchhedSaveResponse
     {
         public string status { get; set; }
+        public string message { get; set; }
         public NothiOnuchhedSaveDataDTO data { get; set; }
     }
 }

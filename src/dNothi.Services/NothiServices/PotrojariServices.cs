@@ -1,4 +1,5 @@
 ﻿using dNothi.Constants;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -14,6 +15,11 @@ namespace dNothi.Services.NothiServices
 {
     public class PotrojariServices : IPotrojariServices
     {
+        private readonly IPotrojariParser _potrojariParser;
+        public PotrojariServices(IPotrojariParser potrojariParser)
+        {
+            _potrojariParser = potrojariParser;
+        }
         public PotrojariResponse GetPotrojariListInfo(DakUserParam dakUserParam, long id)
         {
             try
@@ -32,8 +38,11 @@ namespace dNothi.Services.NothiServices
                 var responseJson = response.Content;
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                PotrojariResponse potrojariResponse = JsonConvert.DeserializeObject<PotrojariResponse>(responseJson);
+                PotrojariResponse potrojariResponse = _potrojariParser.ParseMessage(responseJson);
                 return potrojariResponse;
+
+                //PotrojariResponse potrojariResponse = JsonConvert.DeserializeObject<PotrojariResponse>(responseJson);
+                //return potrojariResponse;
             }
             catch (Exception ex)
             {

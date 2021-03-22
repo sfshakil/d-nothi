@@ -29,6 +29,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string url { get; set; }
         public string download_url { get; set; }
         public string thumb_url { get; set; }
-        public List<string> buttons { get; set; }
+        public object buttons { get; set; }
+        public List<string> buttonsDTOList { get; set; }
     }
 }
