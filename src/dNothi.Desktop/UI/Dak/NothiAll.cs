@@ -303,12 +303,12 @@ namespace dNothi.Desktop.UI.Dak
 
         private void nothiShompadonIcon_MouseHover(object sender, EventArgs e)
         {
-            nothiShompadonIcon.IconColor = Color.Salmon;
+            //nothiShompadonIcon.IconColor = Color.Salmon;
         }
 
         private void nothiShompadonIcon_MouseLeave(object sender, EventArgs e)
         {
-            nothiShompadonIcon.IconColor = Color.FromArgb(54, 153, 255);
+           // nothiShompadonIcon.IconColor = Color.FromArgb(54, 153, 255);
         }
 
         public NothiListAllRecordsDTO _nothiAllListDTO;

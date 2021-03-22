@@ -1497,7 +1497,8 @@ namespace dNothi.Desktop.UI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            foreach (Form f in Application.OpenForms)
+            { f.Hide(); }
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
         }
@@ -5512,7 +5513,6 @@ namespace dNothi.Desktop.UI
                 panel15.Visible = false;
                 potrangsoPanel.Visible = false;
                 pnlNothiNoteTalika.Visible = false;
-                //CollapseExpandPanel.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Left);
                 CollapseExpandPanel.Size = this.Size;
                 btnCollapseExpand.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             }
@@ -5538,19 +5538,14 @@ namespace dNothi.Desktop.UI
             {
                 if (onumodonList.data.records.Count > 0)
                 {
-
                     loadOnumodonList(onumodonList.data.records);
                 }
-
-                //this.ShowDialog();
             }
         }
         public void loadOnumodonList(List<onumodonDataRecordDTO> records)
         {
             OnumoditoPodobi onumoditoPodobi = new  OnumoditoPodobi();
-
             onumoditoPodobi.GetNothiInboxRecords(records);
-
             var form = AttachNothiGuidelinesControlToForm(onumoditoPodobi);
             CalPopUpWindow(form);
         }

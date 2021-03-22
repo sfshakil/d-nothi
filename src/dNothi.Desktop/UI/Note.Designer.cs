@@ -94,6 +94,7 @@
             this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
             this.iconButton20 = new FontAwesome.Sharp.IconButton();
             this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
             this.btnCanRevert = new FontAwesome.Sharp.IconButton();
             this.btnWriteOnuchhed = new FontAwesome.Sharp.IconButton();
@@ -260,7 +261,6 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -1267,6 +1267,18 @@
             this.btnOnuchhedSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOnuchhedSave.UseVisualStyleBackColor = false;
             this.btnOnuchhedSave.Click += new System.EventHandler(this.btnOnuchhedSave_Click);
+            // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = "";
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(902, 406);
+            this.tinyMceEditor.TabIndex = 61;
+            this.tinyMceEditor.Click += new System.EventHandler(this.tinyMceEditor_Click);
             // 
             // onucchedActionPanel
             // 
@@ -3780,18 +3792,6 @@
             // 
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
-            // 
-            // tinyMceEditor
-            // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = "";
-            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
-            this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(902, 406);
-            this.tinyMceEditor.TabIndex = 61;
-            this.tinyMceEditor.Click += new System.EventHandler(this.tinyMceEditor_Click);
             // 
             // Note
             // 

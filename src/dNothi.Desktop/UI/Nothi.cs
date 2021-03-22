@@ -49,8 +49,8 @@ namespace dNothi.Desktop.UI
             agotoNothiSelected = 1;
             preritoNothiSelected = 0;
             shokolNothiSelected = 0;
-            noteListButton.BackColor = Color.LightSteelBlue;
-            btnNothiTalika.BackColor = Color.MediumSlateBlue;
+            noteListButton.BackColor = Color.FromArgb(130, 80, 230); ;
+            btnNothiTalika.BackColor = Color.FromArgb(102, 16, 242); //115, 55, 238
             loadNothiInboxTptal();
 
         }
@@ -1118,8 +1118,8 @@ namespace dNothi.Desktop.UI
 
         private void noteListButton_Click(object sender, EventArgs e)
         {
-            btnNothiTalika.BackColor = Color.LightSteelBlue; 
-            noteListButton.BackColor = Color.MediumSlateBlue;
+            btnNothiTalika.BackColor = Color.FromArgb(130, 80, 230);
+            noteListButton.BackColor = Color.FromArgb(102, 16, 242);
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
             NothiNoteListResponse noteList = new NothiNoteListResponse();
 
@@ -1218,8 +1218,8 @@ namespace dNothi.Desktop.UI
 
         private void btnNothiTalika_Click(object sender, EventArgs e)
         {
-            noteListButton.BackColor = Color.LightSteelBlue;
-            btnNothiTalika.BackColor = Color.MediumSlateBlue;
+            noteListButton.BackColor = Color.FromArgb(130, 80, 230);// LightSteelBlue;//130, 80, 230
+            btnNothiTalika.BackColor = Color.FromArgb(102, 16, 242);
             if (agotoNothiSelected == 1)
             {
                 _nothiCurrentCategory.isInbox = true;

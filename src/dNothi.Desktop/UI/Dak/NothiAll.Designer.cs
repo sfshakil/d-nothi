@@ -30,19 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbNothiId = new System.Windows.Forms.Label();
-            this.nothiShompadonIcon = new FontAwesome.Sharp.IconButton();
             this.lbFlag = new System.Windows.Forms.Label();
-            this.iconButton7 = new FontAwesome.Sharp.IconButton();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.lbNoteTotal = new System.Windows.Forms.Label();
             this.btnNote = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnOnumodon = new FontAwesome.Sharp.IconButton();
-            this.btnNothiAllNoteShomuho = new FontAwesome.Sharp.IconButton();
             this.lbArchived = new System.Windows.Forms.Label();
             this.btnArchive = new System.Windows.Forms.Button();
             this.lbNothi = new System.Windows.Forms.Label();
@@ -57,17 +49,25 @@
             this.lbNoteLastDate = new System.Windows.Forms.Label();
             this.newAllNoteFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlNewAllNote = new System.Windows.Forms.Panel();
-            this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.lbNoteTotal1 = new System.Windows.Forms.Label();
-            this.iconButton10 = new FontAwesome.Sharp.IconButton();
-            this.iconButton11 = new FontAwesome.Sharp.IconButton();
-            this.NothiNoteAllButton = new FontAwesome.Sharp.IconButton();
-            this.btnNewNote = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.iconButton8 = new FontAwesome.Sharp.IconButton();
+            this.iconButton9 = new FontAwesome.Sharp.IconButton();
+            this.iconButton10 = new FontAwesome.Sharp.IconButton();
+            this.iconButton11 = new FontAwesome.Sharp.IconButton();
+            this.NothiNoteAllButton = new FontAwesome.Sharp.IconButton();
+            this.btnNewNote = new FontAwesome.Sharp.IconButton();
+            this.nothiShompadonIcon = new System.Windows.Forms.Button();
+            this.iconButton7 = new FontAwesome.Sharp.IconButton();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.btnOnumodon = new FontAwesome.Sharp.IconButton();
+            this.btnNothiAllNoteShomuho = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.pnlNewAllNote.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -76,8 +76,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lbNothiId);
             this.panel1.Controls.Add(this.nothiShompadonIcon);
+            this.panel1.Controls.Add(this.lbNothiId);
             this.panel1.Controls.Add(this.lbFlag);
             this.panel1.Controls.Add(this.iconButton7);
             this.panel1.Controls.Add(this.iconButton6);
@@ -123,28 +123,6 @@
             this.lbNothiId.Text = "nothiIdLabel";
             this.lbNothiId.Visible = false;
             // 
-            // nothiShompadonIcon
-            // 
-            this.nothiShompadonIcon.BackColor = System.Drawing.Color.Transparent;
-            this.nothiShompadonIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.nothiShompadonIcon.FlatAppearance.BorderSize = 0;
-            this.nothiShompadonIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.nothiShompadonIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.nothiShompadonIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothiShompadonIcon.IconChar = FontAwesome.Sharp.IconChar.MoneyCheckAlt;
-            this.nothiShompadonIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.nothiShompadonIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.nothiShompadonIcon.IconSize = 32;
-            this.nothiShompadonIcon.Location = new System.Drawing.Point(1051, 14);
-            this.nothiShompadonIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.nothiShompadonIcon.Name = "nothiShompadonIcon";
-            this.nothiShompadonIcon.Size = new System.Drawing.Size(38, 31);
-            this.nothiShompadonIcon.TabIndex = 116;
-            this.nothiShompadonIcon.UseVisualStyleBackColor = false;
-            this.nothiShompadonIcon.Visible = false;
-            this.nothiShompadonIcon.MouseLeave += new System.EventHandler(this.nothiShompadonIcon_MouseLeave);
-            this.nothiShompadonIcon.MouseHover += new System.EventHandler(this.nothiShompadonIcon_MouseHover);
-            // 
             // lbFlag
             // 
             this.lbFlag.AutoSize = true;
@@ -156,93 +134,6 @@
             this.lbFlag.TabIndex = 115;
             this.lbFlag.Text = "shakhaLabel";
             this.lbFlag.Visible = false;
-            // 
-            // iconButton7
-            // 
-            this.iconButton7.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton7.FlatAppearance.BorderSize = 0;
-            this.iconButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
-            this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.IconSize = 24;
-            this.iconButton7.Location = new System.Drawing.Point(923, 20);
-            this.iconButton7.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Size = new System.Drawing.Size(19, 20);
-            this.iconButton7.TabIndex = 114;
-            this.iconButton7.UseVisualStyleBackColor = false;
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton6.FlatAppearance.BorderSize = 0;
-            this.iconButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
-            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.IconSize = 24;
-            this.iconButton6.Location = new System.Drawing.Point(1012, 19);
-            this.iconButton6.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(19, 20);
-            this.iconButton6.TabIndex = 113;
-            this.iconButton6.UseVisualStyleBackColor = false;
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 24;
-            this.iconButton4.Location = new System.Drawing.Point(821, 19);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(19, 20);
-            this.iconButton4.TabIndex = 112;
-            this.iconButton4.UseVisualStyleBackColor = false;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(703, 20);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(19, 20);
-            this.iconButton2.TabIndex = 111;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 24;
-            this.iconButton5.Location = new System.Drawing.Point(616, 19);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(19, 20);
-            this.iconButton5.TabIndex = 110;
-            this.iconButton5.UseVisualStyleBackColor = false;
             // 
             // lbNoteTotal
             // 
@@ -293,40 +184,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1, 82);
             this.panel2.TabIndex = 105;
-            // 
-            // btnOnumodon
-            // 
-            this.btnOnumodon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
-            this.btnOnumodon.FlatAppearance.BorderSize = 0;
-            this.btnOnumodon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOnumodon.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnOnumodon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.btnOnumodon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOnumodon.IconSize = 32;
-            this.btnOnumodon.Location = new System.Drawing.Point(50, 8);
-            this.btnOnumodon.Name = "btnOnumodon";
-            this.btnOnumodon.Size = new System.Drawing.Size(41, 41);
-            this.btnOnumodon.TabIndex = 104;
-            this.btnOnumodon.UseVisualStyleBackColor = false;
-            this.btnOnumodon.Click += new System.EventHandler(this.btnOnumodon_Click);
-            // 
-            // btnNothiAllNoteShomuho
-            // 
-            this.btnNothiAllNoteShomuho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(247)))), ((int)(((byte)(245)))));
-            this.btnNothiAllNoteShomuho.FlatAppearance.BorderSize = 0;
-            this.btnNothiAllNoteShomuho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.btnNothiAllNoteShomuho.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.btnNothiAllNoteShomuho.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiAllNoteShomuho.IconSize = 32;
-            this.btnNothiAllNoteShomuho.Location = new System.Drawing.Point(9, 8);
-            this.btnNothiAllNoteShomuho.Name = "btnNothiAllNoteShomuho";
-            this.btnNothiAllNoteShomuho.Size = new System.Drawing.Size(41, 41);
-            this.btnNothiAllNoteShomuho.TabIndex = 103;
-            this.btnNothiAllNoteShomuho.UseVisualStyleBackColor = false;
-            this.btnNothiAllNoteShomuho.Click += new System.EventHandler(this.iconButton3_Click);
-            this.btnNothiAllNoteShomuho.MouseLeave += new System.EventHandler(this.iconButton3_MouseLeave);
-            this.btnNothiAllNoteShomuho.MouseHover += new System.EventHandler(this.iconButton3_MouseHover);
             // 
             // lbArchived
             // 
@@ -524,6 +381,53 @@
             this.pnlNewAllNote.Size = new System.Drawing.Size(1115, 35);
             this.pnlNewAllNote.TabIndex = 22;
             // 
+            // lbNoteTotal1
+            // 
+            this.lbNoteTotal1.AutoSize = true;
+            this.lbNoteTotal1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteTotal1.Location = new System.Drawing.Point(971, 8);
+            this.lbNoteTotal1.Name = "lbNoteTotal1";
+            this.lbNoteTotal1.Size = new System.Drawing.Size(77, 21);
+            this.lbNoteTotal1.TabIndex = 63;
+            this.lbNoteTotal1.Text = " সর্বমোট: 0";
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 34);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1115, 1);
+            this.flowLayoutPanel3.TabIndex = 58;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1115, 1);
+            this.flowLayoutPanel2.TabIndex = 57;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.pnlNewAllNote);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 84);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1115, 1);
+            this.panel3.TabIndex = 23;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.newAllNoteFlowLayoutPanel);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 35);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1115, 0);
+            this.panel4.TabIndex = 23;
+            // 
             // iconButton8
             // 
             this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
@@ -555,16 +459,6 @@
             this.iconButton9.Size = new System.Drawing.Size(34, 29);
             this.iconButton9.TabIndex = 64;
             this.iconButton9.UseVisualStyleBackColor = false;
-            // 
-            // lbNoteTotal1
-            // 
-            this.lbNoteTotal1.AutoSize = true;
-            this.lbNoteTotal1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNoteTotal1.Location = new System.Drawing.Point(971, 8);
-            this.lbNoteTotal1.Name = "lbNoteTotal1";
-            this.lbNoteTotal1.Size = new System.Drawing.Size(77, 21);
-            this.lbNoteTotal1.TabIndex = 63;
-            this.lbNoteTotal1.Text = " সর্বমোট: 0";
             // 
             // iconButton10
             // 
@@ -658,42 +552,141 @@
             this.btnNewNote.UseVisualStyleBackColor = false;
             this.btnNewNote.Click += new System.EventHandler(this.btnNewNote_Click);
             // 
-            // flowLayoutPanel3
+            // nothiShompadonIcon
             // 
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 34);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1115, 1);
-            this.flowLayoutPanel3.TabIndex = 58;
+            this.nothiShompadonIcon.BackColor = System.Drawing.Color.Transparent;
+            this.nothiShompadonIcon.BackgroundImage = global::dNothi.Desktop.Properties.Resources.download;
+            this.nothiShompadonIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.nothiShompadonIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.nothiShompadonIcon.FlatAppearance.BorderSize = 0;
+            this.nothiShompadonIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothiShompadonIcon.Location = new System.Drawing.Point(1051, 14);
+            this.nothiShompadonIcon.Name = "nothiShompadonIcon";
+            this.nothiShompadonIcon.Size = new System.Drawing.Size(25, 20);
+            this.nothiShompadonIcon.TabIndex = 118;
+            this.nothiShompadonIcon.UseVisualStyleBackColor = false;
+            this.nothiShompadonIcon.Visible = false;
             // 
-            // flowLayoutPanel2
+            // iconButton7
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1115, 1);
-            this.flowLayoutPanel2.TabIndex = 57;
+            this.iconButton7.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton7.FlatAppearance.BorderSize = 0;
+            this.iconButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
+            this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton7.IconSize = 24;
+            this.iconButton7.Location = new System.Drawing.Point(923, 20);
+            this.iconButton7.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton7.Name = "iconButton7";
+            this.iconButton7.Size = new System.Drawing.Size(19, 20);
+            this.iconButton7.TabIndex = 114;
+            this.iconButton7.UseVisualStyleBackColor = false;
             // 
-            // panel3
+            // iconButton6
             // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.pnlNewAllNote);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 84);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1115, 1);
-            this.panel3.TabIndex = 23;
+            this.iconButton6.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton6.FlatAppearance.BorderSize = 0;
+            this.iconButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
+            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.IconSize = 24;
+            this.iconButton6.Location = new System.Drawing.Point(1012, 19);
+            this.iconButton6.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(19, 20);
+            this.iconButton6.TabIndex = 113;
+            this.iconButton6.UseVisualStyleBackColor = false;
             // 
-            // panel4
+            // iconButton4
             // 
-            this.panel4.Controls.Add(this.newAllNoteFlowLayoutPanel);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 35);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1115, 0);
-            this.panel4.TabIndex = 23;
+            this.iconButton4.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
+            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.IconSize = 24;
+            this.iconButton4.Location = new System.Drawing.Point(821, 19);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(19, 20);
+            this.iconButton4.TabIndex = 112;
+            this.iconButton4.UseVisualStyleBackColor = false;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 24;
+            this.iconButton2.Location = new System.Drawing.Point(703, 20);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(19, 20);
+            this.iconButton2.TabIndex = 111;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
+            // iconButton5
+            // 
+            this.iconButton5.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton5.FlatAppearance.BorderSize = 0;
+            this.iconButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
+            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.IconSize = 24;
+            this.iconButton5.Location = new System.Drawing.Point(616, 19);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(19, 20);
+            this.iconButton5.TabIndex = 110;
+            this.iconButton5.UseVisualStyleBackColor = false;
+            // 
+            // btnOnumodon
+            // 
+            this.btnOnumodon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.btnOnumodon.FlatAppearance.BorderSize = 0;
+            this.btnOnumodon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnumodon.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnOnumodon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.btnOnumodon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOnumodon.IconSize = 32;
+            this.btnOnumodon.Location = new System.Drawing.Point(50, 8);
+            this.btnOnumodon.Name = "btnOnumodon";
+            this.btnOnumodon.Size = new System.Drawing.Size(41, 41);
+            this.btnOnumodon.TabIndex = 104;
+            this.btnOnumodon.UseVisualStyleBackColor = false;
+            this.btnOnumodon.Click += new System.EventHandler(this.btnOnumodon_Click);
+            // 
+            // btnNothiAllNoteShomuho
+            // 
+            this.btnNothiAllNoteShomuho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(247)))), ((int)(((byte)(245)))));
+            this.btnNothiAllNoteShomuho.FlatAppearance.BorderSize = 0;
+            this.btnNothiAllNoteShomuho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnNothiAllNoteShomuho.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnNothiAllNoteShomuho.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiAllNoteShomuho.IconSize = 32;
+            this.btnNothiAllNoteShomuho.Location = new System.Drawing.Point(9, 8);
+            this.btnNothiAllNoteShomuho.Name = "btnNothiAllNoteShomuho";
+            this.btnNothiAllNoteShomuho.Size = new System.Drawing.Size(41, 41);
+            this.btnNothiAllNoteShomuho.TabIndex = 103;
+            this.btnNothiAllNoteShomuho.UseVisualStyleBackColor = false;
+            this.btnNothiAllNoteShomuho.Click += new System.EventHandler(this.iconButton3_Click);
+            this.btnNothiAllNoteShomuho.MouseLeave += new System.EventHandler(this.iconButton3_MouseLeave);
+            this.btnNothiAllNoteShomuho.MouseHover += new System.EventHandler(this.iconButton3_MouseHover);
             // 
             // NothiAll
             // 
@@ -753,9 +746,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label lbFlag;
-        private FontAwesome.Sharp.IconButton nothiShompadonIcon;
         private System.Windows.Forms.Label lbNothiId;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button nothiShompadonIcon;
     }
 }
