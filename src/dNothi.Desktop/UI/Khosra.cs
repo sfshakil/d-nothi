@@ -39,7 +39,31 @@ namespace dNothi.Desktop.UI
         {
             this.Hide();
         }
+        private string _nothiShakha;
+        private string _nothiNo;
+        private string _nothiSubject;
 
+
+        [Category("Custom Props")]
+        public string nothiShakha
+        {
+            get { return _nothiShakha; }
+            set { _nothiShakha = value; lbNoteShakha.Text = value; }
+        }
+
+        [Category("Custom Props")]
+        public string nothiNo
+        {
+            get { return _nothiNo; }
+            set { _nothiNo = value; lbNothiNo.Text = value; }
+        }
+
+        [Category("Custom Props")]
+        public string nothiSubject
+        {
+            get { return _nothiSubject; }
+            set { _nothiSubject = value; lbSubject.Text = value; }
+        }
         private void Khosra_Shown(object sender, EventArgs e)
         {
             DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_userService.GetLocalDakUserParam());

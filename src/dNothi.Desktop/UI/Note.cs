@@ -880,14 +880,14 @@ namespace dNothi.Desktop.UI
         public string nothiShakha
         {
             get { return _nothiShakha; }
-            set { _nothiShakha = value; lbNoteShakha.Text = value; }
+            set { _nothiShakha = value; lbNoteShakha.Text = value + ";"; }
         }
 
         [Category("Custom Props")]
         public string nothiNo
         {
             get { return _nothiNo; }
-            set { _nothiNo = value; lbNothiNo.Text = value; }
+            set { _nothiNo = value; lbNothiNo.Text = value +";"; }
         }
 
         [Category("Custom Props")]
@@ -5560,6 +5560,26 @@ namespace dNothi.Desktop.UI
         private void btnClone_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Khosra>();
+            form.nothiNo = lbNothiNo.Text;
+            form.nothiShakha = lbNoteShakha.Text;
+            form.nothiSubject = lbSubject.Text;
+            form.ShowDialog();
+        }
+
+        private void btnDraftHistory_Click(object sender, EventArgs e)
+        {
+            DraftHistory form = new DraftHistory();
+            var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
+            CalPopUpWindow(nothiNoteMovementListform);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<Khosra>();
+
+            form.nothiNo = lbNothiNo.Text;
+            form.nothiShakha = lbNoteShakha.Text;
+            form.nothiSubject = lbSubject.Text;
             form.ShowDialog();
         }
     }

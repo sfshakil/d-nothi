@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.allNothiOutbox = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.newAllNoteFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -56,6 +57,7 @@
             this.lbLastNoteDate = new System.Windows.Forms.Label();
             this.lblPresentDesk = new System.Windows.Forms.Label();
             this.lbShakha = new System.Windows.Forms.Label();
+            this.MuToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.allNothiOutbox.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnlNewAllNote.SuspendLayout();
@@ -380,6 +382,7 @@
             this.btnNothiOutboxOnumodon.Name = "btnNothiOutboxOnumodon";
             this.btnNothiOutboxOnumodon.Size = new System.Drawing.Size(41, 41);
             this.btnNothiOutboxOnumodon.TabIndex = 71;
+            this.MuToolTip.SetToolTip(this.btnNothiOutboxOnumodon, "অনুমোদন পর্যালোচনা করুন");
             this.btnNothiOutboxOnumodon.UseVisualStyleBackColor = false;
             this.btnNothiOutboxOnumodon.Click += new System.EventHandler(this.btnNothiOutboxOnumodon_Click);
             // 
@@ -396,6 +399,7 @@
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(41, 41);
             this.iconButton3.TabIndex = 70;
+            this.MuToolTip.SetToolTip(this.iconButton3, "নোট সমূহ");
             this.iconButton3.UseVisualStyleBackColor = false;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             this.iconButton3.MouseLeave += new System.EventHandler(this.iconButton3_MouseLeave);
@@ -501,5 +505,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lbNothiId;
         private System.Windows.Forms.FlowLayoutPanel newAllNoteFlowLayoutPanel;
+        private System.Windows.Forms.ToolTip MuToolTip;
     }
 }

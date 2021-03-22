@@ -29,6 +29,7 @@ namespace dNothi.Desktop.UI.Dak
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.lbNoteId = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -68,6 +69,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel9 = new System.Windows.Forms.Panel();
             this.lbNoteNumber = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnlLeft.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -190,6 +192,7 @@ namespace dNothi.Desktop.UI.Dak
             this.nothiOutboxDetBtnNewTab.Name = "nothiOutboxDetBtnNewTab";
             this.nothiOutboxDetBtnNewTab.Size = new System.Drawing.Size(30, 34);
             this.nothiOutboxDetBtnNewTab.TabIndex = 65;
+            this.MyToolTip.SetToolTip(this.nothiOutboxDetBtnNewTab, "নোটের বিস্তারিত (নতুন ট্যাব)");
             this.nothiOutboxDetBtnNewTab.UseVisualStyleBackColor = false;
             this.nothiOutboxDetBtnNewTab.Click += new System.EventHandler(this.nothiOutboxDetBtnNewTab_Click);
             // 
@@ -207,6 +210,7 @@ namespace dNothi.Desktop.UI.Dak
             this.NoteDetailsButton.Name = "NoteDetailsButton";
             this.NoteDetailsButton.Size = new System.Drawing.Size(30, 34);
             this.NoteDetailsButton.TabIndex = 64;
+            this.MyToolTip.SetToolTip(this.NoteDetailsButton, "নোটের বিস্তারিত");
             this.NoteDetailsButton.UseVisualStyleBackColor = false;
             this.NoteDetailsButton.Click += new System.EventHandler(this.NoteDetailsButton_Click);
             // 
@@ -659,5 +663,6 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label lbCurrentDesk;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label lbNoteId;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }

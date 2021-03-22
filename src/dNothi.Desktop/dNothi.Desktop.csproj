@@ -457,6 +457,12 @@
     <Compile Include="UI\Dak\DakTagForm.Designer.cs">
       <DependentUpon>DakTagForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DraftHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DraftHistory.Designer.cs">
+      <DependentUpon>DraftHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DragAndDropOfficerPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1035,6 +1041,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakTagForm.resx">
       <DependentUpon>DakTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DraftHistory.resx">
+      <DependentUpon>DraftHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DragAndDropOfficerPanel.resx">
       <DependentUpon>DragAndDropOfficerPanel.cs</DependentUpon>

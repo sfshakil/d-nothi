@@ -51,16 +51,16 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pnlLeft.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnlBody.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // detailsButton
@@ -342,21 +342,15 @@
             this.pnlBody.Size = new System.Drawing.Size(970, 75);
             this.pnlBody.TabIndex = 78;
             // 
-            // panel6
+            // flowLayoutPanel1
             // 
-            this.panel6.Controls.Add(this.eyeIcon);
-            this.panel6.Controls.Add(this.lbNoteSubject);
-            this.panel6.Controls.Add(this.lbNoteNumber);
-            this.panel6.Controls.Add(this.lbNoteId);
-            this.panel6.Controls.Add(this.lbNoteIssueDate);
-            this.panel6.Controls.Add(this.lbNoteSubText);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(0);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(10, 5, 0, 0);
-            this.panel6.Size = new System.Drawing.Size(970, 36);
-            this.panel6.TabIndex = 0;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 74);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(970, 1);
+            this.flowLayoutPanel1.TabIndex = 58;
             // 
             // panel7
             // 
@@ -374,15 +368,21 @@
             this.panel7.Size = new System.Drawing.Size(970, 36);
             this.panel7.TabIndex = 1;
             // 
-            // flowLayoutPanel1
+            // panel6
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 74);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(970, 1);
-            this.flowLayoutPanel1.TabIndex = 58;
+            this.panel6.Controls.Add(this.eyeIcon);
+            this.panel6.Controls.Add(this.lbNoteSubject);
+            this.panel6.Controls.Add(this.lbNoteNumber);
+            this.panel6.Controls.Add(this.lbNoteId);
+            this.panel6.Controls.Add(this.lbNoteIssueDate);
+            this.panel6.Controls.Add(this.lbNoteSubText);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(10, 5, 0, 0);
+            this.panel6.Size = new System.Drawing.Size(970, 36);
+            this.panel6.TabIndex = 0;
             // 
             // NothiNoteShomuho
             // 
@@ -399,10 +399,10 @@
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.pnlBody.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
