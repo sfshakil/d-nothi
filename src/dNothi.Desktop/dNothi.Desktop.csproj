@@ -397,6 +397,12 @@
     <Compile Include="UI\Dak\AttachmentViewPopUpForm.Designer.cs">
       <DependentUpon>AttachmentViewPopUpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\ChangeSharokNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\ChangeSharokNumber.Designer.cs">
+      <DependentUpon>ChangeSharokNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\CreateNewNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -508,6 +514,12 @@
     </Compile>
     <Compile Include="UI\Dak\PotrangshoPrapokerTalika.Designer.cs">
       <DependentUpon>PotrangshoPrapokerTalika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\Potrojari.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\Potrojari.Designer.cs">
+      <DependentUpon>Potrojari.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\Prapok.cs">
       <SubType>UserControl</SubType>
@@ -1012,6 +1024,9 @@
     <EmbeddedResource Include="UI\Dak\AttachmentViewPopUpForm.resx">
       <DependentUpon>AttachmentViewPopUpForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\ChangeSharokNumber.resx">
+      <DependentUpon>ChangeSharokNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\CreateNewNotes.resx">
       <DependentUpon>CreateNewNotes.cs</DependentUpon>
     </EmbeddedResource>
@@ -1068,6 +1083,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\PotrangshoPrapokerTalika.resx">
       <DependentUpon>PotrangshoPrapokerTalika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\Potrojari.resx">
+      <DependentUpon>Potrojari.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Prapok.resx">
       <DependentUpon>Prapok.cs</DependentUpon>

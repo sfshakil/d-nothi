@@ -5350,10 +5350,6 @@ namespace dNothi.Desktop.UI
             profilePanel.BackColor = Color.Transparent;
         }
 
-        private void tinyMceEditor_Click(object sender, EventArgs e)
-        {
-            MouseEventArgs me = (MouseEventArgs)e;
-        }
 
         private void iconButton18_MouseHover(object sender, EventArgs e)
         {
@@ -5489,6 +5485,23 @@ namespace dNothi.Desktop.UI
 
             return form;
         }
+        public Form AttachSharokNoControlToForm(Control control)
+        {
+            Form form = new Form();
+
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(10, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            form.Size = control.Size;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
         private void btnNothiNoteMovementList_Click(object sender, EventArgs e)
         {
             NothiNoteMovementList form = new NothiNoteMovementList();
@@ -5581,6 +5594,13 @@ namespace dNothi.Desktop.UI
             form.nothiShakha = lbNoteShakha.Text;
             form.nothiSubject = lbSubject.Text;
             form.ShowDialog();
+        }
+
+        private void btnPotrojari_Click(object sender, EventArgs e)
+        {
+            Potrojari form = new Potrojari();
+            var nothiNoteMovementListform = AttachSharokNoControlToForm(form);
+            CalPopUpWindow(nothiNoteMovementListform);
         }
     }
 }
