@@ -1,4 +1,5 @@
-﻿using dNothi.Desktop.UI.ManuelUserControl;
+﻿using dNothi.Desktop.UI.Khosra_Potro;
+using dNothi.Desktop.UI.ManuelUserControl;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Khosra;
 using dNothi.Services.DakServices;
@@ -84,6 +85,22 @@ namespace dNothi.Desktop.UI
             }
 
 
+            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow = new KhosraSelectedAttachmentRow();
+            khosraSelectedAttachmentRow.fileName = "৫৬.৪২.০০০০.০১০.২৫.০০৩.২১.২ - ২২ ফেব্রুয়ারি ২০২";
+
+            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow);
+            
+
+
+            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow2 = new KhosraSelectedAttachmentRow();
+            khosraSelectedAttachmentRow2.fileName = "Potrojari_2021_65_02_2216139904184630293468.png";
+            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow2);
+
+
+            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow3 = new KhosraSelectedAttachmentRow();
+            khosraSelectedAttachmentRow3.fileName = "file_example_JPG_1MB.jpg";
+
+            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow3);
 
         }
 

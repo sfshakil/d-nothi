@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.HeadingPanel = new System.Windows.Forms.Panel();
-            this.singleDakHeaderLabel = new System.Windows.Forms.Label();
-            this.crossButton = new FontAwesome.Sharp.IconButton();
-            this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.tabControlLeft = new System.Windows.Forms.TabControl();
             this.currentNothiAttachmentTabPageLeft = new System.Windows.Forms.TabPage();
             this.allNothiAttachmentTabPageLeft = new System.Windows.Forms.TabPage();
             this.ownComputerTabPage = new System.Windows.Forms.TabPage();
             this.selectedAttachmentTabPage = new System.Windows.Forms.TabPage();
+            this.HeadingPanel = new System.Windows.Forms.Panel();
+            this.crossButton = new FontAwesome.Sharp.IconButton();
+            this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
+            this.singleDakHeaderLabel = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel1.SuspendLayout();
-            this.HeadingPanel.SuspendLayout();
             this.tabControlLeft.SuspendLayout();
+            this.HeadingPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,94 +62,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(849, 468);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // HeadingPanel
-            // 
-            this.HeadingPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.HeadingPanel.Controls.Add(this.crossButton);
-            this.HeadingPanel.Controls.Add(this.sliderCrossButton);
-            this.HeadingPanel.Controls.Add(this.singleDakHeaderLabel);
-            this.HeadingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HeadingPanel.Location = new System.Drawing.Point(25, 0);
-            this.HeadingPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.HeadingPanel.Name = "HeadingPanel";
-            this.HeadingPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
-            this.HeadingPanel.Size = new System.Drawing.Size(799, 73);
-            this.HeadingPanel.TabIndex = 40;
-            // 
-            // singleDakHeaderLabel
-            // 
-            this.singleDakHeaderLabel.AutoSize = true;
-            this.singleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.singleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
-            this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
-            this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(53, 21);
-            this.singleDakHeaderLabel.TabIndex = 28;
-            this.singleDakHeaderLabel.Text = "সংযুক্তি";
-            // 
-            // crossButton
-            // 
-            this.crossButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.crossButton.AutoSize = true;
-            this.crossButton.CausesValidation = false;
-            this.crossButton.FlatAppearance.BorderSize = 0;
-            this.crossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.crossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.crossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
-            this.crossButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.crossButton.IconSize = 24;
-            this.crossButton.Location = new System.Drawing.Point(766, 22);
-            this.crossButton.MaximumSize = new System.Drawing.Size(30, 28);
-            this.crossButton.Name = "crossButton";
-            this.crossButton.Size = new System.Drawing.Size(30, 28);
-            this.crossButton.TabIndex = 39;
-            this.crossButton.UseVisualStyleBackColor = true;
-            this.crossButton.Click += new System.EventHandler(this.crossButton_Click);
-            // 
-            // sliderCrossButton
-            // 
-            this.sliderCrossButton.BackColor = System.Drawing.Color.White;
-            this.sliderCrossButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.sliderCrossButton.FlatAppearance.BorderSize = 0;
-            this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sliderCrossButton.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
-            this.sliderCrossButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sliderCrossButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.sliderCrossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.sliderCrossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.sliderCrossButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.sliderCrossButton.IconSize = 18;
-            this.sliderCrossButton.Location = new System.Drawing.Point(799, 25);
-            this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
-            this.sliderCrossButton.MaximumSize = new System.Drawing.Size(0, 32);
-            this.sliderCrossButton.Name = "sliderCrossButton";
-            this.sliderCrossButton.Size = new System.Drawing.Size(0, 32);
-            this.sliderCrossButton.TabIndex = 38;
-            this.sliderCrossButton.UseVisualStyleBackColor = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.iconButton1.AutoSize = true;
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(725, 417);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(96, 38);
-            this.iconButton1.TabIndex = 41;
-            this.iconButton1.Text = "বন্ধ করুন";
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // tabControlLeft
             // 
@@ -210,6 +122,94 @@
             this.selectedAttachmentTabPage.Text = "বাছাইকৃত";
             this.selectedAttachmentTabPage.UseVisualStyleBackColor = true;
             // 
+            // HeadingPanel
+            // 
+            this.HeadingPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.HeadingPanel.Controls.Add(this.crossButton);
+            this.HeadingPanel.Controls.Add(this.sliderCrossButton);
+            this.HeadingPanel.Controls.Add(this.singleDakHeaderLabel);
+            this.HeadingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HeadingPanel.Location = new System.Drawing.Point(25, 0);
+            this.HeadingPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.HeadingPanel.Name = "HeadingPanel";
+            this.HeadingPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
+            this.HeadingPanel.Size = new System.Drawing.Size(799, 73);
+            this.HeadingPanel.TabIndex = 40;
+            // 
+            // crossButton
+            // 
+            this.crossButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.crossButton.AutoSize = true;
+            this.crossButton.CausesValidation = false;
+            this.crossButton.FlatAppearance.BorderSize = 0;
+            this.crossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.crossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.crossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
+            this.crossButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.crossButton.IconSize = 24;
+            this.crossButton.Location = new System.Drawing.Point(766, 22);
+            this.crossButton.MaximumSize = new System.Drawing.Size(30, 28);
+            this.crossButton.Name = "crossButton";
+            this.crossButton.Size = new System.Drawing.Size(30, 28);
+            this.crossButton.TabIndex = 39;
+            this.crossButton.UseVisualStyleBackColor = true;
+            this.crossButton.Click += new System.EventHandler(this.crossButton_Click);
+            // 
+            // sliderCrossButton
+            // 
+            this.sliderCrossButton.BackColor = System.Drawing.Color.White;
+            this.sliderCrossButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.sliderCrossButton.FlatAppearance.BorderSize = 0;
+            this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sliderCrossButton.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.sliderCrossButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sliderCrossButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.sliderCrossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.sliderCrossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.sliderCrossButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.sliderCrossButton.IconSize = 18;
+            this.sliderCrossButton.Location = new System.Drawing.Point(799, 25);
+            this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
+            this.sliderCrossButton.MaximumSize = new System.Drawing.Size(0, 32);
+            this.sliderCrossButton.Name = "sliderCrossButton";
+            this.sliderCrossButton.Size = new System.Drawing.Size(0, 32);
+            this.sliderCrossButton.TabIndex = 38;
+            this.sliderCrossButton.UseVisualStyleBackColor = false;
+            // 
+            // singleDakHeaderLabel
+            // 
+            this.singleDakHeaderLabel.AutoSize = true;
+            this.singleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.singleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
+            this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
+            this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(53, 21);
+            this.singleDakHeaderLabel.TabIndex = 28;
+            this.singleDakHeaderLabel.Text = "সংযুক্তি";
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.iconButton1.AutoSize = true;
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.Location = new System.Drawing.Point(725, 417);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(96, 38);
+            this.iconButton1.TabIndex = 41;
+            this.iconButton1.Text = "বন্ধ করুন";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
             // KhosraAttachmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,9 +222,9 @@
             this.Text = "KhosraAttachmentForm";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tabControlLeft.ResumeLayout(false);
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
-            this.tabControlLeft.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
