@@ -31,7 +31,7 @@ namespace dNothi.Desktop.UI.Dak
 
             foreach (Form f in openForms)
             {
-                if (f.Name != "Potrojari" || f.Name != "Note")
+                if (f.Name != "Note")
                     f.Close();
             }
         }

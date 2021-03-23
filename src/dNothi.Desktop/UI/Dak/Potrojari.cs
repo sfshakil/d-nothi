@@ -16,6 +16,27 @@ namespace dNothi.Desktop.UI.Dak
         {
             InitializeComponent();
         }
+        public static string Base64Decode1(string base64EncodedData)
+        {
+            string decodedString = base64EncodedData;
+            try
+            {
+                byte[] data = Convert.FromBase64String(decodedString);
+                decodedString = Encoding.UTF8.GetString(data);
+                return decodedString;
+            }
+            catch
+            {
+                decodedString = decodedString.Replace('-', '+').Replace('_', '/').Replace(',', '=').Replace("&quot;", "");
+                byte[] data = Convert.FromBase64String(decodedString);
+                decodedString = Encoding.UTF8.GetString(data);// &quot;
+                return decodedString;
+            }
+        } 
+        public void loadPotrojariBrowser(string encodeData)
+        {
+            potrojariWeBrowser.DocumentText = encodeData;
+        }
 
         private void panel11_Paint(object sender, PaintEventArgs e)
         {
@@ -36,7 +57,9 @@ namespace dNothi.Desktop.UI.Dak
 
 
             hideform.BackColor = Color.Black;
-            hideform.Size = this.Size;
+            //hideform.Size = this.Size;
+            hideform.Height = 729;
+            hideform.Width = 1366;
             hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;

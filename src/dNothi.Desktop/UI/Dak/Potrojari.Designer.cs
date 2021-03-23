@@ -32,7 +32,6 @@ namespace dNothi.Desktop.UI.Dak
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCross = new FontAwesome.Sharp.IconButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.closeButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -58,6 +57,9 @@ namespace dNothi.Desktop.UI.Dak
             this.panel11 = new System.Windows.Forms.Panel();
             this.cbxNothiType = new System.Windows.Forms.ComboBox();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.pnlBodyBrowser = new System.Windows.Forms.Panel();
+            this.potrojariWeBrowser = new System.Windows.Forms.WebBrowser();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -74,13 +76,14 @@ namespace dNothi.Desktop.UI.Dak
             this.userIdPanel.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.pnlBodyBrowser.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Location = new System.Drawing.Point(10, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 30);
             this.label1.TabIndex = 0;
@@ -88,15 +91,15 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel16);
             this.panel2.Controls.Add(this.btnCross);
-            this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Controls.Add(this.closeButton);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1132, 53);
+            this.panel2.Size = new System.Drawing.Size(1132, 74);
             this.panel2.TabIndex = 90;
             // 
             // btnCross
@@ -117,16 +120,6 @@ namespace dNothi.Desktop.UI.Dak
             this.btnCross.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCross.UseVisualStyleBackColor = false;
             this.btnCross.Click += new System.EventHandler(this.btnCross_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 52);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1132, 1);
-            this.flowLayoutPanel1.TabIndex = 42;
             // 
             // closeButton
             // 
@@ -151,17 +144,17 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 53);
+            this.panel1.Location = new System.Drawing.Point(0, 74);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1132, 137);
+            this.panel1.Size = new System.Drawing.Size(1132, 162);
             this.panel1.TabIndex = 91;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 23);
+            this.panel3.Location = new System.Drawing.Point(0, 48);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1132, 114);
             this.panel3.TabIndex = 41;
@@ -173,7 +166,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1132, 92);
+            this.panel4.Size = new System.Drawing.Size(1132, 103);
             this.panel4.TabIndex = 42;
             // 
             // panel5
@@ -183,7 +176,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1097, 92);
+            this.panel5.Size = new System.Drawing.Size(1097, 103);
             this.panel5.TabIndex = 43;
             // 
             // panel6
@@ -193,7 +186,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel6.Location = new System.Drawing.Point(30, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1067, 92);
+            this.panel6.Size = new System.Drawing.Size(1067, 103);
             this.panel6.TabIndex = 44;
             // 
             // panel7
@@ -206,7 +199,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1067, 92);
+            this.panel7.Size = new System.Drawing.Size(1067, 103);
             this.panel7.TabIndex = 0;
             // 
             // btnPotrojari
@@ -221,7 +214,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnPotrojari.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPotrojari.IconSize = 25;
             this.btnPotrojari.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPotrojari.Location = new System.Drawing.Point(376, 50);
+            this.btnPotrojari.Location = new System.Drawing.Point(376, 59);
             this.btnPotrojari.Margin = new System.Windows.Forms.Padding(0);
             this.btnPotrojari.Name = "btnPotrojari";
             this.btnPotrojari.Size = new System.Drawing.Size(104, 35);
@@ -229,7 +222,6 @@ namespace dNothi.Desktop.UI.Dak
             this.btnPotrojari.Text = "পত্রজারি";
             this.btnPotrojari.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPotrojari.UseVisualStyleBackColor = false;
-            this.btnPotrojari.Click += new System.EventHandler(this.btnPotrojari_Click);
             // 
             // btnSave
             // 
@@ -243,7 +235,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 25;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(480, 50);
+            this.btnSave.Location = new System.Drawing.Point(480, 59);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(203, 35);
@@ -251,6 +243,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSave.Text = "স্বারক নম্বর পরিবর্তন করুন";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnPotrojari_Click);
             // 
             // panel8
             // 
@@ -259,7 +252,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1067, 42);
+            this.panel8.Size = new System.Drawing.Size(1067, 50);
             this.panel8.TabIndex = 0;
             // 
             // panel9
@@ -269,7 +262,8 @@ namespace dNothi.Desktop.UI.Dak
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(885, 42);
+            this.panel9.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panel9.Size = new System.Drawing.Size(885, 50);
             this.panel9.TabIndex = 0;
             // 
             // panel10
@@ -281,10 +275,10 @@ namespace dNothi.Desktop.UI.Dak
             this.panel10.Controls.Add(this.panel12);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(153, 0);
+            this.panel10.Location = new System.Drawing.Point(153, 10);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(732, 42);
+            this.panel10.Size = new System.Drawing.Size(732, 40);
             this.panel10.TabIndex = 1;
             // 
             // panel15
@@ -295,7 +289,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel15.Location = new System.Drawing.Point(576, 0);
             this.panel15.Margin = new System.Windows.Forms.Padding(0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(114, 42);
+            this.panel15.Size = new System.Drawing.Size(114, 40);
             this.panel15.TabIndex = 82;
             this.panel15.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
@@ -319,7 +313,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel14.Location = new System.Drawing.Point(462, 0);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(114, 42);
+            this.panel14.Size = new System.Drawing.Size(114, 40);
             this.panel14.TabIndex = 81;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
@@ -343,7 +337,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel13.Location = new System.Drawing.Point(348, 0);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(114, 42);
+            this.panel13.Size = new System.Drawing.Size(114, 40);
             this.panel13.TabIndex = 80;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
@@ -367,7 +361,7 @@ namespace dNothi.Desktop.UI.Dak
             this.userIdPanel.Location = new System.Drawing.Point(234, 0);
             this.userIdPanel.Margin = new System.Windows.Forms.Padding(0);
             this.userIdPanel.Name = "userIdPanel";
-            this.userIdPanel.Size = new System.Drawing.Size(114, 42);
+            this.userIdPanel.Size = new System.Drawing.Size(114, 40);
             this.userIdPanel.TabIndex = 79;
             this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
@@ -393,7 +387,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(5, 6, 0, 0);
-            this.panel12.Size = new System.Drawing.Size(117, 42);
+            this.panel12.Size = new System.Drawing.Size(117, 40);
             this.panel12.TabIndex = 66;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
@@ -430,7 +424,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(5, 6, 0, 0);
-            this.panel11.Size = new System.Drawing.Size(117, 42);
+            this.panel11.Size = new System.Drawing.Size(117, 40);
             this.panel11.TabIndex = 65;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
@@ -478,16 +472,47 @@ namespace dNothi.Desktop.UI.Dak
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = false;
             // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel16.Location = new System.Drawing.Point(0, 73);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(1132, 1);
+            this.panel16.TabIndex = 65;
+            // 
+            // pnlBodyBrowser
+            // 
+            this.pnlBodyBrowser.Controls.Add(this.potrojariWeBrowser);
+            this.pnlBodyBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBodyBrowser.Location = new System.Drawing.Point(0, 236);
+            this.pnlBodyBrowser.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlBodyBrowser.Name = "pnlBodyBrowser";
+            this.pnlBodyBrowser.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnlBodyBrowser.Size = new System.Drawing.Size(1132, 493);
+            this.pnlBodyBrowser.TabIndex = 92;
+            // 
+            // potrojariWeBrowser
+            // 
+            this.potrojariWeBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.potrojariWeBrowser.Location = new System.Drawing.Point(10, 0);
+            this.potrojariWeBrowser.Margin = new System.Windows.Forms.Padding(0);
+            this.potrojariWeBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.potrojariWeBrowser.Name = "potrojariWeBrowser";
+            this.potrojariWeBrowser.Size = new System.Drawing.Size(1122, 493);
+            this.potrojariWeBrowser.TabIndex = 0;
+            // 
             // Potrojari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.pnlBodyBrowser);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Potrojari";
-            this.Size = new System.Drawing.Size(1132, 650);
+            this.Size = new System.Drawing.Size(1132, 729);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -510,6 +535,7 @@ namespace dNothi.Desktop.UI.Dak
             this.userIdPanel.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.pnlBodyBrowser.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -519,7 +545,6 @@ namespace dNothi.Desktop.UI.Dak
         private FontAwesome.Sharp.IconButton closeButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnCross;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
@@ -545,5 +570,8 @@ namespace dNothi.Desktop.UI.Dak
         private PlaceholderTextBox.PlaceholderTextBox txtDhoronCode;
         private FontAwesome.Sharp.IconButton btnPotrojari;
         private FontAwesome.Sharp.IconButton btnSave;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel pnlBodyBrowser;
+        private System.Windows.Forms.WebBrowser potrojariWeBrowser;
     }
 }

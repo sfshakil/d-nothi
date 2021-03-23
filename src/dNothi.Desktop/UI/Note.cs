@@ -5485,7 +5485,7 @@ namespace dNothi.Desktop.UI
 
             return form;
         }
-        public Form AttachSharokNoControlToForm(Control control)
+        public Form AttachPotrojariControlToForm(Control control)
         {
             Form form = new Form();
 
@@ -5494,7 +5494,7 @@ namespace dNothi.Desktop.UI
             form.BackColor = Color.White;
 
             form.AutoSize = true;
-            form.Location = new System.Drawing.Point(10, 0);
+            form.Location = new System.Drawing.Point(233, 0);
             control.Location = new System.Drawing.Point(0, 0);
             form.Size = control.Size;
             form.Controls.Add(control);
@@ -5599,7 +5599,8 @@ namespace dNothi.Desktop.UI
         private void btnPotrojari_Click(object sender, EventArgs e)
         {
             Potrojari form = new Potrojari();
-            var nothiNoteMovementListform = AttachSharokNoControlToForm(form);
+            form.loadPotrojariBrowser(khosraViewWebBrowser.DocumentText);
+            var nothiNoteMovementListform = AttachPotrojariControlToForm(form);
             CalPopUpWindow(nothiNoteMovementListform);
         }
     }
