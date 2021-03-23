@@ -32,8 +32,8 @@
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.saveButton = new FontAwesome.Sharp.IconButton();
             this.textPanel = new System.Windows.Forms.Panel();
-            this.textBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.headerLabel = new System.Windows.Forms.Label();
+            this.textBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.textPanel.SuspendLayout();
             this.SuspendLayout();
@@ -113,19 +113,6 @@
             this.textPanel.TabIndex = 30;
             this.textPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColor);
             // 
-            // textBox
-            // 
-            this.textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox.Location = new System.Drawing.Point(17, 11);
-            this.textBox.Name = "textBox";
-            this.textBox.PlaceholderText = "নতুন ফোল্ডার";
-            this.textBox.Size = new System.Drawing.Size(347, 19);
-            this.textBox.TabIndex = 0;
-            // 
             // headerLabel
             // 
             this.headerLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -138,6 +125,17 @@
             this.headerLabel.Size = new System.Drawing.Size(138, 21);
             this.headerLabel.TabIndex = 29;
             this.headerLabel.Text = "ব্যক্তিগত ফোল্ডারসমূহ";
+            // 
+            // textBox
+            // 
+            this.textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox.Location = new System.Drawing.Point(6, 12);
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(368, 19);
+            this.textBox.TabIndex = 0;
+            this.textBox.Text = "নতুন ফোল্ডার";
             // 
             // FolderCreatePopUpForm
             // 
@@ -164,8 +162,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label headerLabel;
         private System.Windows.Forms.Panel textPanel;
-        private PlaceholderTextBox.PlaceholderTextBox textBox;
         private FontAwesome.Sharp.IconButton deleteButton;
         private FontAwesome.Sharp.IconButton saveButton;
+        private System.Windows.Forms.TextBox textBox;
     }
 }

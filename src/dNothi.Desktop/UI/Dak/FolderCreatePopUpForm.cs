@@ -48,6 +48,16 @@ namespace dNothi.Desktop.UI.Dak
         private void saveButton_Click(object sender, EventArgs e)
         {
             _folderName = textBox.Text;
+            if(textBox.Text=="")
+            {
+                UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
+                alertMessageBox.message = "নতুন ফোল্ডার এর নাম ইনপুট দিন!";
+
+                alertMessageBox.ShowDialog();
+                return;
+            }
+
+
 
            if(_selectedFolderId !=0)
             {

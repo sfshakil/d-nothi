@@ -34,12 +34,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.attchmentTypePanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.attachmentSizeLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.downloadButton = new FontAwesome.Sharp.IconButton();
             this.mainAttachmentIconPanel = new System.Windows.Forms.Panel();
             this.attachmentNameLabel = new System.Windows.Forms.LinkLabel();
             this.shareButton = new FontAwesome.Sharp.IconButton();
+            this.attachmentSizeLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -90,19 +90,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(583, 101);
             this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // attachmentSizeLabel
-            // 
-            this.attachmentSizeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.attachmentSizeLabel.AutoSize = true;
-            this.attachmentSizeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.attachmentSizeLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attachmentSizeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.attachmentSizeLabel.Location = new System.Drawing.Point(3, 83);
-            this.attachmentSizeLabel.Name = "attachmentSizeLabel";
-            this.attachmentSizeLabel.Size = new System.Drawing.Size(52, 18);
-            this.attachmentSizeLabel.TabIndex = 3;
-            this.attachmentSizeLabel.Text = "১৭৩৬.৫";
             // 
             // tableLayoutPanel3
             // 
@@ -183,6 +170,19 @@
             this.shareButton.Size = new System.Drawing.Size(31, 24);
             this.shareButton.TabIndex = 10;
             this.shareButton.UseVisualStyleBackColor = false;
+            // 
+            // attachmentSizeLabel
+            // 
+            this.attachmentSizeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.attachmentSizeLabel.AutoSize = true;
+            this.attachmentSizeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.attachmentSizeLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentSizeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.attachmentSizeLabel.Location = new System.Drawing.Point(3, 83);
+            this.attachmentSizeLabel.Name = "attachmentSizeLabel";
+            this.attachmentSizeLabel.Size = new System.Drawing.Size(52, 18);
+            this.attachmentSizeLabel.TabIndex = 3;
+            this.attachmentSizeLabel.Text = "১৭৩৬.৫";
             // 
             // DakAttachmentRowUserControl
             // 
