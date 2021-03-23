@@ -80,6 +80,7 @@
     <Compile Include="Entity\Dak\DakNothijatoResponse.cs" />
     <Compile Include="Entity\Dak\DakNothivuktoResponse.cs" />
     <Compile Include="Entity\Dak\DakNothivuktoRevertResponse.cs" />
+    <Compile Include="Entity\Dak\DakProtibedonResponse.cs" />
     <Compile Include="Entity\Dak\DakSearchResponse.cs" />
     <Compile Include="Entity\Dak\DesignationSealResponse.cs" />
     <Compile Include="Entity\Dak\DakAttachmentDTO.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Entity\Dak\NothiDTO.cs" />
     <Compile Include="Entity\Dak\OCRResponse.cs" />
     <Compile Include="Entity\Dak\OtherDTO.cs" />
+    <Compile Include="Entity\Dak\ProtibedonResponse.cs" />
     <Compile Include="Entity\Dak\ToDTO.cs" />
     <Compile Include="Entity\DataDTO.cs" />
     <Compile Include="Entity\EmployeeInfoDTO.cs" />
@@ -250,6 +252,7 @@
     <Compile Include="Entity\Nothi\ToOutboxDTO.cs" />
     <Compile Include="Entity\OfficeInfoDTO.cs" />
     <Compile Include="Entity\PotroTemplateResponse.cs" />
+    <Compile Include="Entity\RegisterReportResponse.cs" />
     <Compile Include="Entity\UserMessage.cs" />
     <Compile Include="Entity\SignatureDTO.cs" />
     <Compile Include="Entity\UserDTO.cs" />
@@ -268,6 +271,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dNothi.Utility\dNothi.Utility.csproj">
+      <Project>{58B5B842-9223-4E9B-A7F5-921D356F2CCF}</Project>
+      <Name>dNothi.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -181,12 +181,15 @@ namespace dNothi.Desktop
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
             builder.RegisterType<KhasraTemplateService>().As<IKhasraTemplateService>();
             builder.RegisterType<PotrojariParser>().As<IPotrojariParser>();
+            builder.RegisterType<RegisterService>().As<IRegisterService>();
+            builder.RegisterType<ProtibedonService>().As<IProtibedonService>();
             
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
            
             builder.RegisterType<UI.Nothi>().AsSelf();
             builder.RegisterType<UI.Khosra>().AsSelf();
+            builder.RegisterType<UI.Dak.DakBoxSharingForm>().AsSelf();
             builder.RegisterType<UI.Note>().AsSelf();
             builder.RegisterType<DakModuleSokolNothiListUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.CreateNewNotes>().AsSelf();

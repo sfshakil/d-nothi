@@ -427,6 +427,18 @@
     <Compile Include="UI\Dak\DakAttachmentViewForm.Designer.cs">
       <DependentUpon>DakAttachmentViewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakBoxSharedOfficerRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakBoxSharedOfficerRowUserControl.Designer.cs">
+      <DependentUpon>DakBoxSharedOfficerRowUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DakBoxSharingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakBoxSharingForm.Designer.cs">
+      <DependentUpon>DakBoxSharingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DakDecisionTableUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -953,6 +965,12 @@
     <Compile Include="UI\OfficerRowUserControl.Designer.cs">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ResponsiveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ResponsiveForm.Designer.cs">
+      <DependentUpon>ResponsiveForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SelectOfficerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1002,6 +1020,10 @@
     <Compile Include="UserControl\UserNamePanel.Designer.cs">
       <DependentUpon>UserNamePanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="View Model\ConvertProtibedonResponsetoProtibedon.cs" />
+    <Compile Include="View Model\ConvertRegisterResponsetoReport.cs" />
+    <Compile Include="View Model\Protibedon.cs" />
+    <Compile Include="View Model\RegisterReport.cs" />
     <Compile Include="View Model\ViewDesignationSealList.cs" />
     <Compile Include="View Model\WebBrowserColumn.cs" />
     <EmbeddedResource Include="CustomControl\ListBoxHS.resx">
@@ -1038,6 +1060,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakAttachmentViewForm.resx">
       <DependentUpon>DakAttachmentViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakBoxSharedOfficerRowUserControl.resx">
+      <DependentUpon>DakBoxSharedOfficerRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakBoxSharingForm.resx">
+      <DependentUpon>DakBoxSharingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakDecisionTableUserControl.resx">
       <DependentUpon>DakDecisionTableUserControl.cs</DependentUpon>
@@ -1089,6 +1117,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Prapok.resx">
       <DependentUpon>Prapok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\ProtibedonUserControl.resx">
+      <DependentUpon>ProtibedonUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\RegisterReportUserControl.resx">
+      <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\KhosraAttachmentForm.resx">
+      <DependentUpon>KhosraAttachmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra.resx">
       <DependentUpon>Khosra.cs</DependentUpon>
@@ -1303,6 +1340,9 @@
     <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ResponsiveForm.resx">
+      <DependentUpon>ResponsiveForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\SelectOfficerForm.resx">
       <DependentUpon>SelectOfficerForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1329,6 +1369,8 @@
     <None Include="dNothi.Desktop_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\dNothi.Desktop.View_Model.Protibedon.datasource" />
+    <None Include="Properties\DataSources\dNothi.Desktop.View_Model.RegisterReport.datasource" />
     <None Include="Properties\DataSources\dNothi.Desktop.View_Model.ViewDesignationSealList.datasource" />
     <None Include="Properties\DataSources\dNothi.Services.DakServices.DakAttachmentinGrid.datasource" />
     <None Include="Properties\Settings.settings">

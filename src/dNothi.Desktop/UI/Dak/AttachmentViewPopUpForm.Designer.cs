@@ -32,11 +32,11 @@
             this.pdfViewerControl = new AxAcroPDFLib.AxAcroPDF();
             this.mainAttachmentViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.imagePanel = new System.Windows.Forms.Panel();
+            this.imageViewPictureBox = new System.Windows.Forms.PictureBox();
             this.fileMissingLabel = new System.Windows.Forms.Label();
             this.rightArrowButton = new FontAwesome.Sharp.IconButton();
             this.leftArrowButton = new FontAwesome.Sharp.IconButton();
             this.closeButton = new FontAwesome.Sharp.IconButton();
-            this.imageViewPictureBox = new System.Windows.Forms.PictureBox();
             this.waitPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pdfViewerControl)).BeginInit();
             this.imagePanel.SuspendLayout();
@@ -80,6 +80,20 @@
             this.imagePanel.TabIndex = 4;
             this.imagePanel.MouseLeave += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
             this.imagePanel.MouseHover += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
+            // 
+            // imageViewPictureBox
+            // 
+            this.imageViewPictureBox.ErrorImage = global::dNothi.Desktop.Properties.Resources.PDF_File_Icon;
+            this.imageViewPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.imageViewPictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.imageViewPictureBox.Name = "imageViewPictureBox";
+            this.imageViewPictureBox.Size = new System.Drawing.Size(101, 503);
+            this.imageViewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.imageViewPictureBox.TabIndex = 2;
+            this.imageViewPictureBox.TabStop = false;
+            this.imageViewPictureBox.WaitOnLoad = true;
+            this.imageViewPictureBox.MouseLeave += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
+            this.imageViewPictureBox.MouseHover += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
             // 
             // fileMissingLabel
             // 
@@ -151,20 +165,6 @@
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             this.closeButton.MouseLeave += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
             this.closeButton.MouseHover += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
-            // 
-            // imageViewPictureBox
-            // 
-            this.imageViewPictureBox.ErrorImage = global::dNothi.Desktop.Properties.Resources.PDF_File_Icon;
-            this.imageViewPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.imageViewPictureBox.Margin = new System.Windows.Forms.Padding(0);
-            this.imageViewPictureBox.Name = "imageViewPictureBox";
-            this.imageViewPictureBox.Size = new System.Drawing.Size(101, 503);
-            this.imageViewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.imageViewPictureBox.TabIndex = 2;
-            this.imageViewPictureBox.TabStop = false;
-            this.imageViewPictureBox.WaitOnLoad = true;
-            this.imageViewPictureBox.MouseLeave += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
-            this.imageViewPictureBox.MouseHover += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
             // 
             // waitPictureBox
             // 

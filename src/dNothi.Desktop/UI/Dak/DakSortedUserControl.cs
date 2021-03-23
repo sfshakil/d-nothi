@@ -9,21 +9,41 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Desktop.Properties;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakSortedUserControl : UserControl
     {
+        private bool MouseIsOverControl() =>
+    this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
         public DakSortedUserControl()
         {
             InitializeComponent();
             dakPriorityIconPanel.Visible = false;
             dakSecurityIconPanel.Visible = false;
-            attentionTypeIconPanel.Visible = false;
-            newDakImagePanel.Visible = false;
-            dakTypePanel.Visible = false;
-            potrojariPanel.Visible = false;
+           
             IterateControls(this.Controls);
+            SetDefaultFont(this.Controls);
+
+        }
+        public bool _isChecked;
+        public bool isChecked { get { return _isChecked; } set { _isChecked = value; dakCheckBox.Checked = value; } }
+
+        void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+                if (ctrl.Font.Style == FontStyle.Regular)
+                {
+                    // ctrl.Font.Style = "Normal";
+                }
+
+                MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+                SetDefaultFont(ctrl.Controls);
+            }
 
         }
 
@@ -32,6 +52,24 @@ namespace dNothi.Desktop.UI.Dak
             foreach (Control ctrl in collection)
             {
 
+                if (ctrl.Name == "dakActionPanel")
+                {
+                    continue;
+                }
+                if (ctrl.Name == "dakCheckBox")
+                {
+                    continue;
+                }
+                if (ctrl == dakAttachmentButton)
+                {
+                    continue;
+                }
+                if (ctrl == dakTagPanel)
+                {
+                    continue;
+                }
+
+
                 ctrl.Click += DakSortedUserControl_Click;
                 ctrl.MouseEnter += DakSortedUserControl_MouseEnter;
                 ctrl.MouseLeave += DakSortedUserControl_MouseLeave;
@@ -39,8 +77,21 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+        private void MouseHoverAction()
+        {
+            if (MouseIsOverControl())
+            {
+                this.BackColor = Color.FromArgb(243, 243, 243);
+                dakActionPanel.Visible = true;
+            }
+            else
+            {
+                this.BackColor = Color.White;
+                dakActionPanel.Visible = false;
+            }
+        }
 
-
+       
 
         private string _nothiNo;
         private string _source;
@@ -73,7 +124,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     if(draftedDecision.decision != "")
                     {
-                        DraftedDecisionLabel.Text = draftedDecision.decision;
+                        DraftedDecisionLabel.Text += draftedDecision.decision;
                     }
                     else
                     {
@@ -84,39 +135,46 @@ namespace dNothi.Desktop.UI.Dak
                     DakPriorityList dakPriorityList = new DakPriorityList();
                     string priorityName = dakPriorityList.GetDakPriorityName(draftedDecision.priority);
 
-
                     if (priorityName == "")
                     {
-                        draftedPriorityHoldingPanel.Visible = false;
-                        draftedprioritySidePanel.Visible = false;
+                        dakPriorityIconPanel.Visible = false;
                     }
                     else
                     {
-                        draftedPriorityHoldingPanel.Visible = true;
-                        draftedPriorityLabel.Text = "সিদ্ধান্তঃ "+ priorityName;
+                        dakPriorityIconPanel.Visible = true;
+                        prioriyLabel.Text = priorityName;
 
                     }
+
+
+
+                   
 
 
                     DakSecurityList dakSecurityList = new DakSecurityList();
                     string icon = dakSecurityList.GetDakSecuritiesIcon(draftedDecision.security);
+                    string Name = dakSecurityList.GetDakSecuritiesName(draftedDecision.security);
 
-                    draftedSecurityPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
+                    dakSecurityIcon.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
 
-                    if (draftedSecurityPanel.BackgroundImage == null)
+                    if (Name == "")
                     {
-                        daraftedSecurityHoldingPanel.Visible = false;
-                        draftedsecuritySideLabel.Visible = false;
+                        dakSecurityIconPanel.Visible = false;
                     }
-                   
+                    else
+                    {
+                        dakSecurityIconPanel.Visible = true;
+                        dakSecurityLabel.Text = Name;
+                    }
+
 
                     try
                     {
-                        draftedMainPrapokButton.Text = "মূল প্রাপকঃ " + draftedDecision.recipients.mul_prapok.employee_name_bng;
+                        mainPrapokButton.Text += draftedDecision.recipients.mul_prapok.employee_name_bng;
                     }
                     catch
                     {
-                        draftedMainPrapokButton.Visible = false;
+                        mainPrapokButton.Visible = false;
                     }
 
 
@@ -145,6 +203,9 @@ namespace dNothi.Desktop.UI.Dak
             get { return _dakAttachmentCount; }
             set { _dakAttachmentCount = value; dakAttachmentButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
+
+
+
         [Category("Custom Props")]
         public int potrojari
         {
@@ -155,14 +216,8 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                if (value == 1)
-                {
-                    potrojariPanel.Visible = true;
-                }
-                else
-                {
-                    potrojariPanel.Visible = false;
-                }
+                rightInfoPanel.potrojari = value;
+
 
 
 
@@ -181,22 +236,13 @@ namespace dNothi.Desktop.UI.Dak
                 _dakPriority = value;
 
 
-                DakPriorityList dakPriorityList = new DakPriorityList();
-                string priorityName = dakPriorityList.GetDakPriorityName(value);
 
 
-                if (priorityName == "")
-                {
-                    dakPriorityIconPanel.Visible = false;
-                }
-                else
-                {
-                    dakPriorityIconPanel.Visible = true;
-                    prioriyLabel.Text = priorityName;
+                rightInfoPanel.dakPrioriy = value;
 
-                }
+               
 
-
+               
 
 
 
@@ -217,17 +263,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                dakTypePanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(value);
-
-                if (dakTypePanel.BackgroundImage == null)
-                {
-                    dakTypePanel.Visible = false;
-                }
-                else
-                {
-                    dakTypePanel.Visible = true;
-
-                }
+                rightInfoPanel.dakType = value;
 
 
 
@@ -248,21 +284,23 @@ namespace dNothi.Desktop.UI.Dak
             {
                 _dakSecurityIconValue = value;
 
+                rightInfoPanel.dakSecurityIconValue = value;
+
                 DakSecurityList dakSecurityList = new DakSecurityList();
                 string icon = dakSecurityList.GetDakSecuritiesIcon(value);
+                string Name = dakSecurityList.GetDakSecuritiesName(value);
 
-                dakSecurityIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
+                dakSecurityIcon.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
 
-                if (dakSecurityIconPanel.BackgroundImage == null)
+                if (Name == "")
                 {
                     dakSecurityIconPanel.Visible = false;
                 }
                 else
                 {
                     dakSecurityIconPanel.Visible = true;
-
+                    dakSecurityLabel.Text = Name;
                 }
-
 
 
 
@@ -284,21 +322,16 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _attentionTypeIconValue = value;
-
-                AttentionTypeList attentionTypeIconList = new AttentionTypeList();
-                string icon = attentionTypeIconList.GetAttentionTypeIcon(value);
-
-                attentionTypeIconPanel.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
-
-                if (attentionTypeIconPanel.BackgroundImage == null)
+                if (value == "0")
                 {
-                    attentionTypeIconPanel.Visible = false;
+                    dakArchiveButton.Visible = true;
                 }
                 else
                 {
-                    attentionTypeIconPanel.Visible = true;
-
+                    dakArchiveButton.Visible = false;
                 }
+                rightInfoPanel.attentionTypeIconValue = value;
+
 
 
 
@@ -308,12 +341,7 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        [Category("Custom Props")]
-        public string source
-        {
-            get { return _source; }
-            set { _source = value; sourceLabel.Text = value; }
-        }
+
 
         [Category("Custom Props")]
         public string dakViewStatus
@@ -322,19 +350,22 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _dakViewStatus = value;
-                if (dakViewStatus == "New")
-                {
-                    newDakImagePanel.Visible = true;
-
-
-                }
-                else
-                {
-                    newDakImagePanel.Visible = false;
-                }
+                rightInfoPanel.dakViewStatus = value;
 
             }
+
         }
+
+
+
+        [Category("Custom Props")]
+        public string source
+        {
+            get { return _source; }
+            set { _source = value; sourceLabel.Text = value; }
+        }
+
+      
 
 
         [Category("Custom Props")]
@@ -398,12 +429,12 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakSortedUserControl_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.WhiteSmoke;
+            MouseHoverAction();
         }
 
         private void DakSortedUserControl_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
+            MouseHoverAction();
         }
 
         [Browsable(true)]
@@ -414,6 +445,170 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.ButtonClick != null)
                 this.ButtonClick(sender, e);
+        }
+
+
+
+
+        public event EventHandler DakAttachmentButton;
+
+        private void DakAttachmentButton_Click(object sender, EventArgs e)
+        {
+
+
+            if (this.DakAttachmentButton != null)
+                this.DakAttachmentButton(sender, e);
+        }
+
+        private void dakMovementButton_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+
+        private void dakMovementStatusButton_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+        public event EventHandler NothiteUposthapitoButtonClick;
+        private void nothiteUposthaponButton_Click(object sender, EventArgs e)
+        {
+            if (this.NothiteUposthapitoButtonClick != null)
+                this.NothiteUposthapitoButtonClick(sender, e);
+        }
+
+        public event EventHandler DakArchiveButtonClick;
+        private void dakArchiveButton_Click(object sender, EventArgs e)
+        {
+
+
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি ডাকটি আর্কাইভ করতে চান?";
+            conditonBoxForm.ShowDialog();
+
+
+
+
+            if (conditonBoxForm.Yes)
+            {
+
+
+                if (this.DakArchiveButtonClick != null)
+                    this.DakArchiveButtonClick(sender, e);
+            }
+
+        }
+
+        private void DakSendButton_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
+        }
+
+
+        public event EventHandler NothijatoButtonClick;
+
+
+        private void nothijatoButton_Click(object sender, EventArgs e)
+        {
+            if (this.NothijatoButtonClick != null)
+                this.NothijatoButtonClick(sender, e);
+        }
+
+
+        public event EventHandler CheckBoxClick;
+
+        private void dakCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            isChecked = dakCheckBox.Checked;
+            if (this.CheckBoxClick != null)
+                this.CheckBoxClick(sender, e);
+        }
+
+
+
+
+
+
+        private void dakMovementStatusButton_MouseHover(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeal_alt_Hover;
+        }
+
+        private void dakMovementStatusButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakMovementStatusButton.BackgroundImage = Resources.Repeat_alt_New;
+        }
+
+        private void nothiteUposthaponButton_MouseLeave(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothijato_Icon;
+        }
+
+        private void nothiteUposthaponButton_MouseHover(object sender, EventArgs e)
+        {
+            nothiteUposthaponButton.BackgroundImage = Resources.Nothivukto_Icon_Hover;
+        }
+
+        private void DakSendButton_MouseHover(object sender, EventArgs e)
+        {
+            DakSendButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void DakSendButton_MouseLeave(object sender, EventArgs e)
+        {
+            DakSendButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void nothijatoButton_MouseHover(object sender, EventArgs e)
+        {
+            nothijatoButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void nothijatoButton_MouseLeave(object sender, EventArgs e)
+        {
+            nothijatoButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void dakArchiveButton_MouseHover(object sender, EventArgs e)
+        {
+            dakArchiveButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void dakArchiveButton_MouseLeave(object sender, EventArgs e)
+        {
+            dakArchiveButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+        private void iconButton3_MouseHover(object sender, EventArgs e)
+        {
+            dakTagButton.IconColor = Color.FromArgb(246, 78, 144);
+        }
+
+        private void iconButton3_MouseLeave(object sender, EventArgs e)
+        {
+            dakTagButton.IconColor = Color.FromArgb(54, 153, 255);
+        }
+
+
+        public event EventHandler DakTagButtonCLick;
+        private void dakTagButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakTagButtonCLick != null)
+                this.DakTagButtonCLick(sender, e);
+        }
+        public event EventHandler DakTagShowButtonCLick;
+        private void dakTagListButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakTagShowButtonCLick != null)
+                this.DakTagShowButtonCLick(sender, e);
+        }
+
+        private void DakSortedUserControl_Load(object sender, EventArgs e)
+        {
+            dakActionPanel.Location = new Point(this.Width, dakActionPanel.Location.Y);
+
         }
     }
 }

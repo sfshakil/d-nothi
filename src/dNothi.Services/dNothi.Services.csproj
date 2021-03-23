@@ -142,6 +142,8 @@
     <Compile Include="DakServices\IDakSearchService.cs" />
     <Compile Include="DakServices\IDakUploadService.cs" />
     <Compile Include="DakServices\IDesignationSealService.cs" />
+    <Compile Include="DakServices\ProtibedonService.cs" />
+    <Compile Include="DakServices\RegisterService.cs" />
     <Compile Include="KhasraService\KhasraTemplateService.cs" />
     <Compile Include="NothiServices\AllPotroServices.cs" />
     <Compile Include="NothiServices\FileAttachment.cs" />
@@ -223,6 +225,10 @@
     <ProjectReference Include="..\dNothi.JsonParser\dNothi.JsonParser.csproj">
       <Project>{69286b31-fec7-4017-9e7f-eb96f8f55749}</Project>
       <Name>dNothi.JsonParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dNothi.Utility\dNothi.Utility.csproj">
+      <Project>{58B5B842-9223-4E9B-A7F5-921D356F2CCF}</Project>
+      <Name>dNothi.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
