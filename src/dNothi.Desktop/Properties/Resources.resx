@@ -130,14 +130,14 @@
   <data name="MulPrapok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MulPrapok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="নাগরিক-Icon-PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\নাগরিক-Icon-PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="khoshra-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\khoshra-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paperclip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paperclip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="অনুলিপি-PNG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\অনুলিপি-PNG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="গোপনীয়-PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\গোপনীয়-PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Other_File_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Other_File_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -165,9 +165,6 @@
   </data>
   <data name="মূল-প্রাপক-PNG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\মূল-প্রাপক-PNG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="গোপনীয়" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\গোপনীয়.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="সীমিত-PNG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\সীমিত-PNG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,8 +211,8 @@
   <data name="dakdetailsuserprofilepic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dakdetailsuserprofilepic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PDF_File_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PDF_File_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mulpotro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mulpotro1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Anulipiu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Anulipiu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,8 +235,8 @@
   <data name="mulpotro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mulpotro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mulpotro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mulpotro1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="অনুলিপি-PNG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\অনুলিপি-PNG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-maple-leaf-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-maple-leaf-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -271,8 +268,8 @@
   <data name="Repeat-alt-New" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Repeat-alt-New.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="অনুলিপি-PNG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\অনুলিপি-PNG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="নাগরিক-Icon-PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\নাগরিক-Icon-PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Nagorik" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nagorik.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,8 +295,14 @@
   <data name="অনুলিপি" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\অনুলিপি.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="সর্বোচ্চ অগ্রাধিকার-PNG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\সর্বোচ্চ অগ্রাধিকার-PNG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="paperclip (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paperclip (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Repeal-alt-Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Repeal-alt-Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="সীমিত" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\সীমিত.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,14 +319,11 @@
   <data name="DakForward" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DakForward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paperclip" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paperclip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="DakListUserControlBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DakListUserControlBG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="সর্বোচ্চ অগ্রাধিকার-PNG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\সর্বোচ্চ অগ্রাধিকার-PNG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PDF_File_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PDF_File_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mulpotro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mulpotro2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,22 +331,25 @@
   <data name="SolaimanLipi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SolaimanLipi.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Nothivukto-Icon-Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nothivukto-Icon-Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="অতি গোপনীয়-PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\অতি গোপনীয়-PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="নাগরিক" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\নাগরিক.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Repeal-alt-Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Repeal-alt-Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="গোপনীয়" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\গোপনীয়.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Nothivukto-Icon-Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Nothivukto-Icon-Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="গোপনীয়-PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\গোপনীয়-PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-high-priority-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-high-priority-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="khoshra-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\khoshra-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

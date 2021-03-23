@@ -36,10 +36,8 @@
             this.nothiNamePanel = new System.Windows.Forms.Panel();
             this.lbSubject = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lbNothiNo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lbNoteShakha = new System.Windows.Forms.Label();
             this.Shakha = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -252,10 +250,8 @@
             this.nothiNamePanel.AutoSize = true;
             this.nothiNamePanel.Controls.Add(this.lbSubject);
             this.nothiNamePanel.Controls.Add(this.label4);
-            this.nothiNamePanel.Controls.Add(this.label5);
             this.nothiNamePanel.Controls.Add(this.lbNothiNo);
             this.nothiNamePanel.Controls.Add(this.label2);
-            this.nothiNamePanel.Controls.Add(this.label3);
             this.nothiNamePanel.Controls.Add(this.lbNoteShakha);
             this.nothiNamePanel.Controls.Add(this.Shakha);
             this.nothiNamePanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -263,7 +259,7 @@
             this.nothiNamePanel.Margin = new System.Windows.Forms.Padding(0);
             this.nothiNamePanel.Name = "nothiNamePanel";
             this.nothiNamePanel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.nothiNamePanel.Size = new System.Drawing.Size(359, 33);
+            this.nothiNamePanel.Size = new System.Drawing.Size(424, 33);
             this.nothiNamePanel.TabIndex = 74;
             // 
             // lbSubject
@@ -273,10 +269,10 @@
             this.lbSubject.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbSubject.Location = new System.Drawing.Point(300, 7);
+            this.lbSubject.Location = new System.Drawing.Point(347, 7);
             this.lbSubject.Margin = new System.Windows.Forms.Padding(0);
             this.lbSubject.Name = "lbSubject";
-            this.lbSubject.Size = new System.Drawing.Size(59, 18);
+            this.lbSubject.Size = new System.Drawing.Size(77, 21);
             this.lbSubject.TabIndex = 73;
             this.lbSubject.Text = "lbSubject";
             // 
@@ -287,26 +283,12 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label4.Location = new System.Drawing.Point(263, 7);
+            this.label4.Location = new System.Drawing.Point(302, 7);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 18);
+            this.label4.Size = new System.Drawing.Size(45, 21);
             this.label4.TabIndex = 72;
             this.label4.Text = "বিষয়:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label5.Location = new System.Drawing.Point(251, 7);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(12, 18);
-            this.label5.TabIndex = 71;
-            this.label5.Text = ";";
             // 
             // lbNothiNo
             // 
@@ -315,10 +297,10 @@
             this.lbNothiNo.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbNothiNo.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNothiNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbNothiNo.Location = new System.Drawing.Point(188, 7);
+            this.lbNothiNo.Location = new System.Drawing.Point(220, 7);
             this.lbNothiNo.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiNo.Name = "lbNothiNo";
-            this.lbNothiNo.Size = new System.Drawing.Size(63, 18);
+            this.lbNothiNo.Size = new System.Drawing.Size(82, 21);
             this.lbNothiNo.TabIndex = 70;
             this.lbNothiNo.Text = "lbNothiNo";
             // 
@@ -329,26 +311,12 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label2.Location = new System.Drawing.Point(133, 7);
+            this.label2.Location = new System.Drawing.Point(155, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 18);
+            this.label2.Size = new System.Drawing.Size(65, 21);
             this.label2.TabIndex = 69;
             this.label2.Text = "নথি নম্বর:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label3.Location = new System.Drawing.Point(121, 7);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(12, 18);
-            this.label3.TabIndex = 64;
-            this.label3.Text = ";";
             // 
             // lbNoteShakha
             // 
@@ -357,10 +325,10 @@
             this.lbNoteShakha.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbNoteShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbNoteShakha.Location = new System.Drawing.Point(35, 7);
+            this.lbNoteShakha.Location = new System.Drawing.Point(43, 7);
             this.lbNoteShakha.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteShakha.Name = "lbNoteShakha";
-            this.lbNoteShakha.Size = new System.Drawing.Size(86, 18);
+            this.lbNoteShakha.Size = new System.Drawing.Size(112, 21);
             this.lbNoteShakha.TabIndex = 63;
             this.lbNoteShakha.Text = "lbNoteShakha";
             // 
@@ -374,7 +342,7 @@
             this.Shakha.Location = new System.Drawing.Point(0, 7);
             this.Shakha.Margin = new System.Windows.Forms.Padding(0);
             this.Shakha.Name = "Shakha";
-            this.Shakha.Size = new System.Drawing.Size(35, 18);
+            this.Shakha.Size = new System.Drawing.Size(43, 21);
             this.Shakha.TabIndex = 62;
             this.Shakha.Text = "শাখাঃ";
             // 
@@ -583,11 +551,11 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label9.Location = new System.Drawing.Point(57, 0);
+            this.label9.Location = new System.Drawing.Point(48, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label9.Size = new System.Drawing.Size(52, 25);
+            this.label9.Size = new System.Drawing.Size(61, 28);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -769,7 +737,7 @@
             this.label27.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label27.Location = new System.Drawing.Point(19, 5);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(198, 18);
+            this.label27.Size = new System.Drawing.Size(233, 21);
             this.label27.TabIndex = 1;
             this.label27.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -845,7 +813,7 @@
             this.label24.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label24.Location = new System.Drawing.Point(19, 5);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(198, 18);
+            this.label24.Size = new System.Drawing.Size(233, 21);
             this.label24.TabIndex = 1;
             this.label24.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -922,7 +890,7 @@
             this.label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label20.Location = new System.Drawing.Point(19, 5);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(198, 18);
+            this.label20.Size = new System.Drawing.Size(233, 21);
             this.label20.TabIndex = 1;
             this.label20.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -998,7 +966,7 @@
             this.label17.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label17.Location = new System.Drawing.Point(19, 5);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(198, 18);
+            this.label17.Size = new System.Drawing.Size(233, 21);
             this.label17.TabIndex = 1;
             this.label17.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1074,7 +1042,7 @@
             this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label14.Location = new System.Drawing.Point(19, 5);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(198, 18);
+            this.label14.Size = new System.Drawing.Size(233, 21);
             this.label14.TabIndex = 1;
             this.label14.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1137,7 +1105,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(4, 4);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 18);
+            this.label8.Size = new System.Drawing.Size(87, 21);
             this.label8.TabIndex = 0;
             this.label8.Text = "পত্র গ্রহণকারী";
             // 
@@ -1188,7 +1156,7 @@
             this.dakSecrurityComboBox.FormattingEnabled = true;
             this.dakSecrurityComboBox.Location = new System.Drawing.Point(4, 5);
             this.dakSecrurityComboBox.Name = "dakSecrurityComboBox";
-            this.dakSecrurityComboBox.Size = new System.Drawing.Size(137, 26);
+            this.dakSecrurityComboBox.Size = new System.Drawing.Size(137, 29);
             this.dakSecrurityComboBox.TabIndex = 92;
             // 
             // label13
@@ -1236,7 +1204,7 @@
             this.dakPriorityComboBox.IntegralHeight = false;
             this.dakPriorityComboBox.Location = new System.Drawing.Point(2, 5);
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
-            this.dakPriorityComboBox.Size = new System.Drawing.Size(140, 26);
+            this.dakPriorityComboBox.Size = new System.Drawing.Size(140, 29);
             this.dakPriorityComboBox.TabIndex = 91;
             // 
             // splitter2
@@ -1304,7 +1272,7 @@
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(36, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 18);
+            this.label6.Size = new System.Drawing.Size(73, 21);
             this.label6.TabIndex = 0;
             this.label6.Text = "পত্রের ধরণ";
             // 
@@ -2142,10 +2110,8 @@
         private System.Windows.Forms.Panel nothiNamePanel;
         private System.Windows.Forms.Label lbSubject;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbNothiNo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbNoteShakha;
         private System.Windows.Forms.Label Shakha;
         private System.Windows.Forms.Panel panel11;

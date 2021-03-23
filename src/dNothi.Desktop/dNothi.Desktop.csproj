@@ -397,6 +397,12 @@
     <Compile Include="UI\Dak\AttachmentViewPopUpForm.Designer.cs">
       <DependentUpon>AttachmentViewPopUpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\ChangeSharokNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\ChangeSharokNumber.Designer.cs">
+      <DependentUpon>ChangeSharokNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\CreateNewNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -469,6 +475,12 @@
     <Compile Include="UI\Dak\DakTagForm.Designer.cs">
       <DependentUpon>DakTagForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DraftHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DraftHistory.Designer.cs">
+      <DependentUpon>DraftHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DragAndDropOfficerPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -479,7 +491,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
-    <Compile Include="UI\Dak\ProtibedonUserControl.cs">
+	<Compile Include="UI\Dak\ProtibedonUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Dak\ProtibedonUserControl.Designer.cs">
@@ -496,6 +508,54 @@
     </Compile>
     <Compile Include="UI\Khosra Potro\KhosraAttachmentForm.Designer.cs">
       <DependentUpon>KhosraAttachmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NoteMovement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NoteMovement.Designer.cs">
+      <DependentUpon>NoteMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteAllAttachement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteAllAttachement.Designer.cs">
+      <DependentUpon>NothiNoteAllAttachement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteMovementList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiNoteMovementList.Designer.cs">
+      <DependentUpon>NothiNoteMovementList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiOutboxNoteShomuho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiOutboxNoteShomuho.Designer.cs">
+      <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\OnumoditoPodobi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\OnumoditoPodobi.Designer.cs">
+      <DependentUpon>OnumoditoPodobi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\PotrangshoPrapokerTalika.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\PotrangshoPrapokerTalika.Designer.cs">
+      <DependentUpon>PotrangshoPrapokerTalika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\Potrojari.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\Potrojari.Designer.cs">
+      <DependentUpon>Potrojari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\Prapok.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\Prapok.Designer.cs">
+      <DependentUpon>Prapok.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Khosra Potro\KhosraSelectedAttachmentRow.cs">
       <SubType>UserControl</SubType>
@@ -1011,6 +1071,9 @@
     <EmbeddedResource Include="UI\Dak\AttachmentViewPopUpForm.resx">
       <DependentUpon>AttachmentViewPopUpForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\ChangeSharokNumber.resx">
+      <DependentUpon>ChangeSharokNumber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\CreateNewNotes.resx">
       <DependentUpon>CreateNewNotes.cs</DependentUpon>
     </EmbeddedResource>
@@ -1047,8 +1110,38 @@
     <EmbeddedResource Include="UI\Dak\DakTagForm.resx">
       <DependentUpon>DakTagForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DraftHistory.resx">
+      <DependentUpon>DraftHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DragAndDropOfficerPanel.resx">
+      <DependentUpon>DragAndDropOfficerPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NoteMovement.resx">
+      <DependentUpon>NoteMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiNoteAllAttachement.resx">
+      <DependentUpon>NothiNoteAllAttachement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiNoteMovementList.resx">
+      <DependentUpon>NothiNoteMovementList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiOutboxNoteShomuho.resx">
+      <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\OnumoditoPodobi.resx">
+      <DependentUpon>OnumoditoPodobi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\PotrangshoPrapokerTalika.resx">
+      <DependentUpon>PotrangshoPrapokerTalika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\Potrojari.resx">
+      <DependentUpon>Potrojari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\Prapok.resx">
+      <DependentUpon>Prapok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\ProtibedonUserControl.resx">
       <DependentUpon>ProtibedonUserControl.cs</DependentUpon>
@@ -1420,6 +1513,7 @@
     <None Include="Resources\সীমিত-Icon-PNG2.png" />
     <None Include="Resources\মূল-প্রাপক-Icon_PNG.png" />
     <None Include="Resources\khoshra-1.png" />
+    <None Include="Resources\download.png" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />

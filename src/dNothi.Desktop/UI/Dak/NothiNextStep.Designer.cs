@@ -31,6 +31,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbNoteID = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnCross = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -50,15 +51,15 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSend = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lbNoteSubject = new System.Windows.Forms.Label();
+            this.lbTotalNothi = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.cbxPriorityType = new System.Windows.Forms.ComboBox();
             this.searchOfficeDetailSearch = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbNoteSubject = new System.Windows.Forms.Label();
-            this.lbTotalNothi = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlFooter.SuspendLayout();
@@ -73,6 +74,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbNoteID);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.btnCross);
             this.panel1.Controls.Add(this.panel6);
@@ -83,6 +85,21 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(462, 74);
             this.panel1.TabIndex = 1;
+            // 
+            // lbNoteID
+            // 
+            this.lbNoteID.AutoSize = true;
+            this.lbNoteID.BackColor = System.Drawing.Color.Azure;
+            this.lbNoteID.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNoteID.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
+            this.lbNoteID.Location = new System.Drawing.Point(2, 0);
+            this.lbNoteID.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNoteID.Name = "lbNoteID";
+            this.lbNoteID.Size = new System.Drawing.Size(19, 21);
+            this.lbNoteID.TabIndex = 72;
+            this.lbNoteID.Text = "0";
+            this.lbNoteID.Visible = false;
             // 
             // panel9
             // 
@@ -326,6 +343,59 @@ namespace dNothi.Desktop.UI.Dak
             this.panel3.Size = new System.Drawing.Size(462, 129);
             this.panel3.TabIndex = 70;
             // 
+            // pnlHeader
+            // 
+            this.pnlHeader.Controls.Add(this.lbNoteSubject);
+            this.pnlHeader.Controls.Add(this.lbTotalNothi);
+            this.pnlHeader.Controls.Add(this.label2);
+            this.pnlHeader.Location = new System.Drawing.Point(15, 6);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(444, 33);
+            this.pnlHeader.TabIndex = 76;
+            // 
+            // lbNoteSubject
+            // 
+            this.lbNoteSubject.AutoSize = true;
+            this.lbNoteSubject.BackColor = System.Drawing.Color.Transparent;
+            this.lbNoteSubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNoteSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNoteSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteSubject.Location = new System.Drawing.Point(63, 0);
+            this.lbNoteSubject.Margin = new System.Windows.Forms.Padding(0);
+            this.lbNoteSubject.Name = "lbNoteSubject";
+            this.lbNoteSubject.Size = new System.Drawing.Size(67, 21);
+            this.lbNoteSubject.TabIndex = 72;
+            this.lbNoteSubject.Text = "টেস্ট নোট";
+            // 
+            // lbTotalNothi
+            // 
+            this.lbTotalNothi.AutoSize = true;
+            this.lbTotalNothi.BackColor = System.Drawing.Color.Azure;
+            this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
+            this.lbTotalNothi.Location = new System.Drawing.Point(44, 0);
+            this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
+            this.lbTotalNothi.Name = "lbTotalNothi";
+            this.lbTotalNothi.Size = new System.Drawing.Size(19, 21);
+            this.lbTotalNothi.TabIndex = 71;
+            this.lbTotalNothi.Text = "২";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Azure;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 21);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "নোট :";
+            // 
             // cbxPriorityType
             // 
             this.cbxPriorityType.DropDownHeight = 200;
@@ -380,34 +450,6 @@ namespace dNothi.Desktop.UI.Dak
             this.label3.TabIndex = 73;
             this.label3.Text = "অগ্রাধিকার বাছাই করুন";
             // 
-            // lbNoteSubject
-            // 
-            this.lbNoteSubject.AutoSize = true;
-            this.lbNoteSubject.BackColor = System.Drawing.Color.Transparent;
-            this.lbNoteSubject.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbNoteSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNoteSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteSubject.Location = new System.Drawing.Point(63, 0);
-            this.lbNoteSubject.Margin = new System.Windows.Forms.Padding(0);
-            this.lbNoteSubject.Name = "lbNoteSubject";
-            this.lbNoteSubject.Size = new System.Drawing.Size(67, 21);
-            this.lbNoteSubject.TabIndex = 72;
-            this.lbNoteSubject.Text = "টেস্ট নোট";
-            // 
-            // lbTotalNothi
-            // 
-            this.lbTotalNothi.AutoSize = true;
-            this.lbTotalNothi.BackColor = System.Drawing.Color.Azure;
-            this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.lbTotalNothi.Location = new System.Drawing.Point(44, 0);
-            this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
-            this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(19, 21);
-            this.lbTotalNothi.TabIndex = 71;
-            this.lbTotalNothi.Text = "২";
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
@@ -417,31 +459,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(2, 651);
             this.panel8.TabIndex = 65;
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.Controls.Add(this.lbNoteSubject);
-            this.pnlHeader.Controls.Add(this.lbTotalNothi);
-            this.pnlHeader.Controls.Add(this.label2);
-            this.pnlHeader.Location = new System.Drawing.Point(15, 6);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(444, 33);
-            this.pnlHeader.TabIndex = 76;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Azure;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 21);
-            this.label2.TabIndex = 71;
-            this.label2.Text = "নোট :";
             // 
             // NothiNextStep
             // 
@@ -501,5 +518,6 @@ namespace dNothi.Desktop.UI.Dak
         private SearchUserController searchOfficeDetailSearch;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbNoteID;
     }
 }

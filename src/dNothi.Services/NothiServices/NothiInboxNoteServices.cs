@@ -14,7 +14,7 @@ namespace dNothi.Services.NothiServices
 {
     public class NothiInboxNoteServices : INothiInboxNoteServices
     {
-        public NothiListInboxNoteResponse GetNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId)
+        public NothiListInboxNoteResponse GetNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\""+ dakListUserParam.office_id + "\",\"office_unit_id\":\""+ dakListUserParam.office_unit_id + "\",\"designation_id\":\""+ dakListUserParam.designation_id + "\"}");
-                request.AddParameter("nothi", "{\"nothi_id\":\""+ Convert.ToInt32(eachNothiId) +"\",\"note_category\":\"Inbox\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\""+ Convert.ToInt32(eachNothiId) +"\",\"note_category\":\""+ note_category + "\"}");
                 request.AddParameter("length", "100");
                 request.AddParameter("page", "1");
                 IRestResponse response = client.Execute(request);

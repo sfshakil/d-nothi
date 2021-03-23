@@ -48,6 +48,22 @@ namespace dNothi.JsonParser
                         record.note_ownerDTOList = note_onuccheddtoList;
                     }
                 }
+                foreach (var record in messageObject?.data?.records)
+                {
+                    record.mulpotro.buttonsDTOList = new List<String>();
+                    var tbuttons = JToken.Parse(JsonConvert.SerializeObject(record.mulpotro.buttons));
+                    if (tbuttons is JObject)
+                    {
+                        String buttons1 = tbuttons.ToString(); //tbuttons.ToObject<String>();
+                        record.mulpotro.buttonsDTOList.Add(buttons1);
+                    }
+                    else if (tbuttons is JArray)
+                    {
+                        List<String> buttons1 = tbuttons.ToObject<List<String>>();
+                        record.mulpotro.buttonsDTOList = buttons1;
+                    }
+                }
+
                 return messageObject;
             }
             catch (Exception ex)

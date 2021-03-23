@@ -180,6 +180,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
             builder.RegisterType<KhasraTemplateService>().As<IKhasraTemplateService>();
+            builder.RegisterType<PotrojariParser>().As<IPotrojariParser>();
             builder.RegisterType<RegisterService>().As<IRegisterService>();
             builder.RegisterType<ProtibedonService>().As<IProtibedonService>();
             
@@ -192,6 +193,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Note>().AsSelf();
             builder.RegisterType<DakModuleSokolNothiListUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.CreateNewNotes>().AsSelf();
+            builder.RegisterType<NothiAll>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
 
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();
@@ -209,6 +211,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiType>().AsSelf();
             builder.RegisterType<NothiNoteShomuho>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();
+            builder.RegisterType<NothiOutbox>().AsSelf();
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();
             builder.RegisterType<FolderCreatePopUpForm>().AsSelf();
