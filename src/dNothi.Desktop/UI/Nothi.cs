@@ -1293,5 +1293,11 @@ namespace dNothi.Desktop.UI
         {
 
         }
+
+        private void moduleButton_Click(object sender, EventArgs e)
+        {
+            PotrojariGroup potrojariGroup = new PotrojariGroup();
+            potrojariGroup.ShowDialog();
+        }
     }
 }

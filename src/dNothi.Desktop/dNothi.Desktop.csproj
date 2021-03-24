@@ -491,7 +491,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
-	<Compile Include="UI\Dak\ProtibedonUserControl.cs">
+    <Compile Include="UI\Dak\PotrojariGroupContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\PotrojariGroupContent.Designer.cs">
+      <DependentUpon>PotrojariGroupContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\ProtibedonUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Dak\ProtibedonUserControl.Designer.cs">
@@ -983,6 +989,12 @@
     <Compile Include="UI\OfficerRowUserControl.Designer.cs">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PotrojariGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PotrojariGroup.Designer.cs">
+      <DependentUpon>PotrojariGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ResponsiveForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1132,6 +1144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Potrojari.resx">
       <DependentUpon>Potrojari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\PotrojariGroupContent.resx">
+      <DependentUpon>PotrojariGroupContent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\Prapok.resx">
       <DependentUpon>Prapok.cs</DependentUpon>
@@ -1357,6 +1372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PotrojariGroup.resx">
+      <DependentUpon>PotrojariGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ResponsiveForm.resx">
       <DependentUpon>ResponsiveForm.cs</DependentUpon>
