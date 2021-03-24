@@ -31,6 +31,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
             this.btnCross = new FontAwesome.Sharp.IconButton();
             this.closeButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -57,7 +58,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel11 = new System.Windows.Forms.Panel();
             this.cbxNothiType = new System.Windows.Forms.ComboBox();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.panel16 = new System.Windows.Forms.Panel();
             this.pnlBodyBrowser = new System.Windows.Forms.Panel();
             this.potrojariWeBrowser = new System.Windows.Forms.WebBrowser();
             this.panel2.SuspendLayout();
@@ -101,6 +101,15 @@ namespace dNothi.Desktop.UI.Dak
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1132, 74);
             this.panel2.TabIndex = 90;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel16.Location = new System.Drawing.Point(0, 73);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(1132, 1);
+            this.panel16.TabIndex = 65;
             // 
             // btnCross
             // 
@@ -396,7 +405,7 @@ namespace dNothi.Desktop.UI.Dak
             this.comboBox1.BackColor = System.Drawing.Color.White;
             this.comboBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox1.DropDownHeight = 500;
-            this.comboBox1.DropDownWidth = 400;
+            this.comboBox1.DropDownWidth = 120;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.ForeColor = System.Drawing.SystemColors.InfoText;
@@ -433,7 +442,7 @@ namespace dNothi.Desktop.UI.Dak
             this.cbxNothiType.BackColor = System.Drawing.Color.White;
             this.cbxNothiType.Dock = System.Windows.Forms.DockStyle.Left;
             this.cbxNothiType.DropDownHeight = 500;
-            this.cbxNothiType.DropDownWidth = 400;
+            this.cbxNothiType.DropDownWidth = 120;
             this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNothiType.ForeColor = System.Drawing.SystemColors.InfoText;
@@ -472,15 +481,6 @@ namespace dNothi.Desktop.UI.Dak
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = false;
             // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel16.Location = new System.Drawing.Point(0, 73);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(1132, 1);
-            this.panel16.TabIndex = 65;
-            // 
             // pnlBodyBrowser
             // 
             this.pnlBodyBrowser.Controls.Add(this.potrojariWeBrowser);
@@ -488,18 +488,18 @@ namespace dNothi.Desktop.UI.Dak
             this.pnlBodyBrowser.Location = new System.Drawing.Point(0, 236);
             this.pnlBodyBrowser.Margin = new System.Windows.Forms.Padding(0);
             this.pnlBodyBrowser.Name = "pnlBodyBrowser";
-            this.pnlBodyBrowser.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pnlBodyBrowser.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.pnlBodyBrowser.Size = new System.Drawing.Size(1132, 493);
             this.pnlBodyBrowser.TabIndex = 92;
             // 
             // potrojariWeBrowser
             // 
             this.potrojariWeBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.potrojariWeBrowser.Location = new System.Drawing.Point(10, 0);
+            this.potrojariWeBrowser.Location = new System.Drawing.Point(50, 0);
             this.potrojariWeBrowser.Margin = new System.Windows.Forms.Padding(0);
             this.potrojariWeBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.potrojariWeBrowser.Name = "potrojariWeBrowser";
-            this.potrojariWeBrowser.Size = new System.Drawing.Size(1122, 493);
+            this.potrojariWeBrowser.Size = new System.Drawing.Size(1032, 493);
             this.potrojariWeBrowser.TabIndex = 0;
             // 
             // Potrojari
