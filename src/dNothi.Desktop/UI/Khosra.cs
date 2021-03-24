@@ -1,4 +1,5 @@
-﻿using dNothi.Desktop.UI.ManuelUserControl;
+﻿using dNothi.Desktop.UI.Khosra_Potro;
+using dNothi.Desktop.UI.ManuelUserControl;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Khosra;
 using dNothi.Services.DakServices;
@@ -108,6 +109,22 @@ namespace dNothi.Desktop.UI
             }
 
 
+            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow = new KhosraSelectedAttachmentRow();
+            khosraSelectedAttachmentRow.fileName = "৫৬.৪২.০০০০.০১০.২৫.০০৩.২১.২ - ২২ ফেব্রুয়ারি ২০২";
+
+            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow);
+            
+
+
+            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow2 = new KhosraSelectedAttachmentRow();
+            khosraSelectedAttachmentRow2.fileName = "Potrojari_2021_65_02_2216139904184630293468.png";
+            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow2);
+
+
+            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow3 = new KhosraSelectedAttachmentRow();
+            khosraSelectedAttachmentRow3.fileName = "file_example_JPG_1MB.jpg";
+
+            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow3);
 
         }
 
@@ -243,29 +260,8 @@ namespace dNothi.Desktop.UI
         {
 
         }
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = this.Size;
-            hideform.Opacity = .6;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
+        
+       
 
 
 
@@ -284,7 +280,7 @@ namespace dNothi.Desktop.UI
 
             selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton,selectOfficerForm._selectedOfficerDesignations, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
 
-            CalPopUpWindow(selectOfficerForm);
+            UIDesignCommonMethod.CalPopUpWindow(selectOfficerForm,this);
         }
 
         private void SaveOfficerinOnumodonKariOfficerList(FontAwesome.Sharp.IconButton officerSelectButton, List<int> selectedOfficerDesignations, Panel officerListPanel, Panel officerEmptyPanel, FlowLayoutPanel officerListFlowLayoutPanel)
@@ -367,6 +363,12 @@ namespace dNothi.Desktop.UI
         private void onulipiOfficerSelectButton_Click(object sender, EventArgs e)
         {
             SelectOfficer(onulipiListShowButton, onulipiListPanel, onulipiEmptyPanel, onulipiListFlowLayoutPanel);
+        }
+
+        private void newAttachmentButton_Click(object sender, EventArgs e)
+        {
+            KhosraAttachmentForm khosraAttachmentForm = new KhosraAttachmentForm();
+            UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentForm, this);
         }
     }
 }

@@ -563,6 +563,12 @@
     <Compile Include="UI\Dak\Prapok.Designer.cs">
       <DependentUpon>Prapok.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraSelectedAttachmentRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraSelectedAttachmentRow.Designer.cs">
+      <DependentUpon>KhosraSelectedAttachmentRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1007,6 +1013,7 @@
     <Compile Include="UI\SelectOfficerForm.Designer.cs">
       <DependentUpon>SelectOfficerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\UIDesignCommonMethod.cs" />
     <Compile Include="UI\VIew\DakListView.cs" />
     <Compile Include="UserControlFactory.cs" />
     <Compile Include="UserControl\AdvancedPanel.cs">
@@ -1159,6 +1166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraAttachmentForm.resx">
       <DependentUpon>KhosraAttachmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\KhosraSelectedAttachmentRow.resx">
+      <DependentUpon>KhosraSelectedAttachmentRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra.resx">
       <DependentUpon>Khosra.cs</DependentUpon>

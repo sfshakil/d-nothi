@@ -82,6 +82,14 @@
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.attachmentPanel = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.selectedAttachmentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.newAttachmentButton = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.officerSelectPanel = new System.Windows.Forms.Panel();
             this.officerTypePanel = new System.Windows.Forms.Panel();
             this.onulipiListPanel = new System.Windows.Forms.Panel();
@@ -169,6 +177,10 @@
             this.bodyPanel.SuspendLayout();
             this.tinyAndAttachmentPanel.SuspendLayout();
             this.tinyMCEPanel.SuspendLayout();
+            this.attachmentPanel.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.officerSelectPanel.SuspendLayout();
             this.officerTypePanel.SuspendLayout();
             this.onulipiListPanel.SuspendLayout();
@@ -209,7 +221,7 @@
             saveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             saveButton.IconSize = 20;
             saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            saveButton.Location = new System.Drawing.Point(676, 1);
+            saveButton.Location = new System.Drawing.Point(736, 1);
             saveButton.Margin = new System.Windows.Forms.Padding(0);
             saveButton.Name = "saveButton";
             saveButton.Size = new System.Drawing.Size(96, 33);
@@ -235,7 +247,7 @@
             this.khosraTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.khosraTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.khosraTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.khosraTableLayoutPanel.Size = new System.Drawing.Size(868, 506);
+            this.khosraTableLayoutPanel.Size = new System.Drawing.Size(928, 506);
             this.khosraTableLayoutPanel.TabIndex = 0;
             // 
             // pnlNothiNoteTalika
@@ -252,7 +264,7 @@
             this.pnlNothiNoteTalika.Location = new System.Drawing.Point(0, 57);
             this.pnlNothiNoteTalika.Margin = new System.Windows.Forms.Padding(0);
             this.pnlNothiNoteTalika.Name = "pnlNothiNoteTalika";
-            this.pnlNothiNoteTalika.Size = new System.Drawing.Size(868, 35);
+            this.pnlNothiNoteTalika.Size = new System.Drawing.Size(928, 35);
             this.pnlNothiNoteTalika.TabIndex = 18;
             // 
             // notDetailsButton
@@ -268,7 +280,7 @@
             this.notDetailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.notDetailsButton.IconSize = 20;
             this.notDetailsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.notDetailsButton.Location = new System.Drawing.Point(580, 1);
+            this.notDetailsButton.Location = new System.Drawing.Point(640, 1);
             this.notDetailsButton.Margin = new System.Windows.Forms.Padding(0);
             this.notDetailsButton.Name = "notDetailsButton";
             this.notDetailsButton.Size = new System.Drawing.Size(96, 33);
@@ -291,7 +303,7 @@
             this.nothiNamePanel.Margin = new System.Windows.Forms.Padding(0);
             this.nothiNamePanel.Name = "nothiNamePanel";
             this.nothiNamePanel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.nothiNamePanel.Size = new System.Drawing.Size(424, 33);
+            this.nothiNamePanel.Size = new System.Drawing.Size(335, 33);
             this.nothiNamePanel.TabIndex = 74;
             // 
             // lbSubject
@@ -301,10 +313,10 @@
             this.lbSubject.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbSubject.Location = new System.Drawing.Point(347, 7);
+            this.lbSubject.Location = new System.Drawing.Point(276, 7);
             this.lbSubject.Margin = new System.Windows.Forms.Padding(0);
             this.lbSubject.Name = "lbSubject";
-            this.lbSubject.Size = new System.Drawing.Size(77, 21);
+            this.lbSubject.Size = new System.Drawing.Size(59, 18);
             this.lbSubject.TabIndex = 73;
             this.lbSubject.Text = "lbSubject";
             // 
@@ -315,10 +327,10 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label4.Location = new System.Drawing.Point(302, 7);
+            this.label4.Location = new System.Drawing.Point(239, 7);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 21);
+            this.label4.Size = new System.Drawing.Size(37, 18);
             this.label4.TabIndex = 72;
             this.label4.Text = "বিষয়:";
             // 
@@ -329,10 +341,10 @@
             this.lbNothiNo.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbNothiNo.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNothiNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbNothiNo.Location = new System.Drawing.Point(220, 7);
+            this.lbNothiNo.Location = new System.Drawing.Point(176, 7);
             this.lbNothiNo.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiNo.Name = "lbNothiNo";
-            this.lbNothiNo.Size = new System.Drawing.Size(82, 21);
+            this.lbNothiNo.Size = new System.Drawing.Size(63, 18);
             this.lbNothiNo.TabIndex = 70;
             this.lbNothiNo.Text = "lbNothiNo";
             // 
@@ -343,10 +355,10 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.label2.Location = new System.Drawing.Point(155, 7);
+            this.label2.Location = new System.Drawing.Point(121, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 21);
+            this.label2.Size = new System.Drawing.Size(55, 18);
             this.label2.TabIndex = 69;
             this.label2.Text = "নথি নম্বর:";
             // 
@@ -357,10 +369,10 @@
             this.lbNoteShakha.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbNoteShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbNoteShakha.Location = new System.Drawing.Point(43, 7);
+            this.lbNoteShakha.Location = new System.Drawing.Point(35, 7);
             this.lbNoteShakha.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteShakha.Name = "lbNoteShakha";
-            this.lbNoteShakha.Size = new System.Drawing.Size(112, 21);
+            this.lbNoteShakha.Size = new System.Drawing.Size(86, 18);
             this.lbNoteShakha.TabIndex = 63;
             this.lbNoteShakha.Text = "lbNoteShakha";
             // 
@@ -374,7 +386,7 @@
             this.Shakha.Location = new System.Drawing.Point(0, 7);
             this.Shakha.Margin = new System.Windows.Forms.Padding(0);
             this.Shakha.Name = "Shakha";
-            this.Shakha.Size = new System.Drawing.Size(43, 21);
+            this.Shakha.Size = new System.Drawing.Size(35, 18);
             this.Shakha.TabIndex = 62;
             this.Shakha.Text = "শাখাঃ";
             // 
@@ -385,7 +397,7 @@
             this.panel11.Location = new System.Drawing.Point(105, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(667, 1);
+            this.panel11.Size = new System.Drawing.Size(727, 1);
             this.panel11.TabIndex = 61;
             // 
             // nothiAllButton
@@ -401,7 +413,7 @@
             this.nothiAllButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.nothiAllButton.IconSize = 20;
             this.nothiAllButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nothiAllButton.Location = new System.Drawing.Point(772, 0);
+            this.nothiAllButton.Location = new System.Drawing.Point(832, 0);
             this.nothiAllButton.Margin = new System.Windows.Forms.Padding(0);
             this.nothiAllButton.Name = "nothiAllButton";
             this.nothiAllButton.Size = new System.Drawing.Size(96, 34);
@@ -441,7 +453,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 34);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(868, 1);
+            this.panel3.Size = new System.Drawing.Size(928, 1);
             this.panel3.TabIndex = 77;
             // 
             // headerPanel
@@ -456,7 +468,7 @@
             this.headerPanel.Margin = new System.Windows.Forms.Padding(0);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.headerPanel.Size = new System.Drawing.Size(868, 57);
+            this.headerPanel.Size = new System.Drawing.Size(928, 57);
             this.headerPanel.TabIndex = 0;
             // 
             // profilePanel
@@ -466,7 +478,7 @@
             this.profilePanel.Controls.Add(this.userNameLabel);
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.profilePanel.Location = new System.Drawing.Point(528, 0);
+            this.profilePanel.Location = new System.Drawing.Point(588, 0);
             this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.profilePanel.Name = "profilePanel";
             this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 10, 10, 10);
@@ -732,7 +744,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 469);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(862, 34);
+            this.panel6.Size = new System.Drawing.Size(922, 34);
             this.panel6.TabIndex = 17;
             // 
             // panel47
@@ -744,7 +756,7 @@
             this.panel47.Controls.Add(this.button29);
             this.panel47.Controls.Add(this.button30);
             this.panel47.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel47.Location = new System.Drawing.Point(623, 2);
+            this.panel47.Location = new System.Drawing.Point(683, 2);
             this.panel47.Margin = new System.Windows.Forms.Padding(0);
             this.panel47.Name = "panel47";
             this.panel47.Size = new System.Drawing.Size(239, 32);
@@ -755,11 +767,11 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label9.Location = new System.Drawing.Point(48, 0);
+            this.label9.Location = new System.Drawing.Point(57, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label9.Size = new System.Drawing.Size(61, 28);
+            this.label9.Size = new System.Drawing.Size(52, 25);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -842,7 +854,7 @@
             this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel27.Location = new System.Drawing.Point(214, 0);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(648, 2);
+            this.panel27.Size = new System.Drawing.Size(708, 2);
             this.panel27.TabIndex = 62;
             // 
             // linkLabel2
@@ -880,14 +892,14 @@
             this.bodyPanel.Location = new System.Drawing.Point(0, 92);
             this.bodyPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(868, 374);
+            this.bodyPanel.Size = new System.Drawing.Size(928, 374);
             this.bodyPanel.TabIndex = 19;
             // 
             // splitter1
             // 
             this.splitter1.BackColor = System.Drawing.Color.LightGray;
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(555, 0);
+            this.splitter1.Location = new System.Drawing.Point(615, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(0);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 374);
@@ -903,7 +915,7 @@
             this.tinyAndAttachmentPanel.Location = new System.Drawing.Point(164, 0);
             this.tinyAndAttachmentPanel.Margin = new System.Windows.Forms.Padding(0);
             this.tinyAndAttachmentPanel.Name = "tinyAndAttachmentPanel";
-            this.tinyAndAttachmentPanel.Size = new System.Drawing.Size(394, 374);
+            this.tinyAndAttachmentPanel.Size = new System.Drawing.Size(454, 374);
             this.tinyAndAttachmentPanel.TabIndex = 1;
             // 
             // tinyMCEPanel
@@ -914,7 +926,7 @@
             this.tinyMCEPanel.Location = new System.Drawing.Point(0, 0);
             this.tinyMCEPanel.Margin = new System.Windows.Forms.Padding(0);
             this.tinyMCEPanel.Name = "tinyMCEPanel";
-            this.tinyMCEPanel.Size = new System.Drawing.Size(394, 212);
+            this.tinyMCEPanel.Size = new System.Drawing.Size(454, 212);
             this.tinyMCEPanel.TabIndex = 2;
             // 
             // tinyMceEditor
@@ -926,7 +938,7 @@
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
             this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
             this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(394, 212);
+            this.tinyMceEditor.Size = new System.Drawing.Size(454, 212);
             this.tinyMceEditor.TabIndex = 62;
             // 
             // splitter3
@@ -936,24 +948,142 @@
             this.splitter3.Location = new System.Drawing.Point(0, 212);
             this.splitter3.Margin = new System.Windows.Forms.Padding(0);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(394, 2);
+            this.splitter3.Size = new System.Drawing.Size(454, 2);
             this.splitter3.TabIndex = 0;
             this.splitter3.TabStop = false;
             // 
             // attachmentPanel
             // 
+            this.attachmentPanel.Controls.Add(this.panel13);
+            this.attachmentPanel.Controls.Add(this.panel12);
+            this.attachmentPanel.Controls.Add(this.panel10);
             this.attachmentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.attachmentPanel.Location = new System.Drawing.Point(0, 214);
             this.attachmentPanel.Name = "attachmentPanel";
-            this.attachmentPanel.Size = new System.Drawing.Size(394, 160);
+            this.attachmentPanel.Size = new System.Drawing.Size(454, 160);
             this.attachmentPanel.TabIndex = 0;
+            // 
+            // panel13
+            // 
+            this.panel13.AutoScroll = true;
+            this.panel13.AutoSize = true;
+            this.panel13.Controls.Add(this.selectedAttachmentTableLayoutPanel);
+            this.panel13.Controls.Add(this.panel14);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(0, 31);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.panel13.Size = new System.Drawing.Size(454, 129);
+            this.panel13.TabIndex = 63;
+            // 
+            // selectedAttachmentTableLayoutPanel
+            // 
+            this.selectedAttachmentTableLayoutPanel.AutoSize = true;
+            this.selectedAttachmentTableLayoutPanel.ColumnCount = 1;
+            this.selectedAttachmentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.selectedAttachmentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.selectedAttachmentTableLayoutPanel.Location = new System.Drawing.Point(15, 40);
+            this.selectedAttachmentTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.selectedAttachmentTableLayoutPanel.Name = "selectedAttachmentTableLayoutPanel";
+            this.selectedAttachmentTableLayoutPanel.RowCount = 1;
+            this.selectedAttachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.selectedAttachmentTableLayoutPanel.Size = new System.Drawing.Size(424, 0);
+            this.selectedAttachmentTableLayoutPanel.TabIndex = 0;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.label29);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(15, 10);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(424, 30);
+            this.panel14.TabIndex = 1;
+            // 
+            // label29
+            // 
+            this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
+            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label29.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(59)))));
+            this.label29.Location = new System.Drawing.Point(0, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(424, 30);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "সংযুক্তি যোগ করার জন্য সংযুক্তি + বাটনে ক্লিক করুন";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 30);
+            this.panel12.Margin = new System.Windows.Forms.Padding(0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(454, 1);
+            this.panel12.TabIndex = 62;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.newAttachmentButton);
+            this.panel10.Controls.Add(this.iconButton4);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(454, 30);
+            this.panel10.TabIndex = 0;
+            // 
+            // newAttachmentButton
+            // 
+            this.newAttachmentButton.AutoSize = true;
+            this.newAttachmentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.newAttachmentButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.newAttachmentButton.FlatAppearance.BorderSize = 0;
+            this.newAttachmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newAttachmentButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newAttachmentButton.ForeColor = System.Drawing.Color.White;
+            this.newAttachmentButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.newAttachmentButton.IconColor = System.Drawing.Color.White;
+            this.newAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.newAttachmentButton.IconSize = 18;
+            this.newAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.newAttachmentButton.Location = new System.Drawing.Point(336, 0);
+            this.newAttachmentButton.Margin = new System.Windows.Forms.Padding(0);
+            this.newAttachmentButton.Name = "newAttachmentButton";
+            this.newAttachmentButton.Size = new System.Drawing.Size(118, 30);
+            this.newAttachmentButton.TabIndex = 5;
+            this.newAttachmentButton.Text = " নতুন সংযুক্তি";
+            this.newAttachmentButton.UseVisualStyleBackColor = false;
+            this.newAttachmentButton.Click += new System.EventHandler(this.newAttachmentButton_Click);
+            // 
+            // iconButton4
+            // 
+            this.iconButton4.AutoSize = true;
+            this.iconButton4.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Paperclip;
+            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton4.IconSize = 24;
+            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton4.Location = new System.Drawing.Point(0, 0);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Padding = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.iconButton4.Size = new System.Drawing.Size(119, 30);
+            this.iconButton4.TabIndex = 4;
+            this.iconButton4.Text = "সংযুক্তি";
+            this.iconButton4.UseVisualStyleBackColor = false;
             // 
             // officerSelectPanel
             // 
             this.officerSelectPanel.Controls.Add(this.officerTypePanel);
             this.officerSelectPanel.Controls.Add(this.decisionPanel);
             this.officerSelectPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.officerSelectPanel.Location = new System.Drawing.Point(558, 0);
+            this.officerSelectPanel.Location = new System.Drawing.Point(618, 0);
             this.officerSelectPanel.Margin = new System.Windows.Forms.Padding(0);
             this.officerSelectPanel.Name = "officerSelectPanel";
             this.officerSelectPanel.Size = new System.Drawing.Size(310, 374);
@@ -1022,7 +1152,7 @@
             this.label27.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label27.Location = new System.Drawing.Point(19, 5);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(233, 21);
+            this.label27.Size = new System.Drawing.Size(198, 18);
             this.label27.TabIndex = 1;
             this.label27.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1157,7 +1287,7 @@
             this.label24.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label24.Location = new System.Drawing.Point(19, 5);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(233, 21);
+            this.label24.Size = new System.Drawing.Size(198, 18);
             this.label24.TabIndex = 1;
             this.label24.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1293,7 +1423,7 @@
             this.label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label20.Location = new System.Drawing.Point(19, 5);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(233, 21);
+            this.label20.Size = new System.Drawing.Size(198, 18);
             this.label20.TabIndex = 1;
             this.label20.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1428,7 +1558,7 @@
             this.label17.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label17.Location = new System.Drawing.Point(19, 5);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(233, 21);
+            this.label17.Size = new System.Drawing.Size(198, 18);
             this.label17.TabIndex = 1;
             this.label17.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1563,7 +1693,7 @@
             this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label14.Location = new System.Drawing.Point(19, 5);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(233, 21);
+            this.label14.Size = new System.Drawing.Size(198, 18);
             this.label14.TabIndex = 1;
             this.label14.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1685,7 +1815,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(4, 4);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 21);
+            this.label8.Size = new System.Drawing.Size(73, 18);
             this.label8.TabIndex = 0;
             this.label8.Text = "পত্র গ্রহণকারী";
             // 
@@ -1736,7 +1866,7 @@
             this.dakSecrurityComboBox.FormattingEnabled = true;
             this.dakSecrurityComboBox.Location = new System.Drawing.Point(4, 5);
             this.dakSecrurityComboBox.Name = "dakSecrurityComboBox";
-            this.dakSecrurityComboBox.Size = new System.Drawing.Size(137, 29);
+            this.dakSecrurityComboBox.Size = new System.Drawing.Size(137, 26);
             this.dakSecrurityComboBox.TabIndex = 92;
             // 
             // label13
@@ -1784,7 +1914,7 @@
             this.dakPriorityComboBox.IntegralHeight = false;
             this.dakPriorityComboBox.Location = new System.Drawing.Point(2, 5);
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
-            this.dakPriorityComboBox.Size = new System.Drawing.Size(140, 29);
+            this.dakPriorityComboBox.Size = new System.Drawing.Size(140, 26);
             this.dakPriorityComboBox.TabIndex = 91;
             // 
             // splitter2
@@ -1852,7 +1982,7 @@
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(36, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 21);
+            this.label6.Size = new System.Drawing.Size(62, 18);
             this.label6.TabIndex = 0;
             this.label6.Text = "পত্রের ধরণ";
             // 
@@ -1861,7 +1991,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(868, 506);
+            this.ClientSize = new System.Drawing.Size(928, 506);
             this.Controls.Add(this.khosraTableLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Khosra";
@@ -1892,6 +2022,13 @@
             this.tinyAndAttachmentPanel.ResumeLayout(false);
             this.tinyMCEPanel.ResumeLayout(false);
             this.tinyMCEPanel.PerformLayout();
+            this.attachmentPanel.ResumeLayout(false);
+            this.attachmentPanel.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.officerSelectPanel.ResumeLayout(false);
             this.officerSelectPanel.PerformLayout();
             this.officerTypePanel.ResumeLayout(false);
@@ -2059,5 +2196,13 @@
         private FontAwesome.Sharp.IconButton iconButton5;
         private FontAwesome.Sharp.IconButton prapokOfficerSelectButton;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel10;
+        private FontAwesome.Sharp.IconButton newAttachmentButton;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private System.Windows.Forms.TableLayoutPanel selectedAttachmentTableLayoutPanel;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label29;
     }
 }

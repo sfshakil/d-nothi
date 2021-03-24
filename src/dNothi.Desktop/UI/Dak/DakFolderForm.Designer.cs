@@ -175,11 +175,13 @@ namespace dNothi.Desktop.UI.Dak
             this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyTableLayoutPanel.Location = new System.Drawing.Point(23, 146);
             this.bodyTableLayoutPanel.Name = "bodyTableLayoutPanel";
+            this.bodyTableLayoutPanel.Padding = new System.Windows.Forms.Padding(1);
             this.bodyTableLayoutPanel.RowCount = 2;
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 449F));
             this.bodyTableLayoutPanel.Size = new System.Drawing.Size(504, 527);
             this.bodyTableLayoutPanel.TabIndex = 40;
+            this.bodyTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BlueBorder);
             // 
             // actionTableLayoutPanel
             // 
@@ -195,12 +197,12 @@ namespace dNothi.Desktop.UI.Dak
             this.actionTableLayoutPanel.Controls.Add(this.editButton, 1, 0);
             this.actionTableLayoutPanel.Controls.Add(this.addButton, 0, 0);
             this.actionTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.actionTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.actionTableLayoutPanel.Location = new System.Drawing.Point(1, 1);
             this.actionTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.actionTableLayoutPanel.Name = "actionTableLayoutPanel";
             this.actionTableLayoutPanel.RowCount = 1;
             this.actionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.actionTableLayoutPanel.Size = new System.Drawing.Size(504, 38);
+            this.actionTableLayoutPanel.Size = new System.Drawing.Size(502, 38);
             this.actionTableLayoutPanel.TabIndex = 0;
             // 
             // dakListButton
@@ -301,12 +303,13 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // personalFolderTreeView
             // 
+            this.personalFolderTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.personalFolderTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.personalFolderTreeView.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personalFolderTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
             this.personalFolderTreeView.ImageIndex = 0;
             this.personalFolderTreeView.ImageList = this.MyImageList;
-            this.personalFolderTreeView.Location = new System.Drawing.Point(5, 53);
+            this.personalFolderTreeView.Location = new System.Drawing.Point(6, 54);
             this.personalFolderTreeView.Margin = new System.Windows.Forms.Padding(5);
             this.personalFolderTreeView.Name = "personalFolderTreeView";
             treeNode1.Name = "privateNode";
@@ -319,7 +322,7 @@ namespace dNothi.Desktop.UI.Dak
             treeNode1,
             treeNode2});
             this.personalFolderTreeView.SelectedImageIndex = 0;
-            this.personalFolderTreeView.Size = new System.Drawing.Size(494, 469);
+            this.personalFolderTreeView.Size = new System.Drawing.Size(492, 467);
             this.personalFolderTreeView.TabIndex = 1;
             this.personalFolderTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.personalFolderTreeView_AfterSelect);
             this.personalFolderTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.personalFolderTreeView_NodeMouseClick);

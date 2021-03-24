@@ -70,7 +70,6 @@
             this.selectAllCheckBox = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.detailsDakSearcPanel = new System.Windows.Forms.Panel();
-            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.searchTopTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.datePickerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -88,8 +87,6 @@
             this.searchDakSecurityComboBox = new System.Windows.Forms.ComboBox();
             this.searchDakPriorityComboBox = new System.Windows.Forms.ComboBox();
             this.searchDakTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
-            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -204,6 +201,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
+            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
+            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -902,26 +902,6 @@
             this.detailsDakSearcPanel.TabIndex = 0;
             this.detailsDakSearcPanel.Visible = false;
             // 
-            // customDatePicker
-            // 
-            this.customDatePicker._date = null;
-            this.customDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.customDatePicker.AutoSize = true;
-            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.customDatePicker.BackColor = System.Drawing.Color.White;
-            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
-            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
-            this.customDatePicker.Location = new System.Drawing.Point(721, 96);
-            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
-            this.customDatePicker.Name = "customDatePicker";
-            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
-            this.customDatePicker.TabIndex = 57;
-            this.customDatePicker.Visible = false;
-            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
-            this.customDatePicker.Click += new System.EventHandler(this.customDatePicker_Click);
-            this.customDatePicker.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
-            // 
             // searchTopTableLayoutPanel
             // 
             this.searchTopTableLayoutPanel.ColumnCount = 3;
@@ -1195,7 +1175,7 @@
             this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
             this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
             this.searchOfficeDetailSearch.selectedId = 0;
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 52);
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 44);
             this.searchOfficeDetailSearch.TabIndex = 53;
             // 
             // officerSearchList
@@ -1211,7 +1191,7 @@
             this.officerSearchList.Name = "officerSearchList";
             this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
             this.officerSearchList.selectedId = 0;
-            this.officerSearchList.Size = new System.Drawing.Size(516, 52);
+            this.officerSearchList.Size = new System.Drawing.Size(516, 44);
             this.officerSearchList.TabIndex = 52;
             // 
             // label11
@@ -3060,16 +3040,19 @@
             // modulePanel
             // 
             this.modulePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.modulePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.modulePanel.Controls.Add(this.tableLayoutPanel1);
             this.modulePanel.Controls.Add(this.panel1);
-            this.modulePanel.Location = new System.Drawing.Point(510, 40);
+            this.modulePanel.Location = new System.Drawing.Point(510, 35);
             this.modulePanel.Name = "modulePanel";
             this.modulePanel.Size = new System.Drawing.Size(331, 363);
             this.modulePanel.TabIndex = 106;
             this.modulePanel.Visible = false;
+            this.modulePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Drop_Shadow);
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -3227,6 +3210,58 @@
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
+            // 
+            // customDatePicker
+            // 
+            this.customDatePicker._date = null;
+            this.customDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.customDatePicker.AutoSize = true;
+            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.customDatePicker.BackColor = System.Drawing.Color.White;
+            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
+            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
+            this.customDatePicker.Location = new System.Drawing.Point(721, 96);
+            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.customDatePicker.Name = "customDatePicker";
+            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
+            this.customDatePicker.TabIndex = 57;
+            this.customDatePicker.Visible = false;
+            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
+            this.customDatePicker.Click += new System.EventHandler(this.customDatePicker_Click);
+            this.customDatePicker.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
+            // 
+            // searchOfficeDetailSearch
+            // 
+            this.searchOfficeDetailSearch.AutoSize = true;
+            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
+            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeDetailSearch.isListShown = false;
+            this.searchOfficeDetailSearch.itemList = null;
+            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 197);
+            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
+            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
+            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
+            this.searchOfficeDetailSearch.selectedId = 0;
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 44);
+            this.searchOfficeDetailSearch.TabIndex = 53;
+            // 
+            // officerSearchList
+            // 
+            this.officerSearchList.AutoSize = true;
+            this.officerSearchList.BackColor = System.Drawing.Color.White;
+            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchList.isListShown = false;
+            this.officerSearchList.itemList = null;
+            this.officerSearchList.Location = new System.Drawing.Point(21, 197);
+            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
+            this.officerSearchList.Name = "officerSearchList";
+            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
+            this.officerSearchList.selectedId = 0;
+            this.officerSearchList.Size = new System.Drawing.Size(516, 44);
+            this.officerSearchList.TabIndex = 52;
             // 
             // Dashboard
             // 

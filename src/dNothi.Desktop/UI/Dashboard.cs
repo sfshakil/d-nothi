@@ -3883,7 +3883,7 @@ namespace dNothi.Desktop.UI
 
         private void khosraButton_Click(object sender, EventArgs e)
         {
-            modulePanel.Visible = false;
+            modulePanel.Hide();
             var form = FormFactory.Create<Khosra>();
             form.ShowDialog();
 
@@ -3893,8 +3893,10 @@ namespace dNothi.Desktop.UI
         {
             if(!modulePanel.Visible)
             {
-              //  modulePanel.Location = new Point(moduleButton.Location.Y , moduleButton.Location.X + moduleButton.Height);
-                modulePanel.Visible = true;
+                //  modulePanel.Location = new Point(moduleButton.Location.Y , moduleButton.Location.X + moduleButton.Height);
+                 modulePanel.Visible = true;
+             
+
             }
             else
             {
@@ -4097,6 +4099,11 @@ namespace dNothi.Desktop.UI
             var dakBoxSharingForm = FormFactory.Create<DakBoxSharingForm>();
             
             CalPopUpWindow(dakBoxSharingForm);
+        }
+
+        private void Drop_Shadow(object sender, PaintEventArgs e)
+        {
+            UIDesignCommonMethod.dropShadow(sender, e);
         }
     }
 
