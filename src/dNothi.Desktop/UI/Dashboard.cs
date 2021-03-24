@@ -3379,9 +3379,26 @@ namespace dNothi.Desktop.UI
             LoadDetailsOfficer();
 
 
-           designationDetailsPanel.officeInfos = _userService.GetAllLocalOfficeInfo();
 
-          designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+
+            EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
+             designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse;
+         
+            List<OfficeInfoDTO> officeInfoDTO= _userService.GetAllLocalOfficeInfo();
+            designationDetailsPanel.officeInfos = officeInfoDTO;
+
+
+
+            var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key==dakUserParam.designation_id.ToString());
+
+            moduleDakCountLabel.Text =ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString()); 
+            moduleNothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
+
+
+
+            designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
 
           
             NormalizeDashBoard();

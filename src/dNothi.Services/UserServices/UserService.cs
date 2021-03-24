@@ -370,5 +370,35 @@ namespace dNothi.Services.UserServices
         {
             return "দয়া করে শুধু মাত্র ইংরেজি কীবোর্ড ব্যাবহার করুন!";
         }
+        protected string GetDakNothiCountEndPoint()
+        {
+            return DefaultAPIConfiguration.DakNothiCountEndPoint;
+        }
+        public EmployeDakNothiCountResponse GetDakNothiCountResponseUsingEmployeeDesignation(DakUserParam userParam)
+        {
+            EmployeDakNothiCountResponse dakNothiCount = new EmployeDakNothiCountResponse();
+            try
+            {
+
+                var dakNothiCountAPI = new RestClient(GetAPIDomain() + GetDakNothiCountEndPoint());
+                dakNothiCountAPI.Timeout = -1;
+                var dakNothiCountAPIRequest = new RestRequest(Method.POST);
+                dakNothiCountAPIRequest.AddHeader("api-version", GetAPIVersion());
+                dakNothiCountAPIRequest.AddHeader("Authorization", "Bearer " + userParam.token);
+                dakNothiCountAPIRequest.AlwaysMultipartFormData = true;
+                dakNothiCountAPIRequest.AddParameter("designation_id", userParam.designation_id);
+                dakNothiCountAPIRequest.AddParameter("office_id", userParam.office_id);
+                IRestResponse dakNothiCountAPIResponse = dakNothiCountAPI.Execute(dakNothiCountAPIRequest);
+
+
+                var dakNothiCountAPIJson = dakNothiCountAPIResponse.Content;
+                dakNothiCount = JsonConvert.DeserializeObject<EmployeDakNothiCountResponse>(dakNothiCountAPIJson);
+                return dakNothiCount;
+            }
+            catch (Exception ex)
+            {
+                return dakNothiCount;
+            }
+        }
     }
 }

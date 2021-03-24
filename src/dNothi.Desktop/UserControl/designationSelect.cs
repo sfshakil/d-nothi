@@ -15,6 +15,11 @@ namespace dNothi.Desktop
 {
     public partial class designationSelect : UserControl
     {
+        public EmployeDakNothiCountResponse _employeDakNothiCountResponse = new EmployeDakNothiCountResponse();
+        public EmployeDakNothiCountResponse employeDakNothiCountResponse { get { return _employeDakNothiCountResponse; } set { _employeDakNothiCountResponse = value; } }
+
+
+
         public designationSelect()
         {
             InitializeComponent();
@@ -40,7 +45,11 @@ namespace dNothi.Desktop
                         designationRow.designationId = officeInfo.office_unit_organogram_id;
                         designationRow.designationLinkText = officeInfo.designation + "," + officeInfo.unit_name_bn + "," + officeInfo.office_name_bn;
                         designationRow.User += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUserClick(changeButtonSender, changeButtonEvent, designationRow._designationId); };
+                        var employeDakNothiCountResponseTotal = _employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == designationRow.designationId.ToString());
 
+
+                        designationRow.dakTotalNumber = employeDakNothiCountResponseTotal.Value.dak;
+                        designationRow.nothiTotalNumber = employeDakNothiCountResponseTotal.Value.own_office_nothi;
 
                         designationRowFlowLayoutPanel.Controls.Add(designationRow);
 

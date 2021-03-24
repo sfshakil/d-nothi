@@ -224,6 +224,15 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.774.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.774.44\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.774.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.774.44\lib\net45\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.774.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.774.44\lib\net45\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -491,7 +500,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
-	<Compile Include="UI\Dak\ProtibedonUserControl.cs">
+    <Compile Include="UI\Dak\ProtibedonUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Dak\ProtibedonUserControl.Designer.cs">
@@ -502,6 +511,12 @@
     </Compile>
     <Compile Include="UI\Dak\RegisterReportUserControl.Designer.cs">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Khosra Potro\KhosraAttachmentForm.cs">
       <SubType>Form</SubType>
@@ -557,11 +572,23 @@
     <Compile Include="UI\Dak\Prapok.Designer.cs">
       <DependentUpon>Prapok.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraOnumodonAttachmentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraOnumodonAttachmentUserControl.Designer.cs">
+      <DependentUpon>KhosraOnumodonAttachmentUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\KhosraSelectedAttachmentRow.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Khosra Potro\KhosraSelectedAttachmentRow.Designer.cs">
       <DependentUpon>KhosraSelectedAttachmentRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraSingleAttachmentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraSingleAttachmentUserControl.Designer.cs">
+      <DependentUpon>KhosraSingleAttachmentUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Khosra.cs">
       <SubType>Form</SubType>
@@ -1149,11 +1176,20 @@
     <EmbeddedResource Include="UI\Dak\RegisterReportUserControl.resx">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraAttachmentForm.resx">
       <DependentUpon>KhosraAttachmentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\KhosraOnumodonAttachmentUserControl.resx">
+      <DependentUpon>KhosraOnumodonAttachmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraSelectedAttachmentRow.resx">
       <DependentUpon>KhosraSelectedAttachmentRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\KhosraSingleAttachmentUserControl.resx">
+      <DependentUpon>KhosraSingleAttachmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra.resx">
       <DependentUpon>Khosra.cs</DependentUpon>
@@ -1897,9 +1933,11 @@
     <Error Condition="!Exists('..\packages\cef.redist.x86.88.2.9\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.88.2.9\build\cef.redist.x86.props'))" />
     <Error Condition="!Exists('..\packages\CefSharp.Common.88.2.90\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.88.2.90\build\CefSharp.Common.props'))" />
     <Error Condition="!Exists('..\packages\CefSharp.Common.88.2.90\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.88.2.90\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.774.44\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.774.44\build\Microsoft.Web.WebView2.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets')" />
   <Import Project="..\packages\Pdfium.Net.SDK.4.44.2704\build\Pdfium.Net.SDK.targets" Condition="Exists('..\packages\Pdfium.Net.SDK.4.44.2704\build\Pdfium.Net.SDK.targets')" />
   <Import Project="..\packages\CefSharp.Common.88.2.90\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.88.2.90\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\Microsoft.Web.WebView2.1.0.774.44\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.774.44\build\Microsoft.Web.WebView2.targets')" />
 </Project>

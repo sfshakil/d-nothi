@@ -67,6 +67,9 @@ namespace dNothi.Desktop.UI
         }
         private void Khosra_Shown(object sender, EventArgs e)
         {
+
+            //webBrowser1.Navigate ( new Uri("https://dev.nothi-next.tappware.com/nothi/note/onucched/editor"));
+           // webBrowser1.Url = new Uri("https://www.facebook.com/");
             DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_userService.GetLocalDakUserParam());
             _designationSealListResponse = designationSealListResponse;
             LoadDakPriority();

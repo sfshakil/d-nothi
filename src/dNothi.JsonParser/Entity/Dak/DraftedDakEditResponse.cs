@@ -11,6 +11,7 @@ namespace dNothi.JsonParser.Entity.Dak
         public string status { get; set; }
         public DraftedDakEditDataDTO data { get; set; }
     }
+
     public class DraftedDakEditDataDTO
     {
         public Receiver receiver { get; set; }
