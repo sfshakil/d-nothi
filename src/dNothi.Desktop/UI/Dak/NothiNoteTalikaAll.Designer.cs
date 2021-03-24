@@ -37,7 +37,6 @@
             this.subjectLabel = new System.Windows.Forms.Label();
             this.nothiAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.eyeButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.dateLabel = new System.Windows.Forms.Label();
             this.optionButton = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
@@ -60,8 +59,10 @@
             this.usersButton = new FontAwesome.Sharp.IconButton();
             this.branchNoteSubLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -76,8 +77,7 @@
             this.preritoNoteDatePanel = new System.Windows.Forms.Panel();
             this.preritoNoteCDeskLabel = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.sourcePanel.SuspendLayout();
             this.senderAndReceiverPanel.SuspendLayout();
             this.preritoNotePrapokPanel.SuspendLayout();
@@ -212,23 +212,6 @@
             this.eyeButton.Size = new System.Drawing.Size(30, 28);
             this.eyeButton.TabIndex = 88;
             this.eyeButton.UseVisualStyleBackColor = false;
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkAlt;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 18;
-            this.iconButton4.Location = new System.Drawing.Point(30, 0);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(30, 30);
-            this.iconButton4.TabIndex = 93;
-            this.MyToolTip.SetToolTip(this.iconButton4, "নোটের বিস্তারিত (নতুন ট্যাব)");
-            this.iconButton4.UseVisualStyleBackColor = false;
             // 
             // dateLabel
             // 
@@ -529,6 +512,16 @@
             this.panel5.Size = new System.Drawing.Size(772, 28);
             this.panel5.TabIndex = 106;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 27);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(772, 1);
+            this.flowLayoutPanel1.TabIndex = 105;
+            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(243)))));
@@ -552,6 +545,16 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(243, 136);
             this.panel6.TabIndex = 93;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 135);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(243, 1);
+            this.flowLayoutPanel2.TabIndex = 58;
             // 
             // panel9
             // 
@@ -728,25 +731,23 @@
             this.panel14.Size = new System.Drawing.Size(90, 30);
             this.panel14.TabIndex = 93;
             // 
-            // flowLayoutPanel1
+            // iconButton4
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 27);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(772, 1);
-            this.flowLayoutPanel1.TabIndex = 105;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 135);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(243, 1);
-            this.flowLayoutPanel2.TabIndex = 58;
+            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkAlt;
+            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.IconSize = 18;
+            this.iconButton4.Location = new System.Drawing.Point(30, 0);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(30, 30);
+            this.iconButton4.TabIndex = 93;
+            this.MyToolTip.SetToolTip(this.iconButton4, "নোটের বিস্তারিত (নতুন ট্যাব)");
+            this.iconButton4.UseVisualStyleBackColor = false;
+            this.iconButton4.Visible = false;
             // 
             // NothiNoteTalikaAll
             // 
@@ -798,7 +799,6 @@
         #endregion
 
         private System.Windows.Forms.Label onumodonLabel;
-        private FontAwesome.Sharp.IconButton iconButton4;
         private FontAwesome.Sharp.IconButton optionButton;
         private FontAwesome.Sharp.IconButton iconButton5;
         private System.Windows.Forms.Label onucchedLabel;
@@ -846,5 +846,6 @@
         private FontAwesome.Sharp.IconButton usersButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private FontAwesome.Sharp.IconButton iconButton4;
     }
 }

@@ -14,6 +14,7 @@ using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
 using java.lang;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -346,20 +347,38 @@ namespace dNothi.Desktop.UI.Dak
         {
             if(cbxNothiType.Text== "বাছাই করুন" || lbNothilast4digit.Text == "***.**")
             {
-                MessageBox.Show("দুঃখিত! নথির ধরন ফাকা রাখা যাবে না।");
+                ErrorMessage("দুঃখিত! নথির ধরন ফাকা রাখা যাবে না।");
             }
             else if (cbxNothiClass.Text == "বাছাই করুন")
             {
-                MessageBox.Show("দুঃখিত! নথির শ্রেণি ফাকা রাখা যাবে না।");
+                ErrorMessage("দুঃখিত! নথির শ্রেণি ফাকা রাখা যাবে না।");
             }
             else if (txtNothiSubject.Text == "")
             {
-                MessageBox.Show("দুঃখিত! নথির বিষয় ফাকা রাখা যাবে না।");
+                ErrorMessage("দুঃখিত! নথির বিষয় ফাকা রাখা যাবে না।");
             }
             else
             {
                 createNothi();
             }
+        }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
         }
         public void createNothi()
         {
@@ -389,7 +408,7 @@ namespace dNothi.Desktop.UI.Dak
                 CalPopUpWindow(form);
             }
             else
-                MessageBox.Show(nothiCreate.message);
+                SuccessMessage(nothiCreate.message);
 
 
         }

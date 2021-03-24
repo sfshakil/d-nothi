@@ -11,6 +11,7 @@ using dNothi.Services.UserServices;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -127,6 +128,24 @@ namespace dNothi.Desktop.UI.Dak
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
         private void btnNothiDhoron_Click(object sender, EventArgs e)
         {
             if (cbxNothiType.Text != "বিষয়ের ধরন" && txtDhoronCode.Text != "")
@@ -135,7 +154,7 @@ namespace dNothi.Desktop.UI.Dak
                 int index = cbxNothiType.Items.IndexOf(txtDhoronCode.Text);
                 if (index >= 0 || i >= 0)
                 {
-                    MessageBox.Show("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
+                    ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
                     
                 }
                 else
@@ -147,7 +166,7 @@ namespace dNothi.Desktop.UI.Dak
                         int index1 = cbxNothiType.Items.IndexOf(bng);
                         if (index1 >= 0)
                         {
-                            MessageBox.Show("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
+                            ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
                         }
                         else
                         {
@@ -158,7 +177,7 @@ namespace dNothi.Desktop.UI.Dak
                             var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, txtDhoronCode.Text);
                             if (nothiTypeSave.status == "success")
                             {
-                                MessageBox.Show("নথি ধরন সংরক্ষন হয়েছে।");
+                                SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
                                 foreach (Form f in Application.OpenForms)
                                 { f.Hide(); }
                                 var form = FormFactory.Create<Nothi>();
@@ -177,7 +196,7 @@ namespace dNothi.Desktop.UI.Dak
                         var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, english_text);
                         if (nothiTypeSave.status == "success")
                         {
-                            MessageBox.Show("নথি ধরন সংরক্ষন হয়েছে।");
+                            SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
                             foreach (Form f in Application.OpenForms)
                             { f.Hide(); }
                             var form = FormFactory.Create<Nothi>();
@@ -191,7 +210,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                MessageBox.Show("দুঃখিত! ধরন ফাকা রাখা যাবে না।");
+                ErrorMessage("দুঃখিত! ধরন ফাকা রাখা যাবে না।");
             }
             
         }

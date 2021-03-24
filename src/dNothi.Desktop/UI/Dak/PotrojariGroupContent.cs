@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,6 +35,38 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.PotrojariEditButtonClick != null)
                 this.PotrojariEditButtonClick(sender, e);
+        }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string message = "আপনি কি মুছে ফেলতে চান?";
+            //string title = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = message;
+            conditonBoxForm.ShowDialog(this);
+            //MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            //DialogResult result = MessageBox.Show(message, title, buttons);
+            if (conditonBoxForm.Yes)
+            {
+                SuccessMessage("মুছে ফেলা হয়েছে।");
+            }
         }
     }
 }

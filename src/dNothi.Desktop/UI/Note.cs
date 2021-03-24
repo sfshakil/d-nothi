@@ -1,4 +1,5 @@
-﻿using dNothi.Desktop.UI.Dak;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
@@ -1515,13 +1516,30 @@ namespace dNothi.Desktop.UI
             else
                 return "";
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
 
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
         private void DeleteButton_Click(string onucchedId, EventArgs e, DakUserParam dakListUserParam, NothiListRecordsDTO nothiListRecords, NoteSaveDTO newnotedata)
         {
             var onucchedDelete = _onucchedDelete.GetNothiOnuchhedDelete(dakListUserParam, nothiListRecords, newnotedata, onucchedId);
             if (onucchedDelete.status == "success")
             {
-                MessageBox.Show("সফলভাবে অনুচ্ছেদটি মুছে ফেলা হয়েছে");
+                SuccessMessage("সফলভাবে অনুচ্ছেদটি মুছে ফেলা হয়েছে");
                 if (onuchhedint == 1)
                 {
                 }
@@ -1677,13 +1695,13 @@ namespace dNothi.Desktop.UI
                     else
                     {
                         //string message = "Error";
-                        MessageBox.Show(onucchedList.message);
+                        ErrorMessage(onucchedList.message);
                     }
                 }
                 else
                 {
                     //string message = "Error";
-                    MessageBox.Show(onucchedSave.message);
+                    ErrorMessage(onucchedSave.message);
                 }
 
                 onuchhed.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata ); };
@@ -1693,7 +1711,7 @@ namespace dNothi.Desktop.UI
             else
             {
                 string message = "অনুচ্ছেদ বডি দেওয়া হইনি";
-                MessageBox.Show(message);
+                ErrorMessage(message);
             }
 
             //tinyMceEditor.Controls.Clear();
@@ -1759,7 +1777,7 @@ namespace dNothi.Desktop.UI
                 else
                 {
                     string message = "Error";
-                    MessageBox.Show(message);
+                    ErrorMessage(message);
                 }
                 onuchhed.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                 onuchhed.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as NoteListDataRecordNoteDTO, e1, dakListUserParam, nothiListRecords, newnotedata); };
@@ -1768,7 +1786,7 @@ namespace dNothi.Desktop.UI
             else
             {
                 string message = "অনুচ্ছেদ বডি দেওয়া হইনি";
-                MessageBox.Show(message);
+                ErrorMessage(message);
             }
 
             //tinyMceEditor.Controls.Clear();
@@ -5184,7 +5202,7 @@ namespace dNothi.Desktop.UI
             NoteOnucchedRevertResPonse noteOnucchedRevert = _noteOnucchedRevert.GetNoteOnucchedRevert(_dakuserparam, nothiListRecords, newnotedata);
             if (noteOnucchedRevert.status == "success")
             {
-                MessageBox.Show(noteOnucchedRevert.data);
+                SuccessMessage(noteOnucchedRevert.data);
                 //newNoteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
 
                 //newNoteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Change(_NoteAllListDataRecordDTO, newNoteView, newNoteView._checkBoxValue); };

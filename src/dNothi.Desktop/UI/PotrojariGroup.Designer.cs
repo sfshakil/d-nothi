@@ -69,7 +69,7 @@ namespace dNothi.Desktop.UI
             this.menuTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.potrojariGroupButton = new FontAwesome.Sharp.IconButton();
             this.logoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnNothiIcon = new System.Windows.Forms.Button();
             this.dakMenuButton = new System.Windows.Forms.Panel();
             this.RightSign = new FontAwesome.Sharp.IconButton();
             this.LeftSign = new FontAwesome.Sharp.IconButton();
@@ -225,6 +225,7 @@ namespace dNothi.Desktop.UI
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.profilePanel.Size = new System.Drawing.Size(352, 39);
             this.profilePanel.TabIndex = 28;
+            this.profilePanel.Click += new System.EventHandler(this.userNameLabel_Click);
             // 
             // userPictureBox
             // 
@@ -244,6 +245,7 @@ namespace dNothi.Desktop.UI
             this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.userPictureBox.TabIndex = 29;
             this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.userNameLabel_Click);
             // 
             // userNameLabel
             // 
@@ -257,6 +259,7 @@ namespace dNothi.Desktop.UI
             this.userNameLabel.Size = new System.Drawing.Size(287, 25);
             this.userNameLabel.TabIndex = 23;
             this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি) ";
+            this.userNameLabel.Click += new System.EventHandler(this.userNameLabel_Click);
             // 
             // profileShowArrowButton
             // 
@@ -276,6 +279,7 @@ namespace dNothi.Desktop.UI
             this.profileShowArrowButton.Size = new System.Drawing.Size(13, 29);
             this.profileShowArrowButton.TabIndex = 27;
             this.profileShowArrowButton.UseVisualStyleBackColor = false;
+            this.profileShowArrowButton.Click += new System.EventHandler(this.userNameLabel_Click);
             // 
             // nothiModulePanel
             // 
@@ -287,6 +291,7 @@ namespace dNothi.Desktop.UI
             this.nothiModulePanel.Name = "nothiModulePanel";
             this.nothiModulePanel.Size = new System.Drawing.Size(134, 43);
             this.nothiModulePanel.TabIndex = 26;
+            this.nothiModulePanel.Click += new System.EventHandler(this.nothiModulePanel_Click);
             // 
             // nothiModuleNameLabel
             // 
@@ -298,6 +303,7 @@ namespace dNothi.Desktop.UI
             this.nothiModuleNameLabel.Size = new System.Drawing.Size(34, 24);
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
+            this.nothiModuleNameLabel.Click += new System.EventHandler(this.nothiModulePanel_Click);
             // 
             // iconButton2
             // 
@@ -314,6 +320,7 @@ namespace dNothi.Desktop.UI
             this.iconButton2.Size = new System.Drawing.Size(36, 30);
             this.iconButton2.TabIndex = 4;
             this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.nothiModulePanel_Click);
             // 
             // label22
             // 
@@ -327,6 +334,7 @@ namespace dNothi.Desktop.UI
             this.label22.Size = new System.Drawing.Size(31, 20);
             this.label22.TabIndex = 18;
             this.label22.Text = "১২২";
+            this.label22.Click += new System.EventHandler(this.nothiModulePanel_Click);
             // 
             // dakModulePanel
             // 
@@ -339,6 +347,7 @@ namespace dNothi.Desktop.UI
             this.dakModulePanel.Name = "dakModulePanel";
             this.dakModulePanel.Size = new System.Drawing.Size(134, 43);
             this.dakModulePanel.TabIndex = 100;
+            this.dakModulePanel.Click += new System.EventHandler(this.btnNothiIcon_Click);
             // 
             // label1
             // 
@@ -350,6 +359,7 @@ namespace dNothi.Desktop.UI
             this.label1.Size = new System.Drawing.Size(39, 24);
             this.label1.TabIndex = 19;
             this.label1.Text = "ডাক";
+            this.label1.Click += new System.EventHandler(this.btnNothiIcon_Click);
             // 
             // iconButton1
             // 
@@ -365,6 +375,7 @@ namespace dNothi.Desktop.UI
             this.iconButton1.Size = new System.Drawing.Size(36, 30);
             this.iconButton1.TabIndex = 4;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.btnNothiIcon_Click);
             // 
             // moduleDakCountLabel
             // 
@@ -378,6 +389,7 @@ namespace dNothi.Desktop.UI
             this.moduleDakCountLabel.Size = new System.Drawing.Size(23, 20);
             this.moduleDakCountLabel.TabIndex = 18;
             this.moduleDakCountLabel.Text = "১২";
+            this.moduleDakCountLabel.Click += new System.EventHandler(this.btnNothiIcon_Click);
             // 
             // label9
             // 
@@ -748,7 +760,7 @@ namespace dNothi.Desktop.UI
             this.logoTableLayoutPanel.ColumnCount = 2;
             this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.logoTableLayoutPanel.Controls.Add(this.button2, 0, 0);
+            this.logoTableLayoutPanel.Controls.Add(this.btnNothiIcon, 0, 0);
             this.logoTableLayoutPanel.Controls.Add(this.dakMenuButton, 1, 0);
             this.logoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.logoTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -760,24 +772,25 @@ namespace dNothi.Desktop.UI
             this.logoTableLayoutPanel.Size = new System.Drawing.Size(234, 50);
             this.logoTableLayoutPanel.TabIndex = 0;
             // 
-            // button2
+            // btnNothiIcon
             // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(24, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(14, 0, 3, 0);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(3);
-            this.button2.Size = new System.Drawing.Size(173, 50);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnNothiIcon.AutoSize = true;
+            this.btnNothiIcon.BackColor = System.Drawing.Color.White;
+            this.btnNothiIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNothiIcon.BackgroundImage")));
+            this.btnNothiIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnNothiIcon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNothiIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNothiIcon.FlatAppearance.BorderSize = 0;
+            this.btnNothiIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiIcon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNothiIcon.Location = new System.Drawing.Point(24, 0);
+            this.btnNothiIcon.Margin = new System.Windows.Forms.Padding(14, 0, 3, 0);
+            this.btnNothiIcon.Name = "btnNothiIcon";
+            this.btnNothiIcon.Padding = new System.Windows.Forms.Padding(3);
+            this.btnNothiIcon.Size = new System.Drawing.Size(173, 50);
+            this.btnNothiIcon.TabIndex = 2;
+            this.btnNothiIcon.UseVisualStyleBackColor = false;
+            this.btnNothiIcon.Click += new System.EventHandler(this.btnNothiIcon_Click);
             // 
             // dakMenuButton
             // 
@@ -1552,6 +1565,7 @@ namespace dNothi.Desktop.UI
             this.moduleButton.Size = new System.Drawing.Size(52, 43);
             this.moduleButton.TabIndex = 106;
             this.moduleButton.UseVisualStyleBackColor = true;
+            this.moduleButton.Visible = false;
             // 
             // footerTableLayoutPanel
             // 
@@ -1949,7 +1963,7 @@ namespace dNothi.Desktop.UI
             private System.Windows.Forms.CheckBox checkBox1;
             private System.Windows.Forms.ComboBox comboBox1;
             private System.Windows.Forms.Panel panel3;
-            private System.Windows.Forms.Button button2;
+            private System.Windows.Forms.Button btnNothiIcon;
             private System.Windows.Forms.Panel dakModulePanel;
             private FontAwesome.Sharp.IconButton iconButton1;
             private System.Windows.Forms.Label label1;

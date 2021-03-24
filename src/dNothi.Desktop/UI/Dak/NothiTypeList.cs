@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using dNothi.Services.UserServices;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -93,14 +94,34 @@ namespace dNothi.Desktop.UI.Dak
             get { return _noteId; }
             set { _noteId = value; lbNoteId.Text = value; }
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
 
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string message = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
-            string title = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.Yes)
+            //string title = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = message;
+            conditonBoxForm.ShowDialog(this);
+            //MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            //DialogResult result = MessageBox.Show(message, title, buttons);
+            if (conditonBoxForm.Yes)
             {
                 //this.Hide();
                 string noteId = lbNoteId.Text;
@@ -108,7 +129,7 @@ namespace dNothi.Desktop.UI.Dak
                 var noteDelete = _noteDelete.GetNoteDelete(dakListUserParam, noteId);
                 if (noteDelete.status == "success")
                 {
-                    MessageBox.Show("নথি ধরন মুছে ফেলা হয়েছে।");
+                    SuccessMessage("নথি ধরন মুছে ফেলা হয়েছে।");
                     foreach (Form f in Application.OpenForms)
                     { f.Hide(); }
                     var form = FormFactory.Create<Nothi>();
