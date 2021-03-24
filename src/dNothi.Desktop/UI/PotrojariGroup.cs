@@ -37,7 +37,7 @@ namespace dNothi.Desktop.UI
             {
 
                 PotrojariGroupContent pgc = new PotrojariGroupContent();
-
+                pgc.PotrojariEditButtonClick += delegate (object sender, EventArgs e) { editButtonClick(sender , e); };
                 dakBodyFlowLayoutPanel.AutoScroll = true;
 
                 pgc.Dock = DockStyle.Fill;
@@ -51,8 +51,24 @@ namespace dNothi.Desktop.UI
                     dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
                 }
                 dakBodyFlowLayoutPanel.Controls.Add(pgc, 0, row);
-
-
+            }
+        }
+        public void editButtonClick(object sender, EventArgs e)
+        {
+            if (newPotrojariPanel.Visible != true)
+            {
+                dakBodyFlowLayoutPanel.Controls.Clear();
+                lbPotrojariName.Text = "পত্রজারি গ্রুপ অন্তর্ভুক্তিকরণ";
+                newPotrojariPanel.Visible = true;
+                totalPotrojariPanel.Visible = false;
+                btnNewPotrojariGroup.BackColor = Color.FromArgb(54, 153, 255);
+                btnNewPotrojariGroup.FlatAppearance.BorderColor = Color.FromArgb(54, 153, 255);
+                btnNewPotrojariGroup.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+                btnNewPotrojariGroup.Text = "পত্রজারি গ্রুপ তালিকা";
+            }
+            else
+            {
+                loadpotrojariGroupContent();
             }
         }
 

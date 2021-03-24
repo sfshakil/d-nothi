@@ -84,6 +84,33 @@ namespace dNothi.Desktop.UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.bodyContentPanel = new System.Windows.Forms.Panel();
             this.newPotrojariPanel = new System.Windows.Forms.Panel();
+            this.officerAddPanel = new System.Windows.Forms.Panel();
+            this.officerAddTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.rightSideOfficerAddPanel = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.btnSave = new FontAwesome.Sharp.IconButton();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.leftSideOfficerAddPanel = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.OfficerSearch = new System.Windows.Forms.TabPage();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.cbxNothiType = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.OfficerSelect = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.txtNothiSubject = new PlaceholderTextBox.PlaceholderTextBox();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.dakBodyFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.totalPotrojariPanel = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -116,34 +143,7 @@ namespace dNothi.Desktop.UI
             this.khosraPotroButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.txtNothiSubject = new PlaceholderTextBox.PlaceholderTextBox();
-            this.panel19 = new System.Windows.Forms.Panel();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
-            this.officerAddPanel = new System.Windows.Forms.Panel();
-            this.officerAddTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.leftSideOfficerAddPanel = new System.Windows.Forms.Panel();
-            this.rightSideOfficerAddPanel = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.OfficerSearch = new System.Windows.Forms.TabPage();
-            this.OfficerSelect = new System.Windows.Forms.TabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.cbxNothiType = new System.Windows.Forms.ComboBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnSave = new FontAwesome.Sharp.IconButton();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -161,6 +161,22 @@ namespace dNothi.Desktop.UI
             this.panel2.SuspendLayout();
             this.bodyContentPanel.SuspendLayout();
             this.newPotrojariPanel.SuspendLayout();
+            this.officerAddPanel.SuspendLayout();
+            this.officerAddTableLayoutPanel.SuspendLayout();
+            this.rightSideOfficerAddPanel.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.leftSideOfficerAddPanel.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.OfficerSearch.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.totalPotrojariPanel.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -176,22 +192,6 @@ namespace dNothi.Desktop.UI
             this.modulePanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel17.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.officerAddPanel.SuspendLayout();
-            this.officerAddTableLayoutPanel.SuspendLayout();
-            this.leftSideOfficerAddPanel.SuspendLayout();
-            this.rightSideOfficerAddPanel.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.OfficerSearch.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel24.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -968,6 +968,367 @@ namespace dNothi.Desktop.UI
             this.newPotrojariPanel.Size = new System.Drawing.Size(1116, 499);
             this.newPotrojariPanel.TabIndex = 3;
             // 
+            // officerAddPanel
+            // 
+            this.officerAddPanel.BackColor = System.Drawing.Color.White;
+            this.officerAddPanel.Controls.Add(this.officerAddTableLayoutPanel);
+            this.officerAddPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.officerAddPanel.Location = new System.Drawing.Point(0, 98);
+            this.officerAddPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.officerAddPanel.Name = "officerAddPanel";
+            this.officerAddPanel.Size = new System.Drawing.Size(1116, 386);
+            this.officerAddPanel.TabIndex = 1;
+            // 
+            // officerAddTableLayoutPanel
+            // 
+            this.officerAddTableLayoutPanel.ColumnCount = 2;
+            this.officerAddTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.72043F));
+            this.officerAddTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.27957F));
+            this.officerAddTableLayoutPanel.Controls.Add(this.rightSideOfficerAddPanel, 1, 0);
+            this.officerAddTableLayoutPanel.Controls.Add(this.leftSideOfficerAddPanel, 0, 0);
+            this.officerAddTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.officerAddTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.officerAddTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.officerAddTableLayoutPanel.Name = "officerAddTableLayoutPanel";
+            this.officerAddTableLayoutPanel.RowCount = 1;
+            this.officerAddTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.officerAddTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.officerAddTableLayoutPanel.Size = new System.Drawing.Size(1116, 386);
+            this.officerAddTableLayoutPanel.TabIndex = 0;
+            // 
+            // rightSideOfficerAddPanel
+            // 
+            this.rightSideOfficerAddPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.rightSideOfficerAddPanel.Controls.Add(this.panel24);
+            this.rightSideOfficerAddPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightSideOfficerAddPanel.Location = new System.Drawing.Point(632, 0);
+            this.rightSideOfficerAddPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.rightSideOfficerAddPanel.Name = "rightSideOfficerAddPanel";
+            this.rightSideOfficerAddPanel.Size = new System.Drawing.Size(484, 386);
+            this.rightSideOfficerAddPanel.TabIndex = 1;
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel24.Controls.Add(this.btnSave);
+            this.panel24.Controls.Add(this.panel22);
+            this.panel24.Location = new System.Drawing.Point(12, 21);
+            this.panel24.Margin = new System.Windows.Forms.Padding(0);
+            this.panel24.Name = "panel24";
+            this.panel24.Padding = new System.Windows.Forms.Padding(3);
+            this.panel24.Size = new System.Drawing.Size(456, 133);
+            this.panel24.TabIndex = 2;
+            this.panel24.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.Cloud;
+            this.btnSave.IconColor = System.Drawing.Color.White;
+            this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSave.IconSize = 25;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(347, 82);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(95, 42);
+            this.btnSave.TabIndex = 66;
+            this.btnSave.Text = "সংরক্ষণ";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel22.Controls.Add(this.label6);
+            this.panel22.Controls.Add(this.label3);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel22.Location = new System.Drawing.Point(3, 3);
+            this.panel22.Margin = new System.Windows.Forms.Padding(0);
+            this.panel22.Name = "panel22";
+            this.panel22.Padding = new System.Windows.Forms.Padding(8, 10, 8, 0);
+            this.panel22.Size = new System.Drawing.Size(450, 37);
+            this.panel22.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(148, 10);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.label6.Size = new System.Drawing.Size(22, 21);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "০";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.label3.Location = new System.Drawing.Point(8, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 21);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "গ্রুপে অন্তর্ভুক্ত ব্যক্তিবর্গ";
+            // 
+            // leftSideOfficerAddPanel
+            // 
+            this.leftSideOfficerAddPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.leftSideOfficerAddPanel.Controls.Add(this.panel6);
+            this.leftSideOfficerAddPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leftSideOfficerAddPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftSideOfficerAddPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.leftSideOfficerAddPanel.Name = "leftSideOfficerAddPanel";
+            this.leftSideOfficerAddPanel.Size = new System.Drawing.Size(632, 386);
+            this.leftSideOfficerAddPanel.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Location = new System.Drawing.Point(10, 21);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(612, 245);
+            this.panel6.TabIndex = 1;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.OfficerSearch);
+            this.tabControl1.Controls.Add(this.OfficerSelect);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(612, 245);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // OfficerSearch
+            // 
+            this.OfficerSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.OfficerSearch.Controls.Add(this.iconButton4);
+            this.OfficerSearch.Controls.Add(this.panel20);
+            this.OfficerSearch.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OfficerSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.OfficerSearch.Location = new System.Drawing.Point(4, 34);
+            this.OfficerSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.OfficerSearch.Name = "OfficerSearch";
+            this.OfficerSearch.Size = new System.Drawing.Size(604, 207);
+            this.OfficerSearch.TabIndex = 0;
+            this.OfficerSearch.Text = "অফিসার খুঁজুন";
+            // 
+            // iconButton4
+            // 
+            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(55)))), ((int)(((byte)(238)))));
+            this.iconButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(55)))), ((int)(((byte)(238)))));
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton4.ForeColor = System.Drawing.Color.White;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.iconButton4.IconColor = System.Drawing.SystemColors.Window;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.IconSize = 20;
+            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton4.Location = new System.Drawing.Point(492, 160);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(101, 29);
+            this.iconButton4.TabIndex = 70;
+            this.iconButton4.Text = " যুক্ত করুন";
+            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton4.UseVisualStyleBackColor = false;
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel20.Controls.Add(this.panel21);
+            this.panel20.Controls.Add(this.label2);
+            this.panel20.Location = new System.Drawing.Point(7, 25);
+            this.panel20.Margin = new System.Windows.Forms.Padding(0);
+            this.panel20.Name = "panel20";
+            this.panel20.Padding = new System.Windows.Forms.Padding(8, 10, 8, 0);
+            this.panel20.Size = new System.Drawing.Size(586, 119);
+            this.panel20.TabIndex = 0;
+            this.panel20.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.cbxNothiType);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel21.Location = new System.Drawing.Point(8, 51);
+            this.panel21.Margin = new System.Windows.Forms.Padding(0);
+            this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(5, 5, 15, 0);
+            this.panel21.Size = new System.Drawing.Size(570, 38);
+            this.panel21.TabIndex = 42;
+            this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
+            // 
+            // cbxNothiType
+            // 
+            this.cbxNothiType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.cbxNothiType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxNothiType.DropDownHeight = 200;
+            this.cbxNothiType.DropDownWidth = 167;
+            this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.cbxNothiType.ForeColor = System.Drawing.Color.Silver;
+            this.cbxNothiType.FormattingEnabled = true;
+            this.cbxNothiType.IntegralHeight = false;
+            this.cbxNothiType.ItemHeight = 21;
+            this.cbxNothiType.Location = new System.Drawing.Point(5, 5);
+            this.cbxNothiType.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxNothiType.MaxDropDownItems = 100;
+            this.cbxNothiType.MaxLength = 100;
+            this.cbxNothiType.Name = "cbxNothiType";
+            this.cbxNothiType.Size = new System.Drawing.Size(550, 29);
+            this.cbxNothiType.TabIndex = 71;
+            this.cbxNothiType.Text = "নাম/পদবি দিয়ে খুঁজুন";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.label2.Location = new System.Drawing.Point(8, 10);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.label2.Size = new System.Drawing.Size(91, 41);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "অফিসার খুঁজুন";
+            // 
+            // OfficerSelect
+            // 
+            this.OfficerSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.OfficerSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.OfficerSelect.Location = new System.Drawing.Point(4, 34);
+            this.OfficerSelect.Margin = new System.Windows.Forms.Padding(0);
+            this.OfficerSelect.Name = "OfficerSelect";
+            this.OfficerSelect.Size = new System.Drawing.Size(604, 207);
+            this.OfficerSelect.TabIndex = 1;
+            this.OfficerSelect.Text = "অফিসার বাছাই করুন";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tabPage1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(604, 207);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "নিজে তথ্য লিখুন";
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel15.Controls.Add(this.panel17);
+            this.panel15.Controls.Add(this.panel16);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Margin = new System.Windows.Forms.Padding(0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(1116, 98);
+            this.panel15.TabIndex = 0;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel17.Controls.Add(this.panel18);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 55);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(1116, 43);
+            this.panel17.TabIndex = 81;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.panel19);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Margin = new System.Windows.Forms.Padding(0);
+            this.panel18.Name = "panel18";
+            this.panel18.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel18.Size = new System.Drawing.Size(622, 43);
+            this.panel18.TabIndex = 0;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.txtNothiSubject);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel19.Location = new System.Drawing.Point(10, 0);
+            this.panel19.Margin = new System.Windows.Forms.Padding(0);
+            this.panel19.Name = "panel19";
+            this.panel19.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.panel19.Size = new System.Drawing.Size(612, 43);
+            this.panel19.TabIndex = 1;
+            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
+            // 
+            // txtNothiSubject
+            // 
+            this.txtNothiSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtNothiSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNothiSubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtNothiSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.txtNothiSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.txtNothiSubject.Location = new System.Drawing.Point(10, 10);
+            this.txtNothiSubject.Margin = new System.Windows.Forms.Padding(0);
+            this.txtNothiSubject.Name = "txtNothiSubject";
+            this.txtNothiSubject.PlaceholderText = "";
+            this.txtNothiSubject.Size = new System.Drawing.Size(587, 22);
+            this.txtNothiSubject.TabIndex = 4;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel16.Controls.Add(this.label10);
+            this.panel16.Controls.Add(this.label15);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(0, 0);
+            this.panel16.Margin = new System.Windows.Forms.Padding(0);
+            this.panel16.Name = "panel16";
+            this.panel16.Padding = new System.Windows.Forms.Padding(10, 20, 0, 0);
+            this.panel16.Size = new System.Drawing.Size(1116, 55);
+            this.panel16.TabIndex = 82;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.label10.Location = new System.Drawing.Point(90, 20);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(8, 12);
+            this.label10.TabIndex = 77;
+            this.label10.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.label15.Location = new System.Drawing.Point(10, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(80, 21);
+            this.label15.TabIndex = 40;
+            this.label15.Text = "গ্রুপের নামঃ";
+            // 
             // dakBodyFlowLayoutPanel
             // 
             this.dakBodyFlowLayoutPanel.AutoScroll = true;
@@ -1453,103 +1814,6 @@ namespace dNothi.Desktop.UI
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel15.Controls.Add(this.panel17);
-            this.panel15.Controls.Add(this.panel16);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Margin = new System.Windows.Forms.Padding(0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(1116, 98);
-            this.panel15.TabIndex = 0;
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel16.Controls.Add(this.label10);
-            this.panel16.Controls.Add(this.label15);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel16.Location = new System.Drawing.Point(0, 0);
-            this.panel16.Margin = new System.Windows.Forms.Padding(0);
-            this.panel16.Name = "panel16";
-            this.panel16.Padding = new System.Windows.Forms.Padding(10, 20, 0, 0);
-            this.panel16.Size = new System.Drawing.Size(1116, 55);
-            this.panel16.TabIndex = 82;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.label10.Location = new System.Drawing.Point(90, 20);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(8, 12);
-            this.label10.TabIndex = 77;
-            this.label10.Text = "*";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.label15.Location = new System.Drawing.Point(10, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(80, 21);
-            this.label15.TabIndex = 40;
-            this.label15.Text = "গ্রুপের নামঃ";
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel17.Controls.Add(this.panel18);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(0, 55);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(1116, 43);
-            this.panel17.TabIndex = 81;
-            // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.panel19);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(0, 0);
-            this.panel18.Margin = new System.Windows.Forms.Padding(0);
-            this.panel18.Name = "panel18";
-            this.panel18.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel18.Size = new System.Drawing.Size(622, 43);
-            this.panel18.TabIndex = 0;
-            // 
-            // txtNothiSubject
-            // 
-            this.txtNothiSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtNothiSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNothiSubject.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtNothiSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.txtNothiSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.txtNothiSubject.Location = new System.Drawing.Point(10, 10);
-            this.txtNothiSubject.Margin = new System.Windows.Forms.Padding(0);
-            this.txtNothiSubject.Name = "txtNothiSubject";
-            this.txtNothiSubject.PlaceholderText = "";
-            this.txtNothiSubject.Size = new System.Drawing.Size(587, 22);
-            this.txtNothiSubject.TabIndex = 4;
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.txtNothiSubject);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel19.Location = new System.Drawing.Point(10, 0);
-            this.panel19.Margin = new System.Windows.Forms.Padding(0);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.panel19.Size = new System.Drawing.Size(612, 43);
-            this.panel19.TabIndex = 1;
-            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
-            // 
             // designationDetailsPanel
             // 
             this.designationDetailsPanel._designationId = 0;
@@ -1567,270 +1831,6 @@ namespace dNothi.Desktop.UI
             this.designationDetailsPanel.Size = new System.Drawing.Size(434, 91);
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
-            // 
-            // officerAddPanel
-            // 
-            this.officerAddPanel.BackColor = System.Drawing.Color.White;
-            this.officerAddPanel.Controls.Add(this.officerAddTableLayoutPanel);
-            this.officerAddPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.officerAddPanel.Location = new System.Drawing.Point(0, 98);
-            this.officerAddPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.officerAddPanel.Name = "officerAddPanel";
-            this.officerAddPanel.Size = new System.Drawing.Size(1116, 386);
-            this.officerAddPanel.TabIndex = 1;
-            // 
-            // officerAddTableLayoutPanel
-            // 
-            this.officerAddTableLayoutPanel.ColumnCount = 2;
-            this.officerAddTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.72043F));
-            this.officerAddTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.27957F));
-            this.officerAddTableLayoutPanel.Controls.Add(this.rightSideOfficerAddPanel, 1, 0);
-            this.officerAddTableLayoutPanel.Controls.Add(this.leftSideOfficerAddPanel, 0, 0);
-            this.officerAddTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.officerAddTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.officerAddTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.officerAddTableLayoutPanel.Name = "officerAddTableLayoutPanel";
-            this.officerAddTableLayoutPanel.RowCount = 1;
-            this.officerAddTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.officerAddTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.officerAddTableLayoutPanel.Size = new System.Drawing.Size(1116, 386);
-            this.officerAddTableLayoutPanel.TabIndex = 0;
-            // 
-            // leftSideOfficerAddPanel
-            // 
-            this.leftSideOfficerAddPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.leftSideOfficerAddPanel.Controls.Add(this.panel6);
-            this.leftSideOfficerAddPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leftSideOfficerAddPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftSideOfficerAddPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.leftSideOfficerAddPanel.Name = "leftSideOfficerAddPanel";
-            this.leftSideOfficerAddPanel.Size = new System.Drawing.Size(632, 386);
-            this.leftSideOfficerAddPanel.TabIndex = 0;
-            // 
-            // rightSideOfficerAddPanel
-            // 
-            this.rightSideOfficerAddPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.rightSideOfficerAddPanel.Controls.Add(this.panel24);
-            this.rightSideOfficerAddPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightSideOfficerAddPanel.Location = new System.Drawing.Point(632, 0);
-            this.rightSideOfficerAddPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.rightSideOfficerAddPanel.Name = "rightSideOfficerAddPanel";
-            this.rightSideOfficerAddPanel.Size = new System.Drawing.Size(484, 386);
-            this.rightSideOfficerAddPanel.TabIndex = 1;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.OfficerSearch);
-            this.tabControl1.Controls.Add(this.OfficerSelect);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(612, 245);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // OfficerSearch
-            // 
-            this.OfficerSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.OfficerSearch.Controls.Add(this.iconButton4);
-            this.OfficerSearch.Controls.Add(this.panel20);
-            this.OfficerSearch.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OfficerSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.OfficerSearch.Location = new System.Drawing.Point(4, 34);
-            this.OfficerSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.OfficerSearch.Name = "OfficerSearch";
-            this.OfficerSearch.Size = new System.Drawing.Size(604, 207);
-            this.OfficerSearch.TabIndex = 0;
-            this.OfficerSearch.Text = "অফিসার খুঁজুন";
-            // 
-            // OfficerSelect
-            // 
-            this.OfficerSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.OfficerSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.OfficerSelect.Location = new System.Drawing.Point(4, 34);
-            this.OfficerSelect.Margin = new System.Windows.Forms.Padding(0);
-            this.OfficerSelect.Name = "OfficerSelect";
-            this.OfficerSelect.Size = new System.Drawing.Size(604, 207);
-            this.OfficerSelect.TabIndex = 1;
-            this.OfficerSelect.Text = "অফিসার বাছাই করুন";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Location = new System.Drawing.Point(10, 21);
-            this.panel6.Margin = new System.Windows.Forms.Padding(0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(612, 245);
-            this.panel6.TabIndex = 1;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
-            // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel20.Controls.Add(this.panel21);
-            this.panel20.Controls.Add(this.label2);
-            this.panel20.Location = new System.Drawing.Point(7, 25);
-            this.panel20.Margin = new System.Windows.Forms.Padding(0);
-            this.panel20.Name = "panel20";
-            this.panel20.Padding = new System.Windows.Forms.Padding(8, 10, 8, 0);
-            this.panel20.Size = new System.Drawing.Size(586, 119);
-            this.panel20.TabIndex = 0;
-            this.panel20.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.label2.Location = new System.Drawing.Point(8, 10);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.label2.Size = new System.Drawing.Size(91, 41);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "অফিসার খুঁজুন";
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.cbxNothiType);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel21.Location = new System.Drawing.Point(8, 51);
-            this.panel21.Margin = new System.Windows.Forms.Padding(0);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(5, 5, 15, 0);
-            this.panel21.Size = new System.Drawing.Size(570, 38);
-            this.panel21.TabIndex = 42;
-            this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(55)))), ((int)(((byte)(238)))));
-            this.iconButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(55)))), ((int)(((byte)(238)))));
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.ForeColor = System.Drawing.Color.White;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton4.IconColor = System.Drawing.SystemColors.Window;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 20;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(492, 160);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(101, 29);
-            this.iconButton4.TabIndex = 70;
-            this.iconButton4.Text = " যুক্ত করুন";
-            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton4.UseVisualStyleBackColor = false;
-            // 
-            // cbxNothiType
-            // 
-            this.cbxNothiType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.cbxNothiType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbxNothiType.DropDownHeight = 200;
-            this.cbxNothiType.DropDownWidth = 167;
-            this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.cbxNothiType.ForeColor = System.Drawing.Color.Silver;
-            this.cbxNothiType.FormattingEnabled = true;
-            this.cbxNothiType.IntegralHeight = false;
-            this.cbxNothiType.ItemHeight = 21;
-            this.cbxNothiType.Location = new System.Drawing.Point(5, 5);
-            this.cbxNothiType.Margin = new System.Windows.Forms.Padding(0);
-            this.cbxNothiType.MaxDropDownItems = 100;
-            this.cbxNothiType.MaxLength = 100;
-            this.cbxNothiType.Name = "cbxNothiType";
-            this.cbxNothiType.Size = new System.Drawing.Size(550, 29);
-            this.cbxNothiType.TabIndex = 71;
-            this.cbxNothiType.Text = "নাম/পদবি দিয়ে খুঁজুন";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.tabPage1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.tabPage1.Location = new System.Drawing.Point(4, 34);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(604, 207);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "নিজে তথ্য লিখুন";
-            // 
-            // panel22
-            // 
-            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel22.Controls.Add(this.label6);
-            this.panel22.Controls.Add(this.label3);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel22.Location = new System.Drawing.Point(3, 3);
-            this.panel22.Margin = new System.Windows.Forms.Padding(0);
-            this.panel22.Name = "panel22";
-            this.panel22.Padding = new System.Windows.Forms.Padding(8, 10, 8, 0);
-            this.panel22.Size = new System.Drawing.Size(450, 37);
-            this.panel22.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.label3.Location = new System.Drawing.Point(8, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 21);
-            this.label3.TabIndex = 41;
-            this.label3.Text = "গ্রুপে অন্তর্ভুক্ত ব্যক্তিবর্গ";
-            // 
-            // panel24
-            // 
-            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel24.Controls.Add(this.btnSave);
-            this.panel24.Controls.Add(this.panel22);
-            this.panel24.Location = new System.Drawing.Point(12, 21);
-            this.panel24.Margin = new System.Windows.Forms.Padding(0);
-            this.panel24.Name = "panel24";
-            this.panel24.Padding = new System.Windows.Forms.Padding(3);
-            this.panel24.Size = new System.Drawing.Size(456, 133);
-            this.panel24.TabIndex = 2;
-            this.panel24.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(148, 10);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label6.Size = new System.Drawing.Size(22, 21);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "০";
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.Cloud;
-            this.btnSave.IconColor = System.Drawing.Color.White;
-            this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSave.IconSize = 25;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(347, 82);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(95, 42);
-            this.btnSave.TabIndex = 66;
-            this.btnSave.Text = "সংরক্ষণ";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // PotrojariGroup
             // 
@@ -1875,6 +1875,26 @@ namespace dNothi.Desktop.UI
             this.bodyContentPanel.ResumeLayout(false);
             this.bodyContentPanel.PerformLayout();
             this.newPotrojariPanel.ResumeLayout(false);
+            this.officerAddPanel.ResumeLayout(false);
+            this.officerAddTableLayoutPanel.ResumeLayout(false);
+            this.rightSideOfficerAddPanel.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.leftSideOfficerAddPanel.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.OfficerSearch.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.totalPotrojariPanel.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -1895,26 +1915,6 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel15.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel17.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
-            this.officerAddPanel.ResumeLayout(false);
-            this.officerAddTableLayoutPanel.ResumeLayout(false);
-            this.leftSideOfficerAddPanel.ResumeLayout(false);
-            this.rightSideOfficerAddPanel.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.OfficerSearch.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            this.panel24.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

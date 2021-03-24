@@ -28,5 +28,12 @@ namespace dNothi.Desktop.UI.Dak
             lbDetails.ForeColor = Color.FromArgb(63, 66, 84);
             this.BackColor = Color.FromArgb(250, 250, 250);
         }
+        public event EventHandler PotrojariEditButtonClick;
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (this.PotrojariEditButtonClick != null)
+                this.PotrojariEditButtonClick(sender, e);
+        }
     }
 }
