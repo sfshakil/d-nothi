@@ -4122,6 +4122,13 @@ namespace dNothi.Desktop.UI
         {
             UIDesignCommonMethod.dropShadow(sender, e);
         }
+
+        private void potrojariButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PotrojariGroup potrojariGroup = FormFactory.Create<PotrojariGroup>();
+            potrojariGroup.ShowDialog();
+        }
     }
 
 

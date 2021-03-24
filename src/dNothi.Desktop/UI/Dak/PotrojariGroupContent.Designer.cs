@@ -41,7 +41,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbCreater = new System.Windows.Forms.Label();
             this.lbDetails = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.contentTableLayoutPanel.SuspendLayout();
@@ -211,7 +211,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.iconButton1);
+            this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(720, 0);
@@ -222,22 +222,23 @@ namespace dNothi.Desktop.UI.Dak
             this.panel2.MouseLeave += new System.EventHandler(this.detailsPanel_MouseLeave);
             this.panel2.MouseHover += new System.EventHandler(this.detailsPanel_MouseHover);
             // 
-            // iconButton1
+            // btnDelete
             // 
-            this.iconButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(55, 13);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(35, 29);
-            this.iconButton1.TabIndex = 7;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 24;
+            this.btnDelete.Location = new System.Drawing.Point(55, 13);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(35, 29);
+            this.btnDelete.TabIndex = 7;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -304,7 +305,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnCanRevert;
         private System.Windows.Forms.Label lbNoteNumber;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnEdit;
     }
 }

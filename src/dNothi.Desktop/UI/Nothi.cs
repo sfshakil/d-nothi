@@ -1,4 +1,5 @@
-﻿using dNothi.Desktop.UI.Dak;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
@@ -336,6 +337,24 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(form);
 
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
         private void SaveNewNote_ButtonClick(object sender, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
         {
             string noteSubject = sender.ToString();
@@ -381,7 +400,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                MessageBox.Show(noteSave.status + noteSave.message);
+                ErrorMessage(noteSave.status + noteSave.message);
             }
 
             
@@ -1296,8 +1315,6 @@ namespace dNothi.Desktop.UI
 
         private void moduleButton_Click(object sender, EventArgs e)
         {
-            PotrojariGroup potrojariGroup = new PotrojariGroup();
-            potrojariGroup.ShowDialog();
         }
     }
 }

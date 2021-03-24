@@ -1,4 +1,5 @@
 ﻿using dNothi.Desktop.UI.Dak;
+using dNothi.Services.UserServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,9 @@ namespace dNothi.Desktop.UI
 {
     public partial class PotrojariGroup : Form
     {
-        public PotrojariGroup()
+        public PotrojariGroup(IUserService userService)
         {
+            _userService = userService;
             InitializeComponent();
             loadpotrojariGroupContent();
 
@@ -112,6 +114,41 @@ namespace dNothi.Desktop.UI
         private void potrojariGroupButton_Click(object sender, EventArgs e)
         {
             loadpotrojariGroupContent();
+        }
+
+        private void btnNothiIcon_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void nothiModulePanel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+        IUserService _userService { get; set; }
+        designationSelect designationDetailsPanelNothi = new designationSelect();
+        private void userNameLabel_Click(object sender, EventArgs e)
+        {
+            if (designationDetailsPanelNothi.Width == 434 && !designationDetailsPanelNothi.Visible)
+            {
+                designationDetailsPanelNothi.Visible = true;
+                //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 50);
+                Controls.Add(designationDetailsPanelNothi);
+                designationDetailsPanelNothi.BringToFront();
+                designationDetailsPanelNothi.Width = 427;
+                designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
+
+            }
+            else
+            {
+                designationDetailsPanelNothi.Visible = false;
+                designationDetailsPanelNothi.Width = 434;
+            }
         }
     }
 }

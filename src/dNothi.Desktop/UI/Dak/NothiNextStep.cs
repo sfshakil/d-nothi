@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity.Nothi;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
@@ -207,6 +208,24 @@ namespace dNothi.Desktop.UI.Dak
         {
             return nothiListRecord;
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
         private void btnSend_Click(object sender, EventArgs e)
         {
             List<onumodonDataRecordDTO> newrecords = new List<onumodonDataRecordDTO>();
@@ -222,7 +241,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             if (newrecords.Count == 0)
             {
-                MessageBox.Show("দয়া করে প্রাপক বাছাই করুন");
+                ErrorMessage("দয়া করে প্রাপক বাছাই করুন");
             }
             else
             {
@@ -240,7 +259,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (onuchhedForwardResponse.status == "success")
                 {
 
-                    MessageBox.Show("প্রক্রিয়াটি সম্পন্ন হয়েছে");
+                    SuccessMessage("প্রক্রিয়াটি সম্পন্ন হয়েছে");
                     foreach (Form f in Application.OpenForms)
                     { f.Hide(); }
                     var form = FormFactory.Create<Nothi>();
@@ -249,7 +268,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                    MessageBox.Show(onuchhedForwardResponse.message);
+                    ErrorMessage(onuchhedForwardResponse.message);
                 }
 
             }
