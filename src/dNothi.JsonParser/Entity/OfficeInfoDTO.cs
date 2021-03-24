@@ -29,5 +29,8 @@ namespace dNothi.JsonParser.Entity
           public string office_name_eng { get; set; }
           public string office_name_bng { get; set; }
           public int parent_office_id { get; set; }
+          public int dakCount { get; set; }
+          public int nothiCount { get; set; }
+
     }
 }

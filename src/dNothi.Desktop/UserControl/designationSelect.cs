@@ -45,11 +45,10 @@ namespace dNothi.Desktop
                         designationRow.designationId = officeInfo.office_unit_organogram_id;
                         designationRow.designationLinkText = officeInfo.designation + "," + officeInfo.unit_name_bn + "," + officeInfo.office_name_bn;
                         designationRow.User += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUserClick(changeButtonSender, changeButtonEvent, designationRow._designationId); };
-                        var employeDakNothiCountResponseTotal = _employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == designationRow.designationId.ToString());
+                        
 
-
-                        designationRow.dakTotalNumber = employeDakNothiCountResponseTotal.Value.dak;
-                        designationRow.nothiTotalNumber = employeDakNothiCountResponseTotal.Value.own_office_nothi;
+                        designationRow.dakTotalNumber = officeInfo.dakCount;
+                        designationRow.nothiTotalNumber = officeInfo.nothiCount;
 
                         designationRowFlowLayoutPanel.Controls.Add(designationRow);
 
