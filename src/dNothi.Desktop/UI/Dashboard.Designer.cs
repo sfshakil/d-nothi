@@ -3190,6 +3190,7 @@
             this.khosraPotroButton.Text = "খসড়া-পত্র ড্যাশবোর্ড";
             this.khosraPotroButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.khosraPotroButton.UseVisualStyleBackColor = true;
+            this.khosraPotroButton.Click += new System.EventHandler(this.khosraPotroButton_Click);
             // 
             // panel1
             // 

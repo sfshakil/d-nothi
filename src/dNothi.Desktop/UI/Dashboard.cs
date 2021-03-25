@@ -4154,6 +4154,13 @@ namespace dNothi.Desktop.UI
             PotrojariGroup potrojariGroup = FormFactory.Create<PotrojariGroup>();
             potrojariGroup.ShowDialog();
         }
+
+        private void khosraPotroButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
+            khosraDashboard.ShowDialog();
+        }
     }
 
 

@@ -524,6 +524,12 @@
     <Compile Include="UI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Khosra Potro\CommonKhosraRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\CommonKhosraRowUserControl.Designer.cs">
+      <DependentUpon>CommonKhosraRowUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\KhosraAttachmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -956,6 +962,12 @@
     <Compile Include="UI\DesignationRow.Designer.cs">
       <DependentUpon>DesignationRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\KhosraDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\KhosraDashboard.Designer.cs">
+      <DependentUpon>KhosraDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ManuelUserControl\DakCustomDatePickerUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1194,6 +1206,9 @@
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\CommonKhosraRowUserControl.resx">
+      <DependentUpon>CommonKhosraRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraAttachmentForm.resx">
       <DependentUpon>KhosraAttachmentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1385,6 +1400,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DesignationRow.resx">
       <DependentUpon>DesignationRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\KhosraDashboard.resx">
+      <DependentUpon>KhosraDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ManuelUserControl\DakCustomDatePickerUserControl.resx">
       <DependentUpon>DakCustomDatePickerUserControl.cs</DependentUpon>

@@ -44,6 +44,9 @@
             this.allNothiAttachmentTabPageLeft = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.khosraOnumodonAttachmentUserControl2 = new dNothi.Desktop.UI.Khosra_Potro.KhosraOnumodonAttachmentUserControl();
+            this.khosraOnumodonAttachmentUserControl1 = new dNothi.Desktop.UI.Khosra_Potro.KhosraOnumodonAttachmentUserControl();
             this.noFIlePanel02 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -74,9 +77,6 @@
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.khosraOnumodonAttachmentUserControl2 = new dNothi.Desktop.UI.Khosra_Potro.KhosraOnumodonAttachmentUserControl();
-            this.khosraOnumodonAttachmentUserControl1 = new dNothi.Desktop.UI.Khosra_Potro.KhosraOnumodonAttachmentUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControlLeft.SuspendLayout();
             this.currentNothiAttachmentTabPageLeft.SuspendLayout();
@@ -86,6 +86,7 @@
             this.allNothiAttachmentTabPageLeft.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.noFIlePanel02.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -96,7 +97,6 @@
             this.panel8.SuspendLayout();
             this.panel13.SuspendLayout();
             this.HeadingPanel.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -326,6 +326,44 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(791, 261);
             this.panel6.TabIndex = 106;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.khosraOnumodonAttachmentUserControl2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.khosraOnumodonAttachmentUserControl1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(774, 548);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // khosraOnumodonAttachmentUserControl2
+            // 
+            this.khosraOnumodonAttachmentUserControl2.AutoSize = true;
+            this.khosraOnumodonAttachmentUserControl2.BackColor = System.Drawing.Color.White;
+            this.khosraOnumodonAttachmentUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.khosraOnumodonAttachmentUserControl2.Location = new System.Drawing.Point(3, 278);
+            this.khosraOnumodonAttachmentUserControl2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.khosraOnumodonAttachmentUserControl2.Name = "khosraOnumodonAttachmentUserControl2";
+            this.khosraOnumodonAttachmentUserControl2.Size = new System.Drawing.Size(768, 264);
+            this.khosraOnumodonAttachmentUserControl2.TabIndex = 1;
+            // 
+            // khosraOnumodonAttachmentUserControl1
+            // 
+            this.khosraOnumodonAttachmentUserControl1.AutoSize = true;
+            this.khosraOnumodonAttachmentUserControl1.BackColor = System.Drawing.Color.White;
+            this.khosraOnumodonAttachmentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.khosraOnumodonAttachmentUserControl1.Location = new System.Drawing.Point(3, 4);
+            this.khosraOnumodonAttachmentUserControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.khosraOnumodonAttachmentUserControl1.Name = "khosraOnumodonAttachmentUserControl1";
+            this.khosraOnumodonAttachmentUserControl1.Size = new System.Drawing.Size(768, 264);
+            this.khosraOnumodonAttachmentUserControl1.TabIndex = 0;
             // 
             // noFIlePanel02
             // 
@@ -754,44 +792,6 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.khosraOnumodonAttachmentUserControl2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.khosraOnumodonAttachmentUserControl1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(774, 548);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // khosraOnumodonAttachmentUserControl2
-            // 
-            this.khosraOnumodonAttachmentUserControl2.AutoSize = true;
-            this.khosraOnumodonAttachmentUserControl2.BackColor = System.Drawing.Color.White;
-            this.khosraOnumodonAttachmentUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khosraOnumodonAttachmentUserControl2.Location = new System.Drawing.Point(3, 278);
-            this.khosraOnumodonAttachmentUserControl2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.khosraOnumodonAttachmentUserControl2.Name = "khosraOnumodonAttachmentUserControl2";
-            this.khosraOnumodonAttachmentUserControl2.Size = new System.Drawing.Size(768, 264);
-            this.khosraOnumodonAttachmentUserControl2.TabIndex = 1;
-            // 
-            // khosraOnumodonAttachmentUserControl1
-            // 
-            this.khosraOnumodonAttachmentUserControl1.AutoSize = true;
-            this.khosraOnumodonAttachmentUserControl1.BackColor = System.Drawing.Color.White;
-            this.khosraOnumodonAttachmentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khosraOnumodonAttachmentUserControl1.Location = new System.Drawing.Point(3, 4);
-            this.khosraOnumodonAttachmentUserControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.khosraOnumodonAttachmentUserControl1.Name = "khosraOnumodonAttachmentUserControl1";
-            this.khosraOnumodonAttachmentUserControl1.Size = new System.Drawing.Size(768, 264);
-            this.khosraOnumodonAttachmentUserControl1.TabIndex = 0;
-            // 
             // KhosraAttachmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -818,6 +818,8 @@
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.noFIlePanel02.ResumeLayout(false);
             this.noFIlePanel02.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -837,8 +839,6 @@
             this.panel13.PerformLayout();
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
