@@ -79,5 +79,10 @@ namespace dNothi.Desktop.UI.Dak
             }
             
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
     }
 }

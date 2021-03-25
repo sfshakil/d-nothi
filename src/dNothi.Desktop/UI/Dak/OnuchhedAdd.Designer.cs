@@ -73,7 +73,7 @@
             this.topPnl.Location = new System.Drawing.Point(0, 0);
             this.topPnl.Margin = new System.Windows.Forms.Padding(0);
             this.topPnl.Name = "topPnl";
-            this.topPnl.Size = new System.Drawing.Size(699, 24);
+            this.topPnl.Size = new System.Drawing.Size(682, 24);
             this.topPnl.TabIndex = 0;
             this.topPnl.MouseHover += new System.EventHandler(this.topPnl_MouseHover);
             // 
@@ -91,7 +91,7 @@
             this.btnKhoshra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnKhoshra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnKhoshra.IconSize = 18;
-            this.btnKhoshra.Location = new System.Drawing.Point(603, 0);
+            this.btnKhoshra.Location = new System.Drawing.Point(586, 0);
             this.btnKhoshra.Margin = new System.Windows.Forms.Padding(0);
             this.btnKhoshra.Name = "btnKhoshra";
             this.btnKhoshra.Size = new System.Drawing.Size(32, 24);
@@ -115,7 +115,7 @@
             this.btnEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEdit.IconSize = 18;
-            this.btnEdit.Location = new System.Drawing.Point(635, 0);
+            this.btnEdit.Location = new System.Drawing.Point(618, 0);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(32, 24);
@@ -140,7 +140,7 @@
             this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDelete.IconSize = 18;
-            this.btnDelete.Location = new System.Drawing.Point(667, 0);
+            this.btnDelete.Location = new System.Drawing.Point(650, 0);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(32, 24);
@@ -158,10 +158,10 @@
             this.lbCurrentYear.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbCurrentYear.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCurrentYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbCurrentYear.Location = new System.Drawing.Point(55, 0);
+            this.lbCurrentYear.Location = new System.Drawing.Point(66, 0);
             this.lbCurrentYear.Margin = new System.Windows.Forms.Padding(0);
             this.lbCurrentYear.Name = "lbCurrentYear";
-            this.lbCurrentYear.Size = new System.Drawing.Size(23, 18);
+            this.lbCurrentYear.Size = new System.Drawing.Size(27, 21);
             this.lbCurrentYear.TabIndex = 69;
             this.lbCurrentYear.Text = "২১";
             // 
@@ -172,10 +172,10 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label4.Location = new System.Drawing.Point(43, 0);
+            this.label4.Location = new System.Drawing.Point(52, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(12, 18);
+            this.label4.Size = new System.Drawing.Size(14, 21);
             this.label4.TabIndex = 68;
             this.label4.Text = "/";
             // 
@@ -186,10 +186,10 @@
             this.lbCurrentMonth.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbCurrentMonth.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCurrentMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbCurrentMonth.Location = new System.Drawing.Point(28, 0);
+            this.lbCurrentMonth.Location = new System.Drawing.Point(34, 0);
             this.lbCurrentMonth.Margin = new System.Windows.Forms.Padding(0);
             this.lbCurrentMonth.Name = "lbCurrentMonth";
-            this.lbCurrentMonth.Size = new System.Drawing.Size(15, 18);
+            this.lbCurrentMonth.Size = new System.Drawing.Size(18, 21);
             this.lbCurrentMonth.TabIndex = 67;
             this.lbCurrentMonth.Text = "১";
             // 
@@ -200,10 +200,10 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label2.Location = new System.Drawing.Point(16, 0);
+            this.label2.Location = new System.Drawing.Point(20, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(12, 18);
+            this.label2.Size = new System.Drawing.Size(14, 21);
             this.label2.TabIndex = 66;
             this.label2.Text = "/";
             // 
@@ -217,7 +217,7 @@
             this.lbCurrentDate.Location = new System.Drawing.Point(0, 0);
             this.lbCurrentDate.Margin = new System.Windows.Forms.Padding(0);
             this.lbCurrentDate.Name = "lbCurrentDate";
-            this.lbCurrentDate.Size = new System.Drawing.Size(16, 18);
+            this.lbCurrentDate.Size = new System.Drawing.Size(20, 21);
             this.lbCurrentDate.TabIndex = 65;
             this.lbCurrentDate.Text = "৭";
             // 
@@ -232,7 +232,7 @@
             this.middlePnl.Location = new System.Drawing.Point(0, 24);
             this.middlePnl.Margin = new System.Windows.Forms.Padding(0);
             this.middlePnl.Name = "middlePnl";
-            this.middlePnl.Size = new System.Drawing.Size(699, 24);
+            this.middlePnl.Size = new System.Drawing.Size(682, 24);
             this.middlePnl.TabIndex = 2;
             this.middlePnl.MouseHover += new System.EventHandler(this.middlePnl_MouseHover);
             // 
@@ -243,10 +243,10 @@
             this.lbonucchedId.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbonucchedId.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbonucchedId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbonucchedId.Location = new System.Drawing.Point(100, 0);
+            this.lbonucchedId.Location = new System.Drawing.Point(118, 0);
             this.lbonucchedId.Margin = new System.Windows.Forms.Padding(0);
             this.lbonucchedId.Name = "lbonucchedId";
-            this.lbonucchedId.Size = new System.Drawing.Size(81, 14);
+            this.lbonucchedId.Size = new System.Drawing.Size(111, 17);
             this.lbonucchedId.TabIndex = 70;
             this.lbonucchedId.Text = "OnuchhedIDLabel";
             this.lbonucchedId.Visible = false;
@@ -258,10 +258,10 @@
             this.lbOnuchhed.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbOnuchhed.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOnuchhed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbOnuchhed.Location = new System.Drawing.Point(83, 0);
+            this.lbOnuchhed.Location = new System.Drawing.Point(97, 0);
             this.lbOnuchhed.Margin = new System.Windows.Forms.Padding(0);
             this.lbOnuchhed.Name = "lbOnuchhed";
-            this.lbOnuchhed.Size = new System.Drawing.Size(17, 18);
+            this.lbOnuchhed.Size = new System.Drawing.Size(21, 21);
             this.lbOnuchhed.TabIndex = 69;
             this.lbOnuchhed.Text = "০";
             // 
@@ -272,10 +272,10 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
             this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label3.Location = new System.Drawing.Point(70, 0);
+            this.label3.Location = new System.Drawing.Point(82, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(13, 18);
+            this.label3.Size = new System.Drawing.Size(15, 21);
             this.label3.TabIndex = 68;
             this.label3.Text = ".";
             // 
@@ -286,10 +286,10 @@
             this.lbNotettl.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbNotettl.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNotettl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNotettl.Location = new System.Drawing.Point(54, 0);
+            this.lbNotettl.Location = new System.Drawing.Point(63, 0);
             this.lbNotettl.Margin = new System.Windows.Forms.Padding(0);
             this.lbNotettl.Name = "lbNotettl";
-            this.lbNotettl.Size = new System.Drawing.Size(16, 18);
+            this.lbNotettl.Size = new System.Drawing.Size(19, 21);
             this.lbNotettl.TabIndex = 67;
             this.lbNotettl.Text = "১";
             // 
@@ -303,7 +303,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 18);
+            this.label1.Size = new System.Drawing.Size(63, 21);
             this.label1.TabIndex = 66;
             this.label1.Text = "অনুচ্ছেদ";
             // 
@@ -316,7 +316,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 48);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(699, 65);
+            this.panel1.Size = new System.Drawing.Size(682, 65);
             this.panel1.TabIndex = 3;
             // 
             // panel12
@@ -325,7 +325,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel12.Location = new System.Drawing.Point(0, 64);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(699, 1);
+            this.panel12.Size = new System.Drawing.Size(682, 1);
             this.panel12.TabIndex = 69;
             // 
             // lbBody
@@ -338,7 +338,7 @@
             this.lbBody.Location = new System.Drawing.Point(0, 0);
             this.lbBody.Margin = new System.Windows.Forms.Padding(0);
             this.lbBody.Name = "lbBody";
-            this.lbBody.Size = new System.Drawing.Size(66, 18);
+            this.lbBody.Size = new System.Drawing.Size(87, 21);
             this.lbBody.TabIndex = 68;
             this.lbBody.Text = "BodyLabel";
             // 
@@ -350,7 +350,7 @@
             this.fileFLP.Location = new System.Drawing.Point(0, 145);
             this.fileFLP.Margin = new System.Windows.Forms.Padding(0);
             this.fileFLP.Name = "fileFLP";
-            this.fileFLP.Size = new System.Drawing.Size(699, 85);
+            this.fileFLP.Size = new System.Drawing.Size(682, 85);
             this.fileFLP.TabIndex = 4;
             this.fileFLP.WrapContents = false;
             // 
@@ -364,7 +364,7 @@
             this.fileheadpnl.Location = new System.Drawing.Point(0, 113);
             this.fileheadpnl.Margin = new System.Windows.Forms.Padding(0);
             this.fileheadpnl.Name = "fileheadpnl";
-            this.fileheadpnl.Size = new System.Drawing.Size(699, 32);
+            this.fileheadpnl.Size = new System.Drawing.Size(682, 32);
             this.fileheadpnl.TabIndex = 5;
             // 
             // lbfileflag
@@ -374,11 +374,11 @@
             this.lbfileflag.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbfileflag.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbfileflag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbfileflag.Location = new System.Drawing.Point(54, 0);
+            this.lbfileflag.Location = new System.Drawing.Point(62, 0);
             this.lbfileflag.Margin = new System.Windows.Forms.Padding(0);
             this.lbfileflag.Name = "lbfileflag";
-            this.lbfileflag.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.lbfileflag.Size = new System.Drawing.Size(47, 28);
+            this.lbfileflag.Padding = new System.Windows.Forms.Padding(5);
+            this.lbfileflag.Size = new System.Drawing.Size(50, 31);
             this.lbfileflag.TabIndex = 75;
             this.lbfileflag.Text = " ( ১ )";
             // 
@@ -397,10 +397,10 @@
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(667, 0);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.iconButton1.Location = new System.Drawing.Point(650, 0);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(5);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(5);
             this.iconButton1.Size = new System.Drawing.Size(32, 31);
             this.iconButton1.TabIndex = 74;
             this.iconButton1.UseVisualStyleBackColor = false;
@@ -415,8 +415,8 @@
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.label5.Size = new System.Drawing.Size(54, 28);
+            this.label5.Padding = new System.Windows.Forms.Padding(5);
+            this.label5.Size = new System.Drawing.Size(62, 31);
             this.label5.TabIndex = 71;
             this.label5.Text = "সংযুক্তি";
             // 
@@ -426,7 +426,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 31);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(699, 1);
+            this.panel3.Size = new System.Drawing.Size(682, 1);
             this.panel3.TabIndex = 70;
             // 
             // OnuchhedAdd
@@ -442,7 +442,7 @@
             this.Controls.Add(this.topPnl);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "OnuchhedAdd";
-            this.Size = new System.Drawing.Size(699, 116);
+            this.Size = new System.Drawing.Size(682, 116);
             this.MouseHover += new System.EventHandler(this.OnuchhedAdd_MouseHover);
             this.topPnl.ResumeLayout(false);
             this.topPnl.PerformLayout();

@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity.Nothi;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Nothi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _createDate;
         private string _office;
         private string _subjectBrowser;
+        private int _onucchedId;
         public void lastopenOnuchhed()
         {
             if (SubjectBrowser.DocumentText != "" && SignatureFLP.Controls.Count > 0)
@@ -52,6 +54,11 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _office; }
             set { _office = value; lbOffice.Text = "("+value+")"; }
+        }
+        public int onucchedId
+        {
+            get { return _onucchedId; }
+            set { _onucchedId = value; lbonucchedId.Text = value.ToString(); }
         }
         [Category("Custom Props")]
         public string createDate
@@ -187,5 +194,39 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        private void onuchhedheaderPnl_MouseHover(object sender, EventArgs e)
+        {
+            btnDelete.Visible = true;
+        }
+
+        private void btnDelete_MouseHover(object sender, EventArgs e)
+        {
+            btnDelete.Visible = true;
+            btnDelete.IconColor = Color.Red;
+        }
+
+        private void btnDelete_MouseLeave(object sender, EventArgs e)
+        {
+            btnDelete.IconColor = Color.FromArgb(54, 153, 255);
+        }
+        public event EventHandler DeleteButtonClick;
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string message = "আপনি অনুচ্ছেদটি মুছে ফেলতে চান?";
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = message;
+            conditonBoxForm.ShowDialog(this);
+            if (conditonBoxForm.Yes)
+            {
+                if (this.DeleteButtonClick != null)
+                    this.DeleteButtonClick(onucchedId, e);
+            }
+            
+        }
+
+        private void onuchhedheaderPnl_MouseLeave(object sender, EventArgs e)
+        {
+            //btnDelete.Visible = false;
+        }
     }
 }
