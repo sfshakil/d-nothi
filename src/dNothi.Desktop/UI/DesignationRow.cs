@@ -21,12 +21,7 @@ namespace dNothi.Desktop.UI
         {
             foreach (Control ctrl in collection)
             {
-
-
-
-
                 ctrl.Click += User_Click;
-
                 IterateControls(ctrl.Controls);
             }
 

@@ -8,7 +8,9 @@ namespace dNothi.Constants
 {
     public class DefaultAPIConfiguration
     {
+
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";
+        public const string DakNothiCountEndPoint = "/api/module/pending";
         public const string NothijatoProtibedonEndPoint = "/api/reports/dak/nothijato";
         public const string NothiteUposthapitoProtibedonEndPoint = "/api/reports/dak/nothite_uposthapito";
         public const string PotrojariProtibedonEndPoint = "/api/reports/dak/jarikrito";

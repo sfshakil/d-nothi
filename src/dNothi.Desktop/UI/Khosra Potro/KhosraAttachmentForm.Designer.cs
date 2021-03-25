@@ -47,6 +47,7 @@
             this.noFIlePanel02 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
             this.placeholderTextBox1 = new PlaceholderTextBox.PlaceholderTextBox();
@@ -59,6 +60,7 @@
             this.ownComputerTabPage = new System.Windows.Forms.TabPage();
             this.FilePanel = new System.Windows.Forms.Panel();
             this.attachmentListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.fileUploadPanel = new System.Windows.Forms.Panel();
             this.fileUploadButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -72,8 +74,9 @@
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.khosraOnumodonAttachmentUserControl2 = new dNothi.Desktop.UI.Khosra_Potro.KhosraOnumodonAttachmentUserControl();
+            this.khosraOnumodonAttachmentUserControl1 = new dNothi.Desktop.UI.Khosra_Potro.KhosraOnumodonAttachmentUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControlLeft.SuspendLayout();
             this.currentNothiAttachmentTabPageLeft.SuspendLayout();
@@ -82,6 +85,7 @@
             this.panel9.SuspendLayout();
             this.allNothiAttachmentTabPageLeft.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.noFIlePanel02.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -92,6 +96,7 @@
             this.panel8.SuspendLayout();
             this.panel13.SuspendLayout();
             this.HeadingPanel.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -314,6 +319,7 @@
             // 
             this.panel6.AutoScroll = true;
             this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.tableLayoutPanel2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 159);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
@@ -331,6 +337,7 @@
             this.noFIlePanel02.Name = "noFIlePanel02";
             this.noFIlePanel02.Size = new System.Drawing.Size(791, 67);
             this.noFIlePanel02.TabIndex = 1;
+            this.noFIlePanel02.Visible = false;
             // 
             // label2
             // 
@@ -360,6 +367,15 @@
             this.iconButton2.Size = new System.Drawing.Size(50, 41);
             this.iconButton2.TabIndex = 102;
             this.iconButton2.UseVisualStyleBackColor = false;
+            // 
+            // panel10
+            // 
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 82);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(791, 10);
+            this.panel10.TabIndex = 107;
             // 
             // panel5
             // 
@@ -527,6 +543,14 @@
             this.attachmentListFlowLayoutPanel.Name = "attachmentListFlowLayoutPanel";
             this.attachmentListFlowLayoutPanel.Size = new System.Drawing.Size(751, 0);
             this.attachmentListFlowLayoutPanel.TabIndex = 74;
+            // 
+            // panel11
+            // 
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(20, 61);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(751, 19);
+            this.panel11.TabIndex = 75;
             // 
             // fileUploadPanel
             // 
@@ -730,22 +754,43 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // panel10
+            // tableLayoutPanel2
             // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 82);
-            this.panel10.Margin = new System.Windows.Forms.Padding(0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(791, 10);
-            this.panel10.TabIndex = 107;
+            this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.khosraOnumodonAttachmentUserControl2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.khosraOnumodonAttachmentUserControl1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(774, 548);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // panel11
+            // khosraOnumodonAttachmentUserControl2
             // 
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(20, 61);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(751, 19);
-            this.panel11.TabIndex = 75;
+            this.khosraOnumodonAttachmentUserControl2.AutoSize = true;
+            this.khosraOnumodonAttachmentUserControl2.BackColor = System.Drawing.Color.White;
+            this.khosraOnumodonAttachmentUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.khosraOnumodonAttachmentUserControl2.Location = new System.Drawing.Point(3, 278);
+            this.khosraOnumodonAttachmentUserControl2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.khosraOnumodonAttachmentUserControl2.Name = "khosraOnumodonAttachmentUserControl2";
+            this.khosraOnumodonAttachmentUserControl2.Size = new System.Drawing.Size(768, 264);
+            this.khosraOnumodonAttachmentUserControl2.TabIndex = 1;
+            // 
+            // khosraOnumodonAttachmentUserControl1
+            // 
+            this.khosraOnumodonAttachmentUserControl1.AutoSize = true;
+            this.khosraOnumodonAttachmentUserControl1.BackColor = System.Drawing.Color.White;
+            this.khosraOnumodonAttachmentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.khosraOnumodonAttachmentUserControl1.Location = new System.Drawing.Point(3, 4);
+            this.khosraOnumodonAttachmentUserControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.khosraOnumodonAttachmentUserControl1.Name = "khosraOnumodonAttachmentUserControl1";
+            this.khosraOnumodonAttachmentUserControl1.Size = new System.Drawing.Size(768, 264);
+            this.khosraOnumodonAttachmentUserControl1.TabIndex = 0;
             // 
             // KhosraAttachmentForm
             // 
@@ -771,6 +816,8 @@
             this.allNothiAttachmentTabPageLeft.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.noFIlePanel02.ResumeLayout(false);
             this.noFIlePanel02.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -790,6 +837,8 @@
             this.panel13.PerformLayout();
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -843,5 +892,8 @@
         private System.Windows.Forms.FlowLayoutPanel attachmentListFlowLayoutPanel;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private KhosraOnumodonAttachmentUserControl khosraOnumodonAttachmentUserControl2;
+        private KhosraOnumodonAttachmentUserControl khosraOnumodonAttachmentUserControl1;
     }
 }

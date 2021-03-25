@@ -8,6 +8,9 @@ namespace dNothi.Services.UserServices
     public interface IUserService
     {
         List<OfficeInfoDTO> GetAllLocalOfficeInfo();
+
+        EmployeDakNothiCountResponse GetDakNothiCountResponseUsingEmployeeDesignation(DakUserParam userParam);
+
         void MakeThisOfficeCurrent(int designationId);
         EmployeeInfoDTO GetEmployeeInfo();
         OfficeInfoDTO GetOfficeInfo();
