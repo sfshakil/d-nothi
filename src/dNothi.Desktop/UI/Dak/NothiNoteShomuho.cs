@@ -11,6 +11,7 @@ using dNothi.Services.UserServices;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -149,13 +150,31 @@ namespace dNothi.Desktop.UI.Dak
                 this.NoteDetailsButton(noteListDataRecordNoteDTO, e);
 
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
         private void btnOption_Click(object sender, EventArgs e)
         {
-            string message = "নোটটি মুছে ফেলুন";
-            string title = "";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.Yes && lbNoteSubText.Text == "অনুচ্ছেদ দেওয়া হয়নি")
+            string message = "নোটটি মুছে ফেলুন"; 
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = message;
+            conditonBoxForm.ShowDialog(this);
+            if (conditonBoxForm.Yes && lbNoteSubText.Text == "অনুচ্ছেদ দেওয়া হয়নি")
             {
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                 string model = "NothiNotes";
@@ -163,6 +182,7 @@ namespace dNothi.Desktop.UI.Dak
                 var noteDelete = _noteDelete.GetNoteDelteResponse(dakListUserParam,model,noteID);
                 if(noteDelete.status == "success")
                 {
+                    SuccessMessage(noteDelete.status);
                     this.Hide();
                 }
 
