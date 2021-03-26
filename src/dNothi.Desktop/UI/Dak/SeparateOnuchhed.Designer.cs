@@ -31,15 +31,15 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.components = new System.ComponentModel.Container();
             this.topPnl = new System.Windows.Forms.Panel();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.lbCreateDate = new System.Windows.Forms.Label();
             this.middlePnl = new System.Windows.Forms.Panel();
+            this.lbonucchedId = new System.Windows.Forms.Label();
             this.lbOnucchedNo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.SubjectBrowser = new System.Windows.Forms.WebBrowser();
             this.SignatureFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDelete = new FontAwesome.Sharp.IconButton();
-            this.lbonucchedId = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.onuchhedheaderPnl = new dNothi.Desktop.AdvancedPanel();
             this.lbOffice = new System.Windows.Forms.Label();
@@ -65,6 +65,32 @@ namespace dNothi.Desktop.UI.Dak
             this.topPnl.TabIndex = 2;
             this.topPnl.MouseLeave += new System.EventHandler(this.onuchhedheaderPnl_MouseLeave);
             this.topPnl.MouseHover += new System.EventHandler(this.onuchhedheaderPnl_MouseHover);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 18;
+            this.btnDelete.Location = new System.Drawing.Point(941, 0);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(32, 24);
+            this.btnDelete.TabIndex = 72;
+            this.MyToolTip.SetToolTip(this.btnDelete, "মুছে ফেলুন");
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.MouseLeave += new System.EventHandler(this.btnDelete_MouseLeave);
+            this.btnDelete.MouseHover += new System.EventHandler(this.btnDelete_MouseHover);
             // 
             // lbCreateDate
             // 
@@ -94,6 +120,21 @@ namespace dNothi.Desktop.UI.Dak
             this.middlePnl.TabIndex = 3;
             this.middlePnl.MouseLeave += new System.EventHandler(this.onuchhedheaderPnl_MouseLeave);
             this.middlePnl.MouseHover += new System.EventHandler(this.onuchhedheaderPnl_MouseHover);
+            // 
+            // lbonucchedId
+            // 
+            this.lbonucchedId.AutoSize = true;
+            this.lbonucchedId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.lbonucchedId.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbonucchedId.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbonucchedId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbonucchedId.Location = new System.Drawing.Point(100, 0);
+            this.lbonucchedId.Margin = new System.Windows.Forms.Padding(0);
+            this.lbonucchedId.Name = "lbonucchedId";
+            this.lbonucchedId.Size = new System.Drawing.Size(20, 21);
+            this.lbonucchedId.TabIndex = 68;
+            this.lbonucchedId.Text = "0";
+            this.lbonucchedId.Visible = false;
             // 
             // lbOnucchedNo
             // 
@@ -155,46 +196,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(973, 0);
             this.panel1.TabIndex = 7;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDelete.IconSize = 18;
-            this.btnDelete.Location = new System.Drawing.Point(941, 0);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(32, 24);
-            this.btnDelete.TabIndex = 72;
-            this.MyToolTip.SetToolTip(this.btnDelete, "মুছে ফেলুন");
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Visible = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            this.btnDelete.MouseLeave += new System.EventHandler(this.btnDelete_MouseLeave);
-            this.btnDelete.MouseHover += new System.EventHandler(this.btnDelete_MouseHover);
-            // 
-            // lbonucchedId
-            // 
-            this.lbonucchedId.AutoSize = true;
-            this.lbonucchedId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.lbonucchedId.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbonucchedId.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbonucchedId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbonucchedId.Location = new System.Drawing.Point(100, 0);
-            this.lbonucchedId.Margin = new System.Windows.Forms.Padding(0);
-            this.lbonucchedId.Name = "lbonucchedId";
-            this.lbonucchedId.Size = new System.Drawing.Size(20, 21);
-            this.lbonucchedId.TabIndex = 68;
-            this.lbonucchedId.Text = "0";
             // 
             // onuchhedheaderPnl
             // 

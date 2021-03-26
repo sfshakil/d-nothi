@@ -217,6 +217,8 @@ namespace dNothi.Desktop.UI
                 int flag = 0;
                 onuchhedFLP.Visible = true;
                 onuchhedFLP.Controls.Clear();
+                noteHeaderPanel.Width = 990;
+                noteHeaderPanel.Height = 426;
                 foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                 {
                     flag++;
@@ -285,6 +287,8 @@ namespace dNothi.Desktop.UI
             }
             else
             {
+                noteHeaderPanel.Width = 990;
+                noteHeaderPanel.Height = 81;
                 lbNoteTotl1.Text = "নোটঃ " + list.note_status;
                 lbNoteSubject.Text = list.note_subject_sub_text;
                 lbNothiLastDate.Text = list.date;
@@ -403,6 +407,8 @@ namespace dNothi.Desktop.UI
                 int flag = 0;
                 onuchhedFLP.Visible = true;
                 onuchhedFLP.Controls.Clear();
+                noteHeaderPanel.Width = 990;
+                noteHeaderPanel.Height = 426;
                 foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                 {
                     flag++;
@@ -471,6 +477,8 @@ namespace dNothi.Desktop.UI
             }
             else
             {
+                noteHeaderPanel.Width = 990;
+                noteHeaderPanel.Height = 81;
                 lbNoteTotl1.Text = "নোটঃ " + list.note_status;
                 lbNoteSubject.Text = list.note_subject_sub_text;
                 lbNothiLastDate.Text = list.date;
@@ -573,6 +581,8 @@ namespace dNothi.Desktop.UI
                     int flag = 0;
                     onuchhedFLP.Visible = true;
                     onuchhedFLP.Controls.Clear();
+                    noteHeaderPanel.Width = 990;
+                    noteHeaderPanel.Height = 426;
                     foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
                         flag++;
@@ -633,6 +643,8 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
+                    noteHeaderPanel.Width = 990;
+                    noteHeaderPanel.Height = 81;
                     //lbNoteTotl1.Text = "নোটঃ " + nothiListInboxNoteRecordsDTO.note.note_subject;
                     lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject;
                     lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.to.issue_date;
@@ -735,7 +747,9 @@ namespace dNothi.Desktop.UI
                     int flag = 0;
                    // onuchhedFLP.Visible = true;
                     onuchhedFLP.Controls.Clear();
-                    foreach(OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
+                    noteHeaderPanel.Width = 990;
+                    noteHeaderPanel.Height = 426;
+                    foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
                         flag++;
                         SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, onucchedsingleListRec.id);
@@ -830,6 +844,8 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
+                    noteHeaderPanel.Width = 990;
+                    noteHeaderPanel.Height = 81;
                     lbNoteTotl1.Text = "নোটঃ " + list.note_status;
                     lbNoteSubject.Text = list.note_subject_sub_text;
                     lbNothiLastDate.Text = list.date;
@@ -1626,6 +1642,8 @@ namespace dNothi.Desktop.UI
                 int flag = 0;
                 onuchhedFLP.Visible = true;
                 onuchhedFLP.Controls.Clear();
+                noteHeaderPanel.Width = 990;
+                noteHeaderPanel.Height = 426;
                 foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                 {
                     flag++;
@@ -1694,6 +1712,8 @@ namespace dNothi.Desktop.UI
             }
             else
             {
+                noteHeaderPanel.Width = 990;
+                noteHeaderPanel.Height = 81;
                 lbNoteTotl1.Text = "নোটঃ " + list.note_status;
                 lbNoteSubject.Text = list.note_subject_sub_text;
                 lbNothiLastDate.Text = list.date;
@@ -1867,6 +1887,8 @@ namespace dNothi.Desktop.UI
                         int flag = 0;
                         onuchhedFLP.Visible = true;
                         onuchhedFLP.Controls.Clear();
+                        noteHeaderPanel.Width = 990;
+                        noteHeaderPanel.Height = 426;
                         foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                         {
                             flag++;
@@ -1918,6 +1940,8 @@ namespace dNothi.Desktop.UI
                     }
                     else
                     {
+                        noteHeaderPanel.Width = 990;
+                        noteHeaderPanel.Height = 81;
                         //string message = "Error";
                         ErrorMessage(onucchedList.message);
                     }

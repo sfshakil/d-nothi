@@ -1002,10 +1002,10 @@
             this.onucchedEditorPanel.Controls.Add(this.panel24);
             this.onucchedEditorPanel.Controls.Add(this.panel22);
             this.onucchedEditorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.onucchedEditorPanel.Location = new System.Drawing.Point(0, 230);
+            this.onucchedEditorPanel.Location = new System.Drawing.Point(0, 204);
             this.onucchedEditorPanel.Margin = new System.Windows.Forms.Padding(0);
             this.onucchedEditorPanel.Name = "onucchedEditorPanel";
-            this.onucchedEditorPanel.Size = new System.Drawing.Size(928, 251);
+            this.onucchedEditorPanel.Size = new System.Drawing.Size(928, 277);
             this.onucchedEditorPanel.TabIndex = 19;
             // 
             // panel28
@@ -1255,7 +1255,7 @@
             this.onucchedActionPanel.Controls.Add(this.btnSaveArrow);
             this.onucchedActionPanel.Controls.Add(this.btnCancel);
             this.onucchedActionPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.onucchedActionPanel.Location = new System.Drawing.Point(0, 188);
+            this.onucchedActionPanel.Location = new System.Drawing.Point(0, 162);
             this.onucchedActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.onucchedActionPanel.Name = "onucchedActionPanel";
             this.onucchedActionPanel.Size = new System.Drawing.Size(928, 42);
@@ -1408,7 +1408,7 @@
             // 
             this.splitter3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitter3.Location = new System.Drawing.Point(0, 183);
+            this.splitter3.Location = new System.Drawing.Point(0, 157);
             this.splitter3.Margin = new System.Windows.Forms.Padding(0);
             this.splitter3.Name = "splitter3";
             this.splitter3.Size = new System.Drawing.Size(928, 5);
@@ -1426,7 +1426,7 @@
             this.noteHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.noteHeaderPanel.Margin = new System.Windows.Forms.Padding(0);
             this.noteHeaderPanel.Name = "noteHeaderPanel";
-            this.noteHeaderPanel.Size = new System.Drawing.Size(928, 183);
+            this.noteHeaderPanel.Size = new System.Drawing.Size(928, 157);
             this.noteHeaderPanel.TabIndex = 1;
             // 
             // onuchhedPnl
@@ -1437,7 +1437,7 @@
             this.onuchhedPnl.Location = new System.Drawing.Point(0, 81);
             this.onuchhedPnl.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedPnl.Name = "onuchhedPnl";
-            this.onuchhedPnl.Size = new System.Drawing.Size(928, 102);
+            this.onuchhedPnl.Size = new System.Drawing.Size(928, 76);
             this.onuchhedPnl.TabIndex = 65;
             // 
             // onuchhedFLP
@@ -1450,7 +1450,7 @@
             this.onuchhedFLP.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedFLP.Name = "onuchhedFLP";
             this.onuchhedFLP.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.onuchhedFLP.Size = new System.Drawing.Size(928, 102);
+            this.onuchhedFLP.Size = new System.Drawing.Size(928, 76);
             this.onuchhedFLP.TabIndex = 1;
             this.onuchhedFLP.WrapContents = false;
             // 
