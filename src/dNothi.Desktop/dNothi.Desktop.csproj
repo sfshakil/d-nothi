@@ -1586,6 +1586,7 @@
     <None Include="Resources\মূল-প্রাপক-Icon_PNG.png" />
     <None Include="Resources\khoshra-1.png" />
     <None Include="Resources\download.png" />
+    <None Include="Resources\bg-1.jpg" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />
