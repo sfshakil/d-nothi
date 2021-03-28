@@ -58,7 +58,7 @@ namespace dNothi.Desktop.UI.Dak
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
-            this.btnEdit = new FontAwesome.Sharp.IconButton();
+            this.btnShare = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.contentTableLayoutPanel.SuspendLayout();
@@ -472,7 +472,7 @@ namespace dNothi.Desktop.UI.Dak
             // panel2
             // 
             this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Controls.Add(this.btnEdit);
+            this.panel2.Controls.Add(this.btnShare);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(910, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
@@ -502,25 +502,26 @@ namespace dNothi.Desktop.UI.Dak
             this.btnDelete.MouseLeave += new System.EventHandler(this.btnDelete_MouseLeave);
             this.btnDelete.MouseHover += new System.EventHandler(this.btnDelete_MouseHover);
             // 
-            // btnEdit
+            // btnShare
             // 
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.ShareAlt;
-            this.btnEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
-            this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEdit.IconSize = 24;
-            this.btnEdit.Location = new System.Drawing.Point(16, 32);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(35, 29);
-            this.btnEdit.TabIndex = 6;
-            this.MyToolTip.SetToolTip(this.btnEdit, "শেয়ার তালিকা");
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.MouseLeave += new System.EventHandler(this.btnEdit_MouseLeave);
-            this.btnEdit.MouseHover += new System.EventHandler(this.btnEdit_MouseHover);
+            this.btnShare.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnShare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnShare.FlatAppearance.BorderSize = 0;
+            this.btnShare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShare.IconChar = FontAwesome.Sharp.IconChar.ShareAlt;
+            this.btnShare.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
+            this.btnShare.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnShare.IconSize = 24;
+            this.btnShare.Location = new System.Drawing.Point(16, 32);
+            this.btnShare.Margin = new System.Windows.Forms.Padding(0);
+            this.btnShare.Name = "btnShare";
+            this.btnShare.Size = new System.Drawing.Size(35, 29);
+            this.btnShare.TabIndex = 6;
+            this.MyToolTip.SetToolTip(this.btnShare, "শেয়ার তালিকা");
+            this.btnShare.UseVisualStyleBackColor = false;
+            this.btnShare.Click += new System.EventHandler(this.btnShare_Click);
+            this.btnShare.MouseLeave += new System.EventHandler(this.btnEdit_MouseLeave);
+            this.btnShare.MouseHover += new System.EventHandler(this.btnEdit_MouseHover);
             // 
             // panel1
             // 
@@ -577,7 +578,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnDelete;
-        private FontAwesome.Sharp.IconButton btnEdit;
+        private FontAwesome.Sharp.IconButton btnShare;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;

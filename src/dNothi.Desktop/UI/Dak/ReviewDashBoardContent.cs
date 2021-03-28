@@ -15,6 +15,7 @@ namespace dNothi.Desktop.UI.Dak
         public ReviewDashBoardContent()
         {
             InitializeComponent();
+            reviewDashBoardContentShare.Visible = false;
         }
 
         private void ReviewDashBoardContent_MouseHover(object sender, EventArgs e)
@@ -97,13 +98,13 @@ namespace dNothi.Desktop.UI.Dak
         private void btnEdit_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
-            btnEdit.IconColor = Color.FromArgb(246, 78, 96);
+            btnShare.IconColor = Color.FromArgb(246, 78, 96);
         }
 
         private void btnEdit_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(250, 250, 250);
-            btnEdit.IconColor = Color.FromArgb(78, 165, 254);
+            btnShare.IconColor = Color.FromArgb(78, 165, 254);
         }
 
         private void btnDelete_MouseHover(object sender, EventArgs e)
@@ -116,6 +117,27 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.BackColor = Color.FromArgb(250, 250, 250);
             btnDelete.IconColor = Color.FromArgb(78, 165, 254);
+        }
+        ReviewDashBoardContentShare reviewDashBoardContentShare = new ReviewDashBoardContentShare();
+        private void btnShare_Click(object sender, EventArgs e)
+        {
+            int width = reviewDashBoardContentShare.Width;
+            if (reviewDashBoardContentShare.Width == width && !reviewDashBoardContentShare.Visible)
+            {
+                reviewDashBoardContentShare.Visible = true;
+                //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                reviewDashBoardContentShare.Location = new System.Drawing.Point(227 + 689, 50);
+                Controls.Add(reviewDashBoardContentShare);
+                reviewDashBoardContentShare.BringToFront();
+                width++;
+                //reviewDashBoardContentShare.officeInfos = _userService.GetAllLocalOfficeInfo();
+
+            }
+            else
+            {
+                reviewDashBoardContentShare.Visible = false;
+                width = reviewDashBoardContentShare.Width;
+            }
         }
     }
 }
