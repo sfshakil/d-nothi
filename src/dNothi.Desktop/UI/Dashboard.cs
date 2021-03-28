@@ -24,6 +24,7 @@ using dNothi.Core.Entities;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity;
 using dNothi.Desktop.View_Model;
+using dNothi.Desktop.UI.OtherModule;
 
 namespace dNothi.Desktop.UI
 {
@@ -4167,6 +4168,13 @@ namespace dNothi.Desktop.UI
             this.Hide();
             ReviewDashBoard reviewDashBoard = new ReviewDashBoard();
             reviewDashBoard.ShowDialog();
+        }
+
+        private void guardFileModuleButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var gurdFileControl = FormFactory.Create<GurdFileControl>();
+            gurdFileControl.ShowDialog();
         }
     }
 
