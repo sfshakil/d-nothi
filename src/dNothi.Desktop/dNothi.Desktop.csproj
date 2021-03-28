@@ -371,6 +371,7 @@
     <Compile Include="CustomControl\PlaceHolderTextBox.Designer.cs">
       <DependentUpon>PlaceHolderTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\Roundedrectangle.cs" />
     <Compile Include="DataGridViewRadioButtonElements\DataGridViewRadioButtonCell.cs" />
     <Compile Include="DataGridViewRadioButtonElements\MyDataGridView.cs">
       <SubType>Component</SubType>
@@ -517,6 +518,12 @@
     </Compile>
     <Compile Include="UI\Dak\RegisterReportUserControl.Designer.cs">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\ReviewDashBoardContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\ReviewDashBoardContent.Designer.cs">
+      <DependentUpon>ReviewDashBoardContent.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>
@@ -1046,6 +1053,12 @@
     <Compile Include="UI\ResponsiveForm.Designer.cs">
       <DependentUpon>ResponsiveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReviewDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ReviewDashBoard.Designer.cs">
+      <DependentUpon>ReviewDashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SelectOfficerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1202,6 +1215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\RegisterReportUserControl.resx">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\ReviewDashBoardContent.resx">
+      <DependentUpon>ReviewDashBoardContent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -1443,6 +1459,9 @@
     <EmbeddedResource Include="UI\ResponsiveForm.resx">
       <DependentUpon>ResponsiveForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReviewDashBoard.resx">
+      <DependentUpon>ReviewDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\SelectOfficerForm.resx">
       <DependentUpon>SelectOfficerForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1587,6 +1606,7 @@
     <None Include="Resources\khoshra-1.png" />
     <None Include="Resources\download.png" />
     <None Include="Resources\bg-1.jpg" />
+    <None Include="Resources\logo-nothi.png" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />

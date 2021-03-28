@@ -4161,6 +4161,13 @@ namespace dNothi.Desktop.UI
             KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
             khosraDashboard.ShowDialog();
         }
+
+        private void reviewDashBoardButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ReviewDashBoard reviewDashBoard = new ReviewDashBoard();
+            reviewDashBoard.ShowDialog();
+        }
     }
 
 

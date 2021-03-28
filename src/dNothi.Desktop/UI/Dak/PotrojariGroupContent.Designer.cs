@@ -33,7 +33,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnCanRevert = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbNoteNumber = new System.Windows.Forms.Label();
@@ -41,9 +40,10 @@ namespace dNothi.Desktop.UI.Dak
             this.lbCreater = new System.Windows.Forms.Label();
             this.lbDetails = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCanRevert = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.btnEdit = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.contentTableLayoutPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -109,27 +109,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel5.TabIndex = 4;
             this.panel5.MouseLeave += new System.EventHandler(this.detailsPanel_MouseLeave);
             this.panel5.MouseHover += new System.EventHandler(this.detailsPanel_MouseHover);
-            // 
-            // btnCanRevert
-            // 
-            this.btnCanRevert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.btnCanRevert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCanRevert.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.btnCanRevert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCanRevert.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanRevert.ForeColor = System.Drawing.Color.White;
-            this.btnCanRevert.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnCanRevert.IconColor = System.Drawing.SystemColors.Window;
-            this.btnCanRevert.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCanRevert.IconSize = 20;
-            this.btnCanRevert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCanRevert.Location = new System.Drawing.Point(5, 10);
-            this.btnCanRevert.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCanRevert.Name = "btnCanRevert";
-            this.btnCanRevert.Size = new System.Drawing.Size(110, 35);
-            this.btnCanRevert.TabIndex = 70;
-            this.btnCanRevert.Text = "মোট সদস্য: ৫";
-            this.btnCanRevert.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -222,6 +201,37 @@ namespace dNothi.Desktop.UI.Dak
             this.panel2.MouseLeave += new System.EventHandler(this.detailsPanel_MouseLeave);
             this.panel2.MouseHover += new System.EventHandler(this.detailsPanel_MouseHover);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 65);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(720, 1);
+            this.panel1.TabIndex = 2;
+            // 
+            // btnCanRevert
+            // 
+            this.btnCanRevert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnCanRevert.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCanRevert.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnCanRevert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCanRevert.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCanRevert.ForeColor = System.Drawing.Color.White;
+            this.btnCanRevert.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnCanRevert.IconColor = System.Drawing.SystemColors.Window;
+            this.btnCanRevert.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCanRevert.IconSize = 20;
+            this.btnCanRevert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCanRevert.Location = new System.Drawing.Point(5, 10);
+            this.btnCanRevert.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCanRevert.Name = "btnCanRevert";
+            this.btnCanRevert.Size = new System.Drawing.Size(110, 35);
+            this.btnCanRevert.TabIndex = 70;
+            this.btnCanRevert.Text = "মোট সদস্য: ৫";
+            this.btnCanRevert.UseVisualStyleBackColor = false;
+            // 
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -239,6 +249,8 @@ namespace dNothi.Desktop.UI.Dak
             this.btnDelete.TabIndex = 7;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.MouseLeave += new System.EventHandler(this.btnDelete_MouseLeave);
+            this.btnDelete.MouseHover += new System.EventHandler(this.btnDelete_MouseHover);
             // 
             // btnEdit
             // 
@@ -257,16 +269,8 @@ namespace dNothi.Desktop.UI.Dak
             this.btnEdit.TabIndex = 6;
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 65);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(720, 1);
-            this.panel1.TabIndex = 2;
+            this.btnEdit.MouseLeave += new System.EventHandler(this.btnEdit_MouseLeave);
+            this.btnEdit.MouseHover += new System.EventHandler(this.btnEdit_MouseHover);
             // 
             // PotrojariGroupContent
             // 

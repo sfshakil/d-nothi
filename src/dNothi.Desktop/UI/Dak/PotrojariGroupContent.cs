@@ -68,5 +68,25 @@ namespace dNothi.Desktop.UI.Dak
                 SuccessMessage("মুছে ফেলা হয়েছে।");
             }
         }
+
+        private void btnEdit_MouseHover(object sender, EventArgs e)
+        {
+            btnEdit.IconColor = Color.Red;
+        }
+
+        private void btnEdit_MouseLeave(object sender, EventArgs e)
+        {
+            btnEdit.IconColor = Color.FromArgb(78, 165, 254); 
+        }
+
+        private void btnDelete_MouseHover(object sender, EventArgs e)
+        {
+            btnDelete.IconColor = Color.Red;
+        }
+
+        private void btnDelete_MouseLeave(object sender, EventArgs e)
+        {
+            btnDelete.IconColor = Color.FromArgb(78, 165, 254);
+        }
     }
 }

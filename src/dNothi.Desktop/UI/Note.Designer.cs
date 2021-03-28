@@ -41,9 +41,10 @@
             this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
             this.btnNothiIcon = new System.Windows.Forms.Button();
             this.nothiModulePanel = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
             this.nothiModuleNameLabel = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.label22 = new System.Windows.Forms.Label();
             this.dakModulePanel = new System.Windows.Forms.Panel();
             this.dakModuleNameLabel = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -263,6 +264,7 @@
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.nothiModulePanel.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.dakModulePanel.SuspendLayout();
             this.pnlNothiNoteTalika.SuspendLayout();
             this.panel53.SuspendLayout();
@@ -505,25 +507,56 @@
             // 
             // nothiModulePanel
             // 
-            this.nothiModulePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.nothiModulePanel.BackColor = System.Drawing.Color.Transparent;
+            this.nothiModulePanel.Controls.Add(this.panel5);
             this.nothiModulePanel.Controls.Add(this.nothiModuleNameLabel);
             this.nothiModulePanel.Controls.Add(this.iconButton2);
-            this.nothiModulePanel.Controls.Add(this.label22);
             this.nothiModulePanel.Location = new System.Drawing.Point(358, 3);
+            this.nothiModulePanel.Margin = new System.Windows.Forms.Padding(0);
             this.nothiModulePanel.Name = "nothiModulePanel";
+            this.nothiModulePanel.Padding = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.nothiModulePanel.Size = new System.Drawing.Size(120, 43);
             this.nothiModulePanel.TabIndex = 27;
             this.nothiModulePanel.Click += new System.EventHandler(this.nothiModulePanel_Click);
             this.nothiModulePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label22);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(73, 5);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(6, 7, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(47, 35);
+            this.panel5.TabIndex = 20;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.btnNothiPanelNothiCount_Paint);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label22.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label22.Location = new System.Drawing.Point(6, 7);
+            this.label22.Margin = new System.Windows.Forms.Padding(0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(36, 21);
+            this.label22.TabIndex = 18;
+            this.label22.Text = "১২২";
+            this.label22.Click += new System.EventHandler(this.label22_Click);
+            // 
             // nothiModuleNameLabel
             // 
-            this.nothiModuleNameLabel.AutoSize = true;
+            this.nothiModuleNameLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiModuleNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiModuleNameLabel.ForeColor = System.Drawing.Color.Blue;
-            this.nothiModuleNameLabel.Location = new System.Drawing.Point(37, 10);
+            this.nothiModuleNameLabel.Location = new System.Drawing.Point(30, 5);
+            this.nothiModuleNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.nothiModuleNameLabel.Name = "nothiModuleNameLabel";
-            this.nothiModuleNameLabel.Size = new System.Drawing.Size(37, 25);
+            this.nothiModuleNameLabel.Padding = new System.Windows.Forms.Padding(3, 5, 0, 0);
+            this.nothiModuleNameLabel.Size = new System.Drawing.Size(43, 35);
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
             this.nothiModuleNameLabel.Click += new System.EventHandler(this.nothiModuleNameLabel_Click);
@@ -531,32 +564,20 @@
             // iconButton2
             // 
             this.iconButton2.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Left;
             this.iconButton2.FlatAppearance.BorderSize = 0;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Book;
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 22;
-            this.iconButton2.Location = new System.Drawing.Point(6, 8);
+            this.iconButton2.Location = new System.Drawing.Point(3, 5);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(36, 30);
+            this.iconButton2.Size = new System.Drawing.Size(27, 35);
             this.iconButton2.TabIndex = 4;
             this.iconButton2.UseVisualStyleBackColor = false;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
-            // 
-            // label22
-            // 
-            this.label22.AutoEllipsis = true;
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.label22.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label22.Location = new System.Drawing.Point(75, 12);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(36, 21);
-            this.label22.TabIndex = 18;
-            this.label22.Text = "১২২";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // dakModulePanel
             // 
@@ -3782,7 +3803,8 @@
             this.profilePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.nothiModulePanel.ResumeLayout(false);
-            this.nothiModulePanel.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.dakModulePanel.ResumeLayout(false);
             this.dakModulePanel.PerformLayout();
             this.pnlNothiNoteTalika.ResumeLayout(false);
@@ -4118,5 +4140,6 @@
         private FontAwesome.Sharp.IconButton iconButton8;
         private System.Windows.Forms.Label lbNoteTotl1;
         private FontAwesome.Sharp.IconButton iconButton5;
+        private System.Windows.Forms.Panel panel5;
     }
 }

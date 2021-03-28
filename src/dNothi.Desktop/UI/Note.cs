@@ -1,4 +1,5 @@
-﻿using dNothi.Desktop.UI.CustomMessageBox;
+﻿using dNothi.Desktop.CustomControl;
+using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
@@ -12,8 +13,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -5580,10 +5583,27 @@ namespace dNothi.Desktop.UI
             btnKhoshra.IconColor = Color.FromArgb(54, 153, 255);
             btnKhoshra.BackColor = Color.FromArgb(243, 246, 249);
         }
-
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(
+            int nLeftRect, // x-coordinate of upper-left corner
+            int nTopRect, // y-coordinate of upper-left corner
+            int nRightRect, // x-coordinate of lower-right corner
+            int nBottomRect, // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+        );
         private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+            //GraphicsPath path = Roundedrectangle.Create(0, 0, nothiModulePanel.Width - 2, nothiModulePanel.Height - 2);
+            //e.Graphics.DrawPath(new Pen(Color.FromArgb(203, 225, 248)), path);
+            //ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+
+            SolidBrush Brush = new SolidBrush(Color.FromArgb(245, 245, 249));
+            GraphicsPath path = Roundedrectangle.Create(0, 0, nothiModulePanel.Width - 2, nothiModulePanel.Height - 2);
+            e.Graphics.DrawPath(new Pen(Color.FromArgb(203, 225, 248)), path);
+            GraphicsPath path1 = Roundedrectangle.Create(1, 1, nothiModulePanel.Width - 3, nothiModulePanel.Height - 3);
+            e.Graphics.FillPath(Brush,path1);
+            
         }
 
         private void userNameLabel_Click_1(object sender, EventArgs e)
@@ -5868,6 +5888,15 @@ namespace dNothi.Desktop.UI
             form.loadPotrojariBrowser(khosraViewWebBrowser.DocumentText);
             var nothiNoteMovementListform = AttachPotrojariControlToForm(form);
             CalPopUpWindow(nothiNoteMovementListform);
+        }
+
+        private void btnNothiPanelNothiCount_Paint(object sender, PaintEventArgs e)
+        {
+            SolidBrush Brush = new SolidBrush(Color.FromArgb(255, 168, 0));
+            GraphicsPath path = Roundedrectangle.Create(6, 7, label22.Width - 2, label22.Height - 2,2);
+            e.Graphics.DrawPath(new Pen(Color.FromArgb(255, 168, 0)), path);
+            GraphicsPath path1 = Roundedrectangle.Create(6, 7, label22.Width - 2, label22.Height - 2,2);
+            e.Graphics.FillPath(Brush, path1);
         }
     }
 }
