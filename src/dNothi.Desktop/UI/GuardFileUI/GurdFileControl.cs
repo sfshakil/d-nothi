@@ -38,7 +38,28 @@ namespace dNothi.Desktop.UI.OtherModule
             guardFileUploaduc.Hide();
             guardFileTypeuc.Show();
             guardFileAddButton.Show();
+
+
+            SelectThisButton(sender, e);
            // bodyPanel.Controls.Add(ucft);
+        }
+
+        private void SelectThisButton(object sender, EventArgs e)
+        {
+            foreach(Control control in menuTableLayoutPanel.Controls)
+            {
+                if(control is Button && control==sender)
+                {
+                    control.ForeColor = Color.FromArgb(78, 165, 254);
+                    control.BackColor = Color.FromArgb(243, 246, 249);
+                }
+                else
+                {
+                    control.ForeColor = Color.FromArgb(97, 99, 114);
+                    control.BackColor = Color.White;
+                }
+
+            }
         }
 
         private void guardFileListButton_Click(object sender, EventArgs e)
@@ -54,6 +75,8 @@ namespace dNothi.Desktop.UI.OtherModule
             guardFileTypeuc.Hide();
 
             guardFileAddButton.Hide();
+
+            SelectThisButton(sender, e);
         }
 
         private void guardFileUploadButton_Click(object sender, EventArgs e)
@@ -70,6 +93,7 @@ namespace dNothi.Desktop.UI.OtherModule
            
            
             guardFileAddButton.Hide();
+            SelectThisButton(sender, e);
         }
 
         private void moduleButton_Click(object sender, EventArgs e)

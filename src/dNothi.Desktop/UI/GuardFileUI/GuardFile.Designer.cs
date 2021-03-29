@@ -144,7 +144,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label2.Location = new System.Drawing.Point(116, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 18);
+            this.label2.Size = new System.Drawing.Size(83, 18);
             this.label2.TabIndex = 34;
             this.label2.Text = "এটুআই প্রোগ্রাম";
             // 

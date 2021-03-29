@@ -35,7 +35,6 @@
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Heddingpanel = new System.Windows.Forms.Panel();
-            this.guardFileAddButton = new System.Windows.Forms.Button();
             this.lablePageName = new System.Windows.Forms.Label();
             this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.bodyPanel = new System.Windows.Forms.Panel();
@@ -72,6 +71,7 @@
             this.dakMenuButton = new System.Windows.Forms.Panel();
             this.RightSign = new FontAwesome.Sharp.IconButton();
             this.LeftSign = new FontAwesome.Sharp.IconButton();
+            this.guardFileAddButton = new FontAwesome.Sharp.IconButton();
             this.dashboardBodyTableLayoutPanel.SuspendLayout();
             this.rightDashboardBodyTableLayoutPanel.SuspendLayout();
             this.bodyTableLayoutPanel.SuspendLayout();
@@ -141,7 +141,7 @@
             // 
             // Heddingpanel
             // 
-            this.Heddingpanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Heddingpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.Heddingpanel.Controls.Add(this.guardFileAddButton);
             this.Heddingpanel.Controls.Add(this.lablePageName);
             this.Heddingpanel.Controls.Add(this.iconButton14);
@@ -151,28 +151,6 @@
             this.Heddingpanel.Name = "Heddingpanel";
             this.Heddingpanel.Size = new System.Drawing.Size(1112, 35);
             this.Heddingpanel.TabIndex = 32;
-            // 
-            // guardFileAddButton
-            // 
-            this.guardFileAddButton.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guardFileAddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.guardFileAddButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guardFileAddButton.FlatAppearance.BorderSize = 0;
-            this.guardFileAddButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSeaGreen;
-            this.guardFileAddButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
-            this.guardFileAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guardFileAddButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardFileAddButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.guardFileAddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.guardFileAddButton.Location = new System.Drawing.Point(1005, 0);
-            this.guardFileAddButton.Name = "guardFileAddButton";
-            this.guardFileAddButton.Size = new System.Drawing.Size(107, 35);
-            this.guardFileAddButton.TabIndex = 31;
-            this.guardFileAddButton.Text = " নতুন ধরন";
-            this.guardFileAddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.guardFileAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.guardFileAddButton.UseVisualStyleBackColor = false;
-            this.guardFileAddButton.Click += new System.EventHandler(this.guardFileAddButton_Click);
             // 
             // lablePageName
             // 
@@ -186,7 +164,7 @@
             // 
             // iconButton14
             // 
-            this.iconButton14.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.iconButton14.BackColor = System.Drawing.Color.Transparent;
             this.iconButton14.Dock = System.Windows.Forms.DockStyle.Left;
             this.iconButton14.FlatAppearance.BorderSize = 0;
             this.iconButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -656,14 +634,14 @@
             this.guardFileListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guardFileListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.guardFileListButton.BackColor = System.Drawing.Color.White;
             this.guardFileListButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.guardFileListButton.FlatAppearance.BorderSize = 0;
             this.guardFileListButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.guardFileListButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.guardFileListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.guardFileListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardFileListButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
+            this.guardFileListButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
             this.guardFileListButton.IconChar = FontAwesome.Sharp.IconChar.MailBulk;
             this.guardFileListButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.guardFileListButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -685,13 +663,13 @@
             this.guardFileTypeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guardFileTypeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.guardFileTypeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.guardFileTypeButton.FlatAppearance.BorderSize = 0;
             this.guardFileTypeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.guardFileTypeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.guardFileTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.guardFileTypeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardFileTypeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.guardFileTypeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
             this.guardFileTypeButton.IconChar = FontAwesome.Sharp.IconChar.Inbox;
             this.guardFileTypeButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.guardFileTypeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -795,6 +773,32 @@
             this.LeftSign.TabIndex = 21;
             this.LeftSign.UseVisualStyleBackColor = false;
             // 
+            // guardFileAddButton
+            // 
+            this.guardFileAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(192)))), ((int)(((byte)(186)))));
+            this.guardFileAddButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guardFileAddButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.guardFileAddButton.FlatAppearance.BorderSize = 0;
+            this.guardFileAddButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guardFileAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardFileAddButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardFileAddButton.ForeColor = System.Drawing.Color.White;
+            this.guardFileAddButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.guardFileAddButton.IconColor = System.Drawing.Color.White;
+            this.guardFileAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.guardFileAddButton.IconSize = 18;
+            this.guardFileAddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.guardFileAddButton.Location = new System.Drawing.Point(992, 0);
+            this.guardFileAddButton.Margin = new System.Windows.Forms.Padding(0);
+            this.guardFileAddButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.guardFileAddButton.Name = "guardFileAddButton";
+            this.guardFileAddButton.Size = new System.Drawing.Size(120, 36);
+            this.guardFileAddButton.TabIndex = 88;
+            this.guardFileAddButton.Text = "   নতুন ধরন";
+            this.guardFileAddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.guardFileAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.guardFileAddButton.UseVisualStyleBackColor = false;
+            // 
             // GurdFileControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -875,6 +879,6 @@
         private System.Windows.Forms.Panel Heddingpanel;
         private System.Windows.Forms.Label lablePageName;
         private FontAwesome.Sharp.IconButton iconButton14;
-        private System.Windows.Forms.Button guardFileAddButton;
+        private FontAwesome.Sharp.IconButton guardFileAddButton;
     }
 }

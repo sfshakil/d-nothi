@@ -19,13 +19,16 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         public UCGuardFileList()
         {
             InitializeComponent();
+           
             fl.Add(new gdftype() { rowNo = "1", type = "বাজেট ", typeNo = "1" });
             fl.Add(new gdftype() { rowNo = "2", type = "test", typeNo = "2" });
             fl.Add(new gdftype() { rowNo = "3", type = "test2", typeNo = "3" });
             fl.Add(new gdftype() { rowNo = "4", type = "test3", typeNo = "4" });
 
             LoadGuardFileList();
-           var data= from s in fl
+          
+            
+            var data= from s in fl
                             select new ComboBoxItems
                             {
                                 id = Convert.ToInt32(s.rowNo),
@@ -55,12 +58,9 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
                         guardFileTable.Dock = DockStyle.Fill;
 
-                        int row = guardFileTableLayoutPanel.RowCount++;
 
-                        guardFileTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
-                        guardFileTableLayoutPanel.Controls.Add(guardFileTable, 0, row);
-                        guardFileTableLayoutPanel.SetColumnSpan(guardFileTable, 3);
-                        guardFileTableLayoutPanel.Controls.Add(guardFileTable);
+                        UIDesignCommonMethod.AddRowinTable(guardListTableLayoutPanel, guardFileTable);
+
 
                     }
                 }
@@ -69,6 +69,16 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         private void UCGuardFileList_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Table_Border_Color_Blue(object sender, PaintEventArgs e)
+        {
+            UIDesignCommonMethod.Table_Color_Blue(sender, e);
+        }
+
+        private void Table_Border_Cell_Color_Blue(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
         }
     }
 }

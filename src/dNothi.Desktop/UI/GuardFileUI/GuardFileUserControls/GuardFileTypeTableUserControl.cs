@@ -76,7 +76,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         private void EditMode()
         {
             decisionNameLabel.Visible = false;
-            decisionNameTextBox.Visible = true;
+            decisionNamePanel.Visible = true;
 
 
             cancelButton.Visible = true;
@@ -91,7 +91,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         private void NormalMode()
         {
             decisionNameLabel.Visible = true;
-            decisionNameTextBox.Visible = false;
+            decisionNamePanel.Visible = false;
 
 
             cancelButton.Visible = false;
@@ -183,6 +183,21 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         private void EditUpdatetableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Border_ColorPanel(object sender, PaintEventArgs e)
+        {
+            UIDesignCommonMethod.Border_Color_Blue(sender, e);
+        }
+
+        private void Border_Color_Table(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
+        }
+
+        private void Table_Border_Color(object sender, PaintEventArgs e)
+        {
+            UIDesignCommonMethod.Table_Color_Blue(sender, e);
         }
 
         //Update

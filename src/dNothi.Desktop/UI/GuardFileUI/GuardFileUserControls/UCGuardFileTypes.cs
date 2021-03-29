@@ -81,5 +81,15 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 }
             }
         }
+
+        private void Table_Border_Color(object sender, PaintEventArgs e)
+        {
+            UIDesignCommonMethod.Table_Color_Blue(sender, e);
+        }
+
+        private void Table_Cell_Color_Blue(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
+        }
     }
 }
