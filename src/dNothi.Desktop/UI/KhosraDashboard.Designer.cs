@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhosraDashboard));
-            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse3 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
+            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse1 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.profilePanel = new System.Windows.Forms.Panel();
@@ -93,14 +93,15 @@
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.iconButton8 = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listTypeLabel = new System.Windows.Forms.Label();
             this.iconButton = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.khosraListTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.noKhosraPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -124,7 +125,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button26 = new System.Windows.Forms.Button();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
-            this.khosraListTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -1086,23 +1086,31 @@
             this.panel5.Size = new System.Drawing.Size(1116, 40);
             this.panel5.TabIndex = 2;
             // 
-            // iconButton4
+            // label6
             // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 24;
-            this.iconButton4.Location = new System.Drawing.Point(1082, 0);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(34, 40);
-            this.iconButton4.TabIndex = 106;
-            this.iconButton4.UseVisualStyleBackColor = false;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.label6.Location = new System.Drawing.Point(896, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 40);
+            this.label6.TabIndex = 104;
+            this.label6.Text = "১ - ৮১";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.label3.Location = new System.Drawing.Point(969, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 40);
+            this.label3.TabIndex = 107;
+            this.label3.Text = "সর্বমোট ৮১ টি";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // iconButton8
             // 
@@ -1122,31 +1130,23 @@
             this.iconButton8.TabIndex = 105;
             this.iconButton8.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // iconButton4
             // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.label3.Location = new System.Drawing.Point(969, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 40);
-            this.label3.TabIndex = 107;
-            this.label3.Text = "সর্বমোট ৮১ টি";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.label6.Location = new System.Drawing.Point(896, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 40);
-            this.label6.TabIndex = 104;
-            this.label6.Text = "১ - ৮১";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.IconSize = 24;
+            this.iconButton4.Location = new System.Drawing.Point(1082, 0);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(34, 40);
+            this.iconButton4.TabIndex = 106;
+            this.iconButton4.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -1211,6 +1211,21 @@
             this.panel6.Padding = new System.Windows.Forms.Padding(5);
             this.panel6.Size = new System.Drawing.Size(1116, 494);
             this.panel6.TabIndex = 3;
+            // 
+            // khosraListTableLayoutPanel
+            // 
+            this.khosraListTableLayoutPanel.AutoSize = true;
+            this.khosraListTableLayoutPanel.ColumnCount = 1;
+            this.khosraListTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.khosraListTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.khosraListTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.khosraListTableLayoutPanel.Location = new System.Drawing.Point(5, 48);
+            this.khosraListTableLayoutPanel.Name = "khosraListTableLayoutPanel";
+            this.khosraListTableLayoutPanel.RowCount = 1;
+            this.khosraListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.khosraListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.khosraListTableLayoutPanel.Size = new System.Drawing.Size(1106, 0);
+            this.khosraListTableLayoutPanel.TabIndex = 3;
             // 
             // noKhosraPanel
             // 
@@ -1593,9 +1608,9 @@
             this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            employeDakNothiCountResponse3.data = null;
-            employeDakNothiCountResponse3.status = null;
-            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse3;
+            employeDakNothiCountResponse1.data = null;
+            employeDakNothiCountResponse1.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse1;
             this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationDetailsPanel.Location = new System.Drawing.Point(1180, 49);
             this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -1604,21 +1619,6 @@
             this.designationDetailsPanel.Size = new System.Drawing.Size(434, 91);
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
-            // 
-            // khosraListTableLayoutPanel
-            // 
-            this.khosraListTableLayoutPanel.AutoSize = true;
-            this.khosraListTableLayoutPanel.ColumnCount = 1;
-            this.khosraListTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.khosraListTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.khosraListTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.khosraListTableLayoutPanel.Location = new System.Drawing.Point(5, 48);
-            this.khosraListTableLayoutPanel.Name = "khosraListTableLayoutPanel";
-            this.khosraListTableLayoutPanel.RowCount = 1;
-            this.khosraListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.khosraListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.khosraListTableLayoutPanel.Size = new System.Drawing.Size(1106, 0);
-            this.khosraListTableLayoutPanel.TabIndex = 3;
             // 
             // KhosraDashboard
             // 

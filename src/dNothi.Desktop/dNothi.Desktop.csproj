@@ -537,6 +537,55 @@
     <Compile Include="UI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GuardFileUI\gdftype.cs" />
+    <Compile Include="UI\GuardFileUI\GuardFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFile.Designer.cs">
+      <DependentUpon>GuardFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileBrowseUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileBrowseUC.Designer.cs">
+      <DependentUpon>GuardFileBrowseUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileTypeTableUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileTypeTableUserControl.Designer.cs">
+      <DependentUpon>GuardFileTypeTableUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuarFileListViewDeleteUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuarFileListViewDeleteUC.Designer.cs">
+      <DependentUpon>GuarFileListViewDeleteUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileList.Designer.cs">
+      <DependentUpon>UCGuardFileList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileTypes.Designer.cs">
+      <DependentUpon>UCGuardFileTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileUpload.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileUpload.Designer.cs">
+      <DependentUpon>UCGuardFileUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GurdFileControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GurdFileControl.Designer.cs">
+      <DependentUpon>GurdFileControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\CommonKhosraRowUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1236,6 +1285,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFile.resx">
+      <DependentUpon>GuardFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuardFileBrowseUC.resx">
+      <DependentUpon>GuardFileBrowseUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuardFileTypeTableUserControl.resx">
+      <DependentUpon>GuardFileTypeTableUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuarFileListViewDeleteUC.resx">
+      <DependentUpon>GuarFileListViewDeleteUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileList.resx">
+      <DependentUpon>UCGuardFileList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileTypes.resx">
+      <DependentUpon>UCGuardFileTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileUpload.resx">
+      <DependentUpon>UCGuardFileUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GurdFileControl.resx">
+      <DependentUpon>GurdFileControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\CommonKhosraRowUserControl.resx">
       <DependentUpon>CommonKhosraRowUserControl.cs</DependentUpon>

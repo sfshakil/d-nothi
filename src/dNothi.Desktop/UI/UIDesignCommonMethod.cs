@@ -34,7 +34,12 @@ namespace dNothi.Desktop.UI
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
 
-        public static void Border_Color_Blue(object sender, TableLayoutCellPaintEventArgs e)
+        public static void Table_Cell_Color_Blue(object sender, TableLayoutCellPaintEventArgs e)
+        {
+
+            e.Graphics.DrawRectangle(new Pen(Color.FromArgb(203, 225, 248)), e.CellBounds);
+        }
+        public static void Table_Color_Blue(object sender, PaintEventArgs e)
         {
 
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);

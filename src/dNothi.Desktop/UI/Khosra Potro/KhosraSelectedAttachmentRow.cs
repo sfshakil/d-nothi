@@ -39,7 +39,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 
         private void TableBorderColor(object sender, TableLayoutCellPaintEventArgs e)
         {
-            UIDesignCommonMethod.Border_Color_Blue(sender, e);
+            UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
         }
     }
 }

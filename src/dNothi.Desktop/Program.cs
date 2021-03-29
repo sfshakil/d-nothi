@@ -24,6 +24,7 @@ using dNothi.Desktop.UI.Dak;
 using dNothi.Services.SyncServices;
 using dNothi.Desktop.UI.NothiUI;
 using dNothi.Services.KhasraService;
+using dNothi.Desktop.UI.OtherModule;
 
 namespace dNothi.Desktop
 {
@@ -223,9 +224,17 @@ namespace dNothi.Desktop
             builder.RegisterType<DakNothijatoForm>().AsSelf();
             builder.RegisterType<DakModuleAgotoNothiList>().AsSelf();
             builder.RegisterType<DakForwardUserControl>().AsSelf();
+            builder.RegisterType<GurdFileControl>().AsSelf();
             builder.RegisterType<DakNothiteUposthapitoNewNoteAddUserControl>().AsSelf();
             builder.RegisterType<MultipleDakActionResultForm>().AsSelf();
             builder.RegisterType<MultipleDakSelectedListConfirmForm>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileTypes>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileList>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileUpload>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileTypeTableUserControl>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuarFileListViewDeleteUC>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileBrowseUC>().AsSelf();
+           
            
 
             container = (builder.Build());
