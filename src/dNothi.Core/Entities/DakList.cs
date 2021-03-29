@@ -38,7 +38,7 @@ namespace dNothi.Core.Entities
       
 
         [ForeignKey("daklistType")]
-        public long dak_List_type_Id { get; set; }
+        public long? dak_List_type_Id { get; set; }
         public virtual DakType daklistType { get; set; }
 
 

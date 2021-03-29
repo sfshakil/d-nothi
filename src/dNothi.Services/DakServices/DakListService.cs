@@ -472,6 +472,7 @@ namespace dNothi.Services.DakServices
                         }
 
                         var dbdaklist = _dakListRepo.Table.FirstOrDefault(a => a.dak_user.dak_id == dakListRecordsDTO.dak_user.dak_id);
+                        dakList.dak_List_type_Id = null;
                         if (dbdaklist == null)
                         {
                             _dakListRepo.Insert(dakList);
