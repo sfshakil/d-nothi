@@ -90,7 +90,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(574, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(108, 28);
+            this.panel2.Size = new System.Drawing.Size(109, 28);
             this.panel2.TabIndex = 85;
             // 
             // cancelButton
@@ -199,17 +199,17 @@
             this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
-            this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.EditUpdatetableLayoutPanel.Controls.Add(this.label2, 2, 0);
             this.EditUpdatetableLayoutPanel.Controls.Add(this.label1, 0, 0);
             this.EditUpdatetableLayoutPanel.Controls.Add(this.panel2, 3, 0);
             this.EditUpdatetableLayoutPanel.Controls.Add(this.panel1, 1, 0);
-            this.EditUpdatetableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EditUpdatetableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.EditUpdatetableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.EditUpdatetableLayoutPanel.Name = "EditUpdatetableLayoutPanel";
             this.EditUpdatetableLayoutPanel.RowCount = 1;
             this.EditUpdatetableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.EditUpdatetableLayoutPanel.Size = new System.Drawing.Size(686, 36);
+            this.EditUpdatetableLayoutPanel.Size = new System.Drawing.Size(687, 36);
             this.EditUpdatetableLayoutPanel.TabIndex = 2;
             // 
             // GuardFileTypeTableUserControl
@@ -221,7 +221,7 @@
             this.Controls.Add(this.EditUpdatetableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Name = "GuardFileTypeTableUserControl";
-            this.Size = new System.Drawing.Size(686, 36);
+            this.Size = new System.Drawing.Size(687, 53);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
