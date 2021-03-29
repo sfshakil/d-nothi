@@ -31,7 +31,7 @@ namespace dNothi.Desktop.UI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewDashBoard));
-            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse2 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
+            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse1 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.profilePanel = new System.Windows.Forms.Panel();
@@ -100,6 +100,14 @@ namespace dNothi.Desktop.UI
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.moduleButton = new FontAwesome.Sharp.IconButton();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.btnReviewRecent = new FontAwesome.Sharp.IconButton();
+            this.btnReviewToMe = new FontAwesome.Sharp.IconButton();
+            this.btnReviewByMe = new FontAwesome.Sharp.IconButton();
             this.btnNothiIcon = new System.Windows.Forms.Button();
             this.RightSign = new FontAwesome.Sharp.IconButton();
             this.LeftSign = new FontAwesome.Sharp.IconButton();
@@ -108,14 +116,6 @@ namespace dNothi.Desktop.UI
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.khosraButton = new FontAwesome.Sharp.IconButton();
             this.khosraPotroButton = new FontAwesome.Sharp.IconButton();
-            this.btnReviewByMe = new FontAwesome.Sharp.IconButton();
-            this.btnReviewToMe = new FontAwesome.Sharp.IconButton();
-            this.btnReviewRecent = new FontAwesome.Sharp.IconButton();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -1100,11 +1100,178 @@ namespace dNothi.Desktop.UI
             this.moduleButton.UseVisualStyleBackColor = true;
             this.moduleButton.Visible = false;
             // 
+            // button30
+            // 
+            this.button30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button30.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button30.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button30.BackgroundImage")));
+            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button30.Location = new System.Drawing.Point(958, 3);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(25, 23);
+            this.button30.TabIndex = 39;
+            this.button30.UseVisualStyleBackColor = false;
+            // 
+            // button29
+            // 
+            this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button29.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button29.BackgroundImage")));
+            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button29.Location = new System.Drawing.Point(989, 3);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(25, 23);
+            this.button29.TabIndex = 40;
+            this.button29.UseVisualStyleBackColor = false;
+            // 
+            // button28
+            // 
+            this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button28.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button28.BackgroundImage")));
+            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button28.Location = new System.Drawing.Point(1020, 3);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(25, 23);
+            this.button28.TabIndex = 41;
+            this.button28.UseVisualStyleBackColor = false;
+            // 
+            // button27
+            // 
+            this.button27.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button27.BackgroundImage")));
+            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.Location = new System.Drawing.Point(1051, 3);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(25, 23);
+            this.button27.TabIndex = 42;
+            this.button27.UseVisualStyleBackColor = false;
+            // 
+            // button26
+            // 
+            this.button26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button26.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button26.BackgroundImage")));
+            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.Location = new System.Drawing.Point(1082, 3);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(25, 23);
+            this.button26.TabIndex = 43;
+            this.button26.UseVisualStyleBackColor = false;
+            // 
+            // btnReviewRecent
+            // 
+            this.btnReviewRecent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReviewRecent.BackColor = System.Drawing.Color.White;
+            this.btnReviewRecent.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReviewRecent.FlatAppearance.BorderSize = 0;
+            this.btnReviewRecent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnReviewRecent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnReviewRecent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReviewRecent.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReviewRecent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnReviewRecent.IconChar = FontAwesome.Sharp.IconChar.UserClock;
+            this.btnReviewRecent.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnReviewRecent.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReviewRecent.IconSize = 24;
+            this.btnReviewRecent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReviewRecent.Location = new System.Drawing.Point(0, 102);
+            this.btnReviewRecent.Margin = new System.Windows.Forms.Padding(0);
+            this.btnReviewRecent.Name = "btnReviewRecent";
+            this.btnReviewRecent.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnReviewRecent.Size = new System.Drawing.Size(234, 46);
+            this.btnReviewRecent.TabIndex = 38;
+            this.btnReviewRecent.Text = "সম্প্রতি ";
+            this.btnReviewRecent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReviewRecent.UseVisualStyleBackColor = false;
+            this.btnReviewRecent.Click += new System.EventHandler(this.btnReviewRecent_Click);
+            // 
+            // btnReviewToMe
+            // 
+            this.btnReviewToMe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReviewToMe.BackColor = System.Drawing.Color.White;
+            this.btnReviewToMe.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReviewToMe.FlatAppearance.BorderSize = 0;
+            this.btnReviewToMe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnReviewToMe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnReviewToMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReviewToMe.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReviewToMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnReviewToMe.IconChar = FontAwesome.Sharp.IconChar.Share;
+            this.btnReviewToMe.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnReviewToMe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReviewToMe.IconSize = 24;
+            this.btnReviewToMe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReviewToMe.Location = new System.Drawing.Point(0, 56);
+            this.btnReviewToMe.Margin = new System.Windows.Forms.Padding(0);
+            this.btnReviewToMe.Name = "btnReviewToMe";
+            this.btnReviewToMe.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnReviewToMe.Size = new System.Drawing.Size(234, 46);
+            this.btnReviewToMe.TabIndex = 37;
+            this.btnReviewToMe.Text = "যা শেয়ার করা হয়েছে";
+            this.btnReviewToMe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReviewToMe.UseVisualStyleBackColor = false;
+            this.btnReviewToMe.Click += new System.EventHandler(this.btnReviewToMe_Click);
+            // 
+            // btnReviewByMe
+            // 
+            this.btnReviewByMe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReviewByMe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnReviewByMe.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReviewByMe.FlatAppearance.BorderSize = 0;
+            this.btnReviewByMe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnReviewByMe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnReviewByMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReviewByMe.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReviewByMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
+            this.btnReviewByMe.IconChar = FontAwesome.Sharp.IconChar.ShareSquare;
+            this.btnReviewByMe.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnReviewByMe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReviewByMe.IconSize = 24;
+            this.btnReviewByMe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReviewByMe.Location = new System.Drawing.Point(0, 10);
+            this.btnReviewByMe.Margin = new System.Windows.Forms.Padding(0);
+            this.btnReviewByMe.Name = "btnReviewByMe";
+            this.btnReviewByMe.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnReviewByMe.Size = new System.Drawing.Size(234, 46);
+            this.btnReviewByMe.TabIndex = 36;
+            this.btnReviewByMe.Text = "আমি যা শেয়ার দিয়েছি";
+            this.btnReviewByMe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReviewByMe.UseVisualStyleBackColor = false;
+            this.btnReviewByMe.Click += new System.EventHandler(this.btnReviewByMe_Click);
+            // 
             // btnNothiIcon
             // 
             this.btnNothiIcon.AutoSize = true;
             this.btnNothiIcon.BackColor = System.Drawing.Color.White;
-            this.btnNothiIcon.BackgroundImage = global::dNothi.Desktop.Properties.Resources.logo_nothi;
+            this.btnNothiIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNothiIcon.BackgroundImage")));
             this.btnNothiIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnNothiIcon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNothiIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -1250,173 +1417,6 @@ namespace dNothi.Desktop.UI
             this.khosraPotroButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.khosraPotroButton.UseVisualStyleBackColor = true;
             // 
-            // btnReviewByMe
-            // 
-            this.btnReviewByMe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReviewByMe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnReviewByMe.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReviewByMe.FlatAppearance.BorderSize = 0;
-            this.btnReviewByMe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.btnReviewByMe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnReviewByMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReviewByMe.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReviewByMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
-            this.btnReviewByMe.IconChar = FontAwesome.Sharp.IconChar.ShareSquare;
-            this.btnReviewByMe.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.btnReviewByMe.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReviewByMe.IconSize = 24;
-            this.btnReviewByMe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReviewByMe.Location = new System.Drawing.Point(0, 10);
-            this.btnReviewByMe.Margin = new System.Windows.Forms.Padding(0);
-            this.btnReviewByMe.Name = "btnReviewByMe";
-            this.btnReviewByMe.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReviewByMe.Size = new System.Drawing.Size(234, 46);
-            this.btnReviewByMe.TabIndex = 36;
-            this.btnReviewByMe.Text = "আমি যা শেয়ার দিয়েছি";
-            this.btnReviewByMe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReviewByMe.UseVisualStyleBackColor = false;
-            this.btnReviewByMe.Click += new System.EventHandler(this.btnReviewByMe_Click);
-            // 
-            // btnReviewToMe
-            // 
-            this.btnReviewToMe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReviewToMe.BackColor = System.Drawing.Color.White;
-            this.btnReviewToMe.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReviewToMe.FlatAppearance.BorderSize = 0;
-            this.btnReviewToMe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.btnReviewToMe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnReviewToMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReviewToMe.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReviewToMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.btnReviewToMe.IconChar = FontAwesome.Sharp.IconChar.Share;
-            this.btnReviewToMe.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.btnReviewToMe.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReviewToMe.IconSize = 24;
-            this.btnReviewToMe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReviewToMe.Location = new System.Drawing.Point(0, 56);
-            this.btnReviewToMe.Margin = new System.Windows.Forms.Padding(0);
-            this.btnReviewToMe.Name = "btnReviewToMe";
-            this.btnReviewToMe.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReviewToMe.Size = new System.Drawing.Size(234, 46);
-            this.btnReviewToMe.TabIndex = 37;
-            this.btnReviewToMe.Text = "যা শেয়ার করা হয়েছে";
-            this.btnReviewToMe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReviewToMe.UseVisualStyleBackColor = false;
-            this.btnReviewToMe.Click += new System.EventHandler(this.btnReviewToMe_Click);
-            // 
-            // btnReviewRecent
-            // 
-            this.btnReviewRecent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReviewRecent.BackColor = System.Drawing.Color.White;
-            this.btnReviewRecent.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReviewRecent.FlatAppearance.BorderSize = 0;
-            this.btnReviewRecent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.btnReviewRecent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnReviewRecent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReviewRecent.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReviewRecent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.btnReviewRecent.IconChar = FontAwesome.Sharp.IconChar.UserClock;
-            this.btnReviewRecent.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.btnReviewRecent.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReviewRecent.IconSize = 24;
-            this.btnReviewRecent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReviewRecent.Location = new System.Drawing.Point(0, 102);
-            this.btnReviewRecent.Margin = new System.Windows.Forms.Padding(0);
-            this.btnReviewRecent.Name = "btnReviewRecent";
-            this.btnReviewRecent.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReviewRecent.Size = new System.Drawing.Size(234, 46);
-            this.btnReviewRecent.TabIndex = 38;
-            this.btnReviewRecent.Text = "সম্প্রতি ";
-            this.btnReviewRecent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReviewRecent.UseVisualStyleBackColor = false;
-            this.btnReviewRecent.Click += new System.EventHandler(this.btnReviewRecent_Click);
-            // 
-            // button30
-            // 
-            this.button30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button30.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button30.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button30.BackgroundImage")));
-            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30.Location = new System.Drawing.Point(958, 3);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(25, 23);
-            this.button30.TabIndex = 39;
-            this.button30.UseVisualStyleBackColor = false;
-            // 
-            // button29
-            // 
-            this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button29.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button29.BackgroundImage")));
-            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.Location = new System.Drawing.Point(989, 3);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(25, 23);
-            this.button29.TabIndex = 40;
-            this.button29.UseVisualStyleBackColor = false;
-            // 
-            // button28
-            // 
-            this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button28.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button28.BackgroundImage")));
-            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Location = new System.Drawing.Point(1020, 3);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(25, 23);
-            this.button28.TabIndex = 41;
-            this.button28.UseVisualStyleBackColor = false;
-            // 
-            // button27
-            // 
-            this.button27.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button27.BackgroundImage")));
-            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Location = new System.Drawing.Point(1051, 3);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(25, 23);
-            this.button27.TabIndex = 42;
-            this.button27.UseVisualStyleBackColor = false;
-            // 
-            // button26
-            // 
-            this.button26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button26.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button26.BackgroundImage")));
-            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Location = new System.Drawing.Point(1082, 3);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(25, 23);
-            this.button26.TabIndex = 43;
-            this.button26.UseVisualStyleBackColor = false;
-            // 
             // designationDetailsPanel
             // 
             this.designationDetailsPanel._designationId = 0;
@@ -1426,9 +1426,9 @@ namespace dNothi.Desktop.UI
             this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            employeDakNothiCountResponse2.data = null;
-            employeDakNothiCountResponse2.status = null;
-            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse2;
+            employeDakNothiCountResponse1.data = null;
+            employeDakNothiCountResponse1.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse1;
             this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationDetailsPanel.Location = new System.Drawing.Point(1180, 49);
             this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -1448,6 +1448,7 @@ namespace dNothi.Desktop.UI
             this.Controls.Add(this.dashboardBodyTableLayoutPanel);
             this.Controls.Add(this.modulePanel);
             this.Controls.Add(this.designationDetailsPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1091, 572);
             this.Name = "ReviewDashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
