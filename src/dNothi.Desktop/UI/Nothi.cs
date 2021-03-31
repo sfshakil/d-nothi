@@ -4,6 +4,7 @@ using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,7 @@ namespace dNothi.Desktop.UI
         NothiCategoryList _nothiCurrentCategory = new NothiCategoryList();
         INothiNoteTalikaServices _nothiNoteTalikaServices { get; set; }
         INothiAllServices _nothiAll { get; set; }
-
+        public WaitFormFunc WaitForm;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices, INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave)
         {
             _nothiNoteTalikaServices= nothiNoteTalikaServices;
@@ -50,6 +51,7 @@ namespace dNothi.Desktop.UI
             agotoNothiSelected = 1;
             preritoNothiSelected = 0;
             shokolNothiSelected = 0;
+            WaitForm = new WaitFormFunc();
             noteListButton.BackColor = Color.FromArgb(130, 80, 230); ;
             btnNothiTalika.BackColor = Color.FromArgb(102, 16, 242); //115, 55, 238
             loadNothiInboxTptal();
@@ -157,7 +159,7 @@ namespace dNothi.Desktop.UI
         }
         private void NoteAllDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
-
+            
             if (noteListDataRecordNoteDTO.is_editable == 0)
             {
                 this.Hide();
@@ -167,6 +169,7 @@ namespace dNothi.Desktop.UI
 
             }
             var form = FormFactory.Create<Note>();
+            WaitForm.Show(this);
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
             form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteAllDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiAllListDTO, nothiListInboxNoteRecordsDTO); };
@@ -209,8 +212,9 @@ namespace dNothi.Desktop.UI
             form.loadNoteView(noteView);
             form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
 
-
+            WaitForm.Close();
             form.ShowDialog();
+            
         }
         private void NoteAll_ButtonClick(NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO )
         {
@@ -220,6 +224,7 @@ namespace dNothi.Desktop.UI
 
             this.Hide();
             var form = FormFactory.Create<Note>();
+            WaitForm.Show(this);
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
             //form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
@@ -240,9 +245,9 @@ namespace dNothi.Desktop.UI
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
             form.noteAllButtonClick(nothiListRecordsDTO);
-            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString(); 
+            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
 
-
+            WaitForm.Close();
             form.ShowDialog();
         }
         private void NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
@@ -257,6 +262,7 @@ namespace dNothi.Desktop.UI
             }
             
             var form = FormFactory.Create<Note>();
+            WaitForm.Show(this);
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
             form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
@@ -285,9 +291,9 @@ namespace dNothi.Desktop.UI
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
             form.loadNoteView(noteView);
-            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString(); 
+            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
 
-
+            WaitForm.Close();
             form.ShowDialog();
         }
 
@@ -367,6 +373,7 @@ namespace dNothi.Desktop.UI
                 this.Hide();
                 
                 var form = FormFactory.Create<Note>();
+                WaitForm.Show(this);
                 _dakuserparam = _userService.GetLocalDakUserParam();
 
                 NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
@@ -394,7 +401,7 @@ namespace dNothi.Desktop.UI
                 form.loadNoteView(noteView);
                 form.noteTotal = notedata.note_no.ToString();
 
-
+                WaitForm.Close();
                 form.ShowDialog();
 
             }
