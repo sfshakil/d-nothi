@@ -4166,7 +4166,7 @@ namespace dNothi.Desktop.UI
         private void reviewDashBoardButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ReviewDashBoard reviewDashBoard = new ReviewDashBoard();
+            ReviewDashBoard reviewDashBoard = FormFactory.Create<ReviewDashBoard>();
             reviewDashBoard.ShowDialog();
         }
 

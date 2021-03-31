@@ -34,8 +34,11 @@ namespace dNothi.Desktop.UI
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.profilePanel = new System.Windows.Forms.Panel();
+            this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.userNameLabel = new System.Windows.Forms.Label();
+            this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
             this.dakModulePanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,12 +65,9 @@ namespace dNothi.Desktop.UI
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.khosraViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
-            this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
-            this.khosraViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.button30 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
@@ -75,6 +75,7 @@ namespace dNothi.Desktop.UI
             this.button26 = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.dakModulePanel.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,7 +85,6 @@ namespace dNothi.Desktop.UI
             this.panel2.SuspendLayout();
             this.headerTableLayoutPanel.SuspendLayout();
             this.footerTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -118,6 +118,27 @@ namespace dNothi.Desktop.UI
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.profilePanel.Size = new System.Drawing.Size(352, 33);
             this.profilePanel.TabIndex = 28;
+            this.profilePanel.Click += new System.EventHandler(this.profilePanel_Click);
+            // 
+            // userPictureBox
+            // 
+            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.userPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.userPictureBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            this.userPictureBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.userPictureBox.IconSize = 23;
+            this.userPictureBox.InitialImage = null;
+            this.userPictureBox.Location = new System.Drawing.Point(3, 5);
+            this.userPictureBox.Margin = new System.Windows.Forms.Padding(5, 10, 3, 3);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.userPictureBox.Size = new System.Drawing.Size(39, 23);
+            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.userPictureBox.TabIndex = 29;
+            this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.profilePanel_Click);
             // 
             // userNameLabel
             // 
@@ -131,6 +152,27 @@ namespace dNothi.Desktop.UI
             this.userNameLabel.Size = new System.Drawing.Size(287, 25);
             this.userNameLabel.TabIndex = 23;
             this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি) ";
+            this.userNameLabel.Click += new System.EventHandler(this.profilePanel_Click);
+            // 
+            // profileShowArrowButton
+            // 
+            this.profileShowArrowButton.BackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.profileShowArrowButton.FlatAppearance.BorderSize = 0;
+            this.profileShowArrowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileShowArrowButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.profileShowArrowButton.IconSize = 20;
+            this.profileShowArrowButton.Location = new System.Drawing.Point(329, 5);
+            this.profileShowArrowButton.Name = "profileShowArrowButton";
+            this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.profileShowArrowButton.Size = new System.Drawing.Size(13, 23);
+            this.profileShowArrowButton.TabIndex = 27;
+            this.profileShowArrowButton.UseVisualStyleBackColor = false;
+            this.profileShowArrowButton.Click += new System.EventHandler(this.profilePanel_Click);
             // 
             // dakModulePanel
             // 
@@ -139,9 +181,22 @@ namespace dNothi.Desktop.UI
             this.dakModulePanel.Location = new System.Drawing.Point(0, 0);
             this.dakModulePanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakModulePanel.Name = "dakModulePanel";
-            this.dakModulePanel.Padding = new System.Windows.Forms.Padding(20, 10, 0, 0);
+            this.dakModulePanel.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
             this.dakModulePanel.Size = new System.Drawing.Size(134, 43);
             this.dakModulePanel.TabIndex = 100;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label1.Location = new System.Drawing.Point(15, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 27);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "TestJSP";
             // 
             // label9
             // 
@@ -497,6 +552,17 @@ namespace dNothi.Desktop.UI
             this.panel2.Size = new System.Drawing.Size(1350, 581);
             this.panel2.TabIndex = 0;
             // 
+            // khosraViewWebBrowser
+            // 
+            this.khosraViewWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.khosraViewWebBrowser.Location = new System.Drawing.Point(0, 0);
+            this.khosraViewWebBrowser.Margin = new System.Windows.Forms.Padding(0);
+            this.khosraViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.khosraViewWebBrowser.Name = "khosraViewWebBrowser";
+            this.khosraViewWebBrowser.Size = new System.Drawing.Size(1350, 581);
+            this.khosraViewWebBrowser.TabIndex = 5;
+            this.khosraViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
+            // 
             // headerTableLayoutPanel
             // 
             this.headerTableLayoutPanel.AutoSize = true;
@@ -548,68 +614,6 @@ namespace dNothi.Desktop.UI
             this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.footerTableLayoutPanel.Size = new System.Drawing.Size(1344, 29);
             this.footerTableLayoutPanel.TabIndex = 34;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label1.Location = new System.Drawing.Point(20, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 21);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "TestJSP";
-            // 
-            // userPictureBox
-            // 
-            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.userPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.userPictureBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.userPictureBox.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.userPictureBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.userPictureBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.userPictureBox.IconSize = 23;
-            this.userPictureBox.InitialImage = null;
-            this.userPictureBox.Location = new System.Drawing.Point(3, 5);
-            this.userPictureBox.Margin = new System.Windows.Forms.Padding(5, 10, 3, 3);
-            this.userPictureBox.Name = "userPictureBox";
-            this.userPictureBox.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.userPictureBox.Size = new System.Drawing.Size(39, 23);
-            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.userPictureBox.TabIndex = 29;
-            this.userPictureBox.TabStop = false;
-            // 
-            // profileShowArrowButton
-            // 
-            this.profileShowArrowButton.BackColor = System.Drawing.Color.Transparent;
-            this.profileShowArrowButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.profileShowArrowButton.FlatAppearance.BorderSize = 0;
-            this.profileShowArrowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.profileShowArrowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.profileShowArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.profileShowArrowButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
-            this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.profileShowArrowButton.IconSize = 20;
-            this.profileShowArrowButton.Location = new System.Drawing.Point(329, 5);
-            this.profileShowArrowButton.Name = "profileShowArrowButton";
-            this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.profileShowArrowButton.Size = new System.Drawing.Size(13, 23);
-            this.profileShowArrowButton.TabIndex = 27;
-            this.profileShowArrowButton.UseVisualStyleBackColor = false;
-            // 
-            // khosraViewWebBrowser
-            // 
-            this.khosraViewWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khosraViewWebBrowser.Location = new System.Drawing.Point(0, 0);
-            this.khosraViewWebBrowser.Margin = new System.Windows.Forms.Padding(0);
-            this.khosraViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.khosraViewWebBrowser.Name = "khosraViewWebBrowser";
-            this.khosraViewWebBrowser.Size = new System.Drawing.Size(1350, 581);
-            this.khosraViewWebBrowser.TabIndex = 5;
-            this.khosraViewWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // button30
             // 
@@ -708,6 +712,7 @@ namespace dNothi.Desktop.UI
             this.panel4.ResumeLayout(false);
             this.profilePanel.ResumeLayout(false);
             this.profilePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.dakModulePanel.ResumeLayout(false);
             this.dakModulePanel.PerformLayout();
             this.metroPanel2.ResumeLayout(false);
@@ -724,7 +729,6 @@ namespace dNothi.Desktop.UI
             this.headerTableLayoutPanel.PerformLayout();
             this.footerTableLayoutPanel.ResumeLayout(false);
             this.footerTableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

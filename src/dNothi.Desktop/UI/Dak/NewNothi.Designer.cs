@@ -665,7 +665,7 @@
             this.panel11.Controls.Add(this.lbNothilast4digit);
             this.panel11.Location = new System.Drawing.Point(483, 57);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(229, 41);
+            this.panel11.Size = new System.Drawing.Size(229, 42);
             this.panel11.TabIndex = 65;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint_1);
             // 
@@ -702,7 +702,7 @@
             this.lbNothiNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNothiNo.Location = new System.Drawing.Point(338, 57);
             this.lbNothiNo.Name = "lbNothiNo";
-            this.lbNothiNo.Size = new System.Drawing.Size(146, 41);
+            this.lbNothiNo.Size = new System.Drawing.Size(146, 42);
             this.lbNothiNo.TabIndex = 64;
             this.lbNothiNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbNothiNo.Paint += new System.Windows.Forms.PaintEventHandler(this.label14_Paint);
@@ -759,7 +759,7 @@
             this.lbNothiShakha.Location = new System.Drawing.Point(13, 57);
             this.lbNothiShakha.Name = "lbNothiShakha";
             this.lbNothiShakha.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.lbNothiShakha.Size = new System.Drawing.Size(130, 41);
+            this.lbNothiShakha.Size = new System.Drawing.Size(130, 42);
             this.lbNothiShakha.TabIndex = 42;
             this.lbNothiShakha.Text = "ই-নথি";
             this.lbNothiShakha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -787,7 +787,7 @@
             this.panel12.Controls.Add(this.txtNothiSubject);
             this.panel12.Location = new System.Drawing.Point(25, 163);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(804, 43);
+            this.panel12.Size = new System.Drawing.Size(804, 42);
             this.panel12.TabIndex = 68;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint);
             // 

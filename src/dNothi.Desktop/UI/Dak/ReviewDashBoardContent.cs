@@ -165,7 +165,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnShowInEditor_Click(object sender, EventArgs e)
         {
-            RvwDashContentShowInEditor rvwDashContentShowInEditor = new RvwDashContentShowInEditor();
+            RvwDashContentShowInEditor rvwDashContentShowInEditor = FormFactory.Create<RvwDashContentShowInEditor>();
             rvwDashContentShowInEditor.Show();
         }
     }
