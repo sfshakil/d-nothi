@@ -16,6 +16,7 @@ namespace dNothi.Desktop.UI.Dak
         public PotrojariGroupContent()
         {
             InitializeComponent();
+            rvwDashBoardContentShare.Visible = false;
         }
 
         private void detailsPanel_MouseHover(object sender, EventArgs e)
@@ -87,6 +88,22 @@ namespace dNothi.Desktop.UI.Dak
         private void btnDelete_MouseLeave(object sender, EventArgs e)
         {
             btnDelete.IconColor = Color.FromArgb(78, 165, 254);
+        }
+        ReviewDashBoardContentShare rvwDashBoardContentShare = new ReviewDashBoardContentShare();
+        private void btnTotalPerson_Click(object sender, EventArgs e)
+        {
+            if (rvwDashBoardContentShare.Visible)
+            {
+                rvwDashBoardContentShare.Visible = false;
+            }
+            else
+            {
+                Controls.Add(rvwDashBoardContentShare);
+                rvwDashBoardContentShare.Location = new Point(430, 56);
+                rvwDashBoardContentShare.Visible = true;
+                rvwDashBoardContentShare.BringToFront();
+            }
+        
         }
     }
 }
