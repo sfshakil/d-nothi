@@ -15,7 +15,7 @@ namespace dNothi.Desktop.UI.Dak
         public ReviewDashBoardContent()
         {
             InitializeComponent();
-            reviewDashBoardContentShare.Visible = false;
+            rvwDashBoardContentShare.Visible = false;
         }
 
         private void ReviewDashBoardContent_MouseHover(object sender, EventArgs e)
@@ -110,34 +110,75 @@ namespace dNothi.Desktop.UI.Dak
         private void btnDelete_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
-            btnDelete.IconColor = Color.FromArgb(246, 78, 96);
+            btnShowInEditor.IconColor = Color.FromArgb(246, 78, 96);
         }
 
         private void btnDelete_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(250, 250, 250);
-            btnDelete.IconColor = Color.FromArgb(78, 165, 254);
+            btnShowInEditor.IconColor = Color.FromArgb(78, 165, 254);
         }
-        ReviewDashBoardContentShare reviewDashBoardContentShare = new ReviewDashBoardContentShare();
+        
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+        public Form AttachNothiTypeListControlToForm(Control control)
+        {
+            Form form = new Form();
+
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(16, 32);
+            control.Location = new System.Drawing.Point(0, 0);
+            form.Size = control.Size;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = form.Size;
+            hideform.Opacity = .1;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        ReviewDashBoardContentShare rvwDashBoardContentShare = new ReviewDashBoardContentShare();
         private void btnShare_Click(object sender, EventArgs e)
         {
-            int width = reviewDashBoardContentShare.Width;
-            if (reviewDashBoardContentShare.Width == width && !reviewDashBoardContentShare.Visible)
+            if (rvwDashBoardContentShare.Visible)
             {
-                reviewDashBoardContentShare.Visible = true;
-                //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
-                reviewDashBoardContentShare.Location = new System.Drawing.Point(227 + 689, 50);
-                Controls.Add(reviewDashBoardContentShare);
-                reviewDashBoardContentShare.BringToFront();
-                width++;
-                //reviewDashBoardContentShare.officeInfos = _userService.GetAllLocalOfficeInfo();
-
+                rvwDashBoardContentShare.Visible = false;
             }
             else
             {
-                reviewDashBoardContentShare.Visible = false;
-                width = reviewDashBoardContentShare.Width;
+                Controls.Add(rvwDashBoardContentShare);
+                rvwDashBoardContentShare.Location = new Point(415, 76);
+                rvwDashBoardContentShare.Visible = true;
+                rvwDashBoardContentShare.BringToFront();
             }
+        }
+
+        private void btnShowInEditor_Click(object sender, EventArgs e)
+        {
+            RvwDashContentShowInEditor rvwDashContentShowInEditor = FormFactory.Create<RvwDashContentShowInEditor>();
+            rvwDashContentShowInEditor.Show();
         }
     }
 }

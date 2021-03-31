@@ -57,7 +57,9 @@ namespace dNothi.Desktop.UI.Dak
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.rightSideTLP = new System.Windows.Forms.TableLayoutPanel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btnShowInEditor = new FontAwesome.Sharp.IconButton();
             this.btnShare = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -75,6 +77,8 @@ namespace dNothi.Desktop.UI.Dak
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.rightSideTLP.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // contentTableLayoutPanel
@@ -471,8 +475,8 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Controls.Add(this.btnShare);
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.rightSideTLP);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(910, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
@@ -482,25 +486,55 @@ namespace dNothi.Desktop.UI.Dak
             this.panel2.MouseLeave += new System.EventHandler(this.ReviewDashBoardContent_MouseLeave);
             this.panel2.MouseHover += new System.EventHandler(this.ReviewDashBoardContent_MouseHover);
             // 
-            // btnDelete
+            // rightSideTLP
             // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.FileImport;
-            this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
-            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDelete.IconSize = 24;
-            this.btnDelete.Location = new System.Drawing.Point(51, 32);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(35, 29);
-            this.btnDelete.TabIndex = 7;
-            this.MyToolTip.SetToolTip(this.btnDelete, "এডিটরে দেখুন");
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.MouseLeave += new System.EventHandler(this.btnDelete_MouseLeave);
-            this.btnDelete.MouseHover += new System.EventHandler(this.btnDelete_MouseHover);
+            this.rightSideTLP.AutoSize = true;
+            this.rightSideTLP.ColumnCount = 1;
+            this.rightSideTLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.rightSideTLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.rightSideTLP.Controls.Add(this.panel10, 0, 0);
+            this.rightSideTLP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightSideTLP.Location = new System.Drawing.Point(0, 0);
+            this.rightSideTLP.Margin = new System.Windows.Forms.Padding(0);
+            this.rightSideTLP.Name = "rightSideTLP";
+            this.rightSideTLP.RowCount = 2;
+            this.rightSideTLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.rightSideTLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.rightSideTLP.Size = new System.Drawing.Size(100, 100);
+            this.rightSideTLP.TabIndex = 0;
+            // 
+            // panel10
+            // 
+            this.panel10.AutoSize = true;
+            this.panel10.Controls.Add(this.btnShowInEditor);
+            this.panel10.Controls.Add(this.btnShare);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(100, 60);
+            this.panel10.TabIndex = 0;
+            // 
+            // btnShowInEditor
+            // 
+            this.btnShowInEditor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnShowInEditor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnShowInEditor.FlatAppearance.BorderSize = 0;
+            this.btnShowInEditor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowInEditor.IconChar = FontAwesome.Sharp.IconChar.FileImport;
+            this.btnShowInEditor.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
+            this.btnShowInEditor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnShowInEditor.IconSize = 24;
+            this.btnShowInEditor.Location = new System.Drawing.Point(50, 25);
+            this.btnShowInEditor.Margin = new System.Windows.Forms.Padding(0);
+            this.btnShowInEditor.Name = "btnShowInEditor";
+            this.btnShowInEditor.Size = new System.Drawing.Size(35, 29);
+            this.btnShowInEditor.TabIndex = 7;
+            this.MyToolTip.SetToolTip(this.btnShowInEditor, "এডিটরে দেখুন");
+            this.btnShowInEditor.UseVisualStyleBackColor = false;
+            this.btnShowInEditor.Click += new System.EventHandler(this.btnShowInEditor_Click);
+            this.btnShowInEditor.MouseLeave += new System.EventHandler(this.btnDelete_MouseLeave);
+            this.btnShowInEditor.MouseHover += new System.EventHandler(this.btnDelete_MouseHover);
             // 
             // btnShare
             // 
@@ -512,7 +546,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnShare.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
             this.btnShare.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnShare.IconSize = 24;
-            this.btnShare.Location = new System.Drawing.Point(16, 32);
+            this.btnShare.Location = new System.Drawing.Point(15, 25);
             this.btnShare.Margin = new System.Windows.Forms.Padding(0);
             this.btnShare.Name = "btnShare";
             this.btnShare.Size = new System.Drawing.Size(35, 29);
@@ -546,6 +580,7 @@ namespace dNothi.Desktop.UI.Dak
             this.MouseLeave += new System.EventHandler(this.ReviewDashBoardContent_MouseLeave);
             this.MouseHover += new System.EventHandler(this.ReviewDashBoardContent_MouseHover);
             this.contentTableLayoutPanel.ResumeLayout(false);
+            this.contentTableLayoutPanel.PerformLayout();
             this.detailsPanel.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -565,6 +600,10 @@ namespace dNothi.Desktop.UI.Dak
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.rightSideTLP.ResumeLayout(false);
+            this.rightSideTLP.PerformLayout();
+            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -577,7 +616,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnShowInEditor;
         private FontAwesome.Sharp.IconButton btnShare;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel7;
@@ -603,5 +642,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolTip MyToolTip;
+        private System.Windows.Forms.TableLayoutPanel rightSideTLP;
+        private System.Windows.Forms.Panel panel10;
     }
 }

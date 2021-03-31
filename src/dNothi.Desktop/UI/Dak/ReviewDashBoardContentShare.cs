@@ -15,32 +15,27 @@ namespace dNothi.Desktop.UI.Dak
         public ReviewDashBoardContentShare()
         {
             InitializeComponent();
-            loadReviewDashBoardContentShareContent(2);
         }
-        private void loadReviewDashBoardContentShareContent(int i)
+
+        private void panel1_MouseHover(object sender, EventArgs e)
         {
+            panel1.BackColor = Color.FromArgb(235, 237, 243);
+            panel2.BackColor = Color.FromArgb(235, 237, 243);
+            label4.BackColor = Color.FromArgb(235, 237, 243);
+            label5.BackColor = Color.FromArgb(235, 237, 243);
+        }
 
-            contentTableLayoutPanel.Controls.Clear();
+        private void panel1_MouseLeave(object sender, EventArgs e)
+        {
+            panel1.BackColor = Color.White;
+            panel2.BackColor = Color.White;
+            label4.BackColor = Color.White;
+            label5.BackColor = Color.White;
+        }
 
-
-            for (int j = 0; j <= i; j++)
-            {
-
-                ReviewDashBoardContentShareItem pgc = new ReviewDashBoardContentShareItem();
-                contentTableLayoutPanel.AutoScroll = true;
-
-                pgc.Dock = DockStyle.Fill;
-
-                int row = contentTableLayoutPanel.RowCount++;
-
-                contentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
-                if (row == 1)
-                {
-                    row = contentTableLayoutPanel.RowCount++;
-                    contentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
-                }
-                contentTableLayoutPanel.Controls.Add(pgc, 0, row);
-            }
+        private void ReviewDashBoardContentShare_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
     }
 }

@@ -531,12 +531,6 @@
     <Compile Include="UI\Dak\ReviewDashBoardContentShare.Designer.cs">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\ReviewDashBoardContentShareItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Dak\ReviewDashBoardContentShareItem.Designer.cs">
-      <DependentUpon>ReviewDashBoardContentShareItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1156,6 +1150,12 @@
     <Compile Include="UI\ReviewDashBoard.Designer.cs">
       <DependentUpon>ReviewDashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\RvwDashContentShowInEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RvwDashContentShowInEditor.Designer.cs">
+      <DependentUpon>RvwDashContentShowInEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SelectOfficerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1318,9 +1318,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\ReviewDashBoardContentShare.resx">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\ReviewDashBoardContentShareItem.resx">
-      <DependentUpon>ReviewDashBoardContentShareItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -1606,6 +1603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReviewDashBoard.resx">
       <DependentUpon>ReviewDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RvwDashContentShowInEditor.resx">
+      <DependentUpon>RvwDashContentShowInEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SelectOfficerForm.resx">
       <DependentUpon>SelectOfficerForm.cs</DependentUpon>

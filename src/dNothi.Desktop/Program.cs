@@ -192,6 +192,8 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Nothi>().AsSelf();
             builder.RegisterType<UI.KhosraDashboard>().AsSelf();
             builder.RegisterType<UI.PotrojariGroup>().AsSelf();
+            builder.RegisterType<UI.ReviewDashBoard>().AsSelf();
+            builder.RegisterType<UI.RvwDashContentShowInEditor>().AsSelf();
             builder.RegisterType<UI.Khosra>().AsSelf();
             builder.RegisterType<UI.Dak.DakBoxSharingForm>().AsSelf();
             builder.RegisterType<UI.Note>().AsSelf();

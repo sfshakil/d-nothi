@@ -33,6 +33,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnTotalPerson = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbNoteNumber = new System.Windows.Forms.Label();
@@ -40,10 +41,9 @@ namespace dNothi.Desktop.UI.Dak
             this.lbCreater = new System.Windows.Forms.Label();
             this.lbDetails = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCanRevert = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.btnEdit = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.contentTableLayoutPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -99,7 +99,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.btnCanRevert);
+            this.panel5.Controls.Add(this.btnTotalPerson);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(890, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
@@ -109,6 +109,28 @@ namespace dNothi.Desktop.UI.Dak
             this.panel5.TabIndex = 4;
             this.panel5.MouseLeave += new System.EventHandler(this.detailsPanel_MouseLeave);
             this.panel5.MouseHover += new System.EventHandler(this.detailsPanel_MouseHover);
+            // 
+            // btnTotalPerson
+            // 
+            this.btnTotalPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnTotalPerson.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTotalPerson.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnTotalPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTotalPerson.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTotalPerson.ForeColor = System.Drawing.Color.White;
+            this.btnTotalPerson.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnTotalPerson.IconColor = System.Drawing.SystemColors.Window;
+            this.btnTotalPerson.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTotalPerson.IconSize = 20;
+            this.btnTotalPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTotalPerson.Location = new System.Drawing.Point(5, 10);
+            this.btnTotalPerson.Margin = new System.Windows.Forms.Padding(0);
+            this.btnTotalPerson.Name = "btnTotalPerson";
+            this.btnTotalPerson.Size = new System.Drawing.Size(110, 35);
+            this.btnTotalPerson.TabIndex = 70;
+            this.btnTotalPerson.Text = "মোট সদস্য: ৫";
+            this.btnTotalPerson.UseVisualStyleBackColor = false;
+            this.btnTotalPerson.Click += new System.EventHandler(this.btnTotalPerson_Click);
             // 
             // panel4
             // 
@@ -137,7 +159,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbNoteNumber.AutoSize = true;
             this.lbNoteNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
-            this.lbNoteNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbNoteNumber.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbNoteNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
             this.lbNoteNumber.Location = new System.Drawing.Point(10, 15);
@@ -201,40 +223,8 @@ namespace dNothi.Desktop.UI.Dak
             this.panel2.MouseLeave += new System.EventHandler(this.detailsPanel_MouseLeave);
             this.panel2.MouseHover += new System.EventHandler(this.detailsPanel_MouseHover);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 65);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(720, 1);
-            this.panel1.TabIndex = 2;
-            // 
-            // btnCanRevert
-            // 
-            this.btnCanRevert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.btnCanRevert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCanRevert.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.btnCanRevert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCanRevert.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanRevert.ForeColor = System.Drawing.Color.White;
-            this.btnCanRevert.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnCanRevert.IconColor = System.Drawing.SystemColors.Window;
-            this.btnCanRevert.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCanRevert.IconSize = 20;
-            this.btnCanRevert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCanRevert.Location = new System.Drawing.Point(5, 10);
-            this.btnCanRevert.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCanRevert.Name = "btnCanRevert";
-            this.btnCanRevert.Size = new System.Drawing.Size(110, 35);
-            this.btnCanRevert.TabIndex = 70;
-            this.btnCanRevert.Text = "মোট সদস্য: ৫";
-            this.btnCanRevert.UseVisualStyleBackColor = false;
-            // 
             // btnDelete
             // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -254,7 +244,6 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // btnEdit
             // 
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -271,6 +260,16 @@ namespace dNothi.Desktop.UI.Dak
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             this.btnEdit.MouseLeave += new System.EventHandler(this.btnEdit_MouseLeave);
             this.btnEdit.MouseHover += new System.EventHandler(this.btnEdit_MouseHover);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 65);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(720, 1);
+            this.panel1.TabIndex = 2;
             // 
             // PotrojariGroupContent
             // 
@@ -307,7 +306,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton btnCanRevert;
+        private FontAwesome.Sharp.IconButton btnTotalPerson;
         private System.Windows.Forms.Label lbNoteNumber;
         private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnEdit;
