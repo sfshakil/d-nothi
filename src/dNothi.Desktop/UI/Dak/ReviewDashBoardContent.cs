@@ -15,6 +15,7 @@ namespace dNothi.Desktop.UI.Dak
         public ReviewDashBoardContent()
         {
             InitializeComponent();
+            rvwDashBoardContentShare.Visible = false;
         }
 
         private void ReviewDashBoardContent_MouseHover(object sender, EventArgs e)
@@ -158,9 +159,20 @@ namespace dNothi.Desktop.UI.Dak
             hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
             hideform.ShowDialog();
         }
+        ReviewDashBoardContentShare rvwDashBoardContentShare = new ReviewDashBoardContentShare();
         private void btnShare_Click(object sender, EventArgs e)
         {
-            
+            if (rvwDashBoardContentShare.Visible)
+            {
+                rvwDashBoardContentShare.Visible = false;
+            }
+            else
+            {
+                Controls.Add(rvwDashBoardContentShare);
+                rvwDashBoardContentShare.Location = new Point(415, 76);
+                rvwDashBoardContentShare.Visible = true;
+                rvwDashBoardContentShare.BringToFront();
+            }
         }
 
         private void btnShowInEditor_Click(object sender, EventArgs e)
