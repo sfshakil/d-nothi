@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Desktop.UI.ManuelUserControl;
+using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -49,13 +50,16 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 {
                     foreach (gdftype gd in fl)
                     {
+
+                        GuardFileListRowUserControl guardFileTable = UserControlFactory.Create<GuardFileListRowUserControl>();
+                       // guardFileTable.id = Convert.ToInt32(gd.rowNo);
+                        //guardFileTable.name = gd.type;
+                        //guardFileTable.type = gd.type;
+
+
                         
-                        var guardFileTable = UserControlFactory.Create<GuarFileListViewDeleteUC>();
-                        guardFileTable.id = Convert.ToInt32(gd.rowNo);
-                        guardFileTable.name = gd.type;
-                        guardFileTable.type = gd.type;
 
-
+                       // var guardFileTable = new GuardFileListRowUserControl();
                         guardFileTable.Dock = DockStyle.Fill;
 
 

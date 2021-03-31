@@ -99,22 +99,10 @@ namespace dNothi.Desktop.UI
 
         private void moduleButton_Click(object sender, EventArgs e)
         {
-            if(dakModulePanel.Visible)
-            {
-                dakModulePanel.Visible = false;
-            }
-            else
-            {
-                
-                dakModulePanel.Visible = true;
-                dakModulePanel.BringToFront();
-            }
+            UIDesignCommonMethod.CallAllModulePanel(moduleButton, this);
         }
 
-        private void bodyPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void KhosraDashboard_Shown(object sender, EventArgs e)
         {
@@ -160,6 +148,15 @@ namespace dNothi.Desktop.UI
 
             UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl4);
 
+        }
+
+        private void DakModule_CLick(object sender, EventArgs e)
+        {
+            UIDesignCommonMethod.DakModuleClick(this);
+        }
+        private void NothiModule_CLick(object sender, EventArgs e)
+        {
+            UIDesignCommonMethod.NothiModuleClick(this);
         }
     }
 }

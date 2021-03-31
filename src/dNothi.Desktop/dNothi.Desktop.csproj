@@ -550,11 +550,23 @@
     <Compile Include="UI\GuardFileUI\GuardFile.Designer.cs">
       <DependentUpon>GuardFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\CreateGuardFileTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\CreateGuardFileTypeForm.Designer.cs">
+      <DependentUpon>CreateGuardFileTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileBrowseUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileBrowseUC.Designer.cs">
       <DependentUpon>GuardFileBrowseUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileListRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileListRowUserControl.Designer.cs">
+      <DependentUpon>GuardFileListRowUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileTypeTableUserControl.cs">
       <SubType>UserControl</SubType>
@@ -652,11 +664,29 @@
     <Compile Include="UI\Dak\Prapok.Designer.cs">
       <DependentUpon>Prapok.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraAttachmentViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraAttachmentViewForm.Designer.cs">
+      <DependentUpon>KhosraAttachmentViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\KhosraOnumodonAttachmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Khosra Potro\KhosraOnumodonAttachmentUserControl.Designer.cs">
       <DependentUpon>KhosraOnumodonAttachmentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraPrapokListRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraPrapokListRowUserControl.Designer.cs">
+      <DependentUpon>KhosraPrapokListRowUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraPrapokListViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraPrapokListViewForm.Designer.cs">
+      <DependentUpon>KhosraPrapokListViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Khosra Potro\KhosraSelectedAttachmentRow.cs">
       <SubType>UserControl</SubType>
@@ -1066,6 +1096,12 @@
     <Compile Include="UI\CustomMessageBox\UIFormValidationAlertMessageForm.Designer.cs">
       <DependentUpon>UIFormValidationAlertMessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ModulePanelUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ModulePanelUserControl.Designer.cs">
+      <DependentUpon>ModulePanelUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\NewNothiCreateGuidelines.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1292,8 +1328,14 @@
     <EmbeddedResource Include="UI\GuardFileUI\GuardFile.resx">
       <DependentUpon>GuardFile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\CreateGuardFileTypeForm.resx">
+      <DependentUpon>CreateGuardFileTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuardFileBrowseUC.resx">
       <DependentUpon>GuardFileBrowseUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuardFileListRowUserControl.resx">
+      <DependentUpon>GuardFileListRowUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuardFileTypeTableUserControl.resx">
       <DependentUpon>GuardFileTypeTableUserControl.cs</DependentUpon>
@@ -1319,8 +1361,17 @@
     <EmbeddedResource Include="UI\Khosra Potro\KhosraAttachmentForm.resx">
       <DependentUpon>KhosraAttachmentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\KhosraAttachmentViewForm.resx">
+      <DependentUpon>KhosraAttachmentViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraOnumodonAttachmentUserControl.resx">
       <DependentUpon>KhosraOnumodonAttachmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\KhosraPrapokListRowUserControl.resx">
+      <DependentUpon>KhosraPrapokListRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\KhosraPrapokListViewForm.resx">
+      <DependentUpon>KhosraPrapokListViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraSelectedAttachmentRow.resx">
       <DependentUpon>KhosraSelectedAttachmentRow.cs</DependentUpon>
@@ -1525,6 +1576,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomMessageBox\UIFormValidationAlertMessageForm.resx">
       <DependentUpon>UIFormValidationAlertMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ModulePanelUserControl.resx">
+      <DependentUpon>ModulePanelUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NewNothiCreateGuidelines.resx">
       <DependentUpon>NewNothiCreateGuidelines.cs</DependentUpon>

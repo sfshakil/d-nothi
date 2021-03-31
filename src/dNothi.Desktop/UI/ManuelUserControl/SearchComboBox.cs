@@ -97,12 +97,17 @@ namespace dNothi.Desktop.UI.ManuelUserControl
             }
         }
 
+        public event EventHandler ChangeSelectedIndex;
         private void searchListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
 
                 _id = (searchListBox.SelectedItem as ComboBoxItems).id;
+
+                if (this.ChangeSelectedIndex != null)
+                    this.ChangeSelectedIndex(sender, e);
+
             }
             catch(Exception Ex)
             {
@@ -122,11 +127,6 @@ namespace dNothi.Desktop.UI.ManuelUserControl
 
         private void SearchUserController_Load(object sender, EventArgs e)
         {
-        }
-
-        private void SearchUserController_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void searchListBox_MouseEnter(object sender, ListViewItemMouseHoverEventArgs e)

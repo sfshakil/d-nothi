@@ -27,6 +27,45 @@ namespace dNothi.Desktop.UI
 
         }
 
+        public static void CallAllModulePanel(Button button , Form form)
+        {
+            var modulePanelUserControls = form.Controls.OfType<ModulePanelUserControl>().FirstOrDefault(a=>a.Visible==true);
+
+            if (modulePanelUserControls == null)
+            {
+                Point locationOnForm = button.FindForm().PointToClient(
+                button.Parent.PointToScreen(button.Location));
+
+
+                ModulePanelUserControl modulePanelUserControl = new ModulePanelUserControl();
+                modulePanelUserControl.Location = new Point(locationOnForm.X, locationOnForm.Y + button.Height + 1);
+
+
+
+                form.Controls.Add(modulePanelUserControl);
+
+                modulePanelUserControl.BringToFront();
+               
+
+            }
+            else
+            {
+                form.Controls.Remove(modulePanelUserControls);
+            }
+        }
+
+        public static void NothiModuleClick(Form form)
+        {
+            form.Hide();
+            var nothiForm= FormFactory.Create<Nothi>();
+            nothiForm.ShowDialog();
+        }
+        public static void DakModuleClick(Form form)
+        {
+            form.Hide();
+            var dakForm = FormFactory.Create<Dashboard>();
+            dakForm.ShowDialog();
+        }
 
         public static void Border_Color_Blue(object sender, PaintEventArgs e)
         {
@@ -85,6 +124,20 @@ namespace dNothi.Desktop.UI
             hideform.StartPosition = FormStartPosition.CenterScreen;
             hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
             hideform.ShowDialog();
+        }
+
+        public static Form GetParentsForm(Control controls)
+        {
+            if (controls.Parent is Form)
+
+            {
+                return controls.Parent as Form;
+            }
+            else
+            {
+               return GetParentsForm(controls.Parent);
+            }
+            return null;
         }
         public static void CallShadowWindow(Form form)
         {

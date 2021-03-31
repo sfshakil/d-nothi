@@ -25,6 +25,7 @@ using dNothi.Services.SyncServices;
 using dNothi.Desktop.UI.NothiUI;
 using dNothi.Services.KhasraService;
 using dNothi.Desktop.UI.OtherModule;
+using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
 
 namespace dNothi.Desktop
 {
@@ -234,6 +235,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileTypeTableUserControl>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuarFileListViewDeleteUC>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileBrowseUC>().AsSelf();
+            builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
            
            
 
