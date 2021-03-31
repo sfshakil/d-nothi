@@ -248,6 +248,7 @@
             this.nothiModulePanel.Name = "nothiModulePanel";
             this.nothiModulePanel.Size = new System.Drawing.Size(134, 43);
             this.nothiModulePanel.TabIndex = 26;
+            this.nothiModulePanel.Click += new System.EventHandler(this.NothiModule_CLick);
             // 
             // nothiModuleNameLabel
             // 
@@ -259,6 +260,7 @@
             this.nothiModuleNameLabel.Size = new System.Drawing.Size(34, 24);
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
+            this.nothiModuleNameLabel.Click += new System.EventHandler(this.NothiModule_CLick);
             // 
             // iconButton2
             // 
@@ -274,6 +276,7 @@
             this.iconButton2.Size = new System.Drawing.Size(36, 30);
             this.iconButton2.TabIndex = 4;
             this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.NothiModule_CLick);
             // 
             // moduleNothiCountLabel
             // 
@@ -287,10 +290,11 @@
             this.moduleNothiCountLabel.Size = new System.Drawing.Size(31, 20);
             this.moduleNothiCountLabel.TabIndex = 18;
             this.moduleNothiCountLabel.Text = "১২২";
+            this.moduleNothiCountLabel.Click += new System.EventHandler(this.NothiModule_CLick);
             // 
             // dakModulePanel
             // 
-            this.dakModulePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.dakModulePanel.BackColor = System.Drawing.Color.Transparent;
             this.dakModulePanel.Controls.Add(this.label1);
             this.dakModulePanel.Controls.Add(this.iconButton1);
             this.dakModulePanel.Controls.Add(this.moduleDakCountLabel);
@@ -299,6 +303,7 @@
             this.dakModulePanel.Name = "dakModulePanel";
             this.dakModulePanel.Size = new System.Drawing.Size(134, 43);
             this.dakModulePanel.TabIndex = 100;
+            this.dakModulePanel.Click += new System.EventHandler(this.DakModule_CLick);
             // 
             // label1
             // 
@@ -310,6 +315,7 @@
             this.label1.Size = new System.Drawing.Size(39, 24);
             this.label1.TabIndex = 19;
             this.label1.Text = "ডাক";
+            this.label1.Click += new System.EventHandler(this.DakModule_CLick);
             // 
             // iconButton1
             // 
@@ -325,6 +331,7 @@
             this.iconButton1.Size = new System.Drawing.Size(36, 30);
             this.iconButton1.TabIndex = 4;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.DakModule_CLick);
             // 
             // moduleDakCountLabel
             // 
@@ -338,6 +345,7 @@
             this.moduleDakCountLabel.Size = new System.Drawing.Size(23, 20);
             this.moduleDakCountLabel.TabIndex = 18;
             this.moduleDakCountLabel.Text = "১২";
+            this.moduleDakCountLabel.Click += new System.EventHandler(this.DakModule_CLick);
             // 
             // linkLabel2
             // 

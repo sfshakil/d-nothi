@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
+using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Desktop.UI.Khosra_Potro
 {
@@ -65,6 +66,34 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             
             }
         
+        }
+
+        private void attachmentButton_Click(object sender, EventArgs e)
+        {
+            DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse();
+            dakAttachmentResponse.data = new List<DakAttachmentDTO>();
+            dakAttachmentResponse.data.Add(new DakAttachmentDTO { file_name = "Attachment Delete", id = 1, attachment_type = "pdf", is_main = 1, file_size_in_kb = "12.22" });
+            dakAttachmentResponse.data.Add(new DakAttachmentDTO { file_name = "ছবি-ETL_MR_May'2020", id = 2, attachment_type = "pdf", is_main = 0, file_size_in_kb = "12.22" });
+            dakAttachmentResponse.data.Add(new DakAttachmentDTO { file_name = "জাতীয় পরিচয়পত্র(আবেদনকারীর) - NID_ARIF", id = 3, attachment_type = "pdf", is_main = 0, file_size_in_kb = "14.22" });
+
+
+
+            KhosraAttachmentViewForm khosraAttachmentViewForm = new KhosraAttachmentViewForm();
+            khosraAttachmentViewForm.dakAttachmentResponse = dakAttachmentResponse;
+
+
+            Form parentForm = UIDesignCommonMethod.GetParentsForm(this);
+
+
+
+            UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentViewForm, parentForm);
+            
+        }
+
+        private void onumodonButton_Click(object sender, EventArgs e)
+        {
+            KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
+            UIDesignCommonMethod.CalPopUpWindow(khosraPrapokListViewForm, UIDesignCommonMethod.GetParentsForm(this));
         }
     }
 }

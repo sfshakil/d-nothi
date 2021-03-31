@@ -203,8 +203,8 @@
             this.khosraPotroButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.button11 = new System.Windows.Forms.Button();
+            this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -3207,6 +3207,19 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Location = new System.Drawing.Point(1083, 60);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(37, 52);
+            this.button11.TabIndex = 14;
+            this.button11.UseVisualStyleBackColor = false;
+            // 
             // designationDetailsPanel
             // 
             this.designationDetailsPanel._designationId = 0;
@@ -3228,19 +3241,6 @@
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(1083, 60);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(37, 52);
-            this.button11.TabIndex = 14;
-            this.button11.UseVisualStyleBackColor = false;
             // 
             // Dashboard
             // 

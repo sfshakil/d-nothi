@@ -53,14 +53,14 @@
             // guardFileListTableLayoutPanel
             // 
             this.guardFileListTableLayoutPanel.AutoSize = true;
+            this.guardFileListTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.guardFileListTableLayoutPanel.ColumnCount = 1;
             this.guardFileListTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.guardFileListTableLayoutPanel.Controls.Add(this.panel3, 0, 0);
             this.guardFileListTableLayoutPanel.Controls.Add(this.guardFileTableLayoutPanel, 0, 2);
             this.guardFileListTableLayoutPanel.Controls.Add(this.panel1, 0, 1);
             this.guardFileListTableLayoutPanel.Controls.Add(this.guardListTableLayoutPanel, 0, 3);
             this.guardFileListTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guardFileListTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.guardFileListTableLayoutPanel.Location = new System.Drawing.Point(0, 39);
             this.guardFileListTableLayoutPanel.Name = "guardFileListTableLayoutPanel";
             this.guardFileListTableLayoutPanel.Padding = new System.Windows.Forms.Padding(10, 0, 5, 0);
             this.guardFileListTableLayoutPanel.RowCount = 4;
@@ -68,7 +68,7 @@
             this.guardFileListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.guardFileListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.guardFileListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.guardFileListTableLayoutPanel.Size = new System.Drawing.Size(788, 200);
+            this.guardFileListTableLayoutPanel.Size = new System.Drawing.Size(788, 161);
             this.guardFileListTableLayoutPanel.TabIndex = 89;
             // 
             // panel3
@@ -77,12 +77,12 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.iconButton1);
             this.panel3.Controls.Add(this.iconButton2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(10, 0);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.panel3.Size = new System.Drawing.Size(773, 39);
+            this.panel3.Size = new System.Drawing.Size(788, 39);
             this.panel3.TabIndex = 88;
             // 
             // label4
@@ -90,9 +90,9 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.label4.Location = new System.Drawing.Point(552, 0);
+            this.label4.Location = new System.Drawing.Point(593, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 39);
+            this.label4.Size = new System.Drawing.Size(47, 39);
             this.label4.TabIndex = 37;
             this.label4.Text = "১ - ১২";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -102,9 +102,9 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.label2.Location = new System.Drawing.Point(626, 0);
+            this.label2.Location = new System.Drawing.Point(640, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 39);
+            this.label2.Size = new System.Drawing.Size(75, 39);
             this.label2.TabIndex = 33;
             this.label2.Text = " সর্বমোট: ১২";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -120,7 +120,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(700, 0);
+            this.iconButton1.Location = new System.Drawing.Point(715, 0);
             this.iconButton1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(34, 39);
@@ -138,7 +138,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(734, 0);
+            this.iconButton2.Location = new System.Drawing.Point(749, 0);
             this.iconButton2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(34, 39);
@@ -157,7 +157,7 @@
             this.guardFileTableLayoutPanel.Controls.Add(this.label10, 1, 0);
             this.guardFileTableLayoutPanel.Controls.Add(this.label9, 0, 0);
             this.guardFileTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guardFileTableLayoutPanel.Location = new System.Drawing.Point(10, 139);
+            this.guardFileTableLayoutPanel.Location = new System.Drawing.Point(10, 100);
             this.guardFileTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.guardFileTableLayoutPanel.Name = "guardFileTableLayoutPanel";
             this.guardFileTableLayoutPanel.RowCount = 1;
@@ -213,7 +213,7 @@
             // 
             this.panel1.Controls.Add(this.typeSearchLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(10, 47);
+            this.panel1.Location = new System.Drawing.Point(10, 8);
             this.panel1.Margin = new System.Windows.Forms.Padding(0, 8, 0, 20);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(773, 72);
@@ -236,7 +236,7 @@
             this.guardListTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.guardListTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.guardListTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guardListTableLayoutPanel.Location = new System.Drawing.Point(10, 187);
+            this.guardListTableLayoutPanel.Location = new System.Drawing.Point(10, 148);
             this.guardListTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.guardListTableLayoutPanel.Name = "guardListTableLayoutPanel";
             this.guardListTableLayoutPanel.RowCount = 1;
@@ -282,6 +282,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.typesearchComboBox);
             this.Controls.Add(this.guardFileListTableLayoutPanel);
+            this.Controls.Add(this.panel3);
             this.Name = "UCGuardFileList";
             this.Size = new System.Drawing.Size(788, 200);
             this.Load += new System.EventHandler(this.UCGuardFileList_Load);

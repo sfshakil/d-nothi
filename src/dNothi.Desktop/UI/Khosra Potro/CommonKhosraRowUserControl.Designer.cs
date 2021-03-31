@@ -289,6 +289,7 @@
             this.onumodonButton.TabIndex = 108;
             this.toolTip1.SetToolTip(this.onumodonButton, "প্রাপকের তালিকা");
             this.onumodonButton.UseVisualStyleBackColor = true;
+            this.onumodonButton.Click += new System.EventHandler(this.onumodonButton_Click);
             // 
             // attachmentButton
             // 
@@ -306,6 +307,7 @@
             this.attachmentButton.TabIndex = 107;
             this.toolTip1.SetToolTip(this.attachmentButton, "মূলপত্র ও সংযুক্তি");
             this.attachmentButton.UseVisualStyleBackColor = true;
+            this.attachmentButton.Click += new System.EventHandler(this.attachmentButton_Click);
             // 
             // panel1
             // 

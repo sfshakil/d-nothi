@@ -1,4 +1,5 @@
-﻿using dNothi.Desktop.UI.OtherModule.GuardFileUserControls;
+﻿using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
+using dNothi.Desktop.UI.OtherModule.GuardFileUserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,6 +100,7 @@ namespace dNothi.Desktop.UI.OtherModule
         private void moduleButton_Click(object sender, EventArgs e)
         {
 
+            UIDesignCommonMethod.CallAllModulePanel(moduleButton, this);
         }
 
         private void bodyPanel_Paint(object sender, PaintEventArgs e)
@@ -109,6 +111,27 @@ namespace dNothi.Desktop.UI.OtherModule
         private void guardFileAddButton_Click(object sender, EventArgs e)
         {
            // newGuardFileTypepanel.Visible = true;
+        }
+
+        private void guardFileAddButton_Click_1(object sender, EventArgs e)
+        {
+            CreateGuardFileTypeForm createGuardFileTypeForm = new CreateGuardFileTypeForm();
+            UIDesignCommonMethod.CalPopUpWindow(createGuardFileTypeForm, this);
+        }
+
+        private void dakModulePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void DakDashboardClick(object sender, EventArgs e)
+        {
+            UIDesignCommonMethod.DakModuleClick(this);
+        }
+
+        private void Nothi_ModuleCLick(object sender, EventArgs e)
+        {
+            UIDesignCommonMethod.NothiModuleClick(this);
         }
     }
 }

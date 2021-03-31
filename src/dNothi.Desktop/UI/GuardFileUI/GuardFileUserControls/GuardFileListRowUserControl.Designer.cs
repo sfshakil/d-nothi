@@ -1,0 +1,162 @@
+﻿namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
+{
+    partial class GuardFileListRowUserControl
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.typeNameLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.decisionDeleteButton = new FontAwesome.Sharp.IconButton();
+            this.decisionEditRightButton = new FontAwesome.Sharp.IconButton();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
+            this.tableLayoutPanel1.Controls.Add(this.typeNameLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.typeLabel, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(509, 50);
+            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.Cell_Color_Blue);
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Color);
+            // 
+            // typeNameLabel
+            // 
+            this.typeNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.typeNameLabel.AutoSize = true;
+            this.typeNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeNameLabel.Location = new System.Drawing.Point(3, 16);
+            this.typeNameLabel.Name = "typeNameLabel";
+            this.typeNameLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.typeNameLabel.Size = new System.Drawing.Size(61, 18);
+            this.typeNameLabel.TabIndex = 88;
+            this.typeNameLabel.Text = "বাংলাদেশ";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.decisionDeleteButton);
+            this.panel2.Controls.Add(this.decisionEditRightButton);
+            this.panel2.Location = new System.Drawing.Point(394, 6);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(83, 38);
+            this.panel2.TabIndex = 86;
+            // 
+            // decisionDeleteButton
+            // 
+            this.decisionDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.decisionDeleteButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.decisionDeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.decisionDeleteButton.FlatAppearance.BorderSize = 0;
+            this.decisionDeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.decisionDeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decisionDeleteButton.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.decisionDeleteButton.IconColor = System.Drawing.Color.White;
+            this.decisionDeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.decisionDeleteButton.IconSize = 20;
+            this.decisionDeleteButton.Location = new System.Drawing.Point(34, 0);
+            this.decisionDeleteButton.MaximumSize = new System.Drawing.Size(34, 36);
+            this.decisionDeleteButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.decisionDeleteButton.Name = "decisionDeleteButton";
+            this.decisionDeleteButton.Size = new System.Drawing.Size(34, 36);
+            this.decisionDeleteButton.TabIndex = 88;
+            this.decisionDeleteButton.UseVisualStyleBackColor = false;
+            // 
+            // decisionEditRightButton
+            // 
+            this.decisionEditRightButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.decisionEditRightButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.decisionEditRightButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.decisionEditRightButton.FlatAppearance.BorderSize = 0;
+            this.decisionEditRightButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.decisionEditRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decisionEditRightButton.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.decisionEditRightButton.IconColor = System.Drawing.Color.White;
+            this.decisionEditRightButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.decisionEditRightButton.IconSize = 24;
+            this.decisionEditRightButton.Location = new System.Drawing.Point(0, 0);
+            this.decisionEditRightButton.MaximumSize = new System.Drawing.Size(34, 36);
+            this.decisionEditRightButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.decisionEditRightButton.Name = "decisionEditRightButton";
+            this.decisionEditRightButton.Size = new System.Drawing.Size(34, 36);
+            this.decisionEditRightButton.TabIndex = 87;
+            this.decisionEditRightButton.UseVisualStyleBackColor = false;
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Location = new System.Drawing.Point(184, 18);
+            this.typeLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.typeLabel.Size = new System.Drawing.Size(72, 13);
+            this.typeLabel.TabIndex = 87;
+            this.typeLabel.Text = "ছুটির আইন";
+            this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // GuardFileListRowUserControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Name = "GuardFileListRowUserControl";
+            this.Size = new System.Drawing.Size(509, 50);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
+        private FontAwesome.Sharp.IconButton decisionDeleteButton;
+        private FontAwesome.Sharp.IconButton decisionEditRightButton;
+        private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.Label typeNameLabel;
+    }
+}

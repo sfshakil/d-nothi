@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cancelButton = new FontAwesome.Sharp.IconButton();
-            this.saveEditButton = new FontAwesome.Sharp.IconButton();
-            this.decisionDeleteButton = new FontAwesome.Sharp.IconButton();
-            this.decisionEditRightButton = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.EditUpdatetableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -40,6 +36,10 @@
             this.decisionNamePanel = new System.Windows.Forms.Panel();
             this.decisionNameTextBox = new System.Windows.Forms.TextBox();
             this.decisionNameLabel = new System.Windows.Forms.Label();
+            this.cancelButton = new FontAwesome.Sharp.IconButton();
+            this.saveEditButton = new FontAwesome.Sharp.IconButton();
+            this.decisionDeleteButton = new FontAwesome.Sharp.IconButton();
+            this.decisionEditRightButton = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.EditUpdatetableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -60,92 +60,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(114, 36);
             this.panel2.TabIndex = 85;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cancelButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.cancelButton.FlatAppearance.BorderSize = 0;
-            this.cancelButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.cancelButton.IconColor = System.Drawing.Color.White;
-            this.cancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.cancelButton.IconSize = 20;
-            this.cancelButton.Location = new System.Drawing.Point(102, 0);
-            this.cancelButton.MaximumSize = new System.Drawing.Size(34, 36);
-            this.cancelButton.MinimumSize = new System.Drawing.Size(34, 36);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(34, 36);
-            this.cancelButton.TabIndex = 87;
-            this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Visible = false;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // saveEditButton
-            // 
-            this.saveEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.saveEditButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.saveEditButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.saveEditButton.FlatAppearance.BorderSize = 0;
-            this.saveEditButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.saveEditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveEditButton.IconChar = FontAwesome.Sharp.IconChar.Cloud;
-            this.saveEditButton.IconColor = System.Drawing.Color.White;
-            this.saveEditButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.saveEditButton.IconSize = 24;
-            this.saveEditButton.Location = new System.Drawing.Point(68, 0);
-            this.saveEditButton.MaximumSize = new System.Drawing.Size(34, 36);
-            this.saveEditButton.MinimumSize = new System.Drawing.Size(34, 36);
-            this.saveEditButton.Name = "saveEditButton";
-            this.saveEditButton.Size = new System.Drawing.Size(34, 36);
-            this.saveEditButton.TabIndex = 88;
-            this.saveEditButton.UseVisualStyleBackColor = false;
-            this.saveEditButton.Visible = false;
-            this.saveEditButton.Click += new System.EventHandler(this.saveEditButton_Click);
-            // 
-            // decisionDeleteButton
-            // 
-            this.decisionDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.decisionDeleteButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.decisionDeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.decisionDeleteButton.FlatAppearance.BorderSize = 0;
-            this.decisionDeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.decisionDeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.decisionDeleteButton.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.decisionDeleteButton.IconColor = System.Drawing.Color.White;
-            this.decisionDeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.decisionDeleteButton.IconSize = 20;
-            this.decisionDeleteButton.Location = new System.Drawing.Point(34, 0);
-            this.decisionDeleteButton.MaximumSize = new System.Drawing.Size(34, 36);
-            this.decisionDeleteButton.MinimumSize = new System.Drawing.Size(34, 36);
-            this.decisionDeleteButton.Name = "decisionDeleteButton";
-            this.decisionDeleteButton.Size = new System.Drawing.Size(34, 36);
-            this.decisionDeleteButton.TabIndex = 86;
-            this.decisionDeleteButton.UseVisualStyleBackColor = false;
-            this.decisionDeleteButton.Click += new System.EventHandler(this.decisionDeleteButton_Click);
-            // 
-            // decisionEditRightButton
-            // 
-            this.decisionEditRightButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.decisionEditRightButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.decisionEditRightButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.decisionEditRightButton.FlatAppearance.BorderSize = 0;
-            this.decisionEditRightButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.decisionEditRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.decisionEditRightButton.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.decisionEditRightButton.IconColor = System.Drawing.Color.White;
-            this.decisionEditRightButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.decisionEditRightButton.IconSize = 24;
-            this.decisionEditRightButton.Location = new System.Drawing.Point(0, 0);
-            this.decisionEditRightButton.MaximumSize = new System.Drawing.Size(34, 36);
-            this.decisionEditRightButton.MinimumSize = new System.Drawing.Size(34, 36);
-            this.decisionEditRightButton.Name = "decisionEditRightButton";
-            this.decisionEditRightButton.Size = new System.Drawing.Size(34, 36);
-            this.decisionEditRightButton.TabIndex = 85;
-            this.decisionEditRightButton.UseVisualStyleBackColor = false;
-            this.decisionEditRightButton.Click += new System.EventHandler(this.decisionEditRightButton_Click);
             // 
             // label1
             // 
@@ -240,6 +154,92 @@
             this.decisionNameLabel.Size = new System.Drawing.Size(188, 59);
             this.decisionNameLabel.TabIndex = 0;
             this.decisionNameLabel.Text = "sdsadas ahgdahf fhgadfdavgfha fhgdafav fdhagvfgahfgvf agfagvgdafagvvfs fadvfasd";
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cancelButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.cancelButton.IconColor = System.Drawing.Color.White;
+            this.cancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cancelButton.IconSize = 20;
+            this.cancelButton.Location = new System.Drawing.Point(102, 0);
+            this.cancelButton.MaximumSize = new System.Drawing.Size(34, 36);
+            this.cancelButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(34, 36);
+            this.cancelButton.TabIndex = 87;
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Visible = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // saveEditButton
+            // 
+            this.saveEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.saveEditButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.saveEditButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.saveEditButton.FlatAppearance.BorderSize = 0;
+            this.saveEditButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.saveEditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveEditButton.IconChar = FontAwesome.Sharp.IconChar.Cloud;
+            this.saveEditButton.IconColor = System.Drawing.Color.White;
+            this.saveEditButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.saveEditButton.IconSize = 24;
+            this.saveEditButton.Location = new System.Drawing.Point(68, 0);
+            this.saveEditButton.MaximumSize = new System.Drawing.Size(34, 36);
+            this.saveEditButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.saveEditButton.Name = "saveEditButton";
+            this.saveEditButton.Size = new System.Drawing.Size(34, 36);
+            this.saveEditButton.TabIndex = 88;
+            this.saveEditButton.UseVisualStyleBackColor = false;
+            this.saveEditButton.Visible = false;
+            this.saveEditButton.Click += new System.EventHandler(this.saveEditButton_Click);
+            // 
+            // decisionDeleteButton
+            // 
+            this.decisionDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.decisionDeleteButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.decisionDeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.decisionDeleteButton.FlatAppearance.BorderSize = 0;
+            this.decisionDeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.decisionDeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decisionDeleteButton.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.decisionDeleteButton.IconColor = System.Drawing.Color.White;
+            this.decisionDeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.decisionDeleteButton.IconSize = 20;
+            this.decisionDeleteButton.Location = new System.Drawing.Point(34, 0);
+            this.decisionDeleteButton.MaximumSize = new System.Drawing.Size(34, 36);
+            this.decisionDeleteButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.decisionDeleteButton.Name = "decisionDeleteButton";
+            this.decisionDeleteButton.Size = new System.Drawing.Size(34, 36);
+            this.decisionDeleteButton.TabIndex = 86;
+            this.decisionDeleteButton.UseVisualStyleBackColor = false;
+            this.decisionDeleteButton.Click += new System.EventHandler(this.decisionDeleteButton_Click);
+            // 
+            // decisionEditRightButton
+            // 
+            this.decisionEditRightButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.decisionEditRightButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.decisionEditRightButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.decisionEditRightButton.FlatAppearance.BorderSize = 0;
+            this.decisionEditRightButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.decisionEditRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decisionEditRightButton.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.decisionEditRightButton.IconColor = System.Drawing.Color.White;
+            this.decisionEditRightButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.decisionEditRightButton.IconSize = 24;
+            this.decisionEditRightButton.Location = new System.Drawing.Point(0, 0);
+            this.decisionEditRightButton.MaximumSize = new System.Drawing.Size(34, 36);
+            this.decisionEditRightButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.decisionEditRightButton.Name = "decisionEditRightButton";
+            this.decisionEditRightButton.Size = new System.Drawing.Size(34, 36);
+            this.decisionEditRightButton.TabIndex = 85;
+            this.decisionEditRightButton.UseVisualStyleBackColor = false;
+            this.decisionEditRightButton.Click += new System.EventHandler(this.decisionEditRightButton_Click);
             // 
             // GuardFileTypeTableUserControl
             // 
