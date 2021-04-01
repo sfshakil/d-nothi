@@ -6,6 +6,7 @@ using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -52,6 +53,8 @@ namespace dNothi.Desktop.UI
         INoteOnucchedRevertServices _noteOnucchedRevert { get; set; }
         INoteSaveService _noteSave { get; set; }
 
+        public WaitFormFunc WaitForm;
+
         private int _noteFormHeight;
         private int _noteFormWidth;
         private int _collapseExpandeHeight;
@@ -82,7 +85,9 @@ namespace dNothi.Desktop.UI
             _noteOnucchedRevert = noteOnucchedRevert;
             _noteSave = noteSave;
 
+            WaitForm = new WaitFormFunc();
             InitializeComponent();
+            WaitForm.Show(this);
             SetDefaultFont(this.Controls);
             tinyMceEditor.CreateEditor();
             cbxNothiType.SelectedIndex = 0;
@@ -92,6 +97,7 @@ namespace dNothi.Desktop.UI
             loadPotrangshoNotePanel();
             loadPotrangshoNothiPanel();
             loadCollapseExpandSize();
+            WaitForm.Close();
         }
         public void loadCollapseExpandSize() 
         {

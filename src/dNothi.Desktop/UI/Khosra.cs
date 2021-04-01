@@ -25,15 +25,17 @@ namespace dNothi.Desktop.UI
         IKhasraTemplateService _khasraTemplateService { get; set; }
     
         public KhasraPotroTemplateResponse khasraPotroTemplateResponse { get; set; }
+        public WaitFormFunc WaitForm;
         public Khosra(IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService)
         {
             _userService = userService;
             _dakForwardService = dakForwardService;
-
             _khasraTemplateService = khasraTemplateService;
-           
+            WaitForm = new WaitFormFunc();
             InitializeComponent();
+            WaitForm.Show(this);
             tinyMceEditor.CreateEditor();
+            WaitForm.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

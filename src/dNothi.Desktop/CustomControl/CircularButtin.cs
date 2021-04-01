@@ -17,5 +17,11 @@ namespace dNothi.Desktop
             this.Region = new System.Drawing.Region(g);
             base.OnPaint(pe);
         }
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            this.ResumeLayout(false);
+
+        }
     }
 }

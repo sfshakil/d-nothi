@@ -1164,6 +1164,13 @@
     </Compile>
     <Compile Include="UI\UIDesignCommonMethod.cs" />
     <Compile Include="UI\VIew\DakListView.cs" />
+    <Compile Include="UI\WaitFormFunc.cs" />
+    <Compile Include="UI\WaitNothiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\WaitNothiForm.Designer.cs">
+      <DependentUpon>WaitNothiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlFactory.cs" />
     <Compile Include="UserControl\AdvancedPanel.cs">
       <SubType>Component</SubType>
@@ -1610,6 +1617,9 @@
     <EmbeddedResource Include="UI\SelectOfficerForm.resx">
       <DependentUpon>SelectOfficerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\WaitNothiForm.resx">
+      <DependentUpon>WaitNothiForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\DesignationSelect.resx">
       <DependentUpon>DesignationSelect.cs</DependentUpon>
     </EmbeddedResource>
@@ -1752,6 +1762,7 @@
     <None Include="Resources\download.png" />
     <None Include="Resources\bg-1.jpg" />
     <None Include="Resources\logo-nothi.png" />
+    <None Include="Resources\126.gif" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />

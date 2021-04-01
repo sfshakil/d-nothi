@@ -4,6 +4,7 @@ using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,7 @@ namespace dNothi.Desktop.UI
         NothiCategoryList _nothiCurrentCategory = new NothiCategoryList();
         INothiNoteTalikaServices _nothiNoteTalikaServices { get; set; }
         INothiAllServices _nothiAll { get; set; }
-
+        public WaitFormFunc WaitForm;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices, INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave)
         {
             _nothiNoteTalikaServices= nothiNoteTalikaServices;
@@ -38,6 +39,13 @@ namespace dNothi.Desktop.UI
             _noteSave = noteSave;
 
             InitializeComponent();
+            WaitForm = new WaitFormFunc();
+            loadNothiExtra();
+
+        }
+        public void loadNothiExtra()
+        {
+            WaitForm.Show(this);
             LoadNothiInbox();
             ResetAllMenuButtonSelection();
             SetDefaultFont(this.Controls);
@@ -50,12 +58,14 @@ namespace dNothi.Desktop.UI
             agotoNothiSelected = 1;
             preritoNothiSelected = 0;
             shokolNothiSelected = 0;
+
             noteListButton.BackColor = Color.FromArgb(130, 80, 230); ;
             btnNothiTalika.BackColor = Color.FromArgb(102, 16, 242); //115, 55, 238
-            loadNothiInboxTptal();
+            loadNothiInboxTotal();
+            WaitForm.Close();
 
         }
-        public void loadNothiInboxTptal()
+        public void loadNothiInboxTotal()
         {
             var noteList = _nothiNoteTalikaServices.GetNothiNoteListInbox(_dakuserparam, -1);
             lbTotalNothi.Text = "সর্বমোট: " + string.Concat(noteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
@@ -106,10 +116,12 @@ namespace dNothi.Desktop.UI
 
                 if (nothiInbox.data.records.Count > 0)
                 {
+
+                    
                     pnlNoData.Visible = false;
                     lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiInbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     LoadNothiInboxinPanel(nothiInbox.data.records);
-
+                    
                 }
                 else
                 {
@@ -157,7 +169,7 @@ namespace dNothi.Desktop.UI
         }
         private void NoteAllDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
-
+            
             if (noteListDataRecordNoteDTO.is_editable == 0)
             {
                 this.Hide();
@@ -209,8 +221,9 @@ namespace dNothi.Desktop.UI
             form.loadNoteView(noteView);
             form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
 
-
+            
             form.ShowDialog();
+            
         }
         private void NoteAll_ButtonClick(NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO )
         {
@@ -240,9 +253,9 @@ namespace dNothi.Desktop.UI
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
             form.noteAllButtonClick(nothiListRecordsDTO);
-            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString(); 
+            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
 
-
+            
             form.ShowDialog();
         }
         private void NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
@@ -285,9 +298,9 @@ namespace dNothi.Desktop.UI
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
             form.loadNoteView(noteView);
-            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString(); 
+            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
 
-
+            
             form.ShowDialog();
         }
 
@@ -778,7 +791,11 @@ namespace dNothi.Desktop.UI
 
         private void dakModulePanel_Paint(object sender, PaintEventArgs e)
         {
-
+            //ControlPaint.DrawBorder(e.Graphics, dakModulePanel.ClientRectangle,
+            //    Color.White, 1, ButtonBorderStyle.Solid, // left
+            //    Color.FromArgb(220, 220, 220), 1, ButtonBorderStyle.Solid, // top
+            //    Color.White, 1, ButtonBorderStyle.Solid, // right
+            //    Color.FromArgb(220, 220, 220), 1, ButtonBorderStyle.Solid);// bottom
         }
 
         private void nothiModulePanel_Paint(object sender, PaintEventArgs e)
@@ -939,6 +956,7 @@ namespace dNothi.Desktop.UI
         private int shokolNothiSelected = 0;
         private void btnNothiInbox_Click_1(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
             agotoNothiSelected = 1;
             preritoNothiSelected = 0;
             shokolNothiSelected = 0;
@@ -954,10 +972,12 @@ namespace dNothi.Desktop.UI
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
             LoadNothiInbox();
+            WaitForm.Close();
         }
 
         private void btnNothiOutbox_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
             agotoNothiSelected = 0;
             preritoNothiSelected = 1;
             shokolNothiSelected = 0;
@@ -973,9 +993,12 @@ namespace dNothi.Desktop.UI
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
             LoadNothiOutbox();
+            WaitForm.Close();
+
         }
         public void ForceLoadNothiALL()
         {
+            WaitForm.Show(this);
             agotoNothiSelected = 0;
             preritoNothiSelected = 0;
             shokolNothiSelected = 1;
@@ -990,9 +1013,11 @@ namespace dNothi.Desktop.UI
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
             LoadNothiAll();
+            WaitForm.Close();
         }
         private void btnNothiAll_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
             agotoNothiSelected = 0;
             preritoNothiSelected = 0;
             shokolNothiSelected = 1;
@@ -1007,10 +1032,12 @@ namespace dNothi.Desktop.UI
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
             LoadNothiAll();
+            WaitForm.Close();
         }
 
         private void ClickNothiAll()
         {
+            WaitForm.Show(this);
             agotoNothiSelected = 0;
             preritoNothiSelected = 0;
             shokolNothiSelected = 1;
@@ -1025,6 +1052,7 @@ namespace dNothi.Desktop.UI
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
             LoadNothiAll();
+            WaitForm.Close();
         }
 
         private void btnNewNothi_Click(object sender, EventArgs e)
@@ -1137,6 +1165,7 @@ namespace dNothi.Desktop.UI
 
         private void noteListButton_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
             btnNothiTalika.BackColor = Color.FromArgb(130, 80, 230);
             noteListButton.BackColor = Color.FromArgb(102, 16, 242);
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
@@ -1160,7 +1189,7 @@ namespace dNothi.Desktop.UI
             }
 
             LoadNote(noteList);
-
+            WaitForm.Close();
         }
 
         private void LoadNote(NothiNoteListResponse noteList)
