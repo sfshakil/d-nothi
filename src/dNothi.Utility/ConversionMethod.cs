@@ -30,6 +30,8 @@ namespace dNothi.Utility
 
         }
 
+
+
         public static string GetDakTypeNameBangla(string value)
         {
             if(value=="Daptorik")

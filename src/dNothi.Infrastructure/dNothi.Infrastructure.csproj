@@ -87,6 +87,8 @@
     <Compile Include="Mappings\Dak\DakOriginMap.cs" />
     <Compile Include="Mappings\Dak\DakTagMap.cs" />
     <Compile Include="Mappings\Dak\DakUserMap.cs" />
+    <Compile Include="Mappings\Dak\LocalDesignationSealMap.cs" />
+    <Compile Include="Mappings\Dak\LocalUploadedDakMap.cs" />
     <Compile Include="Mappings\Dak\OfficerMap.cs" />
     <Compile Include="Mappings\Dak\MovementStatusMap.cs" />
     <Compile Include="Mappings\Dak\NothiMap.cs" />

@@ -26,11 +26,16 @@ namespace dNothi.Services.DakServices
         public string path { get; set; }
         public int office_id { get; set; }
         public int designation_id { get; set; }
+        public DakInfo dak_Info_Obj { get; set; }
         public  DakUploadParameter()
         {
             path = "Dak";
             content = "Daak";
         }
+
+       public List<DakUploadAttachment> remoteAttachments = new List<DakUploadAttachment>();
+        public List<DakUploadAttachment> localAttachments = new List<DakUploadAttachment>();
+
 
     }
 
@@ -77,7 +82,8 @@ namespace dNothi.Services.DakServices
 
         public DakInfo(bool IsNagorik)
         {
-            if(!IsNagorik)
+            //attachment = new List<Lookup<string, DakUploadAttachment>>();
+            if (!IsNagorik)
             {
                 this.dak_type = "Daptorik";
             }

@@ -630,8 +630,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 response = form.DeleteFile(deleteParam);
             }
-            if (response.status == "success")
-
+            if (dakAttachment.id==0 ||(response != null && response.status == "success"))
             {
                 SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
                 var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
@@ -672,8 +671,11 @@ namespace dNothi.Desktop.UI.Dak
             {
                 oCRResponse = form.OCRFile(oCRParameter);
             }
-
-            dakDescriptionXTextBox.Text = oCRResponse.text;
+            if(oCRResponse != null)
+            {
+                dakDescriptionXTextBox.Text = oCRResponse.text;
+            }
+         
 
         }
 
@@ -921,13 +923,18 @@ namespace dNothi.Desktop.UI.Dak
                 dakUploadAttachment.file_infoModel.user_file_name = attachment._attachmentName;
                 dakUploadAttachment.file_infoModel.img_base64 = attachment.imageBase64String;
                 dakUploadAttachment.file_info= dakUploadParameter.CSharpObjtoJson(dakUploadAttachment.file_infoModel);
-
+               
+               // dak.attachment.Add(new Lookup<string, DakUploadAttachment>(dakUploadAttachment.file_infoModel.id.ToString(), dakUploadAttachment));
 
                 dakUploadAttachments.Add(dakUploadAttachment);
                  
 
             }
-            dak.attachment = dakUploadAttachments.ToDictionary(a => a.file_infoModel.id.ToString());
+
+
+            dakUploadParameter.remoteAttachments = dakUploadAttachments.Where(a => a.file_infoModel.id != 0).ToList();
+            dakUploadParameter.localAttachments = dakUploadAttachments.Where(a => a.file_infoModel.id == 0).ToList();
+           
             dak.sarok_no = sharokNoTextBox.Text;
             dak.dak_subject = subjectXTextBox.Text;
             dak.sending_date =sharokdateTimePicker.Value.ToString("dd-MM-yyyy");
@@ -954,7 +961,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
             dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dak);
-
+            dakUploadParameter.dak_Info_Obj = dak;
 
             // Receiver
             DakUploadReceiver dakUploadReceiver = new DakUploadReceiver();

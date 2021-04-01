@@ -80,6 +80,8 @@
     <Compile Include="Entities\DakOrigin.cs" />
     <Compile Include="Entities\DakUser.cs" />
     <Compile Include="Entities\EmployeeInfo.cs" />
+    <Compile Include="Entities\LocalDesignationSeal.cs" />
+    <Compile Include="Entities\LocalUploadedDak.cs" />
     <Compile Include="Entities\Officer.cs" />
     <Compile Include="Entities\MovementStatus.cs" />
     <Compile Include="Entities\DakNothi.cs" />

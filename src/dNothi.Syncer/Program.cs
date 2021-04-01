@@ -27,22 +27,26 @@ namespace dNothi.Syncer
             {
                 using (var scope = container.BeginLifetimeScope())
                 {
-                    var svc = scope.Resolve<ISyncerService>();
-                    var dakListService = scope.Resolve<IDakListService>();
+                   /// var svc = scope.Resolve<ISyncerService>();
+                   // var dakListService = scope.Resolve<IDakListService>();
 
-                    var data = svc.RemoteDakIdList();
-                    var dbdata = dakListService.GetLocalDakIdList();
-                    var dbstatus = svc.GetStatus();
+                   // var data = svc.RemoteDakIdList();
+                   // var dbdata = dakListService.GetLocalDakIdList();
+                  //  var dbstatus = svc.GetStatus();
+
+
+                    var dakUploadService = scope.Resolve<IDakUploadService>();
+                    dakUploadService.UploadDakFromLocal();
+
+
+
+                   // Console.WriteLine("Dak Ids From API");
+                   // Console.WriteLine(string.Join(",", data.ToArray()));
                     
+                   // Console.WriteLine("Dak Ids In Database");
+                   // Console.WriteLine(string.Join(",", dbdata.ToArray()));
 
-
-                    Console.WriteLine("Dak Ids From API");
-                    Console.WriteLine(string.Join(",", data.ToArray()));
-                    
-                    Console.WriteLine("Dak Ids In Database");
-                    Console.WriteLine(string.Join(",", dbdata.ToArray()));
-
-                    svc.SyncDakTo(data,dbdata,dbstatus);
+                   // svc.SyncDakTo(data,dbdata,dbstatus);
                 }
             } 
             catch(Exception ex)
@@ -66,6 +70,7 @@ namespace dNothi.Syncer
 
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakTag>>().As<IRepository<dNothi.Core.Entities.DakTag>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.LocalUploadedDak>>().As<IRepository<dNothi.Core.Entities.LocalUploadedDak>>();
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakType>>().As<IRepository<dNothi.Core.Entities.DakType>>();
 
@@ -103,6 +108,7 @@ namespace dNothi.Syncer
             builder.RegisterType<SyncerService>().As<ISyncerService>();
             builder.RegisterType<DakListService>().As<IDakListService>();
             builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<DakUploadService>().As<IDakUploadService>();
 
             container = (builder.Build());
             return container;

@@ -671,10 +671,10 @@ namespace dNothi.Desktop.UI
                 dakOutboxUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
                 //dakOutboxUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
 
-                dakOutboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
+                dakOutboxUserControl.sender = dakListInboxRecordsDTO.dak_origin.sender_name;
 
 
-                dakOutboxUserControl.receiver = GetDakListMainReceiverName(dakListInboxRecordsDTO.movement_status);
+                dakOutboxUserControl.receiver = dakListInboxRecordsDTO.dak_origin.receiving_officer_name;
                 dakOutboxUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
                 dakOutboxUserControl.dakSecurityIconValue = dakListInboxRecordsDTO.dak_user.dak_security;
                 dakOutboxUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
