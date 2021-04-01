@@ -47,7 +47,7 @@ namespace dNothi.Desktop.UI
         public MovementStatusDTO _movement_status { get; set; }
         public List<DakTagDTO> _dak_Tags { get; set; }
         public NothiDTO nothi { get; set; }
-
+        public WaitFormFunc WaitForm;
 
 
         IUserService _userService { get; set; }
@@ -114,8 +114,8 @@ namespace dNothi.Desktop.UI
             pb = new PictureBox();
           
             pb.Dock = DockStyle.Fill;
+            WaitForm = new WaitFormFunc();
 
-          
 
 
         }

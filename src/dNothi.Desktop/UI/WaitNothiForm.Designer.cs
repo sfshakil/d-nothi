@@ -41,9 +41,9 @@ namespace dNothi.Desktop.UI
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(98, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 19);
+            this.label2.Size = new System.Drawing.Size(127, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Please Wait....";
+            this.label2.Text = "অপেক্ষা করুন....";
             // 
             // panel1
             // 
@@ -53,7 +53,7 @@ namespace dNothi.Desktop.UI
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(215, 100);
+            this.panel1.Size = new System.Drawing.Size(226, 100);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -69,7 +69,7 @@ namespace dNothi.Desktop.UI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(215, 100);
+            this.ClientSize = new System.Drawing.Size(226, 100);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WaitNothiForm";
