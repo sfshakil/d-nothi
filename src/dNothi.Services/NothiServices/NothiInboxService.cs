@@ -91,28 +91,32 @@ namespace dNothi.Services.NothiServices
             public int user_id { get; set; }
         }
 
-
         public void SaveOrUpdateNothiRecords(List<NothiListRecordsDTO> nothi_list_records)
         {
-            var config = new MapperConfiguration(cfg =>
-                    cfg.CreateMap<NothiListRecordsDTO, NothiListRecords>()
-                );
-            var mapper = new Mapper(config);
             
-            foreach (var nothi_list_record in nothi_list_records)
-            {
-                var nothilist = mapper.Map<NothiListRecords>(nothi_list_record);
-                var dbnothilist = _nothiListRecords.Table.Where(q => q.Id == nothi_list_record.id).FirstOrDefault();
-                if (dbnothilist == null)
-                {
-                    _nothiListRecords.Insert(nothilist);
-                }
-                else
-                {
-                    _nothiListRecords.Update(nothilist);
-                }
-            }
         }
+        //public void SaveOrUpdateNothiRecords(List<NothiListRecordsDTO> nothi_list_records)
+        //{
+        //    var config = new MapperConfiguration(cfg =>
+        //            cfg.CreateMap<NothiListRecordsDTO, NothiListRecords>()
+        //        );
+        //    var mapper = new Mapper(config);
+
+        //    foreach (var nothi_list_record in nothi_list_records)
+        //    {
+        //        var nothilist = mapper.Map<NothiListRecords>(nothi_list_record);
+
+        //        var dbnothilist = _nothiListRecords.Table.Where(q => q.Id == nothi_list_record.id).FirstOrDefault();
+        //        if (dbnothilist == null)
+        //        {
+        //            _nothiListRecords.Insert(nothilist);
+        //        }
+        //        else
+        //        {
+        //            _nothiListRecords.Update(nothilist);
+        //        }
+        //    }
+        //}
         protected string GetAPIVersion()
         {
             return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;

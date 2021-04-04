@@ -83,7 +83,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 if (nothiInbox.status == "success")
                 {
-                    _nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
+                    //_nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
 
                     if (nothiInbox.data.records.Count > 0)
                     {

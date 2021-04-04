@@ -60,8 +60,10 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btnNext = new FontAwesome.Sharp.IconButton();
-            this.btnPrevious = new FontAwesome.Sharp.IconButton();
+            this.btnNothiAllPrevious = new FontAwesome.Sharp.IconButton();
+            this.btnNothiAllNext = new FontAwesome.Sharp.IconButton();
+            this.btnNothiInboxNext = new FontAwesome.Sharp.IconButton();
+            this.btnNothiInboxPrevious = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.noteListButton = new System.Windows.Forms.Button();
             this.btnNothiTalika = new System.Windows.Forms.Button();
@@ -100,11 +102,16 @@
             this.detailsSearchResetButton = new System.Windows.Forms.Button();
             this.detailSearchButton = new System.Windows.Forms.Button();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lbLengthEnd = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbLengthStart = new System.Windows.Forms.Label();
+            this.btnNothiOutboxNext = new FontAwesome.Sharp.IconButton();
             this.nothiShakhaSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.ogradhikarSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.nameDesignationSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
+            this.btnNothiOutboxPrevious = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -577,9 +584,10 @@
             // 
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel9.Location = new System.Drawing.Point(945, 0);
+            this.panel9.Location = new System.Drawing.Point(904, 0);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(96, 46);
+            this.panel9.Size = new System.Drawing.Size(137, 46);
             this.panel9.TabIndex = 67;
             // 
             // panel10
@@ -587,17 +595,22 @@
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(96, 40);
+            this.panel10.Size = new System.Drawing.Size(137, 40);
             this.panel10.TabIndex = 68;
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.lbLengthStart);
+            this.panel11.Controls.Add(this.label13);
+            this.panel11.Controls.Add(this.lbLengthEnd);
             this.panel11.Controls.Add(this.lbTotalNothi);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel11.Location = new System.Drawing.Point(0, 13);
+            this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(96, 27);
+            this.panel11.Size = new System.Drawing.Size(137, 27);
             this.panel11.TabIndex = 69;
             // 
             // lbTotalNothi
@@ -606,7 +619,8 @@
             this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbTotalNothi.Location = new System.Drawing.Point(18, 0);
+            this.lbTotalNothi.Location = new System.Drawing.Point(59, 0);
+            this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNothi.Name = "lbTotalNothi";
             this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
             this.lbTotalNothi.TabIndex = 33;
@@ -614,47 +628,97 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.btnNext);
-            this.panel8.Controls.Add(this.btnPrevious);
+            this.panel8.Controls.Add(this.btnNothiOutboxPrevious);
+            this.panel8.Controls.Add(this.btnNothiAllPrevious);
+            this.panel8.Controls.Add(this.btnNothiAllNext);
+            this.panel8.Controls.Add(this.btnNothiOutboxNext);
+            this.panel8.Controls.Add(this.btnNothiInboxNext);
+            this.panel8.Controls.Add(this.btnNothiInboxPrevious);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel8.Location = new System.Drawing.Point(1041, 0);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(76, 46);
             this.panel8.TabIndex = 66;
             // 
-            // btnNext
+            // btnNothiAllPrevious
             // 
-            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.btnNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
-            this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNext.IconSize = 24;
-            this.btnNext.Location = new System.Drawing.Point(37, 7);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(34, 33);
-            this.btnNext.TabIndex = 35;
-            this.MyToolTip.SetToolTip(this.btnNext, "পরবর্তী");
-            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNothiAllPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnNothiAllPrevious.FlatAppearance.BorderSize = 0;
+            this.btnNothiAllPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnNothiAllPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiAllPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnNothiAllPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnNothiAllPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiAllPrevious.IconSize = 24;
+            this.btnNothiAllPrevious.Location = new System.Drawing.Point(0, 7);
+            this.btnNothiAllPrevious.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiAllPrevious.Name = "btnNothiAllPrevious";
+            this.btnNothiAllPrevious.Size = new System.Drawing.Size(34, 33);
+            this.btnNothiAllPrevious.TabIndex = 37;
+            this.MyToolTip.SetToolTip(this.btnNothiAllPrevious, "পূর্ববর্তী");
+            this.btnNothiAllPrevious.UseVisualStyleBackColor = false;
+            this.btnNothiAllPrevious.Visible = false;
+            this.btnNothiAllPrevious.Click += new System.EventHandler(this.btnNothiAllPrevious_Click);
             // 
-            // btnPrevious
+            // btnNothiAllNext
             // 
-            this.btnPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnPrevious.FlatAppearance.BorderSize = 0;
-            this.btnPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.btnPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
-            this.btnPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrevious.IconSize = 24;
-            this.btnPrevious.Location = new System.Drawing.Point(3, 7);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(34, 33);
-            this.btnPrevious.TabIndex = 34;
-            this.MyToolTip.SetToolTip(this.btnPrevious, "পূর্ববর্তী");
-            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnNothiAllNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnNothiAllNext.FlatAppearance.BorderSize = 0;
+            this.btnNothiAllNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnNothiAllNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiAllNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnNothiAllNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnNothiAllNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiAllNext.IconSize = 24;
+            this.btnNothiAllNext.Location = new System.Drawing.Point(37, 7);
+            this.btnNothiAllNext.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiAllNext.Name = "btnNothiAllNext";
+            this.btnNothiAllNext.Size = new System.Drawing.Size(34, 33);
+            this.btnNothiAllNext.TabIndex = 36;
+            this.MyToolTip.SetToolTip(this.btnNothiAllNext, "পরবর্তী");
+            this.btnNothiAllNext.UseVisualStyleBackColor = false;
+            this.btnNothiAllNext.Visible = false;
+            this.btnNothiAllNext.Click += new System.EventHandler(this.btnNothiAllNext_Click);
+            // 
+            // btnNothiInboxNext
+            // 
+            this.btnNothiInboxNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnNothiInboxNext.FlatAppearance.BorderSize = 0;
+            this.btnNothiInboxNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnNothiInboxNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiInboxNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnNothiInboxNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnNothiInboxNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiInboxNext.IconSize = 24;
+            this.btnNothiInboxNext.Location = new System.Drawing.Point(37, 7);
+            this.btnNothiInboxNext.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiInboxNext.Name = "btnNothiInboxNext";
+            this.btnNothiInboxNext.Size = new System.Drawing.Size(34, 33);
+            this.btnNothiInboxNext.TabIndex = 35;
+            this.MyToolTip.SetToolTip(this.btnNothiInboxNext, "পরবর্তী");
+            this.btnNothiInboxNext.UseVisualStyleBackColor = false;
+            this.btnNothiInboxNext.Visible = false;
+            this.btnNothiInboxNext.Click += new System.EventHandler(this.btnNothiInboxNext_Click);
+            // 
+            // btnNothiInboxPrevious
+            // 
+            this.btnNothiInboxPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnNothiInboxPrevious.FlatAppearance.BorderSize = 0;
+            this.btnNothiInboxPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnNothiInboxPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiInboxPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnNothiInboxPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnNothiInboxPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiInboxPrevious.IconSize = 24;
+            this.btnNothiInboxPrevious.Location = new System.Drawing.Point(3, 7);
+            this.btnNothiInboxPrevious.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiInboxPrevious.Name = "btnNothiInboxPrevious";
+            this.btnNothiInboxPrevious.Size = new System.Drawing.Size(34, 33);
+            this.btnNothiInboxPrevious.TabIndex = 34;
+            this.MyToolTip.SetToolTip(this.btnNothiInboxPrevious, "পূর্ববর্তী");
+            this.btnNothiInboxPrevious.UseVisualStyleBackColor = false;
+            this.btnNothiInboxPrevious.Visible = false;
+            this.btnNothiInboxPrevious.Click += new System.EventHandler(this.btnNothiInboxPrevious_Click);
             // 
             // panel7
             // 
@@ -1171,6 +1235,65 @@
             this.detailSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.detailSearchButton.UseVisualStyleBackColor = false;
             // 
+            // lbLengthEnd
+            // 
+            this.lbLengthEnd.AutoSize = true;
+            this.lbLengthEnd.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbLengthEnd.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbLengthEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbLengthEnd.Location = new System.Drawing.Point(39, 0);
+            this.lbLengthEnd.Margin = new System.Windows.Forms.Padding(0);
+            this.lbLengthEnd.Name = "lbLengthEnd";
+            this.lbLengthEnd.Size = new System.Drawing.Size(20, 21);
+            this.lbLengthEnd.TabIndex = 34;
+            this.lbLengthEnd.Text = "০";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label13.Location = new System.Drawing.Point(24, 0);
+            this.label13.Margin = new System.Windows.Forms.Padding(0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(15, 21);
+            this.label13.TabIndex = 35;
+            this.label13.Text = "-";
+            // 
+            // lbLengthStart
+            // 
+            this.lbLengthStart.AutoSize = true;
+            this.lbLengthStart.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbLengthStart.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbLengthStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbLengthStart.Location = new System.Drawing.Point(4, 0);
+            this.lbLengthStart.Margin = new System.Windows.Forms.Padding(0);
+            this.lbLengthStart.Name = "lbLengthStart";
+            this.lbLengthStart.Size = new System.Drawing.Size(20, 21);
+            this.lbLengthStart.TabIndex = 36;
+            this.lbLengthStart.Text = "০";
+            // 
+            // btnNothiOutboxNext
+            // 
+            this.btnNothiOutboxNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnNothiOutboxNext.FlatAppearance.BorderSize = 0;
+            this.btnNothiOutboxNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnNothiOutboxNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiOutboxNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnNothiOutboxNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnNothiOutboxNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiOutboxNext.IconSize = 24;
+            this.btnNothiOutboxNext.Location = new System.Drawing.Point(37, 7);
+            this.btnNothiOutboxNext.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiOutboxNext.Name = "btnNothiOutboxNext";
+            this.btnNothiOutboxNext.Size = new System.Drawing.Size(34, 33);
+            this.btnNothiOutboxNext.TabIndex = 38;
+            this.MyToolTip.SetToolTip(this.btnNothiOutboxNext, "পরবর্তী");
+            this.btnNothiOutboxNext.UseVisualStyleBackColor = false;
+            this.btnNothiOutboxNext.Visible = false;
+            this.btnNothiOutboxNext.Click += new System.EventHandler(this.btnNothiOutboxNext_Click);
+            // 
             // nothiShakhaSrchUC
             // 
             this.nothiShakhaSrchUC.AutoSize = true;
@@ -1251,6 +1374,26 @@
             this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(300, 41);
             this.nameorDesignationSearchXTextBox.TabIndex = 52;
             this.nameorDesignationSearchXTextBox.Text = "সময়সীমা";
+            // 
+            // btnNothiOutboxPrevious
+            // 
+            this.btnNothiOutboxPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnNothiOutboxPrevious.FlatAppearance.BorderSize = 0;
+            this.btnNothiOutboxPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnNothiOutboxPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiOutboxPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnNothiOutboxPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnNothiOutboxPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiOutboxPrevious.IconSize = 24;
+            this.btnNothiOutboxPrevious.Location = new System.Drawing.Point(0, 7);
+            this.btnNothiOutboxPrevious.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiOutboxPrevious.Name = "btnNothiOutboxPrevious";
+            this.btnNothiOutboxPrevious.Size = new System.Drawing.Size(34, 33);
+            this.btnNothiOutboxPrevious.TabIndex = 39;
+            this.MyToolTip.SetToolTip(this.btnNothiOutboxPrevious, "পূর্ববর্তী");
+            this.btnNothiOutboxPrevious.UseVisualStyleBackColor = false;
+            this.btnNothiOutboxPrevious.Visible = false;
+            this.btnNothiOutboxPrevious.Click += new System.EventHandler(this.btnNothiOutboxPrevious_Click);
             // 
             // Nothi
             // 
@@ -1369,13 +1512,20 @@
         private FontAwesome.Sharp.IconButton profileShowArrowButton;
         private System.Windows.Forms.ToolTip MyToolTip;
         private System.Windows.Forms.Panel panel8;
-        private FontAwesome.Sharp.IconButton btnPrevious;
-        private FontAwesome.Sharp.IconButton btnNext;
+        private FontAwesome.Sharp.IconButton btnNothiInboxPrevious;
+        private FontAwesome.Sharp.IconButton btnNothiInboxNext;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
         private FontAwesome.Sharp.IconButton nothiModuleNameLabel;
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton moduleButton;
+        private FontAwesome.Sharp.IconButton btnNothiAllNext;
+        private FontAwesome.Sharp.IconButton btnNothiAllPrevious;
+        private System.Windows.Forms.Label lbLengthStart;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbLengthEnd;
+        private FontAwesome.Sharp.IconButton btnNothiOutboxNext;
+        private FontAwesome.Sharp.IconButton btnNothiOutboxPrevious;
     }
 }
