@@ -641,8 +641,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 response = form.DeleteFile(deleteParam);
             }
-            if (response.status == "success")
-
+            if (dakAttachment.id == 0 || (response != null && response.status == "success"))
             {
                 SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
                 var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
@@ -681,8 +680,11 @@ namespace dNothi.Desktop.UI.Dak
             {
                 oCRResponse = form.OCRFile(oCRParameter);
             }
-
-            dakDescriptionXTextBox.Text = oCRResponse.text;
+            if (oCRResponse != null)
+            {
+                dakDescriptionXTextBox.Text = oCRResponse.text;
+            }
+          
 
         }
 
@@ -799,7 +801,8 @@ namespace dNothi.Desktop.UI.Dak
 
             }
 
-            dak.attachment = dakUploadAttachments.ToDictionary(a => a.file_infoModel.id.ToString());
+            dakUploadParameter.remoteAttachments = dakUploadAttachments.Where(a => a.file_infoModel.id != 0).ToList();
+            dakUploadParameter.localAttachments = dakUploadAttachments.Where(a => a.file_infoModel.id == 0).ToList();
 
             dak.national_idendity_no = nationalIdXTextBox.Text;
             dak.birth_registration_number = birthCertificateNoXTextBox.Text;
@@ -843,7 +846,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
             dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dak);
-
+            dakUploadParameter.dak_Info_Obj = dak;
 
             // Receiver
             DakUploadReceiver dakUploadReceiver = new DakUploadReceiver();

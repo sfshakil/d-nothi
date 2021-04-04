@@ -74,12 +74,15 @@
   <ItemGroup>
     <Compile Include="Entities\AppUser.cs" />
     <Compile Include="Entities\DakAttachment.cs" />
+    <Compile Include="Entities\DakItem.cs" />
     <Compile Include="Entities\DakTag.cs" />
     <Compile Include="Entities\DakType.cs" />
     <Compile Include="Entities\DakList.cs" />
     <Compile Include="Entities\DakOrigin.cs" />
     <Compile Include="Entities\DakUser.cs" />
     <Compile Include="Entities\EmployeeInfo.cs" />
+    <Compile Include="Entities\LocalDesignationSeal.cs" />
+    <Compile Include="Entities\LocalUploadedDak.cs" />
     <Compile Include="Entities\Officer.cs" />
     <Compile Include="Entities\MovementStatus.cs" />
     <Compile Include="Entities\DakNothi.cs" />

@@ -15,16 +15,52 @@ namespace dNothi.Services.DakServices
 {
     public class DakArchiveService : IDakArchiveService
     {
+        IRepository<DakItem> _dakItem;
         IRepository<DakType> _daktype;
         IDakListService _dakListService { get; set; }
-        public DakArchiveService(IRepository<DakType> daktype, IDakListService dakListService)
+        public DakArchiveService(IRepository<DakItem> dakItem,IRepository<DakType> daktype, IDakListService dakListService)
         {
             _daktype = daktype;
+            _dakItem = dakItem;
             _dakListService = dakListService;
+        }
+        private void SaveOrUpdateDakOutBoxListJsonResponse(DakUserParam dakListUserParam, string responseJson)
+        {
+            DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_Archived == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (dakItemDB != null)
+            {
+                dakItemDB.jsonResponse = responseJson;
+                _dakItem.Update(dakItemDB);
+            }
+            else
+            {
+                DakItem dakItem = new DakItem();
+                dakItem.is_dak_Archived = true;
+                dakItem.page = dakListUserParam.page;
+                dakItem.designation_id = dakListUserParam.designation_id;
+                dakItem.office_id = dakListUserParam.office_id;
+                dakItem.jsonResponse = responseJson;
+                _dakItem.Insert(dakItem);
+
+            }
         }
         public DakListArchiveResponse GetDakList(DakUserParam dakListUserParam)
         {
-              try
+            DakListArchiveResponse dakListArchiveResponse = new DakListArchiveResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakList = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_Archived == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (dakList != null)
+                {
+                    dakListArchiveResponse = JsonConvert.DeserializeObject<DakListArchiveResponse>(dakList.jsonResponse);
+
+                }
+                return dakListArchiveResponse;
+            }
+
+            try
             {
                 var dakArchiveApi = new RestClient(GetAPIDomain()+GetDakListArchiveEndpoint());
                 dakArchiveApi.Timeout = -1;
@@ -40,14 +76,13 @@ namespace dNothi.Services.DakServices
 
 
                 var dakArchiveResponseJson = dakArchiveResponse.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakListArchiveResponse dakListArchiveResponse = JsonConvert.DeserializeObject<DakListArchiveResponse>(dakArchiveResponseJson);
+                SaveOrUpdateDakOutBoxListJsonResponse(dakListUserParam, dakArchiveResponseJson);
+                dakListArchiveResponse = JsonConvert.DeserializeObject<DakListArchiveResponse>(dakArchiveResponseJson);
                 return dakListArchiveResponse;
             }
             catch (Exception ex)
             {
-                throw;
+                return dakListArchiveResponse;
             }
         }
 

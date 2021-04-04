@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RestSharp;
@@ -14,8 +17,26 @@ namespace dNothi.Services.DakServices
 {
     public class DakForwardService : IDakForwardService
     {
+
+        IRepository<LocalDesignationSeal> _localDesignationSealRepository;
+        public DakForwardService(IRepository<LocalDesignationSeal> localDesignationSealRepository)
+        {
+            _localDesignationSealRepository = localDesignationSealRepository;
+        }
+
+
         public DesignationSealListResponse GetSealListResponse(DakUserParam dakListUserParam)
         {
+            if(!InternetConnection.Check())
+            {
+           
+
+                DesignationSealListResponse designationSealResponse = JsonConvert.DeserializeObject<DesignationSealListResponse>(GetLocalDesignationSeal(dakListUserParam));
+
+
+
+                return designationSealResponse;
+            }
             try
             {
 
@@ -32,16 +53,54 @@ namespace dNothi.Services.DakServices
 
 
                 var designationSealResponseJson = designationSealResponseAPI.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                       
+                // Save  Designation Seal Response to Local DB
+                SaveLocalDesignationSeal(designationSealResponseJson, dakListUserParam);
+                
+                
                 DesignationSealListResponse designationSealResponse = JsonConvert.DeserializeObject<DesignationSealListResponse>(designationSealResponseJson);
+
+
+
                 return designationSealResponse;
             }
             catch (Exception ex)
             {
                 throw;
             }
+
+           
         }
+
+        private void SaveLocalDesignationSeal(string designationSealResponseJson, DakUserParam dakListUserParam)
+        {
+            var dbDesignationSeals = _localDesignationSealRepository.Table.Where(q => q.designation_id == dakListUserParam.designation_id && q.office_id == dakListUserParam.office_id).FirstOrDefault();
+
+            if (dbDesignationSeals != null)
+            {
+                dbDesignationSeals.designation_Seal_Json = designationSealResponseJson;
+                _localDesignationSealRepository.Update(dbDesignationSeals);
+            }
+            else
+            {
+                LocalDesignationSeal localDesignationSeal = new LocalDesignationSeal { designation_id = dakListUserParam.designation_id, office_id = dakListUserParam.office_id, designation_Seal_Json = designationSealResponseJson };
+
+
+
+                _localDesignationSealRepository.Insert(localDesignationSeal);
+            }
+
+        }
+
+        private string GetLocalDesignationSeal(DakUserParam dakListUserParam)
+        {
+            var dbDesignationSeals = _localDesignationSealRepository.Table.Where(q => q.designation_id == dakListUserParam.designation_id && q.office_id == dakListUserParam.office_id).FirstOrDefault();
+
+            
+            return dbDesignationSeals.designation_Seal_Json;
+        }
+
+
 
         protected string GetAPIVersion()
         {

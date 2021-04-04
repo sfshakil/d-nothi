@@ -1,5 +1,10 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Services.UserServices;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RestSharp;
@@ -14,9 +19,34 @@ namespace dNothi.Services.DakServices
 {
     public class DakUploadService : IDakUploadService
     {
+        IRepository<LocalUploadedDak> _localUploadedDakRepository;
+        public IUserService _userService { get; set;}
+        public DakUploadService(IRepository<LocalUploadedDak> localUploadedDak, IUserService userService)
+        {
+            _localUploadedDakRepository = localUploadedDak;
+            _userService = userService;
+        }
         public DakUploadedFileResponse GetDakUploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam)
         {
             DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+            if (!InternetConnection.Check())
+            {
+                dakUploadedFileResponse.status = "success";
+                dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+                DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+
+                dakAttachmentDTO.path = dakFileUploadParam.path;
+                dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                dakAttachmentDTO.content_body = dakFileUploadParam.content;
+                dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+
+                return dakUploadedFileResponse;
+
+            }
+
+
             try
             {
 
@@ -44,6 +74,8 @@ namespace dNothi.Services.DakServices
             }
             catch (Exception ex)
             {
+
+                
                 return dakUploadedFileResponse;
             }
         }
@@ -219,8 +251,24 @@ namespace dNothi.Services.DakServices
 
         
 
-        DakUploadResponse IDakUploadService.GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
+       public DakUploadResponse GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
         {
+            DakUploadResponse dakSendResponse = new DakUploadResponse();
+            if (!InternetConnection.Check())
+            {
+                dakSendResponse.status = "success";
+                dakSendResponse.data = new DakSendResponseMessageDTO();
+                dakSendResponse.data.message = "Request Pending!";
+                DakUploadLocally(dakUploadParameter);
+
+                return dakSendResponse;
+            }
+
+            dakUploadParameter.remoteAttachments.AddRange(UploadDakAttachmentList(dakListUserParam,dakUploadParameter.localAttachments));
+           
+            dakUploadParameter.dak_Info_Obj.attachment = dakUploadParameter.remoteAttachments.ToDictionary(a => a.file_infoModel.id.ToString());
+            dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dakUploadParameter.dak_Info_Obj);
+
             var dakSendAPI = new RestClient(GetAPIDomain() + GetDakSendEndpoint());
             dakSendAPI.Timeout = -1;
             var dakSendRequest = new RestRequest(Method.POST);
@@ -238,14 +286,117 @@ namespace dNothi.Services.DakServices
             IRestResponse dakSendIRestResponse = dakSendAPI.Execute(dakSendRequest);
             var dakSendResponseJson = dakSendIRestResponse.Content;
 
-            var dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(dakSendResponseJson, new JsonSerializerSettings
+            dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(dakSendResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+          
+
+         
+            return dakSendResponse;
+        }
+
+        public DakUploadResponse GetLocalUploadDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
+        {
+            DakUploadResponse dakSendResponse = new DakUploadResponse();
+            
+
+            dakUploadParameter.remoteAttachments.AddRange(UploadDakAttachmentList(dakListUserParam, dakUploadParameter.localAttachments));
+
+            dakUploadParameter.dak_Info_Obj.attachment = dakUploadParameter.remoteAttachments.ToDictionary(a => a.file_infoModel.id.ToString());
+            dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dakUploadParameter.dak_Info_Obj);
+
+            var dakSendAPI = new RestClient(GetAPIDomain() + GetDakSendEndpoint());
+            dakSendAPI.Timeout = -1;
+            var dakSendRequest = new RestRequest(Method.POST);
+            dakSendRequest.AddHeader("api-version", GetAPIVersion());
+            dakSendRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+            dakSendRequest.AddParameter("sender", dakUploadParameter.sender_info);
+            dakSendRequest.AddParameter("receiver", dakUploadParameter.receiver_info);
+            dakSendRequest.AddParameter("dak", dakUploadParameter.dak_info);
+            dakSendRequest.AddParameter("others", dakUploadParameter.others);
+            dakSendRequest.AddParameter("uploader", dakUploadParameter.uploader);
+            dakSendRequest.AddParameter("path", dakUploadParameter.path);
+            dakSendRequest.AddParameter("content", dakUploadParameter.content);
+            dakSendRequest.AddParameter("office_id", dakUploadParameter.office_id);
+            dakSendRequest.AddParameter("designation_id", dakUploadParameter.designation_id);
+            IRestResponse dakSendIRestResponse = dakSendAPI.Execute(dakSendRequest);
+            var dakSendResponseJson = dakSendIRestResponse.Content;
+
+            dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(dakSendResponseJson, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });
 
 
-         
+
+
             return dakSendResponse;
+        }
+
+        public void UploadDakFromLocal()
+        {
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+            var localUploadedDaks = _localUploadedDakRepository.Table.Where(a => a.designation_id == dakUserParam.designation_id && a.office_id == dakUserParam.office_id).ToList();
+          
+
+
+            if(localUploadedDaks != null)
+            {
+                foreach(LocalUploadedDak localUploadedDak in  localUploadedDaks)
+                {
+
+                    DakUploadParameter dakUploadParameter = new DakUploadParameter();
+                    dakUploadParameter= JsonConvert.DeserializeObject<DakUploadParameter>(localUploadedDak.uploaded_Dak_Json);
+
+                    DakUploadResponse dakUploadResponse=  GetLocalUploadDakSendResponse(dakUserParam, dakUploadParameter);
+                    if(dakUploadResponse.status=="success")
+                    {
+                        _localUploadedDakRepository.Delete(localUploadedDak);
+                    }
+
+                    
+                }
+            }
+
+        }
+
+        private IEnumerable<DakUploadAttachment> UploadDakAttachmentList(DakUserParam dakListUserParam,List<DakUploadAttachment> localAttachments)
+        {
+           foreach(DakUploadAttachment dakUploadAttachment in localAttachments)
+            {
+                DakFileUploadParam dakFileUploadParam = new DakFileUploadParam { content= dakUploadAttachment.file_infoModel.content_body,file_size_in_kb=dakUploadAttachment.file_infoModel.file_size_in_kb,path= dakUploadAttachment.file_infoModel.path, user_file_name=dakUploadAttachment.file_infoModel.user_file_name};
+                DakUploadedFileResponse dakUploadedFileResponse = GetDakUploadedFile(dakListUserParam, dakFileUploadParam);
+
+                if (dakUploadedFileResponse.status=="success")
+                {
+                   
+
+
+                    dakUploadAttachment.file_infoModel = dakUploadedFileResponse.data[0];
+                    dakUploadAttachment.file_info = JsonParsingMethod.ObjecttoJson(dakUploadAttachment.file_infoModel);
+
+
+
+
+                }
+                else
+                {
+                    localAttachments.Remove(dakUploadAttachment);
+                }
+
+            }
+
+            return localAttachments;
+        }
+
+        private void DakUploadLocally(DakUploadParameter dakUploadParameter)
+        {
+            LocalUploadedDak localUploadedDak = new LocalUploadedDak { office_id=dakUploadParameter.office_id,designation_id=dakUploadParameter.designation_id, uploaded_Dak_Json=JsonParsingMethod.ObjecttoJson(dakUploadParameter)};
+
+            _localUploadedDakRepository.Insert(localUploadedDak);
         }
 
         public void HandleDeserializationError(object sender, ErrorEventArgs errorArgs)

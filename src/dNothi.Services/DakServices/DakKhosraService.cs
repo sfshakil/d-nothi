@@ -5,19 +5,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
 using Newtonsoft.Json;
 using RestSharp;
 
 namespace dNothi.Services.DakServices
 {
+    
     public class DakKhosraService : IDakKhosraService
     {
+        IRepository<DakItem> _dakItem;
+        public DakKhosraService(IRepository<DakItem> dakItem)
+        {
+            _dakItem = dakItem;
+        }
+
+        
+        private void SaveOrUpdateDakOutBoxListJsonResponse(DakUserParam dakListUserParam, string responseJson)
+        {
+            DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_khosra == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (dakItemDB != null)
+            {
+                dakItemDB.jsonResponse = responseJson;
+                _dakItem.Update(dakItemDB);
+            }
+            else
+            {
+                DakItem dakItem = new DakItem();
+                dakItem.is_dak_khosra = true;
+                dakItem.page = dakListUserParam.page;
+                dakItem.designation_id = dakListUserParam.designation_id;
+                dakItem.office_id = dakListUserParam.office_id;
+                dakItem.jsonResponse = responseJson;
+                _dakItem.Insert(dakItem);
+
+            }
+        }
+
         public DakListKhosraResponse GetDakKhosraList(DakUserParam dakListUserParam)
         {
+            DakListKhosraResponse dakListKhosraResponse = new DakListKhosraResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakList = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_khosra == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (dakList != null)
+                {
+                    dakListKhosraResponse = JsonConvert.DeserializeObject<DakListKhosraResponse>(dakList.jsonResponse);
+
+                }
+                return dakListKhosraResponse;
+            }
+
             try
             {
-
+               
 
                 var dakKhorsAPI = new RestClient(GetAPIDomain() + GetDakListKhosraEndpoint());
                 dakKhorsAPI.Timeout = -1;
@@ -33,14 +78,14 @@ namespace dNothi.Services.DakServices
 
 
                 var dakKhosraResponseJson = dakKhosraResponse.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakListKhosraResponse dakListKhosraResponse = JsonConvert.DeserializeObject<DakListKhosraResponse>(dakKhosraResponseJson);
+                SaveOrUpdateDakOutBoxListJsonResponse(dakListUserParam, dakKhosraResponseJson);
+
+                dakListKhosraResponse = JsonConvert.DeserializeObject<DakListKhosraResponse>(dakKhosraResponseJson);
                 return dakListKhosraResponse;
             }
             catch (Exception ex)
             {
-                throw;
+                return dakListKhosraResponse;
             }
         }
 

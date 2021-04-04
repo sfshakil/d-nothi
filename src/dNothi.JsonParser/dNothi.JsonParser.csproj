@@ -85,6 +85,7 @@
     <Compile Include="Entity\Dak\DakFolderMapResponse.cs" />
     <Compile Include="Entity\Dak\DakForwardRevertResponse.cs" />
     <Compile Include="Entity\Dak\DakIdListResponse.cs" />
+    <Compile Include="Entity\Dak\DakItemDTO.cs" />
     <Compile Include="Entity\Dak\DakListWithDetailsResponse.cs" />
     <Compile Include="Entity\Dak\DakNothijatoResponse.cs" />
     <Compile Include="Entity\Dak\DakNothivuktoResponse.cs" />
@@ -270,6 +271,7 @@
     <Compile Include="INoteListParser.cs" />
     <Compile Include="IPotrojariParser.cs" />
     <Compile Include="IUserMessageParser.cs" />
+    <Compile Include="JsonParsingMethod.cs" />
     <Compile Include="NoteListParser.cs" />
     <Compile Include="PotrojariParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

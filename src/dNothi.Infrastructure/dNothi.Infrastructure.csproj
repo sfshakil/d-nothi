@@ -82,11 +82,15 @@
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mappings\AppUsers\AppUserMap.cs" />
     <Compile Include="Mappings\Dak\DakAttachmentMap.cs" />
+    <Compile Include="Mappings\Dak\DakItemDetailsMap.cs" />
+    <Compile Include="Mappings\Dak\DakItemMap.cs" />
     <Compile Include="Mappings\Dak\DakListMap.cs" />
     <Compile Include="Mappings\Dak\DakTypeMap.cs" />
     <Compile Include="Mappings\Dak\DakOriginMap.cs" />
     <Compile Include="Mappings\Dak\DakTagMap.cs" />
     <Compile Include="Mappings\Dak\DakUserMap.cs" />
+    <Compile Include="Mappings\Dak\LocalDesignationSealMap.cs" />
+    <Compile Include="Mappings\Dak\LocalUploadedDakMap.cs" />
     <Compile Include="Mappings\Dak\OfficerMap.cs" />
     <Compile Include="Mappings\Dak\MovementStatusMap.cs" />
     <Compile Include="Mappings\Dak\NothiMap.cs" />

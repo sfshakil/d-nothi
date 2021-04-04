@@ -13,9 +13,21 @@ namespace dNothi.Services.DakServices
    public interface IDakListService
     {
         void DakDeleteUsingId(long id);
+
+        void SaveDakItemLocally(List<DakIdListRecordDTO> data);
+        void UpdateDakItemLocally(List<DakIdListRecordDTO> data);
       
 
-        List<long> GetLocalDakIdList();
+         void SaveorUpdateDakItemDetailsLocally(long dak_id, string DakDetails);
+      
+
+
+
+        void DeleteDakItemLocally(List<DakItem> data);
+
+
+
+        List<DakItem> GetLocalDakIdList(int page);
         void SaveOrUpdateDakList(DakListDTO data, long dakTypeId);
         void SaveOrUpdateDakList(List<DakListWithDetailsRecordDTO> records);
         DakListDTO GetLocalDakListbyType(long dakTypeId, DakUserParam dakListUserParam);

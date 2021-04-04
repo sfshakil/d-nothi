@@ -113,11 +113,17 @@ namespace dNothi.Desktop
        
            
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakTag>>().As<IRepository<dNothi.Core.Entities.DakTag>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.LocalUploadedDak>>().As<IRepository<dNothi.Core.Entities.LocalUploadedDak>>();
            
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakType>>().As<IRepository<dNothi.Core.Entities.DakType>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.SyncStatus>>().As<IRepository<dNothi.Core.Entities.SyncStatus>>();
-           
+
+
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItem>>().As<IRepository<dNothi.Core.Entities.DakItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemDetails>>().As<IRepository<dNothi.Core.Entities.DakItemDetails>>();
+
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakList>>().As<IRepository<dNothi.Core.Entities.DakList>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.LocalDesignationSeal>>().As<IRepository<dNothi.Core.Entities.LocalDesignationSeal>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.Officer>>().As<IRepository<dNothi.Core.Entities.Officer>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.To>>().As<IRepository<dNothi.Core.Entities.To>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.Other>>().As<IRepository<dNothi.Core.Entities.Other>>();
@@ -180,6 +186,7 @@ namespace dNothi.Desktop
             builder.RegisterType<OnuchhedListServices>().As<IOnuchhedListServices>();
             builder.RegisterType<SingleOnucchedServices>().As<ISingleOnucchedServices>();
             builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
+        
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
             builder.RegisterType<KhasraTemplateService>().As<IKhasraTemplateService>();
             builder.RegisterType<PotrojariParser>().As<IPotrojariParser>();

@@ -12,24 +12,67 @@ using RestSharp;
 using System.Data.Entity;
 using dNothi.Constants;
 using System.Configuration;
+using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Services.DakServices
 {
     public class DakInboxService : IDakInboxServices
     {
         IRepository<DakType> _daktype;
+        IRepository<DakItem> _dakItem;
         IRepository<DakList> _daklist;
        
         IDakListService _dakListService { get; set; }
 
-        public DakInboxService(IRepository<DakType> daktype, IRepository<DakList> daklist,IDakListService dakListService)
+        
+
+        public DakInboxService(IRepository<DakItem> dakItem,IRepository<DakType> daktype, IRepository<DakList> daklist,IDakListService dakListService)
         {
             _daktype = daktype;
             _daklist = daklist;
+            _dakItem = dakItem;
             _dakListService = dakListService;
         }
+
+        private void SaveOrUpdateDakOutBoxListJsonResponse(DakUserParam dakListUserParam, string responseJson)
+        {
+            DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_inbox == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (dakItemDB != null)
+            {
+                dakItemDB.jsonResponse = responseJson;
+                _dakItem.Update(dakItemDB);
+            }
+            else
+            {
+                DakItem dakItem = new DakItem();
+                dakItem.is_dak_inbox = true;
+                dakItem.page = dakListUserParam.page;
+                dakItem.designation_id = dakListUserParam.designation_id;
+                dakItem.office_id = dakListUserParam.office_id;
+                dakItem.jsonResponse = responseJson;
+                _dakItem.Insert(dakItem);
+
+            }
+        }
+
+
         public DakListInboxResponse GetDakInbox(DakUserParam dakListUserParam)
         {
+
+            DakListInboxResponse dakListInboxResponse = new DakListInboxResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakList = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_inbox == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (dakList != null)
+                {
+                    dakListInboxResponse = JsonConvert.DeserializeObject<DakListInboxResponse>(dakList.jsonResponse);
+
+                }
+                return dakListInboxResponse;
+            }
+
             try
             {
 
@@ -48,14 +91,15 @@ namespace dNothi.Services.DakServices
 
 
                 var dakInboxResponseJson = dakInboxResponse.Content;
+                SaveOrUpdateDakOutBoxListJsonResponse(dakListUserParam, dakInboxResponseJson);
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakListInboxResponse dakListInboxResponse = JsonConvert.DeserializeObject<DakListInboxResponse>(dakInboxResponseJson);
+                dakListInboxResponse = JsonConvert.DeserializeObject<DakListInboxResponse>(dakInboxResponseJson);
                 return dakListInboxResponse;
             }
             catch (Exception ex)
             {
-                throw;
+                return dakListInboxResponse;
             }
         }
         public DakListInboxResponse GetDakInbox(DakUserParam dakListUserParam, string searchParam)
