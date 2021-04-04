@@ -16,7 +16,8 @@ namespace dNothi.JsonParser.Entity.Dak
     {
         public long dak_id { get; set; }
         public string dak_type { get; set; }
-        public string is_copied_dak { get; set; }
+        public int is_copied_dak { get; set; }
+        public int page { get; set; }
         public string dak_category { get; set; }
         public string dak_hash { get; set; }
     }

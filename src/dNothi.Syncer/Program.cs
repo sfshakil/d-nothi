@@ -10,6 +10,9 @@ using dNothi.JsonParser;
 using dNothi.Services.SyncServices;
 using System;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Collections.Generic;
+using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Syncer
 {
@@ -23,38 +26,49 @@ namespace dNothi.Syncer
             log4net.Config.XmlConfigurator.Configure();
             _log.Info("Application Stated!");
             var container=Bootstrap();
-            try 
+
+            while (true)
+            {
+                try 
             {
                 using (var scope = container.BeginLifetimeScope())
                 {
-                   /// var svc = scope.Resolve<ISyncerService>();
-                   // var dakListService = scope.Resolve<IDakListService>();
+                    //    var svc = scope.Resolve<ISyncerService>();
+                     //   var dakListService = scope.Resolve<IDakListService>();
 
-                   // var data = svc.RemoteDakIdList();
-                   // var dbdata = dakListService.GetLocalDakIdList();
-                  //  var dbstatus = svc.GetStatus();
-
-
-                    var dakUploadService = scope.Resolve<IDakUploadService>();
-                    dakUploadService.UploadDakFromLocal();
+                    //    List<DakIdListRecordDTO> data = svc.RemoteDakIdList(1,10);
+                     //   List<DakItem> dbdata = dakListService.GetLocalDakIdList(1);
+                       // var dbstatus = svc.GetStatus();
 
 
 
-                   // Console.WriteLine("Dak Ids From API");
-                   // Console.WriteLine(string.Join(",", data.ToArray()));
-                    
-                   // Console.WriteLine("Dak Ids In Database");
-                   // Console.WriteLine(string.Join(",", dbdata.ToArray()));
+                        //Console.WriteLine("Dak Ids From API");
+                       // Console.WriteLine(string.Join(",", data.ToArray()));
 
-                   // svc.SyncDakTo(data,dbdata,dbstatus);
+                       // Console.WriteLine("Dak Ids In Database");
+                       // Console.WriteLine(string.Join(",", dbdata.ToArray()));
+
+                      //  svc.SyncDakTo(data, dbdata);
+                       // Console.WriteLine("----------------END-------------------");
+
+                     
+                        
+                        
+                        var dakUploadService = scope.Resolve<IDakUploadService>();
+                        dakUploadService.UploadDakFromLocal();
+
+
+
+                   
                 }
             } 
             catch(Exception ex)
             {
                 _log.Error(ex.ToString());
             }
-            Console.WriteLine("----------------END-------------------");
-            Console.ReadLine();
+                Thread.Sleep(5000);
+            }
+             Console.ReadLine();
 
 
         }
@@ -75,6 +89,8 @@ namespace dNothi.Syncer
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakType>>().As<IRepository<dNothi.Core.Entities.DakType>>();
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakList>>().As<IRepository<dNothi.Core.Entities.DakList>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItem>>().As<IRepository<dNothi.Core.Entities.DakItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemDetails>>().As<IRepository<dNothi.Core.Entities.DakItemDetails>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.Officer>>().As<IRepository<dNothi.Core.Entities.Officer>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakAttachment>>().As<IRepository<dNothi.Core.Entities.DakAttachment>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.To>>().As<IRepository<dNothi.Core.Entities.To>>();

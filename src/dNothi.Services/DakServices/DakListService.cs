@@ -22,6 +22,8 @@ namespace dNothi.Services.DakServices
   public class DakListService:IDakListService
     {
         IRepository<DakTag> _dakTagsRepo;
+        IRepository<DakItem> _dakItems;
+        IRepository<DakItemDetails> _dakItemDetails;
         IRepository<DakAttachment> _dakAttachment;
         IRepository<DakUser> _dakUserRepo;
         IRepository<DakType> _dakTypeRepo;
@@ -42,7 +44,8 @@ namespace dNothi.Services.DakServices
             IRepository<To> to,
             IRepository<MovementStatus> movementStatus,
              IRepository<DakAttachment> dakAttachment,
-
+              IRepository<DakItem> dakItems,
+        IRepository<DakItemDetails> dakItemDetails,
         IRepository<DakNothi> dakNothi,
             IRepository<DakOrigin> dakOrigin,
             IRepository<DakType> daktype,
@@ -65,6 +68,8 @@ namespace dNothi.Services.DakServices
             this._dakOriginRepo = dakOrigin;
        
             this._dakListRepo = dakList;
+            _dakItems = dakItems;
+            _dakItemDetails=dakItemDetails;
         
         }
 
@@ -521,20 +526,14 @@ namespace dNothi.Services.DakServices
             return dakList;
         }
 
-        public List<long> GetLocalDakIdList()
+        public List<DakItem> GetLocalDakIdList(int page)
         {
-            List<long> ids=new List<long>();
-            var dbdakType = _dakTypeRepo.Table.FirstOrDefault(a => a.is_inbox == true);
-            var dakList = _dakListRepo.Table.Where(d => d.dak_List_type_Id == dbdakType.Id).ToList();
-            if(dakList !=null)
-            {
-                foreach(DakList dakList1 in dakList)
-                {
-                    ids.Add(dakList1.dak_user.dak_id);
-                }
-            }
 
-            return ids;
+
+            var dakItems = _dakItems.Table.Where(a => a.page == page).ToList();
+
+          
+            return dakItems;
         }
 
         public DakListDTO GetLocalDakListbyType(long dakTypeId, DakUserParam dakListUserParam)
@@ -681,7 +680,18 @@ namespace dNothi.Services.DakServices
 
         public DakDetailsResponse GetDakDetailsbyDakId(int dak_id,string dak_type, int is_copied_dak,  DakUserParam dakListUserParam)
         {
+            DakDetailsResponse dakDetailsResponse = new DakDetailsResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakDetails = _dakItemDetails.Table.FirstOrDefault(a => a.dak_id == dak_id && a.is_copied_dak == is_copied_dak && a.dak_type == dak_type);
 
+                if (dakDetails != null && dakDetails.dak_details_Json !=null)
+                {
+                    dakDetailsResponse = JsonConvert.DeserializeObject<DakDetailsResponse>(dakDetails.dak_details_Json);
+
+                }
+                return dakDetailsResponse;
+            }
 
             try
             {
@@ -701,9 +711,8 @@ namespace dNothi.Services.DakServices
 
 
                 var dakdetailsResponseJson = dakdetailsResponseAPI.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakDetailsResponse dakDetailsResponse = JsonConvert.DeserializeObject<DakDetailsResponse>(dakdetailsResponseJson);
+                SaveorUpdateDakItemDetails(dak_id,is_copied_dak,dak_type,dakdetailsResponseJson);
+                dakDetailsResponse = JsonConvert.DeserializeObject<DakDetailsResponse>(dakdetailsResponseJson);
                 return dakDetailsResponse;
             }
             catch (Exception ex)
@@ -786,6 +795,20 @@ namespace dNothi.Services.DakServices
 
         public DakAttachmentResponse GetDakAttachmentbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam)
         {
+
+            DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakDetails = _dakItemDetails.Table.FirstOrDefault(a => a.dak_id == dak_id && a.is_copied_dak == is_copied_dak && a.dak_type == dak_type);
+
+                if (dakDetails != null && dakDetails.dak_attachment_Json !=null)
+                {
+                    dakAttachmentResponse = JsonConvert.DeserializeObject<DakAttachmentResponse>(dakDetails.dak_attachment_Json);
+
+                }
+                return dakAttachmentResponse;
+            }
+
             try
             {
 
@@ -804,9 +827,8 @@ namespace dNothi.Services.DakServices
 
 
                 var dakAttachmentResponseJson = dakAttachmentResponseAPI.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakAttachmentResponse dakAttachmentResponse = JsonConvert.DeserializeObject<DakAttachmentResponse>(dakAttachmentResponseJson);
+                SaveorUpdateDakItemAttachment(dak_id, is_copied_dak, dak_type, dakAttachmentResponseJson);
+                dakAttachmentResponse = JsonConvert.DeserializeObject<DakAttachmentResponse>(dakAttachmentResponseJson);
                 return dakAttachmentResponse;
             }
             catch (Exception ex)
@@ -817,6 +839,18 @@ namespace dNothi.Services.DakServices
 
         public DakMovementStatusResponse GetDakMovementStatusListbyDakId(int dak_id, string dak_type, int is_copied_dak, DakUserParam dakListUserParam)
         {
+            DakMovementStatusResponse dakMovementStatusResponse = new DakMovementStatusResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakDetails = _dakItemDetails.Table.FirstOrDefault(a => a.dak_id == dak_id && a.is_copied_dak == is_copied_dak && a.dak_type == dak_type);
+
+                if (dakDetails != null && dakDetails.dak_movement_status_Json !=null)
+                {
+                    dakMovementStatusResponse = JsonConvert.DeserializeObject<DakMovementStatusResponse>(dakDetails.dak_movement_status_Json);
+
+                }
+                return dakMovementStatusResponse;
+            }
             try
             {
 
@@ -835,12 +869,15 @@ namespace dNothi.Services.DakServices
 
 
                 var dakMovementStatusResponseJson = dakMovementStatusResponseAPI.Content;
-                DakMovementStatusResponse dakMovementStatusResponse = JsonConvert.DeserializeObject<DakMovementStatusResponse>(dakMovementStatusResponseJson);
+
+                SaveorUpdateDakItemMovementStatus(dak_id, is_copied_dak, dak_type, dakMovementStatusResponseJson);
+
+                dakMovementStatusResponse = JsonConvert.DeserializeObject<DakMovementStatusResponse>(dakMovementStatusResponseJson);
                 return dakMovementStatusResponse;
             }
             catch (Exception ex)
             {
-                throw;
+                return dakMovementStatusResponse;
             }
         }
 
@@ -916,5 +953,137 @@ namespace dNothi.Services.DakServices
             }
         }
 
+        public void SaveDakItemLocally(List<DakIdListRecordDTO> data)
+        {
+            
+            if (data.Count > 0)
+            {
+                foreach (DakIdListRecordDTO dakIdListRecordDTO in data)
+                {
+
+                    var config = new MapperConfiguration(cfg =>
+                  cfg.CreateMap<DakItem, DakIdListRecordDTO>()
+                      );
+                    var mapper = new Mapper(config);
+                    var dakItem = mapper.Map<DakItem>(dakIdListRecordDTO);
+
+
+                    _dakItems.Insert(dakItem);
+
+                   
+                }
+            }
+            
+        }
+
+        public void UpdateDakItemLocally(List<DakIdListRecordDTO> data)
+        {
+
+            List<long> ids = new List<long>();  
+
+            if (data.Count > 0)
+            {
+                foreach (DakIdListRecordDTO dakIdListRecordDTO in data)
+                {
+
+                    var dakItem = _dakItems.Table.FirstOrDefault(a => a.dak_id == dakIdListRecordDTO.dak_id);
+                    if(dakItem != null)
+                    {
+                        dakItem.dak_type = dakIdListRecordDTO.dak_type;
+                        dakItem.is_copied_dak = dakIdListRecordDTO.is_copied_dak;
+                        dakItem.page = dakIdListRecordDTO.page;
+                        dakItem.dak_category = dakIdListRecordDTO.dak_category;
+                        if(dakItem.dak_hash != dakIdListRecordDTO.dak_hash)
+                        {
+                            ids.Add(dakItem.dak_id);
+                           
+                        }
+
+                        dakItem.dak_hash = dakIdListRecordDTO.dak_hash;
+                        _dakItems.Update(dakItem);
+                    }
+
+                  
+
+
+                }
+
+                if(ids.Count>0)
+                {
+                  //  SaveorUpdateDakItemDetails(ids);
+                }
+            }
+        }
+
+        private void SaveorUpdateDakItemDetails(int dak_id, int is_copied_dak, string dak_type, string jsonResponse)
+        {
+            DakItemDetails dakItemDB = _dakItemDetails.Table.FirstOrDefault(a => a.dak_id == dak_id && a.is_copied_dak == is_copied_dak && a.dak_type == dak_type );
+
+            if (dakItemDB != null)
+            {
+                dakItemDB.dak_details_Json = jsonResponse;
+                _dakItemDetails.Update(dakItemDB);
+            }
+            else
+            {
+                DakItemDetails dakItem = new DakItemDetails();
+                dakItem.dak_id = dak_id;
+                dakItem.is_copied_dak = is_copied_dak;
+                dakItem.dak_type = dak_type;
+                dakItem.dak_details_Json = jsonResponse;
+                _dakItemDetails.Insert(dakItem);
+
+            }
+        }
+        private void SaveorUpdateDakItemAttachment(int dak_id, int is_copied_dak, string dak_type, string jsonResponse)
+        {
+            DakItemDetails dakItemDB = _dakItemDetails.Table.FirstOrDefault(a => a.dak_id == dak_id && a.is_copied_dak == is_copied_dak && a.dak_type == dak_type);
+
+            if (dakItemDB != null)
+            {
+                dakItemDB.dak_attachment_Json = jsonResponse;
+                _dakItemDetails.Update(dakItemDB);
+            }
+            else
+            {
+                DakItemDetails dakItem = new DakItemDetails();
+                dakItem.dak_id = dak_id;
+                dakItem.is_copied_dak = is_copied_dak;
+                dakItem.dak_type = dak_type;
+                dakItem.dak_attachment_Json = jsonResponse;
+                _dakItemDetails.Insert(dakItem);
+
+            }
+        }
+        private void SaveorUpdateDakItemMovementStatus(int dak_id, int is_copied_dak, string dak_type, string jsonResponse)
+        {
+            DakItemDetails dakItemDB = _dakItemDetails.Table.FirstOrDefault(a => a.dak_id == dak_id && a.is_copied_dak == is_copied_dak && a.dak_type == dak_type);
+
+            if (dakItemDB != null)
+            {
+                dakItemDB.dak_movement_status_Json = jsonResponse;
+                _dakItemDetails.Update(dakItemDB);
+            }
+            else
+            {
+                DakItemDetails dakItem = new DakItemDetails();
+                dakItem.dak_id = dak_id;
+                dakItem.is_copied_dak = is_copied_dak;
+                dakItem.dak_type = dak_type;
+                dakItem.dak_movement_status_Json = jsonResponse;
+                _dakItemDetails.Insert(dakItem);
+
+            }
+        }
+
+        public void DeleteDakItemLocally(List<DakItem> data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveorUpdateDakItemDetailsLocally(long dak_id, string DakDetails)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

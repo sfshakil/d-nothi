@@ -20,6 +20,7 @@ namespace dNothi.Services.SyncServices
     public class SyncerService: ISyncerService
     {
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+     
         IUserService _userService;
         IDakInboxServices _dakInboxService;
         IAccountService _accountService;
@@ -51,27 +52,25 @@ namespace dNothi.Services.SyncServices
         //src will be Remote and dst will be Local
 
 
-       public List<long> RemoteDakIdList()
+       public List<DakIdListRecordDTO> RemoteDakIdList(int page, int Limit)
         {
+            List<DakIdListRecordDTO> dakIdListRecordDTOs=new List<DakIdListRecordDTO>();
             DakUserParam userParam = _userService.GetLocalDakUserParam();
             List<long> ids = new List<long>();
             var response = _dakListService.GetRemoteDakIdList(userParam);
            
                 if(response.data.records.Count>0)
                 {
-                    foreach(DakIdListRecordDTO dakIdListRecordDTO in response.data.records)
-                    {
-                        ids.Add(dakIdListRecordDTO.dak_id);
-                    }
+                 dakIdListRecordDTOs = response.data.records;
                 }
 
-            return ids;
+            return dakIdListRecordDTOs;
             
         }
         public void SyncDak(DakUserParam userParam)
         {
             //List<long> src =RemoteDakIdList(userParam);
-            List<long> des = _dakListService.GetLocalDakIdList();
+          //  List<long> des = _dakListService.GetLocalDakIdList();
 
           //  List<long> diff = des.Except(src).ToList();
             // CopyMessageToDest(diff);
@@ -83,18 +82,47 @@ namespace dNothi.Services.SyncServices
         }
 
 
-        public void SyncDakTo(List<long> src, List<long> des, List<long> status )
+        public void SyncDakTo(List<DakIdListRecordDTO> src, List<DakItem> des)
         {
-            List<long> diff = src.Except(status).ToList();
+            var addItemList = src.Where(p => !des.Any(p2 => p2.dak_id == p.dak_id)).ToList();
 
-             AddToDest(diff);
-             SaveToStatus(diff);
 
-            List<long> diff2 = status.Except(src).ToList();
-           
-            DeleteFromDest(diff2);
-            DeleteFromStatus(diff2);// Status Store Only Id
+            if(addItemList != null || addItemList.Count!=0)
+            {
+                AddDakItemList(addItemList);
+            }
+
+            var deleteItemList = des.Where(p => !src.Any(p2 => p2.dak_id == p.dak_id)).ToList();
+
+            if (deleteItemList != null || deleteItemList.Count != 0)
+            {
+                DeleteDakItemList(deleteItemList);
+            }
+
+
+
+            UpdateDakItemList(src);
+
+
         }
+
+        private void UpdateDakItemList(List<DakIdListRecordDTO> src)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeleteDakItemList(List<DakItem> deleteItemList)
+        {
+           
+        }
+
+        private void AddDakItemList(List<DakIdListRecordDTO> result)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
 
         private void AddToDest(List<long> diff2)
         {
@@ -286,11 +314,11 @@ namespace dNothi.Services.SyncServices
 
     public interface ISyncerService
     {
-        List<long> RemoteDakIdList();
+        List<DakIdListRecordDTO> RemoteDakIdList(int page,int Limit);
         List<long> GetDestination();
         Task<List<long>> GetSource();
         List<long> GetStatus();
         void SyncDak(DakUserParam userParam);
-        void SyncDakTo(List<long> src, List<long> des, List<long> status);
+        void SyncDakTo(List<DakIdListRecordDTO> src, List<DakItem> des);
     }
 }
