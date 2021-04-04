@@ -18,43 +18,29 @@ namespace dNothi.Services.NothiServices
     public class NothiInboxService : INothiInboxServices
     {
         IRepository<NothiListRecords> _nothiListRecords;
-        public NothiInboxService(IRepository<NothiListRecords> nothiListRecords)
+        IRepository<NothiItem> _nothiItem;
+        public NothiInboxService(IRepository<NothiListRecords> nothiListRecords, IRepository<NothiItem> nothiItem)
         {
             this._nothiListRecords = nothiListRecords;
+            _nothiItem = nothiItem;
         }
-        //public NothiListInboxResponse GetNothiInbox(string token)
-        //{
-        //    try
-        //    {
-        //        var client = new RestClient("https://dev.nothibs.tappware.com/api/nothi/list/inbox");
-        //        client.Timeout = -1;
-        //        var request = new RestRequest(Method.POST);
-        //        request.AddHeader("api-version", "1");
-        //        request.AddHeader("Authorization", "Bearer " + token);
-        //        request.AlwaysMultipartFormData = true;
-        //        request.AddParameter("length", "10");
-        //        request.AddParameter("page", "1");
-        //        request.AddParameter("cdesk", "{\"office_id\": 65,\n  \"office_unit_id\": 40372,\n  \"designation_id\": 244930,\n  \"officer_id\": 77858,\n  \"user_id\": 3923}");
-
-        //        IRestResponse response = client.Execute(request);
-        //        Console.WriteLine(response.Content);
-
-
-        //        var responseJson = response.Content;
-        //        //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-        //        // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-        //        NothiListInboxResponse dakListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(responseJson);
-        //        return dakListInboxResponse;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw;
-        //    }
-        //}
 
         public NothiListInboxResponse GetNothiInbox(DakUserParam dakUserParam)
         {
-            NothiListInboxResponse dakListInboxResponse = new NothiListInboxResponse();
+            NothiListInboxResponse nothiListInboxResponse = new NothiListInboxResponse();
+
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakList = _nothiItem.Table.FirstOrDefault(a => a.page == dakUserParam.page && a.is_nothi_inbox == true && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                if (dakList != null)
+                {
+                    nothiListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(dakList.jsonResponse);
+
+                }
+                return nothiListInboxResponse;
+            }
+
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiInboxListEndpoint());
@@ -65,21 +51,19 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("length", dakUserParam.limit);
                 request.AddParameter("page", dakUserParam.page);
-
                 var serializedObject = JsonConvert.SerializeObject(dakUserParam);
                 request.AddParameter("cdesk", serializedObject);
-
                 IRestResponse response = client.Execute(request);
-                Console.WriteLine(response.Content);
 
 
                 var responseJson = response.Content;
-                dakListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(responseJson);
-                return dakListInboxResponse;
+                SaveOrUpdateNothiRecords(dakUserParam, responseJson);
+                nothiListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(responseJson);
+                return nothiListInboxResponse;
             }
             catch (Exception ex)
             {
-                return dakListInboxResponse;
+                return nothiListInboxResponse;
             }
         }
         public class cdesk
@@ -91,9 +75,26 @@ namespace dNothi.Services.NothiServices
             public int user_id { get; set; }
         }
 
-        public void SaveOrUpdateNothiRecords(List<NothiListRecordsDTO> nothi_list_records)
+        public void SaveOrUpdateNothiRecords(DakUserParam dakListUserParam, string responseJson)
         {
-            
+            NothiItem nothiItemDB = _nothiItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_nothi_inbox == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (nothiItemDB != null)
+            {
+                nothiItemDB.jsonResponse = responseJson;
+                _nothiItem.Update(nothiItemDB);
+            }
+            else
+            {
+                NothiItem nothiItem = new NothiItem();
+                nothiItem.is_nothi_inbox = true;
+                nothiItem.page = dakListUserParam.page;
+                nothiItem.designation_id = dakListUserParam.designation_id;
+                nothiItem.office_id = dakListUserParam.office_id;
+                nothiItem.jsonResponse = responseJson;
+                _nothiItem.Insert(nothiItem);
+
+            }
         }
         //public void SaveOrUpdateNothiRecords(List<NothiListRecordsDTO> nothi_list_records)
         //{

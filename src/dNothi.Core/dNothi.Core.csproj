@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Entities\AppUser.cs" />
     <Compile Include="Entities\DakAttachment.cs" />
+    <Compile Include="Entities\NothiItem.cs" />
     <Compile Include="Entities\DakItem.cs" />
     <Compile Include="Entities\DakTag.cs" />
     <Compile Include="Entities\DakType.cs" />
