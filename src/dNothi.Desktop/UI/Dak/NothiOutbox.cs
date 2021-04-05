@@ -124,7 +124,6 @@ namespace dNothi.Desktop.UI.Dak
 
             if (nothiInboxNote.status == "success")
             {
-
                 if (nothiInboxNote.data.records.Count > 0)
                 {
                     _noteTotal = nothiInboxNote.data.total_records;

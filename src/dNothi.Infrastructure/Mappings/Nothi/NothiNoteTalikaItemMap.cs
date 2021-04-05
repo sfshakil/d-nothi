@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace dNothi.Infrastructure.Mappings.Nothi
 {
-    public class NothiItemMap : NothiEntityTypeConfiguration<NothiItem>
+    public class NothiNoteTalikaItemMap : NothiEntityTypeConfiguration<NothiNoteTalikaItem>
     {
-        public NothiItemMap()
+        public NothiNoteTalikaItemMap()
         {
-            this.ToTable("NothiItem");
+            this.ToTable("NothiNoteTalikaItem");
             this.HasKey(a => a.Id);
         }
     }

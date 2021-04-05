@@ -31,11 +31,11 @@ namespace dNothi.Services.NothiServices
 
             if (!dNothi.Utility.InternetConnection.Check())
             {
-                var dakList = _nothiItem.Table.FirstOrDefault(a => a.page == dakUserParam.page && a.is_nothi_inbox == true && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+                var nothiList = _nothiItem.Table.FirstOrDefault(a => a.page == dakUserParam.page && a.is_nothi_inbox == true && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
 
-                if (dakList != null)
+                if (nothiList != null)
                 {
-                    nothiListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(dakList.jsonResponse);
+                    nothiListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(nothiList.jsonResponse);
 
                 }
                 return nothiListInboxResponse;
@@ -96,28 +96,6 @@ namespace dNothi.Services.NothiServices
 
             }
         }
-        //public void SaveOrUpdateNothiRecords(List<NothiListRecordsDTO> nothi_list_records)
-        //{
-        //    var config = new MapperConfiguration(cfg =>
-        //            cfg.CreateMap<NothiListRecordsDTO, NothiListRecords>()
-        //        );
-        //    var mapper = new Mapper(config);
-
-        //    foreach (var nothi_list_record in nothi_list_records)
-        //    {
-        //        var nothilist = mapper.Map<NothiListRecords>(nothi_list_record);
-
-        //        var dbnothilist = _nothiListRecords.Table.Where(q => q.Id == nothi_list_record.id).FirstOrDefault();
-        //        if (dbnothilist == null)
-        //        {
-        //            _nothiListRecords.Insert(nothilist);
-        //        }
-        //        else
-        //        {
-        //            _nothiListRecords.Update(nothilist);
-        //        }
-        //    }
-        //}
         protected string GetAPIVersion()
         {
             return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;

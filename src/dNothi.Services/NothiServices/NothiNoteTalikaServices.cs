@@ -1,4 +1,6 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
@@ -17,12 +19,28 @@ namespace dNothi.Services.NothiServices
     public class NothiNoteTalikaServices : INothiNoteTalikaServices
     {
         private readonly INoteListParser _noteListParser;
-        public NothiNoteTalikaServices(INoteListParser noteListParser)
+        IRepository<NothiNoteTalikaItem> _nothiNoteTalikaItem;
+        public NothiNoteTalikaServices(INoteListParser noteListParser, IRepository<NothiNoteTalikaItem> nothiNoteTalikaItem)
         {
             _noteListParser = noteListParser;
+            _nothiNoteTalikaItem = nothiNoteTalikaItem;
         }
         public NothiNoteTalikaListResponse GetNothiNoteTalika(DakUserParam dakUserParam, string nothi_type_id)
         {
+            NothiNoteTalikaListResponse nothiNoteTalikaListResponse = new NothiNoteTalikaListResponse();
+
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var nothiNoteTalikaList = _nothiNoteTalikaItem.Table.FirstOrDefault(a => a.nothi_type_id == nothi_type_id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                if (nothiNoteTalikaList != null)
+                {
+                    nothiNoteTalikaListResponse = JsonConvert.DeserializeObject<NothiNoteTalikaListResponse>(nothiNoteTalikaList.jsonResponse);
+
+                }
+                return nothiNoteTalikaListResponse;
+            }
+
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiNoteTalikaEndPoint());
@@ -31,20 +49,42 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("api-version", GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 request.AlwaysMultipartFormData = true;
-                request.AddParameter("cdesk", "{\"office_id\":\""+ dakUserParam.office_id+"\",\"office_unit_id\":\""+ dakUserParam.office_unit_id+ "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
+                var serializedObject = JsonConvert.SerializeObject(dakUserParam);
+                request.AddParameter("cdesk", serializedObject);
+                //request.AddParameter("cdesk", "{\"office_id\":\""+ dakUserParam.office_id+"\",\"office_unit_id\":\""+ dakUserParam.office_unit_id+ "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
                 request.AddParameter("length", "100");
                 request.AddParameter("page", "1");
                 request.AddParameter("search_params", "{\"nothi_type_id\":\""+nothi_type_id+ "\"}");
                 IRestResponse response = client.Execute(request);
-                Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                NothiNoteTalikaListResponse nothiNoteTalikaListResponse = JsonConvert.DeserializeObject<NothiNoteTalikaListResponse>(responseJson);
+                SaveOrUpdateNothiRecords(dakUserParam, responseJson, nothi_type_id);
+                nothiNoteTalikaListResponse = JsonConvert.DeserializeObject<NothiNoteTalikaListResponse>(responseJson);
                 return nothiNoteTalikaListResponse;
             }
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+        public void SaveOrUpdateNothiRecords(DakUserParam dakListUserParam, string responseJson, string nothi_type_id)
+        {
+            NothiNoteTalikaItem nothiNoteTalikaItemDB = _nothiNoteTalikaItem.Table.FirstOrDefault(a => a.nothi_type_id == nothi_type_id  && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (nothiNoteTalikaItemDB != null)
+            {
+                nothiNoteTalikaItemDB.jsonResponse = responseJson;
+                _nothiNoteTalikaItem.Update(nothiNoteTalikaItemDB);
+            }
+            else
+            {
+                NothiNoteTalikaItem nothiNoteTalikaItem = new NothiNoteTalikaItem();
+                nothiNoteTalikaItem.nothi_type_id= nothi_type_id;
+                nothiNoteTalikaItem.designation_id = dakListUserParam.designation_id;
+                nothiNoteTalikaItem.office_id = dakListUserParam.office_id;
+                nothiNoteTalikaItem.jsonResponse = responseJson;
+                _nothiNoteTalikaItem.Insert(nothiNoteTalikaItem);
+
             }
         }
 

@@ -97,8 +97,11 @@
     <Compile Include="Mappings\Dak\OtherMap.cs" />
     <Compile Include="Mappings\Dak\ToMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
+    <Compile Include="Mappings\Nothi\NoteItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiListRecordsMap.cs" />
+    <Compile Include="Mappings\Nothi\NothiNoteTalikaItemMap.cs" />
+    <Compile Include="Mappings\Nothi\NothiTypeListItemMap.cs" />
     <Compile Include="Mappings\Sync\SyncStatusMap.cs" />
     <Compile Include="Mappings\Users\EmployeeInfoMap.cs" />
     <Compile Include="Mappings\Users\OfficeInfoMap.cs" />

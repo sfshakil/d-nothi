@@ -1,5 +1,6 @@
 ﻿using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
+using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
@@ -67,9 +68,14 @@ namespace dNothi.Desktop.UI
         }
         public void loadNothiInboxTotal()
         {
-            var noteList = _nothiNoteTalikaServices.GetNothiNoteListInbox(_dakuserparam, -1);
-            //lbTotalNothi.Text = "সর্বমোট: " + string.Concat(noteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
-            NothiInboxTotal.Text = string.Concat(noteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            //var noteList = _nothiNoteTalikaServices.GetNothiNoteListInbox(_dakuserparam, -1);
+            ////lbTotalNothi.Text = "সর্বমোট: " + string.Concat(noteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            //NothiInboxTotal.Text = string.Concat(noteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(_dakuserparam);
+            var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == _dakuserparam.designation_id.ToString());
+
+            moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
+            NothiInboxTotal.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
         }
         public void forceLoadNewNothi()
         {
@@ -1630,7 +1636,28 @@ namespace dNothi.Desktop.UI
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
                 designationDetailsPanelNothi.Width = 427;
-                designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
+                //designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
+
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                List<OfficeInfoDTO> officeInfoDTO = _userService.GetAllLocalOfficeInfo();
+
+
+                foreach (OfficeInfoDTO officeInfoDTO1 in officeInfoDTO)
+                {
+                    dakUserParam.designation_id = officeInfoDTO1.office_unit_organogram_id;
+                    dakUserParam.office_id = officeInfoDTO1.office_id;
+                    EmployeDakNothiCountResponse singleOfficeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
+                    var singleOfficeDakNothiCount = singleOfficeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
+
+                    officeInfoDTO1.dakCount = singleOfficeDakNothiCount.Value.dak;
+                    officeInfoDTO1.nothiCount = singleOfficeDakNothiCount.Value.own_office_nothi;
+                }
+
+
+
+                designationDetailsPanelNothi.officeInfos = officeInfoDTO;
+
+                designationDetailsPanelNothi.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanelNothi._designationId); };
 
             }
             else
@@ -1638,6 +1665,19 @@ namespace dNothi.Desktop.UI
                 designationDetailsPanelNothi.Visible = false;
                 designationDetailsPanelNothi.Width = 434;
             }
+        }
+        private void ChageUser(int designationId)
+        {
+            _userService.MakeThisOfficeCurrent(designationId);
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
+
+            EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(_dakuserparam);
+            var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == _dakuserparam.designation_id.ToString());
+
+            moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
+            NothiInboxTotal.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
+            loadNothiExtra();
         }
 
         private void profileShowArrowButton_Click(object sender, EventArgs e)
