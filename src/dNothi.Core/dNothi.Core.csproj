@@ -72,8 +72,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\UserItem.cs" />
     <Compile Include="Entities\AppUser.cs" />
     <Compile Include="Entities\DakAttachment.cs" />
+    <Compile Include="Entities\AllOfficeItem.cs" />
+    <Compile Include="Entities\NoteOnuchhedListItem.cs" />
+    <Compile Include="Entities\NothiPotrangshoItem.cs" />
+    <Compile Include="Entities\NothiOnumodonItem.cs" />
     <Compile Include="Entities\NothiTypeListItem.cs" />
     <Compile Include="Entities\NothiNoteTalikaItem.cs" />
     <Compile Include="Entities\NoteItem.cs" />
