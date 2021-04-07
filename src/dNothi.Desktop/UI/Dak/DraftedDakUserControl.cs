@@ -39,6 +39,12 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+
+
+        public bool _isOfflineDak { get; set; }
+        public bool isOfflineDak { get { return _isOfflineDak; } set { _isOfflineDak = value; uploadIconButton.Visible = true; resendButton.Visible = true; } }
+
+
         public event EventHandler DakAttachmentButton;
 
         private void DakAttachmentButton_Click(object sender, EventArgs e)
@@ -414,6 +420,13 @@ namespace dNothi.Desktop.UI.Dak
         {
             //disablePanel.Location = new Point(this.Width - disablePanel.Width, disablePanel.Location.Y);
 
+        }
+     
+        public event EventHandler DakResendButton;
+        private void resendButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakResendButton != null)
+                this.DakResendButton(sender, e);
         }
     }
 }

@@ -34,11 +34,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.designationRowFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.profileButton = new FontAwesome.Sharp.IconButton();
-            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.helpDeskButton = new FontAwesome.Sharp.IconButton();
             this.logoutButton = new FontAwesome.Sharp.IconButton();
+            this.helpDeskButton = new FontAwesome.Sharp.IconButton();
+            this.profileButton = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -51,7 +52,7 @@
             this.label1.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 27);
+            this.label1.Size = new System.Drawing.Size(134, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "পদবি নির্বাচন করুন";
             // 
@@ -105,37 +106,28 @@
             this.panel3.Size = new System.Drawing.Size(426, 41);
             this.panel3.TabIndex = 13;
             // 
-            // panel1
+            // logoutButton
             // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(426, 30);
-            this.panel1.TabIndex = 0;
-            // 
-            // profileButton
-            // 
-            this.profileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.profileButton.FlatAppearance.BorderSize = 0;
-            this.profileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.profileButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.profileButton.ForeColor = System.Drawing.Color.White;
-            this.profileButton.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.profileButton.IconColor = System.Drawing.Color.White;
-            this.profileButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.profileButton.IconSize = 20;
-            this.profileButton.Location = new System.Drawing.Point(-2, 0);
-            this.profileButton.Margin = new System.Windows.Forms.Padding(0);
-            this.profileButton.Name = "profileButton";
-            this.profileButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.profileButton.Size = new System.Drawing.Size(142, 41);
-            this.profileButton.TabIndex = 69;
-            this.profileButton.Text = "প্রোফাইল";
-            this.profileButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.MyToolTip.SetToolTip(this.profileButton, "প্রোফাইল ");
-            this.profileButton.UseVisualStyleBackColor = false;
+            this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.logoutButton.ForeColor = System.Drawing.Color.White;
+            this.logoutButton.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.logoutButton.IconColor = System.Drawing.Color.White;
+            this.logoutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.logoutButton.IconSize = 20;
+            this.logoutButton.Location = new System.Drawing.Point(282, 0);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(0);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.logoutButton.Size = new System.Drawing.Size(142, 41);
+            this.logoutButton.TabIndex = 71;
+            this.logoutButton.Text = "লগ আউট ";
+            this.logoutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.MyToolTip.SetToolTip(this.logoutButton, "লগ আউট ");
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // helpDeskButton
             // 
@@ -159,28 +151,41 @@
             this.MyToolTip.SetToolTip(this.helpDeskButton, "হেল্প ডেস্ক ");
             this.helpDeskButton.UseVisualStyleBackColor = false;
             // 
-            // logoutButton
+            // profileButton
             // 
-            this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.logoutButton.FlatAppearance.BorderSize = 0;
-            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.logoutButton.ForeColor = System.Drawing.Color.White;
-            this.logoutButton.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.logoutButton.IconColor = System.Drawing.Color.White;
-            this.logoutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.logoutButton.IconSize = 20;
-            this.logoutButton.Location = new System.Drawing.Point(282, 0);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(0);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.logoutButton.Size = new System.Drawing.Size(142, 41);
-            this.logoutButton.TabIndex = 71;
-            this.logoutButton.Text = "লগ আউট ";
-            this.logoutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.MyToolTip.SetToolTip(this.logoutButton, "লগ আউট ");
-            this.logoutButton.UseVisualStyleBackColor = false;
-            this.logoutButton.Click += new System.EventHandler(this.btnLogout_Click);
+            this.profileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.profileButton.FlatAppearance.BorderSize = 0;
+            this.profileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.profileButton.ForeColor = System.Drawing.Color.White;
+            this.profileButton.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            this.profileButton.IconColor = System.Drawing.Color.White;
+            this.profileButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.profileButton.IconSize = 20;
+            this.profileButton.Location = new System.Drawing.Point(-2, 0);
+            this.profileButton.Margin = new System.Windows.Forms.Padding(0);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.profileButton.Size = new System.Drawing.Size(142, 41);
+            this.profileButton.TabIndex = 69;
+            this.profileButton.Text = "প্রোফাইল";
+            this.profileButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.MyToolTip.SetToolTip(this.profileButton, "প্রোফাইল ");
+            this.profileButton.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(426, 30);
+            this.panel1.TabIndex = 0;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // designationSelect
             // 
@@ -213,5 +218,6 @@
         private FontAwesome.Sharp.IconButton logoutButton;
         private System.Windows.Forms.ToolTip MyToolTip;
         private FontAwesome.Sharp.IconButton helpDeskButton;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

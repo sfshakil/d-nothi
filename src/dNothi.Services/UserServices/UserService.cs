@@ -95,11 +95,20 @@ namespace dNothi.Services.UserServices
 
         public OfficeInfoDTO GetOfficeInfo()
         {
-            var empInfo = _officeRepository.Table.FirstOrDefault(a=>a.is_current==true);
-            if(empInfo == null)
+            OfficeInfo empInfo = new OfficeInfo();
+            try
             {
-                empInfo= _officeRepository.Table.FirstOrDefault();
+                empInfo = _officeRepository.Table.FirstOrDefault(a => a.is_current == true);
+                if (empInfo == null)
+                {
+                    empInfo = _officeRepository.Table.FirstOrDefault();
+                }
             }
+            catch
+            {
+
+            }
+            
 
             var config = new MapperConfiguration(cfg =>
                     cfg.CreateMap<OfficeInfo, OfficeInfoDTO>()

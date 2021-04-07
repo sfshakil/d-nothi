@@ -10,11 +10,15 @@ using System.Windows.Forms;
 using dNothi.Desktop.UI;
 using dNothi.Core.Entities;
 using dNothi.JsonParser.Entity;
+using System.Threading;
+using dNothi.Utility;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop
 {
     public partial class designationSelect : UserControl
     {
+        private bool HasInternet=true;
         public EmployeDakNothiCountResponse _employeDakNothiCountResponse = new EmployeDakNothiCountResponse();
         public EmployeDakNothiCountResponse employeDakNothiCountResponse { get { return _employeDakNothiCountResponse; } set { _employeDakNothiCountResponse = value; } }
 
@@ -23,6 +27,7 @@ namespace dNothi.Desktop
         public designationSelect()
         {
             InitializeComponent();
+            backgroundWorker1.RunWorkerAsync();
         }
 
         
@@ -93,6 +98,12 @@ namespace dNothi.Desktop
             { f.Hide(); }
             var form = FormFactory.Create<Login>();
             form.ShowDialog();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
+            
         }
     }
 }

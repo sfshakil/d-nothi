@@ -62,6 +62,10 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     continue;
                 }
+                if(ctrl== resendButton)
+                {
+                    continue;
+                }
                 ctrl.Click += DakOutboxUserControl_Click;
                 ctrl.MouseEnter += DakOutboxUserControl_Enter;
                 ctrl.MouseLeave += DakOutboxUserControl_Leave;
@@ -275,6 +279,9 @@ namespace dNothi.Desktop.UI.Dak
             set { _date = value; dateLabel.Text = value; }
         }
 
+        public bool _isOfflineDak { get; set; } 
+        public bool isOfflineDak { get { return _isOfflineDak; } set { _isOfflineDak = value; uploadIconButton.Visible = true; resendButton.Visible = true; } }
+
 
 
         [Browsable(true)]
@@ -421,5 +428,13 @@ namespace dNothi.Desktop.UI.Dak
            // disablePanel.Location = new Point(this.Width - disablePanel.Width, disablePanel.Location.Y);
 
         }
+
+        public event EventHandler DakResendButton;
+        private void resendButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakResendButton != null)
+                this.DakResendButton(sender, e);
+        }
     }
+
 }

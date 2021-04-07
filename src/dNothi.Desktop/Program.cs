@@ -120,6 +120,7 @@ namespace dNothi.Desktop
 
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItem>>().As<IRepository<dNothi.Core.Entities.DakItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemAction>>().As<IRepository<dNothi.Core.Entities.DakItemAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemDetails>>().As<IRepository<dNothi.Core.Entities.DakItemDetails>>();
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakList>>().As<IRepository<dNothi.Core.Entities.DakList>>();

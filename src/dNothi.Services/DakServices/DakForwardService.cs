@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Utility;
 using Newtonsoft.Json;
@@ -19,8 +20,10 @@ namespace dNothi.Services.DakServices
     {
 
         IRepository<LocalDesignationSeal> _localDesignationSealRepository;
-        public DakForwardService(IRepository<LocalDesignationSeal> localDesignationSealRepository)
+        IRepository<DakItemAction> _dakItemAction;
+        public DakForwardService(IRepository<DakItemAction> dakItemAction,IRepository<LocalDesignationSeal> localDesignationSealRepository)
         {
+            _dakItemAction = dakItemAction;
             _localDesignationSealRepository = localDesignationSealRepository;
         }
 
@@ -70,6 +73,45 @@ namespace dNothi.Services.DakServices
             }
 
            
+        }
+
+
+        public bool Is_Locally_Forwarde(int dak_id)
+        {
+            var dakForwardCheck = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id);
+            if(dakForwardCheck == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public bool SendDakForwardFromLocal()
+        {
+            bool isForwarded = false;
+            List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isForwarded == true).ToList();
+            if(dakItemActions != null && dakItemActions.Count>0)
+            {
+                foreach(DakItemAction dakItemAction in dakItemActions)
+                {
+                    DakForwardRequestParam dakForwardRequest= JsonConvert.DeserializeObject<DakForwardRequestParam>(dakItemAction.dak_Action_Json);
+                    var dakForwardResponse = GetDakForwardResponse(dakForwardRequest);
+
+                    if(dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status =="success"))
+                        
+                    {
+                        _dakItemAction.Delete(dakItemAction);
+                        isForwarded = true;
+                        
+                    }
+                }
+            }
+
+
+            return isForwarded;
         }
 
         private void SaveLocalDesignationSeal(string designationSealResponseJson, DakUserParam dakListUserParam)
@@ -153,13 +195,40 @@ namespace dNothi.Services.DakServices
 
         public DakForwardResponse GetDakForwardResponse(DakForwardRequestParam dakForwardParam)
         {
+            DakForwardResponse dakForwardResponse = new DakForwardResponse();
+            if (!InternetConnection.Check())
+            {
+                dakForwardResponse.status = "success";
+                dakForwardResponse.message = "Local";
+
+                DakItemAction dakItemAction = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dakForwardParam.dak_id && a.dak_type == dakForwardParam.dak_type && a.is_copied_dak == dakForwardParam.is_copied_dak);
+
+                if(dakItemAction == null)
+                {
+                    dakItemAction = new DakItemAction();
+                    dakItemAction.isForwarded = true;
+                    dakItemAction.is_copied_dak = dakForwardParam.is_copied_dak;
+                    dakItemAction.dak_id = dakForwardParam.dak_id;
+                    dakItemAction.dak_type = dakForwardParam.dak_type;
+                    dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(dakForwardParam);
+
+                    _dakItemAction.Insert(dakItemAction);
+                }
+
+
+
+                
+
+                return dakForwardResponse;
+            }
             try
             {
 
+                
                 var DakForwardApi = new RestClient(GetAPIDomain() + GetDakForwardEndpoint());
                 DakForwardApi.Timeout = -1;
                 var dakForwardRequest = new RestRequest(Method.POST);
-                dakForwardRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakForwardRequest.AddHeader("api-version", GetAPIVersion());
                 dakForwardRequest.AddHeader("Authorization", "Bearer " + dakForwardParam.token);
                 dakForwardRequest.AlwaysMultipartFormData = true;
                 dakForwardRequest.AddParameter("sender_info", dakForwardParam.sender_info);
@@ -171,14 +240,14 @@ namespace dNothi.Services.DakServices
                 dakForwardRequest.AddParameter("comment", dakForwardParam.comment);
                 dakForwardRequest.AddParameter("security", dakForwardParam.security);
                 dakForwardRequest.AddParameter("is_copied_dak", dakForwardParam.is_copied_dak);
-            
+
                 IRestResponse dakForwardResponseAPI = DakForwardApi.Execute(dakForwardRequest);
 
 
                 var dakForwardResponseJson = dakForwardResponseAPI.Content;
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakForwardResponse dakForwardResponse = JsonConvert.DeserializeObject<DakForwardResponse>(dakForwardResponseJson);
+                 dakForwardResponse = JsonConvert.DeserializeObject<DakForwardResponse>(dakForwardResponseJson);
                 return dakForwardResponse;
             }
             catch (Exception ex)

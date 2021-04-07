@@ -17,5 +17,8 @@ namespace dNothi.JsonParser.Entity.Dak_List_Inbox
 
 
         public string Status { get; set; }
+
+
+        public int dak_id_Remote { get; set; }
     }
 }

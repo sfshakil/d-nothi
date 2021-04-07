@@ -3,6 +3,7 @@ using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using Newtonsoft.Json;
@@ -20,7 +21,7 @@ namespace dNothi.Services.DakServices
     public class DakUploadService : IDakUploadService
     {
         IRepository<LocalUploadedDak> _localUploadedDakRepository;
-        public IUserService _userService { get; set;}
+        public IUserService _userService { get; set; }
         public DakUploadService(IRepository<LocalUploadedDak> localUploadedDak, IUserService userService)
         {
             _localUploadedDakRepository = localUploadedDak;
@@ -56,7 +57,7 @@ namespace dNothi.Services.DakServices
                 var dakFileUploadRequest = new RestRequest(Method.POST);
                 dakFileUploadRequest.AddHeader("api-version", GetAPIVersion());
                 dakFileUploadRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-              //  dakFileUploadRequest.AddHeader("model", dakFileUploadParam.model);
+                //  dakFileUploadRequest.AddHeader("model", dakFileUploadParam.model);
                 dakFileUploadRequest.AlwaysMultipartFormData = true;
                 dakFileUploadRequest.AddParameter("designation_id", dakListUserParam.designation_id);
                 dakFileUploadRequest.AddParameter("office_id", dakListUserParam.office_id);
@@ -64,7 +65,7 @@ namespace dNothi.Services.DakServices
                 dakFileUploadRequest.AddParameter("file_size_in_kb", dakFileUploadParam.file_size_in_kb);
                 dakFileUploadRequest.AddParameter("user_file_name", dakFileUploadParam.user_file_name);
                 dakFileUploadRequest.AddParameter("content", dakFileUploadParam.content);
-               
+
                 IRestResponse dakFileUploadResponse = dakFileUploadApi.Execute(dakFileUploadRequest);
 
 
@@ -75,7 +76,7 @@ namespace dNothi.Services.DakServices
             catch (Exception ex)
             {
 
-                
+
                 return dakUploadedFileResponse;
             }
         }
@@ -119,7 +120,7 @@ namespace dNothi.Services.DakServices
         protected string GetAllDesignationSealEndpoint()
         {
             return DefaultAPIConfiguration.AllDesignationSealEndPoint;
-        }   
+        }
         protected string GetOfficeListEndpoint()
         {
             return DefaultAPIConfiguration.OfficeListEndpoint;
@@ -138,13 +139,13 @@ namespace dNothi.Services.DakServices
                 var OCRApi = new RestClient(GetOCREndpoint());
                 OCRApi.Timeout = -1;
                 var oCRRequest = new RestRequest(Method.POST);
-              
+
                 oCRRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-             
+
                 oCRRequest.AlwaysMultipartFormData = true;
                 oCRRequest.AddParameter("image", oCRParameter.image());
                 oCRRequest.AddParameter("language", oCRParameter.language);
-               
+
                 IRestResponse oCRApiResponse = OCRApi.Execute(oCRRequest);
 
 
@@ -170,7 +171,7 @@ namespace dNothi.Services.DakServices
             deleteRequest.AddParameter("office_id", dakListUserParam.office_id);
             deleteRequest.AddParameter("designation_id", dakListUserParam.designation_id);
             deleteRequest.AddParameter("file_name", deleteParam.file_name);
-            deleteRequest.AddParameter("delete_token",deleteParam.delete_token);
+            deleteRequest.AddParameter("delete_token", deleteParam.delete_token);
             IRestResponse deleteResponse = deleteAPI.Execute(deleteRequest);
 
             var deleteResponseJson = deleteResponse.Content;
@@ -182,17 +183,66 @@ namespace dNothi.Services.DakServices
 
         }
 
+        public DakDraftedResponse GetLocalDakDraftedResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
+        {
+            DakDraftedResponse dakSendResponse = new DakDraftedResponse();
+
+
+            dakUploadParameter.remoteAttachments.AddRange(UploadDakAttachmentList(dakListUserParam, dakUploadParameter.localAttachments));
+
+            dakUploadParameter.dak_Info_Obj.attachment = dakUploadParameter.remoteAttachments.ToDictionary(a => a.file_infoModel.id.ToString());
+            dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dakUploadParameter.dak_Info_Obj);
+
+            var dakSendAPI = new RestClient(GetAPIDomain() + GetDakDraftEndpoint());
+            dakSendAPI.Timeout = -1;
+            var dakSendRequest = new RestRequest(Method.POST);
+            dakSendRequest.AddHeader("api-version", GetAPIVersion());
+            dakSendRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+            dakSendRequest.AddParameter("sender", dakUploadParameter.sender_info);
+            dakSendRequest.AddParameter("receiver", dakUploadParameter.receiver_info);
+            dakSendRequest.AddParameter("dak", dakUploadParameter.dak_info);
+            dakSendRequest.AddParameter("others", dakUploadParameter.others);
+            dakSendRequest.AddParameter("uploader", dakUploadParameter.uploader);
+            dakSendRequest.AddParameter("path", dakUploadParameter.path);
+            dakSendRequest.AddParameter("content", dakUploadParameter.content);
+            dakSendRequest.AddParameter("office_id", dakUploadParameter.office_id);
+            dakSendRequest.AddParameter("designation_id", dakUploadParameter.designation_id);
+            IRestResponse dakSendIRestResponse = dakSendAPI.Execute(dakSendRequest);
+            var dakSendResponseJson = dakSendIRestResponse.Content;
+
+            dakSendResponse = JsonConvert.DeserializeObject<DakDraftedResponse>(dakSendResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+
+            return dakSendResponse;
+        }
         public DakDraftedResponse GetDakDraftedResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
         {
+            DakDraftedResponse dakSendResponse = new DakDraftedResponse();
+            if (!InternetConnection.Check())
+            {
+                dakSendResponse.status = "success";
+               dakSendResponse.data = "ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি খসড়া করা হবে!";
+                //dakSendResponse.me = "Request Pending!";
+                DakUploadLocally(dakUploadParameter,true);
+
+                return dakSendResponse;
+            }
+
+
             var dakDraftedAPI = new RestClient(GetAPIDomain() + GetDakDraftEndpoint());
             dakDraftedAPI.Timeout = -1;
             var dakDraftedRequest = new RestRequest(Method.POST);
             dakDraftedRequest.AddHeader("api-version", GetAPIVersion());
             dakDraftedRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-            dakDraftedRequest.AddParameter("sender",dakUploadParameter.sender_info);
+            dakDraftedRequest.AddParameter("sender", dakUploadParameter.sender_info);
             dakDraftedRequest.AddParameter("receiver", dakUploadParameter.receiver_info);
-            dakDraftedRequest.AddParameter("dak",dakUploadParameter.dak_info);
-            dakDraftedRequest.AddParameter("others",dakUploadParameter.others);
+            dakDraftedRequest.AddParameter("dak", dakUploadParameter.dak_info);
+            dakDraftedRequest.AddParameter("others", dakUploadParameter.others);
             dakDraftedRequest.AddParameter("uploader", dakUploadParameter.uploader);
             dakDraftedRequest.AddParameter("path", dakUploadParameter.path);
             dakDraftedRequest.AddParameter("content", dakUploadParameter.content);
@@ -212,20 +262,20 @@ namespace dNothi.Services.DakServices
             {
                 Error = HandleDeserializationError
             });
-            
+
             return dakDraftedResponse;
         }
-      
 
-        public AllDesignationSealListResponse GetAllDesignationSeal(DakUserParam dakListUserParam,int office_id)
+
+        public AllDesignationSealListResponse GetAllDesignationSeal(DakUserParam dakListUserParam, int office_id)
         {
             var designationSealAPI = new RestClient(GetAPIDomain() + GetAllDesignationSealEndpoint());
             designationSealAPI.Timeout = -1;
             var designationSealRequest = new RestRequest(Method.POST);
             designationSealRequest.AddHeader("api-version", GetAPIVersion());
             designationSealRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-       
-            designationSealRequest.AddParameter("office_id",office_id);
+
+            designationSealRequest.AddParameter("office_id", office_id);
             designationSealRequest.AddParameter("cdesk", dakListUserParam.json_String);
             IRestResponse designationSealIRestResponse = designationSealAPI.Execute(designationSealRequest);
             var designationSealResponseJson = designationSealIRestResponse.Content;
@@ -249,9 +299,9 @@ namespace dNothi.Services.DakServices
             return officeListResponse;
         }
 
-        
 
-       public DakUploadResponse GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
+
+        public DakUploadResponse GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
         {
             DakUploadResponse dakSendResponse = new DakUploadResponse();
             if (!InternetConnection.Check())
@@ -259,48 +309,10 @@ namespace dNothi.Services.DakServices
                 dakSendResponse.status = "success";
                 dakSendResponse.data = new DakSendResponseMessageDTO();
                 dakSendResponse.data.message = "Request Pending!";
-                DakUploadLocally(dakUploadParameter);
+                DakUploadLocally(dakUploadParameter,false);
 
                 return dakSendResponse;
             }
-
-            dakUploadParameter.remoteAttachments.AddRange(UploadDakAttachmentList(dakListUserParam,dakUploadParameter.localAttachments));
-           
-            dakUploadParameter.dak_Info_Obj.attachment = dakUploadParameter.remoteAttachments.ToDictionary(a => a.file_infoModel.id.ToString());
-            dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dakUploadParameter.dak_Info_Obj);
-
-            var dakSendAPI = new RestClient(GetAPIDomain() + GetDakSendEndpoint());
-            dakSendAPI.Timeout = -1;
-            var dakSendRequest = new RestRequest(Method.POST);
-            dakSendRequest.AddHeader("api-version", GetAPIVersion());
-            dakSendRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-            dakSendRequest.AddParameter("sender", dakUploadParameter.sender_info);
-            dakSendRequest.AddParameter("receiver", dakUploadParameter.receiver_info);
-            dakSendRequest.AddParameter("dak", dakUploadParameter.dak_info);
-            dakSendRequest.AddParameter("others", dakUploadParameter.others);
-            dakSendRequest.AddParameter("uploader", dakUploadParameter.uploader);
-            dakSendRequest.AddParameter("path", dakUploadParameter.path);
-            dakSendRequest.AddParameter("content", dakUploadParameter.content);
-            dakSendRequest.AddParameter("office_id", dakUploadParameter.office_id);
-            dakSendRequest.AddParameter("designation_id", dakUploadParameter.designation_id);
-            IRestResponse dakSendIRestResponse = dakSendAPI.Execute(dakSendRequest);
-            var dakSendResponseJson = dakSendIRestResponse.Content;
-
-            dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(dakSendResponseJson, new JsonSerializerSettings
-            {
-                Error = HandleDeserializationError
-            });
-
-          
-
-         
-            return dakSendResponse;
-        }
-
-        public DakUploadResponse GetLocalUploadDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
-        {
-            DakUploadResponse dakSendResponse = new DakUploadResponse();
-            
 
             dakUploadParameter.remoteAttachments.AddRange(UploadDakAttachmentList(dakListUserParam, dakUploadParameter.localAttachments));
 
@@ -335,8 +347,142 @@ namespace dNothi.Services.DakServices
             return dakSendResponse;
         }
 
-        public void UploadDakFromLocal()
+        public DakUploadResponse GetLocalUploadDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
         {
+            DakUploadResponse dakSendResponse = new DakUploadResponse();
+
+
+            dakUploadParameter.remoteAttachments.AddRange(UploadDakAttachmentList(dakListUserParam, dakUploadParameter.localAttachments));
+
+            dakUploadParameter.dak_Info_Obj.attachment = dakUploadParameter.remoteAttachments.ToDictionary(a => a.file_infoModel.id.ToString());
+            dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dakUploadParameter.dak_Info_Obj);
+
+            var dakSendAPI = new RestClient(GetAPIDomain() + GetDakSendEndpoint());
+            dakSendAPI.Timeout = -1;
+            var dakSendRequest = new RestRequest(Method.POST);
+            dakSendRequest.AddHeader("api-version", GetAPIVersion());
+            dakSendRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+            dakSendRequest.AddParameter("sender", dakUploadParameter.sender_info);
+            dakSendRequest.AddParameter("receiver", dakUploadParameter.receiver_info);
+            dakSendRequest.AddParameter("dak", dakUploadParameter.dak_info);
+            dakSendRequest.AddParameter("others", dakUploadParameter.others);
+            dakSendRequest.AddParameter("uploader", dakUploadParameter.uploader);
+            dakSendRequest.AddParameter("path", dakUploadParameter.path);
+            dakSendRequest.AddParameter("content", dakUploadParameter.content);
+            dakSendRequest.AddParameter("office_id", dakUploadParameter.office_id);
+            dakSendRequest.AddParameter("designation_id", dakUploadParameter.designation_id);
+            IRestResponse dakSendIRestResponse = dakSendAPI.Execute(dakSendRequest);
+            var dakSendResponseJson = dakSendIRestResponse.Content;
+
+            dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(dakSendResponseJson, new JsonSerializerSettings
+            {
+                Error = HandleDeserializationError
+            });
+
+
+
+
+            return dakSendResponse;
+        }
+
+
+        public List<DakListRecordsDTO> GetPendingDakUpload(bool is_Drafted)
+            {
+               List <DakListRecordsDTO> dakListRecordsDTOs= new List<DakListRecordsDTO>();
+
+               DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+               var localUploadedDaks = _localUploadedDakRepository.Table.Where(a => a.designation_id == dakUserParam.designation_id && a.office_id == dakUserParam.office_id && a.is_Drafted_Dak==is_Drafted).ToList();
+
+
+
+            if (localUploadedDaks != null)
+            {
+                foreach (LocalUploadedDak localUploadedDak in localUploadedDaks)
+                {
+                    DakUploadParameter dakUploadParameter = new DakUploadParameter();
+                    dakUploadParameter = JsonConvert.DeserializeObject<DakUploadParameter>(localUploadedDak.uploaded_Dak_Json);
+
+                    DakListRecordsDTO dakListRecordsDTO = new DakListRecordsDTO();
+                    dakListRecordsDTO.dak_user = new DakUserDTO();
+                    dakListRecordsDTO.dak_origin = new DakOriginDTO();
+                    dakListRecordsDTO.dak_user = new DakUserDTO();
+                    DakInfo dak = new DakInfo(true);
+
+                    dak = JsonConvert.DeserializeObject<DakInfo>(dakUploadParameter.dak_info);
+                    DakUploadReceiver dakUploadReceiver = JsonConvert.DeserializeObject<DakUploadReceiver>(dakUploadParameter.receiver_info);
+
+                    dakListRecordsDTO.dak_id_Remote = dak.id;
+
+                    if (dakUploadParameter.sender_info=="[]")
+                    {
+                        dakListRecordsDTO.dak_user.dak_type = "Nagorik";
+
+
+                        dakListRecordsDTO.dak_origin.sender_name = dak.name_bng;
+                        dakListRecordsDTO.dak_origin.sender_name = dak.name_bng;
+                        dakListRecordsDTO.dak_origin.sender_name = dak.name_bng;
+                        dakListRecordsDTO.dak_origin.name_bng = dak.name_bng;
+                    }
+                    else
+                    {
+                        PrapokDTO prapokDTO = JsonConvert.DeserializeObject<PrapokDTO>(dakUploadParameter.sender_info) ;
+                        dakListRecordsDTO.dak_user.dak_type = "Daptorik";
+                        dakListRecordsDTO.dak_origin.sender_office_name = prapokDTO.office_name_bng;
+                        dakListRecordsDTO.dak_origin.sender_office_unit_name = prapokDTO.office_unit_bng;
+                        dakListRecordsDTO.dak_origin.sender_officer_designation_label = prapokDTO.designation_bng;
+
+                        dakListRecordsDTO.dak_origin.sender_name = prapokDTO.officer_bng;
+                        dakListRecordsDTO.dak_origin.name_bng = prapokDTO.officer_bng;
+                    }
+
+
+                    
+                  
+
+
+                    dakListRecordsDTO.dak_user.last_movement_date="";
+                    dakListRecordsDTO.dak_user.dak_id= Convert.ToInt32(localUploadedDak.Id);
+
+
+                    dakListRecordsDTO.dak_user.dak_subject=dak.dak_subject;
+
+                   // dakListRecordsDTO.dak_user.dak_decision=dak;
+                    //dakOutboxUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
+
+                   
+
+                    dakListRecordsDTO.dak_origin.receiving_officer_name= dakUploadReceiver.mul_prapok.office_name_bng;
+                    dakListRecordsDTO.dak_origin.receiving_office_name = dakUploadReceiver.mul_prapok.office_name_bng;
+                    dakListRecordsDTO.dak_origin.receiving_office_unit_name = dakUploadReceiver.mul_prapok.office_unit_bng;
+                    dakListRecordsDTO.dak_origin.receiving_officer_designation_label = dakUploadReceiver.mul_prapok.designation_bng;
+
+                    dakListRecordsDTO.dak_user.attention_type="0";
+                    dakListRecordsDTO.dak_user.dak_decision= "সদয় সিদ্ধান্তের জন্যে প্রেরণ করা হলো";
+                    dakListRecordsDTO.dak_user.dak_security=dak.security;
+                    dakListRecordsDTO.dak_user.dak_priority = dak.priority;
+               
+                    dakListRecordsDTO.dak_user.from_potrojari=0;
+                    dakListRecordsDTO.attachment_count= dakUploadParameter.localAttachments.Count+dakUploadParameter.remoteAttachments.Count;
+
+
+
+                    dakListRecordsDTOs.Add(dakListRecordsDTO);
+                }
+            }
+
+
+
+            return dakListRecordsDTOs;
+
+            
+            
+        }
+
+        public bool UploadDakFromLocal()
+        {
+
+            bool isUploaded = false;
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
 
             var localUploadedDaks = _localUploadedDakRepository.Table.Where(a => a.designation_id == dakUserParam.designation_id && a.office_id == dakUserParam.office_id).ToList();
@@ -351,15 +497,66 @@ namespace dNothi.Services.DakServices
                     DakUploadParameter dakUploadParameter = new DakUploadParameter();
                     dakUploadParameter= JsonConvert.DeserializeObject<DakUploadParameter>(localUploadedDak.uploaded_Dak_Json);
 
+                    
+
+                   if(localUploadedDak.is_Drafted_Dak)
+                    {
+                        DakDraftedResponse dakDraftedResponse = GetLocalDakDraftedResponse(dakUserParam, dakUploadParameter);
+                        if (dakDraftedResponse != null && dakDraftedResponse.status == "success")
+                        {
+                            _localUploadedDakRepository.Delete(localUploadedDak);
+                            isUploaded = true;
+                        }
+                    }
+                    else
+                    {
+                        DakUploadResponse dakUploadResponse = GetLocalUploadDakSendResponse(dakUserParam, dakUploadParameter);
+                        if (dakUploadResponse != null && dakUploadResponse.status == "success")
+                        {
+                            _localUploadedDakRepository.Delete(localUploadedDak);
+                            isUploaded = true;
+                        }
+                    }
+
+                    
+
+                    
+                }
+            }
+
+            return isUploaded;
+
+        } 
+        public bool UploadDakFromLocal(int dak_id)
+        {
+
+            bool isUploaded = false;
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+            var localUploadedDaks = _localUploadedDakRepository.Table.Where(a => a.designation_id == dakUserParam.designation_id && a.office_id == dakUserParam.office_id && a.Id==dak_id).ToList();
+          
+
+
+            if(localUploadedDaks != null)
+            {
+                foreach(LocalUploadedDak localUploadedDak in  localUploadedDaks)
+                {
+
+                    DakUploadParameter dakUploadParameter = new DakUploadParameter();
+                    dakUploadParameter= JsonConvert.DeserializeObject<DakUploadParameter>(localUploadedDak.uploaded_Dak_Json);
+                   
                     DakUploadResponse dakUploadResponse=  GetLocalUploadDakSendResponse(dakUserParam, dakUploadParameter);
-                    if(dakUploadResponse.status=="success")
+                    if(dakUploadResponse!= null && dakUploadResponse.status=="success")
                     {
                         _localUploadedDakRepository.Delete(localUploadedDak);
+                        isUploaded = true;
                     }
 
                     
                 }
             }
+
+            return isUploaded;
 
         }
 
@@ -392,9 +589,9 @@ namespace dNothi.Services.DakServices
             return localAttachments;
         }
 
-        private void DakUploadLocally(DakUploadParameter dakUploadParameter)
+        private void DakUploadLocally(DakUploadParameter dakUploadParameter, bool is_drafted)
         {
-            LocalUploadedDak localUploadedDak = new LocalUploadedDak { office_id=dakUploadParameter.office_id,designation_id=dakUploadParameter.designation_id, uploaded_Dak_Json=JsonParsingMethod.ObjecttoJson(dakUploadParameter)};
+            LocalUploadedDak localUploadedDak = new LocalUploadedDak { is_Drafted_Dak = is_drafted, office_id=dakUploadParameter.office_id,designation_id=dakUploadParameter.designation_id, uploaded_Dak_Json=JsonParsingMethod.ObjecttoJson(dakUploadParameter)};
 
             _localUploadedDakRepository.Insert(localUploadedDak);
         }
@@ -405,8 +602,36 @@ namespace dNothi.Services.DakServices
             errorArgs.ErrorContext.Handled = true;
         }
 
-        public DakUploadResponse GetDraftedDakSendResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
+        public DakUploadResponse GetDraftedDakSendResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak,bool is_local)
         {
+            DakUploadResponse dakSendResponse = new DakUploadResponse();
+
+            if (is_local)
+            {
+
+
+                try
+                {
+                    var localDakUploadeParam = _localUploadedDakRepository.Table.FirstOrDefault(a => a.is_Drafted_Dak == true && a.Id == dak_id);
+                    if (localDakUploadeParam != null)
+                    {
+                        localDakUploadeParam.is_Drafted_Dak = false;
+                        _localUploadedDakRepository.Update(localDakUploadeParam);
+                        dakSendResponse.status = "success";
+                        return dakSendResponse;
+                    }
+                }
+                catch
+                {
+                    dakSendResponse.status = "error";
+                    return dakSendResponse;
+                }
+
+                
+            }
+
+
+
             var draftedDakSendAPI = new RestClient(GetAPIDomain() + GetDraftedDakSendEndpoint());
             draftedDakSendAPI.Timeout = -1;
             var draftedDakSendRequest = new RestRequest(Method.POST);
@@ -428,7 +653,7 @@ namespace dNothi.Services.DakServices
           
 
 
-            var dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(jsonStringDiscardedGarbage, new JsonSerializerSettings
+             dakSendResponse = JsonConvert.DeserializeObject<DakUploadResponse>(jsonStringDiscardedGarbage, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });
@@ -443,8 +668,33 @@ namespace dNothi.Services.DakServices
             return DefaultAPIConfiguration.DraftedDakSendEndpoint;
         }
 
-        public DraftedDakDeleteResponse GetDraftedDakDeleteResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
+        public DraftedDakDeleteResponse GetDraftedDakDeleteResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak, bool is_local)
         {
+            DraftedDakDeleteResponse dakDeleteResponse = new DraftedDakDeleteResponse();
+
+            if (is_local)
+            {
+
+
+                try
+                {
+                    var localDakUploadeParam = _localUploadedDakRepository.Table.FirstOrDefault(a => a.is_Drafted_Dak == true && a.Id == dak_id);
+                    if (localDakUploadeParam != null)
+                    {
+
+                        _localUploadedDakRepository.Delete(localDakUploadeParam);
+                    }
+                    dakDeleteResponse.status = "success";
+                    return dakDeleteResponse;
+                }
+
+                catch
+                {
+                    dakDeleteResponse.status = "error";
+                    return dakDeleteResponse;
+                }
+            }
+
             var draftedDakDeleteAPI = new RestClient(GetAPIDomain() + GetDraftedDakDeleteEndpoint());
             draftedDakDeleteAPI.Timeout = -1;
             var draftedDakDeleteRequest = new RestRequest(Method.POST);
@@ -458,7 +708,7 @@ namespace dNothi.Services.DakServices
             IRestResponse dakDeleteIRestResponse = draftedDakDeleteAPI.Execute(draftedDakDeleteRequest);
             var dakDeleteResponseJson = dakDeleteIRestResponse.Content;
 
-            var dakDeleteResponse = JsonConvert.DeserializeObject<DraftedDakDeleteResponse>(dakDeleteResponseJson, new JsonSerializerSettings
+             dakDeleteResponse = JsonConvert.DeserializeObject<DraftedDakDeleteResponse>(dakDeleteResponseJson, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });

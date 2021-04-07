@@ -10,6 +10,8 @@ namespace dNothi.Core.Entities
 {
     public class LocalUploadedDak : BaseEntity
     {
+
+        public bool is_Drafted_Dak { get; set; }
         public int office_id { get; set; }
         public int designation_id { get; set; }
 
