@@ -21,11 +21,13 @@ namespace dNothi.Services.DakServices
     public class DakUploadService : IDakUploadService
     {
         IRepository<LocalUploadedDak> _localUploadedDakRepository;
-        public IUserService _userService { get; set; }
-        public DakUploadService(IRepository<LocalUploadedDak> localUploadedDak, IUserService userService)
+        public IUserService _userService { get; set;}
+        IRepository<AllOfficeItem> _allOfficeItem;
+        public DakUploadService(IRepository<LocalUploadedDak> localUploadedDak, IUserService userService, IRepository<AllOfficeItem> allOfficeItem)
         {
             _localUploadedDakRepository = localUploadedDak;
             _userService = userService;
+            _allOfficeItem = allOfficeItem;
         }
         public DakUploadedFileResponse GetDakUploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam)
         {
@@ -269,37 +271,123 @@ namespace dNothi.Services.DakServices
 
         public AllDesignationSealListResponse GetAllDesignationSeal(DakUserParam dakListUserParam, int office_id)
         {
-            var designationSealAPI = new RestClient(GetAPIDomain() + GetAllDesignationSealEndpoint());
-            designationSealAPI.Timeout = -1;
-            var designationSealRequest = new RestRequest(Method.POST);
-            designationSealRequest.AddHeader("api-version", GetAPIVersion());
-            designationSealRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+            AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
 
-            designationSealRequest.AddParameter("office_id", office_id);
-            designationSealRequest.AddParameter("cdesk", dakListUserParam.json_String);
-            IRestResponse designationSealIRestResponse = designationSealAPI.Execute(designationSealRequest);
-            var designationSealResponseJson = designationSealIRestResponse.Content;
-            AllDesignationSealListResponse designationSealListResponse = JsonConvert.DeserializeObject<AllDesignationSealListResponse>(designationSealResponseJson);
-            return designationSealListResponse;
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                AllOfficeItem allOfficeItem = _allOfficeItem.Table.FirstOrDefault(a => a.office_unit_id == dakListUserParam.office_unit_id && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (allOfficeItem != null)
+                {
+                    designationSealListResponse = JsonConvert.DeserializeObject<AllDesignationSealListResponse>(allOfficeItem.designationSealResponseJson);
+
+                }
+                return designationSealListResponse;
+            }
+            try
+            {
+                var designationSealAPI = new RestClient(GetAPIDomain() + GetAllDesignationSealEndpoint());
+                designationSealAPI.Timeout = -1;
+                var designationSealRequest = new RestRequest(Method.POST);
+                designationSealRequest.AddHeader("api-version", GetAPIVersion());
+                designationSealRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+
+                designationSealRequest.AddParameter("office_id", office_id);
+                designationSealRequest.AddParameter("cdesk", dakListUserParam.json_String);
+                IRestResponse designationSealIRestResponse = designationSealAPI.Execute(designationSealRequest);
+                var designationSealResponseJson = designationSealIRestResponse.Content;
+                SaveOrUpdateAllOfficeandDesignationSeal(dakListUserParam, designationSealResponseJson, false);
+                designationSealListResponse = JsonConvert.DeserializeObject<AllDesignationSealListResponse>(designationSealResponseJson);
+                return designationSealListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
         }
 
         public OfficeListResponse GetAllOffice(DakUserParam dakListUserParam)
         {
-            var dakOfficeAPI = new RestClient(GetAPIDomain() + GetOfficeListEndpoint());
-            dakOfficeAPI.Timeout = -1;
-            var dakOfficeRequest = new RestRequest(Method.POST);
-            dakOfficeRequest.AddHeader("api-version", GetAPIVersion());
-            dakOfficeRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-            dakOfficeRequest.AddParameter("office_id", dakListUserParam.office_id);
-            dakOfficeRequest.AddParameter("cdesk", dakListUserParam.json_String);
+            OfficeListResponse officeListResponse = new OfficeListResponse();
 
-            IRestResponse dakOfficeIRestResponse = dakOfficeAPI.Execute(dakOfficeRequest);
-            var dakOfficeResponseJson = dakOfficeIRestResponse.Content;
-            OfficeListResponse officeListResponse = JsonConvert.DeserializeObject<OfficeListResponse>(dakOfficeResponseJson);
-            return officeListResponse;
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                AllOfficeItem allOfficeItem = _allOfficeItem.Table.FirstOrDefault(a => a.office_unit_id == dakListUserParam.office_unit_id && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (allOfficeItem != null)
+                {
+                    officeListResponse = JsonConvert.DeserializeObject<OfficeListResponse>(allOfficeItem.dakOfficeResponseJson);
+
+                }
+                return officeListResponse;
+            }
+
+            try
+            {
+                var dakOfficeAPI = new RestClient(GetAPIDomain() + GetOfficeListEndpoint());
+                dakOfficeAPI.Timeout = -1;
+                var dakOfficeRequest = new RestRequest(Method.POST);
+                dakOfficeRequest.AddHeader("api-version", GetAPIVersion());
+                dakOfficeRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                dakOfficeRequest.AddParameter("office_id", dakListUserParam.office_id);
+                dakOfficeRequest.AddParameter("cdesk", dakListUserParam.json_String);
+
+                IRestResponse dakOfficeIRestResponse = dakOfficeAPI.Execute(dakOfficeRequest);
+                var dakOfficeResponseJson = dakOfficeIRestResponse.Content;
+                SaveOrUpdateAllOfficeandDesignationSeal(dakListUserParam, dakOfficeResponseJson, true);
+                officeListResponse = JsonConvert.DeserializeObject<OfficeListResponse>(dakOfficeResponseJson);
+                return officeListResponse;
+            }
+
+            catch (Exception ex)
+            {
+                throw;
+            }
+
         }
 
+        public void SaveOrUpdateAllOfficeandDesignationSeal(DakUserParam dakListUserParam, string responseJson, bool alloffice)
+        {
+            AllOfficeItem allOfficeItemDB = _allOfficeItem.Table.FirstOrDefault(a => a.office_unit_id == dakListUserParam.office_unit_id && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
 
+            if (alloffice)
+            {
+                if (allOfficeItemDB != null)
+                {
+                    allOfficeItemDB.dakOfficeResponseJson = responseJson;
+                    _allOfficeItem.Update(allOfficeItemDB);
+                }
+                else
+                {
+                    AllOfficeItem allOfficeItem = new AllOfficeItem();
+                    allOfficeItem.designation_id = dakListUserParam.designation_id;
+                    allOfficeItem.office_id = dakListUserParam.office_id;
+                    allOfficeItem.office_unit_id = dakListUserParam.office_unit_id;
+                    allOfficeItem.dakOfficeResponseJson = responseJson;
+                    _allOfficeItem.Insert(allOfficeItem);
+
+                }
+            }
+            else
+            {
+                if (allOfficeItemDB != null)
+                {
+                    allOfficeItemDB.designationSealResponseJson = responseJson;
+                    _allOfficeItem.Update(allOfficeItemDB);
+                }
+                else
+                {
+                    AllOfficeItem allOfficeItem = new AllOfficeItem();
+                    allOfficeItem.designation_id = dakListUserParam.designation_id;
+                    allOfficeItem.office_id = dakListUserParam.office_id;
+                    allOfficeItem.office_unit_id = dakListUserParam.office_unit_id;
+                    allOfficeItem.designationSealResponseJson = responseJson;
+                    _allOfficeItem.Insert(allOfficeItem);
+
+                }
+            }
+        }
 
         public DakUploadResponse GetDakSendResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)
         {

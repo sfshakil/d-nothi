@@ -26,18 +26,21 @@ namespace dNothi.Services.UserServices
         IRepository<EmployeeInfo> _employeeRepository;
         IRepository<OfficeInfo> _officeRepository;
         IRepository<UserToken> _userTokenRepository;
+        IRepository<UserItem> _userItem;
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public UserService(IUserMessageParser userMessageParser,
         IRepository<User> userrepository,
         IRepository<EmployeeInfo> employeeRepository,
         IRepository<OfficeInfo> officeRepository,
-        IRepository<UserToken> userTokenRepository)
+        IRepository<UserToken> userTokenRepository,
+        IRepository<UserItem> userItem)
         {
             _userMessageParser = userMessageParser;
             _employeeRepository = employeeRepository;
             _userrepository = userrepository;
             _officeRepository = officeRepository;
             _userTokenRepository = userTokenRepository;
+            _userItem = userItem;
         }
 
        
@@ -386,9 +389,19 @@ namespace dNothi.Services.UserServices
         public EmployeDakNothiCountResponse GetDakNothiCountResponseUsingEmployeeDesignation(DakUserParam userParam)
         {
             EmployeDakNothiCountResponse dakNothiCount = new EmployeDakNothiCountResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var nothiList = _userItem.Table.FirstOrDefault(a => a.office_unit_id == userParam.office_unit_id && a.office_id == userParam.office_id && a.designation_id == userParam.designation_id);
+
+                if (nothiList != null)
+                {
+                    dakNothiCount = JsonConvert.DeserializeObject<EmployeDakNothiCountResponse>(nothiList.responseJson);
+
+                }
+                return dakNothiCount;
+            }
             try
             {
-
                 var dakNothiCountAPI = new RestClient(GetAPIDomain() + GetDakNothiCountEndPoint());
                 dakNothiCountAPI.Timeout = -1;
                 var dakNothiCountAPIRequest = new RestRequest(Method.POST);
@@ -401,12 +414,33 @@ namespace dNothi.Services.UserServices
 
 
                 var dakNothiCountAPIJson = dakNothiCountAPIResponse.Content;
+                SaveOrUpdateGetDakNothiCountResponse(userParam, dakNothiCountAPIJson);
                 dakNothiCount = JsonConvert.DeserializeObject<EmployeDakNothiCountResponse>(dakNothiCountAPIJson);
                 return dakNothiCount;
             }
             catch (Exception ex)
             {
                 return dakNothiCount;
+            }
+        }
+        public void SaveOrUpdateGetDakNothiCountResponse(DakUserParam dakUserParam, string responseJson)
+        {
+            var userItemDB = _userItem.Table.FirstOrDefault(a => a.office_unit_id == dakUserParam.office_unit_id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+            if (userItemDB != null)
+            {
+                userItemDB.responseJson = responseJson;
+                _userItem.Update(userItemDB);
+            }
+            else
+            {
+                UserItem userItem = new UserItem();
+                userItem.office_unit_id = dakUserParam.office_unit_id;
+                userItem.designation_id = dakUserParam.designation_id;
+                userItem.office_id = dakUserParam.office_id;
+                userItem.responseJson = responseJson;
+                _userItem.Insert(userItem);
+
             }
         }
     }

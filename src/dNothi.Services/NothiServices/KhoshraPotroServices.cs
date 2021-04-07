@@ -1,4 +1,6 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -14,8 +16,27 @@ namespace dNothi.Services.NothiServices
 {
     public class KhoshraPotroServices : IKhoshraPotroServices
     {
+        IRepository<PotrangshoNothiItem> _nothiItem;
+        public KhoshraPotroServices(IRepository<PotrangshoNothiItem> nothiItem)
+        {
+            _nothiItem = nothiItem;
+        }
         public KhoshraPotroResponse GetKhoshraPotroInfo(DakUserParam dakUserParam, long id)
         {
+            KhoshraPotroResponse khoshraPotroResponse = new KhoshraPotroResponse();
+
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var nothiList = _nothiItem.Table.FirstOrDefault(a => a.nothi_id == id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                if (nothiList != null)
+                {
+                    khoshraPotroResponse = JsonConvert.DeserializeObject<KhoshraPotroResponse>(nothiList.khoshrajsonResponse);
+
+                }
+                return khoshraPotroResponse;
+            }
+
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiPotrangshoKhoshraPotroEndPoint());
@@ -30,12 +51,33 @@ namespace dNothi.Services.NothiServices
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                KhoshraPotroResponse khoshraPotroResponse = JsonConvert.DeserializeObject<KhoshraPotroResponse>(responseJson);
+                SaveOrUpdateNothiRecords(dakUserParam, id, responseJson);
+                khoshraPotroResponse = JsonConvert.DeserializeObject<KhoshraPotroResponse>(responseJson);
                 return khoshraPotroResponse;
             }
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+        public void SaveOrUpdateNothiRecords(DakUserParam dakUserParam,long id, string responseJson)
+        {
+            var nothiListDB = _nothiItem.Table.FirstOrDefault(a => a.nothi_id == id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+            if (nothiListDB != null)
+            {
+                nothiListDB.khoshrajsonResponse = responseJson;
+                _nothiItem.Update(nothiListDB);
+            }
+            else
+            {
+                PotrangshoNothiItem nothiItem = new PotrangshoNothiItem();
+                nothiItem.nothi_id = id;
+                nothiItem.designation_id = dakUserParam.designation_id;
+                nothiItem.office_id = dakUserParam.office_id;
+                nothiItem.khoshrajsonResponse = responseJson;
+                _nothiItem.Insert(nothiItem);
+
             }
         }
         protected string GetAPIVersion()

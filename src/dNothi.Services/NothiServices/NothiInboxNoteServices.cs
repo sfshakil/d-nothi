@@ -1,4 +1,6 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -14,8 +16,28 @@ namespace dNothi.Services.NothiServices
 {
     public class NothiInboxNoteServices : INothiInboxNoteServices
     {
+        IRepository<NoteItem> _noteItem;
+        public NothiInboxNoteServices( IRepository<NoteItem> noteItem)
+        {
+            _noteItem = noteItem;
+        }
         public NothiListInboxNoteResponse GetNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category)
         {
+            NothiListInboxNoteResponse nothiListInboxNoteResponse = new NothiListInboxNoteResponse();
+            
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                int nothi_id = Convert.ToInt32(eachNothiId);
+                var noteList = _noteItem.Table.FirstOrDefault(a => a.nothi_id == nothi_id && a.note_category == note_category && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (noteList != null)
+                {
+                    nothiListInboxNoteResponse = JsonConvert.DeserializeObject<NothiListInboxNoteResponse>(noteList.jsonResponse);
+
+                }
+                return nothiListInboxNoteResponse;
+            }
+
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiInboxNoteEndPoint());
@@ -32,12 +54,34 @@ namespace dNothi.Services.NothiServices
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                NothiListInboxNoteResponse nothiListInboxNoteResponse = JsonConvert.DeserializeObject<NothiListInboxNoteResponse>(responseJson);
+                SaveOrUpdateNothiRecords(dakListUserParam, responseJson, Convert.ToInt32(eachNothiId), note_category);
+                nothiListInboxNoteResponse = JsonConvert.DeserializeObject<NothiListInboxNoteResponse>(responseJson);
                 return nothiListInboxNoteResponse;
             }
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+        public void SaveOrUpdateNothiRecords(DakUserParam dakListUserParam, string responseJson, int nothi_Id, string note_category)
+        {
+            NoteItem noteItemDB = _noteItem.Table.FirstOrDefault(a => a.nothi_id == nothi_Id && a.note_category == note_category && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (noteItemDB != null)
+            {
+                noteItemDB.jsonResponse = responseJson;
+                _noteItem.Update(noteItemDB);
+            }
+            else
+            {
+                NoteItem noteItem = new NoteItem();
+                noteItem.nothi_id = nothi_Id;
+                noteItem.note_category = note_category;
+                noteItem.designation_id = dakListUserParam.designation_id;
+                noteItem.office_id = dakListUserParam.office_id;
+                noteItem.jsonResponse = responseJson;
+                _noteItem.Insert(noteItem);
+
             }
         }
         protected string GetAPIVersion()
