@@ -98,7 +98,11 @@
     <Compile Include="Mappings\Dak\ToMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
     <Compile Include="Mappings\Nothi\AllOfficeItemMap.cs" />
+    <Compile Include="Mappings\Nothi\PotrangshoNoteItemMap.cs" />
+    <Compile Include="Mappings\Nothi\PotrangshoNothiItemMap.cs" />
     <Compile Include="Mappings\Nothi\NoteItemMap.cs" />
+    <Compile Include="Mappings\Nothi\NoteInboxSentAllItemMap.cs" />
+    <Compile Include="Mappings\Nothi\SingleNoteOnuchhedItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiListRecordsMap.cs" />
     <Compile Include="Mappings\Nothi\NothiNoteTalikaItemMap.cs" />

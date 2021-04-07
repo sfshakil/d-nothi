@@ -16,8 +16,8 @@ namespace dNothi.Services.NothiServices
 {
     public class SingleOnucchedServices : ISingleOnucchedServices
     {
-        IRepository<NoteOnuchhedListItem> _noteOnuchhedListItem;
-        public SingleOnucchedServices(IRepository<NoteOnuchhedListItem> noteOnuchhedListItem)
+        IRepository<SingleNoteOnuchhedItem> _noteOnuchhedListItem;
+        public SingleOnucchedServices(IRepository<SingleNoteOnuchhedItem> noteOnuchhedListItem)
         {
             _noteOnuchhedListItem = noteOnuchhedListItem;
         }
@@ -61,7 +61,7 @@ namespace dNothi.Services.NothiServices
         }
         public void SaveOrUpdateNothiRecords(DakUserParam dakUserParam, long nothi_id, long note_id, long onucched_id, string responseJson)
         {
-            NoteOnuchhedListItem noteOnuchhedListItemDB = _noteOnuchhedListItem.Table.FirstOrDefault(a => a.nothi_id == nothi_id && a.note_id == note_id && a.onuchhed_id == onucched_id && a.office_unit_id == dakUserParam.office_unit_id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+            SingleNoteOnuchhedItem noteOnuchhedListItemDB = _noteOnuchhedListItem.Table.FirstOrDefault(a => a.nothi_id == nothi_id && a.note_id == note_id && a.onuchhed_id == onucched_id && a.office_unit_id == dakUserParam.office_unit_id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
 
             if (noteOnuchhedListItemDB != null)
             {
@@ -70,7 +70,7 @@ namespace dNothi.Services.NothiServices
             }
             else
             {
-                NoteOnuchhedListItem noteOnuchhedListItem = new NoteOnuchhedListItem();
+                SingleNoteOnuchhedItem noteOnuchhedListItem = new SingleNoteOnuchhedItem();
                 noteOnuchhedListItem.nothi_id = nothi_id;
                 noteOnuchhedListItem.note_id = note_id;
                 noteOnuchhedListItem.onuchhed_id = onucched_id;

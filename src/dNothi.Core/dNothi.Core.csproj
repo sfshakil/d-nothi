@@ -72,6 +72,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\PotrangshoNoteItem.cs" />
+    <Compile Include="Entities\PotrangshoNothiItem.cs" />
+    <Compile Include="Entities\NoteInboxSentAllItem.cs" />
+    <Compile Include="Entities\SingleNoteOnuchhedItem.cs" />
     <Compile Include="Entities\UserItem.cs" />
     <Compile Include="Entities\AppUser.cs" />
     <Compile Include="Entities\DakAttachment.cs" />

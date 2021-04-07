@@ -8,16 +8,21 @@ using System.Threading.Tasks;
 
 namespace dNothi.Core.Entities
 {
-    public class NoteOnuchhedListItem : BaseEntity
+    public class PotrangshoNoteItem : BaseEntity
     {
+
+
         public long nothi_id { get; set; }
         public long note_id { get; set; }
 
         [MaxLength]
-        public string onuchhedList_jsonResponse { get; set; }
+        public string notekhoshrajsonResponse { get; set; }
+        [MaxLength]
+        public string notekhoshrawaitingjsonResponse { get; set; }
+        [MaxLength]
+        public string notepotrojarijsonResponse { get; set; }
 
         public int designation_id { get; set; }
         public int office_id { get; set; }
-        public int office_unit_id { get; set; }
     }
 }

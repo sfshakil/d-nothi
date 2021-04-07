@@ -132,6 +132,11 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.AllOfficeItem>>().As<IRepository<dNothi.Core.Entities.AllOfficeItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiPotrangshoItem>>().As<IRepository<dNothi.Core.Entities.NothiPotrangshoItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteOnuchhedListItem>>().As<IRepository<dNothi.Core.Entities.NoteOnuchhedListItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.SingleNoteOnuchhedItem>>().As<IRepository<dNothi.Core.Entities.SingleNoteOnuchhedItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteInboxSentAllItem>>().As<IRepository<dNothi.Core.Entities.NoteInboxSentAllItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.PotrangshoNothiItem>>().As<IRepository<dNothi.Core.Entities.PotrangshoNothiItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.PotrangshoNoteItem>>().As<IRepository<dNothi.Core.Entities.PotrangshoNoteItem>>();
+
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemDetails>>().As<IRepository<dNothi.Core.Entities.DakItemDetails>>();
 

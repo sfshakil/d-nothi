@@ -1,4 +1,6 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -14,8 +16,26 @@ namespace dNothi.Services.NothiServices
 {
     public class NotePotrojariServices : INotePotrojariServices
     {
+        IRepository<PotrangshoNoteItem> _noteItem;
+        public NotePotrojariServices(IRepository<PotrangshoNoteItem> noteItem)
+        {
+            _noteItem = noteItem;
+        }
         public NotePotrojariResponse GetPotrojariListInfo(DakUserParam dakUserParam, long id, int note_id)
         {
+            NotePotrojariResponse notePotrojariResponse = new NotePotrojariResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var nothiList = _noteItem.Table.FirstOrDefault(a => a.nothi_id == id && a.note_id == note_id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                if (nothiList != null)
+                {
+                    notePotrojariResponse = JsonConvert.DeserializeObject<NotePotrojariResponse>(nothiList.notepotrojarijsonResponse);
+
+                }
+                return notePotrojariResponse;
+            }
+
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiPotrangshoNotePotrojariEndPoint());
@@ -30,12 +50,34 @@ namespace dNothi.Services.NothiServices
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                NotePotrojariResponse notePotrojariResponse = JsonConvert.DeserializeObject<NotePotrojariResponse>(responseJson);
+                SaveOrUpdateNothiRecords(dakUserParam, id, note_id, responseJson);
+                notePotrojariResponse = JsonConvert.DeserializeObject<NotePotrojariResponse>(responseJson);
                 return notePotrojariResponse;
             }
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+        public void SaveOrUpdateNothiRecords(DakUserParam dakUserParam, long id, int note_id, string responseJson)
+        {
+            PotrangshoNoteItem nothiListDB = _noteItem.Table.FirstOrDefault(a => a.nothi_id == id && a.note_id == note_id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+            if (nothiListDB != null)
+            {
+                nothiListDB.notepotrojarijsonResponse = responseJson;
+                _noteItem.Update(nothiListDB);
+            }
+            else
+            {
+                PotrangshoNoteItem potrangshoNoteItem = new PotrangshoNoteItem();
+                potrangshoNoteItem.nothi_id = id;
+                potrangshoNoteItem.note_id = note_id;
+                potrangshoNoteItem.designation_id = dakUserParam.designation_id;
+                potrangshoNoteItem.office_id = dakUserParam.office_id;
+                potrangshoNoteItem.notepotrojarijsonResponse = responseJson;
+                _noteItem.Insert(potrangshoNoteItem);
+
             }
         }
         protected string GetAPIVersion()

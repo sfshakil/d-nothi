@@ -4297,7 +4297,7 @@ namespace dNothi.Desktop.UI
 
             allNextButtonVisibilityOff();
             btnNothijatoNext.Visible = true;
-            noteKhoshraList = _noteKhoshraList.GetnoteKhoshraListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
+            noteKhoshraList = _noteKhoshraList.GetnoteKhoshraListInfo(_dakuserparam, nothiListRecords.id, notelist.nothi_note_id);
             if (noteKhoshraList.status == "success")
             {
                 i = 0;
@@ -4669,7 +4669,7 @@ namespace dNothi.Desktop.UI
 
             allNextButtonVisibilityOff();
             NoteKhoshraWaitingNext.Visible = true;
-            noteKhshraWaitingList = _noteKhshraWaitingList.GetNoteKhshraWaitingListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
+            noteKhshraWaitingList = _noteKhshraWaitingList.GetNoteKhshraWaitingListInfo(_dakuserparam, nothiListRecords.id, notelist.nothi_note_id);
             if (noteKhshraWaitingList.status == "success")
             {
                 i = 0;
@@ -5056,7 +5056,7 @@ namespace dNothi.Desktop.UI
             allNextButtonVisibilityOff();
             NotePotrojariNext.Visible = true;
 
-            notePotrojariList = _notePotrojariList.GetPotrojariListInfo(_dakuserparam, nothiListRecords.id, newnotedata.id);
+            notePotrojariList = _notePotrojariList.GetPotrojariListInfo(_dakuserparam, nothiListRecords.id, notelist.nothi_note_id);
             if (notePotrojariList.status == "success")
             {
                 i = 0;
@@ -5903,6 +5903,11 @@ namespace dNothi.Desktop.UI
             e.Graphics.DrawPath(new Pen(Color.FromArgb(255, 168, 0)), path);
             GraphicsPath path1 = Roundedrectangle.Create(6, 7, label22.Width - 2, label22.Height - 2,2);
             e.Graphics.FillPath(Brush, path1);
+        }
+
+        private void lbApprovedPotro_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

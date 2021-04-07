@@ -1,4 +1,6 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -14,8 +16,26 @@ namespace dNothi.Services.NothiServices
 {
     public class NothijatoServices : INothijatoServices
     {
+        IRepository<PotrangshoNothiItem> _nothiItem;
+        public NothijatoServices(IRepository<PotrangshoNothiItem> nothiItem)
+        {
+            _nothiItem = nothiItem;
+        }
         public NothijatoResponse GetNothijatoListInfo(DakUserParam dakUserParam, long id)
         {
+            NothijatoResponse nothijatoResponse = new NothijatoResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var nothiList = _nothiItem.Table.FirstOrDefault(a => a.nothi_id == id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                if (nothiList != null)
+                {
+                    nothijatoResponse = JsonConvert.DeserializeObject<NothijatoResponse>(nothiList.nothijatojsonResponse);
+
+                }
+                return nothijatoResponse;
+            }
+
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiPotrangshoNothijatoEndPoint());
@@ -30,9 +50,10 @@ namespace dNothi.Services.NothiServices
                 Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["data"].ToString();
-                var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                NothijatoResponse nothijatoResponse = JsonConvert.DeserializeObject<NothijatoResponse>(responseJson);
+                SaveOrUpdateNothiRecords(dakUserParam, id, responseJson);
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["data"].ToString();
+                //var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                nothijatoResponse = JsonConvert.DeserializeObject<NothijatoResponse>(responseJson);
                 return nothijatoResponse;
             }
             catch (Exception ex)
@@ -40,6 +61,26 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
 
+        }
+        public void SaveOrUpdateNothiRecords(DakUserParam dakUserParam, long id, string responseJson)
+        {
+            var nothiListDB = _nothiItem.Table.FirstOrDefault(a => a.nothi_id == id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+            if (nothiListDB != null)
+            {
+                nothiListDB.nothijatojsonResponse = responseJson;
+                _nothiItem.Update(nothiListDB);
+            }
+            else
+            {
+                PotrangshoNothiItem nothiItem = new PotrangshoNothiItem();
+                nothiItem.nothi_id = id;
+                nothiItem.designation_id = dakUserParam.designation_id;
+                nothiItem.office_id = dakUserParam.office_id;
+                nothiItem.nothijatojsonResponse = responseJson;
+                _nothiItem.Insert(nothiItem);
+
+            }
         }
         protected string GetAPIVersion()
         {
