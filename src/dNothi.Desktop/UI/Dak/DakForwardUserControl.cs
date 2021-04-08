@@ -29,6 +29,9 @@ namespace dNothi.Desktop.UI.Dak
         [Category("Action")]
         [Description("Invoked when user clicks button")]
         public event EventHandler ButtonClick;
+        
+
+
 
         IDakForwardService _dakForwardService { get; set; }
         IUserService _userService { get; set; }
@@ -41,6 +44,8 @@ namespace dNothi.Desktop.UI.Dak
         private string _dak_type;
         private string _dak_subject;
         private int _is_copied_dak;
+
+        public bool  _IsDakLocallyUploaded;
      
         private string _dakSecurityIconValue;
 
@@ -710,9 +715,10 @@ namespace dNothi.Desktop.UI.Dak
                     var dakForwardResponse =_dakForwardService.GetDakForwardResponse(dakForwardRequestParam);
 
 
-                    if(dakForwardResponse.status== "Local")
+                    if(dakForwardResponse.message == "Local")
                     {
                         SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি প্রেরণ করা হবে");
+                        _IsDakLocallyUploaded = true;
                         if (this.SucessfullyDakForwarded != null)
                             this.SucessfullyDakForwarded(sender, e);
                         this.Hide();
@@ -724,6 +730,7 @@ namespace dNothi.Desktop.UI.Dak
                             this.SucessfullyDakForwarded(sender, e);
                         this.Hide();
                     }
+
                     else
                     {
                         ErrorMessage(dakForwardResponse.message);

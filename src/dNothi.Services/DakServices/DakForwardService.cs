@@ -9,6 +9,7 @@ using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Services.UserServices;
 using dNothi.Utility;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -21,9 +22,11 @@ namespace dNothi.Services.DakServices
 
         IRepository<LocalDesignationSeal> _localDesignationSealRepository;
         IRepository<DakItemAction> _dakItemAction;
-        public DakForwardService(IRepository<DakItemAction> dakItemAction,IRepository<LocalDesignationSeal> localDesignationSealRepository)
+        IUserService _userService { get; set; }
+        public DakForwardService(IUserService userService, IRepository<DakItemAction> dakItemAction,IRepository<LocalDesignationSeal> localDesignationSealRepository)
         {
             _dakItemAction = dakItemAction;
+            _userService = userService;
             _localDesignationSealRepository = localDesignationSealRepository;
         }
 
@@ -95,9 +98,13 @@ namespace dNothi.Services.DakServices
             List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isForwarded == true).ToList();
             if(dakItemActions != null && dakItemActions.Count>0)
             {
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                 foreach(DakItemAction dakItemAction in dakItemActions)
                 {
+                    
                     DakForwardRequestParam dakForwardRequest= JsonConvert.DeserializeObject<DakForwardRequestParam>(dakItemAction.dak_Action_Json);
+                    dakForwardRequest.token = dakUserParam.token;
+
                     var dakForwardResponse = GetDakForwardResponse(dakForwardRequest);
 
                     if(dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status =="success"))

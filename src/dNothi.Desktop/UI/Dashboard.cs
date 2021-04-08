@@ -383,7 +383,7 @@ namespace dNothi.Desktop.UI
 
             dakSendUserControl.ButtonClick += delegate (object sender, EventArgs e) { sliderCrossButton_Click(sender, e); };
             dakSendUserControl.AddDesignationButtonClick += delegate (object sender, EventArgs e) { AddDesignationFromForwardWindow_ButtonClick(dakSendUserControl); };
-            dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false, 0, 0, 0); };
+            dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false, 0, 0, 0,dakSendUserControl._IsDakLocallyUploaded); };
 
 
             CalPopUpWindow(dakSendUserControl);
@@ -406,9 +406,17 @@ namespace dNothi.Desktop.UI
 
         }
 
-        private void SuccessfullySingleDakForwarded(bool v, int req, int success, int fail)
+        private void SuccessfullySingleDakForwarded(bool v, int req, int success, int fail, bool _IsDakLocallyUploaded)
         {
-            LoadDakOutbox();
+            if(_IsDakLocallyUploaded)
+            {
+                LoadDakInbox();
+            }
+            else
+            {
+                LoadDakOutbox();
+            }
+           
         }
 
         private void GetDakMovementList(int dak_id, string dak_type, int is_copied_dak, DakListRecordsDTO dak)
@@ -3386,7 +3394,7 @@ namespace dNothi.Desktop.UI
                 dakSendUserControl.dakListRecordsDTO = daks;
                 dakSendUserControl.dak_List_User_Param = dakListUserParam;
                 dakSendUserControl.AddDesignationButtonClick += delegate (object snd, EventArgs eve) { AddDesignationUserControl_ButtonClick(sender, e); };
-                dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest); };
+                dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._IsDakLocallyUploaded) ; };
 
 
 
@@ -4531,20 +4539,22 @@ namespace dNothi.Desktop.UI
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
-            if (pageNumber == 1 && _currentDakCatagory.isOutbox == true && _isDakUploaded)
+            if (pageNumber == 1 && _currentDakCatagory._isOutbox == true && _isDakUploaded)
             {
                 LoadDakOutbox();
             }
-           else if (pageNumber == 1 && _currentDakCatagory.isKhosra == true && _isDakUploaded)
+
+           else if (pageNumber == 1 && _currentDakCatagory._isKhosra == true && _isDakUploaded)
             {
                 LoadDakKhasraList();
             }
-            else if (pageNumber == 1 && _currentDakCatagory.isInbox == true && _isLocallYDakForwarded)
+            else if (_currentDakCatagory._isInbox == true && _isLocallYDakForwarded)
             {
                 LoadDakInbox();
             }
 
             Thread.Sleep(10);
+
             if(!backgroundWorker1.IsBusy)
             {
                 backgroundWorker1.RunWorkerAsync();
