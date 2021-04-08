@@ -30,7 +30,6 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("onucched", "{\"nothi_id\":\""+nothiListRecords.id+"\",\"nothi_office\":\""+nothiListRecords.office_id+"\",\"note_id\":\""+newnotedata.note_id+"\",\"onucched_id\":\""+onucchedId+"\"}");
 
                 IRestResponse response = client.Execute(request);
-                Console.WriteLine(response.Content);
 
 
                 var responseJson = response.Content;
