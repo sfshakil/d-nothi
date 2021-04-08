@@ -35,6 +35,7 @@
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
+            this.onlineStatus = new FontAwesome.Sharp.IconButton();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
             this.nothiModulePanel = new System.Windows.Forms.Panel();
@@ -202,6 +203,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dakUploadBackgorundWorker = new System.ComponentModel.BackgroundWorker();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
@@ -277,15 +280,16 @@
             // 
             this.profilePanel.AutoSize = true;
             this.profilePanel.Controls.Add(this.userPictureBox);
+            this.profilePanel.Controls.Add(this.onlineStatus);
             this.profilePanel.Controls.Add(this.userNameLabel);
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.profilePanel.Location = new System.Drawing.Point(761, 5);
+            this.profilePanel.Location = new System.Drawing.Point(740, 5);
             this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.profilePanel.Name = "profilePanel";
             this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 5, 10, 5);
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.profilePanel.Size = new System.Drawing.Size(352, 39);
+            this.profilePanel.Size = new System.Drawing.Size(373, 39);
             this.profilePanel.TabIndex = 28;
             this.profilePanel.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             this.profilePanel.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
@@ -311,13 +315,35 @@
             this.userPictureBox.TabStop = false;
             this.userPictureBox.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             // 
+            // onlineStatus
+            // 
+            this.onlineStatus.AutoSize = true;
+            this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.onlineStatus.FlatAppearance.BorderSize = 0;
+            this.onlineStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.onlineStatus.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.onlineStatus.IconColor = System.Drawing.Color.Silver;
+            this.onlineStatus.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.onlineStatus.IconSize = 15;
+            this.onlineStatus.Location = new System.Drawing.Point(42, 5);
+            this.onlineStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineStatus.Name = "onlineStatus";
+            this.onlineStatus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.onlineStatus.Size = new System.Drawing.Size(21, 29);
+            this.onlineStatus.TabIndex = 30;
+            this.onlineStatus.UseVisualStyleBackColor = false;
+            // 
             // userNameLabel
             // 
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.userNameLabel.Location = new System.Drawing.Point(42, 5);
+            this.userNameLabel.Location = new System.Drawing.Point(63, 5);
+            this.userNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.userNameLabel.Size = new System.Drawing.Size(287, 25);
@@ -339,7 +365,7 @@
             this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.profileShowArrowButton.IconSize = 20;
-            this.profileShowArrowButton.Location = new System.Drawing.Point(329, 5);
+            this.profileShowArrowButton.Location = new System.Drawing.Point(350, 5);
             this.profileShowArrowButton.Name = "profileShowArrowButton";
             this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.profileShowArrowButton.Size = new System.Drawing.Size(13, 29);
@@ -3185,6 +3211,16 @@
             this.button11.TabIndex = 14;
             this.button11.UseVisualStyleBackColor = false;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // dakUploadBackgorundWorker
+            // 
+            this.dakUploadBackgorundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.dakUploadBackgorundWorker_DoWork);
+            this.dakUploadBackgorundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.dakUploadBackgorundWorker_RunWorkerCompleted);
+            // 
             // designationDetailsPanel
             // 
             this.designationDetailsPanel._designationId = 0;
@@ -3540,6 +3576,9 @@
         private System.Windows.Forms.Button pendingReportButton;
         private FontAwesome.Sharp.IconButton protibedonButton;
         private System.Windows.Forms.Label pageLabel;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private FontAwesome.Sharp.IconButton onlineStatus;
+        private System.ComponentModel.BackgroundWorker dakUploadBackgorundWorker;
     }
 }
 

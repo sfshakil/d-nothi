@@ -52,6 +52,8 @@
             this.attachmentAndDatePanel = new System.Windows.Forms.Panel();
             this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.resendButton = new FontAwesome.Sharp.IconButton();
+            this.uploadIconButton = new FontAwesome.Sharp.IconButton();
             this.dakActionPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -217,7 +219,7 @@
             this.mainReceiverLabel.BackColor = System.Drawing.Color.Transparent;
             this.mainReceiverLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainReceiverLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainReceiverLabel.Location = new System.Drawing.Point(76, 0);
+            this.mainReceiverLabel.Location = new System.Drawing.Point(81, 0);
             this.mainReceiverLabel.Name = "mainReceiverLabel";
             this.mainReceiverLabel.Size = new System.Drawing.Size(0, 18);
             this.mainReceiverLabel.TabIndex = 61;
@@ -231,7 +233,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label6.Location = new System.Drawing.Point(12, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 18);
+            this.label6.Size = new System.Drawing.Size(69, 18);
             this.label6.TabIndex = 60;
             this.label6.Text = "মূল প্রাপকঃ";
             // 
@@ -276,7 +278,7 @@
             this.subjectLabel.Location = new System.Drawing.Point(53, 0);
             this.subjectLabel.MaximumSize = new System.Drawing.Size(660, 0);
             this.subjectLabel.Name = "subjectLabel";
-            this.subjectLabel.Size = new System.Drawing.Size(452, 18);
+            this.subjectLabel.Size = new System.Drawing.Size(444, 18);
             this.subjectLabel.TabIndex = 62;
             this.subjectLabel.Text = "asa hbfhjfvghaf hfddaksj  hvfbghsadvjf hvfsadj hvgfdhsagv hddgvfhsad hgvsafjsad";
             // 
@@ -325,11 +327,13 @@
             this.attachmentAndDatePanel.AutoSize = true;
             this.attachmentAndDatePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.attachmentAndDatePanel.Controls.Add(this.dakAttachmentButton);
+            this.attachmentAndDatePanel.Controls.Add(this.resendButton);
+            this.attachmentAndDatePanel.Controls.Add(this.uploadIconButton);
             this.attachmentAndDatePanel.Controls.Add(this.dateLabel);
-            this.attachmentAndDatePanel.Location = new System.Drawing.Point(988, 49);
+            this.attachmentAndDatePanel.Location = new System.Drawing.Point(914, 49);
             this.attachmentAndDatePanel.MinimumSize = new System.Drawing.Size(0, 32);
             this.attachmentAndDatePanel.Name = "attachmentAndDatePanel";
-            this.attachmentAndDatePanel.Size = new System.Drawing.Size(87, 32);
+            this.attachmentAndDatePanel.Size = new System.Drawing.Size(161, 32);
             this.attachmentAndDatePanel.TabIndex = 89;
             // 
             // dakAttachmentButton
@@ -365,13 +369,72 @@
             this.dateLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.dateLabel.Location = new System.Drawing.Point(47, 0);
+            this.dateLabel.Location = new System.Drawing.Point(121, 0);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
             this.dateLabel.Size = new System.Drawing.Size(40, 25);
             this.dateLabel.TabIndex = 64;
             this.dateLabel.Text = "[date]";
             this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // resendButton
+            // 
+            this.resendButton.AutoSize = true;
+            this.resendButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.resendButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.resendButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.resendButton.FlatAppearance.BorderSize = 0;
+            this.resendButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.resendButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.resendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resendButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resendButton.IconChar = FontAwesome.Sharp.IconChar.Redo;
+            this.resendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.resendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.resendButton.IconSize = 28;
+            this.resendButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resendButton.Location = new System.Drawing.Point(47, 0);
+            this.resendButton.Margin = new System.Windows.Forms.Padding(0);
+            this.resendButton.Name = "resendButton";
+            this.resendButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.resendButton.Size = new System.Drawing.Size(34, 32);
+            this.resendButton.TabIndex = 68;
+            this.resendButton.TabStop = false;
+            this.resendButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.resendButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolTip1.SetToolTip(this.resendButton, "পুনরায় পাঠান");
+            this.resendButton.UseVisualStyleBackColor = true;
+            this.resendButton.Visible = false;
+            this.resendButton.Click += new System.EventHandler(this.resendButton_Click);
+            // 
+            // uploadIconButton
+            // 
+            this.uploadIconButton.AutoSize = true;
+            this.uploadIconButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.uploadIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.uploadIconButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.uploadIconButton.FlatAppearance.BorderSize = 0;
+            this.uploadIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.uploadIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.uploadIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadIconButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadIconButton.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.uploadIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.uploadIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.uploadIconButton.IconSize = 34;
+            this.uploadIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uploadIconButton.Location = new System.Drawing.Point(81, 0);
+            this.uploadIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.uploadIconButton.Name = "uploadIconButton";
+            this.uploadIconButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.uploadIconButton.Size = new System.Drawing.Size(40, 32);
+            this.uploadIconButton.TabIndex = 67;
+            this.uploadIconButton.TabStop = false;
+            this.uploadIconButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.uploadIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolTip1.SetToolTip(this.uploadIconButton, "আপলোড হচ্ছে");
+            this.uploadIconButton.UseVisualStyleBackColor = true;
+            this.uploadIconButton.Visible = false;
             // 
             // DraftedDakUserControl
             // 
@@ -428,5 +491,7 @@
         private System.Windows.Forms.Panel attachmentAndDatePanel;
         private FontAwesome.Sharp.IconButton dakAttachmentButton;
         private System.Windows.Forms.Label dateLabel;
+        private FontAwesome.Sharp.IconButton resendButton;
+        private FontAwesome.Sharp.IconButton uploadIconButton;
     }
 }

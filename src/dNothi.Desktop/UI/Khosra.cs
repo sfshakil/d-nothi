@@ -375,5 +375,15 @@ namespace dNothi.Desktop.UI
             KhosraAttachmentForm khosraAttachmentForm = new KhosraAttachmentForm();
             UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentForm, this);
         }
+
+        private void khosraReviewButton_Click(object sender, EventArgs e)
+        {
+            SelectOfficersFormKhosraReview selectOfficerForm = new SelectOfficersFormKhosraReview();
+            selectOfficerForm.designationSealListResponse = _designationSealListResponse;
+
+            //selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton, selectOfficerForm._selectedOfficerDesignations, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
+
+            UIDesignCommonMethod.CalPopUpWindow(selectOfficerForm, this);
+        }
     }
 }

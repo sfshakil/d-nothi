@@ -160,6 +160,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.khosraReviewButton = new FontAwesome.Sharp.IconButton();
             saveButton = new FontAwesome.Sharp.IconButton();
             this.khosraTableLayoutPanel.SuspendLayout();
             this.pnlNothiNoteTalika.SuspendLayout();
@@ -253,6 +254,7 @@
             // pnlNothiNoteTalika
             // 
             this.pnlNothiNoteTalika.BackColor = System.Drawing.Color.White;
+            this.pnlNothiNoteTalika.Controls.Add(this.khosraReviewButton);
             this.pnlNothiNoteTalika.Controls.Add(this.notDetailsButton);
             this.pnlNothiNoteTalika.Controls.Add(saveButton);
             this.pnlNothiNoteTalika.Controls.Add(this.nothiNamePanel);
@@ -934,7 +936,7 @@
             this.tinyMceEditor.AutoScroll = true;
             this.tinyMceEditor.AutoSize = true;
             this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tinyMceEditor.HtmlContent = null;
+            this.tinyMceEditor.HtmlContent = "";
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
             this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
             this.tinyMceEditor.Name = "tinyMceEditor";
@@ -1986,6 +1988,30 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "পত্রের ধরণ";
             // 
+            // khosraReviewButton
+            // 
+            this.khosraReviewButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.khosraReviewButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.khosraReviewButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.khosraReviewButton.FlatAppearance.BorderSize = 0;
+            this.khosraReviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.khosraReviewButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.khosraReviewButton.ForeColor = System.Drawing.Color.Black;
+            this.khosraReviewButton.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.khosraReviewButton.IconColor = System.Drawing.Color.Black;
+            this.khosraReviewButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.khosraReviewButton.IconSize = 20;
+            this.khosraReviewButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.khosraReviewButton.Location = new System.Drawing.Point(523, 1);
+            this.khosraReviewButton.Margin = new System.Windows.Forms.Padding(0);
+            this.khosraReviewButton.Name = "khosraReviewButton";
+            this.khosraReviewButton.Size = new System.Drawing.Size(117, 33);
+            this.khosraReviewButton.TabIndex = 78;
+            this.khosraReviewButton.Text = "খসড়া রিভিউ";
+            this.khosraReviewButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.khosraReviewButton.UseVisualStyleBackColor = false;
+            this.khosraReviewButton.Click += new System.EventHandler(this.khosraReviewButton_Click);
+            // 
             // Khosra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2204,5 +2230,6 @@
         private System.Windows.Forms.TableLayoutPanel selectedAttachmentTableLayoutPanel;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label29;
+        private FontAwesome.Sharp.IconButton khosraReviewButton;
     }
 }

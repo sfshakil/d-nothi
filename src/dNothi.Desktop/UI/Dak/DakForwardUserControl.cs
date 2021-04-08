@@ -589,7 +589,7 @@ namespace dNothi.Desktop.UI.Dak
                                 dakForwardRequestParam.dak_type = dakSelected.dakUserDTO.dak_type;
 
 
-                                var dakForwardResponse = GetDakForwardResponse(dakForwardRequestParam);
+                                var dakForwardResponse = _dakForwardService.GetDakForwardResponse(dakForwardRequestParam);
 
                                 if (dakForwardResponse.status == "success")
                                 {
@@ -707,9 +707,17 @@ namespace dNothi.Desktop.UI.Dak
 
                     dakForwardRequestParam.onulipi_info = dakForwardRequestParam.CSharpObjtoJson(OnulipiprapokDTOs);
 
-                    var dakForwardResponse = GetDakForwardResponse(dakForwardRequestParam);
+                    var dakForwardResponse =_dakForwardService.GetDakForwardResponse(dakForwardRequestParam);
 
-                    if (dakForwardResponse.status == "success")
+
+                    if(dakForwardResponse.status== "Local")
+                    {
+                        SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি প্রেরণ করা হবে");
+                        if (this.SucessfullyDakForwarded != null)
+                            this.SucessfullyDakForwarded(sender, e);
+                        this.Hide();
+                    }
+                    else if (dakForwardResponse.status == "success")
                     {
                         SuccessMessage(dakForwardResponse.data);
                         if (this.SucessfullyDakForwarded != null)

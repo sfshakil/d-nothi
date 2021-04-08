@@ -88,6 +88,7 @@
     <Compile Include="Entities\NoteItem.cs" />
     <Compile Include="Entities\NothiItem.cs" />
     <Compile Include="Entities\DakItem.cs" />
+    <Compile Include="Entities\DakItemAction.cs" />
     <Compile Include="Entities\DakTag.cs" />
     <Compile Include="Entities\DakType.cs" />
     <Compile Include="Entities\DakList.cs" />
