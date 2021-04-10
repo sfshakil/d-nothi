@@ -14,6 +14,10 @@ namespace dNothi.Core.Entities
 
         public bool isForwarded { get; set; }
        
+        public bool isNothijato { get; set; }
+        public bool isArchived { get; set; }
+        public bool isNothivukto { get; set; }
+       
         public int dak_id { get; set; }
         public string dak_type { get; set; }
         public int is_copied_dak { get; set; }

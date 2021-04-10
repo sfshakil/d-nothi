@@ -81,7 +81,7 @@ namespace dNothi.Services.DakServices
 
         public bool Is_Locally_Forwarde(int dak_id)
         {
-            var dakForwardCheck = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id);
+            var dakForwardCheck = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.isForwarded==true);
             if(dakForwardCheck == null)
             {
                 return false;

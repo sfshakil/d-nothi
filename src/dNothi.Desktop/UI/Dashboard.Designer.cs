@@ -204,7 +204,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.dakUploadBackgorundWorker = new System.ComponentModel.BackgroundWorker();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
@@ -3216,11 +3215,6 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // dakUploadBackgorundWorker
-            // 
-            this.dakUploadBackgorundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.dakUploadBackgorundWorker_DoWork);
-            this.dakUploadBackgorundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.dakUploadBackgorundWorker_RunWorkerCompleted);
-            // 
             // designationDetailsPanel
             // 
             this.designationDetailsPanel._designationId = 0;
@@ -3578,7 +3572,6 @@
         private System.Windows.Forms.Label pageLabel;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private FontAwesome.Sharp.IconButton onlineStatus;
-        private System.ComponentModel.BackgroundWorker dakUploadBackgorundWorker;
     }
 }
 

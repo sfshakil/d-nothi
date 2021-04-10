@@ -24,6 +24,7 @@ namespace dNothi.Desktop.UI.Dak
         IDakNothijatoService _nothijatoService { get; set; }
 
         public string _dakSubject { get; set; }
+        public bool _dakNothijatoLocally { get; set; }
         public NothijatoActionParam _nothiSelected { get; set; }
 
         INothiNoteTalikaServices _nothinotetalikaservices { get; set; }
@@ -265,9 +266,19 @@ namespace dNothi.Desktop.UI.Dak
 
 
                     DakNothijatoResponse dakNothijatoResponse = _nothijatoService.GetDakNothijatoResponse(dakUserParam, nothijatoActionParam, _dak_id, _dak_type, _is_copied_dak);
-
-                    if (dakNothijatoResponse.status == "success")
+                    if (dakNothijatoResponse.message == "Local")
                     {
+                        _dakNothijatoLocally = true;
+                        SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি নথিজাত করা হবে");
+
+                        
+                        if (this.SucessfullyDakNothijato != null)
+                            this.SucessfullyDakNothijato(addSender, addEvent);
+                        this.Hide();
+                    }
+                    else if (dakNothijatoResponse.status == "success")
+                    {
+                        _dakNothijatoLocally = false;
                         SuccessMessage(dakNothijatoResponse.data);
                         if (this.SucessfullyDakNothijato != null)
                             this.SucessfullyDakNothijato(addSender, addEvent);

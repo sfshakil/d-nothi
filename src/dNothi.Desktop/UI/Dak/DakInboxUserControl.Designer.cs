@@ -69,8 +69,8 @@
             this.attachmentAndDatePanel = new System.Windows.Forms.Panel();
             this.dakTagPanel = new System.Windows.Forms.Panel();
             this.dakLabel = new System.Windows.Forms.Label();
-            this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.uploadIconButton = new FontAwesome.Sharp.IconButton();
+            this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.nothiPanel.SuspendLayout();
             this.subjectPanel.SuspendLayout();
             this.senderAndReceiverPanel.SuspendLayout();
@@ -419,7 +419,7 @@
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-5927, 10);
+            this.dakActionPanel.Location = new System.Drawing.Point(-6119, 10);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -659,23 +659,6 @@
             this.dakLabel.Text = "[টেস্ট ১ টেস্ট ১]";
             this.dakLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rightInfoPanel
-            // 
-            this.rightInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rightInfoPanel.attentionTypeIconValue = null;
-            this.rightInfoPanel.AutoSize = true;
-            this.rightInfoPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.rightInfoPanel.BackColor = System.Drawing.Color.Transparent;
-            this.rightInfoPanel.dakPrioriy = null;
-            this.rightInfoPanel.dakSecurityIconValue = null;
-            this.rightInfoPanel.dakType = null;
-            this.rightInfoPanel.dakViewStatus = "";
-            this.rightInfoPanel.Location = new System.Drawing.Point(795, 15);
-            this.rightInfoPanel.Name = "rightInfoPanel";
-            this.rightInfoPanel.potrojari = 0;
-            this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
-            this.rightInfoPanel.TabIndex = 70;
-            // 
             // uploadIconButton
             // 
             this.uploadIconButton.AutoSize = true;
@@ -703,6 +686,23 @@
             this.uploadIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.uploadIconButton.UseVisualStyleBackColor = true;
             this.uploadIconButton.Visible = false;
+            // 
+            // rightInfoPanel
+            // 
+            this.rightInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rightInfoPanel.attentionTypeIconValue = null;
+            this.rightInfoPanel.AutoSize = true;
+            this.rightInfoPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rightInfoPanel.BackColor = System.Drawing.Color.Transparent;
+            this.rightInfoPanel.dakPrioriy = null;
+            this.rightInfoPanel.dakSecurityIconValue = null;
+            this.rightInfoPanel.dakType = null;
+            this.rightInfoPanel.dakViewStatus = "";
+            this.rightInfoPanel.Location = new System.Drawing.Point(795, 15);
+            this.rightInfoPanel.Name = "rightInfoPanel";
+            this.rightInfoPanel.potrojari = 0;
+            this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
+            this.rightInfoPanel.TabIndex = 70;
             // 
             // DakInboxUserControl
             // 

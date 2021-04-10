@@ -104,6 +104,8 @@ namespace dNothi.Services.NothiServices
 
         public NothiListAllResponse GetNothiAllByUser(DakUserParam dakUserParam)
         {
+
+
             try
             {
                 var client = new RestClient("https://dev.nothibs.tappware.com/api/nothi/list/all");

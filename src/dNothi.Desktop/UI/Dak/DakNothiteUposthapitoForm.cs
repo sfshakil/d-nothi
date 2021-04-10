@@ -22,6 +22,8 @@ namespace dNothi.Desktop.UI.Dak
         INothiAllServices _nothiAll { get; set; }
         IDakNothivuktoService _nothivuktoService { get; set; }
 
+
+        public bool _dakNothiteUposthapitoLocally;
         public string _dakSubject { get; set; }
         public NoteNothiDTO _noteSelected { get; set; }
 
@@ -68,8 +70,12 @@ namespace dNothi.Desktop.UI.Dak
 
         private void LoadNothiAll()
         {
-          
-            var nothiAll = _nothiAll.GetNothiAllByUser(_userParam);
+
+            _userParam.page = 1;
+            _userParam.limit = 10;
+            
+
+            var nothiAll = _nothiAll.GetNothiAll(_userParam);
 
             if (nothiAll.status == "success")
             {
@@ -161,9 +167,20 @@ namespace dNothi.Desktop.UI.Dak
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                 DakNothivuktoResponse dakNothivuktoResponse = _nothivuktoService.GetDakNothivuktoResponse(dakUserParam, nothiDTO, _dak_id, _dak_type, _is_copied_dak);
 
-                if (dakNothivuktoResponse.status == "success")
+                if(dakNothivuktoResponse.message=="Local")
                 {
+                    _dakNothiteUposthapitoLocally = true;
+                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি নথিতে উপস্থাপন করা হবে");
 
+
+                    if (this.SucessfullyDakNothivukto != null)
+                        this.SucessfullyDakNothivukto(addSender, addEvent);
+                   
+                    this.Hide();
+                }
+                else if (dakNothivuktoResponse.status == "success")
+                {
+                    _dakNothiteUposthapitoLocally = false;
                     SuccessMessage(dakNothivuktoResponse.data);
 
 

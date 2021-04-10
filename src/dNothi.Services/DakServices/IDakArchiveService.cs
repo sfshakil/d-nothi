@@ -9,6 +9,8 @@ namespace dNothi.Services.DakServices
 {
    public interface IDakArchiveService
     {
+        bool Is_Locally_Archived(int dak_id);
+        bool DakArchivedFromLocal();
         DakArchiveRevertResponse GetDakArcivedRevertResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);
 
         DakArchiveResponse GetDakArcivedResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);

@@ -33,6 +33,60 @@ namespace dNothi.Desktop.UI.Dak
             }
         
         }
+        public bool _is_Archived { get; set; }
+        public bool is_Archived
+        {
+            get { return _is_Archived; }
+            set
+            {
+                _is_Archived = value;
+                if (value)
+                {
+                    uploadIconButton.Visible = true;
+                    MyToolTip.SetToolTip(uploadIconButton, "আর্কাইভ হচ্ছে");
+                }
+
+
+            }
+
+        }
+        public bool _is_Nothijato { get; set; }
+        public bool is_Nothijato
+        {
+            get { return _is_Nothijato; }
+            set
+            {
+                _is_Nothijato = value;
+                if (value)
+                {
+                    uploadIconButton.Visible = true;
+                    MyToolTip.SetToolTip(uploadIconButton, "নথিজাত হচ্ছে");
+                }
+
+
+            }
+
+        }
+        public bool _is_Nothivukto { get; set; }
+        public bool is_Nothivukto
+        {
+            get { return _is_Nothivukto; }
+            set
+            {
+                _is_Nothivukto = value;
+                if (value)
+                {
+                    uploadIconButton.Visible = true;
+                    MyToolTip.SetToolTip(uploadIconButton, "নথিতে উপস্থাপন হচ্ছে");
+                }
+
+
+            }
+
+        }
+
+
+
         private bool MouseIsOverControl() =>
     this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
         public DakInboxUserControl()
