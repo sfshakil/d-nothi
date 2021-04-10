@@ -70,6 +70,7 @@
             this.selectAllCheckBox = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.detailsDakSearcPanel = new System.Windows.Forms.Panel();
+            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.searchTopTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.datePickerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -87,6 +88,8 @@
             this.searchDakSecurityComboBox = new System.Windows.Forms.ComboBox();
             this.searchDakPriorityComboBox = new System.Windows.Forms.ComboBox();
             this.searchDakTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
+            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -206,9 +209,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dakUploadBackgorundWorker = new System.ComponentModel.BackgroundWorker();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
-            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
-            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -556,7 +556,7 @@
             this.folderName.Margin = new System.Windows.Forms.Padding(0);
             this.folderName.Name = "folderName";
             this.folderName.Padding = new System.Windows.Forms.Padding(0, 6, 0, 5);
-            this.folderName.Size = new System.Drawing.Size(0, 29);
+            this.folderName.Size = new System.Drawing.Size(0, 32);
             this.folderName.TabIndex = 33;
             this.folderName.Tag = "FolderName";
             this.folderName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -894,6 +894,26 @@
             this.detailsDakSearcPanel.TabIndex = 0;
             this.detailsDakSearcPanel.Visible = false;
             // 
+            // customDatePicker
+            // 
+            this.customDatePicker._date = null;
+            this.customDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.customDatePicker.AutoSize = true;
+            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.customDatePicker.BackColor = System.Drawing.Color.White;
+            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
+            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
+            this.customDatePicker.Location = new System.Drawing.Point(721, 96);
+            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.customDatePicker.Name = "customDatePicker";
+            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
+            this.customDatePicker.TabIndex = 57;
+            this.customDatePicker.Visible = false;
+            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
+            this.customDatePicker.Click += new System.EventHandler(this.customDatePicker_Click);
+            this.customDatePicker.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
+            // 
             // searchTopTableLayoutPanel
             // 
             this.searchTopTableLayoutPanel.ColumnCount = 3;
@@ -942,12 +962,12 @@
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.calenderIconPictureBox, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(248, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(237, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(109, 41);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(120, 41);
             this.tableLayoutPanel3.TabIndex = 1;
             this.tableLayoutPanel3.Click += new System.EventHandler(this.dateRangeSelect_Click);
             // 
@@ -960,7 +980,7 @@
             this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 19;
-            this.iconPictureBox2.Location = new System.Drawing.Point(87, 11);
+            this.iconPictureBox2.Location = new System.Drawing.Point(98, 11);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(19, 19);
             this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -974,9 +994,9 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(3, 11);
+            this.label10.Location = new System.Drawing.Point(3, 10);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 18);
+            this.label10.Size = new System.Drawing.Size(65, 21);
             this.label10.TabIndex = 1;
             this.label10.Text = "সময়সীমা";
             this.label10.Click += new System.EventHandler(this.dateRangeSelect_Click);
@@ -990,7 +1010,7 @@
             this.calenderIconPictureBox.IconColor = System.Drawing.SystemColors.Highlight;
             this.calenderIconPictureBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.calenderIconPictureBox.IconSize = 24;
-            this.calenderIconPictureBox.Location = new System.Drawing.Point(60, 8);
+            this.calenderIconPictureBox.Location = new System.Drawing.Point(71, 8);
             this.calenderIconPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.calenderIconPictureBox.Name = "calenderIconPictureBox";
             this.calenderIconPictureBox.Size = new System.Drawing.Size(24, 24);
@@ -1008,7 +1028,7 @@
             this.dateRangeTextBox.Location = new System.Drawing.Point(8, 11);
             this.dateRangeTextBox.Name = "dateRangeTextBox";
             this.dateRangeTextBox.PlaceholderText = "সময়সীমা";
-            this.dateRangeTextBox.Size = new System.Drawing.Size(237, 19);
+            this.dateRangeTextBox.Size = new System.Drawing.Size(226, 19);
             this.dateRangeTextBox.TabIndex = 4;
             // 
             // panel8
@@ -1095,7 +1115,7 @@
             this.searchDakStatusComboBox.FormattingEnabled = true;
             this.searchDakStatusComboBox.Location = new System.Drawing.Point(3, 3);
             this.searchDakStatusComboBox.Name = "searchDakStatusComboBox";
-            this.searchDakStatusComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakStatusComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakStatusComboBox.TabIndex = 2;
             // 
             // searchDakPotroTypeComboBox
@@ -1112,7 +1132,7 @@
             this.searchDakPotroTypeComboBox.Location = new System.Drawing.Point(218, 3);
             this.searchDakPotroTypeComboBox.MaxLength = 10;
             this.searchDakPotroTypeComboBox.Name = "searchDakPotroTypeComboBox";
-            this.searchDakPotroTypeComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakPotroTypeComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakPotroTypeComboBox.TabIndex = 3;
             // 
             // searchDakSecurityComboBox
@@ -1125,7 +1145,7 @@
             this.searchDakSecurityComboBox.FormattingEnabled = true;
             this.searchDakSecurityComboBox.Location = new System.Drawing.Point(433, 3);
             this.searchDakSecurityComboBox.Name = "searchDakSecurityComboBox";
-            this.searchDakSecurityComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakSecurityComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakSecurityComboBox.TabIndex = 5;
             // 
             // searchDakPriorityComboBox
@@ -1138,7 +1158,7 @@
             this.searchDakPriorityComboBox.FormattingEnabled = true;
             this.searchDakPriorityComboBox.Location = new System.Drawing.Point(648, 3);
             this.searchDakPriorityComboBox.Name = "searchDakPriorityComboBox";
-            this.searchDakPriorityComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakPriorityComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakPriorityComboBox.TabIndex = 6;
             // 
             // searchDakTypeComboBox
@@ -1151,8 +1171,40 @@
             this.searchDakTypeComboBox.FormattingEnabled = true;
             this.searchDakTypeComboBox.Location = new System.Drawing.Point(863, 3);
             this.searchDakTypeComboBox.Name = "searchDakTypeComboBox";
-            this.searchDakTypeComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakTypeComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakTypeComboBox.TabIndex = 4;
+            // 
+            // searchOfficeDetailSearch
+            // 
+            this.searchOfficeDetailSearch.AutoSize = true;
+            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
+            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeDetailSearch.isListShown = false;
+            this.searchOfficeDetailSearch.itemList = null;
+            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 197);
+            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
+            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
+            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
+            this.searchOfficeDetailSearch.selectedId = 0;
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 52);
+            this.searchOfficeDetailSearch.TabIndex = 53;
+            // 
+            // officerSearchList
+            // 
+            this.officerSearchList.AutoSize = true;
+            this.officerSearchList.BackColor = System.Drawing.Color.White;
+            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchList.isListShown = false;
+            this.officerSearchList.itemList = null;
+            this.officerSearchList.Location = new System.Drawing.Point(21, 197);
+            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
+            this.officerSearchList.Name = "officerSearchList";
+            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
+            this.officerSearchList.selectedId = 0;
+            this.officerSearchList.Size = new System.Drawing.Size(516, 52);
+            this.officerSearchList.TabIndex = 52;
             // 
             // label11
             // 
@@ -1447,9 +1499,9 @@
             "অপঠিত",
             "মূল-প্রাপক",
             " অনুলিপি"});
-            this.searchThirdPartyComboBox.Location = new System.Drawing.Point(3, 9);
+            this.searchThirdPartyComboBox.Location = new System.Drawing.Point(3, 7);
             this.searchThirdPartyComboBox.Name = "searchThirdPartyComboBox";
-            this.searchThirdPartyComboBox.Size = new System.Drawing.Size(271, 26);
+            this.searchThirdPartyComboBox.Size = new System.Drawing.Size(271, 29);
             this.searchThirdPartyComboBox.TabIndex = 54;
             this.searchThirdPartyComboBox.Text = "সকল ";
             // 
@@ -1472,9 +1524,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(900, 0);
+            this.label9.Location = new System.Drawing.Point(891, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 29);
+            this.label9.Size = new System.Drawing.Size(61, 29);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2800,9 +2852,9 @@
             this.pageLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.pageLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.pageLabel.Location = new System.Drawing.Point(943, 0);
+            this.pageLabel.Location = new System.Drawing.Point(937, 0);
             this.pageLabel.Name = "pageLabel";
-            this.pageLabel.Size = new System.Drawing.Size(36, 40);
+            this.pageLabel.Size = new System.Drawing.Size(42, 40);
             this.pageLabel.TabIndex = 37;
             this.pageLabel.Text = "০-১২";
             this.pageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3030,7 +3082,7 @@
             this.dakTagListBox.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakTagListBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dakTagListBox.FormattingEnabled = true;
-            this.dakTagListBox.ItemHeight = 21;
+            this.dakTagListBox.ItemHeight = 25;
             this.dakTagListBox.Location = new System.Drawing.Point(5, 5);
             this.dakTagListBox.Name = "dakTagListBox";
             this.dakTagListBox.Size = new System.Drawing.Size(143, 86);
@@ -3194,7 +3246,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(115, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 24);
+            this.label14.Size = new System.Drawing.Size(130, 27);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
@@ -3242,58 +3294,6 @@
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
-            // 
-            // customDatePicker
-            // 
-            this.customDatePicker._date = null;
-            this.customDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.customDatePicker.AutoSize = true;
-            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.customDatePicker.BackColor = System.Drawing.Color.White;
-            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
-            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
-            this.customDatePicker.Location = new System.Drawing.Point(721, 96);
-            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
-            this.customDatePicker.Name = "customDatePicker";
-            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
-            this.customDatePicker.TabIndex = 57;
-            this.customDatePicker.Visible = false;
-            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
-            this.customDatePicker.Click += new System.EventHandler(this.customDatePicker_Click);
-            this.customDatePicker.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
-            // 
-            // searchOfficeDetailSearch
-            // 
-            this.searchOfficeDetailSearch.AutoSize = true;
-            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
-            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeDetailSearch.isListShown = false;
-            this.searchOfficeDetailSearch.itemList = null;
-            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 197);
-            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
-            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
-            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
-            this.searchOfficeDetailSearch.selectedId = 0;
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 52);
-            this.searchOfficeDetailSearch.TabIndex = 53;
-            // 
-            // officerSearchList
-            // 
-            this.officerSearchList.AutoSize = true;
-            this.officerSearchList.BackColor = System.Drawing.Color.White;
-            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officerSearchList.isListShown = false;
-            this.officerSearchList.itemList = null;
-            this.officerSearchList.Location = new System.Drawing.Point(21, 197);
-            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
-            this.officerSearchList.Name = "officerSearchList";
-            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
-            this.officerSearchList.selectedId = 0;
-            this.officerSearchList.Size = new System.Drawing.Size(516, 52);
-            this.officerSearchList.TabIndex = 52;
             // 
             // Dashboard
             // 

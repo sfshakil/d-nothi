@@ -14,6 +14,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -42,7 +43,7 @@ namespace dNothi.Desktop.UI
             InitializeComponent();
             WaitForm = new WaitFormFunc();
             loadNothiExtra();
-
+            //nothiBackGroundWorker.RunWorkerAsync();
         }
         public void loadNothiExtra()
         {
@@ -1708,6 +1709,63 @@ namespace dNothi.Desktop.UI
         private void profilePanel_MouseLeave(object sender, EventArgs e)
         {
             profilePanel.BackColor = Color.Transparent;
+        }
+
+        private void nothiBackGroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                if (onlineStatus.IconColor != Color.LimeGreen)
+                {
+                    if (IsHandleCreated)
+                    {
+                        onlineStatus.Invoke(new MethodInvoker(delegate
+                        {
+                            onlineStatus.IconColor = Color.LimeGreen;
+                            MyToolTip.SetToolTip(onlineStatus, "Online");
+                        }));
+                    }
+                    else
+                    {
+
+                    }
+
+                }
+            }
+            else
+            {
+                if (IsHandleCreated)
+                {
+                    onlineStatus.Invoke(new MethodInvoker(delegate
+                    {
+                        onlineStatus.IconColor = Color.Silver;
+                        MyToolTip.SetToolTip(onlineStatus, "Offline");
+                    }));
+                }
+                else
+                {
+
+                }
+
+
+
+            }
+        }
+
+        private void nothiBackGroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //Thread.Sleep(100);
+            //nothiBackGroundWorker.RunWorkerAsync();
+            if (!nothiBackGroundWorker.IsBusy)
+            {
+                nothiBackGroundWorker.RunWorkerAsync();
+            }
+        }
+
+        private void Nothi_Load_1(object sender, EventArgs e)
+        {
+            
+            //nothiBackGroundWorker.RunWorkerAsync();
         }
 
         private void userPictureBox_MouseLeave(object sender, EventArgs e)
