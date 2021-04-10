@@ -3145,7 +3145,6 @@ namespace dNothi.Desktop.UI
 
         private void dakModulePanel_Paint(object sender, PaintEventArgs e)
         {
-
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
 
@@ -4629,12 +4628,12 @@ namespace dNothi.Desktop.UI
                 LoadDakInbox();
             }
 
-            Thread.Sleep(10);
-
-            if(!backgroundWorker1.IsBusy)
-            {
-                backgroundWorker1.RunWorkerAsync();
-            }
+            //Thread.Sleep(200000);
+            backgroundWorker1.RunWorkerAsync();
+            //if (!backgroundWorker1.IsBusy)
+            //{
+            //    backgroundWorker1.RunWorkerAsync();
+            //}
           
         }
     }
