@@ -1756,7 +1756,7 @@ namespace dNothi.Desktop.UI
         {
             //Thread.Sleep(100);
             //nothiBackGroundWorker.RunWorkerAsync();
-            if (!nothiBackGroundWorker.IsBusy)
+            if (!nothiBackGroundWorker.IsBusy && this.Visible)
             {
                 nothiBackGroundWorker.RunWorkerAsync();
             }

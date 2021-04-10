@@ -3157,6 +3157,7 @@ namespace dNothi.Desktop.UI
 
         private void nothiModulePanel_Click(object sender, EventArgs e)
         {
+            //backgroundWorker1.CancelAsync();
             this.Hide();
             var form = FormFactory.Create<Nothi>();
             form.ShowDialog();
@@ -4476,7 +4477,7 @@ namespace dNothi.Desktop.UI
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             
-                _isDakUploaded = false;
+            _isDakUploaded = false;
             _isLocallYDakArchived = false;
             _isLocallYDakNothijato = false;
             _isLocallYDakNothivukto = false;
@@ -4565,44 +4566,12 @@ namespace dNothi.Desktop.UI
                 
         }
 
-        private void dakUploadBackgorundWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-           
-            
-
-                _isDakUploaded = false;
-           
-            if (InternetConnection.Check())
-            {
-
-                if (onlineStatus.IconColor != Color.LimeGreen)
-                {
-
-                    if (_dakuploadservice.UploadDakFromLocal())
-                    {
-                        _isDakUploaded = true;
-                    }
-
-                }
-
-            }
-         
-            
-               
-
-
-
-
-
-                
-            
-        }
-
+       
         
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
-            if (pageNumber == 1 && _currentDakCatagory._isOutbox == true && _isDakUploaded)
+           if (pageNumber == 1 && _currentDakCatagory._isOutbox == true && _isDakUploaded)
             {
                 LoadDakOutbox();
             }
@@ -4611,30 +4580,33 @@ namespace dNothi.Desktop.UI
             {
                 LoadDakKhasraList();
             }
-            else if (_currentDakCatagory._isInbox == true && _isLocallYDakForwarded)
+           else if (_currentDakCatagory._isInbox == true && _isLocallYDakForwarded)
             {
                 LoadDakInbox();
             }
-            else if (_currentDakCatagory._isInbox == true && _isLocallYDakArchived)
+           else if (_currentDakCatagory._isInbox == true && _isLocallYDakArchived)
             {
                 LoadDakInbox();
             }
-            else if (_currentDakCatagory._isInbox == true && _isLocallYDakNothijato)
+           else if (_currentDakCatagory._isInbox == true && _isLocallYDakNothijato)
             {
                 LoadDakInbox();
             }
-            else if (_currentDakCatagory._isInbox == true && _isLocallYDakNothivukto)
+           else if (_currentDakCatagory._isInbox == true && _isLocallYDakNothivukto)
             {
                 LoadDakInbox();
             }
 
-            //Thread.Sleep(200000);
-            backgroundWorker1.RunWorkerAsync();
-            //if (!backgroundWorker1.IsBusy)
-            //{
-            //    backgroundWorker1.RunWorkerAsync();
-            //}
+           // Thread.Sleep(10);
           
+            if (!backgroundWorker1.IsBusy && this.Visible)
+            {
+                
+               
+                backgroundWorker1.RunWorkerAsync();
+            }
+           
+
         }
     }
 
