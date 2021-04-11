@@ -111,6 +111,7 @@ namespace dNothi.Desktop.UI
                 var appUser = _accountService.LoginUser(userName, password);
                 if (appUser != null)
                 {
+                    this.Hide();
                     var form = FormFactory.Create<Dashboard>();
 
                     form.ShowDialog();
@@ -118,7 +119,7 @@ namespace dNothi.Desktop.UI
 
                 else
                 {
-                    ShowAlertMessage("Login Failed!");
+                    ShowAlertMessage("আপনার ইন্টারনেট সংযোগ বিচ্ছিন্ন রযেছে।");
                 }
 
             }
