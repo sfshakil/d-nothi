@@ -31,10 +31,10 @@ namespace dNothi.Desktop.UI.Dak
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("ব্যক্তিগত");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("পাবলিক");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("ব্যক্তিগত");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("পাবলিক");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
@@ -205,15 +205,15 @@ namespace dNothi.Desktop.UI.Dak
             this.personalFolderTreeView.Location = new System.Drawing.Point(6, 6);
             this.personalFolderTreeView.Margin = new System.Windows.Forms.Padding(5);
             this.personalFolderTreeView.Name = "personalFolderTreeView";
-            treeNode3.Name = "privateNode";
-            treeNode3.Tag = "0";
-            treeNode3.Text = "ব্যক্তিগত";
-            treeNode4.Name = "publicNode";
-            treeNode4.Tag = "0";
-            treeNode4.Text = "পাবলিক";
+            treeNode1.Name = "privateNode";
+            treeNode1.Tag = "0";
+            treeNode1.Text = "ব্যক্তিগত";
+            treeNode2.Name = "publicNode";
+            treeNode2.Tag = "0";
+            treeNode2.Text = "পাবলিক";
             this.personalFolderTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
+            treeNode1,
+            treeNode2});
             this.personalFolderTreeView.SelectedImageIndex = 0;
             this.personalFolderTreeView.Size = new System.Drawing.Size(492, 448);
             this.personalFolderTreeView.TabIndex = 1;
@@ -251,10 +251,10 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewImageColumn1.HeaderText = "+";
             this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn1.MinimumWidth = 2;
@@ -264,10 +264,10 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewImageColumn2.HeaderText = "+";
             this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
