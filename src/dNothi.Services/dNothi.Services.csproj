@@ -213,6 +213,7 @@
     <Compile Include="NothiServices\PotrojariServices.cs" />
     <Compile Include="NothiServices\SingleOnucchedServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyncServices\LocalChangeData.cs" />
     <Compile Include="SyncServices\SyncerService.cs" />
     <Compile Include="UserServices\IUserService.cs" />
     <Compile Include="UserServices\UserParam.cs" />

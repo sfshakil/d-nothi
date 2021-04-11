@@ -72,6 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\LocalDakFolderList.cs" />
     <Compile Include="Entities\NothiCreateItemAction.cs" />
     <Compile Include="Entities\NothiTypeItemAction.cs" />
     <Compile Include="Entities\PotrangshoNoteItem.cs" />

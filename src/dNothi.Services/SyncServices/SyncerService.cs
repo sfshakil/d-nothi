@@ -6,6 +6,7 @@ using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,74 @@ namespace dNothi.Services.SyncServices
     public class SyncerService: ISyncerService
     {
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-     
-        IUserService _userService;
-        IDakInboxServices _dakInboxService;
-        IAccountService _accountService;
-        IDakListService _dakListService;
+
+        IUserService _userService { get; set; }
+        IRegisterService _registerService { get; set; }
+        IDakFolderService _dakFolderService { get; set; }
+        IDakSearchService _dakSearchService { get; set; }
+        IProtibedonService _protibedonService { get; set; }
+        IDesignationSealService _designationSealService { get; set; }
+
+        private DakUserParam _dakuserparam = new DakUserParam();
+        IDakKhosraService _dakkhosraservice { get; set; }
+        IDakListService _dakListService { get; set; }
+        IDakOutboxService _dakOutboxService { get; set; }
+        IDakUploadService _dakuploadservice { get; set; }
+        IDakInboxServices _dakInboxService { get; set; }
+
+        IDakArchiveService _dakArchiveService { get; set; }
+        IDakNothijatoService _dakNothijatoService { get; set; }
+
+        IDakNothivuktoService _dakNothivuktoService { get; set; }
+        IDakListSortedService _dakListSortedService { get; set; }
+        IDakForwardService _dakForwardService { get; set; }
+        IAccountService _accountService { get; set; }
         IRepository<SyncStatus> _sycnRepository;
-        public SyncerService(IDakInboxServices dakInboxService, IUserService userService, IAccountService accountService, IDakListService dakListService, IRepository<SyncStatus> sycnRepository)
+        public SyncerService(
+
+
+             IUserService userService,
+            IDakOutboxService dakOutboxService,
+            IDakNothivuktoService dakNothivuktoService,
+            IDakArchiveService dakListArchiveService,
+            IDakListService dakListService,
+            IDakListSortedService dakListSortedService,
+            IDakForwardService dakForwardService,
+            IDakKhosraService dakKhosraService,
+            IDakUploadService dakUploadService,
+            IDesignationSealService designationSealService,
+            IDakSearchService dakSearchService,
+            IRegisterService registerService,
+             IDakFolderService dakFolderService,
+             IProtibedonService protibedonService,
+            IDakNothijatoService dakNothijatoService,
+
+            IDakInboxServices dakInboxService,
+       
+            IAccountService accountService, 
+         
+            IRepository<SyncStatus> sycnRepository)
         {
+
+            _dakNothivuktoService = dakNothivuktoService;
+           
+            _dakSearchService = dakSearchService;
+            _registerService = registerService;
+            _designationSealService = designationSealService;
+            _dakOutboxService = dakOutboxService;
+          
+            _dakArchiveService = dakListArchiveService;
+            _dakNothijatoService = dakNothijatoService;
+           
+            _dakListSortedService = dakListSortedService;
+            _dakForwardService = dakForwardService;
+            _dakkhosraservice = dakKhosraService;
+            _dakuploadservice = dakUploadService;
+            _protibedonService = protibedonService;
+           
+            _dakFolderService = dakFolderService;
+
+
             _userService = userService;
             _dakInboxService = dakInboxService;
             _accountService = accountService;
@@ -51,6 +112,54 @@ namespace dNothi.Services.SyncServices
 
         //src will be Remote and dst will be Local
 
+
+      public void SyncLocaltoRemoteData()
+        {
+            LocalChangeData._isDakUploaded = false;
+            LocalChangeData._isLocallYDakArchived = false;
+            LocalChangeData._isLocallYDakNothijato = false;
+            LocalChangeData._isLocallYDakNothivukto = false;
+            LocalChangeData._isLocallYDakForwarded = false;
+            LocalChangeData._isLocallYDakTagged = false;
+
+
+            if (InternetConnection.Check())
+            {
+
+                if (_dakuploadservice.UploadDakFromLocal())
+                {
+                    LocalChangeData._isDakUploaded = true;
+                }
+                if (_dakForwardService.SendDakForwardFromLocal())
+                {
+                    LocalChangeData._isLocallYDakForwarded = true;
+                }
+                if (_dakNothivuktoService.DakNothivuktoFromLocal())
+                {
+                    LocalChangeData._isLocallYDakNothivukto = true;
+                }
+                if (_dakArchiveService.DakArchivedFromLocal())
+                {
+                    LocalChangeData._isLocallYDakArchived = true;
+                }
+                if (_dakNothijatoService.DakNothijatoFromLocal())
+                {
+                    LocalChangeData._isLocallYDakNothijato = true;
+                }
+                if (_dakFolderService.DakTagFromLocal())
+                {
+                    LocalChangeData._isLocallYDakTagged = true;
+                }
+                
+
+
+
+
+                    //dakUploadBackgorundWorker.RunWorkerAsync();
+                }
+
+            
+        }
 
        public List<DakIdListRecordDTO> RemoteDakIdList(int page, int Limit)
         {
@@ -314,6 +423,7 @@ namespace dNothi.Services.SyncServices
 
     public interface ISyncerService
     {
+        void SyncLocaltoRemoteData();
         List<DakIdListRecordDTO> RemoteDakIdList(int page,int Limit);
         List<long> GetDestination();
         Task<List<long>> GetSource();

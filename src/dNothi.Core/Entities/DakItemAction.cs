@@ -13,6 +13,7 @@ namespace dNothi.Core.Entities
 
 
         public bool isForwarded { get; set; }
+        public bool isDakTagged { get; set; }
        
         public bool isNothijato { get; set; }
         public bool isArchived { get; set; }
@@ -21,10 +22,24 @@ namespace dNothi.Core.Entities
         public int dak_id { get; set; }
         public string dak_type { get; set; }
         public int is_copied_dak { get; set; }
+       
+        public int designation_id { get; set; }
+        public int office_id { get; set; }
+        public string dak_folder_name { get; set; }
         
 
         [MaxLength]
         public string dak_Action_Json { get; set; }
+
+        public void MakeAllfalse()
+        {
+            isForwarded = false;
+             isDakTagged = false;
+
+            isNothijato = false;
+             isArchived = false;
+             isNothivukto = false;
+    }
 
     }
 }
