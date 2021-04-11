@@ -1880,18 +1880,15 @@ namespace dNothi.Desktop.UI
                 {
                     Pagination(dakArchive.data.records.Count, dakArchive.data.total_records);
                     LoadDakArchiveinPanel(dakArchive.data.records);
+                    return;
 
                 }
-                else
-                {
-                    noDakTableLayoutPanel.Visible = true;
-                }
+                
 
             }
-            else
-            {
+                
                 noDakTableLayoutPanel.Visible = true;
-            }
+            
 
 
         }
@@ -4467,8 +4464,17 @@ namespace dNothi.Desktop.UI
             pageStart = pageStart + NothiCommonStaticValue.pageLimit;
             pageEnd = pageEnd + NothiCommonStaticValue.pageLimit;
 
+            
 
             RefreshdDakList();
+
+            if(noDakTableLayoutPanel.Visible)
+            {
+                pageNumber = pageNumber - 1;
+                pageStart = pageStart - NothiCommonStaticValue.pageLimit;
+                pageEnd = pageEnd - NothiCommonStaticValue.pageLimit;
+
+            }
         }
         private bool _isLocallYDakForwarded;
         private bool _isLocallYDakNothijato;

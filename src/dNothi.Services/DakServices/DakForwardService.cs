@@ -145,8 +145,15 @@ namespace dNothi.Services.DakServices
         {
             var dbDesignationSeals = _localDesignationSealRepository.Table.Where(q => q.designation_id == dakListUserParam.designation_id && q.office_id == dakListUserParam.office_id).FirstOrDefault();
 
-            
-            return dbDesignationSeals.designation_Seal_Json;
+            if(dbDesignationSeals != null)
+            {
+                return dbDesignationSeals.designation_Seal_Json;
+            }
+            else
+            {
+                return "";
+            }
+           
         }
 
 
