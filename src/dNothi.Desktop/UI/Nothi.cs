@@ -30,8 +30,10 @@ namespace dNothi.Desktop.UI
         NothiCategoryList _nothiCurrentCategory = new NothiCategoryList();
         INothiNoteTalikaServices _nothiNoteTalikaServices { get; set; }
         INothiAllServices _nothiAll { get; set; }
+        INothiTypeSaveService _nothiTypeSave { get; set; }
         public WaitFormFunc WaitForm;
-        public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices, INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave)
+        public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices, 
+            INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave)
         {
             _nothiNoteTalikaServices= nothiNoteTalikaServices;
             _userService = userService;
@@ -39,6 +41,7 @@ namespace dNothi.Desktop.UI
             _nothiOutbox = nothiOutbox;
             _nothiAll = nothiAll;
             _noteSave = noteSave;
+            _nothiTypeSave = nothiTypeSave;
 
             InitializeComponent();
             WaitForm = new WaitFormFunc();
@@ -1715,6 +1718,8 @@ namespace dNothi.Desktop.UI
         {
             if (InternetConnection.Check())
             {
+                _nothiTypeSave.SendNothiTypeListFromLocal();
+
                 if (onlineStatus.IconColor != Color.LimeGreen)
                 {
                     if (IsHandleCreated)
@@ -1765,7 +1770,7 @@ namespace dNothi.Desktop.UI
         private void Nothi_Load_1(object sender, EventArgs e)
         {
             
-            //nothiBackGroundWorker.RunWorkerAsync();
+            nothiBackGroundWorker.RunWorkerAsync();
         }
 
         private void userPictureBox_MouseLeave(object sender, EventArgs e)

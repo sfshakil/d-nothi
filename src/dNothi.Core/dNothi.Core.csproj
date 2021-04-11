@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\LocalDakFolderList.cs" />
+    <Compile Include="Entities\NothiTypeItemAction.cs" />
     <Compile Include="Entities\PotrangshoNoteItem.cs" />
     <Compile Include="Entities\PotrangshoNothiItem.cs" />
     <Compile Include="Entities\NoteInboxSentAllItem.cs" />
