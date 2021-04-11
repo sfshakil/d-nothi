@@ -8,6 +8,7 @@ using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using dNothi.Services.DakServices;
+using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using System;
@@ -58,6 +59,7 @@ namespace dNothi.Desktop.UI
 
 
         IUserService _userService { get; set; }
+        ISyncerService _syncerServices { get; set; }
         IRegisterService _registerService { get; set; }
         IDakFolderService _dakFolderService { get; set; }
         IDakSearchService _dakSearchService { get; set; }
@@ -91,6 +93,7 @@ namespace dNothi.Desktop.UI
             IDakUploadService dakUploadService,
             IDesignationSealService designationSealService,
             IDakSearchService dakSearchService,
+             ISyncerService syncerServices,
             IRegisterService registerService,
              IDakFolderService dakFolderService,
              IProtibedonService protibedonService,
@@ -113,6 +116,7 @@ namespace dNothi.Desktop.UI
             _protibedonService = protibedonService;
             _currentDakCatagory = new DakCatagoryList();
             _dakFolderService = dakFolderService;
+            _syncerServices = syncerServices;
             InitializeComponent();
 
 
@@ -1190,6 +1194,10 @@ namespace dNothi.Desktop.UI
                 {
                     dakInboxUserControl.is_Archived = true;
                 }
+                else if (_dakFolderService.Is_Locally_DakTagged(dakListInboxRecordsDTO.dak_user.dak_id))
+                {
+                    dakInboxUserControl.is_Tag = true;
+                }
                 else
                 {
                     dakInboxUserControl.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
@@ -1278,7 +1286,7 @@ namespace dNothi.Desktop.UI
             dakTagForm.is_copied_Id = is_copied_dak;
             dakTagForm.dak_Type = dak_Type;
 
-            dakTagForm.SuccessfullButton += delegate (object dakTagsender, EventArgs dakTagEvent) { ReloadBodyPanel(); };
+            dakTagForm.SuccessfullButton += delegate (object dakTagsender, EventArgs dakTagEvent) { RefreshdDakList(); };
 
 
 
@@ -4476,43 +4484,15 @@ namespace dNothi.Desktop.UI
 
             }
         }
-        private bool _isLocallYDakForwarded;
-        private bool _isLocallYDakNothijato;
-        private bool _isLocallYDakNothivukto;
-        private bool _isLocallYDakArchived;
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             
-            _isDakUploaded = false;
-            _isLocallYDakArchived = false;
-            _isLocallYDakNothijato = false;
-            _isLocallYDakNothivukto = false;
-            _isLocallYDakForwarded = false;
+            
                
             if (InternetConnection.Check())
                 {
-            
-                if (_dakuploadservice.UploadDakFromLocal())
-                {
-                    _isDakUploaded = true;
-                }
-                if (_dakForwardService.SendDakForwardFromLocal())
-                {
-                    _isLocallYDakForwarded = true;
-                }
-                if (_dakNothivuktoService.DakNothivuktoFromLocal())
-                {
-                    _isLocallYDakNothivukto = true;
-                }
-                if (_dakArchiveService.DakArchivedFromLocal())
-                {
-                    _isLocallYDakArchived = true;
-                }
-                if (_dakNothijatoService.DakNothijatoFromLocal())
-                {
-                    _isLocallYDakNothijato = true;
-                }
 
+                _syncerServices.SyncLocaltoRemoteData();
                 if (onlineStatus.IconColor != Color.LimeGreen)
                     {
 
@@ -4577,34 +4557,38 @@ namespace dNothi.Desktop.UI
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
-           if (pageNumber == 1 && _currentDakCatagory._isOutbox == true && _isDakUploaded)
+           if (pageNumber == 1 && _currentDakCatagory._isOutbox == true && LocalChangeData._isDakUploaded)
             {
                 LoadDakOutbox();
             }
 
-           else if (pageNumber == 1 && _currentDakCatagory._isKhosra == true && _isDakUploaded)
+           else if (pageNumber == 1 && _currentDakCatagory._isKhosra == true && LocalChangeData._isDakUploaded)
             {
                 LoadDakKhasraList();
             }
-           else if (_currentDakCatagory._isInbox == true && _isLocallYDakForwarded)
+           else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakForwarded)
             {
                 LoadDakInbox();
             }
-           else if (_currentDakCatagory._isInbox == true && _isLocallYDakArchived)
+           else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakArchived)
             {
                 LoadDakInbox();
             }
-           else if (_currentDakCatagory._isInbox == true && _isLocallYDakNothijato)
+           else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakNothijato)
             {
                 LoadDakInbox();
             }
-           else if (_currentDakCatagory._isInbox == true && _isLocallYDakNothivukto)
+           else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakNothivukto)
+            {
+                LoadDakInbox();
+            }
+           else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakTagged)
             {
                 LoadDakInbox();
             }
 
-           // Thread.Sleep(10);
-          
+            // Thread.Sleep(10);
+
             if (!backgroundWorker1.IsBusy && this.Visible)
             {
                 

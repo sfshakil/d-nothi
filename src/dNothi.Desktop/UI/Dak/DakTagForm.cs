@@ -678,8 +678,15 @@ namespace dNothi.Desktop.UI.Dak
             Folder += "]";
 
             DakFolderMapResponse dakFolderMapResponse = _dakFolderService.GetDakFolderMapResponse(dakUserParam,_dakId,_is_copied_Id,_dak_Type,Folder);
+            if (dakFolderMapResponse.status == "success" && dakFolderMapResponse.message == "Local")
+            {
 
-            if (dakFolderMapResponse.status == "success")
+                SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ট্যাগ করা হবে!");
+
+                _isSuccessfull = true;
+
+            }
+            else if (dakFolderMapResponse.status == "success")
             {
 
                 SuccessMessage("সফলভাবে ডাক ট্যাগ সম্পন্ন হযেছে!");

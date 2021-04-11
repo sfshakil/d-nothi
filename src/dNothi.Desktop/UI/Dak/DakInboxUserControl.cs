@@ -19,7 +19,25 @@ namespace dNothi.Desktop.UI.Dak
     public partial class DakInboxUserControl : UserControl
     {
 
-       public bool _is_Forwarded { get; set; }
+        public bool _is_Tag { get; set; }
+        public bool is_Tag
+        {
+            get { return _is_Tag; }
+            set
+            {
+                _is_Tag = value;
+                if (value)
+                {
+                    uploadIconButton.Visible = true;
+                    MyToolTip.SetToolTip(uploadIconButton, "ট্যাগ করা হচ্ছে");
+                }
+
+
+            }
+
+        }
+
+        public bool _is_Forwarded { get; set; }
        public bool is_Forwarded { get { return _is_Forwarded; }
             set { 
                 _is_Forwarded = value; 

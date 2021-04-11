@@ -1,5 +1,9 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Services.UserServices;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -14,9 +18,32 @@ namespace dNothi.Services.DakServices
 {
    public class DakFolderService:IDakFolderService
     {
+        IRepository<LocalDakFolderList> _dakFolderRep;
+        IRepository<DakItemAction> _dakItemRepo;
+        IUserService _userService { get; set; }
+        public  DakFolderService(IRepository<LocalDakFolderList> dakFolderRep, IRepository<DakItemAction> dakItemRepo, IUserService userService)
+        {
+            _dakFolderRep = dakFolderRep;
+            _dakItemRepo = dakItemRepo;
+            _userService = userService;
+        }
+
         public FolderListResponse GetFolderList(DakUserParam dakUserParam)
         {
             FolderListResponse folderListResponse = new FolderListResponse();
+            if(!InternetConnection.Check())
+            {
+                folderListResponse.status = "success";
+                var localDakFolderList = _dakFolderRep.Table.FirstOrDefault(a => a.designation_id == dakUserParam.designation_id && a.office_id == dakUserParam.office_id);
+                if(localDakFolderList !=null)
+                {
+                    folderListResponse = JsonConvert.DeserializeObject<FolderListResponse>(localDakFolderList.dak_Action_Json);
+                }
+
+                return folderListResponse;
+            }
+
+
 
             try
             {
@@ -32,8 +59,8 @@ namespace dNothi.Services.DakServices
 
 
                 var dakFolderListResponseJson = dakFolderListResponseIRest.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                AddDakFolderListLocally(dakUserParam, dakFolderListResponseJson);
+
                 folderListResponse = JsonConvert.DeserializeObject<FolderListResponse>(dakFolderListResponseJson);
                 return folderListResponse;
             }
@@ -44,6 +71,24 @@ namespace dNothi.Services.DakServices
 
            
         }
+
+        private void AddDakFolderListLocally(DakUserParam dakUserParam, string dakFolderListResponseJson)
+        {
+            var localDakFolderListDB = _dakFolderRep.Table.FirstOrDefault(a => a.designation_id == dakUserParam.designation_id && a.office_id == dakUserParam.office_id);
+            if (localDakFolderListDB != null)
+            {
+                localDakFolderListDB.dak_Action_Json = dakFolderListResponseJson;
+
+                _dakFolderRep.Update(localDakFolderListDB);
+            }
+
+            LocalDakFolderList localDakFolderList = new LocalDakFolderList { designation_id=dakUserParam.designation_id, office_id=dakUserParam.office_id,dak_Action_Json= dakFolderListResponseJson };
+            _dakFolderRep.Insert(localDakFolderList);
+
+
+
+        }
+
         public DakFolderDeleteResponse GetDakFolderDeleteResponse(DakUserParam dakUserParam,int folder_id)
         {
             DakFolderDeleteResponse dakFolderDeleteResponse = new DakFolderDeleteResponse();
@@ -160,6 +205,42 @@ namespace dNothi.Services.DakServices
         {
             DakFolderMapResponse dakFolderAddResponse = new DakFolderMapResponse();
 
+            if(!InternetConnection.Check())
+            {
+                dakFolderAddResponse.status = "success";
+                dakFolderAddResponse.message = "Local";
+                DakItemAction dakItemAction = _dakItemRepo.Table.FirstOrDefault(a => a.dak_id == dak_id && a.dak_type == dak_Type && a.is_copied_dak == is_copied_dak);
+
+                if (dakItemAction == null)
+                {
+                    dakItemAction = new DakItemAction();
+                 
+                    dakItemAction.isDakTagged = true;
+                 
+                    dakItemAction.is_copied_dak = is_copied_dak;
+                    dakItemAction.dak_id = dak_id;
+                    dakItemAction.dak_type = dak_Type;
+                  
+                    dakItemAction.dak_folder_name = dak_Folder;
+                   
+                    dakItemAction.designation_id = dakUserParam.designation_id;
+                    dakItemAction.office_id = dakUserParam.office_id;
+
+                  
+
+                    _dakItemRepo.Insert(dakItemAction);
+                }
+              
+
+
+
+
+                return dakFolderAddResponse;
+
+
+            }
+
+
             try
             {
                 var dakFolderMapApi = new RestClient(GetAPIDomain() + GetDakFolderMapEndPoint());
@@ -193,10 +274,62 @@ namespace dNothi.Services.DakServices
                 return dakFolderAddResponse;
             }
         }
+
+
+        public bool Is_Locally_DakTagged(int dak_id)
+        {
+            var dakForwardCheck = _dakItemRepo.Table.FirstOrDefault(a => a.dak_id == dak_id && a.isDakTagged == true);
+            if (dakForwardCheck == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public bool DakTagFromLocal()
+        {
+            bool isSuccessful = false;
+            List<DakItemAction> dakItemActions = _dakItemRepo.Table.Where(a => a.isDakTagged == true).ToList();
+            if (dakItemActions != null && dakItemActions.Count > 0)
+            {
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                foreach (DakItemAction dakItemAction in dakItemActions)
+                {
+                    if(dakUserParam.designation_id != dakItemAction.designation_id)
+                    {
+                        _dakItemRepo.Delete(dakItemAction);
+                        
+                    }
+                    else
+                    {
+                        var dakTagResponse = GetDakFolderMapResponse(dakUserParam, dakItemAction.dak_id, dakItemAction.is_copied_dak, dakItemAction.dak_type,dakItemAction.dak_folder_name);
+
+                        if (dakTagResponse != null && (dakTagResponse.status == "error" || dakTagResponse.status == "success"))
+
+                        {
+                            _dakItemRepo.Delete(dakItemAction);
+                            isSuccessful = true;
+
+                        }
+                    }
+
+                    
+                }
+            }
+
+
+            return isSuccessful;
+        }
     }
 
     public interface IDakFolderService
     {
+        bool Is_Locally_DakTagged(int dak_id);
+        bool DakTagFromLocal();
+
         DakFolderMapResponse GetDakFolderMapResponse(DakUserParam dakUserParam, int dak_id, int is_copied_dak, string dak_Type, string dak_Folder);
         FolderListResponse GetFolderList(DakUserParam dakUserParam);
         DakFolderAddResponse GetDakFolderAddResponse(DakUserParam dakUserParam, DakFolderParam dakFolderParam);
