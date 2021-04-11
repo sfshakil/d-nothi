@@ -1,6 +1,10 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
+using dNothi.Services.UserServices;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -14,8 +18,41 @@ namespace dNothi.Services.NothiServices
 {
     public class NothiCreateService : INothiCreateService
     {
+        IRepository<NothiCreateItemAction> _nothiCreateItemAction;
+        IUserService _userService { get; set; }
+        public NothiCreateService(IUserService userService, IRepository<NothiCreateItemAction> nothiCreateItemAction)
+        {
+            _userService = userService;
+            _nothiCreateItemAction = nothiCreateItemAction;
+        }
         public NothiCreateResponse GetNothiCreate(DakUserParam UserParam, string nothishkha, string nothi_no, string nothi_type_id, string nothi_subject, string nothi_class,string currentYear)
         {
+            NothiCreateResponse nothiCreateResponse = new NothiCreateResponse();
+
+            if (!InternetConnection.Check())
+            {
+                nothiCreateResponse.status = "success";
+                nothiCreateResponse.message = "Local";
+
+                NothiCreateItemAction nothiCreateItemAction; //= _nothiCreateItemAction.Table.FirstOrDefault(a => a. == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                nothiCreateItemAction = new NothiCreateItemAction();
+                nothiCreateItemAction.designation_id = UserParam.designation_id;
+                nothiCreateItemAction.office_id = UserParam.office_id;
+                nothiCreateItemAction.officer_name = UserParam.officer_name;
+                nothiCreateItemAction.office_unit_id = UserParam.office_unit_id;
+                nothiCreateItemAction.designation = UserParam.designation;
+                nothiCreateItemAction.nothishkha = nothishkha;
+                nothiCreateItemAction.nothi_no = nothi_no;
+                nothiCreateItemAction.nothi_type_id = nothi_type_id;
+                nothiCreateItemAction.nothi_subject = nothi_subject;
+                nothiCreateItemAction.nothi_class = nothi_class;
+                nothiCreateItemAction.currentYear = currentYear;
+
+                _nothiCreateItemAction.Insert(nothiCreateItemAction);
+
+                return nothiCreateResponse;
+            }
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiCreateEndPoint());
@@ -29,16 +66,46 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("model", "NothiMasters");
                 request.AddParameter("data", "{\"id\":\"0\",\"office_id\":\"" + UserParam.office_id + "\",\"office_name\":\"" + UserParam.officer_name + "\",\"office_unit_id\":\"" + UserParam.office_unit_id + "\",\"office_unit_name\":\"" + nothishkha + "\",\"office_unit_organogram_id\":\"" + UserParam.designation_id + "\",\"office_designation_name\":\"" + UserParam.designation + "\",\"nothi_type_id\":\"" + nothi_type_id + "\",\"nothi_no\":\"" + nothi_no + "\",\"subject\":\"" + nothi_subject + "\",\"description\":\"NULL\",\"nothi_class\":\"" + nothi_class + "\",\"nothi_created_date\":\"" + currentYear + "\"}");
                 IRestResponse response = client.Execute(request);
-                Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
-                NothiCreateResponse nothiCreateResponse = JsonConvert.DeserializeObject<NothiCreateResponse>(responseJson);
+                nothiCreateResponse = JsonConvert.DeserializeObject<NothiCreateResponse>(responseJson);
                 return nothiCreateResponse;
             }
             catch (Exception ex)
             {
                 throw;
             }
+        }
+        public bool SendNothiCreateListFromLocal()
+        {
+            bool isForwarded = false;
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+            List<NothiCreateItemAction> nothiCreateItemActions = _nothiCreateItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+            if (nothiCreateItemActions != null && nothiCreateItemActions.Count > 0)
+            {
+                foreach (NothiCreateItemAction nothiCreateItemAction in nothiCreateItemActions)
+                {
+                    DakUserParam userParam = new DakUserParam();
+                    userParam.designation_id = nothiCreateItemAction.designation_id;
+                    userParam.office_id = nothiCreateItemAction.office_id;
+                    userParam.officer_name = nothiCreateItemAction.officer_name;
+                    userParam.unit_id = nothiCreateItemAction.office_unit_id;
+                    userParam.designation_label = nothiCreateItemAction.designation;
+                    userParam.token = dakUserParam.token;
+                    var nothiCreateResponse = GetNothiCreate(userParam, nothiCreateItemAction.nothishkha, nothiCreateItemAction.nothi_no, nothiCreateItemAction.nothi_type_id, nothiCreateItemAction.nothi_subject, nothiCreateItemAction.nothi_class, nothiCreateItemAction.currentYear);
+
+                    if (nothiCreateResponse != null && (nothiCreateResponse.status == "error" || nothiCreateResponse.status == "success"))
+
+                    {
+                        _nothiCreateItemAction.Delete(nothiCreateItemAction);
+                        isForwarded = true;
+
+                    }
+                }
+            }
+
+
+            return isForwarded;
         }
         protected string GetAPIVersion()
         {

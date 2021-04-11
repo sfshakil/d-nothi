@@ -401,6 +401,14 @@ namespace dNothi.Desktop.UI.Dak
             var nothi_class = nothiclass;
             var currentYear = DateTime.Now.ToString("yyyy-MM-dd");
             NothiCreateResponse nothiCreate =  _nothiCreateServices.GetNothiCreate(UserParam, nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
+            if (nothiCreate.status == "success" && nothiCreate.message == "Local")
+            {
+                foreach (Form f in Application.OpenForms)
+                { f.Hide(); }
+                var form = FormFactory.Create<Nothi>();
+                form.ForceLoadNothiALL();
+                form.ShowDialog();
+            }
             if (nothiCreate.status == "success")
             {
                 var form = FormFactory.Create<NothiCreateNextStep>();

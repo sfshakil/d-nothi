@@ -31,9 +31,11 @@ namespace dNothi.Desktop.UI
         INothiNoteTalikaServices _nothiNoteTalikaServices { get; set; }
         INothiAllServices _nothiAll { get; set; }
         INothiTypeSaveService _nothiTypeSave { get; set; }
+        INothiCreateService _nothiCreateServices { get; set; }
         public WaitFormFunc WaitForm;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices, 
-            INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave)
+            INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
+            INothiCreateService nothiCreateServices)
         {
             _nothiNoteTalikaServices= nothiNoteTalikaServices;
             _userService = userService;
@@ -42,6 +44,7 @@ namespace dNothi.Desktop.UI
             _nothiAll = nothiAll;
             _noteSave = noteSave;
             _nothiTypeSave = nothiTypeSave;
+            _nothiCreateServices = nothiCreateServices;
 
             InitializeComponent();
             WaitForm = new WaitFormFunc();
@@ -1719,7 +1722,7 @@ namespace dNothi.Desktop.UI
             if (InternetConnection.Check())
             {
                 _nothiTypeSave.SendNothiTypeListFromLocal();
-
+                _nothiCreateServices.SendNothiCreateListFromLocal();
                 if (onlineStatus.IconColor != Color.LimeGreen)
                 {
                     if (IsHandleCreated)
