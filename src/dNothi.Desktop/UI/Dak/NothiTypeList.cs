@@ -49,7 +49,14 @@ namespace dNothi.Desktop.UI.Dak
             set { _serialNo = value; lblSerialNo.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
 
-
+        public void offline()
+        {
+            lbNothiNumber.Visible = false;
+            btnNothiTypeCross.Visible = false;
+            btnAdd.Visible = false;
+            btnDelete.Visible = false;
+            btnSchedule.Visible = true;
+        }
         [Category("Custom Props")]
         public string nothiSubjectType
         {

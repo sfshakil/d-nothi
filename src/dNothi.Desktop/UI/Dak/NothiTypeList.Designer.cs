@@ -33,9 +33,10 @@
             this.lbNothiNumber = new System.Windows.Forms.Label();
             this.lblSerialNo = new System.Windows.Forms.Label();
             this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnAdd = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.lbNoteId = new System.Windows.Forms.Label();
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // lbNothiSubjectType
@@ -94,22 +95,22 @@
             this.btnNothiTypeCross.TabIndex = 64;
             this.btnNothiTypeCross.UseVisualStyleBackColor = false;
             // 
-            // iconButton1
+            // btnAdd
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(434, 6);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(24, 35);
-            this.iconButton1.TabIndex = 65;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnAdd.IconColor = System.Drawing.Color.White;
+            this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAdd.IconSize = 20;
+            this.btnAdd.Location = new System.Drawing.Point(434, 6);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(24, 35);
+            this.btnAdd.TabIndex = 65;
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // btnDelete
             // 
@@ -142,13 +143,32 @@
             this.lbNoteId.TabIndex = 67;
             this.lbNoteId.Visible = false;
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
+            this.btnSchedule.IconColor = System.Drawing.Color.White;
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 35;
+            this.btnSchedule.Location = new System.Drawing.Point(421, 6);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(47, 35);
+            this.btnSchedule.TabIndex = 68;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
+            // 
             // NothiTypeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSchedule);
             this.Controls.Add(this.lbNoteId);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnNothiTypeCross);
             this.Controls.Add(this.lblSerialNo);
             this.Controls.Add(this.lbNothiNumber);
@@ -168,8 +188,9 @@
         private System.Windows.Forms.Label lbNothiNumber;
         private System.Windows.Forms.Label lblSerialNo;
         private FontAwesome.Sharp.IconButton btnNothiTypeCross;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnAdd;
         private FontAwesome.Sharp.IconButton btnDelete;
         private System.Windows.Forms.Label lbNoteId;
+        private FontAwesome.Sharp.IconButton btnSchedule;
     }
 }
