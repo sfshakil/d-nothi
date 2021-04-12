@@ -41,7 +41,7 @@ namespace dNothi.Desktop
         {
             log4net.Config.XmlConfigurator.Configure();
             _log.Info("Application Stated!");
-           // AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+            // AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Database.SetInitializer<AppDbContext>(new DropCreateDatabaseIfModelChanges<AppDbContext>());
@@ -54,17 +54,17 @@ namespace dNothi.Desktop
             //var form = FormFactory.Create<Nothi>();
             //form.ShowDialog();
             DialogResult result;
-         
+
             using (var form = FormFactory.Create<Login>())
             {
-                result=form.ShowDialog();
+                result = form.ShowDialog();
             }
             if (result == DialogResult.OK)
             {
                 Application.Run(container.Resolve<Dashboard>());
             }
 
-            
+
             //Application.Run(container.Resolve<UI.Login>());
         }
 
@@ -79,7 +79,7 @@ namespace dNothi.Desktop
                 String.Format(
                     "Sorry, something went wrong.\r\n" + "{0}\r\n" + "{1}\r\n" + "please contact support.",
                     ((Exception)e.ExceptionObject).Message, ((Exception)e.ExceptionObject).StackTrace);
-            var logmessage ="Exception: "+ ((Exception)e.ExceptionObject).Message + "Stack Trace: "+((Exception)e.ExceptionObject).StackTrace;
+            var logmessage = "Exception: " + ((Exception)e.ExceptionObject).Message + "Stack Trace: " + ((Exception)e.ExceptionObject).StackTrace;
             _log.Error(logmessage);
             MessageBox.Show(message, @"Unexpected error");
 
@@ -110,16 +110,16 @@ namespace dNothi.Desktop
             builder.RegisterType<AppDbContext>().As<IDbContext>();
             builder.RegisterType<EfRepository<AppUser>>().As<IRepository<AppUser>>();
             builder.RegisterType<EfRepository<User>>().As<IRepository<User>>();
-       
-           
+
+
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakTag>>().As<IRepository<dNothi.Core.Entities.DakTag>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.LocalUploadedDak>>().As<IRepository<dNothi.Core.Entities.LocalUploadedDak>>();
-           
+
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakType>>().As<IRepository<dNothi.Core.Entities.DakType>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.SyncStatus>>().As<IRepository<dNothi.Core.Entities.SyncStatus>>();
 
 
-            
+
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItem>>().As<IRepository<dNothi.Core.Entities.DakItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemAction>>().As<IRepository<dNothi.Core.Entities.DakItemAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.LocalDakFolderList>>().As<IRepository<dNothi.Core.Entities.LocalDakFolderList>>();
@@ -155,7 +155,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakUser>>().As<IRepository<dNothi.Core.Entities.DakUser>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakOrigin>>().As<IRepository<dNothi.Core.Entities.DakOrigin>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakAttachment>>().As<IRepository<dNothi.Core.Entities.DakAttachment>>();
-       
+
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
             builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
             builder.RegisterType<EfRepository<UserToken>>().As<IRepository<UserToken>>();
@@ -176,15 +176,15 @@ namespace dNothi.Desktop
             builder.RegisterType<DakArchiveService>().As<IDakArchiveService>();
             builder.RegisterType<DakKhosraService>().As<IDakKhosraService>();
             builder.RegisterType<DakListSortedService>().As<IDakListSortedService>();
-            builder.RegisterType<NothiCreateService>().As<INothiCreateService>(); 
+            builder.RegisterType<NothiCreateService>().As<INothiCreateService>();
             builder.RegisterType<NothiInboxService>().As<INothiInboxServices>();
             builder.RegisterType<NothiInboxNoteServices>().As<INothiInboxNoteServices>();
-            builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>(); 
+            builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiNoteTalikaServices>().As<INothiNoteTalikaServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
-            builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>(); 
-            builder.RegisterType<NothiNotePermissionService>().As<INothiNotePermissionService>(); 
-            builder.RegisterType<NoteSaveService>().As<INoteSaveService>(); 
+            builder.RegisterType<NothiTypeListService>().As<INothiTypeListServices>();
+            builder.RegisterType<NothiNotePermissionService>().As<INothiNotePermissionService>();
+            builder.RegisterType<NoteSaveService>().As<INoteSaveService>();
             builder.RegisterType<OnuchhedSave>().As<IOnucchedSave>();
             builder.RegisterType<NothiTypeSaveService>().As<INothiTypeSaveService>();
             builder.RegisterType<DakSearchService>().As<IDakSearchService>();
@@ -208,16 +208,16 @@ namespace dNothi.Desktop
             builder.RegisterType<OnuchhedListServices>().As<IOnuchhedListServices>();
             builder.RegisterType<SingleOnucchedServices>().As<ISingleOnucchedServices>();
             builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
-        
+
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
             builder.RegisterType<KhasraTemplateService>().As<IKhasraTemplateService>();
             builder.RegisterType<PotrojariParser>().As<IPotrojariParser>();
             builder.RegisterType<RegisterService>().As<IRegisterService>();
             builder.RegisterType<ProtibedonService>().As<IProtibedonService>();
-            
+
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
-           
+
             builder.RegisterType<UI.Nothi>().AsSelf();
             builder.RegisterType<UI.KhosraDashboard>().AsSelf();
             builder.RegisterType<UI.PotrojariGroup>().AsSelf();
@@ -236,7 +236,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dak.DakFolderForm>().AsSelf();
             builder.RegisterType<UI.Dak.DakTagForm>().AsSelf();
             builder.RegisterType<UI.Dak.FolderCreatePopUpForm>().AsSelf();
-            builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf(); 
+            builder.RegisterType<UI.Dak.AddDesignationSeal>().AsSelf();
             builder.RegisterType<UI.Dak.NothiOnumodonDesignationSeal>().AsSelf();
             builder.RegisterType<UI.Dak.NothiNextStep>().AsSelf();
             builder.RegisterType<UI.Dak.SeparateOnuchhed>().AsSelf();
@@ -267,8 +267,8 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuarFileListViewDeleteUC>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileBrowseUC>().AsSelf();
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
-           
-           
+
+
 
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());
