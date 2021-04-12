@@ -149,6 +149,16 @@ namespace dNothi.Desktop.UI.Dak
                     lbNishponno.Visible = false; lbArchived.Visible = false;
                     nothiShompadonIcon.Visible = true;
                 }
+                if (value == 2)
+                {
+                    lbDesk.Visible = false; btnNote.Visible = false; btnOnumodito.Visible = false;
+                    btnOnishponno.Visible = false; btnNishponno.Visible = false; btnArchive.Visible = false;
+                    lbNoteLastDate.Visible = false; iconButton2.Visible = false; iconButton4.Visible = false;
+                    iconButton5.Visible = false; iconButton6.Visible = false; iconButton7.Visible = false;
+                    lbNoteTotal.Visible = false; lbPermitted.Visible = false; lbOnishponno.Visible = false;
+                    lbNishponno.Visible = false; lbArchived.Visible = false;
+                    nothiShompadonIcon.Visible = false; btnSchedule.Visible = true;
+                }
             }
         }
 

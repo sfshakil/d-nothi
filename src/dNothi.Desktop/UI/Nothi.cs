@@ -1,4 +1,6 @@
-﻿using dNothi.Desktop.UI.CustomMessageBox;
+﻿using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
+using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Nothi;
@@ -32,10 +34,12 @@ namespace dNothi.Desktop.UI
         INothiAllServices _nothiAll { get; set; }
         INothiTypeSaveService _nothiTypeSave { get; set; }
         INothiCreateService _nothiCreateServices { get; set; }
+        IRepository<NothiCreateItemAction> _nothiCreateItemAction;
+
         public WaitFormFunc WaitForm;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
-            INothiCreateService nothiCreateServices)
+            INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction)
         {
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _userService = userService;
@@ -45,7 +49,7 @@ namespace dNothi.Desktop.UI
             _noteSave = noteSave;
             _nothiTypeSave = nothiTypeSave;
             _nothiCreateServices = nothiCreateServices;
-
+            _nothiCreateItemAction = nothiCreateItemAction;
             InitializeComponent();
             WaitForm = new WaitFormFunc();
             loadNothiExtra();
@@ -125,7 +129,7 @@ namespace dNothi.Desktop.UI
         {
             btnNothiInboxPrevious.Visible = false;
             btnNothiAllPrevious.Visible = false;
-            btnNothiInboxPrevious.Visible = false;
+            btnNothiOutboxPrevious.Visible = false;
         }
 
         int limitNothiInboxNo, pageNoNothiInboxNo, totalNothiInboxNo, lengthStartNothiInboxNo, lengthEndNothiInboxNo;
@@ -233,7 +237,7 @@ namespace dNothi.Desktop.UI
             {
                 if (nothiInboxextra.data.records.Count > 0)
                 {
-                    lengthStartNothiInboxNo = lengthStartNothiInboxNo - nothiInboxextra.data.records.Count;
+                    lengthStartNothiInboxNo = lengthStartNothiInboxNo - limitNothiInboxNo;
                     lengthEndNothiInboxNo = lengthEndNothiInboxNo - nothiInboxextra.data.records.Count;
                 }
             }
@@ -720,7 +724,7 @@ namespace dNothi.Desktop.UI
                         lbLengthEnd.Text = string.Concat(lengthEndNothiOutboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
 
                         allPreviousButtonVisibilityOff();
-                        btnNothiInboxPrevious.Visible = true;
+                        btnNothiOutboxPrevious.Visible = true;
 
                         allNextButtonVisibilityOff();
                         btnNothiOutboxNext.Visible = true;
@@ -760,7 +764,7 @@ namespace dNothi.Desktop.UI
             {
                 if (nothiOutboxextra.data.records.Count > 0)
                 {
-                    lengthStartNothiOutboxNo = lengthStartNothiOutboxNo - nothiOutboxextra.data.records.Count;
+                    lengthStartNothiOutboxNo = lengthStartNothiOutboxNo - limitNothiOutboxNo;
                     lengthEndNothiOutboxNo = lengthEndNothiOutboxNo - nothiOutboxextra.data.records.Count;
                 }
             }
@@ -976,9 +980,41 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(form);
 
         }
+        List<NothiCreateItemAction> nothiCreateItemActions = new List<NothiCreateItemAction>();
+        private void loadNothiAllFromLocal()
+        {
+            if (!InternetConnection.Check())
+            {
+                List<NothiAll> nothiAlls = new List<NothiAll>();
+                nothiCreateItemActions = _nothiCreateItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
+                if (nothiCreateItemActions != null && nothiCreateItemActions.Count > 0)
+                {
+                    foreach (NothiCreateItemAction nothiCreateItemAction in nothiCreateItemActions)
+                    {
+                        NothiAll nothiAll = UserControlFactory.Create<NothiAll>();
+                        nothiAll.nothi = nothiCreateItemAction.nothi_no + " " + nothiCreateItemAction.nothi_subject;
+                        nothiAll.shakha = "নথির শাখা: " + nothiCreateItemAction.nothishkha;
+                        nothiAll.flag = 2;
+                        nothiAlls.Add(nothiAll);
+                    }
+                    
+                }
+                nothiListFlowLayoutPanel.Controls.Clear();
+                nothiListFlowLayoutPanel.AutoScroll = true;
+                nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+                nothiListFlowLayoutPanel.WrapContents = false;
+
+                for (int j = 0; j <= nothiAlls.Count - 1; j++)
+                {
+                    nothiListFlowLayoutPanel.Controls.Add(nothiAlls[j]);
+                }
+            }
+        }
+
         int limitNothiAllNo, pageNoNothiAllNo, totalNothiAllNo, lengthStartNothiAllNo, lengthEndNothiAllNo;
         private void LoadNothiAll()
         {
+            loadNothiAllFromLocal();
             allPreviousButtonVisibilityOff();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             limitNothiAllNo = 10;
@@ -1003,15 +1039,15 @@ namespace dNothi.Desktop.UI
                     btnNothiAllNext.Visible = true;
 
                     pnlNoData.Visible = false;
-                    nothiListFlowLayoutPanel.Controls.Clear();
-                    lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiAll.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //nothiListFlowLayoutPanel.Controls.Clear();
+                    lbTotalNothi.Text = "সর্বমোট: " + string.Concat(totalNothiAllNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     LoadNothiAllinPanel(nothiAll.data.records);
                 }
                 else
                 {
                     allNextButtonVisibilityOff();
                     pnlNoData.Visible = true;
-                    nothiListFlowLayoutPanel.Controls.Clear();
+                    //nothiListFlowLayoutPanel.Controls.Clear();
                 }
             }
         }
@@ -1050,7 +1086,7 @@ namespace dNothi.Desktop.UI
 
                         pnlNoData.Visible = false;
                         nothiListFlowLayoutPanel.Controls.Clear();
-                        lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiAll.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        lbTotalNothi.Text = "সর্বমোট: " + string.Concat(totalNothiAllNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
                         nothiListFlowLayoutPanel.Controls.Clear();
                         LoadNothiAllinPanel(nothiAll.data.records);
                     }
@@ -1078,7 +1114,7 @@ namespace dNothi.Desktop.UI
             {
                 if (nothiAllextra.data.records.Count > 0)
                 {
-                    lengthStartNothiAllNo = lengthStartNothiAllNo - nothiAllextra.data.records.Count;
+                    lengthStartNothiAllNo = lengthStartNothiAllNo - limitNothiAllNo;
                     lengthEndNothiAllNo = lengthEndNothiAllNo - nothiAllextra.data.records.Count;
                 }
             }
@@ -1088,6 +1124,7 @@ namespace dNothi.Desktop.UI
             {
                 if (pageNoNothiAllNo == 1)
                 {
+                    loadNothiAllFromLocal();
                     allPreviousButtonVisibilityOff();
                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                     limitNothiAllNo = 10;
@@ -1113,7 +1150,7 @@ namespace dNothi.Desktop.UI
 
                             pnlNoData.Visible = false;
                             nothiListFlowLayoutPanel.Controls.Clear();
-                            lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiAll.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                            lbTotalNothi.Text = "সর্বমোট: " + string.Concat(totalNothiAllNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
                             LoadNothiAllinPanel(nothiAll.data.records);
                         }
                         else
@@ -1151,7 +1188,7 @@ namespace dNothi.Desktop.UI
 
                             pnlNoData.Visible = false;
                             nothiListFlowLayoutPanel.Controls.Clear();
-                            lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiAll.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                            lbTotalNothi.Text = "সর্বমোট: " + string.Concat(totalNothiAllNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
                             LoadNothiAllinPanel(nothiAll.data.records);
                         }
                         else
@@ -1242,7 +1279,10 @@ namespace dNothi.Desktop.UI
                 }
                 nothiAlls.Add(nothiAll);
             }
-            nothiListFlowLayoutPanel.Controls.Clear();
+            if (InternetConnection.Check())
+            { 
+                nothiListFlowLayoutPanel.Controls.Clear(); 
+            }
             nothiListFlowLayoutPanel.AutoScroll = true;
             nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
             nothiListFlowLayoutPanel.WrapContents = false;
@@ -1546,6 +1586,7 @@ namespace dNothi.Desktop.UI
             nothiListFlowLayoutPanel.Visible = true;
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
+            //lpadNothiAllFromLocal();
             LoadNothiAll();
             WaitForm.Close();
         }

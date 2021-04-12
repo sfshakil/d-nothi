@@ -15,6 +15,7 @@ using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
 using java.lang;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -401,24 +402,28 @@ namespace dNothi.Desktop.UI.Dak
             var nothi_class = nothiclass;
             var currentYear = DateTime.Now.ToString("yyyy-MM-dd");
             NothiCreateResponse nothiCreate = _nothiCreateServices.GetNothiCreate(UserParam, nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
-            if (nothiCreate.status == "success" && nothiCreate.message == "Local")
+            if (!InternetConnection.Check())
             {
-                foreach (Form f in Application.OpenForms)
-                { f.Hide(); }
-                var form = FormFactory.Create<Nothi>();
-                form.ForceLoadNothiALL();
-                form.ShowDialog();
-            }
-            if (nothiCreate.status == "success")
-            {
-                var form = FormFactory.Create<NothiCreateNextStep>();
-                form.loadNewNothiInfo(nothiCreate.data);
-                CalPopUpWindow(form);
+                if (nothiCreate.status == "success" && nothiCreate.message == "Local")
+                {
+                    foreach (Form f in Application.OpenForms)
+                    { f.Hide(); }
+                    var form = FormFactory.Create<Nothi>();
+                    form.ForceLoadNothiALL();
+                    form.ShowDialog();
+                }
             }
             else
-                SuccessMessage(nothiCreate.message);
-
-
+            {
+                if (nothiCreate.status == "success")
+                {
+                    var form = FormFactory.Create<NothiCreateNextStep>();
+                    form.loadNewNothiInfo(nothiCreate.data);
+                    CalPopUpWindow(form);
+                }
+                else
+                    SuccessMessage(nothiCreate.message);
+            }
         }
 
         private void lbNothilast4digit_MouseClick(object sender, MouseEventArgs e)
