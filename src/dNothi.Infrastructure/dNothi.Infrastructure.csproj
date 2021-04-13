@@ -101,6 +101,7 @@
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
     <Compile Include="Mappings\Nothi\AllOfficeItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiCreateItemActionMap.cs" />
+    <Compile Include="Mappings\Nothi\NoteSaveItemActionMap.cs" />
     <Compile Include="Mappings\Nothi\NothiTypeItemActionMap.cs" />
     <Compile Include="Mappings\Nothi\PotrangshoNoteItemMap.cs" />
     <Compile Include="Mappings\Nothi\PotrangshoNothiItemMap.cs" />

@@ -24,6 +24,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int note_count { get; set; }
         public string issue_date { get; set; }
         public string last_note_date { get; set; }
+        public string nothi_type { get; set; }
 
         public string CSharpObjtoJson(object obj)
         {
