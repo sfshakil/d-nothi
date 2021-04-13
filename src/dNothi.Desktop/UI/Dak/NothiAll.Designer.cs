@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.nothiShompadonIcon = new System.Windows.Forms.Button();
             this.lbNothiId = new System.Windows.Forms.Label();
             this.lbFlag = new System.Windows.Forms.Label();
@@ -78,6 +79,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnSchedule);
             this.panel1.Controls.Add(this.nothiShompadonIcon);
             this.panel1.Controls.Add(this.lbNothiId);
             this.panel1.Controls.Add(this.lbFlag);
@@ -111,6 +113,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1115, 84);
             this.panel1.TabIndex = 0;
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(1051, 14);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(25, 29);
+            this.btnSchedule.TabIndex = 119;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
             // 
             // nothiShompadonIcon
             // 
@@ -755,5 +775,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button nothiShompadonIcon;
         private System.Windows.Forms.ToolTip MyToolTip;
+        private FontAwesome.Sharp.IconButton btnSchedule;
     }
 }

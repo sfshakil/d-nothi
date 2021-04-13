@@ -15,6 +15,7 @@ using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
 using java.lang;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -36,7 +37,7 @@ namespace dNothi.Desktop.UI.Dak
             LoadNothiTypeListDropDown();
             SetDefaultFont(this.Controls);
             nothiTalikaPnl.Visible = false;
-            
+
         }
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -56,9 +57,9 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     pnlNoData.Visible = false;
                     nothiTalikaFlowLayoutPnl.Visible = true;
-                    string code = "৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0'))) ;
-                    LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records,code);
-                    
+                    string code = "৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records, code);
+
 
                 }
                 else
@@ -109,7 +110,7 @@ namespace dNothi.Desktop.UI.Dak
             var token = _userService.GetToken();
             var nothiType = _nothiType.GetNothiTypeList(dakListUserParam);
             int i = 0;
-            if (nothiType!=null && nothiType.status == "success")
+            if (nothiType != null && nothiType.status == "success")
             {
                 lbNothiShakha.Text = _userService.GetOfficeInfo().unit_name_bn;
 
@@ -132,7 +133,7 @@ namespace dNothi.Desktop.UI.Dak
                     nothi_type_codes = nothi_type_code;
                     ids = id;
                     searchOfficeDetailSearch.listboxcollection = playerNames;
-                    
+
                 }
             }
         }
@@ -147,7 +148,7 @@ namespace dNothi.Desktop.UI.Dak
                 cbxLast2digitNothiNo.Items.Add(string.Concat(j.ToString().Substring(2, 2).ToString().Select(c => (char)('\u09E6' + c - '0'))));
                 i++;
             }
-            cbxLast2digitNothiNo.SelectedIndex = i-1;
+            cbxLast2digitNothiNo.SelectedIndex = i - 1;
         }
 
         private void btnGuidelines_Click(object sender, EventArgs e)
@@ -278,18 +279,18 @@ namespace dNothi.Desktop.UI.Dak
 
         private void searchOfficeDetailSearch_Click(object sender, EventArgs e)
         {
-                
+
         }
-        private void LoadNothiNoteTalikaListinPanel(List<NothiNoteTalikaRecordsDTO> nothiNotetalikaLists,string code)
+        private void LoadNothiNoteTalikaListinPanel(List<NothiNoteTalikaRecordsDTO> nothiNotetalikaLists, string code)
         {
             List<NothiTalika> nothiTalikas = new List<NothiTalika>();
             int i = 0;
             int flaguse = 0;
-            int[] flag= new int[nothiNotetalikaLists.Count+1];
+            int[] flag = new int[nothiNotetalikaLists.Count + 1];
             string[] nothiNoteNo = new string[nothiNotetalikaLists.Count];
             foreach (NothiNoteTalikaRecordsDTO NothiNoteTalikaListDTO in nothiNotetalikaLists)
             {
-                if ( code == NothiNoteTalikaListDTO.nothi_no.Substring(0, 17))
+                if (code == NothiNoteTalikaListDTO.nothi_no.Substring(0, 17))
                 {
                     pnlNoData.Visible = false;
                     flaguse++;
@@ -323,7 +324,7 @@ namespace dNothi.Desktop.UI.Dak
                     string value = max.ToString("000");
                     lbNothilast4digit.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ".";
                 }
-                if(flaguse == 0)
+                if (flaguse == 0)
                 {
                     pnlNoData.Visible = true;
                     lbNothiNo.Text = code;
@@ -336,7 +337,7 @@ namespace dNothi.Desktop.UI.Dak
             nothiTalikaFlowLayoutPnl.AutoScroll = true;
             nothiTalikaFlowLayoutPnl.FlowDirection = FlowDirection.TopDown;
             nothiTalikaFlowLayoutPnl.WrapContents = false;
-            
+
             for (int j = 0; j <= nothiTalikas.Count - 1; j++)
             {
                 nothiTalikaFlowLayoutPnl.Controls.Add(nothiTalikas[j]);
@@ -345,7 +346,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnNothiSave_Click(object sender, EventArgs e)
         {
-            if(cbxNothiType.Text== "বাছাই করুন" || lbNothilast4digit.Text == "***.**")
+            if (cbxNothiType.Text == "বাছাই করুন" || lbNothilast4digit.Text == "***.**")
             {
                 ErrorMessage("দুঃখিত! নথির ধরন ফাকা রাখা যাবে না।");
             }
@@ -388,7 +389,7 @@ namespace dNothi.Desktop.UI.Dak
             var nothi_type_id = nothi_type_codes[cbxNothiType.SelectedIndex];
             var nothi_subject = txtNothiSubject.Text;
             string nothiclass = "0";
-            
+
             if (cbxNothiClass.SelectedItem == "ঘ")
                 nothiclass = "4";
             else if (cbxNothiClass.SelectedItem == "গ")
@@ -400,17 +401,29 @@ namespace dNothi.Desktop.UI.Dak
 
             var nothi_class = nothiclass;
             var currentYear = DateTime.Now.ToString("yyyy-MM-dd");
-            NothiCreateResponse nothiCreate =  _nothiCreateServices.GetNothiCreate(UserParam, nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
-            if (nothiCreate.status == "success")
+            NothiCreateResponse nothiCreate = _nothiCreateServices.GetNothiCreate(UserParam, nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
+            if (!InternetConnection.Check())
             {
-                var form = FormFactory.Create<NothiCreateNextStep>();
-                form.loadNewNothiInfo(nothiCreate.data);
-                CalPopUpWindow(form);
+                if (nothiCreate.status == "success" && nothiCreate.message == "Local")
+                {
+                    foreach (Form f in Application.OpenForms)
+                    { f.Hide(); }
+                    var form = FormFactory.Create<Nothi>();
+                    form.ForceLoadNothiALL();
+                    form.ShowDialog();
+                }
             }
             else
-                SuccessMessage(nothiCreate.message);
-
-
+            {
+                if (nothiCreate.status == "success")
+                {
+                    var form = FormFactory.Create<NothiCreateNextStep>();
+                    form.loadNewNothiInfo(nothiCreate.data);
+                    CalPopUpWindow(form);
+                }
+                else
+                    SuccessMessage(nothiCreate.message);
+            }
         }
 
         private void lbNothilast4digit_MouseClick(object sender, MouseEventArgs e)
