@@ -9,6 +9,8 @@ namespace dNothi.Services.DakServices
 {
     public interface IDakNothijatoService
     {
+        bool DakNothijatoRevertFromLocal();
+        bool Is_Locally_NothijatoReverted(int dak_id);
         bool Is_Locally_Nothijato(int dak_id);
         bool DakNothijatoFromLocal();
         DakNothijatoResponse GetDakNothijatoResponse(DakUserParam dakListUserParam, NothijatoActionParam nothi, int dak_id, string dak_type, int is_copied_dak);

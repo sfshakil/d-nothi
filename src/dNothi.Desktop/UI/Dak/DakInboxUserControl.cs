@@ -36,7 +36,23 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+        public bool _is_Reverted { get; set; }
+        public bool is_Reverted
+        {
+            get { return _is_Reverted; }
+            set
+            {
+                _is_Reverted = value;
+                if (value)
+                {
+                    uploadIconButton.Visible = true;
+                    MyToolTip.SetToolTip(uploadIconButton, "ফেরত নেওয়া হচ্ছে");
+                }
 
+
+            }
+
+        }
         public bool _is_Forwarded { get; set; }
        public bool is_Forwarded { get { return _is_Forwarded; }
             set { 

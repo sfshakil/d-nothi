@@ -11,6 +11,8 @@ namespace dNothi.Services.DakServices
 {
    public interface IDakNothivuktoService
     {
+        bool Is_Locally_NothivuktoReverted(int dak_id);
+        bool DakNothivuktoRevertFromLocal();
         bool Is_Locally_Nothivukto(int dak_id);
         bool DakNothivuktoFromLocal();
         DakNothivuktoRevertResponse GetDakNothivuktoRevertResponse(DakUserParam dakListUserParam, int dak_id, string dak_type, int is_copied_dak);

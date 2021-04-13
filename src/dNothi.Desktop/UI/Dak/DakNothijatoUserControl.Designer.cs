@@ -58,11 +58,15 @@
             this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
             this.nothiteUposthaponButton = new FontAwesome.Sharp.IconButton();
             this.dakRevertButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.dakTagButton = new FontAwesome.Sharp.IconButton();
             this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.attachmentAndDatePanel = new System.Windows.Forms.Panel();
+            this.dakTagPanel = new System.Windows.Forms.Panel();
+            this.dakTagListButton = new FontAwesome.Sharp.IconButton();
+            this.dakLabel = new System.Windows.Forms.Label();
             this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.uploadIconButton = new FontAwesome.Sharp.IconButton();
             this.panel6.SuspendLayout();
             this.nothiPanel.SuspendLayout();
             this.subjectPanel.SuspendLayout();
@@ -71,6 +75,7 @@
             this.sourcePanel.SuspendLayout();
             this.dakActionPanel.SuspendLayout();
             this.attachmentAndDatePanel.SuspendLayout();
+            this.dakTagPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // decisionLabel
@@ -80,7 +85,7 @@
             this.decisionLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.decisionLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.decisionLabel.ForeColor = System.Drawing.Color.Goldenrod;
-            this.decisionLabel.Location = new System.Drawing.Point(57, 2);
+            this.decisionLabel.Location = new System.Drawing.Point(62, 2);
             this.decisionLabel.Name = "decisionLabel";
             this.decisionLabel.Size = new System.Drawing.Size(0, 18);
             this.decisionLabel.TabIndex = 63;
@@ -94,7 +99,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label3.Location = new System.Drawing.Point(12, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 18);
+            this.label3.Size = new System.Drawing.Size(50, 18);
             this.label3.TabIndex = 55;
             this.label3.Text = "সিদ্ধান্তঃ";
             // 
@@ -156,7 +161,7 @@
             this.nothiNoLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiNoLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiNoLabel.ForeColor = System.Drawing.Color.Black;
-            this.nothiNoLabel.Location = new System.Drawing.Point(88, 2);
+            this.nothiNoLabel.Location = new System.Drawing.Point(95, 2);
             this.nothiNoLabel.Name = "nothiNoLabel";
             this.nothiNoLabel.Size = new System.Drawing.Size(0, 18);
             this.nothiNoLabel.TabIndex = 67;
@@ -168,9 +173,9 @@
             this.nothiPlainTextLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiPlainTextLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nothiPlainTextLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.nothiPlainTextLabel.Location = new System.Drawing.Point(57, 2);
+            this.nothiPlainTextLabel.Location = new System.Drawing.Point(62, 2);
             this.nothiPlainTextLabel.Name = "nothiPlainTextLabel";
-            this.nothiPlainTextLabel.Size = new System.Drawing.Size(31, 18);
+            this.nothiPlainTextLabel.Size = new System.Drawing.Size(33, 18);
             this.nothiPlainTextLabel.TabIndex = 66;
             this.nothiPlainTextLabel.Text = "নথিঃ";
             this.nothiPlainTextLabel.Visible = false;
@@ -356,8 +361,8 @@
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.dakRevertButton);
-            this.dakActionPanel.Controls.Add(this.iconButton3);
-            this.dakActionPanel.Location = new System.Drawing.Point(59, 15);
+            this.dakActionPanel.Controls.Add(this.dakTagButton);
+            this.dakActionPanel.Location = new System.Drawing.Point(-1093, 15);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -435,25 +440,26 @@
             this.dakRevertButton.MouseLeave += new System.EventHandler(this.dakRevertButton_MouseLeave);
             this.dakRevertButton.MouseHover += new System.EventHandler(this.dakRevertButton_MouseHover);
             // 
-            // iconButton3
+            // dakTagButton
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.iconButton3.FlatAppearance.BorderSize = 2;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Tags;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 28;
-            this.iconButton3.Location = new System.Drawing.Point(96, 0);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(32, 34);
-            this.iconButton3.TabIndex = 84;
-            this.iconButton3.UseVisualStyleBackColor = false;
-            this.iconButton3.MouseLeave += new System.EventHandler(this.iconButton3_MouseLeave);
-            this.iconButton3.MouseHover += new System.EventHandler(this.iconButton3_MouseHover);
+            this.dakTagButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dakTagButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakTagButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.dakTagButton.FlatAppearance.BorderSize = 2;
+            this.dakTagButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakTagButton.IconChar = FontAwesome.Sharp.IconChar.Tags;
+            this.dakTagButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dakTagButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakTagButton.IconSize = 28;
+            this.dakTagButton.Location = new System.Drawing.Point(96, 0);
+            this.dakTagButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakTagButton.Name = "dakTagButton";
+            this.dakTagButton.Size = new System.Drawing.Size(32, 34);
+            this.dakTagButton.TabIndex = 84;
+            this.dakTagButton.UseVisualStyleBackColor = false;
+            this.dakTagButton.Click += new System.EventHandler(this.dakTagButton_Click);
+            this.dakTagButton.MouseLeave += new System.EventHandler(this.iconButton3_MouseLeave);
+            this.dakTagButton.MouseHover += new System.EventHandler(this.iconButton3_MouseHover);
             // 
             // rightInfoPanel
             // 
@@ -477,13 +483,66 @@
             this.attachmentAndDatePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.attachmentAndDatePanel.AutoSize = true;
             this.attachmentAndDatePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.attachmentAndDatePanel.Controls.Add(this.dakTagPanel);
             this.attachmentAndDatePanel.Controls.Add(this.dakAttachmentButton);
             this.attachmentAndDatePanel.Controls.Add(this.dateLabel);
-            this.attachmentAndDatePanel.Location = new System.Drawing.Point(1000, 61);
+            this.attachmentAndDatePanel.Controls.Add(this.uploadIconButton);
+            this.attachmentAndDatePanel.Location = new System.Drawing.Point(847, 61);
             this.attachmentAndDatePanel.MinimumSize = new System.Drawing.Size(0, 32);
             this.attachmentAndDatePanel.Name = "attachmentAndDatePanel";
-            this.attachmentAndDatePanel.Size = new System.Drawing.Size(87, 32);
+            this.attachmentAndDatePanel.Size = new System.Drawing.Size(240, 32);
             this.attachmentAndDatePanel.TabIndex = 100;
+            // 
+            // dakTagPanel
+            // 
+            this.dakTagPanel.AutoSize = true;
+            this.dakTagPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
+            this.dakTagPanel.Controls.Add(this.dakTagListButton);
+            this.dakTagPanel.Controls.Add(this.dakLabel);
+            this.dakTagPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakTagPanel.Location = new System.Drawing.Point(0, 0);
+            this.dakTagPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakTagPanel.Name = "dakTagPanel";
+            this.dakTagPanel.Size = new System.Drawing.Size(113, 32);
+            this.dakTagPanel.TabIndex = 72;
+            this.dakTagPanel.Visible = false;
+            // 
+            // dakTagListButton
+            // 
+            this.dakTagListButton.BackColor = System.Drawing.Color.Transparent;
+            this.dakTagListButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakTagListButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.dakTagListButton.FlatAppearance.BorderSize = 0;
+            this.dakTagListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakTagListButton.IconChar = FontAwesome.Sharp.IconChar.EllipsisV;
+            this.dakTagListButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.dakTagListButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakTagListButton.IconSize = 24;
+            this.dakTagListButton.Location = new System.Drawing.Point(81, 0);
+            this.dakTagListButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakTagListButton.Name = "dakTagListButton";
+            this.dakTagListButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.dakTagListButton.Size = new System.Drawing.Size(32, 32);
+            this.dakTagListButton.TabIndex = 85;
+            this.dakTagListButton.UseVisualStyleBackColor = false;
+            this.dakTagListButton.Visible = false;
+            this.dakTagListButton.Click += new System.EventHandler(this.dakTagListButton_Click);
+            // 
+            // dakLabel
+            // 
+            this.dakLabel.AutoSize = true;
+            this.dakLabel.BackColor = System.Drawing.Color.Transparent;
+            this.dakLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dakLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.dakLabel.Location = new System.Drawing.Point(0, 0);
+            this.dakLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakLabel.Name = "dakLabel";
+            this.dakLabel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.dakLabel.Size = new System.Drawing.Size(81, 25);
+            this.dakLabel.TabIndex = 65;
+            this.dakLabel.Text = "[টেস্ট ১ টেস্ট ১]";
+            this.dakLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dakAttachmentButton
             // 
@@ -498,7 +557,7 @@
             this.dakAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakAttachmentButton.IconSize = 20;
             this.dakAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakAttachmentButton.Location = new System.Drawing.Point(0, 0);
+            this.dakAttachmentButton.Location = new System.Drawing.Point(113, 0);
             this.dakAttachmentButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakAttachmentButton.Name = "dakAttachmentButton";
             this.dakAttachmentButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -518,13 +577,41 @@
             this.dateLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.dateLabel.Location = new System.Drawing.Point(47, 0);
+            this.dateLabel.Location = new System.Drawing.Point(160, 0);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
             this.dateLabel.Size = new System.Drawing.Size(40, 25);
             this.dateLabel.TabIndex = 64;
             this.dateLabel.Text = "[date]";
             this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uploadIconButton
+            // 
+            this.uploadIconButton.AutoSize = true;
+            this.uploadIconButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.uploadIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.uploadIconButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.uploadIconButton.FlatAppearance.BorderSize = 0;
+            this.uploadIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.uploadIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.uploadIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadIconButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadIconButton.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.uploadIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.uploadIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.uploadIconButton.IconSize = 34;
+            this.uploadIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uploadIconButton.Location = new System.Drawing.Point(200, 0);
+            this.uploadIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.uploadIconButton.Name = "uploadIconButton";
+            this.uploadIconButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.uploadIconButton.Size = new System.Drawing.Size(40, 32);
+            this.uploadIconButton.TabIndex = 73;
+            this.uploadIconButton.TabStop = false;
+            this.uploadIconButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.uploadIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.uploadIconButton.UseVisualStyleBackColor = true;
+            this.uploadIconButton.Visible = false;
             // 
             // DakNothijatoUserControl
             // 
@@ -559,6 +646,8 @@
             this.dakActionPanel.ResumeLayout(false);
             this.attachmentAndDatePanel.ResumeLayout(false);
             this.attachmentAndDatePanel.PerformLayout();
+            this.dakTagPanel.ResumeLayout(false);
+            this.dakTagPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -590,7 +679,7 @@
         private System.Windows.Forms.Panel checkBoxPanel;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel dakActionPanel;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton dakTagButton;
         private FontAwesome.Sharp.IconButton nothiteUposthaponButton;
         private DakRightTopInfoIconUserControl rightInfoPanel;
         private FontAwesome.Sharp.IconButton dakMovementStatusButton;
@@ -598,5 +687,9 @@
         private System.Windows.Forms.Panel attachmentAndDatePanel;
         private FontAwesome.Sharp.IconButton dakAttachmentButton;
         private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Panel dakTagPanel;
+        private FontAwesome.Sharp.IconButton dakTagListButton;
+        private System.Windows.Forms.Label dakLabel;
+        private FontAwesome.Sharp.IconButton uploadIconButton;
     }
 }
