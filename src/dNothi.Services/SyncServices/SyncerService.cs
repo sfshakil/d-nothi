@@ -121,6 +121,7 @@ namespace dNothi.Services.SyncServices
             LocalChangeData._isLocallYDakNothivukto = false;
             LocalChangeData._isLocallYDakForwarded = false;
             LocalChangeData._isLocallYDakTagged = false;
+            LocalChangeData._isdakForwardReverted = false;
 
 
             if (InternetConnection.Check())
@@ -150,13 +151,29 @@ namespace dNothi.Services.SyncServices
                 {
                     LocalChangeData._isLocallYDakTagged = true;
                 }
-                
-
-
-
-
-                    //dakUploadBackgorundWorker.RunWorkerAsync();
+                if (_dakForwardService.SendDakForwardRevertedFromLocal())
+                {
+                    LocalChangeData._isdakForwardReverted = true;
                 }
+                if (_dakNothivuktoService.DakNothivuktoRevertFromLocal())
+                {
+                    LocalChangeData._isdakNothivuktoReverted = true;
+                }
+                if (_dakArchiveService.DakArchiveRevertFromLocal())
+                {
+                    LocalChangeData._isdakArchivedReverted = true;
+                }
+                if (_dakNothijatoService.DakNothijatoRevertFromLocal())
+                {
+                    LocalChangeData._isdakNothijatoReverted = true;
+                }
+
+
+
+
+
+                //dakUploadBackgorundWorker.RunWorkerAsync();
+            }
 
             
         }

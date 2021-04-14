@@ -171,6 +171,18 @@ namespace dNothi.Services.DakServices
                 return true;
             }
         }
+        public bool Is_Locally_NothijatoReverted(int dak_id)
+        {
+            var dakForwardCheck = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.isNothijatoReverted == true);
+            if (dakForwardCheck == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public bool DakNothijatoFromLocal()
         {
             bool isSuccess = false;
@@ -193,6 +205,41 @@ namespace dNothi.Services.DakServices
                         isSuccess = true;
 
                     }
+                }
+            }
+
+
+            return isSuccess;
+        }
+        public bool DakNothijatoRevertFromLocal()
+        {
+            bool isSuccess = false;
+            List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isNothijatoReverted == true).ToList();
+            if (dakItemActions != null && dakItemActions.Count > 0)
+            {
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                foreach (DakItemAction dakItemAction in dakItemActions)
+                {
+                    if (dakUserParam.designation_id == dakItemAction.designation_id)
+                    {
+                        var revertResponse = GetDakNothijatoRevertResponse(dakUserParam, dakItemAction.dak_id, dakItemAction.dak_type, dakItemAction.is_copied_dak);
+
+                        if (revertResponse != null && (revertResponse.status == "error" || revertResponse.status == "success"))
+
+                        {
+                            _dakItemAction.Delete(dakItemAction);
+                            isSuccess = true;
+
+                        }
+                    }
+                    else
+                    {
+                        _dakItemAction.Delete(dakItemAction);
+                        isSuccess = true;
+                    }
+
+
+
                 }
             }
 
@@ -262,6 +309,32 @@ namespace dNothi.Services.DakServices
 
         public DakNothijatoRevertResponse GetDakNothijatoRevertResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
         {
+            DakNothijatoRevertResponse dakNothijatoRevertResponse = new DakNothijatoRevertResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                dakNothijatoRevertResponse.status = "success";
+                dakNothijatoRevertResponse.message = "Local";
+
+                DakItemAction dakItemAction = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.dak_type == dak_type && a.is_copied_dak == is_copied_dak);
+
+                if (dakItemAction == null)
+                {
+                    dakItemAction = new DakItemAction();
+                    dakItemAction.isNothijatoReverted = true;
+                    dakItemAction.is_copied_dak = is_copied_dak;
+                    dakItemAction.dak_id = dak_id;
+                    dakItemAction.dak_type = dak_type;
+                    // dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
+
+                    _dakItemAction.Insert(dakItemAction);
+                }
+
+
+
+
+
+                return dakNothijatoRevertResponse;
+            }
             var nothijatoRevertDakSendAPI = new RestClient(GetAPIDomain() + GetDakNothijatoRevertEndpoint());
             nothijatoRevertDakSendAPI.Timeout = -1;
             var NothijatoRevertDakSendRequest = new RestRequest(Method.POST);
@@ -275,7 +348,7 @@ namespace dNothi.Services.DakServices
             IRestResponse dakNothijatoRevertIRestResponse = nothijatoRevertDakSendAPI.Execute(NothijatoRevertDakSendRequest);
             var dakNothijatoRevertResponseJson = dakNothijatoRevertIRestResponse.Content;
 
-            var dakNothijatoRevertResponse = JsonConvert.DeserializeObject<DakNothijatoRevertResponse>(dakNothijatoRevertResponseJson, new JsonSerializerSettings
+             dakNothijatoRevertResponse = JsonConvert.DeserializeObject<DakNothijatoRevertResponse>(dakNothijatoRevertResponseJson, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });

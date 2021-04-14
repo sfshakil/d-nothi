@@ -53,6 +53,18 @@ namespace dNothi.Services.DakServices
                 return true;
             }
         }
+        public bool Is_Locally_NothivuktoReverted(int dak_id)
+        {
+            var dakForwardCheck = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.isNothivuktoReverted == true);
+            if (dakForwardCheck == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         public bool DakNothivuktoFromLocal()
         {
@@ -84,7 +96,41 @@ namespace dNothi.Services.DakServices
         }
 
 
+        public bool DakNothivuktoRevertFromLocal()
+        {
+            bool isSuccess = false;
+            List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isNothivuktoReverted == true).ToList();
+            if (dakItemActions != null && dakItemActions.Count > 0)
+            {
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                foreach (DakItemAction dakItemAction in dakItemActions)
+                {
+                    if (dakUserParam.designation_id == dakItemAction.designation_id)
+                    {
+                        var dakArchiveResponse = GetDakNothivuktoRevertResponse(dakUserParam, dakItemAction.dak_id, dakItemAction.dak_type, dakItemAction.is_copied_dak);
 
+                        if (dakArchiveResponse != null && (dakArchiveResponse.status == "error" || dakArchiveResponse.status == "success"))
+
+                        {
+                            _dakItemAction.Delete(dakItemAction);
+                            isSuccess = true;
+
+                        }
+                    }
+                    else
+                    {
+                        _dakItemAction.Delete(dakItemAction);
+                        isSuccess = true;
+                    }
+
+
+
+                }
+            }
+
+
+            return isSuccess;
+        }
         private void SaveOrUpdateDakOutBoxListJsonResponse(DakUserParam dakListUserParam, string responseJson)
         {
             DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_Nothivukto == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
@@ -303,6 +349,32 @@ namespace dNothi.Services.DakServices
 
         public DakNothivuktoRevertResponse GetDakNothivuktoRevertResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
         {
+            DakNothivuktoRevertResponse revertResponse = new DakNothivuktoRevertResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                revertResponse.status = "success";
+                revertResponse.message = "Local";
+
+                DakItemAction dakItemAction = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.dak_type == dak_type && a.is_copied_dak == is_copied_dak);
+
+                if (dakItemAction == null)
+                {
+                    dakItemAction = new DakItemAction();
+                    dakItemAction.isNothivuktoReverted = true;
+                    dakItemAction.is_copied_dak = is_copied_dak;
+                    dakItemAction.dak_id = dak_id;
+                    dakItemAction.dak_type = dak_type;
+                    // dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
+
+                    _dakItemAction.Insert(dakItemAction);
+                }
+
+
+
+
+
+                return revertResponse;
+            }
             try
             {
                 var nothivuktoRevertDakApi = new RestClient(GetAPIDomain() + GetDakNothivuktoRevertEndpoint());
@@ -321,7 +393,7 @@ namespace dNothi.Services.DakServices
 
 
                 var nothivuktoRevertResponseJson = nothivuktoRevertResponse.Content;
-                DakNothivuktoRevertResponse revertResponse = JsonConvert.DeserializeObject<DakNothivuktoRevertResponse>(nothivuktoRevertResponseJson);
+                 revertResponse = JsonConvert.DeserializeObject<DakNothivuktoRevertResponse>(nothivuktoRevertResponseJson);
                 return revertResponse;
             }
             catch (Exception ex)

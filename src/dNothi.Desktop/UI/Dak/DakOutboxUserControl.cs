@@ -10,11 +10,78 @@ using System.Windows.Forms;
 using dNothi.Utility;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.Properties;
+using dNothi.JsonParser.Entity.Dak_List_Inbox;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakOutboxUserControl : UserControl
     {
+        public bool _is_Reverted { get; set; }
+        public bool is_Reverted
+        {
+            get { return _is_Reverted; }
+            set
+            {
+                _is_Reverted = value;
+                if (value)
+                {
+                    uploadIconButton.Visible = true;
+                    toolTip1.SetToolTip(uploadIconButton, "ফেরত নেওয়া হচ্ছে");
+                }
+
+
+            }
+
+        }
+        public bool _is_Tag { get; set; }
+        public bool is_Tag
+        {
+            get { return _is_Tag; }
+            set
+            {
+                _is_Tag = value;
+                if (value)
+                {
+                    uploadIconButton.Visible = true;
+                    toolTip1.SetToolTip(uploadIconButton, "ট্যাগ করা হচ্ছে");
+                }
+
+
+            }
+
+        }
+
+
+        public List<DakTagDTO> _dak_Tags { get; set; }
+        public List<DakTagDTO> dak_Tags
+        {
+            get
+            {
+                return _dak_Tags;
+            }
+
+
+            set
+            {
+                _dak_Tags = value;
+                if (value.Count > 0)
+                {
+                    dakLabel.Text = value[0].tag;
+                    dakTagPanel.Visible = true;
+                    if (value.Count > 1)
+                    {
+                        dakTagListButton.Visible = true;
+                    }
+
+                }
+
+
+            }
+
+
+        }
+
+
         public DakOutboxUserControl()
         {
             InitializeComponent();
@@ -54,6 +121,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             foreach (Control ctrl in collection)
             {
+                if (ctrl == dakTagPanel)
+                {
+                    continue;
+                }
                 if (ctrl.Name == "dakActionPanel")
                 {
                     continue;
@@ -409,12 +480,12 @@ namespace dNothi.Desktop.UI.Dak
 
         private void iconButton3_MouseHover(object sender, EventArgs e)
         {
-            iconButton3.IconColor = Color.FromArgb(246, 78, 144);
+            dakTagButton_Click.IconColor = Color.FromArgb(246, 78, 144);
         }
 
         private void iconButton3_MouseLeave(object sender, EventArgs e)
         {
-            iconButton3.IconColor = Color.FromArgb(54, 153, 255);
+            dakTagButton_Click.IconColor = Color.FromArgb(54, 153, 255);
         }
 
         private void dakRevertButton_MouseLeave(object sender, EventArgs e)
@@ -434,6 +505,20 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.DakResendButton != null)
                 this.DakResendButton(sender, e);
+        }
+        public event EventHandler DakTagButtonCLick;
+        private void dakTagButton_Click_Click(object sender, EventArgs e)
+        {
+            if (this.DakTagButtonCLick != null)
+                this.DakTagButtonCLick(sender, e);
+        }
+        
+        public event EventHandler DakTagShowButtonCLick;
+        
+        private void dakTagListButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakTagShowButtonCLick != null)
+                this.DakTagShowButtonCLick(sender, e);
         }
     }
 

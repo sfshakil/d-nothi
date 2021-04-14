@@ -91,6 +91,18 @@ namespace dNothi.Services.DakServices
                 return true;
             }
         }
+        public bool Is_Locally_Forward_Reverted(int dak_id)
+        {
+            var dakForwardCheck = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.isForwardReverted == true);
+            if (dakForwardCheck == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         public bool SendDakForwardFromLocal()
         {
@@ -114,6 +126,39 @@ namespace dNothi.Services.DakServices
                         isForwarded = true;
                         
                     }
+                }
+            }
+
+
+            return isForwarded;
+        }
+        public bool SendDakForwardRevertedFromLocal()
+        {
+            bool isForwarded = false;
+            List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isForwardReverted == true).ToList();
+            if (dakItemActions != null && dakItemActions.Count > 0)
+            {
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                foreach (DakItemAction dakItemAction in dakItemActions)
+                {
+                    if(dakUserParam.designation_id==dakItemAction.designation_id)
+                    {
+                       
+                        var dakForwardResponse = GetDakForwardRevertResponse(dakUserParam,dakItemAction.dak_id,dakItemAction.dak_type,dakItemAction.is_copied_dak);
+
+                        if (dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status == "success"))
+                        {
+                            _dakItemAction.Delete(dakItemAction);
+                            isForwarded = true;
+
+                        }
+                    }
+                    else
+                    {
+                        _dakItemAction.Delete(dakItemAction);
+                        isForwarded = true;
+                    }
+                    
                 }
             }
 
@@ -393,6 +438,36 @@ namespace dNothi.Services.DakServices
         {
             try
             {
+
+                DakForwardRevertResponse revertResponse = new DakForwardRevertResponse();
+                if (!InternetConnection.Check())
+                {
+                    revertResponse.status = "success";
+                    revertResponse.message = "Local";
+
+                    DakItemAction dakItemAction = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.dak_type == dak_type && a.is_copied_dak ==is_copied_dak);
+
+                    if (dakItemAction == null)
+                    {
+                        dakItemAction = new DakItemAction();
+                        dakItemAction.isForwardReverted = true;
+                        dakItemAction.is_copied_dak = is_copied_dak;
+                        dakItemAction.dak_id = dak_id;
+                        dakItemAction.dak_type =dak_type;
+                        dakItemAction.designation_id =dakUserParam.designation_id;
+                        dakItemAction.office_id =dakUserParam.office_id;
+                        dakItemAction.dak_type =dak_type;
+                        
+                        _dakItemAction.Insert(dakItemAction);
+                    }
+
+
+
+
+
+                    return revertResponse;
+                }
+
                 var forwardRevertDakApi = new RestClient(GetAPIDomain() + GetDakForwardRevertEndpoint());
                 forwardRevertDakApi.Timeout = -1;
                 var forwardRevertRequest = new RestRequest(Method.POST);
@@ -411,7 +486,7 @@ namespace dNothi.Services.DakServices
 
 
                 var nothivuktoRevertResponseJson = nothivuktoRevertResponse.Content;
-                DakForwardRevertResponse revertResponse = JsonConvert.DeserializeObject<DakForwardRevertResponse>(nothivuktoRevertResponseJson);
+                 revertResponse = JsonConvert.DeserializeObject<DakForwardRevertResponse>(nothivuktoRevertResponseJson);
                 return revertResponse;
             }
         

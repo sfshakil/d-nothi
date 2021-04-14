@@ -15,5 +15,9 @@ namespace dNothi.Services.SyncServices
         public static bool _isLocallYDakTagged;
         public static bool _isDakUploaded;
         public static bool _isDakTagged;
+        public static bool _isdakForwardReverted;
+        public static bool _isdakNothijatoReverted;
+        public static bool _isdakNothivuktoReverted;
+        public static bool _isdakArchivedReverted;
     }
 }
