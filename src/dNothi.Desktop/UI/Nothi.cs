@@ -1783,6 +1783,8 @@ namespace dNothi.Desktop.UI
             {
                 _nothiTypeSave.SendNothiTypeListFromLocal();
                 _nothiCreateServices.SendNothiCreateListFromLocal();
+                _noteSave.SendNoteListFromLocal();
+
                 if (onlineStatus.IconColor != Color.LimeGreen)
                 {
                     if (IsHandleCreated)

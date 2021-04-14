@@ -44,6 +44,7 @@ namespace dNothi.Services.NothiServices
                 noteSaveItemAction.office_unit_name = nothiListRecordsDTO.office_unit_name;
                 noteSaveItemAction.office_designation_name = nothiListRecordsDTO.office_designation_name;
                 noteSaveItemAction.noteSubject = noteSubject;
+                noteSaveItemAction.nothi_type = nothiListRecordsDTO.nothi_type;
 
                 _noteSaveItemAction.Insert(noteSaveItemAction);
 
@@ -70,6 +71,43 @@ namespace dNothi.Services.NothiServices
             {
                 throw;
             }
+        }
+        public bool SendNoteListFromLocal()
+        {
+            bool isForwarded = false;
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+            List<NoteSaveItemAction> noteSaveItemActions = _noteSaveItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+            if (noteSaveItemActions != null && noteSaveItemActions.Count > 0)
+            {
+                foreach (NoteSaveItemAction noteSaveItemAction in noteSaveItemActions)
+                {
+                    DakUserParam userParam = new DakUserParam();
+                    userParam.designation_id = noteSaveItemAction.designation_id;
+                    userParam.office_id = noteSaveItemAction.office_id;
+                    userParam.officer_name = noteSaveItemAction.officer_name;
+                    userParam.token = dakUserParam.token;
+
+                    NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+                    nothiListRecordsDTO.id = noteSaveItemAction.nothi_id;
+                    nothiListRecordsDTO.office_id = noteSaveItemAction.office_id;
+                    nothiListRecordsDTO.office_name = noteSaveItemAction.office_name;
+                    nothiListRecordsDTO.office_unit_name = noteSaveItemAction.office_unit_name ;
+                    nothiListRecordsDTO.office_designation_name = noteSaveItemAction.office_designation_name;
+
+                    var noteSaveResponse = GetNoteSave(userParam, nothiListRecordsDTO, noteSaveItemAction.noteSubject);
+
+                    if (noteSaveResponse != null && (noteSaveResponse.status == "error" || noteSaveResponse.status == "success"))
+
+                    {
+                        _noteSaveItemAction.Delete(noteSaveItemAction);
+                        isForwarded = true;
+
+                    }
+                }
+            }
+
+
+            return isForwarded;
         }
         protected string GetAPIVersion()
         {

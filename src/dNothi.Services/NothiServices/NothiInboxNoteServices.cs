@@ -17,9 +17,11 @@ namespace dNothi.Services.NothiServices
     public class NothiInboxNoteServices : INothiInboxNoteServices
     {
         IRepository<NoteItem> _noteItem;
-        public NothiInboxNoteServices( IRepository<NoteItem> noteItem)
+        IRepository<NoteSaveItemAction> _noteSaveItemAction;
+        public NothiInboxNoteServices( IRepository<NoteItem> noteItem, IRepository<NoteSaveItemAction> noteSaveItemAction)
         {
             _noteItem = noteItem;
+            _noteSaveItemAction = noteSaveItemAction;
         }
         public NothiListInboxNoteResponse GetNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category)
         {
@@ -84,6 +86,13 @@ namespace dNothi.Services.NothiServices
 
             }
         }
+        public List<NoteSaveItemAction> GetNotUploadedNoteFromLocal(DakUserParam dakListUserParam, string eachNothiId, string note_category)
+        {
+            int nothi_id = Convert.ToInt32(eachNothiId);
+            List<NoteSaveItemAction> noteSaveItemActions = _noteSaveItemAction.Table.Where(a => a.nothi_id == nothi_id && a.nothi_type == note_category && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+            
+            return noteSaveItemActions;
+        }
         protected string GetAPIVersion()
         {
             return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;
@@ -101,5 +110,6 @@ namespace dNothi.Services.NothiServices
             return DefaultAPIConfiguration.NothiInboxNoteEndPoint;
         }
 
+        
     }
 }

@@ -11,5 +11,6 @@ namespace dNothi.Services.NothiServices
     public interface INoteSaveService
     {
         NoteSaveResponse GetNoteSave(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecordsDTO, string noteSubject);
+        bool SendNoteListFromLocal();
     }
 }

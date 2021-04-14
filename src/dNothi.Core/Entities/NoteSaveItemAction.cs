@@ -18,6 +18,7 @@ namespace dNothi.Core.Entities
         public string office_unit_name { get; set; }
         public string office_designation_name { get; set; }
         public string noteSubject { get; set; }
+        public string nothi_type { get; set; }
 
     }
 }

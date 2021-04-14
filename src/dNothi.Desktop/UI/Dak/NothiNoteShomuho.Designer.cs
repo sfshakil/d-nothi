@@ -36,7 +36,7 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.lbNoteSubject = new System.Windows.Forms.Label();
             this.lbDeskOfficer = new System.Windows.Forms.Label();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.fromToIcon = new FontAwesome.Sharp.IconButton();
             this.lbToOfficer = new System.Windows.Forms.Label();
             this.lbNoteId = new System.Windows.Forms.Label();
             this.lbNoteSubText = new System.Windows.Forms.Label();
@@ -54,6 +54,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.pnlLeft.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -128,7 +129,7 @@
             this.lbNoteNumber.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.lbNoteNumber.Size = new System.Drawing.Size(18, 24);
             this.lbNoteNumber.TabIndex = 61;
-            this.lbNoteNumber.Text = "1";
+            this.lbNoteNumber.Text = "0";
             // 
             // iconButton4
             // 
@@ -171,21 +172,21 @@
             this.lbDeskOfficer.TabIndex = 64;
             this.lbDeskOfficer.Text = "deskOfficerLabel";
             // 
-            // iconButton5
+            // fromToIcon
             // 
-            this.iconButton5.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.ArrowRight;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 15;
-            this.iconButton5.Location = new System.Drawing.Point(161, 0);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(20, 36);
-            this.iconButton5.TabIndex = 65;
-            this.iconButton5.UseVisualStyleBackColor = false;
+            this.fromToIcon.BackColor = System.Drawing.Color.Transparent;
+            this.fromToIcon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.fromToIcon.FlatAppearance.BorderSize = 0;
+            this.fromToIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fromToIcon.IconChar = FontAwesome.Sharp.IconChar.ArrowRight;
+            this.fromToIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.fromToIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.fromToIcon.IconSize = 15;
+            this.fromToIcon.Location = new System.Drawing.Point(161, 0);
+            this.fromToIcon.Name = "fromToIcon";
+            this.fromToIcon.Size = new System.Drawing.Size(20, 36);
+            this.fromToIcon.TabIndex = 65;
+            this.fromToIcon.UseVisualStyleBackColor = false;
             // 
             // lbToOfficer
             // 
@@ -358,7 +359,7 @@
             this.panel7.Controls.Add(this.lbKhoshra);
             this.panel7.Controls.Add(this.lbKhoshrawaiting);
             this.panel7.Controls.Add(this.lbToOfficer);
-            this.panel7.Controls.Add(this.iconButton5);
+            this.panel7.Controls.Add(this.fromToIcon);
             this.panel7.Controls.Add(this.lbDeskOfficer);
             this.panel7.Controls.Add(this.iconButton4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
@@ -370,6 +371,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.btnSchedule);
             this.panel6.Controls.Add(this.eyeIcon);
             this.panel6.Controls.Add(this.lbNoteSubject);
             this.panel6.Controls.Add(this.lbNoteNumber);
@@ -383,6 +385,25 @@
             this.panel6.Padding = new System.Windows.Forms.Padding(10, 5, 0, 0);
             this.panel6.Size = new System.Drawing.Size(970, 36);
             this.panel6.TabIndex = 0;
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(797, 5);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(25, 31);
+            this.btnSchedule.TabIndex = 120;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
             // 
             // NothiNoteShomuho
             // 
@@ -415,7 +436,7 @@
         private FontAwesome.Sharp.IconButton iconButton4;
         private System.Windows.Forms.Label lbNoteSubject;
         private System.Windows.Forms.Label lbDeskOfficer;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton fromToIcon;
         private System.Windows.Forms.Label lbToOfficer;
         private System.Windows.Forms.Label lbNoteId;
         private System.Windows.Forms.Label lbNoteSubText;
@@ -433,5 +454,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconButton btnSchedule;
     }
 }
