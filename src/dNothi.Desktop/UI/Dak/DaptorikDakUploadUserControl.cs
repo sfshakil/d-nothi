@@ -49,13 +49,38 @@ namespace dNothi.Desktop.UI.Dak
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
         List<DakAttachmentinGrid> _dakAttachmentinGrids = new List<DakAttachmentinGrid>();
         
-        public PrapokDTO mul_prapokEdit { get { return _mul_prapok; } set { _mul_prapok = value; viewDesignationSealLists.FirstOrDefault(a => a.designation_id == value.designation_id).mul_prapok = true; } }
+        public PrapokDTO mul_prapokEdit { 
+            get { return _mul_prapok; }
+            set
+            {
+                _mul_prapok = value;
+
+                try
+                {
+                    viewDesignationSealLists.FirstOrDefault(a => a.designation_id == value.designation_id).mul_prapok = true;
+                }
+
+
+
+                catch
+                {
+
+                }
+            }
+        }
         public Dictionary<string, PrapokDTO> onulipi { get { return _onulipi; } 
             set { 
                 _onulipi = value;
                 foreach (KeyValuePair<string, PrapokDTO> prapok in value)
                 {
-                    viewDesignationSealLists.FirstOrDefault(a => a.designation_id == prapok.Value.designation_id).onulipi_prapok = true;
+                    try
+                    {
+                        viewDesignationSealLists.FirstOrDefault(a => a.designation_id == prapok.Value.designation_id).onulipi_prapok = true;
+                    }
+                    catch
+                    {
+
+                    }
                 }
             } 
         }

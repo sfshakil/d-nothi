@@ -91,12 +91,15 @@
     <Compile Include="Mappings\Dak\DakTagMap.cs" />
     <Compile Include="Mappings\Dak\DakUserMap.cs" />
     <Compile Include="Mappings\Dak\LocalDakFolderListMap.cs" />
+    <Compile Include="Mappings\Dak\LocalDesignationSealByOfficeMap.cs" />
     <Compile Include="Mappings\Dak\LocalDesignationSealMap.cs" />
+    <Compile Include="Mappings\Dak\LocalOfficeListMap.cs" />
     <Compile Include="Mappings\Dak\LocalUploadedDakMap.cs" />
     <Compile Include="Mappings\Dak\OfficerMap.cs" />
     <Compile Include="Mappings\Dak\MovementStatusMap.cs" />
     <Compile Include="Mappings\Dak\NothiMap.cs" />
     <Compile Include="Mappings\Dak\OtherMap.cs" />
+    <Compile Include="Mappings\Dak\PotroTemplateListMap.cs" />
     <Compile Include="Mappings\Dak\ToMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
     <Compile Include="Mappings\Nothi\AllOfficeItemMap.cs" />

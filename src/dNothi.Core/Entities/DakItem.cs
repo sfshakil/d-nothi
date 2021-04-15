@@ -45,6 +45,7 @@ namespace dNothi.Core.Entities
         public int dak_id { get; set; }
         public string dak_type { get; set; }
         public int is_copied_dak { get; set; }
+        public bool is_KhosraDetails { get; set; }
         [MaxLength]
 
         public string dak_details_Json { get; set; }
