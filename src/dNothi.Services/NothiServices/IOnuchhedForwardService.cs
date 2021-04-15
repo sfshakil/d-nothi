@@ -11,5 +11,7 @@ namespace dNothi.Services.NothiServices
     public interface IOnuchhedForwardService
     {
         OnuchhedForwardResponse GetOnuchhedForwardResponse(DakUserParam dakListUserParam, NoteSaveDTO newnotedata, NothiListRecordsDTO nothiListRecord, List<onumodonDataRecordDTO> newrecords);
+
+        bool SendNoteListFromLocal();
     }
 }

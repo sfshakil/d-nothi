@@ -100,6 +100,7 @@
     <Compile Include="Mappings\Dak\ToMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
     <Compile Include="Mappings\Nothi\AllOfficeItemMap.cs" />
+    <Compile Include="Mappings\Nothi\NoteSendItemActionMap.cs" />
     <Compile Include="Mappings\Nothi\NothiCreateItemActionMap.cs" />
     <Compile Include="Mappings\Nothi\NoteSaveItemActionMap.cs" />
     <Compile Include="Mappings\Nothi\NothiTypeItemActionMap.cs" />

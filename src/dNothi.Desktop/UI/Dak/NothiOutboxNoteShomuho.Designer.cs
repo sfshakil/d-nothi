@@ -46,6 +46,7 @@ namespace dNothi.Desktop.UI.Dak
             this.eyeIcon = new FontAwesome.Sharp.IconButton();
             this.lbNoteIssueDate = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.lbNishponno = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbOnucched = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@ namespace dNothi.Desktop.UI.Dak
             this.lbNoteNumber = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.pnlLeft.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -318,6 +318,25 @@ namespace dNothi.Desktop.UI.Dak
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(215, 30);
             this.panel5.TabIndex = 60;
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(127, 0);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(25, 30);
+            this.btnSchedule.TabIndex = 120;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
             // 
             // lbNishponno
             // 
@@ -582,25 +601,6 @@ namespace dNothi.Desktop.UI.Dak
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(745, 1);
             this.flowLayoutPanel2.TabIndex = 58;
-            // 
-            // btnSchedule
-            // 
-            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.btnSchedule.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.FlatAppearance.BorderSize = 0;
-            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
-            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSchedule.IconSize = 28;
-            this.btnSchedule.Location = new System.Drawing.Point(127, 0);
-            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(25, 30);
-            this.btnSchedule.TabIndex = 120;
-            this.btnSchedule.UseVisualStyleBackColor = false;
-            this.btnSchedule.Visible = false;
             // 
             // NothiOutboxNoteShomuho
             // 

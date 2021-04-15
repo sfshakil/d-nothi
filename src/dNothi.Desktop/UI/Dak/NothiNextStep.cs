@@ -250,7 +250,7 @@ namespace dNothi.Desktop.UI.Dak
                     string english_text = string.Concat(_noteTotal.Select(c => (char)('0' + c - '\u09E6'))); // "1234567890"
 
                     int parsed_number = int.Parse(english_text); // 1234567890
-                    newnotedata.note_no = parsed_number;
+                    newnotedata.note_no = parsed_number.ToString();
                     newnotedata.note_subject = _noteSubject;
                     newnotedata.nothi_id = Convert.ToInt32(nothiListRecord.id);
                     newnotedata.note_id = Convert.ToInt32(_noteID);

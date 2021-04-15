@@ -145,18 +145,18 @@
             // 
             // btnSchedule
             // 
-            this.btnSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
             this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnSchedule.FlatAppearance.BorderSize = 0;
             this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
-            this.btnSchedule.IconColor = System.Drawing.Color.White;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSchedule.IconSize = 35;
-            this.btnSchedule.Location = new System.Drawing.Point(421, 6);
+            this.btnSchedule.Location = new System.Drawing.Point(434, 6);
             this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
             this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(47, 35);
+            this.btnSchedule.Size = new System.Drawing.Size(34, 35);
             this.btnSchedule.TabIndex = 68;
             this.btnSchedule.UseVisualStyleBackColor = false;
             this.btnSchedule.Visible = false;
