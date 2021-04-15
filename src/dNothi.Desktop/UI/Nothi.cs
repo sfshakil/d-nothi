@@ -1008,6 +1008,26 @@ namespace dNothi.Desktop.UI
                         NothiAll nothiAll = UserControlFactory.Create<NothiAll>();
                         nothiAll.nothi = nothiCreateItemAction.nothi_no + " " + nothiCreateItemAction.nothi_subject;
                         nothiAll.shakha = "নথির শাখা: " + nothiCreateItemAction.nothishkha;
+                        nothiAll.NothiAllNewNoteButtonClick += delegate (object sender, EventArgs e) {
+                            NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+                            nothiListRecordsDTO.office_id = nothiCreateItemAction.office_id;
+                            nothiListRecordsDTO.office_unit_id = nothiCreateItemAction.office_unit_id;
+                            nothiListRecordsDTO.office_designation_name = nothiCreateItemAction.designation;
+                            nothiListRecordsDTO.nothi_no = nothiCreateItemAction.nothi_no;
+                            nothiListRecordsDTO.subject = nothiCreateItemAction.nothi_subject;
+                            nothiListRecordsDTO.nothi_type = "all";
+                            NewNote_ButtonClick(sender, e, nothiListRecordsDTO);
+                        };
+
+                        nothiAll.NoteDetailsButton += delegate (object sender, EventArgs e) {
+                            NothiListAllRecordsDTO nothiAllListRecords = new NothiListAllRecordsDTO();
+                            //nothiAllListRecords.nothi.nothi_no = nothiCreateItemAction.nothi_no;
+                            //nothiAllListRecords.nothi.office_unit_name = nothiCreateItemAction.office_unit_name;
+                            //nothiAllListRecords.nothi.subject = nothiCreateItemAction.nothi_subject;
+                            //nothiAllListRecords.nothi.office_designation_name = nothiCreateItemAction.designation;
+                            //nothiAllListRecords.nothi.office_unit_name = nothiCreateItemAction.office_unit_name;
+                            NoteAllDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiAllListRecords, nothiAll._nothiListInboxNoteRecordsDTO); };
+                        
                         nothiAll.flag = 2;
                         nothiAlls.Add(nothiAll);
                     }
