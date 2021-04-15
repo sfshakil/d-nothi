@@ -27,6 +27,7 @@ namespace dNothi.Services.DakServices
         IRepository<DakAttachment> _dakAttachment;
         IRepository<DakUser> _dakUserRepo;
         IRepository<DakType> _dakTypeRepo;
+        IRepository<PotroTemplateList> _potroTemplateLocalList;
        
         IRepository<DakList> _dakListRepo;
      
@@ -36,12 +37,15 @@ namespace dNothi.Services.DakServices
         IRepository<Other> _otherRepo;
         IRepository<MovementStatus> _movementStatusRepo;
        
+        IDakForwardService _dakForwardService { get; set; }
         IRepository<DakNothi> _dakNothiRepo;
         public DakListService(IRepository<DakTag> daktags,
             IRepository<DakUser> dakuser,
+              IRepository<PotroTemplateList> potroTemplateLocalList,
             IRepository<Officer> from,
             IRepository<Other> other,
             IRepository<To> to,
+             IDakForwardService dakForwardService,
             IRepository<MovementStatus> movementStatus,
             IRepository<DakAttachment> dakAttachment,
             IRepository<DakItem> dakItems,
@@ -60,7 +64,7 @@ namespace dNothi.Services.DakServices
             this._fromRepo = from;
             this._otherRepo = other;
             this._dakAttachment = dakAttachment;
-       
+            _potroTemplateLocalList = potroTemplateLocalList;
             this._toRepo = to;
             this._movementStatusRepo = movementStatus;
             this._dakTypeRepo = daktype;
@@ -70,6 +74,7 @@ namespace dNothi.Services.DakServices
             this._dakListRepo = dakList;
             _dakItems = dakItems;
             _dakItemDetails=dakItemDetails;
+            _dakForwardService = dakForwardService;
         
         }
 
@@ -766,8 +771,20 @@ namespace dNothi.Services.DakServices
         }
         public PotroTemplateResponse GetPotroTemplate(DakUserParam dakListUserParam)
         {
+            PotroTemplateResponse potroTemplateResponse = new PotroTemplateResponse();
             try
             {
+                if (!dNothi.Utility.InternetConnection.Check())
+                {
+                    var potroTemplateList = _potroTemplateLocalList.Table.FirstOrDefault(a => a._designationId == dakListUserParam.designation_id && a._officeId == dakListUserParam.office_id);
+
+                    if (potroTemplateList != null && potroTemplateList.jsonResponse != null)
+                    {
+                        potroTemplateResponse = JsonConvert.DeserializeObject<PotroTemplateResponse>(potroTemplateList.jsonResponse);
+
+                    }
+                    return potroTemplateResponse;
+                }
 
                 var potroTemplateApi = new RestClient(GetAPIDomain() + GetPotroTemplateEndpoint());
                 potroTemplateApi.Timeout = -1;
@@ -780,16 +797,33 @@ namespace dNothi.Services.DakServices
 
 
                 var potroTemplateResponseJson = potroTemplateResponseAPI.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                PotroTemplateResponse potroTemplateResponse = JsonConvert.DeserializeObject<PotroTemplateResponse>(potroTemplateResponseJson);
-                
+                SavePotroTemplateLocally(dakListUserParam, potroTemplateResponseJson);
+                potroTemplateResponse = JsonConvert.DeserializeObject<PotroTemplateResponse>(potroTemplateResponseJson);
+                 
                 
                 return potroTemplateResponse;
             }
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        private void SavePotroTemplateLocally(DakUserParam dakListUserParam, string potroTemplateResponseJson)
+        {
+            var potroTemplateList = _potroTemplateLocalList.Table.FirstOrDefault(a => a._designationId == dakListUserParam.designation_id && a._officeId == dakListUserParam.office_id);
+            if(potroTemplateList == null)
+            {
+                potroTemplateList = new PotroTemplateList 
+                { _designationId = dakListUserParam.designation_id, 
+                    _officeId = dakListUserParam.office_id, 
+                    jsonResponse = potroTemplateResponseJson };
+                _potroTemplateLocalList.Insert(potroTemplateList);
+            }
+            else
+            {
+                potroTemplateList.jsonResponse = potroTemplateResponseJson;
+                _potroTemplateLocalList.Update(potroTemplateList);
             }
         }
 

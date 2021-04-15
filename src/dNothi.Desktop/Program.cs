@@ -117,10 +117,13 @@ namespace dNothi.Desktop
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakType>>().As<IRepository<dNothi.Core.Entities.DakType>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.SyncStatus>>().As<IRepository<dNothi.Core.Entities.SyncStatus>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.LocalOfficeList>>().As<IRepository<dNothi.Core.Entities.LocalOfficeList>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.LocalDesignationSealByOffice>>().As<IRepository<dNothi.Core.Entities.LocalDesignationSealByOffice>>();
 
 
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItem>>().As<IRepository<dNothi.Core.Entities.DakItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.PotroTemplateList>>().As<IRepository<dNothi.Core.Entities.PotroTemplateList>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemAction>>().As<IRepository<dNothi.Core.Entities.DakItemAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.LocalDakFolderList>>().As<IRepository<dNothi.Core.Entities.LocalDakFolderList>>();
 

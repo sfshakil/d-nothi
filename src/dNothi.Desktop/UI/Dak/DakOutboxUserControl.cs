@@ -64,7 +64,7 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _dak_Tags = value;
-                if (value.Count > 0)
+                if (value !=null && value.Count > 0)
                 {
                     dakLabel.Text = value[0].tag;
                     dakTagPanel.Visible = true;

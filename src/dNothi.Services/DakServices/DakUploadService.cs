@@ -23,8 +23,10 @@ namespace dNothi.Services.DakServices
         IRepository<LocalUploadedDak> _localUploadedDakRepository;
         public IUserService _userService { get; set;}
         IRepository<AllOfficeItem> _allOfficeItem;
-        public DakUploadService(IRepository<LocalUploadedDak> localUploadedDak, IUserService userService, IRepository<AllOfficeItem> allOfficeItem)
+        IRepository<DakItemDetails> _dakItemRepository;
+        public DakUploadService(IRepository<DakItemDetails> dakItemRepository,IRepository<LocalUploadedDak> localUploadedDak, IUserService userService, IRepository<AllOfficeItem> allOfficeItem)
         {
+            _dakItemRepository = dakItemRepository;
             _localUploadedDakRepository = localUploadedDak;
             _userService = userService;
             _allOfficeItem = allOfficeItem;
@@ -808,6 +810,21 @@ namespace dNothi.Services.DakServices
 
         public DraftedDakEditResponse GetDraftedDakEditResponse(DakUserParam dakUserParam, int dak_id, string dak_type, int is_copied_dak)
         {
+            DraftedDakEditResponse dakEditResponse = new DraftedDakEditResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakEditDetails = _dakItemRepository.Table.FirstOrDefault(a => a.dak_id == dak_id && a.is_KhosraDetails == true );
+
+                if (dakEditDetails != null && dakEditDetails.dak_details_Json != null)
+                {
+                    dakEditResponse = JsonConvert.DeserializeObject<DraftedDakEditResponse>(dakEditDetails.dak_details_Json, new JsonSerializerSettings
+                    {
+                        Error = HandleDeserializationError
+                    });
+                }
+                return dakEditResponse;
+            }
+
             var draftedDakEditAPI = new RestClient(GetAPIDomain() + GetDraftedDakEditEndpoint());
             draftedDakEditAPI.Timeout = -1;
             var draftedDakEditRequest = new RestRequest(Method.POST);
@@ -820,8 +837,10 @@ namespace dNothi.Services.DakServices
             draftedDakEditRequest.AddParameter("dak_type", dak_type);
             IRestResponse dakEditIRestResponse = draftedDakEditAPI.Execute(draftedDakEditRequest);
             var dakEditResponseJson = dakEditIRestResponse.Content;
+            SaveKhosraDetailsJsonResponse(dak_id, dakEditResponseJson);
 
-            var dakEditResponse = JsonConvert.DeserializeObject<DraftedDakEditResponse>(dakEditResponseJson, new JsonSerializerSettings
+
+             dakEditResponse = JsonConvert.DeserializeObject<DraftedDakEditResponse>(dakEditResponseJson, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });
@@ -829,6 +848,31 @@ namespace dNothi.Services.DakServices
 
 
             return dakEditResponse;
+        }
+
+        private void SaveKhosraDetailsJsonResponse(int dak_id, string dakEditResponse)
+        {
+            var dakEditDetails = _dakItemRepository.Table.FirstOrDefault(a => a.dak_id == dak_id && a.is_KhosraDetails == true);
+
+            if (dakEditDetails != null)
+            {
+                dakEditDetails.dak_details_Json = dakEditResponse;
+                _dakItemRepository.Update(dakEditDetails);
+            }
+            else
+            {
+                dakEditDetails = new DakItemDetails
+                {
+                    dak_id = dak_id,
+                    is_KhosraDetails = true,
+                    dak_details_Json = dakEditResponse
+                    
+                
+                
+                };
+
+                _dakItemRepository.Insert(dakEditDetails);
+            }
         }
 
         private string GetDraftedDakEditEndpoint()
