@@ -57,6 +57,15 @@ namespace dNothi.Desktop.UI.Dak
                 eyeIcon.IconChar = FontAwesome.Sharp.IconChar.Eye;
             }
         }
+        public void invisible()
+        {
+            fromToIcon.Visible = false;
+            lbToOfficer.Visible = false;
+            eyeIcon.Visible = false;
+            lbNoteIssueDate.Visible = false;
+
+            btnSchedule.Visible = true;
+        }
 
         [Category("Custom Props")]
         public string noteIssueDate
@@ -127,12 +136,12 @@ namespace dNothi.Desktop.UI.Dak
             set { _toofficer = value; 
                 if(value == "")
                 {
-                    iconButton5.Visible = false;
+                    fromToIcon.Visible = false;
                     lbToOfficer.Visible = false;
                 }
                 else
                 {
-                    iconButton5.Visible = true;
+                    fromToIcon.Visible = true;
                     lbToOfficer.Visible = true;
                     lbToOfficer.Text = value;
                 }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }

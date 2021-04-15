@@ -627,10 +627,6 @@ namespace dNothi.Desktop.UI
                     ErrorMessage(noteSave.status + noteSave.message);
                 }
             }
-
-
-
-
         }
         //private void checkBox_Click(object sender, EventArgs e,NothiListRecordsDTO nothiListRecordsDTO)
         //{
@@ -892,7 +888,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
-                    nothiListRecordsDTO.nothi_type = "Sent";
+                    nothiListRecordsDTO.nothi_type = "sent";
                     NewNote_ButtonClick(sender, e, nothiListRecordsDTO);
                 };
 
@@ -1263,7 +1259,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiAllListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiAllListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiAllListDTO.nothi.last_note_date;
-                    nothiListRecordsDTO.nothi_type = "All";
+                    nothiListRecordsDTO.nothi_type = "all";
                     NewNote_ButtonClick(sender, e, nothiListRecordsDTO);
                 };
 
@@ -1783,6 +1779,8 @@ namespace dNothi.Desktop.UI
             {
                 _nothiTypeSave.SendNothiTypeListFromLocal();
                 _nothiCreateServices.SendNothiCreateListFromLocal();
+                _noteSave.SendNoteListFromLocal();
+
                 if (onlineStatus.IconColor != Color.LimeGreen)
                 {
                     if (IsHandleCreated)

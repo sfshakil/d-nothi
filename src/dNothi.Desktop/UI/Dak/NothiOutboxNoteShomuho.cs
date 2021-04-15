@@ -91,6 +91,18 @@ namespace dNothi.Desktop.UI.Dak
                     eyeIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
         }
+        public void invisible()
+        {
+            lbOnucched.Visible = false;
+            lbKhoshra.Visible = false;
+            lbPotrojari.Visible = false;
+            lbNishponno.Visible = false;
+            btnAttachment.Visible = false;
+            eyeIcon.Visible = false;
+            lbNoteIssueDate.Visible = false;
+
+            btnSchedule.Visible = true;
+        }
         public event EventHandler OutboxNoteDetailsButton;
         private void NoteDetailsButton_Click(object sender, EventArgs e)
         {
