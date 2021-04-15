@@ -246,6 +246,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
             builder.RegisterType<NothiNoteShomuho>().AsSelf();
+            builder.RegisterType<NothiOutboxNoteShomuho>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<NothiOutbox>().AsSelf();
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();

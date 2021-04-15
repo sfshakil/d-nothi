@@ -137,6 +137,7 @@ namespace dNothi.Desktop.UI.Dak
                 var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
                 if(nothiInboxNotUploadedNotes.Count > 0)
                 {
+                    _totalnothi = _totalnothi + nothiInboxNotUploadedNotes.Count;
                     List<NothiNoteShomuho> nothiNoteShomuhos = new List<NothiNoteShomuho>();
                     foreach (NoteSaveItemAction nothiInboxNotUploadedNote in nothiInboxNotUploadedNotes)
                     {

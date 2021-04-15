@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.UserServices;
 using dNothi.Services.NothiServices;
+using dNothi.Utility;
+using dNothi.Core.Entities;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -120,6 +122,44 @@ namespace dNothi.Desktop.UI.Dak
             var eachNothiId = lbNothiId.Text;
             var nothiListUserParam = _userService.GetLocalDakUserParam();
             string note_category = "sent";
+
+            if (!InternetConnection.Check())
+            {
+                var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
+                if (nothiInboxNotUploadedNotes.Count > 0)
+                {
+                    _noteTotal = _noteTotal + nothiInboxNotUploadedNotes.Count;
+                    List<NothiOutboxNoteShomuho> nothiNoteShomuhos = new List<NothiOutboxNoteShomuho>();
+                    foreach (NoteSaveItemAction nothiInboxNotUploadedNote in nothiInboxNotUploadedNotes)
+                    {
+                        var nothiNoteShomuho = UserControlFactory.Create<NothiOutboxNoteShomuho>();
+                        nothiNoteShomuho.notesubject = nothiInboxNotUploadedNote.noteSubject;
+                        nothiNoteShomuho.prapok = nothiInboxNotUploadedNote.officer_name + "," +
+                                                  nothiInboxNotUploadedNote.office_designation_name + "," +
+                                                  nothiInboxNotUploadedNote.office_unit_name + "," +
+                                                  nothiInboxNotUploadedNote.office_name;
+                        nothiNoteShomuho.currentDesk = nothiInboxNotUploadedNote.officer_name + "," +
+                                                       nothiInboxNotUploadedNote.office_designation_name + "," +
+                                                       nothiInboxNotUploadedNote.office_unit_name + "," +
+                                                       nothiInboxNotUploadedNote.office_name;
+
+                        nothiNoteShomuho.invisible();
+
+                        nothiNoteShomuhos.Add(nothiNoteShomuho);
+
+                    }
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    newAllNoteFlowLayoutPanel.AutoScroll = true;
+                    newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+                    newAllNoteFlowLayoutPanel.WrapContents = false;
+
+                    for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
+                    {
+                        newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
+                    }
+                }
+            }
+
             var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(nothiListUserParam, eachNothiId, note_category);
 
             if (nothiInboxNote.status == "success")
@@ -236,8 +276,11 @@ namespace dNothi.Desktop.UI.Dak
                 nothiNoteShomuhos.Add(nothiNoteShomuho);
 
             }
-            newAllNoteFlowLayoutPanel.Controls.Clear();
-            //newAllNoteFlowLayoutPanel.AutoScroll = true;
+            if (InternetConnection.Check())
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+            }
+            newAllNoteFlowLayoutPanel.AutoScroll = true;
             newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
             newAllNoteFlowLayoutPanel.WrapContents = false;
 

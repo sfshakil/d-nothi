@@ -70,6 +70,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbNoteNumber = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.pnlLeft.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -231,7 +232,7 @@ namespace dNothi.Desktop.UI.Dak
             this.pnlRight.Controls.Add(this.panel4);
             this.pnlRight.Controls.Add(this.flowLayoutPanel3);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlRight.Location = new System.Drawing.Point(895, 0);
+            this.pnlRight.Location = new System.Drawing.Point(893, 0);
             this.pnlRight.Margin = new System.Windows.Forms.Padding(0);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(215, 130);
@@ -309,6 +310,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnSchedule);
             this.panel5.Controls.Add(this.lbNishponno);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 30);
@@ -397,7 +399,7 @@ namespace dNothi.Desktop.UI.Dak
             this.pnlBody.Location = new System.Drawing.Point(148, 0);
             this.pnlBody.Margin = new System.Windows.Forms.Padding(0);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(747, 130);
+            this.pnlBody.Size = new System.Drawing.Size(745, 130);
             this.pnlBody.TabIndex = 2;
             // 
             // panel13
@@ -407,7 +409,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel13.Location = new System.Drawing.Point(0, 81);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(747, 43);
+            this.panel13.Size = new System.Drawing.Size(745, 43);
             this.panel13.TabIndex = 61;
             // 
             // panel14
@@ -418,7 +420,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel14.Location = new System.Drawing.Point(0, 3);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(747, 40);
+            this.panel14.Size = new System.Drawing.Size(745, 40);
             this.panel14.TabIndex = 0;
             // 
             // lbCurrentDesk
@@ -464,7 +466,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel10.Location = new System.Drawing.Point(0, 38);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(747, 43);
+            this.panel10.Size = new System.Drawing.Size(745, 43);
             this.panel10.TabIndex = 60;
             // 
             // panel11
@@ -475,7 +477,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel11.Location = new System.Drawing.Point(0, 3);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(747, 40);
+            this.panel11.Size = new System.Drawing.Size(745, 40);
             this.panel11.TabIndex = 0;
             // 
             // lbPrapok
@@ -521,7 +523,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(747, 38);
+            this.panel7.Size = new System.Drawing.Size(745, 38);
             this.panel7.TabIndex = 59;
             // 
             // panel8
@@ -532,7 +534,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel8.Location = new System.Drawing.Point(0, 4);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(747, 34);
+            this.panel8.Size = new System.Drawing.Size(745, 34);
             this.panel8.TabIndex = 0;
             // 
             // lbsubject
@@ -578,8 +580,27 @@ namespace dNothi.Desktop.UI.Dak
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 129);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(747, 1);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(745, 1);
             this.flowLayoutPanel2.TabIndex = 58;
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CloudUploadAlt;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(127, 0);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(25, 30);
+            this.btnSchedule.TabIndex = 120;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
             // 
             // NothiOutboxNoteShomuho
             // 
@@ -592,7 +613,7 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Add(this.pnlLeft);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiOutboxNoteShomuho";
-            this.Size = new System.Drawing.Size(1110, 130);
+            this.Size = new System.Drawing.Size(1108, 130);
             this.pnlLeft.ResumeLayout(false);
             this.pnlLeft.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -664,5 +685,6 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label lbNoteId;
         private System.Windows.Forms.ToolTip MyToolTip;
+        private FontAwesome.Sharp.IconButton btnSchedule;
     }
 }
