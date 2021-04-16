@@ -7,6 +7,7 @@ using dNothi.Desktop.View_Model;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
+using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
@@ -1260,7 +1261,7 @@ namespace dNothi.Desktop.UI
             form.dakid = dakid;
             form.is_copied_dak = is_copied_dak;
             form.dakSubject = dak_subject;
-            form.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { SucessfullyDakNothivukto(form._dakNothiteUposthapitoLocally); };
+            form.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { SucessfullyDakNothivukto(form._dakNothiteUposthapitoLocally, form._noteSelected, form._nothiBranch, form._nothiName); };
 
 
             CalPopUpWindow(form);
@@ -1270,7 +1271,7 @@ namespace dNothi.Desktop.UI
 
         }
 
-        private void SucessfullyDakNothivukto(bool dakNothiteUposthapitoLocally)
+        private void SucessfullyDakNothivukto(bool dakNothiteUposthapitoLocally, JsonParser.Entity.Nothi.NoteNothiDTO _noteSelected, string _nothiBranch, string _nothiName)
         {
            if(dakNothiteUposthapitoLocally)
             {
@@ -1281,6 +1282,40 @@ namespace dNothi.Desktop.UI
 
                 LoadDakNothivukto();
             }
+
+           // var form = FormFactory.Create<Note>();
+           // _dakuserparam = _userService.GetLocalDakUserParam();
+           // form.noteIdfromNothiInboxNoteShomuho = _noteSelected.note_id.ToString();
+           //// form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+
+           // NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
+           // form.nothiNo = nothiListRecords.nothi_no;
+           // form.nothiShakha = nothiListRecords.office_unit_name + " " + _dakuserparam.office_label;
+           // form.nothiSubject = nothiListRecords.subject;
+           // form.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+           // form.nothiLastDate = nothiListRecordsDTO.last_note_date;
+           // form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+
+           // //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
+           // //totalnothi.ToString();
+           // form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
+
+           // NoteView noteView = new NoteView();
+           // noteView.totalNothi = noteListDataRecordNoteDTO.note_no.ToString();
+           // noteView.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+           // noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
+           // noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
+           // noteView.checkBox = "1";
+           // noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+
+           // //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
+           // //form.loadNoteData(notedata);
+           // form.loadNothiInboxRecords(nothiListRecordsDTO);
+           // form.loadNoteView(noteView);
+           // form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
+
+
+           // form.ShowDialog();
         }
 
         private void SucessfullyDakNothijato(bool dakNothijatoLocally)
