@@ -42,6 +42,11 @@ namespace dNothi.Services.NothiServices
                 nothiCreateItemAction.officer_name = UserParam.officer_name;
                 nothiCreateItemAction.office_unit_id = UserParam.office_unit_id;
                 nothiCreateItemAction.designation = UserParam.designation;
+
+                nothiCreateItemAction.office_unit_name = UserParam.office_unit;
+                nothiCreateItemAction.office_label = UserParam.office_label;
+
+
                 nothiCreateItemAction.nothishkha = nothishkha;
                 nothiCreateItemAction.nothi_no = nothi_no;
                 nothiCreateItemAction.nothi_type_id = nothi_type_id;

@@ -12,6 +12,9 @@ namespace dNothi.Core.Entities
     {
         public  string officer_name { get; set; }
         public int office_unit_id { get; set; }
+        public string office_unit_name { get; set; }
+        public string office_label { get; set; }
+        public string officer { get { return officer_name; } }
 
         public int designation_id { get; set; }
         public string designation { get; set; }

@@ -170,6 +170,10 @@ namespace dNothi.Desktop.UI.Dak
             {
                 //int totalNote = Convert.ToInt32(totalnothi.Substring(9));
                 int totalNote = Convert.ToInt32(_noteTotal);
+                if (totalNote <= 0)
+                {
+                    totalNote = 1;
+                }
                 //int totalNote1 = Convert.ToInt32(_desk.Substring(_desk.IndexOf("ডেস্ক:") + 2));
                 this.Height = totalNote * 100 + originalHeight;
                 //this.Height = 100 + originalHeight;
@@ -197,6 +201,10 @@ namespace dNothi.Desktop.UI.Dak
         private void loadnewAllNoteFlowLayoutPanel()
         {
             var eachNothiId = lbNothiId.Text;
+            if (eachNothiId == "nothiIdLabel")
+            {
+                eachNothiId = "0";
+            }
             var nothiListUserParam = _userService.GetLocalDakUserParam();
             string note_category = "all";
             
@@ -205,13 +213,21 @@ namespace dNothi.Desktop.UI.Dak
                 var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
                 if (nothiInboxNotUploadedNotes.Count > 0)
                 {
-                    _noteTotal = _noteTotal + nothiInboxNotUploadedNotes.Count;
-                    List<NothiNoteShomuho> nothiNoteShomuhos = new List<NothiNoteShomuho>();
+                    
+                    _noteTotal = nothiInboxNotUploadedNotes.Count;
+                    this.Height = _noteTotal * 100 + originalHeight;
+                    List <NothiNoteShomuho> nothiNoteShomuhos = new List<NothiNoteShomuho>();
                     foreach (NoteSaveItemAction nothiInboxNotUploadedNote in nothiInboxNotUploadedNotes)
                     {
+                        //NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
+                        //nothiListInboxNoteRecordsDTO.note.note_subject = nothiInboxNotUploadedNote.noteSubject;
+
                         var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
                         nothiNoteShomuho.note_subject = nothiInboxNotUploadedNote.noteSubject;
                         nothiNoteShomuho.deskofficer = nothiInboxNotUploadedNote.officer_name;
+                        //nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) {
+                            
+                        //    NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
                         nothiNoteShomuho.invisible();
 
                         nothiNoteShomuhos.Add(nothiNoteShomuho);

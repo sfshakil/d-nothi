@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity.Nothi;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Nothi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -103,25 +104,47 @@ namespace dNothi.Desktop.UI.Dak
 
             btnSchedule.Visible = true;
         }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
         public event EventHandler OutboxNoteDetailsButton;
         private void NoteDetailsButton_Click(object sender, EventArgs e)
         {
-            NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
-            noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
-            noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_noteNumber);
-            noteListDataRecordNoteDTO.is_editable = 0; // is editable ==0 means not new tab;
-            if (this.OutboxNoteDetailsButton != null)
-                this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e);
+            try
+            {
+                NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
+                noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
+                noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_noteNumber);
+                noteListDataRecordNoteDTO.is_editable = 0; // is editable ==0 means not new tab;
+                if (this.OutboxNoteDetailsButton != null)
+                    this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
         }
 
         private void nothiOutboxDetBtnNewTab_Click(object sender, EventArgs e)
         {
-            NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
-            noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
-            noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_noteNumber);
-            noteListDataRecordNoteDTO.is_editable = 1; // is editable ==1 means new tab;
-            if (this.OutboxNoteDetailsButton != null)
-                this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e);
+            try
+            {
+                NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
+                noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
+                noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_noteNumber);
+                noteListDataRecordNoteDTO.is_editable = 1; // is editable ==1 means new tab;
+                if (this.OutboxNoteDetailsButton != null)
+                    this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
         }
     }
 }

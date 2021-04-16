@@ -32,7 +32,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int created_by { get; set; }
         public int modified_by { get; set; }
         public int nothi_id { get; set; }
-        public object note_no { get; set; }
+        public string note_no { get; set; }
         public string note_subject { get; set; }
         public int note_id { get; set; }
     }

@@ -144,6 +144,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiTypeItemAction>>().As<IRepository<dNothi.Core.Entities.NothiTypeItemAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiCreateItemAction>>().As<IRepository<dNothi.Core.Entities.NothiCreateItemAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteSaveItemAction>>().As<IRepository<dNothi.Core.Entities.NoteSaveItemAction>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteSendItemAction>>().As<IRepository<dNothi.Core.Entities.NoteSendItemAction>>();
 
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemDetails>>().As<IRepository<dNothi.Core.Entities.DakItemDetails>>();
