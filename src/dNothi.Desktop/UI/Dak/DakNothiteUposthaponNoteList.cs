@@ -122,14 +122,13 @@ namespace dNothi.Desktop.UI.Dak
         {
 
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
-            conditonBoxForm.message = "আপনি কি এই নোটে ডাকটি উপস্থাপন করতে চান ?";
+            conditonBoxForm.message = "আপনি কি এই নোটে ডাকটি উপস্থাপন করতে চান?";
             conditonBoxForm.ShowDialog();
             if (conditonBoxForm.Yes)
             {
-
-
                 if (this.NothiteUposthapitoButtonClick != null)
                     this.NothiteUposthapitoButtonClick(sender, e);
+
             }
                
         }

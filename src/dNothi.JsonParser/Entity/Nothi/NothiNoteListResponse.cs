@@ -74,6 +74,9 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string note_id { get; set; }
 
 
+        public long local_Note_id { get; set; }
+
+
 
 
         

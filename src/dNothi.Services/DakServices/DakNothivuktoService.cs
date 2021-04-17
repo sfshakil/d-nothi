@@ -68,8 +68,12 @@ namespace dNothi.Services.DakServices
 
         public bool DakNothivuktoFromLocal()
         {
+
+
+           
+
             bool isForwarded = false;
-            List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isNothivukto == true).ToList();
+            List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isNothivukto == true && a.localNoteId==0).ToList();
             if (dakItemActions != null && dakItemActions.Count > 0)
             {
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
@@ -78,11 +82,9 @@ namespace dNothi.Services.DakServices
 
                     NoteNothiDTO noteNothiDTO = JsonConvert.DeserializeObject<NoteNothiDTO>(dakItemAction.dak_Action_Json);
                     
-
                     var dakForwardResponse = GetDakNothivuktoResponse(dakUserParam, noteNothiDTO,dakItemAction.dak_id,dakItemAction.dak_type,dakItemAction.is_copied_dak);
 
                     if (dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status == "success"))
-
                     {
                         _dakItemAction.Delete(dakItemAction);
                         isForwarded = true;
@@ -95,7 +97,36 @@ namespace dNothi.Services.DakServices
             return isForwarded;
         }
 
+        public bool DakNothivuktoFromLocal(long localNoteId, int remoteNoteId)
+        {
 
+
+
+
+            bool isForwarded = false;
+          List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isNothivukto == true && a.localNoteId == localNoteId).ToList();
+            if (dakItemActions != null && dakItemActions.Count > 0)
+            {
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                foreach (DakItemAction dakItemAction in dakItemActions)
+                {
+
+                    NoteNothiDTO noteNothiDTO = JsonConvert.DeserializeObject<NoteNothiDTO>(dakItemAction.dak_Action_Json);
+                    noteNothiDTO.note_id = remoteNoteId.ToString();
+                    var dakForwardResponse = GetDakNothivuktoResponse(dakUserParam, noteNothiDTO, dakItemAction.dak_id, dakItemAction.dak_type, dakItemAction.is_copied_dak);
+
+                    if (dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status == "success"))
+                    {
+                        _dakItemAction.Delete(dakItemAction);
+                        isForwarded = true;
+
+                    }
+                }
+            }
+
+
+            return isForwarded;
+        }
         public bool DakNothivuktoRevertFromLocal()
         {
             bool isSuccess = false;
@@ -289,7 +320,7 @@ namespace dNothi.Services.DakServices
 
 
             DakNothivuktoResponse dakNothivuktoResponse = new DakNothivuktoResponse();
-            if (!dNothi.Utility.InternetConnection.Check())
+            if (!dNothi.Utility.InternetConnection.Check() || nothi.local_Note_id !=0)
             {
                 dakNothivuktoResponse.status = "success";
                 dakNothivuktoResponse.message = "Local";
@@ -303,14 +334,11 @@ namespace dNothi.Services.DakServices
                     dakItemAction.is_copied_dak = is_copied_dak;
                     dakItemAction.dak_id = dak_id;
                     dakItemAction.dak_type = dak_type;
+                    dakItemAction.localNoteId = nothi.local_Note_id;
                     dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
 
                     _dakItemAction.Insert(dakItemAction);
                 }
-
-
-
-
 
                 return dakNothivuktoResponse;
             }

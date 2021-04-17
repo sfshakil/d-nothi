@@ -25,6 +25,10 @@ namespace dNothi.Core.Entities
     
         public bool isNothivukto { get; set; }
         public bool isNothivuktoReverted { get; set; }
+
+        public long localNoteId { get; set; }
+
+
        
         public int dak_id { get; set; }
         public string dak_type { get; set; }
