@@ -201,10 +201,6 @@ namespace dNothi.Desktop.UI.Dak
         private void loadnewAllNoteFlowLayoutPanel()
         {
             var eachNothiId = lbNothiId.Text;
-            if (eachNothiId == "nothiIdLabel")
-            {
-                eachNothiId = "0";
-            }
             var nothiListUserParam = _userService.GetLocalDakUserParam();
             string note_category = "all";
             
@@ -213,7 +209,6 @@ namespace dNothi.Desktop.UI.Dak
                 var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
                 if (nothiInboxNotUploadedNotes.Count > 0)
                 {
-                    
                     _noteTotal = nothiInboxNotUploadedNotes.Count;
                     this.Height = _noteTotal * 100 + originalHeight;
                     List <NothiNoteShomuho> nothiNoteShomuhos = new List<NothiNoteShomuho>();

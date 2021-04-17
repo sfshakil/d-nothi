@@ -19,11 +19,13 @@ namespace dNothi.Services.NothiServices
     public class NothiCreateService : INothiCreateService
     {
         IRepository<NothiCreateItemAction> _nothiCreateItemAction;
+        IRepository<NoteSaveItemAction> _noteSaveItemAction;
         IUserService _userService { get; set; }
-        public NothiCreateService(IUserService userService, IRepository<NothiCreateItemAction> nothiCreateItemAction)
+        public NothiCreateService(IUserService userService, IRepository<NothiCreateItemAction> nothiCreateItemAction, IRepository<NoteSaveItemAction> noteSaveItemAction)
         {
             _userService = userService;
             _nothiCreateItemAction = nothiCreateItemAction;
+            _noteSaveItemAction = noteSaveItemAction;
         }
         public NothiCreateResponse GetNothiCreate(DakUserParam UserParam, string nothishkha, string nothi_no, string nothi_type_id, string nothi_subject, string nothi_class, string currentYear)
         {
@@ -100,8 +102,40 @@ namespace dNothi.Services.NothiServices
                     var nothiCreateResponse = GetNothiCreate(userParam, nothiCreateItemAction.nothishkha, nothiCreateItemAction.nothi_no, nothiCreateItemAction.nothi_type_id, nothiCreateItemAction.nothi_subject, nothiCreateItemAction.nothi_class, nothiCreateItemAction.currentYear);
 
                     if (nothiCreateResponse != null && (nothiCreateResponse.status == "error" || nothiCreateResponse.status == "success"))
-
                     {
+                        List<NoteSaveItemAction> noteSaveItemActions = _noteSaveItemAction.Table.Where(a => a.nothi_id == nothiCreateItemAction.Id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+
+                        if (nothiCreateResponse.status == "success")
+                        {
+                            if (noteSaveItemActions != null && noteSaveItemActions.Count > 0)
+                            {
+                                foreach (NoteSaveItemAction noteSaveItemAction in noteSaveItemActions)
+                                {
+                                    //NoteItem noteItemDB = _noteItem.Table.FirstOrDefault(a => a.nothi_id == nothi_Id && a.note_category == note_category && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                                    //if (noteItemDB != null)
+                                    //{
+                                    //    noteItemDB.jsonResponse = responseJson;
+                                    //    _noteItem.Update(noteItemDB);
+                                    //}
+                                    noteSaveItemAction.nothi_id = nothiCreateResponse.data.id;
+                                    noteSaveItemAction.office_name = nothiCreateResponse.data.office_name;
+                                    noteSaveItemAction.office_unit_name = nothiCreateResponse.data.office_unit_name;
+                                    _noteSaveItemAction.Update(noteSaveItemAction);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (noteSaveItemActions != null && noteSaveItemActions.Count > 0)
+                            {
+                                foreach (NoteSaveItemAction noteSaveItemAction in noteSaveItemActions)
+                                {
+                                    _noteSaveItemAction.Delete(noteSaveItemAction);
+                                }
+                            }
+                        }
+                        
                         _nothiCreateItemAction.Delete(nothiCreateItemAction);
                         isForwarded = true;
 
