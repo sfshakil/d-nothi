@@ -1,7 +1,10 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
+using dNothi.Services.UserServices;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -16,8 +19,42 @@ namespace dNothi.Services.NothiServices
 {
     public class OnuchhedSave : IOnucchedSave
     {
+        IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
+        IUserService _userService { get; set; }
+        public OnuchhedSave(IUserService userService, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
+        {
+            _userService = userService;
+            _onuchhedSaveItemAction = onuchhedSaveItemAction;
+        }
         public NothiOnuchhedSaveResponse GetNothiOnuchhedSave(string onuchhedId, DakUserParam dakUserParam, List<DakUploadedFileResponse> onuchhedSaveWithAttachments, NothiListRecordsDTO nothiListRecordsDTO, NoteSaveDTO newnotedata, string editorEncodedData)
         {
+            NothiOnuchhedSaveResponse nothiOnuchhedSaveResponse = new NothiOnuchhedSaveResponse();
+
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                nothiOnuchhedSaveResponse.status = "success";
+                nothiOnuchhedSaveResponse.message = "Local";
+
+                OnuchhedSaveItemAction onuchhedSaveItemAction = new OnuchhedSaveItemAction();
+                onuchhedSaveItemAction.office_id = dakUserParam.office_id;
+                onuchhedSaveItemAction.designation_id = dakUserParam.designation_id;
+                string dup = JsonConvert.SerializeObject(dakUserParam);
+                string oswa= JsonConvert.SerializeObject(onuchhedSaveWithAttachments);
+                string nlrd = JsonConvert.SerializeObject(nothiListRecordsDTO);
+                string nnd = JsonConvert.SerializeObject(newnotedata);
+
+                onuchhedSaveItemAction.dakUserParamJson = dup;
+                onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson = oswa;
+                onuchhedSaveItemAction.nothiListRecordsDTOJson = nlrd;
+                onuchhedSaveItemAction.newnotedataJson = nnd;
+
+                onuchhedSaveItemAction.onuchhedId = onuchhedId;
+                onuchhedSaveItemAction.editorEncodedData = editorEncodedData;
+
+                _onuchhedSaveItemAction.Insert(onuchhedSaveItemAction);
+
+                return nothiOnuchhedSaveResponse;
+            }
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNoteOnuchhedSaveEndPoint());
@@ -80,7 +117,7 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
                 var responseJson = response.Content;
                 responseJson =  System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
-                NothiOnuchhedSaveResponse nothiOnuchhedSaveResponse = JsonConvert.DeserializeObject<NothiOnuchhedSaveResponse>(responseJson);
+                nothiOnuchhedSaveResponse = JsonConvert.DeserializeObject<NothiOnuchhedSaveResponse>(responseJson);
                 return nothiOnuchhedSaveResponse;
             }
             catch (Exception ex)
@@ -88,6 +125,34 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
             
+        }
+        public bool SendNoteListFromLocal()
+        {
+            bool isForwarded = false;
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+            List< OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+            if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+            {
+                foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                {
+                    DakUserParam dakUserParamLocal = JsonConvert.DeserializeObject<DakUserParam>(onuchhedSaveItemAction.dakUserParamJson);
+                    dakUserParamLocal.token = dakUserParam.token;
+                    List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                    NothiListRecordsDTO nothiListRecordsDTO = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
+                    NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                    
+                    var onuchhedSaveResponse = GetNothiOnuchhedSave(onuchhedSaveItemAction.onuchhedId, dakUserParamLocal, onuchhedSaveWithAttachments, nothiListRecordsDTO, newnotedata, onuchhedSaveItemAction.editorEncodedData);
+
+                    if (onuchhedSaveResponse != null && (onuchhedSaveResponse.status == "error" || onuchhedSaveResponse.status == "success"))
+                    {
+                        _onuchhedSaveItemAction.Delete(onuchhedSaveItemAction);
+                        isForwarded = true;
+                    }
+                }
+            }
+
+
+            return isForwarded;
         }
         public class FileInfo
         {

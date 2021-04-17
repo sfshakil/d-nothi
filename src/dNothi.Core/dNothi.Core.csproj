@@ -77,6 +77,7 @@
     <Compile Include="Entities\LocalOfficeList.cs" />
     <Compile Include="Entities\NoteSendItemAction.cs" />
     <Compile Include="Entities\NoteSaveItemAction.cs" />
+    <Compile Include="Entities\OnuchhedSaveItemAction.cs" />
     <Compile Include="Entities\NothiCreateItemAction.cs" />
     <Compile Include="Entities\NothiTypeItemAction.cs" />
     <Compile Include="Entities\PotrangshoNoteItem.cs" />

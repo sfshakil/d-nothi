@@ -209,8 +209,9 @@ namespace dNothi.Desktop.UI.Dak
                 var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
                 if (nothiInboxNotUploadedNotes.Count > 0)
                 {
-                    _noteTotal = nothiInboxNotUploadedNotes.Count;
+                    _noteTotal = _noteTotal+ nothiInboxNotUploadedNotes.Count;
                     this.Height = _noteTotal * 100 + originalHeight;
+                    _noteTotal = 0;
                     List <NothiNoteShomuho> nothiNoteShomuhos = new List<NothiNoteShomuho>();
                     foreach (NoteSaveItemAction nothiInboxNotUploadedNote in nothiInboxNotUploadedNotes)
                     {
@@ -220,9 +221,12 @@ namespace dNothi.Desktop.UI.Dak
                         var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
                         nothiNoteShomuho.note_subject = nothiInboxNotUploadedNote.noteSubject;
                         nothiNoteShomuho.deskofficer = nothiInboxNotUploadedNote.officer_name;
-                        //nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) {
+                        nothiNoteShomuho._nothi_id = nothiInboxNotUploadedNote.nothi_id;
+                        nothiNoteShomuho.note_ID = nothiInboxNotUploadedNote.Id.ToString();
+                        nothiNoteShomuho.note_no = nothiInboxNotUploadedNote.Id.ToString(); 
+                        nothiNoteShomuho.LocalNoteDetailsButton += delegate (object sender1, EventArgs e1) {
                             
-                        //    NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
+                        LocalNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1); };
                         nothiNoteShomuho.invisible();
 
                         nothiNoteShomuhos.Add(nothiNoteShomuho);
@@ -253,8 +257,17 @@ namespace dNothi.Desktop.UI.Dak
                 }
             }
         }
+        public event EventHandler LocalNoteDetailsButton;
+        private void LocalNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO1, EventArgs e)
+        {
+            if (this.LocalNoteDetailsButton != null)
+                this.LocalNoteDetailsButton(noteListDataRecordNoteDTO1, e);
+        }
+
         NothiListInboxNoteRecordsDTO _noteListForNoteAll = new NothiListInboxNoteRecordsDTO();
 
+        
+        
         public event EventHandler NoteDetailsButton;
 
         private void NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e1, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
@@ -376,9 +389,6 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.NothiAllOnumodonButtonClick != null)
                 this.NothiAllOnumodonButtonClick(sender, e);
-            //var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
-
-           //form.ShowDialog();
         }
 
         [Browsable(true)]
@@ -387,13 +397,8 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NothiAllNewNoteButtonClick;
         private void btnNewNote_Click(object sender, EventArgs e)
         {
-            //var form = FormFactory.Create<CreateNewNotes>();
-
-            //form.ShowDialog();
             if (this.NothiAllNewNoteButtonClick != null)
                 this.NothiAllNewNoteButtonClick(sender, e);
-
-
         }
         
     }

@@ -46,6 +46,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbNoteNo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnPlusSquare = new FontAwesome.Sharp.IconButton();
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.topPnl.SuspendLayout();
             this.middlePnl.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -102,9 +103,9 @@ namespace dNothi.Desktop.UI.Dak
             this.lbCreateDate.Location = new System.Drawing.Point(0, 0);
             this.lbCreateDate.Margin = new System.Windows.Forms.Padding(0);
             this.lbCreateDate.Name = "lbCreateDate";
-            this.lbCreateDate.Size = new System.Drawing.Size(78, 21);
+            this.lbCreateDate.Size = new System.Drawing.Size(127, 21);
             this.lbCreateDate.TabIndex = 65;
-            this.lbCreateDate.Text = "০০/০০/০০";
+            this.lbCreateDate.Text = " ১১/১/২১ ৪:০১ PM";
             // 
             // middlePnl
             // 
@@ -201,6 +202,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.onuchhedheaderPnl.BackColor = System.Drawing.Color.Transparent;
             this.onuchhedheaderPnl.BackgroundGradientMode = dNothi.Desktop.AdvancedPanel.PanelGradientMode.Vertical;
+            this.onuchhedheaderPnl.Controls.Add(this.btnSchedule);
             this.onuchhedheaderPnl.Controls.Add(this.lbOffice);
             this.onuchhedheaderPnl.Controls.Add(this.lbNoteNo);
             this.onuchhedheaderPnl.Controls.Add(this.label6);
@@ -290,6 +292,24 @@ namespace dNothi.Desktop.UI.Dak
             this.btnPlusSquare.UseVisualStyleBackColor = false;
             this.btnPlusSquare.Click += new System.EventHandler(this.btnPlusSquare_Click);
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(901, 4);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(25, 29);
+            this.btnSchedule.TabIndex = 120;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
+            // 
             // SeparateOnuchhed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,5 +351,6 @@ namespace dNothi.Desktop.UI.Dak
         private FontAwesome.Sharp.IconButton btnDelete;
         private System.Windows.Forms.Label lbonucchedId;
         private System.Windows.Forms.ToolTip MyToolTip;
+        private FontAwesome.Sharp.IconButton btnSchedule;
     }
 }

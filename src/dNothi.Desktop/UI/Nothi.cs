@@ -36,12 +36,13 @@ namespace dNothi.Desktop.UI
         INothiTypeSaveService _nothiTypeSave { get; set; }
         INothiCreateService _nothiCreateServices { get; set; }
         IRepository<NothiCreateItemAction> _nothiCreateItemAction;
+        IOnucchedSave _onucchedSave { get; set; }
 
         public WaitFormFunc WaitForm;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
-            IOnuchhedForwardService onuchhedForwardService)
+            IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave)
         {
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _userService = userService;
@@ -53,6 +54,7 @@ namespace dNothi.Desktop.UI
             _nothiCreateServices = nothiCreateServices;
             _nothiCreateItemAction = nothiCreateItemAction;
             _onuchhedForwardService = onuchhedForwardService;
+            _onucchedSave = onucchedSave;
 
             InitializeComponent();
             WaitForm = new WaitFormFunc();
@@ -529,6 +531,44 @@ namespace dNothi.Desktop.UI
             hideform.StartPosition = FormStartPosition.CenterScreen;
             hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
             hideform.ShowDialog();
+        }
+
+        private void LocalNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiCreateItemAction nothiCreateItemAction)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Note>();
+
+            //form.ShowDialog();
+
+            _dakuserparam = _userService.GetLocalDakUserParam();
+
+            form.nothiNo = nothiCreateItemAction.nothi_no;
+            form.nothiShakha = nothiCreateItemAction.office_unit_name + " " + _dakuserparam.office_label;
+            form.nothiSubject = nothiCreateItemAction.nothi_subject;
+            form.noteSubject = noteListDataRecordNoteDTO.note_subject;
+            //form.noteIdfromNothiInboxNoteShomuho = notedata.note_id.ToString();
+            //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
+            //totalnothi.ToString();
+            //form.office = "( " + nothiCreateItemAction.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
+
+            NoteView noteView = new NoteView();
+            noteView.totalNothi = noteListDataRecordNoteDTO.note_no.ToString();
+            noteView.noteSubject = noteListDataRecordNoteDTO.note_subject;
+            //noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
+            noteView.officerInfo = _dakuserparam.officer + "," + nothiCreateItemAction.designation + "," + nothiCreateItemAction.office_unit_name + "," + _dakuserparam.office_label;
+            noteView.checkBox = "1";
+            noteView.nothiNoteID = noteListDataRecordNoteDTO.nothi_note_id;
+
+            //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
+            //form.loadNoteData(notedata);
+            NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+            nothiListRecordsDTO.id = noteListDataRecordNoteDTO.extra_nothi_id;
+            form.loadNothiInboxRecords(nothiListRecordsDTO);
+            form.loadNoteView(noteView);
+            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
+
+
+            form.ShowDialog();
         }
 
         private void NewNote_ButtonClick(object sender, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
@@ -1009,6 +1049,7 @@ namespace dNothi.Desktop.UI
                         nothiAll.nothi = nothiCreateItemAction.nothi_no + " " + nothiCreateItemAction.nothi_subject;
                         nothiAll.shakha = "নথির শাখা: " + nothiCreateItemAction.nothishkha;
                         nothiAll.nothiId = Convert.ToString(nothiCreateItemAction.Id);
+
                         nothiAll.NothiAllNewNoteButtonClick += delegate (object sender, EventArgs e) {
                             NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
                             nothiListRecordsDTO.id = nothiCreateItemAction.Id;
@@ -1020,6 +1061,11 @@ namespace dNothi.Desktop.UI
                             nothiListRecordsDTO.nothi_type = "all";
                             NewNote_ButtonClick(sender, e, nothiListRecordsDTO);
                         };
+                        
+                        nothiAll.LocalNoteDetailsButton += delegate (object sender, EventArgs e) {
+                            LocalNoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiCreateItemAction);
+                        };
+
                         nothiAll.flag = 2;
                         nothiAlls.Add(nothiAll);
                     }
@@ -1796,6 +1842,7 @@ namespace dNothi.Desktop.UI
                 _nothiTypeSave.SendNothiTypeListFromLocal();
                 _nothiCreateServices.SendNothiCreateListFromLocal();
                 _noteSave.SendNoteListFromLocal();
+                _onucchedSave.SendNoteListFromLocal();
                 _onuchhedForwardService.SendNoteListFromLocal();
                 if (onlineStatus.IconColor != Color.LimeGreen)
                 {

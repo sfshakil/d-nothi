@@ -45,6 +45,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _khosra;
         private string _khoshraWaiting;
         private string _noteIssueDate;
+        public long _nothi_id;
 
         public void loadEyeIcon(int i)
         {
@@ -149,22 +150,27 @@ namespace dNothi.Desktop.UI.Dak
                 
         }
         public event EventHandler NoteDetailsButton;
+        public event EventHandler LocalNoteDetailsButton;
         private void NoteDetailsButton_Click(object sender, EventArgs e)
         {
             try
             {
+                if (btnSchedule.Visible)
+                {
+                    NoteListDataRecordNoteDTO noteListDataRecordNoteDTO1 = new NoteListDataRecordNoteDTO();
+                    noteListDataRecordNoteDTO1.extra_nothi_id = _nothi_id;
+                    noteListDataRecordNoteDTO1.note_subject = lbNoteSubject.Text;
+                    noteListDataRecordNoteDTO1.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
+                    noteListDataRecordNoteDTO1.note_no = Convert.ToInt32(_note_no);
+                    noteListDataRecordNoteDTO1.is_editable = 0; // is editable ==0 means not new tab;
+
+                    if (this.LocalNoteDetailsButton != null)
+                        this.LocalNoteDetailsButton(noteListDataRecordNoteDTO1, e);
+                }
+
                 NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
-                if (lbNoteId.Text != "lbNoteId" && _note_no != null)
-                {
-                    noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
-                    noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_note_no);
-                }
-                else
-                {
-                    noteListDataRecordNoteDTO.nothi_note_id = 0;
-                    noteListDataRecordNoteDTO.note_no = 0;
-                }
-                
+                noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
+                noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_note_no);
                 noteListDataRecordNoteDTO.is_editable = 0; // is editable ==0 means not new tab;
                 if (this.NoteDetailsButton != null)
                     this.NoteDetailsButton(noteListDataRecordNoteDTO, e);

@@ -1,4 +1,6 @@
-﻿using dNothi.Desktop.CustomControl;
+﻿using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
+using dNothi.Desktop.CustomControl;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity.Dak;
@@ -52,6 +54,8 @@ namespace dNothi.Desktop.UI
         ISingleOnucchedServices _singleOnucched { get; set; }
         INoteOnucchedRevertServices _noteOnucchedRevert { get; set; }
         INoteSaveService _noteSave { get; set; }
+        IRepository<NoteSaveItemAction> _noteSaveItemAction;
+        IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
 
         public WaitFormFunc WaitForm;
 
@@ -63,7 +67,8 @@ namespace dNothi.Desktop.UI
             IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
             IKhoshraPotroServices khoshraPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
-            IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave)
+            IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave,
+            IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
         {
             _userService = userService;
             _onucchedSave = onucchedSave;
@@ -84,6 +89,8 @@ namespace dNothi.Desktop.UI
             _singleOnucched = singleOnucched;
             _noteOnucchedRevert = noteOnucchedRevert;
             _noteSave = noteSave;
+            _noteSaveItemAction = noteSaveItemAction;
+            _onuchhedSaveItemAction = onuchhedSaveItemAction;
 
             WaitForm = new WaitFormFunc();
             InitializeComponent();
@@ -230,6 +237,7 @@ namespace dNothi.Desktop.UI
                     onuchhedFLP.Controls.Clear();
                     noteHeaderPanel.Width = 990;
                     noteHeaderPanel.Height = 426;
+                    var onuchhedNo = "0";
                     foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
                         flag++;
@@ -237,6 +245,7 @@ namespace dNothi.Desktop.UI
                         if (singleOnucched.data.total_records > 0)
                         {
                             var rec = singleOnucched.data.records;
+                            onuchhedNo  = onucchedsingleListRec.onucched_no;
                             lbNoteTotl1.Text = "নোটঃ " + list.note_status;
                             lbNoteSubject.Text = list.note_subject_sub_text;
                             lbNothiLastDate.Text = list.date;
@@ -293,6 +302,51 @@ namespace dNothi.Desktop.UI
                             //{
                             //    btnCanRevert.Visible = false;
                             //}
+                        }
+                    }
+                    if (!InternetConnection.Check())
+                    {
+                        List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
+                        if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                        {
+                            
+                            foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                            {
+                                NothiListRecordsDTO nothiListRecordsDTO = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
+                                NoteSaveDTO newnotedata1 = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                                if (nothiListRecordsDTO.id == nothiListRecords.id && list.nothi_note_id == newnotedata1.note_id)
+                                {
+                                    int onucchedNo = Convert.ToInt32(onuchhedNo);
+                                    if (onuchhedFLP.Controls.Count == 0)
+                                    {
+                                        onucchedNo = 0;
+                                    }
+                                    else
+                                    {
+                                        onucchedNo++;
+                                    }
+                                    onuchhedNo = onucchedNo.ToString();
+                                    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                                    var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+
+                                    separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
+                                    separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onuchhedNo);
+                                    //separateOnucched.createDate = onucchedsingleListRec.created;
+                                    separateOnucched.onucchedId = Convert.ToInt32(onuchhedSaveItemAction.Id);
+                                    //separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
+                                    try
+                                    {
+                                        separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(onuchhedSaveItemAction.editorEncodedData));
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    separateOnucched.lastopenOnuchhed();
+                                    separateOnucched.loadinLocal();
+                                    onuchhedFLP.Controls.Add(separateOnucched);
+                                }
+                            }
                         }
                     }
                 }
@@ -389,7 +443,11 @@ namespace dNothi.Desktop.UI
             list.khoshra_potro = Convert.ToInt32(noteView._khosraPotro);
             list.khoshra_waiting_for_approval = Convert.ToInt32(noteView._khoshraWaiting);
             list.potrojari = Convert.ToInt32(noteView._potrojari);
-            loadNotangsho_Potrangsho(list);
+            if (nothiListRecords.id>0)
+            {
+                loadNotangsho_Potrangsho(list);
+            }
+            
         }
 
         public void loadNoteView(NoteView noteView)
@@ -427,6 +485,7 @@ namespace dNothi.Desktop.UI
                     onuchhedFLP.Controls.Clear();
                     noteHeaderPanel.Width = 990;
                     noteHeaderPanel.Height = 426;
+                    var onuchhedNo = "0";
                     foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
                         flag++;
@@ -434,6 +493,7 @@ namespace dNothi.Desktop.UI
                         if (singleOnucched.data.total_records > 0)
                         {
                             var rec = singleOnucched.data.records;
+                            onuchhedNo  = onucchedsingleListRec.onucched_no;
                             lbNoteTotl1.Text = "নোটঃ " + list.note_status;
                             lbNoteSubject.Text = list.note_subject_sub_text;
                             lbNothiLastDate.Text = list.date;
@@ -490,6 +550,51 @@ namespace dNothi.Desktop.UI
                             //{
                             //    btnCanRevert.Visible = false;
                             //}
+                        }
+                    }
+                    if (!InternetConnection.Check())
+                    {
+                        List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
+                        if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                        {
+                            
+                            foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                            {
+                                NothiListRecordsDTO nothiListRecordsDTO = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
+                                NoteSaveDTO newnotedata1 = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                                if (nothiListRecordsDTO.id == nothiListRecords.id && list.nothi_note_id == newnotedata1.note_id)
+                                {
+                                    int onucchedNo = Convert.ToInt32(onuchhedNo);
+                                    if (onuchhedFLP.Controls.Count == 0)
+                                    {
+                                        onucchedNo = 0;
+                                    }
+                                    else
+                                    {
+                                        onucchedNo++;
+                                    }
+                                    onuchhedNo = onucchedNo.ToString();
+                                    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                                    var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+
+                                    separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
+                                    separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onuchhedNo);
+                                    //separateOnucched.createDate = onucchedsingleListRec.created;
+                                    separateOnucched.onucchedId = Convert.ToInt32(onuchhedSaveItemAction.Id);
+                                    //separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
+                                    try
+                                    {
+                                        separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(onuchhedSaveItemAction.editorEncodedData));
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    separateOnucched.lastopenOnuchhed();
+                                    separateOnucched.loadinLocal();
+                                    onuchhedFLP.Controls.Add(separateOnucched);
+                                }
+                            }
                         }
                     }
                 }
@@ -1256,11 +1361,32 @@ namespace dNothi.Desktop.UI
                 else if (selectedItem == "সকল নোট")
                 {
                     noteViewFLP.Controls.Clear();
+
+                    if (!InternetConnection.Check())
+                    {
+                        DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                        List<NoteSaveItemAction> noteSaveItemActions = _noteSaveItemAction.Table.Where(a => a.nothi_id == nothiListRecords.id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+                        if (noteSaveItemActions != null && noteSaveItemActions.Count > 0)
+                            {
+                            lbNothiType.Text = "সকল নোট (" + string.Concat(noteSaveItemActions.Count.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+                            foreach (NoteSaveItemAction noteSaveItemAction in noteSaveItemActions)
+                                {
+                                NoteView noteView = new NoteView();
+                                noteView.totalNothi = noteSaveItemAction.Id.ToString();
+                                noteView.noteSubject = noteSaveItemAction.noteSubject;
+                                noteView.officerInfo = _dakuserparam.officer + "," + noteSaveItemAction.office_designation_name + "," + _dakuserparam.office_unit + "," + _dakuserparam.office_label;
+                                //noteView.checkBox = "1";
+                                noteView.nothiNoteID = Convert.ToInt32(noteSaveItemAction.Id);
+                                noteViewFLP.Controls.Add(noteView);
+                            }
+                            }
+                    }
+                    
                     NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
-                    lbNothiType.Text = "সকল নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+                    
                     if (allNoteList.data.records.Count > 0)
                     {
-
+                        lbNothiType.Text = "সকল নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                         foreach (NoteAllListDataRecordDTO allList in allNoteList.data.records)
                         {
 
@@ -1674,6 +1800,7 @@ namespace dNothi.Desktop.UI
                 onuchhedFLP.Controls.Clear();
                 noteHeaderPanel.Width = 990;
                 noteHeaderPanel.Height = 426;
+                var onuchhedNo = "0";
                 foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                 {
                     flag++;
@@ -1698,6 +1825,7 @@ namespace dNothi.Desktop.UI
                         tinyMceEditor.Visible = false;
                         panel24.Visible = false;
                         panel28.Visible = false;
+                        onuchhedNo = onucchedsingleListRec.onucched_no;
                         DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                         var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                         separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
@@ -1739,6 +1867,51 @@ namespace dNothi.Desktop.UI
                         //}
                     }
                 }
+                if (!InternetConnection.Check())
+                {
+                    List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
+                    if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                    {
+                        
+                        foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                        {
+                            NothiListRecordsDTO nothiListRecordsDTO = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
+                            NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                            if (nothiListRecordsDTO.id == nothiListRecords.id && list.nothi_note_id == newnotedata.note_id)
+                            {
+                                int onucchedNo = Convert.ToInt32(onuchhedNo);
+                                if (onuchhedFLP.Controls.Count == 0)
+                                {
+                                    onucchedNo = 0;
+                                }
+                                else
+                                {
+                                    onucchedNo++;
+                                }
+                                onuchhedNo = onucchedNo.ToString();
+                                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                                var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                
+                                separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
+                                separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onuchhedNo);
+                                //separateOnucched.createDate = onucchedsingleListRec.created;
+                                separateOnucched.onucchedId = Convert.ToInt32(onuchhedSaveItemAction.Id);
+                                //separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
+                                try
+                                {
+                                    separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(onuchhedSaveItemAction.editorEncodedData));
+                                }
+                                catch
+                                {
+
+                                }
+                                separateOnucched.lastopenOnuchhed();
+                                separateOnucched.loadinLocal();
+                                onuchhedFLP.Controls.Add(separateOnucched);
+                            }
+                        }
+                    }
+                }
             }
             else
             {
@@ -1776,7 +1949,7 @@ namespace dNothi.Desktop.UI
 
 
             }
-
+            
             if (list.khoshra_potro > 0 || list.khoshra_waiting_for_approval > 0 || list.potrojari > 0)
             {
                 pnlNoNote.Visible = false;
@@ -1921,6 +2094,7 @@ namespace dNothi.Desktop.UI
                             onuchhedFLP.Controls.Clear();
                             noteHeaderPanel.Width = 990;
                             noteHeaderPanel.Height = 426;
+                            var onuchhedNo = "0";
                             foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                             {
                                 flag++;
@@ -1928,7 +2102,7 @@ namespace dNothi.Desktop.UI
                                 if (singleOnucched.data.total_records > 0)
                                 {
                                     var rec = singleOnucched.data.records;
-
+                                    onuchhedNo = onucchedsingleListRec.onucched_no;
                                     btnSave.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
@@ -1967,6 +2141,51 @@ namespace dNothi.Desktop.UI
                                     }
                                     onuchhedFLP.Controls.Add(separateOnucched);
 
+                                }
+                            }
+                            if (!InternetConnection.Check())
+                            {
+                                List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
+                                if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                                {
+                                    
+                                    foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                                    {
+                                        NothiListRecordsDTO nothiListRecordsDTO = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
+                                        NoteSaveDTO newnotedata1 = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                                        if (nothiListRecordsDTO.id == nothiListRecords.id && newnotedata.note_id == newnotedata1.note_id)
+                                        {
+                                            int onucchedNo = Convert.ToInt32(onuchhedNo);
+                                            if (onuchhedFLP.Controls.Count == 0)
+                                            {
+                                                onucchedNo = 0;
+                                            }
+                                            else
+                                            {
+                                                onucchedNo++;
+                                            }
+                                            onuchhedNo = onucchedNo.ToString();
+                                            //DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                                            var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+
+                                            separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
+                                            separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onuchhedNo);
+                                            //separateOnucched.createDate = onucchedsingleListRec.created;
+                                            separateOnucched.onucchedId = Convert.ToInt32(onuchhedSaveItemAction.Id);
+                                            //separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
+                                            try
+                                            {
+                                                separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(onuchhedSaveItemAction.editorEncodedData));
+                                            }
+                                            catch
+                                            {
+
+                                            }
+                                            separateOnucched.lastopenOnuchhed();
+                                            separateOnucched.loadinLocal();
+                                            onuchhedFLP.Controls.Add(separateOnucched);
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -6008,6 +6227,62 @@ namespace dNothi.Desktop.UI
         private void lbApprovedPotro_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void noteBackGroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                _onucchedSave.SendNoteListFromLocal();
+
+                if (onlineStatus.IconColor != Color.LimeGreen)
+                {
+                    if (IsHandleCreated)
+                    {
+                        onlineStatus.Invoke(new MethodInvoker(delegate
+                        {
+                            onlineStatus.IconColor = Color.LimeGreen;
+                            MyToolTip.SetToolTip(onlineStatus, "Online");
+                        }));
+                    }
+                    else
+                    {
+
+                    }
+
+                }
+            }
+            else
+            {
+                if (IsHandleCreated)
+                {
+                    onlineStatus.Invoke(new MethodInvoker(delegate
+                    {
+                        onlineStatus.IconColor = Color.Silver;
+                        MyToolTip.SetToolTip(onlineStatus, "Offline");
+                    }));
+                }
+                else
+                {
+
+                }
+
+
+
+            }
+        }
+
+        private void noteBackGroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (!noteBackGroundWorker.IsBusy && this.Visible)
+            {
+                noteBackGroundWorker.RunWorkerAsync();
+            }
+        }
+
+        private void Note_Load_1(object sender, EventArgs e)
+        {
+            noteBackGroundWorker.RunWorkerAsync();
         }
     }
 }

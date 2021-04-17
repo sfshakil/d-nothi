@@ -29,6 +29,11 @@ namespace dNothi.Desktop.UI.Dak
         private string _office;
         private string _subjectBrowser;
         private int _onucchedId;
+        public void loadinLocal()
+        {
+            btnSchedule.Visible = true;
+            btnDelete.Visible = false;
+        }
         public void lastopenOnuchhed()
         {
             if (SubjectBrowser.DocumentText != "" && SignatureFLP.Controls.Count > 0)

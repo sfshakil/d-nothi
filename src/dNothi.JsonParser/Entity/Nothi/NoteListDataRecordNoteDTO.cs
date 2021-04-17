@@ -27,5 +27,6 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int can_finish { get; set; }
         public int is_editable { get; set; }
         public string date { get; set; }
+        public long extra_nothi_id { get; set; }
     }
 }
