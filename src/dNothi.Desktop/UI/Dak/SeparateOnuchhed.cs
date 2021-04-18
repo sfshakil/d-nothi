@@ -201,18 +201,41 @@ namespace dNothi.Desktop.UI.Dak
 
         private void onuchhedheaderPnl_MouseHover(object sender, EventArgs e)
         {
-            btnDelete.Visible = true;
+            if (btnSchedule.Visible==true)
+            {
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnDelete.Visible = true;
+            }
+            
         }
 
         private void btnDelete_MouseHover(object sender, EventArgs e)
         {
-            btnDelete.Visible = true;
-            btnDelete.IconColor = Color.Red;
+            if (btnSchedule.Visible == true)
+            {
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnDelete.Visible = true;
+                btnDelete.IconColor = Color.Red;
+            }
+            
         }
 
         private void btnDelete_MouseLeave(object sender, EventArgs e)
         {
-            btnDelete.IconColor = Color.FromArgb(54, 153, 255);
+            if (btnSchedule.Visible == true)
+            {
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnDelete.IconColor = Color.FromArgb(54, 153, 255);
+            }
         }
         public event EventHandler DeleteButtonClick;
         private void btnDelete_Click(object sender, EventArgs e)

@@ -19,11 +19,14 @@ namespace dNothi.Services.NothiServices
     public class NoteSaveService : INoteSaveService
     {
         IRepository<NoteSaveItemAction> _noteSaveItemAction;
+        IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
         IUserService _userService { get; set; }
-        public NoteSaveService(IUserService userService, IRepository<NoteSaveItemAction> noteSaveItemAction)
+        public NoteSaveService(IUserService userService, IRepository<NoteSaveItemAction> noteSaveItemAction,
+            IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
         {
             _userService = userService;
             _noteSaveItemAction = noteSaveItemAction;
+            _onuchhedSaveItemAction = onuchhedSaveItemAction;
         }
         public NoteSaveResponse GetNoteSave(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecordsDTO, string noteSubject)
         {
@@ -39,6 +42,7 @@ namespace dNothi.Services.NothiServices
                 noteSaveItemAction.designation_id = dakUserParam.designation_id;
                 noteSaveItemAction.officer_name = dakUserParam.officer_name;
                 noteSaveItemAction.nothi_id = nothiListRecordsDTO.id;
+                noteSaveItemAction.local_nothi_id = nothiListRecordsDTO.id;
                 noteSaveItemAction.office_id = nothiListRecordsDTO.office_id;
                 noteSaveItemAction.office_name = nothiListRecordsDTO.office_name;
                 noteSaveItemAction.office_unit_name = nothiListRecordsDTO.office_unit_name;
@@ -99,6 +103,107 @@ namespace dNothi.Services.NothiServices
                     if (noteSaveResponse != null && (noteSaveResponse.status == "error" || noteSaveResponse.status == "success"))
 
                     {
+                        if (noteSaveItemAction.nothi_type == "all")
+                        {
+                            List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+
+                            if (noteSaveResponse.status == "success")
+                            {
+                                if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                                {
+                                    foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                                    {
+                                        NothiListRecordsDTO nothiListRecordsDTO1 = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
+                                        if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id)
+                                        {
+                                            NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                                            nothiListRecordsDTO1.id = noteSaveItemAction.nothi_id;
+                                            newnotedata.note_id = noteSaveResponse.data.note_id;
+                                            onuchhedSaveItemAction.newnotedataJson = JsonConvert.SerializeObject(newnotedata);
+                                            onuchhedSaveItemAction.nothiListRecordsDTOJson = JsonConvert.SerializeObject(nothiListRecordsDTO1);
+                                            _onuchhedSaveItemAction.Update(onuchhedSaveItemAction);
+                                        }
+
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                                {
+                                    foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                                    {
+                                        _onuchhedSaveItemAction.Delete(onuchhedSaveItemAction);
+                                    }
+                                }
+                            }
+                        }
+                        if (noteSaveItemAction.nothi_type == "Inbox")
+                        {
+                            List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+
+                            if (noteSaveResponse.status == "success")
+                            {
+                                if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                                {
+                                    foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                                    {
+                                        NothiListRecordsDTO nothiListRecordsDTO1 = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
+                                        if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id && nothiListRecordsDTO1.office_id == 0)
+                                        {
+                                            NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                                            newnotedata.note_id = noteSaveResponse.data.note_id;
+                                            onuchhedSaveItemAction.newnotedataJson = JsonConvert.SerializeObject(newnotedata);
+                                            _onuchhedSaveItemAction.Update(onuchhedSaveItemAction);
+                                        }
+
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                                {
+                                    foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                                    {
+                                        _onuchhedSaveItemAction.Delete(onuchhedSaveItemAction);
+                                    }
+                                }
+                            }
+                        }
+                        if (noteSaveItemAction.nothi_type == "sent")
+                        {
+                            List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+
+                            if (noteSaveResponse.status == "success")
+                            {
+                                if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                                {
+                                    foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                                    {
+                                        NothiListRecordsDTO nothiListRecordsDTO1 = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
+                                        if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id && nothiListRecordsDTO1.office_id == 0)
+                                        {
+                                            NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                                            newnotedata.note_id = noteSaveResponse.data.note_id;
+                                            onuchhedSaveItemAction.newnotedataJson = JsonConvert.SerializeObject(newnotedata);
+                                            _onuchhedSaveItemAction.Update(onuchhedSaveItemAction);
+                                        }
+
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                                {
+                                    foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                                    {
+                                        _onuchhedSaveItemAction.Delete(onuchhedSaveItemAction);
+                                    }
+                                }
+                            }
+                        }
                         _noteSaveItemAction.Delete(noteSaveItemAction);
                         isForwarded = true;
 

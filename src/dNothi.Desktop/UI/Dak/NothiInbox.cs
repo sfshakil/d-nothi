@@ -134,6 +134,7 @@ namespace dNothi.Desktop.UI.Dak
             
             if (!InternetConnection.Check())
             {
+
                 var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
                 if(nothiInboxNotUploadedNotes.Count > 0)
                 {
@@ -144,6 +145,14 @@ namespace dNothi.Desktop.UI.Dak
                         var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
                         nothiNoteShomuho.note_subject = nothiInboxNotUploadedNote.noteSubject;
                         nothiNoteShomuho.deskofficer = nothiInboxNotUploadedNote.officer_name;
+                        
+                        nothiNoteShomuho._nothi_id = nothiInboxNotUploadedNote.nothi_id;
+                        nothiNoteShomuho.note_ID = nothiInboxNotUploadedNote.Id.ToString();
+                        nothiNoteShomuho.note_no = nothiInboxNotUploadedNote.Id.ToString();
+                        nothiNoteShomuho.LocalNoteDetailsButton += delegate (object sender1, EventArgs e1) {
+
+                            LocalNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1);
+                        };
                         nothiNoteShomuho.invisible();
 
                         nothiNoteShomuhos.Add(nothiNoteShomuho);
@@ -170,6 +179,13 @@ namespace dNothi.Desktop.UI.Dak
                     LoadNothiNoteInboxinPanel(nothiInboxNote.data.records);
                 }
             }
+        }
+
+        public event EventHandler LocalNoteDetailsButton;
+        private void LocalNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO1, EventArgs e)
+        {
+            if (this.LocalNoteDetailsButton != null)
+                this.LocalNoteDetailsButton(noteListDataRecordNoteDTO1, e);
         }
         public void LoadNothiNoteInboxinPanel(List<NothiListInboxNoteRecordsDTO> nothiNoteInboxLists)
         {

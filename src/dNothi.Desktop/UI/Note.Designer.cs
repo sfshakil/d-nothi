@@ -37,6 +37,7 @@
             this.dakMenuButton = new System.Windows.Forms.Panel();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
+            this.onlineStatus = new FontAwesome.Sharp.IconButton();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
             this.btnNothiIcon = new System.Windows.Forms.Button();
@@ -93,6 +94,7 @@
             this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
             this.iconButton20 = new FontAwesome.Sharp.IconButton();
             this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
             this.btnCanRevert = new FontAwesome.Sharp.IconButton();
             this.btnWriteOnuchhed = new FontAwesome.Sharp.IconButton();
@@ -259,9 +261,8 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
-            this.onlineStatus = new FontAwesome.Sharp.IconButton();
             this.noteBackGroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.lbOnlineorOfflineStatus = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -342,6 +343,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lbOnlineorOfflineStatus);
             this.panel2.Controls.Add(this.NoteIdfromNothiInboxNoteShomuho);
             this.panel2.Controls.Add(this.RightSign);
             this.panel2.Controls.Add(this.LeftSign);
@@ -455,6 +457,27 @@
             this.userPictureBox.Click += new System.EventHandler(this.userNameLabel_Click_1);
             this.userPictureBox.MouseLeave += new System.EventHandler(this.userNameLabel_MouseLeave);
             this.userPictureBox.MouseHover += new System.EventHandler(this.userNameLabel_MouseHover);
+            // 
+            // onlineStatus
+            // 
+            this.onlineStatus.AutoSize = true;
+            this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.onlineStatus.FlatAppearance.BorderSize = 0;
+            this.onlineStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.onlineStatus.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.onlineStatus.IconColor = System.Drawing.Color.Silver;
+            this.onlineStatus.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.onlineStatus.IconSize = 15;
+            this.onlineStatus.Location = new System.Drawing.Point(32, 5);
+            this.onlineStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineStatus.Name = "onlineStatus";
+            this.onlineStatus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.onlineStatus.Size = new System.Drawing.Size(21, 40);
+            this.onlineStatus.TabIndex = 32;
+            this.onlineStatus.UseVisualStyleBackColor = false;
             // 
             // userNameLabel
             // 
@@ -1257,6 +1280,17 @@
             this.btnOnuchhedSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOnuchhedSave.UseVisualStyleBackColor = false;
             this.btnOnuchhedSave.Click += new System.EventHandler(this.btnOnuchhedSave_Click);
+            // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = "";
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(902, 406);
+            this.tinyMceEditor.TabIndex = 61;
             // 
             // onucchedActionPanel
             // 
@@ -3775,42 +3809,25 @@
             this.saveFileDialog.DefaultExt = "htm";
             this.saveFileDialog.Filter = "HTM files|*.htm|HTML files|*.html|All files|*.*";
             // 
-            // tinyMceEditor
-            // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = "";
-            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
-            this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(902, 406);
-            this.tinyMceEditor.TabIndex = 61;
-            // 
-            // onlineStatus
-            // 
-            this.onlineStatus.AutoSize = true;
-            this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
-            this.onlineStatus.Dock = System.Windows.Forms.DockStyle.Right;
-            this.onlineStatus.FlatAppearance.BorderSize = 0;
-            this.onlineStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.onlineStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.onlineStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.onlineStatus.IconChar = FontAwesome.Sharp.IconChar.Circle;
-            this.onlineStatus.IconColor = System.Drawing.Color.Silver;
-            this.onlineStatus.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.onlineStatus.IconSize = 15;
-            this.onlineStatus.Location = new System.Drawing.Point(32, 5);
-            this.onlineStatus.Margin = new System.Windows.Forms.Padding(0);
-            this.onlineStatus.Name = "onlineStatus";
-            this.onlineStatus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.onlineStatus.Size = new System.Drawing.Size(21, 40);
-            this.onlineStatus.TabIndex = 32;
-            this.onlineStatus.UseVisualStyleBackColor = false;
-            // 
             // noteBackGroundWorker
             // 
             this.noteBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.noteBackGroundWorker_DoWork);
             this.noteBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.noteBackGroundWorker_RunWorkerCompleted);
+            // 
+            // lbOnlineorOfflineStatus
+            // 
+            this.lbOnlineorOfflineStatus.AutoSize = true;
+            this.lbOnlineorOfflineStatus.BackColor = System.Drawing.Color.Azure;
+            this.lbOnlineorOfflineStatus.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbOnlineorOfflineStatus.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbOnlineorOfflineStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbOnlineorOfflineStatus.Location = new System.Drawing.Point(19, 0);
+            this.lbOnlineorOfflineStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.lbOnlineorOfflineStatus.Name = "lbOnlineorOfflineStatus";
+            this.lbOnlineorOfflineStatus.Size = new System.Drawing.Size(54, 21);
+            this.lbOnlineorOfflineStatus.TabIndex = 84;
+            this.lbOnlineorOfflineStatus.Text = "online";
+            this.lbOnlineorOfflineStatus.Visible = false;
             // 
             // Note
             // 
@@ -4174,5 +4191,6 @@
         private System.Windows.Forms.Panel panel5;
         private FontAwesome.Sharp.IconButton onlineStatus;
         private System.ComponentModel.BackgroundWorker noteBackGroundWorker;
+        private System.Windows.Forms.Label lbOnlineorOfflineStatus;
     }
 }

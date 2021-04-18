@@ -29,10 +29,11 @@ namespace dNothi.Desktop.UI.Dak
         private string _noteIssueDate;
         private string _noteAttachment;
         private int _canRevert;
-        private int _noteID;
+        private long _noteID;
+        public long _nothi_id;
 
         [Category("Custom Props")]
-        public int noteID
+        public long noteID
         {
             get { return _noteID; }
             set { _noteID = value; lbNoteId.Text = value.ToString(); }
@@ -112,10 +113,23 @@ namespace dNothi.Desktop.UI.Dak
 
         }
         public event EventHandler OutboxNoteDetailsButton;
+        public event EventHandler LocalNoteDetailsButton;
         private void NoteDetailsButton_Click(object sender, EventArgs e)
         {
             try
             {
+                if (btnSchedule.Visible)
+                {
+                    NoteListDataRecordNoteDTO noteListDataRecordNoteDTO1 = new NoteListDataRecordNoteDTO();
+                    noteListDataRecordNoteDTO1.extra_nothi_id = _nothi_id;
+                    noteListDataRecordNoteDTO1.note_subject = lbsubject.Text;
+                    noteListDataRecordNoteDTO1.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
+                    noteListDataRecordNoteDTO1.note_no = Convert.ToInt32(_noteNumber);
+                    noteListDataRecordNoteDTO1.is_editable = 0; // is editable ==0 means not new tab;
+
+                    if (this.LocalNoteDetailsButton != null)
+                        this.LocalNoteDetailsButton(noteListDataRecordNoteDTO1, e);
+                }
                 NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
                 noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
                 noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_noteNumber);

@@ -42,11 +42,11 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1 = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.onuchhedheaderPnl = new dNothi.Desktop.AdvancedPanel();
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.lbOffice = new System.Windows.Forms.Label();
             this.lbNoteNo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnPlusSquare = new FontAwesome.Sharp.IconButton();
-            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.topPnl.SuspendLayout();
             this.middlePnl.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -225,6 +225,24 @@ namespace dNothi.Desktop.UI.Dak
             this.onuchhedheaderPnl.MouseLeave += new System.EventHandler(this.onuchhedheaderPnl_MouseLeave);
             this.onuchhedheaderPnl.MouseHover += new System.EventHandler(this.onuchhedheaderPnl_MouseHover);
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(901, 4);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(25, 29);
+            this.btnSchedule.TabIndex = 120;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
+            // 
             // lbOffice
             // 
             this.lbOffice.AutoSize = true;
@@ -291,24 +309,6 @@ namespace dNothi.Desktop.UI.Dak
             this.btnPlusSquare.TabIndex = 71;
             this.btnPlusSquare.UseVisualStyleBackColor = false;
             this.btnPlusSquare.Click += new System.EventHandler(this.btnPlusSquare_Click);
-            // 
-            // btnSchedule
-            // 
-            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.FlatAppearance.BorderSize = 0;
-            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
-            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSchedule.IconSize = 28;
-            this.btnSchedule.Location = new System.Drawing.Point(901, 4);
-            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(25, 29);
-            this.btnSchedule.TabIndex = 120;
-            this.btnSchedule.UseVisualStyleBackColor = false;
-            this.btnSchedule.Visible = false;
             // 
             // SeparateOnuchhed
             // 

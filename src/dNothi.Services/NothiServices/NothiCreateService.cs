@@ -103,7 +103,7 @@ namespace dNothi.Services.NothiServices
 
                     if (nothiCreateResponse != null && (nothiCreateResponse.status == "error" || nothiCreateResponse.status == "success"))
                     {
-                        List<NoteSaveItemAction> noteSaveItemActions = _noteSaveItemAction.Table.Where(a => a.nothi_id == nothiCreateItemAction.Id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+                        List<NoteSaveItemAction> noteSaveItemActions = _noteSaveItemAction.Table.Where(a => a.nothi_id == nothiCreateItemAction.nothi_id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
 
                         if (nothiCreateResponse.status == "success")
                         {

@@ -397,6 +397,7 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NothiAllNewNoteButtonClick;
         private void btnNewNote_Click(object sender, EventArgs e)
         {
+            sender= lbNothiId.Text;
             if (this.NothiAllNewNoteButtonClick != null)
                 this.NothiAllNewNoteButtonClick(sender, e);
         }
