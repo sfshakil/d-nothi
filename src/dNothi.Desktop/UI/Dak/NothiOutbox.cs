@@ -142,6 +142,23 @@ namespace dNothi.Desktop.UI.Dak
                                                        nothiInboxNotUploadedNote.office_designation_name + "," +
                                                        nothiInboxNotUploadedNote.office_unit_name + "," +
                                                        nothiInboxNotUploadedNote.office_name;
+                        
+                        
+                        
+                        
+                        
+                        
+                        nothiNoteShomuho._nothi_id = nothiInboxNotUploadedNote.nothi_id;
+                        nothiNoteShomuho.noteID = nothiInboxNotUploadedNote.Id;
+                        nothiNoteShomuho.noteNumber = nothiInboxNotUploadedNote.Id.ToString();
+                        nothiNoteShomuho.LocalNoteDetailsButton += delegate (object sender1, EventArgs e1) {
+
+                            LocalNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1);
+                        };
+
+
+
+
 
                         nothiNoteShomuho.invisible();
 
@@ -159,6 +176,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
                 }
             }
+
 
             var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(nothiListUserParam, eachNothiId, note_category);
 
@@ -189,6 +207,12 @@ namespace dNothi.Desktop.UI.Dak
 
                 }
             }
+        }
+        public event EventHandler LocalNoteDetailsButton;
+        private void LocalNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO1, EventArgs e)
+        {
+            if (this.LocalNoteDetailsButton != null)
+                this.LocalNoteDetailsButton(noteListDataRecordNoteDTO1, e);
         }
         public void LoadNothiNoteAllinPanel(List<NothiListInboxNoteRecordsDTO> nothiNoteInboxLists)
         {

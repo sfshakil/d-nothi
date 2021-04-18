@@ -25,5 +25,6 @@ namespace dNothi.Core.Entities
         public string nothi_class { get; set; }
         public string currentYear { get; set; }
         public int office_id { get; set; }
+        public long nothi_id { get; set; }
     }
 }
