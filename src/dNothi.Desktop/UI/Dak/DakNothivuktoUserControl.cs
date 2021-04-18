@@ -109,7 +109,12 @@ namespace dNothi.Desktop.UI.Dak
             if (MouseIsOverControl())
             {
                 this.BackColor = Color.WhiteSmoke;
-                dakActionPanel.Visible = true;
+                if(!uploadIconButton.Visible)
+                {
+                    dakActionPanel.Visible = true;
+                }
+
+               
             }
             else
             {
@@ -129,7 +134,11 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     continue;
                 }
-                if(ctrl==dakAttachmentButton)
+                if (ctrl == dakAttachmentButton)
+                {
+                    continue;
+                }
+                if (ctrl == nothiNoLabel || ctrl == nothiPlainTextLabel)
                 {
                     continue;
                 }
@@ -263,7 +272,7 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _attentionTypeIconValue = value;
-               
+
                 rightInfoPanel.attentionTypeIconValue = value;
 
 
@@ -297,7 +306,7 @@ namespace dNothi.Desktop.UI.Dak
             set { _source = value; sourceLabel.Text = value; }
         }
 
-        
+
 
 
         [Category("Custom Props")]
@@ -444,7 +453,7 @@ namespace dNothi.Desktop.UI.Dak
         private void DakNothivuktoUserControl_Load(object sender, EventArgs e)
         {
             dakActionPanel.Location = new Point(this.Width, dakActionPanel.Location.Y);
-        //    disablePanel.Location = new Point(this.Width - disablePanel.Width, disablePanel.Location.Y);
+            //    disablePanel.Location = new Point(this.Width - disablePanel.Width, disablePanel.Location.Y);
 
         }
 
@@ -461,6 +470,13 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.DakTagShowButtonCLick != null)
                 this.DakTagShowButtonCLick(sender, e);
+        }
+
+        public event EventHandler NothiDetailsShow;
+        private void nothiNoLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.NothiDetailsShow != null)
+                this.NothiDetailsShow(sender, e);
         }
     }
 }

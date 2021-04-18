@@ -40,7 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.nothiPanel = new System.Windows.Forms.Panel();
-            this.nothiNoLabel = new System.Windows.Forms.Label();
+            this.nothiNoLabel = new System.Windows.Forms.LinkLabel();
             this.nothiPlainTextLabel = new System.Windows.Forms.Label();
             this.subjectPanel = new System.Windows.Forms.Panel();
             this.subjectLabel = new System.Windows.Forms.Label();
@@ -58,7 +58,6 @@
             this.dakTagButton = new FontAwesome.Sharp.IconButton();
             this.dakRevertButton = new FontAwesome.Sharp.IconButton();
             this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
-            this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.attachmentAndDatePanel = new System.Windows.Forms.Panel();
             this.dakTagPanel = new System.Windows.Forms.Panel();
             this.dakTagListButton = new FontAwesome.Sharp.IconButton();
@@ -66,6 +65,7 @@
             this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.dateLabel = new System.Windows.Forms.Label();
             this.uploadIconButton = new FontAwesome.Sharp.IconButton();
+            this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.panel6.SuspendLayout();
             this.nothiPanel.SuspendLayout();
             this.subjectPanel.SuspendLayout();
@@ -192,14 +192,12 @@
             // nothiNoLabel
             // 
             this.nothiNoLabel.AutoSize = true;
-            this.nothiNoLabel.BackColor = System.Drawing.Color.Transparent;
             this.nothiNoLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.nothiNoLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiNoLabel.ForeColor = System.Drawing.Color.Black;
             this.nothiNoLabel.Location = new System.Drawing.Point(88, 2);
             this.nothiNoLabel.Name = "nothiNoLabel";
             this.nothiNoLabel.Size = new System.Drawing.Size(0, 18);
-            this.nothiNoLabel.TabIndex = 67;
+            this.nothiNoLabel.TabIndex = 68;
+            this.nothiNoLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.nothiNoLabel_LinkClicked);
             // 
             // nothiPlainTextLabel
             // 
@@ -213,7 +211,6 @@
             this.nothiPlainTextLabel.Size = new System.Drawing.Size(31, 18);
             this.nothiPlainTextLabel.TabIndex = 66;
             this.nothiPlainTextLabel.Text = "নথিঃ";
-            this.nothiPlainTextLabel.Visible = false;
             // 
             // subjectPanel
             // 
@@ -360,7 +357,7 @@
             this.dakActionPanel.Controls.Add(this.dakTagButton);
             this.dakActionPanel.Controls.Add(this.dakRevertButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-162, 15);
+            this.dakActionPanel.Location = new System.Drawing.Point(-834, 15);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -435,23 +432,6 @@
             this.dakMovementStatusButton.Click += new System.EventHandler(this.dakMovementStatusButton_Click);
             this.dakMovementStatusButton.MouseLeave += new System.EventHandler(this.dakMovementStatusButton_MouseLeave);
             this.dakMovementStatusButton.MouseHover += new System.EventHandler(this.dakMovementStatusButton_MouseHover);
-            // 
-            // rightInfoPanel
-            // 
-            this.rightInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rightInfoPanel.attentionTypeIconValue = null;
-            this.rightInfoPanel.AutoSize = true;
-            this.rightInfoPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.rightInfoPanel.BackColor = System.Drawing.Color.Transparent;
-            this.rightInfoPanel.dakPrioriy = null;
-            this.rightInfoPanel.dakSecurityIconValue = null;
-            this.rightInfoPanel.dakType = null;
-            this.rightInfoPanel.dakViewStatus = null;
-            this.rightInfoPanel.Location = new System.Drawing.Point(1076, 15);
-            this.rightInfoPanel.Name = "rightInfoPanel";
-            this.rightInfoPanel.potrojari = 0;
-            this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
-            this.rightInfoPanel.TabIndex = 91;
             // 
             // attachmentAndDatePanel
             // 
@@ -588,6 +568,23 @@
             this.uploadIconButton.UseVisualStyleBackColor = true;
             this.uploadIconButton.Visible = false;
             // 
+            // rightInfoPanel
+            // 
+            this.rightInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rightInfoPanel.attentionTypeIconValue = null;
+            this.rightInfoPanel.AutoSize = true;
+            this.rightInfoPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rightInfoPanel.BackColor = System.Drawing.Color.Transparent;
+            this.rightInfoPanel.dakPrioriy = null;
+            this.rightInfoPanel.dakSecurityIconValue = null;
+            this.rightInfoPanel.dakType = null;
+            this.rightInfoPanel.dakViewStatus = null;
+            this.rightInfoPanel.Location = new System.Drawing.Point(1076, 15);
+            this.rightInfoPanel.Name = "rightInfoPanel";
+            this.rightInfoPanel.potrojari = 0;
+            this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
+            this.rightInfoPanel.TabIndex = 91;
+            // 
             // DakNothivuktoUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,7 +636,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel nothiPanel;
-        private System.Windows.Forms.Label nothiNoLabel;
         private System.Windows.Forms.Label nothiPlainTextLabel;
         private System.Windows.Forms.Panel subjectPanel;
         private System.Windows.Forms.Label subjectLabel;
@@ -665,5 +661,6 @@
         private FontAwesome.Sharp.IconButton dakTagListButton;
         private System.Windows.Forms.Label dakLabel;
         private FontAwesome.Sharp.IconButton uploadIconButton;
+        private System.Windows.Forms.LinkLabel nothiNoLabel;
     }
 }

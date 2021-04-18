@@ -24,8 +24,8 @@ namespace dNothi.Desktop.UI.Dak
         public int _dak_id;
         public string _dak_type;
         public int _is_copied_dak;
-        public NoteNothiDTO  _nothiDTO;
-        public NothiAllDTO  _nothiAllDTO;
+        public NoteNothiDTO _nothiDTO;
+        public NothiAllDTO _nothiAllDTO;
 
         public string dak_type
         {
@@ -47,17 +47,17 @@ namespace dNothi.Desktop.UI.Dak
         IUserService _userService { get; set; }
         IDakNothivuktoService _nothivuktoService { get; set; }
         INothiNoteTalikaServices _nothinotetalikaservices { get; set; }
-        public DakModuleSokolNothiListUserControl(IDakNothivuktoService dakNothivuktoService,IUserService userService,INothiNoteTalikaServices nothiNoteTalikaServices)
+        public DakModuleSokolNothiListUserControl(IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiNoteTalikaServices nothiNoteTalikaServices)
         {
-           
+
             InitializeComponent();
             _userService = userService;
             _nothivuktoService = dakNothivuktoService;
             _nothinotetalikaservices = nothiNoteTalikaServices;
             originalWidth = this.Width;
             originalHeight = this.Height;
-            
-           
+
+
             SetDefaultFont(this.Controls);
         }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
@@ -92,7 +92,7 @@ namespace dNothi.Desktop.UI.Dak
         public string nothi_id
         {
             get { return _id; }
-            set { _id = value;}
+            set { _id = value; }
         }
         public string master_id
         {
@@ -192,7 +192,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void iconButton3_MouseHover(object sender, EventArgs e)
@@ -248,9 +248,9 @@ namespace dNothi.Desktop.UI.Dak
         private void LoadNote()
         {
             NothiNoteListResponse noteAll = new NothiNoteListResponse();
-            noteAll = _nothinotetalikaservices.GetNothiNoteListAll(_userService.GetLocalDakUserParam(),Convert.ToInt32(_id));
+            noteAll = _nothinotetalikaservices.GetNothiNoteListAll(_userService.GetLocalDakUserParam(), Convert.ToInt32(_id));
 
-            if (noteAll.status == "success")
+            if (noteAll != null && noteAll.status == "success")
             {
                 if (noteAll.data.records.Count > 0)
                 {
@@ -268,12 +268,12 @@ namespace dNothi.Desktop.UI.Dak
             {
                 DakNothiteUposthaponNoteList dakNothiteUposthaponNoteList = new DakNothiteUposthaponNoteList();
 
-                if(noteDTO.deskConverted!=null)
+                if (noteDTO.deskConverted != null)
                 {
                     dakNothiteUposthaponNoteList.date = noteDTO.deskConverted.issue_date;
                     dakNothiteUposthaponNoteList.deskofficer = noteDTO.deskConverted.officer;
                 }
-               
+
                 dakNothiteUposthaponNoteList.note_no = Convert.ToString(noteDTO.note.note_no);
                 dakNothiteUposthaponNoteList.note_subject = noteDTO.note.note_subject;
 
@@ -281,11 +281,11 @@ namespace dNothi.Desktop.UI.Dak
                 dakNothiteUposthaponNoteList.potrojari = noteDTO.note.potrojari;
                 dakNothiteUposthaponNoteList.onumodon = noteDTO.note.finished_count;
                 dakNothiteUposthaponNoteList.nothiAttachmentCount = noteDTO.note.attachment_count;
-               // dakNothiteUposthaponNoteList.toofficer = noteDTO;
-                 dakNothiteUposthaponNoteList.onucched = noteDTO.note.onucched_count;
+                // dakNothiteUposthaponNoteList.toofficer = noteDTO;
+                dakNothiteUposthaponNoteList.onucched = noteDTO.note.onucched_count;
                 dakNothiteUposthaponNoteList.nothivukto = noteDTO.note.nothivukto_potro;
-               
-               if(noteDTO.nothi==null)
+
+                if (noteDTO.nothi == null)
                 {
                     noteDTO.nothi = new NoteNothiDTO();
                 }
@@ -300,7 +300,7 @@ namespace dNothi.Desktop.UI.Dak
                 dakNothiteUposthaponNoteLists.Add(dakNothiteUposthaponNoteList);
             }
             newAllNoteFlowLayoutPanel.Controls.Clear();
-          
+
             for (int j = 0; j <= dakNothiteUposthaponNoteLists.Count - 1; j++)
             {
                 newAllNoteFlowLayoutPanel.Controls.Add(dakNothiteUposthaponNoteLists[j]);
@@ -308,7 +308,7 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
-       
+
         public event EventHandler NothiteUposthaponButton;
 
 
@@ -316,12 +316,9 @@ namespace dNothi.Desktop.UI.Dak
         {
             _nothiDTO = nothiDTO;
 
+            if (this.NothiteUposthaponButton != null)
+                this.NothiteUposthaponButton(sender, e);
 
-          
-            
-                if (this.NothiteUposthaponButton != null)
-                    this.NothiteUposthaponButton(sender, e);
-           
         }
 
         private void newNothiAddButton_Click(object sender, EventArgs e)
@@ -338,7 +335,7 @@ namespace dNothi.Desktop.UI.Dak
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
             DakNothivuktoNoteAddParam dakNothivuktoNoteAddParam = new DakNothivuktoNoteAddParam();
             dakNothivuktoNoteAddParam.note_subject = noteSubject;
-            dakNothivuktoNoteAddParam.nothi_master_id =Convert.ToInt32(_masterid);
+            dakNothivuktoNoteAddParam.nothi_master_id = Convert.ToInt32(_masterid);
             dakNothivuktoNoteAddParam.officer_name = dakUserParam.officer_name;
             dakNothivuktoNoteAddParam.office_designation_name = dakUserParam.designation;
             dakNothivuktoNoteAddParam.office_id = dakUserParam.office_id;
@@ -348,7 +345,7 @@ namespace dNothi.Desktop.UI.Dak
 
             GetNothivuktoNoteAddResponse getNothivuktoNoteAddResponse = _nothivuktoService.GetNothivuktoNoteAddResponse(dakUserParam, dakNothivuktoNoteAddParam);
 
-            if(getNothivuktoNoteAddResponse.status=="success")
+            if (getNothivuktoNoteAddResponse.status == "success")
             {
                 LoadNote();
             }
@@ -360,7 +357,7 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NothijatoButton;
         private void nothijatoButton_Click(object sender, EventArgs e)
         {
-           
+
 
             if (this.NothijatoButton != null)
                 this.NothijatoButton(sender, e);

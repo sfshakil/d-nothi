@@ -35,8 +35,29 @@ namespace dNothi.Services.DakServices
             _dakListService = dakListService;
         }
 
+        private void SaveOrUpdateDakNothijatoListJsonResponse(DakUserParam dakListUserParam, string responseJson, string searchParam)
+        {
+            DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_Nothijato_Search == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id && a.searchParameter == searchParam);
 
-       
+            if (dakItemDB != null)
+            {
+                dakItemDB.jsonResponse = responseJson;
+                _dakItem.Update(dakItemDB);
+            }
+            else
+            {
+                DakItem dakItem = new DakItem();
+                dakItem.is_dak_Nothijato_Search = true;
+                dakItem.searchParameter = searchParam;
+                dakItem.page = dakListUserParam.page;
+                dakItem.designation_id = dakListUserParam.designation_id;
+                dakItem.office_id = dakListUserParam.office_id;
+                dakItem.jsonResponse = responseJson;
+                _dakItem.Insert(dakItem);
+
+            }
+        }
+
 
 
         private void SaveOrUpdateDakOutBoxListJsonResponse(DakUserParam dakListUserParam, string responseJson)
@@ -78,10 +99,10 @@ namespace dNothi.Services.DakServices
 
             try
             {
-                var nothijatoDakApi = new RestClient(GetAPIDomain()+GetDakListNothijatoEndpoint());
+                var nothijatoDakApi = new RestClient(GetAPIDomain() + GetDakListNothijatoEndpoint());
                 nothijatoDakApi.Timeout = -1;
                 var nothijatoDakRequest = new RestRequest(Method.POST);
-                nothijatoDakRequest.AddHeader("api-version",GetAPIVersion());
+                nothijatoDakRequest.AddHeader("api-version", GetAPIVersion());
                 nothijatoDakRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 nothijatoDakRequest.AlwaysMultipartFormData = true;
                 nothijatoDakRequest.AddParameter("designation_id", dakListUserParam.designation_id);
@@ -263,6 +284,7 @@ namespace dNothi.Services.DakServices
                     dakItemAction.is_copied_dak = is_copied_dak;
                     dakItemAction.dak_id = dak_id;
                     dakItemAction.dak_type = dak_type;
+                    dakItemAction.designation_id = dakUserParam.designation_id;
                     dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
 
                     _dakItemAction.Insert(dakItemAction);
@@ -291,7 +313,7 @@ namespace dNothi.Services.DakServices
             IRestResponse dakNothijatoIRestResponse = nothijatoDakSendAPI.Execute(NothijatoDakSendRequest);
             var dakNothijatoResponseJson = dakNothijatoIRestResponse.Content;
 
-             dakNothijatoResponse = JsonConvert.DeserializeObject<DakNothijatoResponse>(dakNothijatoResponseJson, new JsonSerializerSettings
+            dakNothijatoResponse = JsonConvert.DeserializeObject<DakNothijatoResponse>(dakNothijatoResponseJson, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });
@@ -324,6 +346,7 @@ namespace dNothi.Services.DakServices
                     dakItemAction.is_copied_dak = is_copied_dak;
                     dakItemAction.dak_id = dak_id;
                     dakItemAction.dak_type = dak_type;
+                    dakItemAction.designation_id = dakUserParam.designation_id;
                     // dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
 
                     _dakItemAction.Insert(dakItemAction);
@@ -344,11 +367,11 @@ namespace dNothi.Services.DakServices
             NothijatoRevertDakSendRequest.AddParameter("office_id", dakUserParam.office_id);
 
             NothijatoRevertDakSendRequest.AddParameter("dak", "{\"dak_id\":\"" + dak_id + "\",\"dak_type\":\"" + dak_type + "\",\"is_copied_dak\":" + is_copied_dak + "}");
-               
+
             IRestResponse dakNothijatoRevertIRestResponse = nothijatoRevertDakSendAPI.Execute(NothijatoRevertDakSendRequest);
             var dakNothijatoRevertResponseJson = dakNothijatoRevertIRestResponse.Content;
 
-             dakNothijatoRevertResponse = JsonConvert.DeserializeObject<DakNothijatoRevertResponse>(dakNothijatoRevertResponseJson, new JsonSerializerSettings
+            dakNothijatoRevertResponse = JsonConvert.DeserializeObject<DakNothijatoRevertResponse>(dakNothijatoRevertResponseJson, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });
@@ -360,6 +383,19 @@ namespace dNothi.Services.DakServices
 
         public DakListNothijatoResponse GetNothijatoDak(DakUserParam dakListUserParam, string searchParam)
         {
+            DakListNothijatoResponse dakListNothijatoResponse = new DakListNothijatoResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakList = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_Nothijato_Search == true && a.searchParameter==searchParam && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (dakList != null)
+                {
+                    dakListNothijatoResponse = JsonConvert.DeserializeObject<DakListNothijatoResponse>(dakList.jsonResponse);
+
+                }
+                return dakListNothijatoResponse;
+            }
+
             try
             {
                 var nothijatoDakApi = new RestClient(GetAPIDomain() + GetDakListNothijatoEndpoint());
@@ -377,9 +413,8 @@ namespace dNothi.Services.DakServices
 
 
                 var nothijatoDakResponseJson = nothijatoDakResponse.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakListNothijatoResponse dakListNothijatoResponse = JsonConvert.DeserializeObject<DakListNothijatoResponse>(nothijatoDakResponseJson);
+                SaveOrUpdateDakNothijatoListJsonResponse(dakListUserParam, nothijatoDakResponseJson, searchParam);
+                dakListNothijatoResponse = JsonConvert.DeserializeObject<DakListNothijatoResponse>(nothijatoDakResponseJson);
                 return dakListNothijatoResponse;
             }
             catch (Exception ex)

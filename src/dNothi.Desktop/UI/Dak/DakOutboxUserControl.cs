@@ -109,7 +109,10 @@ namespace dNothi.Desktop.UI.Dak
             if (MouseIsOverControl())
             {
                 this.BackColor = Color.WhiteSmoke;
-                dakActionPanel.Visible = true;
+                if (!uploadIconButton.Visible)
+                {
+                    dakActionPanel.Visible = true;
+                }
             }
             else
             {

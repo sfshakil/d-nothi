@@ -9,6 +9,7 @@ using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Dak_List_Inbox;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
+using dNothi.Services.NothiServices;
 using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
@@ -38,9 +39,6 @@ namespace dNothi.Desktop.UI
 
         public string dak_category = "";
 
-
-
-
         public string dak_security = "";
         public string dak_priority = "";
         public string last_modified_date = "";
@@ -58,7 +56,7 @@ namespace dNothi.Desktop.UI
         public NothiDTO nothi { get; set; }
         public WaitFormFunc WaitForm;
 
-
+        INothiInboxNoteServices _nothiInboxNote { get; set; }
         IUserService _userService { get; set; }
         ISyncerService _syncerServices { get; set; }
         IRegisterService _registerService { get; set; }
@@ -98,8 +96,10 @@ namespace dNothi.Desktop.UI
             IRegisterService registerService,
              IDakFolderService dakFolderService,
              IProtibedonService protibedonService,
-            IDakNothijatoService dakNothijatoService)
+               INothiInboxNoteServices nothiInboxNote,
+        IDakNothijatoService dakNothijatoService)
         {
+            _nothiInboxNote = nothiInboxNote;
             _dakNothivuktoService = dakNothivuktoService;
             _userService = userService;
             _dakSearchService = dakSearchService;
@@ -341,14 +341,15 @@ namespace dNothi.Desktop.UI
                             //string jsondetails = new JavaScriptSerializer().Serialize(dakDetailsResponse.data); 
                             detailsDakUserControl.Dock = DockStyle.Fill;
                             detailsFlowLayoutPanel.Controls.Add(detailsDakUserControl);
-
+                            return;
                         }
                     }
 
-                    if(!InternetConnection.Check())
-                    {
-                        ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা! ");
-                    }
+
+                }
+                if (!InternetConnection.Check())
+                {
+                    ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা! ");
                 }
             }
 
@@ -388,7 +389,7 @@ namespace dNothi.Desktop.UI
 
             dakSendUserControl.ButtonClick += delegate (object sender, EventArgs e) { sliderCrossButton_Click(sender, e); };
             dakSendUserControl.AddDesignationButtonClick += delegate (object sender, EventArgs e) { AddDesignationFromForwardWindow_ButtonClick(dakSendUserControl); };
-            dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false, 0, 0, 0,dakSendUserControl._IsDakLocallyUploaded); };
+            dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false, 0, 0, 0, dakSendUserControl._IsDakLocallyUploaded); };
 
 
             CalPopUpWindow(dakSendUserControl);
@@ -413,7 +414,7 @@ namespace dNothi.Desktop.UI
 
         private void SuccessfullySingleDakForwarded(bool v, int req, int success, int fail, bool _IsDakLocallyUploaded)
         {
-            if(_IsDakLocallyUploaded)
+            if (_IsDakLocallyUploaded)
             {
                 LoadDakInbox();
             }
@@ -421,7 +422,7 @@ namespace dNothi.Desktop.UI
             {
                 LoadDakOutbox();
             }
-           
+
         }
 
         private void GetDakMovementList(int dak_id, string dak_type, int is_copied_dak, DakListRecordsDTO dak)
@@ -632,7 +633,7 @@ namespace dNothi.Desktop.UI
             DakListOutboxResponse dakListOutboxResponse = _dakOutboxService.GetDakOutbox(dakListUserParam);
 
             List<DakListRecordsDTO> dakListRecordsDTOs = new List<DakListRecordsDTO>();
-           
+
             if (pageNumber == 1)
             {
                 dakListRecordsDTOs = _dakuploadservice.GetPendingDakUpload(false);
@@ -640,7 +641,7 @@ namespace dNothi.Desktop.UI
                 {
                     foreach (DakListRecordsDTO dakListRecordsDTO in dakListRecordsDTOs)
                     {
-                     
+
                         LoadDakSingleOutboxinPanel(dakListRecordsDTO);
                     }
                 }
@@ -650,13 +651,13 @@ namespace dNothi.Desktop.UI
 
 
 
-            if (dakListOutboxResponse!=null && dakListOutboxResponse.status == "success")
+            if (dakListOutboxResponse != null && dakListOutboxResponse.status == "success")
             {
 
                 if (dakListOutboxResponse.data.records.Count > 0)
                 {
                     Pagination(dakListOutboxResponse.data.records.Count, dakListOutboxResponse.data.total_records);
-                   
+
                     LoadDakOutboxinPanel(dakListOutboxResponse.data.records);
                     return;
                 }
@@ -687,10 +688,10 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             DakListOutboxResponse dakListOutboxResponse = _dakOutboxService.GetDakOutbox(dakListUserParam, searchParam);
-            
-         
 
-         
+
+
+
             if (dakListOutboxResponse.status == "success")
             {
 
@@ -699,19 +700,19 @@ namespace dNothi.Desktop.UI
                     LoadDakOutboxinPanel(dakListOutboxResponse.data.records);
                     return;
                 }
-                    
+
 
             }
-           
 
 
-            
-                noDakTableLayoutPanel.Visible=true;
-            
-                
 
 
-           
+            noDakTableLayoutPanel.Visible = true;
+
+
+
+
+
         }
 
         private void LoadDakOutboxinPanel(List<DakListRecordsDTO> dakLists)
@@ -727,8 +728,8 @@ namespace dNothi.Desktop.UI
 
 
             }
-           
-           
+
+
         }
 
         private void LoadDakSingleOutboxinPanel(DakListRecordsDTO dakListInboxRecordsDTO)
@@ -750,7 +751,7 @@ namespace dNothi.Desktop.UI
             dakOutboxUserControl.sender = dakListInboxRecordsDTO.dak_origin.sender_name;
 
 
-            dakOutboxUserControl.receiver =dakListInboxRecordsDTO.dak_origin.receiving_officer_name;
+            dakOutboxUserControl.receiver = dakListInboxRecordsDTO.dak_origin.receiving_officer_name;
             dakOutboxUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
             dakOutboxUserControl.dakSecurityIconValue = dakListInboxRecordsDTO.dak_user.dak_security;
             dakOutboxUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
@@ -759,12 +760,12 @@ namespace dNothi.Desktop.UI
             dakOutboxUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
             dakOutboxUserControl.DakResendButton += delegate (object sender, EventArgs e) { DakResndButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
             dakOutboxUserControl.dak_Tags = dakListInboxRecordsDTO.dak_Tags;
-           
+
             DakCatagoryList dakCatagoryList = new DakCatagoryList();
             dakCatagoryList.isOutbox = true;
 
-           
-            if(dakListInboxRecordsDTO.dak_user.last_movement_date=="")
+
+            if (dakListInboxRecordsDTO.dak_user.last_movement_date == "")
             {
                 dakOutboxUserControl.isOfflineDak = true;
             }
@@ -794,7 +795,7 @@ namespace dNothi.Desktop.UI
 
             UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, dakOutboxUserControl);
 
-           
+
 
         }
 
@@ -809,7 +810,7 @@ namespace dNothi.Desktop.UI
                 ErrorMessage("ইন্টারনেট সংযোগের কারণে আপলোড ব্যর্থ হয়েছে!");
             }
 
-           
+
 
         }
 
@@ -885,7 +886,7 @@ namespace dNothi.Desktop.UI
         private void LoadPotroTemplate()
         {
             PotroTemplateResponse potroTemplateResponse = _dakListService.GetPotroTemplate(_dakuserparam);
-            if (potroTemplateResponse !=null && potroTemplateResponse.status == "success")
+            if (potroTemplateResponse != null && potroTemplateResponse.status == "success")
             {
                 if (potroTemplateResponse.data.Count > 0)
                 {
@@ -1056,16 +1057,16 @@ namespace dNothi.Desktop.UI
 
 
         }
-    
+
         private void LoadDakInboxinPanel(List<DakListRecordsDTO> dakLists)
         {
-            
+
             dakBodyFlowLayoutPanel.Controls.Clear();
             foreach (DakListRecordsDTO dakListInboxRecordsDTO in dakLists)
             {
                 LoadSingleDakInboxinPanel(dakListInboxRecordsDTO);
             }
-          
+
         }
 
         private void DakTagShow_ButtonClick(List<DakTagDTO> dak_Tags)
@@ -1228,7 +1229,7 @@ namespace dNothi.Desktop.UI
 
 
             DakArchiveResponse dakArchiveResponse = _dakArchiveService.GetDakArcivedResponse(_dakuserparam, dakid, dak_type, is_copied_dak);
-            if(dakArchiveResponse.message=="Local")
+            if (dakArchiveResponse.message == "Local")
             {
                 SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি আর্কাইভ করা হবে");
                 LoadDakInbox();
@@ -1261,7 +1262,7 @@ namespace dNothi.Desktop.UI
             form.dakid = dakid;
             form.is_copied_dak = is_copied_dak;
             form.dakSubject = dak_subject;
-            form.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { SucessfullyDakNothivukto(form._dakNothiteUposthapitoLocally, form._noteSelected, form._nothiBranch, form._nothiName); };
+            form.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { SucessfullyDakNothivukto(form._dakNothiteUposthapitoLocally, form._noteSelected, form._nothiBranch, form._nothiName, form._nothiAllListDTO); };
 
 
             CalPopUpWindow(form);
@@ -1271,51 +1272,116 @@ namespace dNothi.Desktop.UI
 
         }
 
-        private void SucessfullyDakNothivukto(bool dakNothiteUposthapitoLocally, JsonParser.Entity.Nothi.NoteNothiDTO _noteSelected, string _nothiBranch, string _nothiName)
+        private void SucessfullyDakNothivukto(bool dakNothiteUposthapitoLocally, JsonParser.Entity.Nothi.NoteNothiDTO _noteSelected, string _nothiBranch, string _nothiName, NothiListAllRecordsDTO _nothiAllListDTO)
         {
-           if(dakNothiteUposthapitoLocally)
+            if (dakNothiteUposthapitoLocally)
             {
                 LoadDakInbox();
             }
-           else
+            else
             {
 
                 LoadDakNothivukto();
             }
 
-           // var form = FormFactory.Create<Note>();
-           // _dakuserparam = _userService.GetLocalDakUserParam();
-           // form.noteIdfromNothiInboxNoteShomuho = _noteSelected.note_id.ToString();
-           //// form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+            var form = FormFactory.Create<Note>();
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            form.noteIdfromNothiInboxNoteShomuho = _noteSelected.note_id.ToString();
+            // form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
 
-           // NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
-           // form.nothiNo = nothiListRecords.nothi_no;
-           // form.nothiShakha = nothiListRecords.office_unit_name + " " + _dakuserparam.office_label;
-           // form.nothiSubject = nothiListRecords.subject;
-           // form.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
-           // form.nothiLastDate = nothiListRecordsDTO.last_note_date;
-           // form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+            NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
+            nothiListRecords.id = _nothiAllListDTO.nothi.id;
+            if(_nothiAllListDTO.desk != null)
+            {
+                nothiListRecords.issue_date = _nothiAllListDTO.desk.issue_date;
+                nothiListRecords.note_count = _nothiAllListDTO.desk.note_count;
+                nothiListRecords.note_current_status = _nothiAllListDTO.desk.note_current_status;
+                nothiListRecords.priority = _nothiAllListDTO.desk.priority.ToString();
 
-           // //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
-           // //totalnothi.ToString();
-           // form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
+            }
+            if(_nothiAllListDTO.nothi != null)
+            {
+                nothiListRecords.last_note_date = _nothiAllListDTO.nothi.last_note_date;
 
-           // NoteView noteView = new NoteView();
-           // noteView.totalNothi = noteListDataRecordNoteDTO.note_no.ToString();
-           // noteView.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
-           // noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
-           // noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
-           // noteView.checkBox = "1";
-           // noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+                nothiListRecords.nothi_class = _nothiAllListDTO.nothi.nothi_class;
+                nothiListRecords.nothi_no = _nothiAllListDTO.nothi.nothi_no;
+                nothiListRecords.office_designation_name = _nothiAllListDTO.nothi.office_designation_name;
+                nothiListRecords.office_id = _nothiAllListDTO.nothi.office_id;
+                nothiListRecords.office_name = _nothiAllListDTO.nothi.office_name;
+                nothiListRecords.office_unit_id = _nothiAllListDTO.nothi.office_unit_id;
+                nothiListRecords.office_unit_name = _nothiAllListDTO.nothi.office_unit_name;
+                nothiListRecords.office_unit_organogram_id = _nothiAllListDTO.nothi.office_unit_organogram_id;
+                nothiListRecords.subject = _nothiAllListDTO.nothi.subject;
 
-           // //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
-           // //form.loadNoteData(notedata);
-           // form.loadNothiInboxRecords(nothiListRecordsDTO);
-           // form.loadNoteView(noteView);
-           // form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
+            }
+
+            //nothiListRecords.nothi_type = _nothiAllListDTO.nothi.;
+            NoteView noteView = new NoteView();
+            //
+            form.nothiNo = nothiListRecords.nothi_no;
+            form.nothiShakha = nothiListRecords.office_unit_name + " " + _dakuserparam.office_label;
+            form.nothiSubject = nothiListRecords.subject;
+            form.noteSubject = _noteSelected.note_subject;
+            form.nothiLastDate = nothiListRecords.last_note_date;
+
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, _nothiAllListDTO.nothi.id.ToString(), "all");
+            noteView.totalNothi = "0";
+
+           NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
+            try
+            {
+
+                if (nothiInboxNote.status == "success")
+                {
+
+                    if (nothiInboxNote.data.records.Count > 0)
+                    {
+
+                        nothiListInboxNoteRecordsDTO = nothiInboxNote.data.records.FirstOrDefault(a => a.note.nothi_note_id == _nothiAllListDTO.nothi.id);
+
+                        form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+                        noteView.totalNothi = nothiInboxNote.data.records.Count.ToString();
 
 
-           // form.ShowDialog();
+
+                        //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
+                        //form.loadNoteData(notedata);
+                        form.noteTotal = nothiInboxNote.data.records.Count.ToString();
+
+                    }
+                }
+
+
+            }
+            catch
+            {
+
+            }
+
+
+
+
+            //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
+            //totalnothi.ToString();
+            form.office = "( " + nothiListRecords.office_name + " " + nothiListRecords.last_note_date + ")";
+
+
+            noteView.noteSubject = _noteSelected.note_subject;
+            noteView.nothiLastDate = nothiListRecords.last_note_date;
+            noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
+            noteView.checkBox = "1";
+            noteView.nothiNoteID = Convert.ToInt32(_noteSelected.note_id);
+
+            //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
+            //form.loadNoteData(notedata);
+            form.loadNothiInboxRecords(nothiListRecords);
+            form.loadNoteView(noteView);
+
+
+
+
+
+            form.ShowDialog();
         }
 
         private void SucessfullyDakNothijato(bool dakNothijatoLocally)
@@ -1329,7 +1395,7 @@ namespace dNothi.Desktop.UI
             {
                 LoadDakNothijato();
             }
-        } 
+        }
 
 
         private void ReloadBodyPanel()
@@ -1610,11 +1676,14 @@ namespace dNothi.Desktop.UI
             dakNothivuktoUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
             dakNothivuktoUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
 
+            dakNothivuktoUserControl.nothiNo = dakListInboxRecordsDTO.nothi.nothi_no;
+
+
             DakCatagoryList dakCatagoryList = new DakCatagoryList();
             dakCatagoryList.isNothivukto = true;
 
 
-             if (_dakFolderService.Is_Locally_DakTagged(dakListInboxRecordsDTO.dak_user.dak_id))
+            if (_dakFolderService.Is_Locally_DakTagged(dakListInboxRecordsDTO.dak_user.dak_id))
             {
                 dakNothivuktoUserControl.is_Tag = true;
             }
@@ -1636,6 +1705,8 @@ namespace dNothi.Desktop.UI
             }
 
 
+            dakNothivuktoUserControl.NothiDetailsShow += delegate (object sender, EventArgs e) { NothiDetailsShow_ButtonClick(dakListInboxRecordsDTO); };
+
 
             dakNothivuktoUserControl.dak_Tags = dakListInboxRecordsDTO.dak_Tags;
 
@@ -1649,13 +1720,90 @@ namespace dNothi.Desktop.UI
             }
             dakNothivuktoUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
 
-            UIDesignCommonMethod.AddRowinTable(bodyTableLayoutPanel, dakNothivuktoUserControl);
+            UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, dakNothivuktoUserControl);
 
 
 
 
 
 
+        }
+
+        private void NothiDetailsShow_ButtonClick(DakListRecordsDTO dakListInboxRecordsDTO)
+        {
+            var form = FormFactory.Create<Note>();
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            form.noteIdfromNothiInboxNoteShomuho = dakListInboxRecordsDTO.nothi.nothi_note_id.ToString();
+            // form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+
+            NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
+            nothiListRecords.id = dakListInboxRecordsDTO.nothi.nothi_id;
+
+
+            nothiListRecords.nothi_no = dakListInboxRecordsDTO.nothi.nothi_no;
+            nothiListRecords.office_id = dakListInboxRecordsDTO.nothi.office_id;
+            nothiListRecords.office_name = dakListInboxRecordsDTO.nothi.office_name;
+            nothiListRecords.office_unit_id = dakListInboxRecordsDTO.nothi.office_unit_id;
+            nothiListRecords.office_unit_name = dakListInboxRecordsDTO.nothi.office_unit_name;
+
+            nothiListRecords.subject = dakListInboxRecordsDTO.nothi.subject;
+
+
+            form.nothiNo = dakListInboxRecordsDTO.nothi.nothi_no;
+            form.nothiShakha = dakListInboxRecordsDTO.nothi.office_unit_name + " " + dakListInboxRecordsDTO.nothi.office_name;
+            form.nothiSubject = dakListInboxRecordsDTO.nothi.subject;
+            NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
+
+            NoteView noteView = new NoteView();
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, dakListInboxRecordsDTO.nothi.nothi_id.ToString(), "all");
+
+            if (nothiInboxNote.status == "success")
+            {
+
+                if (nothiInboxNote.data.records.Count > 0)
+                {
+                    nothiListInboxNoteRecordsDTO = nothiInboxNote.data.records.FirstOrDefault(a => a.note.nothi_note_id == dakListInboxRecordsDTO.nothi.nothi_note_id);
+                    form.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+                    nothiListRecords.note_count = nothiInboxNote.data.records.Count;
+                    form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+
+                    nothiListRecords.office_unit_organogram_id = nothiListInboxNoteRecordsDTO.nothi.office_unit_organogram_id;
+                    nothiListRecords.priority = nothiListInboxNoteRecordsDTO.desk.priority.ToString();
+                    nothiListRecords.note_current_status = nothiListInboxNoteRecordsDTO.desk.note_current_status;
+                    nothiListRecords.nothi_class = nothiListInboxNoteRecordsDTO.nothi.nothi_class;
+                    nothiListRecords.office_designation_name = nothiListInboxNoteRecordsDTO.nothi.office_designation_name;
+                    nothiListRecords.issue_date = nothiListInboxNoteRecordsDTO.desk.issue_date;
+                    //   nothiListRecords.last_note_date = nothiListInboxNoteRecordsDTO.to.last_note_date;
+
+
+                    noteView.totalNothi = nothiListInboxNoteRecordsDTO.nothi.nothi_no.ToString();
+                    noteView.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+                    noteView.checkBox = "1";
+                    noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+
+                    //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
+                    //  form.loadNoteData();
+                    form.noteTotal = nothiInboxNote.data.records.Count.ToString();
+
+                }
+            }
+            noteView.officerInfo = _dakuserparam.officer + "," + nothiListInboxNoteRecordsDTO.nothi.office_designation_name + "," + nothiListInboxNoteRecordsDTO.nothi.office_unit_name + "," + nothiListInboxNoteRecordsDTO.nothi.office_name;
+
+            noteView.nothiLastDate = nothiListInboxNoteRecordsDTO.nothi.nothi_created_date;
+            form.nothiLastDate = nothiListInboxNoteRecordsDTO.nothi.nothi_created_date;
+            form.office = "( " + nothiListInboxNoteRecordsDTO.nothi.office_name + " " + nothiListInboxNoteRecordsDTO.nothi.nothi_created_date + ")";
+
+
+            form.loadNothiInboxRecords(nothiListRecords);
+            form.loadNoteView(noteView);
+
+
+
+            //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
+            //totalnothi.ToString();
+
+
+            form.ShowDialog();
         }
 
         private void officerSourceCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1726,7 +1874,7 @@ namespace dNothi.Desktop.UI
 
 
             var dakArchive = _dakArchiveService.GetDakList(dakListUserParam);
-            if (dakArchive!=null && dakArchive.status == "success")
+            if (dakArchive != null && dakArchive.status == "success")
             {
                 _dakArchiveService.SaveorUpdateDakArchive(dakArchive);
                 if (dakArchive.data.records.Count > 0)
@@ -1736,12 +1884,12 @@ namespace dNothi.Desktop.UI
                     return;
 
                 }
-                
+
 
             }
-                
-                noDakTableLayoutPanel.Visible = true;
-            
+
+            noDakTableLayoutPanel.Visible = true;
+
 
 
         }
@@ -1794,9 +1942,9 @@ namespace dNothi.Desktop.UI
                 LoadDakSingleArchiveinPanel(dakListInboxRecordsDTO);
 
             }
-   
-            
-           
+
+
+
 
 
 
@@ -1884,7 +2032,7 @@ namespace dNothi.Desktop.UI
                     LoadDakArchive();
 
                 }
-                else if(revertResponse.status == "success")
+                else if (revertResponse.status == "success")
                 {
                     SuccessMessage(revertResponse.data);
                     LoadDakArchive();
@@ -1909,7 +2057,7 @@ namespace dNothi.Desktop.UI
                     SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ফেরত আনা হবে");
                     LoadDakNothivukto();
                 }
-                else if(revertResponse.status == "success")
+                else if (revertResponse.status == "success")
                 {
                     SuccessMessage(revertResponse.data);
                     LoadDakNothivukto();
@@ -2095,10 +2243,10 @@ namespace dNothi.Desktop.UI
             foreach (DakListRecordsDTO dakListInboxRecordsDTO in dakLists)
             {
                 LoadDakSingleNothijatoinPanel(dakListInboxRecordsDTO);
-               
+
             }
-            
-            
+
+
 
 
 
@@ -2172,7 +2320,7 @@ namespace dNothi.Desktop.UI
 
         }
 
-     
+
         private void nothijatoButton_Click(object sender, EventArgs e)
         {
             RefreshPagination();
@@ -2554,7 +2702,7 @@ namespace dNothi.Desktop.UI
 
 
 
-            if ( dakListKhosraResponse!=null && dakListKhosraResponse.status == "success")
+            if (dakListKhosraResponse != null && dakListKhosraResponse.status == "success")
             {
                 //Save This  
 
@@ -2563,17 +2711,17 @@ namespace dNothi.Desktop.UI
                     List<DakListRecordsDTO> dakListRecordsDTOsWithoutLocallyEdited = new List<DakListRecordsDTO>();
                     dakListRecordsDTOsWithoutLocallyEdited = dakListKhosraResponse.data.records.Where(a => !dakListRecordsDTOs.Any(f => f.dak_id_Remote == a.dak_user.dak_id)).ToList();
 
-                    if(dakListRecordsDTOsWithoutLocallyEdited.Count>0)
+                    if (dakListRecordsDTOsWithoutLocallyEdited.Count > 0)
                     {
                         Pagination(dakListRecordsDTOsWithoutLocallyEdited.Count, dakListKhosraResponse.data.total_records);
                         LoadDakKhosrainPanel(dakListRecordsDTOsWithoutLocallyEdited);
                         return;
                     }
-                   
+
                 }
-                
+
             }
-            if(dakListRecordsDTOs.Count<=0)
+            if (dakListRecordsDTOs.Count <= 0)
             {
                 noDakTableLayoutPanel.Visible = true;
             }
@@ -2651,8 +2799,8 @@ namespace dNothi.Desktop.UI
                 draftedDakUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
                 draftedDakUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
                 draftedDakUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
-                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, prerok, is_Daptorik, draftedDakUserControl.receiver, draftedDakUserControl.subject,false); };
-                draftedDakUserControl.DraftedDakDeleteButtonClick += delegate (object sender, EventArgs e) { DraftedDakDelete_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak,false); };
+                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, prerok, is_Daptorik, draftedDakUserControl.receiver, draftedDakUserControl.subject, false); };
+                draftedDakUserControl.DraftedDakDeleteButtonClick += delegate (object sender, EventArgs e) { DraftedDakDelete_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, false); };
                 draftedDakUserControl.DraftedDakEditButtonClick += delegate (object sender, EventArgs e) { DraftedDakEdit_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 draftedDakUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
 
@@ -2661,7 +2809,7 @@ namespace dNothi.Desktop.UI
                 draftedDakUserControls.Add(draftedDakUserControl);
 
             }
-            
+
             dakBodyFlowLayoutPanel.AutoScroll = true;
 
 
@@ -2709,18 +2857,18 @@ namespace dNothi.Desktop.UI
             draftedDakUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
             draftedDakUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
             draftedDakUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
-           
+
             if (dakListInboxRecordsDTO.dak_user.last_movement_date == "")
             {
                 draftedDakUserControl.isOfflineDak = true;
-                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, prerok, is_Daptorik, draftedDakUserControl.receiver, draftedDakUserControl.subject,true); };
-                draftedDakUserControl.DraftedDakDeleteButtonClick += delegate (object sender, EventArgs e) { DraftedDakDelete_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak,true); };
+                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, prerok, is_Daptorik, draftedDakUserControl.receiver, draftedDakUserControl.subject, true); };
+                draftedDakUserControl.DraftedDakDeleteButtonClick += delegate (object sender, EventArgs e) { DraftedDakDelete_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, true); };
 
             }
             else
             {
-                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, prerok, is_Daptorik, draftedDakUserControl.receiver, draftedDakUserControl.subject,false); };
-                draftedDakUserControl.DraftedDakDeleteButtonClick += delegate (object sender, EventArgs e) { DraftedDakDelete_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak,false); };
+                draftedDakUserControl.DraftedDakSendButtonClick += delegate (object sender, EventArgs e) { DraftedDakSend_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, prerok, is_Daptorik, draftedDakUserControl.receiver, draftedDakUserControl.subject, false); };
+                draftedDakUserControl.DraftedDakDeleteButtonClick += delegate (object sender, EventArgs e) { DraftedDakDelete_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak, false); };
 
                 draftedDakUserControl.DraftedDakEditButtonClick += delegate (object sender, EventArgs e) { DraftedDakEdit_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 draftedDakUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
@@ -2868,7 +3016,7 @@ namespace dNothi.Desktop.UI
             }
         }
 
-        private void DraftedDakSend_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak, string prerok, bool is_Daptorik, string receiver, string sub,bool is_local)
+        private void DraftedDakSend_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak, string prerok, bool is_Daptorik, string receiver, string sub, bool is_local)
         {
 
             DakUploadResponse dakSendResponse = _dakuploadservice.GetDraftedDakSendResponse(_dakuserparam, dak_id, dak_type, is_copied_dak, is_local);
@@ -3265,7 +3413,7 @@ namespace dNothi.Desktop.UI
                 dakSendUserControl.dakListRecordsDTO = daks;
                 dakSendUserControl.dak_List_User_Param = dakListUserParam;
                 dakSendUserControl.AddDesignationButtonClick += delegate (object snd, EventArgs eve) { AddDesignationUserControl_ButtonClick(sender, e); };
-                dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._IsDakLocallyUploaded) ; };
+                dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._IsDakLocallyUploaded); };
 
 
 
@@ -3323,7 +3471,7 @@ namespace dNothi.Desktop.UI
                 {
                     multipleDakAction.isNothivukto = true;
                     multipleDakAction.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakNothivukto(); };
-                    
+
                 }
                 multipleDakAction.dakListRecordsDTO = daks;
 
@@ -3408,7 +3556,7 @@ namespace dNothi.Desktop.UI
                 moduleNothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
 
             }
-            catch(Exception Ex)
+            catch (Exception Ex)
             {
 
             }
@@ -3453,7 +3601,7 @@ namespace dNothi.Desktop.UI
             selectDakBoxHolderPanel.Visible = true;
             SetDefaultFont(this.Controls);
 
-           
+
 
         }
 
@@ -4288,11 +4436,11 @@ namespace dNothi.Desktop.UI
             pageStart = pageStart + NothiCommonStaticValue.pageLimit;
             pageEnd = pageEnd + NothiCommonStaticValue.pageLimit;
 
-            
+
 
             RefreshdDakList();
 
-            if(noDakTableLayoutPanel.Visible)
+            if (noDakTableLayoutPanel.Visible)
             {
                 pageNumber = pageNumber - 1;
                 pageStart = pageStart - NothiCommonStaticValue.pageLimit;
@@ -4300,21 +4448,21 @@ namespace dNothi.Desktop.UI
 
             }
         }
-         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            
-            
-               
+
+
+
             if (InternetConnection.Check())
-                {
+            {
 
                 _syncerServices.SyncLocaltoRemoteData();
                 if (onlineStatus.IconColor != Color.LimeGreen)
-                    {
+                {
 
 
 
-                        if(IsHandleCreated)
+                    if (IsHandleCreated)
                     {
                         onlineStatus.Invoke(new MethodInvoker(delegate
 
@@ -4324,12 +4472,12 @@ namespace dNothi.Desktop.UI
 
                         }));
                     }
-                        else
+                    else
                     {
 
                     }
 
-                    
+
 
 
                     //dakUploadBackgorundWorker.RunWorkerAsync();
@@ -4340,9 +4488,9 @@ namespace dNothi.Desktop.UI
 
 
             }
-                else
-                {
-                   if(IsHandleCreated)
+            else
+            {
+                if (IsHandleCreated)
                 {
                     onlineStatus.Invoke(new MethodInvoker(delegate
 
@@ -4359,50 +4507,50 @@ namespace dNothi.Desktop.UI
 
 
 
-                }
+            }
 
 
 
 
 
-                
+
         }
 
-       
-        
+
+
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
-           if (pageNumber == 1 && _currentDakCatagory._isOutbox == true && LocalChangeData._isDakUploaded)
+            if (pageNumber == 1 && _currentDakCatagory._isOutbox == true && LocalChangeData._isDakUploaded)
             {
                 LoadDakOutbox();
             }
 
-           else if (pageNumber == 1 && _currentDakCatagory._isKhosra == true && LocalChangeData._isDakUploaded)
+            else if (pageNumber == 1 && _currentDakCatagory._isKhosra == true && LocalChangeData._isDakUploaded)
             {
                 LoadDakKhasraList();
             }
-           else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakForwarded)
+            else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakForwarded)
             {
                 LoadDakInbox();
             }
-           else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakArchived)
+            else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakArchived)
             {
                 LoadDakInbox();
             }
-           else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakNothijato)
+            else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakNothijato)
             {
                 LoadDakInbox();
             }
-           else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakNothivukto)
+            else if (_currentDakCatagory._isInbox == true && LocalChangeData._isLocallYDakNothivukto)
             {
                 LoadDakInbox();
             }
-           else if (LocalChangeData._isLocallYDakTagged)
+            else if (LocalChangeData._isLocallYDakTagged)
             {
                 RefreshdDakList();
             }
-           else if(LocalChangeData._isdakArchivedReverted)
+            else if (LocalChangeData._isdakArchivedReverted)
             {
                 LoadDakArchive();
             }
@@ -4422,19 +4570,19 @@ namespace dNothi.Desktop.UI
 
             if (!backgroundWorker1.IsBusy && this.Visible)
             {
-                
-               
+
+
                 backgroundWorker1.RunWorkerAsync();
             }
-           
+
 
         }
     }
 
 
-   
 
-   
+
+
 
 
 }

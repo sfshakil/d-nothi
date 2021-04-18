@@ -28,7 +28,28 @@ namespace dNothi.Services.DakServices
             this._daktype = daktype;
             _dakListService = dakListService;
         }
+        private void SaveOrUpdateDakOutBoxListJsonResponse(DakUserParam dakListUserParam, string responseJson, string searchParam)
+        {
+            DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_outbox_Search == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id && a.searchParameter == searchParam);
 
+            if (dakItemDB != null)
+            {
+                dakItemDB.jsonResponse = responseJson;
+                _dakItem.Update(dakItemDB);
+            }
+            else
+            {
+                DakItem dakItem = new DakItem();
+                dakItem.is_dak_outbox_Search = true;
+                dakItem.searchParameter = searchParam;
+                dakItem.page = dakListUserParam.page;
+                dakItem.designation_id = dakListUserParam.designation_id;
+                dakItem.office_id = dakListUserParam.office_id;
+                dakItem.jsonResponse = responseJson;
+                _dakItem.Insert(dakItem);
+
+            }
+        }
         public DakListOutboxResponse GetDakOutbox(DakUserParam dakListUserParam)
         {
             DakListOutboxResponse dakListOutboxResponse = new DakListOutboxResponse();
@@ -148,6 +169,20 @@ namespace dNothi.Services.DakServices
 
         public DakListOutboxResponse GetDakOutbox(DakUserParam dakListUserParam, string searchParam)
         {
+            DakListOutboxResponse dakListOutboxResponse = new DakListOutboxResponse();
+            if (!InternetConnection.Check())
+            {
+                var dakList = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_outbox_Search == true && a.searchParameter==searchParam && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (dakList != null)
+                {
+                    dakListOutboxResponse = JsonConvert.DeserializeObject<DakListOutboxResponse>(dakList.jsonResponse);
+
+                }
+                return dakListOutboxResponse;
+            }
+
+
             try
             {
                 var dakOutboxApi = new RestClient(GetAPIDomain() + GetDakOutboxEndpoint());
@@ -165,7 +200,10 @@ namespace dNothi.Services.DakServices
 
 
                 var responseJson = Response.Content;
-                DakListOutboxResponse dakListOutboxResponse = JsonConvert.DeserializeObject<DakListOutboxResponse>(responseJson);
+                SaveOrUpdateDakOutBoxListJsonResponse(dakListUserParam, responseJson,searchParam);
+
+
+                dakListOutboxResponse = JsonConvert.DeserializeObject<DakListOutboxResponse>(responseJson);
                 return dakListOutboxResponse;
             }
             catch (Exception ex)

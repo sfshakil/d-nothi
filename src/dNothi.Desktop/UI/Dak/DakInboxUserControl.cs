@@ -30,6 +30,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     uploadIconButton.Visible = true;
                     MyToolTip.SetToolTip(uploadIconButton, "ট্যাগ করা হচ্ছে");
+                    dakActionPanel.Visible = false;
                 }
 
 
@@ -47,6 +48,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     uploadIconButton.Visible = true;
                     MyToolTip.SetToolTip(uploadIconButton, "ফেরত নেওয়া হচ্ছে");
+                    dakActionPanel.Visible = false;
                 }
 
 
@@ -61,6 +63,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     uploadIconButton.Visible = true;
                     MyToolTip.SetToolTip(uploadIconButton, "প্রেরণ হচ্ছে");
+                    dakActionPanel.Visible = false;
                 }
             
             
@@ -78,6 +81,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     uploadIconButton.Visible = true;
                     MyToolTip.SetToolTip(uploadIconButton, "আর্কাইভ হচ্ছে");
+                    dakActionPanel.Visible = false;
                 }
 
 
@@ -95,6 +99,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     uploadIconButton.Visible = true;
                     MyToolTip.SetToolTip(uploadIconButton, "নথিজাত হচ্ছে");
+                    dakActionPanel.Visible = false;
                 }
 
 
@@ -112,6 +117,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     uploadIconButton.Visible = true;
                     MyToolTip.SetToolTip(uploadIconButton, "নথিতে উপস্থাপন হচ্ছে");
+                    dakActionPanel.Visible = false;
                 }
 
 
@@ -472,7 +478,10 @@ namespace dNothi.Desktop.UI.Dak
             if (MouseIsOverControl())
             {
                 this.BackColor = Color.FromArgb(243, 243, 243);
-                dakActionPanel.Visible = true;
+                if (!uploadIconButton.Visible)
+                {
+                    dakActionPanel.Visible = true;
+                }
             }
             else
             {
