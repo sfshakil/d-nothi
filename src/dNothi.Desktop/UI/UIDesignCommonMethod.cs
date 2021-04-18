@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,6 +11,26 @@ namespace dNothi.Desktop.UI
 {
    public class UIDesignCommonMethod
     {
+
+        public static void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public static void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
+
         public static void AddRowinTable(TableLayoutPanel tableLayoutPanel, UserControl userControl)
         {
 

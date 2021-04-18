@@ -18,7 +18,29 @@ namespace dNothi.Desktop.UI.Dak
         {
             InitializeComponent();
         }
+        public void invisible()
+        {
+          rightArrowIcon.Visible = false;
+          lbToOfficer.Visible = false;
+          eyeIcon.Visible = false;
+          dateLabel.Visible = false;
+
+            btnSchedule.Visible = true;
+        }
+
         private string _note_no;
+        public string _note_ID;
+        public string note_ID
+        {
+            get { return _note_ID; }
+            set { _note_ID = value; }
+        }
+        public long _nothi_id;
+        public long nothi_id
+        {
+            get { return _nothi_id; }
+            set { _nothi_id = value; }
+        }
         private string _note_subject;
         private string _deskofficer;
         private string _toofficer;

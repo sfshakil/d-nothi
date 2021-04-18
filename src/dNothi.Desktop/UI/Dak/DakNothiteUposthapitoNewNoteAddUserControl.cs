@@ -38,9 +38,10 @@ namespace dNothi.Desktop.UI.Dak
             //{
 
                 _noteSubject = newNoteTextBox.Text;
-                 this.Hide();
-                if (this.SaveNoteButtonClick != null)
-                    this.SaveNoteButtonClick(sender, e);
+            if (this.SaveNoteButtonClick != null)
+                this.SaveNoteButtonClick(sender, e);
+            this.Hide();
+             
             
         }
     }
