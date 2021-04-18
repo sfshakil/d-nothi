@@ -20,6 +20,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int nothi_class { get; set; }
         public string modified { get; set; }
         public string last_note_date { get; set; }
+        public string nothi_type { get; set; }
 
 
 

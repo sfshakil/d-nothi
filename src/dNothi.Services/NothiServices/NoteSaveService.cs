@@ -116,9 +116,9 @@ namespace dNothi.Services.NothiServices
                                     foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
                                     {
                                         NothiListRecordsDTO nothiListRecordsDTO1 = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
-                                        if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id)
+                                        NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                                        if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id && nothiListRecordsDTO1.local_nothi_type == "all" && noteSaveItemAction.Id == newnotedata.note_id)
                                         {
-                                            NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
                                             nothiListRecordsDTO1.id = noteSaveItemAction.nothi_id;
                                             newnotedata.note_id = noteSaveResponse.data.note_id;
                                             onuchhedSaveItemAction.newnotedataJson = JsonConvert.SerializeObject(newnotedata);
@@ -155,7 +155,7 @@ namespace dNothi.Services.NothiServices
                                     foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
                                     {
                                         NothiListRecordsDTO nothiListRecordsDTO1 = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
-                                        if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id && nothiListRecordsDTO1.office_id == 0)
+                                        if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id && nothiListRecordsDTO1.office_id == 0 && nothiListRecordsDTO1.local_nothi_type== "Inbox")
                                         {
                                             NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
                                             newnotedata.note_id = noteSaveResponse.data.note_id;
@@ -188,7 +188,7 @@ namespace dNothi.Services.NothiServices
                                     foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
                                     {
                                         NothiListRecordsDTO nothiListRecordsDTO1 = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
-                                        if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id && nothiListRecordsDTO1.office_id == 0)
+                                        if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id && nothiListRecordsDTO1.office_id == 0 && nothiListRecordsDTO1.local_nothi_type == "sent")
                                         {
                                             NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
                                             newnotedata.note_id = noteSaveResponse.data.note_id;
