@@ -24,6 +24,31 @@ namespace dNothi.Services.DakServices
             _dakItem = dakItem;
             _dakListService = dakListService;
         }
+
+        private void SaveOrUpdateDakSortedListJsonResponse(DakUserParam dakListUserParam, string responseJson, string searchParam)
+        {
+            DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_sorted_Search == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id && a.searchParameter == searchParam);
+
+            if (dakItemDB != null)
+            {
+                dakItemDB.jsonResponse = responseJson;
+                _dakItem.Update(dakItemDB);
+            }
+            else
+            {
+                DakItem dakItem = new DakItem();
+                dakItem.is_dak_sorted_Search = true;
+                dakItem.searchParameter = searchParam;
+                dakItem.page = dakListUserParam.page;
+                dakItem.designation_id = dakListUserParam.designation_id;
+                dakItem.office_id = dakListUserParam.office_id;
+                dakItem.jsonResponse = responseJson;
+                _dakItem.Insert(dakItem);
+
+            }
+        }
+
+
         private void SaveOrUpdateDakOutBoxListJsonResponse(DakUserParam dakListUserParam, string responseJson)
         {
             DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_sorted == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
@@ -138,6 +163,19 @@ namespace dNothi.Services.DakServices
 
         public DakListSortedResponse GetDakList(DakUserParam dakListUserParam, string searchParam)
         {
+            DakListSortedResponse dakListSortedResponse = new DakListSortedResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakList = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_sorted_Search == true && a.searchParameter==searchParam && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (dakList != null)
+                {
+                    dakListSortedResponse = JsonConvert.DeserializeObject<DakListSortedResponse>(dakList.jsonResponse);
+
+                }
+                return dakListSortedResponse;
+            }
+
             try
             {
                 var dakSortedApi = new RestClient(GetAPIDomain() + GetDakListSortedEndpoint());
@@ -155,9 +193,8 @@ namespace dNothi.Services.DakServices
 
 
                 var dakSortedResponseJson = dakSortedResponse.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakListSortedResponse dakListSortedResponse = JsonConvert.DeserializeObject<DakListSortedResponse>(dakSortedResponseJson);
+                SaveOrUpdateDakSortedListJsonResponse(dakListUserParam, dakSortedResponseJson, searchParam);
+                dakListSortedResponse = JsonConvert.DeserializeObject<DakListSortedResponse>(dakSortedResponseJson);
                 return dakListSortedResponse;
             }
             catch (Exception ex)

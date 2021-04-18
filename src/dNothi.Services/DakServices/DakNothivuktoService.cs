@@ -25,12 +25,12 @@ namespace dNothi.Services.DakServices
     {
         IRepository<DakItem> _dakItem;
         IRepository<DakType> _daktype;
-        
+
         IDakListService _dakListService { get; set; }
 
         IRepository<DakItemAction> _dakItemAction;
         IUserService _userService { get; set; }
-        public DakNothivuktoService(IUserService userService, IRepository<DakItemAction> dakItemAction,IRepository<DakItem> dakItem, IRepository<DakType> daktype, IDakListService dakListService)
+        public DakNothivuktoService(IUserService userService, IRepository<DakItemAction> dakItemAction, IRepository<DakItem> dakItem, IRepository<DakType> daktype, IDakListService dakListService)
         {
             _dakItemAction = dakItemAction;
             _userService = userService;
@@ -40,10 +40,31 @@ namespace dNothi.Services.DakServices
             _dakListService = dakListService;
         }
 
+        private void SaveOrUpdateDakNothivuktoListJsonResponse(DakUserParam dakListUserParam, string responseJson, string searchParam)
+        {
+            DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_Nothivukto_Search == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id && a.searchParameter == searchParam);
 
+            if (dakItemDB != null)
+            {
+                dakItemDB.jsonResponse = responseJson;
+                _dakItem.Update(dakItemDB);
+            }
+            else
+            {
+                DakItem dakItem = new DakItem();
+                dakItem.is_dak_Nothivukto_Search = true;
+                dakItem.searchParameter = searchParam;
+                dakItem.page = dakListUserParam.page;
+                dakItem.designation_id = dakListUserParam.designation_id;
+                dakItem.office_id = dakListUserParam.office_id;
+                dakItem.jsonResponse = responseJson;
+                _dakItem.Insert(dakItem);
+
+            }
+        }
         public bool Is_Locally_Nothivukto(int dak_id)
         {
-            var dakForwardCheck = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.isNothivukto==true);
+            var dakForwardCheck = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.isNothivukto == true);
             if (dakForwardCheck == null)
             {
                 return false;
@@ -70,10 +91,10 @@ namespace dNothi.Services.DakServices
         {
 
 
-           
+
 
             bool isForwarded = false;
-            List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isNothivukto == true && a.localNoteId==0).ToList();
+            List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isNothivukto == true && a.localNoteId == 0).ToList();
             if (dakItemActions != null && dakItemActions.Count > 0)
             {
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
@@ -81,8 +102,8 @@ namespace dNothi.Services.DakServices
                 {
 
                     NoteNothiDTO noteNothiDTO = JsonConvert.DeserializeObject<NoteNothiDTO>(dakItemAction.dak_Action_Json);
-                    
-                    var dakForwardResponse = GetDakNothivuktoResponse(dakUserParam, noteNothiDTO,dakItemAction.dak_id,dakItemAction.dak_type,dakItemAction.is_copied_dak);
+
+                    var dakForwardResponse = GetDakNothivuktoResponse(dakUserParam, noteNothiDTO, dakItemAction.dak_id, dakItemAction.dak_type, dakItemAction.is_copied_dak);
 
                     if (dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status == "success"))
                     {
@@ -104,7 +125,7 @@ namespace dNothi.Services.DakServices
 
 
             bool isForwarded = false;
-          List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isNothivukto == true && a.localNoteId == localNoteId).ToList();
+            List<DakItemAction> dakItemActions = _dakItemAction.Table.Where(a => a.isNothivukto == true && a.localNoteId == localNoteId).ToList();
             if (dakItemActions != null && dakItemActions.Count > 0)
             {
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
@@ -199,7 +220,7 @@ namespace dNothi.Services.DakServices
             }
             try
             {
-                var nothivuktoDakApi = new RestClient(GetAPIDomain()+GetDakListNothivuktoEndpoint());
+                var nothivuktoDakApi = new RestClient(GetAPIDomain() + GetDakListNothivuktoEndpoint());
                 nothivuktoDakApi.Timeout = -1;
                 var nothivuktoDakRequest = new RestRequest(Method.POST);
                 nothivuktoDakRequest.AddHeader("api-version", GetAPIVersion());
@@ -288,12 +309,12 @@ namespace dNothi.Services.DakServices
 
                 var jsonString = new JavaScriptSerializer().Serialize(dakNothivuktoNoteAddParam);
                 nothivuktoNoteAddDakRequest.AddParameter("data", jsonString);
-    
+
                 IRestResponse nothivuktoNoteAddDakResponse = nothivuktoNoteAddDakApi.Execute(nothivuktoNoteAddDakRequest);
 
 
                 var nothivuktoNoteAddDakResponseJson = nothivuktoNoteAddDakResponse.Content;
-                   GetNothivuktoNoteAddResponse noteAddResponse = JsonConvert.DeserializeObject<GetNothivuktoNoteAddResponse>(nothivuktoNoteAddDakResponseJson);
+                GetNothivuktoNoteAddResponse noteAddResponse = JsonConvert.DeserializeObject<GetNothivuktoNoteAddResponse>(nothivuktoNoteAddDakResponseJson);
                 return noteAddResponse;
             }
             catch (Exception ex)
@@ -320,7 +341,7 @@ namespace dNothi.Services.DakServices
 
 
             DakNothivuktoResponse dakNothivuktoResponse = new DakNothivuktoResponse();
-            if (!dNothi.Utility.InternetConnection.Check() || nothi.local_Note_id !=0)
+            if (!dNothi.Utility.InternetConnection.Check() || nothi.local_Note_id != 0)
             {
                 dakNothivuktoResponse.status = "success";
                 dakNothivuktoResponse.message = "Local";
@@ -350,8 +371,8 @@ namespace dNothi.Services.DakServices
             NothivuktoDakSendRequest.AddHeader("api-version", GetOldAPIVersion());
             NothivuktoDakSendRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
             NothivuktoDakSendRequest.AddParameter("cdesk", dakUserParam.json_String);
-          
-            NothivuktoDakSendRequest.AddParameter("daak", "{\"dak_id\":\""+dak_id+"\",\"dak_type\":\""+dak_type+"\",\"is_copied_dak\":"+is_copied_dak+"}");
+
+            NothivuktoDakSendRequest.AddParameter("daak", "{\"dak_id\":\"" + dak_id + "\",\"dak_type\":\"" + dak_type + "\",\"is_copied_dak\":" + is_copied_dak + "}");
             var nothijsonString = new JavaScriptSerializer().Serialize(nothi);
 
 
@@ -359,7 +380,7 @@ namespace dNothi.Services.DakServices
             IRestResponse dakNothivuktoIRestResponse = nothivuktoDakSendAPI.Execute(NothivuktoDakSendRequest);
             var dakNothivuktoResponseJson = dakNothivuktoIRestResponse.Content;
 
-             dakNothivuktoResponse = JsonConvert.DeserializeObject<DakNothivuktoResponse>(dakNothivuktoResponseJson, new JsonSerializerSettings
+            dakNothivuktoResponse = JsonConvert.DeserializeObject<DakNothivuktoResponse>(dakNothivuktoResponseJson, new JsonSerializerSettings
             {
                 Error = HandleDeserializationError
             });
@@ -392,6 +413,7 @@ namespace dNothi.Services.DakServices
                     dakItemAction.is_copied_dak = is_copied_dak;
                     dakItemAction.dak_id = dak_id;
                     dakItemAction.dak_type = dak_type;
+                    dakItemAction.designation_id = dakUserParam.designation_id;
                     // dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
 
                     _dakItemAction.Insert(dakItemAction);
@@ -413,15 +435,15 @@ namespace dNothi.Services.DakServices
                 nothivuktoRevertRequest.AlwaysMultipartFormData = true;
                 nothivuktoRevertRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 nothivuktoRevertRequest.AddParameter("office_id", dakUserParam.office_id);
-                nothivuktoRevertRequest.AddParameter("dak", "{\"dak_id\":\""+dak_id+"\",\"dak_type\":\""+dak_type+"\", \"is_copied_dak\":\""+is_copied_dak+"\"}");
+                nothivuktoRevertRequest.AddParameter("dak", "{\"dak_id\":\"" + dak_id + "\",\"dak_type\":\"" + dak_type + "\", \"is_copied_dak\":\"" + is_copied_dak + "\"}");
 
 
-               
+
                 IRestResponse nothivuktoRevertResponse = nothivuktoRevertDakApi.Execute(nothivuktoRevertRequest);
 
 
                 var nothivuktoRevertResponseJson = nothivuktoRevertResponse.Content;
-                 revertResponse = JsonConvert.DeserializeObject<DakNothivuktoRevertResponse>(nothivuktoRevertResponseJson);
+                revertResponse = JsonConvert.DeserializeObject<DakNothivuktoRevertResponse>(nothivuktoRevertResponseJson);
                 return revertResponse;
             }
             catch (Exception ex)
@@ -432,6 +454,20 @@ namespace dNothi.Services.DakServices
 
         public DakListNothivuktoResponse GetNothivuktoDakList(DakUserParam dakListUserParam, string searchParam)
         {
+            DakListNothivuktoResponse dakListNothivuktoResponse = new DakListNothivuktoResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakList = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_Nothivukto_Search == true && a.searchParameter==searchParam && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (dakList != null)
+                {
+                    dakListNothivuktoResponse = JsonConvert.DeserializeObject<DakListNothivuktoResponse>(dakList.jsonResponse);
+
+                }
+                return dakListNothivuktoResponse;
+            }
+
+
             try
             {
                 var nothivuktoDakApi = new RestClient(GetAPIDomain() + GetDakListNothivuktoEndpoint());
@@ -449,9 +485,8 @@ namespace dNothi.Services.DakServices
 
 
                 var nothivuktoDakResponseJson = nothivuktoDakResponse.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakListNothivuktoResponse dakListNothivuktoResponse = JsonConvert.DeserializeObject<DakListNothivuktoResponse>(nothivuktoDakResponseJson);
+                SaveOrUpdateDakNothivuktoListJsonResponse(dakListUserParam, nothivuktoDakResponseJson,searchParam);
+                dakListNothivuktoResponse = JsonConvert.DeserializeObject<DakListNothivuktoResponse>(nothivuktoDakResponseJson);
                 return dakListNothivuktoResponse;
             }
             catch (Exception ex)

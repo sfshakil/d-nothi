@@ -17,6 +17,7 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakModuleAgotoNothiList : UserControl
     {
+        INothiInboxNoteServices _nothiInboxNote { get; set; }
         private int originalWidth;
         private int originalHeight;
 
@@ -108,10 +109,11 @@ namespace dNothi.Desktop.UI.Dak
         IUserService _userService { get; set; }
         IDakNothivuktoService _nothivuktoService { get; set; }
         INothiNoteTalikaServices _nothinotetalikaservices { get; set; }
-        public DakModuleAgotoNothiList(IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiNoteTalikaServices nothiNoteTalikaServices)
+        public DakModuleAgotoNothiList(INothiInboxNoteServices nothiInboxNote, IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiNoteTalikaServices nothiNoteTalikaServices)
         {
 
             InitializeComponent();
+            _nothiInboxNote = nothiInboxNote;
             _userService = userService;
             _nothivuktoService = dakNothivuktoService;
             _nothinotetalikaservices = nothiNoteTalikaServices;
@@ -173,6 +175,7 @@ namespace dNothi.Desktop.UI.Dak
         private void LoadNote()
         {
             var noteAll = _nothinotetalikaservices.GetNothiNoteListAll(_userService.GetLocalDakUserParam(), Convert.ToInt32(_id));
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_userService.GetLocalDakUserParam(), _id, "all");
 
             if (noteAll.status == "success")
             {

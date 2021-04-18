@@ -24,7 +24,7 @@ namespace dNothi.Services.DakServices
         IRepository<DakItemAction> _dakItemAction;
         IUserService _userService { get; set; }
 
-        public DakArchiveService(IUserService userService, IRepository<DakItemAction> dakItemAction, IRepository<DakItem> dakItem,IRepository<DakType> daktype, IDakListService dakListService)
+        public DakArchiveService(IUserService userService, IRepository<DakItemAction> dakItemAction, IRepository<DakItem> dakItem, IRepository<DakType> daktype, IDakListService dakListService)
         {
             _dakItemAction = dakItemAction;
             _userService = userService;
@@ -32,6 +32,28 @@ namespace dNothi.Services.DakServices
             _daktype = daktype;
             _dakItem = dakItem;
             _dakListService = dakListService;
+        }
+        private void SaveOrUpdateDakArchiveListJsonResponse(DakUserParam dakListUserParam, string responseJson, string searchParam)
+        {
+            DakItem dakItemDB = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_Archived_Search == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id && a.searchParameter == searchParam);
+
+            if (dakItemDB != null)
+            {
+                dakItemDB.jsonResponse = responseJson;
+                _dakItem.Update(dakItemDB);
+            }
+            else
+            {
+                DakItem dakItem = new DakItem();
+                dakItem.is_dak_Archived_Search = true;
+                dakItem.searchParameter = searchParam;
+                dakItem.page = dakListUserParam.page;
+                dakItem.designation_id = dakListUserParam.designation_id;
+                dakItem.office_id = dakListUserParam.office_id;
+                dakItem.jsonResponse = responseJson;
+                _dakItem.Insert(dakItem);
+
+            }
         }
         private void SaveOrUpdateDakOutBoxListJsonResponse(DakUserParam dakListUserParam, string responseJson)
         {
@@ -71,7 +93,7 @@ namespace dNothi.Services.DakServices
 
             try
             {
-                var dakArchiveApi = new RestClient(GetAPIDomain()+GetDakListArchiveEndpoint());
+                var dakArchiveApi = new RestClient(GetAPIDomain() + GetDakListArchiveEndpoint());
                 dakArchiveApi.Timeout = -1;
                 var dakArchiveRequest = new RestRequest(Method.POST);
                 dakArchiveRequest.AddHeader("api-version", GetAPIVersion());
@@ -213,7 +235,7 @@ namespace dNothi.Services.DakServices
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                 foreach (DakItemAction dakItemAction in dakItemActions)
                 {
-                    if(dakUserParam.designation_id==dakItemAction.designation_id)
+                    if (dakUserParam.designation_id == dakItemAction.designation_id)
                     {
                         var dakArchiveResponse = GetDakArcivedRevertResponse(dakUserParam, dakItemAction.dak_id, dakItemAction.dak_type, dakItemAction.is_copied_dak);
 
@@ -230,9 +252,9 @@ namespace dNothi.Services.DakServices
                         _dakItemAction.Delete(dakItemAction);
                         isSuccess = true;
                     }
-                    
 
-                    
+
+
                 }
             }
 
@@ -257,7 +279,7 @@ namespace dNothi.Services.DakServices
                     dakItemAction.is_copied_dak = is_copied_dak;
                     dakItemAction.dak_id = dak_id;
                     dakItemAction.dak_type = dak_type;
-                   // dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
+                    // dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
 
                     _dakItemAction.Insert(dakItemAction);
                 }
@@ -286,10 +308,10 @@ namespace dNothi.Services.DakServices
                 IRestResponse dakArchiveResponseIRest = dakArchiveApi.Execute(dakArchiveRequest);
 
 
-                 var dakArchiveResponseJson = dakArchiveResponseIRest.Content;
+                var dakArchiveResponseJson = dakArchiveResponseIRest.Content;
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                 dakArchiveResponse = JsonConvert.DeserializeObject<DakArchiveResponse>(dakArchiveResponseJson);
+                dakArchiveResponse = JsonConvert.DeserializeObject<DakArchiveResponse>(dakArchiveResponseJson);
                 return dakArchiveResponse;
             }
             catch (Exception ex)
@@ -306,7 +328,7 @@ namespace dNothi.Services.DakServices
                 dakArchiveResponse.status = "success";
                 dakArchiveResponse.message = "Local";
 
-                DakItemAction dakItemAction = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.dak_type == dak_type && a.is_copied_dak == is_copied_dak );
+                DakItemAction dakItemAction = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dak_id && a.dak_type == dak_type && a.is_copied_dak == is_copied_dak);
 
                 if (dakItemAction == null)
                 {
@@ -315,6 +337,7 @@ namespace dNothi.Services.DakServices
                     dakItemAction.is_copied_dak = is_copied_dak;
                     dakItemAction.dak_id = dak_id;
                     dakItemAction.dak_type = dak_type;
+                    dakItemAction.designation_id = dakListUserParam.designation_id;
                     // dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
 
                     _dakItemAction.Insert(dakItemAction);
@@ -346,7 +369,7 @@ namespace dNothi.Services.DakServices
                 var dakArchiveResponseJson = dakArchiveResponseIRest.Content;
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                 dakArchiveResponse = JsonConvert.DeserializeObject<DakArchiveRevertResponse>(dakArchiveResponseJson);
+                dakArchiveResponse = JsonConvert.DeserializeObject<DakArchiveRevertResponse>(dakArchiveResponseJson);
                 return dakArchiveResponse;
             }
             catch (Exception ex)
@@ -357,6 +380,18 @@ namespace dNothi.Services.DakServices
 
         public DakListArchiveResponse GetDakList(DakUserParam dakListUserParam, string searchParam)
         {
+            DakListArchiveResponse dakListArchiveResponse = new DakListArchiveResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var dakList = _dakItem.Table.FirstOrDefault(a => a.page == dakListUserParam.page && a.is_dak_Archived_Search == true && a.searchParameter==searchParam && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (dakList != null)
+                {
+                    dakListArchiveResponse = JsonConvert.DeserializeObject<DakListArchiveResponse>(dakList.jsonResponse);
+
+                }
+                return dakListArchiveResponse;
+            }
             try
             {
                 var dakArchiveApi = new RestClient(GetAPIDomain() + GetDakListArchiveEndpoint());
@@ -374,9 +409,8 @@ namespace dNothi.Services.DakServices
 
 
                 var dakArchiveResponseJson = dakArchiveResponse.Content;
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                DakListArchiveResponse dakListArchiveResponse = JsonConvert.DeserializeObject<DakListArchiveResponse>(dakArchiveResponseJson);
+                SaveOrUpdateDakArchiveListJsonResponse(dakListUserParam, dakArchiveResponseJson, searchParam);
+                dakListArchiveResponse = JsonConvert.DeserializeObject<DakListArchiveResponse>(dakArchiveResponseJson);
                 return dakListArchiveResponse;
             }
             catch (Exception ex)

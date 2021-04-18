@@ -48,12 +48,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.resendButton = new FontAwesome.Sharp.IconButton();
+            this.uploadIconButton = new FontAwesome.Sharp.IconButton();
             this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.attachmentAndDatePanel = new System.Windows.Forms.Panel();
             this.dakAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.resendButton = new FontAwesome.Sharp.IconButton();
-            this.uploadIconButton = new FontAwesome.Sharp.IconButton();
             this.dakActionPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -304,6 +304,65 @@
             this.panel8.Size = new System.Drawing.Size(12, 18);
             this.panel8.TabIndex = 63;
             // 
+            // resendButton
+            // 
+            this.resendButton.AutoSize = true;
+            this.resendButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.resendButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.resendButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.resendButton.FlatAppearance.BorderSize = 0;
+            this.resendButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.resendButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.resendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resendButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resendButton.IconChar = FontAwesome.Sharp.IconChar.Redo;
+            this.resendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.resendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.resendButton.IconSize = 28;
+            this.resendButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.resendButton.Location = new System.Drawing.Point(47, 0);
+            this.resendButton.Margin = new System.Windows.Forms.Padding(0);
+            this.resendButton.Name = "resendButton";
+            this.resendButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.resendButton.Size = new System.Drawing.Size(34, 32);
+            this.resendButton.TabIndex = 68;
+            this.resendButton.TabStop = false;
+            this.resendButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.resendButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolTip1.SetToolTip(this.resendButton, "পুনরায় পাঠান");
+            this.resendButton.UseVisualStyleBackColor = true;
+            this.resendButton.Visible = false;
+            this.resendButton.Click += new System.EventHandler(this.resendButton_Click);
+            // 
+            // uploadIconButton
+            // 
+            this.uploadIconButton.AutoSize = true;
+            this.uploadIconButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.uploadIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.uploadIconButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.uploadIconButton.FlatAppearance.BorderSize = 0;
+            this.uploadIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.uploadIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.uploadIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadIconButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadIconButton.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.uploadIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.uploadIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.uploadIconButton.IconSize = 34;
+            this.uploadIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uploadIconButton.Location = new System.Drawing.Point(81, 0);
+            this.uploadIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.uploadIconButton.Name = "uploadIconButton";
+            this.uploadIconButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.uploadIconButton.Size = new System.Drawing.Size(40, 32);
+            this.uploadIconButton.TabIndex = 67;
+            this.uploadIconButton.TabStop = false;
+            this.uploadIconButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.uploadIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolTip1.SetToolTip(this.uploadIconButton, "আপলোড হচ্ছে");
+            this.uploadIconButton.UseVisualStyleBackColor = true;
+            this.uploadIconButton.Visible = false;
+            // 
             // rightInfoPanel
             // 
             this.rightInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -376,65 +435,6 @@
             this.dateLabel.TabIndex = 64;
             this.dateLabel.Text = "[date]";
             this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // resendButton
-            // 
-            this.resendButton.AutoSize = true;
-            this.resendButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.resendButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.resendButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
-            this.resendButton.FlatAppearance.BorderSize = 0;
-            this.resendButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.resendButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.resendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resendButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resendButton.IconChar = FontAwesome.Sharp.IconChar.Redo;
-            this.resendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.resendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.resendButton.IconSize = 28;
-            this.resendButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.resendButton.Location = new System.Drawing.Point(47, 0);
-            this.resendButton.Margin = new System.Windows.Forms.Padding(0);
-            this.resendButton.Name = "resendButton";
-            this.resendButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.resendButton.Size = new System.Drawing.Size(34, 32);
-            this.resendButton.TabIndex = 68;
-            this.resendButton.TabStop = false;
-            this.resendButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.resendButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.toolTip1.SetToolTip(this.resendButton, "পুনরায় পাঠান");
-            this.resendButton.UseVisualStyleBackColor = true;
-            this.resendButton.Visible = false;
-            this.resendButton.Click += new System.EventHandler(this.resendButton_Click);
-            // 
-            // uploadIconButton
-            // 
-            this.uploadIconButton.AutoSize = true;
-            this.uploadIconButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.uploadIconButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.uploadIconButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
-            this.uploadIconButton.FlatAppearance.BorderSize = 0;
-            this.uploadIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.uploadIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.uploadIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uploadIconButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadIconButton.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
-            this.uploadIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.uploadIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.uploadIconButton.IconSize = 34;
-            this.uploadIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uploadIconButton.Location = new System.Drawing.Point(81, 0);
-            this.uploadIconButton.Margin = new System.Windows.Forms.Padding(0);
-            this.uploadIconButton.Name = "uploadIconButton";
-            this.uploadIconButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.uploadIconButton.Size = new System.Drawing.Size(40, 32);
-            this.uploadIconButton.TabIndex = 67;
-            this.uploadIconButton.TabStop = false;
-            this.uploadIconButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.uploadIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.toolTip1.SetToolTip(this.uploadIconButton, "আপলোড হচ্ছে");
-            this.uploadIconButton.UseVisualStyleBackColor = true;
-            this.uploadIconButton.Visible = false;
             // 
             // DraftedDakUserControl
             // 

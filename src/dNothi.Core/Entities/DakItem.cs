@@ -10,19 +10,29 @@ namespace dNothi.Core.Entities
 {
     public class DakItem : BaseEntity
     {
-
+        public bool is_dak_inbox_Search { get; set; }
 
         public bool is_dak_inbox { get; set; }
         public bool is_dak_outbox { get; set; }
+        public bool is_dak_outbox_Search { get; set; }
         public bool is_dak_khosra { get; set; }
+        public bool is_dak_khosra_Search { get; set; }
         public bool is_dak_sorted { get; set; }
+        public bool is_dak_sorted_Search { get; set; }
         public bool is_dak_Nothijato { get; set; }
+        public bool is_dak_Nothijato_Search { get; set; }
         public bool is_dak_Nothivukto { get; set; }
+        public bool is_dak_Nothivukto_Search { get; set; }
 
         public bool is_dak_Archived { get; set; }
+        public bool is_dak_Archived_Search { get; set; }
+        public bool is_dak_All_Search { get; set; }
 
         [MaxLength]
         public string jsonResponse { get; set; }
+
+   
+        public string searchParameter { get; set; }
 
         public int designation_id { get; set; }
         public int office_id { get; set; }

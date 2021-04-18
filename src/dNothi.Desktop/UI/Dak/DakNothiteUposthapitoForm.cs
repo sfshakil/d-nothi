@@ -73,7 +73,7 @@ namespace dNothi.Desktop.UI.Dak
 
             _userParam.page = 1;
             _userParam.limit = 10;
-            
+
 
             var nothiAll = _nothiAll.GetNothiAll(_userParam);
 
@@ -94,18 +94,18 @@ namespace dNothi.Desktop.UI.Dak
             foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
             {
                 var nothiAll = UserControlFactory.Create<DakModuleSokolNothiListUserControl>();
-             
+
                 if (nothiAllListDTO.desk != null)
                 {
 
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
                     nothiAll.desk = "ডেস্ক: " + nothiAllListDTO.desk.note_count.ToString();
-                   
+
                     nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
                     nothiAll.master_id = nothiAllListDTO.desk.nothi_master_id.ToString();
 
-                   
+
                     i = i + 1;
 
                 }
@@ -114,24 +114,24 @@ namespace dNothi.Desktop.UI.Dak
                     //NothiAll nothiAll = new NothiAll();
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
-                   
-                    
+
+
                 }
-                if(nothiAllListDTO.status != null)
+                if (nothiAllListDTO.status != null)
                 {
                     nothiAll.noteTotal = nothiAllListDTO.status.total;
                     nothiAll.permitted = nothiAllListDTO.status.permitted;
                     nothiAll.onishponno = nothiAllListDTO.status.onishponno;
                     nothiAll.nishponno = nothiAllListDTO.status.nishponno;
                     nothiAll.archived = nothiAllListDTO.status.archived;
-                   // nothiAll.master_id = nothiAllListDTO.status.nothi_master_id.ToString();
-                   
+                    // nothiAll.master_id = nothiAllListDTO.status.nothi_master_id.ToString();
+
                 }
                 else
                 {
                     nothiAll.flag = 1;
                 }
-                nothiAll.NothiteUposthaponButton += delegate (object addSender, EventArgs addEvent) { NothiteUposthapito_ButtonClick(addSender, addEvent, nothiAll._nothiDTO, nothiAll.nothi, nothiAllListDTO.nothi.office_unit_name); };
+                nothiAll.NothiteUposthaponButton += delegate (object addSender, EventArgs addEvent) { NothiteUposthapito_ButtonClick(addSender, addEvent, nothiAll._nothiDTO, nothiAll.nothi, nothiAllListDTO.nothi.office_unit_name, nothiAllListDTO); };
 
                 nothiAll.nothi_id = nothiAllListDTO.nothi.id.ToString();
                 nothiAll.dak_id = _dak_id;
@@ -141,7 +141,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiAlls.Add(nothiAll);
             }
             nothiListFlowLayoutPanel.Controls.Clear();
-        
+
 
             for (int j = 0; j <= nothiAlls.Count - 1; j++)
             {
@@ -150,14 +150,21 @@ namespace dNothi.Desktop.UI.Dak
         }
         public event EventHandler SucessfullyDakNothivukto;
         public event EventHandler MultipleDakNothivukto;
-        private void NothiteUposthapito_ButtonClick(object addSender, EventArgs addEvent, NoteNothiDTO nothiDTO,string nothiName, string nothiBranch)
+
+        public NothiListAllRecordsDTO _nothiAllListDTO { get; set; }
+        public string _noteId { get; set; }
+        private void NothiteUposthapito_ButtonClick(object addSender, EventArgs addEvent, NoteNothiDTO nothiDTO, string nothiName, string nothiBranch, NothiListAllRecordsDTO nothiAllListDTO)
         {
+            _noteId = nothiDTO.note_id;
+            _nothiAllListDTO = nothiAllListDTO;
+
+
             _noteSelected = nothiDTO;
             _nothiName = nothiName;
             _nothiBranch = nothiBranch;
-            if(_dak_id==0)
+            if (_dak_id == 0)
             {
-          
+
                 if (this.MultipleDakNothivukto != null)
                     this.MultipleDakNothivukto(addSender, addEvent);
                 this.Hide();
@@ -167,7 +174,7 @@ namespace dNothi.Desktop.UI.Dak
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                 DakNothivuktoResponse dakNothivuktoResponse = _nothivuktoService.GetDakNothivuktoResponse(dakUserParam, nothiDTO, _dak_id, _dak_type, _is_copied_dak);
 
-                if(dakNothivuktoResponse.message=="Local")
+                if (dakNothivuktoResponse.message == "Local")
                 {
                     _dakNothiteUposthapitoLocally = true;
                     SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি নথিতে উপস্থাপন করা হবে");
@@ -175,7 +182,7 @@ namespace dNothi.Desktop.UI.Dak
 
                     if (this.SucessfullyDakNothivukto != null)
                         this.SucessfullyDakNothivukto(addSender, addEvent);
-                   
+
                     this.Hide();
                 }
                 else if (dakNothivuktoResponse.status == "success")
@@ -227,7 +234,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void detailPanelDropDownButton_Click(object sender, EventArgs e)
         {
-            if(detailsNothiSearcPanel.Visible)
+            if (detailsNothiSearcPanel.Visible)
             {
                 detailsNothiSearcPanel.Visible = false;
             }
