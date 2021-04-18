@@ -11,7 +11,7 @@ namespace dNothi.Services.DakServices
 {
    public interface IDakNothivuktoService
     {
-        bool DakNothivuktoFromLocal(long localNoteId, int remoteNoteId);
+        bool DakNothivuktoFromLocal(long localNoteId, int remoteNoteId, NoteSaveDTO noteSaveDTO);
         bool Is_Locally_NothivuktoReverted(int dak_id);
         bool DakNothivuktoRevertFromLocal();
         bool Is_Locally_Nothivukto(int dak_id);

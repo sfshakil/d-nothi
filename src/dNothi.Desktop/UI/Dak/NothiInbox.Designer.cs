@@ -167,7 +167,7 @@
             this.lbTotalNote.Location = new System.Drawing.Point(960, 7);
             this.lbTotalNote.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNote.Name = "lbTotalNote";
-            this.lbTotalNote.Size = new System.Drawing.Size(85, 21);
+            this.lbTotalNote.Size = new System.Drawing.Size(73, 18);
             this.lbTotalNote.TabIndex = 63;
             this.lbTotalNote.Text = " সর্বমোট: ১২";
             // 
@@ -357,7 +357,7 @@
             this.lbTotalNothi.Location = new System.Drawing.Point(0, 0);
             this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
+            this.lbTotalNothi.Size = new System.Drawing.Size(60, 18);
             this.lbTotalNothi.TabIndex = 61;
             this.lbTotalNothi.Text = "totalNothi";
             // 
@@ -402,7 +402,7 @@
             this.lbNothiId.Location = new System.Drawing.Point(631, 45);
             this.lbNothiId.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiId.Name = "lbNothiId";
-            this.lbNothiId.Size = new System.Drawing.Size(98, 21);
+            this.lbNothiId.Size = new System.Drawing.Size(76, 18);
             this.lbNothiId.TabIndex = 58;
             this.lbNothiId.Text = "nothiIdLabel";
             this.lbNothiId.Visible = false;
@@ -472,7 +472,7 @@
             this.lbShakha.Location = new System.Drawing.Point(161, 45);
             this.lbShakha.Margin = new System.Windows.Forms.Padding(0);
             this.lbShakha.Name = "lbShakha";
-            this.lbShakha.Size = new System.Drawing.Size(102, 21);
+            this.lbShakha.Size = new System.Drawing.Size(79, 18);
             this.lbShakha.TabIndex = 50;
             this.lbShakha.Text = "shakhaLabel";
             // 
@@ -484,7 +484,7 @@
             this.lbNothi.Location = new System.Drawing.Point(157, 15);
             this.lbNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothi.Name = "lbNothi";
-            this.lbNothi.Size = new System.Drawing.Size(85, 21);
+            this.lbNothi.Size = new System.Drawing.Size(66, 18);
             this.lbNothi.TabIndex = 49;
             this.lbNothi.Text = "nothiLabel";
             // 
@@ -497,7 +497,7 @@
             this.label1.Location = new System.Drawing.Point(117, 45);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 21);
+            this.label1.Size = new System.Drawing.Size(35, 18);
             this.label1.TabIndex = 48;
             this.label1.Text = "শাখাঃ";
             // 
@@ -510,7 +510,7 @@
             this.label6.Location = new System.Drawing.Point(117, 15);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 21);
+            this.label6.Size = new System.Drawing.Size(31, 18);
             this.label6.TabIndex = 47;
             this.label6.Text = "নথিঃ";
             // 

@@ -21,9 +21,11 @@ namespace dNothi.Services.NothiServices
         IRepository<NoteSaveItemAction> _noteSaveItemAction;
         IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
         IUserService _userService { get; set; }
-        public NoteSaveService(IUserService userService, IRepository<NoteSaveItemAction> noteSaveItemAction,
+        IDakNothivuktoService _dakNothivuktoService { get; set; }
+        public NoteSaveService(IDakNothivuktoService dakNothivuktoService, IUserService userService, IRepository<NoteSaveItemAction> noteSaveItemAction,
             IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
         {
+            _dakNothivuktoService = dakNothivuktoService;
             _userService = userService;
             _noteSaveItemAction = noteSaveItemAction;
             _onuchhedSaveItemAction = onuchhedSaveItemAction;
@@ -126,6 +128,10 @@ namespace dNothi.Services.NothiServices
 
                                     }
                                 }
+
+                                _dakNothivuktoService.DakNothivuktoFromLocal(noteSaveItemAction.Id, noteSaveResponse.data.note_id, noteSaveResponse.data);
+
+
                             }
                             else
                             {

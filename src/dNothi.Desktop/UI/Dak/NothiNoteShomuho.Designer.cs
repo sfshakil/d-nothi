@@ -156,7 +156,7 @@
             this.lbNoteSubject.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteSubject.Name = "lbNoteSubject";
             this.lbNoteSubject.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lbNoteSubject.Size = new System.Drawing.Size(138, 21);
+            this.lbNoteSubject.Size = new System.Drawing.Size(107, 18);
             this.lbNoteSubject.TabIndex = 63;
             this.lbNoteSubject.Text = "noteSubjectLabel";
             // 
@@ -168,7 +168,7 @@
             this.lbDeskOfficer.Location = new System.Drawing.Point(28, 0);
             this.lbDeskOfficer.Name = "lbDeskOfficer";
             this.lbDeskOfficer.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
-            this.lbDeskOfficer.Size = new System.Drawing.Size(133, 23);
+            this.lbDeskOfficer.Size = new System.Drawing.Size(103, 20);
             this.lbDeskOfficer.TabIndex = 64;
             this.lbDeskOfficer.Text = "deskOfficerLabel";
             // 
@@ -182,7 +182,7 @@
             this.fromToIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.fromToIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.fromToIcon.IconSize = 15;
-            this.fromToIcon.Location = new System.Drawing.Point(161, 0);
+            this.fromToIcon.Location = new System.Drawing.Point(131, 0);
             this.fromToIcon.Name = "fromToIcon";
             this.fromToIcon.Size = new System.Drawing.Size(20, 36);
             this.fromToIcon.TabIndex = 65;
@@ -193,10 +193,10 @@
             this.lbToOfficer.AutoSize = true;
             this.lbToOfficer.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbToOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbToOfficer.Location = new System.Drawing.Point(181, 0);
+            this.lbToOfficer.Location = new System.Drawing.Point(151, 0);
             this.lbToOfficer.Name = "lbToOfficer";
             this.lbToOfficer.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
-            this.lbToOfficer.Size = new System.Drawing.Size(112, 23);
+            this.lbToOfficer.Size = new System.Drawing.Size(87, 20);
             this.lbToOfficer.TabIndex = 66;
             this.lbToOfficer.Text = "toOfficerLabel";
             // 

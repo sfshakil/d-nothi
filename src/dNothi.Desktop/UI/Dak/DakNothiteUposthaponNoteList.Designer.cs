@@ -40,11 +40,11 @@
             this.senderAndReceiverPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbToOfficer = new System.Windows.Forms.Label();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.rightArrowIcon = new FontAwesome.Sharp.IconButton();
             this.lbDeskOfficer = new System.Windows.Forms.Label();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.sourcePanel = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.eyeIcon = new FontAwesome.Sharp.IconButton();
             this.noteNoLabel = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
@@ -53,6 +53,7 @@
             this.nothivuktoLabel = new System.Windows.Forms.Label();
             this.potrojariLabel = new System.Windows.Forms.Label();
             this.onucchedLabel = new System.Windows.Forms.Label();
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.subjectPanel.SuspendLayout();
             this.senderAndReceiverPanel.SuspendLayout();
             this.sourcePanel.SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // dateLabel
             // 
+            this.dateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateLabel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.SystemColors.GrayText;
@@ -155,7 +157,7 @@
             // 
             this.senderAndReceiverPanel.Controls.Add(this.panel1);
             this.senderAndReceiverPanel.Controls.Add(this.lbToOfficer);
-            this.senderAndReceiverPanel.Controls.Add(this.iconButton6);
+            this.senderAndReceiverPanel.Controls.Add(this.rightArrowIcon);
             this.senderAndReceiverPanel.Controls.Add(this.lbDeskOfficer);
             this.senderAndReceiverPanel.Controls.Add(this.iconButton7);
             this.senderAndReceiverPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -183,21 +185,21 @@
             this.lbToOfficer.Text = "toOfficerLabel";
             this.lbToOfficer.Visible = false;
             // 
-            // iconButton6
+            // rightArrowIcon
             // 
-            this.iconButton6.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton6.FlatAppearance.BorderSize = 0;
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.ArrowRight;
-            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.IconSize = 24;
-            this.iconButton6.Location = new System.Drawing.Point(285, 6);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(16, 17);
-            this.iconButton6.TabIndex = 69;
-            this.iconButton6.UseVisualStyleBackColor = false;
-            this.iconButton6.Visible = false;
+            this.rightArrowIcon.BackColor = System.Drawing.Color.Transparent;
+            this.rightArrowIcon.FlatAppearance.BorderSize = 0;
+            this.rightArrowIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rightArrowIcon.IconChar = FontAwesome.Sharp.IconChar.ArrowRight;
+            this.rightArrowIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.rightArrowIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.rightArrowIcon.IconSize = 24;
+            this.rightArrowIcon.Location = new System.Drawing.Point(285, 6);
+            this.rightArrowIcon.Name = "rightArrowIcon";
+            this.rightArrowIcon.Size = new System.Drawing.Size(16, 17);
+            this.rightArrowIcon.TabIndex = 69;
+            this.rightArrowIcon.UseVisualStyleBackColor = false;
+            this.rightArrowIcon.Visible = false;
             // 
             // lbDeskOfficer
             // 
@@ -227,7 +229,8 @@
             // sourcePanel
             // 
             this.sourcePanel.AutoSize = true;
-            this.sourcePanel.Controls.Add(this.iconButton2);
+            this.sourcePanel.Controls.Add(this.btnSchedule);
+            this.sourcePanel.Controls.Add(this.eyeIcon);
             this.sourcePanel.Controls.Add(this.dateLabel);
             this.sourcePanel.Controls.Add(this.subjectLabel);
             this.sourcePanel.Controls.Add(this.noteNoLabel);
@@ -239,20 +242,21 @@
             this.sourcePanel.Size = new System.Drawing.Size(650, 28);
             this.sourcePanel.TabIndex = 84;
             // 
-            // iconButton2
+            // eyeIcon
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 27;
-            this.iconButton2.Location = new System.Drawing.Point(477, 3);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(30, 22);
-            this.iconButton2.TabIndex = 88;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.eyeIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.eyeIcon.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.eyeIcon.FlatAppearance.BorderSize = 0;
+            this.eyeIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.eyeIcon.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.eyeIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.eyeIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.eyeIcon.IconSize = 27;
+            this.eyeIcon.Location = new System.Drawing.Point(477, 3);
+            this.eyeIcon.Name = "eyeIcon";
+            this.eyeIcon.Size = new System.Drawing.Size(30, 22);
+            this.eyeIcon.TabIndex = 88;
+            this.eyeIcon.UseVisualStyleBackColor = false;
             // 
             // noteNoLabel
             // 
@@ -358,6 +362,25 @@
             this.onucchedLabel.Text = "অনুচ্ছেদ:";
             this.onucchedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(414, 2);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(25, 25);
+            this.btnSchedule.TabIndex = 121;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
+            // 
             // DakNothiteUposthaponNoteList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,12 +430,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label nothivuktoLabel;
         private System.Windows.Forms.Label lbToOfficer;
-        private FontAwesome.Sharp.IconButton iconButton6;
+        private FontAwesome.Sharp.IconButton rightArrowIcon;
         private System.Windows.Forms.Label lbDeskOfficer;
         private FontAwesome.Sharp.IconButton iconButton7;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton eyeIcon;
         private System.Windows.Forms.Label onumodonLabel;
         private System.Windows.Forms.Label potrojariLabel;
         private System.Windows.Forms.Label onucchedLabel;
+        private FontAwesome.Sharp.IconButton btnSchedule;
     }
 }

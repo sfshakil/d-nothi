@@ -97,7 +97,7 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (nothiAllListDTO.desk != null)
                 {
-
+                    nothiAll.nothiListAllRecordsDTO = nothiAllListDTO;
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
                     nothiAll.desk = "ডেস্ক: " + nothiAllListDTO.desk.note_count.ToString();

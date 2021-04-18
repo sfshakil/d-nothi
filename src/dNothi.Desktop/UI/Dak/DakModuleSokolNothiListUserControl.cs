@@ -12,15 +12,17 @@ using dNothi.Services.UserServices;
 using dNothi.Services.NothiServices;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Utility;
+using dNothi.Core.Entities;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakModuleSokolNothiListUserControl : UserControl
     {
-
+        INothiInboxNoteServices _nothiInboxNote { get; set; }
         private int originalWidth;
         private int originalHeight;
-
+        INoteSaveService _noteSave { get; set; }
         public int _dak_id;
         public string _dak_type;
         public int _is_copied_dak;
@@ -47,9 +49,10 @@ namespace dNothi.Desktop.UI.Dak
         IUserService _userService { get; set; }
         IDakNothivuktoService _nothivuktoService { get; set; }
         INothiNoteTalikaServices _nothinotetalikaservices { get; set; }
-        public DakModuleSokolNothiListUserControl(IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiNoteTalikaServices nothiNoteTalikaServices)
+        public DakModuleSokolNothiListUserControl(INoteSaveService noteSave,INothiInboxNoteServices nothiInboxNote,IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiNoteTalikaServices nothiNoteTalikaServices)
         {
-
+            _nothiInboxNote = nothiInboxNote;
+            _noteSave = noteSave;
             InitializeComponent();
             _userService = userService;
             _nothivuktoService = dakNothivuktoService;
@@ -99,6 +102,14 @@ namespace dNothi.Desktop.UI.Dak
             get { return _masterid; }
             set { _masterid = value; }
         }
+
+        public NothiListAllRecordsDTO _nothiListAllRecordsDTO;
+        public NothiListAllRecordsDTO nothiListAllRecordsDTO
+        {
+            get { return _nothiListAllRecordsDTO; }
+            set { _nothiListAllRecordsDTO = value;  }
+        }
+
 
 
 
@@ -247,31 +258,89 @@ namespace dNothi.Desktop.UI.Dak
 
         private void LoadNote()
         {
-            NothiNoteListResponse noteAll = new NothiNoteListResponse();
-            noteAll = _nothinotetalikaservices.GetNothiNoteListAll(_userService.GetLocalDakUserParam(), Convert.ToInt32(_id));
-
-            if (noteAll != null && noteAll.status == "success")
+            newAllNoteFlowLayoutPanel.Controls.Clear();
+            if (!InternetConnection.Check())
             {
-                if (noteAll.data.records.Count > 0)
+                var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(_userService.GetLocalDakUserParam(), _id, "All");
+                if (nothiInboxNotUploadedNotes.Count > 0)
                 {
-                    LoadNoteAllinPanel(noteAll.data.records);
+                    _noteTotal = _noteTotal + nothiInboxNotUploadedNotes.Count;
+                    this.Height = _noteTotal * 100 + originalHeight;
+                    _noteTotal = 0;
+                    List<DakNothiteUposthaponNoteList> nothiNoteShomuhos = new List<DakNothiteUposthaponNoteList>();
+                    foreach (NoteSaveItemAction nothiInboxNotUploadedNote in nothiInboxNotUploadedNotes)
+                    {
+                        //NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
+                        //nothiListInboxNoteRecordsDTO.note.note_subject = nothiInboxNotUploadedNote.noteSubject;
+                        NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
+                        DakNothiteUposthaponNoteList nothiNoteShomuho = new DakNothiteUposthaponNoteList();
+                        nothiNoteShomuho.note_subject = nothiInboxNotUploadedNote.noteSubject;
+                        nothiNoteShomuho.deskofficer = nothiInboxNotUploadedNote.officer_name;
+                        nothiNoteShomuho.nothi_id = nothiInboxNotUploadedNote.nothi_id;
+                        nothiNoteShomuho.note_ID = nothiInboxNotUploadedNote.Id.ToString();
+                        nothiNoteShomuho.note_no = nothiInboxNotUploadedNote.Id.ToString();
+
+                        noteNothiDTO.note_no = nothiInboxNotUploadedNote.Id.ToString();
+                        noteNothiDTO.note_subject = nothiInboxNotUploadedNote.noteSubject;
+                        noteNothiDTO.note_id = nothiInboxNotUploadedNote.Id.ToString();
+                        noteNothiDTO._isOffline = true;
+
+
+                        nothiNoteShomuho.nothiDTO = noteNothiDTO;
+                        //nothiNoteShomuho.LocalNoteDetailsButton += delegate (object sender1, EventArgs e1) {
+
+                        //   LocalNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1);
+                        // };
+                        nothiNoteShomuho.invisible();
+                        nothiNoteShomuho.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, nothiNoteShomuho._nothiDTO); };
+
+                        nothiNoteShomuhos.Add(nothiNoteShomuho);
+
+                    }
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    newAllNoteFlowLayoutPanel.AutoScroll = true;
+                    newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+                    newAllNoteFlowLayoutPanel.WrapContents = false;
+
+                    for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
+                    {
+                        newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
+                    }
+                }
+            }
+
+
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_userService.GetLocalDakUserParam(), _id, "All");
+
+          //  NothiNoteListResponse noteAll = new NothiNoteListResponse();
+           
+           
+            
+          //  noteAll = _nothinotetalikaservices.GetNothiNoteListAll(_userService.GetLocalDakUserParam(), Convert.ToInt32(_id));
+           
+            
+            if (nothiInboxNote != null && nothiInboxNote.status == "success")
+            {
+                if (nothiInboxNote.data.records.Count > 0)
+                {
+                    LoadNoteAllinPanel(nothiInboxNote.data.records);
                 }
 
             }
         }
 
-        private void LoadNoteAllinPanel(List<NothiNoteListRecordDTO> records)
+        private void LoadNoteAllinPanel(List<NothiListInboxNoteRecordsDTO> records)
         {
             List<DakNothiteUposthaponNoteList> dakNothiteUposthaponNoteLists = new List<DakNothiteUposthaponNoteList>();
             int i = 0;
-            foreach (NothiNoteListRecordDTO noteDTO in records)
+            foreach (NothiListInboxNoteRecordsDTO noteDTO in records)
             {
                 DakNothiteUposthaponNoteList dakNothiteUposthaponNoteList = new DakNothiteUposthaponNoteList();
 
-                if (noteDTO.deskConverted != null)
+                if (noteDTO.desk != null)
                 {
-                    dakNothiteUposthaponNoteList.date = noteDTO.deskConverted.issue_date;
-                    dakNothiteUposthaponNoteList.deskofficer = noteDTO.deskConverted.officer;
+                    dakNothiteUposthaponNoteList.date = noteDTO.desk.issue_date;
+                    dakNothiteUposthaponNoteList.deskofficer = noteDTO.desk.officer;
                 }
 
                 dakNothiteUposthaponNoteList.note_no = Convert.ToString(noteDTO.note.note_no);
@@ -284,22 +353,55 @@ namespace dNothi.Desktop.UI.Dak
                 // dakNothiteUposthaponNoteList.toofficer = noteDTO;
                 dakNothiteUposthaponNoteList.onucched = noteDTO.note.onucched_count;
                 dakNothiteUposthaponNoteList.nothivukto = noteDTO.note.nothivukto_potro;
+                
+                NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
 
                 if (noteDTO.nothi == null)
                 {
-                    noteDTO.nothi = new NoteNothiDTO();
-                }
-                noteDTO.nothi.note_no = Convert.ToString(noteDTO.note.note_no);
-                noteDTO.nothi.note_subject = noteDTO.note.note_subject;
-                noteDTO.nothi.note_id = Convert.ToString(noteDTO.note.nothi_note_id);
+                    //  noteDTO.nothi = new NoteNothiDTO();
+                    noteNothiDTO.archived_date = noteDTO.nothi.archived_date;
+                    noteNothiDTO.archived_designation_name = noteDTO.nothi.archived_designation_name;
+                    noteNothiDTO.archived_organogram_id = noteDTO.nothi.archived_organogram_id;
+                    noteNothiDTO.created = noteDTO.nothi.created;
+                    noteNothiDTO.created_by = noteDTO.nothi.created_by;
+                    noteNothiDTO.description = noteDTO.nothi.description;
+                    noteNothiDTO.id = noteDTO.nothi.id;
+                    noteNothiDTO.is_active = noteDTO.nothi.is_active;
+                    noteNothiDTO.is_archived = noteDTO.nothi.is_archived;
+                    noteNothiDTO.is_deleted = noteDTO.nothi.is_deleted;
+                    noteNothiDTO.modified = noteDTO.nothi.modified;
+                    noteNothiDTO.modified_by = noteDTO.nothi.modified_by;
+                    noteNothiDTO.nothi_class = noteDTO.nothi.nothi_class;
+                    noteNothiDTO.nothi_created_date = noteDTO.nothi.nothi_created_date;
+                    noteNothiDTO.nothi_no = noteDTO.nothi.nothi_no;
+                    noteNothiDTO.nothi_type_id = noteDTO.nothi.nothi_type_id;
+                    noteNothiDTO.office = noteDTO.nothi.office;
+                    noteNothiDTO.office_designation_name = noteDTO.nothi.office_designation_name;
+                    noteNothiDTO.office_id = noteDTO.nothi.office_id;
+                    noteNothiDTO.office_name = noteDTO.nothi.office_name;
+                    noteNothiDTO.office_unit = noteDTO.nothi.office_unit;
+                    noteNothiDTO.office_unit_id = noteDTO.nothi.office_unit_id;
+                    noteNothiDTO.office_unit_name = noteDTO.nothi.office_unit_name;
+                    noteNothiDTO.office_unit_organogram_id = noteDTO.nothi.office_unit_organogram_id;
+                    noteNothiDTO.subject = noteDTO.nothi.subject;
 
-                dakNothiteUposthaponNoteList.nothiDTO = noteDTO.nothi;
+                }
+              
+
+              
+                noteNothiDTO.note_no = Convert.ToString(noteDTO.note.note_no);
+                noteNothiDTO.note_subject = noteDTO.note.note_subject;
+                noteNothiDTO.note_id = Convert.ToString(noteDTO.note.nothi_note_id);
+
+
+
+                dakNothiteUposthaponNoteList.nothiDTO = noteNothiDTO;
                 dakNothiteUposthaponNoteList.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakNothiteUposthaponNoteList._nothiDTO); };
 
 
                 dakNothiteUposthaponNoteLists.Add(dakNothiteUposthaponNoteList);
             }
-            newAllNoteFlowLayoutPanel.Controls.Clear();
+          
 
             for (int j = 0; j <= dakNothiteUposthaponNoteLists.Count - 1; j++)
             {
@@ -328,31 +430,60 @@ namespace dNothi.Desktop.UI.Dak
 
 
             newNoteAddForm.ShowDialog();
+            
         }
 
         private void SaveNote_ButtonClick(string noteSubject)
         {
-            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
-            DakNothivuktoNoteAddParam dakNothivuktoNoteAddParam = new DakNothivuktoNoteAddParam();
-            dakNothivuktoNoteAddParam.note_subject = noteSubject;
-            dakNothivuktoNoteAddParam.nothi_master_id = Convert.ToInt32(_masterid);
-            dakNothivuktoNoteAddParam.officer_name = dakUserParam.officer_name;
-            dakNothivuktoNoteAddParam.office_designation_name = dakUserParam.designation;
-            dakNothivuktoNoteAddParam.office_id = dakUserParam.office_id;
-            dakNothivuktoNoteAddParam.office_name = dakUserParam.office_label;
-            dakNothivuktoNoteAddParam.office_unit_name = dakUserParam.office_unit;
 
+            
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-            GetNothivuktoNoteAddResponse getNothivuktoNoteAddResponse = _nothivuktoService.GetNothivuktoNoteAddResponse(dakUserParam, dakNothivuktoNoteAddParam);
+            NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+           
+            nothiListRecordsDTO.id = Convert.ToInt32(_nothiListAllRecordsDTO.nothi.id);
+            nothiListRecordsDTO.office_id = _nothiListAllRecordsDTO.nothi.office_id;
+            nothiListRecordsDTO.office_name = _nothiListAllRecordsDTO.nothi.office_unit_name;
+            nothiListRecordsDTO.office_unit_id = _nothiListAllRecordsDTO.nothi.office_unit_id;
+            nothiListRecordsDTO.office_unit_name = _nothiListAllRecordsDTO.nothi.office_unit_name;
+            nothiListRecordsDTO.office_unit_organogram_id = _nothiListAllRecordsDTO.nothi.office_unit_organogram_id;
+            nothiListRecordsDTO.office_designation_name = _nothiListAllRecordsDTO.nothi.office_designation_name;
+            nothiListRecordsDTO.nothi_no = _nothiListAllRecordsDTO.nothi.nothi_no;
+            nothiListRecordsDTO.subject = _nothiListAllRecordsDTO.nothi.subject;
+            nothiListRecordsDTO.nothi_class = _nothiListAllRecordsDTO.nothi.nothi_class;
+            nothiListRecordsDTO.last_note_date = _nothiListAllRecordsDTO.nothi.last_note_date;
 
-            if (getNothivuktoNoteAddResponse.status == "success")
-            {
+            nothiListRecordsDTO.nothi_type = "all";
+             var noteSave = _noteSave.GetNoteSave(dakListUserParam, nothiListRecordsDTO, noteSubject);
+            
+                if (noteSave.status == "success" && noteSave.message == "Local")
+                {
+                UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই নোটটি আপলোড করা হবে");
+                   LoadNote();
+                }
+
+                else if(noteSave.status == "success")
+                  
+                 {
+                
+                UIDesignCommonMethod.SuccessMessage("নোটটি আপলোড সফল হয়েছে");
+
                 LoadNote();
-            }
+               
+                 }
+           
             else
             {
-
+                UIDesignCommonMethod.ErrorMessage("নোটটি আপলোড সফল হইনি");
             }
+
+            
+            
+
+
+
+           
+            
         }
         public event EventHandler NothijatoButton;
         private void nothijatoButton_Click(object sender, EventArgs e)

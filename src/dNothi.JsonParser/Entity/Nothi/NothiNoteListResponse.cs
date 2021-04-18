@@ -43,6 +43,7 @@ namespace dNothi.JsonParser.Entity.Nothi
     public class NoteNothiDTO
     {
         public int id { get; set; }
+        public bool _isOffline { get; set; }
         public int office_id { get; set; }
         public string office_name { get; set; }
         public int office_unit_id { get; set; }

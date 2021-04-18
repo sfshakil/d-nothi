@@ -155,7 +155,7 @@
             this.lbNothiId.Location = new System.Drawing.Point(556, 54);
             this.lbNothiId.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiId.Name = "lbNothiId";
-            this.lbNothiId.Size = new System.Drawing.Size(98, 21);
+            this.lbNothiId.Size = new System.Drawing.Size(76, 18);
             this.lbNothiId.TabIndex = 117;
             this.lbNothiId.Text = "nothiIdLabel";
             this.lbNothiId.Visible = false;
@@ -167,7 +167,7 @@
             this.lbFlag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbFlag.Location = new System.Drawing.Point(556, 51);
             this.lbFlag.Name = "lbFlag";
-            this.lbFlag.Size = new System.Drawing.Size(102, 21);
+            this.lbFlag.Size = new System.Drawing.Size(79, 18);
             this.lbFlag.TabIndex = 115;
             this.lbFlag.Text = "shakhaLabel";
             this.lbFlag.Visible = false;
@@ -268,7 +268,7 @@
             this.lbNoteTotal.Location = new System.Drawing.Point(668, 20);
             this.lbNoteTotal.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteTotal.Name = "lbNoteTotal";
-            this.lbNoteTotal.Size = new System.Drawing.Size(19, 21);
+            this.lbNoteTotal.Size = new System.Drawing.Size(15, 18);
             this.lbNoteTotal.TabIndex = 109;
             this.lbNoteTotal.Text = "0";
             // 
@@ -354,7 +354,7 @@
             this.lbArchived.Location = new System.Drawing.Point(1085, 22);
             this.lbArchived.Margin = new System.Windows.Forms.Padding(0);
             this.lbArchived.Name = "lbArchived";
-            this.lbArchived.Size = new System.Drawing.Size(19, 21);
+            this.lbArchived.Size = new System.Drawing.Size(15, 18);
             this.lbArchived.TabIndex = 102;
             this.lbArchived.Text = "0";
             // 
@@ -393,7 +393,7 @@
             this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbShakha.Location = new System.Drawing.Point(108, 51);
             this.lbShakha.Name = "lbShakha";
-            this.lbShakha.Size = new System.Drawing.Size(102, 21);
+            this.lbShakha.Size = new System.Drawing.Size(79, 18);
             this.lbShakha.TabIndex = 99;
             this.lbShakha.Text = "shakhaLabel";
             // 
@@ -406,7 +406,7 @@
             this.lbNishponno.Location = new System.Drawing.Point(983, 21);
             this.lbNishponno.Margin = new System.Windows.Forms.Padding(0);
             this.lbNishponno.Name = "lbNishponno";
-            this.lbNishponno.Size = new System.Drawing.Size(19, 21);
+            this.lbNishponno.Size = new System.Drawing.Size(15, 18);
             this.lbNishponno.TabIndex = 98;
             this.lbNishponno.Text = "0";
             // 
@@ -437,7 +437,7 @@
             this.lbOnishponno.Location = new System.Drawing.Point(891, 21);
             this.lbOnishponno.Margin = new System.Windows.Forms.Padding(0);
             this.lbOnishponno.Name = "lbOnishponno";
-            this.lbOnishponno.Size = new System.Drawing.Size(19, 21);
+            this.lbOnishponno.Size = new System.Drawing.Size(15, 18);
             this.lbOnishponno.TabIndex = 96;
             this.lbOnishponno.Text = "0";
             // 
@@ -468,7 +468,7 @@
             this.lbPermitted.Location = new System.Drawing.Point(791, 21);
             this.lbPermitted.Margin = new System.Windows.Forms.Padding(0);
             this.lbPermitted.Name = "lbPermitted";
-            this.lbPermitted.Size = new System.Drawing.Size(19, 21);
+            this.lbPermitted.Size = new System.Drawing.Size(15, 18);
             this.lbPermitted.TabIndex = 94;
             this.lbPermitted.Text = "0";
             // 
@@ -499,7 +499,7 @@
             this.lbDesk.Location = new System.Drawing.Point(556, 18);
             this.lbDesk.Margin = new System.Windows.Forms.Padding(0);
             this.lbDesk.Name = "lbDesk";
-            this.lbDesk.Size = new System.Drawing.Size(52, 21);
+            this.lbDesk.Size = new System.Drawing.Size(45, 18);
             this.lbDesk.TabIndex = 92;
             this.lbDesk.Text = "ডেস্ক: ১";
             // 
@@ -579,7 +579,7 @@
             this.lbNoteTotal1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteTotal1.Location = new System.Drawing.Point(971, 8);
             this.lbNoteTotal1.Name = "lbNoteTotal1";
-            this.lbNoteTotal1.Size = new System.Drawing.Size(77, 21);
+            this.lbNoteTotal1.Size = new System.Drawing.Size(64, 18);
             this.lbNoteTotal1.TabIndex = 63;
             this.lbNoteTotal1.Text = " সর্বমোট: 0";
             // 
