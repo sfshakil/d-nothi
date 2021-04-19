@@ -35,6 +35,7 @@ namespace dNothi.Desktop.UI
             InitializeComponent();
             WaitForm.Show(this);
             tinyMceEditor.CreateEditor();
+          
             WaitForm.Close();
         }
 
@@ -70,8 +71,9 @@ namespace dNothi.Desktop.UI
         private void Khosra_Shown(object sender, EventArgs e)
         {
 
+
             //webBrowser1.Navigate ( new Uri("https://dev.nothi-next.tappware.com/nothi/note/onucched/editor"));
-           // webBrowser1.Url = new Uri("https://www.facebook.com/");
+            // webBrowser1.Url = new Uri("https://www.facebook.com/");
             DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_userService.GetLocalDakUserParam());
             _designationSealListResponse = designationSealListResponse;
             LoadDakPriority();
@@ -89,9 +91,7 @@ namespace dNothi.Desktop.UI
             {
                 if(khasraPotroTemplateResponse.data.Count>0)
                 {
-                    tinyMceEditor.CreateEditor();
-                    tinyMceEditor.HtmlContent = khasraPotroTemplateResponse.data[0].html_content;
-
+                    
                     foreach (KhasraPotroTemplateDataDTO khasraPotroTemplateDataDTO in khasraPotroTemplateResponse.data)
                     {
                         KhosraTemplateButton khosraTemplateButton = new KhosraTemplateButton();
@@ -384,6 +384,11 @@ namespace dNothi.Desktop.UI
             //selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton, selectOfficerForm._selectedOfficerDesignations, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
 
             UIDesignCommonMethod.CalPopUpWindow(selectOfficerForm, this);
+        }
+
+        private void Khosra_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

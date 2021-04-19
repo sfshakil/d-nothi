@@ -385,7 +385,10 @@ namespace dNothi.Services.DakServices
                     dakItemAction.dak_type = dak_type;
               
                     dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(nothi);
-                    dakItemAction.localNoteId =Convert.ToInt64(nothi.note_id);
+                    if(nothi._isOffline)
+                    {
+                        dakItemAction.localNoteId = Convert.ToInt64(nothi.note_id);
+                    }
                     _dakItemAction.Insert(dakItemAction);
                 }
                 else
