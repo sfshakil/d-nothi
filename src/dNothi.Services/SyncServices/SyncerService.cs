@@ -23,7 +23,7 @@ namespace dNothi.Services.SyncServices
     {
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         IOnucchedSave _onucchedSave { get; set; }
-
+        IOnuchhedForwardService _onuchhedForwardService { get; set; }
         INoteSaveService _noteSave { get; set; }
         IUserService _userService { get; set; }
         IRegisterService _registerService { get; set; }
@@ -66,6 +66,7 @@ namespace dNothi.Services.SyncServices
              IDakFolderService dakFolderService,
              IProtibedonService protibedonService,
             IDakNothijatoService dakNothijatoService,
+             IOnuchhedForwardService onuchhedForwardService,
 
             IDakInboxServices dakInboxService,
 
@@ -73,8 +74,8 @@ namespace dNothi.Services.SyncServices
 
             IRepository<SyncStatus> sycnRepository)
         {
-
-            _dakNothivuktoService = dakNothivuktoService;
+            _onuchhedForwardService = onuchhedForwardService;
+             _dakNothivuktoService = dakNothivuktoService;
             _noteSave = noteSave;
             _dakSearchService = dakSearchService;
             _registerService = registerService;
@@ -175,8 +176,11 @@ namespace dNothi.Services.SyncServices
                 {
                     LocalChangeData._isdakNothijatoReverted = true;
                 }
-
+               
                 _noteSave.SendNoteListFromLocal();
+                _onucchedSave.SendNoteListFromLocal();
+                _onuchhedForwardService.SendNoteListFromLocal();
+
 
             }
 

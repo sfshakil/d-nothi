@@ -677,7 +677,7 @@ namespace dNothi.Desktop.UI.Dak
 
             Folder += "]";
 
-            DakFolderMapResponse dakFolderMapResponse = _dakFolderService.GetDakFolderMapResponse(dakUserParam,_dakId,_is_copied_Id,_dak_Type,Folder);
+            DakFolderMapResponse dakFolderMapResponse = _dakFolderService.GetDakFolderMapResponse(dakUserParam,_dakId,_is_copied_Id,_dak_Type,Folder, _selectedFolderIds);
             if (dakFolderMapResponse.status == "success" && dakFolderMapResponse.message == "Local")
             {
 

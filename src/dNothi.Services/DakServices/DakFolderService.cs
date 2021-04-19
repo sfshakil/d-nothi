@@ -201,7 +201,7 @@ namespace dNothi.Services.DakServices
             return DefaultAPIConfiguration.DakFolderMapEndPoint;
         }
 
-        public DakFolderMapResponse GetDakFolderMapResponse(DakUserParam dakUserParam, int dak_id, int is_copied_dak, string dak_Type, string dak_Folder)
+        public DakFolderMapResponse GetDakFolderMapResponse(DakUserParam dakUserParam, int dak_id, int is_copied_dak, string dak_Type, string dak_Folder,List<int> selectedFolderIds)
         {
             DakFolderMapResponse dakFolderAddResponse = new DakFolderMapResponse();
 
@@ -295,6 +295,7 @@ namespace dNothi.Services.DakServices
             List<DakItemAction> dakItemActions = _dakItemRepo.Table.Where(a => a.isDakTagged == true).ToList();
             if (dakItemActions != null && dakItemActions.Count > 0)
             {
+                List<int> ids=new List<int>();
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                 foreach (DakItemAction dakItemAction in dakItemActions)
                 {
@@ -305,7 +306,7 @@ namespace dNothi.Services.DakServices
                     }
                     else
                     {
-                        var dakTagResponse = GetDakFolderMapResponse(dakUserParam, dakItemAction.dak_id, dakItemAction.is_copied_dak, dakItemAction.dak_type,dakItemAction.dak_folder_name);
+                        var dakTagResponse = GetDakFolderMapResponse(dakUserParam, dakItemAction.dak_id, dakItemAction.is_copied_dak, dakItemAction.dak_type,dakItemAction.dak_folder_name, ids);
 
                         if (dakTagResponse != null && (dakTagResponse.status == "error" || dakTagResponse.status == "success"))
 
@@ -330,7 +331,7 @@ namespace dNothi.Services.DakServices
         bool Is_Locally_DakTagged(int dak_id);
         bool DakTagFromLocal();
 
-        DakFolderMapResponse GetDakFolderMapResponse(DakUserParam dakUserParam, int dak_id, int is_copied_dak, string dak_Type, string dak_Folder);
+        DakFolderMapResponse GetDakFolderMapResponse(DakUserParam dakUserParam, int dak_id, int is_copied_dak, string dak_Type, string dak_Folder, List<int> folderIds);
         FolderListResponse GetFolderList(DakUserParam dakUserParam);
         DakFolderAddResponse GetDakFolderAddResponse(DakUserParam dakUserParam, DakFolderParam dakFolderParam);
         DakFolderDeleteResponse GetDakFolderDeleteResponse(DakUserParam dakUserParam, int folder_id);
