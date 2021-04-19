@@ -148,7 +148,7 @@ namespace dNothi.Desktop.UI
             dakListUserParam.page = pageNoNothiInboxNo;
             var token = _userService.GetToken();
             var nothiInbox = _nothiInbox.GetNothiInbox(dakListUserParam);
-            if (nothiInbox.status == "success")
+            if (nothiInbox != null && nothiInbox.status == "success")
             {
                 //_nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
 

@@ -383,6 +383,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IUserControlFactory.cs" />
+    <Compile Include="UI\CustomMessageBox\OnlineToggleButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomMessageBox\OnlineToggleButton.Designer.cs">
+      <DependentUpon>OnlineToggleButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CustomMessageBox\ConditonBoxForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1239,6 +1245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pdf.Net.SDK.licx" />
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UI\CustomMessageBox\OnlineToggleButton.resx">
+      <DependentUpon>OnlineToggleButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomMessageBox\ConditonBoxForm.resx">
       <DependentUpon>ConditonBoxForm.cs</DependentUpon>
     </EmbeddedResource>

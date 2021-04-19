@@ -6621,7 +6621,10 @@ namespace dNothi.Desktop.UI
 
         private void Note_Load_1(object sender, EventArgs e)
         {
-            noteBackGroundWorker.RunWorkerAsync();
+            if (!noteBackGroundWorker.IsBusy && this.Visible)
+            {
+                noteBackGroundWorker.RunWorkerAsync();
+            }
         }
     }
 }

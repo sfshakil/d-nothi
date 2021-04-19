@@ -33,6 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Khosra));
             this.khosraTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pnlNothiNoteTalika = new System.Windows.Forms.Panel();
+            this.khosraReviewButton = new FontAwesome.Sharp.IconButton();
             this.notDetailsButton = new FontAwesome.Sharp.IconButton();
             this.nothiNamePanel = new System.Windows.Forms.Panel();
             this.lbSubject = new System.Windows.Forms.Label();
@@ -160,7 +161,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.khosraReviewButton = new FontAwesome.Sharp.IconButton();
             saveButton = new FontAwesome.Sharp.IconButton();
             this.khosraTableLayoutPanel.SuspendLayout();
             this.pnlNothiNoteTalika.SuspendLayout();
@@ -268,6 +268,30 @@
             this.pnlNothiNoteTalika.Name = "pnlNothiNoteTalika";
             this.pnlNothiNoteTalika.Size = new System.Drawing.Size(928, 35);
             this.pnlNothiNoteTalika.TabIndex = 18;
+            // 
+            // khosraReviewButton
+            // 
+            this.khosraReviewButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.khosraReviewButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.khosraReviewButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.khosraReviewButton.FlatAppearance.BorderSize = 0;
+            this.khosraReviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.khosraReviewButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.khosraReviewButton.ForeColor = System.Drawing.Color.Black;
+            this.khosraReviewButton.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.khosraReviewButton.IconColor = System.Drawing.Color.Black;
+            this.khosraReviewButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.khosraReviewButton.IconSize = 20;
+            this.khosraReviewButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.khosraReviewButton.Location = new System.Drawing.Point(523, 1);
+            this.khosraReviewButton.Margin = new System.Windows.Forms.Padding(0);
+            this.khosraReviewButton.Name = "khosraReviewButton";
+            this.khosraReviewButton.Size = new System.Drawing.Size(117, 33);
+            this.khosraReviewButton.TabIndex = 78;
+            this.khosraReviewButton.Text = "খসড়া রিভিউ";
+            this.khosraReviewButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.khosraReviewButton.UseVisualStyleBackColor = false;
+            this.khosraReviewButton.Click += new System.EventHandler(this.khosraReviewButton_Click);
             // 
             // notDetailsButton
             // 
@@ -1988,30 +2012,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "পত্রের ধরণ";
             // 
-            // khosraReviewButton
-            // 
-            this.khosraReviewButton.BackColor = System.Drawing.Color.Gainsboro;
-            this.khosraReviewButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.khosraReviewButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
-            this.khosraReviewButton.FlatAppearance.BorderSize = 0;
-            this.khosraReviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.khosraReviewButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.khosraReviewButton.ForeColor = System.Drawing.Color.Black;
-            this.khosraReviewButton.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            this.khosraReviewButton.IconColor = System.Drawing.Color.Black;
-            this.khosraReviewButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.khosraReviewButton.IconSize = 20;
-            this.khosraReviewButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.khosraReviewButton.Location = new System.Drawing.Point(523, 1);
-            this.khosraReviewButton.Margin = new System.Windows.Forms.Padding(0);
-            this.khosraReviewButton.Name = "khosraReviewButton";
-            this.khosraReviewButton.Size = new System.Drawing.Size(117, 33);
-            this.khosraReviewButton.TabIndex = 78;
-            this.khosraReviewButton.Text = "খসড়া রিভিউ";
-            this.khosraReviewButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.khosraReviewButton.UseVisualStyleBackColor = false;
-            this.khosraReviewButton.Click += new System.EventHandler(this.khosraReviewButton_Click);
-            // 
             // Khosra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2023,6 +2023,7 @@
             this.Name = "Khosra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Khosra_Load);
             this.Shown += new System.EventHandler(this.Khosra_Shown);
             this.khosraTableLayoutPanel.ResumeLayout(false);
             this.pnlNothiNoteTalika.ResumeLayout(false);

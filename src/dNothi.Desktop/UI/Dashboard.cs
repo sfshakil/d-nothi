@@ -1338,15 +1338,12 @@ namespace dNothi.Desktop.UI
                     {
 
                         nothiListInboxNoteRecordsDTO = nothiInboxNote.data.records.FirstOrDefault(a => a.note.nothi_note_id == _nothiAllListDTO.nothi.id);
+                        if(nothiListInboxNoteRecordsDTO != null)
 
-                        form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
-                        noteView.totalNothi = nothiInboxNote.data.records.Count.ToString();
+                        {
+                            form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
 
-
-
-                        //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
-                        //form.loadNoteData(notedata);
-                        form.noteTotal = nothiInboxNote.data.records.Count.ToString();
+                        }
 
                     }
                 }
@@ -1361,25 +1358,57 @@ namespace dNothi.Desktop.UI
 
 
 
-            //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
-            //totalnothi.ToString();
             form.office = "( " + nothiListRecords.office_name + " " + nothiListRecords.last_note_date + ")";
 
 
-            noteView.noteSubject = _noteSelected.note_subject;
             noteView.nothiLastDate = nothiListRecords.last_note_date;
+          
+            noteView.totalNothi = _noteSelected.note_no.ToString();
+            noteView.noteSubject = _noteSelected.note_subject;
             noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
             noteView.checkBox = "1";
             noteView.nothiNoteID = Convert.ToInt32(_noteSelected.note_id);
 
-            //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
-            //form.loadNoteData(notedata);
+
+            form.noteTotal = _noteSelected.note_no.ToString();
+
+
+            
             form.loadNothiInboxRecords(nothiListRecords);
             form.loadNoteView(noteView);
 
+            if(_noteSelected._isOffline)
+            {
+                form.setStatus("offline");
+                nothiListRecords.id = _noteSelected.extra_nothi_id;
+               
+            }
+
+
+            nothiListRecords.local_nothi_type = "all";
+            form.ShowDialog();
 
 
 
+
+
+
+
+
+
+
+
+
+           
+            //form.ShowDialog();
+
+            _dakuserparam = _userService.GetLocalDakUserParam();
+
+
+
+            
+            
+           
 
             form.ShowDialog();
         }
@@ -1749,7 +1778,7 @@ namespace dNothi.Desktop.UI
             nothiListRecords.subject = dakListInboxRecordsDTO.nothi.subject;
 
 
-            form.nothiNo = dakListInboxRecordsDTO.nothi.nothi_no;
+            
             form.nothiShakha = dakListInboxRecordsDTO.nothi.office_unit_name + " " + dakListInboxRecordsDTO.nothi.office_name;
             form.nothiSubject = dakListInboxRecordsDTO.nothi.subject;
             NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
@@ -1776,7 +1805,7 @@ namespace dNothi.Desktop.UI
                     //   nothiListRecords.last_note_date = nothiListInboxNoteRecordsDTO.to.last_note_date;
 
 
-                    noteView.totalNothi = nothiListInboxNoteRecordsDTO.nothi.nothi_no.ToString();
+                    noteView.totalNothi = nothiListInboxNoteRecordsDTO.note.note_no.ToString();
                     noteView.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
                     noteView.checkBox = "1";
                     noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
@@ -4448,6 +4477,8 @@ namespace dNothi.Desktop.UI
 
             }
         }
+      
+        public bool InternetConnectionTemp;
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
@@ -4517,7 +4548,7 @@ namespace dNothi.Desktop.UI
         }
 
 
-
+      
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
@@ -4566,16 +4597,21 @@ namespace dNothi.Desktop.UI
             {
                 LoadDakNothivukto();
             }
-            // Thread.Sleep(10);
+
+
+            //if(InternetConnectionTemp != InternetConnection.CheckMachineConnection())
+            //{
+            //    onlineToggleButton2.Toggle();
+            //    InternetConnectionTemp = InternetConnection.CheckMachineConnection();
+            //}
 
             if (!backgroundWorker1.IsBusy && this.Visible)
             {
 
-
                 backgroundWorker1.RunWorkerAsync();
             }
 
-
+            
         }
     }
 

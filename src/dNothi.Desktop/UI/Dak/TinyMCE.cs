@@ -69,6 +69,8 @@ namespace dNothi.Desktop.UI.Dak
             {
                 MessageBox.Show("Could not find the tinyMCE script directory. Please ensure the directory is in the same location as tinymce.htm", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            
         }
     }
 }

@@ -279,12 +279,13 @@ namespace dNothi.Desktop.UI.Dak
                         nothiNoteShomuho.nothi_id = nothiInboxNotUploadedNote.nothi_id;
                         nothiNoteShomuho.note_ID = nothiInboxNotUploadedNote.Id.ToString();
                         nothiNoteShomuho.note_no = nothiInboxNotUploadedNote.Id.ToString();
-
-                        noteNothiDTO.note_no = nothiInboxNotUploadedNote.Id.ToString();
+                      
+                       
                         noteNothiDTO.note_subject = nothiInboxNotUploadedNote.noteSubject;
                         noteNothiDTO.note_id = nothiInboxNotUploadedNote.Id.ToString();
                         noteNothiDTO._isOffline = true;
-
+                        noteNothiDTO.extra_nothi_id= nothiInboxNotUploadedNote.nothi_id;
+                        noteNothiDTO.note_no= nothiInboxNotUploadedNote.Id.ToString();
 
                         nothiNoteShomuho.nothiDTO = noteNothiDTO;
                         //nothiNoteShomuho.LocalNoteDetailsButton += delegate (object sender1, EventArgs e1) {
@@ -356,7 +357,7 @@ namespace dNothi.Desktop.UI.Dak
                 
                 NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
 
-                if (noteDTO.nothi == null)
+                if (noteDTO.nothi != null)
                 {
                     //  noteDTO.nothi = new NoteNothiDTO();
                     noteNothiDTO.archived_date = noteDTO.nothi.archived_date;

@@ -5,6 +5,7 @@ using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
+using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using Newtonsoft.Json;
@@ -21,7 +22,9 @@ namespace dNothi.Services.SyncServices
     public class SyncerService : ISyncerService
     {
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        IOnucchedSave _onucchedSave { get; set; }
 
+        INoteSaveService _noteSave { get; set; }
         IUserService _userService { get; set; }
         IRegisterService _registerService { get; set; }
         IDakFolderService _dakFolderService { get; set; }
@@ -45,8 +48,9 @@ namespace dNothi.Services.SyncServices
         IAccountService _accountService { get; set; }
         IRepository<SyncStatus> _sycnRepository;
         public SyncerService(
+              INoteSaveService noteSave,
 
-
+            IOnucchedSave onucchedSave,
              IUserService userService,
             IDakOutboxService dakOutboxService,
             IDakNothivuktoService dakNothivuktoService,
@@ -71,7 +75,7 @@ namespace dNothi.Services.SyncServices
         {
 
             _dakNothivuktoService = dakNothivuktoService;
-
+            _noteSave = noteSave;
             _dakSearchService = dakSearchService;
             _registerService = registerService;
             _designationSealService = designationSealService;
@@ -88,7 +92,7 @@ namespace dNothi.Services.SyncServices
 
             _dakFolderService = dakFolderService;
 
-
+            _onucchedSave = onucchedSave;
             _userService = userService;
             _dakInboxService = dakInboxService;
             _accountService = accountService;
@@ -172,11 +176,8 @@ namespace dNothi.Services.SyncServices
                     LocalChangeData._isdakNothijatoReverted = true;
                 }
 
+                _noteSave.SendNoteListFromLocal();
 
-
-
-
-                //dakUploadBackgorundWorker.RunWorkerAsync();
             }
 
 
