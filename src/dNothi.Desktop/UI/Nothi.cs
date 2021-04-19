@@ -1092,7 +1092,7 @@ namespace dNothi.Desktop.UI
                         
                         NothiAll nothiAll = UserControlFactory.Create<NothiAll>();
                         nothiAll.nothi = nothiCreateItemAction.nothi_no + " " + nothiCreateItemAction.nothi_subject;
-                        nothiAll.shakha = "নথির শাখা: " + nothiCreateItemAction.nothishkha;
+                        nothiAll.shakha = nothiCreateItemAction.nothishkha;
                         
                         if (greaterNothiId != nothiCreateItemAction.nothi_id && nothiCreateItemAction.nothi_id == 0)
                         {
@@ -1398,7 +1398,7 @@ namespace dNothi.Desktop.UI
                 {
 
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
-                    nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
+                    nothiAll.shakha = nothiAllListDTO.nothi.office_unit_name;
                     nothiAll.desk = nothiAllListDTO.desk.note_count.ToString();
                     nothiAll.noteTotal = nothiAllListDTO.status.total;
                     nothiAll.permitted = nothiAllListDTO.status.permitted;
@@ -1413,7 +1413,7 @@ namespace dNothi.Desktop.UI
                 {
                     //NothiAll nothiAll = new NothiAll();
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
-                    nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;
+                    nothiAll.shakha =nothiAllListDTO.nothi.office_unit_name;
                     nothiAll.nothiId = Convert.ToString(nothiAllListDTO.nothi.id);
                     nothiAll.flag = 1;
                 }

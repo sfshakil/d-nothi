@@ -256,15 +256,23 @@ namespace dNothi.Desktop.UI.Dak
                     newnotedata.note_id = Convert.ToInt32(_noteID);
                 }
                 var onuchhedForwardResponse = _onuchhedForward.GetOnuchhedForwardResponse(dakListUserParam, newnotedata, nothiListRecord, newrecords);
-                if (onuchhedForwardResponse.status == "success")
+                
+                if (onuchhedForwardResponse.status == "success" && onuchhedForwardResponse.message != "Local")
                 {
-
                     SuccessMessage("প্রক্রিয়াটি সম্পন্ন হয়েছে");
                     foreach (Form f in Application.OpenForms)
                     { f.Hide(); }
                     var form = FormFactory.Create<Nothi>();
                     form.ShowDialog();
 
+                }
+                else if (onuchhedForwardResponse.status == "success" && onuchhedForwardResponse.message == "Local")
+                {
+                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে নথিটি প্রেরণ করা হবে");
+                    foreach (Form f in Application.OpenForms)
+                    { f.Hide(); }
+                    var form = FormFactory.Create<Nothi>();
+                    form.ShowDialog();
                 }
                 else
                 {

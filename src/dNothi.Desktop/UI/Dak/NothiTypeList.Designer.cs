@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbNothiSubjectType = new System.Windows.Forms.Label();
             this.lbNothiCode = new System.Windows.Forms.Label();
             this.lbNothiNumber = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.lbNoteId = new System.Windows.Forms.Label();
             this.btnSchedule = new FontAwesome.Sharp.IconButton();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lbNothiSubjectType
@@ -158,6 +160,7 @@
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(34, 35);
             this.btnSchedule.TabIndex = 68;
+            this.MyToolTip.SetToolTip(this.btnSchedule, "আপলোড হচ্ছে");
             this.btnSchedule.UseVisualStyleBackColor = false;
             this.btnSchedule.Visible = false;
             // 
@@ -192,5 +195,6 @@
         private FontAwesome.Sharp.IconButton btnDelete;
         private System.Windows.Forms.Label lbNoteId;
         private FontAwesome.Sharp.IconButton btnSchedule;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }

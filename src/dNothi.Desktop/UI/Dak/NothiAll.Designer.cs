@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.nothiShompadonIcon = new System.Windows.Forms.Button();
             this.lbNothiId = new System.Windows.Forms.Label();
@@ -79,6 +81,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.btnSchedule);
             this.panel1.Controls.Add(this.nothiShompadonIcon);
             this.panel1.Controls.Add(this.lbNothiId);
@@ -114,6 +118,30 @@
             this.panel1.Size = new System.Drawing.Size(1115, 84);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
+            this.label1.Location = new System.Drawing.Point(104, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 21);
+            this.label1.TabIndex = 121;
+            this.label1.Text = "শাখাঃ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
+            this.label6.Location = new System.Drawing.Point(104, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 21);
+            this.label6.TabIndex = 120;
+            this.label6.Text = "নথিঃ";
+            // 
             // btnSchedule
             // 
             this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
@@ -124,11 +152,12 @@
             this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSchedule.IconSize = 28;
-            this.btnSchedule.Location = new System.Drawing.Point(1051, 14);
+            this.btnSchedule.Location = new System.Drawing.Point(1051, 11);
             this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(25, 29);
             this.btnSchedule.TabIndex = 119;
+            this.MyToolTip.SetToolTip(this.btnSchedule, "আপলোড হচ্ছে");
             this.btnSchedule.UseVisualStyleBackColor = false;
             this.btnSchedule.Visible = false;
             // 
@@ -140,7 +169,7 @@
             this.nothiShompadonIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.nothiShompadonIcon.FlatAppearance.BorderSize = 0;
             this.nothiShompadonIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothiShompadonIcon.Location = new System.Drawing.Point(1051, 14);
+            this.nothiShompadonIcon.Location = new System.Drawing.Point(1051, 11);
             this.nothiShompadonIcon.Name = "nothiShompadonIcon";
             this.nothiShompadonIcon.Size = new System.Drawing.Size(25, 20);
             this.nothiShompadonIcon.TabIndex = 118;
@@ -155,7 +184,7 @@
             this.lbNothiId.Location = new System.Drawing.Point(556, 54);
             this.lbNothiId.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiId.Name = "lbNothiId";
-            this.lbNothiId.Size = new System.Drawing.Size(76, 18);
+            this.lbNothiId.Size = new System.Drawing.Size(98, 21);
             this.lbNothiId.TabIndex = 117;
             this.lbNothiId.Text = "nothiIdLabel";
             this.lbNothiId.Visible = false;
@@ -167,7 +196,7 @@
             this.lbFlag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbFlag.Location = new System.Drawing.Point(556, 51);
             this.lbFlag.Name = "lbFlag";
-            this.lbFlag.Size = new System.Drawing.Size(79, 18);
+            this.lbFlag.Size = new System.Drawing.Size(102, 21);
             this.lbFlag.TabIndex = 115;
             this.lbFlag.Text = "shakhaLabel";
             this.lbFlag.Visible = false;
@@ -183,7 +212,7 @@
             this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 24;
-            this.iconButton7.Location = new System.Drawing.Point(923, 20);
+            this.iconButton7.Location = new System.Drawing.Point(923, 17);
             this.iconButton7.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(19, 20);
@@ -201,7 +230,7 @@
             this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 24;
-            this.iconButton6.Location = new System.Drawing.Point(1012, 19);
+            this.iconButton6.Location = new System.Drawing.Point(1012, 16);
             this.iconButton6.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Size = new System.Drawing.Size(19, 20);
@@ -219,7 +248,7 @@
             this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 24;
-            this.iconButton4.Location = new System.Drawing.Point(821, 19);
+            this.iconButton4.Location = new System.Drawing.Point(821, 16);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(19, 20);
             this.iconButton4.TabIndex = 112;
@@ -236,7 +265,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(703, 20);
+            this.iconButton2.Location = new System.Drawing.Point(703, 17);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(19, 20);
             this.iconButton2.TabIndex = 111;
@@ -253,7 +282,7 @@
             this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 24;
-            this.iconButton5.Location = new System.Drawing.Point(616, 19);
+            this.iconButton5.Location = new System.Drawing.Point(616, 16);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(19, 20);
             this.iconButton5.TabIndex = 110;
@@ -265,10 +294,10 @@
             this.lbNoteTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
             this.lbNoteTotal.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.lbNoteTotal.Location = new System.Drawing.Point(668, 20);
+            this.lbNoteTotal.Location = new System.Drawing.Point(668, 17);
             this.lbNoteTotal.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteTotal.Name = "lbNoteTotal";
-            this.lbNoteTotal.Size = new System.Drawing.Size(15, 18);
+            this.lbNoteTotal.Size = new System.Drawing.Size(19, 21);
             this.lbNoteTotal.TabIndex = 109;
             this.lbNoteTotal.Text = "0";
             // 
@@ -282,7 +311,7 @@
             this.btnNote.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.btnNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.btnNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNote.Location = new System.Drawing.Point(608, 14);
+            this.btnNote.Location = new System.Drawing.Point(608, 11);
             this.btnNote.Margin = new System.Windows.Forms.Padding(0);
             this.btnNote.Name = "btnNote";
             this.btnNote.Size = new System.Drawing.Size(92, 34);
@@ -351,10 +380,10 @@
             this.lbArchived.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
             this.lbArchived.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbArchived.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.lbArchived.Location = new System.Drawing.Point(1085, 22);
+            this.lbArchived.Location = new System.Drawing.Point(1085, 19);
             this.lbArchived.Margin = new System.Windows.Forms.Padding(0);
             this.lbArchived.Name = "lbArchived";
-            this.lbArchived.Size = new System.Drawing.Size(15, 18);
+            this.lbArchived.Size = new System.Drawing.Size(19, 21);
             this.lbArchived.TabIndex = 102;
             this.lbArchived.Text = "0";
             // 
@@ -368,7 +397,7 @@
             this.btnArchive.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.btnArchive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.btnArchive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArchive.Location = new System.Drawing.Point(1011, 14);
+            this.btnArchive.Location = new System.Drawing.Point(1011, 11);
             this.btnArchive.Margin = new System.Windows.Forms.Padding(0);
             this.btnArchive.Name = "btnArchive";
             this.btnArchive.Size = new System.Drawing.Size(99, 35);
@@ -380,9 +409,9 @@
             // 
             this.lbNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothi.Location = new System.Drawing.Point(108, 5);
+            this.lbNothi.Location = new System.Drawing.Point(145, 11);
             this.lbNothi.Name = "lbNothi";
-            this.lbNothi.Size = new System.Drawing.Size(442, 43);
+            this.lbNothi.Size = new System.Drawing.Size(405, 39);
             this.lbNothi.TabIndex = 100;
             this.lbNothi.Text = "nothiLabel";
             // 
@@ -391,9 +420,9 @@
             this.lbShakha.AutoSize = true;
             this.lbShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbShakha.Location = new System.Drawing.Point(108, 51);
+            this.lbShakha.Location = new System.Drawing.Point(148, 54);
             this.lbShakha.Name = "lbShakha";
-            this.lbShakha.Size = new System.Drawing.Size(79, 18);
+            this.lbShakha.Size = new System.Drawing.Size(102, 21);
             this.lbShakha.TabIndex = 99;
             this.lbShakha.Text = "shakhaLabel";
             // 
@@ -403,10 +432,10 @@
             this.lbNishponno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
             this.lbNishponno.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.lbNishponno.Location = new System.Drawing.Point(983, 21);
+            this.lbNishponno.Location = new System.Drawing.Point(983, 18);
             this.lbNishponno.Margin = new System.Windows.Forms.Padding(0);
             this.lbNishponno.Name = "lbNishponno";
-            this.lbNishponno.Size = new System.Drawing.Size(15, 18);
+            this.lbNishponno.Size = new System.Drawing.Size(19, 21);
             this.lbNishponno.TabIndex = 98;
             this.lbNishponno.Text = "0";
             // 
@@ -420,7 +449,7 @@
             this.btnNishponno.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.btnNishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.btnNishponno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNishponno.Location = new System.Drawing.Point(918, 14);
+            this.btnNishponno.Location = new System.Drawing.Point(918, 11);
             this.btnNishponno.Margin = new System.Windows.Forms.Padding(0);
             this.btnNishponno.Name = "btnNishponno";
             this.btnNishponno.Size = new System.Drawing.Size(92, 34);
@@ -434,10 +463,10 @@
             this.lbOnishponno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
             this.lbOnishponno.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOnishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.lbOnishponno.Location = new System.Drawing.Point(891, 21);
+            this.lbOnishponno.Location = new System.Drawing.Point(891, 18);
             this.lbOnishponno.Margin = new System.Windows.Forms.Padding(0);
             this.lbOnishponno.Name = "lbOnishponno";
-            this.lbOnishponno.Size = new System.Drawing.Size(15, 18);
+            this.lbOnishponno.Size = new System.Drawing.Size(19, 21);
             this.lbOnishponno.TabIndex = 96;
             this.lbOnishponno.Text = "0";
             // 
@@ -451,7 +480,7 @@
             this.btnOnishponno.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.btnOnishponno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.btnOnishponno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOnishponno.Location = new System.Drawing.Point(818, 14);
+            this.btnOnishponno.Location = new System.Drawing.Point(818, 11);
             this.btnOnishponno.Margin = new System.Windows.Forms.Padding(0);
             this.btnOnishponno.Name = "btnOnishponno";
             this.btnOnishponno.Size = new System.Drawing.Size(100, 34);
@@ -465,10 +494,10 @@
             this.lbPermitted.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(243)))), ((int)(((byte)(242)))));
             this.lbPermitted.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPermitted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(98)))));
-            this.lbPermitted.Location = new System.Drawing.Point(791, 21);
+            this.lbPermitted.Location = new System.Drawing.Point(791, 18);
             this.lbPermitted.Margin = new System.Windows.Forms.Padding(0);
             this.lbPermitted.Name = "lbPermitted";
-            this.lbPermitted.Size = new System.Drawing.Size(15, 18);
+            this.lbPermitted.Size = new System.Drawing.Size(19, 21);
             this.lbPermitted.TabIndex = 94;
             this.lbPermitted.Text = "0";
             // 
@@ -482,7 +511,7 @@
             this.btnOnumodito.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.btnOnumodito.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.btnOnumodito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOnumodito.Location = new System.Drawing.Point(700, 14);
+            this.btnOnumodito.Location = new System.Drawing.Point(700, 11);
             this.btnOnumodito.Margin = new System.Windows.Forms.Padding(0);
             this.btnOnumodito.Name = "btnOnumodito";
             this.btnOnumodito.Size = new System.Drawing.Size(118, 34);
@@ -496,10 +525,10 @@
             this.lbDesk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
             this.lbDesk.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbDesk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
-            this.lbDesk.Location = new System.Drawing.Point(556, 18);
+            this.lbDesk.Location = new System.Drawing.Point(556, 15);
             this.lbDesk.Margin = new System.Windows.Forms.Padding(0);
             this.lbDesk.Name = "lbDesk";
-            this.lbDesk.Size = new System.Drawing.Size(45, 18);
+            this.lbDesk.Size = new System.Drawing.Size(52, 21);
             this.lbDesk.TabIndex = 92;
             this.lbDesk.Text = "ডেস্ক: ১";
             // 
@@ -507,9 +536,9 @@
             // 
             this.lbNoteLastDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteLastDate.Location = new System.Drawing.Point(873, 54);
+            this.lbNoteLastDate.Location = new System.Drawing.Point(875, 55);
             this.lbNoteLastDate.Name = "lbNoteLastDate";
-            this.lbNoteLastDate.Size = new System.Drawing.Size(237, 25);
+            this.lbNoteLastDate.Size = new System.Drawing.Size(237, 24);
             this.lbNoteLastDate.TabIndex = 91;
             this.lbNoteLastDate.Text = "noteLastDateLabel";
             // 
@@ -579,7 +608,7 @@
             this.lbNoteTotal1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteTotal1.Location = new System.Drawing.Point(971, 8);
             this.lbNoteTotal1.Name = "lbNoteTotal1";
-            this.lbNoteTotal1.Size = new System.Drawing.Size(64, 18);
+            this.lbNoteTotal1.Size = new System.Drawing.Size(77, 21);
             this.lbNoteTotal1.TabIndex = 63;
             this.lbNoteTotal1.Text = " সর্বমোট: 0";
             // 
@@ -776,5 +805,7 @@
         private System.Windows.Forms.Button nothiShompadonIcon;
         private System.Windows.Forms.ToolTip MyToolTip;
         private FontAwesome.Sharp.IconButton btnSchedule;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
     }
 }

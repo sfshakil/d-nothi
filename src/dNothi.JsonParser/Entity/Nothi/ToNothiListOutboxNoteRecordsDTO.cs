@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace dNothi.JsonParser.Entity.Nothi
 {
-    public class ToNothiListInboxNoteRecordsDTO
+    public class ToNothiListOutboxNoteRecordsDTO
     {
         public int nothi_master_id { get; set; }
         public int nothi_note_id { get; set; }
-        public int nothi_office { get; set; }
+        public string note_decision { get; set; }
         public int officer_id { get; set; }
         public string officer { get; set; }
         public int office_id { get; set; }
@@ -19,21 +19,9 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string office_unit { get; set; }
         public int designation_id { get; set; }
         public string designation { get; set; }
-        public string issue_date { get; set; }
-        public string note_current_status { get; set; }
-        public int priority { get; set; }
-        public int is_migrated { get; set; }
-        public int is_lock { get; set; }
-        public string note_subject { get; set; }
-
-
-        
-        public string note_decision { get; set; }
         public string created { get; set; }
         public string modified { get; set; }
         public int view_status { get; set; }
-
-        public int note_no { get; set; }
-        public int shared_nothi_count { get; set; }
+        public int priority { get; set; }
     }
 }

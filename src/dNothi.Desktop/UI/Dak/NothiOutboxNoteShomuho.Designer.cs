@@ -335,6 +335,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(25, 30);
             this.btnSchedule.TabIndex = 120;
+            this.MyToolTip.SetToolTip(this.btnSchedule, "আপলোড হচ্ছে");
             this.btnSchedule.UseVisualStyleBackColor = false;
             this.btnSchedule.Visible = false;
             // 

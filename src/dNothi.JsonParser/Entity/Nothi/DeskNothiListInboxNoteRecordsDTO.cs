@@ -25,5 +25,6 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int is_migrated { get; set; }
         public int is_lock { get; set; }
         public string note_subject { get; set; }
+        public int shared_nothi_count { get; set; }
     }
 }

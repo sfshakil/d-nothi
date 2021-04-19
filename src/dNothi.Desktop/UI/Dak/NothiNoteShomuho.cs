@@ -47,15 +47,15 @@ namespace dNothi.Desktop.UI.Dak
         private string _noteIssueDate;
         public long _nothi_id;
 
-        public void loadEyeIcon(int i)
+        public void loadEyeIcon(string i)
         {
-            if (i != 0)
+            if (i != "New")
             {
-                eyeIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+                eyeIcon.IconChar = FontAwesome.Sharp.IconChar.Eye;
             }
             else
             {
-                eyeIcon.IconChar = FontAwesome.Sharp.IconChar.Eye;
+                eyeIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
         }
         public void invisible()

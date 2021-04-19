@@ -59,7 +59,7 @@ namespace dNothi.Desktop.UI
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Image = global::dNothi.Desktop.Properties.Resources._126;
+            this.label1.Image = global::dNothi.Desktop.Properties.Resources.Spinner_3;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 98);

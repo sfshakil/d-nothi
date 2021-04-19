@@ -76,6 +76,10 @@ namespace dNothi.Constants
         public const string NothiOutboxListEndPoint = "/api/nothi/list/outbox";
         public const string NothiAllListEndPoint = "/api/nothi/list/all";
         public const string NothiInboxNoteEndPoint = "/api/nothi/note/pending";
+
+        public const string NothiOutboxNoteEndPoint = "/api/nothi/note/list";
+        public const string NothiAllNoteEndPoint = "/api/nothi/note/permitted";
+
         public const string NothiCreateEndPoint = "/api/add";
         public const string NothiNotePermissionEndPoint = "/api/nothi/note/permission/save";
         public const string NothiPermissionSaveEndPoint = "/api/nothi/permission/save";

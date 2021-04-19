@@ -207,8 +207,11 @@
     <Compile Include="Entity\Nothi\NothiListAllRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListAllResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListInboxDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiListOutboxNoteRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiListOutboxNoteDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListInboxNoteDTO.cs" />
     <Compile Include="Entity\Nothi\NothiListInboxNoteRecordsDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiListOutboxNoteResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListInboxNoteResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListInboxResponse.cs" />
     <Compile Include="Entity\Nothi\NothiListOutboxDTO.cs" />
@@ -259,6 +262,7 @@
     <Compile Include="Entity\Nothi\SingleOnucchedRecordSignatureDTO.cs" />
     <Compile Include="Entity\Nothi\SingleOnucchedResponse.cs" />
     <Compile Include="Entity\Nothi\StatusAllDTO.cs" />
+    <Compile Include="Entity\Nothi\ToNothiListOutboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\ToNothiListInboxNoteRecordsDTO.cs" />
     <Compile Include="Entity\Nothi\ToOutboxDTO.cs" />
     <Compile Include="Entity\OfficeInfoDTO.cs" />

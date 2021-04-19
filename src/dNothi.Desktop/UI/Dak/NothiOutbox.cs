@@ -21,12 +21,13 @@ namespace dNothi.Desktop.UI.Dak
         private int originalHeight;
 
         IUserService _userService { get; set; }
-        INothiInboxNoteServices _nothiInboxNote { get; set; }
+        //INothiInboxNoteServices _nothiInboxNote { get; set; }
+        INothiOutboxNoteServices _nothiOutboxNote { get; set; }
         NothiListInboxNoteRecordsDTO _noteListForNoteAll = new NothiListInboxNoteRecordsDTO();
-        public NothiOutbox(IUserService userService, INothiInboxNoteServices nothiInboxNote)
+        public NothiOutbox(IUserService userService, INothiOutboxNoteServices nothiOutboxNote)
         {
             _userService = userService;
-            _nothiInboxNote = nothiInboxNote;
+            _nothiOutboxNote = nothiOutboxNote;
             InitializeComponent();
             originalWidth = this.Width;
             originalHeight = this.Height;
@@ -125,7 +126,11 @@ namespace dNothi.Desktop.UI.Dak
 
             if (!InternetConnection.Check())
             {
-                var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                newAllNoteFlowLayoutPanel.AutoScroll = true;
+                newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+                newAllNoteFlowLayoutPanel.WrapContents = false;
+                var nothiInboxNotUploadedNotes = _nothiOutboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
                 if (nothiInboxNotUploadedNotes.Count > 0)
                 {
                     _noteTotal = _noteTotal + nothiInboxNotUploadedNotes.Count;
@@ -165,10 +170,10 @@ namespace dNothi.Desktop.UI.Dak
                         nothiNoteShomuhos.Add(nothiNoteShomuho);
 
                     }
-                    newAllNoteFlowLayoutPanel.Controls.Clear();
-                    newAllNoteFlowLayoutPanel.AutoScroll = true;
-                    newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-                    newAllNoteFlowLayoutPanel.WrapContents = false;
+                    //newAllNoteFlowLayoutPanel.Controls.Clear();
+                    //newAllNoteFlowLayoutPanel.AutoScroll = true;
+                    //newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+                    //newAllNoteFlowLayoutPanel.WrapContents = false;
 
                     for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
                     {
@@ -178,7 +183,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
 
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(nothiListUserParam, eachNothiId, note_category);
+            var nothiInboxNote = _nothiOutboxNote.GetNothiOutboxNote(nothiListUserParam, eachNothiId, note_category);
 
             if (nothiInboxNote.status == "success")
             {
@@ -318,7 +323,8 @@ namespace dNothi.Desktop.UI.Dak
         public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
         private void OutboxNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e1, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
-            _nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
+            _nothiListInboxNoteRecordsDTO= nothiListInboxNoteRecordsDTO;
+
             if (this.OutboxNoteDetailsButton != null)
                 this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e1);
         }

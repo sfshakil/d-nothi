@@ -21,13 +21,14 @@ namespace dNothi.Desktop.UI.Dak
         private int originalWidth;
         private int originalHeight;
         IUserService _userService { get; set; }
-        INothiInboxNoteServices _nothiInboxNote { get; set; }
+        //INothiInboxNoteServices _nothiInboxNote { get; set; }
+        INothiAllNoteServices _nothiAllNote { get; set; }
 
         public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
-        public NothiAll(IUserService userService, INothiInboxNoteServices nothiInboxNote)
+        public NothiAll(IUserService userService, INothiAllNoteServices nothiAllNote)
         {
             _userService = userService;
-            _nothiInboxNote = nothiInboxNote;
+            _nothiAllNote = nothiAllNote;
             InitializeComponent();
             originalWidth = this.Width;
             originalHeight = this.Height;
@@ -206,7 +207,11 @@ namespace dNothi.Desktop.UI.Dak
             
             if (!InternetConnection.Check())
             {
-                var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                newAllNoteFlowLayoutPanel.AutoScroll = true;
+                newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+                newAllNoteFlowLayoutPanel.WrapContents = false;
+                var nothiInboxNotUploadedNotes = _nothiAllNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
                 if (nothiInboxNotUploadedNotes.Count > 0)
                 {
                     _noteTotal = _noteTotal+ nothiInboxNotUploadedNotes.Count;
@@ -232,10 +237,7 @@ namespace dNothi.Desktop.UI.Dak
                         nothiNoteShomuhos.Add(nothiNoteShomuho);
 
                     }
-                    newAllNoteFlowLayoutPanel.Controls.Clear();
-                    newAllNoteFlowLayoutPanel.AutoScroll = true;
-                    newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-                    newAllNoteFlowLayoutPanel.WrapContents = false;
+                   
 
                     for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
                     {
@@ -244,7 +246,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
             }
 
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(nothiListUserParam, eachNothiId, note_category);
+            var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId, note_category);
 
             if (nothiInboxNote.status == "success")
             {
@@ -295,7 +297,7 @@ namespace dNothi.Desktop.UI.Dak
                 //nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
                 nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
                 nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
-                nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
+                nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.desk.note_current_status);
                 nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
 
 
@@ -319,17 +321,17 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     nothiNoteShomuho.note_subject = nothiListInboxNoteRecordsDTO.note.note_subject;
                 }
-                if (nothiListInboxNoteRecordsDTO.desk.officer != null)
+                if (nothiListInboxNoteRecordsDTO.to.officer != null)
                 {
-                    nothiNoteShomuho.deskofficer = nothiListInboxNoteRecordsDTO.desk.officer;
+                    nothiNoteShomuho.deskofficer = nothiListInboxNoteRecordsDTO.to.officer;
                 }
                 else
                 {
                     nothiNoteShomuho.deskofficer = " ";
                 }
-                if (nothiListInboxNoteRecordsDTO.to.officer != null && nothiListInboxNoteRecordsDTO.desk.officer != nothiListInboxNoteRecordsDTO.to.officer)
+                if (nothiListInboxNoteRecordsDTO.desk.officer != null && nothiListInboxNoteRecordsDTO.desk.officer != nothiListInboxNoteRecordsDTO.to.officer)
                 {
-                    nothiNoteShomuho.toofficer = nothiListInboxNoteRecordsDTO.to.officer;
+                    nothiNoteShomuho.toofficer = nothiListInboxNoteRecordsDTO.desk.officer;
                 }
                 else
                 {

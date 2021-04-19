@@ -1781,6 +1781,16 @@
     <None Include="Resources\bg-1.jpg" />
     <None Include="Resources\logo-nothi.png" />
     <None Include="Resources\126.gif" />
+    <None Include="Resources\loader.png" />
+    <None Include="Resources\loader1.png" />
+    <None Include="Resources\loader2.png" />
+    <None Include="Resources\loader1.gif" />
+    <None Include="Resources\Spinner-3.gif" />
+    <None Include="Resources\Spinner-5.gif" />
+    <None Include="Resources\Fading wheel.gif" />
+    <None Include="Resources\Full snake.gif" />
+    <None Include="Resources\Glowing ring.gif" />
+    <None Include="Resources\Half circle.gif" />
     <Content Include="Scripts\fontawesome\all.js" />
     <Content Include="Scripts\fontawesome\all.min.js" />
     <Content Include="Scripts\fontawesome\brands.js" />

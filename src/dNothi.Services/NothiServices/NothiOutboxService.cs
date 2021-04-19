@@ -3,6 +3,7 @@ using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -26,7 +27,7 @@ namespace dNothi.Services.NothiServices
         {
             NothiListOutboxResponse nothiListOutboxResponse = new NothiListOutboxResponse();
 
-            if (!dNothi.Utility.InternetConnection.Check())
+            if (!InternetConnection.Check())
             {
                 var nothiList = _nothiItem.Table.FirstOrDefault(a => a.page == dakUserParam.page && a.is_nothi_outbox == true && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
 

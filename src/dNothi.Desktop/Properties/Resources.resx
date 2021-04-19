@@ -154,6 +154,9 @@
   <data name="icons8-eye-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-eye-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Spinner-5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spinner-5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="মূল-প্রাপক-PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\মূল-প্রাপক-PNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -172,8 +175,11 @@
   <data name="মূল-প্রাপক-PNG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\মূল-প্রাপক-PNG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="গোপনীয়" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\গোপনীয়.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loader11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loader1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="126" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\126.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="সীমিত-PNG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\সীমিত-PNG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,6 +250,12 @@
   <data name="icons8-high-priority-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-high-priority-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loader.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loader1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loader1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="mulpotro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mulpotro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -304,11 +316,17 @@
   <data name="অনুলিপি" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\অনুলিপি.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Spinner-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spinner-3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="paperclip (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paperclip (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo-nothi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo-nothi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Repeal-alt-Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Repeal-alt-Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="সীমিত" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\সীমিত.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,6 +352,9 @@
   <data name="DakListUserControlBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DakListUserControlBG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loader2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loader2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="সর্বোচ্চ অগ্রাধিকার-PNG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\সর্বোচ্চ অগ্রাধিকার-PNG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -349,8 +370,8 @@
   <data name="নাগরিক" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\নাগরিক.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Repeal-alt-Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Repeal-alt-Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="গোপনীয়" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\গোপনীয়.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Nothivukto-Icon-Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nothivukto-Icon-Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -358,7 +379,16 @@
   <data name="icons8-high-priority-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-high-priority-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="126" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\126.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Fading wheel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fading wheel.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Full snake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Full snake.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Glowing ring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Glowing ring.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Half circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Half circle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
