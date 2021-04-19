@@ -230,7 +230,7 @@ namespace dNothi.Desktop.UI
                 NoteIdfromNothiInboxNoteShomuho.Text = list.nothi_note_id.ToString();
                 //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
                 OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
-                if (onucchedList.data == null)
+                if (onucchedList.data.records.Count == 0)
                 {
                     if (!InternetConnection.Check())
                     {
@@ -2311,7 +2311,7 @@ namespace dNothi.Desktop.UI
 
                     var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(onuchhedId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                     OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, newnotedata.note_id);
-                    if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data == null)
+                    if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data.records.Count == 0)
                     {
                         if (!InternetConnection.Check())
                         {
@@ -2650,7 +2650,8 @@ namespace dNothi.Desktop.UI
             panel24.Visible = false;
             panel28.Visible = false;
             PnlSave.Visible = false;
-
+            noteHeaderPanel.Width = 990;
+            noteHeaderPanel.Height = 426;
             btnCancel.Visible = false;
             btnSave.Visible = false;
             btnSaveArrow.Visible = false;
@@ -2663,7 +2664,9 @@ namespace dNothi.Desktop.UI
 
         private void btnWriteOnuchhed_Click(object sender, EventArgs e)
         {
-           
+
+            noteHeaderPanel.Width = 990;
+            noteHeaderPanel.Height = 150;
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
             btnSave.Visible = true;
