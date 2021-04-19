@@ -1089,15 +1089,23 @@ namespace dNothi.Desktop.UI
                     greaterNothiId = greaterNothiId + nothiCreateItemActions.Count;
                     foreach (NothiCreateItemAction nothiCreateItemAction in nothiCreateItemActions)
                     {
-                        greaterNothiId++;
+                        
                         NothiAll nothiAll = UserControlFactory.Create<NothiAll>();
                         nothiAll.nothi = nothiCreateItemAction.nothi_no + " " + nothiCreateItemAction.nothi_subject;
                         nothiAll.shakha = "নথির শাখা: " + nothiCreateItemAction.nothishkha;
-                        nothiAll.nothiId = Convert.ToString(greaterNothiId);
                         
-                        nothiCreateItemAction.nothi_id = greaterNothiId;
-                        _nothiCreateItemAction.Update(nothiCreateItemAction);
-                        
+                        if (greaterNothiId != nothiCreateItemAction.nothi_id && nothiCreateItemAction.nothi_id == 0)
+                        {
+                            nothiAll.nothiId = Convert.ToString(greaterNothiId);
+                            nothiCreateItemAction.nothi_id = greaterNothiId;
+                            _nothiCreateItemAction.Update(nothiCreateItemAction);
+                        }
+                        else
+                        {
+                            nothiAll.nothiId = nothiCreateItemAction.nothi_id.ToString();
+                        }
+                        greaterNothiId++;
+
                         nothiAll.NothiAllNewNoteButtonClick += delegate (object sender, EventArgs e) {
                             NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
                             nothiListRecordsDTO.id = Convert.ToInt32(sender.ToString());
