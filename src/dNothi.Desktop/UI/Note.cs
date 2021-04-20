@@ -230,21 +230,23 @@ namespace dNothi.Desktop.UI
                 NoteIdfromNothiInboxNoteShomuho.Text = list.nothi_note_id.ToString();
                 //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
                 OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
-                if (onucchedList.data.records.Count == 0)
+                if (onucchedList.data == null)
                 {
                     if (!InternetConnection.Check())
                     {
                         var onuchhedNo = "0";
                         onuchhedFLP.Visible = true;
                         onuchhedFLP.Controls.Clear();
-                        noteHeaderPanel.Width = 990;
-                        noteHeaderPanel.Height = 426;
+                        
                         List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
                         if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
                         {
+                            noteHeaderPanel.Width = 990;
+                            noteHeaderPanel.Height = 426;
                             int flag = 0;
                             foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
                             {
+
                                 flag++;
                                 lbNoteTotl1.Text = "নোটঃ " + list.note_status;
                                 lbNoteSubject.Text = list.note_subject_sub_text;
@@ -2311,7 +2313,7 @@ namespace dNothi.Desktop.UI
 
                     var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(onuchhedId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                     OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, newnotedata.note_id);
-                    if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data.records.Count == 0)
+                    if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data == null)
                     {
                         if (!InternetConnection.Check())
                         {
