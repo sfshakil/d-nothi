@@ -1667,6 +1667,7 @@
     <EmbeddedResource Include="UserControl\UserNamePanel.resx">
       <DependentUpon>UserNamePanel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\dNothi.Desktop.exe.config" />
     <None Include="dNothi.Desktop_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -1749,6 +1750,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="256x256bb.ico" />
+    <Content Include="bin\Debug\dNothi.Desktop.exe" />
+    <Content Include="bin\Debug\dNothi.Desktop.pdb" />
     <Content Include="Content\brands.css" />
     <Content Include="Content\brands.min.css" />
     <Content Include="Content\fontawesome-all.css" />
@@ -2226,6 +2229,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Attachment\" />
+    <Folder Include="bin\Release\" />
     <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>

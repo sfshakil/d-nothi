@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DeployedProjects>
+    <string>dNothi.Constants\dNothi.Constants.csproj</string>
+    <string>dNothi.Core\dNothi.Core.csproj</string>
+    <string>dNothi.Desktop\dNothi.Desktop.csproj</string>
+    <string>dNothi.Infrastructure\dNothi.Infrastructure.csproj</string>
+    <string>dNothi.JsonParser\dNothi.JsonParser.csproj</string>
+    <string>dNothi.Services\dNothi.Services.csproj</string>
+    <string>dNothi.Utility\dNothi.Utility.csproj</string>
+  </DeployedProjects>
+  <DirectoryMappings>
+    <Item Key="" Value="INSTALLFOLDER" />
+  </DirectoryMappings>
+  <FileMappings />
+  <DeploySymbols>false</DeploySymbols>
+  <DeployLocalizations>true</DeployLocalizations>
+  <DeployExternalLocalizations>false</DeployExternalLocalizations>
+  <ExcludedProjectItems>-</ExcludedProjectItems>
+</Configuration>
