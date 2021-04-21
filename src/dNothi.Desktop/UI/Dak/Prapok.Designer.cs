@@ -82,7 +82,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbPrerokDesignation.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbPrerokDesignation.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPrerokDesignation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbPrerokDesignation.Location = new System.Drawing.Point(126, 0);
+            this.lbPrerokDesignation.Location = new System.Drawing.Point(110, 0);
             this.lbPrerokDesignation.Margin = new System.Windows.Forms.Padding(0);
             this.lbPrerokDesignation.Name = "lbPrerokDesignation";
             this.lbPrerokDesignation.Size = new System.Drawing.Size(336, 46);
@@ -99,7 +99,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbPrerokName.Location = new System.Drawing.Point(32, 0);
             this.lbPrerokName.Margin = new System.Windows.Forms.Padding(0);
             this.lbPrerokName.Name = "lbPrerokName";
-            this.lbPrerokName.Size = new System.Drawing.Size(94, 21);
+            this.lbPrerokName.Size = new System.Drawing.Size(78, 18);
             this.lbPrerokName.TabIndex = 2;
             this.lbPrerokName.Text = "বোরহান উদ্দিন";
             // 

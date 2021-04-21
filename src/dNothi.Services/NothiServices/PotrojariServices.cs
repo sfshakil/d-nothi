@@ -3,7 +3,9 @@ using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.JsonParser.Entity.Khosra;
 using dNothi.Services.DakServices;
+using dNothi.Services.KasaraPatraDashBoardService.Models;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -90,6 +92,90 @@ namespace dNothi.Services.NothiServices
 
             }
         }
+
+        public PrapakerTalika GetPrapakerTalika(DakUserParam userParam, int potro)
+        {
+
+            try
+            {
+                var Api = new RestClient(GetAPIDomain() + GetPrapakerTalikaEndPoint());
+                Api.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + userParam.token);
+                request.AlwaysMultipartFormData = true;
+
+
+                request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
+                request.AddParameter("potro", potro);
+                IRestResponse Response = Api.Execute(request);
+
+
+                var responseJson = Response.Content;
+
+                PrapakerTalika nothikhoshrapotrolist = JsonConvert.DeserializeObject<PrapakerTalika>(responseJson);
+                return nothikhoshrapotrolist;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+
+
+        }
+
+
+        public PotroApproveResponse GetPotroOnumodonResponse(DakUserParam userParam, int potrojari_id, string potro_status, string potro_description)
+        {
+
+            try
+            {
+                var Api = new RestClient(GetAPIDomain() + GetPotroOnumodonEndPoint());
+                Api.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + userParam.token);
+                request.AlwaysMultipartFormData = true;
+
+
+                request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
+                request.AddParameter("potro", "{\"potrojari_id\":\"" + potrojari_id + "\", \"potro_status\":\"" + potro_status + "\",\"potro_description\":\"" + potro_description + "\"}");
+
+
+                IRestResponse Response = Api.Execute(request);
+
+
+                var responseJson = Response.Content;
+
+                PotroApproveResponse potroApproveResponse = JsonConvert.DeserializeObject<PotroApproveResponse>(responseJson);
+                return potroApproveResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+
+
+        }
+        protected string GetAPIDomain()
+        {
+            return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
+        }
+
+        
+        
+        protected string GetPrapakerTalikaEndPoint()
+        {
+            return DefaultAPIConfiguration.prapakerTalika;
+        }
+        protected string GetPotroOnumodonEndPoint()
+        {
+            return DefaultAPIConfiguration.PotroOnumodonEndPoint;
+        }
+
+
         protected string GetAPIVersion()
         {
             return ReadAppSettings("api-version") ?? DefaultAPIConfiguration.DefaultAPIversion;
@@ -100,10 +186,7 @@ namespace dNothi.Services.NothiServices
         }
 
 
-        protected string GetAPIDomain()
-        {
-            return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
-        }
+       
 
         protected string GetNothiPotrangshoPotrojariEndPoint()
         {

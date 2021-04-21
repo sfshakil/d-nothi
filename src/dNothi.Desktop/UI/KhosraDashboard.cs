@@ -1,4 +1,9 @@
 ﻿using dNothi.Desktop.UI.Khosra_Potro;
+using dNothi.JsonParser.Entity.Dak;
+using dNothi.Services.DakServices;
+using dNothi.Services.KasaraPatraDashBoardService;
+using dNothi.Services.UserServices;
+using dNothi.Utility;
 using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
@@ -9,16 +14,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace dNothi.Desktop.UI
 {
     public partial class KhosraDashboard : Form
     {
-        public KhosraDashboard()
+
+        IKasaraPatraDashBoardService _kasaraPatraDashBoardService { get; set; }
+      
+        int page = 1;
+        int pageLimit = 10;
+        int menuNo = 1;
+        int totalPage = 1;
+        int start = 1;
+        int end = 10;
+        int totalrecord = 0;
+        IUserService _userService { get; set; }
+        public KhosraDashboard(IUserService userService)
         {
             InitializeComponent();
-           
-        }
+            _userService = userService;
+
+         }
 
 
         private void MakeThisPanelClicked(object sender)
@@ -69,32 +87,81 @@ namespace dNothi.Desktop.UI
 
         private void draftPotroPanel_Click(object sender, EventArgs e)
         {
+            menuNo = 1;
+            page = 1;
+            start = 1;
+            
             MakeThisPanelClicked(sender);
-            LoadFakeRow(true);
+            LoadData(true, menuNo,page);
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+
+            // LoadFakeRow(true);
         }
 
         private void noteAttachmentKhosraButton_Click(object sender, EventArgs e)
         {
+            menuNo = 2;
+            page = 1;
+            start = 1;
+           
             MakeThisPanelClicked(sender);
-            LoadFakeRow(false);
+            LoadData(true, menuNo,page);
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+
+            // LoadFakeRow(false);
         }
 
         private void pendingApprovalPanel_Click(object sender, EventArgs e)
         {
+            menuNo = 3;
+            page = 1;
+            start = 1;
+          
             MakeThisPanelClicked(sender);
-            LoadFakeRow(false);
+            LoadData(false, menuNo,page);
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+            // LoadFakeRow(false);
         }
 
         private void pendingForwardPanel_Click(object sender, EventArgs e)
         {
+            menuNo = 4;
+            page = 1;
+            start = 1;
+           
             MakeThisPanelClicked(sender);
-            LoadFakeRow(false);
+            LoadData(false, menuNo, page);
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+            //LoadApprovedData(false,page);
+            // LoadFakeRow(false);
         }
 
         private void jarikritoButton_Click(object sender, EventArgs e)
         {
+            menuNo = 5;
+            page = 1;
+            start = 1;
+           
             MakeThisPanelClicked(sender);
-            LoadFakeRow(false);
+           // LoadJarikritaData(false,page);
+            LoadData(false, menuNo, page);
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+            //  LoadFakeRow(false);
         }
 
         private void moduleButton_Click(object sender, EventArgs e)
@@ -106,49 +173,164 @@ namespace dNothi.Desktop.UI
 
         private void KhosraDashboard_Shown(object sender, EventArgs e)
         {
-            LoadFakeRow(true); 
+            // LoadFakeRow(true); 
+            page = 1;
+            start = 1;
+           
+            LoadData(true, menuNo,page);
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
         }
 
-        private void LoadFakeRow(bool v)
+        //private void LoadFakeRow(bool v)
+        //{
+        //    khosraListTableLayoutPanel.Controls.Clear();
+           
+        //    CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl();
+
+        //    commonKhosraRowUserControl.isDraft = v;
+
+        //    UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl);
+
+
+
+
+        //    CommonKhosraRowUserControl commonKhosraRowUserControl2 = new CommonKhosraRowUserControl();
+
+        //    commonKhosraRowUserControl2.isDraft = v;
+
+
+        //    UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl2);
+
+
+        //    CommonKhosraRowUserControl commonKhosraRowUserControl3 = new CommonKhosraRowUserControl();
+
+        //    commonKhosraRowUserControl3.isDraft = v;
+
+
+        //    UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl3);
+
+
+
+
+        //    CommonKhosraRowUserControl commonKhosraRowUserControl4 = new CommonKhosraRowUserControl();
+
+        //    commonKhosraRowUserControl4.isDraft = v;
+
+
+        //    UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl4);
+
+        //}
+
+        private void LoadData(bool v,int menuNo,int pages)
         {
             khosraListTableLayoutPanel.Controls.Clear();
+            _kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
+           
+            var dakListUserParam = _userService.GetLocalDakUserParam();
 
-            CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl();
+            dakListUserParam.limit = pageLimit;
+            dakListUserParam.page = pages;
+          
+            var kasarapatralist = _kasaraPatraDashBoardService.GetList(dakListUserParam, menuNo);
+            if (kasarapatralist.status == "success")
+            {
+                foreach (var item in kasarapatralist.data.records)
+                {
+                    
+                    CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl(_userService);
 
-            commonKhosraRowUserControl.isDraft = v;
-
-
-            UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl);
-
-
-
-
-            CommonKhosraRowUserControl commonKhosraRowUserControl2 = new CommonKhosraRowUserControl();
-
-            commonKhosraRowUserControl2.isDraft = v;
-
-
-            UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl2);
-
-
-            CommonKhosraRowUserControl commonKhosraRowUserControl3 = new CommonKhosraRowUserControl();
-
-            commonKhosraRowUserControl3.isDraft = v;
-
-
-            UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl3);
+                    commonKhosraRowUserControl.sharokNo = item.basic.sarok_no;
+                    commonKhosraRowUserControl.sub = item.basic.potro_subject;
+                    commonKhosraRowUserControl.date = item.basic.modified;
+                    commonKhosraRowUserControl.isDraft = v;
+                    commonKhosraRowUserControl.Record = item;
+                    commonKhosraRowUserControl.attachmentButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_attachmentButtonClick(sender, e); };
+                    commonKhosraRowUserControl.onumodonButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_onumodonButtonClick(sender, e); };
 
 
+                    UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl);
 
-
-            CommonKhosraRowUserControl commonKhosraRowUserControl4 = new CommonKhosraRowUserControl();
-
-            commonKhosraRowUserControl4.isDraft = v;
-
-
-            UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl4);
+                }
+                 totalrecord = kasarapatralist.data.total_records;
+                totalLabel.Text = "সর্বমোট:" + ConversionMethod.EnglishNumberToBangla(totalrecord.ToString());
+                float pagesize = totalrecord / pageLimit;
+                totalPage =(int) Math.Ceiling(pagesize);
+            }
 
         }
+
+        private void commonKhosraRowUserControl_attachmentButtonClick(object sender, EventArgs e)
+        {
+        }
+        private void commonKhosraRowUserControl_onumodonButtonClick(object sender, EventArgs e)
+        {
+        }
+
+        //    private void LoadApprovedData(bool v,int pages)
+        //    {
+        //        khosraListTableLayoutPanel.Controls.Clear();
+        //        _patraJarirApekkaiService = new PatraJarirApekkaiService();
+        //        //  _userService = new UserService();
+        //        //  DakUserParam dakListUserParams = new DakUserParam();
+        //        var dakListUserParam = _userService.GetLocalDakUserParam();
+
+        //        // Satic Class
+        //        dakListUserParam.limit = pageLimit;
+        //        dakListUserParam.page = pages;
+
+        //        var patraJarirApekkaiServicelist = _patraJarirApekkaiService.GetList(dakListUserParam);
+
+        //        if (patraJarirApekkaiServicelist.status == "success")
+        //        {
+        //            foreach (var item in patraJarirApekkaiServicelist.data.records)
+        //            {
+        //                CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl();
+
+        //                commonKhosraRowUserControl.sharokNo = item.basic.sarok_no;
+        //                commonKhosraRowUserControl.sub = item.basic.potro_subject;
+        //                commonKhosraRowUserControl.date = item.basic.modified;
+        //                commonKhosraRowUserControl.isDraft = v;
+        //                UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl);
+
+        //            }
+
+        //            totalLabel.Text = "সর্বমোট " + patraJarirApekkaiServicelist.data.total_records.ToString() + " টি";
+        //        }
+        //        }
+
+        //    private void LoadJarikritaData(bool v,int pages)
+        //    {
+        //        khosraListTableLayoutPanel.Controls.Clear();
+        //        _jarikritaPattraService = new JarikritaPattraService();
+        //        //  _userService = new UserService();
+        //        //  DakUserParam dakListUserParams = new DakUserParam();
+        //        var dakListUserParam = _userService.GetLocalDakUserParam();
+
+        //        // Satic Class
+        //        dakListUserParam.limit = pageLimit;
+        //        dakListUserParam.page = pages;
+
+        //        var jarikritaPattraServicelist = _jarikritaPattraService.GetList(dakListUserParam);
+        //        if(jarikritaPattraServicelist.status== "success")
+        //        { 
+        //        foreach (var item in jarikritaPattraServicelist.data.records)
+        //        {
+        //            CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl();
+
+        //            commonKhosraRowUserControl.sharokNo = item.basic.sarok_no;
+        //            commonKhosraRowUserControl.sub = item.basic.potro_subject;
+        //            commonKhosraRowUserControl.date = item.basic.modified;
+        //            commonKhosraRowUserControl.isDraft = v;
+        //            UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl);
+
+        //        }
+
+        //        totalLabel.Text = "সর্বমোট "+ jarikritaPattraServicelist.data.total_records.ToString()+ " টি";
+        //        }
+
+        //}
 
         private void DakModule_CLick(object sender, EventArgs e)
         {
@@ -157,6 +339,61 @@ namespace dNothi.Desktop.UI
         private void NothiModule_CLick(object sender, EventArgs e)
         {
             UIDesignCommonMethod.NothiModuleClick(this);
+        }
+
+        private void designationDetailsPanel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nextIconButton_Click(object sender, EventArgs e)
+        {
+            string endrow;
+           
+            if (page <= totalPage)
+            {
+                page += 1;
+                start +=  pageLimit;
+                end += pageLimit;
+                
+            }
+            else
+            {
+                page = totalPage;
+                start = start;
+                end = end;
+                
+            }
+            endrow = end.ToString();
+            LoadData(true, menuNo, page);
+            if (totalrecord < end) { endrow = totalrecord.ToString(); }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(endrow);
+            //perPageRowLabel.Text = start.ToString()+"-" + endrow; 
+        }
+
+        private void PreviousIconButton_Click(object sender, EventArgs e)
+        {
+
+            if (page > 1)
+            {
+               
+                page -= 1;
+                start -= pageLimit;
+                end -= pageLimit;
+                
+            }
+            else
+            {
+                page = 1;
+                start = start;
+                end = end;
+
+            }
+           
+            LoadData(true, menuNo, page);
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+           
         }
     }
 }

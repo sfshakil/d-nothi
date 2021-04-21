@@ -31,22 +31,18 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.HeadingPanel = new System.Windows.Forms.Panel();
+            this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.attachmentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.khosraPrapokListRowUserControl1 = new dNothi.Desktop.UI.Khosra_Potro.KhosraPrapokListRowUserControl();
-            this.khosraPrapokListRowUserControl2 = new dNothi.Desktop.UI.Khosra_Potro.KhosraPrapokListRowUserControl();
-            this.khosraPrapokListRowUserControl3 = new dNothi.Desktop.UI.Khosra_Potro.KhosraPrapokListRowUserControl();
             this.HeadingPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.attachmentTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // HeadingPanel
@@ -61,6 +57,28 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.HeadingPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.HeadingPanel.Size = new System.Drawing.Size(510, 69);
             this.HeadingPanel.TabIndex = 38;
+            // 
+            // sliderCrossButton
+            // 
+            this.sliderCrossButton.BackColor = System.Drawing.Color.White;
+            this.sliderCrossButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.sliderCrossButton.FlatAppearance.BorderSize = 0;
+            this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sliderCrossButton.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.sliderCrossButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sliderCrossButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.sliderCrossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.sliderCrossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.sliderCrossButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.sliderCrossButton.IconSize = 18;
+            this.sliderCrossButton.Location = new System.Drawing.Point(486, 25);
+            this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
+            this.sliderCrossButton.MaximumSize = new System.Drawing.Size(0, 32);
+            this.sliderCrossButton.Name = "sliderCrossButton";
+            this.sliderCrossButton.Size = new System.Drawing.Size(24, 32);
+            this.sliderCrossButton.TabIndex = 38;
+            this.sliderCrossButton.UseVisualStyleBackColor = false;
+            this.sliderCrossButton.Click += new System.EventHandler(this.closeButtonClick);
             // 
             // singleDakHeaderLabel
             // 
@@ -96,52 +114,24 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             // attachmentTableLayoutPanel
             // 
             this.attachmentTableLayoutPanel.AutoScroll = true;
+            this.attachmentTableLayoutPanel.AutoSize = true;
             this.attachmentTableLayoutPanel.ColumnCount = 1;
             this.attachmentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.attachmentTableLayoutPanel.Controls.Add(this.khosraPrapokListRowUserControl3, 0, 4);
-            this.attachmentTableLayoutPanel.Controls.Add(this.khosraPrapokListRowUserControl2, 0, 4);
-            this.attachmentTableLayoutPanel.Controls.Add(this.khosraPrapokListRowUserControl1, 0, 0);
-            this.attachmentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.attachmentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.attachmentTableLayoutPanel.Location = new System.Drawing.Point(23, 72);
             this.attachmentTableLayoutPanel.Name = "attachmentTableLayoutPanel";
-            this.attachmentTableLayoutPanel.RowCount = 5;
+            this.attachmentTableLayoutPanel.RowCount = 1;
             this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.Size = new System.Drawing.Size(504, 601);
+            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.attachmentTableLayoutPanel.Size = new System.Drawing.Size(504, 0);
             this.attachmentTableLayoutPanel.TabIndex = 40;
-            // 
-            // sliderCrossButton
-            // 
-            this.sliderCrossButton.BackColor = System.Drawing.Color.White;
-            this.sliderCrossButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.sliderCrossButton.FlatAppearance.BorderSize = 0;
-            this.sliderCrossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sliderCrossButton.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
-            this.sliderCrossButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sliderCrossButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.sliderCrossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.sliderCrossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.sliderCrossButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.sliderCrossButton.IconSize = 18;
-            this.sliderCrossButton.Location = new System.Drawing.Point(486, 25);
-            this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
-            this.sliderCrossButton.MaximumSize = new System.Drawing.Size(0, 32);
-            this.sliderCrossButton.Name = "sliderCrossButton";
-            this.sliderCrossButton.Size = new System.Drawing.Size(24, 32);
-            this.sliderCrossButton.TabIndex = 38;
-            this.sliderCrossButton.UseVisualStyleBackColor = false;
-            this.sliderCrossButton.Click += new System.EventHandler(this.closeButtonClick);
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewImageColumn1.HeaderText = "+";
             this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn1.MinimumWidth = 2;
@@ -151,69 +141,15 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewImageColumn2.HeaderText = "+";
             this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 23;
-            // 
-            // khosraPrapokListRowUserControl1
-            // 
-            this.khosraPrapokListRowUserControl1._UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
-            this.khosraPrapokListRowUserControl1._UserName = "জাফরিন আহমেদ ";
-            this.khosraPrapokListRowUserControl1._UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.khosraPrapokListRowUserControl1._UserType = "প্রাপক";
-            this.khosraPrapokListRowUserControl1.AutoSize = true;
-            this.khosraPrapokListRowUserControl1.BackColor = System.Drawing.Color.White;
-            this.khosraPrapokListRowUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khosraPrapokListRowUserControl1.Location = new System.Drawing.Point(3, 3);
-            this.khosraPrapokListRowUserControl1.Name = "khosraPrapokListRowUserControl1";
-            this.khosraPrapokListRowUserControl1.Size = new System.Drawing.Size(498, 65);
-            this.khosraPrapokListRowUserControl1.TabIndex = 0;
-            this.khosraPrapokListRowUserControl1.UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
-            this.khosraPrapokListRowUserControl1.UserName = "জাফরিন আহমেদ ";
-            this.khosraPrapokListRowUserControl1.UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.khosraPrapokListRowUserControl1.UserType = "প্রাপক";
-            // 
-            // khosraPrapokListRowUserControl2
-            // 
-            this.khosraPrapokListRowUserControl2._UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
-            this.khosraPrapokListRowUserControl2._UserName = "মোঃ হাসানুজ্জামান";
-            this.khosraPrapokListRowUserControl2._UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.khosraPrapokListRowUserControl2._UserType = "প্রেরক";
-            this.khosraPrapokListRowUserControl2.AutoSize = true;
-            this.khosraPrapokListRowUserControl2.BackColor = System.Drawing.Color.White;
-            this.khosraPrapokListRowUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khosraPrapokListRowUserControl2.Location = new System.Drawing.Point(3, 145);
-            this.khosraPrapokListRowUserControl2.Name = "khosraPrapokListRowUserControl2";
-            this.khosraPrapokListRowUserControl2.Size = new System.Drawing.Size(498, 453);
-            this.khosraPrapokListRowUserControl2.TabIndex = 1;
-            this.khosraPrapokListRowUserControl2.UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
-            this.khosraPrapokListRowUserControl2.UserName = "মোঃ হাসানুজ্জামান";
-            this.khosraPrapokListRowUserControl2.UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.khosraPrapokListRowUserControl2.UserType = "প্রেরক";
-            // 
-            // khosraPrapokListRowUserControl3
-            // 
-            this.khosraPrapokListRowUserControl3._UserDesignation = "সল্যুশন আর্কিটেক্ট,";
-            this.khosraPrapokListRowUserControl3._UserName = "মোঃ হাসানুজ্জামান";
-            this.khosraPrapokListRowUserControl3._UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.khosraPrapokListRowUserControl3._UserType = "অনুমোদনকারী";
-            this.khosraPrapokListRowUserControl3.AutoSize = true;
-            this.khosraPrapokListRowUserControl3.BackColor = System.Drawing.Color.White;
-            this.khosraPrapokListRowUserControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khosraPrapokListRowUserControl3.Location = new System.Drawing.Point(3, 74);
-            this.khosraPrapokListRowUserControl3.Name = "khosraPrapokListRowUserControl3";
-            this.khosraPrapokListRowUserControl3.Size = new System.Drawing.Size(498, 65);
-            this.khosraPrapokListRowUserControl3.TabIndex = 2;
-            this.khosraPrapokListRowUserControl3.UserDesignation = "সল্যুশন আর্কিটেক্ট,";
-            this.khosraPrapokListRowUserControl3.UserName = "মোঃ হাসানুজ্জামান";
-            this.khosraPrapokListRowUserControl3.UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.khosraPrapokListRowUserControl3.UserType = "অনুমোদনকারী";
             // 
             // KhosraPrapokListViewForm
             // 
@@ -230,8 +166,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.attachmentTableLayoutPanel.ResumeLayout(false);
-            this.attachmentTableLayoutPanel.PerformLayout();
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -249,8 +184,5 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         private DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn mul_prapok;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel attachmentTableLayoutPanel;
-        private KhosraPrapokListRowUserControl khosraPrapokListRowUserControl3;
-        private KhosraPrapokListRowUserControl khosraPrapokListRowUserControl2;
-        private KhosraPrapokListRowUserControl khosraPrapokListRowUserControl1;
     }
 }

@@ -21,7 +21,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         public string UserName { get {return _UserName ; } set { _UserName = value ; userNameLabel.Text = value; } }
 
         public string _UserType { get; set; }
-        public string UserType { get { return _UserType; } set { _UserType = value; userTypeLabel.Text = value; } }
+        public string UserType { get { return _UserType; } set { _UserType = value; userTypeLabel.Text = value; userTypeLabel.Visible = true; } }
 
         public string _UserDesignation { get; set; }
         public string UserDesignation { get { return _UserDesignation; } set { _UserDesignation = value; userDesignationLabel.Text = value; } }

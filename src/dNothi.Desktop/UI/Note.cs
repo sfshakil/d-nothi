@@ -3,6 +3,7 @@ using dNothi.Core.Interfaces;
 using dNothi.Desktop.CustomControl;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
+using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
@@ -30,6 +31,10 @@ namespace dNothi.Desktop.UI
     public partial class Note : Form
     {
         private DakUserParam _dakuserparam = new DakUserParam();
+
+        private int current_potro_id = 0;
+
+        KhoshraPotroWaitinDataRecordMulpotroDTO khoshraPotroWaitinDataRecordMulpotroDTO { get; set; }
         
         NoteSaveDTO newnotedata = new NoteSaveDTO();
      
@@ -37,6 +42,7 @@ namespace dNothi.Desktop.UI
 
         NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
         IUserService _userService { get; set; }
+        IPotrojariServices _potrojariServices { get; set; }
         IOnucchedSave _onucchedSave { get; set; }
         IOnucchedDelete _onucchedDelete { get; set; }
         IOnumodonService _onumodonService { get; set; }
@@ -63,13 +69,14 @@ namespace dNothi.Desktop.UI
         private int _noteFormWidth;
         private int _collapseExpandeHeight;
         private int _collapseExpandeWidth;
-        public Note(IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
+        public Note(IPotrojariServices potrojariServices,IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
             IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
             IKhoshraPotroServices khoshraPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
             IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave,
             IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
         {
+            _potrojariServices = potrojariServices;
             _userService = userService;
             _onucchedSave = onucchedSave;
             _onucchedDelete=onucchedDelete;
@@ -3918,6 +3925,8 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                current_potro_id = 0;
+                khoshraPotroWaitinDataRecordMulpotroDTO = null;
                 allLbelButtonPreviousColor();
                 lbKhoshraWaiting.BackColor = Color.FromArgb(14, 102, 98);
                 lbKhoshraWaiting.ForeColor = Color.FromArgb(191, 239, 237);
@@ -4004,7 +4013,8 @@ namespace dNothi.Desktop.UI
                         btnKhoshraWaitingNext.Visible = true;
 
                         allPreviousButtonVisibilityOff();
-
+                        current_potro_id = khoshraPotroWaiting.data.records[0].basic.id;
+                        khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[0].mulpotro;
                         string DecodedString = khoshraPotroWaiting.data.records[0].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                     }
@@ -4028,6 +4038,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
+
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = khoshraPotroWaiting.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + khoshraPotroWaiting.data.records[i].basic.created;
@@ -5312,6 +5323,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                current_potro_id = 0;
                 allLbelButtonPreviousColor();
                 lbNoteKhoshraWaiting.BackColor = Color.FromArgb(14, 102, 98);
                 lbNoteKhoshraWaiting.ForeColor = Color.FromArgb(191, 239, 237);
@@ -5401,6 +5413,7 @@ namespace dNothi.Desktop.UI
                         allPreviousButtonVisibilityOff();
                         if (noteKhshraWaitingList.data.records[i].mulpotro.potro_description != null)
                         {
+
                             string DecodedString = noteKhshraWaitingList.data.records[i].mulpotro.potro_description;
                             khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                         }
@@ -5690,6 +5703,7 @@ namespace dNothi.Desktop.UI
 
                     if (noteKhshraWaitingList.data.records[i].mulpotro.potro_description != null)
                     {
+                        current_potro_id = noteKhshraWaitingList.data.records[i].basic.nothi_potro_id;
                         string DecodedString = noteKhshraWaitingList.data.records[i].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                     }
@@ -5706,6 +5720,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                current_potro_id = 0;
                 allLbelButtonPreviousColor();
                 lbNotePotrojari.BackColor = Color.FromArgb(14, 102, 98);
                 lbNotePotrojari.ForeColor = Color.FromArgb(191, 239, 237);
@@ -6100,6 +6115,7 @@ namespace dNothi.Desktop.UI
 
                     if (notePotrojariList.data.records[i].mulpotro.url != "")
                     {
+                        current_potro_id = notePotrojariList.data.records[i].basic.nothi_note_id;
                         picBoxFile.Visible = false;
                         khosraViewWebBrowser.Url = new Uri(notePotrojariList.data.records[i].mulpotro.url);
                     }
@@ -6520,9 +6536,19 @@ namespace dNothi.Desktop.UI
 
         private void btnPrapokerTalika_Click(object sender, EventArgs e)
         {
-            PotrangshoPrapokerTalika form = new PotrangshoPrapokerTalika();
-            var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
-            CalPopUpWindow(nothiNoteMovementListform);
+            if(current_potro_id != 0)
+            {
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                var prapakerTalika = _potrojariServices.GetPrapakerTalika(dakListUserParam, current_potro_id);
+                if (prapakerTalika.status == "success")
+                {
+
+                    KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
+                    khosraPrapokListViewForm.prapakerTalika = prapakerTalika;
+                    UIDesignCommonMethod.CalPopUpWindow(khosraPrapokListViewForm, this);
+                }
+            }
+          
         }
 
         private void btnClone_Click(object sender, EventArgs e)
@@ -6629,6 +6655,62 @@ namespace dNothi.Desktop.UI
             if (!noteBackGroundWorker.IsBusy && this.Visible)
             {
                 noteBackGroundWorker.RunWorkerAsync();
+            }
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUnapprove_Click(object sender, EventArgs e)
+        {
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি পত্র থেকে অনুমোদন তুলে নিতে চান?";
+            conditonBoxForm.ShowDialog();
+            if(conditonBoxForm.Yes)
+            {
+                if (khoshraPotroWaitinDataRecordMulpotroDTO != null)
+                {
+                    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                    var khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam,khoshraPotroWaitinDataRecordMulpotroDTO.id, khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover, khoshraPotroWaitinDataRecordMulpotroDTO.potro_description);
+                    if (khoshraUnapprovedResponse.status == "success")
+                    {
+
+                        UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
+
+                        btnApprove.Visible = true;
+                        btnPotrojari.Visible = false;
+                        btnUnapprove.Visible = false;
+                        
+                    }
+                }
+            }
+           
+        }
+
+        private void btnApprove_Click(object sender, EventArgs e)
+        {
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি পত্রটি অনুমোদন করতে চান??";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
+            {
+                if (khoshraPotroWaitinDataRecordMulpotroDTO != null)
+                {
+                    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                    var khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover, khoshraPotroWaitinDataRecordMulpotroDTO.potro_description);
+                    if (khoshraUnapprovedResponse.status == "success")
+                    {
+
+                        UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
+
+                        btnApprove.Visible = false;
+                        btnPotrojari.Visible = true;
+                        btnUnapprove.Visible = true;
+
+                    }
+                }
             }
         }
     }

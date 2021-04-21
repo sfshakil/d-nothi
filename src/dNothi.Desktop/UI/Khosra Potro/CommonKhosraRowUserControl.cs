@@ -9,18 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Utility;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Services.UserServices;
+using Xamarin.Forms.Xaml;
+using dNothi.Services.KasaraPatraDashBoardService;
+using dNothi.Services.KasaraPatraDashBoardService.Models;
 
 namespace dNothi.Desktop.UI.Khosra_Potro
 {
     public partial class CommonKhosraRowUserControl : UserControl
     {
-        public CommonKhosraRowUserControl()
+        IUserService _userService { get; set; }
+        IKasaraPatraDashBoardService _kasaraPatraDashBoardService { get; set; }
+
+
+        public CommonKhosraRowUserControl(IUserService userService)
         {
             InitializeComponent();
+            _userService = userService;
         }
 
 
         public string _sharokNo { get; set; }
+        public KasaraPotro.Record Record { get; set; }
         public string sharokNo { get { return _sharokNo; } set { _sharokNo = value; sharokNoLabel.Text = value; if (value == "") { sharokNoFlowLayoutPanel.Visible = false; } } }
         public string sharokNoEng { get { return _sharokNo; } set { _sharokNo = value; sharokNoLabel.Text = ConversionMethod.EnglishNumberToBangla(value); if (value == "") { sharokNoFlowLayoutPanel.Visible = false; } } }
 
@@ -67,33 +77,73 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             }
         
         }
-
+        public event EventHandler attachmentButtonClick;
+        public event EventHandler onumodonButtonClick;
         private void attachmentButton_Click(object sender, EventArgs e)
         {
-            DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse();
-            dakAttachmentResponse.data = new List<DakAttachmentDTO>();
-            dakAttachmentResponse.data.Add(new DakAttachmentDTO { file_name = "Attachment Delete", id = 1, attachment_type = "pdf", is_main = 1, file_size_in_kb = "12.22" });
-            dakAttachmentResponse.data.Add(new DakAttachmentDTO { file_name = "ছবি-ETL_MR_May'2020", id = 2, attachment_type = "pdf", is_main = 0, file_size_in_kb = "12.22" });
-            dakAttachmentResponse.data.Add(new DakAttachmentDTO { file_name = "জাতীয় পরিচয়পত্র(আবেদনকারীর) - NID_ARIF", id = 3, attachment_type = "pdf", is_main = 0, file_size_in_kb = "14.22" });
+           
+            if (this.attachmentButtonClick != null)
+            {
+               
+                _kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
+
+                var dakListUserParam = _userService.GetLocalDakUserParam();
+                dakListUserParam.limit = 10;
+                var noteAntarvuktaKasralist = _kasaraPatraDashBoardService.GetMulPattraAndSanjukti(dakListUserParam, Record);
+                if (noteAntarvuktaKasralist.status == "success")
+                {
+                    DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse();
+                    dakAttachmentResponse.data = new List<DakAttachmentDTO>();
+                    dakAttachmentResponse.data.Add(new DakAttachmentDTO { file_name = "Attachment Delete", id = 1, attachment_type = "pdf", is_main = 1, file_size_in_kb = "12.22" });
+                    dakAttachmentResponse.data.Add(new DakAttachmentDTO { file_name = "ছবি-ETL_MR_May'2020", id = 2, attachment_type = "pdf", is_main = 0, file_size_in_kb = "12.22" });
+                    dakAttachmentResponse.data.Add(new DakAttachmentDTO { file_name = "জাতীয় পরিচয়পত্র(আবেদনকারীর) - NID_ARIF", id = 3, attachment_type = "pdf", is_main = 0, file_size_in_kb = "14.22" });
 
 
 
-            KhosraAttachmentViewForm khosraAttachmentViewForm = new KhosraAttachmentViewForm();
-            khosraAttachmentViewForm.dakAttachmentResponse = dakAttachmentResponse;
+                    KhosraAttachmentViewForm khosraAttachmentViewForm = new KhosraAttachmentViewForm();
+                    khosraAttachmentViewForm.dakAttachmentResponse = dakAttachmentResponse;
+                    Form parentForm = UIDesignCommonMethod.GetParentsForm(this);
 
+                    UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentViewForm, parentForm);
+                }
+               
 
-            Form parentForm = UIDesignCommonMethod.GetParentsForm(this);
-
-
-
-            UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentViewForm, parentForm);
-            
+            }
+           
+           
+           
         }
+
+            
 
         private void onumodonButton_Click(object sender, EventArgs e)
         {
-            KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
-            UIDesignCommonMethod.CalPopUpWindow(khosraPrapokListViewForm, UIDesignCommonMethod.GetParentsForm(this));
+            if (this.onumodonButtonClick != null)
+            {
+
+                _kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
+
+                var dakListUserParam = _userService.GetLocalDakUserParam();
+                dakListUserParam.limit = 10;
+
+                var prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, Record.basic.id);
+                if (prapakerTalika.status == "success")
+                {
+
+
+                    KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
+                    khosraPrapokListViewForm.prapakerTalika = prapakerTalika;
+
+
+                    UIDesignCommonMethod.CalPopUpWindow(khosraPrapokListViewForm, UIDesignCommonMethod.GetParentsForm(this));
+                }
+            }
+            
+        }
+
+        private void noteCountLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

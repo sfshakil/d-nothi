@@ -90,7 +90,7 @@
             this.sharokNoLabel.Location = new System.Drawing.Point(65, 5);
             this.sharokNoLabel.Margin = new System.Windows.Forms.Padding(0);
             this.sharokNoLabel.Name = "sharokNoLabel";
-            this.sharokNoLabel.Size = new System.Drawing.Size(174, 18);
+            this.sharokNoLabel.Size = new System.Drawing.Size(173, 18);
             this.sharokNoLabel.TabIndex = 1;
             this.sharokNoLabel.Text = "৫৬.৪২.০০০০.০১০.২৫.০০১.২১";
             // 
@@ -122,6 +122,7 @@
             this.noteCountLabel.TabIndex = 3;
             this.noteCountLabel.Text = "নোট : ৭";
             this.noteCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.noteCountLabel.Click += new System.EventHandler(this.noteCountLabel_Click);
             // 
             // label4
             // 

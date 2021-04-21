@@ -89,7 +89,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
             this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
             this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(112, 21);
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(113, 21);
             this.singleDakHeaderLabel.TabIndex = 28;
             this.singleDakHeaderLabel.Text = "মূলপত্র ও সংযুক্তি";
             // 

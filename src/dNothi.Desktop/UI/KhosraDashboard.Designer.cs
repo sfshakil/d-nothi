@@ -93,10 +93,10 @@
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.perPageRowLabel = new System.Windows.Forms.Label();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.PreviousIconButton = new FontAwesome.Sharp.IconButton();
+            this.nextIconButton = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listTypeLabel = new System.Windows.Forms.Label();
             this.iconButton = new FontAwesome.Sharp.IconButton();
@@ -1083,10 +1083,10 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.iconButton8);
-            this.panel5.Controls.Add(this.iconButton4);
+            this.panel5.Controls.Add(this.perPageRowLabel);
+            this.panel5.Controls.Add(this.totalLabel);
+            this.panel5.Controls.Add(this.PreviousIconButton);
+            this.panel5.Controls.Add(this.nextIconButton);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 51);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
@@ -1094,67 +1094,69 @@
             this.panel5.Size = new System.Drawing.Size(1116, 40);
             this.panel5.TabIndex = 2;
             // 
-            // label6
+            // perPageRowLabel
             // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.label6.Location = new System.Drawing.Point(896, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 40);
-            this.label6.TabIndex = 104;
-            this.label6.Text = "১ - ৮১";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.perPageRowLabel.BackColor = System.Drawing.Color.Transparent;
+            this.perPageRowLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.perPageRowLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.perPageRowLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.perPageRowLabel.Location = new System.Drawing.Point(896, 0);
+            this.perPageRowLabel.Name = "perPageRowLabel";
+            this.perPageRowLabel.Size = new System.Drawing.Size(73, 40);
+            this.perPageRowLabel.TabIndex = 104;
+            this.perPageRowLabel.Text = "১ - ১০";
+            this.perPageRowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // totalLabel
             // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.label3.Location = new System.Drawing.Point(969, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 40);
-            this.label3.TabIndex = 107;
-            this.label3.Text = "সর্বমোট ৮১ টি";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.totalLabel.BackColor = System.Drawing.Color.Transparent;
+            this.totalLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.totalLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.totalLabel.Location = new System.Drawing.Point(969, 0);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(79, 40);
+            this.totalLabel.TabIndex = 107;
+            this.totalLabel.Text = "সর্বমোট ৮১ টি";
+            this.totalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // iconButton8
+            // PreviousIconButton
             // 
-            this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.iconButton8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton8.FlatAppearance.BorderSize = 0;
-            this.iconButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton8.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton8.IconSize = 24;
-            this.iconButton8.Location = new System.Drawing.Point(1048, 0);
-            this.iconButton8.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Size = new System.Drawing.Size(34, 40);
-            this.iconButton8.TabIndex = 105;
-            this.iconButton8.UseVisualStyleBackColor = false;
+            this.PreviousIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.PreviousIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PreviousIconButton.FlatAppearance.BorderSize = 0;
+            this.PreviousIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.PreviousIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PreviousIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.PreviousIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.PreviousIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PreviousIconButton.IconSize = 24;
+            this.PreviousIconButton.Location = new System.Drawing.Point(1048, 0);
+            this.PreviousIconButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.PreviousIconButton.Name = "PreviousIconButton";
+            this.PreviousIconButton.Size = new System.Drawing.Size(34, 40);
+            this.PreviousIconButton.TabIndex = 105;
+            this.PreviousIconButton.UseVisualStyleBackColor = false;
+            this.PreviousIconButton.Click += new System.EventHandler(this.PreviousIconButton_Click);
             // 
-            // iconButton4
+            // nextIconButton
             // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 24;
-            this.iconButton4.Location = new System.Drawing.Point(1082, 0);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(34, 40);
-            this.iconButton4.TabIndex = 106;
-            this.iconButton4.UseVisualStyleBackColor = false;
+            this.nextIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.nextIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.nextIconButton.FlatAppearance.BorderSize = 0;
+            this.nextIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.nextIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.nextIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.nextIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nextIconButton.IconSize = 24;
+            this.nextIconButton.Location = new System.Drawing.Point(1082, 0);
+            this.nextIconButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.nextIconButton.Name = "nextIconButton";
+            this.nextIconButton.Size = new System.Drawing.Size(34, 40);
+            this.nextIconButton.TabIndex = 106;
+            this.nextIconButton.UseVisualStyleBackColor = false;
+            this.nextIconButton.Click += new System.EventHandler(this.nextIconButton_Click);
             // 
             // panel2
             // 
@@ -1587,7 +1589,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(115, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 24);
+            this.label14.Size = new System.Drawing.Size(107, 24);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
@@ -1627,6 +1629,7 @@
             this.designationDetailsPanel.Size = new System.Drawing.Size(434, 91);
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
+            this.designationDetailsPanel.Load += new System.EventHandler(this.designationDetailsPanel_Load);
             // 
             // KhosraDashboard
             // 
@@ -1784,10 +1787,10 @@
         private System.Windows.Forms.Label listTypeLabel;
         private FontAwesome.Sharp.IconButton iconButton;
         private System.Windows.Forms.Panel panel5;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton8;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
+        private FontAwesome.Sharp.IconButton nextIconButton;
+        private FontAwesome.Sharp.IconButton PreviousIconButton;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.Label perPageRowLabel;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TableLayoutPanel khosraListTableLayoutPanel;
     }

@@ -224,6 +224,7 @@ namespace dNothi.Desktop
             builder.RegisterType<PotrojariParser>().As<IPotrojariParser>();
             builder.RegisterType<RegisterService>().As<IRegisterService>();
             builder.RegisterType<ProtibedonService>().As<IProtibedonService>();
+            builder.RegisterType<PotrojariServices>().As<IPotrojariServices>();
 
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();

@@ -104,6 +104,16 @@ namespace dNothi.Constants
         public const string NothiNoteOnucchedListEndPoint = "/api/nothi/note/onucched/list";
         public const string NothiNoteOnucchedRevertEndPoint = "/api/nothi/note/onucched/revert";
 
+        //KasaraPattraDashBoardApi
+        public const string nothidraftpotrolist = "/api/nothi_draft_khoshra_list";
+        public const string nothikhoshrapotrolist = "/api/nothi_khoshra_potro_list";
+        public const string nothikhoshrawaitingforapprovallist = "/api/nothi_khoshra_waiting_for_approval_list";
+        public const string nothiapprovedpotrolist = "/api/nothi_approved_potro_list";
+        public const string nothipotrojariassenderapproverlist = "/api/nothi_potrojari_as_sender_approver_list";
 
+        public const string mulPattraAndSanjukti = "/api/potro/document";
+        public const string prapakerTalika = "/api/potrojari/recipient/list";
+
+        public static string PotroOnumodonEndPoint = "/api/potro/approve";
     }
 }
