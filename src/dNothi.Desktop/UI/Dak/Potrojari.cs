@@ -104,5 +104,31 @@ namespace dNothi.Desktop.UI.Dak
                     f.Close();
             }
         }
+
+        public string _pageSize;
+        public string _pageLayout;
+        public string _topMargin;
+        public string _bottomMargin;
+        public string _rightMargin;
+        public string _leftMargin;
+
+        public event EventHandler PotrojariButtonClick;
+        private void btnPotrojari_Click_1(object sender, EventArgs e)
+        {
+            if(this.PotrojariButtonClick != null)
+            {
+                _pageLayout = pageLayoutType.Text;
+                _pageSize = pageSize.Text;
+                _topMargin = topMargin.Text;
+                _bottomMargin = bottomMargin.Text;
+                _rightMargin = rightMargin.Text;
+                _leftMargin = leftMargin.Text;
+
+
+                this.PotrojariButtonClick(sender, e);
+
+                this.Parent.Hide();
+            }
+        }
     }
 }

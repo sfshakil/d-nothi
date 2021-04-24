@@ -135,6 +135,9 @@ namespace dNothi.Desktop.UI
 
         private void Template_CLick(KhasraPotroTemplateDataDTO khasraPotroTemplateData)
         {
+
+
+            
             tinyMceEditor.HtmlContent = khasraPotroTemplateData.html_content;
         }
 

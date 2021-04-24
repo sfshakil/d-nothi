@@ -12,4 +12,10 @@ namespace dNothi.JsonParser.Entity.Khosra
         public string message { get; set; }
         public string data { get; set; }
     }
+    public class PotrojariCompleteResponse
+    {
+        public string status { get; set; }
+        public string message { get; set; }
+        public string data { get; set; }
+    }
 }

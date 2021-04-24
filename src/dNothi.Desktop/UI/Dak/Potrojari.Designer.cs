@@ -46,17 +46,17 @@ namespace dNothi.Desktop.UI.Dak
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.placeholderTextBox3 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.leftMargin = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.placeholderTextBox2 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.bottomMargin = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.placeholderTextBox1 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.rightMargin = new PlaceholderTextBox.PlaceholderTextBox();
             this.userIdPanel = new System.Windows.Forms.Panel();
-            this.txtDhoronCode = new PlaceholderTextBox.PlaceholderTextBox();
+            this.topMargin = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pageLayoutType = new System.Windows.Forms.ComboBox();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.cbxNothiType = new System.Windows.Forms.ComboBox();
+            this.pageSize = new System.Windows.Forms.ComboBox();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.pnlBodyBrowser = new System.Windows.Forms.Panel();
             this.potrojariWeBrowser = new System.Windows.Forms.WebBrowser();
@@ -231,6 +231,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnPotrojari.Text = "পত্রজারি";
             this.btnPotrojari.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPotrojari.UseVisualStyleBackColor = false;
+            this.btnPotrojari.Click += new System.EventHandler(this.btnPotrojari_Click_1);
             // 
             // btnSave
             // 
@@ -293,7 +294,7 @@ namespace dNothi.Desktop.UI.Dak
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.White;
-            this.panel15.Controls.Add(this.placeholderTextBox3);
+            this.panel15.Controls.Add(this.leftMargin);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel15.Location = new System.Drawing.Point(576, 0);
             this.panel15.Margin = new System.Windows.Forms.Padding(0);
@@ -302,22 +303,22 @@ namespace dNothi.Desktop.UI.Dak
             this.panel15.TabIndex = 82;
             this.panel15.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
-            // placeholderTextBox3
+            // leftMargin
             // 
-            this.placeholderTextBox3.BackColor = System.Drawing.Color.White;
-            this.placeholderTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.placeholderTextBox3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBox3.Location = new System.Drawing.Point(7, 10);
-            this.placeholderTextBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.placeholderTextBox3.Name = "placeholderTextBox3";
-            this.placeholderTextBox3.PlaceholderText = "left";
-            this.placeholderTextBox3.Size = new System.Drawing.Size(96, 22);
-            this.placeholderTextBox3.TabIndex = 3;
+            this.leftMargin.BackColor = System.Drawing.Color.White;
+            this.leftMargin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.leftMargin.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leftMargin.Location = new System.Drawing.Point(7, 10);
+            this.leftMargin.Margin = new System.Windows.Forms.Padding(0);
+            this.leftMargin.Name = "leftMargin";
+            this.leftMargin.PlaceholderText = "left";
+            this.leftMargin.Size = new System.Drawing.Size(96, 19);
+            this.leftMargin.TabIndex = 3;
             // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.White;
-            this.panel14.Controls.Add(this.placeholderTextBox2);
+            this.panel14.Controls.Add(this.bottomMargin);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel14.Location = new System.Drawing.Point(462, 0);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
@@ -326,22 +327,22 @@ namespace dNothi.Desktop.UI.Dak
             this.panel14.TabIndex = 81;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
-            // placeholderTextBox2
+            // bottomMargin
             // 
-            this.placeholderTextBox2.BackColor = System.Drawing.Color.White;
-            this.placeholderTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.placeholderTextBox2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBox2.Location = new System.Drawing.Point(7, 10);
-            this.placeholderTextBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.placeholderTextBox2.Name = "placeholderTextBox2";
-            this.placeholderTextBox2.PlaceholderText = "bottom";
-            this.placeholderTextBox2.Size = new System.Drawing.Size(96, 22);
-            this.placeholderTextBox2.TabIndex = 3;
+            this.bottomMargin.BackColor = System.Drawing.Color.White;
+            this.bottomMargin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bottomMargin.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bottomMargin.Location = new System.Drawing.Point(7, 10);
+            this.bottomMargin.Margin = new System.Windows.Forms.Padding(0);
+            this.bottomMargin.Name = "bottomMargin";
+            this.bottomMargin.PlaceholderText = "bottom";
+            this.bottomMargin.Size = new System.Drawing.Size(96, 19);
+            this.bottomMargin.TabIndex = 3;
             // 
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.White;
-            this.panel13.Controls.Add(this.placeholderTextBox1);
+            this.panel13.Controls.Add(this.rightMargin);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel13.Location = new System.Drawing.Point(348, 0);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
@@ -350,22 +351,22 @@ namespace dNothi.Desktop.UI.Dak
             this.panel13.TabIndex = 80;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
-            // placeholderTextBox1
+            // rightMargin
             // 
-            this.placeholderTextBox1.BackColor = System.Drawing.Color.White;
-            this.placeholderTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.placeholderTextBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBox1.Location = new System.Drawing.Point(7, 10);
-            this.placeholderTextBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.placeholderTextBox1.Name = "placeholderTextBox1";
-            this.placeholderTextBox1.PlaceholderText = "right";
-            this.placeholderTextBox1.Size = new System.Drawing.Size(96, 22);
-            this.placeholderTextBox1.TabIndex = 3;
+            this.rightMargin.BackColor = System.Drawing.Color.White;
+            this.rightMargin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rightMargin.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rightMargin.Location = new System.Drawing.Point(7, 10);
+            this.rightMargin.Margin = new System.Windows.Forms.Padding(0);
+            this.rightMargin.Name = "rightMargin";
+            this.rightMargin.PlaceholderText = "right";
+            this.rightMargin.Size = new System.Drawing.Size(96, 19);
+            this.rightMargin.TabIndex = 3;
             // 
             // userIdPanel
             // 
             this.userIdPanel.BackColor = System.Drawing.Color.White;
-            this.userIdPanel.Controls.Add(this.txtDhoronCode);
+            this.userIdPanel.Controls.Add(this.topMargin);
             this.userIdPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.userIdPanel.Location = new System.Drawing.Point(234, 0);
             this.userIdPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -374,22 +375,22 @@ namespace dNothi.Desktop.UI.Dak
             this.userIdPanel.TabIndex = 79;
             this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
-            // txtDhoronCode
+            // topMargin
             // 
-            this.txtDhoronCode.BackColor = System.Drawing.Color.White;
-            this.txtDhoronCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDhoronCode.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDhoronCode.Location = new System.Drawing.Point(7, 10);
-            this.txtDhoronCode.Margin = new System.Windows.Forms.Padding(0);
-            this.txtDhoronCode.Name = "txtDhoronCode";
-            this.txtDhoronCode.PlaceholderText = "top";
-            this.txtDhoronCode.Size = new System.Drawing.Size(96, 22);
-            this.txtDhoronCode.TabIndex = 3;
+            this.topMargin.BackColor = System.Drawing.Color.White;
+            this.topMargin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.topMargin.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topMargin.Location = new System.Drawing.Point(7, 10);
+            this.topMargin.Margin = new System.Windows.Forms.Padding(0);
+            this.topMargin.Name = "topMargin";
+            this.topMargin.PlaceholderText = "top";
+            this.topMargin.Size = new System.Drawing.Size(96, 19);
+            this.topMargin.TabIndex = 3;
             // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.White;
-            this.panel12.Controls.Add(this.comboBox1);
+            this.panel12.Controls.Add(this.pageLayoutType);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel12.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel12.Location = new System.Drawing.Point(117, 0);
@@ -400,33 +401,33 @@ namespace dNothi.Desktop.UI.Dak
             this.panel12.TabIndex = 66;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
-            // comboBox1
+            // pageLayoutType
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.comboBox1.DropDownHeight = 500;
-            this.comboBox1.DropDownWidth = 120;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.ItemHeight = 22;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.pageLayoutType.BackColor = System.Drawing.Color.White;
+            this.pageLayoutType.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pageLayoutType.DropDownHeight = 500;
+            this.pageLayoutType.DropDownWidth = 120;
+            this.pageLayoutType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pageLayoutType.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageLayoutType.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.pageLayoutType.FormattingEnabled = true;
+            this.pageLayoutType.IntegralHeight = false;
+            this.pageLayoutType.ItemHeight = 20;
+            this.pageLayoutType.Items.AddRange(new object[] {
             "Portrait",
             "Landscape"});
-            this.comboBox1.Location = new System.Drawing.Point(5, 6);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox1.MaxDropDownItems = 100;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(108, 30);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "Portrait";
+            this.pageLayoutType.Location = new System.Drawing.Point(5, 6);
+            this.pageLayoutType.Margin = new System.Windows.Forms.Padding(0);
+            this.pageLayoutType.MaxDropDownItems = 100;
+            this.pageLayoutType.Name = "pageLayoutType";
+            this.pageLayoutType.Size = new System.Drawing.Size(108, 28);
+            this.pageLayoutType.TabIndex = 0;
+            this.pageLayoutType.Text = "Portrait";
             // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.White;
-            this.panel11.Controls.Add(this.cbxNothiType);
+            this.panel11.Controls.Add(this.pageSize);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel11.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel11.Location = new System.Drawing.Point(0, 0);
@@ -437,31 +438,31 @@ namespace dNothi.Desktop.UI.Dak
             this.panel11.TabIndex = 65;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
-            // cbxNothiType
+            // pageSize
             // 
-            this.cbxNothiType.BackColor = System.Drawing.Color.White;
-            this.cbxNothiType.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbxNothiType.DropDownHeight = 500;
-            this.cbxNothiType.DropDownWidth = 120;
-            this.cbxNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxNothiType.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.cbxNothiType.FormattingEnabled = true;
-            this.cbxNothiType.IntegralHeight = false;
-            this.cbxNothiType.ItemHeight = 22;
-            this.cbxNothiType.Items.AddRange(new object[] {
+            this.pageSize.BackColor = System.Drawing.Color.White;
+            this.pageSize.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pageSize.DropDownHeight = 500;
+            this.pageSize.DropDownWidth = 120;
+            this.pageSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pageSize.Font = new System.Drawing.Font("SolaimanLipi", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageSize.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.pageSize.FormattingEnabled = true;
+            this.pageSize.IntegralHeight = false;
+            this.pageSize.ItemHeight = 20;
+            this.pageSize.Items.AddRange(new object[] {
             "- Paper Size -",
             "A3",
             "A4",
             "Letter",
             "Legal"});
-            this.cbxNothiType.Location = new System.Drawing.Point(5, 6);
-            this.cbxNothiType.Margin = new System.Windows.Forms.Padding(0);
-            this.cbxNothiType.MaxDropDownItems = 100;
-            this.cbxNothiType.Name = "cbxNothiType";
-            this.cbxNothiType.Size = new System.Drawing.Size(108, 30);
-            this.cbxNothiType.TabIndex = 0;
-            this.cbxNothiType.Text = "A4";
+            this.pageSize.Location = new System.Drawing.Point(5, 6);
+            this.pageSize.Margin = new System.Windows.Forms.Padding(0);
+            this.pageSize.MaxDropDownItems = 100;
+            this.pageSize.Name = "pageSize";
+            this.pageSize.Size = new System.Drawing.Size(108, 28);
+            this.pageSize.TabIndex = 0;
+            this.pageSize.Text = "A4";
             // 
             // iconButton3
             // 
@@ -557,17 +558,17 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel10;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.ComboBox cbxNothiType;
+        private System.Windows.Forms.ComboBox pageSize;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox pageLayoutType;
         private System.Windows.Forms.Panel panel15;
-        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox3;
+        private PlaceholderTextBox.PlaceholderTextBox leftMargin;
         private System.Windows.Forms.Panel panel14;
-        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox2;
+        private PlaceholderTextBox.PlaceholderTextBox bottomMargin;
         private System.Windows.Forms.Panel panel13;
-        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox1;
+        private PlaceholderTextBox.PlaceholderTextBox rightMargin;
         private System.Windows.Forms.Panel userIdPanel;
-        private PlaceholderTextBox.PlaceholderTextBox txtDhoronCode;
+        private PlaceholderTextBox.PlaceholderTextBox topMargin;
         private FontAwesome.Sharp.IconButton btnPotrojari;
         private FontAwesome.Sharp.IconButton btnSave;
         private System.Windows.Forms.Panel panel16;

@@ -219,6 +219,7 @@
     <Compile Include="NothiServices\OnuchhedListServices.cs" />
     <Compile Include="NothiServices\OnuchhedSave.cs" />
     <Compile Include="NothiServices\OnumodonService.cs" />
+    <Compile Include="NothiServices\PotrojariParameter.cs" />
     <Compile Include="NothiServices\PotrojariServices.cs" />
     <Compile Include="NothiServices\SingleOnucchedServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

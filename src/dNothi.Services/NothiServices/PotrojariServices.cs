@@ -140,8 +140,8 @@ namespace dNothi.Services.NothiServices
 
 
                 request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
-                request.AddParameter("potro", "{\"potrojari_id\":\"" + potrojari_id + "\", \"potro_status\":\"" + potro_status + "\",\"potro_description\":\"" + potro_description + "\"}");
-
+                  request.AddParameter("potro", "{\"potrojari_id\":\"" + potrojari_id + "\", \"potro_status\":\"" + potro_status + "\",\"potro_description\":\"" + potro_description + "\"}");
+               // request.AddParameter("potro", "{\"potrojari_id\":\""+potrojari_id+"\", \"potro_status\":\""+potro_status+"\"}");
 
                 IRestResponse Response = Api.Execute(request);
 
@@ -159,13 +159,54 @@ namespace dNothi.Services.NothiServices
 
 
         }
+
+        public PotrojariCompleteResponse GetPotrojariResponse(DakUserParam userParam, PotrojariParameter potrojariParameter)
+        {
+
+            try
+            {
+                var Api = new RestClient(GetAPIDomain() + GetPotrojariEndPoint());
+                Api.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + userParam.token);
+                request.AlwaysMultipartFormData = true;
+
+                string potroJson = JsonParsingMethod.ObjecttoJson(potrojariParameter);
+
+
+                request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
+                request.AddParameter("potro", potroJson);
+
+
+                IRestResponse Response = Api.Execute(request);
+
+
+                var responseJson = Response.Content;
+
+                PotrojariCompleteResponse potrojariResponse = JsonConvert.DeserializeObject<PotrojariCompleteResponse>(responseJson);
+                return potrojariResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+
+
+        }
+
+
         protected string GetAPIDomain()
         {
             return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
         }
 
-        
-        
+        protected string GetPotrojariEndPoint()
+        {
+            return DefaultAPIConfiguration.PotrojariEndPoint;
+        }
+
         protected string GetPrapakerTalikaEndPoint()
         {
             return DefaultAPIConfiguration.prapakerTalika;

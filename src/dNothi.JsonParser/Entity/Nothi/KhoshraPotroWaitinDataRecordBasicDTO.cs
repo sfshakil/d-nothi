@@ -50,5 +50,10 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int potro_pages { get; set; }
         public string dak_json { get; set; }
         public string last_update_date { get; set; }
+
+
+
+
+
     }
 }

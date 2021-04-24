@@ -33,7 +33,7 @@ namespace dNothi.Desktop.UI
         private DakUserParam _dakuserparam = new DakUserParam();
 
         private int current_potro_id = 0;
-
+        private KhoshraPotroWaitinDataRecordDTO _khoshraPotroWaitinDataRecordDTO;
         KhoshraPotroWaitinDataRecordMulpotroDTO khoshraPotroWaitinDataRecordMulpotroDTO { get; set; }
         
         NoteSaveDTO newnotedata = new NoteSaveDTO();
@@ -3923,9 +3923,16 @@ namespace dNothi.Desktop.UI
         KhoshraPotroWaitingResponse khoshraPotroWaiting = new KhoshraPotroWaitingResponse();
         private void lbKhoshraWaiting_Click(object sender, EventArgs e)
         {
+            KhosraWaitingLoad();
+            
+        }
+
+        private void KhosraWaitingLoad()
+        {
             try
             {
                 current_potro_id = 0;
+                _khoshraPotroWaitinDataRecordDTO = null;
                 khoshraPotroWaitinDataRecordMulpotroDTO = null;
                 allLbelButtonPreviousColor();
                 lbKhoshraWaiting.BackColor = Color.FromArgb(14, 102, 98);
@@ -4014,6 +4021,7 @@ namespace dNothi.Desktop.UI
 
                         allPreviousButtonVisibilityOff();
                         current_potro_id = khoshraPotroWaiting.data.records[0].basic.id;
+                        _khoshraPotroWaitinDataRecordDTO = khoshraPotroWaiting.data.records[0];
                         khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[0].mulpotro;
                         string DecodedString = khoshraPotroWaiting.data.records[0].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
@@ -4031,8 +4039,8 @@ namespace dNothi.Desktop.UI
             {
                 ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
-            
         }
+
         private void btnKhoshraWaitingPrevious_Click(object sender, EventArgs e)
         {
             i--;
@@ -5324,6 +5332,9 @@ namespace dNothi.Desktop.UI
             try
             {
                 current_potro_id = 0;
+                _khoshraPotroWaitinDataRecordDTO = null;
+                khoshraPotroWaitinDataRecordMulpotroDTO = null;
+
                 allLbelButtonPreviousColor();
                 lbNoteKhoshraWaiting.BackColor = Color.FromArgb(14, 102, 98);
                 lbNoteKhoshraWaiting.ForeColor = Color.FromArgb(191, 239, 237);
@@ -5411,6 +5422,13 @@ namespace dNothi.Desktop.UI
                         NoteKhoshraWaitingNext.Visible = true;
 
                         allPreviousButtonVisibilityOff();
+
+                        current_potro_id = noteKhshraWaitingList.data.records[0].basic.id;
+                       _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[0];
+                        khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[0].mulpotro;
+
+
+
                         if (noteKhshraWaitingList.data.records[i].mulpotro.potro_description != null)
                         {
 
@@ -5841,6 +5859,12 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
+
+                current_potro_id = 0;
+                _khoshraPotroWaitinDataRecordDTO = null;
+                khoshraPotroWaitinDataRecordMulpotroDTO = null;
+
+
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = notePotrojariList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + notePotrojariList.data.records[i].basic.created;
@@ -5921,6 +5945,10 @@ namespace dNothi.Desktop.UI
 
                     if (notePotrojariList.data.records[i].mulpotro.url != "")
                     {
+                        current_potro_id = noteKhshraWaitingList.data.records[0].basic.id;
+                        _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[0];
+                        khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[0].mulpotro;
+
                         picBoxFile.Visible = false;
                         khosraViewWebBrowser.Url = new Uri(notePotrojariList.data.records[i].mulpotro.url);
                     }
@@ -6034,6 +6062,12 @@ namespace dNothi.Desktop.UI
             i++;
             if (notePotrojariList.data.total_records != i && i > 0)
             {
+                current_potro_id = 0;
+                _khoshraPotroWaitinDataRecordDTO = null;
+                khoshraPotroWaitinDataRecordMulpotroDTO = null;
+
+
+
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = notePotrojariList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + notePotrojariList.data.records[i].basic.created;
@@ -6115,7 +6149,11 @@ namespace dNothi.Desktop.UI
 
                     if (notePotrojariList.data.records[i].mulpotro.url != "")
                     {
-                        current_potro_id = notePotrojariList.data.records[i].basic.nothi_note_id;
+
+                        current_potro_id = noteKhshraWaitingList.data.records[0].basic.id;
+                        _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[0];
+                        khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[0].mulpotro;
+
                         picBoxFile.Visible = false;
                         khosraViewWebBrowser.Url = new Uri(notePotrojariList.data.records[i].mulpotro.url);
                     }
@@ -6579,10 +6617,102 @@ namespace dNothi.Desktop.UI
 
         private void btnPotrojari_Click(object sender, EventArgs e)
         {
-            Potrojari form = new Potrojari();
-            form.loadPotrojariBrowser(khosraViewWebBrowser.DocumentText);
-            var nothiNoteMovementListform = AttachPotrojariControlToForm(form);
-            CalPopUpWindow(nothiNoteMovementListform);
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি পত্রটি জারি করতে চান?";
+            conditonBoxForm.ShowDialog();
+            if(conditonBoxForm.Yes)
+            {
+                Potrojari form = new Potrojari();
+                form.loadPotrojariBrowser(khosraViewWebBrowser.DocumentText);
+                form.PotrojariButtonClick += delegate (object ss, EventArgs ee) { SavePotrojari(form); };
+
+                var nothiNoteMovementListform = AttachPotrojariControlToForm(form);
+
+
+                CalPopUpWindow(nothiNoteMovementListform);
+            }
+         
+        }
+
+        private void SavePotrojari(Potrojari form)
+        {
+            if(_khoshraPotroWaitinDataRecordDTO != null)
+            {
+                PotrojariParameter potrojariParameter = new PotrojariParameter();
+                potrojariParameter.potrojari = new PotrojariSendInfo();
+               // potrojariParameter.potrojari.attached_potro = _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description;
+                potrojariParameter.potrojari.attachment_count = _khoshraPotroWaitinDataRecordDTO.basic.attachment_count.ToString();
+                potrojariParameter.potrojari.cloned_potrojari_id = _khoshraPotroWaitinDataRecordDTO.basic.cloned_potrojari_id.ToString();
+                potrojariParameter.potrojari.created = _khoshraPotroWaitinDataRecordDTO.basic.cloned_potrojari_id.ToString();
+                potrojariParameter.potrojari.dak_id = _khoshraPotroWaitinDataRecordDTO.basic.dak_id.ToString();
+                potrojariParameter.potrojari.dak_json = _khoshraPotroWaitinDataRecordDTO.basic.dak_json.ToString();
+                potrojariParameter.potrojari.digital_sign = _khoshraPotroWaitinDataRecordDTO.basic.digital_sign.ToString();
+                potrojariParameter.potrojari.draft_designation_id = _khoshraPotroWaitinDataRecordDTO.basic.draft_designation_id.ToString();
+                potrojariParameter.potrojari.draft_designation_name = _khoshraPotroWaitinDataRecordDTO.basic.draft_designation_name.ToString();
+                potrojariParameter.potrojari.draft_officer_id = _khoshraPotroWaitinDataRecordDTO.basic.draft_officer_id.ToString();
+                potrojariParameter.potrojari.draft_officer_name = _khoshraPotroWaitinDataRecordDTO.basic.draft_officer_name.ToString();
+                potrojariParameter.potrojari.draft_office_id = _khoshraPotroWaitinDataRecordDTO.basic.draft_office_id.ToString();
+                potrojariParameter.potrojari.draft_office_name = _khoshraPotroWaitinDataRecordDTO.basic.draft_office_name.ToString();
+                potrojariParameter.potrojari.draft_unit_id = _khoshraPotroWaitinDataRecordDTO.basic.draft_unit_id.ToString();
+                potrojariParameter.potrojari.draft_unit_name = _khoshraPotroWaitinDataRecordDTO.basic.draft_unit_name.ToString();
+                potrojariParameter.potrojari.id = _khoshraPotroWaitinDataRecordDTO.basic.id.ToString();
+                potrojariParameter.potrojari.is_summary_nothi = _khoshraPotroWaitinDataRecordDTO.basic.is_summary_nothi.ToString();
+                potrojariParameter.potrojari.last_update_date = _khoshraPotroWaitinDataRecordDTO.basic.last_update_date.ToString();
+                
+                potrojariParameter.potrojari.marginBottom =form._bottomMargin.ToString();
+                potrojariParameter.potrojari.marginLeft = form._leftMargin.ToString();
+                potrojariParameter.potrojari.marginRight = form._rightMargin.ToString();
+                potrojariParameter.potrojari.marginTop = form._topMargin.ToString();
+
+
+                potrojariParameter.potrojari.meta_data = _khoshraPotroWaitinDataRecordDTO.basic.meta_data.ToString();
+                potrojariParameter.potrojari.modified = _khoshraPotroWaitinDataRecordDTO.basic.modified.ToString();
+                potrojariParameter.potrojari.noter_potro_json = _khoshraPotroWaitinDataRecordDTO.basic.noter_potro_json.ToString();
+                potrojariParameter.potrojari.note_json = _khoshraPotroWaitinDataRecordDTO.basic.note_json.ToString();
+                potrojariParameter.potrojari.note_onucched_id = _khoshraPotroWaitinDataRecordDTO.basic.note_onucched_id.ToString();
+                potrojariParameter.potrojari.nothi_master_id = _khoshraPotroWaitinDataRecordDTO.basic.nothi_master_id.ToString();
+                potrojariParameter.potrojari.nothi_note_id = _khoshraPotroWaitinDataRecordDTO.basic.nothi_note_id.ToString();
+                potrojariParameter.potrojari.nothi_potro_attachment_id = _khoshraPotroWaitinDataRecordDTO.basic.nothi_potro_attachment_id.ToString();
+                potrojariParameter.potrojari.nothi_potro_id = _khoshraPotroWaitinDataRecordDTO.basic.nothi_potro_id.ToString();
+                potrojariParameter.potrojari.onulipi_sent = _khoshraPotroWaitinDataRecordDTO.basic.cloned_potrojari_id.ToString();
+                potrojariParameter.potrojari.orientation = form._pageLayout.ToString();
+                potrojariParameter.potrojari.pageSize = form._pageSize.ToString();
+                potrojariParameter.potrojari.page_numbers = _khoshraPotroWaitinDataRecordDTO.basic.page_numbers.ToString();
+                potrojariParameter.potrojari.potrojari_date = _khoshraPotroWaitinDataRecordDTO.basic.potrojari_date.ToString();
+                potrojariParameter.potrojari.potrojari_internal = _khoshraPotroWaitinDataRecordDTO.basic.potrojari_internal.ToString();
+                potrojariParameter.potrojari.potrojari_language = _khoshraPotroWaitinDataRecordDTO.basic.potrojari_language.ToString();
+                potrojariParameter.potrojari.potro_cover = _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_cover.ToString();
+                potrojariParameter.potrojari.potro_description = _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description.ToString();
+                potrojariParameter.potrojari.potro_pages = _khoshraPotroWaitinDataRecordDTO.basic.potro_pages.ToString();
+                potrojariParameter.potrojari.potro_status = _khoshraPotroWaitinDataRecordDTO.basic.potro_status.ToString();
+                potrojariParameter.potrojari.potro_subject = _khoshraPotroWaitinDataRecordDTO.basic.potro_subject.ToString();
+                potrojariParameter.potrojari.potro_type = _khoshraPotroWaitinDataRecordDTO.basic.potro_type.ToString();
+                potrojariParameter.potrojari.receiver_sent = _khoshraPotroWaitinDataRecordDTO.basic.receiver_sent.ToString();
+                potrojariParameter.potrojari.sarok_no = _khoshraPotroWaitinDataRecordDTO.basic.sarok_no.ToString();
+                potrojariParameter.potrojari.shared_nothi_id = _khoshraPotroWaitinDataRecordDTO.basic.shared_nothi_id.ToString();
+                potrojariParameter.potrojari.sign_info = _khoshraPotroWaitinDataRecordDTO.basic.sign_info.ToString();
+              
+                potrojariParameter.potrojari.potro_security_level = _khoshraPotroWaitinDataRecordDTO.basic.potro_security_level.ToString();
+                potrojariParameter.potrojari.potro_priority_level = _khoshraPotroWaitinDataRecordDTO.basic.potro_priority_level.ToString();
+
+
+
+                DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+
+                var potrojariResponse = _potrojariServices.GetPotrojariResponse(dakUserParam, potrojariParameter);
+
+                if(potrojariResponse != null && potrojariResponse.status=="success")
+                {
+                    UIDesignCommonMethod.SuccessMessage(potrojariResponse.data);
+                    //loadPotrangshoNotePanel();
+                    //loadPotrangshoNothiPanel();
+                    //loadCollapseExpandSize();
+                }
+
+
+                 
+            }
         }
 
         private void btnNothiPanelNothiCount_Paint(object sender, PaintEventArgs e)
@@ -6673,16 +6803,32 @@ namespace dNothi.Desktop.UI
                 if (khoshraPotroWaitinDataRecordMulpotroDTO != null)
                 {
                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                    var khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam,khoshraPotroWaitinDataRecordMulpotroDTO.id, khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover, khoshraPotroWaitinDataRecordMulpotroDTO.potro_description);
+
+
+                    var links = khosraViewWebBrowser.Document.GetElementsByTagName("img");
+
+                    foreach (HtmlElement link in links)
+                    {
+
+                        if (link.GetAttribute("ClassName") == "khoshra_approver_signature")
+                        {
+                            link.SetAttribute("src", "../img/sign-1.png");
+                        }
+                    }
+
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
+
+                    var khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam,khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroWaitinDataRecordDTO.basic.potro_status, _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description);
                     if (khoshraUnapprovedResponse.status == "success")
                     {
 
                         UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
 
                         btnApprove.Visible = true;
-                        btnPotrojari.Visible = false;
                         btnUnapprove.Visible = false;
-                        
+                        btnPotrojari.Visible = false;
+
+
                     }
                 }
             }
@@ -6699,16 +6845,30 @@ namespace dNothi.Desktop.UI
                 if (khoshraPotroWaitinDataRecordMulpotroDTO != null)
                 {
                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                    var khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover, khoshraPotroWaitinDataRecordMulpotroDTO.potro_description);
+                    var links = khosraViewWebBrowser.Document.GetElementsByTagName("img");
+
+                    foreach (HtmlElement link in links)
+                    {
+
+                        if (link.GetAttribute("ClassName") == "khoshra_approver_signature")
+                        {
+                            link.SetAttribute("src", dakListUserParam.SignBase64);
+                        }
+                    }
+
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
+
+                    var khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroWaitinDataRecordDTO.basic.potro_status, _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description);
                     if (khoshraUnapprovedResponse.status == "success")
                     {
 
                         UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
-
                         btnApprove.Visible = false;
-                        btnPotrojari.Visible = true;
                         btnUnapprove.Visible = true;
-
+                        btnPotrojari.Visible = true;
+                        
+                        //khosraViewWebBrowser.Document.Images.("img.khoshra_approver_signature")
+                        // .SetAttribute("src", dakListUserParam.SignBase64);
                     }
                 }
             }

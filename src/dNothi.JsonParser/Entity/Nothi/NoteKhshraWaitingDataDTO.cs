@@ -8,7 +8,7 @@ namespace dNothi.JsonParser.Entity.Nothi
 {
     public class NoteKhshraWaitingDataDTO
     {
-        public List<NoteKhshraWaitingDataRecord> records { get; set; }
+        public List<KhoshraPotroWaitinDataRecordDTO> records { get; set; }
         public int total_records { get; set; }
     }
 }

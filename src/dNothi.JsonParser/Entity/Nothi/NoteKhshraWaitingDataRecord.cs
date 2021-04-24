@@ -8,9 +8,9 @@ namespace dNothi.JsonParser.Entity.Nothi
 {
     public class NoteKhshraWaitingDataRecord
     {
-        public NoteKhshraWaitingDataBasicDTO basic { get; set; }
-        public NoteKhshraWaitingDataMulpotroDTO mulpotro { get; set; }
-        public NoteKhshraWaitingDataNoteOwnerDTO note_owner { get; set; }
-        public NoteKhshraWaitingDataNoteOnucchedDTO note_onucched { get; set; }
+        public KhoshraPotroWaitinDataRecordBasicDTO basic { get; set; }
+        public KhoshraPotroRecordsMulpotroDTO mulpotro { get; set; }
+        public KhoshraPotroWaitinDataRecordNoteOwnerDTO note_owner { get; set; }
+        public KhoshraPotroWaitinDataRecordNoteOnucchedDTO note_onucched { get; set; }
     }
 }

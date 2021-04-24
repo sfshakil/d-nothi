@@ -115,5 +115,6 @@ namespace dNothi.Constants
         public const string prapakerTalika = "/api/potrojari/recipient/list";
 
         public static string PotroOnumodonEndPoint = "/api/potro/approve";
+        public static string PotrojariEndPoint = "/api/potro/dispatch";
     }
 }
