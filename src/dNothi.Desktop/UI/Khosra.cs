@@ -23,12 +23,15 @@ using dNothi.JsonParser.Entity.Nothi;
 using dNothi.JsonParser;
 using HtmlAgilityPack;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Services.NothiServices;
 
 namespace dNothi.Desktop.UI
 {
     public partial class Khosra : Form
     {
         IUserService _userService { get; set; }
+        INothiInboxNoteServices _nothiInboxNote { get; set; }
+        IDesignationSealService _designationSealService { get; set; }
         IKhosraSaveService _khosraSaveService { get; set; }
         IDakForwardService _dakForwardService { get; set; }
         IKhasraTemplateService _khasraTemplateService { get; set; }
@@ -37,10 +40,11 @@ namespace dNothi.Desktop.UI
     
         public KhasraPotroTemplateResponse khasraPotroTemplateResponse { get; set; }
         public WaitFormFunc WaitForm;
-        public Khosra(IKhosraSaveService khosraSaveService,IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService)
+        public Khosra(INothiInboxNoteServices nothiInboxNote,IDesignationSealService designationSealService, IKhosraSaveService khosraSaveService,IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService)
         {
+            _nothiInboxNote = nothiInboxNote;
             _khosraSaveService = khosraSaveService;
-
+            _designationSealService = designationSealService;
             _userService = userService;
             _dakForwardService = dakForwardService;
             _khasraTemplateService = khasraTemplateService;
@@ -751,6 +755,8 @@ namespace dNothi.Desktop.UI
         private void khosraReviewButton_Click(object sender, EventArgs e)
         {
             SelectOfficersFormKhosraReview selectOfficerForm = new SelectOfficersFormKhosraReview();
+            
+            
             selectOfficerForm.designationSealListResponse = _designationSealListResponse;
 
             //selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton, selectOfficerForm._selectedOfficerDesignations, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
@@ -762,15 +768,28 @@ namespace dNothi.Desktop.UI
         {
            
             CreateEditor();
-            DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_userService.GetLocalDakUserParam());
-            _designationSealListResponse = designationSealListResponse;
+            DakUserParam userParam = _userService.GetLocalDakUserParam();
+            AllDesignationSealListResponse designationSealListResponse = _designationSealService.GetAllDesignationSeal(userParam, userParam.office_id);
+
+            if(designationSealListResponse != null && designationSealListResponse.data != null && designationSealListResponse.data.Count>0)
+            {
+                _designationSealListResponse = new DesignationSealListResponse();
+                _designationSealListResponse.data = new DesignationSealDataDTO();
+                _designationSealListResponse.data.other_office = new List<PrapokDTO>();
+                _designationSealListResponse.data.own_office = new List<PrapokDTO>();
+                _designationSealListResponse.data.own_office = designationSealListResponse.data;
+
+            }
+
+
+           // _designationSealListResponse = designationSealListResponse;
             LoadDakPriority();
             LoadDakSecurity();
 
             templateListTableLayoutPanel.Controls.Clear();
 
 
-            DakUserParam userParam = _userService.GetLocalDakUserParam();
+           
 
             khasraPotroTemplateResponse = _khasraTemplateService.GetKhosraTemplate(userParam);
             
@@ -965,10 +984,13 @@ namespace dNothi.Desktop.UI
                 //khosraSaveParamPotro.potrojari.attached_potro=
 
 
-                khosraSaveParamPotro.potrojari.note_subject = _noteSelected.note_subject;
-                khosraSaveParamPotro.potrojari.nothi_master_id = Convert.ToInt32(_noteSelected.nothi_id);
-                khosraSaveParamPotro.potrojari.nothi_note_id = Convert.ToInt32(_noteSelected.note_id);
+                if(_noteSelected != null)
+                {
+                    khosraSaveParamPotro.potrojari.note_subject = _noteSelected.note_subject;
+                    khosraSaveParamPotro.potrojari.nothi_master_id = Convert.ToInt32(_noteSelected.nothi_id);
+                    khosraSaveParamPotro.potrojari.nothi_note_id = Convert.ToInt32(_noteSelected.note_id);
 
+                }
 
 
                 khosraSaveParamPotro.potrojari.potro_description = ConversionMethod.Base64Encode(_currentHtmlString);
@@ -976,28 +998,173 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamPotro.potrojari.potro_security_level = dakSecrurityComboBox.SelectedIndex;
 
                 khosraSaveParamPotro.potrojari.potro_subject = GetPotroSubjectFromHtmlString(_currentHtmlString);
+                khosraSaveParamPotro.potrojari.draft_officer_id = dakUserParam.officer_id;
 
 
-
-                //khosraSaveParamPotro.potrojari.potro_subject=_khasraPotroTemplateData
-                //khosraSaveParamPotro.potrojari.potro_type= _khasraPotroTemplateData.
-                //khosraSaveParamPotro.potrojari.sarok_no=
-                khosraSaveParamPotro.recipient = new KhosraSaveParamRecipent();
+              //khosraSaveParamPotro.potrojari.potro_subject=_khasraPotroTemplateData
+              //khosraSaveParamPotro.potrojari.potro_type= _khasraPotroTemplateData.
+              //khosraSaveParamPotro.potrojari.sarok_no=
+              khosraSaveParamPotro.recipient = new KhosraSaveParamRecipent();
 
                
-                AddOnumodontoParam(khosraSaveParamPotro);
-                AddOnulipiParam(khosraSaveParamPotro);
-                AddPrpoktoParam(khosraSaveParamPotro);
-                AddSendertoParam(khosraSaveParamPotro);
-                AddAttentiontoParam(khosraSaveParamPotro);
+               if(onumodonOfficer != null)
+                {
+                    AddOnumodontoParam(khosraSaveParamPotro);
+                }
+               if(onulipiOfficers != null)
+                {
+                    AddOnulipiParam(khosraSaveParamPotro);
+                }
+                if (prapokOfficers != null)
+                {
+                    AddPrpoktoParam(khosraSaveParamPotro);
+                }
+                if (senderOfficer != null)
+                {
+                    AddSendertoParam(khosraSaveParamPotro);
+                }
+                if (attentionOfficers != null)
+                {
+                    AddAttentiontoParam(khosraSaveParamPotro);
+                }
+
+               
+    
+               
 
 
 
                 KhosraSaveResponse khosraSaveResponse = _khosraSaveService.GetKhosraSaveResponse(dakUserParam, khosraSaveParamPotro);
 
+
+                if(khosraSaveResponse.status=="success")
+                {
+                    UIDesignCommonMethod.SuccessMessage(khosraSaveResponse.data);
+                    if(_noteSelected != null)
+                    {
+                        LoadNote();
+                    }
+                   
+                }
+                else
+                {
+                    UIDesignCommonMethod.ErrorMessage("");
+                }
             }
 
 
+        }
+
+        private void LoadNote()
+        {
+            var form = FormFactory.Create<Note>();
+            DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
+            form.noteIdfromNothiInboxNoteShomuho = _noteSelected.note_id.ToString();
+            // form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+
+            NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
+            nothiListRecords.id = _nothiAllListDTO.nothi.id;
+            if (_nothiAllListDTO.desk != null)
+            {
+                nothiListRecords.issue_date = _nothiAllListDTO.desk.issue_date;
+                nothiListRecords.note_count = _nothiAllListDTO.desk.note_count;
+                nothiListRecords.note_current_status = _nothiAllListDTO.desk.note_current_status;
+                nothiListRecords.priority = _nothiAllListDTO.desk.priority.ToString();
+
+            }
+            if (_nothiAllListDTO.nothi != null)
+            {
+                nothiListRecords.last_note_date = _nothiAllListDTO.nothi.last_note_date;
+
+                nothiListRecords.nothi_class = _nothiAllListDTO.nothi.nothi_class;
+                nothiListRecords.nothi_no = _nothiAllListDTO.nothi.nothi_no;
+                nothiListRecords.office_designation_name = _nothiAllListDTO.nothi.office_designation_name;
+                nothiListRecords.office_id = _nothiAllListDTO.nothi.office_id;
+                nothiListRecords.office_name = _nothiAllListDTO.nothi.office_name;
+                nothiListRecords.office_unit_id = _nothiAllListDTO.nothi.office_unit_id;
+                nothiListRecords.office_unit_name = _nothiAllListDTO.nothi.office_unit_name;
+                nothiListRecords.office_unit_organogram_id = _nothiAllListDTO.nothi.office_unit_organogram_id;
+                nothiListRecords.subject = _nothiAllListDTO.nothi.subject;
+
+            }
+
+            //nothiListRecords.nothi_type = _nothiAllListDTO.nothi.;
+            NoteView noteView = new NoteView();
+            //
+            form.nothiNo = nothiListRecords.nothi_no;
+            form.nothiShakha = nothiListRecords.office_unit_name + " " + _dakuserparam.office_label;
+            form.nothiSubject = nothiListRecords.subject;
+            form.noteSubject = _noteSelected.note_subject;
+            form.nothiLastDate = nothiListRecords.last_note_date;
+
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, _nothiAllListDTO.nothi.id.ToString(), "all");
+            noteView.totalNothi = "0";
+
+            NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
+            try
+            {
+
+                if (nothiInboxNote.status == "success")
+                {
+
+                    if (nothiInboxNote.data.records.Count > 0)
+                    {
+
+                        nothiListInboxNoteRecordsDTO = nothiInboxNote.data.records.FirstOrDefault(a => a.note.nothi_note_id == _nothiAllListDTO.nothi.id);
+                        if (nothiListInboxNoteRecordsDTO != null)
+
+                        {
+                            form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+
+                        }
+
+                    }
+                }
+
+
+            }
+            catch
+            {
+
+            }
+
+
+
+
+            form.office = "( " + nothiListRecords.office_name + " " + nothiListRecords.last_note_date + ")";
+
+
+            noteView.nothiLastDate = nothiListRecords.last_note_date;
+
+            noteView.totalNothi = _noteSelected.note_no.ToString();
+            noteView.noteSubject = _noteSelected.note_subject;
+            noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
+            noteView.checkBox = "1";
+            noteView.nothiNoteID = Convert.ToInt32(_noteSelected.note_id);
+
+
+            form.noteTotal = _noteSelected.note_no.ToString();
+
+
+
+            form.loadNothiInboxRecords(nothiListRecords);
+            form.loadNoteView(noteView);
+
+            if (_noteSelected._isOffline)
+            {
+                form.setStatus("offline");
+                nothiListRecords.id = _noteSelected.extra_nothi_id;
+
+            }
+
+
+            nothiListRecords.local_nothi_type = "all";
+            this.Hide();
+            form.ShowDialog();
+
+
+
+           
         }
 
         private string GetPotroSubjectFromHtmlString(string currentHtmlString)
@@ -1036,7 +1203,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.officer_id = prapokDTO.officer_id.ToString();
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
-
+                khosraSaveParamOfficer.recipient_type = "receiver";
                 receivers.Add(khosraSaveParamOfficer);
 
             }
@@ -1058,7 +1225,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.officer_id = prapokDTO.officer_id.ToString();
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
-
+                khosraSaveParamOfficer.recipient_type = "onulipi";
                 receivers.Add(khosraSaveParamOfficer);
 
             }
@@ -1079,6 +1246,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.officer_id = prapokDTO.officer_id.ToString();
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
+                khosraSaveParamOfficer.recipient_type = "attention";
 
                 receivers.Add(khosraSaveParamOfficer);
 
@@ -1100,7 +1268,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.officer_id = prapokDTO.officer_id.ToString();
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
-
+                khosraSaveParamOfficer.recipient_type = "sender";
                 receivers.Add(khosraSaveParamOfficer);
 
             }
@@ -1121,7 +1289,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.officer_id = prapokDTO.officer_id.ToString();
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
-
+                khosraSaveParamOfficer.recipient_type = "approver";
                 receivers.Add(khosraSaveParamOfficer);
 
             }

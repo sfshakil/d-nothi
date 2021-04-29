@@ -80,5 +80,6 @@ namespace dNothi.Services.KhasraService
         public int potro_priority_level { get; set; }
         public string attached_potro { get; set; }
         public string sarok_no { get; set; }
+        public int draft_officer_id { get; set; }
     }
 }

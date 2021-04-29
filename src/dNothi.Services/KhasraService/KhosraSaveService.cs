@@ -2,6 +2,7 @@
 using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Khosra;
 using dNothi.Services.DakServices;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -37,8 +38,8 @@ namespace dNothi.Services.KhasraService
                 IRestResponse khasraSaveResponse = khasraSaveAPI.Execute(khasraSaveRequest);
 
 
-                var khasraSaveResponseJson = khasraSaveResponse.Content;
-               
+                var khasraSaveResponseJson = ConversionMethod.FilterJsonResponse(khasraSaveResponse.Content);
+                
                 KhosraSaveResponse khasraPotroSaveResponse = JsonConvert.DeserializeObject<KhosraSaveResponse>(khasraSaveResponseJson);
                 return khasraPotroSaveResponse;
             }

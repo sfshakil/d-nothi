@@ -3461,6 +3461,7 @@
             this.label29.Size = new System.Drawing.Size(118, 18);
             this.label29.TabIndex = 81;
             this.label29.Text = "অনুমোদনের অপেক্ষায়";
+            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // pnlKhoshra
             // 

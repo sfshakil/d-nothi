@@ -162,6 +162,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.khoshraBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             saveButton = new FontAwesome.Sharp.IconButton();
             this.khosraTableLayoutPanel.SuspendLayout();
             this.pnlNothiNoteTalika.SuspendLayout();
@@ -208,6 +212,7 @@
             this.templateListPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // saveButton
@@ -223,7 +228,7 @@
             saveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             saveButton.IconSize = 20;
             saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            saveButton.Location = new System.Drawing.Point(736, 1);
+            saveButton.Location = new System.Drawing.Point(738, 1);
             saveButton.Margin = new System.Windows.Forms.Padding(0);
             saveButton.Name = "saveButton";
             saveButton.Size = new System.Drawing.Size(96, 33);
@@ -250,7 +255,7 @@
             this.khosraTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.khosraTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.khosraTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.khosraTableLayoutPanel.Size = new System.Drawing.Size(928, 506);
+            this.khosraTableLayoutPanel.Size = new System.Drawing.Size(930, 521);
             this.khosraTableLayoutPanel.TabIndex = 0;
             // 
             // pnlNothiNoteTalika
@@ -268,7 +273,7 @@
             this.pnlNothiNoteTalika.Location = new System.Drawing.Point(0, 57);
             this.pnlNothiNoteTalika.Margin = new System.Windows.Forms.Padding(0);
             this.pnlNothiNoteTalika.Name = "pnlNothiNoteTalika";
-            this.pnlNothiNoteTalika.Size = new System.Drawing.Size(928, 35);
+            this.pnlNothiNoteTalika.Size = new System.Drawing.Size(930, 35);
             this.pnlNothiNoteTalika.TabIndex = 18;
             // 
             // khosraReviewButton
@@ -285,7 +290,7 @@
             this.khosraReviewButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.khosraReviewButton.IconSize = 20;
             this.khosraReviewButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.khosraReviewButton.Location = new System.Drawing.Point(523, 1);
+            this.khosraReviewButton.Location = new System.Drawing.Point(525, 1);
             this.khosraReviewButton.Margin = new System.Windows.Forms.Padding(0);
             this.khosraReviewButton.Name = "khosraReviewButton";
             this.khosraReviewButton.Size = new System.Drawing.Size(117, 33);
@@ -309,7 +314,7 @@
             this.noteDetailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.noteDetailsButton.IconSize = 20;
             this.noteDetailsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.noteDetailsButton.Location = new System.Drawing.Point(640, 1);
+            this.noteDetailsButton.Location = new System.Drawing.Point(642, 1);
             this.noteDetailsButton.Margin = new System.Windows.Forms.Padding(0);
             this.noteDetailsButton.Name = "noteDetailsButton";
             this.noteDetailsButton.Size = new System.Drawing.Size(96, 33);
@@ -428,7 +433,7 @@
             this.panel11.Location = new System.Drawing.Point(105, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(727, 1);
+            this.panel11.Size = new System.Drawing.Size(729, 1);
             this.panel11.TabIndex = 61;
             // 
             // nothiAllButton
@@ -444,7 +449,7 @@
             this.nothiAllButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.nothiAllButton.IconSize = 20;
             this.nothiAllButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nothiAllButton.Location = new System.Drawing.Point(832, 0);
+            this.nothiAllButton.Location = new System.Drawing.Point(834, 0);
             this.nothiAllButton.Margin = new System.Windows.Forms.Padding(0);
             this.nothiAllButton.Name = "nothiAllButton";
             this.nothiAllButton.Size = new System.Drawing.Size(96, 34);
@@ -485,7 +490,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 34);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(928, 1);
+            this.panel3.Size = new System.Drawing.Size(930, 1);
             this.panel3.TabIndex = 77;
             // 
             // headerPanel
@@ -500,7 +505,7 @@
             this.headerPanel.Margin = new System.Windows.Forms.Padding(0);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.headerPanel.Size = new System.Drawing.Size(928, 57);
+            this.headerPanel.Size = new System.Drawing.Size(930, 57);
             this.headerPanel.TabIndex = 0;
             // 
             // profilePanel
@@ -510,7 +515,7 @@
             this.profilePanel.Controls.Add(this.userNameLabel);
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.profilePanel.Location = new System.Drawing.Point(588, 0);
+            this.profilePanel.Location = new System.Drawing.Point(590, 0);
             this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.profilePanel.Name = "profilePanel";
             this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 10, 10, 10);
@@ -774,9 +779,9 @@
             this.panel6.Controls.Add(this.linkLabel2);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 469);
+            this.panel6.Location = new System.Drawing.Point(3, 484);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(922, 34);
+            this.panel6.Size = new System.Drawing.Size(924, 34);
             this.panel6.TabIndex = 17;
             // 
             // panel47
@@ -788,7 +793,7 @@
             this.panel47.Controls.Add(this.button29);
             this.panel47.Controls.Add(this.button30);
             this.panel47.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel47.Location = new System.Drawing.Point(683, 2);
+            this.panel47.Location = new System.Drawing.Point(685, 2);
             this.panel47.Margin = new System.Windows.Forms.Padding(0);
             this.panel47.Name = "panel47";
             this.panel47.Size = new System.Drawing.Size(239, 32);
@@ -886,7 +891,7 @@
             this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel27.Location = new System.Drawing.Point(214, 0);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(708, 2);
+            this.panel27.Size = new System.Drawing.Size(710, 2);
             this.panel27.TabIndex = 62;
             // 
             // linkLabel2
@@ -924,17 +929,17 @@
             this.bodyPanel.Location = new System.Drawing.Point(0, 92);
             this.bodyPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(928, 374);
+            this.bodyPanel.Size = new System.Drawing.Size(930, 389);
             this.bodyPanel.TabIndex = 19;
             // 
             // splitter1
             // 
             this.splitter1.BackColor = System.Drawing.Color.LightGray;
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(615, 0);
+            this.splitter1.Location = new System.Drawing.Point(617, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 374);
+            this.splitter1.Size = new System.Drawing.Size(3, 389);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -947,7 +952,7 @@
             this.tinyAndAttachmentPanel.Location = new System.Drawing.Point(164, 0);
             this.tinyAndAttachmentPanel.Margin = new System.Windows.Forms.Padding(0);
             this.tinyAndAttachmentPanel.Name = "tinyAndAttachmentPanel";
-            this.tinyAndAttachmentPanel.Size = new System.Drawing.Size(454, 374);
+            this.tinyAndAttachmentPanel.Size = new System.Drawing.Size(456, 389);
             this.tinyAndAttachmentPanel.TabIndex = 1;
             // 
             // tinyMCEPanel
@@ -958,7 +963,7 @@
             this.tinyMCEPanel.Location = new System.Drawing.Point(0, 0);
             this.tinyMCEPanel.Margin = new System.Windows.Forms.Padding(0);
             this.tinyMCEPanel.Name = "tinyMCEPanel";
-            this.tinyMCEPanel.Size = new System.Drawing.Size(454, 212);
+            this.tinyMCEPanel.Size = new System.Drawing.Size(456, 227);
             this.tinyMCEPanel.TabIndex = 2;
             // 
             // tinyMceEditor
@@ -967,7 +972,7 @@
             this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
             this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(454, 212);
+            this.tinyMceEditor.Size = new System.Drawing.Size(456, 227);
             this.tinyMceEditor.TabIndex = 0;
             this.tinyMceEditor.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.tinyMceEditor_FrameLoadEnd);
             // 
@@ -975,10 +980,10 @@
             // 
             this.splitter3.BackColor = System.Drawing.Color.LightGray;
             this.splitter3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter3.Location = new System.Drawing.Point(0, 212);
+            this.splitter3.Location = new System.Drawing.Point(0, 227);
             this.splitter3.Margin = new System.Windows.Forms.Padding(0);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(454, 2);
+            this.splitter3.Size = new System.Drawing.Size(456, 2);
             this.splitter3.TabIndex = 0;
             this.splitter3.TabStop = false;
             // 
@@ -988,9 +993,9 @@
             this.attachmentPanel.Controls.Add(this.panel12);
             this.attachmentPanel.Controls.Add(this.panel10);
             this.attachmentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.attachmentPanel.Location = new System.Drawing.Point(0, 214);
+            this.attachmentPanel.Location = new System.Drawing.Point(0, 229);
             this.attachmentPanel.Name = "attachmentPanel";
-            this.attachmentPanel.Size = new System.Drawing.Size(454, 160);
+            this.attachmentPanel.Size = new System.Drawing.Size(456, 160);
             this.attachmentPanel.TabIndex = 0;
             // 
             // panel13
@@ -1003,7 +1008,7 @@
             this.panel13.Location = new System.Drawing.Point(0, 31);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
-            this.panel13.Size = new System.Drawing.Size(454, 129);
+            this.panel13.Size = new System.Drawing.Size(456, 129);
             this.panel13.TabIndex = 63;
             // 
             // selectedAttachmentTableLayoutPanel
@@ -1017,7 +1022,7 @@
             this.selectedAttachmentTableLayoutPanel.Name = "selectedAttachmentTableLayoutPanel";
             this.selectedAttachmentTableLayoutPanel.RowCount = 1;
             this.selectedAttachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.selectedAttachmentTableLayoutPanel.Size = new System.Drawing.Size(424, 0);
+            this.selectedAttachmentTableLayoutPanel.Size = new System.Drawing.Size(426, 0);
             this.selectedAttachmentTableLayoutPanel.TabIndex = 0;
             // 
             // panel14
@@ -1026,7 +1031,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(15, 10);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(424, 30);
+            this.panel14.Size = new System.Drawing.Size(426, 30);
             this.panel14.TabIndex = 1;
             // 
             // label29
@@ -1037,7 +1042,7 @@
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(59)))));
             this.label29.Location = new System.Drawing.Point(0, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(424, 30);
+            this.label29.Size = new System.Drawing.Size(426, 30);
             this.label29.TabIndex = 0;
             this.label29.Text = "সংযুক্তি যোগ করার জন্য সংযুক্তি + বাটনে ক্লিক করুন";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1049,7 +1054,7 @@
             this.panel12.Location = new System.Drawing.Point(0, 30);
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(454, 1);
+            this.panel12.Size = new System.Drawing.Size(456, 1);
             this.panel12.TabIndex = 62;
             // 
             // panel10
@@ -1059,7 +1064,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(454, 30);
+            this.panel10.Size = new System.Drawing.Size(456, 30);
             this.panel10.TabIndex = 0;
             // 
             // newAttachmentButton
@@ -1076,7 +1081,7 @@
             this.newAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.newAttachmentButton.IconSize = 18;
             this.newAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.newAttachmentButton.Location = new System.Drawing.Point(336, 0);
+            this.newAttachmentButton.Location = new System.Drawing.Point(338, 0);
             this.newAttachmentButton.Margin = new System.Windows.Forms.Padding(0);
             this.newAttachmentButton.Name = "newAttachmentButton";
             this.newAttachmentButton.Size = new System.Drawing.Size(118, 30);
@@ -1113,16 +1118,17 @@
             this.officerSelectPanel.Controls.Add(this.officerTypePanel);
             this.officerSelectPanel.Controls.Add(this.decisionPanel);
             this.officerSelectPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.officerSelectPanel.Location = new System.Drawing.Point(618, 0);
+            this.officerSelectPanel.Location = new System.Drawing.Point(620, 0);
             this.officerSelectPanel.Margin = new System.Windows.Forms.Padding(0);
             this.officerSelectPanel.Name = "officerSelectPanel";
-            this.officerSelectPanel.Size = new System.Drawing.Size(310, 374);
+            this.officerSelectPanel.Size = new System.Drawing.Size(310, 389);
             this.officerSelectPanel.TabIndex = 1;
             // 
             // officerTypePanel
             // 
             this.officerTypePanel.AutoScroll = true;
             this.officerTypePanel.AutoSize = true;
+            this.officerTypePanel.Controls.Add(this.panel15);
             this.officerTypePanel.Controls.Add(this.onulipiListPanel);
             this.officerTypePanel.Controls.Add(this.onulipiSelectButtonPanel);
             this.officerTypePanel.Controls.Add(this.attentionListPanel);
@@ -1138,7 +1144,7 @@
             this.officerTypePanel.Location = new System.Drawing.Point(0, 92);
             this.officerTypePanel.Margin = new System.Windows.Forms.Padding(0);
             this.officerTypePanel.Name = "officerTypePanel";
-            this.officerTypePanel.Size = new System.Drawing.Size(310, 282);
+            this.officerTypePanel.Size = new System.Drawing.Size(310, 297);
             this.officerTypePanel.TabIndex = 1;
             // 
             // onulipiListPanel
@@ -1953,7 +1959,7 @@
             this.splitter2.Location = new System.Drawing.Point(161, 0);
             this.splitter2.Margin = new System.Windows.Forms.Padding(0);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 374);
+            this.splitter2.Size = new System.Drawing.Size(3, 389);
             this.splitter2.TabIndex = 2;
             this.splitter2.TabStop = false;
             // 
@@ -1965,7 +1971,7 @@
             this.templateListPanel.Location = new System.Drawing.Point(0, 0);
             this.templateListPanel.Margin = new System.Windows.Forms.Padding(0);
             this.templateListPanel.Name = "templateListPanel";
-            this.templateListPanel.Size = new System.Drawing.Size(161, 374);
+            this.templateListPanel.Size = new System.Drawing.Size(161, 389);
             this.templateListPanel.TabIndex = 0;
             // 
             // panel5
@@ -1975,7 +1981,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 38);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(161, 336);
+            this.panel5.Size = new System.Drawing.Size(161, 351);
             this.panel5.TabIndex = 1;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -2022,12 +2028,56 @@
             this.khoshraBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.khoshraBackgroundWorker_DoWork);
             this.khoshraBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.khoshraBackgroundWorker_RunWorkerCompleted);
             // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.panel15.Controls.Add(this.dateTimePicker);
+            this.panel15.Controls.Add(this.label3);
+            this.panel15.Controls.Add(this.label5);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 366);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(293, 26);
+            this.panel15.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(225)))), ((int)(((byte)(248)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label3.Location = new System.Drawing.Point(0, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(293, 1);
+            this.label3.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Location = new System.Drawing.Point(4, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 18);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "তারিখ নির্বাচনঃ";
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
+            this.dateTimePicker.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker.Location = new System.Drawing.Point(91, 2);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(126, 22);
+            this.dateTimePicker.TabIndex = 89;
+            // 
             // Khosra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(928, 506);
+            this.ClientSize = new System.Drawing.Size(930, 521);
             this.Controls.Add(this.khosraTableLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Khosra";
@@ -2105,6 +2155,8 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2242,5 +2294,9 @@
         private FontAwesome.Sharp.IconButton khosraReviewButton;
         private CefSharp.WinForms.ChromiumWebBrowser tinyMceEditor;
         private System.ComponentModel.BackgroundWorker khoshraBackgroundWorker;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
     }
 }

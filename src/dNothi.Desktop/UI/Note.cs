@@ -3547,6 +3547,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                current_potro_id = 0;
                 allMulpotroButtonsVisibilityOff();
 
                 allLbelButtonPreviousColor();
@@ -3637,15 +3638,12 @@ namespace dNothi.Desktop.UI
 
                         string DecodedString = khoshraPotro.data.records[0].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
-                        ChromiumWebBrowser browser = new ChromiumWebBrowser("http://maps/resource/load")
-                        {
-                            Dock = DockStyle.Fill,
-                            
-                        };
-
                         
 
-                       
+                        current_potro_id = khoshraPotro.data.records[0].basic.id;
+
+
+
                     }
                     picBoxFile.Controls.Clear();
                 }
@@ -6886,6 +6884,11 @@ namespace dNothi.Desktop.UI
                     }
                 }
             }
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
