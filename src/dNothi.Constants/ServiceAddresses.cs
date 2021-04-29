@@ -116,5 +116,8 @@ namespace dNothi.Constants
 
         public static string PotroOnumodonEndPoint = "/api/potro/approve";
         public static string PotrojariEndPoint = "/api/potro/dispatch";
+       
+        
+        public static string KhosraSaveEndpoint = "/api/potro/save";
     }
 }

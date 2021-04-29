@@ -137,16 +137,17 @@
             this.pnlPotrangshoDetails = new System.Windows.Forms.Panel();
             this.panel46 = new System.Windows.Forms.Panel();
             this.pnlPictureBox = new System.Windows.Forms.Panel();
+            this.chromiumWebBrowser1 = new CefSharp.WinForms.ChromiumWebBrowser();
             this.khosraViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.picBoxFile = new System.Windows.Forms.PictureBox();
             this.panel45 = new System.Windows.Forms.Panel();
+            this.btnPotrojari = new FontAwesome.Sharp.IconButton();
+            this.btnUnapprove = new FontAwesome.Sharp.IconButton();
+            this.btnApprove = new FontAwesome.Sharp.IconButton();
             this.btnCustom = new FontAwesome.Sharp.IconButton();
             this.btnFullEditable = new FontAwesome.Sharp.IconButton();
             this.btnKhoshra = new FontAwesome.Sharp.IconButton();
             this.btnEndrosement = new FontAwesome.Sharp.IconButton();
-            this.btnPotrojari = new FontAwesome.Sharp.IconButton();
-            this.btnUnapprove = new FontAwesome.Sharp.IconButton();
-            this.btnApprove = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.btnClone = new FontAwesome.Sharp.IconButton();
@@ -2002,6 +2003,7 @@
             // pnlPictureBox
             // 
             this.pnlPictureBox.AutoSize = true;
+            this.pnlPictureBox.Controls.Add(this.chromiumWebBrowser1);
             this.pnlPictureBox.Controls.Add(this.khosraViewWebBrowser);
             this.pnlPictureBox.Controls.Add(this.picBoxFile);
             this.pnlPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2009,6 +2011,15 @@
             this.pnlPictureBox.Name = "pnlPictureBox";
             this.pnlPictureBox.Size = new System.Drawing.Size(331, 174);
             this.pnlPictureBox.TabIndex = 3;
+            // 
+            // chromiumWebBrowser1
+            // 
+            this.chromiumWebBrowser1.ActivateBrowserOnCreation = false;
+            this.chromiumWebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chromiumWebBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.chromiumWebBrowser1.Name = "chromiumWebBrowser1";
+            this.chromiumWebBrowser1.Size = new System.Drawing.Size(331, 174);
+            this.chromiumWebBrowser1.TabIndex = 5;
             // 
             // khosraViewWebBrowser
             // 
@@ -2050,6 +2061,75 @@
             this.panel45.Name = "panel45";
             this.panel45.Size = new System.Drawing.Size(331, 33);
             this.panel45.TabIndex = 1;
+            // 
+            // btnPotrojari
+            // 
+            this.btnPotrojari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnPotrojari.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPotrojari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPotrojari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPotrojari.ForeColor = System.Drawing.Color.White;
+            this.btnPotrojari.IconChar = FontAwesome.Sharp.IconChar.Share;
+            this.btnPotrojari.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnPotrojari.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPotrojari.IconSize = 24;
+            this.btnPotrojari.Location = new System.Drawing.Point(320, 0);
+            this.btnPotrojari.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPotrojari.Name = "btnPotrojari";
+            this.btnPotrojari.Size = new System.Drawing.Size(32, 33);
+            this.btnPotrojari.TabIndex = 81;
+            this.MyToolTip.SetToolTip(this.btnPotrojari, "আপনি কি পত্রটি জারি করতে চান?");
+            this.btnPotrojari.UseVisualStyleBackColor = false;
+            this.btnPotrojari.Visible = false;
+            this.btnPotrojari.Click += new System.EventHandler(this.btnPotrojari_Click);
+            this.btnPotrojari.MouseLeave += new System.EventHandler(this.btnPotrojari_MouseLeave);
+            this.btnPotrojari.MouseHover += new System.EventHandler(this.btnPotrojari_MouseHover);
+            // 
+            // btnUnapprove
+            // 
+            this.btnUnapprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnUnapprove.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnUnapprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnapprove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnapprove.ForeColor = System.Drawing.Color.White;
+            this.btnUnapprove.IconChar = FontAwesome.Sharp.IconChar.UserSlash;
+            this.btnUnapprove.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnUnapprove.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUnapprove.IconSize = 24;
+            this.btnUnapprove.Location = new System.Drawing.Point(288, 0);
+            this.btnUnapprove.Margin = new System.Windows.Forms.Padding(0);
+            this.btnUnapprove.Name = "btnUnapprove";
+            this.btnUnapprove.Size = new System.Drawing.Size(32, 33);
+            this.btnUnapprove.TabIndex = 80;
+            this.MyToolTip.SetToolTip(this.btnUnapprove, "পত্র অনুমোদন তুলুন");
+            this.btnUnapprove.UseVisualStyleBackColor = false;
+            this.btnUnapprove.Visible = false;
+            this.btnUnapprove.Click += new System.EventHandler(this.btnUnapprove_Click);
+            this.btnUnapprove.MouseLeave += new System.EventHandler(this.btnUnapprove_MouseLeave);
+            this.btnUnapprove.MouseHover += new System.EventHandler(this.btnUnapprove_MouseHover);
+            // 
+            // btnApprove
+            // 
+            this.btnApprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnApprove.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApprove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApprove.ForeColor = System.Drawing.Color.White;
+            this.btnApprove.IconChar = FontAwesome.Sharp.IconChar.UserShield;
+            this.btnApprove.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnApprove.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnApprove.IconSize = 24;
+            this.btnApprove.Location = new System.Drawing.Point(256, 0);
+            this.btnApprove.Margin = new System.Windows.Forms.Padding(0);
+            this.btnApprove.Name = "btnApprove";
+            this.btnApprove.Size = new System.Drawing.Size(32, 33);
+            this.btnApprove.TabIndex = 79;
+            this.MyToolTip.SetToolTip(this.btnApprove, "পত্র অনুমোদন করুন");
+            this.btnApprove.UseVisualStyleBackColor = false;
+            this.btnApprove.Visible = false;
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
+            this.btnApprove.MouseLeave += new System.EventHandler(this.btnApprove_MouseLeave);
+            this.btnApprove.MouseHover += new System.EventHandler(this.btnApprove_MouseHover);
             // 
             // btnCustom
             // 
@@ -2134,75 +2214,6 @@
             this.btnEndrosement.Visible = false;
             this.btnEndrosement.MouseLeave += new System.EventHandler(this.btnEndrosement_MouseLeave);
             this.btnEndrosement.MouseHover += new System.EventHandler(this.btnEndrosement_MouseHover);
-            // 
-            // btnPotrojari
-            // 
-            this.btnPotrojari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnPotrojari.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnPotrojari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPotrojari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPotrojari.ForeColor = System.Drawing.Color.White;
-            this.btnPotrojari.IconChar = FontAwesome.Sharp.IconChar.Share;
-            this.btnPotrojari.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnPotrojari.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPotrojari.IconSize = 24;
-            this.btnPotrojari.Location = new System.Drawing.Point(320, 0);
-            this.btnPotrojari.Margin = new System.Windows.Forms.Padding(0);
-            this.btnPotrojari.Name = "btnPotrojari";
-            this.btnPotrojari.Size = new System.Drawing.Size(32, 33);
-            this.btnPotrojari.TabIndex = 81;
-            this.MyToolTip.SetToolTip(this.btnPotrojari, "আপনি কি পত্রটি জারি করতে চান?");
-            this.btnPotrojari.UseVisualStyleBackColor = false;
-            this.btnPotrojari.Visible = false;
-            this.btnPotrojari.Click += new System.EventHandler(this.btnPotrojari_Click);
-            this.btnPotrojari.MouseLeave += new System.EventHandler(this.btnPotrojari_MouseLeave);
-            this.btnPotrojari.MouseHover += new System.EventHandler(this.btnPotrojari_MouseHover);
-            // 
-            // btnUnapprove
-            // 
-            this.btnUnapprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnUnapprove.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnUnapprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUnapprove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnapprove.ForeColor = System.Drawing.Color.White;
-            this.btnUnapprove.IconChar = FontAwesome.Sharp.IconChar.UserSlash;
-            this.btnUnapprove.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnUnapprove.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUnapprove.IconSize = 24;
-            this.btnUnapprove.Location = new System.Drawing.Point(288, 0);
-            this.btnUnapprove.Margin = new System.Windows.Forms.Padding(0);
-            this.btnUnapprove.Name = "btnUnapprove";
-            this.btnUnapprove.Size = new System.Drawing.Size(32, 33);
-            this.btnUnapprove.TabIndex = 80;
-            this.MyToolTip.SetToolTip(this.btnUnapprove, "পত্র অনুমোদন তুলুন");
-            this.btnUnapprove.UseVisualStyleBackColor = false;
-            this.btnUnapprove.Visible = false;
-            this.btnUnapprove.Click += new System.EventHandler(this.btnUnapprove_Click);
-            this.btnUnapprove.MouseLeave += new System.EventHandler(this.btnUnapprove_MouseLeave);
-            this.btnUnapprove.MouseHover += new System.EventHandler(this.btnUnapprove_MouseHover);
-            // 
-            // btnApprove
-            // 
-            this.btnApprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnApprove.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApprove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApprove.ForeColor = System.Drawing.Color.White;
-            this.btnApprove.IconChar = FontAwesome.Sharp.IconChar.UserShield;
-            this.btnApprove.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnApprove.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnApprove.IconSize = 24;
-            this.btnApprove.Location = new System.Drawing.Point(256, 0);
-            this.btnApprove.Margin = new System.Windows.Forms.Padding(0);
-            this.btnApprove.Name = "btnApprove";
-            this.btnApprove.Size = new System.Drawing.Size(32, 33);
-            this.btnApprove.TabIndex = 79;
-            this.MyToolTip.SetToolTip(this.btnApprove, "পত্র অনুমোদন করুন");
-            this.btnApprove.UseVisualStyleBackColor = false;
-            this.btnApprove.Visible = false;
-            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
-            this.btnApprove.MouseLeave += new System.EventHandler(this.btnApprove_MouseLeave);
-            this.btnApprove.MouseHover += new System.EventHandler(this.btnApprove_MouseHover);
             // 
             // btnDelete
             // 
@@ -4210,5 +4221,6 @@
         private System.ComponentModel.BackgroundWorker noteBackGroundWorker;
         private System.Windows.Forms.Label lbOnlineorOfflineStatus;
         private CustomMessageBox.OnlineToggleButton onlineToggleButton2;
+        private CefSharp.WinForms.ChromiumWebBrowser chromiumWebBrowser1;
     }
 }

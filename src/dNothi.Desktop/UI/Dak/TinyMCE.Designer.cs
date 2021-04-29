@@ -33,13 +33,10 @@
             // 
             // webBrowserControl
             // 
-            this.webBrowserControl.AllowWebBrowserDrop = false;
             this.webBrowserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowserControl.IsWebBrowserContextMenuEnabled = false;
             this.webBrowserControl.Location = new System.Drawing.Point(0, 0);
             this.webBrowserControl.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserControl.Name = "webBrowserControl";
-            this.webBrowserControl.ScrollBarsEnabled = false;
             this.webBrowserControl.Size = new System.Drawing.Size(561, 360);
             this.webBrowserControl.TabIndex = 0;
             // 

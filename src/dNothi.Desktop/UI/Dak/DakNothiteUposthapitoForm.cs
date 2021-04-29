@@ -31,6 +31,13 @@ namespace dNothi.Desktop.UI.Dak
 
         public DakUserParam _userParam = new DakUserParam();
 
+
+        public void Khoshra()
+        {
+            nothiteUposthaponLabel.Visible = true;
+            dakSubjectLabel.Visible = true;
+        }
+
         public DakNothiteUposthapitoForm(IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiAllServices nothiAll, INothiNoteTalikaServices nothiNoteTalikaServices)
         {
             _nothiAll = nothiAll;
@@ -132,7 +139,7 @@ namespace dNothi.Desktop.UI.Dak
                     nothiAll.flag = 1;
                 }
                 nothiAll.NothiteUposthaponButton += delegate (object addSender, EventArgs addEvent) { NothiteUposthapito_ButtonClick(addSender, addEvent, nothiAll._nothiDTO, nothiAll.nothi, nothiAllListDTO.nothi.office_unit_name, nothiAllListDTO); };
-
+                nothiAll._khoshra = true;
                 nothiAll.nothi_id = nothiAllListDTO.nothi.id.ToString();
                 nothiAll.dak_id = _dak_id;
                 nothiAll.is_copied_dak = _is_copied_dak;
@@ -149,6 +156,7 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
         public event EventHandler SucessfullyDakNothivukto;
+        public event EventHandler NothiKhosrajato;
         public event EventHandler MultipleDakNothivukto;
 
         public NothiListAllRecordsDTO _nothiAllListDTO { get; set; }
@@ -162,7 +170,17 @@ namespace dNothi.Desktop.UI.Dak
             _noteSelected = nothiDTO;
             _nothiName = nothiName;
             _nothiBranch = nothiBranch;
-            if (_dak_id == 0)
+
+            if (this.NothiKhosrajato != null)
+            {
+                this.NothiKhosrajato(addSender, addEvent);
+                this.Hide();
+            }
+                
+
+
+
+            else if (_dak_id == 0)
             {
 
                 if (this.MultipleDakNothivukto != null)

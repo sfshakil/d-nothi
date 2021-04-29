@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Xamarin.Forms;
+using CefSharp;
+using CefSharp.WinForms;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -19,10 +21,10 @@ namespace dNothi.Desktop.UI.Dak
             InitializeComponent();
         }
 
-        public object ActiveXInstance
-        {
-            get { return webBrowserControl.ActiveXInstance; }
-        }
+       
+
+
+        
 
         /// <summary>
         /// HTML Content of TinyMCE editor
@@ -48,10 +50,10 @@ namespace dNothi.Desktop.UI.Dak
         /// <summary>
         /// Set tinyMCE to fullscreen mode
         /// </summary>
-        public void SetFullscreen()
-        {
-            webBrowserControl.Document?.InvokeScript("tinyMCE.execCommand('mceFullScreen')");
-        }
+        //public void SetFullscreen()
+        //{
+        //    webBrowserControl.Document?.InvokeScript("tinyMCE.execCommand('mceFullScreen')");
+        //}
 
         /// <summary>
         /// Create editor instance
@@ -70,7 +72,6 @@ namespace dNothi.Desktop.UI.Dak
                 MessageBox.Show("Could not find the tinyMCE script directory. Please ensure the directory is in the same location as tinymce.htm", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            
         }
     }
 }

@@ -26,6 +26,9 @@ namespace dNothi.Desktop.UI
         {
             this.Hide();
         }
+
+        public bool _isOneOfficerAllowed;
+
         private DesignationSealListResponse _designationSealListResponse;
 
 
@@ -255,7 +258,10 @@ namespace dNothi.Desktop.UI
 
             _designationId = 0;
 
-
+            if(_isOneOfficerAllowed)
+            {
+                finalSave(sender, e);
+            }
            
             
 
@@ -288,7 +294,12 @@ namespace dNothi.Desktop.UI
         public event EventHandler SaveButtonClick;
         private void finalSaveButton_Click(object sender, EventArgs e)
         {
-            var officerList = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a=>a.Hide!=true).ToList();
+            finalSave(sender,e);
+        }
+
+        private void finalSave(object sender, EventArgs e)
+        {
+            var officerList = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
 
             _selectedOfficerDesignations.Clear();
 

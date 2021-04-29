@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Desktop.UI
 {
@@ -24,6 +25,8 @@ namespace dNothi.Desktop.UI
 
         public string _officerName { get; set; }
         public string officerName { get { return _officerName; } set { _officerName = value; officerNameLabel.Text = value; } }
+        public PrapokDTO _officerInfo { get; set; }
+        public PrapokDTO officerInfo { get { return _officerInfo; } set { _officerInfo = value; } }
 
 
 

@@ -293,6 +293,9 @@ namespace dNothi.Desktop.UI.Dak
                         //   LocalNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1);
                         // };
                         nothiNoteShomuho.invisible();
+                        
+                            nothiNoteShomuho._khoshra = _khoshra;
+                        
                         nothiNoteShomuho.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, nothiNoteShomuho._nothiDTO); };
 
                         nothiNoteShomuhos.Add(nothiNoteShomuho);
@@ -399,7 +402,7 @@ namespace dNothi.Desktop.UI.Dak
                 dakNothiteUposthaponNoteList.nothiDTO = noteNothiDTO;
                 dakNothiteUposthaponNoteList.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakNothiteUposthaponNoteList._nothiDTO); };
 
-
+                dakNothiteUposthaponNoteList._khoshra = _khoshra;
                 dakNothiteUposthaponNoteLists.Add(dakNothiteUposthaponNoteList);
             }
           
@@ -413,7 +416,8 @@ namespace dNothi.Desktop.UI.Dak
 
 
         public event EventHandler NothiteUposthaponButton;
-
+        public bool _khoshra;
+      
 
         private void NothiteUposthapito_ButtonClick(object sender, EventArgs e, NoteNothiDTO nothiDTO)
         {

@@ -158,7 +158,9 @@
     <Compile Include="KasaraPatraDashBoardService\Models\Attachment.cs" />
     <Compile Include="KasaraPatraDashBoardService\Models\KasaraPotro.cs" />
     <Compile Include="KasaraPatraDashBoardService\Models\PrapakerTalika.cs" />
+    <Compile Include="KhasraService\KhasraSaveParam.cs" />
     <Compile Include="KhasraService\KhasraTemplateService.cs" />
+    <Compile Include="KhasraService\KhosraSaveService.cs" />
     <Compile Include="NothiServices\AllPotroServices.cs" />
     <Compile Include="NothiServices\FileAttachment.cs" />
     <Compile Include="NothiServices\IAllPotroServices.cs" />

@@ -130,6 +130,7 @@
     <Compile Include="Entity\EmployeDakNothiCountResponse.cs" />
     <Compile Include="Entity\EmployeeInfoDTO.cs" />
     <Compile Include="Entity\Khosra\KhasraPotroTemplateResponse.cs" />
+    <Compile Include="Entity\Khosra\KhosraSaveResponse.cs" />
     <Compile Include="Entity\Khosra\PotroApproveResponse.cs" />
     <Compile Include="Entity\Nothi\AllPotroDataDTO.cs" />
     <Compile Include="Entity\Nothi\AllPotroDataRecordBasicDTO.cs" />

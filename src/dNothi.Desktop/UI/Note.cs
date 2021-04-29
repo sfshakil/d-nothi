@@ -1,4 +1,5 @@
-﻿using dNothi.Core.Entities;
+﻿using CefSharp.WinForms;
+using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.Desktop.CustomControl;
 using dNothi.Desktop.UI.CustomMessageBox;
@@ -25,6 +26,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CefSharp;
+using CefSharp.WinForms;
 
 namespace dNothi.Desktop.UI
 {
@@ -3634,6 +3637,15 @@ namespace dNothi.Desktop.UI
 
                         string DecodedString = khoshraPotro.data.records[0].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+                        ChromiumWebBrowser browser = new ChromiumWebBrowser("http://maps/resource/load")
+                        {
+                            Dock = DockStyle.Fill,
+                            
+                        };
+
+                        
+
+                       
                     }
                     picBoxFile.Controls.Clear();
                 }
@@ -4025,6 +4037,8 @@ namespace dNothi.Desktop.UI
                         khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[0].mulpotro;
                         string DecodedString = khoshraPotroWaiting.data.records[0].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+                        string htmlString= "<head><meta charset=\"UTF-8\"></head>"+ Base64Decode1(DecodedString);
+                        chromiumWebBrowser1.LoadHtml(htmlString);
                     }
                     picBoxFile.Controls.Clear();
                 }

@@ -34,7 +34,7 @@
             this.khosraTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pnlNothiNoteTalika = new System.Windows.Forms.Panel();
             this.khosraReviewButton = new FontAwesome.Sharp.IconButton();
-            this.notDetailsButton = new FontAwesome.Sharp.IconButton();
+            this.noteDetailsButton = new FontAwesome.Sharp.IconButton();
             this.nothiNamePanel = new System.Windows.Forms.Panel();
             this.lbSubject = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.tinyAndAttachmentPanel = new System.Windows.Forms.Panel();
             this.tinyMCEPanel = new System.Windows.Forms.Panel();
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
+            this.tinyMceEditor = new CefSharp.WinForms.ChromiumWebBrowser();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.attachmentPanel = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -161,6 +161,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.khoshraBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             saveButton = new FontAwesome.Sharp.IconButton();
             this.khosraTableLayoutPanel.SuspendLayout();
             this.pnlNothiNoteTalika.SuspendLayout();
@@ -230,6 +231,7 @@
             saveButton.Text = "সংরক্ষণ";
             saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             saveButton.UseVisualStyleBackColor = false;
+            saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // khosraTableLayoutPanel
             // 
@@ -255,7 +257,7 @@
             // 
             this.pnlNothiNoteTalika.BackColor = System.Drawing.Color.White;
             this.pnlNothiNoteTalika.Controls.Add(this.khosraReviewButton);
-            this.pnlNothiNoteTalika.Controls.Add(this.notDetailsButton);
+            this.pnlNothiNoteTalika.Controls.Add(this.noteDetailsButton);
             this.pnlNothiNoteTalika.Controls.Add(saveButton);
             this.pnlNothiNoteTalika.Controls.Add(this.nothiNamePanel);
             this.pnlNothiNoteTalika.Controls.Add(this.panel11);
@@ -291,29 +293,31 @@
             this.khosraReviewButton.Text = "খসড়া রিভিউ";
             this.khosraReviewButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.khosraReviewButton.UseVisualStyleBackColor = false;
+            this.khosraReviewButton.Visible = false;
             this.khosraReviewButton.Click += new System.EventHandler(this.khosraReviewButton_Click);
             // 
-            // notDetailsButton
+            // noteDetailsButton
             // 
-            this.notDetailsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
-            this.notDetailsButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.notDetailsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
-            this.notDetailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notDetailsButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.notDetailsButton.ForeColor = System.Drawing.Color.White;
-            this.notDetailsButton.IconChar = FontAwesome.Sharp.IconChar.PaperPlane;
-            this.notDetailsButton.IconColor = System.Drawing.Color.White;
-            this.notDetailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.notDetailsButton.IconSize = 20;
-            this.notDetailsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.notDetailsButton.Location = new System.Drawing.Point(640, 1);
-            this.notDetailsButton.Margin = new System.Windows.Forms.Padding(0);
-            this.notDetailsButton.Name = "notDetailsButton";
-            this.notDetailsButton.Size = new System.Drawing.Size(96, 33);
-            this.notDetailsButton.TabIndex = 76;
-            this.notDetailsButton.Text = " নোট (১)";
-            this.notDetailsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.notDetailsButton.UseVisualStyleBackColor = false;
+            this.noteDetailsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.noteDetailsButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.noteDetailsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.noteDetailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noteDetailsButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.noteDetailsButton.ForeColor = System.Drawing.Color.White;
+            this.noteDetailsButton.IconChar = FontAwesome.Sharp.IconChar.PaperPlane;
+            this.noteDetailsButton.IconColor = System.Drawing.Color.White;
+            this.noteDetailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.noteDetailsButton.IconSize = 20;
+            this.noteDetailsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.noteDetailsButton.Location = new System.Drawing.Point(640, 1);
+            this.noteDetailsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.noteDetailsButton.Name = "noteDetailsButton";
+            this.noteDetailsButton.Size = new System.Drawing.Size(96, 33);
+            this.noteDetailsButton.TabIndex = 76;
+            this.noteDetailsButton.Text = " নোট (১)";
+            this.noteDetailsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.noteDetailsButton.UseVisualStyleBackColor = false;
+            this.noteDetailsButton.Visible = false;
             // 
             // nothiNamePanel
             // 
@@ -331,6 +335,7 @@
             this.nothiNamePanel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
             this.nothiNamePanel.Size = new System.Drawing.Size(335, 33);
             this.nothiNamePanel.TabIndex = 74;
+            this.nothiNamePanel.Visible = false;
             // 
             // lbSubject
             // 
@@ -447,6 +452,7 @@
             this.nothiAllButton.Text = "নথিসমূহ";
             this.nothiAllButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.nothiAllButton.UseVisualStyleBackColor = false;
+            this.nothiAllButton.Click += new System.EventHandler(this.nothiAllButton_Click);
             // 
             // btnBack
             // 
@@ -957,15 +963,13 @@
             // 
             // tinyMceEditor
             // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.AutoSize = true;
+            this.tinyMceEditor.ActivateBrowserOnCreation = true;
             this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tinyMceEditor.HtmlContent = "";
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
             this.tinyMceEditor.Name = "tinyMceEditor";
             this.tinyMceEditor.Size = new System.Drawing.Size(454, 212);
-            this.tinyMceEditor.TabIndex = 62;
+            this.tinyMceEditor.TabIndex = 0;
+            this.tinyMceEditor.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.tinyMceEditor_FrameLoadEnd);
             // 
             // splitter3
             // 
@@ -1973,6 +1977,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(161, 336);
             this.panel5.TabIndex = 1;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // templateListTableLayoutPanel
             // 
@@ -2012,6 +2017,11 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "পত্রের ধরণ";
             // 
+            // khoshraBackgroundWorker
+            // 
+            this.khoshraBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.khoshraBackgroundWorker_DoWork);
+            this.khoshraBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.khoshraBackgroundWorker_RunWorkerCompleted);
+            // 
             // Khosra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2048,7 +2058,6 @@
             this.bodyPanel.ResumeLayout(false);
             this.tinyAndAttachmentPanel.ResumeLayout(false);
             this.tinyMCEPanel.ResumeLayout(false);
-            this.tinyMCEPanel.PerformLayout();
             this.attachmentPanel.ResumeLayout(false);
             this.attachmentPanel.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -2134,7 +2143,7 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel pnlNothiNoteTalika;
-        private FontAwesome.Sharp.IconButton notDetailsButton;
+        private FontAwesome.Sharp.IconButton noteDetailsButton;
         private System.Windows.Forms.Panel nothiNamePanel;
         private System.Windows.Forms.Label lbSubject;
         private System.Windows.Forms.Label label4;
@@ -2159,7 +2168,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel templateListTableLayoutPanel;
         private System.Windows.Forms.Panel panel5;
-        private Dak.TinyMCE tinyMceEditor;
         private System.Windows.Forms.Panel officerTypePanel;
         private System.Windows.Forms.Panel decisionPanel;
         private System.Windows.Forms.Label label12;
@@ -2232,5 +2240,7 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label29;
         private FontAwesome.Sharp.IconButton khosraReviewButton;
+        private CefSharp.WinForms.ChromiumWebBrowser tinyMceEditor;
+        private System.ComponentModel.BackgroundWorker khoshraBackgroundWorker;
     }
 }

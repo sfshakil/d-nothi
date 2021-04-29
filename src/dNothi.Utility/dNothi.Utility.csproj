@@ -88,6 +88,7 @@
     <Compile Include="IInfineLoopRunner.cs" />
     <Compile Include="InternetConnection.cs" />
     <Compile Include="IScheduleJobRunner.cs" />
+    <Compile Include="KhoshraTemplate.cs" />
     <Compile Include="LongExtensions.cs" />
     <Compile Include="Md5EncryptDecryptor.cs" />
     <Compile Include="NothiCommonStaticValue.cs" />

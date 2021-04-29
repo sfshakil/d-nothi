@@ -57,7 +57,7 @@ namespace dNothi.Desktop
 
 
 
-            using (var form = FormFactory.Create<Login>())
+            using (var form = FormFactory.Create<Khosra>())
             {
                 result = form.ShowDialog();
             }
@@ -225,6 +225,7 @@ namespace dNothi.Desktop
             builder.RegisterType<RegisterService>().As<IRegisterService>();
             builder.RegisterType<ProtibedonService>().As<IProtibedonService>();
             builder.RegisterType<PotrojariServices>().As<IPotrojariServices>();
+            builder.RegisterType<KhosraSaveService>().As<IKhosraSaveService>();
 
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();

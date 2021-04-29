@@ -30,8 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DakNothiteUposthapitoForm));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dakSubjectLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.nothiteUposthaponLabel = new System.Windows.Forms.Label();
             this.closeButton = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -68,6 +67,7 @@
             this.detailPanelDropDownButton = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.nothiTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.dakSubjectLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -83,7 +83,7 @@
             // 
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.dakSubjectLabel);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.nothiteUposthaponLabel);
             this.panel2.Controls.Add(this.closeButton);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -93,31 +93,16 @@
             this.panel2.Size = new System.Drawing.Size(570, 90);
             this.panel2.TabIndex = 2;
             // 
-            // dakSubjectLabel
+            // nothiteUposthaponLabel
             // 
-            this.dakSubjectLabel.AutoSize = true;
-            this.dakSubjectLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSubjectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.dakSubjectLabel.Location = new System.Drawing.Point(106, 64);
-            this.dakSubjectLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.dakSubjectLabel.MaximumSize = new System.Drawing.Size(450, 0);
-            this.dakSubjectLabel.MinimumSize = new System.Drawing.Size(450, 0);
-            this.dakSubjectLabel.Name = "dakSubjectLabel";
-            this.dakSubjectLabel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.dakSubjectLabel.Size = new System.Drawing.Size(450, 26);
-            this.dakSubjectLabel.TabIndex = 42;
-            this.dakSubjectLabel.Text = "নতুন ডাক আপ‌লোড নতুন ";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label2.Location = new System.Drawing.Point(2, 63);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 21);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "নথিতে উপস্থাপন:";
+            this.nothiteUposthaponLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiteUposthaponLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.nothiteUposthaponLabel.Location = new System.Drawing.Point(2, 63);
+            this.nothiteUposthaponLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.nothiteUposthaponLabel.Name = "nothiteUposthaponLabel";
+            this.nothiteUposthaponLabel.Size = new System.Drawing.Size(111, 21);
+            this.nothiteUposthaponLabel.TabIndex = 41;
+            this.nothiteUposthaponLabel.Text = "নথিতে উপস্থাপন:";
             // 
             // closeButton
             // 
@@ -633,6 +618,21 @@
             this.nothiTypeComboBox.TabIndex = 5;
             this.nothiTypeComboBox.Text = "সকল নথি";
             // 
+            // dakSubjectLabel
+            // 
+            this.dakSubjectLabel.AutoSize = true;
+            this.dakSubjectLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSubjectLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.dakSubjectLabel.Location = new System.Drawing.Point(106, 64);
+            this.dakSubjectLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSubjectLabel.MaximumSize = new System.Drawing.Size(450, 0);
+            this.dakSubjectLabel.MinimumSize = new System.Drawing.Size(450, 0);
+            this.dakSubjectLabel.Name = "dakSubjectLabel";
+            this.dakSubjectLabel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.dakSubjectLabel.Size = new System.Drawing.Size(450, 26);
+            this.dakSubjectLabel.TabIndex = 42;
+            this.dakSubjectLabel.Text = "নতুন ডাক আপ‌লোড নতুন ";
+            // 
             // DakNothiteUposthapitoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -669,8 +669,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label dakSubjectLabel;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label nothiteUposthaponLabel;
         private FontAwesome.Sharp.IconButton closeButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
@@ -707,5 +706,6 @@
         private System.Windows.Forms.Button detailSearchButton;
         private System.Windows.Forms.FlowLayoutPanel nothiListFlowLayoutPanel;
         private System.Windows.Forms.ComboBox nothiTypeComboBox;
+        private System.Windows.Forms.Label dakSubjectLabel;
     }
 }

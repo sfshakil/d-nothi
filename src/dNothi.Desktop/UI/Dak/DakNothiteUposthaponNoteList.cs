@@ -136,6 +136,8 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
+        public bool _khoshra;
+
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when user clicks button")]
@@ -144,7 +146,16 @@ namespace dNothi.Desktop.UI.Dak
         {
 
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
-            conditonBoxForm.message = "আপনি কি এই নোটে ডাকটি উপস্থাপন করতে চান?";
+            if(_khoshra)
+            {
+                conditonBoxForm.message = "আপনি কি এই নোটের জন্য খসড়া করতে চান?";
+
+            }
+            else
+            {
+                conditonBoxForm.message = "আপনি কি এই নোটে ডাকটি উপস্থাপন করতে চান?";
+
+            }
             conditonBoxForm.ShowDialog();
             if (conditonBoxForm.Yes)
             {

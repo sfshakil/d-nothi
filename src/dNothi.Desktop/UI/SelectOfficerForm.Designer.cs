@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectOfficerForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CloseButton = new FontAwesome.Sharp.IconButton();
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.sLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,6 +46,7 @@
             this.searchOfficerRightListBox = new System.Windows.Forms.ListBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.searchOfficerRightXTextBox = new dNothi.Desktop.XTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.finalSaveButton = new FontAwesome.Sharp.IconButton();
@@ -55,8 +57,6 @@
             this.officerListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.countOfficer = new System.Windows.Forms.Label();
-            this.CloseButton = new FontAwesome.Sharp.IconButton();
-            this.searchOfficerRightXTextBox = new dNothi.Desktop.XTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -82,6 +82,26 @@
             this.panel1.Size = new System.Drawing.Size(447, 70);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.AutoSize = true;
+            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CloseButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.CloseButton.IconColor = System.Drawing.Color.DimGray;
+            this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.CloseButton.IconSize = 20;
+            this.CloseButton.Location = new System.Drawing.Point(416, 17);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(28, 31);
+            this.CloseButton.TabIndex = 39;
+            this.CloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // sliderCrossButton
             // 
@@ -290,6 +310,22 @@
             this.panel12.TabIndex = 34;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Color_Blue);
             // 
+            // searchOfficerRightXTextBox
+            // 
+            this.searchOfficerRightXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
+            this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficerRightXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(6, 9);
+            this.searchOfficerRightXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
+            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(342, 19);
+            this.searchOfficerRightXTextBox.TabIndex = 33;
+            this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
+            // 
             // tabPage2
             // 
             this.tabPage2.ImageIndex = 3;
@@ -410,42 +446,6 @@
             this.countOfficer.Size = new System.Drawing.Size(16, 18);
             this.countOfficer.TabIndex = 41;
             this.countOfficer.Text = "০";
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseButton.AutoSize = true;
-            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
-            this.CloseButton.FlatAppearance.BorderSize = 0;
-            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CloseButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.CloseButton.IconColor = System.Drawing.Color.DimGray;
-            this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.CloseButton.IconSize = 20;
-            this.CloseButton.Location = new System.Drawing.Point(416, 17);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(28, 31);
-            this.CloseButton.TabIndex = 39;
-            this.CloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.CloseButton.UseVisualStyleBackColor = false;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // searchOfficerRightXTextBox
-            // 
-            this.searchOfficerRightXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
-            this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficerRightXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(6, 9);
-            this.searchOfficerRightXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
-            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(342, 19);
-            this.searchOfficerRightXTextBox.TabIndex = 33;
-            this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
             // 
             // SelectOfficerForm
             // 
