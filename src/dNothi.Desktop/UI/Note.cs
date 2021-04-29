@@ -4038,7 +4038,7 @@ namespace dNothi.Desktop.UI
                         string DecodedString = khoshraPotroWaiting.data.records[0].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                         string htmlString= "<head><meta charset=\"UTF-8\"></head>"+ Base64Decode1(DecodedString);
-                        chromiumWebBrowser1.LoadHtml(htmlString);
+                        
                     }
                     picBoxFile.Controls.Clear();
                 }

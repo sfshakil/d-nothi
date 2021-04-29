@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Note));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.lbOnlineorOfflineStatus = new System.Windows.Forms.Label();
             this.NoteIdfromNothiInboxNoteShomuho = new System.Windows.Forms.Label();
             this.RightSign = new FontAwesome.Sharp.IconButton();
@@ -96,7 +95,6 @@
             this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
             this.iconButton20 = new FontAwesome.Sharp.IconButton();
             this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
             this.btnCanRevert = new FontAwesome.Sharp.IconButton();
             this.btnWriteOnuchhed = new FontAwesome.Sharp.IconButton();
@@ -137,7 +135,6 @@
             this.pnlPotrangshoDetails = new System.Windows.Forms.Panel();
             this.panel46 = new System.Windows.Forms.Panel();
             this.pnlPictureBox = new System.Windows.Forms.Panel();
-            this.chromiumWebBrowser1 = new CefSharp.WinForms.ChromiumWebBrowser();
             this.khosraViewWebBrowser = new System.Windows.Forms.WebBrowser();
             this.picBoxFile = new System.Windows.Forms.PictureBox();
             this.panel45 = new System.Windows.Forms.Panel();
@@ -265,6 +262,8 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.noteBackGroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
+            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.panel2.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -360,18 +359,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1350, 50);
             this.panel2.TabIndex = 14;
-            // 
-            // onlineToggleButton2
-            // 
-            this.onlineToggleButton2.AutoSize = true;
-            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
-            this.onlineToggleButton2.Location = new System.Drawing.Point(944, 1);
-            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
-            this.onlineToggleButton2.Name = "onlineToggleButton2";
-            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 49);
-            this.onlineToggleButton2.TabIndex = 85;
             // 
             // lbOnlineorOfflineStatus
             // 
@@ -1311,17 +1298,6 @@
             this.btnOnuchhedSave.UseVisualStyleBackColor = false;
             this.btnOnuchhedSave.Click += new System.EventHandler(this.btnOnuchhedSave_Click);
             // 
-            // tinyMceEditor
-            // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = "";
-            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
-            this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(874, 406);
-            this.tinyMceEditor.TabIndex = 61;
-            // 
             // onucchedActionPanel
             // 
             this.onucchedActionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -2003,7 +1979,6 @@
             // pnlPictureBox
             // 
             this.pnlPictureBox.AutoSize = true;
-            this.pnlPictureBox.Controls.Add(this.chromiumWebBrowser1);
             this.pnlPictureBox.Controls.Add(this.khosraViewWebBrowser);
             this.pnlPictureBox.Controls.Add(this.picBoxFile);
             this.pnlPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2011,15 +1986,6 @@
             this.pnlPictureBox.Name = "pnlPictureBox";
             this.pnlPictureBox.Size = new System.Drawing.Size(331, 174);
             this.pnlPictureBox.TabIndex = 3;
-            // 
-            // chromiumWebBrowser1
-            // 
-            this.chromiumWebBrowser1.ActivateBrowserOnCreation = false;
-            this.chromiumWebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chromiumWebBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.chromiumWebBrowser1.Name = "chromiumWebBrowser1";
-            this.chromiumWebBrowser1.Size = new System.Drawing.Size(331, 174);
-            this.chromiumWebBrowser1.TabIndex = 5;
             // 
             // khosraViewWebBrowser
             // 
@@ -3857,6 +3823,29 @@
             this.noteBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.noteBackGroundWorker_DoWork);
             this.noteBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.noteBackGroundWorker_RunWorkerCompleted);
             // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = "";
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(874, 406);
+            this.tinyMceEditor.TabIndex = 61;
+            // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(944, 1);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 49);
+            this.onlineToggleButton2.TabIndex = 85;
+            // 
             // Note
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4221,6 +4210,5 @@
         private System.ComponentModel.BackgroundWorker noteBackGroundWorker;
         private System.Windows.Forms.Label lbOnlineorOfflineStatus;
         private CustomMessageBox.OnlineToggleButton onlineToggleButton2;
-        private CefSharp.WinForms.ChromiumWebBrowser chromiumWebBrowser1;
     }
 }
