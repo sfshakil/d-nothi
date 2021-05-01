@@ -1000,12 +1000,12 @@ namespace dNothi.Desktop.UI
 
                 khosraSaveParamPotro.potrojari.potro_subject = GetPotroSubjectFromHtmlString(_currentHtmlString);
                 khosraSaveParamPotro.potrojari.draft_officer_id = dakUserParam.officer_id;
-
+                khosraSaveParamPotro.potrojari.operation_type = "draft";
 
               //khosraSaveParamPotro.potrojari.potro_subject=_khasraPotroTemplateData
               //khosraSaveParamPotro.potrojari.potro_type= _khasraPotroTemplateData.
               //khosraSaveParamPotro.potrojari.sarok_no=
-              khosraSaveParamPotro.recipient = new KhosraSaveParamRecipent();
+                khosraSaveParamPotro.recipient = new KhosraSaveParamRecipent();
 
                
                if(onumodonOfficer != null)
@@ -1205,6 +1205,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
                 khosraSaveParamOfficer.recipient_type = "receiver";
+                khosraSaveParamOfficer.office_id = prapokDTO.office_id.ToString();
                 receivers.Add(khosraSaveParamOfficer);
 
             }
@@ -1227,6 +1228,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
                 khosraSaveParamOfficer.recipient_type = "onulipi";
+                khosraSaveParamOfficer.office_id = prapokDTO.office_id.ToString();
                 receivers.Add(khosraSaveParamOfficer);
 
             }
@@ -1248,6 +1250,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
                 khosraSaveParamOfficer.recipient_type = "attention";
+                khosraSaveParamOfficer.office_id = prapokDTO.office_id.ToString();
 
                 receivers.Add(khosraSaveParamOfficer);
 
@@ -1270,6 +1273,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
                 khosraSaveParamOfficer.recipient_type = "sender";
+                khosraSaveParamOfficer.office_id = prapokDTO.office_id.ToString();
                 receivers.Add(khosraSaveParamOfficer);
 
             }
@@ -1290,6 +1294,8 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.officer_id = prapokDTO.officer_id.ToString();
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
+                khosraSaveParamOfficer.office_id = prapokDTO.office_id.ToString();
+              
                 khosraSaveParamOfficer.recipient_type = "approver";
                 receivers.Add(khosraSaveParamOfficer);
 

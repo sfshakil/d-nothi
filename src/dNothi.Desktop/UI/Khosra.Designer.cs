@@ -93,6 +93,10 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.officerSelectPanel = new System.Windows.Forms.Panel();
             this.officerTypePanel = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.onulipiListPanel = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.onulipiEmptyPanel = new System.Windows.Forms.Panel();
@@ -162,10 +166,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.khoshraBackgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             saveButton = new FontAwesome.Sharp.IconButton();
             this.khosraTableLayoutPanel.SuspendLayout();
             this.pnlNothiNoteTalika.SuspendLayout();
@@ -189,6 +189,7 @@
             this.panel10.SuspendLayout();
             this.officerSelectPanel.SuspendLayout();
             this.officerTypePanel.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.onulipiListPanel.SuspendLayout();
             this.onulipiEmptyPanel.SuspendLayout();
             this.onulipiSelectButtonPanel.SuspendLayout();
@@ -212,7 +213,6 @@
             this.templateListPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // saveButton
@@ -1147,6 +1147,50 @@
             this.officerTypePanel.Size = new System.Drawing.Size(310, 297);
             this.officerTypePanel.TabIndex = 1;
             // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.panel15.Controls.Add(this.dateTimePicker);
+            this.panel15.Controls.Add(this.label3);
+            this.panel15.Controls.Add(this.label5);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 366);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(293, 26);
+            this.panel15.TabIndex = 11;
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
+            this.dateTimePicker.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker.Location = new System.Drawing.Point(91, 2);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(126, 22);
+            this.dateTimePicker.TabIndex = 89;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(225)))), ((int)(((byte)(248)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label3.Location = new System.Drawing.Point(0, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(293, 1);
+            this.label3.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Location = new System.Drawing.Point(4, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 18);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "তারিখ নির্বাচনঃ";
+            // 
             // onulipiListPanel
             // 
             this.onulipiListPanel.AutoSize = true;
@@ -2028,50 +2072,6 @@
             this.khoshraBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.khoshraBackgroundWorker_DoWork);
             this.khoshraBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.khoshraBackgroundWorker_RunWorkerCompleted);
             // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.panel15.Controls.Add(this.dateTimePicker);
-            this.panel15.Controls.Add(this.label3);
-            this.panel15.Controls.Add(this.label5);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 366);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(293, 26);
-            this.panel15.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(225)))), ((int)(((byte)(248)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label3.Location = new System.Drawing.Point(0, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(293, 1);
-            this.label3.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(4, 4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 18);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "তারিখ নির্বাচনঃ";
-            // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
-            this.dateTimePicker.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker.Location = new System.Drawing.Point(91, 2);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(126, 22);
-            this.dateTimePicker.TabIndex = 89;
-            // 
             // Khosra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2119,6 +2119,8 @@
             this.officerSelectPanel.PerformLayout();
             this.officerTypePanel.ResumeLayout(false);
             this.officerTypePanel.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.onulipiListPanel.ResumeLayout(false);
             this.onulipiListPanel.PerformLayout();
             this.onulipiEmptyPanel.ResumeLayout(false);
@@ -2155,8 +2157,6 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
             this.ResumeLayout(false);
 
         }
