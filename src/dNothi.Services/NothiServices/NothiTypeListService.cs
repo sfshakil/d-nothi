@@ -45,8 +45,10 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("api-version", GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 request.AlwaysMultipartFormData = true;
-                request.AddParameter("office_id", +dakUserParam.office_id);
-                request.AddParameter("designation_id", +dakUserParam.designation_id);
+                //request.AddParameter("office_id", +dakUserParam.office_id);
+                //request.AddParameter("designation_id", +dakUserParam.designation_id);
+                var serializedObject = JsonConvert.SerializeObject(dakUserParam);
+                request.AddParameter("cdesk", serializedObject);
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
