@@ -78,6 +78,10 @@ namespace dNothi.Desktop.UI.CustomMessageBox
             {
                 OnlineToggle();
             }
+            else if(!InternetConnection.CheckMachineConnection())
+            {
+                OnlineToggle();
+            }
             else
             {
                 OfflineToogle();

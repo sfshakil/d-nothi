@@ -57,7 +57,7 @@ namespace dNothi.Desktop
 
 
 
-            using (var form = FormFactory.Create<Khosra>())
+            using (var form = FormFactory.Create<Login>())
             {
                 result = form.ShowDialog();
             }

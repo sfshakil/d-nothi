@@ -981,6 +981,7 @@ namespace dNothi.Desktop.UI
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                 KhosraSaveParamPotro khosraSaveParamPotro = new KhosraSaveParamPotro();
                 khosraSaveParamPotro.potrojari = new KhasraSaveParamPotrojari();
+                khosraSaveParamPotro.potrojari.potro_type = _khasraPotroTemplateData.template_id;
                 //khosraSaveParamPotro.potrojari.attached_potro=
 
 

@@ -177,9 +177,9 @@ namespace dNothi.Services.SyncServices
                     LocalChangeData._isdakNothijatoReverted = true;
                 }
                
-                _noteSave.SendNoteListFromLocal();
-                _onucchedSave.SendNoteListFromLocal();
-                _onuchhedForwardService.SendNoteListFromLocal();
+               // _noteSave.SendNoteListFromLocal();
+               // _onucchedSave.SendNoteListFromLocal();
+               // _onuchhedForwardService.SendNoteListFromLocal();
 
 
             }
