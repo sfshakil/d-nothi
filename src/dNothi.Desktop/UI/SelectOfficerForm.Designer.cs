@@ -46,7 +46,6 @@
             this.searchOfficerRightListBox = new System.Windows.Forms.ListBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.searchOfficerRightXTextBox = new dNothi.Desktop.XTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.finalSaveButton = new FontAwesome.Sharp.IconButton();
@@ -54,9 +53,10 @@
             this.label15 = new System.Windows.Forms.Label();
             this.officerEmptyPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.officerListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.countOfficer = new System.Windows.Forms.Label();
+            this.searchOfficerRightXTextBox = new dNothi.Desktop.XTextBox();
+            this.officerListFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -210,6 +210,7 @@
             this.saveOfficerButton.Text = " সংরক্ষণ";
             this.saveOfficerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saveOfficerButton.UseVisualStyleBackColor = false;
+            this.saveOfficerButton.Visible = false;
             this.saveOfficerButton.Click += new System.EventHandler(this.saveOfficerButton_Click);
             // 
             // label19
@@ -310,22 +311,6 @@
             this.panel12.TabIndex = 34;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Color_Blue);
             // 
-            // searchOfficerRightXTextBox
-            // 
-            this.searchOfficerRightXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
-            this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficerRightXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(6, 9);
-            this.searchOfficerRightXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
-            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(342, 19);
-            this.searchOfficerRightXTextBox.TabIndex = 33;
-            this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
-            // 
             // tabPage2
             // 
             this.tabPage2.ImageIndex = 3;
@@ -415,15 +400,6 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
-            // officerListFlowLayoutPanel
-            // 
-            this.officerListFlowLayoutPanel.AutoSize = true;
-            this.officerListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.officerListFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.officerListFlowLayoutPanel.Name = "officerListFlowLayoutPanel";
-            this.officerListFlowLayoutPanel.Size = new System.Drawing.Size(433, 0);
-            this.officerListFlowLayoutPanel.TabIndex = 5;
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -446,6 +422,35 @@
             this.countOfficer.Size = new System.Drawing.Size(16, 18);
             this.countOfficer.TabIndex = 41;
             this.countOfficer.Text = "০";
+            // 
+            // searchOfficerRightXTextBox
+            // 
+            this.searchOfficerRightXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
+            this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficerRightXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(6, 9);
+            this.searchOfficerRightXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
+            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(342, 19);
+            this.searchOfficerRightXTextBox.TabIndex = 33;
+            this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
+            // 
+            // officerListFlowLayoutPanel
+            // 
+            this.officerListFlowLayoutPanel.AutoSize = true;
+            this.officerListFlowLayoutPanel.ColumnCount = 1;
+            this.officerListFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.officerListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.officerListFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.officerListFlowLayoutPanel.Name = "officerListFlowLayoutPanel";
+            this.officerListFlowLayoutPanel.RowCount = 1;
+            this.officerListFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.officerListFlowLayoutPanel.Size = new System.Drawing.Size(433, 0);
+            this.officerListFlowLayoutPanel.TabIndex = 41;
             // 
             // SelectOfficerForm
             // 
@@ -508,9 +513,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel officerEmptyPanel;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.FlowLayoutPanel officerListFlowLayoutPanel;
         private System.Windows.Forms.Label officerSearchOfficerNameLabel;
         private FontAwesome.Sharp.IconButton finalSaveButton;
         private FontAwesome.Sharp.IconButton CloseButton;
+        private System.Windows.Forms.TableLayoutPanel officerListFlowLayoutPanel;
     }
 }

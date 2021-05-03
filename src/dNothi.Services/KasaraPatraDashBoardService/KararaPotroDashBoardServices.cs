@@ -112,7 +112,7 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
 
 
-        } 
+        }
         protected string GetAPIDomain()
         {
             return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;

@@ -102,6 +102,7 @@
             this.decisionDeleteButton.Size = new System.Drawing.Size(34, 36);
             this.decisionDeleteButton.TabIndex = 88;
             this.decisionDeleteButton.UseVisualStyleBackColor = false;
+            this.decisionDeleteButton.Click += new System.EventHandler(this.decisionDeleteButton_Click);
             // 
             // decisionEditRightButton
             // 
@@ -122,6 +123,7 @@
             this.decisionEditRightButton.Size = new System.Drawing.Size(34, 36);
             this.decisionEditRightButton.TabIndex = 87;
             this.decisionEditRightButton.UseVisualStyleBackColor = false;
+            this.decisionEditRightButton.Click += new System.EventHandler(this.decisionEditRightButton_Click);
             // 
             // typeLabel
             // 

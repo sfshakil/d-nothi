@@ -27,138 +27,17 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             set
             {
                 _prapakerTalika = value;
-                attachmentTableLayoutPanel.Controls.Clear();
+                PrapokListRowUserControl.UserName = prapakerTalika.data.receiver.Select(x => x.officer).FirstOrDefault();
+                PrapokListRowUserControl.UserDesignation = prapakerTalika.data.receiver.Select(x => x.designation).FirstOrDefault();
+                PrapokListRowUserControl.UserOfficeName = prapakerTalika.data.receiver.Select(x => x.office).FirstOrDefault();
 
-                if (prapakerTalika.data != null)
-                {
+                senderListRowUserControl.UserName = prapakerTalika.data.sender.Select(x => x.officer).FirstOrDefault();
+                senderListRowUserControl.UserDesignation = prapakerTalika.data.sender.Select(x => x.designation).FirstOrDefault();
+                senderListRowUserControl.UserOfficeName = prapakerTalika.data.sender.Select(x => x.office).FirstOrDefault();
 
-
-                    if (prapakerTalika.data.approver != null && prapakerTalika.data.approver.Count > 0)
-                    {
-                        for (int p = 0; p <= prapakerTalika.data.approver.Count - 1; p++)
-                        {
-                            KhosraPrapokListRowUserControl PrapokListRowUserControl = new KhosraPrapokListRowUserControl();
-
-                            if (p == 0)
-                            {
-                                PrapokListRowUserControl.UserType = "অনুমোদনকারী";
-                            }
-
-                            PrapokListRowUserControl.UserName = prapakerTalika.data.approver[p].officer;
-                            PrapokListRowUserControl.UserDesignation = prapakerTalika.data.approver[p].designation;
-                            PrapokListRowUserControl.UserOfficeName = prapakerTalika.data.approver[p].office_unit + "," + prapakerTalika.data.receiver[p].office;
-
-                            UIDesignCommonMethod.AddRowinTable(attachmentTableLayoutPanel, PrapokListRowUserControl);
-
-                        }
-
-                    }
-
-                    if (prapakerTalika.data.receiver != null && prapakerTalika.data.receiver.Count > 0)
-                    {
-                        for (int p=0; p<= prapakerTalika.data.receiver.Count - 1; p++)
-                        {
-                            KhosraPrapokListRowUserControl PrapokListRowUserControl = new KhosraPrapokListRowUserControl();
-
-                            if (p==0)
-                            {
-                                PrapokListRowUserControl.UserType = "প্রাপক";
-                            }
-
-                            PrapokListRowUserControl.UserName = prapakerTalika.data.receiver[p].officer;
-                            PrapokListRowUserControl.UserDesignation = prapakerTalika.data.receiver[p].designation;
-                            PrapokListRowUserControl.UserOfficeName = prapakerTalika.data.receiver[p].office_unit +","+ prapakerTalika.data.receiver[p].office;
-
-                            UIDesignCommonMethod.AddRowinTable(attachmentTableLayoutPanel, PrapokListRowUserControl);
-
-                        }
-
-                    }
-                    if (prapakerTalika.data.sender != null && prapakerTalika.data.sender.Count > 0)
-                    {
-                        for (int p = 0; p <= prapakerTalika.data.sender.Count - 1; p++)
-                        {
-                            KhosraPrapokListRowUserControl PrapokListRowUserControl = new KhosraPrapokListRowUserControl();
-
-                            if (p == 0)
-                            {
-                                PrapokListRowUserControl.UserType = "প্রেরক";
-                            }
-
-                            PrapokListRowUserControl.UserName = prapakerTalika.data.sender[p].officer;
-                            PrapokListRowUserControl.UserDesignation = prapakerTalika.data.sender[p].designation;
-                            PrapokListRowUserControl.UserOfficeName = prapakerTalika.data.sender[p].office_unit + "," + prapakerTalika.data.sender[p].office;
-
-                            UIDesignCommonMethod.AddRowinTable(attachmentTableLayoutPanel, PrapokListRowUserControl);
-
-                        }
-
-                    }
-                    
-                    if (prapakerTalika.data.attention != null && prapakerTalika.data.attention.Count > 0)
-                    {
-                        for (int p = 0; p <= prapakerTalika.data.attention.Count - 1; p++)
-                        {
-                            KhosraPrapokListRowUserControl PrapokListRowUserControl = new KhosraPrapokListRowUserControl();
-
-                            if (p == 0)
-                            {
-                                PrapokListRowUserControl.UserType = "দৃষ্টি আকর্ষণ";
-                            }
-
-                            PrapokListRowUserControl.UserName = prapakerTalika.data.attention[p].officer;
-                            PrapokListRowUserControl.UserDesignation = prapakerTalika.data.attention[p].designation;
-                            PrapokListRowUserControl.UserOfficeName = prapakerTalika.data.attention[p].office_unit + "," + prapakerTalika.data.attention[p].office;
-
-                            UIDesignCommonMethod.AddRowinTable(attachmentTableLayoutPanel, PrapokListRowUserControl);
-
-                        }
-
-                    }
-                    if (prapakerTalika.data.onulipi != null && prapakerTalika.data.onulipi.Count > 0)
-                    {
-                        for (int p = 0; p <= prapakerTalika.data.onulipi.Count - 1; p++)
-                        {
-                            KhosraPrapokListRowUserControl PrapokListRowUserControl = new KhosraPrapokListRowUserControl();
-
-                            if (p == 0)
-                            {
-                                PrapokListRowUserControl.UserType = "অনুলিপি";
-                            }
-
-                            PrapokListRowUserControl.UserName = prapakerTalika.data.onulipi[p].officer;
-                            PrapokListRowUserControl.UserDesignation = prapakerTalika.data.onulipi[p].designation;
-                            PrapokListRowUserControl.UserOfficeName = prapakerTalika.data.onulipi[p].office_unit + "," + prapakerTalika.data.onulipi[p].office;
-
-                            UIDesignCommonMethod.AddRowinTable(attachmentTableLayoutPanel, PrapokListRowUserControl);
-
-                        }
-
-                    }
-                    if (prapakerTalika.data.drafter != null && prapakerTalika.data.drafter.Count > 0)
-                    {
-                        for (int p = 0; p <= prapakerTalika.data.drafter.Count - 1; p++)
-                        {
-                            KhosraPrapokListRowUserControl PrapokListRowUserControl = new KhosraPrapokListRowUserControl();
-
-                            if (p == 0)
-                            {
-                                PrapokListRowUserControl.UserType = "খসড়া";
-                            }
-
-                            PrapokListRowUserControl.UserName = prapakerTalika.data.drafter[p].officer;
-                            PrapokListRowUserControl.UserDesignation = prapakerTalika.data.drafter[p].designation;
-                            PrapokListRowUserControl.UserOfficeName = prapakerTalika.data.drafter[p].office_unit + "," + prapakerTalika.data.drafter[p].office;
-
-                            UIDesignCommonMethod.AddRowinTable(attachmentTableLayoutPanel, PrapokListRowUserControl);
-
-                        }
-
-                    }
-
-
-                   
-                }
+                aproverListRowUserControl.UserName = prapakerTalika.data.approver.Select(x => x.officer).FirstOrDefault();
+                aproverListRowUserControl.UserDesignation = prapakerTalika.data.approver.Select(x => x.designation).FirstOrDefault();
+                aproverListRowUserControl.UserOfficeName = prapakerTalika.data.approver.Select(x => x.office).FirstOrDefault();
             }
         }
         private void KhosraPrapokListViewForm_Load(object sender, EventArgs e)

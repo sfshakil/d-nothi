@@ -45,5 +45,10 @@ namespace dNothi.Desktop.UI
                 this.DeleteButton(sender, e);
                 this.Hide();
         }
+
+        private void OfficerRowUserControl_Paint(object sender, PaintEventArgs e)
+        {
+            UIDesignCommonMethod.Border_Color_Gray(sender, e);
+        }
     }
 }

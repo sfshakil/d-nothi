@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Services.GuardFile.Model;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -22,12 +23,13 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         private bool _isMulpotro;
         public string _attachmentName;
         private string _fileextension;
-        private bool _isOCRVisible;
+       
         private bool _isDeleteVisible;
+
         private bool _isRejectVisible;
 
 
-        public DakAttachmentDTO _dakAttachment = new DakAttachmentDTO();
+        public GuardFileModel.Attachment _Attachment = new GuardFileModel.Attachment();
         internal string imageBase64String;
 
         public GuardFileBrowseUC()
@@ -109,13 +111,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             {
                 _isAllowedforMulpotro = value;
 
-                //if (value == true) {
-                //    if (!dakAttachmentTableRadioButton.Visible) { dakAttachmentTableRadioButton.Visible = true; }
-                //}
-                //else {
-                //    dakAttachmentTableRadioButton.Visible = true; dakAttachmentTableRadioButton.Visible = false; 
-                //}
-
+              
             }
 
         }

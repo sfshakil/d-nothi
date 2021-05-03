@@ -218,12 +218,24 @@ namespace dNothi.Desktop.UI
 
             officerSearchOfficerNameLabel.Text = searchOfficerRightListBox.GetItemText(searchOfficerRightListBox.SelectedItem);
             _designationId = (searchOfficerRightListBox.SelectedItem as ViewDesignationSealList).designation_id;
-           // _selectedOfficerDesignations.Add(_designationId);
+            // _selectedOfficerDesignations.Add(_designationId);
+
+            VisibleSaveSingleOfficer();
 
 
 
+        }
 
-
+        private void VisibleSaveSingleOfficer()
+        {
+            if (_designationId != 0)
+            {
+                saveOfficerButton.Visible = true;
+            }
+            else
+            {
+                saveOfficerButton.Visible = false;
+            }
         }
 
         private void saveOfficerButton_Click(object sender, EventArgs e)
@@ -242,9 +254,9 @@ namespace dNothi.Desktop.UI
                 officerRowUserControl.Width = officerListFlowLayoutPanel.Width-50;
 
                 _selectedOfficerDesignations.Add(_designationId);
-                officerListFlowLayoutPanel.Controls.Add(officerRowUserControl);
-
+                UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
             }
+           
 
 
             var officerList = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
@@ -262,8 +274,8 @@ namespace dNothi.Desktop.UI
             {
                 finalSave(sender, e);
             }
-           
-            
+
+            VisibleSaveSingleOfficer();
 
         }
 
@@ -299,8 +311,15 @@ namespace dNothi.Desktop.UI
 
         private void finalSave(object sender, EventArgs e)
         {
-            var officerList = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
 
+
+
+            var officerList = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
+            if(officerList == null || officerList.Count==0)
+            {
+                UIDesignCommonMethod.ErrorMessage("অফিসার বাছাই করা হইনি!");
+                return;
+            }
             _selectedOfficerDesignations.Clear();
 
 

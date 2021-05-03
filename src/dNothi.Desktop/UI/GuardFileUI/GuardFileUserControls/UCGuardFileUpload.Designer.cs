@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.SubmitButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.userIdPanel = new System.Windows.Forms.Panel();
             this.subjectTextBox = new PlaceholderTextBox.PlaceholderTextBox();
@@ -41,7 +43,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.fileUploadButton = new System.Windows.Forms.Button();
             this.guardFileTextBox = new PlaceholderTextBox.PlaceholderTextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
@@ -50,9 +51,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.SubmitButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.typesearchComboBox = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.userIdPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -65,38 +68,67 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 5);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 8);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 220F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(439, 345);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(850, 330);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // panel7
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel7, 2);
+            this.panel7.Controls.Add(this.SubmitButton);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(3, 286);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(844, 40);
+            this.panel7.TabIndex = 71;
+            // 
+            // SubmitButton
+            // 
+            this.SubmitButton.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.SubmitButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SubmitButton.FlatAppearance.BorderSize = 0;
+            this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SubmitButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubmitButton.ForeColor = System.Drawing.Color.White;
+            this.SubmitButton.Location = new System.Drawing.Point(754, 0);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SubmitButton.Name = "SubmitButton";
+            this.SubmitButton.Size = new System.Drawing.Size(90, 40);
+            this.SubmitButton.TabIndex = 70;
+            this.SubmitButton.Text = "সংরক্ষণ করুন";
+            this.SubmitButton.UseVisualStyleBackColor = false;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.userIdPanel);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(433, 64);
+            this.panel1.Size = new System.Drawing.Size(417, 64);
             this.panel1.TabIndex = 0;
             // 
             // userIdPanel
@@ -108,7 +140,7 @@
             this.userIdPanel.Controls.Add(this.subjectTextBox);
             this.userIdPanel.Location = new System.Drawing.Point(15, 20);
             this.userIdPanel.Name = "userIdPanel";
-            this.userIdPanel.Size = new System.Drawing.Size(400, 33);
+            this.userIdPanel.Size = new System.Drawing.Size(384, 33);
             this.userIdPanel.TabIndex = 78;
             this.userIdPanel.UseWaitCursor = true;
             this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
@@ -120,11 +152,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.subjectTextBox.BackColor = System.Drawing.Color.White;
             this.subjectTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.subjectTextBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.subjectTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectTextBox.Location = new System.Drawing.Point(5, 7);
             this.subjectTextBox.Name = "subjectTextBox";
             this.subjectTextBox.PlaceholderText = "শিরোনাম";
-            this.subjectTextBox.Size = new System.Drawing.Size(390, 19);
+            this.subjectTextBox.Size = new System.Drawing.Size(374, 19);
             this.subjectTextBox.TabIndex = 3;
             this.subjectTextBox.UseWaitCursor = true;
             // 
@@ -156,10 +189,9 @@
             // 
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 73);
+            this.panel2.Location = new System.Drawing.Point(428, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(433, 67);
+            this.panel2.Size = new System.Drawing.Size(418, 64);
             this.panel2.TabIndex = 1;
             // 
             // label4
@@ -167,7 +199,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(51, 4);
+            this.label4.Location = new System.Drawing.Point(51, -1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 20);
             this.label4.TabIndex = 1;
@@ -177,7 +209,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 4);
+            this.label3.Location = new System.Drawing.Point(17, -2);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 18);
             this.label3.TabIndex = 0;
@@ -185,34 +217,35 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.panel3, 2);
             this.panel3.Controls.Add(this.panel6);
-            this.panel3.Location = new System.Drawing.Point(18, 184);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 119);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(402, 68);
+            this.panel3.Size = new System.Drawing.Size(850, 68);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel6
             // 
-            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.Transparent;
             this.panel6.Controls.Add(this.fileUploadButton);
             this.panel6.Controls.Add(this.guardFileTextBox);
-            this.panel6.Location = new System.Drawing.Point(17, 15);
+            this.panel6.Location = new System.Drawing.Point(18, 14);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(369, 41);
+            this.panel6.Size = new System.Drawing.Size(786, 41);
             this.panel6.TabIndex = 79;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // fileUploadButton
             // 
             this.fileUploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.fileUploadButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.fileUploadButton.FlatAppearance.BorderSize = 0;
             this.fileUploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fileUploadButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileUploadButton.Location = new System.Drawing.Point(279, 0);
+            this.fileUploadButton.Location = new System.Drawing.Point(696, 0);
             this.fileUploadButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fileUploadButton.Name = "fileUploadButton";
             this.fileUploadButton.Size = new System.Drawing.Size(90, 41);
@@ -229,32 +262,20 @@
             this.guardFileTextBox.BackColor = System.Drawing.Color.White;
             this.guardFileTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guardFileTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardFileTextBox.Location = new System.Drawing.Point(28, 11);
+            this.guardFileTextBox.Location = new System.Drawing.Point(5, 11);
             this.guardFileTextBox.Name = "guardFileTextBox";
             this.guardFileTextBox.PlaceholderText = "ফাইল নির্বাচন";
-            this.guardFileTextBox.Size = new System.Drawing.Size(97, 19);
+            this.guardFileTextBox.Size = new System.Drawing.Size(685, 19);
             this.guardFileTextBox.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(3, 143);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label5.Size = new System.Drawing.Size(432, 41);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "সর্বোচ্চ ১টি মাত্র সংযুক্তি দেওয়া যাবে, এবং শুধু মাত্র ইমেজ অথবা পি.ডি.এফ দেওয়া য" +
-    "াবে।";
             // 
             // panel5
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel5, 2);
             this.panel5.Controls.Add(this.tableLayoutPanel2);
-            this.panel5.Location = new System.Drawing.Point(3, 255);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 190);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(433, 40);
+            this.panel5.Size = new System.Drawing.Size(844, 40);
             this.panel5.TabIndex = 33;
             // 
             // tableLayoutPanel2
@@ -265,7 +286,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tableLayoutPanel2.Controls.Add(this.label11, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label10, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
@@ -276,7 +297,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(433, 40);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(844, 40);
             this.tableLayoutPanel2.TabIndex = 88;
             // 
             // label11
@@ -284,10 +305,10 @@
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(357, 1);
+            this.label11.Location = new System.Drawing.Point(756, 1);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label11.Size = new System.Drawing.Size(72, 38);
+            this.label11.Size = new System.Drawing.Size(84, 38);
             this.label11.TabIndex = 3;
             this.label11.Text = "কার্যক্রম";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -300,7 +321,7 @@
             this.label10.Location = new System.Drawing.Point(196, 1);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label10.Size = new System.Drawing.Size(154, 38);
+            this.label10.Size = new System.Drawing.Size(553, 38);
             this.label10.TabIndex = 2;
             this.label10.Text = "সংযুক্তি প্রিভিউ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -334,55 +355,70 @@
             // 
             // flowLayoutPanel1
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 301);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 236);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(436, 44);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(847, 44);
             this.flowLayoutPanel1.TabIndex = 34;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.SubmitButton);
-            this.panel4.Controls.Add(this.tableLayoutPanel1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(8, 8);
+            this.tableLayoutPanel1.SetColumnSpan(this.panel4, 2);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(3, 73);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(439, 461);
+            this.panel4.Size = new System.Drawing.Size(844, 43);
             this.panel4.TabIndex = 3;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
-            // SubmitButton
+            // label6
             // 
-            this.SubmitButton.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.SubmitButton.FlatAppearance.BorderSize = 0;
-            this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SubmitButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitButton.ForeColor = System.Drawing.Color.White;
-            this.SubmitButton.Location = new System.Drawing.Point(335, 360);
-            this.SubmitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(90, 41);
-            this.SubmitButton.TabIndex = 70;
-            this.SubmitButton.Text = "সংরক্ষণ করুন";
-            this.SubmitButton.UseVisualStyleBackColor = false;
-            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
+            this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(0, 21);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label6.Size = new System.Drawing.Size(844, 22);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "(সর্বোচ্চ ১টি মাত্র সংযুক্তি দেওয়া যাবে, এবং শুধু মাত্র ইমেজ অথবা পি.ডি.এফ দেওয়া " +
+    "যাবে। )";
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label5.Size = new System.Drawing.Size(844, 24);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "গার্ড ফাইল নির্বাচন করুন";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // typesearchComboBox
             // 
-            this.typesearchComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.typesearchComboBox.AutoSize = true;
             this.typesearchComboBox.BackColor = System.Drawing.Color.White;
-            this.typesearchComboBox.Font = new System.Drawing.Font("SolaimanLipi", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typesearchComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typesearchComboBox.isListShown = false;
             this.typesearchComboBox.itemList = null;
-            this.typesearchComboBox.Location = new System.Drawing.Point(26, 107);
+            this.typesearchComboBox.Location = new System.Drawing.Point(455, 25);
+            this.typesearchComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.typesearchComboBox.MinimumSize = new System.Drawing.Size(120, 0);
             this.typesearchComboBox.Name = "typesearchComboBox";
-            this.typesearchComboBox.searchButtonText = "";
+            this.typesearchComboBox.searchButtonText = "ধরন বাছাই করুন";
             this.typesearchComboBox.selectedId = 0;
-            this.typesearchComboBox.Size = new System.Drawing.Size(398, 30);
-            this.typesearchComboBox.TabIndex = 2;
+            this.typesearchComboBox.Size = new System.Drawing.Size(375, 44);
+            this.typesearchComboBox.TabIndex = 3;
+            this.typesearchComboBox.ChangeSelectedIndex += new System.EventHandler(this.typesearchComboBox_ChangeSelectedIndex);
             // 
             // UCGuardFileUpload
             // 
@@ -390,13 +426,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.typesearchComboBox);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Location = new System.Drawing.Point(10, 20);
             this.Name = "UCGuardFileUpload";
             this.Padding = new System.Windows.Forms.Padding(8);
-            this.Size = new System.Drawing.Size(455, 477);
+            this.Size = new System.Drawing.Size(866, 346);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCGuardFileUpload_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.userIdPanel.ResumeLayout(false);
@@ -424,7 +461,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private ManuelUserControl.SearchComboBox typesearchComboBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel userIdPanel;
@@ -441,5 +477,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button SubmitButton;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label6;
+        private ManuelUserControl.SearchComboBox typesearchComboBox;
     }
 }

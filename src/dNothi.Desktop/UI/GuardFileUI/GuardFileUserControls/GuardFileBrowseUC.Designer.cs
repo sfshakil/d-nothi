@@ -58,7 +58,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(433, 53);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(687, 53);
             this.tableLayoutPanel2.TabIndex = 13;
             // 
             // panel2
@@ -69,7 +69,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(166, 49);
+            this.panel2.Size = new System.Drawing.Size(420, 49);
             this.panel2.TabIndex = 12;
             // 
             // panel3
@@ -78,7 +78,7 @@
             this.panel3.Controls.Add(this.dakUploadAttachmentNameTextBox);
             this.panel3.Location = new System.Drawing.Point(9, 6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(147, 32);
+            this.panel3.Size = new System.Drawing.Size(401, 32);
             this.panel3.TabIndex = 9;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -89,7 +89,7 @@
             this.dakUploadAttachmentNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dakUploadAttachmentNameTextBox.Location = new System.Drawing.Point(6, 9);
             this.dakUploadAttachmentNameTextBox.Name = "dakUploadAttachmentNameTextBox";
-            this.dakUploadAttachmentNameTextBox.Size = new System.Drawing.Size(134, 13);
+            this.dakUploadAttachmentNameTextBox.Size = new System.Drawing.Size(388, 13);
             this.dakUploadAttachmentNameTextBox.TabIndex = 8;
             // 
             // attachmentLink
@@ -108,7 +108,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.attachmentDeleteButton);
-            this.panel1.Location = new System.Drawing.Point(363, 2);
+            this.panel1.Location = new System.Drawing.Point(617, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(68, 49);
@@ -137,7 +137,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "GuardFileBrowseUC";
-            this.Size = new System.Drawing.Size(433, 53);
+            this.Size = new System.Drawing.Size(687, 53);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

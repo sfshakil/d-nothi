@@ -108,6 +108,7 @@ namespace dNothi.Desktop.UI
             //tinyMceEditor.GetMainFrame().ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
 
         }
+        public string _sub;
 
         private void Template_CLick(KhasraPotroTemplateDataDTO khasraPotroTemplateData)
         {
@@ -118,9 +119,33 @@ namespace dNothi.Desktop.UI
                 LoadNewTemplate();
             }
 
+
+            //SetCurrentInputValue(khasraPotroTemplateData);
+
+
             tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { khasraPotroTemplateData.html_content });
             tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
-           
+            
+            
+        }
+
+        private async void SetCurrentInputValue(KhasraPotroTemplateDataDTO khasraPotroTemplateData)
+        {
+            string pastSubject = KhoshraTemplateHtmlStringChange.subjectNew(_sub);
+
+
+
+            JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
+            _sub = GetPotroSubjectFromHtmlString(response.Result.ToString());
+            SetSubjectToHtmlString(khasraPotroTemplateData, pastSubject);
+        }
+
+        private void SetSubjectToHtmlString(KhasraPotroTemplateDataDTO khasraPotroTemplateData, string pastSubject)
+        {
+            string currentSubject = KhoshraTemplateHtmlStringChange.subjectNew(_sub);
+
+            khasraPotroTemplateData.html_content= _currentHtmlString = _khasraPotroTemplateData.html_content = khasraPotroTemplateData.html_content.Replace(pastSubject, currentSubject);
+           // khasraPotroTemplateData.html_content = _currentHtmlString = _khasraPotroTemplateData.html_content = khasraPotroTemplateData.html_content.Replace(KhoshraTemplateHtmlStringChange.subjectOriginal, currentSubject);
         }
 
         private void Border_Color_Blue(object sender, PaintEventArgs e)
@@ -261,7 +286,7 @@ namespace dNothi.Desktop.UI
             SelectOfficer(onumodonkariOfficerSelectButton,onumodonkariListPanel, onumodonkariEmptyPanel,onumodonkariListFlowLayoutPanel);
         }
 
-        private void SelectOfficer(FontAwesome.Sharp.IconButton officerSelectButton, Panel officerListPanel, Panel officerEmptyPanel, FlowLayoutPanel officerListFlowLayoutPanel)
+        private void SelectOfficer(FontAwesome.Sharp.IconButton officerSelectButton, Panel officerListPanel, Panel officerEmptyPanel, TableLayoutPanel officerListFlowLayoutPanel)
         {
             SelectOfficerForm selectOfficerForm = new SelectOfficerForm();
             
@@ -282,7 +307,7 @@ namespace dNothi.Desktop.UI
             UIDesignCommonMethod.CalPopUpWindow(selectOfficerForm,this);
         }
 
-        private void SaveOfficerinOnumodonKariOfficerList(FontAwesome.Sharp.IconButton officerSelectButton, List<int> selectedOfficerDesignations, Panel officerListPanel, Panel officerEmptyPanel, FlowLayoutPanel officerListFlowLayoutPanel)
+        private void SaveOfficerinOnumodonKariOfficerList(FontAwesome.Sharp.IconButton officerSelectButton, List<int> selectedOfficerDesignations, Panel officerListPanel, Panel officerEmptyPanel, TableLayoutPanel officerListFlowLayoutPanel)
         {
             officerListFlowLayoutPanel.Controls.Clear();
 
@@ -301,10 +326,10 @@ namespace dNothi.Desktop.UI
                     if (designationSeal != null)
                     {
                         OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
-                        officerRowUserControl.officerName = designationSeal.NameWithDesignation;
+                        officerRowUserControl.officerName = designationSeal.officer_name+","+ designationSeal.designation_bng + "," + designationSeal.office_unit + "," + designationSeal.office_bng;
                         officerRowUserControl.designationId = designationSeal.designation_id;
                         officerRowUserControl.officerInfo = designationSeal;
-                        officerRowUserControl.Dock = DockStyle.Top;
+                       
                         //  officerRowUserControl.Width = onumodonkariListFlowLayoutPanel.Width - 30;
                         officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) {
 
@@ -312,7 +337,7 @@ namespace dNothi.Desktop.UI
 
                             officerListFlowLayoutPanel.Controls.Add(officerRowUserControl);
 
-
+                        UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
                         
                     }
             
@@ -328,7 +353,7 @@ namespace dNothi.Desktop.UI
 
             }
         }
-        private void ReloadOfficerList(FontAwesome.Sharp.IconButton officerSelectButton, Panel onumodonkariListPanel, Panel onumodonkariEmptyPanel, FlowLayoutPanel onumodonkariListFlowLayoutPanel)
+        private void ReloadOfficerList(FontAwesome.Sharp.IconButton officerSelectButton, Panel onumodonkariListPanel, Panel onumodonkariEmptyPanel, TableLayoutPanel onumodonkariListFlowLayoutPanel)
         {
             var officerList = onumodonkariListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
 
@@ -403,8 +428,8 @@ namespace dNothi.Desktop.UI
 
                 }
                 _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.OnulipiDivHive, KhoshraTemplateHtmlStringChange.OnulipiDivShow);
-                _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.OnulipiNumAndDateHive, KhoshraTemplateHtmlStringChange.OnulipiNumAndDateShow);
-               
+                 _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.OnulipiNumAndDateHive, KhoshraTemplateHtmlStringChange.OnulipiNumAndDateShow);
+                LoadDateApprover(dateTime);
                 string officerListHtml =  KhoshraTemplateHtmlStringChange.AddOnulipiOfficerintheList(officerListString);
 
                 if (onulipiofficersScript != null && onulipiofficersScript != "")
@@ -423,7 +448,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-
+                LoadDateApprover(null);
                 attentionOfficers = null;
                 _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.OnulipiDivShow, KhoshraTemplateHtmlStringChange.OnulipiDivHive);
                 _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.OnulipiNumAndDateShow, KhoshraTemplateHtmlStringChange.OnulipiNumAndDateHive);
@@ -512,6 +537,8 @@ namespace dNothi.Desktop.UI
             prapokofficersScript = null;
             _currentHtmlString = null;
             prapokOfficers = null;
+            dateTime = null;
+            dateTimeApprover = null;
         }
         
         private async void AddPrapokOfficerstoScript(List<OfficerRowUserControl> officerList)
@@ -949,6 +976,7 @@ namespace dNothi.Desktop.UI
                     tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { _khasraPotroTemplateData.html_content });
                     tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
                     _isTinyMceEditorLoaded = true;
+                    LoadDate(DateTime.Now);
                 }
                 catch
                 {
@@ -956,7 +984,109 @@ namespace dNothi.Desktop.UI
                 }
             }
 
+          
+            
+
         }
+
+
+        private DateTime? dateTime;
+        private async void LoadDate(DateTime now)
+        {
+
+
+            if (_currentHtmlString == null || _currentHtmlString == "")
+            {
+                JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
+
+                _currentHtmlString = response.Result.ToString();
+            }
+
+            string bnReplaceDate = KhoshraTemplateHtmlStringChange.bnDatePotroSet(now);
+            string enReplaceDate = KhoshraTemplateHtmlStringChange.enDatePotroSet(now);
+
+
+            if (dateTime ==null)
+            {
+
+                _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.bnDatePotroOriginal, bnReplaceDate);
+                _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.enDatePotroOriginal, enReplaceDate);
+            }
+            else
+            {
+                string bnCurrentDate = KhoshraTemplateHtmlStringChange.bnDatePotroSet(Convert.ToDateTime(dateTime));
+                string enCurrentDate = KhoshraTemplateHtmlStringChange.enDatePotroSet(Convert.ToDateTime(dateTime));
+
+                _currentHtmlString = _currentHtmlString.Replace(bnCurrentDate, bnReplaceDate);
+                _currentHtmlString = _currentHtmlString.Replace(enCurrentDate, enReplaceDate);
+            }
+
+            dateTime = new DateTime();
+            dateTime = now;
+            _khasraPotroTemplateData.html_content = _currentHtmlString;
+            SetCurrentInputValue(_khasraPotroTemplateData);
+
+
+            tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { _khasraPotroTemplateData.html_content });
+            tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+
+        }
+        private DateTime? dateTimeApprover;
+        private async void LoadDateApprover(DateTime? now)
+        {
+
+
+            if (_currentHtmlString == null || _currentHtmlString == "")
+            {
+                JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
+
+                _currentHtmlString = response.Result.ToString();
+            }
+
+           
+            if(now==null)
+            {
+                
+                string bnCurrentDate = KhoshraTemplateHtmlStringChange.bnDateApproverPotroSet(Convert.ToDateTime(dateTimeApprover));
+                string enCurrentDate = KhoshraTemplateHtmlStringChange.enDateApproverPotroSet(Convert.ToDateTime(dateTimeApprover));
+
+                _currentHtmlString = _currentHtmlString.Replace(bnCurrentDate, KhoshraTemplateHtmlStringChange.bnDateApproverPotroOriginal);
+                _currentHtmlString = _currentHtmlString.Replace(enCurrentDate, KhoshraTemplateHtmlStringChange.enDateApproverPotroOriginal);
+            }
+
+            else if (dateTimeApprover == null)
+            {
+                string bnReplaceDate = KhoshraTemplateHtmlStringChange.bnDateApproverPotroSet(Convert.ToDateTime(now));
+                string enReplaceDate = KhoshraTemplateHtmlStringChange.enDateApproverPotroSet(Convert.ToDateTime(now));
+
+                _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.bnDateApproverPotroOriginal, bnReplaceDate);
+                _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.enDateApproverPotroOriginal, enReplaceDate);
+            }
+            else
+            {
+                string bnReplaceDate = KhoshraTemplateHtmlStringChange.bnDateApproverPotroSet(Convert.ToDateTime(now));
+                string enReplaceDate = KhoshraTemplateHtmlStringChange.enDateApproverPotroSet(Convert.ToDateTime(now));
+
+                string bnCurrentDate = KhoshraTemplateHtmlStringChange.bnDateApproverPotroSet(Convert.ToDateTime(dateTimeApprover));
+                string enCurrentDate = KhoshraTemplateHtmlStringChange.enDateApproverPotroSet(Convert.ToDateTime(dateTimeApprover));
+
+                _currentHtmlString = _currentHtmlString.Replace(bnCurrentDate, bnReplaceDate);
+                _currentHtmlString = _currentHtmlString.Replace(enCurrentDate, enReplaceDate);
+            }
+
+
+            dateTimeApprover = new DateTime();
+            dateTimeApprover=now;
+
+
+            _khasraPotroTemplateData.html_content = _currentHtmlString;
+
+            SetCurrentInputValue(_khasraPotroTemplateData);
+
+            tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { _khasraPotroTemplateData.html_content });
+            tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+        }
+
 
         private string _potrosub;
         private string _potrotype;
@@ -974,8 +1104,10 @@ namespace dNothi.Desktop.UI
             {
                 JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
 
+
                 _currentHtmlString = response.Result.ToString();
 
+                _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.dateSharokTitleOriginal, KhoshraTemplateHtmlStringChange.dateSharokTitleReplace);
 
 
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
@@ -1176,15 +1308,22 @@ namespace dNothi.Desktop.UI
 
             string sub = "";
 
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(currentHtmlString);
-            var td=doc.DocumentNode.Descendants("td").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_subject"));
-            sub = td.InnerText;
+            try
+            {
+                HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                doc.LoadHtml(currentHtmlString);
+                var td = doc.DocumentNode.Descendants("td").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_subject"));
+                sub = td.InnerText;
 
-            
 
 
 
+
+            }
+            catch
+            {
+
+            }
 
             return sub;
 
@@ -1304,7 +1443,14 @@ namespace dNothi.Desktop.UI
             khosraSaveParamPotro.recipient.approver = receivers.ToDictionary(a => a.designation_id);
         }
 
-
-
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDate(dateTimePicker.Value);
+            if(dateTimeApprover != null)
+            {
+                LoadDateApprover(dateTimePicker.Value);
+            }
+           
+        }
     }
 }

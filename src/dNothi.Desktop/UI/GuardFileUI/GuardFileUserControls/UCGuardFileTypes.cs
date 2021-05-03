@@ -9,51 +9,76 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Desktop.UI.Dak;
 using com.sun.corba.se.spi.orbutil.fsm;
+using dNothi.Services.UserServices;
+using dNothi.Services.GuardFile;
+using dNothi.Services.GuardFile.Model;
+using dNothi.Services.DakServices;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
     public partial class UCGuardFileTypes : UserControl
     {
-        public UCGuardFileTypes()
+        IUserService _userService { get; set; }
+        public int page=1;
+       // public int page { get { return currentPage; } set { currentPage = value; }  } 
+
+        int pageLimit = 10;
+       
+        int totalPage = 1;
+        int start = 1;
+        int end = 10;
+        int totalrecord = 0;
+        IGuardFileService<GuardFileCategory,GuardFileCategory.Record> _guardFileCategoryService { get; set; }
+        public UCGuardFileTypes(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService)
         {
             InitializeComponent();
+            _userService = userService;
+            _guardFileCategoryService = guardFileCategoryService;
+           // page = 1;
+            start = 1;
             LoadGuardFileTypeList();
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            NextPreviousButtonShow();
+           
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
         }
 
+       
         public void LoadGuardFileTypeList()
         {
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+           
+            dakListUserParam.limit = pageLimit;
+            dakListUserParam.page = page;
+            var datalist= _guardFileCategoryService.GetList(dakListUserParam,1);
             //guardFileTypeTableLayoutPanel.Controls.Clear();
-            List<gdftype> fl = new List<gdftype>();
-            fl.Add(new gdftype() { rowNo = "1", type = "বাজেট ", typeNo = "1" });
-            fl.Add(new gdftype() { rowNo = "2", type = "test", typeNo = "2" });
-            fl.Add(new gdftype() { rowNo = "3", type = "test2", typeNo = "3" });
-            fl.Add(new gdftype() { rowNo = "4", type = "test3", typeNo = "4" });
-            //DakUserParam userParam = _userService.GetLocalDakUserParam();
 
-            //DakDecisionListResponse dakDecisionListResponse = _dakForwardService.GetDakDecisionListResponse(userParam);
-            if (fl != null)
+
+            // RemoveArbitraryRow(guardFileTypeTableLayoutPanel,3);
+            RemoveTableLayoutPanelRow(guardFileTypeTableLayoutPanel, guardFileTypeTableLayoutPanel.RowCount, 3);
+
+            if (datalist != null)
             {
-                if (fl.Count > 0)
+                if (datalist.data.records.Count > 0)
                 {
-                    foreach (gdftype gd in fl)
+                    int rowid = 0;
+                    foreach (var item in datalist.data.records)
                     {
-                        //var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();
+                        rowid++;
                         var decisionTable = UserControlFactory.Create<GuardFileTypeTableUserControl>();
-                        decisionTable.id =Convert.ToInt32( gd.rowNo);
-                        decisionTable.decision = gd.type;
+                        decisionTable.id = rowid;
+                        decisionTable.decision = item.name_bng;
+                        decisionTable.TypeNo = item.guard_file_type_count;
+                        decisionTable.TypeId = item.id;
                         
-                        decisionTable.RadioButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_RadioButtonClick(sender, e, Convert.ToInt32(gd.rowNo)); };
-                        //if (gd.dak_decision_employee == 1)
-                        //{
-                            //decisionTable.isAdded = true;
-                        // decisionComboBox.Items.Add(gd.type);
-                        // }
-                        //else
-                        //{
-                        //    decisionTable.isAdded = false;
-                        //}
 
 
+                        //decisionTable.RadioButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_RadioButtonClick(sender, e, rowid); };
+
+                        //decisionTable.editButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_attachmentButtonClick(sender, e); };
+                        //decisionTable.deleteButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_onumodonButtonClick(sender, e); };
 
                         decisionTable.Dock = DockStyle.Fill;
 
@@ -63,9 +88,53 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         guardFileTypeTableLayoutPanel.Controls.Add(decisionTable, 0, row);
 
                         guardFileTypeTableLayoutPanel.Controls.Add(decisionTable);
+                        
 
                     }
                 }
+                totalrecord = datalist.data.total_records;
+                totalLabel.Text = "সর্বমোট:" + ConversionMethod.EnglishNumberToBangla(totalrecord.ToString());
+                float pagesize = (float)totalrecord / (float)pageLimit;
+                totalPage = (int)Math.Ceiling(pagesize);
+            }
+        }
+
+        public static void RemoveTableLayoutPanelRow(TableLayoutPanel panel, int rows,int rowIndex)
+        {
+            if (rowIndex >= panel.RowCount)
+            {
+                return;
+            }
+
+            for (int row = rowIndex; row < rows; row++)
+            {
+
+                // delete all controls of row that we want to delete
+                for (int i = 0; i < panel.ColumnCount; i++)
+                {
+                    var control = panel.GetControlFromPosition(i, rowIndex);
+                    panel.Controls.Remove(control);
+                }
+
+                // move up row controls that comes after row we want to remove
+                for (int i = rowIndex + 1; i < panel.RowCount; i++)
+                {
+                    for (int j = 0; j < panel.ColumnCount; j++)
+                    {
+                        var control = panel.GetControlFromPosition(j, i);
+                        if (control != null)
+                        {
+                            panel.SetRow(control, i - 1);
+                        }
+                    }
+                }
+
+                var removeStyle = panel.RowCount - 1;
+
+                if (panel.RowStyles.Count > removeStyle)
+                    panel.RowStyles.RemoveAt(removeStyle);
+
+                panel.RowCount--;
             }
         }
 
@@ -90,6 +159,92 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         private void Table_Cell_Color_Blue(object sender, TableLayoutCellPaintEventArgs e)
         {
             UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
+        }
+
+        private void nextIconButton_Click(object sender, EventArgs e)
+        {
+            string endrow;
+
+            if (page <= totalPage)
+            {
+                page += 1;
+                start += pageLimit;
+                end += pageLimit;
+
+            }
+            else
+            {
+                page = totalPage;
+                start = start;
+                end = end;
+
+
+            }
+            endrow = end.ToString();
+            LoadGuardFileTypeList();
+            if (totalrecord < end) { endrow = totalrecord.ToString(); }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(endrow);
+         
+            NextPreviousButtonShow();
+        }
+
+        private void PreviousIconButton_Click(object sender, EventArgs e)
+        {
+
+            if (page > 1)
+            {
+
+                page -= 1;
+                start -= pageLimit;
+                end -= pageLimit;
+
+            }
+            else
+            {
+                page = 1;
+                start = start;
+                end = end;
+
+            }
+
+
+            LoadGuardFileTypeList();
+
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+            NextPreviousButtonShow();
+
+        }
+       
+        private void NextPreviousButtonShow()
+        {
+            if (page < totalPage)
+            {
+                if (page == 1 && totalPage > 1)
+                {
+                    PreviousIconButton.Enabled = false;
+                }
+                else
+                {
+                    PreviousIconButton.Enabled = true;
+
+                }
+                nextIconButton.Enabled = true;
+            }
+            if (page == totalPage)
+            {
+                if (page == 1 && totalPage == 1)
+                {
+                    PreviousIconButton.Enabled = false;
+
+                }
+                else
+                {
+                    PreviousIconButton.Enabled = true;
+
+                }
+                nextIconButton.Enabled = false;
+            }
+
         }
     }
 }

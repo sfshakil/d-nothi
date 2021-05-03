@@ -4,10 +4,77 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace dNothi.Utility
 {
     public class KhoshraTemplateHtmlStringChange
     {
+
+       
+        public static string bnDateApproverPotroOriginal = "<input id=\"approver_potro_date_bn\" style=\"border: none; font-size: 15px; width: 100%; text-align: center; background: transparent; opacity: 0;\" autocomplete=\"off\" type=\"text\" value=\"৫ জ্যৈষ্ঠ ১৪২৭\" />";
+        public static string bnDateApproverPotroSet(DateTime dateTime)
+        {
+            BengaliCalendar bCal = new BengaliCalendar();
+            string Month = ConversionMethod.GetBengaliMonthFromEnglishMonthNo(bCal.GetMonth(dateTime));
+            string Day = ConversionMethod.EnglishNumberToBangla(bCal.GetDayOfMonth(dateTime).ToString());
+            string Year = ConversionMethod.EnglishNumberToBangla(bCal.GetYear(dateTime).ToString());
+
+            return bnDateApproverPotroOriginal + "<span id=\"approver_bn_date_text\" style=\"position: absolute; top: 0;left: 0; right: 0;\">" + Day + " " + Month + " " + Year + "</span>";
+        }
+
+
+        public static string enDateApproverPotroOriginal = "<input id=\"approver_potro_date_en\" style=\"border: none; font-size: 15px; width: 100%; text-align: center; background: transparent; opacity: 0;\" autocomplete=\"off\" type=\"text\" value=\"১৯ মে ২০২০\" />";
+        public static string enDateApproverPotroSet(DateTime dateTime)
+        {
+            BengaliCalendar bCal = new BengaliCalendar();
+            string Month = ConversionMethod.GetEngMonthNameinBengali(dateTime.Month);
+            string Day = ConversionMethod.EnglishNumberToBangla(dateTime.Day.ToString());
+            string Year = ConversionMethod.EnglishNumberToBangla(dateTime.Year.ToString());
+
+            return enDateApproverPotroOriginal + "<span id=\"approver_en_date_text\" style=\"position: absolute; top: 0;left: 0; right: 0;\">" + Day + " " + Month + " " + Year + "</span>";
+        }
+
+
+
+
+        public static string bnDatePotroOriginal = "<input id=\"potro_date_bn\" style=\"border: none; font-size: 15px; width: 100%; text-align: center; background: transparent; opacity: 0;\" autocomplete=\"off\" type=\"text\" value=\"৫ জ্যৈষ্ঠ ১৪২৭\" />";
+        public static string bnDatePotroSet(DateTime dateTime)
+        {
+            BengaliCalendar bCal = new BengaliCalendar();
+            string Month = ConversionMethod.GetBengaliMonthFromEnglishMonthNo(bCal.GetMonth(dateTime));
+            string Day = ConversionMethod.EnglishNumberToBangla(bCal.GetDayOfMonth(dateTime).ToString());
+            string Year = ConversionMethod.EnglishNumberToBangla(bCal.GetYear(dateTime).ToString());
+
+            return bnDatePotroOriginal + "<span id=\"bn_date_text\" style=\"position: absolute; top: 0;left: 0; right: 0;\">"+Day+" "+Month+" "+Year+"</span>";
+        }
+
+
+        public static string enDatePotroOriginal = "<input id=\"potro_date_en\" style=\"border: none; font-size: 15px; width: 100%; text-align: center; background: transparent; opacity: 0;\" autocomplete=\"off\" type=\"text\" value=\"১৯ মে ২০২০\" />";
+        public static string enDatePotroSet(DateTime dateTime)
+        {
+            BengaliCalendar bCal = new BengaliCalendar();
+            string Month = ConversionMethod.GetEngMonthNameinBengali(dateTime.Month);
+            string Day = ConversionMethod.EnglishNumberToBangla(dateTime.Day.ToString());
+            string Year = ConversionMethod.EnglishNumberToBangla(dateTime.Year.ToString());
+           
+            return enDatePotroOriginal + "<span id=\"en_date_text\" style=\"position: absolute; top: 0;left: 0; right: 0;\">" + Day + " " + Month + " " + Year + "</span>";
+        }
+
+
+
+
+        public static string dateSharokTitleOriginal = "<p class=\"dateSarokTitle write_here\" style=\"margin: 0; font-family: 'nikosh' !important;\" contenteditable=\"true\">----</p>";
+        public static string dateSharokTitleReplace = "<p class=\"dateSarokTitle write_here\" style=\"margin: 0; font-family: 'nikosh' !important;\" contenteditable=\"true\"></p>";
+
+        public static string subjectOriginal = "<td class=\"khoshra_subject\" style=\"font-family: 'nikosh' !important;\" contenteditable=\"true\" valign=\"middle\">...................</td>";
+        public static string subjectNew(string sub)
+        {
+
+          return   "<td class=\"khoshra_subject\" style=\"font-family: 'nikosh' !important;\" contenteditable=\"true\" valign=\"middle\">"+sub+"</td>";
+
+        }
+
+
         public static string OnulipiNumAndDateHive = "<table id=\"sarokBottomWrapper\" style=\"width: 100%; opacity: 0;\" cellspacing=\"0\" cellpadding=\"0\">";
         public static string OnulipiNumAndDateShow = "<table id=\"sarokBottomWrapper\" style=\"width: 100%; opacity: 1;\" cellspacing=\"0\" cellpadding=\"0\">";
 

@@ -50,7 +50,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void LoadFolderTree(FolderListDataDTO value)
         {
-            if(value.publicFOlder.Count>0)
+            if(value.publicFOlder!=null && value.publicFOlder.Count>0)
             {
                 foreach(FolderDTO publicFolderDTO in value.publicFOlder)
                 {

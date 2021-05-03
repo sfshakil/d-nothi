@@ -31,18 +31,22 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.attachmentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.aproverListRowUserControl = new dNothi.Desktop.UI.Khosra_Potro.KhosraPrapokListRowUserControl();
+            this.senderListRowUserControl = new dNothi.Desktop.UI.Khosra_Potro.KhosraPrapokListRowUserControl();
+            this.PrapokListRowUserControl = new dNothi.Desktop.UI.Khosra_Potro.KhosraPrapokListRowUserControl();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.HeadingPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.attachmentTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // HeadingPanel
@@ -114,24 +118,87 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             // attachmentTableLayoutPanel
             // 
             this.attachmentTableLayoutPanel.AutoScroll = true;
-            this.attachmentTableLayoutPanel.AutoSize = true;
             this.attachmentTableLayoutPanel.ColumnCount = 1;
             this.attachmentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.attachmentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.attachmentTableLayoutPanel.Controls.Add(this.aproverListRowUserControl, 0, 4);
+            this.attachmentTableLayoutPanel.Controls.Add(this.senderListRowUserControl, 0, 4);
+            this.attachmentTableLayoutPanel.Controls.Add(this.PrapokListRowUserControl, 0, 0);
+            this.attachmentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.attachmentTableLayoutPanel.Location = new System.Drawing.Point(23, 72);
             this.attachmentTableLayoutPanel.Name = "attachmentTableLayoutPanel";
-            this.attachmentTableLayoutPanel.RowCount = 1;
+            this.attachmentTableLayoutPanel.RowCount = 5;
             this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.attachmentTableLayoutPanel.Size = new System.Drawing.Size(504, 0);
+            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentTableLayoutPanel.Size = new System.Drawing.Size(504, 601);
             this.attachmentTableLayoutPanel.TabIndex = 40;
+            // 
+            // aproverListRowUserControl
+            // 
+            this.aproverListRowUserControl._UserDesignation = "সল্যুশন আর্কিটেক্ট,";
+            this.aproverListRowUserControl._UserName = "মোঃ হাসানুজ্জামান";
+            this.aproverListRowUserControl._UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
+            this.aproverListRowUserControl._UserType = "অনুমোদনকারী";
+            this.aproverListRowUserControl.AutoSize = true;
+            this.aproverListRowUserControl.BackColor = System.Drawing.Color.White;
+            this.aproverListRowUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aproverListRowUserControl.Location = new System.Drawing.Point(3, 74);
+            this.aproverListRowUserControl.Name = "aproverListRowUserControl";
+            this.aproverListRowUserControl.Size = new System.Drawing.Size(498, 65);
+            this.aproverListRowUserControl.TabIndex = 2;
+            this.aproverListRowUserControl.UserDesignation = "সল্যুশন আর্কিটেক্ট,";
+            this.aproverListRowUserControl.UserName = "মোঃ হাসানুজ্জামান";
+            this.aproverListRowUserControl.UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
+            this.aproverListRowUserControl.UserType = "অনুমোদনকারী";
+            this.aproverListRowUserControl.Load += new System.EventHandler(this.khosraPrapokListRowUserControl3_Load);
+            // 
+            // senderListRowUserControl
+            // 
+            this.senderListRowUserControl._UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
+            this.senderListRowUserControl._UserName = "মোঃ হাসানুজ্জামান";
+            this.senderListRowUserControl._UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
+            this.senderListRowUserControl._UserType = "প্রেরক";
+            this.senderListRowUserControl.AutoSize = true;
+            this.senderListRowUserControl.BackColor = System.Drawing.Color.White;
+            this.senderListRowUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.senderListRowUserControl.Location = new System.Drawing.Point(3, 145);
+            this.senderListRowUserControl.Name = "senderListRowUserControl";
+            this.senderListRowUserControl.Size = new System.Drawing.Size(498, 453);
+            this.senderListRowUserControl.TabIndex = 1;
+            this.senderListRowUserControl.UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
+            this.senderListRowUserControl.UserName = "মোঃ হাসানুজ্জামান";
+            this.senderListRowUserControl.UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
+            this.senderListRowUserControl.UserType = "প্রেরক";
+            this.senderListRowUserControl.Load += new System.EventHandler(this.khosraPrapokListRowUserControl2_Load);
+            // 
+            // PrapokListRowUserControl
+            // 
+            this.PrapokListRowUserControl._UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
+            this.PrapokListRowUserControl._UserName = "জাফরিন আহমেদ ";
+            this.PrapokListRowUserControl._UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
+            this.PrapokListRowUserControl._UserType = "প্রাপক";
+            this.PrapokListRowUserControl.AutoSize = true;
+            this.PrapokListRowUserControl.BackColor = System.Drawing.Color.White;
+            this.PrapokListRowUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PrapokListRowUserControl.Location = new System.Drawing.Point(3, 3);
+            this.PrapokListRowUserControl.Name = "PrapokListRowUserControl";
+            this.PrapokListRowUserControl.Size = new System.Drawing.Size(498, 65);
+            this.PrapokListRowUserControl.TabIndex = 0;
+            this.PrapokListRowUserControl.UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
+            this.PrapokListRowUserControl.UserName = "জাফরিন আহমেদ ";
+            this.PrapokListRowUserControl.UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
+            this.PrapokListRowUserControl.UserType = "প্রাপক";
+            this.PrapokListRowUserControl.Load += new System.EventHandler(this.khosraPrapokListRowUserControl1_Load);
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewImageColumn1.HeaderText = "+";
             this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn1.MinimumWidth = 2;
@@ -141,10 +208,10 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewImageColumn2.HeaderText = "+";
             this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
@@ -166,7 +233,8 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.attachmentTableLayoutPanel.ResumeLayout(false);
+            this.attachmentTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -184,5 +252,8 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         private DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn mul_prapok;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel attachmentTableLayoutPanel;
+        private KhosraPrapokListRowUserControl aproverListRowUserControl;
+        private KhosraPrapokListRowUserControl senderListRowUserControl;
+        private KhosraPrapokListRowUserControl PrapokListRowUserControl;
     }
 }
