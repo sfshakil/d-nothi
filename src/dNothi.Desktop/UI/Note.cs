@@ -517,6 +517,13 @@ namespace dNothi.Desktop.UI
                     }
                     //lbNote.Visible = true;
                 }
+                else
+                {
+                    pnlNoteKhoshraWaiting.Visible = false;
+                    pnlNoteKhoshra.Visible = false;
+                    pnlNotePotrojari.Visible = false;
+                    pnlNoNote.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -849,6 +856,13 @@ namespace dNothi.Desktop.UI
 
                     }
                     //lbNote.Visible = true;
+                }
+                else
+                {
+                    pnlNoNote.Visible = true;
+                    pnlNoteKhoshraWaiting.Visible = false;
+                    pnlNoteKhoshra.Visible = false;
+                    pnlNotePotrojari.Visible = false;
                 }
 
                 //string str = list.note_status;
@@ -1449,7 +1463,54 @@ namespace dNothi.Desktop.UI
                     lbNothiType.Text = "বাছাইকৃত নোট (১)";
                     noteViewFLP.Controls.Clear();
                     noteViewFLP.Controls.Add(newNoteView);
+                    //loadNoteViewToNoPo(newNoteView);
+                    if (Convert.ToInt32(newNoteView.khosraPotro) > 0 || Convert.ToInt32(newNoteView.khoshraWaiting) > 0 || Convert.ToInt32(newNoteView.potrojari) > 0)
+                    {
+                        pnlNoNote.Visible = false;
+                        //lbNote.Visible = true;
+                        if (Convert.ToInt32(newNoteView.khoshraWaiting) > 0)
+                        {
+                            pnlNoteKhoshraWaiting.Visible = true;
+                            pnlNoteKhoshraWaiting.BringToFront();
+                            lbNoteKhoshraWaiting.Text = string.Concat(newNoteView.khoshraWaiting.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        }
+                        else
+                        {
+                            pnlNoteKhoshraWaiting.Visible = false;
+                        }
 
+                        //lbNote.Visible = true;
+                        if (Convert.ToInt32(newNoteView.khosraPotro) > 0)
+                        {
+                            pnlNoteKhoshra.Visible = true;
+                            //pnlNoteKhoshra.SendToBack();
+                            lbNoteKhoshra.Text = string.Concat(newNoteView.khosraPotro.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        }
+                        else
+                        {
+                            pnlNoteKhoshra.Visible = false;
+                        }
+                        lbNote.Visible = true;
+                        if (Convert.ToInt32(newNoteView.potrojari) > 0)
+                        {
+                            pnlNotePotrojari.Visible = true;
+                            pnlNotePotrojari.BringToFront();
+                            lbNotePotrojari.Text = string.Concat(newNoteView.potrojari.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        }
+                        else
+                        {
+                            pnlNotePotrojari.Visible = false;
+
+                        }
+                        //lbNote.Visible = true;
+                    }
+                    else
+                    {
+                        pnlNoteKhoshraWaiting.Visible = false;
+                        pnlNoteKhoshra.Visible = false;
+                        pnlNotePotrojari.Visible = false;
+                        pnlNoNote.Visible = true;
+                    }
                 }
                 else if (selectedItem == "আগত নোট")
                 {

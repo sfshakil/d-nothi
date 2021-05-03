@@ -416,7 +416,12 @@ namespace dNothi.Desktop.UI
             noteView.officerInfo = _dakuserparam.officer + "," + nothiAllListRecords.nothi.office_designation_name + "," + nothiAllListRecords.nothi.office_unit_name + "," + _dakuserparam.office_label;
             noteView.checkBox = "1";
             noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
-
+            noteView.onucchedCount = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+            noteView.khosraPotro = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+            noteView.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
+            noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
+            noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
+            noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
@@ -508,7 +513,12 @@ namespace dNothi.Desktop.UI
             noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
             noteView.checkBox = "1";
             noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
-
+            noteView.onucchedCount = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+            noteView.khosraPotro = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+            noteView.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
+            noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
+            noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
+            noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
