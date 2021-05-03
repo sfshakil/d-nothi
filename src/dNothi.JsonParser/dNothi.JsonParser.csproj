@@ -76,6 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="INothivuktoPotroParser.cs" />
+    <Compile Include="NothivuktoPotroParser.cs" />
     <Compile Include="AllPotroParser.cs" />
     <Compile Include="Entity\Dak\DakArchiveResponse.cs" />
     <Compile Include="Entity\Dak\DakArchiveRevertResponse.cs" />
@@ -155,6 +157,12 @@
     <Compile Include="Entity\Nothi\KhoshraPotroWaitinDataRecordMulpotroDTO.cs" />
     <Compile Include="Entity\Nothi\KhoshraPotroWaitinDataRecordNoteOnucchedDTO.cs" />
     <Compile Include="Entity\Nothi\KhoshraPotroWaitinDataRecordNoteOwnerDTO.cs" />
+    <Compile Include="Entity\Nothi\NothivuktoPotroDataDTO.cs" />
+    <Compile Include="Entity\Nothi\NothivuktoPotroDataRecordBasicDTO.cs" />
+    <Compile Include="Entity\Nothi\NothivuktoPotroDataRecordDTO.cs" />
+    <Compile Include="Entity\Nothi\NothivuktoPotroDataRecordMulpotroDTO.cs" />
+    <Compile Include="Entity\Nothi\NothivuktoPotroDataRecordNoteOwnerDTO.cs" />
+    <Compile Include="Entity\Nothi\NothivuktoPotroResponse.cs" />
     <Compile Include="Entity\Nothi\KhoshraPotroWaitingResponse.cs" />
     <Compile Include="Entity\Nothi\NoteAllList.cs" />
     <Compile Include="Entity\Nothi\NoteAllListDataDTO.cs" />

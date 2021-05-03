@@ -156,6 +156,7 @@ namespace dNothi.Desktop.UI.Dak
             List1.khoshra_potro = Convert.ToInt32(_khosraPotro);
             List1.khoshra_waiting_for_approval = Convert.ToInt32(khoshraWaiting);
             List1.potrojari = Convert.ToInt32(potrojari);
+            List1.nothivukto_potro = Convert.ToInt32(nothivukto);
             //List1.note_status = sender.ToString();
             List1.nothi_note_id = Convert.ToInt32(lbNothiNoteID.Text);
             List1.note_status = lbTotalNothi.Text;
