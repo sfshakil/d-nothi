@@ -53,6 +53,7 @@ namespace dNothi.Desktop.UI
         INothiPotrangshoServices _loadPotrangsho { get; set; }
         IAllPotroServices _allPotro { get; set; }
         IKhoshraPotroServices _khoshraPotro { get; set; }
+        INothivuktoPotroServices _nothivuktoPotro { get; set; }
         IKhoshraPotroWaitingServices _khoshraPotroWaiting { get; set; }
         IPotrojariServices _potrojariList { get; set; }
         INothijatoServices _nothijatoList { get; set; }
@@ -74,7 +75,7 @@ namespace dNothi.Desktop.UI
         private int _collapseExpandeWidth;
         public Note(IPotrojariServices potrojariServices,IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
             IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
-            IKhoshraPotroServices khoshraPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
+            IKhoshraPotroServices khoshraPotro, INothivuktoPotroServices nothivuktoPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
             IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave,
             IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
@@ -89,6 +90,7 @@ namespace dNothi.Desktop.UI
             _loadPotrangsho = loadPotrangsho;
             _allPotro = allPotro;
             _khoshraPotro = khoshraPotro;
+            _nothivuktoPotro = nothivuktoPotro;
             _khoshraPotroWaiting = khoshraPotroWaiting;
             _potrojariList = potrojariList;
             _nothijatoList = nothijatoList;
@@ -160,7 +162,7 @@ namespace dNothi.Desktop.UI
             if (loadPotrangsho.status == "success")
             {
                 if (loadPotrangsho.data.khoshra_potro>0 || loadPotrangsho.data.khoshra_waiting_for_approval>0 || loadPotrangsho.data.all_potro>0 ||
-                    loadPotrangsho.data.potrojari>0 || loadPotrangsho.data.nothijato_potro>0 || loadPotrangsho.data.approved_potro>0)
+                    loadPotrangsho.data.potrojari>0 || loadPotrangsho.data.nothijato_potro>0 || loadPotrangsho.data.approved_potro>0 || loadPotrangsho.data.nothivukto_potro > 0)
                 {
                     pnlNoNothi.Visible = false;
                     if(loadPotrangsho.data.khoshra_potro > 0)
@@ -190,7 +192,16 @@ namespace dNothi.Desktop.UI
                     {
                         pnlAllPotro.Visible = false;
                     }
-                    if(loadPotrangsho.data.potrojari > 0)
+                    if (loadPotrangsho.data.nothivukto_potro > 0)
+                    {
+                        pnlNothivuktoPotro.Visible = true;
+                        lbNothivuktoPotro.Text = string.Concat(loadPotrangsho.data.nothivukto_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        pnlNothivuktoPotro.Visible = false;
+                    }
+                    if (loadPotrangsho.data.potrojari > 0)
                     {
                         pnlPotrojari.Visible = true;
                         lbPotrojari.Text = string.Concat(loadPotrangsho.data.potrojari.ToString().Select(c => (char)('\u09E6' + c - '0')));
@@ -228,6 +239,7 @@ namespace dNothi.Desktop.UI
                     pnlAllPotro.Visible = false;
                     pnlPotrojari.Visible = false;
                     pnlNothijato.Visible = false;
+                    pnlNothivuktoPotro.Visible = false;
                     pnlNoNothi.Visible = true;
                 }
             }
@@ -477,7 +489,7 @@ namespace dNothi.Desktop.UI
                     }
                 }
 
-                if (list.khoshra_potro > 0 || list.khoshra_waiting_for_approval > 0 || list.potrojari > 0)
+                if (list.khoshra_potro > 0 || list.khoshra_waiting_for_approval > 0 || list.potrojari > 0 || list.nothivukto_potro > 0)
                 {
                     pnlNoNote.Visible = false;
                     //lbNote.Visible = true;
@@ -491,7 +503,16 @@ namespace dNothi.Desktop.UI
                     {
                         pnlNoteKhoshraWaiting.Visible = false;
                     }
-
+                    if (list.nothivukto_potro > 0)
+                    {
+                        pnlNoteNothivuktoPotro.Visible = true;
+                        pnlNoteNothivuktoPotro.BringToFront();
+                        lbNoteNothivuktoPotro.Text = string.Concat(list.nothivukto_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        pnlNoteNothivuktoPotro.Visible = false;
+                    }
                     //lbNote.Visible = true;
                     if (list.khoshra_potro > 0)
                     {
@@ -522,6 +543,7 @@ namespace dNothi.Desktop.UI
                     pnlNoteKhoshraWaiting.Visible = false;
                     pnlNoteKhoshra.Visible = false;
                     pnlNotePotrojari.Visible = false;
+                    pnlNoteNothivuktoPotro.Visible = false;
                     pnlNoNote.Visible = true;
                 }
             }
@@ -540,6 +562,7 @@ namespace dNothi.Desktop.UI
             list.khoshra_potro = Convert.ToInt32(noteView._khosraPotro);
             list.khoshra_waiting_for_approval = Convert.ToInt32(noteView._khoshraWaiting);
             list.potrojari = Convert.ToInt32(noteView._potrojari);
+            list.nothivukto_potro = Convert.ToInt32(noteView.nothivukto);
             if (nothiListRecords.id>0)
             {
                 loadNotangsho_Potrangsho(list);
@@ -817,7 +840,7 @@ namespace dNothi.Desktop.UI
                     }
                 }
 
-                if (list.khoshra_potro > 0 || list.khoshra_waiting_for_approval > 0 || list.potrojari > 0)
+                if (list.khoshra_potro > 0 || list.khoshra_waiting_for_approval > 0 || list.potrojari > 0 || list.nothivukto_potro > 0)
                 {
                     pnlNoNote.Visible = false;
                     //lbNote.Visible = true;
@@ -831,7 +854,16 @@ namespace dNothi.Desktop.UI
                     {
                         pnlNoteKhoshraWaiting.Visible = false;
                     }
-
+                    if (list.nothivukto_potro > 0)
+                    {
+                        pnlNoteNothivuktoPotro.Visible = true;
+                        pnlNoteNothivuktoPotro.BringToFront();
+                        lbNoteNothivuktoPotro.Text = string.Concat(list.nothivukto_potro.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    }
+                    else
+                    {
+                        pnlNoteNothivuktoPotro.Visible = false;
+                    }
                     //lbNote.Visible = true;
                     if (list.khoshra_potro > 0)
                     {
@@ -859,10 +891,11 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    pnlNoNote.Visible = true;
                     pnlNoteKhoshraWaiting.Visible = false;
                     pnlNoteKhoshra.Visible = false;
                     pnlNotePotrojari.Visible = false;
+                    pnlNoteNothivuktoPotro.Visible = false;
+                    pnlNoNote.Visible = true;
                 }
 
                 //string str = list.note_status;
@@ -1464,7 +1497,7 @@ namespace dNothi.Desktop.UI
                     noteViewFLP.Controls.Clear();
                     noteViewFLP.Controls.Add(newNoteView);
                     //loadNoteViewToNoPo(newNoteView);
-                    if (Convert.ToInt32(newNoteView.khosraPotro) > 0 || Convert.ToInt32(newNoteView.khoshraWaiting) > 0 || Convert.ToInt32(newNoteView.potrojari) > 0)
+                    if (Convert.ToInt32(newNoteView.khosraPotro) > 0 || Convert.ToInt32(newNoteView.nothivukto) > 0 || Convert.ToInt32(newNoteView.khoshraWaiting) > 0 || Convert.ToInt32(newNoteView.potrojari) > 0)
                     {
                         pnlNoNote.Visible = false;
                         //lbNote.Visible = true;
@@ -1478,7 +1511,16 @@ namespace dNothi.Desktop.UI
                         {
                             pnlNoteKhoshraWaiting.Visible = false;
                         }
-
+                        if (Convert.ToInt32(newNoteView.nothivukto) > 0)
+                        {
+                            pnlNoteNothivuktoPotro.Visible = true;
+                            pnlNoteNothivuktoPotro.BringToFront();
+                            lbNoteNothivuktoPotro.Text = string.Concat(newNoteView.nothivukto.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        }
+                        else
+                        {
+                            pnlNoteNothivuktoPotro.Visible = false;
+                        }
                         //lbNote.Visible = true;
                         if (Convert.ToInt32(newNoteView.khosraPotro) > 0)
                         {
@@ -1509,6 +1551,7 @@ namespace dNothi.Desktop.UI
                         pnlNoteKhoshraWaiting.Visible = false;
                         pnlNoteKhoshra.Visible = false;
                         pnlNotePotrojari.Visible = false;
+                        pnlNoteNothivuktoPotro.Visible = false;
                         pnlNoNote.Visible = true;
                     }
                 }
@@ -3103,8 +3146,12 @@ namespace dNothi.Desktop.UI
 
         public void allLbelButtonPreviousColor()
         {
+
             lbKhoshra.BackColor = Color.Azure;
             lbKhoshra.ForeColor = Color.FromArgb(63, 66, 84);
+
+            lbNothivuktoPotro.BackColor = Color.Azure;
+            lbNothivuktoPotro.ForeColor = Color.FromArgb(63, 66, 84);
 
             lbKhoshraWaiting.BackColor = Color.Azure;
             lbKhoshraWaiting.ForeColor = Color.FromArgb(63, 66, 84);
@@ -3123,6 +3170,9 @@ namespace dNothi.Desktop.UI
 
             lbNoteKhoshra.BackColor = Color.Azure;
             lbNoteKhoshra.ForeColor = Color.FromArgb(63, 66, 84);
+
+            lbNoteNothivuktoPotro.BackColor = Color.Azure;
+            lbNoteNothivuktoPotro.ForeColor = Color.FromArgb(63, 66, 84);
 
             lbNoteKhoshraWaiting.BackColor = Color.Azure;
             lbNoteKhoshraWaiting.ForeColor = Color.FromArgb(63, 66, 84);
@@ -3990,6 +4040,123 @@ namespace dNothi.Desktop.UI
                 allNextButtonVisibilityOff();
                 //allMulpotroButtonsVisibilityOff();
             }
+        }
+        NothivuktoPotroResponse nothivuktoPotroResponse = new NothivuktoPotroResponse();
+        private void lbNothivuktoPotro_Click(object sender, EventArgs e)
+        {
+                current_potro_id = 0;
+                //_khoshraPotroWaitinDataRecordDTO = null;
+                //khoshraPotroWaitinDataRecordMulpotroDTO = null;
+                allLbelButtonPreviousColor();
+                lbNothivuktoPotro.BackColor = Color.FromArgb(14, 102, 98);
+                lbNothivuktoPotro.ForeColor = Color.FromArgb(191, 239, 237);
+
+                allNextButtonVisibilityOff();
+                //btnKhoshraWaitingNext.Visible = true;
+
+                nothivuktoPotroResponse = _nothivuktoPotro.GetNothivuktoPotroInfo(_dakuserparam, nothiListRecords.id);
+                if (nothivuktoPotroResponse.status == "success")
+                {
+                    i = 0;
+                    pnlPotrangshoDetails.Visible = true;
+                    lbPotroSubject.Text = nothivuktoPotroResponse.data.records[i].basic.potro_subject;
+                    lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + nothivuktoPotroResponse.data.records[i].basic.created;
+                    lbNoteId.Text = "নোটঃ " + string.Concat(nothivuktoPotroResponse.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbSubjectSmall.Text = "পত্র: " + nothivuktoPotroResponse.data.records[i].basic.potro_subject;
+                    lbTotal.Text = "সর্বমোট: " + string.Concat(nothivuktoPotroResponse.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                    allMulpotroButtonsVisibilityOff();
+                    int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                        endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                    foreach (string btnName in nothivuktoPotroResponse.data.records[i].mulpotro.buttonsDTOList)
+                    {
+                        if (btnName == "draft_history")
+                        {
+                            draft_history = 1;
+                        }
+                        if (btnName == "clone")
+                        {
+                            clone = 1;
+                        }
+                        if (btnName == "edit")
+                        {
+                            edit = 1;
+                        }
+                        if (btnName == "delete")
+                        {
+                            delete = 1;
+                        }
+                        if (btnName == "approve")
+                        {
+                            approve = 1;
+                        }
+                        if (btnName == "unapprove")
+                        {
+                            unapprove = 1;
+                        }
+                        if (btnName == "potrojari")
+                        {
+                            potrojari = 1;
+                        }
+                        if (btnName == "endorsement")
+                        {
+                            endrosement = 1;
+                        }
+                        if (btnName == "khoshra")
+                        {
+                            khoshra = 1;
+                        }
+                        if (btnName == "full_editable")
+                        {
+                            fulleditable = 1;
+                        }
+                        if (btnName == "custom")
+                        {
+                            custom = 1;
+                        }
+                    }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+                mulpotroOshongjuktiVisibilityOff();
+                totalRange = (i + 1).ToString();
+
+                picBoxFile.Visible = false;
+                khosraViewWebBrowser.Visible = true;
+                if (khosraViewWebBrowser.Document != null)
+                {
+                    khosraViewWebBrowser.Document.Write(string.Empty);
+                }
+
+                if (nothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                {
+                    pnlMulPotroOShonjukti.Visible = true;
+                    lbMulPotroOShonjukti.Visible = true;
+                    btnMulPotroOShonjukti.Visible = true;
+                    btnMulPotroOShonjukti.Text = string.Concat(nothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    mulpotroOshongjuktiVisibilityOff();
+                }
+
+                //totalRange = (i + 1).ToString();
+                if (nothivuktoPotroResponse.data.records[i].mulpotro.url != "")
+                {
+                    picBoxFile.Visible = false;
+                    khosraViewWebBrowser.Url = new Uri(nothivuktoPotroResponse.data.records[i].mulpotro.url);
+                }
+                else
+                {
+                    picBoxFile.Controls.Clear();
+                }
+            }
+                //if (khoshraPotroWaiting.data.total_records == i || khoshraPotroWaiting.data.total_records - 1 == i)
+                //{
+                //    i = 0;
+                //    allNextButtonVisibilityOff();
+                //    allPreviousButtonVisibilityOff();
+                //}
+            
         }
         KhoshraPotroWaitingResponse khoshraPotroWaiting = new KhoshraPotroWaitingResponse();
         private void lbKhoshraWaiting_Click(object sender, EventArgs e)

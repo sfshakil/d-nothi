@@ -209,6 +209,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiPotrangshoServices>().As<INothiPotrangshoServices>();
             builder.RegisterType<AllPotroServices>().As<IAllPotroServices>();
             builder.RegisterType<KhoshraPotroServices>().As<IKhoshraPotroServices>();
+            builder.RegisterType<NothivuktoPotroServices>().As<INothivuktoPotroServices>();
             builder.RegisterType<KhoshraPotroWaitingServices>().As<IKhoshraPotroWaitingServices>();
             builder.RegisterType<PotrojariServices>().As<IPotrojariServices>();
             builder.RegisterType<NothijatoServices>().As<INothijatoServices>();
@@ -220,6 +221,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
 
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
+            builder.RegisterType<NothivuktoPotroParser>().As<INothivuktoPotroParser>();
             builder.RegisterType<KhasraTemplateService>().As<IKhasraTemplateService>();
             builder.RegisterType<PotrojariParser>().As<IPotrojariParser>();
             builder.RegisterType<RegisterService>().As<IRegisterService>();
