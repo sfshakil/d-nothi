@@ -122,6 +122,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label1.Location = new System.Drawing.Point(104, 54);
@@ -134,6 +135,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label6.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label6.Location = new System.Drawing.Point(104, 14);
@@ -304,6 +306,7 @@
             // btnNote
             // 
             this.btnNote.BackColor = System.Drawing.Color.Transparent;
+            this.btnNote.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.btnNote.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnNote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -341,6 +344,7 @@
             // btnOnumodon
             // 
             this.btnOnumodon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.btnOnumodon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOnumodon.FlatAppearance.BorderSize = 0;
             this.btnOnumodon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOnumodon.IconChar = FontAwesome.Sharp.IconChar.Users;
@@ -358,6 +362,7 @@
             // btnNothiAllNoteShomuho
             // 
             this.btnNothiAllNoteShomuho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(247)))), ((int)(((byte)(245)))));
+            this.btnNothiAllNoteShomuho.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNothiAllNoteShomuho.FlatAppearance.BorderSize = 0;
             this.btnNothiAllNoteShomuho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.Plus;
@@ -390,6 +395,7 @@
             // btnArchive
             // 
             this.btnArchive.BackColor = System.Drawing.Color.Transparent;
+            this.btnArchive.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.btnArchive.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -407,17 +413,20 @@
             // 
             // lbNothi
             // 
+            this.lbNothi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.lbNothi.Location = new System.Drawing.Point(145, 11);
             this.lbNothi.Name = "lbNothi";
             this.lbNothi.Size = new System.Drawing.Size(405, 39);
             this.lbNothi.TabIndex = 100;
             this.lbNothi.Text = "nothiLabel";
+            this.lbNothi.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // lbShakha
             // 
             this.lbShakha.AutoSize = true;
+            this.lbShakha.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbShakha.Location = new System.Drawing.Point(148, 54);
@@ -442,6 +451,7 @@
             // btnNishponno
             // 
             this.btnNishponno.BackColor = System.Drawing.Color.Transparent;
+            this.btnNishponno.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.btnNishponno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnNishponno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNishponno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -473,6 +483,7 @@
             // btnOnishponno
             // 
             this.btnOnishponno.BackColor = System.Drawing.Color.Transparent;
+            this.btnOnishponno.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.btnOnishponno.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnOnishponno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnOnishponno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -504,6 +515,7 @@
             // btnOnumodito
             // 
             this.btnOnumodito.BackColor = System.Drawing.Color.Transparent;
+            this.btnOnumodito.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.btnOnumodito.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.btnOnumodito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnOnumodito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -523,6 +535,7 @@
             // 
             this.lbDesk.AutoSize = true;
             this.lbDesk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
+            this.lbDesk.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbDesk.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbDesk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
             this.lbDesk.Location = new System.Drawing.Point(556, 15);
@@ -534,8 +547,9 @@
             // 
             // lbNoteLastDate
             // 
+            this.lbNoteLastDate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbNoteLastDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
             this.lbNoteLastDate.Location = new System.Drawing.Point(875, 55);
             this.lbNoteLastDate.Name = "lbNoteLastDate";
             this.lbNoteLastDate.Size = new System.Drawing.Size(237, 24);

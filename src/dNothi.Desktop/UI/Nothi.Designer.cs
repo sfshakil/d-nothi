@@ -41,7 +41,6 @@
             this.btnNothiInbox = new FontAwesome.Sharp.IconButton();
             this.btnNothiIcon = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
@@ -94,15 +93,10 @@
             this.pnlNoData = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.detailsNothiSearcPanel = new System.Windows.Forms.Panel();
-            this.nothiShakhaSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.ogradhikarSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.nameDesignationSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.panel5 = new System.Windows.Forms.Panel();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.label12 = new System.Windows.Forms.Label();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -115,6 +109,12 @@
             this.detailSearchButton = new System.Windows.Forms.Button();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.nothiBackGroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.nothiShakhaSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.ogradhikarSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.nothiDhoronSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.nameDesignationSrchUC = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.nameorDesignationSearchXTextBox = new dNothi.Desktop.XTextBox();
+            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -336,18 +336,6 @@
             this.panel2.Size = new System.Drawing.Size(1117, 50);
             this.panel2.TabIndex = 13;
             // 
-            // onlineToggleButton2
-            // 
-            this.onlineToggleButton2.AutoSize = true;
-            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
-            this.onlineToggleButton2.Location = new System.Drawing.Point(712, 1);
-            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
-            this.onlineToggleButton2.Name = "onlineToggleButton2";
-            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 49);
-            this.onlineToggleButton2.TabIndex = 108;
-            // 
             // moduleButton
             // 
             this.moduleButton.FlatAppearance.BorderSize = 0;
@@ -362,7 +350,6 @@
             this.moduleButton.Size = new System.Drawing.Size(52, 43);
             this.moduleButton.TabIndex = 107;
             this.moduleButton.UseVisualStyleBackColor = true;
-            this.moduleButton.Visible = false;
             this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
             // profilePanel
@@ -849,6 +836,7 @@
             // noteListButton
             // 
             this.noteListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(80)))), ((int)(((byte)(230)))));
+            this.noteListButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.noteListButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.noteListButton.FlatAppearance.BorderSize = 0;
             this.noteListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -867,6 +855,7 @@
             // btnNothiTalika
             // 
             this.btnNothiTalika.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(16)))), ((int)(((byte)(242)))));
+            this.btnNothiTalika.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNothiTalika.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnNothiTalika.FlatAppearance.BorderSize = 0;
             this.btnNothiTalika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1162,74 +1151,6 @@
             this.detailsNothiSearcPanel.TabIndex = 54;
             this.detailsNothiSearcPanel.Visible = false;
             // 
-            // nothiShakhaSrchUC
-            // 
-            this.nothiShakhaSrchUC.AutoSize = true;
-            this.nothiShakhaSrchUC.BackColor = System.Drawing.Color.White;
-            this.nothiShakhaSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.nothiShakhaSrchUC.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.nothiShakhaSrchUC.Location = new System.Drawing.Point(667, 72);
-            this.nothiShakhaSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
-            this.nothiShakhaSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
-            this.nothiShakhaSrchUC.Name = "nothiShakhaSrchUC";
-            this.nothiShakhaSrchUC.searchButtonText = "বাছাই করুন";
-            this.nothiShakhaSrchUC.Size = new System.Drawing.Size(374, 63);
-            this.nothiShakhaSrchUC.TabIndex = 56;
-            // 
-            // ogradhikarSrchUC
-            // 
-            this.ogradhikarSrchUC.AutoSize = true;
-            this.ogradhikarSrchUC.BackColor = System.Drawing.Color.White;
-            this.ogradhikarSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.ogradhikarSrchUC.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.ogradhikarSrchUC.Location = new System.Drawing.Point(667, 155);
-            this.ogradhikarSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
-            this.ogradhikarSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
-            this.ogradhikarSrchUC.Name = "ogradhikarSrchUC";
-            this.ogradhikarSrchUC.searchButtonText = "দপ্তর/শাখা";
-            this.ogradhikarSrchUC.Size = new System.Drawing.Size(374, 63);
-            this.ogradhikarSrchUC.TabIndex = 55;
-            // 
-            // nothiDhoronSrchUC
-            // 
-            this.nothiDhoronSrchUC.AutoSize = true;
-            this.nothiDhoronSrchUC.BackColor = System.Drawing.Color.White;
-            this.nothiDhoronSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.nothiDhoronSrchUC.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.nothiDhoronSrchUC.Location = new System.Drawing.Point(35, 72);
-            this.nothiDhoronSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
-            this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
-            this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
-            this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
-            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(386, 52);
-            this.nothiDhoronSrchUC.TabIndex = 54;
-            // 
-            // nameDesignationSrchUC
-            // 
-            this.nameDesignationSrchUC.AutoSize = true;
-            this.nameDesignationSrchUC.BackColor = System.Drawing.Color.White;
-            this.nameDesignationSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.nameDesignationSrchUC.listboxcollection = new string[] {
-        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
-        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
-        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.nameDesignationSrchUC.Location = new System.Drawing.Point(35, 233);
-            this.nameDesignationSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
-            this.nameDesignationSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
-            this.nameDesignationSrchUC.Name = "nameDesignationSrchUC";
-            this.nameDesignationSrchUC.searchButtonText = "নাম/পদবি দিয়ে খুঁজুন";
-            this.nameDesignationSrchUC.Size = new System.Drawing.Size(1010, 52);
-            this.nameDesignationSrchUC.TabIndex = 31;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
@@ -1283,19 +1204,6 @@
             this.iconButton3.Size = new System.Drawing.Size(26, 22);
             this.iconButton3.TabIndex = 4;
             this.iconButton3.UseVisualStyleBackColor = false;
-            // 
-            // nameorDesignationSearchXTextBox
-            // 
-            this.nameorDesignationSearchXTextBox.BackColor = System.Drawing.Color.White;
-            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.nameorDesignationSearchXTextBox.ForeColor = System.Drawing.Color.DimGray;
-            this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(35, 161);
-            this.nameorDesignationSearchXTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.nameorDesignationSearchXTextBox.Multiline = true;
-            this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
-            this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(300, 41);
-            this.nameorDesignationSearchXTextBox.TabIndex = 52;
-            this.nameorDesignationSearchXTextBox.Text = "সময়সীমা";
             // 
             // label10
             // 
@@ -1437,6 +1345,99 @@
             // 
             this.nothiBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.nothiBackGroundWorker_DoWork);
             this.nothiBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.nothiBackGroundWorker_RunWorkerCompleted);
+            // 
+            // nothiShakhaSrchUC
+            // 
+            this.nothiShakhaSrchUC.AutoSize = true;
+            this.nothiShakhaSrchUC.BackColor = System.Drawing.Color.White;
+            this.nothiShakhaSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.nothiShakhaSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.nothiShakhaSrchUC.Location = new System.Drawing.Point(667, 72);
+            this.nothiShakhaSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
+            this.nothiShakhaSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
+            this.nothiShakhaSrchUC.Name = "nothiShakhaSrchUC";
+            this.nothiShakhaSrchUC.searchButtonText = "বাছাই করুন";
+            this.nothiShakhaSrchUC.Size = new System.Drawing.Size(374, 63);
+            this.nothiShakhaSrchUC.TabIndex = 56;
+            // 
+            // ogradhikarSrchUC
+            // 
+            this.ogradhikarSrchUC.AutoSize = true;
+            this.ogradhikarSrchUC.BackColor = System.Drawing.Color.White;
+            this.ogradhikarSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.ogradhikarSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.ogradhikarSrchUC.Location = new System.Drawing.Point(667, 155);
+            this.ogradhikarSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
+            this.ogradhikarSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
+            this.ogradhikarSrchUC.Name = "ogradhikarSrchUC";
+            this.ogradhikarSrchUC.searchButtonText = "দপ্তর/শাখা";
+            this.ogradhikarSrchUC.Size = new System.Drawing.Size(374, 63);
+            this.ogradhikarSrchUC.TabIndex = 55;
+            // 
+            // nothiDhoronSrchUC
+            // 
+            this.nothiDhoronSrchUC.AutoSize = true;
+            this.nothiDhoronSrchUC.BackColor = System.Drawing.Color.White;
+            this.nothiDhoronSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.nothiDhoronSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.nothiDhoronSrchUC.Location = new System.Drawing.Point(35, 72);
+            this.nothiDhoronSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
+            this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
+            this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
+            this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
+            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(386, 52);
+            this.nothiDhoronSrchUC.TabIndex = 54;
+            // 
+            // nameDesignationSrchUC
+            // 
+            this.nameDesignationSrchUC.AutoSize = true;
+            this.nameDesignationSrchUC.BackColor = System.Drawing.Color.White;
+            this.nameDesignationSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.nameDesignationSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.nameDesignationSrchUC.Location = new System.Drawing.Point(35, 233);
+            this.nameDesignationSrchUC.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
+            this.nameDesignationSrchUC.MinimumSize = new System.Drawing.Size(130, 32);
+            this.nameDesignationSrchUC.Name = "nameDesignationSrchUC";
+            this.nameDesignationSrchUC.searchButtonText = "নাম/পদবি দিয়ে খুঁজুন";
+            this.nameDesignationSrchUC.Size = new System.Drawing.Size(1010, 52);
+            this.nameDesignationSrchUC.TabIndex = 31;
+            // 
+            // nameorDesignationSearchXTextBox
+            // 
+            this.nameorDesignationSearchXTextBox.BackColor = System.Drawing.Color.White;
+            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.nameorDesignationSearchXTextBox.ForeColor = System.Drawing.Color.DimGray;
+            this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(35, 161);
+            this.nameorDesignationSearchXTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.nameorDesignationSearchXTextBox.Multiline = true;
+            this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
+            this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(300, 41);
+            this.nameorDesignationSearchXTextBox.TabIndex = 52;
+            this.nameorDesignationSearchXTextBox.Text = "সময়সীমা";
+            // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(712, 1);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 49);
+            this.onlineToggleButton2.TabIndex = 108;
             // 
             // Nothi
             // 

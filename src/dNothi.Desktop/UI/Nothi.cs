@@ -76,7 +76,7 @@ namespace dNothi.Desktop.UI
             agotoNothiSelected = 1;
             preritoNothiSelected = 0;
             shokolNothiSelected = 0;
-
+            modulePanel.Visible = false;
             noteListButton.BackColor = Color.FromArgb(130, 80, 230); ;
             btnNothiTalika.BackColor = Color.FromArgb(102, 16, 242); //115, 55, 238
             loadNothiInboxTotal();
@@ -344,6 +344,7 @@ namespace dNothi.Desktop.UI
             {
                 nothiInboxRecord = nothiListRecordsDTO;
                 var nothiInbox = UserControlFactory.Create<NothiInbox>();
+                nothiInbox.nothiPriority(Convert.ToInt32(nothiListRecordsDTO.priority));
                 nothiInbox.nothi = nothiListRecordsDTO.nothi_no + " " + nothiListRecordsDTO.subject;
                 nothiInbox.shakha = nothiListRecordsDTO.office_unit_name;
                 nothiInbox.totalnothi = nothiListRecordsDTO.note_count.ToString();
@@ -931,6 +932,7 @@ namespace dNothi.Desktop.UI
             {
                 //NothiOutbox nothiOutbox = new NothiOutbox();
                 NothiOutbox nothiOutbox = UserControlFactory.Create<NothiOutbox>();
+                nothiOutbox.nothiPriority(nothiOutboxListDTO.desk.priority);
                 nothiOutbox.nothi = nothiOutboxListDTO.nothi.nothi_no + " " + nothiOutboxListDTO.nothi.subject;
                 nothiOutbox.shakha = nothiOutboxListDTO.nothi.office_unit_name;
                 nothiOutbox.prapok = nothiOutboxListDTO.to.officer + " " + nothiOutboxListDTO.to.designation + "," + nothiOutboxListDTO.to.office_unit + "," + nothiOutboxListDTO.to.office;
@@ -1353,6 +1355,7 @@ namespace dNothi.Desktop.UI
             foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
             {
                 NothiAll nothiAll = UserControlFactory.Create<NothiAll>();
+                
                 nothiAll.NothiAllOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiAllOnumodon_ButtonClick(sender, e, nothiAllListDTO); };
                 nothiAll.NoteDetailsButton += delegate (object sender, EventArgs e) { nothiAllListDTO.nothi.nothi_type = "all";
                     NoteAllDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiAllListDTO, nothiAll._nothiListInboxNoteRecordsDTO); };
@@ -1406,7 +1409,7 @@ namespace dNothi.Desktop.UI
 
                 if (nothiAllListDTO.desk != null && nothiAllListDTO.status != null)
                 {
-
+                    nothiAll.nothiPriority(nothiAllListDTO.desk.priority);
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = nothiAllListDTO.nothi.office_unit_name;
                     nothiAll.desk = nothiAllListDTO.desk.note_count.ToString();
@@ -1816,7 +1819,7 @@ namespace dNothi.Desktop.UI
             newNothi.BackColor = Color.WhiteSmoke;
         }
         designationSelect designationDetailsPanelNothi = new designationSelect();
-
+        
         private void profilePanel_Click(object sender, EventArgs e)
         {
 
@@ -1972,6 +1975,11 @@ namespace dNothi.Desktop.UI
         {
 
             nothiBackGroundWorker.RunWorkerAsync();
+        }
+
+        private void modulePanel_Paint(object sender, PaintEventArgs e)
+        {
+            UIDesignCommonMethod.dropShadow(sender, e);
         }
 
         private void userPictureBox_MouseLeave(object sender, EventArgs e)
@@ -2167,9 +2175,24 @@ namespace dNothi.Desktop.UI
         {
 
         }
-
+        ModulePanelUserControl modulePanel = new ModulePanelUserControl();
+        
         private void moduleButton_Click(object sender, EventArgs e)
         {
+            if (modulePanel.Width == 334 && !modulePanel.Visible)
+            {
+                modulePanel.Visible = true;
+                modulePanel.Location = new System.Drawing.Point(510, 40);
+                Controls.Add(modulePanel);
+                modulePanel.BringToFront();
+                modulePanel.Width = 335;
+                
+            }
+            else
+            {
+                modulePanel.Visible = false;
+                modulePanel.Width = 334;
+            }
         }
     }
 }

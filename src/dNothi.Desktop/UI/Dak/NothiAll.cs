@@ -164,6 +164,11 @@ namespace dNothi.Desktop.UI.Dak
                 }
             }
         }
+        public void nothiPriority(int priority)
+        {
+            if (priority == 1)
+                lbNothi.ForeColor = Color.FromArgb(246, 78, 96);
+        }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {

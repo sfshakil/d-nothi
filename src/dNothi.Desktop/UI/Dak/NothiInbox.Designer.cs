@@ -167,7 +167,7 @@
             this.lbTotalNote.Location = new System.Drawing.Point(960, 7);
             this.lbTotalNote.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNote.Name = "lbTotalNote";
-            this.lbTotalNote.Size = new System.Drawing.Size(73, 18);
+            this.lbTotalNote.Size = new System.Drawing.Size(85, 21);
             this.lbTotalNote.TabIndex = 63;
             this.lbTotalNote.Text = " সর্বমোট: ১২";
             // 
@@ -351,13 +351,14 @@
             // 
             this.lbTotalNothi.AutoSize = true;
             this.lbTotalNothi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
+            this.lbTotalNothi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
             this.lbTotalNothi.Location = new System.Drawing.Point(0, 0);
             this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(60, 18);
+            this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
             this.lbTotalNothi.TabIndex = 61;
             this.lbTotalNothi.Text = "totalNothi";
             // 
@@ -383,9 +384,10 @@
             // 
             // lbNoteLastDate
             // 
+            this.lbNoteLastDate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbNoteLastDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbNoteLastDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
             this.lbNoteLastDate.Location = new System.Drawing.Point(48, 0);
             this.lbNoteLastDate.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteLastDate.Name = "lbNoteLastDate";
@@ -402,7 +404,7 @@
             this.lbNothiId.Location = new System.Drawing.Point(631, 45);
             this.lbNothiId.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiId.Name = "lbNothiId";
-            this.lbNothiId.Size = new System.Drawing.Size(76, 18);
+            this.lbNothiId.Size = new System.Drawing.Size(98, 21);
             this.lbNothiId.TabIndex = 58;
             this.lbNothiId.Text = "nothiIdLabel";
             this.lbNothiId.Visible = false;
@@ -429,6 +431,7 @@
             // btnNothiInboxOnumodon
             // 
             this.btnNothiInboxOnumodon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.btnNothiInboxOnumodon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNothiInboxOnumodon.FlatAppearance.BorderSize = 0;
             this.btnNothiInboxOnumodon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiInboxOnumodon.IconChar = FontAwesome.Sharp.IconChar.Users;
@@ -447,6 +450,7 @@
             // iconButton3
             // 
             this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(247)))), ((int)(((byte)(245)))));
+            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton3.FlatAppearance.BorderSize = 0;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Plus;
@@ -467,37 +471,41 @@
             // lbShakha
             // 
             this.lbShakha.AutoSize = true;
+            this.lbShakha.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbShakha.Location = new System.Drawing.Point(161, 45);
             this.lbShakha.Margin = new System.Windows.Forms.Padding(0);
             this.lbShakha.Name = "lbShakha";
-            this.lbShakha.Size = new System.Drawing.Size(79, 18);
+            this.lbShakha.Size = new System.Drawing.Size(102, 21);
             this.lbShakha.TabIndex = 50;
             this.lbShakha.Text = "shakhaLabel";
             // 
             // lbNothi
             // 
             this.lbNothi.AutoSize = true;
+            this.lbNothi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.lbNothi.Location = new System.Drawing.Point(157, 15);
             this.lbNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothi.Name = "lbNothi";
-            this.lbNothi.Size = new System.Drawing.Size(66, 18);
+            this.lbNothi.Size = new System.Drawing.Size(85, 21);
             this.lbNothi.TabIndex = 49;
             this.lbNothi.Text = "nothiLabel";
+            this.lbNothi.Click += new System.EventHandler(this.iconButton3_Click_1);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label1.Location = new System.Drawing.Point(117, 45);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 18);
+            this.label1.Size = new System.Drawing.Size(43, 21);
             this.label1.TabIndex = 48;
             this.label1.Text = "শাখাঃ";
             // 
@@ -505,12 +513,13 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label6.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label6.Location = new System.Drawing.Point(117, 15);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 18);
+            this.label6.Size = new System.Drawing.Size(38, 21);
             this.label6.TabIndex = 47;
             this.label6.Text = "নথিঃ";
             // 

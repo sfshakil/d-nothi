@@ -316,6 +316,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label2.Location = new System.Drawing.Point(527, 44);
@@ -328,6 +329,7 @@
             // 
             this.lbTotalNothi.AutoSize = true;
             this.lbTotalNothi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
+            this.lbTotalNothi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(0)))));
             this.lbTotalNothi.Location = new System.Drawing.Point(561, 4);
@@ -340,6 +342,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label1.Location = new System.Drawing.Point(101, 42);
@@ -352,6 +355,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label6.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
             this.label6.Location = new System.Drawing.Point(101, 4);
@@ -372,6 +376,7 @@
             // btnNothiOutboxOnumodon
             // 
             this.btnNothiOutboxOnumodon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
+            this.btnNothiOutboxOnumodon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNothiOutboxOnumodon.FlatAppearance.BorderSize = 0;
             this.btnNothiOutboxOnumodon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiOutboxOnumodon.IconChar = FontAwesome.Sharp.IconChar.Users;
@@ -389,6 +394,7 @@
             // iconButton3
             // 
             this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(247)))), ((int)(((byte)(245)))));
+            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton3.FlatAppearance.BorderSize = 0;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Plus;
@@ -407,16 +413,19 @@
             // 
             // lbNothi
             // 
+            this.lbNothi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.lbNothi.Location = new System.Drawing.Point(145, 4);
             this.lbNothi.Name = "lbNothi";
             this.lbNothi.Size = new System.Drawing.Size(410, 39);
             this.lbNothi.TabIndex = 69;
             this.lbNothi.Text = "nothiLabel";
+            this.lbNothi.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // lblPrapok
             // 
+            this.lblPrapok.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lblPrapok.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrapok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lblPrapok.Location = new System.Drawing.Point(610, 4);
@@ -427,8 +436,9 @@
             // 
             // lbLastNoteDate
             // 
+            this.lbLastNoteDate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbLastNoteDate.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLastNoteDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbLastNoteDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
             this.lbLastNoteDate.Location = new System.Drawing.Point(874, 85);
             this.lbLastNoteDate.Name = "lbLastNoteDate";
             this.lbLastNoteDate.Size = new System.Drawing.Size(237, 25);
@@ -437,6 +447,7 @@
             // 
             // lblPresentDesk
             // 
+            this.lblPresentDesk.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lblPresentDesk.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPresentDesk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lblPresentDesk.Location = new System.Drawing.Point(611, 44);
@@ -448,6 +459,7 @@
             // lbShakha
             // 
             this.lbShakha.AutoSize = true;
+            this.lbShakha.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbShakha.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbShakha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbShakha.Location = new System.Drawing.Point(145, 43);
