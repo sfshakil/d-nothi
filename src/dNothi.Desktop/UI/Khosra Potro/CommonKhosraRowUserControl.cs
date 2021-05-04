@@ -130,7 +130,6 @@ namespace dNothi.Desktop.UI.Khosra_Potro
                 if (prapakerTalika.status == "success")
                 {
 
-
                     KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
                     khosraPrapokListViewForm.prapakerTalika = prapakerTalika;
 

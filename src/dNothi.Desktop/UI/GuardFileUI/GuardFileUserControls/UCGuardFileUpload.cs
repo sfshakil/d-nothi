@@ -14,6 +14,9 @@ using dNothi.JsonParser.Entity.Dak;
 using dNothi.Desktop.UI.ManuelUserControl;
 using dNothi.Desktop.UI.CustomMessageBox;
 using sun.invoke.empty;
+using dNothi.Services.GuardFile;
+using dNothi.Services.GuardFile.Model;
+using dNothi.Services.UserServices;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -22,27 +25,42 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         public static readonly List<string> ImageExtensions = new List<string> { ".JPG", "JPG", "JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG", "IMAGE", "IMG" };
         public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
         DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
-        DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
-        public UCGuardFileUpload()
+        GuardFileAttachment _uploadFileResponse = new GuardFileAttachment();
+      
+        IUserService _userService { get; set; }
+        IGuardFileService<GuardFileModel,GuardFileModel.Record> _guardFileService { get; set; }
+        public const string guardFiles = "GuardFiles";
+        public UCGuardFileUpload(IUserService userService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService)
         {
             InitializeComponent();
-            List<gdftype> fl = new List<gdftype>();
-            fl.Add(new gdftype() { rowNo = "1", type = "বাজেট ", typeNo = "1" });
-            fl.Add(new gdftype() { rowNo = "2", type = "test", typeNo = "2" });
-            fl.Add(new gdftype() { rowNo = "3", type = "test2", typeNo = "3" });
-            fl.Add(new gdftype() { rowNo = "4", type = "test3", typeNo = "4" });
-            var data = from s in fl
+            _userService = userService;
+            _guardFileService = guardFileService;
+
+
+           var data = from s in LoadGuardFileTypeList()
                        select new ComboBoxItems
                        {
-                           id = Convert.ToInt32(s.rowNo),
-                           Name = s.type
+                           id = s.id,
+                           Name = s.name_bng
                        };
            
             typesearchComboBox.itemList = data.ToList();
             typesearchComboBox.isListShown = true;
+
+           
+
             panel5.Hide();  
         }
-
+        public List<GuardFileCategory.Record> LoadGuardFileTypeList()
+        {
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+            IGuardFileService<GuardFileCategory, GuardFileCategory.Record> _guardFilecategoryService;
+            _guardFilecategoryService = new GuardFileService<GuardFileCategory, GuardFileCategory.Record>();
+            dakListUserParam.limit = 10;
+            dakListUserParam.page = 1;
+            var datalist = _guardFilecategoryService.GetList(dakListUserParam, 1);
+            return datalist.data.records;
+        }
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -79,39 +97,19 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
 
 
-                //DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                 _uploadFileResponse = UploadFile(_dakFileUploadParam);
 
-                //using (var form = FormFactory.Create<Dashboard>())
-                //{
-                //    dakUploadedFileResponse = form.UploadFile(_dakFileUploadParam);
-                //}
-
-                //if (dakUploadedFileResponse.status == "success")
-                //{
-                    panel5.Show();
-                    //if (dakUploadedFileResponse.data.Count > 0)
-                    //{
-                        //attachmentListFlowLayoutPanel.Controls.Clear();
+                if (_uploadFileResponse.status == "success")
+                {
+                    if (_uploadFileResponse.data.Count > 0)
+                    {
+                        panel5.Show();
                         GuardFileBrowseUC dakUploadAttachmentTableRow = new GuardFileBrowseUC();
                         if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             dakUploadAttachmentTableRow._isAllowedforOCR = true;
                             dakUploadAttachmentTableRow.imgSource = opnfd.FileName;
-                            using (Image image = Image.FromFile(opnfd.FileName))
-                            {
-                                using (MemoryStream m = new MemoryStream())
-                                {
-                                    image.Save(m, image.RawFormat);
-                                    byte[] imageBytes = m.ToArray();
-
-                                    // Convert byte[] to Base64 String
-                                    dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
-
-                                }
-                            }
-
-
                         }
 
                         else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
@@ -127,38 +125,75 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
                         dakUploadAttachmentTableRow.imageBase64String = _dakFileUploadParam.content;
 
-                        //dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
-                        dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._attachmentName); };
-
 
 
                         dakUploadAttachmentTableRow.fileexension = new System.IO.FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
-                      //  dakUploadAttachmentTableRow._dakAttachment = dakUploadedFileResponse.data[0];
-                        //dakUploadAttachmentTableRow.imageLink = dakUploadedFileResponse.data[0].url;
+                        dakUploadAttachmentTableRow._Attachment = _uploadFileResponse.data[0];
+                        dakUploadAttachmentTableRow.imageLink = _uploadFileResponse.data[0].url;
 
-                       // dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                        dakUploadAttachmentTableRow.attachmentName = new System.IO.FileInfo(opnfd.FileName).Name;
-                      //  dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;
-                        dakUploadAttachmentTableRow.attachmentId = 0;
-                // dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
+                        dakUploadAttachmentTableRow.attachmentName = _uploadFileResponse.data[0].user_file_name;
+                        dakUploadAttachmentTableRow.attachmentId = _uploadFileResponse.data[0].id;
+                       // dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._Attachment); };
+                        dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentName); };
 
-                guardFileTextBox.Text = new System.IO.FileInfo(opnfd.FileName).Name;
-                flowLayoutPanel1.Controls.Add(dakUploadAttachmentTableRow);
+                        guardFileTextBox.Text = new System.IO.FileInfo(opnfd.FileName).Name;
+                        dakUploadAttachmentTableRow.Dock = DockStyle.Top;
+                        flowLayoutPanel1.Controls.Add(dakUploadAttachmentTableRow);
                         panel3.Hide();
-                    //}
-                //}
+                    }
+                }
 
-
+                      
             }
         }
 
-        private void DeleteControl_ButtonClick(object sender, EventArgs e, string filename)
+      
+
+        public GuardFileAttachment UploadFile(DakFileUploadParam dakFileUploadParam)
         {
+             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+             GuardFileAttachment uploadedFileResponse = _guardFileService.UploadedFile(dakListUserParam, dakFileUploadParam,5);
+
+             return uploadedFileResponse;
+        }
+
+
+        private void DeleteControl_ButtonClick(object sender, EventArgs e,string filename)
+        {
+            _uploadFileResponse = null;
             flowLayoutPanel1.Controls.Clear();
             panel3.Show();
             panel5.Hide();
-          
+
         }
+
+        //private void DeleteControl_ButtonClick(object sender, EventArgs e, GuardFileModel.Attachment attachment)
+        //{
+        //    DakUploadFileDeleteParam deleteParam = new DakUploadFileDeleteParam();
+        //    deleteParam.delete_token = attachment.delete_token;
+        //    deleteParam.file_name = attachment.file_name;
+
+        //    DakFileDeleteResponse response;
+
+        //    using (var form = FormFactory.Create<Dashboard>())
+        //    {
+        //        response = form.DeleteFile(deleteParam);
+        //    }
+        //    if (attachment.id == 0 || (response != null && response.status == "success"))
+        //    {
+        //        SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
+        //        flowLayoutPanel1.Controls.Clear();
+        //        panel3.Show();
+        //        panel5.Hide();
+        //        _uploadFileResponse = null;
+        //    }
+
+
+        //}
+
+
+
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -198,13 +233,29 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            ///MessageBox.Show("সংরক্ষণ করা হয়েছে।");
+            
             string subjectText = subjectTextBox.Text.Trim();
             int typeId = typesearchComboBox.selectedId;
             string guardFileName = guardFileTextBox.Text.Trim();
-            if(subjectText!=string.Empty && typeId!=0 && guardFileName!=string.Empty)
+            if(subjectText!=string.Empty && typeId!=0 && guardFileName!=string.Empty &&  _uploadFileResponse!=null)
             {
-                MessageBox.Show("সংরক্ষণ করা সফল হয়েছে।");
+                GuardFileModel.Record record = new GuardFileModel.Record();
+                record.name_bng = subjectTextBox.Text.Trim();
+                record.name_eng = subjectTextBox.Text.Trim();
+                record.guard_file_category_id = typesearchComboBox.selectedId;
+                 record.attachment = _uploadFileResponse.data[0];
+                 var response=   _guardFileService.Insert(_userService.GetLocalDakUserParam(),3, guardFiles, record);
+                if (response.status == "success")
+                {
+
+                    SuccessMessage("সংরক্ষণ করা সফল হয়েছে।");
+                    _uploadFileResponse = null;
+                    flowLayoutPanel1.Controls.Clear();
+                    panel3.Show();
+                    panel5.Hide();
+                   subjectTextBox.Text = string.Empty;
+
+                }
             }
             else
             {
@@ -216,7 +267,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 {
                     ShowAlertMessage("দুংখিত! ধরণ ফাঁকা রাখা যাবে না।");
                 }
-                if (guardFileTextBox.Text == string.Empty)
+                if (_uploadFileResponse.data.Count<=0)
                 {
                     ShowAlertMessage("দুংখিত! গার্ড ফাইল দেয়া হয়নি।");
                 }
@@ -225,12 +276,44 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
            
 
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000);
+            t.Wait();
+            successMessage.Hide();
+        }
         private void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
         {
             UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
             alertMessageBox.message = mulpotroNotSelectErrorMessage;
 
             alertMessageBox.ShowDialog();
+        }
+
+       
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
+
+       
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void typesearchComboBox_ChangeSelectedIndex(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -40,20 +40,22 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Controls.Add(this.typeNameLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.typeLabel, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(509, 50);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(892, 47);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.Cell_Color_Blue);
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Color);
@@ -63,7 +65,7 @@
             this.typeNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.typeNameLabel.AutoSize = true;
             this.typeNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeNameLabel.Location = new System.Drawing.Point(3, 16);
+            this.typeNameLabel.Location = new System.Drawing.Point(9, 14);
             this.typeNameLabel.Name = "typeNameLabel";
             this.typeNameLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.typeNameLabel.Size = new System.Drawing.Size(61, 18);
@@ -72,13 +74,13 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.decisionDeleteButton);
             this.panel2.Controls.Add(this.decisionEditRightButton);
-            this.panel2.Location = new System.Drawing.Point(394, 6);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(713, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(83, 38);
+            this.panel2.Size = new System.Drawing.Size(170, 41);
             this.panel2.TabIndex = 86;
             // 
             // decisionDeleteButton
@@ -100,6 +102,7 @@
             this.decisionDeleteButton.Size = new System.Drawing.Size(34, 36);
             this.decisionDeleteButton.TabIndex = 88;
             this.decisionDeleteButton.UseVisualStyleBackColor = false;
+            this.decisionDeleteButton.Click += new System.EventHandler(this.guardFileTableUserControl_deleteButtonClick);
             // 
             // decisionEditRightButton
             // 
@@ -120,12 +123,13 @@
             this.decisionEditRightButton.Size = new System.Drawing.Size(34, 36);
             this.decisionEditRightButton.TabIndex = 87;
             this.decisionEditRightButton.UseVisualStyleBackColor = false;
+            this.decisionEditRightButton.Click += new System.EventHandler(this.guardFileTableUserControl_viewButtonClick);
             // 
             // typeLabel
             // 
             this.typeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.typeLabel.AutoSize = true;
-            this.typeLabel.Location = new System.Drawing.Point(184, 18);
+            this.typeLabel.Location = new System.Drawing.Point(361, 17);
             this.typeLabel.Margin = new System.Windows.Forms.Padding(3);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -141,12 +145,14 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "GuardFileListRowUserControl";
-            this.Size = new System.Drawing.Size(509, 50);
+            this.Size = new System.Drawing.Size(892, 47);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

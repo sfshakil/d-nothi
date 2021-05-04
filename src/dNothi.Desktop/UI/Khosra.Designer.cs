@@ -101,7 +101,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.onulipiEmptyPanel = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
-            this.onulipiListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.onulipiListFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.onulipiSelectButtonPanel = new System.Windows.Forms.Panel();
             this.onulipiListShowButton = new FontAwesome.Sharp.IconButton();
             this.iconButton14 = new FontAwesome.Sharp.IconButton();
@@ -111,7 +111,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.attentionEmptyPanel = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
-            this.attentionListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.attentionListFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.attentionSelectButtonPanel = new System.Windows.Forms.Panel();
             this.attentionListShowButton = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
@@ -121,7 +121,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.prerokEmptyPanel = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.prerokListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.prerokListFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.prerokSelectButtonPanel = new System.Windows.Forms.Panel();
             this.prerokListShowButton = new FontAwesome.Sharp.IconButton();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
@@ -131,7 +131,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.prapokEmptyPanel = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
-            this.prapokListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.prapokListFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.prapokSelectButtonPanel = new System.Windows.Forms.Panel();
             this.prapokListShowButton = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
@@ -141,7 +141,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.onumodonkariEmptyPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.onumodonkariListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.onumodonkariListFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.onumodonkariSelectButtonPanel = new System.Windows.Forms.Panel();
             this.onumodonkariListShowButton = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -1169,6 +1169,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(126, 22);
             this.dateTimePicker.TabIndex = 89;
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
             // label3
             // 
@@ -1239,6 +1240,7 @@
             // onulipiListFlowLayoutPanel
             // 
             this.onulipiListFlowLayoutPanel.AutoSize = true;
+            this.onulipiListFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.onulipiListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.onulipiListFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.onulipiListFlowLayoutPanel.Name = "onulipiListFlowLayoutPanel";
@@ -1374,11 +1376,12 @@
             // attentionListFlowLayoutPanel
             // 
             this.attentionListFlowLayoutPanel.AutoSize = true;
+            this.attentionListFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.attentionListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.attentionListFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.attentionListFlowLayoutPanel.Name = "attentionListFlowLayoutPanel";
             this.attentionListFlowLayoutPanel.Size = new System.Drawing.Size(293, 0);
-            this.attentionListFlowLayoutPanel.TabIndex = 5;
+            this.attentionListFlowLayoutPanel.TabIndex = 4;
             // 
             // attentionSelectButtonPanel
             // 
@@ -1510,11 +1513,12 @@
             // prerokListFlowLayoutPanel
             // 
             this.prerokListFlowLayoutPanel.AutoSize = true;
+            this.prerokListFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.prerokListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.prerokListFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.prerokListFlowLayoutPanel.Name = "prerokListFlowLayoutPanel";
             this.prerokListFlowLayoutPanel.Size = new System.Drawing.Size(293, 0);
-            this.prerokListFlowLayoutPanel.TabIndex = 5;
+            this.prerokListFlowLayoutPanel.TabIndex = 3;
             // 
             // prerokSelectButtonPanel
             // 
@@ -1645,11 +1649,12 @@
             // prapokListFlowLayoutPanel
             // 
             this.prapokListFlowLayoutPanel.AutoSize = true;
+            this.prapokListFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.prapokListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.prapokListFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.prapokListFlowLayoutPanel.Name = "prapokListFlowLayoutPanel";
             this.prapokListFlowLayoutPanel.Size = new System.Drawing.Size(293, 0);
-            this.prapokListFlowLayoutPanel.TabIndex = 5;
+            this.prapokListFlowLayoutPanel.TabIndex = 2;
             // 
             // prapokSelectButtonPanel
             // 
@@ -1780,11 +1785,17 @@
             // onumodonkariListFlowLayoutPanel
             // 
             this.onumodonkariListFlowLayoutPanel.AutoSize = true;
+            this.onumodonkariListFlowLayoutPanel.ColumnCount = 1;
+            this.onumodonkariListFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.onumodonkariListFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.onumodonkariListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.onumodonkariListFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.onumodonkariListFlowLayoutPanel.Name = "onumodonkariListFlowLayoutPanel";
+            this.onumodonkariListFlowLayoutPanel.RowCount = 1;
+            this.onumodonkariListFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.onumodonkariListFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.onumodonkariListFlowLayoutPanel.Size = new System.Drawing.Size(293, 0);
-            this.onumodonkariListFlowLayoutPanel.TabIndex = 5;
+            this.onumodonkariListFlowLayoutPanel.TabIndex = 2;
             // 
             // onumodonkariSelectButtonPanel
             // 
@@ -2239,7 +2250,6 @@
         private FontAwesome.Sharp.IconButton onumodonkariListShowButton;
         private System.Windows.Forms.Panel onumodonkariListPanel;
         private System.Windows.Forms.Panel onumodonkariEmptyPanel;
-        private System.Windows.Forms.FlowLayoutPanel onumodonkariListFlowLayoutPanel;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -2247,7 +2257,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel onulipiEmptyPanel;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.FlowLayoutPanel onulipiListFlowLayoutPanel;
         private System.Windows.Forms.Panel onulipiSelectButtonPanel;
         private FontAwesome.Sharp.IconButton onulipiListShowButton;
         private FontAwesome.Sharp.IconButton iconButton14;
@@ -2257,7 +2266,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel attentionEmptyPanel;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.FlowLayoutPanel attentionListFlowLayoutPanel;
         private System.Windows.Forms.Panel attentionSelectButtonPanel;
         private FontAwesome.Sharp.IconButton attentionListShowButton;
         private FontAwesome.Sharp.IconButton iconButton11;
@@ -2267,7 +2275,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel prerokEmptyPanel;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.FlowLayoutPanel prerokListFlowLayoutPanel;
         private System.Windows.Forms.Panel prerokSelectButtonPanel;
         private FontAwesome.Sharp.IconButton prerokListShowButton;
         private FontAwesome.Sharp.IconButton iconButton8;
@@ -2277,7 +2284,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel prapokEmptyPanel;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.FlowLayoutPanel prapokListFlowLayoutPanel;
         private System.Windows.Forms.Panel prapokSelectButtonPanel;
         private FontAwesome.Sharp.IconButton prapokListShowButton;
         private FontAwesome.Sharp.IconButton iconButton5;
@@ -2298,5 +2304,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.TableLayoutPanel onumodonkariListFlowLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel prapokListFlowLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel onulipiListFlowLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel attentionListFlowLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel prerokListFlowLayoutPanel;
     }
 }

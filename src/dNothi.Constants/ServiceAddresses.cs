@@ -115,10 +115,20 @@ namespace dNothi.Constants
         public const string mulPattraAndSanjukti = "/api/potro/document";
         public const string prapakerTalika = "/api/potrojari/recipient/list";
 
+
+       
         public static string PotroOnumodonEndPoint = "/api/potro/approve";
         public static string PotrojariEndPoint = "/api/potro/dispatch";
        
         
         public static string KhosraSaveEndpoint = "/api/potro/save";
+
+
+
+        //GuardFileApi
+        public const string GuardFileCategoryList = "/api/nothi/guardfile/category/list";
+        public const string GuardFileList = "/api/nothi/guardfile/list";
+        public const string GuardFileCreateEdit = "/api/add";
+        public const string GuardFileDelete = "/api/delete";
     }
 }

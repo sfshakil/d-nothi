@@ -26,6 +26,7 @@ using dNothi.Desktop.UI.NothiUI;
 using dNothi.Services.KhasraService;
 using dNothi.Desktop.UI.OtherModule;
 using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
+using dNothi.Services.GuardFile;
 
 namespace dNothi.Desktop
 {
@@ -57,7 +58,7 @@ namespace dNothi.Desktop
 
 
 
-            using (var form = FormFactory.Create<Login>())
+            using (var form = FormFactory.Create<Khosra>())
             {
                 result = form.ShowDialog();
             }
@@ -283,7 +284,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileBrowseUC>().AsSelf();
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
 
-
+            builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
 
             container = (builder.Build());
             FormFactory.Use(container.Resolve<IFormFactory>());

@@ -35,41 +35,41 @@
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Heddingpanel = new System.Windows.Forms.Panel();
+            this.guardFileAddButton = new FontAwesome.Sharp.IconButton();
             this.lablePageName = new System.Windows.Forms.Label();
+            this.iconButton14 = new FontAwesome.Sharp.IconButton();
             this.bodyPanel = new System.Windows.Forms.Panel();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.profilePanel = new System.Windows.Forms.Panel();
+            this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.userNameLabel = new System.Windows.Forms.Label();
+            this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
             this.nothiModulePanel = new System.Windows.Forms.Panel();
             this.nothiModuleNameLabel = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.label22 = new System.Windows.Forms.Label();
             this.dakModulePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.moduleDakCountLabel = new System.Windows.Forms.Label();
+            this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
-            this.leftMenuBarTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.menuTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.logoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.dakMenuButton = new System.Windows.Forms.Panel();
-            this.guardFileAddButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton14 = new FontAwesome.Sharp.IconButton();
-            this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
-            this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.button30 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
+            this.leftMenuBarTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.menuTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.guardFileUploadButton = new FontAwesome.Sharp.IconButton();
             this.guardFileListButton = new FontAwesome.Sharp.IconButton();
             this.guardFileTypeButton = new FontAwesome.Sharp.IconButton();
+            this.logoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
+            this.dakMenuButton = new System.Windows.Forms.Panel();
             this.RightSign = new FontAwesome.Sharp.IconButton();
             this.LeftSign = new FontAwesome.Sharp.IconButton();
             this.dashboardBodyTableLayoutPanel.SuspendLayout();
@@ -78,6 +78,7 @@
             this.Heddingpanel.SuspendLayout();
             this.headerTableLayoutPanel.SuspendLayout();
             this.profilePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.nothiModulePanel.SuspendLayout();
             this.dakModulePanel.SuspendLayout();
             this.footerTableLayoutPanel.SuspendLayout();
@@ -85,7 +86,6 @@
             this.menuTableLayoutPanel.SuspendLayout();
             this.logoTableLayoutPanel.SuspendLayout();
             this.dakMenuButton.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // dashboardBodyTableLayoutPanel
@@ -152,6 +152,33 @@
             this.Heddingpanel.Size = new System.Drawing.Size(1112, 35);
             this.Heddingpanel.TabIndex = 32;
             // 
+            // guardFileAddButton
+            // 
+            this.guardFileAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(192)))), ((int)(((byte)(186)))));
+            this.guardFileAddButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guardFileAddButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.guardFileAddButton.FlatAppearance.BorderSize = 0;
+            this.guardFileAddButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guardFileAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardFileAddButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardFileAddButton.ForeColor = System.Drawing.Color.White;
+            this.guardFileAddButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.guardFileAddButton.IconColor = System.Drawing.Color.White;
+            this.guardFileAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.guardFileAddButton.IconSize = 18;
+            this.guardFileAddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.guardFileAddButton.Location = new System.Drawing.Point(992, 0);
+            this.guardFileAddButton.Margin = new System.Windows.Forms.Padding(0);
+            this.guardFileAddButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.guardFileAddButton.Name = "guardFileAddButton";
+            this.guardFileAddButton.Size = new System.Drawing.Size(120, 36);
+            this.guardFileAddButton.TabIndex = 88;
+            this.guardFileAddButton.Text = "   নতুন ধরন";
+            this.guardFileAddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.guardFileAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.guardFileAddButton.UseVisualStyleBackColor = false;
+            this.guardFileAddButton.Click += new System.EventHandler(this.guardFileAddButton_Click);
+            // 
             // lablePageName
             // 
             this.lablePageName.AutoSize = true;
@@ -161,6 +188,23 @@
             this.lablePageName.Size = new System.Drawing.Size(160, 29);
             this.lablePageName.TabIndex = 6;
             this.lablePageName.Text = "গার্ড ফাইলের ধরন";
+            // 
+            // iconButton14
+            // 
+            this.iconButton14.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton14.FlatAppearance.BorderSize = 0;
+            this.iconButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.Tasks;
+            this.iconButton14.IconColor = System.Drawing.Color.Gray;
+            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton14.IconSize = 30;
+            this.iconButton14.Location = new System.Drawing.Point(0, 0);
+            this.iconButton14.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton14.Name = "iconButton14";
+            this.iconButton14.Size = new System.Drawing.Size(36, 35);
+            this.iconButton14.TabIndex = 5;
+            this.iconButton14.UseVisualStyleBackColor = false;
             // 
             // bodyPanel
             // 
@@ -211,6 +255,25 @@
             this.profilePanel.Size = new System.Drawing.Size(352, 39);
             this.profilePanel.TabIndex = 28;
             // 
+            // userPictureBox
+            // 
+            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.userPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.userPictureBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            this.userPictureBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.userPictureBox.IconSize = 29;
+            this.userPictureBox.InitialImage = null;
+            this.userPictureBox.Location = new System.Drawing.Point(3, 5);
+            this.userPictureBox.Margin = new System.Windows.Forms.Padding(5, 10, 3, 3);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.userPictureBox.Size = new System.Drawing.Size(39, 29);
+            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.userPictureBox.TabIndex = 29;
+            this.userPictureBox.TabStop = false;
+            // 
             // userNameLabel
             // 
             this.userNameLabel.AutoSize = true;
@@ -223,6 +286,25 @@
             this.userNameLabel.Size = new System.Drawing.Size(287, 25);
             this.userNameLabel.TabIndex = 23;
             this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি) ";
+            // 
+            // profileShowArrowButton
+            // 
+            this.profileShowArrowButton.BackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.profileShowArrowButton.FlatAppearance.BorderSize = 0;
+            this.profileShowArrowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileShowArrowButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.profileShowArrowButton.IconSize = 20;
+            this.profileShowArrowButton.Location = new System.Drawing.Point(329, 5);
+            this.profileShowArrowButton.Name = "profileShowArrowButton";
+            this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.profileShowArrowButton.Size = new System.Drawing.Size(13, 29);
+            this.profileShowArrowButton.TabIndex = 27;
+            this.profileShowArrowButton.UseVisualStyleBackColor = false;
             // 
             // nothiModulePanel
             // 
@@ -247,6 +329,22 @@
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
             this.nothiModuleNameLabel.Click += new System.EventHandler(this.Nothi_ModuleCLick);
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 24;
+            this.iconButton2.Location = new System.Drawing.Point(6, 8);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(36, 30);
+            this.iconButton2.TabIndex = 4;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.Nothi_ModuleCLick);
             // 
             // label22
             // 
@@ -288,6 +386,22 @@
             this.label1.Text = "ডাক";
             this.label1.Click += new System.EventHandler(this.DakDashboardClick);
             // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Inbox;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.Location = new System.Drawing.Point(6, 7);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(36, 30);
+            this.iconButton1.TabIndex = 4;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.DakDashboardClick);
+            // 
             // moduleDakCountLabel
             // 
             this.moduleDakCountLabel.AutoEllipsis = true;
@@ -301,6 +415,23 @@
             this.moduleDakCountLabel.TabIndex = 18;
             this.moduleDakCountLabel.Text = "১২";
             this.moduleDakCountLabel.Click += new System.EventHandler(this.DakDashboardClick);
+            // 
+            // moduleButton
+            // 
+            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.moduleButton.FlatAppearance.BorderSize = 0;
+            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
+            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.moduleButton.IconSize = 32;
+            this.moduleButton.Location = new System.Drawing.Point(280, 3);
+            this.moduleButton.Name = "moduleButton";
+            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.moduleButton.Size = new System.Drawing.Size(39, 43);
+            this.moduleButton.TabIndex = 106;
+            this.moduleButton.UseVisualStyleBackColor = true;
+            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
             // footerTableLayoutPanel
             // 
@@ -373,222 +504,6 @@
             this.label7.TabIndex = 30;
             this.label7.Text = "© কপিরাইট ২০২১, ";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // leftMenuBarTableLayoutPanel
-            // 
-            this.leftMenuBarTableLayoutPanel.BackColor = System.Drawing.Color.White;
-            this.leftMenuBarTableLayoutPanel.ColumnCount = 1;
-            this.leftMenuBarTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.leftMenuBarTableLayoutPanel.Controls.Add(this.menuTableLayoutPanel, 0, 1);
-            this.leftMenuBarTableLayoutPanel.Controls.Add(this.logoTableLayoutPanel, 0, 0);
-            this.leftMenuBarTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leftMenuBarTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftMenuBarTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.leftMenuBarTableLayoutPanel.Name = "leftMenuBarTableLayoutPanel";
-            this.leftMenuBarTableLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.leftMenuBarTableLayoutPanel.RowCount = 2;
-            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.leftMenuBarTableLayoutPanel.Size = new System.Drawing.Size(234, 669);
-            this.leftMenuBarTableLayoutPanel.TabIndex = 47;
-            // 
-            // menuTableLayoutPanel
-            // 
-            this.menuTableLayoutPanel.AutoScroll = true;
-            this.menuTableLayoutPanel.AutoScrollMargin = new System.Drawing.Size(5, 5);
-            this.menuTableLayoutPanel.AutoSize = true;
-            this.menuTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.menuTableLayoutPanel.ColumnCount = 1;
-            this.menuTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.menuTableLayoutPanel.Controls.Add(this.guardFileUploadButton, 0, 2);
-            this.menuTableLayoutPanel.Controls.Add(this.guardFileListButton, 0, 1);
-            this.menuTableLayoutPanel.Controls.Add(this.guardFileTypeButton, 0, 0);
-            this.menuTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuTableLayoutPanel.Location = new System.Drawing.Point(0, 50);
-            this.menuTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.menuTableLayoutPanel.Name = "menuTableLayoutPanel";
-            this.menuTableLayoutPanel.RowCount = 15;
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.Size = new System.Drawing.Size(231, 619);
-            this.menuTableLayoutPanel.TabIndex = 47;
-            // 
-            // logoTableLayoutPanel
-            // 
-            this.logoTableLayoutPanel.AutoSize = true;
-            this.logoTableLayoutPanel.BackColor = System.Drawing.Color.White;
-            this.logoTableLayoutPanel.ColumnCount = 2;
-            this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.logoTableLayoutPanel.Controls.Add(this.button2, 0, 0);
-            this.logoTableLayoutPanel.Controls.Add(this.dakMenuButton, 1, 0);
-            this.logoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logoTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.logoTableLayoutPanel.Name = "logoTableLayoutPanel";
-            this.logoTableLayoutPanel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.logoTableLayoutPanel.RowCount = 1;
-            this.logoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.logoTableLayoutPanel.Size = new System.Drawing.Size(231, 50);
-            this.logoTableLayoutPanel.TabIndex = 0;
-            // 
-            // dakMenuButton
-            // 
-            this.dakMenuButton.BackColor = System.Drawing.Color.White;
-            this.dakMenuButton.Controls.Add(this.RightSign);
-            this.dakMenuButton.Controls.Add(this.LeftSign);
-            this.dakMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dakMenuButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dakMenuButton.Location = new System.Drawing.Point(197, 0);
-            this.dakMenuButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakMenuButton.Name = "dakMenuButton";
-            this.dakMenuButton.Size = new System.Drawing.Size(34, 50);
-            this.dakMenuButton.TabIndex = 22;
-            // 
-            // guardFileAddButton
-            // 
-            this.guardFileAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(192)))), ((int)(((byte)(186)))));
-            this.guardFileAddButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guardFileAddButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.guardFileAddButton.FlatAppearance.BorderSize = 0;
-            this.guardFileAddButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guardFileAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guardFileAddButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardFileAddButton.ForeColor = System.Drawing.Color.White;
-            this.guardFileAddButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.guardFileAddButton.IconColor = System.Drawing.Color.White;
-            this.guardFileAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.guardFileAddButton.IconSize = 18;
-            this.guardFileAddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.guardFileAddButton.Location = new System.Drawing.Point(992, 0);
-            this.guardFileAddButton.Margin = new System.Windows.Forms.Padding(0);
-            this.guardFileAddButton.MinimumSize = new System.Drawing.Size(34, 36);
-            this.guardFileAddButton.Name = "guardFileAddButton";
-            this.guardFileAddButton.Size = new System.Drawing.Size(120, 36);
-            this.guardFileAddButton.TabIndex = 88;
-            this.guardFileAddButton.Text = "   নতুন ধরন";
-            this.guardFileAddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.guardFileAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.guardFileAddButton.UseVisualStyleBackColor = false;
-            this.guardFileAddButton.Click += new System.EventHandler(this.guardFileAddButton_Click_1);
-            // 
-            // iconButton14
-            // 
-            this.iconButton14.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton14.FlatAppearance.BorderSize = 0;
-            this.iconButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.Tasks;
-            this.iconButton14.IconColor = System.Drawing.Color.Gray;
-            this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton14.IconSize = 30;
-            this.iconButton14.Location = new System.Drawing.Point(0, 0);
-            this.iconButton14.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Size = new System.Drawing.Size(36, 35);
-            this.iconButton14.TabIndex = 5;
-            this.iconButton14.UseVisualStyleBackColor = false;
-            // 
-            // userPictureBox
-            // 
-            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.userPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.userPictureBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.userPictureBox.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            this.userPictureBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.userPictureBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.userPictureBox.IconSize = 29;
-            this.userPictureBox.InitialImage = null;
-            this.userPictureBox.Location = new System.Drawing.Point(3, 5);
-            this.userPictureBox.Margin = new System.Windows.Forms.Padding(5, 10, 3, 3);
-            this.userPictureBox.Name = "userPictureBox";
-            this.userPictureBox.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.userPictureBox.Size = new System.Drawing.Size(39, 29);
-            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.userPictureBox.TabIndex = 29;
-            this.userPictureBox.TabStop = false;
-            // 
-            // profileShowArrowButton
-            // 
-            this.profileShowArrowButton.BackColor = System.Drawing.Color.Transparent;
-            this.profileShowArrowButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.profileShowArrowButton.FlatAppearance.BorderSize = 0;
-            this.profileShowArrowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.profileShowArrowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.profileShowArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.profileShowArrowButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
-            this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.profileShowArrowButton.IconSize = 20;
-            this.profileShowArrowButton.Location = new System.Drawing.Point(329, 5);
-            this.profileShowArrowButton.Name = "profileShowArrowButton";
-            this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.profileShowArrowButton.Size = new System.Drawing.Size(13, 29);
-            this.profileShowArrowButton.TabIndex = 27;
-            this.profileShowArrowButton.UseVisualStyleBackColor = false;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Book;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(6, 8);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(36, 30);
-            this.iconButton2.TabIndex = 4;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            this.iconButton2.Click += new System.EventHandler(this.Nothi_ModuleCLick);
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Inbox;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(6, 7);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(36, 30);
-            this.iconButton1.TabIndex = 4;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.DakDashboardClick);
-            // 
-            // moduleButton
-            // 
-            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.moduleButton.FlatAppearance.BorderSize = 0;
-            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
-            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.moduleButton.IconSize = 32;
-            this.moduleButton.Location = new System.Drawing.Point(280, 3);
-            this.moduleButton.Name = "moduleButton";
-            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.moduleButton.Size = new System.Drawing.Size(39, 43);
-            this.moduleButton.TabIndex = 106;
-            this.moduleButton.UseVisualStyleBackColor = true;
-            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
             // button30
             // 
@@ -669,6 +584,59 @@
             this.button26.Size = new System.Drawing.Size(25, 23);
             this.button26.TabIndex = 25;
             this.button26.UseVisualStyleBackColor = false;
+            // 
+            // leftMenuBarTableLayoutPanel
+            // 
+            this.leftMenuBarTableLayoutPanel.BackColor = System.Drawing.Color.White;
+            this.leftMenuBarTableLayoutPanel.ColumnCount = 1;
+            this.leftMenuBarTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.leftMenuBarTableLayoutPanel.Controls.Add(this.menuTableLayoutPanel, 0, 1);
+            this.leftMenuBarTableLayoutPanel.Controls.Add(this.logoTableLayoutPanel, 0, 0);
+            this.leftMenuBarTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leftMenuBarTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftMenuBarTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.leftMenuBarTableLayoutPanel.Name = "leftMenuBarTableLayoutPanel";
+            this.leftMenuBarTableLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.leftMenuBarTableLayoutPanel.RowCount = 2;
+            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.leftMenuBarTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.leftMenuBarTableLayoutPanel.Size = new System.Drawing.Size(234, 669);
+            this.leftMenuBarTableLayoutPanel.TabIndex = 47;
+            // 
+            // menuTableLayoutPanel
+            // 
+            this.menuTableLayoutPanel.AutoScroll = true;
+            this.menuTableLayoutPanel.AutoScrollMargin = new System.Drawing.Size(5, 5);
+            this.menuTableLayoutPanel.AutoSize = true;
+            this.menuTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.menuTableLayoutPanel.ColumnCount = 1;
+            this.menuTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.menuTableLayoutPanel.Controls.Add(this.guardFileUploadButton, 0, 2);
+            this.menuTableLayoutPanel.Controls.Add(this.guardFileListButton, 0, 1);
+            this.menuTableLayoutPanel.Controls.Add(this.guardFileTypeButton, 0, 0);
+            this.menuTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuTableLayoutPanel.Location = new System.Drawing.Point(0, 50);
+            this.menuTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.menuTableLayoutPanel.Name = "menuTableLayoutPanel";
+            this.menuTableLayoutPanel.RowCount = 15;
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayoutPanel.Size = new System.Drawing.Size(231, 619);
+            this.menuTableLayoutPanel.TabIndex = 47;
             // 
             // guardFileUploadButton
             // 
@@ -754,6 +722,25 @@
             this.guardFileTypeButton.UseVisualStyleBackColor = false;
             this.guardFileTypeButton.Click += new System.EventHandler(this.guardFileTypeButton_Click);
             // 
+            // logoTableLayoutPanel
+            // 
+            this.logoTableLayoutPanel.AutoSize = true;
+            this.logoTableLayoutPanel.BackColor = System.Drawing.Color.White;
+            this.logoTableLayoutPanel.ColumnCount = 2;
+            this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.logoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.logoTableLayoutPanel.Controls.Add(this.button2, 0, 0);
+            this.logoTableLayoutPanel.Controls.Add(this.dakMenuButton, 1, 0);
+            this.logoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logoTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.logoTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.logoTableLayoutPanel.Name = "logoTableLayoutPanel";
+            this.logoTableLayoutPanel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.logoTableLayoutPanel.RowCount = 1;
+            this.logoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.logoTableLayoutPanel.Size = new System.Drawing.Size(231, 50);
+            this.logoTableLayoutPanel.TabIndex = 0;
+            // 
             // button2
             // 
             this.button2.AutoSize = true;
@@ -772,6 +759,19 @@
             this.button2.Size = new System.Drawing.Size(170, 50);
             this.button2.TabIndex = 2;
             this.button2.UseVisualStyleBackColor = false;
+            // 
+            // dakMenuButton
+            // 
+            this.dakMenuButton.BackColor = System.Drawing.Color.White;
+            this.dakMenuButton.Controls.Add(this.RightSign);
+            this.dakMenuButton.Controls.Add(this.LeftSign);
+            this.dakMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dakMenuButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dakMenuButton.Location = new System.Drawing.Point(197, 0);
+            this.dakMenuButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakMenuButton.Name = "dakMenuButton";
+            this.dakMenuButton.Size = new System.Drawing.Size(34, 50);
+            this.dakMenuButton.TabIndex = 22;
             // 
             // RightSign
             // 
@@ -815,9 +815,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 669);
             this.Controls.Add(this.dashboardBodyTableLayoutPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GurdFileControl";
-            this.Text = "GurdFileControl";
+            this.Text = "Guard File";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.GurdFileControl_Shown);
             this.dashboardBodyTableLayoutPanel.ResumeLayout(false);
             this.rightDashboardBodyTableLayoutPanel.ResumeLayout(false);
             this.rightDashboardBodyTableLayoutPanel.PerformLayout();
@@ -829,6 +831,7 @@
             this.headerTableLayoutPanel.PerformLayout();
             this.profilePanel.ResumeLayout(false);
             this.profilePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.nothiModulePanel.ResumeLayout(false);
             this.nothiModulePanel.PerformLayout();
             this.dakModulePanel.ResumeLayout(false);
@@ -841,7 +844,6 @@
             this.logoTableLayoutPanel.ResumeLayout(false);
             this.logoTableLayoutPanel.PerformLayout();
             this.dakMenuButton.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

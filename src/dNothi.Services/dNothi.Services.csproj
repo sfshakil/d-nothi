@@ -153,6 +153,14 @@
     <Compile Include="DakServices\IDesignationSealService.cs" />
     <Compile Include="DakServices\ProtibedonService.cs" />
     <Compile Include="DakServices\RegisterService.cs" />
+    <Compile Include="GuardFile\CommonSetting.cs" />
+    <Compile Include="GuardFile\GuardFileService.cs" />
+    <Compile Include="GuardFile\IGuardFileService.cs" />
+    <Compile Include="GuardFile\Model\DeleteResponse.cs" />
+    <Compile Include="GuardFile\Model\GuardFileAttachment.cs" />
+    <Compile Include="GuardFile\Model\GuardFileCategory.cs" />
+    <Compile Include="GuardFile\Model\GuardFileModel.cs" />
+    <Compile Include="GuardFile\Model\ResponseEdit.cs" />
     <Compile Include="KasaraPatraDashBoardService\IKasaraPatraDashBoardService.cs" />
     <Compile Include="KasaraPatraDashBoardService\KararaPotroDashBoardServices.cs" />
     <Compile Include="KasaraPatraDashBoardService\Models\Attachment.cs" />

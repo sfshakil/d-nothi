@@ -1,5 +1,8 @@
 ﻿using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
 using dNothi.Desktop.UI.OtherModule.GuardFileUserControls;
+using dNothi.Services.GuardFile;
+using dNothi.Services.GuardFile.Model;
+using dNothi.Services.UserServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,35 +17,43 @@ namespace dNothi.Desktop.UI.OtherModule
 {
     public partial class GurdFileControl : Form
     {
+        IUserService _userService { get; set; }
+        IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
+        IGuardFileService<GuardFileCategory, GuardFileCategory.Record> _guardFileCategoryService;
+        public int currentPage { get { return 1; } set { } }
         
-        UCGuardFileTypes guardFileTypeuc = new UCGuardFileTypes();
-        UCGuardFileList  guardFileListuc = new UCGuardFileList();
-        UCGuardFileUpload guardFileUploaduc = new UCGuardFileUpload();
-        public GurdFileControl()
+
+        UCGuardFileList guardFileListuc;
+        UCGuardFileUpload guardFileUploaduc; 
+        UCGuardFileTypes guardFileTypeuc; 
+        public GurdFileControl(IUserService userService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService)
         {
+          
             InitializeComponent();
-            guardFileTypeuc.Dock = DockStyle.Top;
-            bodyPanel.Controls.Add(guardFileTypeuc);
-            guardFileAddButton.Show();
+            _userService = userService;
+            _guardFileService = guardFileService;
+            _guardFileCategoryService = guardFileCategoryService;
+
+
         }
 
         
         private void guardFileTypeButton_Click(object sender, EventArgs e)
         {
             lablePageName.Text = "গার্ড ফাইলের ধরন";
-
+            guardFileTypeuc = new UCGuardFileTypes(_userService, _guardFileCategoryService);
+            guardFileTypeuc.page = _currentPage;
             bodyPanel.Controls.Clear();
             bodyPanel.Controls.Add(guardFileTypeuc);
             guardFileTypeuc.Dock = DockStyle.Top;
             bodyPanel.Visible = true;
-            guardFileListuc.Hide();
-            guardFileUploaduc.Hide();
+          
             guardFileTypeuc.Show();
             guardFileAddButton.Show();
 
 
             SelectThisButton(sender, e);
-           // bodyPanel.Controls.Add(ucft);
+          
         }
 
         private void SelectThisButton(object sender, EventArgs e)
@@ -66,15 +77,12 @@ namespace dNothi.Desktop.UI.OtherModule
         private void guardFileListButton_Click(object sender, EventArgs e)
         {
             lablePageName.Text = "গার্ড ফাইল তালিকা";
-
+            guardFileListuc = new UCGuardFileList(_userService, _guardFileService, _guardFileCategoryService);
             bodyPanel.Controls.Clear();
             bodyPanel.Controls.Add(guardFileListuc);
-            guardFileListuc.Dock = DockStyle.Fill;
+            guardFileListuc.Dock = DockStyle.Top;
             bodyPanel.Visible = true;
             guardFileListuc.Show();
-            guardFileUploaduc.Hide();
-            guardFileTypeuc.Hide();
-
             guardFileAddButton.Hide();
 
             SelectThisButton(sender, e);
@@ -83,15 +91,13 @@ namespace dNothi.Desktop.UI.OtherModule
         private void guardFileUploadButton_Click(object sender, EventArgs e)
         {
             lablePageName.Text = "আপলোড গার্ড ফাইল";
-
+            guardFileUploaduc = new UCGuardFileUpload(_userService,_guardFileService);
             bodyPanel.Controls.Clear();
             bodyPanel.Controls.Add(guardFileUploaduc);
             guardFileUploaduc.Dock = DockStyle.None;
             bodyPanel.Visible = true;
-            guardFileListuc.Hide();
+            
             guardFileUploaduc.Show();
-            guardFileTypeuc.Hide();
-           
            
             guardFileAddButton.Hide();
             SelectThisButton(sender, e);
@@ -110,12 +116,9 @@ namespace dNothi.Desktop.UI.OtherModule
 
         private void guardFileAddButton_Click(object sender, EventArgs e)
         {
-           // newGuardFileTypepanel.Visible = true;
-        }
+            CreateGuardFileTypeForm createGuardFileTypeForm = new CreateGuardFileTypeForm(_userService, _guardFileCategoryService, _guardFileService);
+            createGuardFileTypeForm._currentPage = _currentPage;
 
-        private void guardFileAddButton_Click_1(object sender, EventArgs e)
-        {
-            CreateGuardFileTypeForm createGuardFileTypeForm = new CreateGuardFileTypeForm();
             UIDesignCommonMethod.CalPopUpWindow(createGuardFileTypeForm, this);
         }
 
@@ -133,5 +136,21 @@ namespace dNothi.Desktop.UI.OtherModule
         {
             UIDesignCommonMethod.NothiModuleClick(this);
         }
+
+        private void GurdFileControl_Shown(object sender, EventArgs e)
+        {
+            int page = currentPage;
+           
+            guardFileTypeuc = new UCGuardFileTypes(_userService,_guardFileCategoryService);
+            guardFileTypeuc.page = _currentPage;
+
+
+            guardFileTypeuc.Dock = DockStyle.Top;
+            bodyPanel.Controls.Add(guardFileTypeuc);
+            guardFileAddButton.Show();
+        }
+
+       
+        public int _currentPage { get { return currentPage; } set { currentPage=value; } }
     }
 }
