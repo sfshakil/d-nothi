@@ -1,6 +1,7 @@
 ﻿using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -17,8 +18,10 @@ namespace dNothi.Services.NothiServices
     public class NoteKhoshraListServices : INoteKhoshraListServices
     {
         IRepository<PotrangshoNoteItem> _noteItem;
-        public NoteKhoshraListServices(IRepository<PotrangshoNoteItem> noteItem)
+        private readonly IAllPotroParser _allPotroParser;
+        public NoteKhoshraListServices(IAllPotroParser allPotroParser, IRepository<PotrangshoNoteItem> noteItem)
         {
+            _allPotroParser = allPotroParser;
             _noteItem = noteItem;
         }
         public NoteKhoshraListResponse GetnoteKhoshraListInfo(DakUserParam dakUserParam, long id, int note_id)
@@ -30,7 +33,7 @@ namespace dNothi.Services.NothiServices
 
                 if (nothiList != null)
                 {
-                    noteKhoshraListResponse = JsonConvert.DeserializeObject<NoteKhoshraListResponse>(nothiList.notekhoshrajsonResponse);
+                    noteKhoshraListResponse = _allPotroParser.NoteKhoshraParseMessage(nothiList.notekhoshrajsonResponse);
 
                 }
                 return noteKhoshraListResponse;
@@ -51,7 +54,7 @@ namespace dNothi.Services.NothiServices
 
                 var responseJson = response.Content;
                 SaveOrUpdateNothiRecords(dakUserParam, id, note_id, responseJson);
-                noteKhoshraListResponse = JsonConvert.DeserializeObject<NoteKhoshraListResponse>(responseJson);
+                noteKhoshraListResponse = _allPotroParser.NoteKhoshraParseMessage(responseJson);
                 return noteKhoshraListResponse;
             }
             catch (Exception ex)

@@ -10,5 +10,9 @@ namespace dNothi.JsonParser
     public interface IAllPotroParser
     {
         AllPotroResponse ParseMessage(string messageString);
+        NoteKhoshraListResponse NoteKhoshraParseMessage(string messageString);
+        NoteKhshraWaitingListResponse NoteKhoshraWaitingParseMessage(string messageString);
+        NotePotrojariResponse NotePotrojariParseMessage(string messageString);
+        KhoshraPotroWaitingResponse KhoshraWaitingParseMessage(string messageString);
     }
 }

@@ -11,6 +11,67 @@ namespace dNothi.JsonParser
 {
     public class AllPotroParser : IAllPotroParser
     {
+        public NoteKhoshraListResponse NoteKhoshraParseMessage(string messageString)
+        {
+            try
+            {
+                NoteKhoshraListResponse messageObject = JsonConvert.DeserializeObject<NoteKhoshraListResponse>(messageString);
+
+                
+                foreach (var record in messageObject?.data?.records)
+                {
+                    record.mulpotro.buttonsDTOList = new List<String>();
+                    var tbuttons = JToken.Parse(JsonConvert.SerializeObject(record.mulpotro.buttons));
+                    if (tbuttons is JObject)
+                    {
+                        String buttons1 = tbuttons.ToString(); //tbuttons.ToObject<String>();
+                        record.mulpotro.buttonsDTOList.Add(buttons1);
+                    }
+                    else if (tbuttons is JArray)
+                    {
+                        List<String> buttons1 = tbuttons.ToObject<List<String>>();
+                        record.mulpotro.buttonsDTOList = buttons1;
+                    }
+                }
+
+                return messageObject;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NoteKhshraWaitingListResponse NoteKhoshraWaitingParseMessage(string messageString)
+        {
+            try
+            {
+                NoteKhshraWaitingListResponse messageObject = JsonConvert.DeserializeObject<NoteKhshraWaitingListResponse>(messageString);
+
+                
+                foreach (var record in messageObject?.data?.records)
+                {
+                    record.mulpotro.buttonsDTOList = new List<String>();
+                    var tbuttons = JToken.Parse(JsonConvert.SerializeObject(record.mulpotro.buttons));
+                    if (tbuttons is JObject)
+                    {
+                        String buttons1 = tbuttons.ToString(); //tbuttons.ToObject<String>();
+                        record.mulpotro.buttonsDTOList.Add(buttons1);
+                    }
+                    else if (tbuttons is JArray)
+                    {
+                        List<String> buttons1 = tbuttons.ToObject<List<String>>();
+                        record.mulpotro.buttonsDTOList = buttons1;
+                    }
+                }
+
+                return messageObject;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         public AllPotroResponse ParseMessage(string messageString)
         {
             try
@@ -48,6 +109,64 @@ namespace dNothi.JsonParser
                         record.note_ownerDTOList = note_onuccheddtoList;
                     }
                 }
+                foreach (var record in messageObject?.data?.records)
+                {
+                    record.mulpotro.buttonsDTOList = new List<String>();
+                    var tbuttons = JToken.Parse(JsonConvert.SerializeObject(record.mulpotro.buttons));
+                    if (tbuttons is JObject)
+                    {
+                        String buttons1 = tbuttons.ToString(); //tbuttons.ToObject<String>();
+                        record.mulpotro.buttonsDTOList.Add(buttons1);
+                    }
+                    else if (tbuttons is JArray)
+                    {
+                        List<String> buttons1 = tbuttons.ToObject<List<String>>();
+                        record.mulpotro.buttonsDTOList = buttons1;
+                    }
+                }
+
+                return messageObject;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NotePotrojariResponse NotePotrojariParseMessage(string messageString)
+        {
+            try
+            {
+                NotePotrojariResponse messageObject = JsonConvert.DeserializeObject<NotePotrojariResponse>(messageString);
+                foreach (var record in messageObject?.data?.records)
+                {
+                    record.mulpotro.buttonsDTOList = new List<String>();
+                    var tbuttons = JToken.Parse(JsonConvert.SerializeObject(record.mulpotro.buttons));
+                    if (tbuttons is JObject)
+                    {
+                        String buttons1 = tbuttons.ToString(); //tbuttons.ToObject<String>();
+                        record.mulpotro.buttonsDTOList.Add(buttons1);
+                    }
+                    else if (tbuttons is JArray)
+                    {
+                        List<String> buttons1 = tbuttons.ToObject<List<String>>();
+                        record.mulpotro.buttonsDTOList = buttons1;
+                    }
+                }
+
+                return messageObject;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public KhoshraPotroWaitingResponse KhoshraWaitingParseMessage(string messageString)
+        {
+            try
+            {
+                KhoshraPotroWaitingResponse messageObject = JsonConvert.DeserializeObject<KhoshraPotroWaitingResponse>(messageString);
                 foreach (var record in messageObject?.data?.records)
                 {
                     record.mulpotro.buttonsDTOList = new List<String>();

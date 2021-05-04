@@ -11,6 +11,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string potro_description { get; set; }
         public string potro_cover { get; set; }
         public int id { get; set; }
-        public List<string> buttons { get; set; }
+        public object buttons { get; set; }
+        public List<String> buttonsDTOList { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -17,8 +18,10 @@ namespace dNothi.Services.NothiServices
     public class KhoshraPotroWaitingServices : IKhoshraPotroWaitingServices
     {
         IRepository<PotrangshoNothiItem> _nothiItem;
-        public KhoshraPotroWaitingServices(IRepository<PotrangshoNothiItem> nothiItem)
+        private readonly IAllPotroParser _allPotroParser;
+        public KhoshraPotroWaitingServices(IAllPotroParser allPotroParser , IRepository<PotrangshoNothiItem> nothiItem)
         {
+            _allPotroParser = allPotroParser;
             _nothiItem = nothiItem;
         }
         public KhoshraPotroWaitingResponse GetKhoshraPotroWaitingInfo(DakUserParam dakUserParam, long id)
@@ -30,7 +33,7 @@ namespace dNothi.Services.NothiServices
 
                 if (nothiList != null)
                 {
-                    khoshraPotroWaitingResponse = JsonConvert.DeserializeObject<KhoshraPotroWaitingResponse>(nothiList.khoshrawaitingjsonResponse);
+                    khoshraPotroWaitingResponse = _allPotroParser.KhoshraWaitingParseMessage(nothiList.khoshrawaitingjsonResponse);
 
                 }
                 return khoshraPotroWaitingResponse;
@@ -52,7 +55,7 @@ namespace dNothi.Services.NothiServices
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 SaveOrUpdateNothiRecords(dakUserParam, id, responseJson);
-                khoshraPotroWaitingResponse = JsonConvert.DeserializeObject<KhoshraPotroWaitingResponse>(responseJson);
+                khoshraPotroWaitingResponse = _allPotroParser.KhoshraWaitingParseMessage(responseJson);
                 return khoshraPotroWaitingResponse;
             }
             catch (Exception ex)
