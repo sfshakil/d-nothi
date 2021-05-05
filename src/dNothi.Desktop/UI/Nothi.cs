@@ -1187,7 +1187,7 @@ namespace dNothi.Desktop.UI
                 {
                     allNextButtonVisibilityOff();
                     pnlNoData.Visible = true;
-                    //nothiListFlowLayoutPanel.Controls.Clear();
+                    nothiListFlowLayoutPanel.Controls.Clear();
                 }
             }
         }
