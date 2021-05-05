@@ -346,6 +346,10 @@ namespace dNothi.Desktop.UI.Dak
                     dakNothiteUposthaponNoteList.date = noteDTO.desk.issue_date;
                     dakNothiteUposthaponNoteList.deskofficer = noteDTO.desk.officer;
                 }
+                else
+                {
+                    dakNothiteUposthaponNoteList.NoDesk = true;
+                }
 
                 dakNothiteUposthaponNoteList.note_no = Convert.ToString(noteDTO.note.note_no);
                 dakNothiteUposthaponNoteList.note_subject = noteDTO.note.note_subject;

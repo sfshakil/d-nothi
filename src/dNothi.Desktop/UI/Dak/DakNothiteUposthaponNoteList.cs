@@ -18,6 +18,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             InitializeComponent();
         }
+
+        public bool _NoDesk { get; set; }
+        public bool NoDesk { get { return _NoDesk; } set { _NoDesk = value; if (value) { nothiteUposthapitoButton.Visible = false; } } }
+
         public void invisible()
         {
           rightArrowIcon.Visible = false;

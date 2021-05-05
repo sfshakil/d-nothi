@@ -47,6 +47,22 @@ namespace dNothi.Desktop.UI
             tableLayoutPanel.Controls.Add(userControl, 0, row);
 
         }
+        public static void AddRowinTableNoDock(TableLayoutPanel tableLayoutPanel, UserControl userControl)
+        {
+
+           // userControl.Dock = DockStyle.Fill;
+
+            int row = tableLayoutPanel.RowCount++;
+
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            if (row == 1)
+            {
+                row = tableLayoutPanel.RowCount++;
+                tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            }
+            tableLayoutPanel.Controls.Add(userControl, 0, row);
+
+        }
 
         public static void CallAllModulePanel(Button button , Form form)
         {

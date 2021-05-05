@@ -1648,6 +1648,7 @@
             // 
             // prapokListFlowLayoutPanel
             // 
+            this.prapokListFlowLayoutPanel.AllowDrop = true;
             this.prapokListFlowLayoutPanel.AutoSize = true;
             this.prapokListFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.prapokListFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1655,9 +1656,12 @@
             this.prapokListFlowLayoutPanel.Name = "prapokListFlowLayoutPanel";
             this.prapokListFlowLayoutPanel.Size = new System.Drawing.Size(293, 0);
             this.prapokListFlowLayoutPanel.TabIndex = 2;
+            this.prapokListFlowLayoutPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.tableLayoutPanelDrop_DragEnter);
+            this.prapokListFlowLayoutPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.tableLayoutPanelDrop_DragEnter);
             // 
             // prapokSelectButtonPanel
             // 
+            this.prapokSelectButtonPanel.AllowDrop = true;
             this.prapokSelectButtonPanel.BackColor = System.Drawing.Color.White;
             this.prapokSelectButtonPanel.Controls.Add(this.prapokListShowButton);
             this.prapokSelectButtonPanel.Controls.Add(this.iconButton5);

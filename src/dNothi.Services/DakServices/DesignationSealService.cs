@@ -8,6 +8,7 @@ using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -168,7 +169,9 @@ namespace dNothi.Services.DakServices
             dakOfficeRequest.AddParameter("cdesk", dakListUserParam.json_String);
 
             IRestResponse dakOfficeIRestResponse = dakOfficeAPI.Execute(dakOfficeRequest);
-            var dakOfficeResponseJson = dakOfficeIRestResponse.Content;
+            var dakOfficeResponseJson =ConversionMethod.FilterJsonResponse(dakOfficeIRestResponse.Content);
+
+
             SaveAllOfficeListResponseLocally(dakListUserParam.designation_id, dakListUserParam.office_id, dakOfficeResponseJson);
             
             officeListResponse = JsonConvert.DeserializeObject<OfficeListResponse>(dakOfficeResponseJson);

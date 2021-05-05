@@ -336,7 +336,7 @@ namespace dNothi.Services.DakServices
                 dakOfficeRequest.AddParameter("cdesk", dakListUserParam.json_String);
 
                 IRestResponse dakOfficeIRestResponse = dakOfficeAPI.Execute(dakOfficeRequest);
-                var dakOfficeResponseJson = dakOfficeIRestResponse.Content;
+                var dakOfficeResponseJson =ConversionMethod.FilterJsonResponse(dakOfficeIRestResponse.Content);
                 SaveOrUpdateAllOfficeandDesignationSeal(dakListUserParam, dakOfficeResponseJson, true);
                 officeListResponse = JsonConvert.DeserializeObject<OfficeListResponse>(dakOfficeResponseJson);
                 return officeListResponse;
