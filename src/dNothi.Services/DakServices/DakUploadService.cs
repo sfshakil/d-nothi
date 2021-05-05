@@ -237,6 +237,9 @@ namespace dNothi.Services.DakServices
                 return dakSendResponse;
             }
 
+            dakUploadParameter.dak_Info_Obj.attachment = dakUploadParameter.remoteAttachments.ToDictionary(a => a.file_infoModel.id.ToString());
+            dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dakUploadParameter.dak_Info_Obj);
+
 
             var dakDraftedAPI = new RestClient(GetAPIDomain() + GetDakDraftEndpoint());
             dakDraftedAPI.Timeout = -1;

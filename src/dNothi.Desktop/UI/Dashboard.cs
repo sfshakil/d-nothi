@@ -2667,7 +2667,6 @@ namespace dNothi.Desktop.UI
                     ResetAllMenuButtonSelection();
                     SelectButton(khasraDakButton);
                     LoadDakKhasraList();
-
                 }
             }
             catch (Exception Ex)
