@@ -1709,6 +1709,7 @@
     <None Include="tinymce\examples\media\sample.dcr" />
     <None Include="tinymce\examples\media\sample.ram" />
     <None Include="tinymce\examples\media\sample.rm" />
+    <None Include="Resources\download1.png" />
     <Content Include="tinymce\js\tinymce\jquery _3.6.js" />
     <None Include="tinymce\js\tinymce\langs\readme.md" />
     <None Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />

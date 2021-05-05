@@ -38,6 +38,33 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
                 request.AddParameter("nothi", "{\"nothi_id\":\"" + id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\"}");
+                request.AddParameter("length", "1000000000000");
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                khoshraPotroResponse = _nothivuktoPotroParser.ParseMessage(responseJson);
+                return khoshraPotroResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public NothivuktoPotroResponse GetNoteNothivuktoPotroInfo(DakUserParam dakUserParam, long nothi_id, int nothi_note_id)
+        {
+            NothivuktoPotroResponse khoshraPotroResponse = new NothivuktoPotroResponse();
+
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiPotrangshoNothivuktoPotroEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi_id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\", \"nothi_note_id\":\"" + nothi_note_id + "\"}");
+                request.AddParameter("length", "1000000000000");
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
@@ -88,5 +115,7 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiPotrangshoNothivuktoPotroEndPoint;
         }
+
+        
     }
 }

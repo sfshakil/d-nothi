@@ -1,6 +1,7 @@
 ﻿using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -17,8 +18,10 @@ namespace dNothi.Services.NothiServices
     public class NoteKhshraWaitingListServices : INoteKhshraWaitingListServices
     {
         IRepository<PotrangshoNoteItem> _noteItem;
-        public NoteKhshraWaitingListServices(IRepository<PotrangshoNoteItem> noteItem)
+        private readonly IAllPotroParser _allPotroParser;
+        public NoteKhshraWaitingListServices(IAllPotroParser allPotroParser, IRepository<PotrangshoNoteItem> noteItem)
         {
+            _allPotroParser = allPotroParser;
             _noteItem = noteItem;
         }
         public NoteKhshraWaitingListResponse GetNoteKhshraWaitingListInfo(DakUserParam dakUserParam, long id, int note_id)
@@ -30,7 +33,7 @@ namespace dNothi.Services.NothiServices
 
                 if (nothiList != null)
                 {
-                    noteKhshraWaitingListResponse = JsonConvert.DeserializeObject<NoteKhshraWaitingListResponse>(nothiList.notekhoshrawaitingjsonResponse);
+                    noteKhshraWaitingListResponse = _allPotroParser.NoteKhoshraWaitingParseMessage(nothiList.notekhoshrawaitingjsonResponse);
 
                 }
                 return noteKhshraWaitingListResponse;
@@ -46,12 +49,13 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
                 request.AddParameter("nothi", "{\"nothi_id\":\"" + id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\",\"nothi_note_id\":\"" + note_id + "\"}");
+                request.AddParameter("length", "1000000000000");
                 IRestResponse response = client.Execute(request);
-                Console.WriteLine(response.Content);
+                
 
                 var responseJson = response.Content;
                 SaveOrUpdateNothiRecords(dakUserParam, id, note_id, responseJson);
-                noteKhshraWaitingListResponse = JsonConvert.DeserializeObject<NoteKhshraWaitingListResponse>(responseJson);
+                noteKhshraWaitingListResponse = _allPotroParser.NoteKhoshraWaitingParseMessage(responseJson);
                 return noteKhshraWaitingListResponse;
             }
             catch (Exception ex)

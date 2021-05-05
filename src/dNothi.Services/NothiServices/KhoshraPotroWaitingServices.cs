@@ -1,6 +1,7 @@
 ﻿using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using Newtonsoft.Json;
@@ -17,8 +18,10 @@ namespace dNothi.Services.NothiServices
     public class KhoshraPotroWaitingServices : IKhoshraPotroWaitingServices
     {
         IRepository<PotrangshoNothiItem> _nothiItem;
-        public KhoshraPotroWaitingServices(IRepository<PotrangshoNothiItem> nothiItem)
+        private readonly IAllPotroParser _allPotroParser;
+        public KhoshraPotroWaitingServices(IAllPotroParser allPotroParser , IRepository<PotrangshoNothiItem> nothiItem)
         {
+            _allPotroParser = allPotroParser;
             _nothiItem = nothiItem;
         }
         public KhoshraPotroWaitingResponse GetKhoshraPotroWaitingInfo(DakUserParam dakUserParam, long id)
@@ -30,7 +33,7 @@ namespace dNothi.Services.NothiServices
 
                 if (nothiList != null)
                 {
-                    khoshraPotroWaitingResponse = JsonConvert.DeserializeObject<KhoshraPotroWaitingResponse>(nothiList.khoshrawaitingjsonResponse);
+                    khoshraPotroWaitingResponse = _allPotroParser.KhoshraWaitingParseMessage(nothiList.khoshrawaitingjsonResponse);
 
                 }
                 return khoshraPotroWaitingResponse;
@@ -45,14 +48,14 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
                 request.AddParameter("nothi", "{\"nothi_id\":\"" + id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\"}");
+                request.AddParameter("length", "1000000000000");
                 IRestResponse response = client.Execute(request);
-                Console.WriteLine(response.Content);
 
                 var responseJson = response.Content;
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 SaveOrUpdateNothiRecords(dakUserParam, id, responseJson);
-                khoshraPotroWaitingResponse = JsonConvert.DeserializeObject<KhoshraPotroWaitingResponse>(responseJson);
+                khoshraPotroWaitingResponse = _allPotroParser.KhoshraWaitingParseMessage(responseJson);
                 return khoshraPotroWaitingResponse;
             }
             catch (Exception ex)
