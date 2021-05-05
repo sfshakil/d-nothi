@@ -50,11 +50,13 @@ namespace dNothi.Desktop.UI
             _khasraTemplateService = khasraTemplateService;
             WaitForm = new WaitFormFunc();
             InitializeComponent();
-            //WaitForm.Show(this);
            
+            
+            //WaitForm.Show(this);
+
             //CreateEditor();
-          
-           // WaitForm.Close();
+
+            // WaitForm.Close();
         }
 
         private void CreateEditor()
@@ -120,34 +122,23 @@ namespace dNothi.Desktop.UI
             }
 
 
-            //SetCurrentInputValue(khasraPotroTemplateData);
+            SetCurrentInputValue(khasraPotroTemplateData.html_content);
 
-
-            tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { khasraPotroTemplateData.html_content });
-            tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
-            
-            
         }
 
-        private async void SetCurrentInputValue(KhasraPotroTemplateDataDTO khasraPotroTemplateData)
+        private async void SetCurrentInputValue(string currentString)
         {
-            string pastSubject = KhoshraTemplateHtmlStringChange.subjectNew(_sub);
-
-
-
+            
             JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
-            _sub = GetPotroSubjectFromHtmlString(response.Result.ToString());
-            SetSubjectToHtmlString(khasraPotroTemplateData, pastSubject);
+            string sub = GetPotroSubjectFromHtmlString(response.Result.ToString());
+           
+            string newHtmlString= SetPotroElementToHtmlString(currentString, sub);
+
+            tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { newHtmlString });
+            tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
         }
 
-        private void SetSubjectToHtmlString(KhasraPotroTemplateDataDTO khasraPotroTemplateData, string pastSubject)
-        {
-            string currentSubject = KhoshraTemplateHtmlStringChange.subjectNew(_sub);
-
-            khasraPotroTemplateData.html_content= _currentHtmlString = _khasraPotroTemplateData.html_content = khasraPotroTemplateData.html_content.Replace(pastSubject, currentSubject);
-           // khasraPotroTemplateData.html_content = _currentHtmlString = _khasraPotroTemplateData.html_content = khasraPotroTemplateData.html_content.Replace(KhoshraTemplateHtmlStringChange.subjectOriginal, currentSubject);
-        }
-
+       
         private void Border_Color_Blue(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
@@ -182,9 +173,13 @@ namespace dNothi.Desktop.UI
         {
             if (onumodonkariListShowButton.IconChar == FontAwesome.Sharp.IconChar.CaretRight)
             {
+                onumodonkariListShowButton.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
 
-                ReloadOfficerList(onumodonkariListShowButton, onumodonkariListPanel,onumodonkariEmptyPanel,onumodonkariListFlowLayoutPanel);
-
+                if (onumodonkariListFlowLayoutPanel.Controls.Count == 0)
+                {
+                    onumodonkariEmptyPanel.Visible = true;
+                }
+                onumodonkariListPanel.Visible = true;
             }
 
 
@@ -329,17 +324,29 @@ namespace dNothi.Desktop.UI
                         officerRowUserControl.officerName = designationSeal.officer_name+","+ designationSeal.designation_bng + "," + designationSeal.office_unit + "," + designationSeal.office_bng;
                         officerRowUserControl.designationId = designationSeal.designation_id;
                         officerRowUserControl.officerInfo = designationSeal;
+                         officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) {
                        
-                        //  officerRowUserControl.Width = onumodonkariListFlowLayoutPanel.Width - 30;
-                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) {
-
-                              ReloadOfficerList(officerSelectButton,officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);};
+                               ReloadOfficerList(officerSelectButton,officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);};
 
                             officerListFlowLayoutPanel.Controls.Add(officerRowUserControl);
+
+                       if(selectedOfficerDesignations.Count !=1)
+                        {
+                            
+                            officerRowUserControl.UpButton += delegate (object sender, EventArgs e) { UpButton_Click(sender, e, officerRowUserControl._designationId, officerListFlowLayoutPanel, officerSelectButton, officerListPanel, officerEmptyPanel); };
+                            officerRowUserControl.DownButton += delegate (object sender, EventArgs e) { DownButton_Click(sender, e, officerRowUserControl._designationId, officerListFlowLayoutPanel, officerSelectButton, officerListPanel, officerEmptyPanel); };
+
+                        }
+                        else
+                        {
+                            officerRowUserControl.InvisibleUpDown();
+                        }
 
                         UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
                         
                     }
+
+
             
 
 
@@ -353,6 +360,105 @@ namespace dNothi.Desktop.UI
 
             }
         }
+
+        private void DownButton_Click(object sender, EventArgs e, int designationId, TableLayoutPanel officerListFlowLayoutPanel, FontAwesome.Sharp.IconButton officerSelectButton, Panel officerListPanel, Panel officerEmptyPanel)
+        {
+
+
+
+
+
+
+            var officers = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Visible == true).ToList();
+           
+            if(officers!=null && officers.Count!=0)
+            {
+                for(int i=0;i<officers.Count;i++)
+                {
+                    if (officers[i]._designationId == designationId && i!=officers.Count-1)
+                    {
+                        OfficerRowUserControl temp = officers[i + 1];
+                        
+                        officers[i + 1] = officers[i];
+                        officers[i] =temp;
+                    }
+
+                }
+                officerListFlowLayoutPanel.Controls.Clear();
+
+                for (int i = 0; i < officers.Count; i++)
+                {
+
+                    UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officers[i]);
+                }
+            }
+
+                ReloadOfficerList(officerSelectButton, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);
+
+            
+
+
+
+        }
+       
+        private void UpButton_Click(object sender, EventArgs e, int designationId, TableLayoutPanel officerListFlowLayoutPanel, FontAwesome.Sharp.IconButton officerSelectButton, Panel officerListPanel, Panel officerEmptyPanel)
+        {
+            var officers = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Visible == true).ToList();
+
+            if (officers != null && officers.Count != 0)
+            {
+                for (int i = 0; i < officers.Count; i++)
+                {
+                    if (officers[i]._designationId == designationId && i != 0)
+                    {
+                        OfficerRowUserControl temp = officers[i - 1];
+
+                        officers[i - 1] = officers[i];
+                        officers[i] = temp;
+                    }
+
+                }
+                officerListFlowLayoutPanel.Controls.Clear();
+
+                for (int i = 0; i < officers.Count; i++)
+                {
+
+                    UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officers[i]);
+                }
+            }
+
+            ReloadOfficerList(officerSelectButton, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);
+
+
+        }
+
+        Point ptOriginal = Point.Empty;
+        private void btnDrag_MouseDown(object sender, MouseEventArgs e)
+        {
+            ptOriginal = new Point(e.X, e.Y);
+
+
+            ((sender as Control).Parent as TableLayoutPanel).AllowDrop = true;
+            ((Control)sender).DoDragDrop(sender, DragDropEffects.All);
+        }
+
+        private void tableLayoutPanelDrop_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(System.Windows.Forms.Button)))
+                e.Effect = DragDropEffects.All;
+
+        }
+
+        
+
+        private void tableLayoutPanelDrop_DragOver(object sender, DragEventArgs e)
+        {
+            ((Control)e.Data.GetData(typeof(System.Windows.Forms.Button))).Location =
+            this.PointToClient(new Point(e.X - ptOriginal.X, e.Y - ptOriginal.Y));
+            ((Control)e.Data.GetData(typeof(System.Windows.Forms.Button))).BringToFront();
+
+        }
+
         private void ReloadOfficerList(FontAwesome.Sharp.IconButton officerSelectButton, Panel onumodonkariListPanel, Panel onumodonkariEmptyPanel, TableLayoutPanel onumodonkariListFlowLayoutPanel)
         {
             var officerList = onumodonkariListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
@@ -793,7 +899,7 @@ namespace dNothi.Desktop.UI
         public KhasraPotroTemplateDataDTO _khasraPotroTemplateData { get; set; }
         private void Khosra_Load(object sender, EventArgs e)
         {
-           
+            //ControlExtension.Draggable(prapokListFlowLayoutPanel, true);
             CreateEditor();
             DakUserParam userParam = _userService.GetLocalDakUserParam();
             AllDesignationSealListResponse designationSealListResponse = _designationSealService.GetAllDesignationSeal(userParam, userParam.office_id);
@@ -1024,11 +1130,12 @@ namespace dNothi.Desktop.UI
             dateTime = new DateTime();
             dateTime = now;
             _khasraPotroTemplateData.html_content = _currentHtmlString;
-            SetCurrentInputValue(_khasraPotroTemplateData);
+
+            SetCurrentInputValue(_khasraPotroTemplateData.html_content);
 
 
-            tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { _khasraPotroTemplateData.html_content });
-            tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+
+           
 
         }
         private DateTime? dateTimeApprover;
@@ -1081,10 +1188,10 @@ namespace dNothi.Desktop.UI
 
             _khasraPotroTemplateData.html_content = _currentHtmlString;
 
-            SetCurrentInputValue(_khasraPotroTemplateData);
+            SetCurrentInputValue(_khasraPotroTemplateData.html_content);
 
-            tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { _khasraPotroTemplateData.html_content });
-            tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+           
+
         }
 
 
@@ -1315,7 +1422,7 @@ namespace dNothi.Desktop.UI
                 var td = doc.DocumentNode.Descendants("td").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_subject"));
                 sub = td.InnerText;
 
-
+               
 
 
 
@@ -1328,7 +1435,34 @@ namespace dNothi.Desktop.UI
             return sub;
 
         }
+        private string SetPotroElementToHtmlString(string currentHtmlString, string subject)
+        {
 
+
+
+
+           
+
+            try
+            {
+                HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                doc.LoadHtml(currentHtmlString);
+                var td = doc.DocumentNode.Descendants("td").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_subject"));
+                td.InnerHtml=subject;
+
+
+                return doc.DocumentNode.OuterHtml;
+
+
+            }
+            catch
+            {
+
+            }
+
+            return "";
+
+        }
         private void AddPrpoktoParam(KhosraSaveParamPotro khosraSaveParamPotro)
         {
             List<KhosraSaveParamOfficer> receivers = new List<KhosraSaveParamOfficer>();

@@ -32,5 +32,20 @@ namespace dNothi.JsonParser.Entity
           public int dakCount { get; set; }
           public int nothiCount { get; set; }
 
+
+        public string front_domain { get; set; }
+        public int version { get; set; }
+        public bool sync_required { get; set; }
+        public int designation_id { get; set; }
+
+
+        public string is_front_desk { get; set; }
+        public string is_office_unit_admin { get; set; }
+        public string is_office_head { get; set; }
+        public string is_office_unit_head { get; set; }
+
+
+
+
     }
 }

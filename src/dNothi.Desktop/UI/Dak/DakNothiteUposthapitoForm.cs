@@ -118,6 +118,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
+
                     //NothiAll nothiAll = new NothiAll();
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = "নথির শাখা: " + nothiAllListDTO.nothi.office_unit_name;

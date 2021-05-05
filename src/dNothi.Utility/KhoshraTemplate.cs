@@ -14,7 +14,16 @@ namespace dNothi.Utility
         public static string bnDateApproverPotroOriginal = "<input id=\"approver_potro_date_bn\" style=\"border: none; font-size: 15px; width: 100%; text-align: center; background: transparent; opacity: 0;\" autocomplete=\"off\" type=\"text\" value=\"৫ জ্যৈষ্ঠ ১৪২৭\" />";
         public static string bnDateApproverPotroSet(DateTime dateTime)
         {
+
             BengaliCalendar bCal = new BengaliCalendar();
+
+            DateTime testDate = new DateTime(dateTime.Year, 4, 14);
+            if (bCal.GetDayOfMonth(testDate) != 1)
+            {
+                dateTime = dateTime.AddDays(-1);
+            }
+
+
             string Month = ConversionMethod.GetBengaliMonthFromEnglishMonthNo(bCal.GetMonth(dateTime));
             string Day = ConversionMethod.EnglishNumberToBangla(bCal.GetDayOfMonth(dateTime).ToString());
             string Year = ConversionMethod.EnglishNumberToBangla(bCal.GetYear(dateTime).ToString());
@@ -41,6 +50,16 @@ namespace dNothi.Utility
         public static string bnDatePotroSet(DateTime dateTime)
         {
             BengaliCalendar bCal = new BengaliCalendar();
+
+            DateTime testDate = new DateTime (dateTime.Year,4,14);
+          
+
+
+            if(bCal.GetDayOfMonth(testDate)!=1)
+            {
+               dateTime = dateTime.AddDays(-1);
+            }
+
             string Month = ConversionMethod.GetBengaliMonthFromEnglishMonthNo(bCal.GetMonth(dateTime));
             string Day = ConversionMethod.EnglishNumberToBangla(bCal.GetDayOfMonth(dateTime).ToString());
             string Year = ConversionMethod.EnglishNumberToBangla(bCal.GetYear(dateTime).ToString());

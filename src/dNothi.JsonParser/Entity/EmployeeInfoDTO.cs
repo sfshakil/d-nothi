@@ -20,5 +20,9 @@ namespace dNothi.JsonParser.Entity
         public int is_cadre { get; set; }
         public object joining_date { get; set; }
         public int default_sign { get; set; }
+
+
+
+    
     }
 }

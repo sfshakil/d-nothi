@@ -29,6 +29,27 @@ namespace dNothi.Desktop.UI
         public PrapokDTO officerInfo { get { return _officerInfo; } set { _officerInfo = value; } }
 
 
+        public void InvisibleUpDown()
+        {
+            upDownPanel.Visible = false;
+        }
+
+        public event EventHandler UpButton;
+
+        
+
+        private void upButton_Click(object sender, EventArgs e)
+        {
+            if (this.UpButton != null)
+                this.UpButton(sender, e);
+        }
+
+        public event EventHandler DownButton;
+        private void downButton_Click(object sender, EventArgs e)
+        {
+            if (this.DownButton != null)
+                this.DownButton(sender, e);
+        }
 
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -49,6 +70,19 @@ namespace dNothi.Desktop.UI
         private void OfficerRowUserControl_Paint(object sender, PaintEventArgs e)
         {
             UIDesignCommonMethod.Border_Color_Gray(sender, e);
+        }
+
+        private void OfficerRowUserControl_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(TableLayoutPanel))) e.Effect = DragDropEffects.Move;
+        }
+
+        private void OfficerRowUserControl_DragDrop(object sender, DragEventArgs e)
+        {
+            var tlp = (TableLayoutPanel)e.Data.GetData(typeof(TableLayoutPanel));
+            tlp.Location = this.PointToClient(new Point(e.X, e.Y));
+            tlp.Parent = this;
+            tlp.BringToFront();
         }
     }
 }
