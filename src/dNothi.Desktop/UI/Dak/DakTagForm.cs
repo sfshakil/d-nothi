@@ -157,41 +157,41 @@ namespace dNothi.Desktop.UI.Dak
 
         private void LoadFolderTree(FolderListDataDTO value)
         {
-            if (value.publicFOlder != null && value.publicFOlder.Count > 0)
-            {
-                foreach (FolderDTO publicFolderDTO in value.publicFOlder)
-                {
+            //if (value.publicFOlder != null && value.publicFOlder.Count > 0)
+            //{
+            //    foreach (FolderDTO publicFolderDTO in value.publicFOlder)
+            //    {
 
-                    TreeNode childNode = new TreeNode();
-                    childNode.Text = folderNameWithDakCount(publicFolderDTO.custom_name, publicFolderDTO.dak_count);
-                    childNode.Tag = publicFolderDTO.id;
+            //        TreeNode childNode = new TreeNode();
+            //        childNode.Text = folderNameWithDakCount(publicFolderDTO.custom_name, publicFolderDTO.dak_count);
+            //        childNode.Tag = publicFolderDTO.id;
 
-                    if (publicFolderDTO.parent == 0)
-                    {
-                        TreeNode treeNode = FindTreeNode(personalFolderTreeView.Nodes, publicFolderDTO.id);
-                        if (treeNode != null)
-                        {
-                            treeNode.Text = folderNameWithDakCount(publicFolderDTO.custom_name, publicFolderDTO.dak_count);
-                        }
-                        else
-                        {
-                            personalFolderTreeView.Nodes.OfType<TreeNode>()
-                         .FirstOrDefault(node => node.Name.Equals("publicNode")).Nodes.Add(childNode);
-                        }
-
-
-
-                    }
-                    else
-                    {
-                        NodeAddinTree(childNode, value.publicFOlder, publicFolderDTO.parent);
-                    }
+            //        if (publicFolderDTO.parent == 0)
+            //        {
+            //            TreeNode treeNode = FindTreeNode(personalFolderTreeView.Nodes, publicFolderDTO.id);
+            //            if (treeNode != null)
+            //            {
+            //                treeNode.Text = folderNameWithDakCount(publicFolderDTO.custom_name, publicFolderDTO.dak_count);
+            //            }
+            //            else
+            //            {
+            //                personalFolderTreeView.Nodes.OfType<TreeNode>()
+            //             .FirstOrDefault(node => node.Name.Equals("publicNode")).Nodes.Add(childNode);
+            //            }
 
 
 
+            //        }
+            //        else
+            //        {
+            //            NodeAddinTree(childNode, value.publicFOlder, publicFolderDTO.parent);
+            //        }
 
-                }
-            }
+
+
+
+            //    }
+            //}
 
 
 
@@ -239,7 +239,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
             HideParentNodeCheckBox(personalFolderTreeView, personalFolderTreeView.Nodes[0]);
-            HideParentNodeCheckBox(personalFolderTreeView, personalFolderTreeView.Nodes[1]);
+            //HideParentNodeCheckBox(personalFolderTreeView, personalFolderTreeView.Nodes[1]);
             HideParentNodeCheckBox(personalFolderTreeView, personalFolderTreeView.Nodes[0]);
         }
 

@@ -1222,13 +1222,23 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamPotro.potrojari = new KhasraSaveParamPotrojari();
                 khosraSaveParamPotro.potrojari.potro_type = _khasraPotroTemplateData.template_id;
                 //khosraSaveParamPotro.potrojari.attached_potro=
+                int potrojari_id = 0;
 
+                if(_khasraPotroTemplateData.potrojari_id != 0)
+                {
+                    potrojari_id = _khasraPotroTemplateData.potrojari_id;
+                }
+                else
+                {
+                    potrojari_id = _khasraPotroTemplateData.id;
+                }
 
                 if(_noteSelected != null)
                 {
                     khosraSaveParamPotro.potrojari.note_subject = _noteSelected.note_subject;
                     khosraSaveParamPotro.potrojari.nothi_master_id = Convert.ToInt32(_noteSelected.nothi_id);
-                    khosraSaveParamPotro.potrojari.nothi_note_id = Convert.ToInt32(_noteSelected.note_id);
+                    GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(_noteSelected.nothi_id),potrojari_id);
+                    khosraSaveParamPotro.potrojari.sarok_no = sarok_no.sarok_no;
 
                 }
 
@@ -1274,7 +1284,7 @@ namespace dNothi.Desktop.UI
 
 
 
-                KhosraSaveResponse khosraSaveResponse = _khosraSaveService.GetKhosraSaveResponse(dakUserParam, khosraSaveParamPotro);
+                 KhosraSaveResponse khosraSaveResponse = _khosraSaveService.GetKhosraSaveResponse(dakUserParam, khosraSaveParamPotro);
 
 
                 if(khosraSaveResponse.status=="success")

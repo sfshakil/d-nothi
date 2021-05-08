@@ -15,6 +15,7 @@ namespace dNothi.JsonParser.Entity.Khosra
     public class KhasraPotroTemplateDataDTO
     {
         public int id { get; set; }
+        public int potrojari_id { get; set; }
         public string template_name { get; set; }
         public string field_list { get; set; }
         public string html_content { get; set; }
@@ -31,5 +32,6 @@ namespace dNothi.JsonParser.Entity.Khosra
         public string created { get; set; }
         public string modified { get; set; }
         public int? modified_by { get; set; }
+
     }
 }

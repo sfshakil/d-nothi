@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Khosra\GetSarokNoResponse.cs" />
     <Compile Include="INothivuktoPotroParser.cs" />
     <Compile Include="NothivuktoPotroParser.cs" />
     <Compile Include="AllPotroParser.cs" />

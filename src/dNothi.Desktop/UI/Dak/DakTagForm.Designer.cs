@@ -31,8 +31,7 @@ namespace dNothi.Desktop.UI.Dak
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("ব্যক্তিগত");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("পাবলিক");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("ফোল্ডার");
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -207,13 +206,9 @@ namespace dNothi.Desktop.UI.Dak
             this.personalFolderTreeView.Name = "personalFolderTreeView";
             treeNode1.Name = "privateNode";
             treeNode1.Tag = "0";
-            treeNode1.Text = "ব্যক্তিগত";
-            treeNode2.Name = "publicNode";
-            treeNode2.Tag = "0";
-            treeNode2.Text = "পাবলিক";
+            treeNode1.Text = "ফোল্ডার";
             this.personalFolderTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            treeNode1});
             this.personalFolderTreeView.SelectedImageIndex = 0;
             this.personalFolderTreeView.Size = new System.Drawing.Size(492, 448);
             this.personalFolderTreeView.TabIndex = 1;
