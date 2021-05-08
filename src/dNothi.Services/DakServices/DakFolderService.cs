@@ -226,6 +226,7 @@ namespace dNothi.Services.DakServices
                     dakItemAction.designation_id = dakUserParam.designation_id;
                     dakItemAction.office_id = dakUserParam.office_id;
 
+                    dakItemAction.dak_Folder_Id_Json = ConversionMethod.ObjecttoJson(selectedFolderIds);
                   
 
                     _dakItemRepo.Insert(dakItemAction);
@@ -276,16 +277,17 @@ namespace dNothi.Services.DakServices
         }
 
 
-        public bool Is_Locally_DakTagged(int dak_id)
+        public List<int> Is_Locally_DakTagged(int dak_id)
         {
             var dakForwardCheck = _dakItemRepo.Table.FirstOrDefault(a => a.dak_id == dak_id && a.isDakTagged == true);
-            if (dakForwardCheck == null)
+            if (dakForwardCheck != null)
             {
-                return false;
+                List<int> ids = JsonConvert.DeserializeObject<List<int>>(dakForwardCheck.dak_Folder_Id_Json);
+                return ids;
             }
             else
             {
-                return true;
+                return null;
             }
         }
 
@@ -328,7 +330,7 @@ namespace dNothi.Services.DakServices
 
     public interface IDakFolderService
     {
-        bool Is_Locally_DakTagged(int dak_id);
+        List<int> Is_Locally_DakTagged(int dak_id);
         bool DakTagFromLocal();
 
         DakFolderMapResponse GetDakFolderMapResponse(DakUserParam dakUserParam, int dak_id, int is_copied_dak, string dak_Type, string dak_Folder, List<int> folderIds);
