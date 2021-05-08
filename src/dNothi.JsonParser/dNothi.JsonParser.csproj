@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Khosra\GetSarokNoResponse.cs" />
+    <Compile Include="Entity\Nothi\NothiNumberResponse.cs" />
     <Compile Include="INothivuktoPotroParser.cs" />
     <Compile Include="NothivuktoPotroParser.cs" />
     <Compile Include="AllPotroParser.cs" />

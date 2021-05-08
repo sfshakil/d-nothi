@@ -38,6 +38,8 @@
             this.txtDhoronCode = new PlaceholderTextBox.PlaceholderTextBox();
             this.userIdPanel = new System.Windows.Forms.Panel();
             this.invisiblecbxNothiType = new System.Windows.Forms.ComboBox();
+            this.lbNothitype2digitText = new System.Windows.Forms.Label();
+            this.lbNothitype2digit = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.userIdPanel.SuspendLayout();
             this.SuspendLayout();
@@ -146,16 +148,18 @@
             this.txtDhoronCode.BackColor = System.Drawing.Color.White;
             this.txtDhoronCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDhoronCode.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDhoronCode.Location = new System.Drawing.Point(7, 5);
+            this.txtDhoronCode.Location = new System.Drawing.Point(97, 74);
             this.txtDhoronCode.Name = "txtDhoronCode";
             this.txtDhoronCode.PlaceholderText = "২ ডিজিটের ধরন কোড";
-            this.txtDhoronCode.Size = new System.Drawing.Size(138, 22);
+            this.txtDhoronCode.Size = new System.Drawing.Size(53, 22);
             this.txtDhoronCode.TabIndex = 3;
+            this.txtDhoronCode.Visible = false;
             // 
             // userIdPanel
             // 
             this.userIdPanel.BackColor = System.Drawing.Color.Transparent;
-            this.userIdPanel.Controls.Add(this.txtDhoronCode);
+            this.userIdPanel.Controls.Add(this.lbNothitype2digitText);
+            this.userIdPanel.Controls.Add(this.lbNothitype2digit);
             this.userIdPanel.Location = new System.Drawing.Point(363, 28);
             this.userIdPanel.Name = "userIdPanel";
             this.userIdPanel.Size = new System.Drawing.Size(150, 30);
@@ -184,11 +188,40 @@
             this.invisiblecbxNothiType.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.invisiblecbxNothiType_DrawItem);
             this.invisiblecbxNothiType.SelectedIndexChanged += new System.EventHandler(this.invisiblecbxNothiType_SelectedIndexChanged);
             // 
+            // lbNothitype2digitText
+            // 
+            this.lbNothitype2digitText.AutoSize = true;
+            this.lbNothitype2digitText.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNothitype2digitText.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothitype2digitText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothitype2digitText.Location = new System.Drawing.Point(0, 0);
+            this.lbNothitype2digitText.Name = "lbNothitype2digitText";
+            this.lbNothitype2digitText.Padding = new System.Windows.Forms.Padding(3, 3, 0, 0);
+            this.lbNothitype2digitText.Size = new System.Drawing.Size(141, 24);
+            this.lbNothitype2digitText.TabIndex = 87;
+            this.lbNothitype2digitText.Text = "২ ডিজিটের ধরন কোড";
+            // 
+            // lbNothitype2digit
+            // 
+            this.lbNothitype2digit.BackColor = System.Drawing.Color.White;
+            this.lbNothitype2digit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbNothitype2digit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbNothitype2digit.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothitype2digit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbNothitype2digit.Location = new System.Drawing.Point(0, 0);
+            this.lbNothitype2digit.MaxLength = 2;
+            this.lbNothitype2digit.Multiline = true;
+            this.lbNothitype2digit.Name = "lbNothitype2digit";
+            this.lbNothitype2digit.Size = new System.Drawing.Size(150, 30);
+            this.lbNothitype2digit.TabIndex = 86;
+            this.lbNothitype2digit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbNothitype2digit_MouseClick);
+            // 
             // CreateNewNothiType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.txtDhoronCode);
             this.Controls.Add(this.invisiblecbxNothiType);
             this.Controls.Add(this.userIdPanel);
             this.Controls.Add(this.panel1);
@@ -221,5 +254,7 @@
         private PlaceholderTextBox.PlaceholderTextBox txtDhoronCode;
         private System.Windows.Forms.Panel userIdPanel;
         private System.Windows.Forms.ComboBox invisiblecbxNothiType;
+        private System.Windows.Forms.Label lbNothitype2digitText;
+        private System.Windows.Forms.TextBox lbNothitype2digit;
     }
 }
