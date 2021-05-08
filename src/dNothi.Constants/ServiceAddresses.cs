@@ -131,5 +131,12 @@ namespace dNothi.Constants
         public const string GuardFileList = "/api/nothi/guardfile/list";
         public const string GuardFileCreateEdit = "/api/add";
         public const string GuardFileDelete = "/api/delete";
+        
+        
+        // Khosara
+        public const string SharokNoEndpoint = "/api/potro/setup/dispatch";
+
+
+
     }
 }

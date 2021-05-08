@@ -16,6 +16,37 @@ namespace dNothi.Services.KhasraService
 {
   public  class KhosraSaveService:IKhosraSaveService
     {
+        public GetSarokNoResponse GetSharokNoResponse(DakUserParam dakUserParameter, int nothiid, int potrojariid)
+        {
+            try
+            {
+
+
+                var GetSharokNoAPI = new RestClient(GetAPIDomain() + GetSharokNoEndpoint());
+                GetSharokNoAPI.Timeout = -1;
+                var GetSharokNoRequest = new RestRequest(Method.POST);
+                GetSharokNoRequest.AddHeader("api-version", GetOldAPIVersion());
+                GetSharokNoRequest.AddHeader("Authorization", "Bearer " + dakUserParameter.token);
+                GetSharokNoRequest.AlwaysMultipartFormData = true;
+                GetSharokNoRequest.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParameter.office_id + "\",\"office_unit_id\":\"" + dakUserParameter.office_unit_id + "\",\"designation_id\":\"" + dakUserParameter.designation_id + "\"}");
+                GetSharokNoRequest.AddParameter("potro", "{\"nothi_id\":\""+nothiid+"\",\"potrojari_id\":\""+potrojariid+"\",\"req_data\":{\"sarok_no\":\"\"}}");
+
+
+                
+
+                IRestResponse GetSharokNoResponse = GetSharokNoAPI.Execute(GetSharokNoRequest);
+
+
+                var GetSharokNoResponseJson = GetSharokNoResponse.Content;
+
+                GetSarokNoResponse sarok_no = JsonConvert.DeserializeObject<GetSarokNoResponse>(GetSharokNoResponseJson);
+                return sarok_no;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
 
         public KhosraSaveResponse GetKhosraSaveResponse(DakUserParam dakUserParameter, KhosraSaveParamPotro potro)
@@ -75,10 +106,15 @@ namespace dNothi.Services.KhasraService
         {
             return DefaultAPIConfiguration.KhosraSaveEndpoint;
         }
+        protected string GetSharokNoEndpoint()
+        {
+            return DefaultAPIConfiguration.SharokNoEndpoint;
+        }
     }
 
  public interface IKhosraSaveService
     {
          KhosraSaveResponse GetKhosraSaveResponse(DakUserParam dakUserParameter, KhosraSaveParamPotro potro);
+         GetSarokNoResponse GetSharokNoResponse(DakUserParam dakUserParameter, int nothiid, int potrojariid);
     }
 }
