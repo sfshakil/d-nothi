@@ -119,6 +119,10 @@ namespace dNothi.Desktop.UI.Dak
             successMessage.ShowDialog();
 
         }
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string message = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
@@ -138,10 +142,11 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     SuccessMessage("নথি ধরন মুছে ফেলা হয়েছে।");
                     foreach (Form f in Application.OpenForms)
-                    { f.Hide(); }
+                    { BeginInvoke((Action)(() => f.Hide())); }
                     var form = FormFactory.Create<Nothi>();
                     form.ForceLoadNewNothi();
-                    form.ShowDialog();
+                    BeginInvoke((Action)(() => form.ShowDialog()));
+                    form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
                 }
             }
             else

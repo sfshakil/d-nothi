@@ -179,10 +179,11 @@ namespace dNothi.Desktop.UI.Dak
                             {
                                 SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
                                 foreach (Form f in Application.OpenForms)
-                                { f.Hide(); }
+                                { BeginInvoke((Action)(() => f.Hide())); }
                                 var form = FormFactory.Create<Nothi>();
                                 form.ForceLoadNewNothi();
-                                form.ShowDialog();
+                                BeginInvoke((Action)(() => form.ShowDialog()));
+                                form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
                             }
                         }
@@ -198,10 +199,11 @@ namespace dNothi.Desktop.UI.Dak
                         {
                             SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
                             foreach (Form f in Application.OpenForms)
-                            { f.Hide(); }
+                            { BeginInvoke((Action)(() => f.Hide())); }
                             var form = FormFactory.Create<Nothi>();
                             form.ForceLoadNewNothi();
-                            form.ShowDialog();
+                            BeginInvoke((Action)(() => form.ShowDialog()));
+                            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
                         }
                     }
@@ -213,6 +215,10 @@ namespace dNothi.Desktop.UI.Dak
                 ErrorMessage("দুঃখিত! ধরন ফাকা রাখা যাবে না।");
             }
             
+        }
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
+            this.Hide();
         }
         public bool IsEnglishDigitsOnly(string str)
         {

@@ -1441,7 +1441,7 @@ namespace dNothi.Desktop.UI
             if (noteSave.status == "success")
             {
                 NoteSaveDTO notedata = noteSave.data;
-                this.Hide();
+                //this.Hide();
 
                 var form = FormFactory.Create<Note>();
                 _dakuserparam = _userService.GetLocalDakUserParam();
@@ -1472,7 +1472,8 @@ namespace dNothi.Desktop.UI
                 form.noteTotal = notedata.note_no.ToString();
 
 
-                form.ShowDialog();
+                BeginInvoke((Action)(() => form.ShowDialog()));
+                form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
             }
             else
@@ -2016,9 +2017,10 @@ namespace dNothi.Desktop.UI
         private void btnBack_Click(object sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)
-            { f.Hide(); }
+            { BeginInvoke((Action)(() => f.Hide())); }
             var form = FormFactory.Create<Nothi>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         int onuchhedint = 0;
         List<FileAttachment> fileAttachments = new List<FileAttachment>();
@@ -2987,58 +2989,69 @@ namespace dNothi.Desktop.UI
 
         private void dakModulePanel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             var form = FormFactory.Create<Dashboard>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             var form = FormFactory.Create<Dashboard>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
-
-        private void dakModuleNameLabel_Click(object sender, EventArgs e)
+        private void DoSomethingAsync(object sender, EventArgs e)
         {
             this.Hide();
+        }
+        private void dakModuleNameLabel_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
             var form = FormFactory.Create<Dashboard>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void moduleDakCountLabel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             var form = FormFactory.Create<Dashboard>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void nothiModulePanel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void nothiModuleNameLabel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void label22_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         public static string Base64Decode1(string base64EncodedData)
         {
@@ -7635,7 +7648,8 @@ namespace dNothi.Desktop.UI
             form.nothiNo = lbNothiNo.Text;
             form.nothiShakha = lbNoteShakha.Text;
             form.nothiSubject = lbSubject.Text;
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void btnDraftHistory_Click(object sender, EventArgs e)
@@ -7652,7 +7666,8 @@ namespace dNothi.Desktop.UI
             form.nothiNo = lbNothiNo.Text;
             form.nothiShakha = lbNoteShakha.Text;
             form.nothiSubject = lbSubject.Text;
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void btnPotrojari_Click(object sender, EventArgs e)

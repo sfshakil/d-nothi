@@ -39,17 +39,21 @@ namespace dNothi.Desktop.UI
         private void btnNO_Click(object sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)
-            { f.Hide(); }
+            { BeginInvoke((Action)(() => f.Hide())); }
             var form = FormFactory.Create<Nothi>();
             form.ForceLoadNothiALL();
             //form.Visible = true;
             //form.BringToFront();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
-
-        private void btnYES_Click(object sender, EventArgs e)
+        private void DoSomethingAsync(object sender, EventArgs e)
         {
             this.Hide();
+        }
+        private void btnYES_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
             //var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             //form.ShowDialog();
 
@@ -70,10 +74,11 @@ namespace dNothi.Desktop.UI
             form.GetNothiInboxRecords(nothiListRecordsDTO);
             form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) {
                 foreach (Form f in Application.OpenForms)
-                { f.Hide(); }
+                { BeginInvoke((Action)(() => f.Hide())); }
                 var form1 = FormFactory.Create<Nothi>();
                 form1.ForceLoadNothiALL();
-                form1.ShowDialog();
+                BeginInvoke((Action)(() => form1.ShowDialog()));
+                form1.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
             };
 
             CalPopUpWindow(form);

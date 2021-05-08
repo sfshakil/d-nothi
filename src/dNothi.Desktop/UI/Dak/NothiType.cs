@@ -136,10 +136,15 @@ namespace dNothi.Desktop.UI.Dak
         private void btnNothiTypeCross_Click(object sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)
-            { f.Hide(); }
+            { BeginInvoke((Action)(() => f.Hide())); }
             var form = FormFactory.Create<Nothi>();
             form.forceLoadNewNothi();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+        }
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
+            this.Hide();
         }
         private string _totalNothi;
 

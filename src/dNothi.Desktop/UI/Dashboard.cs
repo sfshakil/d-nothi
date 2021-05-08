@@ -3152,14 +3152,16 @@ namespace dNothi.Desktop.UI
             form.ShowDialog();
         }
 
-        private void nothiModulePanel_Click(object sender, EventArgs e)
+        private async  void nothiModulePanel_Click(object sender, EventArgs e)
         {
-            //backgroundWorker1.CancelAsync();
-            this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
-
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
         private void nothiModulePanel_MouseHover(object sender, EventArgs e)
         {
             nothiModulePanel.BackColor = Color.FromArgb(245, 245, 249);
