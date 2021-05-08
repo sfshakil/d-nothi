@@ -354,6 +354,38 @@ namespace dNothi.Services.NothiServices
             return DefaultAPIConfiguration.NothiNoteTalikaEndPoint;
         }
 
-        
+        protected string GetNothiNumberEndPoint()
+        {
+            return DefaultAPIConfiguration.NothiNumberEndPoint;
+        }
+
+        public NothiNumberResponse GetNothiNumber(DakUserParam dakListUserParam, string nothi_type_id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiNumberEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                //var serializedObject = JsonConvert.SerializeObject(dakListUserParam);
+                //request.AddParameter("cdesk", serializedObject);
+                //request.AddParameter("cdesk", "{\"office_id\":\""+ dakUserParam.office_id+"\",\"office_unit_id\":\""+ dakUserParam.office_unit_id+ "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
+                request.AddParameter("designation_id", dakListUserParam.designation_id);
+                request.AddParameter("office_id", dakListUserParam.office_id);
+                request.AddParameter("nothi_type_id", nothi_type_id);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                //SaveOrUpdateNothiRecords(dakUserParam, responseJson, nothi_type_id);
+                NothiNumberResponse nothiNumberResponse = JsonConvert.DeserializeObject<NothiNumberResponse>(responseJson);
+                return nothiNumberResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

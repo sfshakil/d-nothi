@@ -51,14 +51,17 @@ namespace dNothi.Desktop.UI.Dak
             var nothi_type_id = ids[i];
             var token = _userService.GetToken();
             var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(dakListUserParam, Convert.ToString(nothi_type_id));
-            if (nothiNoteTalika.status == "success")
+            var nothinumber = _nothiNoteTalikaService.GetNothiNumber(dakListUserParam, Convert.ToString(nothi_type_id));
+
+            if (nothiNoteTalika.status == "success" && nothinumber.status == "success")
             {
                 if (nothiNoteTalika.data.records.Count > 0)
                 {
                     pnlNoData.Visible = false;
                     nothiTalikaFlowLayoutPnl.Visible = true;
-                    string code = "৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records, code);
+                    string code = nothinumber.data.ToString().Substring(0, 18);//"৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ".";
+                    string nothi4Digit = nothinumber.data.ToString().Substring(18, 4);
+                    LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records, code, nothi4Digit);
 
 
                 }
@@ -67,8 +70,8 @@ namespace dNothi.Desktop.UI.Dak
                     pnlNoData.Visible = true;
                     nothiTalikaFlowLayoutPnl.Visible = false;
                     nothiTalikaFlowLayoutPnl.Controls.Clear();
-                    lbNothiNo.Text = "৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ".";
-                    lbNothilast4digit.Text = "০০১.";
+                    lbNothiNo.Text = nothinumber.data.ToString().Substring(0, 18);//"৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ".";
+                    lbNothilast4digit.Text = nothinumber.data.ToString().Substring(18, 4);//"০০১.";
                     lbTotalNote.Text = " সর্বমোট: ০";
                 }
                 loadLast2digitNothiNo();
@@ -281,7 +284,7 @@ namespace dNothi.Desktop.UI.Dak
         {
 
         }
-        private void LoadNothiNoteTalikaListinPanel(List<NothiNoteTalikaRecordsDTO> nothiNotetalikaLists, string code)
+        private void LoadNothiNoteTalikaListinPanel(List<NothiNoteTalikaRecordsDTO> nothiNotetalikaLists, string code, string nothi4digit)
         {
             List<NothiTalika> nothiTalikas = new List<NothiTalika>();
             int i = 0;
@@ -290,46 +293,46 @@ namespace dNothi.Desktop.UI.Dak
             string[] nothiNoteNo = new string[nothiNotetalikaLists.Count];
             foreach (NothiNoteTalikaRecordsDTO NothiNoteTalikaListDTO in nothiNotetalikaLists)
             {
-                if (code == NothiNoteTalikaListDTO.nothi_no.Substring(0, 17))
+                //if (code == NothiNoteTalikaListDTO.nothi_no.Substring(0, 18))
+                //{
+                pnlNoData.Visible = false;
+                flaguse++;
+                NothiTalika nothiTalika = new NothiTalika();
+                nothiTalika.nothi = NothiNoteTalikaListDTO.nothi_no + " " + NothiNoteTalikaListDTO.subject;
+                nothiTalika.shakha = NothiNoteTalikaListDTO.office_unit;
+                nothiTalika.nothi_last_date = NothiNoteTalikaListDTO.created;
+
+                nothiNoteNo[i] = NothiNoteTalikaListDTO.nothi_no;
+                int totalnote = nothiNotetalikaLists.Count + 1;
+                lbNothiNo.Text = code;
+                //string value =   totalnote.ToString("000");
+                //lbNothilast4digit.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')))+".";//NothiNoteTalikaListDTO.nothi_no.Substring(18, 4);
+                string english_text = string.Concat(NothiNoteTalikaListDTO.nothi_no.Select(c => (char)('0' + c - '\u09E6')));
+                i = i + 1;
+                nothiTalika.permitted = Convert.ToString(NothiNoteTalikaListDTO.permitted);
+                nothiTalikas.Add(nothiTalika);
+
+
+                var currentYear = DateTime.Now.ToString("yy");
+                if (english_text.Substring(22, 2) == currentYear)
                 {
-                    pnlNoData.Visible = false;
-                    flaguse++;
-                    NothiTalika nothiTalika = new NothiTalika();
-                    nothiTalika.nothi = NothiNoteTalikaListDTO.nothi_no + " " + NothiNoteTalikaListDTO.subject;
-                    nothiTalika.shakha = NothiNoteTalikaListDTO.office_unit;
-                    nothiTalika.nothi_last_date = NothiNoteTalikaListDTO.created;
-
-                    nothiNoteNo[i] = NothiNoteTalikaListDTO.nothi_no;
-                    int totalnote = nothiNotetalikaLists.Count + 1;
-                    lbNothiNo.Text = NothiNoteTalikaListDTO.nothi_no.Substring(0, 18);
-                    //string value =   totalnote.ToString("000");
-                    //lbNothilast4digit.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')))+".";//NothiNoteTalikaListDTO.nothi_no.Substring(18, 4);
-                    string english_text = string.Concat(NothiNoteTalikaListDTO.nothi_no.Select(c => (char)('0' + c - '\u09E6')));
-                    i = i + 1;
-                    nothiTalika.permitted = Convert.ToString(NothiNoteTalikaListDTO.permitted);
-                    nothiTalikas.Add(nothiTalika);
-
-
-                    var currentYear = DateTime.Now.ToString("yy");
-                    if (english_text.Substring(22, 2) == currentYear)
+                    int num;
+                    if (int.TryParse(english_text.Substring(18, 3), out num))
                     {
-                        int num;
-                        if (int.TryParse(english_text.Substring(18, 3), out num))
-                        {
-                            string w = english_text.Substring(18, 3);
-                            flag[i] = Integer.parseInt(english_text.Substring(18, 3));
-                        }
+                        string w = english_text.Substring(18, 3);
+                        flag[i] = Integer.parseInt(english_text.Substring(18, 3));
                     }
-                    int max = flag.Max() + 1;
-                    string value = max.ToString("000");
-                    lbNothilast4digit.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ".";
                 }
-                if (flaguse == 0)
-                {
-                    pnlNoData.Visible = true;
-                    lbNothiNo.Text = code;
-                    lbNothilast4digit.Text = "০০১.";
-                }
+                int max = flag.Max() + 1;
+                string value = max.ToString("000");
+                lbNothilast4digit.Text = nothi4digit;
+                //}
+                //if (flaguse == 0)
+                //{
+                //    pnlNoData.Visible = true;
+                //    lbNothiNo.Text = code;
+                //    lbNothilast4digit.Text = "০০১.";
+                //}
             }
             lbTotalNote.Text = "সর্বমোট: " + string.Concat(i.ToString().Select(c => (char)('\u09E6' + c - '0')));
             nothiNoteNos = nothiNoteNo;

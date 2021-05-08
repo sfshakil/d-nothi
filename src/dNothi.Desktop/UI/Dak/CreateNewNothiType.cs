@@ -26,7 +26,9 @@ namespace dNothi.Desktop.UI.Dak
             _nothiTypeSave = nothiTypeSave;
             InitializeComponent();
             SetDefaultFont(this.Controls);
-           
+            //txtDhoronCode.MaxLength = 2;
+
+
         }
         
         private void btnCancel_Click(object sender, EventArgs e)
@@ -148,10 +150,11 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void btnNothiDhoron_Click(object sender, EventArgs e)
         {
-            if (cbxNothiType.Text != "বিষয়ের ধরন" && txtDhoronCode.Text != "")
+
+            if (cbxNothiType.Text != "বিষয়ের ধরন" && lbNothitype2digit.Text != "")
             {
                 int i = cbxNothiType.SelectedIndex;
-                int index = cbxNothiType.Items.IndexOf(txtDhoronCode.Text);
+                int index = cbxNothiType.Items.IndexOf(lbNothitype2digit.Text);
                 if (index >= 0 || i >= 0)
                 {
                     ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
@@ -159,10 +162,10 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                    bool eng =  IsEnglishDigitsOnly(txtDhoronCode.Text);
+                    bool eng =  IsEnglishDigitsOnly(lbNothitype2digit.Text);
                     if (eng)
                     {
-                        string bng = string.Concat(txtDhoronCode.Text.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        string bng = string.Concat(lbNothitype2digit.Text.ToString().Select(c => (char)('\u09E6' + c - '0')));
                         int index1 = cbxNothiType.Items.IndexOf(bng);
                         if (index1 >= 0)
                         {
@@ -174,7 +177,7 @@ namespace dNothi.Desktop.UI.Dak
 
                             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                             //int parsed_number = int.Parse(english_text);
-                            var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, txtDhoronCode.Text);
+                            var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, lbNothitype2digit.Text);
                             if (nothiTypeSave.status == "success")
                             {
                                 SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
@@ -190,7 +193,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
                     else
                     {
-                        string english_text = string.Concat(txtDhoronCode.Text.Select(c => (char)('0' + c - '\u09E6')));
+                        string english_text = string.Concat(lbNothitype2digit.Text.Select(c => (char)('0' + c - '\u09E6')));
 
                         DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                         //int parsed_number = int.Parse(english_text);
@@ -245,18 +248,21 @@ namespace dNothi.Desktop.UI.Dak
         {
             try
             {
+                lbNothitype2digitText.Visible = false;
                 int index = invisiblecbxNothiType.Items.IndexOf(cbxNothiType.SelectedItem);
                 int i = cbxNothiType.SelectedIndex;
                 int checking = CheckArray(i);
                 if (checking == 2 || checking == 3)
                     cbxNothiType.SelectedIndex = -1;
                 var st = nothiTypeLists[index];
-                txtDhoronCode.Text = string.Concat(st.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbNothitype2digit.Text = string.Concat(st.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                //txtDhoronCode.Text = string.Concat(st.nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0')));
             }
             catch
             {
                 cbxNothiType.Text = "বাছাই করুন";
-                txtDhoronCode.Text = "";
+                //txtDhoronCode.Text = "";
+                lbNothitype2digit.Text = "";
             }
             
         }
@@ -310,6 +316,11 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (invisiblecbxNothiType.SelectedIndex == 1)
                 invisiblecbxNothiType.SelectedIndex = -1;
+        }
+
+        private void lbNothitype2digit_MouseClick(object sender, MouseEventArgs e)
+        {
+            lbNothitype2digitText.Visible = false;
         }
     }
 }
