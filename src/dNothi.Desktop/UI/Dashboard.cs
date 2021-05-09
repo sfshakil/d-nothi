@@ -123,7 +123,7 @@ namespace dNothi.Desktop.UI
             _currentDakCatagory = new DakCatagoryList();
             _dakFolderService = dakFolderService;
             _syncerServices = syncerServices;
-            dakSharingServeice = _dakSharingServeice;
+            _dakSharingServeice = dakSharingServeice;
             InitializeComponent();
 
 

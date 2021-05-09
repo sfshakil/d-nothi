@@ -83,8 +83,6 @@ namespace dNothi.Services.DakServices.DakSharingService
 
                 request.AddHeader("Authorization", "Bearer " + userParam.token);
 
-                request.AddHeader("api-version", CommonSetting.GetAPIVersion());
-
                 request.AlwaysMultipartFormData = true;
 
                 request.AddParameter("designation_id", userParam.designation_id);
@@ -92,7 +90,7 @@ namespace dNothi.Services.DakServices.DakSharingService
                 request.AddParameter("office_id", userParam.office_id);
                 if (actionLink == 2)
                 {
-
+                    request.AddHeader("api-version", CommonSetting.GetAPIVersions());
                     request.AddParameter("assignor_designation_id", assignor_designation_id);
                     request.AddParameter("page", userParam.page);
                     request.AddParameter("limit", userParam.limit);
@@ -100,6 +98,7 @@ namespace dNothi.Services.DakServices.DakSharingService
                 }
                 else
                 {
+                    request.AddHeader("api-version", CommonSetting.GetAPIVersion());
 
                     if (assignor_designation_id == 1)
                     {
