@@ -47,6 +47,7 @@ namespace dNothi.Desktop.UI.Dak
         int onulipiColumn = 10;
         bool NijOffice = true;
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
+        List<ViewDesignationSealList> viewSenderDesignationSealLists = new List<ViewDesignationSealList>();
         List<DakAttachmentinGrid> _dakAttachmentinGrids = new List<DakAttachmentinGrid>();
         
         public PrapokDTO mul_prapokEdit { 
@@ -320,8 +321,54 @@ namespace dNothi.Desktop.UI.Dak
                     }
 
                     PopulateGrid();
-                    PopulateSenderListBox();
                    
+                   
+                }
+                catch
+                {
+
+                }
+
+
+
+            }
+
+        }
+
+        private AllDesignationSealListResponse _allDesignationSealListResponse;
+
+        public AllDesignationSealListResponse alldesignationSealListResponse
+        {
+            get { return _allDesignationSealListResponse; }
+            set
+            {
+                _allDesignationSealListResponse = value;
+                try
+                {
+                    foreach (PrapokDTO ownOfficeDTO in value.data)
+                    {
+                        var config = new MapperConfiguration(cfg =>
+                      cfg.CreateMap<PrapokDTO, ViewDesignationSealList>()
+                  );
+                        var mapper = new Mapper(config);
+                        var viewdesignationListOwnOffice = mapper.Map<ViewDesignationSealList>(ownOfficeDTO);
+
+
+
+                        viewdesignationListOwnOffice.nij_Office = true;
+
+
+
+                        if (!viewSenderDesignationSealLists.Any(a => a.designation_id == viewdesignationListOwnOffice.designation_id))
+                        {
+                            viewSenderDesignationSealLists.Add(viewdesignationListOwnOffice);
+                        }
+
+                    }
+
+                    
+                    PopulateSenderListBox();
+
                 }
                 catch
                 {
@@ -338,7 +385,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             searchOfficerRightListBox.DisplayMember = "designationwithname";
             searchOfficerRightListBox.DataSource = null;
-            searchOfficerRightListBox.DataSource = viewDesignationSealLists;
+            searchOfficerRightListBox.DataSource = viewSenderDesignationSealLists;
             searchOfficerRightListBox.Visible = true;
         }
 
@@ -916,14 +963,7 @@ namespace dNothi.Desktop.UI.Dak
             dakUploadParameter.uploader = dakUploadParameter.CSharpObjtoJson(dakSender);
 
             //Sender
-            var sender_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == _prerokId);
-            if (sender_info == null)
-            {
-                sender_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == _prerokId);
-            }
-
-
-            
+            var sender_info = _allDesignationSealListResponse.data.FirstOrDefault(a => a.designation_id == _prerokId);
             dakUploadParameter.sender_info = dakUploadParameter.CSharpObjtoJson(sender_info);
 
 

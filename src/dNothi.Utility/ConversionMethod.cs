@@ -6,11 +6,17 @@ using System.Runtime;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace dNothi.Utility
 {
     public class ConversionMethod
     {
+        public static string ObjecttoJson(object obj)
+        {
+            var jsonString = new JavaScriptSerializer().Serialize(obj);
+            return jsonString;
+        }
         public static string GetBengaliDayFromEnglishDay(string EnglishDay)
         {
             if(EnglishDay=="Saturday")

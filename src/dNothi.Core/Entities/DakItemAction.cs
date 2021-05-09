@@ -41,6 +41,8 @@ namespace dNothi.Core.Entities
 
         [MaxLength]
         public string dak_Action_Json { get; set; }
+        [MaxLength]
+        public string dak_Folder_Id_Json { get; set; }
 
         public void MakeAllfalse()
         {
