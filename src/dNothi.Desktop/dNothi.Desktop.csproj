@@ -389,6 +389,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IUserControlFactory.cs" />
+    <Compile Include="UI\AllAlartMessage.cs" />
     <Compile Include="UI\CustomMessageBox\OnlineToggleButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -496,6 +497,12 @@
     </Compile>
     <Compile Include="UI\Dak\DakRightTopInfoIconUserControl.Designer.cs">
       <DependentUpon>DakRightTopInfoIconUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\DakSortingUserControl\DakSortingUserUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakSortingUserControl\DakSortingUserUserControl.Designer.cs">
+      <DependentUpon>DakSortingUserUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\DakTagForm.cs">
       <SubType>Form</SubType>
@@ -1317,6 +1324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakRightTopInfoIconUserControl.resx">
       <DependentUpon>DakRightTopInfoIconUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakSortingUserControl\DakSortingUserUserControl.resx">
+      <DependentUpon>DakSortingUserUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakTagForm.resx">
       <DependentUpon>DakTagForm.cs</DependentUpon>

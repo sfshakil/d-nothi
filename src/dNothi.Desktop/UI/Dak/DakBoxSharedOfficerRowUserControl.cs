@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -33,9 +34,22 @@ namespace dNothi.Desktop.UI.Dak
         public string officeName { get { return _officeName; } set { _officeName = value; officeUnitLabel.Text = value; } }
 
 
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user clicks button")]
+
+        public event EventHandler DeleteButtonClick;
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি নিশ্চিতভাবে সংযুক্তি টি মুছে ফেলতে চান?";
+            conditonBoxForm.ShowDialog();
+
+            if (conditonBoxForm.Yes)
+            {
+                if (this.DeleteButtonClick != null)
+                    this.DeleteButtonClick(sender, e);
+            }
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -43,9 +57,5 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        private void deleteButton_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
     }
 }

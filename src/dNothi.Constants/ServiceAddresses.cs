@@ -106,6 +106,8 @@ namespace dNothi.Constants
         public const string NothiNoteOnucchedListEndPoint = "/api/nothi/note/onucched/list";
         public const string NothiNoteOnucchedRevertEndPoint = "/api/nothi/note/onucched/revert";
 
+
+
         //KasaraPattraDashBoardApi
         public const string nothidraftpotrolist = "/api/nothi_draft_khoshra_list";
         public const string nothikhoshrapotrolist = "/api/nothi_khoshra_potro_list";
@@ -116,6 +118,20 @@ namespace dNothi.Constants
         public const string mulPattraAndSanjukti = "/api/potro/document";
         public const string prapakerTalika = "/api/potrojari/recipient/list";
 
+        //GuardFileApi
+        public const string GuardFileCategoryList = "/api/nothi/guardfile/category/list";
+        public const string GuardFileList = "/api/nothi/guardfile/list";
+        public const string GuardFileCreateEdit = "/api/add";
+        public const string GuardFileDelete = "/api/delete";
+
+        //DakSharing
+
+        public const string SharingList = "/api/dak/sorting/designation";
+        public const string DakInbox = "/api/dak/inbox";
+        public const string SharingAdd = "/api/dak/sorting/add";
+        public const string SharingDelete = "/api/dak/sorting/delete";
+
+
 
        
         public static string PotroOnumodonEndPoint = "/api/potro/approve";
@@ -124,13 +140,6 @@ namespace dNothi.Constants
         
         public static string KhosraSaveEndpoint = "/api/potro/save";
 
-
-
-        //GuardFileApi
-        public const string GuardFileCategoryList = "/api/nothi/guardfile/category/list";
-        public const string GuardFileList = "/api/nothi/guardfile/list";
-        public const string GuardFileCreateEdit = "/api/add";
-        public const string GuardFileDelete = "/api/delete";
         
         
         // Khosara

@@ -1,7 +1,11 @@
-﻿using dNothi.Desktop.UI.ManuelUserControl;
+﻿using dNothi.Desktop.UI;
+using dNothi.Desktop.UI.ManuelUserControl;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices;
+using dNothi.Services.DakServices.DakSharingService;
+using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.UserServices;
+using javax.sound.midi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,29 +21,18 @@ namespace dNothi.Desktop.UI.Dak
     public partial class DakBoxSharingForm : Form
     {
         IDesignationSealService _designationSealService { get; set; }
+        IDakSharingService<ShareList> _dakSharingService { get; set; }
         IUserService _userService { get; set; }
-        public DakBoxSharingForm(IDesignationSealService designationSealService, IUserService userService)
+        AllAlartMessage alartMessage = new AllAlartMessage();
+        AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
+        public DakBoxSharingForm(IDesignationSealService designationSealService, IUserService userService, IDakSharingService<ShareList> dakSharingService)
         {
             _designationSealService = designationSealService;
             _userService = userService;
+            _dakSharingService = dakSharingService;
             InitializeComponent();
-            DakBoxSharedOfficerRowUserControl dakBoxSharedOfficerRowUserControl = new DakBoxSharedOfficerRowUserControl();
-            dakBoxSharedOfficerRowUserControl.Dock = DockStyle.Top;
 
-            int row = officerTableLayoutPanel.RowCount++;
-
-            officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
-            if (row == 1)
-            {
-                row = officerTableLayoutPanel.RowCount++;
-                officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
-            }
-            officerTableLayoutPanel.Controls.Add(dakBoxSharedOfficerRowUserControl, 0, row);
-            
-            officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
-            officerTableLayoutPanel.Controls.Add(dakBoxSharedOfficerRowUserControl, 0, row+1);
-
-
+            LoadAssignOfficerList();
         }
         
         private void DakBoxSharingForm_Load(object sender, EventArgs e)
@@ -159,7 +152,7 @@ namespace dNothi.Desktop.UI.Dak
         public void LoadOfficer()
         {
             DakUserParam userParam = _userService.GetLocalDakUserParam();
-            AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
+          
             designationSealListResponse = _designationSealService.GetAllDesignationSeal(userParam, userParam.office_id);
             List<ComboBoxItems> comboBoxItems = new List<ComboBoxItems>();
             try
@@ -186,9 +179,83 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        private void LoadAssignOfficerList()
+        {
+           
+            var assignlist = _dakSharingService.GetList(_userService.GetLocalDakUserParam(), 1,0);
+            try
+            {
+
+                if (assignlist.data.assignee.Count > 0)
+                {
+                    officerTableLayoutPanel.Controls.Clear();
+
+                    foreach (ShareList.Assignee assignee in assignlist.data.assignee)
+                    {
+                        DakBoxSharedOfficerRowUserControl dakBoxSharedOfficerRowUserControl = new DakBoxSharedOfficerRowUserControl();
+                        dakBoxSharedOfficerRowUserControl.officerName = assignee.name;
+                        dakBoxSharedOfficerRowUserControl.designation = assignee.designation_level;
+                        dakBoxSharedOfficerRowUserControl.officeName = assignee.office_name;
+                        dakBoxSharedOfficerRowUserControl.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(deleteSender, deleteeVent, assignee.designation_id); };
+                        dakBoxSharedOfficerRowUserControl.Dock = DockStyle.Top;
+
+                        int row = officerTableLayoutPanel.RowCount++;
+
+                        officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+
+                        officerTableLayoutPanel.Controls.Add(dakBoxSharedOfficerRowUserControl, 0, row);
+                    }
+                }
+
+
+            }
+            catch (Exception Ex)
+            {
+
+            }
+
+        }
+
+       private void DeleteControl_ButtonClick(Object sender,EventArgs e, int assignee_designation_id)
+        {
+            var data = _dakSharingService.Delete(_userService.GetLocalDakUserParam(), assignee_designation_id);
+            if(data.status=="success")
+            {
+                alartMessage.SuccessMessage("ডাক বক্সটি সফলভাবে মুছে ফেলা হয়েছে।");
+
+            }
+            else
+            {
+                alartMessage.ErrorMessage("failed");
+            }
+
+
+            LoadAssignOfficerList();
+
+        }
         private void DakBoxSharingForm_Shown(object sender, EventArgs e)
         {
             LoadOfficer();
+        }
+
+        private void prerokBachaiOfficerButton_Click(object sender, EventArgs e)
+        {
+            if (officerSearchList.selectedId > 0)
+            {
+                var assignor = _userService.GetLocalDakUserParam();
+                var assainee = designationSealListResponse.data.Where(x => x.officer_id == officerSearchList.selectedId).FirstOrDefault();
+                var response = _dakSharingService.Add(assignor, assainee);
+
+                if (response.status == "success")
+                {
+                    alartMessage.SuccessMessage("ডাক বক্সটি সফলভাবে হস্তান্তর করা হয়েছে।");
+                }
+                else
+                {
+                    alartMessage.ErrorMessage("failed");
+                }
+                LoadAssignOfficerList();
+            }
         }
     }
 }
