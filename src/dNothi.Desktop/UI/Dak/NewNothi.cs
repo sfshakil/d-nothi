@@ -313,18 +313,18 @@ namespace dNothi.Desktop.UI.Dak
                 nothiTalikas.Add(nothiTalika);
 
 
-                var currentYear = DateTime.Now.ToString("yy");
-                if (english_text.Substring(22, 2) == currentYear)
-                {
-                    int num;
-                    if (int.TryParse(english_text.Substring(18, 3), out num))
-                    {
-                        string w = english_text.Substring(18, 3);
-                        flag[i] = Integer.parseInt(english_text.Substring(18, 3));
-                    }
-                }
-                int max = flag.Max() + 1;
-                string value = max.ToString("000");
+                //var currentYear = DateTime.Now.ToString("yy");
+                //if (english_text.Substring(22, 2) == currentYear)
+                //{
+                //    int num;
+                //    if (int.TryParse(english_text.Substring(18, 3), out num))
+                //    {
+                //        string w = english_text.Substring(18, 3);
+                //        flag[i] = Integer.parseInt(english_text.Substring(18, 3));
+                //    }
+                //}
+                //int max = flag.Max() + 1;
+                //string value = max.ToString("000");
                 lbNothilast4digit.Text = nothi4digit;
                 //}
                 //if (flaguse == 0)

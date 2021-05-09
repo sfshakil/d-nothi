@@ -92,6 +92,27 @@ namespace dNothi.Services.NothiServices
             }
         }
 
+        public void SaveOrUpdateNothiNumberGenerate(DakUserParam dakListUserParam, string responseJson, string nothi_type_id)
+        {
+            NothiNoteTalikaItem nothiNoteTalikaItemDB = _nothiNoteTalikaItem.Table.FirstOrDefault(a => a.nothi_type_id == nothi_type_id && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (nothiNoteTalikaItemDB != null)
+            {
+                nothiNoteTalikaItemDB.nothiGenerateJsonResponse = responseJson;
+                _nothiNoteTalikaItem.Update(nothiNoteTalikaItemDB);
+            }
+            else
+            {
+                NothiNoteTalikaItem nothiNoteTalikaItem = new NothiNoteTalikaItem();
+                nothiNoteTalikaItem.nothi_type_id = nothi_type_id;
+                nothiNoteTalikaItem.designation_id = dakListUserParam.designation_id;
+                nothiNoteTalikaItem.office_id = dakListUserParam.office_id;
+                nothiNoteTalikaItem.nothiGenerateJsonResponse = responseJson;
+                _nothiNoteTalikaItem.Insert(nothiNoteTalikaItem);
+
+            }
+        }
+
         public NothiNoteListResponse GetNothiNoteListAll(DakUserParam dakUserParam, int nothi__id)
         {
             try
@@ -361,6 +382,19 @@ namespace dNothi.Services.NothiServices
 
         public NothiNumberResponse GetNothiNumber(DakUserParam dakListUserParam, string nothi_type_id)
         {
+            NothiNumberResponse nothiNumberResponse = new NothiNumberResponse();
+            
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var nothiNoteTalikaList = _nothiNoteTalikaItem.Table.FirstOrDefault(a => a.nothi_type_id == nothi_type_id && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+                if (nothiNoteTalikaList != null)
+                {
+                    nothiNumberResponse = JsonConvert.DeserializeObject<NothiNumberResponse>(nothiNoteTalikaList.nothiGenerateJsonResponse);
+
+                }
+                return nothiNumberResponse;
+            }
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiNumberEndPoint());
@@ -378,8 +412,8 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                //SaveOrUpdateNothiRecords(dakUserParam, responseJson, nothi_type_id);
-                NothiNumberResponse nothiNumberResponse = JsonConvert.DeserializeObject<NothiNumberResponse>(responseJson);
+                SaveOrUpdateNothiNumberGenerate(dakListUserParam, responseJson, nothi_type_id);
+                nothiNumberResponse = JsonConvert.DeserializeObject<NothiNumberResponse>(responseJson);
                 return nothiNumberResponse;
             }
             catch (Exception ex)
