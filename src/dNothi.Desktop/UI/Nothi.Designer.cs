@@ -351,7 +351,7 @@
             this.panel2.Size = new System.Drawing.Size(1489, 62);
             this.panel2.TabIndex = 13;
             // 
-            // moduleButton
+            // DakNothiPanel
             // 
             this.DakNothiPanel.Controls.Add(this.DakNothiTableLayoutPanel);
             this.DakNothiPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -442,7 +442,7 @@
             this.NothiInboxTotal.Location = new System.Drawing.Point(103, 15);
             this.NothiInboxTotal.Margin = new System.Windows.Forms.Padding(0);
             this.NothiInboxTotal.Name = "NothiInboxTotal";
-            this.NothiInboxTotal.Size = new System.Drawing.Size(36, 21);
+            this.NothiInboxTotal.Size = new System.Drawing.Size(45, 26);
             this.NothiInboxTotal.TabIndex = 18;
             this.NothiInboxTotal.Text = "১২২";
             this.NothiInboxTotal.Click += new System.EventHandler(this.nothiModulePanel_Click);
@@ -475,7 +475,7 @@
             this.moduleDakCountLabel.Location = new System.Drawing.Point(102, 19);
             this.moduleDakCountLabel.Margin = new System.Windows.Forms.Padding(0);
             this.moduleDakCountLabel.Name = "moduleDakCountLabel";
-            this.moduleDakCountLabel.Size = new System.Drawing.Size(27, 21);
+            this.moduleDakCountLabel.Size = new System.Drawing.Size(34, 26);
             this.moduleDakCountLabel.TabIndex = 18;
             this.moduleDakCountLabel.Text = "১২";
             this.moduleDakCountLabel.Click += new System.EventHandler(this.dakModuleNameLabel_Click);
@@ -490,8 +490,7 @@
             this.dakModuleNameLabel.Location = new System.Drawing.Point(42, 15);
             this.dakModuleNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.dakModuleNameLabel.Name = "dakModuleNameLabel";
-            this.dakModuleNameLabel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.dakModuleNameLabel.Size = new System.Drawing.Size(42, 33);
+            this.dakModuleNameLabel.Size = new System.Drawing.Size(50, 30);
             this.dakModuleNameLabel.TabIndex = 19;
             this.dakModuleNameLabel.Text = "ডাক";
             this.dakModuleNameLabel.Click += new System.EventHandler(this.dakModuleNameLabel_Click);
@@ -703,10 +702,10 @@
             this.lbLengthStart.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbLengthStart.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbLengthStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLengthStart.Location = new System.Drawing.Point(122, 0);
+            this.lbLengthStart.Location = new System.Drawing.Point(175, 0);
             this.lbLengthStart.Margin = new System.Windows.Forms.Padding(0);
             this.lbLengthStart.Name = "lbLengthStart";
-            this.lbLengthStart.Size = new System.Drawing.Size(20, 21);
+            this.lbLengthStart.Size = new System.Drawing.Size(24, 26);
             this.lbLengthStart.TabIndex = 36;
             this.lbLengthStart.Text = "০";
             // 
@@ -716,10 +715,10 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Right;
             this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label13.Location = new System.Drawing.Point(142, 0);
+            this.label13.Location = new System.Drawing.Point(199, 0);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(15, 21);
+            this.label13.Size = new System.Drawing.Size(19, 26);
             this.label13.TabIndex = 35;
             this.label13.Text = "-";
             // 
@@ -729,10 +728,10 @@
             this.lbLengthEnd.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbLengthEnd.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbLengthEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLengthEnd.Location = new System.Drawing.Point(157, 0);
+            this.lbLengthEnd.Location = new System.Drawing.Point(218, 0);
             this.lbLengthEnd.Margin = new System.Windows.Forms.Padding(0);
             this.lbLengthEnd.Name = "lbLengthEnd";
-            this.lbLengthEnd.Size = new System.Drawing.Size(20, 21);
+            this.lbLengthEnd.Size = new System.Drawing.Size(24, 26);
             this.lbLengthEnd.TabIndex = 34;
             this.lbLengthEnd.Text = "০";
             // 
@@ -742,10 +741,10 @@
             this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbTotalNothi.Location = new System.Drawing.Point(177, 0);
+            this.lbTotalNothi.Location = new System.Drawing.Point(242, 0);
             this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
+            this.lbTotalNothi.Size = new System.Drawing.Size(98, 26);
             this.lbTotalNothi.TabIndex = 33;
             this.lbTotalNothi.Text = " সর্বমোট: ০";
             // 
@@ -957,9 +956,10 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label2.Location = new System.Drawing.Point(145, 0);
+            this.label2.Location = new System.Drawing.Point(182, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 21);
+            this.label2.Size = new System.Drawing.Size(125, 26);
             this.label2.TabIndex = 34;
             this.label2.Text = "এটুআই প্রোগ্রাম";
             // 
@@ -972,7 +972,7 @@
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 21);
+            this.label7.Size = new System.Drawing.Size(182, 26);
             this.label7.TabIndex = 30;
             this.label7.Text = "© Copyright ২০২০, ";
             // 
@@ -981,10 +981,11 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label9.Location = new System.Drawing.Point(918, 0);
+            this.label9.Location = new System.Drawing.Point(1228, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label9.Size = new System.Drawing.Size(61, 26);
+            this.label9.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label9.Size = new System.Drawing.Size(78, 32);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             // 
@@ -1114,7 +1115,7 @@
             this.placeholderTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.placeholderTextBox2.Name = "placeholderTextBox2";
             this.placeholderTextBox2.PlaceholderText = "নথি নম্বর/নথি বিষয় দিয়ে খুঁজুন";
-            this.placeholderTextBox2.Size = new System.Drawing.Size(987, 22);
+            this.placeholderTextBox2.Size = new System.Drawing.Size(1316, 27);
             this.placeholderTextBox2.TabIndex = 3;
             this.MyToolTip.SetToolTip(this.placeholderTextBox2, "নথি নম্বর/নথি বিষয় দিয়ে খুঁজুন");
             // 
@@ -1210,8 +1211,8 @@
             this.label3.Location = new System.Drawing.Point(668, -7);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(203, 26);
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label3.Size = new System.Drawing.Size(256, 32);
             this.label3.TabIndex = 24;
             this.label3.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
             // 
@@ -1242,6 +1243,74 @@
             this.detailsNothiSearcPanel.Size = new System.Drawing.Size(1489, 478);
             this.detailsNothiSearcPanel.TabIndex = 54;
             this.detailsNothiSearcPanel.Visible = false;
+            // 
+            // nothiShakhaSrchUC
+            // 
+            this.nothiShakhaSrchUC.AutoSize = true;
+            this.nothiShakhaSrchUC.BackColor = System.Drawing.Color.White;
+            this.nothiShakhaSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.nothiShakhaSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.nothiShakhaSrchUC.Location = new System.Drawing.Point(889, 89);
+            this.nothiShakhaSrchUC.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
+            this.nothiShakhaSrchUC.MinimumSize = new System.Drawing.Size(173, 39);
+            this.nothiShakhaSrchUC.Name = "nothiShakhaSrchUC";
+            this.nothiShakhaSrchUC.searchButtonText = "বাছাই করুন";
+            this.nothiShakhaSrchUC.Size = new System.Drawing.Size(499, 78);
+            this.nothiShakhaSrchUC.TabIndex = 56;
+            // 
+            // ogradhikarSrchUC
+            // 
+            this.ogradhikarSrchUC.AutoSize = true;
+            this.ogradhikarSrchUC.BackColor = System.Drawing.Color.White;
+            this.ogradhikarSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.ogradhikarSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.ogradhikarSrchUC.Location = new System.Drawing.Point(889, 191);
+            this.ogradhikarSrchUC.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
+            this.ogradhikarSrchUC.MinimumSize = new System.Drawing.Size(173, 39);
+            this.ogradhikarSrchUC.Name = "ogradhikarSrchUC";
+            this.ogradhikarSrchUC.searchButtonText = "দপ্তর/শাখা";
+            this.ogradhikarSrchUC.Size = new System.Drawing.Size(499, 78);
+            this.ogradhikarSrchUC.TabIndex = 55;
+            // 
+            // nothiDhoronSrchUC
+            // 
+            this.nothiDhoronSrchUC.AutoSize = true;
+            this.nothiDhoronSrchUC.BackColor = System.Drawing.Color.White;
+            this.nothiDhoronSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.nothiDhoronSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.nothiDhoronSrchUC.Location = new System.Drawing.Point(47, 89);
+            this.nothiDhoronSrchUC.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
+            this.nothiDhoronSrchUC.MinimumSize = new System.Drawing.Size(173, 39);
+            this.nothiDhoronSrchUC.Name = "nothiDhoronSrchUC";
+            this.nothiDhoronSrchUC.searchButtonText = "বাছাই করুন";
+            this.nothiDhoronSrchUC.Size = new System.Drawing.Size(515, 78);
+            this.nothiDhoronSrchUC.TabIndex = 54;
+            // 
+            // nameDesignationSrchUC
+            // 
+            this.nameDesignationSrchUC.AutoSize = true;
+            this.nameDesignationSrchUC.BackColor = System.Drawing.Color.White;
+            this.nameDesignationSrchUC.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.nameDesignationSrchUC.listboxcollection = new string[] {
+        "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
+        "জেলা প্রশাষকের কার্যালয়, ঢাকা",
+        "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
+            this.nameDesignationSrchUC.Location = new System.Drawing.Point(47, 287);
+            this.nameDesignationSrchUC.Margin = new System.Windows.Forms.Padding(12, 14, 12, 14);
+            this.nameDesignationSrchUC.MinimumSize = new System.Drawing.Size(173, 39);
+            this.nameDesignationSrchUC.Name = "nameDesignationSrchUC";
+            this.nameDesignationSrchUC.searchButtonText = "নাম/পদবি দিয়ে খুঁজুন";
+            this.nameDesignationSrchUC.Size = new System.Drawing.Size(1347, 78);
+            this.nameDesignationSrchUC.TabIndex = 31;
             // 
             // panel5
             // 
@@ -1281,7 +1350,7 @@
             this.label12.Location = new System.Drawing.Point(4, 14);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 21);
+            this.label12.Size = new System.Drawing.Size(79, 26);
             this.label12.TabIndex = 19;
             this.label12.Text = "সময়সীমা";
             // 
@@ -1300,6 +1369,19 @@
             this.iconButton3.Size = new System.Drawing.Size(35, 27);
             this.iconButton3.TabIndex = 4;
             this.iconButton3.UseVisualStyleBackColor = false;
+            // 
+            // nameorDesignationSearchXTextBox
+            // 
+            this.nameorDesignationSearchXTextBox.BackColor = System.Drawing.Color.White;
+            this.nameorDesignationSearchXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.nameorDesignationSearchXTextBox.ForeColor = System.Drawing.Color.DimGray;
+            this.nameorDesignationSearchXTextBox.Location = new System.Drawing.Point(47, 198);
+            this.nameorDesignationSearchXTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nameorDesignationSearchXTextBox.Multiline = true;
+            this.nameorDesignationSearchXTextBox.Name = "nameorDesignationSearchXTextBox";
+            this.nameorDesignationSearchXTextBox.Size = new System.Drawing.Size(399, 50);
+            this.nameorDesignationSearchXTextBox.TabIndex = 52;
+            this.nameorDesignationSearchXTextBox.Text = "সময়সীমা";
             // 
             // label10
             // 
