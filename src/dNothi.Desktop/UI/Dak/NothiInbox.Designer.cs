@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.allNothiInbox = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.bodyPanel = new System.Windows.Forms.Panel();
+            this.newAllNoteFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pnlNewAllNote = new System.Windows.Forms.Panel();
             this.lbTotalNote = new System.Windows.Forms.Label();
             this.btnPrevios = new FontAwesome.Sharp.IconButton();
@@ -60,10 +62,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.bodyPanel = new System.Windows.Forms.Panel();
-            this.newAllNoteFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.allNothiInbox.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.bodyPanel.SuspendLayout();
             this.pnlNewAllNote.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -72,7 +73,6 @@
             this.panel10.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.bodyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // allNothiInbox
@@ -84,7 +84,7 @@
             this.allNothiInbox.Location = new System.Drawing.Point(0, 0);
             this.allNothiInbox.Margin = new System.Windows.Forms.Padding(0);
             this.allNothiInbox.Name = "allNothiInbox";
-            this.allNothiInbox.Size = new System.Drawing.Size(1487, 102);
+            this.allNothiInbox.Size = new System.Drawing.Size(1190, 82);
             this.allNothiInbox.TabIndex = 0;
             // 
             // panel4
@@ -94,8 +94,35 @@
             this.panel4.Location = new System.Drawing.Point(0, 145);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1487, 0);
+            this.panel4.Size = new System.Drawing.Size(1190, 0);
             this.panel4.TabIndex = 20;
+            // 
+            // bodyPanel
+            // 
+            this.bodyPanel.AutoScroll = true;
+            this.bodyPanel.Controls.Add(this.newAllNoteFlowLayoutPanel);
+            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyPanel.Location = new System.Drawing.Point(0, 0);
+            this.bodyPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.bodyPanel.Name = "bodyPanel";
+            this.bodyPanel.Size = new System.Drawing.Size(1190, 0);
+            this.bodyPanel.TabIndex = 17;
+            // 
+            // newAllNoteFlowLayoutPanel
+            // 
+            this.newAllNoteFlowLayoutPanel.AutoSize = true;
+            this.newAllNoteFlowLayoutPanel.ColumnCount = 1;
+            this.newAllNoteFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.newAllNoteFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.newAllNoteFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.newAllNoteFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.newAllNoteFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.newAllNoteFlowLayoutPanel.Name = "newAllNoteFlowLayoutPanel";
+            this.newAllNoteFlowLayoutPanel.RowCount = 1;
+            this.newAllNoteFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.newAllNoteFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.newAllNoteFlowLayoutPanel.Size = new System.Drawing.Size(1190, 0);
+            this.newAllNoteFlowLayoutPanel.TabIndex = 55;
             // 
             // pnlNewAllNote
             // 
@@ -112,7 +139,7 @@
             this.pnlNewAllNote.Location = new System.Drawing.Point(0, 102);
             this.pnlNewAllNote.Margin = new System.Windows.Forms.Padding(0);
             this.pnlNewAllNote.Name = "pnlNewAllNote";
-            this.pnlNewAllNote.Size = new System.Drawing.Size(1487, 43);
+            this.pnlNewAllNote.Size = new System.Drawing.Size(1190, 43);
             this.pnlNewAllNote.TabIndex = 19;
             // 
             // lbTotalNote
@@ -121,11 +148,11 @@
             this.lbTotalNote.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbTotalNote.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbTotalNote.Location = new System.Drawing.Point(1290, 1);
+            this.lbTotalNote.Location = new System.Drawing.Point(1016, 1);
             this.lbTotalNote.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNote.Name = "lbTotalNote";
             this.lbTotalNote.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lbTotalNote.Size = new System.Drawing.Size(108, 31);
+            this.lbTotalNote.Size = new System.Drawing.Size(85, 26);
             this.lbTotalNote.TabIndex = 63;
             this.lbTotalNote.Text = " সর্বমোট: ১২";
             // 
@@ -140,7 +167,7 @@
             this.btnPrevios.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.btnPrevios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPrevios.IconSize = 24;
-            this.btnPrevios.Location = new System.Drawing.Point(1398, 1);
+            this.btnPrevios.Location = new System.Drawing.Point(1101, 1);
             this.btnPrevios.Margin = new System.Windows.Forms.Padding(0);
             this.btnPrevios.Name = "btnPrevios";
             this.btnPrevios.Size = new System.Drawing.Size(45, 40);
@@ -159,7 +186,7 @@
             this.btnNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNext.IconSize = 24;
-            this.btnNext.Location = new System.Drawing.Point(1443, 1);
+            this.btnNext.Location = new System.Drawing.Point(1146, 1);
             this.btnNext.Margin = new System.Windows.Forms.Padding(0);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(44, 40);
@@ -274,7 +301,7 @@
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 41);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1487, 2);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1190, 2);
             this.flowLayoutPanel3.TabIndex = 58;
             // 
             // flowLayoutPanel2
@@ -284,7 +311,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1487, 1);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1190, 1);
             this.flowLayoutPanel2.TabIndex = 57;
             // 
             // panel1
@@ -303,7 +330,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1487, 102);
+            this.panel1.Size = new System.Drawing.Size(1190, 102);
             this.panel1.TabIndex = 18;
             // 
             // panel5
@@ -311,7 +338,7 @@
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(1107, 0);
+            this.panel5.Location = new System.Drawing.Point(810, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(380, 101);
@@ -342,11 +369,11 @@
             this.panel10.AutoSize = true;
             this.panel10.Controls.Add(this.lbTotalNothi);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(274, 0);
+            this.panel10.Location = new System.Drawing.Point(292, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.panel10.Size = new System.Drawing.Size(106, 28);
+            this.panel10.Size = new System.Drawing.Size(88, 28);
             this.panel10.TabIndex = 3;
             // 
             // lbTotalNothi
@@ -360,7 +387,7 @@
             this.lbTotalNothi.Location = new System.Drawing.Point(0, 0);
             this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(96, 26);
+            this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
             this.lbTotalNothi.TabIndex = 61;
             this.lbTotalNothi.Text = "totalNothi";
             // 
@@ -393,10 +420,10 @@
             this.lbNoteLastDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbNoteLastDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbNoteLastDate.Location = new System.Drawing.Point(49, 0);
+            this.lbNoteLastDate.Location = new System.Drawing.Point(120, 0);
             this.lbNoteLastDate.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteLastDate.Name = "lbNoteLastDate";
-            this.lbNoteLastDate.Size = new System.Drawing.Size(326, 26);
+            this.lbNoteLastDate.Size = new System.Drawing.Size(255, 21);
             this.lbNoteLastDate.TabIndex = 52;
             this.lbNoteLastDate.Text = "নোটের সর্বশেষ তারিখঃ ৮/৩/২১ ১:১৮ PM";
             this.lbNoteLastDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -409,7 +436,7 @@
             this.lbNothiId.Location = new System.Drawing.Point(841, 55);
             this.lbNothiId.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiId.Name = "lbNothiId";
-            this.lbNothiId.Size = new System.Drawing.Size(120, 26);
+            this.lbNothiId.Size = new System.Drawing.Size(98, 21);
             this.lbNothiId.TabIndex = 58;
             this.lbNothiId.Text = "nothiIdLabel";
             this.lbNothiId.Visible = false;
@@ -430,7 +457,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 101);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1487, 1);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1190, 1);
             this.flowLayoutPanel1.TabIndex = 56;
             // 
             // btnNothiInboxOnumodon
@@ -482,7 +509,7 @@
             this.lbShakha.Location = new System.Drawing.Point(215, 55);
             this.lbShakha.Margin = new System.Windows.Forms.Padding(0);
             this.lbShakha.Name = "lbShakha";
-            this.lbShakha.Size = new System.Drawing.Size(124, 26);
+            this.lbShakha.Size = new System.Drawing.Size(102, 21);
             this.lbShakha.TabIndex = 50;
             this.lbShakha.Text = "shakhaLabel";
             // 
@@ -495,7 +522,7 @@
             this.lbNothi.Location = new System.Drawing.Point(209, 18);
             this.lbNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothi.Name = "lbNothi";
-            this.lbNothi.Size = new System.Drawing.Size(103, 26);
+            this.lbNothi.Size = new System.Drawing.Size(85, 21);
             this.lbNothi.TabIndex = 49;
             this.lbNothi.Text = "nothiLabel";
             this.lbNothi.Click += new System.EventHandler(this.iconButton3_Click_1);
@@ -510,7 +537,7 @@
             this.label1.Location = new System.Drawing.Point(156, 55);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 26);
+            this.label1.Size = new System.Drawing.Size(43, 21);
             this.label1.TabIndex = 48;
             this.label1.Text = "শাখাঃ";
             // 
@@ -524,36 +551,9 @@
             this.label6.Location = new System.Drawing.Point(156, 18);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 26);
+            this.label6.Size = new System.Drawing.Size(38, 21);
             this.label6.TabIndex = 47;
             this.label6.Text = "নথিঃ";
-            // 
-            // bodyPanel
-            // 
-            this.bodyPanel.AutoScroll = true;
-            this.bodyPanel.Controls.Add(this.newAllNoteFlowLayoutPanel);
-            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyPanel.Location = new System.Drawing.Point(0, 0);
-            this.bodyPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(1487, 0);
-            this.bodyPanel.TabIndex = 17;
-            // 
-            // newAllNoteFlowLayoutPanel
-            // 
-            this.newAllNoteFlowLayoutPanel.AutoSize = true;
-            this.newAllNoteFlowLayoutPanel.ColumnCount = 1;
-            this.newAllNoteFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.newAllNoteFlowLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.newAllNoteFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.newAllNoteFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.newAllNoteFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.newAllNoteFlowLayoutPanel.Name = "newAllNoteFlowLayoutPanel";
-            this.newAllNoteFlowLayoutPanel.RowCount = 1;
-            this.newAllNoteFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.newAllNoteFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.newAllNoteFlowLayoutPanel.Size = new System.Drawing.Size(1487, 0);
-            this.newAllNoteFlowLayoutPanel.TabIndex = 55;
             // 
             // NothiInbox
             // 
@@ -566,6 +566,8 @@
             this.Size = new System.Drawing.Size(1487, 102);
             this.allNothiInbox.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.bodyPanel.ResumeLayout(false);
+            this.bodyPanel.PerformLayout();
             this.pnlNewAllNote.ResumeLayout(false);
             this.pnlNewAllNote.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -580,8 +582,6 @@
             this.panel6.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.bodyPanel.ResumeLayout(false);
-            this.bodyPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
