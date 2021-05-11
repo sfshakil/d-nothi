@@ -2057,7 +2057,7 @@ namespace dNothi.Desktop.UI
             }
 
 
-            else if (_dakFolderService.Is_Locally_DakTagged(dakListInboxRecordsDTO.dak_user.dak_id) != null)
+             if (_dakFolderService.Is_Locally_DakTagged(dakListInboxRecordsDTO.dak_user.dak_id) != null)
             {
                 List<int> ids = _dakFolderService.Is_Locally_DakTagged(dakListInboxRecordsDTO.dak_user.dak_id);
                 dakArchiveUserControl.is_Tag = true;
@@ -2604,7 +2604,7 @@ namespace dNothi.Desktop.UI
 
         private void daptorikDakUploadButton_Click(object sender, EventArgs e)
         {
-
+            NormalizeDashBoard();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -2733,6 +2733,7 @@ namespace dNothi.Desktop.UI
 
         private void nagorikDakUploadMenuButton_Click(object sender, EventArgs e)
         {
+            NormalizeDashBoard();
             dakSortMetroPanel.Visible = false;
             searchHeaderTableLayoutPanel.Visible = false;
             ResetAllMenuButtonSelection();
