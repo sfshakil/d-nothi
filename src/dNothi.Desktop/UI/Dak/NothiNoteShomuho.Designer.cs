@@ -75,7 +75,7 @@
             this.detailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.detailsButton.IconSize = 18;
             this.detailsButton.Location = new System.Drawing.Point(0, 0);
-            this.detailsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.detailsButton.Margin = new System.Windows.Forms.Padding(4);
             this.detailsButton.Name = "detailsButton";
             this.detailsButton.Size = new System.Drawing.Size(40, 37);
             this.detailsButton.TabIndex = 58;
@@ -94,7 +94,7 @@
             this.detailsButtonNewTab.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.detailsButtonNewTab.IconSize = 18;
             this.detailsButtonNewTab.Location = new System.Drawing.Point(40, 0);
-            this.detailsButtonNewTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.detailsButtonNewTab.Margin = new System.Windows.Forms.Padding(4);
             this.detailsButtonNewTab.Name = "detailsButtonNewTab";
             this.detailsButtonNewTab.Size = new System.Drawing.Size(40, 37);
             this.detailsButtonNewTab.TabIndex = 59;
@@ -113,7 +113,7 @@
             this.btnOption.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOption.IconSize = 18;
             this.btnOption.Location = new System.Drawing.Point(80, 0);
-            this.btnOption.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOption.Margin = new System.Windows.Forms.Padding(4);
             this.btnOption.Name = "btnOption";
             this.btnOption.Size = new System.Drawing.Size(40, 37);
             this.btnOption.TabIndex = 60;
@@ -146,7 +146,7 @@
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 24;
             this.iconButton4.Location = new System.Drawing.Point(13, 0);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(24, 44);
             this.iconButton4.TabIndex = 62;
@@ -189,7 +189,7 @@
             this.fromToIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.fromToIcon.IconSize = 15;
             this.fromToIcon.Location = new System.Drawing.Point(203, 0);
-            this.fromToIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fromToIcon.Margin = new System.Windows.Forms.Padding(4);
             this.fromToIcon.Name = "fromToIcon";
             this.fromToIcon.Size = new System.Drawing.Size(27, 44);
             this.fromToIcon.TabIndex = 65;
@@ -238,10 +238,11 @@
             this.lbNoteIssueDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbNoteIssueDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteIssueDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbNoteIssueDate.Location = new System.Drawing.Point(1114, 6);
+            this.lbNoteIssueDate.Location = new System.Drawing.Point(1104, 6);
             this.lbNoteIssueDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNoteIssueDate.Name = "lbNoteIssueDate";
-            this.lbNoteIssueDate.Size = new System.Drawing.Size(179, 26);
+            this.lbNoteIssueDate.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lbNoteIssueDate.Size = new System.Drawing.Size(189, 26);
             this.lbNoteIssueDate.TabIndex = 69;
             this.lbNoteIssueDate.Text = "noteLastDateLabel";
             // 
@@ -260,7 +261,7 @@
             this.eyeIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
             this.eyeIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.eyeIcon.IconSize = 24;
-            this.eyeIcon.Location = new System.Drawing.Point(1071, 6);
+            this.eyeIcon.Location = new System.Drawing.Point(1061, 6);
             this.eyeIcon.Margin = new System.Windows.Forms.Padding(0);
             this.eyeIcon.Name = "eyeIcon";
             this.eyeIcon.Size = new System.Drawing.Size(43, 38);
@@ -273,10 +274,11 @@
             this.lbKhoshrawaiting.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbKhoshrawaiting.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbKhoshrawaiting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbKhoshrawaiting.Location = new System.Drawing.Point(1131, 0);
+            this.lbKhoshrawaiting.Location = new System.Drawing.Point(1121, 0);
             this.lbKhoshrawaiting.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbKhoshrawaiting.Name = "lbKhoshrawaiting";
-            this.lbKhoshrawaiting.Size = new System.Drawing.Size(162, 26);
+            this.lbKhoshrawaiting.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lbKhoshrawaiting.Size = new System.Drawing.Size(172, 26);
             this.lbKhoshrawaiting.TabIndex = 73;
             this.lbKhoshrawaiting.Text = "lbKhoshrawaiting";
             this.lbKhoshrawaiting.Visible = false;
@@ -287,10 +289,11 @@
             this.lbOnucched.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbOnucched.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbOnucched.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbOnucched.Location = new System.Drawing.Point(912, 0);
+            this.lbOnucched.Location = new System.Drawing.Point(882, 0);
             this.lbOnucched.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbOnucched.Name = "lbOnucched";
-            this.lbOnucched.Size = new System.Drawing.Size(118, 26);
+            this.lbOnucched.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lbOnucched.Size = new System.Drawing.Size(128, 26);
             this.lbOnucched.TabIndex = 75;
             this.lbOnucched.Text = "lbOnucched";
             this.lbOnucched.Visible = false;
@@ -301,10 +304,11 @@
             this.lbKhoshra.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbKhoshra.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbKhoshra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbKhoshra.Location = new System.Drawing.Point(1030, 0);
+            this.lbKhoshra.Location = new System.Drawing.Point(1010, 0);
             this.lbKhoshra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbKhoshra.Name = "lbKhoshra";
-            this.lbKhoshra.Size = new System.Drawing.Size(101, 26);
+            this.lbKhoshra.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lbKhoshra.Size = new System.Drawing.Size(111, 26);
             this.lbKhoshra.TabIndex = 74;
             this.lbKhoshra.Text = "lbKhoshra";
             this.lbKhoshra.Visible = false;
@@ -320,7 +324,7 @@
             this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSchedule.IconSize = 28;
-            this.btnSchedule.Location = new System.Drawing.Point(1038, 6);
+            this.btnSchedule.Location = new System.Drawing.Point(1028, 6);
             this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(33, 38);
@@ -378,7 +382,7 @@
             this.pnlBody.Controls.Add(this.panel6);
             this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBody.Location = new System.Drawing.Point(160, 0);
-            this.pnlBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlBody.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(1293, 92);
             this.pnlBody.TabIndex = 78;
@@ -404,7 +408,7 @@
             this.panel7.Controls.Add(this.iconButton4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 44);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.panel7.Size = new System.Drawing.Size(1293, 44);

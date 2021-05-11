@@ -131,9 +131,6 @@ namespace dNothi.Desktop.UI.Dak
             if (!InternetConnection.Check())
             {
                 newAllNoteFlowLayoutPanel.Controls.Clear();
-                newAllNoteFlowLayoutPanel.AutoScroll = true;
-                newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-                newAllNoteFlowLayoutPanel.WrapContents = false;
                 var nothiInboxNotUploadedNotes = _nothiOutboxNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
                 if (nothiInboxNotUploadedNotes.Count > 0)
                 {
@@ -171,7 +168,7 @@ namespace dNothi.Desktop.UI.Dak
 
                         nothiNoteShomuho.invisible();
 
-                        nothiNoteShomuhos.Add(nothiNoteShomuho);
+                        UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
 
                     }
                     //newAllNoteFlowLayoutPanel.Controls.Clear();
@@ -179,10 +176,10 @@ namespace dNothi.Desktop.UI.Dak
                     //newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
                     //newAllNoteFlowLayoutPanel.WrapContents = false;
 
-                    for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
-                    {
-                        newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
-                    }
+                    //for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
+                    //{
+                    //    newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
+                    //}
                 }
             }
 
@@ -199,11 +196,11 @@ namespace dNothi.Desktop.UI.Dak
                     //int totalNote = Convert.ToInt32(totalnothi.Substring(9));
                     if (nothiInboxNote.data.records.Count == 1)
                     {
-                        this.Height = totalNote * 150 + originalHeight;
+                        this.Height = totalNote * 190 + originalHeight;
                     }
                     else
                     {
-                        this.Height = totalNote * 130 + originalHeight;
+                        this.Height = totalNote * 170 + originalHeight;
                     }
                     
                     this.Width = originalWidth;
@@ -226,6 +223,11 @@ namespace dNothi.Desktop.UI.Dak
         public void LoadNothiNoteAllinPanel(List<NothiListInboxNoteRecordsDTO> nothiNoteInboxLists)
         {
             List<NothiOutboxNoteShomuho> nothiNoteShomuhos = new List<NothiOutboxNoteShomuho>();
+
+            if (InternetConnection.Check())
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+            }
             int i = 0;
             foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
             {
@@ -306,21 +308,15 @@ namespace dNothi.Desktop.UI.Dak
                 //    nothiNoteShomuho.toofficer = "";
                 //}
                 i = i + 1;
-                nothiNoteShomuhos.Add(nothiNoteShomuho);
+                UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
 
             }
-            if (InternetConnection.Check())
-            {
-                newAllNoteFlowLayoutPanel.Controls.Clear();
-            }
-            newAllNoteFlowLayoutPanel.AutoScroll = true;
-            newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            newAllNoteFlowLayoutPanel.WrapContents = false;
+            
 
-            for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
-            {
-                newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
-            }
+            //for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
+            //{
+            //    newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
+            //}
 
         }
         public event EventHandler OutboxNoteDetailsButton;
