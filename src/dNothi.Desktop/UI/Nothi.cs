@@ -339,7 +339,7 @@ namespace dNothi.Desktop.UI
         private void LoadNothiInboxinPanel(List<NothiListRecordsDTO> nothiLists)
         {
             List<NothiInbox> nothiInboxs = new List<NothiInbox>();
-
+            nothiListFlowLayoutPanel.Controls.Clear();
             foreach (NothiListRecordsDTO nothiListRecordsDTO in nothiLists)
             {
                 nothiInboxRecord = nothiListRecordsDTO;
@@ -370,16 +370,7 @@ namespace dNothi.Desktop.UI
                 nothiInbox.nothiListRecordsDTO = nothiListRecordsDTO;
 
                 nothiInboxDisplayed++;
-                nothiInboxs.Add(nothiInbox);
-            }
-            nothiListFlowLayoutPanel.Controls.Clear();
-            nothiListFlowLayoutPanel.AutoScroll = true;
-            nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            nothiListFlowLayoutPanel.WrapContents = false;
-
-            for (int j = 0; j <= nothiInboxs.Count - 1; j++)
-            {
-                nothiListFlowLayoutPanel.Controls.Add(nothiInboxs[j]);
+                UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, nothiInbox);
             }
         }
         private void NoteAllDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
@@ -946,7 +937,7 @@ namespace dNothi.Desktop.UI
         }
         private void LoadNothiOutboxinPanel(List<NothiOutboxListRecordsDTO> nothiOutboxLists)
         {
-
+            nothiListFlowLayoutPanel.Controls.Clear();
             List<NothiOutbox> nothiOutboxs = new List<NothiOutbox>();
             int i = 0;
             foreach (NothiOutboxListRecordsDTO nothiOutboxListDTO in nothiOutboxLists)
@@ -1026,16 +1017,7 @@ namespace dNothi.Desktop.UI
                 nothiOutbox.nothiOutboxListRecordsDTO = nothiOutboxListDTO;
                 i = i + 1;
                 nothiOutboxs.Add(nothiOutbox);
-
-            }
-            nothiListFlowLayoutPanel.Controls.Clear();
-            nothiListFlowLayoutPanel.AutoScroll = true;
-            nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            nothiListFlowLayoutPanel.WrapContents = false;
-
-            for (int j = 0; j <= nothiOutboxs.Count - 1; j++)
-            {
-                nothiListFlowLayoutPanel.Controls.Add(nothiOutboxs[j]);
+                UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, nothiOutbox);
             }
         }
         private void NothiOutboxOnumodon_ButtonClick(object sender, EventArgs e, NothiOutboxListRecordsDTO nothiOutboxListDTO)
@@ -1115,6 +1097,7 @@ namespace dNothi.Desktop.UI
                         } 
                     }
                 }
+                nothiListFlowLayoutPanel.Controls.Clear();
                 List<NothiAll> nothiAlls = new List<NothiAll>();
                 nothiCreateItemActions = _nothiCreateItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
                 if (nothiCreateItemActions != null && nothiCreateItemActions.Count > 0)
@@ -1157,17 +1140,9 @@ namespace dNothi.Desktop.UI
 
                         nothiAll.flag = 2;
                         nothiAlls.Add(nothiAll);
+                        UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, nothiAll);
                     }
                     
-                }
-                nothiListFlowLayoutPanel.Controls.Clear();
-                nothiListFlowLayoutPanel.AutoScroll = true;
-                nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-                nothiListFlowLayoutPanel.WrapContents = false;
-
-                for (int j = 0; j <= nothiAlls.Count - 1; j++)
-                {
-                    nothiListFlowLayoutPanel.Controls.Add(nothiAlls[j]);
                 }
             }
         }
@@ -1372,7 +1347,10 @@ namespace dNothi.Desktop.UI
         {
 
             List<NothiAll> nothiAlls = new List<NothiAll>();
-
+            if (InternetConnection.Check())
+            {
+                nothiListFlowLayoutPanel.Controls.Clear();
+            }
             foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
             {
                 NothiAll nothiAll = UserControlFactory.Create<NothiAll>();
@@ -1452,19 +1430,9 @@ namespace dNothi.Desktop.UI
                     nothiAll.flag = 1;
                 }
                 nothiAlls.Add(nothiAll);
+                UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, nothiAll);
             }
-            if (InternetConnection.Check())
-            { 
-                nothiListFlowLayoutPanel.Controls.Clear(); 
-            }
-            nothiListFlowLayoutPanel.AutoScroll = true;
-            nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            nothiListFlowLayoutPanel.WrapContents = false;
-
-            for (int j = 0; j <= nothiAlls.Count - 1; j++)
-            {
-                nothiListFlowLayoutPanel.Controls.Add(nothiAlls[j]);
-            }
+            
         }
 
         private void btnGardFile_Click(object sender, EventArgs e)
@@ -1819,6 +1787,8 @@ namespace dNothi.Desktop.UI
 
         private void btnNewNothi_Click(object sender, EventArgs e)
         {
+            newNothi.Dock = System.Windows.Forms.DockStyle.Right;
+            newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             newNothi.loadNewNothiPage();
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
@@ -1864,9 +1834,11 @@ namespace dNothi.Desktop.UI
         {
             if (designationDetailsPanelNothi.Width == 434 && !designationDetailsPanelNothi.Visible)
             {
+                designationDetailsPanelNothi.Dock = System.Windows.Forms.DockStyle.Right;
+                designationDetailsPanelNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
                 designationDetailsPanelNothi.Visible = true;
                 //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
-                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 50);
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(this.Width - designationDetailsPanelNothi.Width, 50);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
                 designationDetailsPanelNothi.Width = 427;
@@ -2060,6 +2032,7 @@ namespace dNothi.Desktop.UI
 
             if (noteList.data != null)
             {
+                nothiListFlowLayoutPanel.Controls.Clear();
                 List<NothiNoteTalikaAll> noteListUserControls = new List<NothiNoteTalikaAll>();
                 foreach (NothiNoteListRecordDTO noteDTO in noteList.data.records)
                 {
@@ -2114,15 +2087,7 @@ namespace dNothi.Desktop.UI
 
 
                     noteListUserControls.Add(dakNothiteUposthaponNoteList);
-                }
-                nothiListFlowLayoutPanel.Controls.Clear();
-                nothiListFlowLayoutPanel.AutoScroll = true;
-                nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-                nothiListFlowLayoutPanel.WrapContents = false;
-
-                for (int j = 0; j <= noteListUserControls.Count - 1; j++)
-                {
-                    nothiListFlowLayoutPanel.Controls.Add(noteListUserControls[j]);
+                    UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, dakNothiteUposthaponNoteList);
                 }
             }
         }
@@ -2211,7 +2176,7 @@ namespace dNothi.Desktop.UI
             if (modulePanel.Width == 334 && !modulePanel.Visible)
             {
                 modulePanel.Visible = true;
-                modulePanel.Location = new System.Drawing.Point(510, 40);
+                modulePanel.Location = new System.Drawing.Point(moduleButton.Location.X, 40);
                 Controls.Add(modulePanel);
                 modulePanel.BringToFront();
                 modulePanel.Width = 335;
