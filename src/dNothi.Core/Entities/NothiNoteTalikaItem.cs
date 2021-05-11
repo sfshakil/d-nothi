@@ -16,7 +16,9 @@ namespace dNothi.Core.Entities
 
         [MaxLength]
         public string jsonResponse { get; set; }
-
+        
+        [MaxLength]
+        public string nothiGenerateJsonResponse { get; set; }
         public int designation_id { get; set; }
         public int office_id { get; set; }
     }
