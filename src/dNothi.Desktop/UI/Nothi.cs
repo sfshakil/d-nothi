@@ -96,6 +96,9 @@ namespace dNothi.Desktop.UI
         }
         public void forceLoadNewNothi()
         {
+            nothiListFlowLayoutPanel.Controls.Clear();
+            newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
+            //newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             newNothi.loadNewNothiPage();
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
@@ -105,6 +108,9 @@ namespace dNothi.Desktop.UI
             SelectButton(btnNewNothi as Button);
             newNothi.Visible = true;
             newNothi.Location = new System.Drawing.Point(233, 50);
+            //newNothi.Size = this.Size - panel4.Size;
+            newNothi.Height = this.Height - panel2.Height - pnlNothiNoteTalika.Height - panel6.Height;
+            newNothi.Width = bodyPanel.Width;
             Controls.Add(newNothi);
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
@@ -1787,8 +1793,9 @@ namespace dNothi.Desktop.UI
 
         private void btnNewNothi_Click(object sender, EventArgs e)
         {
-            newNothi.Dock = System.Windows.Forms.DockStyle.Right;
-            newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            nothiListFlowLayoutPanel.Controls.Clear();
+            newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
+            //newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             newNothi.loadNewNothiPage();
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
@@ -1798,6 +1805,9 @@ namespace dNothi.Desktop.UI
             SelectButton(sender as Button);
             newNothi.Visible = true;
             newNothi.Location = new System.Drawing.Point(233, 50);
+            //newNothi.Size = this.Size - panel4.Size;
+            newNothi.Height = this.Height - panel2.Height - pnlNothiNoteTalika.Height - panel6.Height;
+            newNothi.Width = bodyPanel.Width;
             Controls.Add(newNothi);
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
@@ -2176,7 +2186,7 @@ namespace dNothi.Desktop.UI
             if (modulePanel.Width == 334 && !modulePanel.Visible)
             {
                 modulePanel.Visible = true;
-                modulePanel.Location = new System.Drawing.Point(moduleButton.Location.X, 40);
+                modulePanel.Location = new System.Drawing.Point(moduleButton.Location.X + dakModulePanel.Width + nothiModulePanel.Width, 40);
                 Controls.Add(modulePanel);
                 modulePanel.BringToFront();
                 modulePanel.Width = 335;

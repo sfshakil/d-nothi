@@ -286,6 +286,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void LoadNothiNoteTalikaListinPanel(List<NothiNoteTalikaRecordsDTO> nothiNotetalikaLists, string code, string nothi4digit)
         {
+            nothiTalikaFlowLayoutPnl.Controls.Clear();
             List<NothiTalika> nothiTalikas = new List<NothiTalika>();
             int i = 0;
             int flaguse = 0;
@@ -310,7 +311,7 @@ namespace dNothi.Desktop.UI.Dak
                 string english_text = string.Concat(NothiNoteTalikaListDTO.nothi_no.Select(c => (char)('0' + c - '\u09E6')));
                 i = i + 1;
                 nothiTalika.permitted = Convert.ToString(NothiNoteTalikaListDTO.permitted);
-                nothiTalikas.Add(nothiTalika);
+                UIDesignCommonMethod.AddRowinTable(nothiTalikaFlowLayoutPnl, nothiTalika);
 
 
                 //var currentYear = DateTime.Now.ToString("yy");
@@ -336,15 +337,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             lbTotalNote.Text = "সর্বমোট: " + string.Concat(i.ToString().Select(c => (char)('\u09E6' + c - '0')));
             nothiNoteNos = nothiNoteNo;
-            nothiTalikaFlowLayoutPnl.Controls.Clear();
-            nothiTalikaFlowLayoutPnl.AutoScroll = true;
-            nothiTalikaFlowLayoutPnl.FlowDirection = FlowDirection.TopDown;
-            nothiTalikaFlowLayoutPnl.WrapContents = false;
-
-            for (int j = 0; j <= nothiTalikas.Count - 1; j++)
-            {
-                nothiTalikaFlowLayoutPnl.Controls.Add(nothiTalikas[j]);
-            }
+            
         }
 
         private void btnNothiSave_Click(object sender, EventArgs e)
