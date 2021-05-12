@@ -213,9 +213,6 @@ namespace dNothi.Desktop.UI.Dak
             if (!InternetConnection.Check())
             {
                 newAllNoteFlowLayoutPanel.Controls.Clear();
-                newAllNoteFlowLayoutPanel.AutoScroll = true;
-                newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-                newAllNoteFlowLayoutPanel.WrapContents = false;
                 var nothiInboxNotUploadedNotes = _nothiAllNote.GetNotUploadedNoteFromLocal(nothiListUserParam, eachNothiId, note_category);
                 if (nothiInboxNotUploadedNotes.Count > 0)
                 {
@@ -239,14 +236,8 @@ namespace dNothi.Desktop.UI.Dak
                         LocalNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1); };
                         nothiNoteShomuho.invisible();
 
-                        nothiNoteShomuhos.Add(nothiNoteShomuho);
+                        UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
 
-                    }
-                   
-
-                    for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
-                    {
-                        newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
                     }
                 }
             }
@@ -291,6 +282,10 @@ namespace dNothi.Desktop.UI.Dak
         }
         public void LoadNothiNoteAllinPanel(List<NothiListInboxNoteRecordsDTO> nothiNoteInboxLists)
         {
+            if (InternetConnection.Check())
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+            }
             List<NothiNoteShomuho> nothiNoteShomuhos = new List<NothiNoteShomuho>();
             int i = 0;
             foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
@@ -343,21 +338,11 @@ namespace dNothi.Desktop.UI.Dak
                     nothiNoteShomuho.toofficer = "";
                 }
                 i = i + 1;
-                nothiNoteShomuhos.Add(nothiNoteShomuho);
+                UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
 
             }
-            if (InternetConnection.Check())
-            {
-                newAllNoteFlowLayoutPanel.Controls.Clear();
-            }
-            newAllNoteFlowLayoutPanel.AutoScroll = true;
-            newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            newAllNoteFlowLayoutPanel.WrapContents = false;
-
-            for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
-            {
-                newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
-            }
+            
+            
 
         }
 
