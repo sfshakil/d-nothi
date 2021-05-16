@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop.UI.Dak
 {
-    partial class NothiGuidelines
+    partial class NewNothiTypeGuidelines
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCross = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.flpNothiGuidelines = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnCross = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.flpNothiGuidelines.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -49,17 +49,35 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1495, 74);
             this.panel1.TabIndex = 3;
+            // 
+            // btnCross
+            // 
+            this.btnCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnCross.FlatAppearance.BorderSize = 0;
+            this.btnCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCross.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCross.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btnCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCross.IconSize = 24;
+            this.btnCross.Location = new System.Drawing.Point(1427, 27);
+            this.btnCross.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCross.Name = "btnCross";
+            this.btnCross.Size = new System.Drawing.Size(45, 33);
+            this.btnCross.TabIndex = 66;
+            this.btnCross.UseVisualStyleBackColor = false;
+            this.btnCross.Click += new System.EventHandler(this.btnCross_Click);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 73);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1495, 1);
             this.panel6.TabIndex = 65;
@@ -67,7 +85,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 81);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(267, 123);
             this.flowLayoutPanel1.TabIndex = 4;
@@ -91,7 +109,7 @@
             this.flpNothiGuidelines.Controls.Add(this.pictureBox2);
             this.flpNothiGuidelines.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpNothiGuidelines.Location = new System.Drawing.Point(4, 81);
-            this.flpNothiGuidelines.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flpNothiGuidelines.Margin = new System.Windows.Forms.Padding(4);
             this.flpNothiGuidelines.Name = "flpNothiGuidelines";
             this.flpNothiGuidelines.Size = new System.Drawing.Size(1487, 1366);
             this.flpNothiGuidelines.TabIndex = 4;
@@ -100,7 +118,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox2.Image = global::dNothi.Desktop.Properties.Resources.nothicreateguideline;
+            this.pictureBox2.Image = global::dNothi.Desktop.Properties.Resources.newnothitypeguideline;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
@@ -108,33 +126,15 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // btnCross
-            // 
-            this.btnCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.btnCross.FlatAppearance.BorderSize = 0;
-            this.btnCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCross.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCross.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.btnCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCross.IconSize = 24;
-            this.btnCross.Location = new System.Drawing.Point(1427, 27);
-            this.btnCross.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCross.Name = "btnCross";
-            this.btnCross.Size = new System.Drawing.Size(45, 33);
-            this.btnCross.TabIndex = 66;
-            this.btnCross.UseVisualStyleBackColor = false;
-            this.btnCross.Click += new System.EventHandler(this.btnCross_Click);
-            // 
-            // NothiGuidelines
+            // NewNothiTypeGuidelines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.flpNothiGuidelines);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "NothiGuidelines";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "NewNothiTypeGuidelines";
             this.Size = new System.Drawing.Size(1495, 1637);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

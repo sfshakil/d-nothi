@@ -1809,6 +1809,7 @@ namespace dNothi.Desktop.UI
             newNothi.Height = this.Height - panel2.Height - pnlNothiNoteTalika.Height - panel6.Height;
             newNothi.Width = bodyPanel.Width;
             Controls.Add(newNothi);
+            //<nothi>int borderWidth = (this.Height - this.ClientSize.Height) / 2;
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
         }

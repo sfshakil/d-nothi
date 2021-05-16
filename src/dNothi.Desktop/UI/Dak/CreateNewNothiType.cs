@@ -74,11 +74,43 @@ namespace dNothi.Desktop.UI.Dak
         {
             
         }
+        public Form AttachNothiGuidelinesControlToForm(Control control)
+        {
+            Form form = new Form();
 
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            //form.Location = new System.Drawing.Point(100, 100);
+            control.Location = new System.Drawing.Point(0, 0);
+            form.Size = control.Size;
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
+            return form;
+        }
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            NewNothiCreateGuidelines newguideline = new NewNothiCreateGuidelines();
-            newguideline.ShowDialog();
+            //NewNothiCreateGuidelines newguideline = new NewNothiCreateGuidelines();
+            //newguideline.Height = Screen.PrimaryScreen.WorkingArea.Height; 
+            ////newguideline.ShowDialog();
+
+            ////NewNothiCreateGuidelines nothiGuidelines = UserControlFactory.Create<NewNothiCreateGuidelines>();
+            ////nothiGuidelines.Visible = true;
+            ////nothiGuidelines.Enabled = true;
+            ////nothiGuidelines.Location = new System.Drawing.Point(0, 0);
+            ////var nothiTypeform = AttachNothiGuidelinesControlToForm(newguideline);
+            //CalPopUpWindow(newguideline);
+
+            var nothiGuidelines = UserControlFactory.Create<NewNothiTypeGuidelines>();
+            nothiGuidelines.Visible = true;
+            nothiGuidelines.Enabled = true;
+            nothiGuidelines.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            //nothiGuidelines.Location = new System.Drawing.Point(0, 0);
+            var nothiTypeform = AttachNothiGuidelinesControlToForm(nothiGuidelines);
+            CalPopUpWindow(nothiTypeform);
         }
 
         private void CreateNewNothiType_Paint(object sender, PaintEventArgs e)
@@ -112,8 +144,8 @@ namespace dNothi.Desktop.UI.Dak
             Form hideform = new Form();
 
             hideform.BackColor = Color.Black;
-            hideform.Height = 744; //{Width = 1382 Height = 744}
-            hideform.Width = 1382; //{Width = 1382 Height = 744}
+            hideform.Height = Screen.PrimaryScreen.WorkingArea.Height; //{Width = 1382 Height = 744}
+            hideform.Width = Screen.PrimaryScreen.WorkingArea.Width; //{Width = 1382 Height = 744}
             hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;

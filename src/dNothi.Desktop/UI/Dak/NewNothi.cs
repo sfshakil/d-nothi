@@ -165,7 +165,8 @@ namespace dNothi.Desktop.UI.Dak
             var nothiGuidelines = UserControlFactory.Create<NothiGuidelines>();
             nothiGuidelines.Visible = true;
             nothiGuidelines.Enabled = true;
-            nothiGuidelines.Location = new System.Drawing.Point(0, 0);
+            nothiGuidelines.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            //nothiGuidelines.Location = new System.Drawing.Point(0, 0);
             var nothiTypeform = AttachNothiGuidelinesControlToForm(nothiGuidelines);
             CalPopUpWindow(nothiTypeform);
         }
@@ -182,12 +183,12 @@ namespace dNothi.Desktop.UI.Dak
         {
             Form form = new Form();
 
-            form.StartPosition = FormStartPosition.Manual;
+            form.StartPosition = FormStartPosition.CenterParent;
             form.FormBorderStyle = FormBorderStyle.None;
             form.BackColor = Color.White;
 
             form.AutoSize = true;
-            form.Location = new System.Drawing.Point(100, 100);
+            //form.Location = new System.Drawing.Point(100, 100);
             control.Location = new System.Drawing.Point(0, 0);
             form.Size = control.Size;
             form.Controls.Add(control);
@@ -198,18 +199,20 @@ namespace dNothi.Desktop.UI.Dak
         public Form AttachNothiTypeListControlToForm(Control control)
         {
             Form form = new Form();
-
+            //form.Dock = System.Windows.Forms.DockStyle.Right;
             form.StartPosition = FormStartPosition.Manual;
             form.FormBorderStyle = FormBorderStyle.None;
             form.BackColor = Color.White;
-
+            //var nothi = FormFactory.Create<Nothi>();
             form.AutoSize = true;
-            form.Location = new System.Drawing.Point(845, 0);
+            form.Location = new System.Drawing.Point(this.Width - control.Width + this.Location.X, 0);//(nothi.Height - nothi.ClientSize.Height) / 2);
             control.Location = new System.Drawing.Point(0, 0);
-            form.Size = control.Size;
-            form.Controls.Add(control);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
             control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-
+            control.Height = form.Height;
+            form.Controls.Add(control);
             return form;
         }
         private void CalPopUpWindow(Form form)
@@ -217,8 +220,8 @@ namespace dNothi.Desktop.UI.Dak
             Form hideform = new Form();
 
             hideform.BackColor = Color.Black;
-            hideform.Height = 744; //{Width = 1382 Height = 744}
-            hideform.Width = 1382; //{Width = 1382 Height = 744}
+            hideform.Height = Screen.PrimaryScreen.WorkingArea.Height; //{Width = 1382 Height = 744}
+            hideform.Width = Screen.PrimaryScreen.WorkingArea.Width; //{Width = 1382 Height = 744}
             hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;

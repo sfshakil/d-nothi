@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class NothiGuidelines : UserControl
+    public partial class NewNothiTypeGuidelines : UserControl
     {
-        public NothiGuidelines()
+        public NewNothiTypeGuidelines()
         {
             InitializeComponent();
             flpNothiGuidelines.AutoScroll = true;
