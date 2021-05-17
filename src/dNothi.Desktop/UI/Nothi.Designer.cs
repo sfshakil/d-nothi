@@ -1566,6 +1566,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1449, 693);
             this.Name = "Nothi";
+            this.Text = "নথি";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Nothi_Load_1);
             this.panel1.ResumeLayout(false);

@@ -205,7 +205,7 @@ namespace dNothi.Desktop.UI.Dak
             form.BackColor = Color.White;
             //var nothi = FormFactory.Create<Nothi>();
             form.AutoSize = true;
-            form.Location = new System.Drawing.Point(this.Width - control.Width + this.Location.X, 0);//(nothi.Height - nothi.ClientSize.Height) / 2);
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);//(nothi.Height - nothi.ClientSize.Height) / 2);
             control.Location = new System.Drawing.Point(0, 0);
             //form.Size = control.Size;
             form.Height = Screen.PrimaryScreen.WorkingArea.Height;

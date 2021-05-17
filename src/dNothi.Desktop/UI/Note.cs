@@ -1401,7 +1401,7 @@ namespace dNothi.Desktop.UI
 
 
             hideform.BackColor = Color.Black;
-            hideform.Size = this.Size;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
             hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
@@ -2925,9 +2925,26 @@ namespace dNothi.Desktop.UI
             nothiType.loadNoteList(notelist);
 
             this.Controls.Add(nothiType);
-            var form = AttachNothiTypeListControlToForm(nothiType);
+            var form = NothiNextStepControlToForm(nothiType);
             CalPopUpWindow(form);
 
+        }
+        public Form NothiNextStepControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width , 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
         }
         designationSelect designationDetailsPanelNothi = new designationSelect();
         private void userNameLabel_Click(object sender, EventArgs e)

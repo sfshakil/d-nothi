@@ -75,7 +75,7 @@
             this.closeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.closeButton.IconSize = 20;
             this.closeButton.Location = new System.Drawing.Point(1543, 9);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(4);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(37, 32);
             this.closeButton.TabIndex = 40;
@@ -102,7 +102,7 @@
             this.newNoteTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newNoteTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newNoteTextBox.Location = new System.Drawing.Point(20, 12);
-            this.newNoteTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newNoteTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.newNoteTextBox.Multiline = true;
             this.newNoteTextBox.Name = "newNoteTextBox";
             this.newNoteTextBox.PlaceholderText = "নতুন নোট এর বিষয়";
@@ -123,7 +123,7 @@
             this.saveNewNoteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.saveNewNoteButton.IconSize = 32;
             this.saveNewNoteButton.Location = new System.Drawing.Point(1447, 73);
-            this.saveNewNoteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveNewNoteButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveNewNoteButton.Name = "saveNewNoteButton";
             this.saveNewNoteButton.Size = new System.Drawing.Size(133, 50);
             this.saveNewNoteButton.TabIndex = 85;
@@ -146,6 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(1607, 144);
             this.Controls.Add(this.panel1);
@@ -153,7 +154,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(100, 300);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateNewNotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateNewNotes";
