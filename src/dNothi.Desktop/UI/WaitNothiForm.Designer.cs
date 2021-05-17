@@ -41,7 +41,7 @@ namespace dNothi.Desktop.UI
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(98, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 19);
+            this.label2.Size = new System.Drawing.Size(136, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "অপেক্ষা করুন....";
             // 
@@ -73,6 +73,7 @@ namespace dNothi.Desktop.UI
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WaitNothiForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WaitForm";
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
