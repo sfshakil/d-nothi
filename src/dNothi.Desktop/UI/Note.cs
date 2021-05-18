@@ -111,6 +111,7 @@ namespace dNothi.Desktop.UI
             tinyMceEditor.CreateEditor();
             cbxNothiType.SelectedIndex = 0;
             cbxNothiType.ItemHeight = 30;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             PnlSave.Visible = false;
             userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
             loadPotrangshoNotePanel();
@@ -580,7 +581,8 @@ namespace dNothi.Desktop.UI
             noteViewFLP.Controls.Clear();
             newNoteView = noteView;
 
-            noteViewFLP.Controls.Add(noteView);
+            //noteViewFLP.Controls.Add(noteView);
+            UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteView);
             loadNoteViewToNoPo(noteView);
             
             noteView.CheckBoxClick += delegate (object sender, EventArgs e) { checkBox_Click(sender as NoteListDataRecordNoteDTO, e, newNoteView); };
@@ -1496,7 +1498,8 @@ namespace dNothi.Desktop.UI
                     //newNoteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Change(_NoteAllListDataRecordDTO, newNoteView, newNoteView._checkBoxValue); };
                     lbNothiType.Text = "বাছাইকৃত নোট (১)";
                     noteViewFLP.Controls.Clear();
-                    noteViewFLP.Controls.Add(newNoteView);
+                    //noteViewFLP.Controls.Add(newNoteView);
+                    UIDesignCommonMethod.AddRowinTable(noteViewFLP, newNoteView);
                     //loadNoteViewToNoPo(newNoteView);
                     if (Convert.ToInt32(newNoteView.khosraPotro) > 0 || Convert.ToInt32(newNoteView.nothivukto) > 0 || Convert.ToInt32(newNoteView.khoshraWaiting) > 0 || Convert.ToInt32(newNoteView.potrojari) > 0)
                     {
@@ -1589,7 +1592,8 @@ namespace dNothi.Desktop.UI
                             noteView.khosraPotro = inboxList.note.khoshra_potro.ToString();
                             noteView.loadEyeIcon(inboxList.note.can_revert);
                             noteView.officerInfo = inboxList.desk.officer + "," + inboxList.desk.designation + "," + inboxList.desk.office_unit + "," + inboxList.desk.office;//nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
-                            noteViewFLP.Controls.Add(noteView);
+                            //noteViewFLP.Controls.Add(noteView);
+                            UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteView);
                         }
                     }
                     else
@@ -1630,7 +1634,8 @@ namespace dNothi.Desktop.UI
                             noteView.khosraPotro = sentList.note.khoshra_potro.ToString();
                             noteView.loadEyeIcon(sentList.note.can_revert);
                             noteView.officerInfo = sentList.desk.officer + "," + sentList.desk.designation + "," + sentList.desk.office_unit + "," + sentList.desk.office;//nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
-                            noteViewFLP.Controls.Add(noteView);
+                            //noteViewFLP.Controls.Add(noteView);
+                            UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteView);
                         }
                     }
                     else
@@ -1657,7 +1662,8 @@ namespace dNothi.Desktop.UI
                                 noteView.officerInfo = _dakuserparam.officer + "," + noteSaveItemAction.office_designation_name + "," + _dakuserparam.office_unit + "," + _dakuserparam.office_label;
                                 //noteView.checkBox = "1";
                                 noteView.nothiNoteID = Convert.ToInt32(noteSaveItemAction.Id);
-                                noteViewFLP.Controls.Add(noteView);
+                                //noteViewFLP.Controls.Add(noteView);
+                                UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteView);
                             }
                             }
                     }
@@ -1695,14 +1701,16 @@ namespace dNothi.Desktop.UI
                                 noteView.khosraPotro = allList.note.khoshra_potro.ToString();
                                 noteView.loadEyeIcon(allList.note.can_revert);
                                 noteView.officerInfo = allList.deskDtoList[0].officer + "," + allList.deskDtoList[0].designation + "," + allList.deskDtoList[0].office_unit + "," + allList.deskDtoList[0].office;//nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
-                                noteViewFLP.Controls.Add(noteView);
+                                //noteViewFLP.Controls.Add(noteView);
+                                UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteView);
                             }
                             else
                             {
                                 NoteViewNotInCurrentDesk noteViewNotInCurrentDesk = new NoteViewNotInCurrentDesk();
                                 noteViewNotInCurrentDesk.totalNothi = allList.note.note_no.ToString();
                                 noteViewNotInCurrentDesk.noteSubject = allList.note.note_subject_sub_text;
-                                noteViewFLP.Controls.Add(noteViewNotInCurrentDesk);
+                                //noteViewFLP.Controls.Add(noteViewNotInCurrentDesk);
+                                UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteViewNotInCurrentDesk);
                             }
 
                         }
@@ -1768,14 +1776,16 @@ namespace dNothi.Desktop.UI
                         noteView.khosraPotro = allList.note.khoshra_potro.ToString();
                         noteView.loadEyeIcon(allList.note.can_revert);
                         noteView.officerInfo = allList.deskDtoList[0].officer + "," + allList.deskDtoList[0].designation + "," + allList.deskDtoList[0].office_unit + "," + allList.deskDtoList[0].office;//nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
-                        noteViewFLP.Controls.Add(noteView);
+                        //noteViewFLP.Controls.Add(noteView);
+                        UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteView);
                     }
                     else
                     {
                         NoteViewNotInCurrentDesk noteViewNotInCurrentDesk = new NoteViewNotInCurrentDesk();
                         noteViewNotInCurrentDesk.totalNothi = allList.note.note_no.ToString();
                         noteViewNotInCurrentDesk.noteSubject = allList.note.note_subject_sub_text;
-                        noteViewFLP.Controls.Add(noteViewNotInCurrentDesk);
+                        //noteViewFLP.Controls.Add(noteViewNotInCurrentDesk);
+                        UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteViewNotInCurrentDesk);
                     }
 
                 }
@@ -2362,6 +2372,7 @@ namespace dNothi.Desktop.UI
         {
             if (!PnlSave.Visible)
             {
+                PnlSave.Location = new System.Drawing.Point(btnSave.Location.X, btnSave.Location.Y);
                 PnlSave.Visible = true;
                 PnlSave.BringToFront();
                 //PnlSave.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
@@ -2376,6 +2387,7 @@ namespace dNothi.Desktop.UI
         {
             if (!PnlSave.Visible)
             {
+                PnlSave.Location = new System.Drawing.Point(btnSave.Location.X, btnSave.Location.Y);
                 PnlSave.Visible = true;
                 //PnlSave.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
             }
