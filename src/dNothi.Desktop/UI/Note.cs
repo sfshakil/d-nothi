@@ -1414,6 +1414,11 @@ namespace dNothi.Desktop.UI
         private void btnAllNothi_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<DakNothiteUposthapitoForm>();
+            form.Size = new System.Drawing.Size(form.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - form.Width, 0);
             CalPopUpWindow(form);
 
         }
@@ -7417,7 +7422,7 @@ namespace dNothi.Desktop.UI
             {
                 designationDetailsPanelNothi.Visible = true;
                 //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
-                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 50);
+                designationDetailsPanelNothi.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - designationDetailsPanelNothi.Width, profilePanel.Height);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
                 designationDetailsPanelNothi.Width = 427;
@@ -7961,6 +7966,24 @@ namespace dNothi.Desktop.UI
         private void label29_Click(object sender, EventArgs e)
         {
 
+        }
+        ModulePanelUserControl modulePanel = new ModulePanelUserControl();
+        private void moduleButton_Click(object sender, EventArgs e)
+        {
+            if (modulePanel.Width == 334 && !modulePanel.Visible)
+            {
+                modulePanel.Visible = true;
+                modulePanel.Location = new System.Drawing.Point(btnNothiIcon.Location.X + btnNothiIcon.Width + dakMenuButton.Width + dakModulePanel.Width + nothiModulePanel.Width, nothiModulePanel.Height - 10);
+                Controls.Add(modulePanel);
+                modulePanel.BringToFront();
+                modulePanel.Width = 335;
+
+            }
+            else
+            {
+                modulePanel.Visible = false;
+                modulePanel.Width = 334;
+            }
         }
     }
 }

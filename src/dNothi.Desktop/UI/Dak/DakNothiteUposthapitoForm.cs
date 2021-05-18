@@ -45,6 +45,7 @@ namespace dNothi.Desktop.UI.Dak
             _userService = userService;
             _nothinotetalikaservices = nothiNoteTalikaServices;
             _userParam = _userService.GetLocalDakUserParam();
+            
             InitializeComponent();
             LoadNothiAll();
         }
@@ -95,7 +96,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void LoadNothiAllinPanel(List<NothiListAllRecordsDTO> nothiAllLists)
         {
-
+            nothiListFlowLayoutPanel.Controls.Clear();
             List<DakModuleSokolNothiListUserControl> nothiAlls = new List<DakModuleSokolNothiListUserControl>();
             int i = 0;
             foreach (NothiListAllRecordsDTO nothiAllListDTO in nothiAllLists)
@@ -146,15 +147,10 @@ namespace dNothi.Desktop.UI.Dak
                 nothiAll.is_copied_dak = _is_copied_dak;
                 nothiAll._dak_type = _dak_type;
                 nothiAll.master_id = nothiAllListDTO.nothi.id.ToString();
-                nothiAlls.Add(nothiAll);
+                UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, nothiAll);
             }
-            nothiListFlowLayoutPanel.Controls.Clear();
+            
 
-
-            for (int j = 0; j <= nothiAlls.Count - 1; j++)
-            {
-                nothiListFlowLayoutPanel.Controls.Add(nothiAlls[j]);
-            }
         }
         public event EventHandler SucessfullyDakNothivukto;
         public event EventHandler NothiKhosrajato;
