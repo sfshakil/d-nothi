@@ -130,10 +130,13 @@ namespace dNothi.Constants
         public const string DakInbox = "/api/dak/inbox";
         public const string SharingAdd = "/api/dak/sorting/add";
         public const string SharingDelete = "/api/dak/sorting/delete";
-
-
-
+        public const string DakSorting = "/api/dak/sort";
+        public const string DakSortingDelete = "/api/dak/sort/delete";
        
+
+
+
+
         public static string PotroOnumodonEndPoint = "/api/potro/approve";
         public static string PotrojariEndPoint = "/api/potro/dispatch";
        

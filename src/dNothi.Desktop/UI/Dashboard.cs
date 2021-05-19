@@ -3394,6 +3394,7 @@ namespace dNothi.Desktop.UI
         private void dakSortedUserButton_Click(object sender, EventArgs e)
         {
             
+          
         ResetAllMenuButtonSelection();
         SelectButton(sender as Button);
         dakSortingUserFlowLayoutPanel.Controls.Clear();
@@ -3491,7 +3492,7 @@ namespace dNothi.Desktop.UI
                 dakSortedUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
                 dakSortedUserControl.source = dakListInboxRecordsDTO.dak_origin.sender_name;
                 dakSortedUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
-
+                dakSortedUserControl.dak = dakListInboxRecordsDTO;
                 dakSortedUserControl.receiver = GetDakListMainReceiverName(dakListInboxRecordsDTO.movement_status);
                 dakSortedUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
                 dakSortedUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
@@ -3520,7 +3521,7 @@ namespace dNothi.Desktop.UI
                 dakSortedUserControl.DakTagShowButtonCLick += delegate (object sender, EventArgs e) { DakTagShow_ButtonClick(dakListInboxRecordsDTO.dak_Tags); };
 
 
-                dakSortedUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDak(); };
+                dakSortedUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDakSharing(); };
 
 
                 i = i + 1;
@@ -3540,6 +3541,34 @@ namespace dNothi.Desktop.UI
 
             }
         }
+
+       
+              private void SelectorUnselectSingleDakSharing()
+                {
+            MyToolTip.SetToolTip(multipleDakForwardButton, "ডাক সর্টিং");
+
+            var daksharingUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakSortingUserUserControl>().ToList();
+
+                    if (daksharingUserControls.Count > 0)
+                    {
+              
+                if (daksharingUserControls.Any(a => a._isChecked))
+                        {
+
+                            multipleSelectionPanel.Visible = true;
+                            multipleDakForwardButton.Visible = true;
+                     multipleDakArchiveButton.Visible = false;
+                    multipleDakNothijatoButton.Visible = false;
+                    multipleDakNothivuktoButton.Visible = false;
+                    starButton.Visible = false;
+                        }
+                        else
+                        {
+                            multipleSelectionPanel.Visible = false;
+                        }
+                    }
+                }
+  
 //        private void LoadDakSortinginPanel(List<dNothi.Services.DakServices.DakSharingService.Model.DakList.Record> dakLists)
 //{
 //    List<DakSortingUserUserControl> dakSortedUserControls = new List<DakSortingUserUserControl>();
@@ -3653,6 +3682,7 @@ namespace dNothi.Desktop.UI
 
         private void SelectorUnselectSingleDak()
         {
+            MyToolTip.SetToolTip(multipleDakForwardButton, "ডাক প্রেরণ করুন");
             var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
 
             if (dakInboxUserControls.Count > 0)
@@ -3660,6 +3690,11 @@ namespace dNothi.Desktop.UI
                 if (dakInboxUserControls.Any(a => a._isChecked))
                 {
                     multipleSelectionPanel.Visible = true;
+                    multipleDakForwardButton.Visible = true;
+                    multipleDakArchiveButton.Visible = true;
+                    multipleDakNothijatoButton.Visible = true;
+                    multipleDakNothivuktoButton.Visible = true;
+                    starButton.Visible = true;
                 }
                 else
                 {
@@ -3670,6 +3705,7 @@ namespace dNothi.Desktop.UI
 
         private void multipleDakForwardButton_Click(object sender, EventArgs e)
         {
+            bool isdakbacai=false;
             List<DakListRecordsDTO> daks = new List<DakListRecordsDTO>();
 
 
@@ -3677,6 +3713,7 @@ namespace dNothi.Desktop.UI
 
             if (dakInboxUserControls.Count > 0)
             {
+                isdakbacai = false;
                 List<DakInboxUserControl> dakInboxSelectedUserControls = dakInboxUserControls.Where(a => a._isChecked == true).ToList();
                 if (dakInboxSelectedUserControls.Count > 0)
                 {
@@ -3686,6 +3723,24 @@ namespace dNothi.Desktop.UI
                     }
                 }
             }
+
+            // daksharing 
+            var daksharingUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakSortingUserUserControl>().ToList();
+
+            if (daksharingUserControls.Count > 0)
+            {
+                isdakbacai = true;
+                List<DakSortingUserUserControl> daksortingUserControls = daksharingUserControls.Where(a => a._isChecked == true).ToList();
+                if (daksortingUserControls.Count > 0)
+                {
+                    foreach (DakSortingUserUserControl daksortingUserControl in daksortingUserControls)
+                    {
+                       daks.Add(daksortingUserControl.dak);
+                    }
+                }
+            }
+
+            //end
 
             if (daks.Count > 0)
             {
@@ -3702,13 +3757,15 @@ namespace dNothi.Desktop.UI
                 dakSendUserControl.designationSealListResponse = designationSealListResponse;
                 dakSendUserControl.dakCount = daks.Count;
                 dakSendUserControl.isMultipleDak = true;
+                dakSendUserControl._fromDakBacai = isdakbacai;
                 dakSendUserControl.dakListRecordsDTO = daks;
+               
                 dakSendUserControl.dak_List_User_Param = dakListUserParam;
                 dakSendUserControl.AddDesignationButtonClick += delegate (object snd, EventArgs eve) { AddDesignationUserControl_ButtonClick(sender, e); };
                 dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._IsDakLocallyUploaded); };
 
 
-
+                
 
                 CalPopUpWindow(dakSendUserControl);
 

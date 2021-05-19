@@ -43,6 +43,17 @@ namespace dNothi.Services.DakServices.DakSharingService
 
                 endPoint = DefaultAPIConfiguration.DakFileUploadEndPoint;
             }
+            if (actionLink == 6)
+            {
+
+                endPoint = DefaultAPIConfiguration.DakSorting;
+            }
+            if (actionLink == 7)
+            {
+
+                endPoint = DefaultAPIConfiguration.DakSortingDelete;
+            }
+
 
             return endPoint; 
         }

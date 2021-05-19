@@ -129,6 +129,7 @@
     <Compile Include="DakServices\DakSharingService\DakSharingService.cs" />
     <Compile Include="DakServices\DakSharingService\IDakSharingService.cs" />
     <Compile Include="DakServices\DakSharingService\Model\DakList.cs" />
+    <Compile Include="DakServices\DakSharingService\Model\DakSorting.cs" />
     <Compile Include="DakServices\DakSharingService\Model\ResponseModel.cs" />
     <Compile Include="DakServices\DakSharingService\Model\ShareList.cs" />
     <Compile Include="DakServices\DakUserParam.cs" />

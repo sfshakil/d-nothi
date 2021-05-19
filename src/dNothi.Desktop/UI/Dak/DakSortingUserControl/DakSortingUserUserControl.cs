@@ -11,6 +11,7 @@ using dNothi.Utility;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Desktop.Properties;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Dak_List_Inbox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -112,103 +113,11 @@ namespace dNothi.Desktop.UI.Dak
         private int _potrojari;
         public int _dakAttachmentCount;
         public bool _isChecked;
-       
+        public DakListRecordsDTO _dak;
+        public DakListRecordsDTO dak { get { return _dak; } set { _dak = value; } }
         public bool isChecked { get { return _isChecked; } set { _isChecked = value; dakCheckBox.Checked = value; } }
 
-        #region TopRightPanel set value
-
-        public bool _fewlabel;
-        public bool _patrajariLabel;
-        public bool _importancelabel;
-        public bool _sequirelabel;
-        public bool _mostSecquirelabel;
-        public bool _anulipilabel;
-        public bool _prapaklabel;
-        public bool _newlabel;
-
-        public bool fewvalue { get { return _fewlabel; } 
-            set  { 
-                    _fewlabel=value;
-
-                    fewlabel.Visible = _fewlabel;
-                 } 
-        }
-        public bool patrajarivalue
-        {
-            get { return _patrajariLabel; }
-            set
-            {
-                _patrajariLabel = value;
-
-                patrajariLabel.Visible = _patrajariLabel;
-            }
-        }
-        public bool importancevalue
-        {
-            get { return _importancelabel; }
-            set
-            {
-                _importancelabel = value;
-
-                importancelabel.Visible = _importancelabel;
-            }
-        }
-
-        public bool sequirevalue
-        {
-            get { return _sequirelabel; }
-            set
-            {
-                _sequirelabel = value;
-
-                sequirelabel.Visible = _sequirelabel;
-            }
-        }
-
-        public bool mostSecquirevalue
-        {
-            get { return _mostSecquirelabel; }
-            set
-            {
-                _mostSecquirelabel = value;
-
-                mostSecquirelabel.Visible = _mostSecquirelabel;
-            }
-        }
-        public bool anulipivalue
-        {
-            get { return _anulipilabel; }
-            set
-            {
-                _anulipilabel = value;
-
-                anulipilabel.Visible = _anulipilabel;
-            }
-        }
-
-        public bool prapakvalue
-        {
-            get { return _prapaklabel; }
-            set
-            {
-                _prapaklabel = value;
-
-                prapaklabel.Visible = _prapaklabel;
-            }
-        }
-
-        public bool newvalue
-        {
-            get { return _newlabel; }
-            set
-            {
-                _newlabel = value;
-
-                newlabel.Visible = _newlabel;
-            }
-        }
-
-        #endregion
+      
         public DraftedDecisionDTO _draftedDecisionDTO { get; set; }
 
 
@@ -708,9 +617,11 @@ namespace dNothi.Desktop.UI.Dak
         private void DakSortedUserControl_Load(object sender, EventArgs e)
         {
             dakActionPanel.Location = new Point(this.Width, dakActionPanel.Location.Y);
-
         }
 
-      
+        private void mainPrapokButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ok");
+        }
     }
 }

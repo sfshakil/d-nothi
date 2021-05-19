@@ -14,7 +14,8 @@ namespace dNothi.Services.DakServices.DakSharingService
         ResponseModel Delete(DakUserParam dakUserParam,int assignee_designation_id);
 
         ResponseModel Add(DakUserParam assignor,PrapokDTO assignee);
-
+        ResponseModel AddDakSorting(DakUserParam userParam,DakSorting daksortParam);
+        ResponseModel DakSortingDelete(DakUserParam userParam, DakSorting daksortParam);
 
         //ShareList  DakList
     }
