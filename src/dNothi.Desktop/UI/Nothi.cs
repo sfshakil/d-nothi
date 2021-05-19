@@ -1815,15 +1815,32 @@ namespace dNothi.Desktop.UI
         }
         public void ForceLoadNewNothi()
         {
+            //btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            //btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            //btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            //btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
+            //ResetAllMenuButtonSelection();
+            //btnNewNothi.BackColor = Color.FromArgb(243, 246, 249);
+            //btnNewNothi.ForeColor = Color.FromArgb(78, 165, 254);
+            //newNothi.Visible = true;
+            //newNothi.Location = new System.Drawing.Point(233, 50);
+            //Controls.Add(newNothi);
+            //newNothi.BringToFront();
+            //newNothi.BackColor = Color.WhiteSmoke;
+
+            nothiListFlowLayoutPanel.Controls.Clear();
+            newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
+            newNothi.loadNewNothiPage();
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
             btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
             ResetAllMenuButtonSelection();
-            btnNewNothi.BackColor = Color.FromArgb(243, 246, 249);
-            btnNewNothi.ForeColor = Color.FromArgb(78, 165, 254);
+            SelectButton(btnNewNothi as Button);
             newNothi.Visible = true;
             newNothi.Location = new System.Drawing.Point(233, 50);
+            newNothi.Height = this.Height - panel2.Height - pnlNothiNoteTalika.Height - panel6.Height;
+            newNothi.Width = bodyPanel.Width;
             Controls.Add(newNothi);
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;

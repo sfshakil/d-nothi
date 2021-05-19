@@ -115,7 +115,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void CreateNewNothiType_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(210, 234, 255), ButtonBorderStyle.Solid);
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -351,6 +351,11 @@ namespace dNothi.Desktop.UI.Dak
         }
 
         private void lbNothitype2digit_MouseClick(object sender, MouseEventArgs e)
+        {
+            lbNothitype2digitText.Visible = false;
+        }
+
+        private void lbNothitype2digitText_MouseHover(object sender, EventArgs e)
         {
             lbNothitype2digitText.Visible = false;
         }
