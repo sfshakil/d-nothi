@@ -185,7 +185,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    searchOfficerRightListBox.Visible = false;
+                    searchOfficerRightListBox.Visible = true;
                     //searchOfficerRightResultLabel.Text = "";
                 }
 
@@ -197,7 +197,7 @@ namespace dNothi.Desktop.UI
             if (searchOfficerRightPanel.Visible)
             {
 
-                searchOfficerRightPanel.Visible = false;
+                //searchOfficerRightPanel.Visible = false;
             }
             else
             {

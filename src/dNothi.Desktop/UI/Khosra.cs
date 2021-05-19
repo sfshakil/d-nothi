@@ -24,6 +24,7 @@ using dNothi.JsonParser;
 using HtmlAgilityPack;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Services.NothiServices;
+using dNothi.JsonParser.Entity;
 
 namespace dNothi.Desktop.UI
 {
@@ -104,11 +105,74 @@ namespace dNothi.Desktop.UI
         }
         private void Khosra_Shown(object sender, EventArgs e)
         {
-            //khoshraBackgroundWorker.RunWorkerAsync();
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+            userNameLabel.Text = dakUserParam.officer_name + "(" + dakUserParam.designation_label + "," + dakUserParam.unit_label + ")";
 
-            //tinyMceEditor.GetMainFrame().ExecuteScriptAsync("SetContent", new object[] { _khasraPotroTemplateData.html_content });
-            //tinyMceEditor.GetMainFrame().ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+            try
+            {
+                EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
+                var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
 
+                moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
+                moduleNothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
+
+            }
+            catch (Exception Ex)
+            {
+
+            }
+
+
+
+
+
+            List<OfficeInfoDTO> officeInfoDTO = _userService.GetAllLocalOfficeInfo();
+
+
+            foreach (OfficeInfoDTO officeInfoDTO1 in officeInfoDTO)
+            {
+                dakUserParam.designation_id = officeInfoDTO1.office_unit_organogram_id;
+                dakUserParam.office_id = officeInfoDTO1.office_id;
+                try
+                {
+                    EmployeDakNothiCountResponse singleOfficeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
+                    var singleOfficeDakNothiCount = singleOfficeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
+
+                    officeInfoDTO1.dakCount = singleOfficeDakNothiCount.Value.dak;
+                    officeInfoDTO1.nothiCount = singleOfficeDakNothiCount.Value.own_office_nothi;
+                }
+                catch
+                {
+
+                }
+            }
+
+
+
+            designationDetailsPanel.officeInfos = officeInfoDTO;
+
+
+
+
+
+            designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
+
+        }
+
+        private void ChageUser(int designationId)
+        {
+            _userService.MakeThisOfficeCurrent(designationId);
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+            userNameLabel.Text = dakUserParam.officer_name + "(" + dakUserParam.designation_label + "," + dakUserParam.unit_label + ")";
+
+            EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
+            var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
+
+            moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
+            moduleNothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
+
+
+           
         }
         public string _sub;
 
@@ -899,12 +963,17 @@ namespace dNothi.Desktop.UI
         public KhasraPotroTemplateDataDTO _khasraPotroTemplateData { get; set; }
         private void Khosra_Load(object sender, EventArgs e)
         {
+            RefreshKhosra();
+        }
+
+        private void RefreshKhosra()
+        {
             //ControlExtension.Draggable(prapokListFlowLayoutPanel, true);
             CreateEditor();
             DakUserParam userParam = _userService.GetLocalDakUserParam();
             AllDesignationSealListResponse designationSealListResponse = _designationSealService.GetAllDesignationSeal(userParam, userParam.office_id);
 
-            if(designationSealListResponse != null && designationSealListResponse.data != null && designationSealListResponse.data.Count>0)
+            if (designationSealListResponse != null && designationSealListResponse.data != null && designationSealListResponse.data.Count > 0)
             {
                 _designationSealListResponse = new DesignationSealListResponse();
                 _designationSealListResponse.data = new DesignationSealDataDTO();
@@ -915,32 +984,32 @@ namespace dNothi.Desktop.UI
             }
 
 
-           // _designationSealListResponse = designationSealListResponse;
+            // _designationSealListResponse = designationSealListResponse;
             LoadDakPriority();
             LoadDakSecurity();
 
             templateListTableLayoutPanel.Controls.Clear();
 
 
-           
+
 
             khasraPotroTemplateResponse = _khasraTemplateService.GetKhosraTemplate(userParam);
-            
+
             templateListTableLayoutPanel.Controls.Clear();
 
             if (khasraPotroTemplateResponse.status == "success")
             {
                 if (khasraPotroTemplateResponse.data.Count > 0)
                 {
-                   
+
 
                     int count = 0;
                     KhosraTemplateButton khosraTemplateButtonFake = new KhosraTemplateButton();
                     KhosraTemplateButton khosraTemplateButtonFake2 = new KhosraTemplateButton();
                     foreach (KhasraPotroTemplateDataDTO khasraPotroTemplateDataDTO in khasraPotroTemplateResponse.data)
                     {
-                        
-                        
+
+
 
                         KhosraTemplateButton khosraTemplateButton = new KhosraTemplateButton();
                         khosraTemplateButton.khasraPotroTemplateData = khasraPotroTemplateDataDTO;
@@ -949,8 +1018,8 @@ namespace dNothi.Desktop.UI
                         if (count == 0)
                         {
                             _khasraPotroTemplateData = khasraPotroTemplateDataDTO;
-                         
-                           
+
+
                             khosraTemplateButtonFake.khasraPotroTemplateData = khasraPotroTemplateDataDTO;
                             khosraTemplateButtonFake.TemplateClick += delegate (object se, EventArgs ve) { Template_CLick(khosraTemplateButtonFake._khasraPotroTemplateData); };
                             UIDesignCommonMethod.AddRowinTable(templateListTableLayoutPanel, khosraTemplateButtonFake);
@@ -964,7 +1033,7 @@ namespace dNothi.Desktop.UI
                         UIDesignCommonMethod.AddRowinTable(templateListTableLayoutPanel, khosraTemplateButton);
                         count += 1;
                     }
-                  //  UIDesignCommonMethod.AddRowinTable(templateListTableLayoutPanel, khosraTemplateButtonFake);
+                    //  UIDesignCommonMethod.AddRowinTable(templateListTableLayoutPanel, khosraTemplateButtonFake);
 
                 }
             }
@@ -1470,7 +1539,7 @@ namespace dNothi.Desktop.UI
 
             }
 
-            return "";
+            return currentHtmlString;
 
         }
         private void AddPrpoktoParam(KhosraSaveParamPotro khosraSaveParamPotro)
@@ -1595,6 +1664,48 @@ namespace dNothi.Desktop.UI
                 LoadDateApprover(dateTimePicker.Value);
             }
            
+        }
+
+        private void userNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userDetailsPanel_Click(object sender, EventArgs e)
+        {
+            if (!designationDetailsPanel.Visible)
+            {
+                int designationPanleX = this.Width - designationDetailsPanel.Width - 25;
+                int designationPanleY = profilePanel.Location.Y + profilePanel.Height;
+                designationDetailsPanel.Location = new Point(designationPanleX, designationPanleY);
+
+                designationDetailsPanel.Visible = true;
+
+
+            }
+            else
+            {
+                designationDetailsPanel.Visible = false;
+            }
+        }
+
+        private void DakModule_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Dashboard>();
+            form.ShowDialog();
+        }
+
+        private void Nothi_Module_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<Nothi>();
+            form.ShowDialog();
+        }
+
+        private void moduleButton_Click(object sender, EventArgs e)
+        {
+            UIDesignCommonMethod.CallAllModulePanel(moduleButton, this);
         }
     }
 }
