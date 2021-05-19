@@ -167,39 +167,41 @@
             this.userIdPanel.Controls.Add(this.lbNothitype2digitText);
             this.userIdPanel.Controls.Add(this.lbNothitype2digit);
             this.userIdPanel.Location = new System.Drawing.Point(484, 34);
-            this.userIdPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.userIdPanel.Margin = new System.Windows.Forms.Padding(0);
             this.userIdPanel.Name = "userIdPanel";
+            this.userIdPanel.Padding = new System.Windows.Forms.Padding(1);
             this.userIdPanel.Size = new System.Drawing.Size(200, 37);
             this.userIdPanel.TabIndex = 78;
             this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
             // 
             // lbNothitype2digitText
             // 
-            this.lbNothitype2digitText.AutoSize = true;
-            this.lbNothitype2digitText.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbNothitype2digitText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbNothitype2digitText.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothitype2digitText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothitype2digitText.Location = new System.Drawing.Point(0, 0);
-            this.lbNothitype2digitText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNothitype2digitText.Location = new System.Drawing.Point(1, 1);
+            this.lbNothitype2digitText.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothitype2digitText.Name = "lbNothitype2digitText";
             this.lbNothitype2digitText.Padding = new System.Windows.Forms.Padding(4, 4, 0, 0);
-            this.lbNothitype2digitText.Size = new System.Drawing.Size(179, 30);
+            this.lbNothitype2digitText.Size = new System.Drawing.Size(198, 35);
             this.lbNothitype2digitText.TabIndex = 87;
             this.lbNothitype2digitText.Text = "২ ডিজিটের ধরন কোড";
+            this.lbNothitype2digitText.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.lbNothitype2digitText.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbNothitype2digit_MouseClick);
             // 
             // lbNothitype2digit
             // 
             this.lbNothitype2digit.BackColor = System.Drawing.Color.White;
-            this.lbNothitype2digit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbNothitype2digit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbNothitype2digit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbNothitype2digit.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothitype2digit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothitype2digit.Location = new System.Drawing.Point(0, 0);
-            this.lbNothitype2digit.Margin = new System.Windows.Forms.Padding(4);
+            this.lbNothitype2digit.Location = new System.Drawing.Point(1, 1);
+            this.lbNothitype2digit.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothitype2digit.MaxLength = 2;
             this.lbNothitype2digit.Multiline = true;
             this.lbNothitype2digit.Name = "lbNothitype2digit";
-            this.lbNothitype2digit.Size = new System.Drawing.Size(200, 37);
+            this.lbNothitype2digit.Size = new System.Drawing.Size(198, 35);
             this.lbNothitype2digit.TabIndex = 86;
             this.lbNothitype2digit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbNothitype2digit_MouseClick);
             // 
@@ -242,7 +244,6 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "CreateNewNothiType";
             this.Size = new System.Drawing.Size(693, 143);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.CreateNewNothiType_Paint);
             this.panel1.ResumeLayout(false);
             this.userIdPanel.ResumeLayout(false);
             this.userIdPanel.PerformLayout();
