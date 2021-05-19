@@ -7,591 +7,665 @@
   <?define dNothi.JsonParser_TargetDir=$(var.dNothi.JsonParser.TargetDir)?>
   <?define dNothi.Infrastructure_TargetDir=$(var.dNothi.Infrastructure.TargetDir)?>
   <?define dNothi.Core_TargetDir=$(var.dNothi.Core.TargetDir)?>
-	<Product Id="*" Name="E-Nothi" Language="1033" Version="1.0.0.0" Manufacturer="Tappware" UpgradeCode="fb3aa46f-5d81-4a82-a6f1-65f44cbca3dd">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
-
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate EmbedCab="yes" />
-
-		<Feature Id="ProductFeature" Title="E-Nothi" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_tabfocus_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_style_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_style_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_style_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_style_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_visualchars_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_template_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_template_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_template_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_template_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_save_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_safari_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_nonbreaking_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_layer_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_insertdatetime_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins_clearlooks2_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins_clearlooks2_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_noneditable_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_print_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_preview_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_preview_jscripts_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_paste_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_paste_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_paste_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_paste_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_js_files" />
-			<ComponentGroupRef Id="runtimes_win_arm64_native_files" />
-			<ComponentGroupRef Id="runtimes_win_x64_native_files" />
-			<ComponentGroupRef Id="runtimes_win_x86_native_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_utils_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_skins_o2k7_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_skins_o2k7_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_default_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_skins_default_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_o2k7_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_o2k7_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_default_img_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_link_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_legacyoutput_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_layer_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_insertdatetime_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_importcss_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_image_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_imagetools_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_hr_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_fullscreen_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_fullpage_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_lists_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_example_dependency_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_example_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_emoticons_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_emoticons_img_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_media_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_nonbreaking_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_skins_lightgray_img_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_skins_lightgray_fonts_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_skins_lightgray_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_wordcount_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_visualchars_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_visualblocks_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_visualblocks_css_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_textpattern_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_textcolor_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_template_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_table_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_tabfocus_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_spellchecker_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_searchreplace_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_save_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_print_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_preview_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_paste_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_pagebreak_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_noneditable_files" />
-			<ComponentGroupRef Id="Scripts_fontawesome_files" />
-			<ComponentGroupRef Id="Content_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_directionality_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_contextmenu_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_colorpicker_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_code_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_codesample_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_codesample_css_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_charmap_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_bbcode_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_autosave_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_autoresize_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_autolink_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_anchor_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_plugins_advlist_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_emotions_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_emotions_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_directionality_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_contextmenu_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_compat2x_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_emotions_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_iespell_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullscreen_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullpage_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullpage_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullpage_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullpage_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_example_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_example_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_example_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_example_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_emotions_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_bbcode_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_autosave_files" />
-			<ComponentGroupRef Id="tinymce_examples_files" />
-			<ComponentGroupRef Id="tinymce_examples_media_files" />
-			<ComponentGroupRef Id="tinymce_examples_lists_files" />
-			<ComponentGroupRef Id="tinymce_examples_css_files" />
-			<ComponentGroupRef Id="tinymce_files" />
-			<ComponentGroupRef Id="webfonts_files" />
-			<ComponentGroupRef Id="tinymce_js_tinymce_themes_modern_files" />
-			<ComponentGroupRef Id="tinymce_examples_templates_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advlink_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advlink_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advlink_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advlink_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_img_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advhr_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advhr_langs_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advhr_js_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advhr_css_files" />
-			<ComponentGroupRef Id="tinymce_jscripts_tiny_mce_langs_files" />
-      <ComponentRef Id="ApplicationShortcut" />
-    <ComponentRef Id="ApplicationShortcutDesktop" />
-		
-		</Feature>
-	</Product>
-
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="E-Nothi">
-				  <Directory Id="Content" Name="Content" />
-				  <Directory Id="runtimes" Name="runtimes">
-				    <Directory Id="runtimes_win_arm64" Name="win-arm64">
-				      <Directory Id="runtimes_win_arm64_native" Name="native" />
-				    </Directory>
-				    <Directory Id="runtimes_win_x64" Name="win-x64">
-				      <Directory Id="runtimes_win_x64_native" Name="native" />
-				    </Directory>
-				    <Directory Id="runtimes_win_x86" Name="win-x86">
-				      <Directory Id="runtimes_win_x86_native" Name="native" />
-				    </Directory>
-				  </Directory>
-				  <Directory Id="Scripts" Name="Scripts">
-				    <Directory Id="Scripts_fontawesome" Name="fontawesome" />
-				  </Directory>
-				  <Directory Id="tinymce" Name="tinymce">
-				    <Directory Id="tinymce_examples" Name="examples">
-				      <Directory Id="tinymce_examples_css" Name="css" />
-				      <Directory Id="tinymce_examples_lists" Name="lists" />
-				      <Directory Id="tinymce_examples_media" Name="media" />
-				      <Directory Id="tinymce_examples_templates" Name="templates" />
-				    </Directory>
-				    <Directory Id="tinymce_js" Name="js">
-				      <Directory Id="tinymce_js_tinymce" Name="tinymce">
-				        <Directory Id="tinymce_js_tinymce_langs" Name="langs" />
-				        <Directory Id="tinymce_js_tinymce_plugins" Name="plugins">
-				          <Directory Id="tinymce_js_tinymce_plugins_advlist" Name="advlist" />
-				          <Directory Id="tinymce_js_tinymce_plugins_autolink" Name="autolink" />
-				          <Directory Id="tinymce_js_tinymce_plugins_autoresize" Name="autoresize" />
-				          <Directory Id="tinymce_js_tinymce_plugins_anchor" Name="anchor" />
-				          <Directory Id="tinymce_js_tinymce_plugins_autosave" Name="autosave" />
-				          <Directory Id="tinymce_js_tinymce_plugins_bbcode" Name="bbcode" />
-				          <Directory Id="tinymce_js_tinymce_plugins_charmap" Name="charmap" />
-				          <Directory Id="tinymce_js_tinymce_plugins_code" Name="code" />
-				          <Directory Id="tinymce_js_tinymce_plugins_codesample" Name="codesample">
-				            <Directory Id="tinymce_js_tinymce_plugins_codesample_css" Name="css" />
-				          </Directory>
-				          <Directory Id="tinymce_js_tinymce_plugins_colorpicker" Name="colorpicker" />
-				          <Directory Id="tinymce_js_tinymce_plugins_contextmenu" Name="contextmenu" />
-				          <Directory Id="tinymce_js_tinymce_plugins_directionality" Name="directionality" />
-				          <Directory Id="tinymce_js_tinymce_plugins_emoticons" Name="emoticons">
-				            <Directory Id="tinymce_js_tinymce_plugins_emoticons_img" Name="img" />
-				          </Directory>
-				          <Directory Id="tinymce_js_tinymce_plugins_example" Name="example" />
-				          <Directory Id="tinymce_js_tinymce_plugins_example_dependency" Name="example_dependency" />
-				          <Directory Id="tinymce_js_tinymce_plugins_fullpage" Name="fullpage" />
-				          <Directory Id="tinymce_js_tinymce_plugins_fullscreen" Name="fullscreen" />
-				          <Directory Id="tinymce_js_tinymce_plugins_hr" Name="hr" />
-				          <Directory Id="tinymce_js_tinymce_plugins_image" Name="image" />
-				          <Directory Id="tinymce_js_tinymce_plugins_imagetools" Name="imagetools" />
-				          <Directory Id="tinymce_js_tinymce_plugins_importcss" Name="importcss" />
-				          <Directory Id="tinymce_js_tinymce_plugins_insertdatetime" Name="insertdatetime" />
-				          <Directory Id="tinymce_js_tinymce_plugins_layer" Name="layer" />
-				          <Directory Id="tinymce_js_tinymce_plugins_legacyoutput" Name="legacyoutput" />
-				          <Directory Id="tinymce_js_tinymce_plugins_link" Name="link" />
-				          <Directory Id="tinymce_js_tinymce_plugins_lists" Name="lists" />
-				          <Directory Id="tinymce_js_tinymce_plugins_media" Name="media" />
-				          <Directory Id="tinymce_js_tinymce_plugins_nonbreaking" Name="nonbreaking" />
-				          <Directory Id="tinymce_js_tinymce_plugins_noneditable" Name="noneditable" />
-				          <Directory Id="tinymce_js_tinymce_plugins_pagebreak" Name="pagebreak" />
-				          <Directory Id="tinymce_js_tinymce_plugins_paste" Name="paste" />
-				          <Directory Id="tinymce_js_tinymce_plugins_preview" Name="preview" />
-				          <Directory Id="tinymce_js_tinymce_plugins_print" Name="print" />
-				          <Directory Id="tinymce_js_tinymce_plugins_save" Name="save" />
-				          <Directory Id="tinymce_js_tinymce_plugins_searchreplace" Name="searchreplace" />
-				          <Directory Id="tinymce_js_tinymce_plugins_spellchecker" Name="spellchecker" />
-				          <Directory Id="tinymce_js_tinymce_plugins_tabfocus" Name="tabfocus" />
-				          <Directory Id="tinymce_js_tinymce_plugins_table" Name="table" />
-				          <Directory Id="tinymce_js_tinymce_plugins_template" Name="template" />
-				          <Directory Id="tinymce_js_tinymce_plugins_textcolor" Name="textcolor" />
-				          <Directory Id="tinymce_js_tinymce_plugins_textpattern" Name="textpattern" />
-				          <Directory Id="tinymce_js_tinymce_plugins_visualblocks" Name="visualblocks">
-				            <Directory Id="tinymce_js_tinymce_plugins_visualblocks_css" Name="css" />
-				          </Directory>
-				          <Directory Id="tinymce_js_tinymce_plugins_visualchars" Name="visualchars" />
-				          <Directory Id="tinymce_js_tinymce_plugins_wordcount" Name="wordcount" />
-				        </Directory>
-				        <Directory Id="tinymce_js_tinymce_skins" Name="skins">
-				          <Directory Id="tinymce_js_tinymce_skins_lightgray" Name="lightgray">
-				            <Directory Id="tinymce_js_tinymce_skins_lightgray_fonts" Name="fonts" />
-				            <Directory Id="tinymce_js_tinymce_skins_lightgray_img" Name="img" />
-				          </Directory>
-				        </Directory>
-				        <Directory Id="tinymce_js_tinymce_themes" Name="themes">
-				          <Directory Id="tinymce_js_tinymce_themes_modern" Name="modern" />
-				        </Directory>
-				      </Directory>
-				    </Directory>
-				    <Directory Id="tinymce_jscripts" Name="jscripts">
-				      <Directory Id="tinymce_jscripts_tiny_mce" Name="tiny_mce">
-				        <Directory Id="tinymce_jscripts_tiny_mce_langs" Name="langs" />
-				        <Directory Id="tinymce_jscripts_tiny_mce_plugins" Name="plugins">
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_advhr" Name="advhr">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advhr_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advhr_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advhr_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage" Name="advimage">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage_img" Name="img" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_advlink" Name="advlink">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advlink_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advlink_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_advlink_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_autosave" Name="autosave" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_bbcode" Name="bbcode" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_compat2x" Name="compat2x" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_contextmenu" Name="contextmenu" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_directionality" Name="directionality" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_emotions" Name="emotions">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_emotions_img" Name="img" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_emotions_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_emotions_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_example" Name="example">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_example_img" Name="img" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_example_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_example_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullpage" Name="fullpage">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullpage_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullpage_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullpage_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullscreen" Name="fullscreen" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_iespell" Name="iespell" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups" Name="inlinepopups">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins" Name="skins">
-				              <Directory Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins_clearlooks2" Name="clearlooks2">
-				                <Directory Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins_clearlooks2_img" Name="img" />
-				              </Directory>
-				            </Directory>
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_insertdatetime" Name="insertdatetime" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_layer" Name="layer" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_media" Name="media">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_media_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_media_img" Name="img" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_media_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_media_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_nonbreaking" Name="nonbreaking" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_noneditable" Name="noneditable" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_pagebreak" Name="pagebreak">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_img" Name="img" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_paste" Name="paste">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_paste_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_paste_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_paste_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_preview" Name="preview">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_preview_jscripts" Name="jscripts" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_print" Name="print" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_safari" Name="safari" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_save" Name="save" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_searchreplace" Name="searchreplace">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_spellchecker" Name="spellchecker">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_img" Name="img" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_style" Name="style">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_style_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_style_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_style_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_tabfocus" Name="tabfocus" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_table" Name="table">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_table_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_table_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_table_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_template" Name="template">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_template_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_template_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_template_langs" Name="langs" />
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_visualchars" Name="visualchars" />
-				          <Directory Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras" Name="xhtmlxtras">
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_css" Name="css" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_langs" Name="langs" />
-				          </Directory>
-				        </Directory>
-				        <Directory Id="tinymce_jscripts_tiny_mce_themes" Name="themes">
-				          <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced" Name="advanced">
-				            <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_img" Name="img" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_js" Name="js" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_langs" Name="langs" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins" Name="skins">
-				              <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_default" Name="default">
-				                <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_default_img" Name="img" />
-				              </Directory>
-				              <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_o2k7" Name="o2k7">
-				                <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_o2k7_img" Name="img" />
-				              </Directory>
-				            </Directory>
-				          </Directory>
-				          <Directory Id="tinymce_jscripts_tiny_mce_themes_simple" Name="simple">
-				            <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_img" Name="img" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_langs" Name="langs" />
-				            <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_skins" Name="skins">
-				              <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_skins_default" Name="default" />
-				              <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_skins_o2k7" Name="o2k7">
-				                <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_skins_o2k7_img" Name="img" />
-				              </Directory>
-				            </Directory>
-				          </Directory>
-				        </Directory>
-				        <Directory Id="tinymce_jscripts_tiny_mce_utils" Name="utils" />
-				      </Directory>
-				    </Directory>
-				  </Directory>
-				  <Directory Id="webfonts" Name="webfonts" />
-				</Directory>
-			</Directory>
-    
-     <Directory Id="ProgramMenuFolder">
-    <Directory Id="ApplicationProgramsFolder" Name="E-Nothi"/>
-   </Directory>
-   <Directory Id="DesktopFolder" Name="Desktop"/>
   
-		</Directory>
-    
-	</Fragment>
 
-	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
-		
+  
+    
+  <Product Id="*" Name="E-Nothi" Language="1033" Version="1.0.0.0" Manufacturer="Tappware" UpgradeCode="fb3aa46f-5d81-4a82-a6f1-65f44cbca3dd">
+   
+    
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of E-Nothi is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="E-Nothi" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_tabfocus_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_style_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_style_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_style_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_style_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_visualchars_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_template_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_template_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_template_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_template_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_save_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_safari_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_nonbreaking_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_media_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_layer_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_insertdatetime_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins_clearlooks2_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins_clearlooks2_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_noneditable_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_print_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_preview_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_preview_jscripts_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_paste_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_paste_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_paste_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_paste_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_js_files" />
+      <ComponentGroupRef Id="runtimes_win_arm64_native_files" />
+      <ComponentGroupRef Id="runtimes_win_x64_native_files" />
+    
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_utils_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_skins_o2k7_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_skins_o2k7_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_default_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_skins_default_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_o2k7_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_o2k7_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_default_img_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_link_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_legacyoutput_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_layer_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_insertdatetime_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_importcss_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_image_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_imagetools_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_hr_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_fullscreen_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_fullpage_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_lists_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_example_dependency_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_example_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_emoticons_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_emoticons_img_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_media_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_nonbreaking_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_skins_lightgray_img_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_skins_lightgray_fonts_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_skins_lightgray_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_wordcount_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_visualchars_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_visualblocks_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_visualblocks_css_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_textpattern_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_textcolor_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_template_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_table_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_tabfocus_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_spellchecker_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_searchreplace_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_save_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_print_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_preview_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_paste_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_pagebreak_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_noneditable_files" />
+      <ComponentGroupRef Id="Scripts_fontawesome_files" />
+      <ComponentGroupRef Id="Content_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_directionality_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_contextmenu_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_colorpicker_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_code_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_codesample_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_codesample_css_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_charmap_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_bbcode_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_autosave_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_autoresize_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_autolink_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_anchor_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_plugins_advlist_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_emotions_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_emotions_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_directionality_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_contextmenu_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_compat2x_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_emotions_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_iespell_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullscreen_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullpage_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullpage_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullpage_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_fullpage_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_example_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_example_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_example_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_example_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_emotions_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_bbcode_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_autosave_files" />
+      <ComponentGroupRef Id="tinymce_examples_files" />
+      <ComponentGroupRef Id="tinymce_examples_media_files" />
+      <ComponentGroupRef Id="tinymce_examples_lists_files" />
+      <ComponentGroupRef Id="tinymce_examples_css_files" />
+      <ComponentGroupRef Id="tinymce_files" />
+      <ComponentGroupRef Id="webfonts_files" />
+      <ComponentGroupRef Id="tinymce_js_tinymce_themes_modern_files" />
+      <ComponentGroupRef Id="tinymce_examples_templates_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advlink_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advlink_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advlink_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advlink_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_img_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advimage_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advhr_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advhr_langs_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advhr_js_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advhr_css_files" />
+      <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_langs_files" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+
+    </Feature>
+  
+  
+   <Property Id="ADOBEEXEVERSION" Secure="yes">
+      <RegistrySearch Id="RegSearch_WORDEXE" Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\AcroRd32.exe" Type="file">
+        <FileSearch Name="AcroRd32.exe" MinVersion="8.0.0.0" />
+      </RegistrySearch>
+    </Property>
+    
+    <Condition Message="E-Nothi requires Adobe Reader Minimum Version 8! Please make sure you it installed.">ADOBEEXEVERSION</Condition>
+
+    
+  </Product>
+  
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="E-Nothi">
+        
+          <Directory Id="Content" Name="Content" />
+          <Directory Id="runtimes" Name="runtimes">
+            <Directory Id="runtimes_win_arm64" Name="win-arm64">
+              <Directory Id="runtimes_win_arm64_native" Name="native" />
+            </Directory>
+            <Directory Id="runtimes_win_x64" Name="win-x64">
+              <Directory Id="runtimes_win_x64_native" Name="native" />
+            </Directory>
+            <Directory Id="runtimes_win_x86" Name="win-x86">
+              <Directory Id="runtimes_win_x86_native" Name="native" />
+            </Directory>
+          </Directory>
+          <Directory Id="Scripts" Name="Scripts">
+            <Directory Id="Scripts_fontawesome" Name="fontawesome" />
+          </Directory>
+          <Directory Id="tinymce" Name="tinymce">
+            <Directory Id="tinymce_examples" Name="examples">
+              <Directory Id="tinymce_examples_css" Name="css" />
+              <Directory Id="tinymce_examples_lists" Name="lists" />
+              <Directory Id="tinymce_examples_media" Name="media" />
+              <Directory Id="tinymce_examples_templates" Name="templates" />
+            </Directory>
+            <Directory Id="tinymce_js" Name="js">
+              <Directory Id="tinymce_js_tinymce" Name="tinymce">
+                <Directory Id="tinymce_js_tinymce_langs" Name="langs" />
+                <Directory Id="tinymce_js_tinymce_plugins" Name="plugins">
+                  <Directory Id="tinymce_js_tinymce_plugins_advlist" Name="advlist" />
+                  <Directory Id="tinymce_js_tinymce_plugins_autolink" Name="autolink" />
+                  <Directory Id="tinymce_js_tinymce_plugins_autoresize" Name="autoresize" />
+                  <Directory Id="tinymce_js_tinymce_plugins_anchor" Name="anchor" />
+                  <Directory Id="tinymce_js_tinymce_plugins_autosave" Name="autosave" />
+                  <Directory Id="tinymce_js_tinymce_plugins_bbcode" Name="bbcode" />
+                  <Directory Id="tinymce_js_tinymce_plugins_charmap" Name="charmap" />
+                  <Directory Id="tinymce_js_tinymce_plugins_code" Name="code" />
+                  <Directory Id="tinymce_js_tinymce_plugins_codesample" Name="codesample">
+                    <Directory Id="tinymce_js_tinymce_plugins_codesample_css" Name="css" />
+                  </Directory>
+                  <Directory Id="tinymce_js_tinymce_plugins_colorpicker" Name="colorpicker" />
+                  <Directory Id="tinymce_js_tinymce_plugins_contextmenu" Name="contextmenu" />
+                  <Directory Id="tinymce_js_tinymce_plugins_directionality" Name="directionality" />
+                  <Directory Id="tinymce_js_tinymce_plugins_emoticons" Name="emoticons">
+                    <Directory Id="tinymce_js_tinymce_plugins_emoticons_img" Name="img" />
+                  </Directory>
+                  <Directory Id="tinymce_js_tinymce_plugins_example" Name="example" />
+                  <Directory Id="tinymce_js_tinymce_plugins_example_dependency" Name="example_dependency" />
+                  <Directory Id="tinymce_js_tinymce_plugins_fullpage" Name="fullpage" />
+                  <Directory Id="tinymce_js_tinymce_plugins_fullscreen" Name="fullscreen" />
+                  <Directory Id="tinymce_js_tinymce_plugins_hr" Name="hr" />
+                  <Directory Id="tinymce_js_tinymce_plugins_image" Name="image" />
+                  <Directory Id="tinymce_js_tinymce_plugins_imagetools" Name="imagetools" />
+                  <Directory Id="tinymce_js_tinymce_plugins_importcss" Name="importcss" />
+                  <Directory Id="tinymce_js_tinymce_plugins_insertdatetime" Name="insertdatetime" />
+                  <Directory Id="tinymce_js_tinymce_plugins_layer" Name="layer" />
+                  <Directory Id="tinymce_js_tinymce_plugins_legacyoutput" Name="legacyoutput" />
+                  <Directory Id="tinymce_js_tinymce_plugins_link" Name="link" />
+                  <Directory Id="tinymce_js_tinymce_plugins_lists" Name="lists" />
+                  <Directory Id="tinymce_js_tinymce_plugins_media" Name="media" />
+                  <Directory Id="tinymce_js_tinymce_plugins_nonbreaking" Name="nonbreaking" />
+                  <Directory Id="tinymce_js_tinymce_plugins_noneditable" Name="noneditable" />
+                  <Directory Id="tinymce_js_tinymce_plugins_pagebreak" Name="pagebreak" />
+                  <Directory Id="tinymce_js_tinymce_plugins_paste" Name="paste" />
+                  <Directory Id="tinymce_js_tinymce_plugins_preview" Name="preview" />
+                  <Directory Id="tinymce_js_tinymce_plugins_print" Name="print" />
+                  <Directory Id="tinymce_js_tinymce_plugins_save" Name="save" />
+                  <Directory Id="tinymce_js_tinymce_plugins_searchreplace" Name="searchreplace" />
+                  <Directory Id="tinymce_js_tinymce_plugins_spellchecker" Name="spellchecker" />
+                  <Directory Id="tinymce_js_tinymce_plugins_tabfocus" Name="tabfocus" />
+                  <Directory Id="tinymce_js_tinymce_plugins_table" Name="table" />
+                  <Directory Id="tinymce_js_tinymce_plugins_template" Name="template" />
+                  <Directory Id="tinymce_js_tinymce_plugins_textcolor" Name="textcolor" />
+                  <Directory Id="tinymce_js_tinymce_plugins_textpattern" Name="textpattern" />
+                  <Directory Id="tinymce_js_tinymce_plugins_visualblocks" Name="visualblocks">
+                    <Directory Id="tinymce_js_tinymce_plugins_visualblocks_css" Name="css" />
+                  </Directory>
+                  <Directory Id="tinymce_js_tinymce_plugins_visualchars" Name="visualchars" />
+                  <Directory Id="tinymce_js_tinymce_plugins_wordcount" Name="wordcount" />
+                </Directory>
+                <Directory Id="tinymce_js_tinymce_skins" Name="skins">
+                  <Directory Id="tinymce_js_tinymce_skins_lightgray" Name="lightgray">
+                    <Directory Id="tinymce_js_tinymce_skins_lightgray_fonts" Name="fonts" />
+                    <Directory Id="tinymce_js_tinymce_skins_lightgray_img" Name="img" />
+                  </Directory>
+                </Directory>
+                <Directory Id="tinymce_js_tinymce_themes" Name="themes">
+                  <Directory Id="tinymce_js_tinymce_themes_modern" Name="modern" />
+                </Directory>
+              </Directory>
+            </Directory>
+            <Directory Id="tinymce_jscripts" Name="jscripts">
+              <Directory Id="tinymce_jscripts_tiny_mce" Name="tiny_mce">
+                <Directory Id="tinymce_jscripts_tiny_mce_langs" Name="langs" />
+                <Directory Id="tinymce_jscripts_tiny_mce_plugins" Name="plugins">
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_advhr" Name="advhr">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advhr_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advhr_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advhr_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage" Name="advimage">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage_img" Name="img" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advimage_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_advlink" Name="advlink">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advlink_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advlink_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_advlink_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_autosave" Name="autosave" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_bbcode" Name="bbcode" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_compat2x" Name="compat2x" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_contextmenu" Name="contextmenu" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_directionality" Name="directionality" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_emotions" Name="emotions">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_emotions_img" Name="img" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_emotions_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_emotions_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_example" Name="example">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_example_img" Name="img" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_example_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_example_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullpage" Name="fullpage">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullpage_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullpage_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullpage_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_fullscreen" Name="fullscreen" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_iespell" Name="iespell" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups" Name="inlinepopups">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins" Name="skins">
+                      <Directory Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins_clearlooks2" Name="clearlooks2">
+                        <Directory Id="tinymce_jscripts_tiny_mce_plugins_inlinepopups_skins_clearlooks2_img" Name="img" />
+                      </Directory>
+                    </Directory>
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_insertdatetime" Name="insertdatetime" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_layer" Name="layer" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_media" Name="media">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_media_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_media_img" Name="img" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_media_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_media_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_nonbreaking" Name="nonbreaking" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_noneditable" Name="noneditable" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_pagebreak" Name="pagebreak">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_pagebreak_img" Name="img" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_paste" Name="paste">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_paste_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_paste_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_paste_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_preview" Name="preview">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_preview_jscripts" Name="jscripts" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_print" Name="print" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_safari" Name="safari" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_save" Name="save" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_searchreplace" Name="searchreplace">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_searchreplace_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_spellchecker" Name="spellchecker">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_spellchecker_img" Name="img" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_style" Name="style">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_style_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_style_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_style_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_tabfocus" Name="tabfocus" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_table" Name="table">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_table_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_table_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_table_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_template" Name="template">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_template_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_template_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_template_langs" Name="langs" />
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_visualchars" Name="visualchars" />
+                  <Directory Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras" Name="xhtmlxtras">
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_css" Name="css" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_langs" Name="langs" />
+                  </Directory>
+                </Directory>
+                <Directory Id="tinymce_jscripts_tiny_mce_themes" Name="themes">
+                  <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced" Name="advanced">
+                    <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_img" Name="img" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_js" Name="js" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_langs" Name="langs" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins" Name="skins">
+                      <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_default" Name="default">
+                        <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_default_img" Name="img" />
+                      </Directory>
+                      <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_o2k7" Name="o2k7">
+                        <Directory Id="tinymce_jscripts_tiny_mce_themes_advanced_skins_o2k7_img" Name="img" />
+                      </Directory>
+                    </Directory>
+                  </Directory>
+                  <Directory Id="tinymce_jscripts_tiny_mce_themes_simple" Name="simple">
+                    <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_img" Name="img" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_langs" Name="langs" />
+                    <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_skins" Name="skins">
+                      <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_skins_default" Name="default" />
+                      <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_skins_o2k7" Name="o2k7">
+                        <Directory Id="tinymce_jscripts_tiny_mce_themes_simple_skins_o2k7_img" Name="img" />
+                      </Directory>
+                    </Directory>
+                  </Directory>
+                </Directory>
+                <Directory Id="tinymce_jscripts_tiny_mce_utils" Name="utils" />
+              </Directory>
+            </Directory>
+          </Directory>
+          <Directory Id="webfonts" Name="webfonts" />
+          <Directory Id="bin_amd64" Name="amd64">
+            <Directory Id="bin_amd64_Microsoft.VC90.CRT" Name="Microsoft.VC90.CRT" />
+          </Directory>
+        
+         
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="E-Nothi" />
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+
+    </Directory>
+
+  </Fragment>
+<Fragment>
+ 
+
+ <ComponentGroup Id="bin_amd64_group" Directory="bin_amd64">
+      <Component Id="bin_amd64_group_sqlceca40.dll" Guid="6f4ebc6c-09b9-48e6-84fe-d2e94bd56414">
+        <File Id="bin_amd64_group_sqlceca40.dll" Name="sqlceca40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlceca40.dll" />
+      </Component>
+      <Component Id="bin_amd64_group_sqlcecompact40.dll" Guid="dbe1b51b-8265-4d11-9a72-ffa0bbb78074">
+        <File Id="bin_amd64_group_sqlcecompact40.dll" Name="sqlcecompact40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlcecompact40.dll" />
+      </Component>
+      <Component Id="bin_amd64_group_sqlceer40EN.dll" Guid="8397fc9e-127b-4ffe-bcca-1dc53172bb3e">
+        <File Id="bin_amd64_group_sqlceer40EN.dll" Name="sqlceer40EN.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlceer40EN.dll" />
+      </Component>
+      <Component Id="bin_amd64_group_sqlceme40.dll" Guid="c974c803-9794-495b-9f1a-3bdf3b967fba">
+        <File Id="bin_amd64_group_sqlceme40.dll" Name="sqlceme40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlceme40.dll" />
+      </Component>
+      <Component Id="bin_amd64_group_sqlceqp40.dll" Guid="7c2a6784-923a-47a3-b90d-30746ed199fc">
+        <File Id="bin_amd64_group_sqlceqp40.dll" Name="sqlceqp40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlceqp40.dll" />
+      </Component>
+      <Component Id="bin_amd64_group_sqlcese40.dll" Guid="4b9b276f-527e-4ee5-8171-c6cbc1b46779">
+        <File Id="bin_amd64_group_sqlcese40.dll" Name="sqlcese40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlcese40.dll" />
+      </Component>
+    </ComponentGroup>
+   
+  
+</Fragment>
+  <Fragment>
+    <ComponentGroup Id="bin_amd64_Microsoft.VC90.CRT_group" Directory="bin_amd64_Microsoft.VC90.CRT">
+        <Component Id="bin_amd64_Microsoft.VC90.CRT_group_Microsoft.VC90.CRT.manifest" Guid="c5299ba0-1a4a-47de-b1d2-85f56ea1f7d4">
+        <File Id="bin_amd64_Microsoft.VC90.CRT_group_Microsoft.VC90.CRT.manifest" Name="Microsoft.VC90.CRT.manifest" Source="$(var.dNothi.Desktop_TargetDir)amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+      </Component>
+     <Component Id="bin_amd64_Microsoft.VC90.CRT_group_msvcr90.dllt" Guid="7824a264-67d3-4a84-9fbc-7961f96fbce6">
+        <File Id="bin_amd64_Microsoft.VC90.CRT_group_msvcr90.dll" Name="msvcr90.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+      </Component>
+  
+    </ComponentGroup>
+    
+  </Fragment>
+  
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+      <!-- <Component Id="ProductComponent"> -->
+      <!-- TODO: Insert files, registry keys, and other resources here. -->
+      <!-- </Component> -->
+
       <Component Id="AxInterop.AcroPDFLib.dll" Guid="3e7fc953-64f7-47d1-831a-cb3e4c301674">
-			  <File Id="AxInterop.AcroPDFLib.dll" Name="AxInterop.AcroPDFLib.dll" Source="$(var.dNothi.Desktop_TargetDir)AxInterop.AcroPDFLib.dll" />
-			</Component>
-        
-			<Component Id="EntityFramework.SqlServer.dll" Guid="eee1bb46-4742-40d5-85eb-6cf1ba98aabd">
-			  <File Id="EntityFramework.SqlServer.dll" Name="EntityFramework.SqlServer.dll" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.SqlServer.dll" />
-			</Component>
-     
-       <Component Id="EntityFramework.SqlServer.xml" Guid="821d98f4-e455-4661-a74b-4946a5c6c28d">
-			  <File Id="EntityFramework.SqlServer.xml" Name="EntityFramework.SqlServer.xml" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.SqlServer.xml" />
-			</Component>
-      
-       <Component Id="EntityFramework.SqlServerCompact.dll" Guid="6d5d7853-a4f4-4454-8a85-1c5a754e7e85">
-			  <File Id="EntityFramework.SqlServerCompact.dll" Name="EntityFramework.SqlServerCompact.dll" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.SqlServerCompact.dll" />
-			</Component>
-      
-       <Component Id="EntityFramework.SqlServerCompact.xml" Guid="51c08126-01ef-4ea7-9b8e-4a19902665ad">
-			  <File Id="EntityFramework.SqlServerCompact.xml" Name="EntityFramework.SqlServerCompact.xml" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.SqlServerCompact.xml" />
-			</Component>
-      
-         <Component Id="EntityFramework.xml" Guid="34a15f88-d78a-44c5-b1b0-9a8f9339a295">
-			  <File Id="EntityFramework.xml" Name="EntityFramework.xml" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.xml" />
-			</Component>
-        
-			<Component Id="MetroFramework.dll" Guid="93f9ff23-99af-40ea-86a7-388af140e0bb">
-			  <File Id="MetroFramework.dll" Name="MetroFramework.dll" Source="$(var.dNothi.Desktop_TargetDir)MetroFramework.dll" />
-			</Component>
-			<Component Id="dNothi.Services.dll" Guid="d929a5d3-7e81-416c-aaa0-620e19d66dde">
-			  <File Id="dNothi.Services.dll" Name="dNothi.Services.dll" Source="$(var.dNothi.Services_TargetDir)dNothi.Services.dll" />
-			</Component>
-			<Component Id="AutoMapper.dll" Guid="d4d001eb-49b5-45c4-be14-8abadbea39f0">
-			  <File Id="AutoMapper.dll" Name="AutoMapper.dll" Source="$(var.dNothi.Desktop_TargetDir)AutoMapper.dll" />
-			</Component>
-			<Component Id="dNothi.Utility.dll" Guid="482c7ae8-2190-4004-96db-2e4ddcde40be">
-			  <File Id="dNothi.Utility.dll" Name="dNothi.Utility.dll" Source="$(var.dNothi.Utility_TargetDir)dNothi.Utility.dll" />
-			</Component>
-			<Component Id="log4net.dll" Guid="7939c29d-2f75-4f26-963d-602791b0cb37">
-			  <File Id="log4net.dll" Name="log4net.dll" Source="$(var.dNothi.Desktop_TargetDir)log4net.dll" />
-			</Component>
-			<Component Id="PlaceholderTextBox.dll" Guid="b9b117d9-32cd-49be-80dc-2c0b5f9d6322">
-			  <File Id="PlaceholderTextBox.dll" Name="PlaceholderTextBox.dll" Source="$(var.dNothi.Desktop_TargetDir)PlaceholderTextBox.dll" />
-			</Component>
-			<Component Id="FontAwesome.Sharp.dll" Guid="93d28f7b-aed5-460c-a790-512b1b5bb52d">
-			  <File Id="FontAwesome.Sharp.dll" Name="FontAwesome.Sharp.dll" Source="$(var.dNothi.Desktop_TargetDir)FontAwesome.Sharp.dll" />
-			</Component>
-			<Component Id="dNothi.JsonParser.dll" Guid="ea620f43-d68e-4f47-8bb6-ea453d168445">
-			  <File Id="dNothi.JsonParser.dll" Name="dNothi.JsonParser.dll" Source="$(var.dNothi.JsonParser_TargetDir)dNothi.JsonParser.dll" />
-			</Component>
-			<Component Id="Autofac.dll" Guid="590cd8fe-201a-41b0-9753-a117844bce63">
-			  <File Id="Autofac.dll" Name="Autofac.dll" Source="$(var.dNothi.Desktop_TargetDir)Autofac.dll" />
-			</Component>
-			<Component Id="RestSharp.dll" Guid="c4123889-a588-4fe6-8f68-0d83964bfce3">
-			  <File Id="RestSharp.dll" Name="RestSharp.dll" Source="$(var.dNothi.Desktop_TargetDir)RestSharp.dll" />
-			</Component>
-			<Component Id="dNothi.Desktop.exe.config" Guid="57feffe0-479e-4fa6-8f99-3f71e2de0b51">
-			  <File Id="dNothi.Desktop.exe.config" Name="dNothi.Desktop.exe.config" Source="$(var.dNothi.Desktop_TargetDir)dNothi.Desktop.exe.config" />
-			</Component>
-			<Component Id="dNothi.Desktop.exe" Guid="089c4fb7-47f6-482a-9113-6b0e007414b8">
-			  <File Id="dNothi.Desktop.exe" Name="dNothi.Desktop.exe" Source="$(var.dNothi.Desktop_TargetDir)dNothi.Desktop.exe" />
-			</Component>
-			<Component Id="System.Data.SqlServerCe.dll" Guid="f64436fe-9ce1-4868-9b0c-e37a9e93d64a">
-			  <File Id="System.Data.SqlServerCe.dll" Name="System.Data.SqlServerCe.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Data.SqlServerCe.dll" />
-			</Component>
-			<Component Id="dNothi.Infrastructure.dll" Guid="5f165398-9d9a-4247-b30a-9531d8d5d8c4">
-			  <File Id="dNothi.Infrastructure.dll" Name="dNothi.Infrastructure.dll" Source="$(var.dNothi.Infrastructure_TargetDir)dNothi.Infrastructure.dll" />
-			</Component>
-			<Component Id="Newtonsoft.Json.dll" Guid="2aff3c8b-2ef1-4992-ae23-7119b12eda2e">
-			  <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.dNothi.Desktop_TargetDir)Newtonsoft.Json.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Management.dll" Guid="7c32e5bf-94f4-483e-8a32-bd1aa7644436">
-			  <File Id="IKVM.OpenJDK.Management.dll" Name="IKVM.OpenJDK.Management.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Management.dll" />
-			</Component>
-			<Component Id="IKVM.Runtime.JNI.dll" Guid="e66c61d2-5b7a-47f4-9e5b-dfb2d831846b">
-			  <File Id="IKVM.Runtime.JNI.dll" Name="IKVM.Runtime.JNI.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.Runtime.JNI.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Charsets.dll" Guid="979376a3-7e08-4573-8402-c7b93f5c5602">
-			  <File Id="IKVM.OpenJDK.Charsets.dll" Name="IKVM.OpenJDK.Charsets.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Charsets.dll" />
-			</Component>
-			<Component Id="IKVM.AWT.WinForms.dll" Guid="e97f8964-5ab3-40d4-ac58-93034cf25423">
-			  <File Id="IKVM.AWT.WinForms.dll" Name="IKVM.AWT.WinForms.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.AWT.WinForms.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Beans.dll" Guid="ecaa9386-7c87-4438-819a-62698d71869b">
-			  <File Id="IKVM.OpenJDK.Beans.dll" Name="IKVM.OpenJDK.Beans.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Beans.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.XML.API.dll" Guid="d048e930-7caa-4c98-8b44-60a8a08cbdf7">
-			  <File Id="IKVM.OpenJDK.XML.API.dll" Name="IKVM.OpenJDK.XML.API.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.XML.API.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Media.dll" Guid="d0877c84-7be6-4245-93ba-ae992fc49cd7">
-			  <File Id="IKVM.OpenJDK.Media.dll" Name="IKVM.OpenJDK.Media.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Media.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.SwingAWT.dll" Guid="e03e64db-22e2-434b-bd04-b641a06e9096">
-			  <File Id="IKVM.OpenJDK.SwingAWT.dll" Name="IKVM.OpenJDK.SwingAWT.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.SwingAWT.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Naming.dll" Guid="6c0fc189-ca25-49a5-89e0-5a6d9abbcc38">
-			  <File Id="IKVM.OpenJDK.Naming.dll" Name="IKVM.OpenJDK.Naming.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Naming.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Security.dll" Guid="45e30b74-982d-484c-b7f6-442dcd8585fc">
-			  <File Id="IKVM.OpenJDK.Security.dll" Name="IKVM.OpenJDK.Security.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Security.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Text.dll" Guid="74d638e8-d37c-4df7-84d0-daa626cd1bea">
-			  <File Id="IKVM.OpenJDK.Text.dll" Name="IKVM.OpenJDK.Text.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Text.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Util.dll" Guid="bbaceafc-2a5f-4475-beec-11edf800cc98">
-			  <File Id="IKVM.OpenJDK.Util.dll" Name="IKVM.OpenJDK.Util.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Util.dll" />
-			</Component>
-			<Component Id="IKVM.Runtime.dll" Guid="a9946d4e-9d55-447a-85b7-6841dd745041">
-			  <File Id="IKVM.Runtime.dll" Name="IKVM.Runtime.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.Runtime.dll" />
-			</Component>
-			<Component Id="Interop.AcroPDFLib.dll" Guid="74ffa282-b379-4e8c-b957-d8d4ebc040a2">
-			  <File Id="Interop.AcroPDFLib.dll" Name="Interop.AcroPDFLib.dll" Source="$(var.dNothi.Desktop_TargetDir)Interop.AcroPDFLib.dll" />
-			</Component>
-			<Component Id="EntityFramework.dll" Guid="c08454be-74a0-4540-8fbc-45e2ccf6c04a">
-			  <File Id="EntityFramework.dll" Name="EntityFramework.dll" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.dll" />
-			</Component>
-			<Component Id="System.Buffers.dll" Guid="5b5d2e76-cc79-4510-9f18-62457dae5e9d">
-			  <File Id="System.Buffers.dll" Name="System.Buffers.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Buffers.dll" />
-			</Component>
-			<Component Id="System.Numerics.Vectors.dll" Guid="0ef85e57-6505-44d1-9561-1a470052fbfb">
-			  <File Id="System.Numerics.Vectors.dll" Name="System.Numerics.Vectors.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Numerics.Vectors.dll" />
-			</Component>
-			<Component Id="System.Memory.dll" Guid="33c47c49-41b7-47a6-9ee7-07bce666d2be">
-			  <File Id="System.Memory.dll" Name="System.Memory.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Memory.dll" />
-			</Component>
-			<Component Id="System.Diagnostics.DiagnosticSource.dll" Guid="4f920ca9-656e-4974-aa15-63ed30c09c00">
-			  <File Id="System.Diagnostics.DiagnosticSource.dll" Name="System.Diagnostics.DiagnosticSource.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Diagnostics.DiagnosticSource.dll" />
-			</Component>
-			<Component Id="System.Runtime.CompilerServices.Unsafe.dll" Guid="1d41bb0d-377d-4b82-8b42-2f3514114e7f">
-			  <File Id="System.Runtime.CompilerServices.Unsafe.dll" Name="System.Runtime.CompilerServices.Unsafe.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Runtime.CompilerServices.Unsafe.dll" />
-			</Component>
-			<Component Id="System.Threading.Tasks.Extensions.dll" Guid="901b1bef-031a-4fa0-9f03-7c3549ff5e92">
-			  <File Id="System.Threading.Tasks.Extensions.dll" Name="System.Threading.Tasks.Extensions.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Threading.Tasks.Extensions.dll" />
-			</Component>
-			<Component Id="Microsoft.Bcl.AsyncInterfaces.dll" Guid="c33cbf7d-db73-45df-b38a-cf68934227db">
-			  <File Id="Microsoft.Bcl.AsyncInterfaces.dll" Name="Microsoft.Bcl.AsyncInterfaces.dll" Source="$(var.dNothi.Desktop_TargetDir)Microsoft.Bcl.AsyncInterfaces.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Core.dll" Guid="0b4b76ee-9589-496b-ad4d-ea0713563df1">
-			  <File Id="IKVM.OpenJDK.Core.dll" Name="IKVM.OpenJDK.Core.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Core.dll" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Corba.dll" Guid="84f7340f-172c-4c7c-9e99-7077e8ef9afe">
-			  <File Id="IKVM.OpenJDK.Corba.dll" Name="IKVM.OpenJDK.Corba.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Corba.dll" />
-			</Component>
-			<Component Id="_256x256bb.ico" Guid="7fcc8173-5c52-4849-8041-13843445bb48">
-			  <File Id="_256x256bb.ico" Name="256x256bb.ico" Source="$(var.dNothi.Desktop_TargetDir)256x256bb.ico" />
-			</Component>
-			<Component Id="dNothi.Core.dll" Guid="ebd91a2b-2655-48e2-83fd-ef17fb22db90">
-			  <File Id="dNothi.Core.dll" Name="dNothi.Core.dll" Source="$(var.dNothi.Core_TargetDir)dNothi.Core.dll" />
-			</Component>
-			<Component Id="dNothi.Constants.dll" Guid="8f412cb2-cc59-4696-b977-f88946eeacf5">
-			  <File Id="dNothi.Constants.dll" Name="dNothi.Constants.dll" Source="$(var.dNothi.Constants_TargetDir)dNothi.Constants.dll" />
-			</Component>
-			<Component Id="tinymce.htm" Guid="c3fb0332-91c6-4142-912f-306d1ff4e241">
-			  <File Id="tinymce.htm" Name="tinymce.htm" Source="$(var.dNothi.Desktop_TargetDir)tinymce.htm" />
-			</Component>
-			<Component Id="test.htm" Guid="ba7d4789-87d9-470b-9628-1348ce6e483a">
-			  <File Id="test.htm" Name="test.htm" Source="$(var.dNothi.Desktop_TargetDir)test.htm" />
-			</Component>
-			<Component Id="IKVM.OpenJDK.Remoting.dll" Guid="f801d707-abfc-4022-a7f9-599180a88acb">
-			  <File Id="IKVM.OpenJDK.Remoting.dll" Name="IKVM.OpenJDK.Remoting.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Remoting.dll" />
-			</Component>
-		</ComponentGroup>
-	</Fragment>
+        <File Id="AxInterop.AcroPDFLib.dll" Name="AxInterop.AcroPDFLib.dll" Source="$(var.dNothi.Desktop_TargetDir)AxInterop.AcroPDFLib.dll" />
+      </Component>
+
+      <Component Id="EntityFramework.SqlServer.dll" Guid="eee1bb46-4742-40d5-85eb-6cf1ba98aabd">
+        <File Id="EntityFramework.SqlServer.dll" Name="EntityFramework.SqlServer.dll" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.SqlServer.dll" />
+      </Component>
+
+      <Component Id="EntityFramework.SqlServer.xml" Guid="821d98f4-e455-4661-a74b-4946a5c6c28d">
+        <File Id="EntityFramework.SqlServer.xml" Name="EntityFramework.SqlServer.xml" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.SqlServer.xml" />
+      </Component>
+
+      <Component Id="EntityFramework.SqlServerCompact.dll" Guid="6d5d7853-a4f4-4454-8a85-1c5a754e7e85">
+        <File Id="EntityFramework.SqlServerCompact.dll" Name="EntityFramework.SqlServerCompact.dll" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.SqlServerCompact.dll" />
+      </Component>
+
+      <Component Id="EntityFramework.SqlServerCompact.xml" Guid="51c08126-01ef-4ea7-9b8e-4a19902665ad">
+        <File Id="EntityFramework.SqlServerCompact.xml" Name="EntityFramework.SqlServerCompact.xml" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.SqlServerCompact.xml" />
+      </Component>
+
+      <Component Id="EntityFramework.xml" Guid="34a15f88-d78a-44c5-b1b0-9a8f9339a295">
+        <File Id="EntityFramework.xml" Name="EntityFramework.xml" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.xml" />
+      </Component>
+
+      <Component Id="MetroFramework.dll" Guid="93f9ff23-99af-40ea-86a7-388af140e0bb">
+        <File Id="MetroFramework.dll" Name="MetroFramework.dll" Source="$(var.dNothi.Desktop_TargetDir)MetroFramework.dll" />
+      </Component>
+      <Component Id="dNothi.Services.dll" Guid="d929a5d3-7e81-416c-aaa0-620e19d66dde">
+        <File Id="dNothi.Services.dll" Name="dNothi.Services.dll" Source="$(var.dNothi.Services_TargetDir)dNothi.Services.dll" />
+      </Component>
+      <Component Id="AutoMapper.dll" Guid="d4d001eb-49b5-45c4-be14-8abadbea39f0">
+        <File Id="AutoMapper.dll" Name="AutoMapper.dll" Source="$(var.dNothi.Desktop_TargetDir)AutoMapper.dll" />
+      </Component>
+      <Component Id="dNothi.Utility.dll" Guid="482c7ae8-2190-4004-96db-2e4ddcde40be">
+        <File Id="dNothi.Utility.dll" Name="dNothi.Utility.dll" Source="$(var.dNothi.Utility_TargetDir)dNothi.Utility.dll" />
+      </Component>
+      <Component Id="log4net.dll" Guid="7939c29d-2f75-4f26-963d-602791b0cb37">
+        <File Id="log4net.dll" Name="log4net.dll" Source="$(var.dNothi.Desktop_TargetDir)log4net.dll" />
+      </Component>
+      <Component Id="PlaceholderTextBox.dll" Guid="b9b117d9-32cd-49be-80dc-2c0b5f9d6322">
+        <File Id="PlaceholderTextBox.dll" Name="PlaceholderTextBox.dll" Source="$(var.dNothi.Desktop_TargetDir)PlaceholderTextBox.dll" />
+      </Component>
+      <Component Id="FontAwesome.Sharp.dll" Guid="93d28f7b-aed5-460c-a790-512b1b5bb52d">
+        <File Id="FontAwesome.Sharp.dll" Name="FontAwesome.Sharp.dll" Source="$(var.dNothi.Desktop_TargetDir)FontAwesome.Sharp.dll" />
+      </Component>
+      <Component Id="dNothi.JsonParser.dll" Guid="ea620f43-d68e-4f47-8bb6-ea453d168445">
+        <File Id="dNothi.JsonParser.dll" Name="dNothi.JsonParser.dll" Source="$(var.dNothi.JsonParser_TargetDir)dNothi.JsonParser.dll" />
+      </Component>
+      <Component Id="Autofac.dll" Guid="590cd8fe-201a-41b0-9753-a117844bce63">
+        <File Id="Autofac.dll" Name="Autofac.dll" Source="$(var.dNothi.Desktop_TargetDir)Autofac.dll" />
+      </Component>
+      <Component Id="RestSharp.dll" Guid="c4123889-a588-4fe6-8f68-0d83964bfce3">
+        <File Id="RestSharp.dll" Name="RestSharp.dll" Source="$(var.dNothi.Desktop_TargetDir)RestSharp.dll" />
+      </Component>
+      <Component Id="dNothi.Desktop.exe.config" Guid="57feffe0-479e-4fa6-8f99-3f71e2de0b51">
+        <File Id="dNothi.Desktop.exe.config" Name="dNothi.Desktop.exe.config" Source="$(var.dNothi.Desktop_TargetDir)dNothi.Desktop.exe.config" />
+      </Component>
+      <Component Id="dNothi.Desktop.exe" Guid="089c4fb7-47f6-482a-9113-6b0e007414b8">
+        <File Id="dNothi.Desktop.exe" Name="dNothi.Desktop.exe" Source="$(var.dNothi.Desktop_TargetDir)dNothi.Desktop.exe" />
+      </Component>
+      <Component Id="System.Data.SqlServerCe.dll" Guid="f64436fe-9ce1-4868-9b0c-e37a9e93d64a">
+        <File Id="System.Data.SqlServerCe.dll" Name="System.Data.SqlServerCe.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Data.SqlServerCe.dll" />
+      </Component>
+      <Component Id="dNothi.Infrastructure.dll" Guid="5f165398-9d9a-4247-b30a-9531d8d5d8c4">
+        <File Id="dNothi.Infrastructure.dll" Name="dNothi.Infrastructure.dll" Source="$(var.dNothi.Infrastructure_TargetDir)dNothi.Infrastructure.dll" />
+      </Component>
+      <Component Id="Newtonsoft.Json.dll" Guid="2aff3c8b-2ef1-4992-ae23-7119b12eda2e">
+        <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.dNothi.Desktop_TargetDir)Newtonsoft.Json.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Management.dll" Guid="7c32e5bf-94f4-483e-8a32-bd1aa7644436">
+        <File Id="IKVM.OpenJDK.Management.dll" Name="IKVM.OpenJDK.Management.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Management.dll" />
+      </Component>
+      <Component Id="IKVM.Runtime.JNI.dll" Guid="e66c61d2-5b7a-47f4-9e5b-dfb2d831846b">
+        <File Id="IKVM.Runtime.JNI.dll" Name="IKVM.Runtime.JNI.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.Runtime.JNI.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Charsets.dll" Guid="979376a3-7e08-4573-8402-c7b93f5c5602">
+        <File Id="IKVM.OpenJDK.Charsets.dll" Name="IKVM.OpenJDK.Charsets.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Charsets.dll" />
+      </Component>
+      <Component Id="IKVM.AWT.WinForms.dll" Guid="e97f8964-5ab3-40d4-ac58-93034cf25423">
+        <File Id="IKVM.AWT.WinForms.dll" Name="IKVM.AWT.WinForms.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.AWT.WinForms.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Beans.dll" Guid="ecaa9386-7c87-4438-819a-62698d71869b">
+        <File Id="IKVM.OpenJDK.Beans.dll" Name="IKVM.OpenJDK.Beans.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Beans.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.XML.API.dll" Guid="d048e930-7caa-4c98-8b44-60a8a08cbdf7">
+        <File Id="IKVM.OpenJDK.XML.API.dll" Name="IKVM.OpenJDK.XML.API.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.XML.API.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Media.dll" Guid="d0877c84-7be6-4245-93ba-ae992fc49cd7">
+        <File Id="IKVM.OpenJDK.Media.dll" Name="IKVM.OpenJDK.Media.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Media.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.SwingAWT.dll" Guid="e03e64db-22e2-434b-bd04-b641a06e9096">
+        <File Id="IKVM.OpenJDK.SwingAWT.dll" Name="IKVM.OpenJDK.SwingAWT.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.SwingAWT.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Naming.dll" Guid="6c0fc189-ca25-49a5-89e0-5a6d9abbcc38">
+        <File Id="IKVM.OpenJDK.Naming.dll" Name="IKVM.OpenJDK.Naming.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Naming.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Security.dll" Guid="45e30b74-982d-484c-b7f6-442dcd8585fc">
+        <File Id="IKVM.OpenJDK.Security.dll" Name="IKVM.OpenJDK.Security.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Security.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Text.dll" Guid="74d638e8-d37c-4df7-84d0-daa626cd1bea">
+        <File Id="IKVM.OpenJDK.Text.dll" Name="IKVM.OpenJDK.Text.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Text.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Util.dll" Guid="bbaceafc-2a5f-4475-beec-11edf800cc98">
+        <File Id="IKVM.OpenJDK.Util.dll" Name="IKVM.OpenJDK.Util.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Util.dll" />
+      </Component>
+      <Component Id="IKVM.Runtime.dll" Guid="a9946d4e-9d55-447a-85b7-6841dd745041">
+        <File Id="IKVM.Runtime.dll" Name="IKVM.Runtime.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.Runtime.dll" />
+      </Component>
+      <Component Id="Interop.AcroPDFLib.dll" Guid="74ffa282-b379-4e8c-b957-d8d4ebc040a2">
+        <File Id="Interop.AcroPDFLib.dll" Name="Interop.AcroPDFLib.dll" Source="$(var.dNothi.Desktop_TargetDir)Interop.AcroPDFLib.dll" />
+      </Component>
+      <Component Id="EntityFramework.dll" Guid="c08454be-74a0-4540-8fbc-45e2ccf6c04a">
+        <File Id="EntityFramework.dll" Name="EntityFramework.dll" Source="$(var.dNothi.Desktop_TargetDir)EntityFramework.dll" />
+      </Component>
+      <Component Id="System.Buffers.dll" Guid="5b5d2e76-cc79-4510-9f18-62457dae5e9d">
+        <File Id="System.Buffers.dll" Name="System.Buffers.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Buffers.dll" />
+      </Component>
+      <Component Id="System.Numerics.Vectors.dll" Guid="0ef85e57-6505-44d1-9561-1a470052fbfb">
+        <File Id="System.Numerics.Vectors.dll" Name="System.Numerics.Vectors.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Numerics.Vectors.dll" />
+      </Component>
+      <Component Id="System.Memory.dll" Guid="33c47c49-41b7-47a6-9ee7-07bce666d2be">
+        <File Id="System.Memory.dll" Name="System.Memory.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Memory.dll" />
+      </Component>
+      <Component Id="System.Diagnostics.DiagnosticSource.dll" Guid="4f920ca9-656e-4974-aa15-63ed30c09c00">
+        <File Id="System.Diagnostics.DiagnosticSource.dll" Name="System.Diagnostics.DiagnosticSource.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Diagnostics.DiagnosticSource.dll" />
+      </Component>
+      <Component Id="System.Runtime.CompilerServices.Unsafe.dll" Guid="1d41bb0d-377d-4b82-8b42-2f3514114e7f">
+        <File Id="System.Runtime.CompilerServices.Unsafe.dll" Name="System.Runtime.CompilerServices.Unsafe.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Runtime.CompilerServices.Unsafe.dll" />
+      </Component>
+      <Component Id="System.Threading.Tasks.Extensions.dll" Guid="901b1bef-031a-4fa0-9f03-7c3549ff5e92">
+        <File Id="System.Threading.Tasks.Extensions.dll" Name="System.Threading.Tasks.Extensions.dll" Source="$(var.dNothi.Desktop_TargetDir)System.Threading.Tasks.Extensions.dll" />
+      </Component>
+      <Component Id="Microsoft.Bcl.AsyncInterfaces.dll" Guid="c33cbf7d-db73-45df-b38a-cf68934227db">
+        <File Id="Microsoft.Bcl.AsyncInterfaces.dll" Name="Microsoft.Bcl.AsyncInterfaces.dll" Source="$(var.dNothi.Desktop_TargetDir)Microsoft.Bcl.AsyncInterfaces.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Core.dll" Guid="0b4b76ee-9589-496b-ad4d-ea0713563df1">
+        <File Id="IKVM.OpenJDK.Core.dll" Name="IKVM.OpenJDK.Core.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Core.dll" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Corba.dll" Guid="84f7340f-172c-4c7c-9e99-7077e8ef9afe">
+        <File Id="IKVM.OpenJDK.Corba.dll" Name="IKVM.OpenJDK.Corba.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Corba.dll" />
+      </Component>
+      <Component Id="_256x256bb.ico" Guid="7fcc8173-5c52-4849-8041-13843445bb48">
+        <File Id="_256x256bb.ico" Name="256x256bb.ico" Source="$(var.dNothi.Desktop_TargetDir)256x256bb.ico" />
+      </Component>
+      <Component Id="dNothi.Core.dll" Guid="ebd91a2b-2655-48e2-83fd-ef17fb22db90">
+        <File Id="dNothi.Core.dll" Name="dNothi.Core.dll" Source="$(var.dNothi.Core_TargetDir)dNothi.Core.dll" />
+      </Component>
+      <Component Id="dNothi.Constants.dll" Guid="8f412cb2-cc59-4696-b977-f88946eeacf5">
+        <File Id="dNothi.Constants.dll" Name="dNothi.Constants.dll" Source="$(var.dNothi.Constants_TargetDir)dNothi.Constants.dll" />
+      </Component>
+      <Component Id="tinymce.htm" Guid="c3fb0332-91c6-4142-912f-306d1ff4e241">
+        <File Id="tinymce.htm" Name="tinymce.htm" Source="$(var.dNothi.Desktop_TargetDir)tinymce.htm" />
+      </Component>
+      <Component Id="test.htm" Guid="ba7d4789-87d9-470b-9628-1348ce6e483a">
+        <File Id="test.htm" Name="test.htm" Source="$(var.dNothi.Desktop_TargetDir)test.htm" />
+      </Component>
+      <Component Id="IKVM.OpenJDK.Remoting.dll" Guid="f801d707-abfc-4022-a7f9-599180a88acb">
+        <File Id="IKVM.OpenJDK.Remoting.dll" Name="IKVM.OpenJDK.Remoting.dll" Source="$(var.dNothi.Desktop_TargetDir)IKVM.OpenJDK.Remoting.dll" />
+      </Component>
+      <Component Id="CefSharp.Core.dll" Guid="04614e0b-30be-4188-a566-757231c97a27">
+        <File Id="CefSharp.Core.dll" Name="CefSharp.Core.dll" Source="$(var.dNothi.Desktop_TargetDir)CefSharp.Core.dll" />
+      </Component>
+      <Component Id="CefSharp.dll" Guid="469b2f47-b278-4554-ba0f-978377979cdf">
+        <File Id="CefSharp.dll" Name="CefSharp.dll" Source="$(var.dNothi.Desktop_TargetDir)CefSharp.dll" />
+      </Component>
+      <Component Id="CefSharp.WinForms.dll" Guid="5bc1f99b-138b-401b-a49e-0e72845f366d">
+        <File Id="CefSharp.WinForms.dll" Name="CefSharp.WinForms.dll" Source="$(var.dNothi.Desktop_TargetDir)CefSharp.WinForms.dll" />
+      </Component>
+      <Component Id="HtmlAgilityPack.dll" Guid="1e68120f-63bb-4462-9a4a-279540494aca">
+        <File Id="HtmlAgilityPack.dll" Name="HtmlAgilityPack.dll" Source="$(var.dNothi.Desktop_TargetDir)HtmlAgilityPack.dll" />
+      </Component>
+    
+    </ComponentGroup>
+  </Fragment>
 
   <Fragment>
     <ComponentGroup Id="tinymce_jscripts_tiny_mce_plugins_table_files" Directory="tinymce_jscripts_tiny_mce_plugins_table">
@@ -648,23 +722,23 @@
       </Component>
     </ComponentGroup>
   </Fragment>
-  
- <Fragment>
-  <DirectoryRef Id="ApplicationProgramsFolder">
-    <Component Id="ApplicationShortcut" Guid="fd1adc38-8c68-46fd-b6a6-adf011ade269">
-      <Shortcut Id="ApplicationStartMenuShortcut" Name="E-Nothi" Description="E-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
-      <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
-      <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
-    </Component>
-  </DirectoryRef>
-  <DirectoryRef Id="DesktopFolder">
-   <Component Id="ApplicationShortcutDesktop" Guid="9b8a615a-a2f5-4f99-8bc3-a61f95b4a413">
-     <Shortcut Id="ApplicationDesktopShortcut" Name="E-Nothi" Description="E-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
-      <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
-      <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
-    </Component>
-  </DirectoryRef>
-</Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="fd1adc38-8c68-46fd-b6a6-adf011ade269">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="E-Nothi" Description="E-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ApplicationShortcutDesktop" Guid="9b8a615a-a2f5-4f99-8bc3-a61f95b4a413">
+        <Shortcut Id="ApplicationDesktopShortcut" Name="E-Nothi" Description="E-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
 
   <Fragment>
     <ComponentGroup Id="tinymce_jscripts_tiny_mce_plugins_style_js_files" Directory="tinymce_jscripts_tiny_mce_plugins_style_js">
@@ -1912,16 +1986,13 @@
       <Component Id="Content_regular.css" Guid="cf8d7265-3d6a-4817-b647-76c67d6d0e80">
         <File Id="Content_regular.css" Name="regular.css" Source="$(var.dNothi.Desktop_TargetDir)Content\regular.css" />
       </Component>
-    </ComponentGroup>
-  </Fragment>
-
-  <Fragment>
-    <ComponentGroup Id="runtimes_win_x86_native_files" Directory="runtimes_win_x86_native">
-      <Component Id="runtimes_win_x86_native_WebView2Loader.dll" Guid="3bf1260e-db76-471c-96fe-04b78b5cf1a7">
-        <File Id="runtimes_win_x86_native_WebView2Loader.dll" Name="WebView2Loader.dll" Source="$(var.dNothi.Constants_TargetDir)runtimes\win-x86\native\WebView2Loader.dll" />
+      <Component Id="Content_fontawesome_all.min.css" Guid="ec72ee06-7da7-4aee-80f5-0868cc35948a">
+        <File Id="Content_fontawesome_all.min.css" Name="fontawesome-all.min.css" Source="$(var.dNothi.Desktop_TargetDir)Content\fontawesome-all.min.css" />
       </Component>
     </ComponentGroup>
   </Fragment>
+
+ 
 
   <Fragment>
     <ComponentGroup Id="tinymce_js_tinymce_plugins_directionality_files" Directory="tinymce_js_tinymce_plugins_directionality">
@@ -2037,6 +2108,9 @@
       </Component>
       <Component Id="tinymce_js_tinymce_tinymce.min.js" Guid="54aceee0-fe83-4d4d-890b-c215997b9e94">
         <File Id="tinymce_js_tinymce_tinymce.min.js" Name="tinymce.min.js" Source="$(var.dNothi.Desktop_TargetDir)tinymce\js\tinymce\tinymce.min.js" />
+      </Component>
+      <Component Id="tinymce_js_tinymce_jquery__3.6.js" Guid="bdb56b20-de0c-40f7-8628-938c2d9e0278">
+        <File Id="tinymce_js_tinymce_jquery__3.6.js" Name="jquery _3.6.js" Source="$(var.dNothi.Desktop_TargetDir)tinymce\js\tinymce\jquery _3.6.js" />
       </Component>
     </ComponentGroup>
   </Fragment>
@@ -2513,9 +2587,9 @@
     </ComponentGroup>
   </Fragment>
 
-  
-    
-      
+
+
+
   <Fragment>
     <ComponentGroup Id="tinymce_jscripts_tiny_mce_plugins_advimage_css_files" Directory="tinymce_jscripts_tiny_mce_plugins_advimage_css">
       <Component Id="tinymce_jscripts_tiny_mce_plugins_advimage_css_advimage.css" Guid="2d672dba-d892-4d7a-ba8e-b5b8b87f7307">
