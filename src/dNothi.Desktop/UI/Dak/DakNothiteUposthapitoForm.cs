@@ -240,6 +240,7 @@ namespace dNothi.Desktop.UI.Dak
 
             Screen scr = Screen.FromPoint(this.Location);
             this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
+            this.Height = scr.WorkingArea.Height;
         }
 
         private void closeButton_Click(object sender, EventArgs e)
