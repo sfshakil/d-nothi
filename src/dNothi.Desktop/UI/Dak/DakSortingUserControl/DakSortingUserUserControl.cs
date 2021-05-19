@@ -22,7 +22,7 @@ namespace dNothi.Desktop.UI.Dak
         public DakSortingUserUserControl()
         {
             InitializeComponent();
-            //dakPriorityIconPanel.Visible = false;
+            dakPriorityIconPanel.Visible = false;
             dakSecurityIconPanel.Visible = false;
            
             IterateControls(this.Controls);
@@ -114,7 +114,20 @@ namespace dNothi.Desktop.UI.Dak
         public int _dakAttachmentCount;
         public bool _isChecked;
         public DakListRecordsDTO _dak;
-        public DakListRecordsDTO dak { get { return _dak; } set { _dak = value; } }
+        public DakListRecordsDTO dak { get { return _dak; } set { _dak = value;
+                if (value != null)
+                {
+                    try
+                    {
+                        mainPrapokButton.Text += value.movement_status.to.Select(x => x.officer).FirstOrDefault();
+                    }
+                    catch
+                    {
+                        mainPrapokButton.Visible = false;
+                    }
+                }
+            }
+        }
         public bool isChecked { get { return _isChecked; } set { _isChecked = value; dakCheckBox.Checked = value; } }
 
       
@@ -133,12 +146,12 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     if (draftedDecision.decision != "")
                     {
-                        decisionmainLabel.Text += draftedDecision.decision;
+                            DraftedDecisionLabel.Text += draftedDecision.decision;
                     }
                     else
                     {
-                        decisionmainLabel.Visible = false;
-                        //draftedDecisionsSidelabel.Visible = false;
+                            DraftedDecisionLabel.Visible = false;
+                           draftedDecisionsSidelabel.Visible = false;
                     }
 
                     DakPriorityList dakPriorityList = new DakPriorityList();
@@ -146,12 +159,12 @@ namespace dNothi.Desktop.UI.Dak
 
                     if (priorityName == "")
                     {
-                        // dakPriorityIconPanel.Visible = false;
+                         dakPriorityIconPanel.Visible = false;
                     }
                     else
                     {
-                        //dakPriorityIconPanel.Visible = true;
-                        //prioriyLabel.Text = priorityName;
+                        dakPriorityIconPanel.Visible = true;
+                        prioriyLabel.Text = priorityName;
 
                     }
 
@@ -621,7 +634,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void mainPrapokButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ok");
+           
         }
     }
 }

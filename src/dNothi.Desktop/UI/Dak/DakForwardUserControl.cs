@@ -53,10 +53,22 @@ namespace dNothi.Desktop.UI.Dak
         private string _dakSecurityIconValue;
 
         private string _dakPriority;
+        public bool fromDakBacai;
+    public bool _fromDakBacai { get { return fromDakBacai; }  
+                               set { fromDakBacai = value; 
+                                      if (value == true) {
+                                                sendButton.Text = "সংরক্ষণ করুন";
+                    MyToolTip.SetToolTip(sendButton, "সংরক্ষণ করুন");
+                                        }
+                                        else
+                                        {
+                                           sendButton.Text = "প্রেরণ করুন";
+                    MyToolTip.SetToolTip(sendButton, "প্রেরণ করুন");
+                }
+                                   } 
+                              }
+
         
-    public bool _fromDakBacai;
-
-
     public string dakPrioriy
         {
             get { return _dakPriority; }
@@ -331,6 +343,8 @@ namespace dNothi.Desktop.UI.Dak
             PriorityListCollection.Clear();
             LoadDecisionList();
            
+
+
 
         }
 

@@ -3393,8 +3393,7 @@ namespace dNothi.Desktop.UI
 
         private void dakSortedUserButton_Click(object sender, EventArgs e)
         {
-            
-          
+           
         ResetAllMenuButtonSelection();
         SelectButton(sender as Button);
         dakSortingUserFlowLayoutPanel.Controls.Clear();
@@ -3412,16 +3411,18 @@ namespace dNothi.Desktop.UI
                 var response = _dakSharingServeice.GetList(userParam, actionlinkid, assinorid);
                 if (response.status == "success")
                 {
+                   
                     var data = JsonConvert.DeserializeObject<ShareList.Data>(response.data.ToString());
+                    
                     if (data.assignor.Count > 0)
                     {
                         foreach (var item in data.assignor)
                         {
                             Button button = new Button();
-                            button.Text = item.name + "(" + item.designation_level + ")";
+                            button.Text ="- "+ item.name + "(" + item.designation_level + ")";
 
                             button.AutoSize = true;
-                            button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+                            button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
                             button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
                             button.Dock = System.Windows.Forms.DockStyle.Top;
                             button.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
@@ -3433,9 +3434,8 @@ namespace dNothi.Desktop.UI
                             button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
                             button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
                             button.Location = new System.Drawing.Point(0, 0);
-                            //button.MaximumSize =new Size(180,0);
-
-                            // button.Size = new System.Drawing.Size(234, 30);
+                            button.MaximumSize =new Size(230,0);
+                            button.Size = new System.Drawing.Size(234,60);
 
 
                             button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3458,19 +3458,23 @@ namespace dNothi.Desktop.UI
                 }
             }
            
-          
-
             // dakBacaiFlowLayoutPanel
 
         }
         private void linkLabel_LinkClicked(object sender, EventArgs e, int assignor_designation_id)
         {
+            string total = "সর্বমোট: ";
+            int pagelimit = 10;
+            int page = 1;
+            //pageLabel.Text=
+
             var userParam = _userService.GetLocalDakUserParam();
-            userParam.limit = 10; userParam.page = 1;
+            userParam.limit = pagelimit; userParam.page = page;
             var response = _dakSharingServeice.GetList(userParam, 2, assignor_designation_id);
             if (response.status == "success")
             {
                 var data = JsonConvert.DeserializeObject<DakListDTO>(response.data.ToString());
+                totalLabel.Text = total + ConversionMethod.EnglishNumberToBangla(data.total_records.ToString());
                 if (data.records.Count > 0)
                 {
                     LoadDakSortinginPanel(data.records);
@@ -3479,6 +3483,7 @@ namespace dNothi.Desktop.UI
             }
 
         }
+        
         private void LoadDakSortinginPanel(List<DakListRecordsDTO> dakLists)
         {
             List<DakSortingUserUserControl> dakSortedUserControls = new List<DakSortingUserUserControl>();
@@ -3542,8 +3547,7 @@ namespace dNothi.Desktop.UI
             }
         }
 
-       
-              private void SelectorUnselectSingleDakSharing()
+        private void SelectorUnselectSingleDakSharing()
                 {
             MyToolTip.SetToolTip(multipleDakForwardButton, "ডাক সর্টিং");
 
