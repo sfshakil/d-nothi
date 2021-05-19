@@ -49,17 +49,29 @@ namespace dNothi.Desktop.UI.Dak
             this.pbSignature2 = new System.Windows.Forms.PictureBox();
             this.pbSignature3 = new System.Windows.Forms.PictureBox();
             this.pbSignature4 = new System.Windows.Forms.PictureBox();
+            this.OnucchedSignatureBodyPanel = new System.Windows.Forms.Panel();
+            this.OnucchedSignatureBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbSignature1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSignature2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSignature3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSignature4)).BeginInit();
+            this.OnucchedSignatureBodyPanel.SuspendLayout();
+            this.OnucchedSignatureBodyTableLayoutPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSignature1
             // 
             this.pnlSignature1.BackColor = System.Drawing.Color.DarkViolet;
             this.pnlSignature1.ForeColor = System.Drawing.Color.DarkViolet;
-            this.pnlSignature1.Location = new System.Drawing.Point(34, 81);
+            this.pnlSignature1.Location = new System.Drawing.Point(17, 88);
             this.pnlSignature1.Name = "pnlSignature1";
             this.pnlSignature1.Size = new System.Drawing.Size(280, 1);
             this.pnlSignature1.TabIndex = 0;
@@ -69,7 +81,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.pnlSignature2.BackColor = System.Drawing.Color.DarkViolet;
             this.pnlSignature2.ForeColor = System.Drawing.Color.DarkViolet;
-            this.pnlSignature2.Location = new System.Drawing.Point(345, 81);
+            this.pnlSignature2.Location = new System.Drawing.Point(18, 88);
             this.pnlSignature2.Name = "pnlSignature2";
             this.pnlSignature2.Size = new System.Drawing.Size(280, 1);
             this.pnlSignature2.TabIndex = 1;
@@ -79,7 +91,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.pnlSignature4.BackColor = System.Drawing.Color.DarkViolet;
             this.pnlSignature4.ForeColor = System.Drawing.Color.DarkViolet;
-            this.pnlSignature4.Location = new System.Drawing.Point(969, 81);
+            this.pnlSignature4.Location = new System.Drawing.Point(17, 88);
             this.pnlSignature4.Name = "pnlSignature4";
             this.pnlSignature4.Size = new System.Drawing.Size(280, 1);
             this.pnlSignature4.TabIndex = 3;
@@ -89,7 +101,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.pnlSignature3.BackColor = System.Drawing.Color.DarkViolet;
             this.pnlSignature3.ForeColor = System.Drawing.Color.DarkViolet;
-            this.pnlSignature3.Location = new System.Drawing.Point(659, 81);
+            this.pnlSignature3.Location = new System.Drawing.Point(19, 88);
             this.pnlSignature3.Name = "pnlSignature3";
             this.pnlSignature3.Size = new System.Drawing.Size(280, 1);
             this.pnlSignature3.TabIndex = 2;
@@ -98,7 +110,7 @@ namespace dNothi.Desktop.UI.Dak
             // lbSignatureDate1
             // 
             this.lbSignatureDate1.AutoSize = true;
-            this.lbSignatureDate1.Location = new System.Drawing.Point(140, 85);
+            this.lbSignatureDate1.Location = new System.Drawing.Point(123, 92);
             this.lbSignatureDate1.Name = "lbSignatureDate1";
             this.lbSignatureDate1.Size = new System.Drawing.Size(46, 17);
             this.lbSignatureDate1.TabIndex = 4;
@@ -108,7 +120,7 @@ namespace dNothi.Desktop.UI.Dak
             // lbEmployeeName1
             // 
             this.lbEmployeeName1.AutoSize = true;
-            this.lbEmployeeName1.Location = new System.Drawing.Point(140, 102);
+            this.lbEmployeeName1.Location = new System.Drawing.Point(123, 109);
             this.lbEmployeeName1.Name = "lbEmployeeName1";
             this.lbEmployeeName1.Size = new System.Drawing.Size(46, 17);
             this.lbEmployeeName1.TabIndex = 5;
@@ -118,7 +130,7 @@ namespace dNothi.Desktop.UI.Dak
             // lbEmployeeDesignation1
             // 
             this.lbEmployeeDesignation1.AutoSize = true;
-            this.lbEmployeeDesignation1.Location = new System.Drawing.Point(31, 119);
+            this.lbEmployeeDesignation1.Location = new System.Drawing.Point(14, 126);
             this.lbEmployeeDesignation1.Name = "lbEmployeeDesignation1";
             this.lbEmployeeDesignation1.Size = new System.Drawing.Size(46, 17);
             this.lbEmployeeDesignation1.TabIndex = 6;
@@ -129,7 +141,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbEmployeeDesignation2.AutoSize = true;
             this.lbEmployeeDesignation2.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lbEmployeeDesignation2.Location = new System.Drawing.Point(342, 119);
+            this.lbEmployeeDesignation2.Location = new System.Drawing.Point(15, 126);
             this.lbEmployeeDesignation2.Name = "lbEmployeeDesignation2";
             this.lbEmployeeDesignation2.Size = new System.Drawing.Size(46, 17);
             this.lbEmployeeDesignation2.TabIndex = 9;
@@ -140,7 +152,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbEmployeeName2.AutoSize = true;
             this.lbEmployeeName2.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lbEmployeeName2.Location = new System.Drawing.Point(456, 102);
+            this.lbEmployeeName2.Location = new System.Drawing.Point(129, 109);
             this.lbEmployeeName2.Name = "lbEmployeeName2";
             this.lbEmployeeName2.Size = new System.Drawing.Size(46, 17);
             this.lbEmployeeName2.TabIndex = 8;
@@ -151,7 +163,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbSignatureDate2.AutoSize = true;
             this.lbSignatureDate2.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lbSignatureDate2.Location = new System.Drawing.Point(456, 85);
+            this.lbSignatureDate2.Location = new System.Drawing.Point(129, 92);
             this.lbSignatureDate2.Name = "lbSignatureDate2";
             this.lbSignatureDate2.Size = new System.Drawing.Size(46, 17);
             this.lbSignatureDate2.TabIndex = 7;
@@ -162,7 +174,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbEmployeeDesignation3.AutoSize = true;
             this.lbEmployeeDesignation3.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lbEmployeeDesignation3.Location = new System.Drawing.Point(656, 119);
+            this.lbEmployeeDesignation3.Location = new System.Drawing.Point(16, 126);
             this.lbEmployeeDesignation3.Name = "lbEmployeeDesignation3";
             this.lbEmployeeDesignation3.Size = new System.Drawing.Size(46, 17);
             this.lbEmployeeDesignation3.TabIndex = 12;
@@ -173,7 +185,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbEmployeeName3.AutoSize = true;
             this.lbEmployeeName3.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lbEmployeeName3.Location = new System.Drawing.Point(772, 102);
+            this.lbEmployeeName3.Location = new System.Drawing.Point(132, 109);
             this.lbEmployeeName3.Name = "lbEmployeeName3";
             this.lbEmployeeName3.Size = new System.Drawing.Size(46, 17);
             this.lbEmployeeName3.TabIndex = 11;
@@ -184,7 +196,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbSignatureDate3.AutoSize = true;
             this.lbSignatureDate3.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lbSignatureDate3.Location = new System.Drawing.Point(772, 85);
+            this.lbSignatureDate3.Location = new System.Drawing.Point(132, 92);
             this.lbSignatureDate3.Name = "lbSignatureDate3";
             this.lbSignatureDate3.Size = new System.Drawing.Size(46, 17);
             this.lbSignatureDate3.TabIndex = 10;
@@ -195,7 +207,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbEmployeeDesignation4.AutoSize = true;
             this.lbEmployeeDesignation4.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lbEmployeeDesignation4.Location = new System.Drawing.Point(966, 119);
+            this.lbEmployeeDesignation4.Location = new System.Drawing.Point(14, 126);
             this.lbEmployeeDesignation4.Name = "lbEmployeeDesignation4";
             this.lbEmployeeDesignation4.Size = new System.Drawing.Size(46, 17);
             this.lbEmployeeDesignation4.TabIndex = 15;
@@ -206,7 +218,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbEmployeeName4.AutoSize = true;
             this.lbEmployeeName4.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lbEmployeeName4.Location = new System.Drawing.Point(1099, 102);
+            this.lbEmployeeName4.Location = new System.Drawing.Point(147, 109);
             this.lbEmployeeName4.Name = "lbEmployeeName4";
             this.lbEmployeeName4.Size = new System.Drawing.Size(46, 17);
             this.lbEmployeeName4.TabIndex = 14;
@@ -217,7 +229,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbSignatureDate4.AutoSize = true;
             this.lbSignatureDate4.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lbSignatureDate4.Location = new System.Drawing.Point(1099, 85);
+            this.lbSignatureDate4.Location = new System.Drawing.Point(147, 92);
             this.lbSignatureDate4.Name = "lbSignatureDate4";
             this.lbSignatureDate4.Size = new System.Drawing.Size(46, 17);
             this.lbSignatureDate4.TabIndex = 13;
@@ -226,72 +238,143 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // pbSignature1
             // 
-            this.pbSignature1.Location = new System.Drawing.Point(78, 7);
+            this.pbSignature1.Location = new System.Drawing.Point(61, 14);
             this.pbSignature1.Margin = new System.Windows.Forms.Padding(0);
             this.pbSignature1.Name = "pbSignature1";
             this.pbSignature1.Size = new System.Drawing.Size(188, 50);
-            this.pbSignature1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSignature1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSignature1.TabIndex = 16;
             this.pbSignature1.TabStop = false;
             this.pbSignature1.Visible = false;
             // 
             // pbSignature2
             // 
-            this.pbSignature2.Location = new System.Drawing.Point(389, 7);
+            this.pbSignature2.Location = new System.Drawing.Point(62, 14);
             this.pbSignature2.Margin = new System.Windows.Forms.Padding(0);
             this.pbSignature2.Name = "pbSignature2";
             this.pbSignature2.Size = new System.Drawing.Size(188, 50);
-            this.pbSignature2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSignature2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSignature2.TabIndex = 17;
             this.pbSignature2.TabStop = false;
             this.pbSignature2.Visible = false;
             // 
             // pbSignature3
             // 
-            this.pbSignature3.Location = new System.Drawing.Point(698, 7);
+            this.pbSignature3.Location = new System.Drawing.Point(58, 14);
             this.pbSignature3.Margin = new System.Windows.Forms.Padding(0);
             this.pbSignature3.Name = "pbSignature3";
             this.pbSignature3.Size = new System.Drawing.Size(188, 50);
-            this.pbSignature3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSignature3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSignature3.TabIndex = 18;
             this.pbSignature3.TabStop = false;
             this.pbSignature3.Visible = false;
             // 
             // pbSignature4
             // 
-            this.pbSignature4.Location = new System.Drawing.Point(1015, 7);
+            this.pbSignature4.Location = new System.Drawing.Point(63, 14);
+            this.pbSignature4.Margin = new System.Windows.Forms.Padding(0);
             this.pbSignature4.Name = "pbSignature4";
             this.pbSignature4.Size = new System.Drawing.Size(188, 50);
-            this.pbSignature4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbSignature4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSignature4.TabIndex = 19;
             this.pbSignature4.TabStop = false;
             this.pbSignature4.Visible = false;
+            // 
+            // OnucchedSignatureBodyPanel
+            // 
+            this.OnucchedSignatureBodyPanel.Controls.Add(this.OnucchedSignatureBodyTableLayoutPanel);
+            this.OnucchedSignatureBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OnucchedSignatureBodyPanel.Location = new System.Drawing.Point(0, 0);
+            this.OnucchedSignatureBodyPanel.Name = "OnucchedSignatureBodyPanel";
+            this.OnucchedSignatureBodyPanel.Size = new System.Drawing.Size(1256, 166);
+            this.OnucchedSignatureBodyPanel.TabIndex = 20;
+            // 
+            // OnucchedSignatureBodyTableLayoutPanel
+            // 
+            this.OnucchedSignatureBodyTableLayoutPanel.ColumnCount = 4;
+            this.OnucchedSignatureBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.OnucchedSignatureBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.OnucchedSignatureBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.OnucchedSignatureBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.OnucchedSignatureBodyTableLayoutPanel.Controls.Add(this.panel4, 3, 0);
+            this.OnucchedSignatureBodyTableLayoutPanel.Controls.Add(this.panel3, 2, 0);
+            this.OnucchedSignatureBodyTableLayoutPanel.Controls.Add(this.panel2, 1, 0);
+            this.OnucchedSignatureBodyTableLayoutPanel.Controls.Add(this.panel1, 0, 0);
+            this.OnucchedSignatureBodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OnucchedSignatureBodyTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.OnucchedSignatureBodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.OnucchedSignatureBodyTableLayoutPanel.Name = "OnucchedSignatureBodyTableLayoutPanel";
+            this.OnucchedSignatureBodyTableLayoutPanel.RowCount = 1;
+            this.OnucchedSignatureBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.OnucchedSignatureBodyTableLayoutPanel.Size = new System.Drawing.Size(1256, 166);
+            this.OnucchedSignatureBodyTableLayoutPanel.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.pbSignature1);
+            this.panel1.Controls.Add(this.pnlSignature1);
+            this.panel1.Controls.Add(this.lbSignatureDate1);
+            this.panel1.Controls.Add(this.lbEmployeeName1);
+            this.panel1.Controls.Add(this.lbEmployeeDesignation1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(314, 166);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.pbSignature2);
+            this.panel2.Controls.Add(this.pnlSignature2);
+            this.panel2.Controls.Add(this.lbSignatureDate2);
+            this.panel2.Controls.Add(this.lbEmployeeName2);
+            this.panel2.Controls.Add(this.lbEmployeeDesignation2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(314, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(314, 166);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.pbSignature3);
+            this.panel3.Controls.Add(this.pnlSignature3);
+            this.panel3.Controls.Add(this.lbSignatureDate3);
+            this.panel3.Controls.Add(this.lbEmployeeName3);
+            this.panel3.Controls.Add(this.lbEmployeeDesignation3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(628, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(314, 166);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.Controls.Add(this.pbSignature4);
+            this.panel4.Controls.Add(this.pnlSignature4);
+            this.panel4.Controls.Add(this.lbEmployeeDesignation4);
+            this.panel4.Controls.Add(this.lbSignatureDate4);
+            this.panel4.Controls.Add(this.lbEmployeeName4);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(942, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(314, 166);
+            this.panel4.TabIndex = 3;
             // 
             // OnucchedSignature
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.pbSignature4);
-            this.Controls.Add(this.pbSignature3);
-            this.Controls.Add(this.pbSignature2);
-            this.Controls.Add(this.pbSignature1);
-            this.Controls.Add(this.lbEmployeeDesignation4);
-            this.Controls.Add(this.lbEmployeeName4);
-            this.Controls.Add(this.lbSignatureDate4);
-            this.Controls.Add(this.lbEmployeeDesignation3);
-            this.Controls.Add(this.lbEmployeeName3);
-            this.Controls.Add(this.lbSignatureDate3);
-            this.Controls.Add(this.lbEmployeeDesignation2);
-            this.Controls.Add(this.lbEmployeeName2);
-            this.Controls.Add(this.lbSignatureDate2);
-            this.Controls.Add(this.lbEmployeeDesignation1);
-            this.Controls.Add(this.lbEmployeeName1);
-            this.Controls.Add(this.lbSignatureDate1);
-            this.Controls.Add(this.pnlSignature4);
-            this.Controls.Add(this.pnlSignature3);
-            this.Controls.Add(this.pnlSignature2);
-            this.Controls.Add(this.pnlSignature1);
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.OnucchedSignatureBodyPanel);
             this.ForeColor = System.Drawing.Color.DarkViolet;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "OnucchedSignature";
@@ -300,8 +383,18 @@ namespace dNothi.Desktop.UI.Dak
             ((System.ComponentModel.ISupportInitialize)(this.pbSignature2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSignature3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSignature4)).EndInit();
+            this.OnucchedSignatureBodyPanel.ResumeLayout(false);
+            this.OnucchedSignatureBodyTableLayoutPanel.ResumeLayout(false);
+            this.OnucchedSignatureBodyTableLayoutPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -327,5 +420,11 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.PictureBox pbSignature2;
         private System.Windows.Forms.PictureBox pbSignature3;
         private System.Windows.Forms.PictureBox pbSignature4;
+        private System.Windows.Forms.Panel OnucchedSignatureBodyPanel;
+        private System.Windows.Forms.TableLayoutPanel OnucchedSignatureBodyTableLayoutPanel;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

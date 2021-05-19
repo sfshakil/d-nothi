@@ -110,7 +110,6 @@
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.noteHeaderPanel = new System.Windows.Forms.Panel();
             this.onuchhedPnl = new System.Windows.Forms.Panel();
-            this.onuchhedFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.noteSubjectPanel = new System.Windows.Forms.Panel();
             this.lbNothiLastDate = new System.Windows.Forms.Label();
             this.lbNoteSubject = new System.Windows.Forms.Label();
@@ -282,6 +281,8 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.noteBackGroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.panel59 = new System.Windows.Forms.Panel();
+            this.onuchhedFLP = new System.Windows.Forms.TableLayoutPanel();
             this.panel2.SuspendLayout();
             this.panel29.SuspendLayout();
             this.nothiModulePanel.SuspendLayout();
@@ -365,6 +366,7 @@
             this.panel20.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel59.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -1615,27 +1617,13 @@
             // onuchhedPnl
             // 
             this.onuchhedPnl.AutoScroll = true;
-            this.onuchhedPnl.Controls.Add(this.onuchhedFLP);
+            this.onuchhedPnl.Controls.Add(this.panel59);
             this.onuchhedPnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.onuchhedPnl.Location = new System.Drawing.Point(0, 99);
             this.onuchhedPnl.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedPnl.Name = "onuchhedPnl";
             this.onuchhedPnl.Size = new System.Drawing.Size(1085, 94);
             this.onuchhedPnl.TabIndex = 65;
-            // 
-            // onuchhedFLP
-            // 
-            this.onuchhedFLP.AutoScroll = true;
-            this.onuchhedFLP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.onuchhedFLP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.onuchhedFLP.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.onuchhedFLP.Location = new System.Drawing.Point(0, 0);
-            this.onuchhedFLP.Margin = new System.Windows.Forms.Padding(0);
-            this.onuchhedFLP.Name = "onuchhedFLP";
-            this.onuchhedFLP.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.onuchhedFLP.Size = new System.Drawing.Size(1085, 94);
-            this.onuchhedFLP.TabIndex = 1;
-            this.onuchhedFLP.WrapContents = false;
             // 
             // noteSubjectPanel
             // 
@@ -4252,6 +4240,34 @@
             this.noteBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.noteBackGroundWorker_DoWork);
             this.noteBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.noteBackGroundWorker_RunWorkerCompleted);
             // 
+            // panel59
+            // 
+            this.panel59.AutoScroll = true;
+            this.panel59.Controls.Add(this.onuchhedFLP);
+            this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel59.Location = new System.Drawing.Point(0, 0);
+            this.panel59.Margin = new System.Windows.Forms.Padding(0);
+            this.panel59.Name = "panel59";
+            this.panel59.Size = new System.Drawing.Size(1085, 94);
+            this.panel59.TabIndex = 71;
+            // 
+            // onuchhedFLP
+            // 
+            this.onuchhedFLP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.onuchhedFLP.AutoSize = true;
+            this.onuchhedFLP.ColumnCount = 1;
+            this.onuchhedFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.onuchhedFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.onuchhedFLP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.onuchhedFLP.Location = new System.Drawing.Point(0, 0);
+            this.onuchhedFLP.Margin = new System.Windows.Forms.Padding(0);
+            this.onuchhedFLP.Name = "onuchhedFLP";
+            this.onuchhedFLP.RowCount = 1;
+            this.onuchhedFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.onuchhedFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.onuchhedFLP.Size = new System.Drawing.Size(1085, 0);
+            this.onuchhedFLP.TabIndex = 55;
+            // 
             // Note
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -4391,6 +4407,8 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
+            this.panel59.ResumeLayout(false);
+            this.panel59.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4468,7 +4486,6 @@
         private System.Windows.Forms.Panel noteTabpanel;
         private System.Windows.Forms.Panel panel38;
         private System.Windows.Forms.Panel onuchhedPnl;
-        private System.Windows.Forms.FlowLayoutPanel onuchhedFLP;
         private System.Windows.Forms.Label lbNothiType;
         private System.Windows.Forms.Panel pnlPotrangshoDetails;
         private System.Windows.Forms.Panel panel1;
@@ -4649,5 +4666,7 @@
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Panel panel57;
         private FontAwesome.Sharp.IconButton moduleButton;
+        private System.Windows.Forms.Panel panel59;
+        private System.Windows.Forms.TableLayoutPanel onuchhedFLP;
     }
 }

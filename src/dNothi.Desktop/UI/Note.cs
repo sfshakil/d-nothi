@@ -324,7 +324,8 @@ namespace dNothi.Desktop.UI
                                         separateOnucched.lastopenOnuchhed();
                                     }
                                     separateOnucched.loadinLocal();
-                                    onuchhedFLP.Controls.Add(separateOnucched);
+                                    //onuchhedFLP.Controls.Add(separateOnucched); 
+                                    UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                                 }
                             }
                         }
@@ -388,7 +389,8 @@ namespace dNothi.Desktop.UI
                                 {
                                     separateOnucched.lastopenOnuchhed();
                                 }
-                                onuchhedFLP.Controls.Add(separateOnucched);
+                                //onuchhedFLP.Controls.Add(separateOnucched);
+                                UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                                 //if (list.can_revert == 1)
                                 //{
                                 //    checkSub = list.note_subject_sub_text;
@@ -446,7 +448,8 @@ namespace dNothi.Desktop.UI
                                         }
                                         separateOnucched.lastopenOnuchhed();
                                         separateOnucched.loadinLocal();
-                                        onuchhedFLP.Controls.Add(separateOnucched);
+                                        //onuchhedFLP.Controls.Add(separateOnucched);
+                                        UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                                     }
                                 }
                             }
@@ -671,7 +674,8 @@ namespace dNothi.Desktop.UI
                                         separateOnucched.lastopenOnuchhed();
                                     }
                                     separateOnucched.loadinLocal();
-                                    onuchhedFLP.Controls.Add(separateOnucched);
+                                    //onuchhedFLP.Controls.Add(separateOnucched);
+                                    UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                                 }
                             }
                         }
@@ -740,7 +744,8 @@ namespace dNothi.Desktop.UI
                                 {
                                     separateOnucched.lastopenOnuchhed();
                                 }
-                                onuchhedFLP.Controls.Add(separateOnucched);
+                                //onuchhedFLP.Controls.Add(separateOnucched);
+                                UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                                 //if (list.can_revert == 1)
                                 //{
                                 //    checkSub = list.note_subject_sub_text;
@@ -798,7 +803,8 @@ namespace dNothi.Desktop.UI
                                         }
                                         separateOnucched.lastopenOnuchhed();
                                         separateOnucched.loadinLocal();
-                                        onuchhedFLP.Controls.Add(separateOnucched);
+                                        //onuchhedFLP.Controls.Add(separateOnucched);
+                                        UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                                     }
                                 }
                             }
@@ -979,6 +985,7 @@ namespace dNothi.Desktop.UI
                                 separateOnucched.lastopenOnuchhed();
                             }
                             onuchhedFLP.Controls.Add(separateOnucched);
+                            UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                             //if (nothiListInboxNoteRecordsDTO.note.can_revert == 1)
                             //{
                             //    checkSub = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
@@ -1143,7 +1150,8 @@ namespace dNothi.Desktop.UI
                             {
                                 separateOnucched.lastopenOnuchhed();
                             }
-                            onuchhedFLP.Controls.Add(separateOnucched);
+                            //onuchhedFLP.Controls.Add(separateOnucched);
+                            UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                             //if (list.can_revert == 1)
                             //{
                             //    checkSub = list.note_subject_sub_text;
@@ -2160,7 +2168,8 @@ namespace dNothi.Desktop.UI
                                     separateOnucched.lastopenOnuchhed();
                                 }
                                 separateOnucched.loadinLocal();
-                                onuchhedFLP.Controls.Add(separateOnucched);
+                                //onuchhedFLP.Controls.Add(separateOnucched);
+                                UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                             }
                         }
                     }
@@ -2287,7 +2296,8 @@ namespace dNothi.Desktop.UI
                                     }
                                     separateOnucched.lastopenOnuchhed();
                                     separateOnucched.loadinLocal();
-                                    onuchhedFLP.Controls.Add(separateOnucched);
+                                    //onuchhedFLP.Controls.Add(separateOnucched);
+                                    UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                                 }
                             }
                         }
@@ -2513,7 +2523,8 @@ namespace dNothi.Desktop.UI
                                             separateOnucched.lastopenOnuchhed();
                                         }
                                         separateOnucched.loadinLocal();
-                                        onuchhedFLP.Controls.Add(separateOnucched);
+                                        //onuchhedFLP.Controls.Add(separateOnucched);
+                                        UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                                     }
                                 }
                             }
@@ -2602,7 +2613,8 @@ namespace dNothi.Desktop.UI
                                         {
                                             separateOnucched.lastopenOnuchhed();
                                         }
-                                        onuchhedFLP.Controls.Add(separateOnucched);
+                                        //onuchhedFLP.Controls.Add(separateOnucched);
+                                        UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
 
                                     }
                                 }

@@ -419,7 +419,7 @@
             this.lbNoteLastDate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbNoteLastDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbNoteLastDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
+            this.lbNoteLastDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbNoteLastDate.Location = new System.Drawing.Point(79, 0);
             this.lbNoteLastDate.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteLastDate.Name = "lbNoteLastDate";

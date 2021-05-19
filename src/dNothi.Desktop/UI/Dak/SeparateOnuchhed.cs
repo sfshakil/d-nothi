@@ -193,7 +193,8 @@ namespace dNothi.Desktop.UI.Dak
                     }
                     
                 }
-                SignatureFLP.Controls.Add(onucchedSignature);
+                //SignatureFLP.Controls.Add(onucchedSignature);
+                UIDesignCommonMethod.AddRowinTable(SignatureFLP, onucchedSignature);
             }
             
 
