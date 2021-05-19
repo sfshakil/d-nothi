@@ -15,6 +15,6 @@
   <FileMappings />
   <DeploySymbols>false</DeploySymbols>
   <DeployLocalizations>true</DeployLocalizations>
-  <DeployExternalLocalizations>false</DeployExternalLocalizations>
+  <DeployExternalLocalizations>true</DeployExternalLocalizations>
   <ExcludedProjectItems>-</ExcludedProjectItems>
 </Configuration>

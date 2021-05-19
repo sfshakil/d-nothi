@@ -61,7 +61,7 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>256x256bb.ico</ApplicationIcon>
@@ -1698,6 +1698,7 @@
     <EmbeddedResource Include="UserControl\UserNamePanel.resx">
       <DependentUpon>UserNamePanel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="bin\Debug\dNothi.Desktop.exe.config" />
     <None Include="dNothi.Desktop_TemporaryKey.pfx" />
     <None Include="packages.config" />
