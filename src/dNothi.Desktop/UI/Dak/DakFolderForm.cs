@@ -476,11 +476,9 @@ namespace dNothi.Desktop.UI.Dak
         {
              if(_selectedFolderId !=0)
             {
-                var folder = _folderListDataDTO.publicFOlder.FirstOrDefault(a => a.id == _selectedFolderId);
-                if(folder == null)
-                {
-                    folder=_folderListDataDTO._privateFolder.FirstOrDefault(a => a.id == _selectedFolderId);
-                }
+               
+                var  folder=_folderListDataDTO._privateFolder.FirstOrDefault(a => a.id == _selectedFolderId);
+                
                 _selectedFolderName = folder.custom_name;
             }
 
