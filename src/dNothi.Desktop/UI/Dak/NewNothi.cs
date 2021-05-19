@@ -406,10 +406,10 @@ namespace dNothi.Desktop.UI.Dak
                 if (nothiCreate.status == "success" && nothiCreate.message == "Local")
                 {
                     foreach (Form f in Application.OpenForms)
-                    { f.Hide(); }
+                    { BeginInvoke((Action)(() => f.Hide())); }
                     var form = FormFactory.Create<Nothi>();
                     form.ForceLoadNothiALL();
-                    form.ShowDialog();
+                    BeginInvoke((Action)(() => form.ShowDialog()));
                 }
             }
             else

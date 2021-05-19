@@ -2657,7 +2657,8 @@ namespace dNothi.Desktop.UI
                                                 }
                                                 separateOnucched.lastopenOnuchhed();
                                                 separateOnucched.loadinLocal();
-                                                onuchhedFLP.Controls.Add(separateOnucched);
+                                                //onuchhedFLP.Controls.Add(separateOnucched);
+                                                UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
                                             }
                                         }
                                     }
