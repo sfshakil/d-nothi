@@ -49,6 +49,7 @@ namespace dNothi.Desktop.UI.Dak
         int i = 0, k = 1;
         private void LoadNothiTypeList()
         {
+            //bodyPanel.Height = Screen.PrimaryScreen.WorkingArea.Height;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             int value = 0;
             if (!InternetConnection.Check())
@@ -56,6 +57,7 @@ namespace dNothi.Desktop.UI.Dak
                 List<NothiTypeItemAction> nothiTypeItemActions = _nothiTypeItemAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
                 if (nothiTypeItemActions != null && nothiTypeItemActions.Count > 0)
                 {
+                    nothiTalikaFlowLayoutPnl.Controls.Clear();
                     List<NothiTypeList> nothiTypes = new List<NothiTypeList>();
                     foreach (NothiTypeItemAction nothiTypeItemAction in nothiTypeItemActions)
                     {
@@ -68,18 +70,7 @@ namespace dNothi.Desktop.UI.Dak
                         k++; value++;
                         if (i % 2 != 0)
                             nothiType.BackColor = Color.FromArgb(243, 246, 249);
-                        nothiTypes.Add(nothiType);
-                    }
-                    nothiTypeListFlowLayoutPanel.Controls.Clear();
-                    nothiTypeListFlowLayoutPanel.AutoScroll = true;
-                    nothiTypeListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-                    nothiTypeListFlowLayoutPanel.WrapContents = false;
-
-                    for (int j = 0; j <= nothiTypes.Count - 1; j++)
-                    {
-                        nothiTypeListFlowLayoutPanel.Controls.Add(nothiTypes[j]);
-
-
+                        UIDesignCommonMethod.AddRowinTable(nothiTalikaFlowLayoutPnl, nothiType);
                     }
                 }
             }
@@ -100,7 +91,10 @@ namespace dNothi.Desktop.UI.Dak
         private void LoadNothiTypeListinPanel(List<NothiTypeListDTO> nothiTypeLists)
         {
             List<NothiTypeList> nothiTypes = new List<NothiTypeList>();
-            
+            if (InternetConnection.Check())
+            {
+                nothiTalikaFlowLayoutPnl.Controls.Clear();
+            }
             foreach (NothiTypeListDTO nothiTypeListDTO in nothiTypeLists)
             {
                 var nothiType = UserControlFactory.Create<NothiTypeList>();
@@ -113,24 +107,12 @@ namespace dNothi.Desktop.UI.Dak
                 k++;
                 if (i % 2 != 0)
                     nothiType.BackColor = Color.FromArgb(243, 246, 249);
-                nothiTypes.Add(nothiType);
+                UIDesignCommonMethod.AddRowinTable(nothiTalikaFlowLayoutPnl, nothiType);
 
-            }
-            if (InternetConnection.Check())
-            {
-                nothiTypeListFlowLayoutPanel.Controls.Clear();
             }
             
-            nothiTypeListFlowLayoutPanel.AutoScroll = true;
-            nothiTypeListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            nothiTypeListFlowLayoutPanel.WrapContents = false;
-
-            for (int j = 0; j <= nothiTypes.Count - 1; j++)
-            {
-                nothiTypeListFlowLayoutPanel.Controls.Add(nothiTypes[j]);
-               
-                    
-            }
+            
+            
         }
 
         private void btnNothiTypeCross_Click(object sender, EventArgs e)

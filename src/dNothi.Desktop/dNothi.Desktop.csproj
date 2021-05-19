@@ -519,6 +519,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\NewNothiTypeGuidelines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NewNothiTypeGuidelines.Designer.cs">
+      <DependentUpon>NewNothiTypeGuidelines.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\PotrojariGroupContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1333,6 +1339,9 @@
     <EmbeddedResource Include="UI\Dak\NoteMovement.resx">
       <DependentUpon>NoteMovement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NewNothiTypeGuidelines.resx">
+      <DependentUpon>NewNothiTypeGuidelines.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiNoteAllAttachement.resx">
       <DependentUpon>NothiNoteAllAttachement.cs</DependentUpon>
     </EmbeddedResource>
@@ -1711,6 +1720,8 @@
     <None Include="tinymce\examples\media\sample.ram" />
     <None Include="tinymce\examples\media\sample.rm" />
     <None Include="Resources\download1.png" />
+    <None Include="Resources\nothicreateguideline.png" />
+    <None Include="Resources\newnothitypeguideline.png" />
     <Content Include="tinymce\js\tinymce\jquery _3.6.js" />
     <None Include="tinymce\js\tinymce\langs\readme.md" />
     <None Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />

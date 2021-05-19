@@ -118,11 +118,11 @@ namespace dNothi.Desktop.UI.Dak
 
                         }
 
-                    DesignationFLP.Controls.Add(nothiOnumodonRow);
+                    UIDesignCommonMethod.AddRowinTable(nothiTalikaFlowLayoutPnl, nothiOnumodonRow);
 
 
 
-                    }
+                }
                 }
               
 
@@ -141,7 +141,7 @@ namespace dNothi.Desktop.UI.Dak
               //  nothiOnumodonRow.level = i.ToString();
               //  nothiOnumodonRow.flag = 1;
                 nothiOnumodonRow.CheckBoxButton += delegate (object sender, EventArgs e) { CheckboxOfficer_ButtonClick(sender, e, nothiOnumodonRow._designationId,nothiOnumodonRow._isChecked); };
-                DesignationFLP.Controls.Add(nothiOnumodonRow);
+                UIDesignCommonMethod.AddRowinTable(nothiTalikaFlowLayoutPnl, nothiOnumodonRow);
                 i++;
             }
             
@@ -261,18 +261,18 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     SuccessMessage("প্রক্রিয়াটি সম্পন্ন হয়েছে");
                     foreach (Form f in Application.OpenForms)
-                    { f.Hide(); }
+                    { BeginInvoke((Action)(() => f.Hide())); }
                     var form = FormFactory.Create<Nothi>();
-                    form.ShowDialog();
+                    BeginInvoke((Action)(() => form.ShowDialog()));
 
                 }
                 else if (onuchhedForwardResponse.status == "success" && onuchhedForwardResponse.message == "Local")
                 {
                     SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে নথিটি প্রেরণ করা হবে");
                     foreach (Form f in Application.OpenForms)
-                    { f.Hide(); }
+                    { BeginInvoke((Action)(() => f.Hide())); }
                     var form = FormFactory.Create<Nothi>();
-                    form.ShowDialog();
+                    BeginInvoke((Action)(() => form.ShowDialog()));
                 }
                 else
                 {
@@ -297,7 +297,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
             hideform.BackColor = Color.Black;
-            hideform.Size = this.Size;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
             hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;

@@ -19,7 +19,16 @@ namespace dNothi.Desktop.UI
 
         private void btnCross_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            foreach (Form f in Application.OpenForms)
+            { BeginInvoke((Action)(() => f.Hide())); }
+            var form = FormFactory.Create<Nothi>();
+            form.forceLoadNewNothi();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(210, 234, 255), ButtonBorderStyle.Solid);
         }
     }
 }

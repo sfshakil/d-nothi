@@ -556,7 +556,7 @@ namespace dNothi.Desktop.UI
 
 
             hideform.BackColor = Color.Black;
-            hideform.Size = this.Size;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
             hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
@@ -1809,6 +1809,7 @@ namespace dNothi.Desktop.UI
             newNothi.Height = this.Height - panel2.Height - pnlNothiNoteTalika.Height - panel6.Height;
             newNothi.Width = bodyPanel.Width;
             Controls.Add(newNothi);
+            //<nothi>int borderWidth = (this.Height - this.ClientSize.Height) / 2;
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
         }

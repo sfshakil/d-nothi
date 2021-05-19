@@ -513,6 +513,26 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap newnothitypeguideline {
+            get {
+                object obj = ResourceManager.GetObject("newnothitypeguideline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nothicreateguideline {
+            get {
+                object obj = ResourceManager.GetObject("nothicreateguideline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nothijato_Icon {
             get {
                 object obj = ResourceManager.GetObject("Nothijato-Icon", resourceCulture);

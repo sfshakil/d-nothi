@@ -721,7 +721,7 @@
             this.lbLastNoteDate.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lbLastNoteDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbLastNoteDate.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLastNoteDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
+            this.lbLastNoteDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbLastNoteDate.Location = new System.Drawing.Point(95, 0);
             this.lbLastNoteDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLastNoteDate.Name = "lbLastNoteDate";
