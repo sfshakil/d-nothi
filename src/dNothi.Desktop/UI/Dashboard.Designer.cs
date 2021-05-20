@@ -2208,7 +2208,7 @@
             this.personalFolderButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.personalFolderButton.Size = new System.Drawing.Size(234, 46);
             this.personalFolderButton.TabIndex = 46;
-            this.personalFolderButton.Text = "   ব্যাক্তিগত ফোল্ডার";
+            this.personalFolderButton.Text = "   ফোল্ডার";
             this.personalFolderButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.personalFolderButton.UseVisualStyleBackColor = false;
             this.personalFolderButton.Click += new System.EventHandler(this.personalFolderButton_Click);
