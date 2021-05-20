@@ -185,8 +185,65 @@ namespace dNothi.Desktop.UI
                 LoadNewTemplate();
             }
 
+            SetRecipientType(khasraPotroTemplateData.recipient_type);
 
             SetCurrentInputValue(khasraPotroTemplateData.html_content);
+
+        }
+
+        private void SetRecipientType(string recipient_type)
+        {
+            //approver, receiver, sender, attention, onulipi
+            if (recipient_type.Contains("approver"))
+            {
+                onumodonkariSelectButtonPanel.Visible = true;
+            }
+            else
+            {
+                onumodonkariSelectButtonPanel.Visible = false;
+                onumodonkariListPanel.Visible = false;
+            }
+
+            if (recipient_type.Contains("receiver"))
+            {
+                prapokSelectButtonPanel.Visible = true;
+            }
+            else
+            {
+                prapokSelectButtonPanel.Visible = false;
+                prapokListPanel.Visible = false;
+            }
+
+
+            if (recipient_type.Contains("sender"))
+            {
+                prerokSelectButtonPanel.Visible = true;
+            }
+            else
+            {
+                prerokSelectButtonPanel.Visible = false;
+                prerokListPanel.Visible = false;
+            }
+
+            if (recipient_type.Contains("attention"))
+            {
+                attentionSelectButtonPanel.Visible = true;
+            }
+            else
+            {
+                attentionSelectButtonPanel.Visible = false;
+                attentionListPanel.Visible = false;
+            }
+
+            if (recipient_type.Contains("onulipi"))
+            {
+                onulipiSelectButtonPanel.Visible = true;
+            }
+            else
+            {
+                onulipiSelectButtonPanel.Visible = false;
+                onulipiListPanel.Visible = false;
+            }
 
         }
 
