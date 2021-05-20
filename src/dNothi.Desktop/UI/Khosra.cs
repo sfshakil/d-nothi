@@ -1330,7 +1330,7 @@ namespace dNothi.Desktop.UI
 
 
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
-            conditonBoxForm.message = "অপনি কি খসরা টি সংরক্ষণ চান?";
+            conditonBoxForm.message = "অপনি কি খসরা টি সংরক্ষণ করতে চান?";
             conditonBoxForm.ShowDialog();
 
             if (conditonBoxForm.Yes)
@@ -1365,6 +1365,8 @@ namespace dNothi.Desktop.UI
                     khosraSaveParamPotro.potrojari.nothi_master_id = Convert.ToInt32(_noteSelected.nothi_id);
                     GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(_noteSelected.nothi_id),potrojari_id);
                     khosraSaveParamPotro.potrojari.sarok_no = sarok_no.sarok_no;
+                    khosraSaveParamPotro.potrojari.nothi_note_id = Convert.ToInt32(_noteSelected.note_id);
+                 
 
                 }
 
@@ -1376,6 +1378,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamPotro.potrojari.potro_subject = GetPotroSubjectFromHtmlString(_currentHtmlString);
                 khosraSaveParamPotro.potrojari.draft_officer_id = dakUserParam.officer_id;
                 khosraSaveParamPotro.potrojari.operation_type = "draft";
+
 
               //khosraSaveParamPotro.potrojari.potro_subject=_khasraPotroTemplateData
               //khosraSaveParamPotro.potrojari.potro_type= _khasraPotroTemplateData.
