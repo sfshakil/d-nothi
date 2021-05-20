@@ -1302,7 +1302,7 @@ namespace dNothi.Desktop.UI
             form.dakSubject = dak_subject;
             form.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { SucessfullyDakNothivukto(form._dakNothiteUposthapitoLocally, form._noteSelected, form._nothiBranch, form._nothiName, form._nothiAllListDTO); };
 
-
+           
             CalPopUpWindow(form);
 
 
@@ -1424,7 +1424,7 @@ namespace dNothi.Desktop.UI
 
 
             nothiListRecords.local_nothi_type = "all";
-            form.ShowDialog();
+           
 
 
 
@@ -1448,7 +1448,9 @@ namespace dNothi.Desktop.UI
             
            
 
-            form.ShowDialog();
+          //  form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void SucessfullyDakNothijato(bool dakNothijatoLocally)
@@ -1875,7 +1877,9 @@ namespace dNothi.Desktop.UI
             //totalnothi.ToString();
 
 
-            form.ShowDialog();
+            //form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void officerSourceCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -4245,7 +4249,8 @@ namespace dNothi.Desktop.UI
         {
             modulePanel.Hide();
             var form = FormFactory.Create<Khosra>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
         }
 
@@ -4670,6 +4675,11 @@ namespace dNothi.Desktop.UI
             }
 
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

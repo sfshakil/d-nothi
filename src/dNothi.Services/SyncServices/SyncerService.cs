@@ -22,6 +22,8 @@ namespace dNothi.Services.SyncServices
     public class SyncerService : ISyncerService
     {
         private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        INothiTypeSaveService _nothiTypeSave { get; set; }
         IOnucchedSave _onucchedSave { get; set; }
         IOnuchhedForwardService _onuchhedForwardService { get; set; }
         INoteSaveService _noteSave { get; set; }
@@ -38,6 +40,7 @@ namespace dNothi.Services.SyncServices
         IDakOutboxService _dakOutboxService { get; set; }
         IDakUploadService _dakuploadservice { get; set; }
         IDakInboxServices _dakInboxService { get; set; }
+        INothiCreateService _nothiCreateServices { get; set; }
 
         IDakArchiveService _dakArchiveService { get; set; }
         IDakNothijatoService _dakNothijatoService { get; set; }
@@ -63,10 +66,12 @@ namespace dNothi.Services.SyncServices
             IDesignationSealService designationSealService,
             IDakSearchService dakSearchService,
             IRegisterService registerService,
-             IDakFolderService dakFolderService,
-             IProtibedonService protibedonService,
+            IDakFolderService dakFolderService,
+            IProtibedonService protibedonService,
             IDakNothijatoService dakNothijatoService,
-             IOnuchhedForwardService onuchhedForwardService,
+            IOnuchhedForwardService onuchhedForwardService,
+            INothiTypeSaveService nothiTypeSave,
+            INothiCreateService nothiCreateServices,
 
             IDakInboxServices dakInboxService,
 
@@ -74,6 +79,8 @@ namespace dNothi.Services.SyncServices
 
             IRepository<SyncStatus> sycnRepository)
         {
+            _nothiCreateServices = nothiCreateServices;
+            _nothiTypeSave = nothiTypeSave;
             _onuchhedForwardService = onuchhedForwardService;
              _dakNothivuktoService = dakNothivuktoService;
             _noteSave = noteSave;
@@ -176,10 +183,11 @@ namespace dNothi.Services.SyncServices
                 {
                     LocalChangeData._isdakNothijatoReverted = true;
                 }
-               
-               // _noteSave.SendNoteListFromLocal();
-               // _onucchedSave.SendNoteListFromLocal();
-               // _onuchhedForwardService.SendNoteListFromLocal();
+                _nothiTypeSave.SendNothiTypeListFromLocal();
+                _nothiCreateServices.SendNothiCreateListFromLocal();
+                _noteSave.SendNoteListFromLocal();
+                _onucchedSave.SendNoteListFromLocal();
+                _onuchhedForwardService.SendNoteListFromLocal();
 
 
             }

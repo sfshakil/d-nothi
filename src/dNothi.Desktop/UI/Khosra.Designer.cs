@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             FontAwesome.Sharp.IconButton saveButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Khosra));
+            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse1 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.khosraTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pnlNothiNoteTalika = new System.Windows.Forms.Panel();
             this.khosraReviewButton = new FontAwesome.Sharp.IconButton();
@@ -47,6 +48,7 @@
             this.btnBack = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.headerPanel = new System.Windows.Forms.Panel();
+            this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.userNameLabel = new System.Windows.Forms.Label();
@@ -54,7 +56,7 @@
             this.nothiModulePanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.nothiModuleNameLabel = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.moduleNothiCountLabel = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.dakModulePanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -166,6 +168,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.khoshraBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             saveButton = new FontAwesome.Sharp.IconButton();
             this.khosraTableLayoutPanel.SuspendLayout();
             this.pnlNothiNoteTalika.SuspendLayout();
@@ -495,6 +498,7 @@
             // 
             // headerPanel
             // 
+            this.headerPanel.Controls.Add(this.moduleButton);
             this.headerPanel.Controls.Add(this.profilePanel);
             this.headerPanel.Controls.Add(this.nothiModulePanel);
             this.headerPanel.Controls.Add(this.dakModulePanel);
@@ -507,6 +511,23 @@
             this.headerPanel.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.headerPanel.Size = new System.Drawing.Size(930, 57);
             this.headerPanel.TabIndex = 0;
+            // 
+            // moduleButton
+            // 
+            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.moduleButton.FlatAppearance.BorderSize = 0;
+            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
+            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.moduleButton.IconSize = 32;
+            this.moduleButton.Location = new System.Drawing.Point(509, 0);
+            this.moduleButton.Name = "moduleButton";
+            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.moduleButton.Size = new System.Drawing.Size(52, 57);
+            this.moduleButton.TabIndex = 107;
+            this.moduleButton.UseVisualStyleBackColor = true;
+            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
             // profilePanel
             // 
@@ -522,6 +543,7 @@
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.profilePanel.Size = new System.Drawing.Size(340, 57);
             this.profilePanel.TabIndex = 103;
+            this.profilePanel.Click += new System.EventHandler(this.userDetailsPanel_Click);
             // 
             // userPictureBox
             // 
@@ -541,6 +563,7 @@
             this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.userPictureBox.TabIndex = 29;
             this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.userDetailsPanel_Click);
             // 
             // userNameLabel
             // 
@@ -554,6 +577,7 @@
             this.userNameLabel.Size = new System.Drawing.Size(287, 30);
             this.userNameLabel.TabIndex = 23;
             this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি) ";
+            this.userNameLabel.Click += new System.EventHandler(this.userDetailsPanel_Click);
             // 
             // profileShowArrowButton
             // 
@@ -573,6 +597,7 @@
             this.profileShowArrowButton.Size = new System.Drawing.Size(13, 37);
             this.profileShowArrowButton.TabIndex = 27;
             this.profileShowArrowButton.UseVisualStyleBackColor = false;
+            this.profileShowArrowButton.Click += new System.EventHandler(this.userDetailsPanel_Click);
             // 
             // nothiModulePanel
             // 
@@ -589,13 +614,14 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.nothiModuleNameLabel);
-            this.panel2.Controls.Add(this.label22);
+            this.panel2.Controls.Add(this.moduleNothiCountLabel);
             this.panel2.Controls.Add(this.iconButton2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 7);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(134, 43);
             this.panel2.TabIndex = 103;
+            this.panel2.Click += new System.EventHandler(this.Nothi_Module_Click);
             // 
             // nothiModuleNameLabel
             // 
@@ -608,20 +634,22 @@
             this.nothiModuleNameLabel.Size = new System.Drawing.Size(34, 24);
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
+            this.nothiModuleNameLabel.Click += new System.EventHandler(this.Nothi_Module_Click);
             // 
-            // label22
+            // moduleNothiCountLabel
             // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label22.AutoEllipsis = true;
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label22.Location = new System.Drawing.Point(87, 12);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(31, 20);
-            this.label22.TabIndex = 18;
-            this.label22.Text = "১২২";
+            this.moduleNothiCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.moduleNothiCountLabel.AutoEllipsis = true;
+            this.moduleNothiCountLabel.AutoSize = true;
+            this.moduleNothiCountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.moduleNothiCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moduleNothiCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.moduleNothiCountLabel.Location = new System.Drawing.Point(87, 12);
+            this.moduleNothiCountLabel.Name = "moduleNothiCountLabel";
+            this.moduleNothiCountLabel.Size = new System.Drawing.Size(31, 20);
+            this.moduleNothiCountLabel.TabIndex = 18;
+            this.moduleNothiCountLabel.Text = "১২২";
+            this.moduleNothiCountLabel.Click += new System.EventHandler(this.Nothi_Module_Click);
             // 
             // iconButton2
             // 
@@ -638,6 +666,7 @@
             this.iconButton2.Size = new System.Drawing.Size(36, 30);
             this.iconButton2.TabIndex = 4;
             this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.Nothi_Module_Click);
             // 
             // dakModulePanel
             // 
@@ -661,6 +690,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(134, 43);
             this.panel1.TabIndex = 20;
+            this.panel1.Click += new System.EventHandler(this.DakModule_Click);
             // 
             // label1
             // 
@@ -672,6 +702,7 @@
             this.label1.Size = new System.Drawing.Size(39, 24);
             this.label1.TabIndex = 19;
             this.label1.Text = "ডাক";
+            this.label1.Click += new System.EventHandler(this.DakModule_Click);
             // 
             // iconButton1
             // 
@@ -687,6 +718,7 @@
             this.iconButton1.Size = new System.Drawing.Size(36, 30);
             this.iconButton1.TabIndex = 4;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.DakModule_Click);
             // 
             // moduleDakCountLabel
             // 
@@ -700,6 +732,7 @@
             this.moduleDakCountLabel.Size = new System.Drawing.Size(23, 20);
             this.moduleDakCountLabel.TabIndex = 18;
             this.moduleDakCountLabel.Text = "১২";
+            this.moduleDakCountLabel.Click += new System.EventHandler(this.DakModule_Click);
             // 
             // dakMenuButton
             // 
@@ -2087,12 +2120,34 @@
             this.khoshraBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.khoshraBackgroundWorker_DoWork);
             this.khoshraBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.khoshraBackgroundWorker_RunWorkerCompleted);
             // 
+            // designationDetailsPanel
+            // 
+            this.designationDetailsPanel._designationId = 0;
+            this.designationDetailsPanel._officeInfos = null;
+            this.designationDetailsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.designationDetailsPanel.AutoSize = true;
+            this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
+            this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            employeDakNothiCountResponse1.data = null;
+            employeDakNothiCountResponse1.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse1;
+            this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationDetailsPanel.Location = new System.Drawing.Point(498, 56);
+            this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.designationDetailsPanel.Name = "designationDetailsPanel";
+            this.designationDetailsPanel.officeInfos = null;
+            this.designationDetailsPanel.Size = new System.Drawing.Size(434, 91);
+            this.designationDetailsPanel.TabIndex = 52;
+            this.designationDetailsPanel.Visible = false;
+            // 
             // Khosra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(930, 521);
+            this.Controls.Add(this.designationDetailsPanel);
             this.Controls.Add(this.khosraTableLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Khosra";
@@ -2173,6 +2228,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -2187,7 +2243,7 @@
         private System.Windows.Forms.Panel nothiModulePanel;
         private System.Windows.Forms.Label nothiModuleNameLabel;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label moduleNothiCountLabel;
         private System.Windows.Forms.Panel dakModulePanel;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton iconButton1;
@@ -2313,5 +2369,7 @@
         private System.Windows.Forms.TableLayoutPanel onulipiListFlowLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel attentionListFlowLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel prerokListFlowLayoutPanel;
+        private designationSelect designationDetailsPanel;
+        private FontAwesome.Sharp.IconButton moduleButton;
     }
 }

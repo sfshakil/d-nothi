@@ -461,6 +461,7 @@
             this.label1.Size = new System.Drawing.Size(39, 24);
             this.label1.TabIndex = 19;
             this.label1.Text = "ডাক";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // iconButton1
             // 
