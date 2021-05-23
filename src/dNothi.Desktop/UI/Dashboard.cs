@@ -1876,7 +1876,7 @@ namespace dNothi.Desktop.UI
             noteView.nothiLastDate = nothiListInboxNoteRecordsDTO.nothi.nothi_created_date;
             form.nothiLastDate = nothiListInboxNoteRecordsDTO.nothi.nothi_created_date;
             form.office = "( " + nothiListInboxNoteRecordsDTO.nothi.office_name + " " + nothiListInboxNoteRecordsDTO.nothi.nothi_created_date + ")";
-
+            form.nothiNo = nothiListInboxNoteRecordsDTO.nothi.nothi_no;
 
             form.loadNothiInboxRecords(nothiListRecords);
             form.loadNoteView(noteView);
