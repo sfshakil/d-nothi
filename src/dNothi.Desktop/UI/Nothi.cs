@@ -1055,10 +1055,11 @@ namespace dNothi.Desktop.UI
         {
             NothiListRecordsDTO nothiAllListRecords = new NothiListRecordsDTO();
             NothiAllDTO nothi = nothiAllListDTO.nothi;
-
+          //  nothi.  //
             nothiAllListRecords.id = nothi.id;
             nothiAllListRecords.office_id = nothi.office_id;
             nothiAllListRecords.office_name = nothi.office_name;
+          
             nothiAllListRecords.office_unit_id = nothi.office_unit_id;
             nothiAllListRecords.office_unit_name = nothi.office_unit_name;
             nothiAllListRecords.office_unit_organogram_id = nothi.office_unit_organogram_id;

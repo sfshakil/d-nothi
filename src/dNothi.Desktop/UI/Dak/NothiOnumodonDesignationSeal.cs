@@ -1047,7 +1047,7 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler SuccessfullyOnumodonSaveButton;
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
-          
+         
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
             conditonBoxForm.message = "আপনি কি সফলভাবে সংরক্ষণ করতে চান?";
             conditonBoxForm.ShowDialog(this);

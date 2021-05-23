@@ -62,6 +62,10 @@ namespace dNothi.Services.NothiServices
                 List<NothiOnumodonSealParam> nothiOnumodonSealParams = new List<NothiOnumodonSealParam>();
                 foreach(onumodonDataRecordDTO nothiOnumodonRowDTO in nothiOnumodonRows)
                 {
+                    if(nothiOnumodonRowDTO.office_id==0)
+                    {
+                        nothiOnumodonRowDTO.office_id = nothiOnumodonRowDTO.nothi_office;
+                    }
                     NothiOnumodonSealParam nothiOnumodonSealParam = new NothiOnumodonSealParam();
                     nothiOnumodonSealParam.ConvertDTOtoReques(nothiOnumodonRowDTO);
 

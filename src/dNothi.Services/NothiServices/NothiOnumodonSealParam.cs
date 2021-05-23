@@ -41,6 +41,7 @@ namespace dNothi.Services.NothiServices
             this.route_index = onumodonDataRecordDTO.route_index;
             this.max_transaction_day = onumodonDataRecordDTO.max_transaction_day;
             this.layer_index = onumodonDataRecordDTO.layer_index;
+            this.office_id = onumodonDataRecordDTO.nothi_office;
         }
        
     }
