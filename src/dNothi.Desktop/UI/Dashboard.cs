@@ -1375,7 +1375,7 @@ namespace dNothi.Desktop.UI
                     if (nothiInboxNote.data.records.Count > 0)
                     {
 
-                        nothiListInboxNoteRecordsDTO = nothiInboxNote.data.records.FirstOrDefault(a => a.note.nothi_note_id == _nothiAllListDTO.nothi.id);
+                        nothiListInboxNoteRecordsDTO = nothiInboxNote.data.records.FirstOrDefault(a => a.nothi.id == _nothiAllListDTO.nothi.id);
                         if(nothiListInboxNoteRecordsDTO != null)
 
                         {
@@ -1406,7 +1406,12 @@ namespace dNothi.Desktop.UI
             noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
             noteView.checkBox = "1";
             noteView.nothiNoteID = Convert.ToInt32(_noteSelected.note_id);
-
+            noteView.onucchedCount = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+            noteView.khosraPotro = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+            noteView.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
+            noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
+            noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
+            noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
 
             form.noteTotal = _noteSelected.note_no.ToString();
 
@@ -1854,7 +1859,12 @@ namespace dNothi.Desktop.UI
                     noteView.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
                     noteView.checkBox = "1";
                     noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
-
+                    noteView.onucchedCount = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+                    noteView.khosraPotro = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+                    noteView.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
+                    noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
+                    noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
+                    noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
                     //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
                     //  form.loadNoteData();
                     form.noteTotal = nothiInboxNote.data.records.Count.ToString();
