@@ -3461,8 +3461,11 @@ namespace dNothi.Desktop.UI
             // dakBacaiFlowLayoutPanel
 
         }
+
+        public int _assignor_designation_id;
         private void linkLabel_LinkClicked(object sender, EventArgs e, int assignor_designation_id)
         {
+            _assignor_designation_id = assignor_designation_id;
             string total = "সর্বমোট: ";
             int pagelimit = 10;
             int page = 1;
@@ -3763,13 +3766,22 @@ namespace dNothi.Desktop.UI
                 dakSendUserControl.isMultipleDak = true;
                 dakSendUserControl._fromDakBacai = isdakbacai;
                 dakSendUserControl.dakListRecordsDTO = daks;
-               
+                dakSendUserControl._inbox_officer_designation_id = _assignor_designation_id;
                 dakSendUserControl.dak_List_User_Param = dakListUserParam;
                 dakSendUserControl.AddDesignationButtonClick += delegate (object snd, EventArgs eve) { AddDesignationUserControl_ButtonClick(sender, e); };
-                dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._IsDakLocallyUploaded); };
+                if(daksharingUserControls.Count>0)
+                {
+                    dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { linkLabel_LinkClicked(snd, eve, _assignor_designation_id); };
+                    
+                }
+                else
+                {
+                    dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._IsDakLocallyUploaded); };
+
+                }
 
 
-                
+
 
                 CalPopUpWindow(dakSendUserControl);
 

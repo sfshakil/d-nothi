@@ -1,6 +1,7 @@
 ﻿using dNothi.Core.Entities;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices.DakSharingService.Model;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -136,39 +137,17 @@ namespace dNothi.Services.DakServices.DakSharingService
                 request.AddHeader("api-version", CommonSetting.GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + userParam.token);
                 request.AlwaysMultipartFormData = true;
-                var data = Convertion(daksortParam);
+              
                 request.AddParameter("office_id", userParam.office_id);
                 request.AddParameter("designation_id", userParam.designation_id);
-                //request.AddParameter("dak_inbox_designation_id", daksortParam.dak_inbox_designation_id);
-                //request.AddParameter("daks", "{\"daak_container_sorting_daak_box_1_6976_Daptorik\":" +
-                //                                              "{\"id\":\"6976\",\"dak_type\":\"Daptorik\",\"is_copied_dak\":\"1\",\"dak_subject\":\"\\u09a6\\u09be\\u09aa\\u09cd\\u09a4\\u09b0\\u09bf\\u0995 \\u09a1\\u09be\\u0995 \\u0986\\u09aa\\u09b2\\u09cb\\u09a1\"," +
-                //                                              "\"sender\":\"\\u099c\\u09be\\u09ab\\u09b0\\u09bf\\u09a8 \\u0986\\u09b9\\u09ae\\u09c7\\u09a6\"," +
-                //                                              "\"sending_date\":\"\\n\\u09e6\\u09e7-\\u09e6\\u09e7-\\u09e7\\u09ef\\u09ed\\u09e6 \\u09e6\\u09e6:\\u09e6\\u09e6:\\u09e6\\u09e6\"," +
-                //                                              "\"decision\":\"Test Decision\",\"priority\":\"6\",\"security\":\"5\"," +
 
-                //                                              "\"recipients\":" +
-                //                                              "{" +
-                //                                              "\"mul_prapok\":" +
-                //                                              "{\"designation_bng\":\"\\u09a1\\u09cb\\u09ae\\u09c7\\u09a8 \\u09b8\\u09cd\\u09aa\\u09c7\\u09b6\\u09be\\u09b2\\u09bf\\u09b8\\u09cd\\u099f\"," +
-                //                                              "\"designation_eng\":\"\",\"designation_id\":\"12639\",\"unit_name_bng\":\"\\u09a8\\u09a5\\u09bf \",\"unit_name_eng\":\"Nothi \"," +
-                //                                              "\"unit_id\":\"5121\",\"office_name_eng\":\"\",\"office_name_bng\":\"\",\"office_id\":\"65\"," +
-                //                                              "\"employee_name_bng\":\"\\u09a8\\u09bf\\u09b2\\u09c1\\u09ab\\u09be \\u0987\\u09df\\u09be\\u09b8\\u09ae\\u09bf\\u09a8 \"," +
-                //                                              "\"employee_name_eng\":\"Nilufa Yasmin\",\"employee_record_id\":\"183124\"," +
-                //                                              "\"incharge_label\":\"\\u0985\\u09a4\\u09bf\\u09b0\\u09bf\\u0995\\u09cd\\u09a4 \\u09a6\\u09be\\u09df\\u09bf\\u09a4\\u09cd\\u09ac\"}," +
+                
 
-                //                                              "\"onulipi\":" +
-                //                                              "{\"244873\":{\"designation_bng\":\"\\u099a\\u09c0\\u09ab \\u099f\\u09c7\\u0995\\u09a8\\u09cb\\u09b2\\u099c\\u09bf \\u0985\\u09ab\\u09bf\\u09b8\\u09be\\u09b0\"," +
-                //                                              "\"designation_eng\":\"Chief Technology Officer\",\"designation_id\":\"244873\",\"unit_name_bng\":\"\\u099f\\u09c7\\u0995\\u09a8\\u09cb\\u09b2\\u099c\\u09bf\"," +
-                //                                              "\"unit_name_eng\":\"Technology\",\"unit_id\":\"40372\",\"office_name_eng\":\"\",\"office_name_bng\":\"\",\"office_id\":\"65\",\"employee_name_bng\":\"\\u09ae\\u09cb\\u0983 \\u0986\\u09b0\\u09ab\\u09c7 \\u098f\\u09b2\\u09be\\u09b9\\u09c0\"," +
-                //                                              "\"employee_name_eng\":\"Mohammad Arfe Elahi\",\"employee_record_id\":\"77835\",\"incharge_label\":\"\"}," +
-                //                                              "\"244930\":{\"designation_bng\":\"\\u09b8\\u09b2\\u09cd\\u09af\\u09c1\\u09b6\\u09a8 \\u0986\\u09b0\\u09cd\\u0995\\u09bf\\u099f\\u09c7\\u0995\\u09cd\\u099f\"," +
-                //                                              "\"designation_eng\":\"Solution Architect\",\"designation_id\":\"244930\",\"unit_name_bng\":\"\\u099f\\u09c7\\u0995\\u09a8\\u09cb\\u09b2\\u099c\\u09bf\",\"unit_name_eng\":\"Technology\",\"unit_id\":\"40372\",\"office_name_eng\":\"\",\"office_name_bng\":\"\",\"office_id\":\"65\"," +
-                //                                              "\"employee_name_bng\":\"\\u09ae\\u09cb\\u0983 \\u09b9\\u09be\\u09b8\\u09be\\u09a8\\u09c1\\u099c\\u09cd\\u099c\\u09be\\u09ae\\u09be\\u09a8\"," +
-                //                                              "\"employee_name_eng\":\"Mr. Md. Hasanuzzaman\",\"employee_record_id\":\"77858\",\"incharge_label\":\"\"}" +
-
-                //                                              "}}}}");
                 string dakname = "daak_container_sorting_daak_box_" + daksortParam.is_copied_dak.ToString() + "_" + daksortParam.id.ToString() + "_" + daksortParam.dak_type;
-                request.AddParameter("daks", "{\"" + dakname + "\":{\"id\":\"" + daksortParam.id + "\",\"dak_type\":\"" + daksortParam.dak_type + "\",\"is_copied_dak\":\"" + daksortParam.is_copied_dak + "\",\"dak_subject\":\"" + daksortParam.dak_subject + ",\"sender\":\"" + daksortParam.sender + "," +"\"sending_date\":\"" + daksortParam.sending_date + "," +"\"decision\":\"" + daksortParam.decision + "\",\"priority\":\"" + daksortParam.priority + "\",\"security\":\"" + daksortParam.security + "\",\"recipients\":{\"mul_prapok\":" + data.Item1 +",\"onulipi\":{" + data.Item2 + "}}}}");
+               
+                string dakSortingParam = ConversionMethod.ObjecttoJson(daksortParam);
+                string dakInfoJson = "{\"" + dakname + "\":"+ dakSortingParam + "}";
+                request.AddParameter("daks", dakInfoJson);
                // string d=\"recipients\":{\"mul_prapok\":{\"designation_bng\":\"\\u09a1\\u09cb\\u09ae\\u09c7\\u09a8 \\u09b8\\u09cd\\u09aa\\u09c7\\u09b6\\u09be\\u09b2\\u09bf\\u09b8\\u09cd\\u099f\",\"designation_eng\":\"\",\"designation_id\":\"12639\",\"unit_name_bng\":\"\\u09a8\\u09a5\\u09bf \",\"unit_name_eng\":\"Nothi \",\"unit_id\":\"5121\",\"office_name_eng\":\"\",\"office_name_bng\":\"\",\"office_id\":\"65\",\"employee_name_bng\":\"\\u09a8\\u09bf\\u09b2\\u09c1\\u09ab\\u09be \\u0987\\u09df\\u09be\\u09b8\\u09ae\\u09bf\\u09a8 \",\"employee_name_eng\":\"Nilufa Yasmin\",\"employee_record_id\":\"183124\",\"incharge_label\":\"\\u0985\\u09a4\\u09bf\\u09b0\\u09bf\\u0995\\u09cd\\u09a4 \\u09a6\\u09be\\u09df\\u09bf\\u09a4\\u09cd\\u09ac\"},\"onulipi\":{\"244873\":{\"designation_bng\":\"\\u099a\\u09c0\\u09ab \\u099f\\u09c7\\u0995\\u09a8\\u09cb\\u09b2\\u099c\\u09bf \\u0985\\u09ab\\u09bf\\u09b8\\u09be\\u09b0\",\"designation_eng\":\"Chief Technology Officer\",\"designation_id\":\"244873\",\"unit_name_bng\":\"\\u099f\\u09c7\\u0995\\u09a8\\u09cb\\u09b2\\u099c\\u09bf\",\"unit_name_eng\":\"Technology\",\"unit_id\":\"40372\",\"office_name_eng\":\"\",\"office_name_bng\":\"\",\"office_id\":\"65\",\"employee_name_bng\":\"\\u09ae\\u09cb\\u0983 \\u0986\\u09b0\\u09ab\\u09c7 \\u098f\\u09b2\\u09be\\u09b9\\u09c0\",\"employee_name_eng\":\"Mohammad Arfe Elahi\",\"employee_record_id\":\"77835\",\"incharge_label\":\"\"},\"244930\":{\"designation_bng\":\"\\u09b8\\u09b2\\u09cd\\u09af\\u09c1\\u09b6\\u09a8 \\u0986\\u09b0\\u09cd\\u0995\\u09bf\\u099f\\u09c7\\u0995\\u09cd\\u099f\",\"designation_eng\":\"Solution Architect\",\"designation_id\":\"244930\",\"unit_name_bng\":\"\\u099f\\u09c7\\u0995\\u09a8\\u09cb\\u09b2\\u099c\\u09bf\",\"unit_name_eng\":\"Technology\",\"unit_id\":\"40372\",\"office_name_eng\":\"\",\"office_name_bng\":\"\",\"office_id\":\"65\",\"employee_name_bng\":\"\\u09ae\\u09cb\\u0983 \\u09b9\\u09be\\u09b8\\u09be\\u09a8\\u09c1\\u099c\\u09cd\\u099c\\u09be\\u09ae\\u09be\\u09a8\",\"employee_name_eng\":\"Mr. Md. Hasanuzzaman\",\"employee_record_id\":\"77858\",\"incharge_label\":\"\"}}}}}"
                // request.AddParameter("daks", "{\"daak_container_sorting_daak_box_1_6976_Daptorik\":{\"id\":\"6976\",\"dak_type\":\"Daptorik\",\"is_copied_dak\":\"1\",\"dak_subject\":\"\\u09a6\\u09be\\u09aa\\u09cd\\u09a4\\u09b0\\u09bf\\u0995 \\u09a1\\u09be\\u0995 \\u0986\\u09aa\\u09b2\\u09cb\\u09a1\",\"sender\":\"\\u099c\\u09be\\u09ab\\u09b0\\u09bf\\u09a8 \\u0986\\u09b9\\u09ae\\u09c7\\u09a6\",\"sending_date\":\"\\n                                        \\u09e6\\u09e7-\\u09e6\\u09e7-\\u09e7\\u09ef\\u09ed\\u09e6 \\u09e6\\u09e6:\\u09e6\\u09e6:\\u09e6\\u09e6                                    \",\"decision\":\"Test Decision\",\"priority\":\"6\",\"security\":\"5\",\"recipients\":{\"mul_prapok\":{\"designation_bng\":\"\\u09a1\\u09cb\\u09ae\\u09c7\\u09a8 \\u09b8\\u09cd\\u09aa\\u09c7\\u09b6\\u09be\\u09b2\\u09bf\\u09b8\\u09cd\\u099f\",\"designation_eng\":\"\",\"designation_id\":\"12639\",\"unit_name_bng\":\"\\u09a8\\u09a5\\u09bf \",\"unit_name_eng\":\"Nothi \",\"unit_id\":\"5121\",\"office_name_eng\":\"\",\"office_name_bng\":\"\",\"office_id\":\"65\",\"employee_name_bng\":\"\\u09a8\\u09bf\\u09b2\\u09c1\\u09ab\\u09be \\u0987\\u09df\\u09be\\u09b8\\u09ae\\u09bf\\u09a8 \",\"employee_name_eng\":\"Nilufa Yasmin\",\"employee_record_id\":\"183124\",\"incharge_label\":\"\\u0985\\u09a4\\u09bf\\u09b0\\u09bf\\u0995\\u09cd\\u09a4 \\u09a6\\u09be\\u09df\\u09bf\\u09a4\\u09cd\\u09ac\"},\"onulipi\":{\"244873\":{\"designation_bng\":\"\\u099a\\u09c0\\u09ab \\u099f\\u09c7\\u0995\\u09a8\\u09cb\\u09b2\\u099c\\u09bf \\u0985\\u09ab\\u09bf\\u09b8\\u09be\\u09b0\",\"designation_eng\":\"Chief Technology Officer\",\"designation_id\":\"244873\",\"unit_name_bng\":\"\\u099f\\u09c7\\u0995\\u09a8\\u09cb\\u09b2\\u099c\\u09bf\",\"unit_name_eng\":\"Technology\",\"unit_id\":\"40372\",\"office_name_eng\":\"\",\"office_name_bng\":\"\",\"office_id\":\"65\",\"employee_name_bng\":\"\\u09ae\\u09cb\\u0983 \\u0986\\u09b0\\u09ab\\u09c7 \\u098f\\u09b2\\u09be\\u09b9\\u09c0\",\"employee_name_eng\":\"Mohammad Arfe Elahi\",\"employee_record_id\":\"77835\",\"incharge_label\":\"\"},\"244930\":{\"designation_bng\":\"\\u09b8\\u09b2\\u09cd\\u09af\\u09c1\\u09b6\\u09a8 \\u0986\\u09b0\\u09cd\\u0995\\u09bf\\u099f\\u09c7\\u0995\\u09cd\\u099f\",\"designation_eng\":\"Solution Architect\",\"designation_id\":\"244930\",\"unit_name_bng\":\"\\u099f\\u09c7\\u0995\\u09a8\\u09cb\\u09b2\\u099c\\u09bf\",\"unit_name_eng\":\"Technology\",\"unit_id\":\"40372\",\"office_name_eng\":\"\",\"office_name_bng\":\"\",\"office_id\":\"65\",\"employee_name_bng\":\"\\u09ae\\u09cb\\u0983 \\u09b9\\u09be\\u09b8\\u09be\\u09a8\\u09c1\\u099c\\u09cd\\u099c\\u09be\\u09ae\\u09be\\u09a8\",\"employee_name_eng\":\"Mr. Md. Hasanuzzaman\",\"employee_record_id\":\"77858\",\"incharge_label\":\"\"}}}}}");
                // request.AddParameter("office_id", "{{office_id}}");
@@ -218,26 +197,7 @@ namespace dNothi.Services.DakServices.DakSharingService
         }
 
         //DakSortingDelete
-        public (string,string) Convertion(DakSorting daksortParam)
-        {
-           
-            string st1=string.Empty;
-            foreach (var item in daksortParam.recipients.onulipi)
-            {
-                string s = "\""+item.designation_id+"\":";
-                string st =new JavaScriptSerializer().Serialize(item);
-                st1 += s+st;
-            }
-
-           
-            string st0 = new JavaScriptSerializer().Serialize(daksortParam.recipients.mul_prapok);
-
-            
-
-
-            return (st0, st1);
-
-        }
+        
        
 
     }

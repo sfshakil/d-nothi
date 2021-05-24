@@ -10,12 +10,12 @@ namespace dNothi.Services.DakServices.DakSharingService.Model
     
     public class Recipient
     {
-        public List<OnulipiPrapok> onulipi { get; set; }
-        public MulPrapok mul_prapok { get; set; }
+        public Dictionary<string, PrapokDTO> onulipi { get; set; }
+        public PrapokDTO mul_prapok { get; set; }
     }
     public class DakSorting
     {
-        public Recipient recipients { get; set; }
+        
         public int dak_inbox_designation_id { get; set; }
         public int id { get; set; }
         public string dak_type { get; set; }
@@ -26,5 +26,12 @@ namespace dNothi.Services.DakServices.DakSharingService.Model
         public string decision { get; set; }
         public int priority { get; set; }
         public int security { get; set; }
+
+
+
+       
+
+        public Recipient recipients { get; set; }
+       
     }
 }

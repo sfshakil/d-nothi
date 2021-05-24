@@ -128,6 +128,7 @@
     <Compile Include="DakServices\DakSharingService\CommonSetting.cs" />
     <Compile Include="DakServices\DakSharingService\DakSharingService.cs" />
     <Compile Include="DakServices\DakSharingService\IDakSharingService.cs" />
+    <Compile Include="DakServices\DakSharingService\Model\DakBoxSharingParam.cs" />
     <Compile Include="DakServices\DakSharingService\Model\DakList.cs" />
     <Compile Include="DakServices\DakSharingService\Model\DakSorting.cs" />
     <Compile Include="DakServices\DakSharingService\Model\ResponseModel.cs" />
