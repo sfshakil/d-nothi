@@ -1,7 +1,9 @@
 ﻿using dNothi.Desktop.UI.Khosra_Potro;
+using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices;
 using dNothi.Services.KasaraPatraDashBoardService;
+using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using FontAwesome.Sharp;
@@ -20,9 +22,11 @@ namespace dNothi.Desktop.UI
 {
     public partial class KhosraDashboard : Form
     {
-
+        private DakUserParam dakListUserParam = new DakUserParam();
+        private DakUserParam _dakuserparam = new DakUserParam();
         IKasaraPatraDashBoardService _kasaraPatraDashBoardService { get; set; }
-      
+        ISyncerService _syncerServices { get; set; }
+
         int page = 1;
         int pageLimit = 10;
         int menuNo = 1;
@@ -31,12 +35,13 @@ namespace dNothi.Desktop.UI
         int end = 10;
         int totalrecord = 0;
         IUserService _userService { get; set; }
-        public KhosraDashboard(IUserService userService)
+        public KhosraDashboard(IUserService userService, ISyncerService syncerServices )
         {
             InitializeComponent();
             _userService = userService;
+            _syncerServices = syncerServices;
 
-         }
+        }
 
 
         private void MakeThisPanelClicked(object sender)
@@ -181,12 +186,86 @@ namespace dNothi.Desktop.UI
             if (totalrecord < 10) { end = totalrecord; }
             else { end = 10; }
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+
+           
+
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+
+
+            try
+            {
+                EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
+                var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
+
+                moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
+                moduleNothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
+
+            }
+            catch (Exception Ex)
+            {
+
+            }
+
+
+
+
+
+            List<OfficeInfoDTO> officeInfoDTO = _userService.GetAllLocalOfficeInfo();
+
+
+            foreach (OfficeInfoDTO officeInfoDTO1 in officeInfoDTO)
+            {
+                dakUserParam.designation_id = officeInfoDTO1.office_unit_organogram_id;
+                dakUserParam.office_id = officeInfoDTO1.office_id;
+                try
+                {
+                    EmployeDakNothiCountResponse singleOfficeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
+                    var singleOfficeDakNothiCount = singleOfficeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
+
+                    officeInfoDTO1.dakCount = singleOfficeDakNothiCount.Value.dak;
+                    officeInfoDTO1.nothiCount = singleOfficeDakNothiCount.Value.own_office_nothi;
+                }
+                catch
+                {
+
+                }
+            }
+
+
+
+            designationDetailsPanel.officeInfos = officeInfoDTO;
+
+
+
+
+
+            designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
+
+
+          
+        }
+        private void ChageUser(int designationId)
+        {
+            _userService.MakeThisOfficeCurrent(designationId);
+            dakListUserParam = _dakuserparam  = _userService.GetLocalDakUserParam();
+            userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
+
+            EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(_dakuserparam);
+            var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == _dakuserparam.designation_id.ToString());
+
+            moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
+            moduleNothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
+
+
+           
         }
 
         //private void LoadFakeRow(bool v)
         //{
         //    khosraListTableLayoutPanel.Controls.Clear();
-           
+
         //    CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl();
 
         //    commonKhosraRowUserControl.isDraft = v;
@@ -395,5 +474,100 @@ namespace dNothi.Desktop.UI
 
            
         }
+
+        private void profileShowArrowButton_Click(object sender, EventArgs e)
+        {
+
+        }
+        public bool InternetConnectionTemp;
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+
+
+            if (InternetConnection.Check())
+            {
+
+                _syncerServices.SyncLocaltoRemoteData();
+                if (onlineStatus.IconColor != Color.LimeGreen)
+                {
+
+
+
+                    if (IsHandleCreated)
+                    {
+                        onlineStatus.Invoke(new MethodInvoker(delegate
+
+                        {
+                            onlineStatus.IconColor = Color.LimeGreen;
+                            MyToolTip.SetToolTip(onlineStatus, "Online");
+
+                        }));
+                    }
+                    else
+                    {
+
+                    }
+
+
+
+
+                    //dakUploadBackgorundWorker.RunWorkerAsync();
+                }
+
+
+
+
+
+            }
+            else
+            {
+                if (IsHandleCreated)
+                {
+                    onlineStatus.Invoke(new MethodInvoker(delegate
+
+                    {
+                        onlineStatus.IconColor = Color.Silver;
+                        MyToolTip.SetToolTip(onlineStatus, "Offline");
+
+                    }));
+                }
+                else
+                {
+
+                }
+
+
+
+            }
+
+
+
+
+
+
+        }
+
+
+
+        private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+
+            if (!backgroundWorker1.IsBusy && this.Visible)
+            {
+
+                backgroundWorker1.RunWorkerAsync();
+            }
+
+
+        }
+
+        private void KhosraDashboard_Load(object sender, EventArgs e)
+        {
+            backgroundWorker1.RunWorkerAsync();
+        }
+
+       
     }
 }

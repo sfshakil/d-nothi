@@ -2318,8 +2318,6 @@ namespace dNothi.Desktop.UI
                 noDakTableLayoutPanel.Visible = true;
             }
         }
-
-
         private void LoadDakNothijatoinPanel(List<DakListRecordsDTO> dakLists)
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -3394,9 +3392,9 @@ namespace dNothi.Desktop.UI
         private void dakSortedUserButton_Click(object sender, EventArgs e)
         {
            
-        ResetAllMenuButtonSelection();
-        SelectButton(sender as Button);
-        dakSortingUserFlowLayoutPanel.Controls.Clear();
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+            dakSortingUserFlowLayoutPanel.Controls.Clear();
             if (dakSortingUserFlowLayoutPanel.Visible)
             {
                 dakSortingUserFlowLayoutPanel.Visible = false;
@@ -3486,7 +3484,7 @@ namespace dNothi.Desktop.UI
             }
 
         }
-        
+      
         private void LoadDakSortinginPanel(List<DakListRecordsDTO> dakLists)
         {
             List<DakSortingUserUserControl> dakSortedUserControls = new List<DakSortingUserUserControl>();

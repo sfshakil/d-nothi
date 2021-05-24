@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GurdFileControl));
+            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse6 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -47,7 +48,7 @@
             this.nothiModulePanel = new System.Windows.Forms.Panel();
             this.nothiModuleNameLabel = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.label22 = new System.Windows.Forms.Label();
+            this.moduleNothiCountLabel = new System.Windows.Forms.Label();
             this.dakModulePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -72,6 +73,10 @@
             this.dakMenuButton = new System.Windows.Forms.Panel();
             this.RightSign = new FontAwesome.Sharp.IconButton();
             this.LeftSign = new FontAwesome.Sharp.IconButton();
+            this.onlineStatus = new FontAwesome.Sharp.IconButton();
+            this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dashboardBodyTableLayoutPanel.SuspendLayout();
             this.rightDashboardBodyTableLayoutPanel.SuspendLayout();
             this.bodyTableLayoutPanel.SuspendLayout();
@@ -221,22 +226,23 @@
             // headerTableLayoutPanel
             // 
             this.headerTableLayoutPanel.AutoSize = true;
-            this.headerTableLayoutPanel.ColumnCount = 4;
+            this.headerTableLayoutPanel.ColumnCount = 5;
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.headerTableLayoutPanel.Controls.Add(this.profilePanel, 3, 0);
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.headerTableLayoutPanel.Controls.Add(this.profilePanel, 4, 0);
             this.headerTableLayoutPanel.Controls.Add(this.nothiModulePanel, 1, 0);
             this.headerTableLayoutPanel.Controls.Add(this.dakModulePanel, 0, 0);
             this.headerTableLayoutPanel.Controls.Add(this.moduleButton, 2, 0);
+            this.headerTableLayoutPanel.Controls.Add(this.onlineToggleButton2, 3, 0);
             this.headerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.headerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.headerTableLayoutPanel.Name = "headerTableLayoutPanel";
             this.headerTableLayoutPanel.RowCount = 1;
             this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.headerTableLayoutPanel.Size = new System.Drawing.Size(1116, 49);
             this.headerTableLayoutPanel.TabIndex = 9;
             // 
@@ -244,15 +250,16 @@
             // 
             this.profilePanel.AutoSize = true;
             this.profilePanel.Controls.Add(this.userPictureBox);
+            this.profilePanel.Controls.Add(this.onlineStatus);
             this.profilePanel.Controls.Add(this.userNameLabel);
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.profilePanel.Location = new System.Drawing.Point(761, 5);
+            this.profilePanel.Location = new System.Drawing.Point(740, 5);
             this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.profilePanel.Name = "profilePanel";
             this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 5, 10, 5);
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.profilePanel.Size = new System.Drawing.Size(352, 39);
+            this.profilePanel.Size = new System.Drawing.Size(373, 39);
             this.profilePanel.TabIndex = 28;
             // 
             // userPictureBox
@@ -280,7 +287,7 @@
             this.userNameLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.userNameLabel.Location = new System.Drawing.Point(42, 5);
+            this.userNameLabel.Location = new System.Drawing.Point(63, 5);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.userNameLabel.Size = new System.Drawing.Size(287, 25);
@@ -299,19 +306,20 @@
             this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.profileShowArrowButton.IconSize = 20;
-            this.profileShowArrowButton.Location = new System.Drawing.Point(329, 5);
+            this.profileShowArrowButton.Location = new System.Drawing.Point(350, 5);
             this.profileShowArrowButton.Name = "profileShowArrowButton";
             this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.profileShowArrowButton.Size = new System.Drawing.Size(13, 29);
             this.profileShowArrowButton.TabIndex = 27;
             this.profileShowArrowButton.UseVisualStyleBackColor = false;
+            this.profileShowArrowButton.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             // 
             // nothiModulePanel
             // 
             this.nothiModulePanel.BackColor = System.Drawing.Color.Transparent;
             this.nothiModulePanel.Controls.Add(this.nothiModuleNameLabel);
             this.nothiModulePanel.Controls.Add(this.iconButton2);
-            this.nothiModulePanel.Controls.Add(this.label22);
+            this.nothiModulePanel.Controls.Add(this.moduleNothiCountLabel);
             this.nothiModulePanel.Location = new System.Drawing.Point(140, 3);
             this.nothiModulePanel.Name = "nothiModulePanel";
             this.nothiModulePanel.Size = new System.Drawing.Size(134, 43);
@@ -346,19 +354,19 @@
             this.iconButton2.UseVisualStyleBackColor = false;
             this.iconButton2.Click += new System.EventHandler(this.Nothi_ModuleCLick);
             // 
-            // label22
+            // moduleNothiCountLabel
             // 
-            this.label22.AutoEllipsis = true;
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label22.Location = new System.Drawing.Point(87, 12);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(31, 20);
-            this.label22.TabIndex = 18;
-            this.label22.Text = "১২২";
-            this.label22.Click += new System.EventHandler(this.Nothi_ModuleCLick);
+            this.moduleNothiCountLabel.AutoEllipsis = true;
+            this.moduleNothiCountLabel.AutoSize = true;
+            this.moduleNothiCountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.moduleNothiCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moduleNothiCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.moduleNothiCountLabel.Location = new System.Drawing.Point(87, 12);
+            this.moduleNothiCountLabel.Name = "moduleNothiCountLabel";
+            this.moduleNothiCountLabel.Size = new System.Drawing.Size(31, 20);
+            this.moduleNothiCountLabel.TabIndex = 18;
+            this.moduleNothiCountLabel.Text = "১২২";
+            this.moduleNothiCountLabel.Click += new System.EventHandler(this.Nothi_ModuleCLick);
             // 
             // dakModulePanel
             // 
@@ -809,16 +817,78 @@
             this.LeftSign.TabIndex = 21;
             this.LeftSign.UseVisualStyleBackColor = false;
             // 
+            // onlineStatus
+            // 
+            this.onlineStatus.AutoSize = true;
+            this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.onlineStatus.FlatAppearance.BorderSize = 0;
+            this.onlineStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.onlineStatus.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.onlineStatus.IconColor = System.Drawing.Color.Silver;
+            this.onlineStatus.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.onlineStatus.IconSize = 15;
+            this.onlineStatus.Location = new System.Drawing.Point(42, 5);
+            this.onlineStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineStatus.Name = "onlineStatus";
+            this.onlineStatus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.onlineStatus.Size = new System.Drawing.Size(21, 29);
+            this.onlineStatus.TabIndex = 32;
+            this.onlineStatus.UseVisualStyleBackColor = false;
+            // 
+            // designationDetailsPanel
+            // 
+            this.designationDetailsPanel._designationId = 0;
+            this.designationDetailsPanel._officeInfos = null;
+            this.designationDetailsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.designationDetailsPanel.AutoSize = true;
+            this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
+            this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            employeDakNothiCountResponse6.data = null;
+            employeDakNothiCountResponse6.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse6;
+            this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationDetailsPanel.Location = new System.Drawing.Point(1180, 49);
+            this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.designationDetailsPanel.Name = "designationDetailsPanel";
+            this.designationDetailsPanel.officeInfos = null;
+            this.designationDetailsPanel.Size = new System.Drawing.Size(434, 91);
+            this.designationDetailsPanel.TabIndex = 52;
+            this.designationDetailsPanel.Visible = false;
+            // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(697, 0);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 49);
+            this.onlineToggleButton2.TabIndex = 108;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
             // GurdFileControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 669);
+            this.Controls.Add(this.designationDetailsPanel);
             this.Controls.Add(this.dashboardBodyTableLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GurdFileControl";
             this.Text = "Guard File";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.GurdFileControl_Load);
             this.Shown += new System.EventHandler(this.GurdFileControl_Shown);
             this.dashboardBodyTableLayoutPanel.ResumeLayout(false);
             this.rightDashboardBodyTableLayoutPanel.ResumeLayout(false);
@@ -845,6 +915,7 @@
             this.logoTableLayoutPanel.PerformLayout();
             this.dakMenuButton.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -862,7 +933,7 @@
         private System.Windows.Forms.Panel nothiModulePanel;
         private System.Windows.Forms.Label nothiModuleNameLabel;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label moduleNothiCountLabel;
         private System.Windows.Forms.Panel dakModulePanel;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton iconButton1;
@@ -892,5 +963,9 @@
         private System.Windows.Forms.Label lablePageName;
         private FontAwesome.Sharp.IconButton iconButton14;
         private FontAwesome.Sharp.IconButton guardFileAddButton;
+        private designationSelect designationDetailsPanel;
+        private FontAwesome.Sharp.IconButton onlineStatus;
+        private CustomMessageBox.OnlineToggleButton onlineToggleButton2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
