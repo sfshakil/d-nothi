@@ -220,6 +220,7 @@ namespace dNothi.Desktop
             builder.RegisterType<OnuchhedListServices>().As<IOnuchhedListServices>();
             builder.RegisterType<SingleOnucchedServices>().As<ISingleOnucchedServices>();
             builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
+            builder.RegisterType<OnucchedFileUploadService>().As<IOnucchedFileUploadService>();
 
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
             builder.RegisterType<NothivuktoPotroParser>().As<INothivuktoPotroParser>();

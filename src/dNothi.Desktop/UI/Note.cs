@@ -63,6 +63,7 @@ namespace dNothi.Desktop.UI
         IOnuchhedListServices _onuchhedList { get; set; }
         ISingleOnucchedServices _singleOnucched { get; set; }
         INoteOnucchedRevertServices _noteOnucchedRevert { get; set; }
+        IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
         INoteSaveService _noteSave { get; set; }
         IRepository<NoteSaveItemAction> _noteSaveItemAction;
         IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
@@ -77,7 +78,7 @@ namespace dNothi.Desktop.UI
             IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
             IKhoshraPotroServices khoshraPotro, INothivuktoPotroServices nothivuktoPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
-            IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave,
+            IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave, IOnucchedFileUploadService onucchedFileUploadService,
             IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
         {
             _potrojariServices = potrojariServices;
@@ -101,6 +102,7 @@ namespace dNothi.Desktop.UI
             _singleOnucched = singleOnucched;
             _noteOnucchedRevert = noteOnucchedRevert;
             _noteSave = noteSave;
+            _onucchedFileUploadService = onucchedFileUploadService;
             _noteSaveItemAction = noteSaveItemAction;
             _onuchhedSaveItemAction = onuchhedSaveItemAction;
 
@@ -2274,12 +2276,9 @@ namespace dNothi.Desktop.UI
 
 
 
-                DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-                using (var form = FormFactory.Create<Dashboard>())
-                {
-                    dakUploadedFileResponse = form.UploadFile(_dakFileUploadParam);
-                }
+                DakUploadedFileResponse dakUploadedFileResponse = _onucchedFileUploadService.GetOnuchhedUploadedFile(dakListUserParam, _dakFileUploadParam);
 
                 if (dakUploadedFileResponse.status == "success")
                 {
@@ -2389,14 +2388,9 @@ namespace dNothi.Desktop.UI
 
                 _dakFileUploadParam.file_size_in_kb = size.ToString() + " KB";
 
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-
-                DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
-
-                using (var form = FormFactory.Create<Dashboard>())
-                {
-                    dakUploadedFileResponse = form.UploadFile(_dakFileUploadParam);
-                }
+                DakUploadedFileResponse dakUploadedFileResponse = _onucchedFileUploadService.GetOnuchhedUploadedFile(dakListUserParam,_dakFileUploadParam);
 
                 if (dakUploadedFileResponse.status == "success")
                 {
@@ -2891,6 +2885,7 @@ namespace dNothi.Desktop.UI
                     OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, newnotedata.note_id);
                     if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data == null)
                     {
+                        onuchhedSaveWithAttachments.Clear();
                         if (!InternetConnection.Check())
                         {
                             List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
@@ -2972,7 +2967,7 @@ namespace dNothi.Desktop.UI
                     {
                         if (onucchedSave.status == "success")
                         {
-
+                            onuchhedSaveWithAttachments.Clear();
                             //onuchhedheaderPnl.Visible = true;
                             //onuchhedFLP.Visible = true;
 
@@ -2993,7 +2988,7 @@ namespace dNothi.Desktop.UI
                             //onuchhedFLP.Controls.Add(onuchhed);
                             //fileAddFLP.Controls.Clear();
                             //noteFileUploads.Clear();
-                            
+
                             if (onucchedList.data.total_records > 0)
                             {
                                 int flag = 0;
@@ -3184,6 +3179,7 @@ namespace dNothi.Desktop.UI
                         else
                         {
                             //string message = "Error";
+                            onuchhedSaveWithAttachments.Clear();
                             ErrorMessage(onucchedSave.message);
                         }
                     }
@@ -3249,6 +3245,7 @@ namespace dNothi.Desktop.UI
                 var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(onuchhedId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                 if (onucchedSave.status == "success")
                 {
+                    onuchhedSaveWithAttachments.Clear();
                     //onuchhedheaderPnl.Visible = true;
                     onuchhedFLP.Visible = true;
 
@@ -3265,6 +3262,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
+                    onuchhedSaveWithAttachments.Clear();
                     string message = "Error";
                     ErrorMessage(message);
                 }

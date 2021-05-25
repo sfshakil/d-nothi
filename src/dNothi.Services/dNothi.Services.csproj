@@ -187,6 +187,7 @@
     <Compile Include="NothiServices\INothiPotrangshoServices.cs" />
     <Compile Include="NothiServices\INothiTypeSaveService.cs" />
     <Compile Include="NothiServices\IOnucchedDelete.cs" />
+    <Compile Include="NothiServices\IOnucchedFileUploadService.cs" />
     <Compile Include="NothiServices\IOnucchedSave.cs" />
     <Compile Include="DakServices\OCRParameter.cs" />
     <Compile Include="NothiServices\INothiAllServices.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="NothiServices\NothiTypeListService.cs" />
     <Compile Include="NothiServices\NothiTypeSaveService.cs" />
     <Compile Include="NothiServices\OnucchedDelete.cs" />
+    <Compile Include="NothiServices\OnucchedFileUploadService.cs" />
     <Compile Include="NothiServices\OnuchhedForwardService.cs" />
     <Compile Include="NothiServices\OnuchhedListServices.cs" />
     <Compile Include="NothiServices\OnuchhedSave.cs" />
