@@ -67,6 +67,27 @@ namespace dNothi.Utility
             return bnDatePotroOriginal + "<span id=\"bn_date_text\" style=\"position: absolute; top: 0;left: 0; right: 0;\">"+Day+" "+Month+" "+Year+"</span>";
         }
 
+        public static string BanglaDateFromEngDate(DateTime dateTime)
+        {
+            BengaliCalendar bCal = new BengaliCalendar();
+
+            DateTime testDate = new DateTime(dateTime.Year, 4, 14);
+
+
+
+            if (bCal.GetDayOfMonth(testDate) != 1)
+            {
+                dateTime = dateTime.AddDays(-1);
+            }
+
+            string Month = ConversionMethod.GetBengaliMonthFromEnglishMonthNo(bCal.GetMonth(dateTime));
+            string Day = ConversionMethod.EnglishNumberToBangla(bCal.GetDayOfMonth(dateTime).ToString());
+            string Year = ConversionMethod.EnglishNumberToBangla(bCal.GetYear(dateTime).ToString());
+
+            return Day + " " + Month + " " + Year;
+
+        }
+
 
         public static string enDatePotroOriginal = "<input id=\"potro_date_en\" style=\"border: none; font-size: 15px; width: 100%; text-align: center; background: transparent; opacity: 0;\" autocomplete=\"off\" type=\"text\" value=\"১৯ মে ২০২০\" />";
         public static string enDatePotroSet(DateTime dateTime)
