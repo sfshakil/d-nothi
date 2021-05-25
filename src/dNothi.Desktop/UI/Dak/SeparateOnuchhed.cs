@@ -75,7 +75,7 @@ namespace dNothi.Desktop.UI.Dak
         public string subjectBrowser
         {
             get { return _subjectBrowser; }
-            set { _subjectBrowser = value; SubjectBrowser.DocumentText = value; }
+            set { _subjectBrowser = value; SubjectBrowser.DocumentText = value;}
         }
 
         [Category("Custom Props")]
@@ -256,6 +256,13 @@ namespace dNothi.Desktop.UI.Dak
         private void onuchhedheaderPnl_MouseLeave(object sender, EventArgs e)
         {
             //btnDelete.Visible = false;
+        }
+
+        private void SubjectBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            SubjectBrowser.Document.Body.Style = "font-size:10pt;";//font-family:SolaimanLipi;SubjectBrowser.Height = SubjectBrowser.Document.Body.ScrollRectangle.Height;
+            //this.Height += SubjectBrowser.Document.Body.ScrollRectangle.Height;
+            //SubjectBrowser.Height = SubjectBrowser.Document.Body.ScrollRectangle.Height;
         }
     }
 }
