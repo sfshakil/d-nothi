@@ -477,7 +477,20 @@ namespace dNothi.Desktop.UI
 
         private void profileShowArrowButton_Click(object sender, EventArgs e)
         {
+            if (!designationDetailsPanel.Visible)
+            {
+                int designationPanleX = this.Width - designationDetailsPanel.Width - 25;
+                int designationPanleY = profilePanel.Location.Y + profilePanel.Height;
+                designationDetailsPanel.Location = new Point(designationPanleX, designationPanleY);
 
+                designationDetailsPanel.Visible = true;
+
+
+            }
+            else
+            {
+                designationDetailsPanel.Visible = false;
+            }
         }
         public bool InternetConnectionTemp;
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -567,7 +580,5 @@ namespace dNothi.Desktop.UI
         {
             backgroundWorker1.RunWorkerAsync();
         }
-
-       
     }
 }

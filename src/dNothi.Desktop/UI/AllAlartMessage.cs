@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace dNothi.Desktop.UI
 {
-   public  class AllAlartMessage
+   public   class AllAlartMessage
     {
-        public  void SuccessMessage(string Message)
+        public   void SuccessMessage(string Message)
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
 
@@ -27,7 +27,7 @@ namespace dNothi.Desktop.UI
 
             alertMessageBox.ShowDialog();
         }
-        public  void ErrorMessage(string Message)
+        public   void ErrorMessage(string Message)
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
             successMessage.message = Message;

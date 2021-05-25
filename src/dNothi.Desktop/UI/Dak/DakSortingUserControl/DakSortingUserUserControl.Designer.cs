@@ -198,7 +198,7 @@ namespace dNothi.Desktop.UI.Dak
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-7654, 10);
+            this.dakActionPanel.Location = new System.Drawing.Point(-8038, 10);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -279,7 +279,7 @@ namespace dNothi.Desktop.UI.Dak
             // nothiteUposthaponButton
             // 
             this.nothiteUposthaponButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.nothiteUposthaponButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.Nothijato_Icon;
+            this.nothiteUposthaponButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nothiteUposthaponButton.BackgroundImage")));
             this.nothiteUposthaponButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.nothiteUposthaponButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.nothiteUposthaponButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
@@ -328,7 +328,7 @@ namespace dNothi.Desktop.UI.Dak
             // dakMovementStatusButton
             // 
             this.dakMovementStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakMovementStatusButton.BackgroundImage = global::dNothi.Desktop.Properties.Resources.Repeat_alt_New;
+            this.dakMovementStatusButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dakMovementStatusButton.BackgroundImage")));
             this.dakMovementStatusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.dakMovementStatusButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.dakMovementStatusButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
@@ -833,7 +833,7 @@ namespace dNothi.Desktop.UI.Dak
             // dakSecurityIcon
             // 
             this.dakSecurityIcon.BackColor = System.Drawing.Color.Transparent;
-            this.dakSecurityIcon.BackgroundImage = global::dNothi.Desktop.Properties.Resources.সীমিত_Icon_PNG2;
+            this.dakSecurityIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dakSecurityIcon.BackgroundImage")));
             this.dakSecurityIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.dakSecurityIcon.Dock = System.Windows.Forms.DockStyle.Left;
             this.dakSecurityIcon.Enabled = false;
@@ -911,7 +911,7 @@ namespace dNothi.Desktop.UI.Dak
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImage = global::dNothi.Desktop.Properties.Resources.icons8_high_priority_24;
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Enabled = false;

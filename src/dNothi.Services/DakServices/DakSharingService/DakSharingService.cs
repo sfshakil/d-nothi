@@ -178,10 +178,10 @@ namespace dNothi.Services.DakServices.DakSharingService
                 request.AddHeader("api-version", CommonSetting.GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + userParam.token);
                 request.AlwaysMultipartFormData = true;
-                request.AddParameter("daks", "[{\"id\":\"6179\",\"dak_type\":\"Daptorik\",\"is_copied_dak\":\"1\"}]");
+                request.AddParameter("daks", "[{\"id\":\""+ daksortParam.id+ "\",\"dak_type\":\""+daksortParam.dak_type+"\",\"is_copied_dak\":\""+ daksortParam.is_copied_dak+ "\"}]");
                 request.AddParameter("office_id", userParam.office_id);
                 request.AddParameter("designation_id", userParam.designation_id);
-                request.AddParameter("dak_inbox_designation_id", "149239");
+                request.AddParameter("dak_inbox_designation_id", daksortParam.dak_inbox_designation_id);
 
                 IRestResponse Response = Api.Execute(request);
 

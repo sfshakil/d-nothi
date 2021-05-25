@@ -535,8 +535,15 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler RemoveIconButtonClick;
         private void removeIconButton_Click(object sender, EventArgs e)
         {
-            if (this.RemoveIconButtonClick != null)
-                this.RemoveIconButtonClick(sender, e);
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি নিশ্চিতভাবে ডাকটি মুছে ফেলতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
+            {
+
+                if (this.RemoveIconButtonClick != null)
+                    this.RemoveIconButtonClick(sender, e);
+            }
         }
 
 

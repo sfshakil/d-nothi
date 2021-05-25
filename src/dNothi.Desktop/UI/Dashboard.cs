@@ -58,7 +58,7 @@ namespace dNothi.Desktop.UI
         public List<DakTagDTO> _dak_Tags { get; set; }
         public NothiDTO nothi { get; set; }
         public WaitFormFunc WaitForm;
-
+        AllAlartMessage alartMessage = new AllAlartMessage();
         INothiInboxNoteServices _nothiInboxNote { get; set; }
         IUserService _userService { get; set; }
         ISyncerService _syncerServices { get; set; }
@@ -2538,7 +2538,7 @@ namespace dNothi.Desktop.UI
 
 
                 dakSortedUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDak(); };
-
+                dakSortedUserControl.PreronIconButtonClick += delegate (object sender, EventArgs e) { PreronIconButton_Click(sender, e); };
 
                 i = i + 1;
                 dakSortedUserControls.Add(dakSortedUserControl);
@@ -2557,7 +2557,10 @@ namespace dNothi.Desktop.UI
 
             }
         }
+        private void PreronIconButton_Click(object sender, EventArgs e)
+        {
 
+        }
         private void LoadSingleDakSortedinPanel(DakListRecordsDTO dakListInboxRecordsDTO)
         {
 
@@ -3463,6 +3466,11 @@ namespace dNothi.Desktop.UI
         public int _assignor_designation_id;
         private void linkLabel_LinkClicked(object sender, EventArgs e, int assignor_designation_id)
         {
+
+            LoadDakBacaikaran(assignor_designation_id);
+        }
+        private void LoadDakBacaikaran(int assignor_designation_id)
+        {
             _assignor_designation_id = assignor_designation_id;
             string total = "সর্বমোট: ";
             int pagelimit = 10;
@@ -3482,9 +3490,7 @@ namespace dNothi.Desktop.UI
                 }
 
             }
-
         }
-      
         private void LoadDakSortinginPanel(List<DakListRecordsDTO> dakLists)
         {
             List<DakSortingUserUserControl> dakSortedUserControls = new List<DakSortingUserUserControl>();
@@ -3525,7 +3531,7 @@ namespace dNothi.Desktop.UI
 
                 dakSortedUserControl.DakTagButtonCLick += delegate (object sender, EventArgs e) { DakTag_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_Tags, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakSortedUserControl.DakTagShowButtonCLick += delegate (object sender, EventArgs e) { DakTagShow_ButtonClick(dakListInboxRecordsDTO.dak_Tags); };
-
+                dakSortedUserControl.RemoveIconButtonClick += delegate (object sender, EventArgs e) { RemoveDak_ButtonClick(sender, e, dakListInboxRecordsDTO); };
 
                 dakSortedUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDakSharing(); };
 
@@ -3547,8 +3553,30 @@ namespace dNothi.Desktop.UI
 
             }
         }
+       
+        private void RemoveDak_ButtonClick(object sender, EventArgs e,DakListRecordsDTO dakListInboxRecordsDTO)
+        { 
+            if(dakListInboxRecordsDTO!=null)
+            {
+                DakSorting dakSorting = new DakSorting {  
+                    dak_type= dakListInboxRecordsDTO.dak_user.dak_type,
+                    is_copied_dak=(byte) dakListInboxRecordsDTO.dak_user.is_copied_dak,
+                    id= dakListInboxRecordsDTO.dak_user.dak_id, dak_inbox_designation_id=_assignor_designation_id };
+                var response = _dakSharingServeice.DakSortingDelete(_userService.GetLocalDakUserParam(), dakSorting);
+                if (response.status == "success")
+                {
+                    alartMessage.SuccessMessage("মুছে ফেলা হয়েছে।");
 
-        private void SelectorUnselectSingleDakSharing()
+                    LoadDakBacaikaran( _assignor_designation_id);
+
+                }
+                else
+                {
+                    alartMessage.ErrorMessage("পুনরায় চেষ্ঠা করুন।");
+                }
+            }
+        }
+            private void SelectorUnselectSingleDakSharing()
                 {
             MyToolTip.SetToolTip(multipleDakForwardButton, "ডাক সর্টিং");
 

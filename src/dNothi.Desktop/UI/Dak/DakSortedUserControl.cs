@@ -610,5 +610,12 @@ namespace dNothi.Desktop.UI.Dak
             dakActionPanel.Location = new Point(this.Width, dakActionPanel.Location.Y);
 
         }
+        public event EventHandler PreronIconButtonClick;
+        private void preronIconButton_Click(object sender, EventArgs e)
+        {
+            if (this.PreronIconButtonClick != null)
+                this.PreronIconButtonClick(sender, e);
+
+        }
     }
 }

@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DakSortedUserControl));
             this.draftedInfoPanel = new System.Windows.Forms.Panel();
+            this.preronIconButton = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.mainPrapokButton = new FontAwesome.Sharp.IconButton();
             this.draftedsecuritySideLabel = new System.Windows.Forms.Label();
             this.daraftedSecurityHoldingPanel = new System.Windows.Forms.Panel();
@@ -107,6 +109,8 @@
             // draftedInfoPanel
             // 
             this.draftedInfoPanel.AutoSize = true;
+            this.draftedInfoPanel.Controls.Add(this.preronIconButton);
+            this.draftedInfoPanel.Controls.Add(this.label1);
             this.draftedInfoPanel.Controls.Add(this.mainPrapokButton);
             this.draftedInfoPanel.Controls.Add(this.draftedsecuritySideLabel);
             this.draftedInfoPanel.Controls.Add(this.daraftedSecurityHoldingPanel);
@@ -122,6 +126,39 @@
             this.draftedInfoPanel.Name = "draftedInfoPanel";
             this.draftedInfoPanel.Size = new System.Drawing.Size(799, 36);
             this.draftedInfoPanel.TabIndex = 85;
+            // 
+            // preronIconButton
+            // 
+            this.preronIconButton.AutoSize = true;
+            this.preronIconButton.BackColor = System.Drawing.Color.MediumPurple;
+            this.preronIconButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.preronIconButton.FlatAppearance.BorderSize = 0;
+            this.preronIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.preronIconButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.preronIconButton.ForeColor = System.Drawing.Color.White;
+            this.preronIconButton.IconChar = FontAwesome.Sharp.IconChar.Share;
+            this.preronIconButton.IconColor = System.Drawing.Color.White;
+            this.preronIconButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.preronIconButton.IconSize = 24;
+            this.preronIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.preronIconButton.Location = new System.Drawing.Point(611, 0);
+            this.preronIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.preronIconButton.Name = "preronIconButton";
+            this.preronIconButton.Size = new System.Drawing.Size(99, 36);
+            this.preronIconButton.TabIndex = 73;
+            this.preronIconButton.Text = "প্রেরন করুন";
+            this.preronIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.preronIconButton.UseVisualStyleBackColor = false;
+            this.preronIconButton.Click += new System.EventHandler(this.preronIconButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(601, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(10, 36);
+            this.label1.TabIndex = 74;
             // 
             // mainPrapokButton
             // 
@@ -429,7 +466,7 @@
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-4204, 10);
+            this.dakActionPanel.Location = new System.Drawing.Point(-4588, 10);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -1044,5 +1081,7 @@
         private System.Windows.Forms.Panel dakSecurityIconPanel;
         private System.Windows.Forms.Label dakSecurityLabel;
         private System.Windows.Forms.Panel dakSecurityIcon;
+        private FontAwesome.Sharp.IconButton preronIconButton;
+        private System.Windows.Forms.Label label1;
     }
 }
