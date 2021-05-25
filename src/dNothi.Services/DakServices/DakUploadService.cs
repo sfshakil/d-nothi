@@ -61,7 +61,7 @@ namespace dNothi.Services.DakServices
                 var dakFileUploadRequest = new RestRequest(Method.POST);
                 dakFileUploadRequest.AddHeader("api-version", GetAPIVersion());
                 dakFileUploadRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-                //  dakFileUploadRequest.AddHeader("model", dakFileUploadParam.model);
+                  
                 dakFileUploadRequest.AlwaysMultipartFormData = true;
                 dakFileUploadRequest.AddParameter("designation_id", dakListUserParam.designation_id);
                 dakFileUploadRequest.AddParameter("office_id", dakListUserParam.office_id);
@@ -69,7 +69,10 @@ namespace dNothi.Services.DakServices
                 dakFileUploadRequest.AddParameter("file_size_in_kb", dakFileUploadParam.file_size_in_kb);
                 dakFileUploadRequest.AddParameter("user_file_name", dakFileUploadParam.user_file_name);
                 dakFileUploadRequest.AddParameter("content", dakFileUploadParam.content);
-
+                if (dakFileUploadParam.path == "Onucched")
+                {
+                    dakFileUploadRequest.AddHeader("model", dakFileUploadParam.model);
+                }
                 IRestResponse dakFileUploadResponse = dakFileUploadApi.Execute(dakFileUploadRequest);
 
 
