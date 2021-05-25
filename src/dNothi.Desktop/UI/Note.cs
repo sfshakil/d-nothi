@@ -2251,7 +2251,8 @@ namespace dNothi.Desktop.UI
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
                 _dakFileUploadParam.user_file_name = new System.IO.FileInfo(opnfd.FileName).Name;
-
+                _dakFileUploadParam.path = "Onucched";
+                _dakFileUploadParam.model = "NothiOnucchedAttachments";
 
 
                 //Read the contents of the file into a stream
@@ -2259,7 +2260,8 @@ namespace dNothi.Desktop.UI
 
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
-                    _dakFileUploadParam.content = reader.ReadToEnd();
+                    Byte[] bytes = File.ReadAllBytes(opnfd.FileName);
+                    _dakFileUploadParam.content = Convert.ToBase64String(bytes);
                 }
 
 
@@ -2292,7 +2294,8 @@ namespace dNothi.Desktop.UI
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                             noteFileUploads.Add(noteFileUpload);
-                            fileAddFLP.Controls.Add(noteFileUpload);
+                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
+                            //fileAddFLP.Controls.Add(noteFileUpload);
                             //dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             //dakUploadAttachmentTableRow._isAllowedforOCR = true;
 
@@ -2319,7 +2322,8 @@ namespace dNothi.Desktop.UI
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                             noteFileUploads.Add(noteFileUpload);
-                            fileAddFLP.Controls.Add(noteFileUpload);
+                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
+                            //fileAddFLP.Controls.Add(noteFileUpload);
 
                         }
                         else
@@ -2327,7 +2331,9 @@ namespace dNothi.Desktop.UI
                             NoteFileDelete noteFileDelete = new NoteFileDelete();
                             noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                             noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                            noteFileUploads.Add(noteFileUpload);
+                            //noteFileUploads.Add(noteFileUpload);
+                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete); 
+                            //--fileAddFLP.Controls.Add(noteFileDelete);
                             //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
                         }
 
@@ -2361,6 +2367,8 @@ namespace dNothi.Desktop.UI
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
                 _dakFileUploadParam.user_file_name = new System.IO.FileInfo(opnfd.FileName).Name;
+                _dakFileUploadParam.path = "Onucched";
+                _dakFileUploadParam.model = "NothiOnucchedAttachments";
 
 
 
@@ -2369,7 +2377,8 @@ namespace dNothi.Desktop.UI
 
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
-                    _dakFileUploadParam.content = reader.ReadToEnd();
+                    Byte[] bytes = File.ReadAllBytes(opnfd.FileName);
+                    _dakFileUploadParam.content = Convert.ToBase64String(bytes);
                 }
 
 
@@ -2401,7 +2410,8 @@ namespace dNothi.Desktop.UI
                             noteFileUpload.imgSource = opnfd.FileName;
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                            fileAddFLP.Controls.Add(noteFileUpload);
+                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
+                            //--fileAddFLP.Controls.Add(noteFileUpload);
                             noteFileUploads.Add(noteFileUpload);
                             //dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             //dakUploadAttachmentTableRow._isAllowedforOCR = true;
@@ -2426,7 +2436,8 @@ namespace dNothi.Desktop.UI
                             noteFileUpload.imgSource = "";
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                            fileAddFLP.Controls.Add(noteFileUpload);
+                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
+                            //--fileAddFLP.Controls.Add(noteFileUpload);
                             noteFileUploads.Add(noteFileUpload);
 
                         }
@@ -2435,7 +2446,8 @@ namespace dNothi.Desktop.UI
                             NoteFileDelete noteFileDelete = new NoteFileDelete();
                             noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                             noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                            fileAddFLP.Controls.Add(noteFileDelete);
+                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete);
+                            //--fileAddFLP.Controls.Add(noteFileDelete);
                             //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
                         }
 

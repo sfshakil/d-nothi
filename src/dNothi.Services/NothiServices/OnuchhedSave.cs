@@ -66,23 +66,29 @@ namespace dNothi.Services.NothiServices
 
                 var serializedObject1 = JsonConvert.SerializeObject(dakUserParam);
                 request.AddParameter("cdesk", serializedObject1);
-                var attachment = "";
+                //var attachment = "";
+                List<FileInfo> f1s = new List<FileInfo>();
                 if (onuchhedSaveWithAttachments.Count > 0)
                 {
-                    FileInfo f1 = new FileInfo();
-                    f1.attachment_type = onuchhedSaveWithAttachments[0].data[0].attachment_type;
-                    f1.user_file_name = onuchhedSaveWithAttachments[0].data[0].user_file_name;
-                    f1.id = onuchhedSaveWithAttachments[0].data[0].id;
-                    f1.file_name = onuchhedSaveWithAttachments[0].data[0].file_name;
-                    f1.file_size_in_kb = onuchhedSaveWithAttachments[0].data[0].file_size_in_kb;
-                    f1.img_base64 = onuchhedSaveWithAttachments[0].data[0].img_base64;
-                    f1.url = onuchhedSaveWithAttachments[0].data[0].url;
+                    foreach (DakUploadedFileResponse onuchhedSaveWithAttachment in onuchhedSaveWithAttachments)
+                    {
+                        FileInfo f1 = new FileInfo();
+                        //f1.attachment_type = onuchhedSaveWithAttachments[0].data[0].attachment_type;
+                        f1.user_file_name = onuchhedSaveWithAttachment.data[0].user_file_name;
+                        f1.id = onuchhedSaveWithAttachment.data[0].id;
+                        //f1.file_name = onuchhedSaveWithAttachments[0].data[0].file_name;
+                        //f1.file_size_in_kb = onuchhedSaveWithAttachments[0].data[0].file_size_in_kb;
+                        //f1.img_base64 = onuchhedSaveWithAttachments[0].data[0].img_base64;
+                        //f1.url = onuchhedSaveWithAttachments[0].data[0].url;
 
-                    var fileinfo = JsonConvert.SerializeObject(f1);
+                        //var fileinfo = JsonConvert.SerializeObject(f1);
 
-                    attachment = "{" + onuchhedSaveWithAttachments[0].data[0].id + ":" + fileinfo + "}";
+                        //attachment = "{" + onuchhedSaveWithAttachments[0].data[0].id + ":" + fileinfo + "}";
+                        f1s.Add(f1);
+                    }
+
                 }
-                
+                //var attachment = JsonConvert.SerializeObject(f1s);
 
                 Onuchhed o1 = new Onuchhed();
                 o1.nothi_id = nothiListRecordsDTO.id.ToString();
@@ -90,7 +96,7 @@ namespace dNothi.Services.NothiServices
                 o1.note_description = editorEncodedData;
                 o1.note_id = newnotedata.note_id.ToString();
                 o1.id = onuchhedId;
-                o1.attachment = attachment;
+                o1.attachments = f1s;
 
                 var onuchhed = JsonConvert.SerializeObject(o1);
 
@@ -157,12 +163,7 @@ namespace dNothi.Services.NothiServices
         public class FileInfo
         {
             public int id { get; set; }
-            public string img_base64 { get; set; }
             public string user_file_name { get; set; }
-            public string file_name { get; set; }
-            public string attachment_type { get; set; }
-            public string file_size_in_kb { get; set; }
-            public string url { get; set; }
         }
         public class Onuchhed
         {
@@ -171,7 +172,7 @@ namespace dNothi.Services.NothiServices
             public string note_id { get; set; }
             public string id { get; set; }
             public string note_description { get; set; }
-            public string attachment { get; set; }
+            public List<FileInfo> attachments { get; set; }
         }
         
         protected string GetAPIVersion()

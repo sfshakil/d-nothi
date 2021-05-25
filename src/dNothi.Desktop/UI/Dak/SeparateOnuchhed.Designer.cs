@@ -39,10 +39,10 @@ namespace dNothi.Desktop.UI.Dak
             this.label5 = new System.Windows.Forms.Label();
             this.SubjectBrowser = new System.Windows.Forms.WebBrowser();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.SignatureViewBodyPanel = new System.Windows.Forms.Panel();
             this.SignatureFLP = new System.Windows.Forms.TableLayoutPanel();
             this.onuchhedheaderPnl = new dNothi.Desktop.AdvancedPanel();
-            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.lbOffice = new System.Windows.Forms.Label();
             this.lbNoteNo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -175,6 +175,27 @@ namespace dNothi.Desktop.UI.Dak
             this.SubjectBrowser.Size = new System.Drawing.Size(1297, 110);
             this.SubjectBrowser.TabIndex = 4;
             this.SubjectBrowser.WebBrowserShortcutsEnabled = false;
+            this.SubjectBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.SubjectBrowser_DocumentCompleted);
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(1254, 0);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(33, 43);
+            this.btnSchedule.TabIndex = 120;
+            this.MyToolTip.SetToolTip(this.btnSchedule, "আপলোড হচ্ছে");
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
             // 
             // SignatureViewBodyPanel
             // 
@@ -231,26 +252,6 @@ namespace dNothi.Desktop.UI.Dak
             this.onuchhedheaderPnl.TabIndex = 6;
             this.onuchhedheaderPnl.MouseLeave += new System.EventHandler(this.onuchhedheaderPnl_MouseLeave);
             this.onuchhedheaderPnl.MouseHover += new System.EventHandler(this.onuchhedheaderPnl_MouseHover);
-            // 
-            // btnSchedule
-            // 
-            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.btnSchedule.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.FlatAppearance.BorderSize = 0;
-            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
-            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSchedule.IconSize = 28;
-            this.btnSchedule.Location = new System.Drawing.Point(1254, 0);
-            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(33, 43);
-            this.btnSchedule.TabIndex = 120;
-            this.MyToolTip.SetToolTip(this.btnSchedule, "আপলোড হচ্ছে");
-            this.btnSchedule.UseVisualStyleBackColor = false;
-            this.btnSchedule.Visible = false;
             // 
             // lbOffice
             // 
