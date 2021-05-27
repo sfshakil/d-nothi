@@ -147,7 +147,7 @@
             this.preronIconButton.Size = new System.Drawing.Size(99, 36);
             this.preronIconButton.TabIndex = 73;
             this.preronIconButton.Text = "প্রেরন করুন";
-            this.preronIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.preronIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.preronIconButton.UseVisualStyleBackColor = false;
             this.preronIconButton.Click += new System.EventHandler(this.preronIconButton_Click);
             // 
@@ -466,7 +466,7 @@
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-4588, 10);
+            this.dakActionPanel.Location = new System.Drawing.Point(-4972, 10);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -583,7 +583,7 @@
             this.DakSendButton.Name = "DakSendButton";
             this.DakSendButton.Size = new System.Drawing.Size(32, 34);
             this.DakSendButton.TabIndex = 81;
-            this.MyToolTip.SetToolTip(this.DakSendButton, "ডাক প্রেরণ করুন ");
+            this.MyToolTip.SetToolTip(this.DakSendButton, "ডাক সংশোধন ও প্রেরণ");
             this.DakSendButton.UseVisualStyleBackColor = false;
             this.DakSendButton.Click += new System.EventHandler(this.DakSendButton_Click);
             this.DakSendButton.MouseLeave += new System.EventHandler(this.DakSendButton_MouseLeave);

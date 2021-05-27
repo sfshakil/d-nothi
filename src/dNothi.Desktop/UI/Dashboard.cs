@@ -26,6 +26,7 @@ using System.Windows.Forms;
 using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.DakServices.DakSharingService;
 using Newtonsoft.Json;
+using AutoMapper;
 
 namespace dNothi.Desktop.UI
 {
@@ -2538,7 +2539,7 @@ namespace dNothi.Desktop.UI
 
 
                 dakSortedUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDak(); };
-                dakSortedUserControl.PreronIconButtonClick += delegate (object sender, EventArgs e) { PreronIconButton_Click(sender, e); };
+                dakSortedUserControl.PreronIconButtonClick += delegate (object sender, EventArgs e) { PreronIconButton_Click(sender, e, dakListInboxRecordsDTO); };
 
                 i = i + 1;
                 dakSortedUserControls.Add(dakSortedUserControl);
@@ -2557,9 +2558,90 @@ namespace dNothi.Desktop.UI
 
             }
         }
-        private void PreronIconButton_Click(object sender, EventArgs e)
+        private void PreronIconButton_Click(object sender, EventArgs e, DakListRecordsDTO daks)
         {
+            bool isPreron = true;
+            DakForwoard(isPreron, daks);
+        }
 
+        private void DakForwoard(bool isPreron,DakListRecordsDTO daks)
+        {
+            string comment = string.Empty;
+            if (isPreron)
+            {
+                 comment = "নথিতে উপস্থাপন করুন";
+            }
+            else
+            {
+                comment = "চেক করুন";
+
+            }
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "অপনি কি ডাকটি প্রেরণ করতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
+            {
+
+                DakForwardRequestParam dakForwardRequestParam = new DakForwardRequestParam();
+
+                var userParam = _userService.GetLocalDakUserParam();
+                DakPriorityList dakPriority = new DakPriorityList();
+                int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(daks.dak_user.dak_priority));
+
+
+
+                DakSecurityList dakSecurityList = new DakSecurityList();
+                int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(daks.dak_user.dak_security));
+
+
+                dakForwardRequestParam.priority = dak_priority_id;
+                dakForwardRequestParam.security = dak_security_id;
+
+                dakForwardRequestParam.comment = comment;
+                dakForwardRequestParam.token = userParam.token;
+
+                var config = new MapperConfiguration(cfg =>
+                          cfg.CreateMap<DakUserParam, DakForwardRequestSenderInfo>()
+                      );
+                var mapper = new Mapper(config);
+                var dakSender = mapper.Map<DakForwardRequestSenderInfo>(userParam);
+
+
+                dakForwardRequestParam.sender_info = dakForwardRequestParam.CSharpObjtoJson(dakSender);
+
+
+                DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(userParam);
+
+                var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault();
+                dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
+
+                //var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                //dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
+
+
+                List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
+               
+               // OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                dakForwardRequestParam.onulipi_info = dakForwardRequestParam.CSharpObjtoJson(OnulipiprapokDTOs);
+
+                
+                dakForwardRequestParam.dak_id = daks.dak_user.dak_id;
+                dakForwardRequestParam.is_copied_dak = daks.dak_user.is_copied_dak;
+                dakForwardRequestParam.dak_type = daks.dak_user.dak_type;
+
+
+                var dakForwardResponse = _dakForwardService.GetDakForwardResponse(dakForwardRequestParam);
+
+                if (dakForwardResponse.status == "success")
+                {
+                    alartMessage.SuccessMessage("ডাকটি প্রেরন করা হয়েছে।");
+                    LoadDakListSorted();
+                }
+                else
+                {
+                    alartMessage.ErrorMessage("পুনরায় চেষ্টা করুন।");
+                }
+            }
         }
         private void LoadSingleDakSortedinPanel(DakListRecordsDTO dakListInboxRecordsDTO)
         {
@@ -3781,11 +3863,7 @@ namespace dNothi.Desktop.UI
 
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-
                 DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
-
-
-
 
                 dakSendUserControl.designationSealListResponse = designationSealListResponse;
                 dakSendUserControl.dakCount = daks.Count;

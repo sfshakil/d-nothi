@@ -274,10 +274,6 @@ namespace dNothi.Services.DakServices
                     _dakItemAction.Insert(dakItemAction);
                 }
 
-
-
-                
-
                 return dakForwardResponse;
             }
             try

@@ -278,7 +278,6 @@ namespace dNothi.Desktop.UI.Dak
         }
         private DesignationSealListResponse _designationSealListResponse;
 
-
         public DesignationSealListResponse designationSealListResponse
         {
             get { return _designationSealListResponse; }

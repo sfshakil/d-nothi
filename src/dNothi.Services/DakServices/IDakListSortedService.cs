@@ -12,5 +12,6 @@ namespace dNothi.Services.DakServices
         DakListSortedResponse GetDakList(DakUserParam dakListUserParam);
         DakListSortedResponse GetDakList(DakUserParam dakListUserParam, string searchParam);
         void SaveorUpdateDakSorted(DakListSortedResponse dakListArchiveResponse);
+        DakForwardResponse GetDakForwardResponse(DakForwardRequestParam dakForwardParam);
     }
 }

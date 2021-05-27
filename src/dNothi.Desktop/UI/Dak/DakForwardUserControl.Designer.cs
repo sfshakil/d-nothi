@@ -287,7 +287,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.label2.Location = new System.Drawing.Point(9, 151);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 18);
+            this.label2.Size = new System.Drawing.Size(57, 18);
             this.label2.TabIndex = 7;
             this.label2.Text = "অগ্রাধিকার";
             // 
@@ -298,7 +298,7 @@
             this.NothijatoRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.NothijatoRadioButton.Location = new System.Drawing.Point(165, 43);
             this.NothijatoRadioButton.Name = "NothijatoRadioButton";
-            this.NothijatoRadioButton.Size = new System.Drawing.Size(100, 22);
+            this.NothijatoRadioButton.Size = new System.Drawing.Size(99, 22);
             this.NothijatoRadioButton.TabIndex = 4;
             this.NothijatoRadioButton.Text = "নথিজাত করুন ";
             this.NothijatoRadioButton.UseVisualStyleBackColor = true;
@@ -838,7 +838,7 @@
             this.dataGridViewCheckBoxColumn5.HeaderText = "অনুলিপি প্রাপক";
             this.dataGridViewCheckBoxColumn5.Name = "dataGridViewCheckBoxColumn5";
             this.dataGridViewCheckBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCheckBoxColumn5.Width = 105;
+            this.dataGridViewCheckBoxColumn5.Width = 104;
             // 
             // label4
             // 
@@ -1264,7 +1264,7 @@
             this.multipleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.multipleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.multipleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
-            this.multipleDakHeaderLabel.Location = new System.Drawing.Point(138, 35);
+            this.multipleDakHeaderLabel.Location = new System.Drawing.Point(137, 35);
             this.multipleDakHeaderLabel.Name = "multipleDakHeaderLabel";
             this.multipleDakHeaderLabel.Size = new System.Drawing.Size(127, 21);
             this.multipleDakHeaderLabel.TabIndex = 29;
@@ -1279,7 +1279,7 @@
             this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
             this.singleDakHeaderLabel.Location = new System.Drawing.Point(29, 35);
             this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(109, 21);
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(108, 21);
             this.singleDakHeaderLabel.TabIndex = 28;
             this.singleDakHeaderLabel.Text = "ডাক প্রেরণ করুন";
             // 
