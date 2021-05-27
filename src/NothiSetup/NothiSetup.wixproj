@@ -70,6 +70,14 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
+    <ProjectReference Include="..\dNothi.Syncer\dNothi.Syncer.csproj">
+      <Name>dNothi.Syncer</Name>
+      <Project>{6621958e-747d-4649-8e12-bff0f6da57c5}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\dNothi.Utility\dNothi.Utility.csproj">
       <Name>dNothi.Utility</Name>
       <Project>{58b5b842-9223-4e9b-a7f5-921d356f2ccf}</Project>
