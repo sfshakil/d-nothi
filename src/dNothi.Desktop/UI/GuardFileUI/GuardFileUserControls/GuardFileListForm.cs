@@ -71,10 +71,10 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
 
             dakListUserParam.page = page;
             dakListUserParam.limit = pageLimit;
-           
+            dakListUserParam.CategoryId = guardFileCategory.id;
             dakListUserParam.NameSearchParam = naemSearchparam;
             var datalist = _guardFileService.GetList(dakListUserParam, 2);
-            //RemoveArbitraryRow(guardFileListTableLayoutPanel, guardFileListTableLayoutPanel.RowCount, 3);
+            RemoveArbitraryRow(guardFileListTableLayoutPanel, guardFileListTableLayoutPanel.RowCount, 3);
            
             if (datalist != null)
             {
