@@ -39,6 +39,8 @@ namespace dNothi.Services.DakServices
         public int designation_level { get; set; }
        
         public string  json_String { get; set; }
+        public int CategoryId { get; set; }
+        public string NameSearchParam { get; set; }
 
     }
 }

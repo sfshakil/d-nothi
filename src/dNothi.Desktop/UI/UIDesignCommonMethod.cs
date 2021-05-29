@@ -152,9 +152,21 @@ namespace dNothi.Desktop.UI
         {
             Form hideform = new Form();
 
-
             hideform.BackColor = Color.Black;
             hideform.Size = parentForm.Size;
+            hideform.Opacity = .6;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        public static void CalPopUpWindow(Form form, UserControl parentUc)
+        {
+            Form hideform = new Form();
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = parentUc.Size;
             hideform.Opacity = .6;
 
             hideform.FormBorderStyle = FormBorderStyle.None;

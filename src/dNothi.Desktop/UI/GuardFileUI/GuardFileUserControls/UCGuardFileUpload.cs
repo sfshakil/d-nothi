@@ -47,8 +47,9 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             typesearchComboBox.itemList = data.ToList();
             typesearchComboBox.isListShown = true;
 
-           
 
+            MyToolTip.SetToolTip(guardFileTextBox, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট।");
+            MyToolTip.SetToolTip(fileUploadButton, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট।");
             panel5.Hide();  
         }
         public List<GuardFileCategory.Record> LoadGuardFileTypeList()
@@ -115,7 +116,6 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
-
                         }
                         else
                         {
@@ -163,6 +163,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         {
             _uploadFileResponse = null;
             flowLayoutPanel1.Controls.Clear();
+            guardFileTextBox.Text = string.Empty;
             panel3.Show();
             panel5.Hide();
 

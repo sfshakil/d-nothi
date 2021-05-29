@@ -43,13 +43,14 @@ namespace dNothi.Desktop.UI.OtherModule
             _syncerServices = syncerServices;
 
 
+
         }
 
         
         private void guardFileTypeButton_Click(object sender, EventArgs e)
         {
             lablePageName.Text = "গার্ড ফাইলের ধরন";
-            guardFileTypeuc = new UCGuardFileTypes(_userService, _guardFileCategoryService);
+            guardFileTypeuc = new UCGuardFileTypes(_userService, _guardFileCategoryService, _guardFileService);
             guardFileTypeuc.page = _currentPage;
             bodyPanel.Controls.Clear();
             bodyPanel.Controls.Add(guardFileTypeuc);
@@ -148,13 +149,12 @@ namespace dNothi.Desktop.UI.OtherModule
         private void GurdFileControl_Shown(object sender, EventArgs e)
         {
             int page = currentPage;
-           
-            guardFileTypeuc = new UCGuardFileTypes(_userService,_guardFileCategoryService);
+            
+            guardFileTypeuc = new UCGuardFileTypes(_userService,_guardFileCategoryService,_guardFileService);
             guardFileTypeuc.page = _currentPage;
 
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
-
-
+            userNameLabel.Text = dakUserParam.officer_name + "(" + dakUserParam.designation_label + "," + dakUserParam.unit_label + ")";
 
             try
             {

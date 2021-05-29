@@ -575,6 +575,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\GuardFileUI\gdftype.cs" />
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileListForm.Designer.cs">
+      <DependentUpon>GuardFileListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\CreateGuardFileTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -604,12 +610,6 @@
     </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuarFileListViewDeleteUC.Designer.cs">
       <DependentUpon>GuarFileListViewDeleteUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\GuardFileUI\GuardFileUserControls\SearchableComboBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\GuardFileUI\GuardFileUserControls\SearchableComboBox.Designer.cs">
-      <DependentUpon>SearchableComboBox.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileList.cs">
       <SubType>UserControl</SubType>
@@ -1393,6 +1393,9 @@
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuardFileListForm.resx">
+      <DependentUpon>GuardFileListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\CreateGuardFileTypeForm.resx">
       <DependentUpon>CreateGuardFileTypeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1407,9 +1410,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuarFileListViewDeleteUC.resx">
       <DependentUpon>GuarFileListViewDeleteUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\SearchableComboBox.resx">
-      <DependentUpon>SearchableComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileList.resx">
       <DependentUpon>UCGuardFileList.cs</DependentUpon>

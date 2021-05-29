@@ -162,6 +162,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(156)))), ((int)(((byte)(255)))));
             this.label2.Location = new System.Drawing.Point(365, 24);
@@ -169,6 +170,7 @@
             this.label2.Size = new System.Drawing.Size(15, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "১";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // EditUpdatetableLayoutPanel
             // 

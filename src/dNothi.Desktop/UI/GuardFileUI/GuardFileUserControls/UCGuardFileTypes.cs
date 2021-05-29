@@ -14,6 +14,7 @@ using dNothi.Services.GuardFile;
 using dNothi.Services.GuardFile.Model;
 using dNothi.Services.DakServices;
 using dNothi.Utility;
+using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -29,13 +30,15 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         int start = 1;
         int end = 10;
         int totalrecord = 0;
+        IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
         IGuardFileService<GuardFileCategory,GuardFileCategory.Record> _guardFileCategoryService { get; set; }
-        public UCGuardFileTypes(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService)
+        public UCGuardFileTypes(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService)
         {
             InitializeComponent();
             _userService = userService;
             _guardFileCategoryService = guardFileCategoryService;
-           // page = 1;
+            _guardFileService = guardFileService;
+            // page = 1;
             start = 1;
             LoadGuardFileTypeList();
             if (totalrecord < 10) { end = totalrecord; }
@@ -72,10 +75,11 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         decisionTable.decision = item.name_bng;
                         decisionTable.TypeNo = item.guard_file_type_count;
                         decisionTable.TypeId = item.id;
+                        decisionTable.designation_id = dakListUserParam.designation_id;
+                        decisionTable.office_unit_organogram_id = item.office_unit_organogram_id;
                         
 
-
-                        //decisionTable.RadioButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_RadioButtonClick(sender, e, rowid); };
+                        decisionTable.GuardFileCountLabelClick += delegate (object sender, EventArgs e) { GuardFileList_Click(sender, e, item); };
 
                         //decisionTable.editButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_attachmentButtonClick(sender, e); };
                         //decisionTable.deleteButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_onumodonButtonClick(sender, e); };
@@ -99,6 +103,13 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             }
         }
 
+        private void GuardFileList_Click(object sender, EventArgs e, GuardFileCategory.Record model)
+        {
+            GurdFileControl c = new GurdFileControl(_userService, _guardFileService,_guardFileCategoryService,null);
+            GuardFileListForm guardFileListForm = new GuardFileListForm(_userService,_guardFileService);
+            guardFileListForm.guardFileCategory = model;
+            UIDesignCommonMethod.CalPopUpWindow(guardFileListForm,c);
+        }
         public static void RemoveTableLayoutPanelRow(TableLayoutPanel panel, int rows,int rowIndex)
         {
             if (rowIndex >= panel.RowCount)
