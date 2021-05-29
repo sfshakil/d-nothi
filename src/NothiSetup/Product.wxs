@@ -7,13 +7,13 @@
   <?define dNothi.JsonParser_TargetDir=$(var.dNothi.JsonParser.TargetDir)?>
   <?define dNothi.Infrastructure_TargetDir=$(var.dNothi.Infrastructure.TargetDir)?>
   <?define dNothi.Core_TargetDir=$(var.dNothi.Core.TargetDir)?>
-  
 
-  
-    
+
+
+
   <Product Id="*" Name="E-Nothi" Language="1033" Version="1.0.0.0" Manufacturer="Tappware" UpgradeCode="fb3aa46f-5d81-4a82-a6f1-65f44cbca3dd">
-   
-    
+
+
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of E-Nothi is already installed." />
@@ -71,7 +71,7 @@
       <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_xhtmlxtras_js_files" />
       <ComponentGroupRef Id="runtimes_win_arm64_native_files" />
       <ComponentGroupRef Id="runtimes_win_x64_native_files" />
-    
+
       <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_utils_files" />
       <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_files" />
       <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_themes_simple_skins_o2k7_files" />
@@ -188,24 +188,24 @@
       <ComponentRef Id="ApplicationShortcutDesktop" />
 
     </Feature>
-  
-  
-   <Property Id="ADOBEEXEVERSION" Secure="yes">
+
+
+    <Property Id="ADOBEEXEVERSION" Secure="yes">
       <RegistrySearch Id="RegSearch_WORDEXE" Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\AcroRd32.exe" Type="file">
         <FileSearch Name="AcroRd32.exe" MinVersion="8.0.0.0" />
       </RegistrySearch>
     </Property>
-    
+
     <Condition Message="E-Nothi requires Adobe Reader Minimum Version 8! Please make sure you it installed.">ADOBEEXEVERSION</Condition>
 
-    
+
   </Product>
-  
+
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="E-Nothi">
-        
+
           <Directory Id="Content" Name="Content" />
           <Directory Id="runtimes" Name="runtimes">
             <Directory Id="runtimes_win_arm64" Name="win-arm64">
@@ -433,8 +433,8 @@
           <Directory Id="bin_amd64" Name="amd64">
             <Directory Id="bin_amd64_Microsoft.VC90.CRT" Name="Microsoft.VC90.CRT" />
           </Directory>
-        
-         
+
+
         </Directory>
       </Directory>
 
@@ -446,10 +446,10 @@
     </Directory>
 
   </Fragment>
-<Fragment>
- 
+  <Fragment>
 
- <ComponentGroup Id="bin_amd64_group" Directory="bin_amd64">
+
+    <ComponentGroup Id="bin_amd64_group" Directory="bin_amd64">
       <Component Id="bin_amd64_group_sqlceca40.dll" Guid="6f4ebc6c-09b9-48e6-84fe-d2e94bd56414">
         <File Id="bin_amd64_group_sqlceca40.dll" Name="sqlceca40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlceca40.dll" />
       </Component>
@@ -469,22 +469,22 @@
         <File Id="bin_amd64_group_sqlcese40.dll" Name="sqlcese40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlcese40.dll" />
       </Component>
     </ComponentGroup>
-   
-  
-</Fragment>
+
+
+  </Fragment>
   <Fragment>
     <ComponentGroup Id="bin_amd64_Microsoft.VC90.CRT_group" Directory="bin_amd64_Microsoft.VC90.CRT">
-        <Component Id="bin_amd64_Microsoft.VC90.CRT_group_Microsoft.VC90.CRT.manifest" Guid="c5299ba0-1a4a-47de-b1d2-85f56ea1f7d4">
+      <Component Id="bin_amd64_Microsoft.VC90.CRT_group_Microsoft.VC90.CRT.manifest" Guid="c5299ba0-1a4a-47de-b1d2-85f56ea1f7d4">
         <File Id="bin_amd64_Microsoft.VC90.CRT_group_Microsoft.VC90.CRT.manifest" Name="Microsoft.VC90.CRT.manifest" Source="$(var.dNothi.Desktop_TargetDir)amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
       </Component>
-     <Component Id="bin_amd64_Microsoft.VC90.CRT_group_msvcr90.dllt" Guid="7824a264-67d3-4a84-9fbc-7961f96fbce6">
+      <Component Id="bin_amd64_Microsoft.VC90.CRT_group_msvcr90.dllt" Guid="7824a264-67d3-4a84-9fbc-7961f96fbce6">
         <File Id="bin_amd64_Microsoft.VC90.CRT_group_msvcr90.dll" Name="msvcr90.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\Microsoft.VC90.CRT\msvcr90.dll" />
       </Component>
-  
+
     </ComponentGroup>
-    
+
   </Fragment>
-  
+
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
@@ -663,7 +663,7 @@
       <Component Id="HtmlAgilityPack.dll" Guid="1e68120f-63bb-4462-9a4a-279540494aca">
         <File Id="HtmlAgilityPack.dll" Name="HtmlAgilityPack.dll" Source="$(var.dNothi.Desktop_TargetDir)HtmlAgilityPack.dll" />
       </Component>
-    
+
     </ComponentGroup>
   </Fragment>
 
@@ -1992,7 +1992,7 @@
     </ComponentGroup>
   </Fragment>
 
- 
+
 
   <Fragment>
     <ComponentGroup Id="tinymce_js_tinymce_plugins_directionality_files" Directory="tinymce_js_tinymce_plugins_directionality">
