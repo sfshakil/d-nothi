@@ -513,6 +513,8 @@ namespace dNothi.Desktop.UI
                                 {
                                     NothiListRecordsDTO nothiListRecordsDTO = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
                                     NoteSaveDTO newnotedata1 = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                                    //List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                    
                                     if (nothiListRecordsDTO.id == nothiListRecords.id && list.nothi_note_id == newnotedata1.note_id)
                                     {
                                         //int onucchedNo = Convert.ToInt32(onuchhedNo);
@@ -527,7 +529,11 @@ namespace dNothi.Desktop.UI
                                         //onuchhedNo = onucchedNo.ToString();
                                         DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                         var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-
+                                        List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                        if (onuchhedSaveWithAttachments.Count == 0)
+                                        {
+                                            separateOnucched.filePnaeloff();
+                                        }
                                         separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
                                         separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), totalOnuchhed.ToString());
                                         //separateOnucched.createDate = onucchedsingleListRec.created;
@@ -912,7 +918,11 @@ namespace dNothi.Desktop.UI
                                         //onuchhedNo = onucchedNo.ToString();
                                         DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                         var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-
+                                        List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                        if (onuchhedSaveWithAttachments.Count == 0)
+                                        {
+                                            separateOnucched.filePnaeloff();
+                                        }
                                         separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
                                         separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), totalOnuchhed.ToString());
                                         //separateOnucched.createDate = onucchedsingleListRec.created;
@@ -3225,7 +3235,11 @@ namespace dNothi.Desktop.UI
                                                 onuchhedNo = onucchedNo.ToString();
                                                 //DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                                 var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-
+                                                List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                                if (onuchhedSaveWithAttachments.Count == 0)
+                                                {
+                                                    separateOnucched.filePnaeloff();
+                                                }
                                                 separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
                                                 separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), totalOnuchhed.ToString());
                                                 //separateOnucched.createDate = onucchedsingleListRec.created;
