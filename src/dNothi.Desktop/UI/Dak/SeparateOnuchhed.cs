@@ -29,6 +29,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _office;
         private string _subjectBrowser;
         private int _onucchedId;
+        private string _totalFileNo;
         public void loadinLocal()
         {
             btnSchedule.Visible = true;
@@ -36,9 +37,24 @@ namespace dNothi.Desktop.UI.Dak
         }
         public void lastopenOnuchhed()
         {
-            if (SubjectBrowser.DocumentText != "" && SignatureFLP.Controls.Count > 0)
+            int height = 0;
+            if (SubjectBrowser.DocumentText != "" || SignatureFLP.Controls.Count > 0 || fileFLP.Controls.Count > 0)
             {
-                this.Height = 400 + originalHeight;
+                if (SubjectBrowser.DocumentText != "")
+                {
+                    height += 174;
+                }
+                if (SignatureFLP.Controls.Count > 0)
+                {
+                    height += SignatureFLP.Size.Height;
+                }
+                if (fileFLP.Controls.Count > 0)
+                {
+                    filePnael.Size = fileHeaderPanel.Size + fileFLP.Size;
+                    fileViewBodyPanel.Size = fileFLP.Size;
+                    height += filePnael.Size.Height;
+                }
+                this.Height = originalHeight + height;
                 this.Width = originalWidth;
             }
             else
@@ -53,12 +69,30 @@ namespace dNothi.Desktop.UI.Dak
             SubjectBrowser.Visible = true;
             btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.MinusSquare;
         }
+        public void fileAddInFilePanel(AttachmentDTO attachment)
+        {
+            var fileusercontrol = UserControlFactory.Create<FileUserControl>();
+            fileusercontrol.fileName = attachment.user_file_name;
+            fileusercontrol.fileSize = attachment.file_size_in_kb.ToString();
+            fileusercontrol.fileDownloadLink = attachment.download_url;
+            fileusercontrol.fileViewLink = attachment.url;
+            UIDesignCommonMethod.AddRowinTable(fileFLP, fileusercontrol);
+        }
+        public void filePnaeloff()
+        {
+            filePnael.Visible = false;
+        }
 
         [Category("Custom Props")]
         public string office
         {
             get { return _office; }
             set { _office = value; lbOffice.Text = "("+value+")"; }
+        }
+        public string totalFileNo
+        {
+            get { return _totalFileNo; }
+            set { _totalFileNo = value; lbTotalFileNo.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         }
         public int onucchedId
         {
@@ -100,11 +134,26 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnPlusSquare_Click(object sender, EventArgs e)
         {
+            int height = 0;
             if (btnPlusSquare.IconChar == FontAwesome.Sharp.IconChar.PlusSquare)
             {
-                if(SubjectBrowser.DocumentText != "" && SignatureFLP.Controls.Count > 0)
+                if(SubjectBrowser.DocumentText != "" || SignatureFLP.Controls.Count > 0 || fileFLP.Controls.Count>0)
                 {
-                    this.Height = 400 + originalHeight;
+                    if (SubjectBrowser.DocumentText != "")
+                    {
+                        height += 174;
+                    }
+                    if (SignatureFLP.Controls.Count > 0)
+                    {
+                        height += SignatureFLP.Size.Height;
+                    }
+                    if (fileFLP.Controls.Count  > 0)
+                    {
+                        filePnael.Size = fileHeaderPanel.Size + fileFLP.Size;
+                        fileViewBodyPanel.Size = fileFLP.Size;
+                        height += filePnael.Size.Height;
+                    }
+                    this.Height =  originalHeight + height;
                     this.Width = originalWidth;
                 }
                 else

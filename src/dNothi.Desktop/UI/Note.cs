@@ -379,6 +379,21 @@ namespace dNothi.Desktop.UI
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                                     separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
+
+                                    if (rec[0].attachment.Count>0)
+                                    {
+                                        separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
+                                        foreach (AttachmentDTO attachment in rec[0].attachment)
+                                        {
+                                            separateOnucched.fileAddInFilePanel(attachment);
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        separateOnucched.filePnaeloff();
+                                    }
+                                    
                                     separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), z.onuchhed_no.ToString());
                                     separateOnucched.createDate = onucchedsingleListRec.created;
                                     separateOnucched.onucchedId = onucchedsingleListRec.id;
@@ -811,6 +826,19 @@ namespace dNothi.Desktop.UI
                                     panel28.Visible = false;
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    if (rec[0].attachment.Count > 0)
+                                    {
+                                        separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
+                                        foreach (AttachmentDTO attachment in rec[0].attachment)
+                                        {
+                                            separateOnucched.fileAddInFilePanel(attachment);
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        separateOnucched.filePnaeloff();
+                                    }
                                     separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                                     separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), z.onuchhed_no.ToString());
                                     separateOnucched.createDate = onucchedsingleListRec.created;
@@ -1386,6 +1414,19 @@ namespace dNothi.Desktop.UI
                             onucchedEditorPanel.Visible = false;
                             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                             var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                            if (rec[0].attachment.Count > 0)
+                            {
+                                separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
+                                foreach (AttachmentDTO attachment in rec[0].attachment)
+                                {
+                                    separateOnucched.fileAddInFilePanel(attachment);
+
+                                }
+                            }
+                            else
+                            {
+                                separateOnucched.filePnaeloff();
+                            }
                             separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                             separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
                             separateOnucched.createDate = onucchedsingleListRec.created;
@@ -1552,6 +1593,19 @@ namespace dNothi.Desktop.UI
                             //onucchedEditorPanel.Visible = false;
                             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                             var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                            if (rec[0].attachment.Count > 0)
+                            {
+                                separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
+                                foreach (AttachmentDTO attachment in rec[0].attachment)
+                                {
+                                    separateOnucched.fileAddInFilePanel(attachment);
+
+                                }
+                            }
+                            else
+                            {
+                                separateOnucched.filePnaeloff();
+                            }
                             separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                             separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
                             separateOnucched.createDate = onucchedsingleListRec.created;
@@ -2644,6 +2698,19 @@ namespace dNothi.Desktop.UI
                             onuchhedNo = onucchedsingleListRec.onucched_no;
                             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                             var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                            if (rec[0].attachment.Count > 0)
+                            {
+                                separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
+                                foreach (AttachmentDTO attachment in rec[0].attachment)
+                                {
+                                    separateOnucched.fileAddInFilePanel(attachment);
+
+                                }
+                            }
+                            else
+                            {
+                                separateOnucched.filePnaeloff();
+                            }
                             separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                             separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
                             separateOnucched.createDate = onucchedsingleListRec.created;
@@ -3028,6 +3095,19 @@ namespace dNothi.Desktop.UI
                                             panel28.Visible = false;
                                             //DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                             var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                            if (rec[0].attachment.Count > 0)
+                                            {
+                                                separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
+                                                foreach (AttachmentDTO attachment in rec[0].attachment)
+                                                {
+                                                    separateOnucched.fileAddInFilePanel(attachment);
+
+                                                }
+                                            }
+                                            else
+                                            {
+                                                separateOnucched.filePnaeloff();
+                                            }
                                             separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                                             separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), z.onuchhed_no.ToString());
                                             separateOnucched.createDate = onucchedsingleListRec.created;
