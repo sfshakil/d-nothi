@@ -5,6 +5,7 @@ using dNothi.Desktop.UI.OtherModule;
 using dNothi.Services.DakServices;
 using dNothi.Services.GuardFile;
 using dNothi.Services.GuardFile.Model;
+using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
 using System;
 using System.Collections.Generic;
@@ -21,18 +22,20 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
 {
     public partial class CreateGuardFileTypeForm : Form
     {
+       ISyncerService _syncerServices { get; set; }
         IGuardFileService<GuardFileCategory,GuardFileCategory.Record> _guardFileCategoryService { get; set; }
         IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService { get; set; }
         IUserService _userService { get; set; }
         public const string GuardFileCategory = "GuardFileCategories";
       
         AllAlartMessage _alartMessage = new AllAlartMessage();
-        public CreateGuardFileTypeForm(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService)
+        public CreateGuardFileTypeForm(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService, ISyncerService syncerServices)
         {
             InitializeComponent();
             _userService = userService;
             _guardFileCategoryService = guardFileCategoryService;
             _guardFileService = guardFileService;
+            _syncerServices = syncerServices;
         }
 
         public DakUserParam dakUserParam { get; }
@@ -74,7 +77,7 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
                 if(response.status=="success")
                 {
                     this.Close();
-                    GurdFileControl gurdFileControl = new GurdFileControl(_userService, _guardFileService, _guardFileCategoryService);
+                    GurdFileControl gurdFileControl = new GurdFileControl(_userService, _guardFileService, _guardFileCategoryService,  _syncerServices);
                     gurdFileControl._currentPage = _currentPage;
                     gurdFileControl.Show();
                     _alartMessage.SuccessMessage("ধরন সংরক্ষণ সফল হয়েছে।");

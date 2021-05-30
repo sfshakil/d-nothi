@@ -392,6 +392,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IUserControlFactory.cs" />
+    <Compile Include="UI\AllAlartMessage.cs" />
     <Compile Include="UI\CustomMessageBox\OnlineToggleButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -500,6 +501,12 @@
     <Compile Include="UI\Dak\DakRightTopInfoIconUserControl.Designer.cs">
       <DependentUpon>DakRightTopInfoIconUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\DakSortingUserControl\DakSortingUserUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\DakSortingUserControl\DakSortingUserUserControl.Designer.cs">
+      <DependentUpon>DakSortingUserUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\DakTagForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -518,6 +525,12 @@
     <Compile Include="UI\Dak\FileUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UI\Dak\Emnei.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\Emnei.Designer.cs">
+      <DependentUpon>Emnei.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\FileUserControl.Designer.cs">
       <DependentUpon>FileUserControl.cs</DependentUpon>
     </Compile>
@@ -534,6 +547,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\OnuchhedShonjukti.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\OnuchhedShonjukti.Designer.cs">
+      <DependentUpon>OnuchhedShonjukti.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NewNothiTypeGuidelines.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -576,7 +595,6 @@
     <Compile Include="UI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\GuardFileUI\AllAlartMessage.cs" />
     <Compile Include="UI\GuardFileUI\gdftype.cs" />
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\CreateGuardFileTypeForm.cs">
       <SubType>Form</SubType>
@@ -607,12 +625,6 @@
     </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuarFileListViewDeleteUC.Designer.cs">
       <DependentUpon>GuarFileListViewDeleteUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\GuardFileUI\GuardFileUserControls\PDFViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\GuardFileUI\GuardFileUserControls\PDFViewer.Designer.cs">
-      <DependentUpon>PDFViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\SearchableComboBox.cs">
       <SubType>UserControl</SubType>
@@ -1339,6 +1351,9 @@
     <EmbeddedResource Include="UI\Dak\DakRightTopInfoIconUserControl.resx">
       <DependentUpon>DakRightTopInfoIconUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\DakSortingUserControl\DakSortingUserUserControl.resx">
+      <DependentUpon>DakSortingUserUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DakTagForm.resx">
       <DependentUpon>DakTagForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1347,6 +1362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\DragAndDropOfficerPanel.resx">
       <DependentUpon>DragAndDropOfficerPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\Emnei.resx">
+      <DependentUpon>Emnei.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\FileUserControl.resx">
       <DependentUpon>FileUserControl.cs</DependentUpon>
@@ -1371,6 +1389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutboxNoteShomuho.resx">
       <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\OnuchhedShonjukti.resx">
+      <DependentUpon>OnuchhedShonjukti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\OnumoditoPodobi.resx">
       <DependentUpon>OnumoditoPodobi.cs</DependentUpon>
@@ -1416,9 +1437,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuarFileListViewDeleteUC.resx">
       <DependentUpon>GuarFileListViewDeleteUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\PDFViewer.resx">
-      <DependentUpon>PDFViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\SearchableComboBox.resx">
       <DependentUpon>SearchableComboBox.cs</DependentUpon>

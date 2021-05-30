@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -16,14 +18,17 @@ namespace dNothi.Services.DakServices
     public class DakListSortedService : IDakListSortedService
     {
         IRepository<DakItem> _dakItem;
-        IRepository<DakType> _daktype;
+        IRepository<Core.Entities.DakType> _daktype;
+        IRepository<DakItemAction> _dakItemAction;
         IDakListService _dakListService { get; set; }
-        public DakListSortedService(IRepository<DakItem> dakItem, IRepository<DakType> daktype, IDakListService dakListService)
+        public DakListSortedService(IRepository<DakItem> dakItem, IRepository<Core.Entities.DakType> daktype, IDakListService dakListService, IRepository<DakItemAction> dakItemAction)
         {
             _daktype = daktype;
             _dakItem = dakItem;
             _dakListService = dakListService;
+            _dakItemAction = dakItemAction;
         }
+       
 
         private void SaveOrUpdateDakSortedListJsonResponse(DakUserParam dakListUserParam, string responseJson, string searchParam)
         {
@@ -114,7 +119,7 @@ namespace dNothi.Services.DakServices
         public void SaveorUpdateDakSorted(DakListSortedResponse dakListArchiveResponse)
         {
 
-              DakType dakType = new DakType();
+            Core.Entities.DakType dakType = new Core.Entities.DakType();
                 dakType.is_outbox = true;
                 if (dakListArchiveResponse.data != null)
                 {
@@ -138,9 +143,69 @@ namespace dNothi.Services.DakServices
             
         }
 
+        public DakForwardResponse GetDakForwardResponse(DakForwardRequestParam dakForwardParam)
+        {
+            DakForwardResponse dakForwardResponse = new DakForwardResponse();
+            if (!InternetConnection.Check())
+            {
+                dakForwardResponse.status = "success";
+                dakForwardResponse.message = "Local";
+
+                DakItemAction dakItemAction = _dakItemAction.Table.FirstOrDefault(a => a.dak_id == dakForwardParam.dak_id && a.dak_type == dakForwardParam.dak_type && a.is_copied_dak == dakForwardParam.is_copied_dak);
+
+                if (dakItemAction == null)
+                {
+                    dakItemAction = new DakItemAction();
+                    dakItemAction.isForwarded = true;
+                    dakItemAction.is_copied_dak = dakForwardParam.is_copied_dak;
+                    dakItemAction.dak_id = dakForwardParam.dak_id;
+                    dakItemAction.dak_type = dakForwardParam.dak_type;
+                    dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(dakForwardParam);
+
+                    _dakItemAction.Insert(dakItemAction);
+                }
+
+                return dakForwardResponse;
+            }
+            try
+            {
 
 
+                var DakForwardApi = new RestClient(GetAPIDomain() + GetDakForwardEndpoint());
+                DakForwardApi.Timeout = -1;
+                var dakForwardRequest = new RestRequest(Method.POST);
+                dakForwardRequest.AddHeader("api-version", GetAPIVersion());
+                dakForwardRequest.AddHeader("Authorization", "Bearer " + dakForwardParam.token);
+                dakForwardRequest.AlwaysMultipartFormData = true;
+                dakForwardRequest.AddParameter("sender_info", dakForwardParam.sender_info);
+                dakForwardRequest.AddParameter("receiver_info", dakForwardParam.receiver_info);
+                dakForwardRequest.AddParameter("onulipi_info", dakForwardParam.onulipi_info);
+                dakForwardRequest.AddParameter("dak_type", dakForwardParam.dak_type);
+                dakForwardRequest.AddParameter("dak_id", dakForwardParam.dak_id);
+                dakForwardRequest.AddParameter("priority", dakForwardParam.priority);
+                dakForwardRequest.AddParameter("comment", dakForwardParam.comment);
+                dakForwardRequest.AddParameter("security", dakForwardParam.security);
+                dakForwardRequest.AddParameter("is_copied_dak", dakForwardParam.is_copied_dak);
 
+                IRestResponse dakForwardResponseAPI = DakForwardApi.Execute(dakForwardRequest);
+
+
+                var dakForwardResponseJson = dakForwardResponseAPI.Content;
+             
+                dakForwardResponse = JsonConvert.DeserializeObject<DakForwardResponse>(dakForwardResponseJson);
+                return dakForwardResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
+        protected string GetDakForwardEndpoint()
+        {
+            return DefaultAPIConfiguration.GetDakForwardEndpoint;
+        }
         protected string GetAPIVersion()
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;

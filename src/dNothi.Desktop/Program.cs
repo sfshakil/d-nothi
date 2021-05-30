@@ -27,6 +27,7 @@ using dNothi.Services.KhasraService;
 using dNothi.Desktop.UI.OtherModule;
 using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
 using dNothi.Services.GuardFile;
+using dNothi.Services.DakServices.DakSharingService;
 
 namespace dNothi.Desktop
 {
@@ -231,6 +232,9 @@ namespace dNothi.Desktop
             builder.RegisterType<ProtibedonService>().As<IProtibedonService>();
             builder.RegisterType<PotrojariServices>().As<IPotrojariServices>();
             builder.RegisterType<KhosraSaveService>().As<IKhosraSaveService>();
+            builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
+            builder.RegisterGeneric(typeof(DakSharingService<>)).As(typeof(IDakSharingService<>)).AsSelf();
+
 
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();

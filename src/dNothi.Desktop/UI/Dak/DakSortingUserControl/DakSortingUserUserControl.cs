@@ -11,14 +11,15 @@ using dNothi.Utility;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Desktop.Properties;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Dak_List_Inbox;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class DakSortedUserControl : UserControl
+    public partial class DakSortingUserUserControl : UserControl
     {
         private bool MouseIsOverControl() =>
     this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
-        public DakSortedUserControl()
+        public DakSortingUserUserControl()
         {
             InitializeComponent();
             dakPriorityIconPanel.Visible = false;
@@ -28,9 +29,7 @@ namespace dNothi.Desktop.UI.Dak
             SetDefaultFont(this.Controls);
 
         }
-        public bool _isChecked;
-        public bool isChecked { get { return _isChecked; } set { _isChecked = value; dakCheckBox.Checked = value; } }
-
+       
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
             foreach (Control ctrl in collection)
@@ -77,6 +76,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+       
         private void MouseHoverAction()
         {
             if (MouseIsOverControl())
@@ -112,24 +112,46 @@ namespace dNothi.Desktop.UI.Dak
         private string _drafteddakPriority;
         private int _potrojari;
         public int _dakAttachmentCount;
+        public bool _isChecked;
+        public DakListRecordsDTO _dak;
+        public DakListRecordsDTO dak { get { return _dak; } set { _dak = value;
+                if (value != null)
+                {
+                    try
+                    {
+                        mainPrapokButton.Text += value.movement_status.to.Select(x => x.officer).FirstOrDefault();
+                    }
+                    catch
+                    {
+                        mainPrapokButton.Visible = false;
+                    }
+                }
+            }
+        }
+        public bool isChecked { get { return _isChecked; } set { _isChecked = value; dakCheckBox.Checked = value; } }
 
+      
         public DraftedDecisionDTO _draftedDecisionDTO { get; set; }
 
 
         public DraftedDecisionDTO draftedDecision
         {
             get { return _draftedDecisionDTO; }
-            set { _draftedDecisionDTO = value;
+            set
+            {
+                _draftedDecisionDTO = value;
+                if (value != null)
+                { 
                 try
                 {
-                    if(draftedDecision.decision != "")
+                    if (draftedDecision.decision != "")
                     {
-                        DraftedDecisionLabel.Text += draftedDecision.decision;
+                            DraftedDecisionLabel.Text += draftedDecision.decision;
                     }
                     else
                     {
-                        DraftedDecisionLabel.Visible = false;
-                        draftedDecisionsSidelabel.Visible = false;
+                            DraftedDecisionLabel.Visible = false;
+                           draftedDecisionsSidelabel.Visible = false;
                     }
 
                     DakPriorityList dakPriorityList = new DakPriorityList();
@@ -137,7 +159,7 @@ namespace dNothi.Desktop.UI.Dak
 
                     if (priorityName == "")
                     {
-                        dakPriorityIconPanel.Visible = false;
+                         dakPriorityIconPanel.Visible = false;
                     }
                     else
                     {
@@ -148,7 +170,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                   
+
 
 
                     DakSecurityList dakSecurityList = new DakSecurityList();
@@ -185,7 +207,11 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     draftedInfoPanel.Visible = false;
                 }
-            
+                 }
+                else
+                {
+                    draftedInfoPanel.Visible = false;
+                }
             }
         }
 
@@ -217,12 +243,6 @@ namespace dNothi.Desktop.UI.Dak
 
 
                 rightInfoPanel.potrojari = value;
-
-
-
-
-
-
 
             }
         }
@@ -412,30 +432,7 @@ namespace dNothi.Desktop.UI.Dak
             set { _date = value; dateLabel.Text = value; }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void DakSortedUserControl_MouseHover(object sender, EventArgs e)
-        {
-
-        }
-
-        private void subjectLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DakSortedUserControl_MouseEnter(object sender, EventArgs e)
-        {
-            MouseHoverAction();
-        }
-
-        private void DakSortedUserControl_MouseLeave(object sender, EventArgs e)
-        {
-            MouseHoverAction();
-        }
+       
 
         [Browsable(true)]
         [Category("Action")]
@@ -446,10 +443,7 @@ namespace dNothi.Desktop.UI.Dak
             if (this.ButtonClick != null)
                 this.ButtonClick(sender, e);
         }
-
-
-
-
+        
         public event EventHandler DakAttachmentButton;
 
         private void DakAttachmentButton_Click(object sender, EventArgs e)
@@ -526,11 +520,58 @@ namespace dNothi.Desktop.UI.Dak
                 this.CheckBoxClick(sender, e);
         }
 
+        public event EventHandler DakTagButtonCLick;
+        private void dakTagButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakTagButtonCLick != null)
+                this.DakTagButtonCLick(sender, e);
+        }
+        public event EventHandler DakTagShowButtonCLick;
+        private void dakTagListButton_Click(object sender, EventArgs e)
+        {
+            if (this.DakTagShowButtonCLick != null)
+                this.DakTagShowButtonCLick(sender, e);
+        }
+        public event EventHandler RemoveIconButtonClick;
+        private void removeIconButton_Click(object sender, EventArgs e)
+        {
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি নিশ্চিতভাবে ডাকটি মুছে ফেলতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
+            {
+
+                if (this.RemoveIconButtonClick != null)
+                    this.RemoveIconButtonClick(sender, e);
+            }
+        }
 
 
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void DakSortedUserControl_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void subjectLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DakSortedUserControl_MouseEnter(object sender, EventArgs e)
+        {
+            MouseHoverAction();
+        }
+
+        private void DakSortedUserControl_MouseLeave(object sender, EventArgs e)
+        {
+            MouseHoverAction();
+        }
         private void dakMovementStatusButton_MouseHover(object sender, EventArgs e)
         {
             dakMovementStatusButton.BackgroundImage = Resources.Repeal_alt_Hover;
@@ -592,30 +633,15 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
-        public event EventHandler DakTagButtonCLick;
-        private void dakTagButton_Click(object sender, EventArgs e)
-        {
-            if (this.DakTagButtonCLick != null)
-                this.DakTagButtonCLick(sender, e);
-        }
-        public event EventHandler DakTagShowButtonCLick;
-        private void dakTagListButton_Click(object sender, EventArgs e)
-        {
-            if (this.DakTagShowButtonCLick != null)
-                this.DakTagShowButtonCLick(sender, e);
-        }
-
+       
         private void DakSortedUserControl_Load(object sender, EventArgs e)
         {
             dakActionPanel.Location = new Point(this.Width, dakActionPanel.Location.Y);
-
         }
-        public event EventHandler PreronIconButtonClick;
-        private void preronIconButton_Click(object sender, EventArgs e)
-        {
-            if (this.PreronIconButtonClick != null)
-                this.PreronIconButtonClick(sender, e);
 
+        private void mainPrapokButton_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
