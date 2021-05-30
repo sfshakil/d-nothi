@@ -190,10 +190,6 @@ namespace dNothi.Desktop.UI
         }
         public static void CallShadowWindow(Form form)
         {
-
-
-
-
             Form hideform = new Form();
 
 

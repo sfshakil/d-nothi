@@ -36,7 +36,15 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
         int start = 1;
         int end = 10;
         int totalrecord = 0;
-       public  GuardFileCategory.Record guardFileCategory { get; set; }
+        public GuardFileCategory.Record _guardFileCategory { get; set; }
+        public GuardFileCategory.Record guardFileCategory { get {return _guardFileCategory; } 
+            
+            set { _guardFileCategory=value;
+
+                singleDakHeaderLabel.Text = "ধরণের নামঃ "+ value.name_bng;
+
+
+            } }
 
         public GuardFileListForm(IUserService userService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService)
         {
@@ -47,7 +55,7 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
 
          
 
-            Formload();
+            
 
 
         }
@@ -74,7 +82,7 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
             dakListUserParam.CategoryId = guardFileCategory.id;
             dakListUserParam.NameSearchParam = naemSearchparam;
             var datalist = _guardFileService.GetList(dakListUserParam, 2);
-            RemoveArbitraryRow(guardFileListTableLayoutPanel, guardFileListTableLayoutPanel.RowCount, 3);
+            RemoveArbitraryRow(guardFileListTableLayoutPanel, guardFileListTableLayoutPanel.RowCount,3);
            
             if (datalist != null)
             {
@@ -92,7 +100,7 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
                                url = s.attachment.url
                            }).ToList();
 
-                    int row = 2;
+                    int row = 3;
                     foreach (var item in datalist.data.records)
                     {
 
@@ -104,7 +112,7 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
                             id = item.attachment.id
                         };
 
-                        GuardFileListRowUserControl guardFileTable = UserControlFactory.Create<GuardFileListRowUserControl>();
+                        GuardFileRowUserControl guardFileTable = UserControlFactory.Create<GuardFileRowUserControl>();
 
 
                         guardFileTable.id = item.id;
@@ -340,5 +348,24 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
         }
 
         #endregion
+
+        private void GuardFileListForm_Shown(object sender, EventArgs e)
+        {
+            Formload();
+        }
+
+        private void AddDesignationCloseButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void GuardFileListForm_Load(object sender, EventArgs e)
+        {
+            Screen scr = Screen.FromPoint(this.Location);
+            this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
+
+            this.Height = scr.WorkingArea.Height;
+
+        }
     }
 }

@@ -286,6 +286,8 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileTypeTableUserControl>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuarFileListViewDeleteUC>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileBrowseUC>().AsSelf();
+            builder.RegisterType<GuardFileRowUserControl>().AsSelf();
+            
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
 
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();

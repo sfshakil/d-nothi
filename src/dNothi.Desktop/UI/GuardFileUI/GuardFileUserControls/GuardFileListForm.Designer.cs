@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guardFileListTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.guardFileTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
@@ -40,18 +40,18 @@
             this.searchHeaderTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.searchBoxPanel = new System.Windows.Forms.Panel();
             this.dakSearchSubTextBox = new PlaceholderTextBox.PlaceholderTextBox();
-            this.recycleIconButton = new FontAwesome.Sharp.IconButton();
-            this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.perPageRowLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
-            this.PreviousIconButton = new FontAwesome.Sharp.IconButton();
-            this.nextIconButton = new FontAwesome.Sharp.IconButton();
             this.HeadingPanel = new System.Windows.Forms.Panel();
-            this.AddDesignationCloseButton = new FontAwesome.Sharp.IconButton();
-            this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.recycleIconButton = new FontAwesome.Sharp.IconButton();
+            this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
+            this.PreviousIconButton = new FontAwesome.Sharp.IconButton();
+            this.nextIconButton = new FontAwesome.Sharp.IconButton();
+            this.AddDesignationCloseButton = new FontAwesome.Sharp.IconButton();
+            this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guardFileListTableLayoutPanel.SuspendLayout();
@@ -151,14 +151,13 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.searchHeaderTableLayoutPanel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 72);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(566, 49);
             this.tableLayoutPanel2.TabIndex = 39;
             // 
@@ -206,43 +205,6 @@
             this.dakSearchSubTextBox.Size = new System.Drawing.Size(146, 19);
             this.dakSearchSubTextBox.TabIndex = 3;
             // 
-            // recycleIconButton
-            // 
-            this.recycleIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.recycleIconButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.recycleIconButton.FlatAppearance.BorderSize = 0;
-            this.recycleIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlText;
-            this.recycleIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.recycleIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.recycleIconButton.IconChar = FontAwesome.Sharp.IconChar.Recycle;
-            this.recycleIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.recycleIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.recycleIconButton.IconSize = 24;
-            this.recycleIconButton.Location = new System.Drawing.Point(248, 0);
-            this.recycleIconButton.Margin = new System.Windows.Forms.Padding(0);
-            this.recycleIconButton.Name = "recycleIconButton";
-            this.recycleIconButton.Size = new System.Drawing.Size(35, 49);
-            this.recycleIconButton.TabIndex = 29;
-            this.recycleIconButton.UseVisualStyleBackColor = false;
-            // 
-            // dakSearchUsingTextButton
-            // 
-            this.dakSearchUsingTextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
-            this.dakSearchUsingTextButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dakSearchUsingTextButton.FlatAppearance.BorderSize = 0;
-            this.dakSearchUsingTextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.dakSearchUsingTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSearchUsingTextButton.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.dakSearchUsingTextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-            this.dakSearchUsingTextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakSearchUsingTextButton.IconSize = 32;
-            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(214, 0);
-            this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
-            this.dakSearchUsingTextButton.Size = new System.Drawing.Size(34, 49);
-            this.dakSearchUsingTextButton.TabIndex = 30;
-            this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.perPageRowLabel);
@@ -280,6 +242,72 @@
             this.totalLabel.TabIndex = 33;
             this.totalLabel.Text = " সর্বমোট: ১২";
             this.totalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HeadingPanel
+            // 
+            this.HeadingPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.HeadingPanel.Controls.Add(this.AddDesignationCloseButton);
+            this.HeadingPanel.Controls.Add(this.sliderCrossButton);
+            this.HeadingPanel.Controls.Add(this.singleDakHeaderLabel);
+            this.HeadingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HeadingPanel.Location = new System.Drawing.Point(20, 0);
+            this.HeadingPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.HeadingPanel.Name = "HeadingPanel";
+            this.HeadingPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
+            this.HeadingPanel.Size = new System.Drawing.Size(572, 69);
+            this.HeadingPanel.TabIndex = 38;
+            // 
+            // singleDakHeaderLabel
+            // 
+            this.singleDakHeaderLabel.AutoSize = true;
+            this.singleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.singleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
+            this.singleDakHeaderLabel.MaximumSize = new System.Drawing.Size(450, 0);
+            this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(82, 21);
+            this.singleDakHeaderLabel.TabIndex = 28;
+            this.singleDakHeaderLabel.Text = "ধরণের নামঃ";
+            // 
+            // recycleIconButton
+            // 
+            this.recycleIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.recycleIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.recycleIconButton.FlatAppearance.BorderSize = 0;
+            this.recycleIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlText;
+            this.recycleIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.recycleIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.recycleIconButton.IconChar = FontAwesome.Sharp.IconChar.Recycle;
+            this.recycleIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.recycleIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.recycleIconButton.IconSize = 24;
+            this.recycleIconButton.Location = new System.Drawing.Point(248, 0);
+            this.recycleIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.recycleIconButton.Name = "recycleIconButton";
+            this.recycleIconButton.Size = new System.Drawing.Size(35, 49);
+            this.recycleIconButton.TabIndex = 29;
+            this.recycleIconButton.UseVisualStyleBackColor = false;
+            this.recycleIconButton.Click += new System.EventHandler(this.recycleIconButton_Click);
+            // 
+            // dakSearchUsingTextButton
+            // 
+            this.dakSearchUsingTextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
+            this.dakSearchUsingTextButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dakSearchUsingTextButton.FlatAppearance.BorderSize = 0;
+            this.dakSearchUsingTextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.dakSearchUsingTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakSearchUsingTextButton.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.dakSearchUsingTextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
+            this.dakSearchUsingTextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakSearchUsingTextButton.IconSize = 32;
+            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(214, 0);
+            this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
+            this.dakSearchUsingTextButton.Size = new System.Drawing.Size(34, 49);
+            this.dakSearchUsingTextButton.TabIndex = 30;
+            this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
+            this.dakSearchUsingTextButton.Click += new System.EventHandler(this.dakSearchUsingTextButton_Click);
             // 
             // PreviousIconButton
             // 
@@ -319,20 +347,6 @@
             this.nextIconButton.UseVisualStyleBackColor = false;
             this.nextIconButton.Click += new System.EventHandler(this.nextIconButton_Click);
             // 
-            // HeadingPanel
-            // 
-            this.HeadingPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.HeadingPanel.Controls.Add(this.AddDesignationCloseButton);
-            this.HeadingPanel.Controls.Add(this.sliderCrossButton);
-            this.HeadingPanel.Controls.Add(this.singleDakHeaderLabel);
-            this.HeadingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HeadingPanel.Location = new System.Drawing.Point(20, 0);
-            this.HeadingPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.HeadingPanel.Name = "HeadingPanel";
-            this.HeadingPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
-            this.HeadingPanel.Size = new System.Drawing.Size(572, 69);
-            this.HeadingPanel.TabIndex = 38;
-            // 
             // AddDesignationCloseButton
             // 
             this.AddDesignationCloseButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -351,6 +365,7 @@
             this.AddDesignationCloseButton.TabIndex = 41;
             this.AddDesignationCloseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.AddDesignationCloseButton.UseVisualStyleBackColor = false;
+            this.AddDesignationCloseButton.Click += new System.EventHandler(this.AddDesignationCloseButton_Click);
             // 
             // sliderCrossButton
             // 
@@ -373,25 +388,12 @@
             this.sliderCrossButton.TabIndex = 38;
             this.sliderCrossButton.UseVisualStyleBackColor = false;
             // 
-            // singleDakHeaderLabel
-            // 
-            this.singleDakHeaderLabel.AutoSize = true;
-            this.singleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.singleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
-            this.singleDakHeaderLabel.MaximumSize = new System.Drawing.Size(150, 0);
-            this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(118, 21);
-            this.singleDakHeaderLabel.TabIndex = 28;
-            this.singleDakHeaderLabel.Text = "গার্ড ফাইলের ধরন";
-            // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewImageColumn1.HeaderText = "+";
             this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn1.MinimumWidth = 2;
@@ -401,10 +403,10 @@
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.NullValue = null;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewImageColumn2.HeaderText = "+";
             this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
@@ -415,6 +417,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(608, 680);
             this.Controls.Add(this.guardFileListTableLayoutPanel);
@@ -423,6 +426,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "GuardFileListForm";
             this.Text = "CreateGuardFileTypeForm";
+            this.Load += new System.EventHandler(this.GuardFileListForm_Load);
+            this.Shown += new System.EventHandler(this.GuardFileListForm_Shown);
             this.guardFileListTableLayoutPanel.ResumeLayout(false);
             this.guardFileListTableLayoutPanel.PerformLayout();
             this.guardFileTableLayoutPanel.ResumeLayout(false);

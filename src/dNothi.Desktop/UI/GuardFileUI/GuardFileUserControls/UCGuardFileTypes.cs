@@ -15,6 +15,7 @@ using dNothi.Services.GuardFile.Model;
 using dNothi.Services.DakServices;
 using dNothi.Utility;
 using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
+using dNothi.Services.SyncServices;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -22,8 +23,8 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
     {
         IUserService _userService { get; set; }
         public int page=1;
-       // public int page { get { return currentPage; } set { currentPage = value; }  } 
-
+        // public int page { get { return currentPage; } set { currentPage = value; }  } 
+        ISyncerService _syncerServices { get; set; }
         int pageLimit = 10;
        
         int totalPage = 1;
@@ -32,12 +33,13 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         int totalrecord = 0;
         IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
         IGuardFileService<GuardFileCategory,GuardFileCategory.Record> _guardFileCategoryService { get; set; }
-        public UCGuardFileTypes(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService)
+        public UCGuardFileTypes(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService, ISyncerService syncerServices)
         {
             InitializeComponent();
             _userService = userService;
             _guardFileCategoryService = guardFileCategoryService;
             _guardFileService = guardFileService;
+            _syncerServices = _syncerServices;
             // page = 1;
             start = 1;
             LoadGuardFileTypeList();
@@ -105,10 +107,35 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
         private void GuardFileList_Click(object sender, EventArgs e, GuardFileCategory.Record model)
         {
-            GurdFileControl c = new GurdFileControl(_userService, _guardFileService,_guardFileCategoryService,null);
+           
             GuardFileListForm guardFileListForm = new GuardFileListForm(_userService,_guardFileService);
             guardFileListForm.guardFileCategory = model;
-            UIDesignCommonMethod.CalPopUpWindow(guardFileListForm,c);
+           
+            CalPopUpWindow(guardFileListForm);
+          
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = this.Size;
+            hideform.Opacity = .6;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+         
         }
         public static void RemoveTableLayoutPanelRow(TableLayoutPanel panel, int rows,int rowIndex)
         {
