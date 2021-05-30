@@ -134,7 +134,7 @@
             this.subjectLabel.Margin = new System.Windows.Forms.Padding(0);
             this.subjectLabel.MaximumSize = new System.Drawing.Size(800, 0);
             this.subjectLabel.Name = "subjectLabel";
-            this.subjectLabel.Size = new System.Drawing.Size(777, 42);
+            this.subjectLabel.Size = new System.Drawing.Size(773, 42);
             this.subjectLabel.TabIndex = 64;
             this.subjectLabel.Text = "ন্যাশনাল কনসালটেন্ট ফন্যাশনাল কনসালটেন্ট ফর ই-নথি ইমপ্লিমেন্টেশন sjfdfhjdashfjkds" +
     "agfbdsafjdsagfdhkasfgakgadhkfgad hagfgvb hagfhagdaj fadhgfadbvhadbfhadbfhdabfhad" +
@@ -338,7 +338,7 @@
             this.designationLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.designationLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
-            this.designationLabel.Location = new System.Drawing.Point(495, 0);
+            this.designationLabel.Location = new System.Drawing.Point(493, 0);
             this.designationLabel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.designationLabel.Name = "designationLabel";
             this.designationLabel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
@@ -355,7 +355,7 @@
             this.nameLabel.Location = new System.Drawing.Point(0, 0);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(495, 21);
+            this.nameLabel.Size = new System.Drawing.Size(493, 21);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "হাসানুজ্জামান dfgdfgf dgfdgfd d asdfafadf adfadfaf hvgjhvgjh n mbn nm nnb ";
             this.nameLabel.Click += new System.EventHandler(this.nameLabel_Click);
@@ -848,7 +848,7 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.MinimumSize = new System.Drawing.Size(0, 22);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(796, 22);
+            this.panel4.Size = new System.Drawing.Size(794, 22);
             this.panel4.TabIndex = 94;
             // 
             // label2
@@ -895,7 +895,7 @@
             this.movementStatusDetailsButton.MaximumSize = new System.Drawing.Size(0, 30);
             this.movementStatusDetailsButton.MinimumSize = new System.Drawing.Size(0, 30);
             this.movementStatusDetailsButton.Name = "movementStatusDetailsButton";
-            this.movementStatusDetailsButton.Size = new System.Drawing.Size(272, 30);
+            this.movementStatusDetailsButton.Size = new System.Drawing.Size(270, 30);
             this.movementStatusDetailsButton.TabIndex = 0;
             this.movementStatusDetailsButton.Text = "ন্যাশনাল কনসালটেন্ট ফর ই-নথি ইমপ্লিমেন্টেশন";
             this.movementStatusDetailsButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;

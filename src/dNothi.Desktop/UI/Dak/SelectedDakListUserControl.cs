@@ -21,6 +21,17 @@ namespace dNothi.Desktop.UI.Dak
 
         public bool _isSelected;
         public DakUserDTO _dakUserDTO;
+
+        public DakOriginDTO _dakorigin { get; set; }
+        public DakOriginDTO dakorigin
+        {
+            get { return _dakorigin; }
+            set
+            {
+                _dakorigin = value;
+               
+            }
+        }
         public string _prerok;
 
         public DakUserDTO dakUserDTO

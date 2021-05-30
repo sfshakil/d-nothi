@@ -30,35 +30,32 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DakBoxSharingForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.prerokBachaiTabControl = new System.Windows.Forms.TabControl();
+            this.officerSearchTabPage = new System.Windows.Forms.TabPage();
+            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
+            this.prerokBachaiOfficerButton = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.HeadingPanel = new System.Windows.Forms.Panel();
+            this.crossButton = new FontAwesome.Sharp.IconButton();
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.officerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.officerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.crossButton = new FontAwesome.Sharp.IconButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.searchOfficerRightListBox = new System.Windows.Forms.ListBox();
-            this.officerSearchTabPage = new System.Windows.Forms.TabPage();
-            this.label19 = new System.Windows.Forms.Label();
-            this.prerokBachaiOfficerButton = new System.Windows.Forms.Button();
-            this.prerokBachaiTabControl = new System.Windows.Forms.TabControl();
-            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
-            this.dakBoxSharedOfficerRowUserControl2 = new dNothi.Desktop.UI.Dak.DakBoxSharedOfficerRowUserControl();
-            this.dakBoxSharedOfficerRowUserControl1 = new dNothi.Desktop.UI.Dak.DakBoxSharedOfficerRowUserControl();
             this.searchOfficerRightXTextBox = new dNothi.Desktop.XTextBox();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.prerokBachaiTabControl.SuspendLayout();
+            this.officerSearchTabPage.SuspendLayout();
             this.HeadingPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.officerTableLayoutPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.officerSearchTabPage.SuspendLayout();
-            this.prerokBachaiTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -80,6 +77,103 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(553, 710);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.prerokBachaiTabControl);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(35, 132);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(493, 528);
+            this.panel2.TabIndex = 41;
+            // 
+            // prerokBachaiTabControl
+            // 
+            this.prerokBachaiTabControl.Controls.Add(this.officerSearchTabPage);
+            this.prerokBachaiTabControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.prerokBachaiTabControl.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prerokBachaiTabControl.Location = new System.Drawing.Point(0, 39);
+            this.prerokBachaiTabControl.Margin = new System.Windows.Forms.Padding(3, 10, 3, 4);
+            this.prerokBachaiTabControl.Name = "prerokBachaiTabControl";
+            this.prerokBachaiTabControl.Padding = new System.Drawing.Point(12, 8);
+            this.prerokBachaiTabControl.SelectedIndex = 0;
+            this.prerokBachaiTabControl.Size = new System.Drawing.Size(493, 479);
+            this.prerokBachaiTabControl.TabIndex = 69;
+            // 
+            // officerSearchTabPage
+            // 
+            this.officerSearchTabPage.Controls.Add(this.officerSearchList);
+            this.officerSearchTabPage.Controls.Add(this.prerokBachaiOfficerButton);
+            this.officerSearchTabPage.Controls.Add(this.label19);
+            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 37);
+            this.officerSearchTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerSearchTabPage.Name = "officerSearchTabPage";
+            this.officerSearchTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerSearchTabPage.Size = new System.Drawing.Size(485, 438);
+            this.officerSearchTabPage.TabIndex = 0;
+            this.officerSearchTabPage.Text = "অফিসার খুঁজুন";
+            this.officerSearchTabPage.UseVisualStyleBackColor = true;
+            // 
+            // officerSearchList
+            // 
+            this.officerSearchList.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.officerSearchList.AutoSize = true;
+            this.officerSearchList.BackColor = System.Drawing.Color.White;
+            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchList.isListShown = false;
+            this.officerSearchList.itemList = null;
+            this.officerSearchList.Location = new System.Drawing.Point(-4, 57);
+            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
+            this.officerSearchList.Name = "officerSearchList";
+            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
+            this.officerSearchList.selectedId = 0;
+            this.officerSearchList.Size = new System.Drawing.Size(441, 44);
+            this.officerSearchList.TabIndex = 92;
+            // 
+            // prerokBachaiOfficerButton
+            // 
+            this.prerokBachaiOfficerButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.prerokBachaiOfficerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prerokBachaiOfficerButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prerokBachaiOfficerButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.prerokBachaiOfficerButton.Image = ((System.Drawing.Image)(resources.GetObject("prerokBachaiOfficerButton.Image")));
+            this.prerokBachaiOfficerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.prerokBachaiOfficerButton.Location = new System.Drawing.Point(16, 121);
+            this.prerokBachaiOfficerButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.prerokBachaiOfficerButton.Name = "prerokBachaiOfficerButton";
+            this.prerokBachaiOfficerButton.Size = new System.Drawing.Size(139, 48);
+            this.prerokBachaiOfficerButton.TabIndex = 91;
+            this.prerokBachaiOfficerButton.Text = "নিশ্চিত করুন";
+            this.prerokBachaiOfficerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.prerokBachaiOfficerButton.UseVisualStyleBackColor = false;
+            this.prerokBachaiOfficerButton.Click += new System.EventHandler(this.prerokBachaiOfficerButton_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(13, 19);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(76, 18);
+            this.label19.TabIndex = 89;
+            this.label19.Text = "অফিসার খুঁজুন";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
+            this.label4.Size = new System.Drawing.Size(88, 39);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "শেয়ার করুন";
+            // 
             // HeadingPanel
             // 
             this.HeadingPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -91,8 +185,27 @@
             this.HeadingPanel.Margin = new System.Windows.Forms.Padding(0);
             this.HeadingPanel.Name = "HeadingPanel";
             this.HeadingPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
-            this.HeadingPanel.Size = new System.Drawing.Size(482, 73);
+            this.HeadingPanel.Size = new System.Drawing.Size(493, 73);
             this.HeadingPanel.TabIndex = 39;
+            // 
+            // crossButton
+            // 
+            this.crossButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.crossButton.AutoSize = true;
+            this.crossButton.CausesValidation = false;
+            this.crossButton.FlatAppearance.BorderSize = 0;
+            this.crossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.crossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.crossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
+            this.crossButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.crossButton.IconSize = 24;
+            this.crossButton.Location = new System.Drawing.Point(460, 22);
+            this.crossButton.MaximumSize = new System.Drawing.Size(30, 28);
+            this.crossButton.Name = "crossButton";
+            this.crossButton.Size = new System.Drawing.Size(30, 28);
+            this.crossButton.TabIndex = 39;
+            this.crossButton.UseVisualStyleBackColor = true;
+            this.crossButton.Click += new System.EventHandler(this.crossButton_Click);
             // 
             // sliderCrossButton
             // 
@@ -107,7 +220,7 @@
             this.sliderCrossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.sliderCrossButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.sliderCrossButton.IconSize = 18;
-            this.sliderCrossButton.Location = new System.Drawing.Point(482, 25);
+            this.sliderCrossButton.Location = new System.Drawing.Point(493, 25);
             this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
             this.sliderCrossButton.MaximumSize = new System.Drawing.Size(0, 32);
             this.sliderCrossButton.Name = "sliderCrossButton";
@@ -137,8 +250,26 @@
             this.panel1.Location = new System.Drawing.Point(35, 83);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(482, 211);
+            this.panel1.Size = new System.Drawing.Size(493, 49);
             this.panel1.TabIndex = 40;
+            // 
+            // officerTableLayoutPanel
+            // 
+            this.officerTableLayoutPanel.AutoSize = true;
+            this.officerTableLayoutPanel.ColumnCount = 1;
+            this.officerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.officerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.officerTableLayoutPanel.Location = new System.Drawing.Point(0, 48);
+            this.officerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.officerTableLayoutPanel.Name = "officerTableLayoutPanel";
+            this.officerTableLayoutPanel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
+            this.officerTableLayoutPanel.RowCount = 2;
+            this.officerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.officerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.officerTableLayoutPanel.Size = new System.Drawing.Size(493, 1);
+            this.officerTableLayoutPanel.TabIndex = 39;
+            this.officerTableLayoutPanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.BorderTableLayoutColor);
+            this.officerTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderTableLayoutColor);
             // 
             // label2
             // 
@@ -149,7 +280,7 @@
             this.label2.Location = new System.Drawing.Point(0, 29);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.label2.Size = new System.Drawing.Size(221, 19);
+            this.label2.Size = new System.Drawing.Size(216, 19);
             this.label2.TabIndex = 30;
             this.label2.Text = "(যাদেরকে আগত ডাকের তালিকা শেয়ার করা হয়েছে)";
             // 
@@ -166,71 +297,6 @@
             this.label1.Size = new System.Drawing.Size(116, 29);
             this.label1.TabIndex = 29;
             this.label1.Text = "অফিসার তালিকা";
-            // 
-            // officerTableLayoutPanel
-            // 
-            this.officerTableLayoutPanel.AutoSize = true;
-            this.officerTableLayoutPanel.ColumnCount = 1;
-            this.officerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.officerTableLayoutPanel.Controls.Add(this.dakBoxSharedOfficerRowUserControl2, 0, 1);
-            this.officerTableLayoutPanel.Controls.Add(this.dakBoxSharedOfficerRowUserControl1, 0, 0);
-            this.officerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.officerTableLayoutPanel.Location = new System.Drawing.Point(0, 48);
-            this.officerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.officerTableLayoutPanel.Name = "officerTableLayoutPanel";
-            this.officerTableLayoutPanel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
-            this.officerTableLayoutPanel.RowCount = 2;
-            this.officerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.officerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.officerTableLayoutPanel.Size = new System.Drawing.Size(482, 163);
-            this.officerTableLayoutPanel.TabIndex = 39;
-            this.officerTableLayoutPanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.BorderTableLayoutColor);
-            this.officerTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderTableLayoutColor);
-            // 
-            // crossButton
-            // 
-            this.crossButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.crossButton.AutoSize = true;
-            this.crossButton.CausesValidation = false;
-            this.crossButton.FlatAppearance.BorderSize = 0;
-            this.crossButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.crossButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.crossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
-            this.crossButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.crossButton.IconSize = 24;
-            this.crossButton.Location = new System.Drawing.Point(449, 22);
-            this.crossButton.MaximumSize = new System.Drawing.Size(30, 28);
-            this.crossButton.Name = "crossButton";
-            this.crossButton.Size = new System.Drawing.Size(30, 28);
-            this.crossButton.TabIndex = 39;
-            this.crossButton.UseVisualStyleBackColor = true;
-            this.crossButton.Click += new System.EventHandler(this.crossButton_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.prerokBachaiTabControl);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(35, 294);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(482, 518);
-            this.panel2.TabIndex = 41;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
-            this.label4.Size = new System.Drawing.Size(90, 39);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "শেয়ার করুন";
             // 
             // panel8
             // 
@@ -276,112 +342,6 @@
             this.searchOfficerRightListBox.Size = new System.Drawing.Size(350, 242);
             this.searchOfficerRightListBox.TabIndex = 35;
             // 
-            // officerSearchTabPage
-            // 
-            this.officerSearchTabPage.Controls.Add(this.officerSearchList);
-            this.officerSearchTabPage.Controls.Add(this.prerokBachaiOfficerButton);
-            this.officerSearchTabPage.Controls.Add(this.label19);
-            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 37);
-            this.officerSearchTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchTabPage.Name = "officerSearchTabPage";
-            this.officerSearchTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchTabPage.Size = new System.Drawing.Size(474, 438);
-            this.officerSearchTabPage.TabIndex = 0;
-            this.officerSearchTabPage.Text = "অফিসার খুঁজুন";
-            this.officerSearchTabPage.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(13, 19);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(78, 18);
-            this.label19.TabIndex = 89;
-            this.label19.Text = "অফিসার খুঁজুন";
-            // 
-            // prerokBachaiOfficerButton
-            // 
-            this.prerokBachaiOfficerButton.BackColor = System.Drawing.Color.DodgerBlue;
-            this.prerokBachaiOfficerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prerokBachaiOfficerButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prerokBachaiOfficerButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.prerokBachaiOfficerButton.Image = ((System.Drawing.Image)(resources.GetObject("prerokBachaiOfficerButton.Image")));
-            this.prerokBachaiOfficerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.prerokBachaiOfficerButton.Location = new System.Drawing.Point(16, 121);
-            this.prerokBachaiOfficerButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.prerokBachaiOfficerButton.Name = "prerokBachaiOfficerButton";
-            this.prerokBachaiOfficerButton.Size = new System.Drawing.Size(139, 48);
-            this.prerokBachaiOfficerButton.TabIndex = 91;
-            this.prerokBachaiOfficerButton.Text = "নিশ্চিত করুন";
-            this.prerokBachaiOfficerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.prerokBachaiOfficerButton.UseVisualStyleBackColor = false;
-            // 
-            // prerokBachaiTabControl
-            // 
-            this.prerokBachaiTabControl.Controls.Add(this.officerSearchTabPage);
-            this.prerokBachaiTabControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.prerokBachaiTabControl.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prerokBachaiTabControl.Location = new System.Drawing.Point(0, 39);
-            this.prerokBachaiTabControl.Margin = new System.Windows.Forms.Padding(3, 10, 3, 4);
-            this.prerokBachaiTabControl.Name = "prerokBachaiTabControl";
-            this.prerokBachaiTabControl.Padding = new System.Drawing.Point(12, 8);
-            this.prerokBachaiTabControl.SelectedIndex = 0;
-            this.prerokBachaiTabControl.Size = new System.Drawing.Size(482, 479);
-            this.prerokBachaiTabControl.TabIndex = 69;
-            // 
-            // officerSearchList
-            // 
-            this.officerSearchList.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.officerSearchList.AutoSize = true;
-            this.officerSearchList.BackColor = System.Drawing.Color.White;
-            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officerSearchList.isListShown = false;
-            this.officerSearchList.itemList = null;
-            this.officerSearchList.Location = new System.Drawing.Point(16, 57);
-            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
-            this.officerSearchList.Name = "officerSearchList";
-            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
-            this.officerSearchList.selectedId = 0;
-            this.officerSearchList.Size = new System.Drawing.Size(441, 44);
-            this.officerSearchList.TabIndex = 92;
-            // 
-            // dakBoxSharedOfficerRowUserControl2
-            // 
-            this.dakBoxSharedOfficerRowUserControl2._designation = "(প্রকল্প পরিচালক (অতিরিক্ত সচিব))";
-            this.dakBoxSharedOfficerRowUserControl2._designationId = 0;
-            this.dakBoxSharedOfficerRowUserControl2._officeName = "প্রকল্প পরিচালকের দপ্তর এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম";
-            this.dakBoxSharedOfficerRowUserControl2._officerName = "ড. মোঃ আব্দুল মান্নান. পিএএ ";
-            this.dakBoxSharedOfficerRowUserControl2.AutoSize = true;
-            this.dakBoxSharedOfficerRowUserControl2.designation = "(প্রকল্প পরিচালক (অতিরিক্ত সচিব))";
-            this.dakBoxSharedOfficerRowUserControl2.designationId = 0;
-            this.dakBoxSharedOfficerRowUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dakBoxSharedOfficerRowUserControl2.Location = new System.Drawing.Point(1, 82);
-            this.dakBoxSharedOfficerRowUserControl2.Margin = new System.Windows.Forms.Padding(0);
-            this.dakBoxSharedOfficerRowUserControl2.Name = "dakBoxSharedOfficerRowUserControl2";
-            this.dakBoxSharedOfficerRowUserControl2.officeName = "প্রকল্প পরিচালকের দপ্তর এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম";
-            this.dakBoxSharedOfficerRowUserControl2.officerName = "ড. মোঃ আব্দুল মান্নান. পিএএ ";
-            this.dakBoxSharedOfficerRowUserControl2.Size = new System.Drawing.Size(480, 81);
-            this.dakBoxSharedOfficerRowUserControl2.TabIndex = 41;
-            // 
-            // dakBoxSharedOfficerRowUserControl1
-            // 
-            this.dakBoxSharedOfficerRowUserControl1._designation = "(প্রকল্প পরিচালক (অতিরিক্ত সচিব))";
-            this.dakBoxSharedOfficerRowUserControl1._designationId = 0;
-            this.dakBoxSharedOfficerRowUserControl1._officeName = "প্রকল্প পরিচালকের দপ্তর এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম";
-            this.dakBoxSharedOfficerRowUserControl1._officerName = "ড. মোঃ আব্দুল মান্নান. পিএএ ";
-            this.dakBoxSharedOfficerRowUserControl1.AutoSize = true;
-            this.dakBoxSharedOfficerRowUserControl1.designation = "(প্রকল্প পরিচালক (অতিরিক্ত সচিব))";
-            this.dakBoxSharedOfficerRowUserControl1.designationId = 0;
-            this.dakBoxSharedOfficerRowUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dakBoxSharedOfficerRowUserControl1.Location = new System.Drawing.Point(1, 1);
-            this.dakBoxSharedOfficerRowUserControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.dakBoxSharedOfficerRowUserControl1.Name = "dakBoxSharedOfficerRowUserControl1";
-            this.dakBoxSharedOfficerRowUserControl1.officeName = "প্রকল্প পরিচালকের দপ্তর এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম";
-            this.dakBoxSharedOfficerRowUserControl1.officerName = "ড. মোঃ আব্দুল মান্নান. পিএএ ";
-            this.dakBoxSharedOfficerRowUserControl1.Size = new System.Drawing.Size(480, 81);
-            this.dakBoxSharedOfficerRowUserControl1.TabIndex = 40;
-            // 
             // searchOfficerRightXTextBox
             // 
             this.searchOfficerRightXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -411,17 +371,15 @@
             this.Shown += new System.EventHandler(this.DakBoxSharingForm_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.prerokBachaiTabControl.ResumeLayout(false);
+            this.officerSearchTabPage.ResumeLayout(false);
+            this.officerSearchTabPage.PerformLayout();
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.officerTableLayoutPanel.ResumeLayout(false);
-            this.officerTableLayoutPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.officerSearchTabPage.ResumeLayout(false);
-            this.officerSearchTabPage.PerformLayout();
-            this.prerokBachaiTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -436,8 +394,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel officerTableLayoutPanel;
-        private DakBoxSharedOfficerRowUserControl dakBoxSharedOfficerRowUserControl2;
-        private DakBoxSharedOfficerRowUserControl dakBoxSharedOfficerRowUserControl1;
         private FontAwesome.Sharp.IconButton crossButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;

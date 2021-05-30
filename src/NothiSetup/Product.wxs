@@ -128,6 +128,7 @@
       <ComponentGroupRef Id="tinymce_js_tinymce_plugins_noneditable_files" />
       <ComponentGroupRef Id="Scripts_fontawesome_files" />
       <ComponentGroupRef Id="Content_files" />
+     
       <ComponentGroupRef Id="tinymce_js_tinymce_plugins_directionality_files" />
       <ComponentGroupRef Id="tinymce_js_tinymce_plugins_contextmenu_files" />
       <ComponentGroupRef Id="tinymce_js_tinymce_plugins_colorpicker_files" />
@@ -168,6 +169,8 @@
       <ComponentGroupRef Id="tinymce_examples_css_files" />
       <ComponentGroupRef Id="tinymce_files" />
       <ComponentGroupRef Id="webfonts_files" />
+      <ComponentGroupRef Id="x86_files" />
+      <ComponentGroupRef Id="Microsoft.VC90.CRT_files" />
       <ComponentGroupRef Id="tinymce_js_tinymce_themes_modern_files" />
       <ComponentGroupRef Id="tinymce_examples_templates_files" />
       <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_advlink_files" />
@@ -430,9 +433,12 @@
             </Directory>
           </Directory>
           <Directory Id="webfonts" Name="webfonts" />
-          <Directory Id="bin_amd64" Name="amd64">
-            <Directory Id="bin_amd64_Microsoft.VC90.CRT" Name="Microsoft.VC90.CRT" />
+          <Directory Id="x86" Name="x86">
+          <Directory Id="Microsoft.VC90.CRT" Name="Microsoft.VC90.CRT" />
+          
           </Directory>
+           
+         
 
 
         </Directory>
@@ -446,45 +452,46 @@
     </Directory>
 
   </Fragment>
-  <Fragment>
+  
+<Fragment>
 
 
-    <ComponentGroup Id="bin_amd64_group" Directory="bin_amd64">
-      <Component Id="bin_amd64_group_sqlceca40.dll" Guid="6f4ebc6c-09b9-48e6-84fe-d2e94bd56414">
-        <File Id="bin_amd64_group_sqlceca40.dll" Name="sqlceca40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlceca40.dll" />
+    <ComponentGroup Id="x86_files" Directory="x86">
+      <Component Id="sqlceca40.dll" Guid="6f4ebc6c-09b9-48e6-84fe-d2e94bd56414">
+        <File Id="sqlceca40.dll" Name="sqlceca40.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\sqlceca40.dll" />
       </Component>
-      <Component Id="bin_amd64_group_sqlcecompact40.dll" Guid="dbe1b51b-8265-4d11-9a72-ffa0bbb78074">
-        <File Id="bin_amd64_group_sqlcecompact40.dll" Name="sqlcecompact40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlcecompact40.dll" />
+      <Component Id="sqlcecompact40.dll" Guid="dbe1b51b-8265-4d11-9a72-ffa0bbb78074">
+        <File Id="sqlcecompact40.dll" Name="sqlcecompact40.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\sqlcecompact40.dll" />
       </Component>
-      <Component Id="bin_amd64_group_sqlceer40EN.dll" Guid="8397fc9e-127b-4ffe-bcca-1dc53172bb3e">
-        <File Id="bin_amd64_group_sqlceer40EN.dll" Name="sqlceer40EN.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlceer40EN.dll" />
+      <Component Id="sqlceer40EN.dll" Guid="8397fc9e-127b-4ffe-bcca-1dc53172bb3e">
+        <File Id="sqlceer40EN.dll" Name="sqlceer40EN.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\sqlceer40EN.dll" />
       </Component>
-      <Component Id="bin_amd64_group_sqlceme40.dll" Guid="c974c803-9794-495b-9f1a-3bdf3b967fba">
-        <File Id="bin_amd64_group_sqlceme40.dll" Name="sqlceme40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlceme40.dll" />
+      <Component Id="sqlceme40.dll" Guid="c974c803-9794-495b-9f1a-3bdf3b967fba">
+        <File Id="sqlceme40.dll" Name="sqlceme40.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\sqlceme40.dll" />
       </Component>
-      <Component Id="bin_amd64_group_sqlceqp40.dll" Guid="7c2a6784-923a-47a3-b90d-30746ed199fc">
-        <File Id="bin_amd64_group_sqlceqp40.dll" Name="sqlceqp40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlceqp40.dll" />
+      <Component Id="sqlceqp40.dll" Guid="7c2a6784-923a-47a3-b90d-30746ed199fc">
+        <File Id="sqlceqp40.dll" Name="sqlceqp40.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\sqlceqp40.dll" />
       </Component>
-      <Component Id="bin_amd64_group_sqlcese40.dll" Guid="4b9b276f-527e-4ee5-8171-c6cbc1b46779">
-        <File Id="bin_amd64_group_sqlcese40.dll" Name="sqlcese40.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\sqlcese40.dll" />
+      <Component Id="sqlcese40.dll" Guid="4b9b276f-527e-4ee5-8171-c6cbc1b46779">
+        <File Id="sqlcese40.dll" Name="sqlcese40.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\sqlcese40.dll" />
       </Component>
     </ComponentGroup>
 
 
   </Fragment>
-  <Fragment>
-    <ComponentGroup Id="bin_amd64_Microsoft.VC90.CRT_group" Directory="bin_amd64_Microsoft.VC90.CRT">
-      <Component Id="bin_amd64_Microsoft.VC90.CRT_group_Microsoft.VC90.CRT.manifest" Guid="c5299ba0-1a4a-47de-b1d2-85f56ea1f7d4">
-        <File Id="bin_amd64_Microsoft.VC90.CRT_group_Microsoft.VC90.CRT.manifest" Name="Microsoft.VC90.CRT.manifest" Source="$(var.dNothi.Desktop_TargetDir)amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+  
+    <Fragment>
+    <ComponentGroup Id="Microsoft.VC90.CRT_files" Directory="Microsoft.VC90.CRT">
+      <Component Id="Microsoft.VC90.CRT.manifest" Guid="c5299ba0-1a4a-47de-b1d2-85f56ea1f7d4">
+        <File Id="Microsoft.VC90.CRT.manifest" Name="Microsoft.VC90.CRT.manifest" Source="$(var.dNothi.Desktop_TargetDir)x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
       </Component>
-      <Component Id="bin_amd64_Microsoft.VC90.CRT_group_msvcr90.dllt" Guid="7824a264-67d3-4a84-9fbc-7961f96fbce6">
-        <File Id="bin_amd64_Microsoft.VC90.CRT_group_msvcr90.dll" Name="msvcr90.dll" Source="$(var.dNothi.Desktop_TargetDir)amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+      <Component Id="msvcr90.dllt" Guid="7824a264-67d3-4a84-9fbc-7961f96fbce6">
+        <File Id="msvcr90.dll" Name="msvcr90.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\Microsoft.VC90.CRT\msvcr90.dll" />
       </Component>
 
     </ComponentGroup>
 
   </Fragment>
-
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->

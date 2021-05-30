@@ -29,6 +29,14 @@ namespace dNothi.Services.GuardFile
                 request.AddParameter("office_id", userParam.office_id);
                 request.AddParameter("page", userParam.page);
                 request.AddParameter("limit", userParam.limit);
+                if(userParam.CategoryId>0)
+                {
+                    request.AddParameter("guard_file_category_id", userParam.CategoryId);
+                }
+                if(userParam.NameSearchParam!=string.Empty)
+                {
+                    request.AddParameter("search_params", userParam.NameSearchParam);
+                }
 
                 IRestResponse Response = Api.Execute(request);
 

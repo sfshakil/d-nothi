@@ -23,6 +23,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.Services.DakServices.DakSharingService.Model;
+using dNothi.Services.DakServices.DakSharingService;
+using Newtonsoft.Json;
+using AutoMapper;
 
 namespace dNothi.Desktop.UI
 {
@@ -55,7 +59,7 @@ namespace dNothi.Desktop.UI
         public List<DakTagDTO> _dak_Tags { get; set; }
         public NothiDTO nothi { get; set; }
         public WaitFormFunc WaitForm;
-
+        AllAlartMessage alartMessage = new AllAlartMessage();
         INothiInboxNoteServices _nothiInboxNote { get; set; }
         IUserService _userService { get; set; }
         ISyncerService _syncerServices { get; set; }
@@ -78,6 +82,8 @@ namespace dNothi.Desktop.UI
         IDakNothivuktoService _dakNothivuktoService { get; set; }
         IDakListSortedService _dakListSortedService { get; set; }
         IDakForwardService _dakForwardService { get; set; }
+        IDakSharingService<ResponseModel> _dakSharingServeice { get; set; }
+
         public DakCatagoryList _currentDakCatagory { get; set; }
 
         public Dashboard(IDakInboxServices dakInbox,
@@ -97,7 +103,7 @@ namespace dNothi.Desktop.UI
              IDakFolderService dakFolderService,
              IProtibedonService protibedonService,
                INothiInboxNoteServices nothiInboxNote,
-        IDakNothijatoService dakNothijatoService)
+        IDakNothijatoService dakNothijatoService, IDakSharingService<ResponseModel> dakSharingServeice)
         {
             _nothiInboxNote = nothiInboxNote;
             _dakNothivuktoService = dakNothivuktoService;
@@ -118,6 +124,7 @@ namespace dNothi.Desktop.UI
             _currentDakCatagory = new DakCatagoryList();
             _dakFolderService = dakFolderService;
             _syncerServices = syncerServices;
+            _dakSharingServeice = dakSharingServeice;
             InitializeComponent();
 
 
@@ -1559,11 +1566,13 @@ namespace dNothi.Desktop.UI
             if (dakUploadDropDownPanel.Visible == true)
             {
                 dakUploadDropDownPanel.Visible = false;
+                dakUploadMenuArrow.IconChar= FontAwesome.Sharp.IconChar.ChevronDown;
             }
             else
             {
                 HideSubmenu();
                 dakUploadDropDownPanel.Visible = true;
+                dakUploadMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
         }
 
@@ -2326,8 +2335,6 @@ namespace dNothi.Desktop.UI
                 noDakTableLayoutPanel.Visible = true;
             }
         }
-
-
         private void LoadDakNothijatoinPanel(List<DakListRecordsDTO> dakLists)
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -2548,7 +2555,7 @@ namespace dNothi.Desktop.UI
 
 
                 dakSortedUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDak(); };
-
+                dakSortedUserControl.PreronIconButtonClick += delegate (object sender, EventArgs e) { PreronIconButton_Click(sender, e, dakListInboxRecordsDTO); };
 
                 i = i + 1;
                 dakSortedUserControls.Add(dakSortedUserControl);
@@ -2567,7 +2574,91 @@ namespace dNothi.Desktop.UI
 
             }
         }
+        private void PreronIconButton_Click(object sender, EventArgs e, DakListRecordsDTO daks)
+        {
+            bool isPreron = true;
+            DakForwoard(isPreron, daks);
+        }
 
+        private void DakForwoard(bool isPreron,DakListRecordsDTO daks)
+        {
+            string comment = string.Empty;
+            if (isPreron)
+            {
+                 comment = "নথিতে উপস্থাপন করুন";
+            }
+            else
+            {
+                comment = "চেক করুন";
+
+            }
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "অপনি কি ডাকটি প্রেরণ করতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
+            {
+
+                DakForwardRequestParam dakForwardRequestParam = new DakForwardRequestParam();
+
+                var userParam = _userService.GetLocalDakUserParam();
+                DakPriorityList dakPriority = new DakPriorityList();
+                int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(daks.dak_user.dak_priority));
+
+
+
+                DakSecurityList dakSecurityList = new DakSecurityList();
+                int dak_security_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(daks.dak_user.dak_security));
+
+
+                dakForwardRequestParam.priority = dak_priority_id;
+                dakForwardRequestParam.security = dak_security_id;
+
+                dakForwardRequestParam.comment = comment;
+                dakForwardRequestParam.token = userParam.token;
+
+                var config = new MapperConfiguration(cfg =>
+                          cfg.CreateMap<DakUserParam, DakForwardRequestSenderInfo>()
+                      );
+                var mapper = new Mapper(config);
+                var dakSender = mapper.Map<DakForwardRequestSenderInfo>(userParam);
+
+
+                dakForwardRequestParam.sender_info = dakForwardRequestParam.CSharpObjtoJson(dakSender);
+
+
+                DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(userParam);
+
+                var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault();
+                dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
+
+                //var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                //dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
+
+
+                List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
+               
+               // OnulipiprapokDTOs.Add(designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == viewDesignationSeal.designation_id));
+                dakForwardRequestParam.onulipi_info = dakForwardRequestParam.CSharpObjtoJson(OnulipiprapokDTOs);
+
+                
+                dakForwardRequestParam.dak_id = daks.dak_user.dak_id;
+                dakForwardRequestParam.is_copied_dak = daks.dak_user.is_copied_dak;
+                dakForwardRequestParam.dak_type = daks.dak_user.dak_type;
+
+
+                var dakForwardResponse = _dakForwardService.GetDakForwardResponse(dakForwardRequestParam);
+
+                if (dakForwardResponse.status == "success")
+                {
+                    alartMessage.SuccessMessage("ডাকটি প্রেরন করা হয়েছে।");
+                    LoadDakListSorted();
+                }
+                else
+                {
+                    alartMessage.ErrorMessage("পুনরায় চেষ্টা করুন।");
+                }
+            }
+        }
         private void LoadSingleDakSortedinPanel(DakListRecordsDTO dakListInboxRecordsDTO)
         {
 
@@ -3402,16 +3493,277 @@ namespace dNothi.Desktop.UI
 
         private void dakSortedUserButton_Click(object sender, EventArgs e)
         {
-            NormalizeDashBoard();
+           
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             dakSortingUserFlowLayoutPanel.Controls.Clear();
+            if (dakSortingUserFlowLayoutPanel.Visible)
+            {
+                dakSortingUserFlowLayoutPanel.Visible = false;
+               
+            }
+            else
+            {
+                dakSortingUserFlowLayoutPanel.Visible = true;
+                var userParam = _userService.GetLocalDakUserParam();
+                int actionlinkid = 1;
+                int assinorid = 1;
+                var response = _dakSharingServeice.GetList(userParam, actionlinkid, assinorid);
+                if (response.status == "success")
+                {
+                   
+                    var data = JsonConvert.DeserializeObject<ShareList.Data>(response.data.ToString());
+                    
+                    if (data.assignor.Count > 0)
+                    {
+                        foreach (var item in data.assignor)
+                        {
+                            Button button = new Button();
+                            button.Text ="- "+ item.name + "(" + item.designation_level + ")";
+
+                            button.AutoSize = true;
+                            button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+                            button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+                            button.Dock = System.Windows.Forms.DockStyle.Top;
+                            button.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+                            button.FlatAppearance.BorderSize = 0;
+                            button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+                            button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+                            button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                            button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                            button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+                            button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                            button.Location = new System.Drawing.Point(0, 0);
+                            button.MaximumSize =new Size(230,0);
+                            button.Size = new System.Drawing.Size(234,60);
 
 
+                            button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                            button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+                            button.UseVisualStyleBackColor = false;
+                            button.Click += delegate (object os, EventArgs ev)
+                            {
+                                linkLabel_LinkClicked(os, ev, item.designation_id);
+                            };
+                            //DakBacaiUserControl dakuc = new DakBacaiUserControl();
+                            //dakuc.name = item.name;
+                            //dakuc.designation = item.designation_level;
 
-
+                            //dakuc.LinkClicked += delegate (object os, LinkLabelLinkClickedEventArgs ev) { linkLabel_LinkClicked(os, ev, item.designation_id); };
+                            ///dakuc.Dock = DockStyle.Top;
+                            // UIDesignCommonMethod.AddRowinTable()
+                            dakSortingUserFlowLayoutPanel.Controls.Add(button);
+                        }
+                    }
+                }
+            }
+           
+            // dakBacaiFlowLayoutPanel
 
         }
+
+        public int _assignor_designation_id;
+        private void linkLabel_LinkClicked(object sender, EventArgs e, int assignor_designation_id)
+        {
+
+            LoadDakBacaikaran(assignor_designation_id);
+        }
+        private void LoadDakBacaikaran(int assignor_designation_id)
+        {
+            _assignor_designation_id = assignor_designation_id;
+            string total = "সর্বমোট: ";
+            int pagelimit = 10;
+            int page = 1;
+            //pageLabel.Text=
+
+            var userParam = _userService.GetLocalDakUserParam();
+            userParam.limit = pagelimit; userParam.page = page;
+            var response = _dakSharingServeice.GetList(userParam, 2, assignor_designation_id);
+            if (response.status == "success")
+            {
+                var data = JsonConvert.DeserializeObject<DakListDTO>(response.data.ToString());
+                totalLabel.Text = total + ConversionMethod.EnglishNumberToBangla(data.total_records.ToString());
+                if (data.records.Count > 0)
+                {
+                    LoadDakSortinginPanel(data.records);
+                }
+
+            }
+        }
+        private void LoadDakSortinginPanel(List<DakListRecordsDTO> dakLists)
+        {
+            List<DakSortingUserUserControl> dakSortedUserControls = new List<DakSortingUserUserControl>();
+            int i = 0;
+            foreach (DakListRecordsDTO dakListInboxRecordsDTO in dakLists)
+            {
+
+                DakSortingUserUserControl dakSortedUserControl = new DakSortingUserUserControl();
+                dakSortedUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
+                dakSortedUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
+                dakSortedUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
+                dakSortedUserControl.source = dakListInboxRecordsDTO.dak_origin.sender_name;
+                dakSortedUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
+                dakSortedUserControl.dak = dakListInboxRecordsDTO;
+                dakSortedUserControl.receiver = GetDakListMainReceiverName(dakListInboxRecordsDTO.movement_status);
+                dakSortedUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
+                dakSortedUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
+                dakSortedUserControl.dakSecurityIconValue = dakListInboxRecordsDTO.dak_user.dak_security;
+                dakSortedUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
+                dakSortedUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
+                dakSortedUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
+                if (dakListInboxRecordsDTO.nothi != null)
+                {
+                    dakSortedUserControl.nothiNo = dakListInboxRecordsDTO.nothi.nothi_no;
+                }
+                dakSortedUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
+                dakSortedUserControl.draftedDecision = dakListInboxRecordsDTO.dak_user.draftedDecisionDTO;
+                DakCatagoryList dakCatagoryList = new DakCatagoryList();
+                dakCatagoryList.isSorted = true;
+
+                // dakSortedUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
+                // dakSortedUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                //dakSortedUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
+                dakSortedUserControl.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakSortedUserControl.DakArchiveButtonClick += delegate (object sender, EventArgs e) { DakArchive_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakSortedUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakSortedUserControl.NothijatoButtonClick += delegate (object sender, EventArgs e) { Nothitejato_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+
+                dakSortedUserControl.DakTagButtonCLick += delegate (object sender, EventArgs e) { DakTag_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_Tags, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakSortedUserControl.DakTagShowButtonCLick += delegate (object sender, EventArgs e) { DakTagShow_ButtonClick(dakListInboxRecordsDTO.dak_Tags); };
+                dakSortedUserControl.RemoveIconButtonClick += delegate (object sender, EventArgs e) { RemoveDak_ButtonClick(sender, e, dakListInboxRecordsDTO); };
+
+                dakSortedUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDakSharing(); };
+
+
+                i = i + 1;
+                dakSortedUserControls.Add(dakSortedUserControl);
+
+            }
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.AutoScroll = true;
+
+
+            for (int j = 0; j <= dakSortedUserControls.Count - 1; j++)
+            {
+                dakSortedUserControls[j].Dock = DockStyle.Fill;
+                int row = dakBodyFlowLayoutPanel.RowCount++;
+                dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+                dakBodyFlowLayoutPanel.Controls.Add(dakSortedUserControls[j], 0, row);
+
+            }
+        }
+       
+        private void RemoveDak_ButtonClick(object sender, EventArgs e,DakListRecordsDTO dakListInboxRecordsDTO)
+        { 
+            if(dakListInboxRecordsDTO!=null)
+            {
+                DakSorting dakSorting = new DakSorting {  
+                    dak_type= dakListInboxRecordsDTO.dak_user.dak_type,
+                    is_copied_dak=(byte) dakListInboxRecordsDTO.dak_user.is_copied_dak,
+                    id= dakListInboxRecordsDTO.dak_user.dak_id, dak_inbox_designation_id=_assignor_designation_id };
+                var response = _dakSharingServeice.DakSortingDelete(_userService.GetLocalDakUserParam(), dakSorting);
+                if (response.status == "success")
+                {
+                    alartMessage.SuccessMessage("মুছে ফেলা হয়েছে।");
+
+                    LoadDakBacaikaran( _assignor_designation_id);
+
+                }
+                else
+                {
+                    alartMessage.ErrorMessage("পুনরায় চেষ্ঠা করুন।");
+                }
+            }
+        }
+            private void SelectorUnselectSingleDakSharing()
+                {
+            MyToolTip.SetToolTip(multipleDakForwardButton, "ডাক সর্টিং");
+
+            var daksharingUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakSortingUserUserControl>().ToList();
+
+                    if (daksharingUserControls.Count > 0)
+                    {
+              
+                if (daksharingUserControls.Any(a => a._isChecked))
+                        {
+
+                            multipleSelectionPanel.Visible = true;
+                            multipleDakForwardButton.Visible = true;
+                     multipleDakArchiveButton.Visible = false;
+                    multipleDakNothijatoButton.Visible = false;
+                    multipleDakNothivuktoButton.Visible = false;
+                    starButton.Visible = false;
+                        }
+                        else
+                        {
+                            multipleSelectionPanel.Visible = false;
+                        }
+                    }
+                }
+  
+//        private void LoadDakSortinginPanel(List<dNothi.Services.DakServices.DakSharingService.Model.DakList.Record> dakLists)
+//{
+//    List<DakSortingUserUserControl> dakSortedUserControls = new List<DakSortingUserUserControl>();
+//    int i = 0;
+//    foreach (dNothi.Services.DakServices.DakSharingService.Model.DakList.Record dakListInboxRecordsDTO in dakLists)
+//    {
+
+//        DakSortingUserUserControl dakSortedUserControl = new DakSortingUserUserControl();
+//        dakSortedUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
+//        dakSortedUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
+//        dakSortedUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
+//        dakSortedUserControl.source = dakListInboxRecordsDTO.dak_origin.sender_name;
+//        dakSortedUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
+
+//        // dakSortedUserControl.receiver = GetDakListMainReceiverName(dakListInboxRecordsDTO.movement_status);
+//        dakSortedUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
+//        dakSortedUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
+//        dakSortedUserControl.dakSecurityIconValue = dakListInboxRecordsDTO.dak_user.dak_security;
+//        dakSortedUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
+//        dakSortedUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
+//        dakSortedUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
+//        if (dakListInboxRecordsDTO.nothi != null)
+//        {
+//            // dakSortedUserControl.nothiNo = dakListInboxRecordsDTO.nothi.nothi_no;
+//        }
+//        dakSortedUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
+//        // dakSortedUserControl.draftedDecision = dakListInboxRecordsDTO.dak_user.draftedDecisionDTO;
+//        DakCatagoryList dakCatagoryList = new DakCatagoryList();
+//        dakCatagoryList.isSorted = true;
+
+//        // dakSortedUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
+//        // dakSortedUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+//        //dakSortedUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
+//        dakSortedUserControl.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+//        dakSortedUserControl.DakArchiveButtonClick += delegate (object sender, EventArgs e) { DakArchive_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+//        dakSortedUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+//        dakSortedUserControl.NothijatoButtonClick += delegate (object sender, EventArgs e) { Nothitejato_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+
+//        // dakSortedUserControl.DakTagButtonCLick += delegate (object sender, EventArgs e) { DakTag_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_Tags, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+//        // dakSortedUserControl.DakTagShowButtonCLick += delegate (object sender, EventArgs e) { DakTagShow_ButtonClick(dakListInboxRecordsDTO.dak_Tags); };
+
+
+//        dakSortedUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDak(); };
+
+
+//        i = i + 1;
+//        dakSortedUserControls.Add(dakSortedUserControl);
+
+//    }
+//    dakBodyFlowLayoutPanel.Controls.Clear();
+//    dakBodyFlowLayoutPanel.AutoScroll = true;
+
+
+//    for (int j = 0; j <= dakSortedUserControls.Count - 1; j++)
+//    {
+//        dakSortedUserControls[j].Dock = DockStyle.Fill;
+//        int row = dakBodyFlowLayoutPanel.RowCount++;
+//        dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+//        dakBodyFlowLayoutPanel.Controls.Add(dakSortedUserControls[j], 0, row);
+
+//    }
+//}
+
 
         private void designationDetailsPanel_LogoutButtonClick(object sender, EventArgs e)
         {
@@ -3462,6 +3814,7 @@ namespace dNothi.Desktop.UI
 
         private void SelectorUnselectSingleDak()
         {
+            MyToolTip.SetToolTip(multipleDakForwardButton, "ডাক প্রেরণ করুন");
             var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
 
             if (dakInboxUserControls.Count > 0)
@@ -3469,6 +3822,11 @@ namespace dNothi.Desktop.UI
                 if (dakInboxUserControls.Any(a => a._isChecked))
                 {
                     multipleSelectionPanel.Visible = true;
+                    multipleDakForwardButton.Visible = true;
+                    multipleDakArchiveButton.Visible = true;
+                    multipleDakNothijatoButton.Visible = true;
+                    multipleDakNothivuktoButton.Visible = true;
+                    starButton.Visible = true;
                 }
                 else
                 {
@@ -3479,6 +3837,7 @@ namespace dNothi.Desktop.UI
 
         private void multipleDakForwardButton_Click(object sender, EventArgs e)
         {
+            bool isdakbacai=false;
             List<DakListRecordsDTO> daks = new List<DakListRecordsDTO>();
 
 
@@ -3486,6 +3845,7 @@ namespace dNothi.Desktop.UI
 
             if (dakInboxUserControls.Count > 0)
             {
+                isdakbacai = false;
                 List<DakInboxUserControl> dakInboxSelectedUserControls = dakInboxUserControls.Where(a => a._isChecked == true).ToList();
                 if (dakInboxSelectedUserControls.Count > 0)
                 {
@@ -3496,25 +3856,50 @@ namespace dNothi.Desktop.UI
                 }
             }
 
+            // daksharing 
+            var daksharingUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakSortingUserUserControl>().ToList();
+
+            if (daksharingUserControls.Count > 0)
+            {
+                isdakbacai = true;
+                List<DakSortingUserUserControl> daksortingUserControls = daksharingUserControls.Where(a => a._isChecked == true).ToList();
+                if (daksortingUserControls.Count > 0)
+                {
+                    foreach (DakSortingUserUserControl daksortingUserControl in daksortingUserControls)
+                    {
+                       daks.Add(daksortingUserControl.dak);
+                    }
+                }
+            }
+
+            //end
+
             if (daks.Count > 0)
             {
                 var dakSendUserControl = FormFactory.Create<DakForwardUserControl>();
 
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-
                 DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(dakListUserParam);
-
-
-
 
                 dakSendUserControl.designationSealListResponse = designationSealListResponse;
                 dakSendUserControl.dakCount = daks.Count;
                 dakSendUserControl.isMultipleDak = true;
+                dakSendUserControl._fromDakBacai = isdakbacai;
                 dakSendUserControl.dakListRecordsDTO = daks;
+                dakSendUserControl._inbox_officer_designation_id = _assignor_designation_id;
                 dakSendUserControl.dak_List_User_Param = dakListUserParam;
                 dakSendUserControl.AddDesignationButtonClick += delegate (object snd, EventArgs eve) { AddDesignationUserControl_ButtonClick(sender, e); };
-                dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._IsDakLocallyUploaded); };
+                if(daksharingUserControls.Count>0)
+                {
+                    dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { linkLabel_LinkClicked(snd, eve, _assignor_designation_id); };
+                    
+                }
+                else
+                {
+                    dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { SuccessfullySingleDakForwarded(true, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._totalSuccessForwardRequest, dakSendUserControl._totalFailForwardRequest, dakSendUserControl._IsDakLocallyUploaded); };
+
+                }
 
 
 
@@ -4290,10 +4675,12 @@ namespace dNothi.Desktop.UI
             if (registerPanel.Visible)
             {
                 registerPanel.Visible = false;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
             }
             else
             {
                 registerPanel.Visible = true;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
         }
 
@@ -4308,12 +4695,12 @@ namespace dNothi.Desktop.UI
             RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
             registerReportUserControl.isDakGrohon = true;
             registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
-
-
-            registerReportUserControl.Dock = DockStyle.Fill;
-            int row = dakBodyFlowLayoutPanel.RowCount++;
-            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0F));
-            dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+           
+            UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, registerReportUserControl);
+           // registerReportUserControl.Dock = DockStyle.Fill;
+           // int row = dakBodyFlowLayoutPanel.RowCount++;
+          //  dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0F));
+          //  dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
         }
 
         private void registerBiliButton_Click(object sender, EventArgs e)
@@ -4400,10 +4787,12 @@ namespace dNothi.Desktop.UI
             if (protibedonPanel.Visible)
             {
                 protibedonPanel.Visible = false;
+                protibedonMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
             }
             else
             {
                 protibedonPanel.Visible = true;
+                protibedonMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
 
         }

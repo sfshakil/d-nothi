@@ -52,7 +52,7 @@
             this.deleteButton.Size = new System.Drawing.Size(30, 28);
             this.deleteButton.TabIndex = 33;
             this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click_1);
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // officeUnitLabel
             // 

@@ -35,6 +35,7 @@
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
+            this.onlineStatus = new FontAwesome.Sharp.IconButton();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.profileShowArrowButton = new FontAwesome.Sharp.IconButton();
             this.nothiModulePanel = new System.Windows.Forms.Panel();
@@ -107,6 +108,7 @@
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.moduleButton = new FontAwesome.Sharp.IconButton();
+            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.button30 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
@@ -125,6 +127,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button26 = new System.Windows.Forms.Button();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -176,15 +179,16 @@
             // 
             this.profilePanel.AutoSize = true;
             this.profilePanel.Controls.Add(this.userPictureBox);
+            this.profilePanel.Controls.Add(this.onlineStatus);
             this.profilePanel.Controls.Add(this.userNameLabel);
             this.profilePanel.Controls.Add(this.profileShowArrowButton);
             this.profilePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.profilePanel.Location = new System.Drawing.Point(761, 5);
+            this.profilePanel.Location = new System.Drawing.Point(740, 5);
             this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.profilePanel.Name = "profilePanel";
             this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 5, 10, 5);
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.profilePanel.Size = new System.Drawing.Size(352, 39);
+            this.profilePanel.Size = new System.Drawing.Size(373, 39);
             this.profilePanel.TabIndex = 28;
             // 
             // userPictureBox
@@ -206,13 +210,34 @@
             this.userPictureBox.TabIndex = 29;
             this.userPictureBox.TabStop = false;
             // 
+            // onlineStatus
+            // 
+            this.onlineStatus.AutoSize = true;
+            this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.onlineStatus.FlatAppearance.BorderSize = 0;
+            this.onlineStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.onlineStatus.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.onlineStatus.IconColor = System.Drawing.Color.Silver;
+            this.onlineStatus.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.onlineStatus.IconSize = 15;
+            this.onlineStatus.Location = new System.Drawing.Point(42, 5);
+            this.onlineStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineStatus.Name = "onlineStatus";
+            this.onlineStatus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.onlineStatus.Size = new System.Drawing.Size(21, 29);
+            this.onlineStatus.TabIndex = 31;
+            this.onlineStatus.UseVisualStyleBackColor = false;
+            // 
             // userNameLabel
             // 
             this.userNameLabel.AutoSize = true;
             this.userNameLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.userNameLabel.Location = new System.Drawing.Point(42, 5);
+            this.userNameLabel.Location = new System.Drawing.Point(63, 5);
             this.userNameLabel.Name = "userNameLabel";
             this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.userNameLabel.Size = new System.Drawing.Size(287, 25);
@@ -231,12 +256,13 @@
             this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.profileShowArrowButton.IconSize = 20;
-            this.profileShowArrowButton.Location = new System.Drawing.Point(329, 5);
+            this.profileShowArrowButton.Location = new System.Drawing.Point(350, 5);
             this.profileShowArrowButton.Name = "profileShowArrowButton";
             this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.profileShowArrowButton.Size = new System.Drawing.Size(13, 29);
             this.profileShowArrowButton.TabIndex = 27;
             this.profileShowArrowButton.UseVisualStyleBackColor = false;
+            this.profileShowArrowButton.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             // 
             // nothiModulePanel
             // 
@@ -1282,22 +1308,23 @@
             // headerTableLayoutPanel
             // 
             this.headerTableLayoutPanel.AutoSize = true;
-            this.headerTableLayoutPanel.ColumnCount = 4;
+            this.headerTableLayoutPanel.ColumnCount = 5;
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.headerTableLayoutPanel.Controls.Add(this.profilePanel, 3, 0);
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.headerTableLayoutPanel.Controls.Add(this.profilePanel, 4, 0);
             this.headerTableLayoutPanel.Controls.Add(this.nothiModulePanel, 1, 0);
             this.headerTableLayoutPanel.Controls.Add(this.dakModulePanel, 0, 0);
             this.headerTableLayoutPanel.Controls.Add(this.moduleButton, 2, 0);
+            this.headerTableLayoutPanel.Controls.Add(this.onlineToggleButton2, 3, 0);
             this.headerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.headerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.headerTableLayoutPanel.Name = "headerTableLayoutPanel";
             this.headerTableLayoutPanel.RowCount = 1;
             this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.headerTableLayoutPanel.Size = new System.Drawing.Size(1116, 49);
             this.headerTableLayoutPanel.TabIndex = 9;
             // 
@@ -1317,6 +1344,19 @@
             this.moduleButton.TabIndex = 106;
             this.moduleButton.UseVisualStyleBackColor = true;
             this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
+            // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(697, 0);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 49);
+            this.onlineToggleButton2.TabIndex = 107;
             // 
             // footerTableLayoutPanel
             // 
@@ -1631,6 +1671,11 @@
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.Load += new System.EventHandler(this.designationDetailsPanel_Load);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
             // KhosraDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1646,6 +1691,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.KhosraDashboard_Load);
             this.Shown += new System.EventHandler(this.KhosraDashboard_Shown);
             this.panel4.ResumeLayout(false);
             this.profilePanel.ResumeLayout(false);
@@ -1793,5 +1839,8 @@
         private System.Windows.Forms.Label perPageRowLabel;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TableLayoutPanel khosraListTableLayoutPanel;
+        private CustomMessageBox.OnlineToggleButton onlineToggleButton2;
+        private FontAwesome.Sharp.IconButton onlineStatus;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

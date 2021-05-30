@@ -10,7 +10,7 @@ namespace dNothi.Services.DakServices
    public class DakForwardRequestParam
     {
         public string token;
-
+        
         public string dak_type { get; set; }
         public int dak_id { get; set; }
         public int priority { get; set; }
@@ -27,6 +27,7 @@ namespace dNothi.Services.DakServices
 
 
         public string receiver_info { get; set; }
+       
 
 
 

@@ -28,29 +28,73 @@ namespace dNothi.Desktop.View_Model
                     
                     protibedon.acceptNum = ConversionMethod.EnglishNumberToBangla(protibedonResponseRecordDTO.dak_received_no);
 
-                   protibedon.docketingNo = ConversionMethod.EnglishNumberToBangla(protibedonResponseRecordDTO.docketing_no.ToString());
-                   protibedon.sub = protibedonResponseRecordDTO.dak_subject;
+                    protibedon.docketingNo = ConversionMethod.EnglishNumberToBangla(protibedonResponseRecordDTO.docketing_no.ToString());
+                    protibedon.sub = protibedonResponseRecordDTO.dak_subject;
+
+                    try
+                    {
+                        String dateString = ConversionMethod.BanglaDigittoEngDigit(protibedonResponseRecordDTO.movecreated);
+                        DateTime dateTime = Convert.ToDateTime(dateString);
+                        protibedon.Date = ConversionMethod.EngDigittoBanDigit(dateTime.ToString("dd-MM-yyyy HH:mm:ss"));
+
+                    }
+                    catch
+                    {
+
+                    }
+
+                    try
+                    {
+                        String dateString = ConversionMethod.BanglaDigittoEngDigit(protibedonResponseRecordDTO.dakcreted);
+                        DateTime dateTime = Convert.ToDateTime(dateString);
+                        protibedon.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime.ToString("dd-MM-yyyy HH:mm:ss"));
+
+                    }
+                    catch
+                    {
+
+                    }
                    
 
-                    protibedon.sharokNo = protibedonResponseRecordDTO.sender_sarok_no;
+                    protibedon.sharokNo =ConversionMethod.EngDigittoBanDigit(protibedonResponseRecordDTO.sender_sarok_no);
 
-                    protibedon.applyDate = protibedonResponseRecordDTO.dakcreted;
+                   
 
                     protibedon.mainPrapok = protibedonResponseRecordDTO.receiving_officer_name + ", " + protibedonResponseRecordDTO.receiving_officer_designation_label + "," + protibedonResponseRecordDTO.receiving_office_unit_name;
                     protibedon.applicant = protibedonResponseRecordDTO.sender_name + ", " + protibedonResponseRecordDTO.sender_officer_designation_label + "," + protibedonResponseRecordDTO.sender_office_unit_name + "," + protibedonResponseRecordDTO.sender_office_name;
 
-                    protibedon.pendingTime = protibedonResponseRecordDTO.pending_time;
+                    try
+                    {
+                        String pendingTime =ConversionMethod.BanglaDigittoEngDigit(protibedonResponseRecordDTO.pending_time);
+                        DateTime dateTime = Convert.ToDateTime(pendingTime);
+                        protibedon.pendingTime = ConversionMethod.EngDigittoBanDigit(dateTime.ToString("dd-MM-yyyy HH:mm:ss"));
+
+                    }
+                    catch
+                    {
+
+                    }
                   
                    
-                    DakPriorityList dakPriorityList = new DakPriorityList();
-                    DakSecurityList dakSecurityList = new DakSecurityList();
+                    DakPriorityList dakPriorityList = new DakPriorityList(true);
+                    DakSecurityList dakSecurityList = new DakSecurityList(true);
 
 
 
 
                     protibedon.priority = dakPriorityList.GetDakPriorityName(Convert.ToString(protibedonResponseRecordDTO.dak_priority));
-                    //  registerReport.security = dakSecurityList.GetDakSecuritiesName(Convert.ToString(registerReportRecordDTO));
-                       protibedon.finalState = protibedonResponseRecordDTO.last_status_officer_name+","+ protibedonResponseRecordDTO.last_status_officer_designation_label+","+ protibedonResponseRecordDTO.last_status_office_unit_name;
+                    protibedon.security = dakSecurityList.GetDakSecuritiesName(Convert.ToString(protibedonResponseRecordDTO.dak_security_level));
+                    if(protibedon.priority == null || protibedon.priority=="")
+                    {
+                        protibedon.priority = protibedonResponseRecordDTO.dak_priority;
+                    }
+                    if (protibedon.security == null || protibedon.security == "")
+                    {
+                        protibedon.security = protibedonResponseRecordDTO.dak_security_level;
+                    }
+
+
+                    protibedon.finalState = protibedonResponseRecordDTO.last_status_officer_name+","+ protibedonResponseRecordDTO.last_status_officer_designation_label+","+ protibedonResponseRecordDTO.last_status_office_unit_name;
 
 
                     protibedonList.Add(protibedon);
@@ -86,9 +130,9 @@ namespace dNothi.Desktop.View_Model
                     protibedon.sub = dakListRecords.dak_user.dak_subject;
 
 
-                    protibedon.sharokNo = dakListRecords.dak_origin.sender_sarok_no;
+                    protibedon.sharokNo = ConversionMethod.EngDigittoBanDigit(dakListRecords.dak_origin.sender_sarok_no);
 
-                    protibedon.applyDate = dakListRecords.dak_origin.created;
+                    protibedon.applyDate = dakListRecords.dak_origin.receiving_date;
 
                    // protibedon.mainPrapok = dakListRecords.dak_user.to_officer_name + ", " + dakListRecords.dak_user.to_officer_designation_label + "," + dakListRecords.dak_user.to_office_unit_name+","+dakListRecords.dak_user.to_office_name;
                     protibedon.applicant = dakListRecords.dak_origin.sender_name + ", " + dakListRecords.dak_origin.sender_officer_designation_label + "," + dakListRecords.dak_origin.sender_office_unit_name + "," + dakListRecords.dak_origin.sender_office_name;
@@ -96,14 +140,23 @@ namespace dNothi.Desktop.View_Model
                     //protibedon.pendingTime = protibedonResponseRecordDTO.pending_time;
 
 
-                    DakPriorityList dakPriorityList = new DakPriorityList();
-                    DakSecurityList dakSecurityList = new DakSecurityList();
+                    DakPriorityList dakPriorityList = new DakPriorityList(true);
+                    DakSecurityList dakSecurityList = new DakSecurityList(true);
 
 
 
 
                     protibedon.priority = dakPriorityList.GetDakPriorityName(Convert.ToString(dakListRecords.dak_user.dak_priority));
                     protibedon.security = dakSecurityList.GetDakSecuritiesName(Convert.ToString(dakListRecords.dak_user.dak_security));
+                
+                    if (protibedon.priority == null || protibedon.priority == "")
+                    {
+                        protibedon.priority = dakListRecords.dak_user.dak_priority;
+                    }
+                    if (protibedon.security == null || protibedon.security == "")
+                    {
+                        protibedon.security = dakListRecords.dak_user.dak_security;
+                    }
 
                     protibedon.Date = dakListRecords.dak_user.last_movement_date;
 

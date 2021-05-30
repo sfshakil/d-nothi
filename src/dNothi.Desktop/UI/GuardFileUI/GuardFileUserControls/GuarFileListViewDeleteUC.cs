@@ -11,6 +11,7 @@ using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
 using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
+using dNothi.Desktop.UI.GuardFileUI;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -118,10 +119,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
         private void decisionEditRightButton_Click(object sender, EventArgs e)
         {
-            using (PDFViewer form = new PDFViewer())
-            {
-                form.ShowDialog(this);
-            }
+          
         }
 
         private void decisionDeleteButton_Click(object sender, EventArgs e)

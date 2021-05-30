@@ -45,18 +45,16 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             _guardFileService = guardFileService;
             _guardFileCategoryService = guardFileCategoryService;
               InitializeComponent();
-         
-                 var data = from s in LoadGuardFileTypeList()
-                       select new ComboBoxItems
-                       {
-                           id = s.id,
-                            Name = s.name_bng
-                       };
            
-            typesearchComboBox.itemList = data.ToList();
+            typesearchComboBox.itemList = GuardFileCategories();
             typesearchComboBox.isListShown = true;
 
+            Formload();
 
+
+        }
+        private void Formload()
+        {
             page = 1;
             start = 1;
             LoadGuardFileList();
@@ -66,43 +64,30 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
 
         }
-        private void NextPreviousButtonShow()
+        private List<ComboBoxItems> GuardFileCategories()
         {
-            if (page < totalPage)
+            List<ComboBoxItems> categoryList = new List<ComboBoxItems>();
+            categoryList.Add(new ComboBoxItems { id = 0, Name = "ধরন বাছাই করুন" });
+
+            foreach (var item in LoadGuardFileTypeList())
             {
-                if (page == 1 && totalPage > 1)
-                {
-                    PreviousIconButton.Enabled = false;
-                }
-                else
-                {
-                    PreviousIconButton.Enabled = true;
-
-                }
-                nextIconButton.Enabled = true;
+                categoryList.Add(new ComboBoxItems {  id=item.id, Name=item.name_bng});
             }
-            if (page == totalPage)
-            {
-                if (page == 1 && totalPage == 1)
-                {
-                    PreviousIconButton.Enabled = false;
+            return categoryList;
 
-                }
-                else
-                {
-                    PreviousIconButton.Enabled = true;
-
-                }
-                nextIconButton.Enabled = false;
-            }
 
         }
+        
         public void LoadGuardFileList()
         {
+            int categoryid = typesearchComboBox.selectedId;
+            string naemSearchparam = dakSearchSubTextBox.Text;
             var dakListUserParam = _userService.GetLocalDakUserParam();
           
             dakListUserParam.page = page;
             dakListUserParam.limit = pageLimit;
+            dakListUserParam.CategoryId = categoryid;
+            dakListUserParam.NameSearchParam = naemSearchparam;
             var datalist = _guardFileService.GetList(dakListUserParam, 2);
             RemoveArbitraryRow(guardFileListTableLayoutPanel, guardFileListTableLayoutPanel.RowCount, 2);
            // guardListTableLayoutPanel.Controls.Clear();
@@ -134,19 +119,24 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         };
                         
                         GuardFileListRowUserControl guardFileTable = UserControlFactory.Create<GuardFileListRowUserControl>();
-                       
+                     
                       
                         guardFileTable.id = item.id;
                         guardFileTable.type = item.name_bng;
                         guardFileTable.name = item.guard_file_category_name_bng;
+                       
+                        guardFileTable.designation_id = dakListUserParam.designation_id;
+                        guardFileTable.office_unit_organogram_id = item.office_unit_organogram_id;
+
+
                         guardFileTable.dakAttachmentDTO = data;
                         guardFileTable.dakAttachmentDTOs = dta;
 
+                     
+                            guardFileTable.DeleteButtonClick += delegate (object sender, EventArgs e) { guardFileTableUserControl_deleteButtonClick(sender, e, item.id); };
+                            // guardFileTable.ViewButtonClick += delegate (object sender, EventArgs e) { guardFileTableUserControl_viewButtonClick(sender, e, item.id); };
 
-                        guardFileTable.DeleteButtonClick += delegate (object sender, EventArgs e) { guardFileTableUserControl_deleteButtonClick(sender, e, item.id); };
-                       // guardFileTable.ViewButtonClick += delegate (object sender, EventArgs e) { guardFileTableUserControl_viewButtonClick(sender, e, item.id); };
-                      
-
+                     
                         guardFileTable.Dock = DockStyle.Fill;
 
                         // int row = guardFileTypeTableLayoutPanel.RowCount++;
@@ -172,7 +162,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         }
         
 
-       private void guardFileTableUserControl_viewButtonClick(object sender, EventArgs e, int id)
+        private void guardFileTableUserControl_viewButtonClick(object sender, EventArgs e, int id)
         {
             
                 if (id > 0)
@@ -216,7 +206,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             var datalist = _guardFileCategoryService.GetList(dakListUserParam, 1);
             return datalist.data.records;
         }
-       public static void RemoveArbitraryRow(TableLayoutPanel panel, int rows, int rowIndex)
+        public static void RemoveArbitraryRow(TableLayoutPanel panel, int rows, int rowIndex)
         {
             if (rowIndex >= panel.RowCount)
             {
@@ -269,6 +259,67 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
         }
 
+
+        private void typesearchComboBox_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchBoxPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void dakSearchUsingTextButton_Click(object sender, EventArgs e)
+        {
+            Formload();
+        }
+
+        private void recycleIconButton_Click(object sender, EventArgs e)
+        {
+          
+            dakSearchSubTextBox.Text = string.Empty;
+            Formload();
+        }
+
+        private void typesearchComboBox_ChangeSelectedIndex(object sender, EventArgs e)
+        {
+            Formload();
+        }
+
+
+        #region Pagination
+        private void NextPreviousButtonShow()
+        {
+            if (page < totalPage)
+            {
+                if (page == 1 && totalPage > 1)
+                {
+                    PreviousIconButton.Enabled = false;
+                }
+                else
+                {
+                    PreviousIconButton.Enabled = true;
+
+                }
+                nextIconButton.Enabled = true;
+            }
+            if (page == totalPage)
+            {
+                if (page == 1 && totalPage == 1)
+                {
+                    PreviousIconButton.Enabled = false;
+
+                }
+                else
+                {
+                    PreviousIconButton.Enabled = true;
+
+                }
+                nextIconButton.Enabled = false;
+            }
+
+        }
         private void nextIconButton_Click(object sender, EventArgs e)
         {
             string endrow;
@@ -294,10 +345,9 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
             if (totalrecord < end) { endrow = totalrecord.ToString(); }
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(endrow);
-            
+
             NextPreviousButtonShow();
         }
-
         private void PreviousIconButton_Click(object sender, EventArgs e)
         {
 
@@ -324,33 +374,6 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
         }
 
-        private void typesearchComboBox_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchBoxPanel_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
-        }
-
-        private void dakSearchUsingTextButton_Click(object sender, EventArgs e)
-        {
-           
-             string   potroSubject = dakSearchSubTextBox.Text;
-              LoadGuardFileList();
-
-        }
-
-        private void recycleIconButton_Click(object sender, EventArgs e)
-        {
-          
-            dakSearchSubTextBox.Text = string.Empty;
-        }
-
-        private void typesearchComboBox_ChangeSelectedIndex(object sender, EventArgs e)
-        {
-            LoadGuardFileList(); 
-        }
+        #endregion
     }
 }

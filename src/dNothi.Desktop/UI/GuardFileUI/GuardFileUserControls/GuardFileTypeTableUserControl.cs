@@ -13,6 +13,7 @@ using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Services.GuardFile.Model;
 using dNothi.Services.GuardFile;
 using dNothi.Desktop.UI.GuardFileUI;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -29,8 +30,9 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             _userService = userService;
             InitializeComponent();
         }
-
-       public int TypeId { get; set; }
+        public int _office_unit_organogram_id { get; set; }
+        public int designation_id { get; set; }
+        public int TypeId { get; set; }
         public int _id { get; set; }
        
         public string _decisision { get; set; }
@@ -48,23 +50,49 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             }
 
         }
+        public int office_unit_organogram_id
+        {
+
+            get
+            {
+
+                return _office_unit_organogram_id;
+            }
+
+            set
+            {
+                _office_unit_organogram_id = value;
+
+                if (value != designation_id)
+
+                {
+                    decisionDeleteButton.Visible = false;
+                    decisionEditRightButton.Visible = false;
+
+                }
+                else
+                {
+                    decisionDeleteButton.Visible = true;
+                    decisionEditRightButton.Visible = true;
+                }
+
+            }
+        }
         public int id { get { return _id; } set { _id = value;label1.Text =value.ToString();  } }
 
         public string _typeNo
         {
             get; set;
         }
-        public string TypeNo { get { return _typeNo; } set { _typeNo = value;  label2.Text = value.ToString(); } }
+        public string TypeNo { get { return _typeNo; } set { _typeNo = value;
+                if (Convert.ToInt32(value) > 0)
+                { label2.Text = ConversionMethod.EnglishNumberToBangla(value); }
+            } }
 
         public event EventHandler RadioButtonClick;
         private void decisionRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-           //// if (decisionRadioButton.Checked)
-           // {
-           //     isDecisionSelected = decisionRadioButton.Checked;
-           //     if (this.RadioButtonClick != null)
-           //         this.RadioButtonClick(sender, e);
-           // }
+          
         }
 
         private void decisionEditRightButton_Click(object sender, EventArgs e)
@@ -119,6 +147,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 GuardFileCategory.Record model = new GuardFileCategory.Record();
                 model.name_bng = decisionNameTextBox.Text;
                 model.id = TypeId;
+
 
 
                 var response = _guardFileService.Insert(dakListUserParam, 3, GuardFileCategory, model);
@@ -184,6 +213,13 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         private void Table_Border_Color(object sender, PaintEventArgs e)
         {
             UIDesignCommonMethod.Table_Color_Blue(sender, e);
+        }
+       
+        public event EventHandler GuardFileCountLabelClick;
+        private void label2_Click(object sender, EventArgs e)
+        {
+            if (this.GuardFileCountLabelClick != null)
+                    this.GuardFileCountLabelClick(sender, e);
         }
 
         //Update

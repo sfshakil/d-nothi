@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.SubmitButton = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.typesearchComboBox = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -99,9 +101,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel7, 2);
             this.panel7.Controls.Add(this.SubmitButton);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 286);
+            this.panel7.Location = new System.Drawing.Point(3, 299);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(844, 40);
+            this.panel7.Size = new System.Drawing.Size(844, 34);
             this.panel7.TabIndex = 71;
             // 
             // SubmitButton
@@ -115,7 +117,7 @@
             this.SubmitButton.Location = new System.Drawing.Point(754, 0);
             this.SubmitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(90, 40);
+            this.SubmitButton.Size = new System.Drawing.Size(90, 34);
             this.SubmitButton.TabIndex = 70;
             this.SubmitButton.Text = "সংরক্ষণ করুন";
             this.SubmitButton.UseVisualStyleBackColor = false;
@@ -138,11 +140,11 @@
             this.userIdPanel.BackColor = System.Drawing.Color.White;
             this.userIdPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.userIdPanel.Controls.Add(this.subjectTextBox);
+            this.userIdPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.userIdPanel.Location = new System.Drawing.Point(15, 20);
             this.userIdPanel.Name = "userIdPanel";
             this.userIdPanel.Size = new System.Drawing.Size(384, 33);
             this.userIdPanel.TabIndex = 78;
-            this.userIdPanel.UseWaitCursor = true;
             this.userIdPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userIdPanel_Paint);
             // 
             // subjectTextBox
@@ -152,14 +154,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.subjectTextBox.BackColor = System.Drawing.Color.White;
             this.subjectTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.subjectTextBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.subjectTextBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.subjectTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectTextBox.Location = new System.Drawing.Point(5, 7);
             this.subjectTextBox.Name = "subjectTextBox";
             this.subjectTextBox.PlaceholderText = "শিরোনাম";
             this.subjectTextBox.Size = new System.Drawing.Size(374, 19);
             this.subjectTextBox.TabIndex = 3;
-            this.subjectTextBox.UseWaitCursor = true;
             // 
             // label2
             // 
@@ -213,7 +214,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 18);
             this.label3.TabIndex = 0;
-            this.label3.Text = "ধরন :";
+            this.label3.Text = "ধরণ :";
             // 
             // panel3
             // 
@@ -283,10 +284,10 @@
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.Controls.Add(this.label11, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label10, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
@@ -305,10 +306,10 @@
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(756, 1);
+            this.label11.Location = new System.Drawing.Point(760, 1);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label11.Size = new System.Drawing.Size(84, 38);
+            this.label11.Size = new System.Drawing.Size(80, 38);
             this.label11.TabIndex = 3;
             this.label11.Text = "কার্যক্রম";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -318,10 +319,10 @@
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(196, 1);
+            this.label10.Location = new System.Drawing.Point(340, 1);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label10.Size = new System.Drawing.Size(553, 38);
+            this.label10.Size = new System.Drawing.Size(413, 38);
             this.label10.TabIndex = 2;
             this.label10.Text = "সংযুক্তি প্রিভিউ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -334,7 +335,7 @@
             this.label8.Location = new System.Drawing.Point(4, 1);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label8.Size = new System.Drawing.Size(64, 38);
+            this.label8.Size = new System.Drawing.Size(77, 38);
             this.label8.TabIndex = 0;
             this.label8.Text = "সংযুক্তি";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -344,10 +345,10 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(75, 1);
+            this.label9.Location = new System.Drawing.Point(88, 1);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label9.Size = new System.Drawing.Size(114, 38);
+            this.label9.Size = new System.Drawing.Size(245, 38);
             this.label9.TabIndex = 1;
             this.label9.Text = "মূলপত্র";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -357,10 +358,10 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 236);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 233);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(847, 44);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(847, 60);
             this.flowLayoutPanel1.TabIndex = 34;
             // 
             // panel4
@@ -414,7 +415,7 @@
             this.typesearchComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.typesearchComboBox.MinimumSize = new System.Drawing.Size(120, 0);
             this.typesearchComboBox.Name = "typesearchComboBox";
-            this.typesearchComboBox.searchButtonText = "ধরন বাছাই করুন";
+            this.typesearchComboBox.searchButtonText = "ধরণ বাছাই করুন";
             this.typesearchComboBox.selectedId = 0;
             this.typesearchComboBox.Size = new System.Drawing.Size(375, 44);
             this.typesearchComboBox.TabIndex = 3;
@@ -480,5 +481,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label6;
         private ManuelUserControl.SearchComboBox typesearchComboBox;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }

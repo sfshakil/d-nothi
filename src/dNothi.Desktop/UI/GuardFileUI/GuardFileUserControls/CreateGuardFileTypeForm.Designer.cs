@@ -103,7 +103,7 @@
             this.placeholderTextBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeholderTextBox1.Location = new System.Drawing.Point(6, 11);
             this.placeholderTextBox1.Name = "placeholderTextBox1";
-            this.placeholderTextBox1.PlaceholderText = "ধরন";
+            this.placeholderTextBox1.PlaceholderText = "ধরণ";
             this.placeholderTextBox1.Size = new System.Drawing.Size(515, 19);
             this.placeholderTextBox1.TabIndex = 0;
             // 
@@ -191,9 +191,9 @@
             this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
             this.singleDakHeaderLabel.MaximumSize = new System.Drawing.Size(150, 0);
             this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(118, 21);
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(119, 21);
             this.singleDakHeaderLabel.TabIndex = 28;
-            this.singleDakHeaderLabel.Text = "গার্ড ফাইলের ধরন";
+            this.singleDakHeaderLabel.Text = "গার্ড ফাইলের ধরণ";
             // 
             // panel1
             // 
@@ -230,7 +230,7 @@
             this.Subjectlabel.Name = "Subjectlabel";
             this.Subjectlabel.Size = new System.Drawing.Size(33, 18);
             this.Subjectlabel.TabIndex = 1;
-            this.Subjectlabel.Text = "ধরন:";
+            this.Subjectlabel.Text = "ধরণ:";
             this.Subjectlabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dataGridViewImageColumn1

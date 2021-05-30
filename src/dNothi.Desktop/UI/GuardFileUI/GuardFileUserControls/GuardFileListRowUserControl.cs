@@ -42,6 +42,8 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
 
         public int _id { get; set; }
         public int _rowId { get; set; }
+        public int _office_unit_organogram_id { get; set; }
+        public int _designation_id { get; set; }
 
         public string _name { get; set; }
         public string _type { get; set; }
@@ -89,6 +91,36 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
         {
             get { return _id; }
             set { _id = value; }
+        }
+       
+        public int designation_id {
+            get { return _designation_id; } 
+            set {
+                _designation_id = value;
+            } 
+        }
+        public int office_unit_organogram_id {
+                                             
+            get {
+                                                
+                return _office_unit_organogram_id;
+                }
+                                           
+            set { 
+                _office_unit_organogram_id = value;
+                                                    
+                if(value!= designation_id)
+                                                       
+                {
+                    decisionDeleteButton.Visible = false;
+                                                       
+                }
+                else
+                {
+                    decisionDeleteButton.Visible = true;
+                }
+                                        
+            }
         }
 
         private void Border_Color(object sender, PaintEventArgs e)

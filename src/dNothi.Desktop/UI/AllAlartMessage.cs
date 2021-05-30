@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dNothi.Desktop.UI.GuardFileUI
+namespace dNothi.Desktop.UI
 {
-   public  class AllAlartMessage
+   public   class AllAlartMessage
     {
-        public void SuccessMessage(string Message)
+        public   void SuccessMessage(string Message)
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
 
@@ -20,14 +20,14 @@ namespace dNothi.Desktop.UI.GuardFileUI
             t.Wait();
             successMessage.Hide();
         }
-        public void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
+        public  void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
         {
             UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
             alertMessageBox.message = mulpotroNotSelectErrorMessage;
 
             alertMessageBox.ShowDialog();
         }
-        public void ErrorMessage(string Message)
+        public   void ErrorMessage(string Message)
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
             successMessage.message = Message;
