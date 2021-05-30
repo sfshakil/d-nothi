@@ -178,7 +178,7 @@
             this.guardFileAddButton.Name = "guardFileAddButton";
             this.guardFileAddButton.Size = new System.Drawing.Size(120, 36);
             this.guardFileAddButton.TabIndex = 88;
-            this.guardFileAddButton.Text = "   নতুন ধরন";
+            this.guardFileAddButton.Text = "   নতুন ধরণ";
             this.guardFileAddButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.guardFileAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.guardFileAddButton.UseVisualStyleBackColor = false;
@@ -190,9 +190,9 @@
             this.lablePageName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lablePageName.Location = new System.Drawing.Point(39, 1);
             this.lablePageName.Name = "lablePageName";
-            this.lablePageName.Size = new System.Drawing.Size(160, 29);
+            this.lablePageName.Size = new System.Drawing.Size(159, 29);
             this.lablePageName.TabIndex = 6;
-            this.lablePageName.Text = "গার্ড ফাইলের ধরন";
+            this.lablePageName.Text = "গার্ড ফাইলের ধরণ";
             // 
             // iconButton14
             // 
@@ -759,7 +759,7 @@
             this.guardFileTypeButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.guardFileTypeButton.Size = new System.Drawing.Size(231, 46);
             this.guardFileTypeButton.TabIndex = 35;
-            this.guardFileTypeButton.Text = "গার্ড ফাইলের ধরন";
+            this.guardFileTypeButton.Text = "গার্ড ফাইলের ধরণ";
             this.guardFileTypeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.guardFileTypeButton.UseVisualStyleBackColor = false;
             this.guardFileTypeButton.Click += new System.EventHandler(this.guardFileTypeButton_Click);

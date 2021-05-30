@@ -18,10 +18,10 @@ using dNothi.JsonParser.Entity.Dak;
 namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
 {
 
-    public partial class GuardFileListRowUserControl : UserControl
+    public partial class GuardFileRowUserControl : UserControl
     {
 
-        public GuardFileListRowUserControl()
+        public GuardFileRowUserControl()
         {
             InitializeComponent();
         }

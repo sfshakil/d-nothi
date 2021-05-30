@@ -14,6 +14,8 @@ using dNothi.Services.GuardFile;
 using dNothi.Services.GuardFile.Model;
 using dNothi.Services.DakServices;
 using dNothi.Utility;
+using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
+using dNothi.Services.SyncServices;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -21,21 +23,24 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
     {
         IUserService _userService { get; set; }
         public int page=1;
-       // public int page { get { return currentPage; } set { currentPage = value; }  } 
-
+        // public int page { get { return currentPage; } set { currentPage = value; }  } 
+        ISyncerService _syncerServices { get; set; }
         int pageLimit = 10;
        
         int totalPage = 1;
         int start = 1;
         int end = 10;
         int totalrecord = 0;
+        IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
         IGuardFileService<GuardFileCategory,GuardFileCategory.Record> _guardFileCategoryService { get; set; }
-        public UCGuardFileTypes(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService)
+        public UCGuardFileTypes(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService, ISyncerService syncerServices)
         {
             InitializeComponent();
             _userService = userService;
             _guardFileCategoryService = guardFileCategoryService;
-           // page = 1;
+            _guardFileService = guardFileService;
+            _syncerServices = _syncerServices;
+            // page = 1;
             start = 1;
             LoadGuardFileTypeList();
             if (totalrecord < 10) { end = totalrecord; }
@@ -72,10 +77,11 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         decisionTable.decision = item.name_bng;
                         decisionTable.TypeNo = item.guard_file_type_count;
                         decisionTable.TypeId = item.id;
+                        decisionTable.designation_id = dakListUserParam.designation_id;
+                        decisionTable.office_unit_organogram_id = item.office_unit_organogram_id;
                         
 
-
-                        //decisionTable.RadioButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_RadioButtonClick(sender, e, rowid); };
+                        decisionTable.GuardFileCountLabelClick += delegate (object sender, EventArgs e) { GuardFileList_Click(sender, e, item); };
 
                         //decisionTable.editButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_attachmentButtonClick(sender, e); };
                         //decisionTable.deleteButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_onumodonButtonClick(sender, e); };
@@ -99,6 +105,38 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             }
         }
 
+        private void GuardFileList_Click(object sender, EventArgs e, GuardFileCategory.Record model)
+        {
+           
+            GuardFileListForm guardFileListForm = new GuardFileListForm(_userService,_guardFileService);
+            guardFileListForm.guardFileCategory = model;
+           
+            CalPopUpWindow(guardFileListForm);
+          
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = this.Size;
+            hideform.Opacity = .6;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+         
+        }
         public static void RemoveTableLayoutPanelRow(TableLayoutPanel panel, int rows,int rowIndex)
         {
             if (rowIndex >= panel.RowCount)

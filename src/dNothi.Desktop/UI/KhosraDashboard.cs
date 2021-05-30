@@ -101,8 +101,6 @@ namespace dNothi.Desktop.UI
             if (totalrecord < 10) { end = totalrecord; }
             else { end = 10; }
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
-
-
             // LoadFakeRow(true);
         }
 
@@ -173,8 +171,6 @@ namespace dNothi.Desktop.UI
         {
             UIDesignCommonMethod.CallAllModulePanel(moduleButton, this);
         }
-
-       
 
         private void KhosraDashboard_Shown(object sender, EventArgs e)
         {
@@ -560,9 +556,6 @@ namespace dNothi.Desktop.UI
 
 
         }
-
-
-
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
@@ -575,7 +568,6 @@ namespace dNothi.Desktop.UI
 
 
         }
-
         private void KhosraDashboard_Load(object sender, EventArgs e)
         {
             backgroundWorker1.RunWorkerAsync();

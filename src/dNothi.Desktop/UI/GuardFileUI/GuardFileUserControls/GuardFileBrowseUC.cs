@@ -150,10 +150,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         //    }
         //}
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
-        }
+       
 
         private void attachmentLink_Click(object sender, EventArgs e)
         {
@@ -190,14 +187,24 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             _attachmentName = dakUploadAttachmentNameTextBox.Text;
         }
 
-        private void tableLayoutPanel2_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
-        {
-            e.Graphics.DrawRectangle(new Pen(Color.FromArgb(203, 225, 248)), e.CellBounds);
-        }
+     
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
+       
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+        private void tableLayoutPanel2_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+           
+            UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
+           
+        }
+
+      
     }
 }

@@ -47,8 +47,9 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             typesearchComboBox.itemList = data.ToList();
             typesearchComboBox.isListShown = true;
 
-           
 
+            MyToolTip.SetToolTip(guardFileTextBox, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট।");
+            MyToolTip.SetToolTip(fileUploadButton, "সর্বোচ্চ ফাইল সাইজ ২৫ মেগাবাইট।");
             panel5.Hide();  
         }
         public List<GuardFileCategory.Record> LoadGuardFileTypeList()
@@ -115,7 +116,6 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
-
                         }
                         else
                         {
@@ -133,8 +133,8 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
                         dakUploadAttachmentTableRow.attachmentName = _uploadFileResponse.data[0].user_file_name;
                         dakUploadAttachmentTableRow.attachmentId = _uploadFileResponse.data[0].id;
-                       // dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._Attachment); };
-                        dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentName); };
+                        dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._Attachment); };
+                      //  dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentName); };
 
                         guardFileTextBox.Text = new System.IO.FileInfo(opnfd.FileName).Name;
                         dakUploadAttachmentTableRow.Dock = DockStyle.Top;
@@ -159,38 +159,40 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         }
 
 
-        private void DeleteControl_ButtonClick(object sender, EventArgs e,string filename)
-        {
-            _uploadFileResponse = null;
-            flowLayoutPanel1.Controls.Clear();
-            panel3.Show();
-            panel5.Hide();
-
-        }
-
-        //private void DeleteControl_ButtonClick(object sender, EventArgs e, GuardFileModel.Attachment attachment)
+        //private void DeleteControl_ButtonClick(object sender, EventArgs e,string filename)
         //{
-        //    DakUploadFileDeleteParam deleteParam = new DakUploadFileDeleteParam();
-        //    deleteParam.delete_token = attachment.delete_token;
-        //    deleteParam.file_name = attachment.file_name;
-
-        //    DakFileDeleteResponse response;
-
-        //    using (var form = FormFactory.Create<Dashboard>())
-        //    {
-        //        response = form.DeleteFile(deleteParam);
-        //    }
-        //    if (attachment.id == 0 || (response != null && response.status == "success"))
-        //    {
-        //        SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
-        //        flowLayoutPanel1.Controls.Clear();
-        //        panel3.Show();
-        //        panel5.Hide();
-        //        _uploadFileResponse = null;
-        //    }
-
+        //    _uploadFileResponse = null;
+        //    flowLayoutPanel1.Controls.Clear();
+        //    guardFileTextBox.Text = string.Empty;
+        //    panel3.Show();
+        //    panel5.Hide();
 
         //}
+
+        private void DeleteControl_ButtonClick(object sender, EventArgs e, GuardFileModel.Attachment attachment)
+        {
+            DakUploadFileDeleteParam deleteParam = new DakUploadFileDeleteParam();
+            deleteParam.delete_token = attachment.delete_token;
+            deleteParam.file_name = attachment.file_name;
+
+            DakFileDeleteResponse response;
+
+            using (var form = FormFactory.Create<Dashboard>())
+            {
+                response = form.DeleteFile(deleteParam);
+            }
+            if (attachment.id == 0 || (response != null && response.status == "success"))
+            {
+                SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
+                flowLayoutPanel1.Controls.Clear();
+                panel3.Show();
+                panel5.Hide();
+                guardFileTextBox.Text = string.Empty;
+                _uploadFileResponse = null;
+            }
+
+
+        }
 
 
 
