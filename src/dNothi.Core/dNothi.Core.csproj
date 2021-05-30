@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\FileUploadAction.cs" />
     <Compile Include="Entities\LocalDakFolderList.cs" />
     <Compile Include="Entities\LocalDesignationSealByOffice.cs" />
     <Compile Include="Entities\LocalOfficeList.cs" />

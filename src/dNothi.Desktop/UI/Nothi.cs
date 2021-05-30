@@ -37,12 +37,13 @@ namespace dNothi.Desktop.UI
         INothiCreateService _nothiCreateServices { get; set; }
         IRepository<NothiCreateItemAction> _nothiCreateItemAction;
         IOnucchedSave _onucchedSave { get; set; }
+        IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
 
         public WaitFormFunc WaitForm;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
-            IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave)
+            IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave, IOnucchedFileUploadService onucchedFileUploadService)
         {
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _userService = userService;
@@ -55,6 +56,7 @@ namespace dNothi.Desktop.UI
             _nothiCreateItemAction = nothiCreateItemAction;
             _onuchhedForwardService = onuchhedForwardService;
             _onucchedSave = onucchedSave;
+            _onucchedFileUploadService = onucchedFileUploadService;
 
             InitializeComponent();
             WaitForm = new WaitFormFunc();
@@ -1952,6 +1954,7 @@ namespace dNothi.Desktop.UI
                 _nothiTypeSave.SendNothiTypeListFromLocal();
                 _nothiCreateServices.SendNothiCreateListFromLocal();
                 _noteSave.SendNoteListFromLocal();
+                _onucchedFileUploadService.SendNoteListFromLocal();
                 _onucchedSave.SendNoteListFromLocal();
                 _onuchhedForwardService.SendNoteListFromLocal();
                 if (onlineStatus.IconColor != Color.LimeGreen)

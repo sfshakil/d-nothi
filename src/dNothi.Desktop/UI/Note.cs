@@ -67,6 +67,7 @@ namespace dNothi.Desktop.UI
         INoteSaveService _noteSave { get; set; }
         IRepository<NoteSaveItemAction> _noteSaveItemAction;
         IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
+        IRepository<FileUploadAction> _fileUploadAction;
 
         public WaitFormFunc WaitForm;
 
@@ -79,7 +80,7 @@ namespace dNothi.Desktop.UI
             IKhoshraPotroServices khoshraPotro, INothivuktoPotroServices nothivuktoPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
             IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave, IOnucchedFileUploadService onucchedFileUploadService,
-            IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
+            IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction, IRepository<FileUploadAction> fileUploadAction)
         {
             _potrojariServices = potrojariServices;
             _userService = userService;
@@ -105,6 +106,7 @@ namespace dNothi.Desktop.UI
             _onucchedFileUploadService = onucchedFileUploadService;
             _noteSaveItemAction = noteSaveItemAction;
             _onuchhedSaveItemAction = onuchhedSaveItemAction;
+            _fileUploadAction = fileUploadAction;
 
             WaitForm = new WaitFormFunc();
             InitializeComponent();
@@ -396,7 +398,7 @@ namespace dNothi.Desktop.UI
                                     
                                     separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), z.onuchhed_no.ToString());
                                     separateOnucched.createDate = onucchedsingleListRec.created;
-                                    separateOnucched.onucchedId = onucchedsingleListRec.id;
+                                    separateOnucched.onucchedId = z.onuchhed_id;
                                     separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                     try
                                     {
@@ -848,7 +850,7 @@ namespace dNothi.Desktop.UI
                                     separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                                     separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), z.onuchhed_no.ToString());
                                     separateOnucched.createDate = onucchedsingleListRec.created;
-                                    separateOnucched.onucchedId = onucchedsingleListRec.id;
+                                    separateOnucched.onucchedId = z.onuchhed_id;
                                     separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                     try
                                     {
@@ -2311,107 +2313,6 @@ namespace dNothi.Desktop.UI
         private void fileUploadPanel_Click_1(object sender, EventArgs e)
         {
 
-            OpenFileDialog opnfd = new OpenFileDialog();
-            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
-            //opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
-            if (opnfd.ShowDialog() == DialogResult.OK)
-            {
-                _dakFileUploadParam.user_file_name = new System.IO.FileInfo(opnfd.FileName).Name;
-                _dakFileUploadParam.path = "Onucched";
-                _dakFileUploadParam.model = "NothiOnucchedAttachments";
-
-
-                //Read the contents of the file into a stream
-                var fileStream = opnfd.OpenFile();
-
-                using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    Byte[] bytes = File.ReadAllBytes(opnfd.FileName);
-                    _dakFileUploadParam.content = Convert.ToBase64String(bytes);
-                }
-
-
-                // _dakFileUploadParam.file_size_in_kb=opnfd.
-
-
-                var size = new System.IO.FileInfo(opnfd.FileName).Length;
-
-                _dakFileUploadParam.file_size_in_kb = size.ToString() + " KB";
-
-
-
-                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-
-                DakUploadedFileResponse dakUploadedFileResponse = _onucchedFileUploadService.GetOnuchhedUploadedFile(dakListUserParam, _dakFileUploadParam);
-
-                if (dakUploadedFileResponse.status == "success")
-                {
-                    if (dakUploadedFileResponse.data.Count > 0)
-                    {
-                        fileuploadDoneFlag = 1;
-                        //attachmentListFlowLayoutPanel.Controls.Clear();
-                        NoteFileUpload noteFileUpload = new NoteFileUpload();
-                        if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
-                        {
-                            noteFileUpload.imgSource = opnfd.FileName;
-                            noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                            noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                            noteFileUploads.Add(noteFileUpload);
-                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
-                            //fileAddFLP.Controls.Add(noteFileUpload);
-                            //dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
-                            //dakUploadAttachmentTableRow._isAllowedforOCR = true;
-
-                            using (Image image = Image.FromFile(opnfd.FileName))
-                            {
-                                using (MemoryStream m = new MemoryStream())
-                                {
-                                    image.Save(m, image.RawFormat);
-                                    byte[] imageBytes = m.ToArray();
-
-                                    // Convert byte[] to Base64 String
-                                    //noteFileUpload.imageBase64String = Convert.ToBase64String(imageBytes);
-
-                                }
-                            }
-
-
-
-
-                        }
-                        else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
-                        {
-                            noteFileUpload.imgSource = "";
-                            noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                            noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                            noteFileUploads.Add(noteFileUpload);
-                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
-                            //fileAddFLP.Controls.Add(noteFileUpload);
-
-                        }
-                        else
-                        {
-                            NoteFileDelete noteFileDelete = new NoteFileDelete();
-                            noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                            noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                            //noteFileUploads.Add(noteFileUpload);
-                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete); 
-                            //--fileAddFLP.Controls.Add(noteFileDelete);
-                            //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
-                        }
-
-
-
-                        //dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
-                        //dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._dakAttachment); };
-
-
-
-
-                    }
-                }
-
-            }
         }
         List<DakUploadedFileResponse> onuchhedSaveWithAttachments = new List<DakUploadedFileResponse>();
         private void fileUploadButton_Click_1(object sender, EventArgs e)
@@ -2455,8 +2356,41 @@ namespace dNothi.Desktop.UI
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
                 DakUploadedFileResponse dakUploadedFileResponse = _onucchedFileUploadService.GetOnuchhedUploadedFile(dakListUserParam,_dakFileUploadParam);
+                if (!InternetConnection.Check() && dakUploadedFileResponse.status == "success" && dakUploadedFileResponse.message == "Local")
+                {
+                    NoteFileUpload noteFileUpload = new NoteFileUpload();
+                    if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                    {
+                        noteFileUpload.imgSource = opnfd.FileName;
+                        noteFileUpload.fileexension = _dakFileUploadParam.file_size_in_kb;
+                        noteFileUpload.attachmentName = _dakFileUploadParam.user_file_name;
+                        UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
+                        //--fileAddFLP.Controls.Add(noteFileUpload);
+                        noteFileUploads.Add(noteFileUpload);
 
-                if (dakUploadedFileResponse.status == "success")
+
+                    }
+                    else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                    {
+                        noteFileUpload.imgSource = "";
+                        noteFileUpload.fileexension = _dakFileUploadParam.file_size_in_kb;
+                        noteFileUpload.attachmentName = _dakFileUploadParam.user_file_name;
+                        UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
+                        noteFileUploads.Add(noteFileUpload);
+
+                    }
+                    else
+                    {
+                        NoteFileDelete noteFileDelete = new NoteFileDelete();
+                        noteFileDelete.attachmentName = _dakFileUploadParam.file_size_in_kb;
+                        noteFileDelete.fileexension = _dakFileUploadParam.user_file_name;
+                        UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete);
+                        //--fileAddFLP.Controls.Add(noteFileDelete);
+                        //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
+                    }
+                    //onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                } 
+                if (dakUploadedFileResponse.status == "success" && dakUploadedFileResponse.data != null)
                 {
                     fileuploadDoneFlag = 1;
                     if (dakUploadedFileResponse.data.Count > 0)
@@ -2681,87 +2615,105 @@ namespace dNothi.Desktop.UI
                     noteHeaderPanel.Width = 990;
                     noteHeaderPanel.Height = 426;
                     var onuchhedNo = "0";
+                    int totalOnuchhed = 0;
+                    OnucchedListDataRecordDTO last = onucchedList.data.records.Last();
                     foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
-                        flag++;
-                        SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, onucchedsingleListRec.id);
-                        if (singleOnucched.data.total_records > 0)
+                        int[] sequence_onuchhed_id = onucchedsingleListRec.sequence_onucched_ids.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+                        int[] sequence_onuchhed_no = onucchedsingleListRec.onucched_no.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+                        totalOnuchhed = totalOnuchhed + sequence_onuchhed_no.Length;
+                        var zip = sequence_onuchhed_id.Zip(sequence_onuchhed_no, (onuchhed_id, onuchhed_no) => new { onuchhed_id, onuchhed_no });
+                        foreach (var z in zip)
                         {
-                            var rec = singleOnucched.data.records;
-                            lbNoteTotl1.Text = "নোটঃ " + list.note_status;
-                            lbNoteSubject.Text = list.note_subject_sub_text;
-                            lbNothiLastDate.Text = list.date;
-
-                            btnSave.Visible = false;
-                            btnSaveArrow.Visible = false;
-                            btnCancel.Visible = false;
-
-                            //onuchhedheaderPnl.Visible = true;
-                            //onuchhedFLP.Visible = true;
-                            btnWriteOnuchhed.Visible = true;
-                            btnSend.Visible = true;
-                            //panel14.Visible = false;
-                            panel22.Visible = false;
-                            tinyMceEditor.Visible = false;
-                            panel24.Visible = false;
-                            panel28.Visible = false;
-                            onuchhedNo = onucchedsingleListRec.onucched_no;
-                            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                            var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-                            if (rec[0].attachment.Count > 0)
+                            flag++;
+                            SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+                            if (singleOnucched.data.total_records > 0)
                             {
-                                separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
-                                foreach (AttachmentDTO attachment in rec[0].attachment)
+                                var rec = singleOnucched.data.records;
+                                onuchhedNo = onucchedsingleListRec.onucched_no;
+                                lbNoteTotl1.Text = "নোটঃ " + list.note_status;
+                                lbNoteSubject.Text = list.note_subject_sub_text;
+                                lbNothiLastDate.Text = list.date;
+
+                                btnSave.Visible = false;
+                                btnSaveArrow.Visible = false;
+                                btnCancel.Visible = false;
+
+                                //onuchhedheaderPnl.Visible = true;
+                                //onuchhedFLP.Visible = true;
+                                btnWriteOnuchhed.Visible = true;
+                                btnSend.Visible = true;
+                                //panel14.Visible = false;
+                                panel22.Visible = false;
+                                tinyMceEditor.Visible = false;
+                                panel24.Visible = false;
+                                panel28.Visible = false;
+                                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                                var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                if (rec[0].attachment.Count > 0)
                                 {
-                                    separateOnucched.fileAddInFilePanel(attachment);
+                                    separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
+                                    foreach (AttachmentDTO attachment in rec[0].attachment)
+                                    {
+                                        separateOnucched.fileAddInFilePanel(attachment);
+
+                                    }
+                                }
+                                else
+                                {
+                                    separateOnucched.filePnaeloff();
+                                }
+                                separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
+                                separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), z.onuchhed_no.ToString());
+                                separateOnucched.createDate = onucchedsingleListRec.created;
+                                separateOnucched.onucchedId = z.onuchhed_id;
+                                separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
+                                try
+                                {
+                                    separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
+                                }
+                                catch
+                                {
 
                                 }
-                            }
-                            else
-                            {
-                                separateOnucched.filePnaeloff();
-                            }
-                            separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
-                            separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onucchedsingleListRec.onucched_no);
-                            separateOnucched.createDate = onucchedsingleListRec.created;
-                            separateOnucched.onucchedId = onucchedsingleListRec.id;
-                            separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
-                            try
-                            {
-                                separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
-                            }
-                            catch
-                            {
+                                foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
+                                {
+                                    separateOnucched.loadOnuchhedSignature(singleRecSignature);
+                                }
 
+                                if (totalOnuchhed == flag && onucchedsingleListRec.Equals(last))
+                                {
+                                    separateOnucched.lastopenOnuchhed();
+                                }
+                                //onuchhedFLP.Controls.Add(separateOnucched);
+                                UIDesignCommonMethod.AddRowinTable(onuchhedFLP, separateOnucched);
+                                //if (list.can_revert == 1)
+                                //{
+                                //    checkSub = list.note_subject_sub_text;
+                                //    checkNoteId = list.nothi_note_id;
+                                //    btnCanRevert.Visible = true;
+                                //    btnWriteOnuchhed.Visible = false;
+                                //    btnSend.Visible = false;
+                                //    btnSave.Visible = false;
+                                //    btnSaveArrow.Visible = false;
+                                //    btnCancel.Visible = false;
+                                //}
+                                //else
+                                //{
+                                //    btnCanRevert.Visible = false;
+                                //}
                             }
-                            foreach (SingleOnucchedRecordSignatureDTO singleRecSignature in rec[0].signature)
-                            {
-                                separateOnucched.loadOnuchhedSignature(singleRecSignature);
-                            }
-                            if (onucchedList.data.total_records == flag)
-                            {
-                                separateOnucched.lastopenOnuchhed();
-                            }
-                            onuchhedFLP.Controls.Add(separateOnucched);
-                            //if (list.can_revert == 1)
-                            //{
-                            //    checkSub = list.note_subject_sub_text;
-                            //    checkNoteId = list.nothi_note_id;
-                            //    btnCanRevert.Visible = true;
-                            //    btnWriteOnuchhed.Visible = false;
-                            //    btnSend.Visible = false;
-                            //    btnSave.Visible = false;
-                            //    btnSaveArrow.Visible = false;
-                            //    btnCancel.Visible = false;
-                            //}
-                            //else
-                            //{
-                            //    btnCanRevert.Visible = false;
-                            //}
                         }
                     }
+
+
+
+
+
+
                     if (!InternetConnection.Check())
                     {
+                        totalOnuchhed--;
                         List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
                         if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
                         {
@@ -2769,24 +2721,28 @@ namespace dNothi.Desktop.UI
                             foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
                             {
                                 NothiListRecordsDTO nothiListRecordsDTO = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
-                                NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
-                                if (nothiListRecordsDTO.id == nothiListRecords.id && list.nothi_note_id == newnotedata.note_id)
+                                NoteSaveDTO newnotedata1 = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
+                                if (nothiListRecordsDTO.id == nothiListRecords.id && list.nothi_note_id == newnotedata1.note_id)
                                 {
-                                    int onucchedNo = Convert.ToInt32(onuchhedNo);
+                                    //int onucchedNo = Convert.ToInt32(onuchhedNo);
                                     if (onuchhedFLP.Controls.Count == 0)
                                     {
-                                        onucchedNo = 0;
+                                        totalOnuchhed = 0;
                                     }
                                     else
                                     {
-                                        onucchedNo++;
+                                        totalOnuchhed++;
                                     }
-                                    onuchhedNo = onucchedNo.ToString();
+                                    //onuchhedNo = onucchedNo.ToString();
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-
+                                    List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                    if (onuchhedSaveWithAttachments.Count == 0)
+                                    {
+                                        separateOnucched.filePnaeloff();
+                                    }
                                     separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
-                                    separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onuchhedNo);
+                                    separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), totalOnuchhed.ToString());
                                     //separateOnucched.createDate = onucchedsingleListRec.created;
                                     separateOnucched.onucchedId = Convert.ToInt32(onuchhedSaveItemAction.Id);
                                     //separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
@@ -2958,6 +2914,29 @@ namespace dNothi.Desktop.UI
                     }
                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
+                    if (!InternetConnection.Check())
+                    {
+                        List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                        if (fileUploadActions != null && fileUploadActions.Count > 0)
+                        {
+                            
+                            foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                            {
+                                DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
+                                DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                                DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                dakAttachmentDTO.id = fileUploadItemAction.Id;
+
+                                dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+                                onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                            }
+                        }
+                    }
+
                     var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(onuchhedId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                     OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, newnotedata.note_id);
                     if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data == null)
@@ -3121,7 +3100,7 @@ namespace dNothi.Desktop.UI
                                             separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                                             separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), z.onuchhed_no.ToString());
                                             separateOnucched.createDate = onucchedsingleListRec.created;
-                                            separateOnucched.onucchedId = onucchedsingleListRec.id;
+                                            separateOnucched.onucchedId = z.onuchhed_id;
                                             separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                             try
                                             {
