@@ -42,6 +42,13 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.SignatureViewBodyPanel = new System.Windows.Forms.Panel();
             this.SignatureFLP = new System.Windows.Forms.TableLayoutPanel();
+            this.filePnael = new System.Windows.Forms.Panel();
+            this.fileViewBodyPanel = new System.Windows.Forms.Panel();
+            this.fileFLP = new System.Windows.Forms.TableLayoutPanel();
+            this.fileHeaderPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbTotalFileNo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.onuchhedheaderPnl = new dNothi.Desktop.AdvancedPanel();
             this.lbOffice = new System.Windows.Forms.Label();
             this.lbNoteNo = new System.Windows.Forms.Label();
@@ -50,6 +57,9 @@ namespace dNothi.Desktop.UI.Dak
             this.topPnl.SuspendLayout();
             this.middlePnl.SuspendLayout();
             this.SignatureViewBodyPanel.SuspendLayout();
+            this.filePnael.SuspendLayout();
+            this.fileViewBodyPanel.SuspendLayout();
+            this.fileHeaderPanel.SuspendLayout();
             this.onuchhedheaderPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,7 +145,6 @@ namespace dNothi.Desktop.UI.Dak
             this.lbonucchedId.Size = new System.Drawing.Size(24, 26);
             this.lbonucchedId.TabIndex = 68;
             this.lbonucchedId.Text = "0";
-            this.lbonucchedId.Visible = false;
             // 
             // lbOnucchedNo
             // 
@@ -202,7 +211,7 @@ namespace dNothi.Desktop.UI.Dak
             this.SignatureViewBodyPanel.AutoScroll = true;
             this.SignatureViewBodyPanel.Controls.Add(this.SignatureFLP);
             this.SignatureViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SignatureViewBodyPanel.Location = new System.Drawing.Point(0, 213);
+            this.SignatureViewBodyPanel.Location = new System.Drawing.Point(0, 330);
             this.SignatureViewBodyPanel.Margin = new System.Windows.Forms.Padding(4);
             this.SignatureViewBodyPanel.Name = "SignatureViewBodyPanel";
             this.SignatureViewBodyPanel.Size = new System.Drawing.Size(1297, 0);
@@ -224,6 +233,99 @@ namespace dNothi.Desktop.UI.Dak
             this.SignatureFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.SignatureFLP.Size = new System.Drawing.Size(1297, 0);
             this.SignatureFLP.TabIndex = 55;
+            // 
+            // filePnael
+            // 
+            this.filePnael.Controls.Add(this.fileViewBodyPanel);
+            this.filePnael.Controls.Add(this.fileHeaderPanel);
+            this.filePnael.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filePnael.Location = new System.Drawing.Point(0, 213);
+            this.filePnael.Margin = new System.Windows.Forms.Padding(0);
+            this.filePnael.Name = "filePnael";
+            this.filePnael.Size = new System.Drawing.Size(1297, 117);
+            this.filePnael.TabIndex = 72;
+            // 
+            // fileViewBodyPanel
+            // 
+            this.fileViewBodyPanel.AutoScroll = true;
+            this.fileViewBodyPanel.Controls.Add(this.fileFLP);
+            this.fileViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileViewBodyPanel.Location = new System.Drawing.Point(0, 31);
+            this.fileViewBodyPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.fileViewBodyPanel.Name = "fileViewBodyPanel";
+            this.fileViewBodyPanel.Size = new System.Drawing.Size(1297, 86);
+            this.fileViewBodyPanel.TabIndex = 74;
+            // 
+            // fileFLP
+            // 
+            this.fileFLP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.fileFLP.AutoSize = true;
+            this.fileFLP.ColumnCount = 1;
+            this.fileFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.fileFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.fileFLP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.fileFLP.Location = new System.Drawing.Point(0, 0);
+            this.fileFLP.Margin = new System.Windows.Forms.Padding(0);
+            this.fileFLP.Name = "fileFLP";
+            this.fileFLP.RowCount = 1;
+            this.fileFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.fileFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.fileFLP.Size = new System.Drawing.Size(1297, 0);
+            this.fileFLP.TabIndex = 55;
+            // 
+            // fileHeaderPanel
+            // 
+            this.fileHeaderPanel.Controls.Add(this.label3);
+            this.fileHeaderPanel.Controls.Add(this.lbTotalFileNo);
+            this.fileHeaderPanel.Controls.Add(this.label1);
+            this.fileHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.fileHeaderPanel.Location = new System.Drawing.Point(0, 0);
+            this.fileHeaderPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.fileHeaderPanel.Name = "fileHeaderPanel";
+            this.fileHeaderPanel.Size = new System.Drawing.Size(1297, 31);
+            this.fileHeaderPanel.TabIndex = 73;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label3.Location = new System.Drawing.Point(101, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 26);
+            this.label3.TabIndex = 69;
+            this.label3.Text = ")";
+            // 
+            // lbTotalFileNo
+            // 
+            this.lbTotalFileNo.AutoSize = true;
+            this.lbTotalFileNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.lbTotalFileNo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbTotalFileNo.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalFileNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbTotalFileNo.Location = new System.Drawing.Point(77, 0);
+            this.lbTotalFileNo.Margin = new System.Windows.Forms.Padding(0);
+            this.lbTotalFileNo.Name = "lbTotalFileNo";
+            this.lbTotalFileNo.Size = new System.Drawing.Size(24, 26);
+            this.lbTotalFileNo.TabIndex = 68;
+            this.lbTotalFileNo.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 26);
+            this.label1.TabIndex = 67;
+            this.label1.Text = "সংযুক্তি(";
             // 
             // onuchhedheaderPnl
             // 
@@ -327,6 +429,7 @@ namespace dNothi.Desktop.UI.Dak
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.SignatureViewBodyPanel);
+            this.Controls.Add(this.filePnael);
             this.Controls.Add(this.SubjectBrowser);
             this.Controls.Add(this.middlePnl);
             this.Controls.Add(this.topPnl);
@@ -340,6 +443,11 @@ namespace dNothi.Desktop.UI.Dak
             this.middlePnl.PerformLayout();
             this.SignatureViewBodyPanel.ResumeLayout(false);
             this.SignatureViewBodyPanel.PerformLayout();
+            this.filePnael.ResumeLayout(false);
+            this.fileViewBodyPanel.ResumeLayout(false);
+            this.fileViewBodyPanel.PerformLayout();
+            this.fileHeaderPanel.ResumeLayout(false);
+            this.fileHeaderPanel.PerformLayout();
             this.onuchhedheaderPnl.ResumeLayout(false);
             this.onuchhedheaderPnl.PerformLayout();
             this.ResumeLayout(false);
@@ -364,5 +472,12 @@ namespace dNothi.Desktop.UI.Dak
         private FontAwesome.Sharp.IconButton btnSchedule;
         private System.Windows.Forms.Panel SignatureViewBodyPanel;
         private System.Windows.Forms.TableLayoutPanel SignatureFLP;
+        private System.Windows.Forms.Panel filePnael;
+        private System.Windows.Forms.Panel fileHeaderPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel fileViewBodyPanel;
+        private System.Windows.Forms.TableLayoutPanel fileFLP;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbTotalFileNo;
     }
 }

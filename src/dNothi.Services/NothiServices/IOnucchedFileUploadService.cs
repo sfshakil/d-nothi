@@ -11,5 +11,6 @@ namespace dNothi.Services.NothiServices
     public interface IOnucchedFileUploadService
     {
         DakUploadedFileResponse GetOnuchhedUploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam);
+        bool SendNoteListFromLocal();
     }
 }

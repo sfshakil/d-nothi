@@ -9,6 +9,7 @@ namespace dNothi.JsonParser.Entity.Dak
    public class DakUploadedFileResponse
     {
         public string status { get; set; }
+        public string message { get; set; }
         public List<DakAttachmentDTO> data { get; set; }
     }
 }

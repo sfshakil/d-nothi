@@ -49,6 +49,7 @@ namespace dNothi.Services.SyncServices
         IDakListSortedService _dakListSortedService { get; set; }
         IDakForwardService _dakForwardService { get; set; }
         IAccountService _accountService { get; set; }
+        IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
         IRepository<SyncStatus> _sycnRepository;
         public SyncerService(
               INoteSaveService noteSave,
@@ -72,6 +73,7 @@ namespace dNothi.Services.SyncServices
             IOnuchhedForwardService onuchhedForwardService,
             INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices,
+            IOnucchedFileUploadService onucchedFileUploadService,
 
             IDakInboxServices dakInboxService,
 
@@ -99,7 +101,7 @@ namespace dNothi.Services.SyncServices
             _protibedonService = protibedonService;
 
             _dakFolderService = dakFolderService;
-
+            _onucchedFileUploadService = onucchedFileUploadService;
             _onucchedSave = onucchedSave;
             _userService = userService;
             _dakInboxService = dakInboxService;
@@ -186,9 +188,9 @@ namespace dNothi.Services.SyncServices
                 _nothiTypeSave.SendNothiTypeListFromLocal();
                 _nothiCreateServices.SendNothiCreateListFromLocal();
                 _noteSave.SendNoteListFromLocal();
+                _onucchedFileUploadService.SendNoteListFromLocal();
                 _onucchedSave.SendNoteListFromLocal();
                 _onuchhedForwardService.SendNoteListFromLocal();
-
 
             }
 

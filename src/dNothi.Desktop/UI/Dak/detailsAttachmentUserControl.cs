@@ -26,7 +26,7 @@ namespace dNothi.Desktop.UI.Dak
        
         private string _attachmenttype;
         private string _attachmentlink;
-        private int _attachmentid;
+        private long _attachmentid;
 
         public List<DakAttachmentDTO> _dakAttachmentDTOs { get; set; }
         public List<DakAttachmentDTO> dakAttachmentDTOs { get { return _dakAttachmentDTOs; } set { _dakAttachmentDTOs = value; } }
@@ -113,7 +113,7 @@ namespace dNothi.Desktop.UI.Dak
             set { _attachmentdownload = value; if (_attachmentdownload == null) { downloadButton.Visible = false; shareButton.Visible = false; } }
         }
 
-        public int attachmentid
+        public long attachmentid
         {
             get { return _attachmentid; }
             set { _attachmentid = value; }

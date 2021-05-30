@@ -149,6 +149,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteSaveItemAction>>().As<IRepository<dNothi.Core.Entities.NoteSaveItemAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteSendItemAction>>().As<IRepository<dNothi.Core.Entities.NoteSendItemAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.OnuchhedSaveItemAction>>().As<IRepository<dNothi.Core.Entities.OnuchhedSaveItemAction>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.FileUploadAction>>().As<IRepository<dNothi.Core.Entities.FileUploadAction>>();
 
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemDetails>>().As<IRepository<dNothi.Core.Entities.DakItemDetails>>();
@@ -244,6 +245,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Note>().AsSelf();
             builder.RegisterType<DakModuleSokolNothiListUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.CreateNewNotes>().AsSelf();
+            builder.RegisterType<UI.Dak.FileUserControl>().AsSelf();
             builder.RegisterType<NothiAll>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
 

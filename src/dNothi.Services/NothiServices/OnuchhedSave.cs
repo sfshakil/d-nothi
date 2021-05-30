@@ -143,7 +143,22 @@ namespace dNothi.Services.NothiServices
                 {
                     DakUserParam dakUserParamLocal = JsonConvert.DeserializeObject<DakUserParam>(onuchhedSaveItemAction.dakUserParamJson);
                     dakUserParamLocal.token = dakUserParam.token;
-                    List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+
+
+
+                    List<DakUploadedFileResponse> onuchhedSaveWithAttachments = new List<DakUploadedFileResponse>();
+                    try
+                    {
+
+                        DakUploadedFileResponse dakUploadedFileResponse = JsonConvert.DeserializeObject<DakUploadedFileResponse>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                        onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                    }
+                    catch
+                    {
+                        onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+
+                    }
+
                     NothiListRecordsDTO nothiListRecordsDTO = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
                     NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
                     
@@ -162,7 +177,7 @@ namespace dNothi.Services.NothiServices
         }
         public class FileInfo
         {
-            public int id { get; set; }
+            public long id { get; set; }
             public string user_file_name { get; set; }
         }
         public class Onuchhed

@@ -1,6 +1,9 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices;
+using dNothi.Services.UserServices;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -14,9 +17,36 @@ namespace dNothi.Services.NothiServices
 {
     public class OnucchedFileUploadService : IOnucchedFileUploadService
     {
+        IRepository<FileUploadAction> _fileUploadAction;
+        IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
+        IUserService _userService { get; set; }
+        public OnucchedFileUploadService(IUserService userService, IRepository<FileUploadAction> fileUploadAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
+        {
+            _userService = userService;
+            _fileUploadAction = fileUploadAction;
+            _onuchhedSaveItemAction = onuchhedSaveItemAction;
+        }
         public DakUploadedFileResponse GetOnuchhedUploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam)
         {
             DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                dakUploadedFileResponse.status = "success";
+                dakUploadedFileResponse.message = "Local";
+
+                FileUploadAction fileUploadAction = new FileUploadAction();
+                
+                string dup = JsonConvert.SerializeObject(dakListUserParam);
+                string oswa = JsonConvert.SerializeObject(dakFileUploadParam);
+
+                fileUploadAction.dakListUserParamJson = dup;
+                fileUploadAction.dakFileUploadParamJson = oswa;
+                fileUploadAction.designation_id = dakListUserParam.designation_id;
+                fileUploadAction.office_id = dakListUserParam.office_id;
+                _fileUploadAction.Insert(fileUploadAction);
+
+                return dakUploadedFileResponse;
+            }
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetOnuchhedFileUploadEndPoint());
@@ -43,6 +73,69 @@ namespace dNothi.Services.NothiServices
             {
                 return dakUploadedFileResponse;
             }
+        }
+        public bool SendNoteListFromLocal()
+        {
+            bool isForwarded = false;
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+            List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+            if (fileUploadActions != null && fileUploadActions.Count > 0)
+            {
+                foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                {
+                    DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
+                    DakUserParam dakUserParamLocal = JsonConvert.DeserializeObject<DakUserParam>(fileUploadItemAction.dakListUserParamJson);
+                    dakUserParamLocal.token = dakUserParam.token;
+                    var onuchhedSaveResponse = GetOnuchhedUploadedFile(dakUserParamLocal, dakFileUploadParam);
+
+                    if (onuchhedSaveResponse != null && (onuchhedSaveResponse.status == "error" || onuchhedSaveResponse.status == "success"))
+                    {
+                        List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+                        if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
+                        {
+                            foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
+                            {
+                                List<DakUploadedFileResponse> onuchhedSaveWithAttachments = new List<DakUploadedFileResponse>();
+                                List<DakUploadedFileResponse> onuchhedSaveWithAttachmentsde = new List<DakUploadedFileResponse>();
+                                try
+                                {
+                                    
+                                    DakUploadedFileResponse dakUploadedFileResponse = JsonConvert.DeserializeObject<DakUploadedFileResponse>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                    onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                }
+                                catch
+                                {
+                                    onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+
+                                }
+
+                                if (onuchhedSaveWithAttachments.Count > 0)
+                                {
+                                    foreach (DakUploadedFileResponse onuchhedSaveWithAttachment in onuchhedSaveWithAttachments)
+                                    {
+                                        if (onuchhedSaveWithAttachment.data[0].id == fileUploadItemAction.Id)
+                                        {
+                                            onuchhedSaveWithAttachment.data[0].id = onuchhedSaveResponse.data[0].id;
+                                            onuchhedSaveWithAttachmentsde.Add(onuchhedSaveWithAttachment);
+                                            
+                                        }
+                                        else
+                                        {
+                                            onuchhedSaveWithAttachmentsde.Add(onuchhedSaveWithAttachment);
+                                        }
+                                    }
+                                    onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson = JsonConvert.SerializeObject(onuchhedSaveWithAttachmentsde);
+                                    _onuchhedSaveItemAction.Update(onuchhedSaveItemAction);
+                                }
+                            }
+                        }
+                        _fileUploadAction.Delete(fileUploadItemAction);
+                        isForwarded = true;
+                    }
+                }
+            }
+            return isForwarded;
         }
         protected string GetAPIVersion()
         {

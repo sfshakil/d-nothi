@@ -14,7 +14,7 @@ namespace dNothi.Core.Entities
         public long dak_list_id { get; set; }
         public virtual DakList dak_list { get; set; }
 
-        public int attachment_id { get; set; }
+        public long attachment_id { get; set; }
         public int is_main { get; set; }
         public string attachment_type { get; set; }
         public string dak_description { get; set; }
