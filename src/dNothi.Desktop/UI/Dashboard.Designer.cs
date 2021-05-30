@@ -136,6 +136,15 @@
             this.button7 = new System.Windows.Forms.Button();
             this.leftMenuBarTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.menuTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.dakUploadMenuArrow = new FontAwesome.Sharp.IconButton();
+            this.dakUploadButton = new FontAwesome.Sharp.IconButton();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.registerMenuArrow = new FontAwesome.Sharp.IconButton();
+            this.registerButton = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.protibedonMenuArrow = new FontAwesome.Sharp.IconButton();
+            this.protibedonButton = new FontAwesome.Sharp.IconButton();
             this.protibedonPanel = new System.Windows.Forms.Panel();
             this.nothijatoListReportButton = new System.Windows.Forms.Button();
             this.PotrojariListReportButton = new System.Windows.Forms.Button();
@@ -146,7 +155,6 @@
             this.registerDiaryButton = new System.Windows.Forms.Button();
             this.registerBiliButton = new System.Windows.Forms.Button();
             this.registerGrohonButton = new System.Windows.Forms.Button();
-            this.registerButton = new FontAwesome.Sharp.IconButton();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dakSortingUserFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -156,7 +164,6 @@
             this.dakUploadDropDownPanel = new System.Windows.Forms.Panel();
             this.nagorikDakUploadMenuButton = new System.Windows.Forms.Button();
             this.daptorikDakUploadButton = new System.Windows.Forms.Button();
-            this.dakUploadButton = new FontAwesome.Sharp.IconButton();
             this.dakArchiveButton = new FontAwesome.Sharp.IconButton();
             this.dakNothijatoButton = new FontAwesome.Sharp.IconButton();
             this.dakNotivuktoButton = new FontAwesome.Sharp.IconButton();
@@ -164,7 +171,6 @@
             this.dakSortButton = new FontAwesome.Sharp.IconButton();
             this.dakInboxButton = new FontAwesome.Sharp.IconButton();
             this.dakSearchButton = new FontAwesome.Sharp.IconButton();
-            this.protibedonButton = new FontAwesome.Sharp.IconButton();
             this.logoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.dakMenuButton = new System.Windows.Forms.Panel();
@@ -239,6 +245,9 @@
             this.panel3.SuspendLayout();
             this.leftMenuBarTableLayoutPanel.SuspendLayout();
             this.menuTableLayoutPanel.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.protibedonPanel.SuspendLayout();
             this.registerPanel.SuspendLayout();
             this.dakUploadDropDownPanel.SuspendLayout();
@@ -1826,9 +1835,11 @@
             this.menuTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.menuTableLayoutPanel.ColumnCount = 1;
             this.menuTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.menuTableLayoutPanel.Controls.Add(this.panel7, 0, 7);
+            this.menuTableLayoutPanel.Controls.Add(this.panel6, 0, 15);
+            this.menuTableLayoutPanel.Controls.Add(this.panel2, 0, 17);
             this.menuTableLayoutPanel.Controls.Add(this.protibedonPanel, 0, 18);
             this.menuTableLayoutPanel.Controls.Add(this.registerPanel, 0, 16);
-            this.menuTableLayoutPanel.Controls.Add(this.registerButton, 0, 15);
             this.menuTableLayoutPanel.Controls.Add(this.label12, 0, 13);
             this.menuTableLayoutPanel.Controls.Add(this.label2, 0, 10);
             this.menuTableLayoutPanel.Controls.Add(this.dakSortingUserFlowLayoutPanel, 0, 13);
@@ -1836,7 +1847,6 @@
             this.menuTableLayoutPanel.Controls.Add(this.personalFolderButton, 0, 11);
             this.menuTableLayoutPanel.Controls.Add(this.khasraDakButton, 0, 9);
             this.menuTableLayoutPanel.Controls.Add(this.dakUploadDropDownPanel, 0, 8);
-            this.menuTableLayoutPanel.Controls.Add(this.dakUploadButton, 0, 7);
             this.menuTableLayoutPanel.Controls.Add(this.dakArchiveButton, 0, 6);
             this.menuTableLayoutPanel.Controls.Add(this.dakNothijatoButton, 0, 5);
             this.menuTableLayoutPanel.Controls.Add(this.dakNotivuktoButton, 0, 4);
@@ -1844,7 +1854,6 @@
             this.menuTableLayoutPanel.Controls.Add(this.dakSortButton, 0, 2);
             this.menuTableLayoutPanel.Controls.Add(this.dakInboxButton, 0, 1);
             this.menuTableLayoutPanel.Controls.Add(this.dakSearchButton, 0, 0);
-            this.menuTableLayoutPanel.Controls.Add(this.protibedonButton, 0, 17);
             this.menuTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuTableLayoutPanel.Location = new System.Drawing.Point(0, 50);
             this.menuTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -1873,6 +1882,208 @@
             this.menuTableLayoutPanel.TabIndex = 47;
             this.menuTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuTableLayoutPanel_Paint);
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.dakUploadMenuArrow);
+            this.panel7.Controls.Add(this.dakUploadButton);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 325);
+            this.panel7.MaximumSize = new System.Drawing.Size(234, 46);
+            this.panel7.MinimumSize = new System.Drawing.Size(234, 46);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(234, 46);
+            this.panel7.TabIndex = 58;
+            // 
+            // dakUploadMenuArrow
+            // 
+            this.dakUploadMenuArrow.AutoSize = true;
+            this.dakUploadMenuArrow.BackColor = System.Drawing.Color.Transparent;
+            this.dakUploadMenuArrow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakUploadMenuArrow.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.dakUploadMenuArrow.FlatAppearance.BorderSize = 0;
+            this.dakUploadMenuArrow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.dakUploadMenuArrow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dakUploadMenuArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakUploadMenuArrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakUploadMenuArrow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.dakUploadMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.dakUploadMenuArrow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.dakUploadMenuArrow.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakUploadMenuArrow.IconSize = 16;
+            this.dakUploadMenuArrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dakUploadMenuArrow.Location = new System.Drawing.Point(180, 0);
+            this.dakUploadMenuArrow.Margin = new System.Windows.Forms.Padding(0);
+            this.dakUploadMenuArrow.Name = "dakUploadMenuArrow";
+            this.dakUploadMenuArrow.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakUploadMenuArrow.Size = new System.Drawing.Size(54, 46);
+            this.dakUploadMenuArrow.TabIndex = 65;
+            this.dakUploadMenuArrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.dakUploadMenuArrow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.dakUploadMenuArrow.UseVisualStyleBackColor = false;
+            this.dakUploadMenuArrow.Click += new System.EventHandler(this.dakUploadButton_Click_1);
+            // 
+            // dakUploadButton
+            // 
+            this.dakUploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.dakUploadButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dakUploadButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.dakUploadButton.FlatAppearance.BorderSize = 0;
+            this.dakUploadButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.dakUploadButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dakUploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakUploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakUploadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.dakUploadButton.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
+            this.dakUploadButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.dakUploadButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakUploadButton.IconSize = 24;
+            this.dakUploadButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dakUploadButton.Location = new System.Drawing.Point(0, 0);
+            this.dakUploadButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakUploadButton.Name = "dakUploadButton";
+            this.dakUploadButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakUploadButton.Size = new System.Drawing.Size(234, 46);
+            this.dakUploadButton.TabIndex = 43;
+            this.dakUploadButton.Text = "   ডাক আপলোড";
+            this.dakUploadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.dakUploadButton.UseVisualStyleBackColor = false;
+            this.dakUploadButton.Click += new System.EventHandler(this.dakUploadButton_Click_1);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.registerMenuArrow);
+            this.panel6.Controls.Add(this.registerButton);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 587);
+            this.panel6.MaximumSize = new System.Drawing.Size(234, 46);
+            this.panel6.MinimumSize = new System.Drawing.Size(234, 46);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(234, 46);
+            this.panel6.TabIndex = 61;
+            // 
+            // registerMenuArrow
+            // 
+            this.registerMenuArrow.AutoSize = true;
+            this.registerMenuArrow.BackColor = System.Drawing.Color.Transparent;
+            this.registerMenuArrow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.registerMenuArrow.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.registerMenuArrow.FlatAppearance.BorderSize = 0;
+            this.registerMenuArrow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerMenuArrow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.registerMenuArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registerMenuArrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerMenuArrow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.registerMenuArrow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.registerMenuArrow.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.registerMenuArrow.IconSize = 16;
+            this.registerMenuArrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerMenuArrow.Location = new System.Drawing.Point(180, 0);
+            this.registerMenuArrow.Margin = new System.Windows.Forms.Padding(0);
+            this.registerMenuArrow.Name = "registerMenuArrow";
+            this.registerMenuArrow.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.registerMenuArrow.Size = new System.Drawing.Size(54, 46);
+            this.registerMenuArrow.TabIndex = 64;
+            this.registerMenuArrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.registerMenuArrow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.registerMenuArrow.UseVisualStyleBackColor = false;
+            this.registerMenuArrow.Click += new System.EventHandler(this.registerButton_Click);
+            // 
+            // registerButton
+            // 
+            this.registerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.registerButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.registerButton.FlatAppearance.BorderSize = 0;
+            this.registerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.registerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.registerButton.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.registerButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.registerButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.registerButton.IconSize = 24;
+            this.registerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.registerButton.Location = new System.Drawing.Point(0, 0);
+            this.registerButton.Margin = new System.Windows.Forms.Padding(0);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.registerButton.Size = new System.Drawing.Size(234, 46);
+            this.registerButton.TabIndex = 60;
+            this.registerButton.Text = "   নিবন্ধন বহি";
+            this.registerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.registerButton.UseVisualStyleBackColor = false;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.protibedonMenuArrow);
+            this.panel2.Controls.Add(this.protibedonButton);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 739);
+            this.panel2.MaximumSize = new System.Drawing.Size(234, 46);
+            this.panel2.MinimumSize = new System.Drawing.Size(234, 46);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(234, 46);
+            this.panel2.TabIndex = 63;
+            // 
+            // protibedonMenuArrow
+            // 
+            this.protibedonMenuArrow.AutoSize = true;
+            this.protibedonMenuArrow.BackColor = System.Drawing.Color.Transparent;
+            this.protibedonMenuArrow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.protibedonMenuArrow.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.protibedonMenuArrow.FlatAppearance.BorderSize = 0;
+            this.protibedonMenuArrow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.protibedonMenuArrow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.protibedonMenuArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protibedonMenuArrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.protibedonMenuArrow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.protibedonMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.protibedonMenuArrow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.protibedonMenuArrow.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.protibedonMenuArrow.IconSize = 16;
+            this.protibedonMenuArrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.protibedonMenuArrow.Location = new System.Drawing.Point(180, 0);
+            this.protibedonMenuArrow.Margin = new System.Windows.Forms.Padding(0);
+            this.protibedonMenuArrow.Name = "protibedonMenuArrow";
+            this.protibedonMenuArrow.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.protibedonMenuArrow.Size = new System.Drawing.Size(54, 46);
+            this.protibedonMenuArrow.TabIndex = 63;
+            this.protibedonMenuArrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.protibedonMenuArrow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.protibedonMenuArrow.UseVisualStyleBackColor = false;
+            this.protibedonMenuArrow.Click += new System.EventHandler(this.protibedonButton_Click);
+            // 
+            // protibedonButton
+            // 
+            this.protibedonButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.protibedonButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.protibedonButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.protibedonButton.FlatAppearance.BorderSize = 0;
+            this.protibedonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.protibedonButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.protibedonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protibedonButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.protibedonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.protibedonButton.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.protibedonButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.protibedonButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.protibedonButton.IconSize = 24;
+            this.protibedonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.protibedonButton.Location = new System.Drawing.Point(0, 0);
+            this.protibedonButton.Margin = new System.Windows.Forms.Padding(0);
+            this.protibedonButton.Name = "protibedonButton";
+            this.protibedonButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.protibedonButton.Size = new System.Drawing.Size(234, 46);
+            this.protibedonButton.TabIndex = 62;
+            this.protibedonButton.Text = "   প্রতিবেদনসমূহ";
+            this.protibedonButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.protibedonButton.UseVisualStyleBackColor = false;
+            this.protibedonButton.Click += new System.EventHandler(this.protibedonButton_Click);
+            // 
             // protibedonPanel
             // 
             this.protibedonPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -1882,7 +2093,7 @@
             this.protibedonPanel.Controls.Add(this.resolvedReportButton);
             this.protibedonPanel.Controls.Add(this.pendingReportButton);
             this.protibedonPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.protibedonPanel.Location = new System.Drawing.Point(0, 769);
+            this.protibedonPanel.Location = new System.Drawing.Point(0, 788);
             this.protibedonPanel.Margin = new System.Windows.Forms.Padding(0);
             this.protibedonPanel.Name = "protibedonPanel";
             this.protibedonPanel.Size = new System.Drawing.Size(234, 160);
@@ -2016,7 +2227,7 @@
             this.registerPanel.Controls.Add(this.registerBiliButton);
             this.registerPanel.Controls.Add(this.registerGrohonButton);
             this.registerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.registerPanel.Location = new System.Drawing.Point(0, 623);
+            this.registerPanel.Location = new System.Drawing.Point(0, 636);
             this.registerPanel.Margin = new System.Windows.Forms.Padding(0);
             this.registerPanel.Name = "registerPanel";
             this.registerPanel.Size = new System.Drawing.Size(234, 100);
@@ -2095,49 +2306,20 @@
             this.registerGrohonButton.UseVisualStyleBackColor = false;
             this.registerGrohonButton.Click += new System.EventHandler(this.registerGrohonButton_Click);
             // 
-            // registerButton
-            // 
-            this.registerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.registerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.registerButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.registerButton.FlatAppearance.BorderSize = 0;
-            this.registerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.registerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.registerButton.IconChar = FontAwesome.Sharp.IconChar.Book;
-            this.registerButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.registerButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.registerButton.IconSize = 24;
-            this.registerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.registerButton.Location = new System.Drawing.Point(0, 577);
-            this.registerButton.Margin = new System.Windows.Forms.Padding(0);
-            this.registerButton.Name = "registerButton";
-            this.registerButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.registerButton.Size = new System.Drawing.Size(234, 46);
-            this.registerButton.TabIndex = 60;
-            this.registerButton.Text = "   নিবন্ধন বহি";
-            this.registerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.registerButton.UseVisualStyleBackColor = false;
-            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
-            // 
             // label12
             // 
-            this.label12.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label12.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Location = new System.Drawing.Point(3, 576);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(228, 1);
+            this.label12.Size = new System.Drawing.Size(228, 2);
             this.label12.TabIndex = 59;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 477);
+            this.label2.Location = new System.Drawing.Point(3, 483);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(228, 1);
             this.label2.TabIndex = 58;
@@ -2146,7 +2328,7 @@
             // 
             this.dakSortingUserFlowLayoutPanel.AutoSize = true;
             this.dakSortingUserFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(3, 573);
+            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(3, 581);
             this.dakSortingUserFlowLayoutPanel.MaximumSize = new System.Drawing.Size(227, 0);
             this.dakSortingUserFlowLayoutPanel.MinimumSize = new System.Drawing.Size(227, 0);
             this.dakSortingUserFlowLayoutPanel.Name = "dakSortingUserFlowLayoutPanel";
@@ -2172,7 +2354,7 @@
             this.dakSortedUserButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakSortedUserButton.IconSize = 24;
             this.dakSortedUserButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakSortedUserButton.Location = new System.Drawing.Point(0, 524);
+            this.dakSortedUserButton.Location = new System.Drawing.Point(0, 530);
             this.dakSortedUserButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSortedUserButton.Name = "dakSortedUserButton";
             this.dakSortedUserButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -2202,7 +2384,7 @@
             this.personalFolderButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.personalFolderButton.IconSize = 24;
             this.personalFolderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personalFolderButton.Location = new System.Drawing.Point(0, 478);
+            this.personalFolderButton.Location = new System.Drawing.Point(0, 484);
             this.personalFolderButton.Margin = new System.Windows.Forms.Padding(0);
             this.personalFolderButton.Name = "personalFolderButton";
             this.personalFolderButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -2229,7 +2411,7 @@
             this.khasraDakButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.khasraDakButton.IconSize = 24;
             this.khasraDakButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.khasraDakButton.Location = new System.Drawing.Point(0, 431);
+            this.khasraDakButton.Location = new System.Drawing.Point(0, 437);
             this.khasraDakButton.Margin = new System.Windows.Forms.Padding(0);
             this.khasraDakButton.Name = "khasraDakButton";
             this.khasraDakButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -2246,7 +2428,7 @@
             this.dakUploadDropDownPanel.Controls.Add(this.nagorikDakUploadMenuButton);
             this.dakUploadDropDownPanel.Controls.Add(this.daptorikDakUploadButton);
             this.dakUploadDropDownPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakUploadDropDownPanel.Location = new System.Drawing.Point(0, 368);
+            this.dakUploadDropDownPanel.Location = new System.Drawing.Point(0, 374);
             this.dakUploadDropDownPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakUploadDropDownPanel.Name = "dakUploadDropDownPanel";
             this.dakUploadDropDownPanel.Size = new System.Drawing.Size(234, 63);
@@ -2300,35 +2482,6 @@
             this.daptorikDakUploadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.daptorikDakUploadButton.UseVisualStyleBackColor = false;
             this.daptorikDakUploadButton.Click += new System.EventHandler(this.daptorikDakUploadButton_Click);
-            // 
-            // dakUploadButton
-            // 
-            this.dakUploadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dakUploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.dakUploadButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.dakUploadButton.FlatAppearance.BorderSize = 0;
-            this.dakUploadButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.dakUploadButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dakUploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakUploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakUploadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.dakUploadButton.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpenText;
-            this.dakUploadButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.dakUploadButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakUploadButton.IconSize = 24;
-            this.dakUploadButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakUploadButton.Location = new System.Drawing.Point(0, 322);
-            this.dakUploadButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakUploadButton.Name = "dakUploadButton";
-            this.dakUploadButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.dakUploadButton.Size = new System.Drawing.Size(234, 46);
-            this.dakUploadButton.TabIndex = 43;
-            this.dakUploadButton.Text = "   ডাক আপলোড";
-            this.dakUploadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.dakUploadButton.UseVisualStyleBackColor = false;
-            this.dakUploadButton.Click += new System.EventHandler(this.dakUploadButton_Click_1);
             // 
             // dakArchiveButton
             // 
@@ -2529,35 +2682,6 @@
             this.dakSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.dakSearchButton.UseVisualStyleBackColor = false;
             this.dakSearchButton.Click += new System.EventHandler(this.dakSearchButton_Click);
-            // 
-            // protibedonButton
-            // 
-            this.protibedonButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.protibedonButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.protibedonButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.protibedonButton.FlatAppearance.BorderSize = 0;
-            this.protibedonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.protibedonButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.protibedonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.protibedonButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.protibedonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.protibedonButton.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.protibedonButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.protibedonButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.protibedonButton.IconSize = 24;
-            this.protibedonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.protibedonButton.Location = new System.Drawing.Point(0, 723);
-            this.protibedonButton.Margin = new System.Windows.Forms.Padding(0);
-            this.protibedonButton.Name = "protibedonButton";
-            this.protibedonButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.protibedonButton.Size = new System.Drawing.Size(234, 46);
-            this.protibedonButton.TabIndex = 62;
-            this.protibedonButton.Text = "   প্রতিবেদনসমূহ";
-            this.protibedonButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.protibedonButton.UseVisualStyleBackColor = false;
-            this.protibedonButton.Click += new System.EventHandler(this.protibedonButton_Click);
             // 
             // logoTableLayoutPanel
             // 
@@ -3372,6 +3496,12 @@
             this.leftMenuBarTableLayoutPanel.PerformLayout();
             this.menuTableLayoutPanel.ResumeLayout(false);
             this.menuTableLayoutPanel.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.protibedonPanel.ResumeLayout(false);
             this.protibedonPanel.PerformLayout();
             this.registerPanel.ResumeLayout(false);
@@ -3589,6 +3719,12 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private FontAwesome.Sharp.IconButton onlineStatus;
         private CustomMessageBox.OnlineToggleButton onlineToggleButton2;
+        private System.Windows.Forms.Panel panel2;
+        private FontAwesome.Sharp.IconButton protibedonMenuArrow;
+        private System.Windows.Forms.Panel panel6;
+        private FontAwesome.Sharp.IconButton registerMenuArrow;
+        private System.Windows.Forms.Panel panel7;
+        private FontAwesome.Sharp.IconButton dakUploadMenuArrow;
     }
 }
 

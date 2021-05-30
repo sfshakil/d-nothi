@@ -8,11 +8,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Desktop.View_Model;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class RegisterReportUserControl : UserControl
     {
+        public int pageLimit=10;
+        public int pageNo=1;
+       
+
+        private void RefreshPagination()
+        {
+            
+
+            //Pagination(0, 0);
+        }
+
+        //private void Pagination(int count, int total)
+        //{
+
+
+
+        //    pageLabel.Text = ConversionMethod.EnglishNumberToBangla(pageStartTemp.ToString()) + " - " + ConversionMethod.EnglishNumberToBangla(pageEnd.ToString());
+        //    totalRowlabel.Text = "সর্বমোট: " + ConversionMethod.EnglishNumberToBangla(total.ToString());
+
+        //    if (pageLimit <= total)
+        //    {
+        //        pageNextButton.Enabled = false;
+        //    }
+        //    else
+        //    {
+        //        pageNextButton.Enabled = true;
+        //    }
+
+        //    if (pageStart == 1)
+        //    {
+        //        pagePrevButton.Enabled = false;
+        //    }
+        //    else
+        //    {
+        //        pagePrevButton.Enabled = true;
+        //    }
+
+
+        //}
+
         public RegisterReportUserControl()
         {
             InitializeComponent();

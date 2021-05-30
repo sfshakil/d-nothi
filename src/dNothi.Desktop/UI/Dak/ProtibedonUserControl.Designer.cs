@@ -630,7 +630,7 @@
             // 
             // pendingTime
             // 
-            this.pendingTime.DataPropertyName = "finalState";
+            this.pendingTime.DataPropertyName = "pendingTime";
             this.pendingTime.HeaderText = "পেন্ডিং সময়";
             this.pendingTime.Name = "pendingTime";
             this.pendingTime.Width = 115;

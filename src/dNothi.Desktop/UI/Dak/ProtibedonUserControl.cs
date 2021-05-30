@@ -28,6 +28,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     ReportingTypeTwo();
                     registerReportDataGridView.Columns["NothiJatoDate"].Visible = true;
+                    headlineLabel.Text = "নথিজাত ডাকসমূহ";
                 }
             }
         
@@ -46,6 +47,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     ReportingTypeTwo();
                     registerReportDataGridView.Columns["NothiteUposthapitoDate"].Visible = true;
+                    headlineLabel.Text = "নথিতে উপস্থাপিত ডাকসমূহ";
                 }
             }
 
@@ -64,6 +66,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     ReportingTypeTwo();
                     registerReportDataGridView.Columns["PotrojariDate"].Visible = true;
+                    headlineLabel.Text = "জারিকৃত ডাকসমূহ";
                 }
             }
 

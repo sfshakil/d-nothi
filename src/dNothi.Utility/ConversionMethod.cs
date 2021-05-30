@@ -17,6 +17,19 @@ namespace dNothi.Utility
             var jsonString = new JavaScriptSerializer().Serialize(obj);
             return jsonString;
         }
+        public static string BanglaDigittoEngDigit(string input)
+        {
+           
+            string output = input.Replace("০", "0").Replace("১", "1").Replace("২", "2").Replace("৩", "3").Replace("৪", "4").Replace("৫", "5").Replace("৬", "6").Replace("৭", "7").Replace("৮", "8").Replace("৯", "9");
+            return output;
+        }
+        public static string EngDigittoBanDigit(string input)
+        {
+
+            string output = input.Replace("0","০" ).Replace("1","১").Replace("2","২").Replace("3","৩").Replace("4","৪").Replace("5","৫").Replace("6","৬").Replace("7","৭").Replace("8","৮" ).Replace("9","৯");
+            return output;
+        }
+
         public static string GetBengaliDayFromEnglishDay(string EnglishDay)
         {
             if(EnglishDay=="Saturday")

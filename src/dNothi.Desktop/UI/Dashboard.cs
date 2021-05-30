@@ -1559,11 +1559,13 @@ namespace dNothi.Desktop.UI
             if (dakUploadDropDownPanel.Visible == true)
             {
                 dakUploadDropDownPanel.Visible = false;
+                dakUploadMenuArrow.IconChar= FontAwesome.Sharp.IconChar.ChevronDown;
             }
             else
             {
                 HideSubmenu();
                 dakUploadDropDownPanel.Visible = true;
+                dakUploadMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
         }
 
@@ -4290,10 +4292,12 @@ namespace dNothi.Desktop.UI
             if (registerPanel.Visible)
             {
                 registerPanel.Visible = false;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
             }
             else
             {
                 registerPanel.Visible = true;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
         }
 
@@ -4308,12 +4312,12 @@ namespace dNothi.Desktop.UI
             RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
             registerReportUserControl.isDakGrohon = true;
             registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
-
-
-            registerReportUserControl.Dock = DockStyle.Fill;
-            int row = dakBodyFlowLayoutPanel.RowCount++;
-            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0F));
-            dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+           
+            UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, registerReportUserControl);
+           // registerReportUserControl.Dock = DockStyle.Fill;
+           // int row = dakBodyFlowLayoutPanel.RowCount++;
+          //  dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0F));
+          //  dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
         }
 
         private void registerBiliButton_Click(object sender, EventArgs e)
@@ -4400,10 +4404,12 @@ namespace dNothi.Desktop.UI
             if (protibedonPanel.Visible)
             {
                 protibedonPanel.Visible = false;
+                protibedonMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
             }
             else
             {
                 protibedonPanel.Visible = true;
+                protibedonMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
 
         }
