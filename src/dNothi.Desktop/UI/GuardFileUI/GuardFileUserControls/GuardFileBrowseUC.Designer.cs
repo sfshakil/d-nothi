@@ -53,13 +53,13 @@
             this.tableLayoutPanel2.Controls.Add(this.panel2, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.attachmentLink, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 3, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 0, 5, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(847, 53);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(840, 46);
             this.tableLayoutPanel2.TabIndex = 13;
             this.tableLayoutPanel2.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel2_CellPaint);
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
@@ -68,20 +68,20 @@
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(341, 3);
+            this.panel2.Location = new System.Drawing.Point(339, 3);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.panel2.Size = new System.Drawing.Size(417, 52);
+            this.panel2.Size = new System.Drawing.Size(414, 41);
             this.panel2.TabIndex = 12;
             // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.dakUploadAttachmentNameTextBox);
-            this.panel3.Location = new System.Drawing.Point(9, 8);
+            this.panel3.Location = new System.Drawing.Point(9, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(398, 32);
+            this.panel3.Size = new System.Drawing.Size(395, 32);
             this.panel3.TabIndex = 9;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -90,9 +90,9 @@
             this.dakUploadAttachmentNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dakUploadAttachmentNameTextBox.BackColor = System.Drawing.Color.White;
             this.dakUploadAttachmentNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dakUploadAttachmentNameTextBox.Location = new System.Drawing.Point(6, 9);
+            this.dakUploadAttachmentNameTextBox.Location = new System.Drawing.Point(6, 10);
             this.dakUploadAttachmentNameTextBox.Name = "dakUploadAttachmentNameTextBox";
-            this.dakUploadAttachmentNameTextBox.Size = new System.Drawing.Size(385, 13);
+            this.dakUploadAttachmentNameTextBox.Size = new System.Drawing.Size(382, 13);
             this.dakUploadAttachmentNameTextBox.TabIndex = 8;
             // 
             // attachmentLink
@@ -103,7 +103,7 @@
             this.attachmentLink.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
             this.attachmentLink.Name = "attachmentLink";
             this.attachmentLink.Padding = new System.Windows.Forms.Padding(5);
-            this.attachmentLink.Size = new System.Drawing.Size(248, 52);
+            this.attachmentLink.Size = new System.Drawing.Size(246, 41);
             this.attachmentLink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.attachmentLink.TabIndex = 6;
             this.attachmentLink.TabStop = false;
@@ -112,9 +112,9 @@
             // 
             this.panel1.Controls.Add(this.attachmentDeleteButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(764, 3);
+            this.panel1.Location = new System.Drawing.Point(759, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(80, 51);
+            this.panel1.Size = new System.Drawing.Size(78, 40);
             this.panel1.TabIndex = 7;
             // 
             // attachmentDeleteButton
@@ -127,7 +127,7 @@
             this.attachmentDeleteButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(149)))), ((int)(((byte)(160)))));
             this.attachmentDeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.attachmentDeleteButton.IconSize = 24;
-            this.attachmentDeleteButton.Location = new System.Drawing.Point(22, 5);
+            this.attachmentDeleteButton.Location = new System.Drawing.Point(21, 3);
             this.attachmentDeleteButton.Name = "attachmentDeleteButton";
             this.attachmentDeleteButton.Size = new System.Drawing.Size(36, 34);
             this.attachmentDeleteButton.TabIndex = 10;
@@ -140,7 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "GuardFileBrowseUC";
-            this.Size = new System.Drawing.Size(847, 53);
+            this.Size = new System.Drawing.Size(840, 49);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
