@@ -24,9 +24,12 @@ namespace dNothi.Desktop.UI.Dak
         }
         public void fileAddInWebBrowser(string uri, string fileName)
         {
-            fileWebBrowser.Url = new Uri(uri);
-            //int q = fileWebBrowser.Document.Body.ScrollRectangle.Height;
-            lbFileName.Text = fileName;
+            if (uri !="") {
+                fileWebBrowser.Url = new Uri(uri);
+                //int q = fileWebBrowser.Document.Body.ScrollRectangle.Height;
+                lbFileName.Text = fileName;
+            }
+                
         }
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {

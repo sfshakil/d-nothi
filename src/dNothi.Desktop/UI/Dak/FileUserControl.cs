@@ -50,12 +50,15 @@ namespace dNothi.Desktop.UI.Dak
         {
             string folderPath = "";
             FolderBrowserDialog directchoosedlg = new FolderBrowserDialog();
-            if (directchoosedlg.ShowDialog() == DialogResult.OK)
+            if (lbFileDownloadLink.Text!="")
             {
-                folderPath = directchoosedlg.SelectedPath;
-                Uri uri = new Uri(lbFileDownloadLink.Text);
-                //string fileName = System.IO.Path.GetFileName(uri.AbsolutePath);
-                client.DownloadFileAsync(uri, folderPath + "/" + _fileName);
+                if (directchoosedlg.ShowDialog() == DialogResult.OK)
+                {
+                    folderPath = directchoosedlg.SelectedPath;
+                    Uri uri = new Uri(lbFileDownloadLink.Text);
+                    //string fileName = System.IO.Path.GetFileName(uri.AbsolutePath);
+                    client.DownloadFileAsync(uri, folderPath + "/" + _fileName);
+                }
             }
 
             

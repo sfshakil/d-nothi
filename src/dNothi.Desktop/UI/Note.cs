@@ -257,7 +257,7 @@ namespace dNothi.Desktop.UI
                 NoteIdfromNothiInboxNoteShomuho.Text = list.nothi_note_id.ToString();
                 //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
                 OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
-                if (onucchedList.data == null)
+                if (onucchedList.data == null || onucchedList.data.records.Count==0)
                 {
                     if (!InternetConnection.Check())
                     {
@@ -309,7 +309,59 @@ namespace dNothi.Desktop.UI
                                     onuchhedNo = onucchedNo.ToString();
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    List<DakUploadedFileResponse> onuchhedSaveWithAttachmentss = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                    if (onuchhedSaveWithAttachmentss.Count == 0)
+                                    {
+                                        separateOnucched.filePnaeloff();
+                                    }
+                                    onuchhedSaveWithAttachments.Clear();
+                                    List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                                    if (fileUploadActions != null && fileUploadActions.Count > 0)
+                                    {
 
+                                        foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                                        {
+                                            foreach (DakUploadedFileResponse dakUploadedFileResponses in onuchhedSaveWithAttachmentss)
+                                            {
+                                                if (fileUploadItemAction.Id == dakUploadedFileResponses.data[0].id)
+                                                {
+                                                    DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
+                                                    DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                                    dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                                                    DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                                    dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                                    dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                                                    dakAttachmentDTO.id = fileUploadItemAction.Id;
+
+                                                    dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+                                                    onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                    //var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    if (onuchhedSaveWithAttachments.Count > 0)
+                                    {
+                                        separateOnucched.totalFileNo = onuchhedSaveWithAttachments.Count.ToString();
+                                        foreach (DakUploadedFileResponse dakUploadedFileResponse in onuchhedSaveWithAttachments)
+                                        {
+                                            AttachmentDTO attachment = new AttachmentDTO();
+                                            attachment.user_file_name = dakUploadedFileResponse.data[0].user_file_name;
+                                            attachment.file_size_in_kb = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                            attachment.download_url = "";
+                                            attachment.url = "";
+                                            separateOnucched.fileAddInFilePanel(attachment);
+
+                                        }
+                                        onuchhedSaveWithAttachments.Clear();
+                                    }
+                                    else
+                                    {
+                                        separateOnucched.filePnaeloff();
+                                    }
                                     separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
                                     separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onuchhedNo);
                                     //separateOnucched.createDate = onucchedsingleListRec.created;
@@ -531,8 +583,56 @@ namespace dNothi.Desktop.UI
                                         //onuchhedNo = onucchedNo.ToString();
                                         DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                         var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-                                        List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
-                                        if (onuchhedSaveWithAttachments.Count == 0)
+                                        List<DakUploadedFileResponse> onuchhedSaveWithAttachmentss = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                        if (onuchhedSaveWithAttachmentss.Count == 0)
+                                        {
+                                            separateOnucched.filePnaeloff();
+                                        }
+                                        onuchhedSaveWithAttachments.Clear();
+                                        List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                                        if (fileUploadActions != null && fileUploadActions.Count > 0)
+                                        {
+
+                                            foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                                            {
+                                                foreach (DakUploadedFileResponse dakUploadedFileResponses in onuchhedSaveWithAttachmentss)
+                                                {
+                                                    if (fileUploadItemAction.Id == dakUploadedFileResponses.data[0].id)
+                                                    {
+                                                        DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
+                                                        DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                                        dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                                                        DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                                        dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                                        dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                                                        dakAttachmentDTO.id = fileUploadItemAction.Id;
+
+                                                        dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+                                                        onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                        //var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                        if (onuchhedSaveWithAttachments.Count > 0)
+                                        {
+                                            separateOnucched.totalFileNo = onuchhedSaveWithAttachments.Count.ToString();
+                                            foreach (DakUploadedFileResponse dakUploadedFileResponse in onuchhedSaveWithAttachments)
+                                            {
+                                                AttachmentDTO attachment = new AttachmentDTO();
+                                                attachment.user_file_name = dakUploadedFileResponse.data[0].user_file_name;
+                                                attachment.file_size_in_kb = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                                attachment.download_url = "";
+                                                attachment.url = "";
+                                                separateOnucched.fileAddInFilePanel(attachment);
+
+                                            }
+                                            onuchhedSaveWithAttachments.Clear();
+                                        }
+                                        else
                                         {
                                             separateOnucched.filePnaeloff();
                                         }
@@ -706,7 +806,7 @@ namespace dNothi.Desktop.UI
                 NoteIdfromNothiInboxNoteShomuho.Text = list.nothi_note_id.ToString();
                 //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
                 OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
-                if (onucchedList.data == null)
+                if (onucchedList.data == null || onucchedList.data.records.Count == 0)
                 {
                     if (!InternetConnection.Check())
                     {
@@ -758,7 +858,59 @@ namespace dNothi.Desktop.UI
                                     onuchhedNo = onucchedNo.ToString();
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    List<DakUploadedFileResponse> onuchhedSaveWithAttachmentss = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                    if (onuchhedSaveWithAttachmentss.Count == 0)
+                                    {
+                                        separateOnucched.filePnaeloff();
+                                    }
+                                    onuchhedSaveWithAttachments.Clear();
+                                    List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                                    if (fileUploadActions != null && fileUploadActions.Count > 0)
+                                    {
 
+                                        foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                                        {
+                                            foreach (DakUploadedFileResponse dakUploadedFileResponses in onuchhedSaveWithAttachmentss)
+                                            {
+                                                if (fileUploadItemAction.Id == dakUploadedFileResponses.data[0].id)
+                                                {
+                                                    DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
+                                                    DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                                    dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                                                    DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                                    dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                                    dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                                                    dakAttachmentDTO.id = fileUploadItemAction.Id;
+
+                                                    dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+                                                    onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                    //var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    if (onuchhedSaveWithAttachments.Count > 0)
+                                    {
+                                        separateOnucched.totalFileNo = onuchhedSaveWithAttachments.Count.ToString();
+                                        foreach (DakUploadedFileResponse dakUploadedFileResponse in onuchhedSaveWithAttachments)
+                                        {
+                                            AttachmentDTO attachment = new AttachmentDTO();
+                                            attachment.user_file_name = dakUploadedFileResponse.data[0].user_file_name;
+                                            attachment.file_size_in_kb = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                            attachment.download_url = "";
+                                            attachment.url = "";
+                                            separateOnucched.fileAddInFilePanel(attachment);
+
+                                        }
+                                        onuchhedSaveWithAttachments.Clear();
+                                    }
+                                    else
+                                    {
+                                        separateOnucched.filePnaeloff();
+                                    }
                                     separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
                                     separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onuchhedNo);
                                     //separateOnucched.createDate = onucchedsingleListRec.created;
@@ -920,8 +1072,56 @@ namespace dNothi.Desktop.UI
                                         //onuchhedNo = onucchedNo.ToString();
                                         DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                         var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-                                        List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
-                                        if (onuchhedSaveWithAttachments.Count == 0)
+                                        List<DakUploadedFileResponse> onuchhedSaveWithAttachmentss = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                        if (onuchhedSaveWithAttachmentss.Count == 0)
+                                        {
+                                            separateOnucched.filePnaeloff();
+                                        }
+                                        onuchhedSaveWithAttachments.Clear();
+                                        List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                                        if (fileUploadActions != null && fileUploadActions.Count > 0)
+                                        {
+
+                                            foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                                            {
+                                                foreach (DakUploadedFileResponse dakUploadedFileResponses in onuchhedSaveWithAttachmentss)
+                                                {
+                                                    if (fileUploadItemAction.Id == dakUploadedFileResponses.data[0].id)
+                                                    {
+                                                        DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
+                                                        DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                                        dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                                                        DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                                        dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                                        dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                                                        dakAttachmentDTO.id = fileUploadItemAction.Id;
+
+                                                        dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+                                                        onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                        //var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                        if (onuchhedSaveWithAttachments.Count > 0)
+                                        {
+                                            separateOnucched.totalFileNo = onuchhedSaveWithAttachments.Count.ToString();
+                                            foreach (DakUploadedFileResponse dakUploadedFileResponse in onuchhedSaveWithAttachments)
+                                            {
+                                                AttachmentDTO attachment = new AttachmentDTO();
+                                                attachment.user_file_name = dakUploadedFileResponse.data[0].user_file_name;
+                                                attachment.file_size_in_kb = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                                attachment.download_url = "";
+                                                attachment.url = "";
+                                                separateOnucched.fileAddInFilePanel(attachment);
+
+                                            }
+                                            onuchhedSaveWithAttachments.Clear();
+                                        }
+                                        else
                                         {
                                             separateOnucched.filePnaeloff();
                                         }
@@ -2736,8 +2936,56 @@ namespace dNothi.Desktop.UI
                                     //onuchhedNo = onucchedNo.ToString();
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-                                    List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
-                                    if (onuchhedSaveWithAttachments.Count == 0)
+                                    List<DakUploadedFileResponse> onuchhedSaveWithAttachmentss = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                    if (onuchhedSaveWithAttachmentss.Count == 0)
+                                    {
+                                        separateOnucched.filePnaeloff();
+                                    }
+                                    onuchhedSaveWithAttachments.Clear();
+                                    List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                                    if (fileUploadActions != null && fileUploadActions.Count > 0)
+                                    {
+
+                                        foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                                        {
+                                            foreach (DakUploadedFileResponse dakUploadedFileResponses in onuchhedSaveWithAttachmentss)
+                                            {
+                                                if (fileUploadItemAction.Id == dakUploadedFileResponses.data[0].id)
+                                                {
+                                                    DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
+                                                    DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                                    dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                                                    DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                                    dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                                    dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                                                    dakAttachmentDTO.id = fileUploadItemAction.Id;
+
+                                                    dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+                                                    onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                    //var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    if (onuchhedSaveWithAttachments.Count > 0)
+                                    {
+                                        separateOnucched.totalFileNo = onuchhedSaveWithAttachments.Count.ToString();
+                                        foreach (DakUploadedFileResponse dakUploadedFileResponse in onuchhedSaveWithAttachments)
+                                        {
+                                            AttachmentDTO attachment = new AttachmentDTO();
+                                            attachment.user_file_name = dakUploadedFileResponse.data[0].user_file_name;
+                                            attachment.file_size_in_kb = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                            attachment.download_url = "";
+                                            attachment.url = "";
+                                            separateOnucched.fileAddInFilePanel(attachment);
+
+                                        }
+                                        onuchhedSaveWithAttachments.Clear();
+                                    }
+                                    else
                                     {
                                         separateOnucched.filePnaeloff();
                                     }
@@ -2919,27 +3167,51 @@ namespace dNothi.Desktop.UI
                         List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
                         if (fileUploadActions != null && fileUploadActions.Count > 0)
                         {
+                            int countflag = fileAddFLP.Controls.Count;
                             
-                            foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                            for (int ij = 0; ij< fileUploadActions.Count; ij++ )
                             {
-                                DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
-                                DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
-                                dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+                                if (countflag == fileUploadActions.Count)
+                                {
+                                    DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadActions[ij].dakFileUploadParamJson);
+                                    DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                    dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
 
-                                DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
-                                dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
-                                dakAttachmentDTO.id = fileUploadItemAction.Id;
+                                    DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                    dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                    dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                                    dakAttachmentDTO.id = fileUploadActions[ij].Id;
 
-                                dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+                                    dakUploadedFileResponse.data.Add(dakAttachmentDTO);
 
-                                onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                    onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                }
+                                else if (ij < fileUploadActions.Count - countflag)
+                                {
+                                    continue;
+                                }
+                                else
+                                {
+                                    DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadActions[ij].dakFileUploadParamJson);
+                                    DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                    dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                                    DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                    dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                    dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                                    dakAttachmentDTO.id = fileUploadActions[ij].Id;
+
+                                    dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+                                    onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                }
                             }
                         }
                     }
 
                     var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(onuchhedId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                     OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, newnotedata.note_id);
-                    if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data == null)
+                    if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data == null || onucchedList.data.records.Count == 0)
                     {
                         onuchhedSaveWithAttachments.Clear();
                         if (!InternetConnection.Check())
@@ -2988,7 +3260,58 @@ namespace dNothi.Desktop.UI
                                         onuchhedNo = onucchedNo.ToString();
                                         //DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                         var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                        List<DakUploadedFileResponse> onuchhedSaveWithAttachmentss = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                        if (onuchhedSaveWithAttachmentss.Count == 0)
+                                        {
+                                            separateOnucched.filePnaeloff();
+                                        }
+                                        List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                                        if (fileUploadActions != null && fileUploadActions.Count > 0)
+                                        {
 
+                                            foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                                            {
+                                                foreach (DakUploadedFileResponse dakUploadedFileResponses in onuchhedSaveWithAttachmentss)
+                                                {
+                                                    if (fileUploadItemAction.Id == dakUploadedFileResponses.data[0].id)
+                                                    {
+                                                        DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
+                                                        DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                                        dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                                                        DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                                        dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                                        dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                                                        dakAttachmentDTO.id = fileUploadItemAction.Id;
+
+                                                        dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+                                                        onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                        //var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                        if (onuchhedSaveWithAttachments.Count > 0)
+                                        {
+                                            separateOnucched.totalFileNo = onuchhedSaveWithAttachments.Count.ToString();
+                                            foreach (DakUploadedFileResponse dakUploadedFileResponse in onuchhedSaveWithAttachments)
+                                            {
+                                                AttachmentDTO attachment = new AttachmentDTO();
+                                                attachment.user_file_name = dakUploadedFileResponse.data[0].user_file_name;
+                                                attachment.file_size_in_kb = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                                attachment.download_url = "";
+                                                attachment.url = "";
+                                                separateOnucched.fileAddInFilePanel(attachment);
+
+                                            }
+                                            onuchhedSaveWithAttachments.Clear();
+                                        }
+                                        else
+                                        {
+                                            separateOnucched.filePnaeloff();
+                                        }
                                         separateOnucched.office = dakListUserParam.officer_name + " " + "১১/১/২১ ৪:০১ PM";
                                         separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), onuchhedNo);
                                         //separateOnucched.createDate = onucchedsingleListRec.created;
@@ -3193,6 +3516,7 @@ namespace dNothi.Desktop.UI
                                 {
                                     totalOnuchhed--;
                                     List<OnuchhedSaveItemAction> onuchhedSaveItemActions = _onuchhedSaveItemAction.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
+                                    
                                     if (onuchhedSaveItemActions != null && onuchhedSaveItemActions.Count > 0)
                                     {
                                         foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
@@ -3214,8 +3538,55 @@ namespace dNothi.Desktop.UI
                                                 onuchhedNo = onucchedNo.ToString();
                                                 //DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                                 var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
-                                                List<DakUploadedFileResponse> onuchhedSaveWithAttachments = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
-                                                if (onuchhedSaveWithAttachments.Count == 0)
+                                                List<DakUploadedFileResponse> onuchhedSaveWithAttachmentss = JsonConvert.DeserializeObject<List<DakUploadedFileResponse>>(onuchhedSaveItemAction.onuchhedSaveWithAttachmentsJson);
+                                                if (onuchhedSaveWithAttachmentss.Count == 0)
+                                                {
+                                                    separateOnucched.filePnaeloff();
+                                                }
+                                                List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                                                if (fileUploadActions != null && fileUploadActions.Count > 0)
+                                                {
+
+                                                    foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                                                    {
+                                                        foreach (DakUploadedFileResponse dakUploadedFileResponses in onuchhedSaveWithAttachmentss)
+                                                        {
+                                                            if (fileUploadItemAction.Id == dakUploadedFileResponses.data[0].id)
+                                                            {
+                                                                DakFileUploadParam dakFileUploadParam = JsonConvert.DeserializeObject<DakFileUploadParam>(fileUploadItemAction.dakFileUploadParamJson);
+                                                                DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+                                                                dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                                                                DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                                                                dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
+                                                                dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
+                                                                dakAttachmentDTO.id = fileUploadItemAction.Id;
+
+                                                                dakUploadedFileResponse.data.Add(dakAttachmentDTO);
+
+                                                                onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                                //var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                                if (onuchhedSaveWithAttachments.Count > 0)
+                                                {
+                                                    separateOnucched.totalFileNo = onuchhedSaveWithAttachments.Count.ToString();
+                                                    foreach (DakUploadedFileResponse dakUploadedFileResponse in onuchhedSaveWithAttachments)
+                                                    {
+                                                        AttachmentDTO attachment = new AttachmentDTO();
+                                                        attachment.user_file_name = dakUploadedFileResponse.data[0].user_file_name;
+                                                        attachment.file_size_in_kb = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                                        attachment.download_url= "";
+                                                        attachment.url = "";
+                                                        separateOnucched.fileAddInFilePanel(attachment);
+
+                                                    }
+                                                    onuchhedSaveWithAttachments.Clear();
+                                                }
+                                                else
                                                 {
                                                     separateOnucched.filePnaeloff();
                                                 }
@@ -3248,6 +3619,7 @@ namespace dNothi.Desktop.UI
                                 //string message = "Error";
                                 ErrorMessage(onucchedList.message);
                             }
+                            
                         }
                         else
                         {
