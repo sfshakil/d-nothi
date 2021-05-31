@@ -22,6 +22,9 @@ namespace dNothi.JsonParser.Entity.Dak
         public int dak_inbox_designation_id { get; set; }
 
         public RecipientsInfoDTO recipients { get; set; }
+
+
+  
     }
     public class MulPrapok
     {
@@ -97,6 +100,7 @@ namespace dNothi.JsonParser.Entity.Dak
     }
 
     public class  OnulipiPrapok    {
+       
         public int dak_id { get; set; }
         public int to_officer_designation_id { get; set; }
         public object dak_type { get; set; }
@@ -143,18 +147,18 @@ namespace dNothi.JsonParser.Entity.Dak
         public int superior_unit_id { get; set; }
         public string superior_office_unit_eng { get; set; }
         public string superior_office_unit_bng { get; set; }
-        public string short_name_eng { get; set; }
-        public string short_name_bng { get; set; }
+        public object short_name_eng { get; set; }
+        public object short_name_bng { get; set; }
         public int designation_level { get; set; }
         public int designation_sequence { get; set; }
         public string designation_description { get; set; }
-        public int superior_designation_id { get; set; }
+        public object superior_designation_id { get; set; }
         public string officer_bng { get; set; }
         public string gender { get; set; }
         public string personal_mobile { get; set; }
         public string personal_email { get; set; }
         public int is_cadre { get; set; }
-        public string date_of_birth { get; set; }
+        public object date_of_birth { get; set; }
         public string employee_id { get; set; }
         public bool status { get; set; }
         public string is_admin { get; set; }
@@ -173,7 +177,7 @@ namespace dNothi.JsonParser.Entity.Dak
     public class RecipientsInfoDTO
     {
     public OnulipiPrapok mul_prapok { get; set; }
-    public object  onulipi { get; set; }
+    public object onulipi { get; set; }
 
 
      public Dictionary<string, OnulipiPrapok> onulipiDTO { 

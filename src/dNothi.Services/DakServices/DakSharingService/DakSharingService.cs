@@ -75,6 +75,7 @@ namespace dNothi.Services.DakServices.DakSharingService
 
         public T GetList(DakUserParam userParam, int actionLink,int assignor_designation_id)
         {
+          
             try
             {
                
@@ -119,11 +120,13 @@ namespace dNothi.Services.DakServices.DakSharingService
                 var responseJson = Response.Content;
 
                 T responseData = JsonConvert.DeserializeObject<T>(responseJson);
+                
                 return responseData;
             }
             catch (Exception ex)
             {
-                throw;
+                
+                return null;
             }
         }
 
