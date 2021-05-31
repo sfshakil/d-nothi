@@ -6,6 +6,8 @@ using dNothi.Services.DakServices.DakSharingService;
 using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.UserServices;
 using javax.sound.midi;
+using javax.xml.crypto;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,11 +23,12 @@ namespace dNothi.Desktop.UI.Dak
     public partial class DakBoxSharingForm : Form
     {
         IDesignationSealService _designationSealService { get; set; }
-        IDakSharingService<ShareList> _dakSharingService { get; set; }
+        //  IDakSharingService<ShareList> _dakSharingService { get; set; }
+        IDakSharingService<ResponseModel> _dakSharingService { get; set; }
         IUserService _userService { get; set; }
         AllAlartMessage alartMessage = new AllAlartMessage();
         AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
-        public DakBoxSharingForm(IDesignationSealService designationSealService, IUserService userService, IDakSharingService<ShareList> dakSharingService)
+        public DakBoxSharingForm(IDesignationSealService designationSealService, IUserService userService, IDakSharingService<ResponseModel> dakSharingService)
         {
             _designationSealService = designationSealService;
             _userService = userService;
@@ -185,25 +188,30 @@ namespace dNothi.Desktop.UI.Dak
             var assignlist = _dakSharingService.GetList(_userService.GetLocalDakUserParam(), 1,0);
             try
             {
-
-                if (assignlist.data.assignee.Count > 0)
+                if (assignlist.status == "success")
                 {
                     officerTableLayoutPanel.Controls.Clear();
-
-                    foreach (ShareList.Assignee assignee in assignlist.data.assignee)
+                   
+                     ShareList.Data assigneelist=  JsonConvert.DeserializeObject<ShareList.Data>(assignlist.data.ToString());
+                    if (assigneelist.assignee.Count > 0)
                     {
-                        DakBoxSharedOfficerRowUserControl dakBoxSharedOfficerRowUserControl = new DakBoxSharedOfficerRowUserControl();
-                        dakBoxSharedOfficerRowUserControl.officerName = assignee.name;
-                        dakBoxSharedOfficerRowUserControl.designation = assignee.designation_level;
-                        dakBoxSharedOfficerRowUserControl.officeName = assignee.office_name;
-                        dakBoxSharedOfficerRowUserControl.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(deleteSender, deleteeVent, assignee.designation_id); };
-                        dakBoxSharedOfficerRowUserControl.Dock = DockStyle.Top;
+                       
 
-                        int row = officerTableLayoutPanel.RowCount++;
+                        foreach (ShareList.Assignee assignee in assigneelist.assignee)
+                        {
+                            DakBoxSharedOfficerRowUserControl dakBoxSharedOfficerRowUserControl = new DakBoxSharedOfficerRowUserControl();
+                            dakBoxSharedOfficerRowUserControl.officerName = assignee.name;
+                            dakBoxSharedOfficerRowUserControl.designation = assignee.designation_level;
+                            dakBoxSharedOfficerRowUserControl.officeName = assignee.office_name;
+                            dakBoxSharedOfficerRowUserControl.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(deleteSender, deleteeVent, assignee.designation_id); };
+                            dakBoxSharedOfficerRowUserControl.Dock = DockStyle.Top;
 
-                        officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+                            int row = officerTableLayoutPanel.RowCount++;
 
-                        officerTableLayoutPanel.Controls.Add(dakBoxSharedOfficerRowUserControl, 0, row);
+                            officerTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+
+                            officerTableLayoutPanel.Controls.Add(dakBoxSharedOfficerRowUserControl, 0, row);
+                        }
                     }
                 }
 

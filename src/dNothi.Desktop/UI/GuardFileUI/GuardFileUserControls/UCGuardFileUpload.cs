@@ -317,5 +317,15 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         {
 
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
+        }
     }
 }

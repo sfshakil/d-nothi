@@ -282,7 +282,6 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
@@ -300,16 +299,18 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(844, 40);
             this.tableLayoutPanel2.TabIndex = 88;
+            this.tableLayoutPanel2.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel2_CellPaint);
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(760, 1);
+            this.label11.Location = new System.Drawing.Point(762, 0);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label11.Size = new System.Drawing.Size(80, 38);
+            this.label11.Size = new System.Drawing.Size(79, 40);
             this.label11.TabIndex = 3;
             this.label11.Text = "কার্যক্রম";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -319,10 +320,10 @@
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(340, 1);
+            this.label10.Location = new System.Drawing.Point(340, 0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label10.Size = new System.Drawing.Size(413, 38);
+            this.label10.Size = new System.Drawing.Size(416, 40);
             this.label10.TabIndex = 2;
             this.label10.Text = "সংযুক্তি প্রিভিউ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -332,10 +333,10 @@
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(4, 1);
+            this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label8.Size = new System.Drawing.Size(77, 38);
+            this.label8.Size = new System.Drawing.Size(78, 40);
             this.label8.TabIndex = 0;
             this.label8.Text = "সংযুক্তি";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -345,10 +346,10 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(88, 1);
+            this.label9.Location = new System.Drawing.Point(87, 0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label9.Size = new System.Drawing.Size(245, 38);
+            this.label9.Size = new System.Drawing.Size(247, 40);
             this.label9.TabIndex = 1;
             this.label9.Text = "মূলপত্র";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

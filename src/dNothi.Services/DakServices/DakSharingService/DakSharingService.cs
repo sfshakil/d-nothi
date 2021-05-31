@@ -15,7 +15,7 @@ using static dNothi.Constants.DefaultAPIConfiguration;
 
 namespace dNothi.Services.DakServices.DakSharingService
 {
-    public class DakSharingService<T> : IDakSharingService<T> where T : class
+    public class DakSharingService<ResponseData> : IDakSharingService<ResponseData> where ResponseData : class
     {
         public ResponseModel Add(DakUserParam userParam,PrapokDTO assignee)
         {
@@ -73,7 +73,7 @@ namespace dNothi.Services.DakServices.DakSharingService
             }
         }
 
-        public T GetList(DakUserParam userParam, int actionLink,int assignor_designation_id)
+        public ResponseData GetList(DakUserParam userParam, int actionLink,int assignor_designation_id)
         {
           
             try
@@ -119,7 +119,7 @@ namespace dNothi.Services.DakServices.DakSharingService
 
                 var responseJson = Response.Content;
 
-                T responseData = JsonConvert.DeserializeObject<T>(responseJson);
+                ResponseData responseData = JsonConvert.DeserializeObject<ResponseData>(responseJson);
                 
                 return responseData;
             }

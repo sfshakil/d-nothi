@@ -31,9 +31,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.typeNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.typeLabel = new System.Windows.Forms.Label();
             this.decisionDeleteButton = new FontAwesome.Sharp.IconButton();
             this.decisionEditRightButton = new FontAwesome.Sharp.IconButton();
+            this.typeLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -82,19 +82,6 @@
             this.panel2.Size = new System.Drawing.Size(107, 29);
             this.panel2.TabIndex = 86;
             // 
-            // typeLabel
-            // 
-            this.typeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.typeLabel.AutoSize = true;
-            this.typeLabel.Location = new System.Drawing.Point(232, 11);
-            this.typeLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.typeLabel.Size = new System.Drawing.Size(72, 13);
-            this.typeLabel.TabIndex = 87;
-            this.typeLabel.Text = "ছুটির আইন";
-            this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // decisionDeleteButton
             // 
             this.decisionDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
@@ -136,6 +123,19 @@
             this.decisionEditRightButton.TabIndex = 87;
             this.decisionEditRightButton.UseVisualStyleBackColor = false;
             this.decisionEditRightButton.Click += new System.EventHandler(this.guardFileTableUserControl_viewButtonClick);
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Location = new System.Drawing.Point(232, 11);
+            this.typeLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.typeLabel.Size = new System.Drawing.Size(72, 13);
+            this.typeLabel.TabIndex = 87;
+            this.typeLabel.Text = "ছুটির আইন";
+            this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // GuardFileRowUserControl
             // 

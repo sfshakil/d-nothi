@@ -118,8 +118,9 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
                         guardFileTable.id = item.id;
                         guardFileTable.type = item.name_bng;
                         guardFileTable.name = item.guard_file_category_name_bng;
-                        guardFileTable.office_unit_organogram_id = item.office_unit_organogram_id;
                         guardFileTable.designation_id = dakListUserParam.designation_id;
+                        guardFileTable.office_unit_organogram_id = item.office_unit_organogram_id;
+                      
 
 
                         guardFileTable.dakAttachmentDTO = data;

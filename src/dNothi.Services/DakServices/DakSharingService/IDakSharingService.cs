@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace dNothi.Services.DakServices.DakSharingService
 {
-   public interface IDakSharingService<T> where T:class
+   public interface IDakSharingService<ResponseData> where ResponseData : class
     {
-        T GetList(DakUserParam dakUserParam,int actionlink, int assignor_designation_id);
+        ResponseData GetList(DakUserParam dakUserParam,int actionlink, int assignor_designation_id);
         ResponseModel Delete(DakUserParam dakUserParam,int assignee_designation_id);
 
         ResponseModel Add(DakUserParam assignor,PrapokDTO assignee);
