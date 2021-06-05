@@ -2519,7 +2519,7 @@ namespace dNothi.Desktop.UI
         {
             OpenFileDialog opnfd = new OpenFileDialog();
             //opnfd.DefaultExt = "txt";
-            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
+            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
             //opnfd.Filter = "Pdf Files (*.PDF;)|*.PDF;";
             //opnfd.Filter = "Word Files ()|";
             //opnfd.Filter = "Excel Files ()|";
