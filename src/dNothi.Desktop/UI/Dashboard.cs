@@ -679,6 +679,7 @@ namespace dNothi.Desktop.UI
                 noDakTableLayoutPanel.Visible = true;
             }
         }
+        private bool IsOutboxSearch;
         private void LoadDakOutboxUsingSearchParam(string searchParam)
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -690,8 +691,8 @@ namespace dNothi.Desktop.UI
 
 
             // Satic Class
-            dakListUserParam.limit = 10;
-            dakListUserParam.page = 1;
+            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.page = pageNumber;
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             DakListOutboxResponse dakListOutboxResponse = _dakOutboxService.GetDakOutbox(dakListUserParam, searchParam);
@@ -704,6 +705,10 @@ namespace dNothi.Desktop.UI
 
                 if (dakListOutboxResponse.data.records.Count > 0)
                 {
+                    SearchParam = searchParam;
+                    IsOutboxSearch = true;
+                    Pagination(dakListOutboxResponse.data.records.Count, dakListOutboxResponse.data.total_records);
+
                     LoadDakOutboxinPanel(dakListOutboxResponse.data.records);
                     return;
                 }
@@ -1051,6 +1056,9 @@ namespace dNothi.Desktop.UI
 
 
         }
+
+        private bool IsDakInboxSearch;
+        private string SearchParam;
         private async void LoadDakInboxUsingSearchParam(string searchParam)
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -1063,8 +1071,8 @@ namespace dNothi.Desktop.UI
 
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-            dakListUserParam.limit = 10;
-            dakListUserParam.page = 1;
+            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.page = pageNumber;
 
 
 
@@ -1078,7 +1086,9 @@ namespace dNothi.Desktop.UI
                     _dakInbox.SaveorUpdateDakInbox(dakInbox);
                     if (dakInbox.data.records.Count > 0)
                     {
-
+                        SearchParam = searchParam;
+                        IsDakInboxSearch = true;
+                        Pagination(dakInbox.data.records.Count, dakInbox.data.total_records);
                         LoadDakInboxinPanel(dakInbox.data.records);
 
                     }
@@ -1187,9 +1197,19 @@ namespace dNothi.Desktop.UI
             dakInboxUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
             dakInboxUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
             dakInboxUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
+
             dakInboxUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
-            dakInboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
-            dakInboxUserControl.receiver = GetDakListMainReceiverName(dakListInboxRecordsDTO.movement_status);
+            try
+            {
+                dakInboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
+                dakInboxUserControl.receiver = GetDakListMainReceiverName(dakListInboxRecordsDTO.movement_status);
+
+            }
+            catch
+            {
+
+            }
+            
             dakInboxUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
             dakInboxUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
             dakInboxUserControl.dakSecurityIconValue = dakListInboxRecordsDTO.dak_user.dak_security;
@@ -1696,6 +1716,7 @@ namespace dNothi.Desktop.UI
 
             }
         }
+        private bool isNothivuktoSearched;
         private void LoadDakNothivuktoUsingSearchParam(string searchParam)
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -1707,8 +1728,8 @@ namespace dNothi.Desktop.UI
             _currentDakCatagory.isNothivukto = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-            dakListUserParam.limit = 10;
-            dakListUserParam.page = 1;
+            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.page = pageNumber;
 
 
 
@@ -1719,6 +1740,10 @@ namespace dNothi.Desktop.UI
 
                 if (dakInbox.data.records.Count > 0)
                 {
+                    SearchParam = searchParam;
+                    IsNothiJatoSearch = true;
+                    Pagination(dakInbox.data.records.Count, dakInbox.data.total_records);
+
 
                     LoadDakNothivuktoinPanel(dakInbox.data.records);
 
@@ -1988,6 +2013,7 @@ namespace dNothi.Desktop.UI
 
 
         }
+        private bool IsArchiveSearch;
         private void LoadDakArchiveUsingSearchParam(string searchParam)
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -2010,6 +2036,10 @@ namespace dNothi.Desktop.UI
                 _dakArchiveService.SaveorUpdateDakArchive(dakArchive);
                 if (dakArchive.data.records.Count > 0)
                 {
+                    SearchParam = searchParam;
+                    isNothivuktoSearched = true;
+                    Pagination(dakArchive.data.records.Count, dakArchive.data.total_records);
+
 
                     LoadDakArchiveinPanel(dakArchive.data.records);
 
@@ -2265,6 +2295,29 @@ namespace dNothi.Desktop.UI
             dakSortMetroPanel.Visible = true;
             searchHeaderTableLayoutPanel.Visible = true;
             designationDetailsPanel.Visible = false;
+
+
+            isAllTypeSearch = IsArchiveSearch = IsDakInboxSearch = IsOutboxSearch = IsNothiJatoSearch = isNothivuktoSearched = IsSortedSearch = IsKhosraSearch = false;
+        }
+        private void NormalizeDashboardWithoutSearchRefresh()
+        {
+            dakTagPanel.Visible = false;
+
+            bodyTableLayoutPanel.RowStyles[6] = new RowStyle(SizeType.Percent);
+            bodyTableLayoutPanel.RowStyles[6].Height = 100;
+            selectDakBoxHolderPanel.Visible = false;
+            noDakTableLayoutPanel.Visible = false;
+            multipleSelectionPanel.Visible = false;
+            folderName.Text = "";
+            dakBodyFlowLayoutPanel.BringToFront();
+            bodyPanel.Visible = true;
+            detailsFlowLayoutPanel.Visible = false;
+
+            detailsDakSearcPanel.Visible = false;
+            dakSortMetroPanel.Visible = true;
+            searchHeaderTableLayoutPanel.Visible = true;
+            designationDetailsPanel.Visible = false;
+
         }
 
         private void LoadDakNothijato()
@@ -2301,6 +2354,7 @@ namespace dNothi.Desktop.UI
                 noDakTableLayoutPanel.Visible = false;
             }
         }
+        private bool IsNothiJatoSearch;
         private void LoadDakNothijatoUsingSearchParam(string searchParam)
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -2310,8 +2364,8 @@ namespace dNothi.Desktop.UI
             _currentDakCatagory.isNothijato = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-            dakListUserParam.limit = 10;
-            dakListUserParam.page = 1;
+            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.page = pageNumber;
 
 
             var dakNothijato = _dakNothijatoService.GetNothijatoDak(dakListUserParam, searchParam);
@@ -2320,6 +2374,9 @@ namespace dNothi.Desktop.UI
                 _dakNothijatoService.SaveorUpdateDakNothijato(dakNothijato);
                 if (dakNothijato.data.records.Count > 0)
                 {
+                    SearchParam = searchParam;
+                    IsNothiJatoSearch = true;
+                    Pagination(dakNothijato.data.records.Count, dakNothijato.data.total_records);
 
                     LoadDakNothijatoinPanel(dakNothijato.data.records);
 
@@ -2435,6 +2492,7 @@ namespace dNothi.Desktop.UI
 
         private void dakSearchButton_Click(object sender, EventArgs e)
         {
+            RefreshPagination();
             _currentDakCatagory.MakeAllFalse();
             NormalizeDashBoard();
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -2483,15 +2541,15 @@ namespace dNothi.Desktop.UI
 
             }
         }
-
+        private bool IsSortedSearch;
         private void LoadDakListSortedUsingSearchParam(string searchParam)
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
             NormalizeDashBoard();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-            dakListUserParam.limit = 10;
-            dakListUserParam.page = 1;
+            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.page = pageNumber;
 
 
             var dakSorted = _dakListSortedService.GetDakList(dakListUserParam, searchParam);
@@ -2500,6 +2558,9 @@ namespace dNothi.Desktop.UI
                 // _dakListSortedService.SaveorUpdateDakSorted(dakSorted);
                 if (dakSorted.data.records.Count > 0)
                 {
+                    SearchParam = searchParam;
+                    IsSortedSearch = true;
+                    Pagination(dakSorted.data.records.Count, dakSorted.data.total_records);
 
                     LoadDakSortedinPanel(dakSorted.data.records);
 
@@ -2913,6 +2974,7 @@ namespace dNothi.Desktop.UI
                 noDakTableLayoutPanel.Visible = true;
             }
         }
+        private bool IsKhosraSearch;
         private void LoadDakKhasraListUsingSearchParam(string searchParam)
         {
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -2920,8 +2982,8 @@ namespace dNothi.Desktop.UI
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             // Satic Class
-            dakListUserParam.limit = 10;
-            dakListUserParam.page = 1;
+            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.page = pageNumber;
 
             DakListKhosraResponse dakListKhosraResponse = _dakkhosraservice.GetDakKhosraList(dakListUserParam, searchParam);
 
@@ -2931,6 +2993,10 @@ namespace dNothi.Desktop.UI
 
                 if (dakListKhosraResponse.data.records.Count > 0)
                 {
+                    SearchParam = searchParam;
+                    IsKhosraSearch = true;
+                    Pagination(dakListKhosraResponse.data.records.Count, dakListKhosraResponse.data.total_records);
+
                     LoadDakKhosrainPanel(dakListKhosraResponse.data.records);
                 }
                 else
@@ -3387,34 +3453,89 @@ namespace dNothi.Desktop.UI
 
         private void RefreshdDakList()
         {
-            NormalizeDashBoard();
+            NormalizeDashboardWithoutSearchRefresh();
             if (_currentDakCatagory._isArchived)
             {
-                LoadDakArchive();
+                if (IsArchiveSearch == true)
+                {
+                    LoadDakArchiveUsingSearchParam(SearchParam);
+                }
+                else
+                {
+
+                    LoadDakArchive();
+                }
             }
             else if (_currentDakCatagory._isInbox)
             {
-                LoadDakInbox();
+                if (IsDakInboxSearch == true)
+                {
+                    LoadDakInboxUsingSearchParam(SearchParam);
+                }
+                else
+                {
+                    LoadDakInbox();
+                }
             }
             else if (_currentDakCatagory._isKhosra)
             {
-                LoadDakKhasraList();
+                if (IsKhosraSearch == true)
+                {
+                    LoadDakKhasraListUsingSearchParam(SearchParam);
+                }
+                else
+                {
+                    LoadDakKhasraList();
+                }
             }
             else if (_currentDakCatagory._isNothijato)
             {
-                LoadDakNothijato();
+                if (IsNothiJatoSearch == true)
+                {
+                    LoadDakNothijatoUsingSearchParam(SearchParam);
+                }
+                else
+                {
+                    LoadDakNothijato();
+                }
             }
             else if (_currentDakCatagory._isNothivukto)
             {
-                LoadDakNothivukto();
+                if (isNothivuktoSearched == true)
+                {
+                    LoadDakNothivuktoUsingSearchParam(SearchParam);
+                }
+                else
+                {
+                    LoadDakNothivukto();
+                }
             }
             else if (_currentDakCatagory._isOutbox)
             {
-                LoadDakOutbox();
+                if (IsOutboxSearch == true)
+                {
+                    LoadDakOutboxUsingSearchParam(SearchParam);
+                   
+                }
+                else
+                {
+                    LoadDakOutbox();
+                }
             }
             else if (_currentDakCatagory._isSorted)
             {
-                LoadDakListSorted();
+                if (IsSortedSearch == true)
+                {
+                    LoadDakListSortedUsingSearchParam(SearchParam);
+                }
+                else
+                {
+                    LoadDakListSorted();
+                }
+            }
+            else if(isAllTypeSearch)
+            {
+                SearchAllTypeDataUsingSearchParam(SearchParam);
             }
 
         }
@@ -4245,8 +4366,9 @@ namespace dNothi.Desktop.UI
 
         private void dakSearchUsingTextButton_Click(object sender, EventArgs e)
         {
+            RefreshPagination();
 
-
+            NormalizeDashBoard();
             string searchParam = "dak_subject=" + dakSearchSubTextBox.Text;
 
             SearchDak(searchParam);
@@ -4255,6 +4377,7 @@ namespace dNothi.Desktop.UI
 
         private void SearchDak(string searchParam)
         {
+            dakBodyFlowLayoutPanel.Controls.Clear();
             if (_currentDakCatagory._isInbox)
             {
                 LoadDakInboxUsingSearchParam(searchParam);
@@ -4291,9 +4414,12 @@ namespace dNothi.Desktop.UI
                 SearchAllTypeDataUsingSearchParam(searchParam);
             }
         }
+        private bool isAllTypeSearch;
 
         private void SearchAllTypeDataUsingSearchParam(string searchParam)
         {
+            _dakuserparam.limit = NothiCommonStaticValue.pageLimit;
+            _dakuserparam.page = pageNumber;
             DakSearchResponse dakSearchResponse = _dakSearchService.GetDakSearchDetailsResponse(_dakuserparam, searchParam);
 
             NormalizeDashBoard();
@@ -4309,6 +4435,9 @@ namespace dNothi.Desktop.UI
 
                     if (dakSearchResponse.data.records.Count > 0)
                     {
+                        SearchParam = searchParam;
+                        isAllTypeSearch = true;
+                        Pagination(dakSearchResponse.data.records.Count, dakSearchResponse.data.total_records);
 
                         LoadDakAllinPanel(dakSearchResponse.data.records);
 
@@ -4378,6 +4507,9 @@ namespace dNothi.Desktop.UI
 
         private void detailSearchButton_Click(object sender, EventArgs e)
         {
+            RefreshPagination();
+
+            NormalizeDashBoard();
             string searchParam = "";
             //  if(dakSearchSubTextBox.Text !=""){ searchParam += "dak_subject=" + dakSearchSubTextBox.Text; }
             if (searchDakSecurityComboBox.SelectedValue != null && searchDakSecurityComboBox.SelectedValue.ToString() != "0" && searchDakSecurityComboBox.SelectedValue.ToString() != "")
