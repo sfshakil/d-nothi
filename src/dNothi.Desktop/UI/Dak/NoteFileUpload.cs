@@ -37,6 +37,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _imageSrc;
         private string _attachmentName;
         private string _fileextension;
+        private string _attachementId;
 
         public string imgSource
         {
@@ -75,6 +76,22 @@ namespace dNothi.Desktop.UI.Dak
 
             }
 
+        }
+        public string attachementId
+        {
+            get { return _attachementId; }
+            set
+            {
+                _attachementId = value;
+                lbAttachmentID.Text = value;
+
+
+            }
+
+        }
+        public string getNewAttachmentText()
+        {
+            return attachmentNameTextBox.Text;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
