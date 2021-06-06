@@ -2573,7 +2573,8 @@ namespace dNothi.Desktop.UI
                     }
                     else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                     {
-                        noteFileUpload.imgSource = "";
+                        //noteFileUpload.imgSource = "";
+                        noteFileUpload.imageBoxOffFileShow("");
                         noteFileUpload.fileexension = _dakFileUploadParam.file_size_in_kb;
                         noteFileUpload.attachmentName = _dakFileUploadParam.user_file_name;
                         noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
@@ -2628,7 +2629,8 @@ namespace dNothi.Desktop.UI
                         }
                         else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
-                            noteFileUpload.imgSource = "";
+                            //noteFileUpload.imgSource = "";
+                            noteFileUpload.imageBoxOffFileShow(dakUploadedFileResponse.data[0].download_url);
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                             noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
@@ -3218,17 +3220,27 @@ namespace dNothi.Desktop.UI
                     {
                         foreach (DakUploadedFileResponse attachment in onuchhedSaveWithAttachments)
                         {
-                            foreach (FileUploadAction a in fileUploadActions)
+                            if (!InternetConnection.Check())
                             {
-                                if (a.Id == attachment.data[0].id && attachment.data[0].id  == Convert.ToInt32(noteFileUpload.attachementId) && attachment.data[0].user_file_name != noteFileUpload.getNewAttachmentText())
+                                foreach (FileUploadAction a in fileUploadActions)
+                                {
+                                    if (a.Id == attachment.data[0].id && attachment.data[0].id == Convert.ToInt32(noteFileUpload.attachementId) && attachment.data[0].user_file_name != noteFileUpload.getNewAttachmentText())
+                                    {
+                                        attachment.data[0].user_file_name = noteFileUpload.getNewAttachmentText();
+
+                                        DakFileUploadParam fileUpload = JsonConvert.DeserializeObject<DakFileUploadParam>(a.dakFileUploadParamJson);
+                                        fileUpload.user_file_name = noteFileUpload.getNewAttachmentText();
+
+                                        a.dakFileUploadParamJson = JsonConvert.SerializeObject(fileUpload);
+                                        _fileUploadAction.Update(a);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (attachment.data[0].id == Convert.ToInt32(noteFileUpload.attachementId) && attachment.data[0].user_file_name != noteFileUpload.getNewAttachmentText())
                                 {
                                     attachment.data[0].user_file_name = noteFileUpload.getNewAttachmentText();
-                                    
-                                    DakFileUploadParam fileUpload = JsonConvert.DeserializeObject<DakFileUploadParam>(a.dakFileUploadParamJson);
-                                    fileUpload.user_file_name = noteFileUpload.getNewAttachmentText();
-                                    
-                                    a.dakFileUploadParamJson = JsonConvert.SerializeObject(fileUpload);
-                                    _fileUploadAction.Update(a);
                                 }
                             }
                             

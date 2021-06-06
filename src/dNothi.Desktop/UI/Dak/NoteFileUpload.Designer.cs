@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbAttachmentID = new System.Windows.Forms.Label();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.lbFileName = new System.Windows.Forms.Label();
             this.attachmentNameTextBox = new System.Windows.Forms.TextBox();
             this.lbByte = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnFile = new FontAwesome.Sharp.IconButton();
             this.attachmentPicturebox = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -43,7 +46,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lbAttachmentID = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -70,6 +72,19 @@
             this.panel1.Size = new System.Drawing.Size(1157, 107);
             this.panel1.TabIndex = 0;
             // 
+            // lbAttachmentID
+            // 
+            this.lbAttachmentID.AutoSize = true;
+            this.lbAttachmentID.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAttachmentID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbAttachmentID.Location = new System.Drawing.Point(1047, 84);
+            this.lbAttachmentID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbAttachmentID.Name = "lbAttachmentID";
+            this.lbAttachmentID.Size = new System.Drawing.Size(82, 22);
+            this.lbAttachmentID.TabIndex = 72;
+            this.lbAttachmentID.Text = "byteLabel";
+            this.lbAttachmentID.Visible = false;
+            // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
@@ -90,6 +105,7 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.lbFileName);
             this.panel10.Controls.Add(this.attachmentNameTextBox);
             this.panel10.Controls.Add(this.lbByte);
             this.panel10.Controls.Add(this.panel11);
@@ -99,6 +115,19 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(671, 105);
             this.panel10.TabIndex = 62;
+            // 
+            // lbFileName
+            // 
+            this.lbFileName.AutoSize = true;
+            this.lbFileName.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFileName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbFileName.Location = new System.Drawing.Point(580, 69);
+            this.lbFileName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbFileName.Name = "lbFileName";
+            this.lbFileName.Size = new System.Drawing.Size(82, 22);
+            this.lbFileName.TabIndex = 73;
+            this.lbFileName.Text = "byteLabel";
+            this.lbFileName.Visible = false;
             // 
             // attachmentNameTextBox
             // 
@@ -135,6 +164,7 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.btnFile);
             this.panel8.Controls.Add(this.attachmentPicturebox);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
@@ -143,6 +173,27 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(269, 105);
             this.panel8.TabIndex = 61;
+            // 
+            // btnFile
+            // 
+            this.btnFile.BackColor = System.Drawing.Color.Transparent;
+            this.btnFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFile.FlatAppearance.BorderSize = 0;
+            this.btnFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFile.ForeColor = System.Drawing.Color.White;
+            this.btnFile.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.btnFile.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnFile.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFile.IconSize = 32;
+            this.btnFile.Location = new System.Drawing.Point(97, 26);
+            this.btnFile.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFile.Name = "btnFile";
+            this.btnFile.Size = new System.Drawing.Size(56, 45);
+            this.btnFile.TabIndex = 64;
+            this.btnFile.UseVisualStyleBackColor = false;
+            this.btnFile.Visible = false;
+            this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
             // 
             // attachmentPicturebox
             // 
@@ -224,19 +275,6 @@
             this.panel3.Size = new System.Drawing.Size(1157, 1);
             this.panel3.TabIndex = 56;
             // 
-            // lbAttachmentID
-            // 
-            this.lbAttachmentID.AutoSize = true;
-            this.lbAttachmentID.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAttachmentID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbAttachmentID.Location = new System.Drawing.Point(1047, 84);
-            this.lbAttachmentID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbAttachmentID.Name = "lbAttachmentID";
-            this.lbAttachmentID.Size = new System.Drawing.Size(82, 22);
-            this.lbAttachmentID.TabIndex = 72;
-            this.lbAttachmentID.Text = "byteLabel";
-            this.lbAttachmentID.Visible = false;
-            // 
             // NoteFileUpload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -274,5 +312,7 @@
         private System.Windows.Forms.PictureBox attachmentPicturebox;
         private System.Windows.Forms.TextBox attachmentNameTextBox;
         private System.Windows.Forms.Label lbAttachmentID;
+        private FontAwesome.Sharp.IconButton btnFile;
+        private System.Windows.Forms.Label lbFileName;
     }
 }
