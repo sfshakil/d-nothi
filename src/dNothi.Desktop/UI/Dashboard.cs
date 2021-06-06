@@ -640,7 +640,8 @@ namespace dNothi.Desktop.UI
             DakListOutboxResponse dakListOutboxResponse = _dakOutboxService.GetDakOutbox(dakListUserParam);
 
             List<DakListRecordsDTO> dakListRecordsDTOs = new List<DakListRecordsDTO>();
-
+          
+            // Locally stored dak
             if (pageNumber == 1)
             {
                 dakListRecordsDTOs = _dakuploadservice.GetPendingDakUpload(false);
@@ -656,7 +657,7 @@ namespace dNothi.Desktop.UI
             }
 
 
-
+            // Remote Dak
 
             if (dakListOutboxResponse != null && dakListOutboxResponse.status == "success")
             {
@@ -4602,12 +4603,18 @@ namespace dNothi.Desktop.UI
             // timeLimitToDateTimePicker.Text = DateTime.Now.Date.ToString();
             dakSearchSubTextBox.Text = "";
 
+
             searchDakStatusComboBox.Text = "সকল";
+            searchDakStatusComboBox.SelectedValue = 0;
             searchDakPotroTypeComboBox.Text = "পত্রের ধরন";
+            searchDakPotroTypeComboBox.SelectedValue = 0;
             searchDakSecurityComboBox.Text = "গোপনীয়তা";
+            searchDakSecurityComboBox.SelectedValue = 0;
             searchDakPriorityComboBox.Text = "অগ্রাধিকার";
-            searchDakTypeComboBox.Text = "ডাকের ধরণ";
+            searchDakPriorityComboBox.SelectedValue = 0;
+            searchDakTypeComboBox.SelectedValue = 0;
             searchThirdPartyComboBox.Text = "সার্ভিস";
+            searchThirdPartyComboBox.SelectedValue = 0;
 
 
             officerSourceCheckBox.Checked = false;

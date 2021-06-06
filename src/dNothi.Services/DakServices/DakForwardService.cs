@@ -113,18 +113,27 @@ namespace dNothi.Services.DakServices
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                 foreach(DakItemAction dakItemAction in dakItemActions)
                 {
-                    
-                    DakForwardRequestParam dakForwardRequest= JsonConvert.DeserializeObject<DakForwardRequestParam>(dakItemAction.dak_Action_Json);
-                    dakForwardRequest.token = dakUserParam.token;
 
-                    var dakForwardResponse = GetDakForwardResponse(dakForwardRequest);
+                    if (dakUserParam.designation_id == dakItemAction.designation_id)
+                    {
 
-                    if(dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status =="success"))
-                        
+
+                        DakForwardRequestParam dakForwardRequest = JsonConvert.DeserializeObject<DakForwardRequestParam>(dakItemAction.dak_Action_Json);
+                        dakForwardRequest.token = dakUserParam.token;
+
+                        var dakForwardResponse = GetDakForwardResponse(dakForwardRequest);
+
+                        if (dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status == "success"))
+
+                        {
+                            _dakItemAction.Delete(dakItemAction);
+                            isForwarded = true;
+
+                        }
+                    }
+                    else
                     {
                         _dakItemAction.Delete(dakItemAction);
-                        isForwarded = true;
-                        
                     }
                 }
             }
