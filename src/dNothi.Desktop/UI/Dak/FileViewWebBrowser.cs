@@ -22,12 +22,15 @@ namespace dNothi.Desktop.UI.Dak
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
+        
+
         public void fileAddInWebBrowser(string uri, string fileName)
         {
             if (uri !="") {
                 fileWebBrowser.Url = new Uri(uri);
                 //int q = fileWebBrowser.Document.Body.ScrollRectangle.Height;
                 lbFileName.Text = fileName;
+
             }
                 
         }

@@ -2500,7 +2500,7 @@ namespace dNothi.Desktop.UI
 
         DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
         public static readonly List<string> ImageExtensions = new List<string> { ".JPG", "JPG", "PNG", ".PNG" };
-        public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF", ".Doc", "Doc", ".Docx", "Docx", ".XLS", "XLS", ".CSV", "CSV", ".MP3", "MP3", ".M4p", "M4p", ".MP4", "MP4", ".PPT", "PPT", ".PPTX", "PPTX" };
+        public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF", ".DOC", "DOC", ".DOCX", "DOCX", ".XLS", "XLS", ".XLSX", "XLSX", ".CSV", "CSV", ".MP3", "MP3", ".M4P", "M4P", ".MP4", "MP4", ".PPT", "PPT", ".PPTX", "PPTX" };
 
 
 
@@ -2519,7 +2519,7 @@ namespace dNothi.Desktop.UI
         {
             OpenFileDialog opnfd = new OpenFileDialog();
             //opnfd.DefaultExt = "txt";
-            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
+            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
             //opnfd.Filter = "Pdf Files (*.PDF;)|*.PDF;";
             //opnfd.Filter = "Word Files ()|";
             //opnfd.Filter = "Excel Files ()|";

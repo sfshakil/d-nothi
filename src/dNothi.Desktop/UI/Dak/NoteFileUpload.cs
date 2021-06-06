@@ -79,18 +79,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string message = "আপনি কি নিশ্চিতভাবে সংযুক্তি টি মুছে ফেলতে চান?";
-            string title = "nothi-next.tappware.com says";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-            }
-            else
-            {
-                // Do nothing  
-            }
+
         }
     }
 }

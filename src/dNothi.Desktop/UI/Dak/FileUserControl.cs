@@ -72,12 +72,38 @@ namespace dNothi.Desktop.UI.Dak
         {
             //progressBar.Value = e.ProgressPercentage;
         }
-
+        public void docExtension()
+        {
+            btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.FileWord;
+            lbFileName.Cursor = default;
+            lbFileSizeInKb.Cursor = default;
+        }
+        public void csvExtension()
+        {
+            btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.FileCsv;
+            lbFileName.Cursor = default;
+            lbFileSizeInKb.Cursor = default;
+        }
+        public void xlsExtension()
+        {
+            btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
+            lbFileName.Cursor = default;
+            lbFileSizeInKb.Cursor = default;
+        }
+        public static readonly List<string> DOCExtensions = new List<string> { ".DOC", "DOC", ".DOCX", "DOCX", ".CSV", "CSV",".XLS", "XLS", ".XLSX", "XLSX" };
         private void lbFileName_Click(object sender, EventArgs e)
         {
-            FileViewWebBrowser fileViewWebBrowser = new FileViewWebBrowser();
-            fileViewWebBrowser.fileAddInWebBrowser(lbFileViewLink.Text,lbFileName.Text);
-            CalPopUpWindow(fileViewWebBrowser);
+            if (DOCExtensions.Contains(new System.IO.FileInfo(fileName).Extension.ToUpperInvariant()))
+            {
+
+            }
+            else
+            {
+                FileViewWebBrowser fileViewWebBrowser = new FileViewWebBrowser();
+                fileViewWebBrowser.fileAddInWebBrowser(lbFileViewLink.Text, lbFileName.Text);
+                CalPopUpWindow(fileViewWebBrowser);
+            }
+            
         }
         private void CalPopUpWindow(Form form)
         {
