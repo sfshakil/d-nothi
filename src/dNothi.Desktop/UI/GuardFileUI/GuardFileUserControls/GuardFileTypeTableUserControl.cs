@@ -29,6 +29,15 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
          
             _userService = userService;
             InitializeComponent();
+            SetToolTips();
+
+        }
+        private void SetToolTips()
+        {
+            MyToolTip.SetToolTip(decisionEditRightButton, "সম্পাদন করুন");
+            MyToolTip.SetToolTip(decisionDeleteButton, "মুছে ফেলুন");
+            MyToolTip.SetToolTip(saveEditButton, "সংরক্ষণ করুন");
+            MyToolTip.SetToolTip(cancelButton, "বাতিল করুন");
         }
         public int _office_unit_organogram_id { get; set; }
         public int designation_id { get; set; }

@@ -18,7 +18,7 @@ namespace dNothi.Desktop.UI.Dak
     public partial class DakSortingUserUserControl : UserControl
     {
         private bool MouseIsOverControl() =>
-    this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
+        this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
         public DakSortingUserUserControl()
         {
             InitializeComponent();
@@ -113,6 +113,20 @@ namespace dNothi.Desktop.UI.Dak
         private int _potrojari;
         public int _dakAttachmentCount;
         public bool _isChecked;
+
+        private bool _IsLocalRemove { get; set; }
+        private bool _IsLocalSorted { get; set; }
+
+        public bool IsLocalRemove
+        {
+            get { return _IsLocalRemove; }
+            set
+            {
+                _IsLocalRemove = value;
+                if (value == true) { waitForOnlineIconButton.Visible = true; } else { waitForOnlineIconButton.Visible = false; }
+            }
+        }
+        public bool IsLocalSorted { get { return _IsLocalSorted; } set { _IsLocalSorted = value; if (value == true) { waitForOnlineIconButton.Visible = true; } else { waitForOnlineIconButton.Visible = false; } } }
         public DakListRecordsDTO _dak;
         public DakListRecordsDTO dak { get { return _dak; } set { _dak = value;
                 if (value != null)
@@ -192,7 +206,7 @@ namespace dNothi.Desktop.UI.Dak
 
                     try
                     {
-                        mainPrapokButton.Text += draftedDecision.recipients.mul_prapok.employee_name_bng;
+                        mainPrapokButton.Text += draftedDecision.recipients!=null? draftedDecision.recipients.mul_prapok.employee_name_bng:string.Empty;
                     }
                     catch
                     {

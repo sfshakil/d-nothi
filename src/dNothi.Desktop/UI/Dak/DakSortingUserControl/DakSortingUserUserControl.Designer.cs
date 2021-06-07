@@ -46,6 +46,7 @@ namespace dNothi.Desktop.UI.Dak
             this.nothiteUposthaponButton = new FontAwesome.Sharp.IconButton();
             this.DakSendButton = new FontAwesome.Sharp.IconButton();
             this.dakMovementStatusButton = new FontAwesome.Sharp.IconButton();
+            this.waitForOnlineIconButton = new FontAwesome.Sharp.IconButton();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dakTagListButton = new FontAwesome.Sharp.IconButton();
             this.attachmentAndDatePanel = new System.Windows.Forms.Panel();
@@ -198,13 +199,14 @@ namespace dNothi.Desktop.UI.Dak
             this.dakActionPanel.Controls.Add(this.nothiteUposthaponButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-8038, 10);
+            this.dakActionPanel.Controls.Add(this.waitForOnlineIconButton);
+            this.dakActionPanel.Location = new System.Drawing.Point(-8486, 10);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.Name = "dakActionPanel";
             this.dakActionPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dakActionPanel.Size = new System.Drawing.Size(192, 34);
+            this.dakActionPanel.Size = new System.Drawing.Size(224, 34);
             this.dakActionPanel.TabIndex = 86;
             this.dakActionPanel.Visible = false;
             // 
@@ -219,7 +221,7 @@ namespace dNothi.Desktop.UI.Dak
             this.dakTagButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.dakTagButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakTagButton.IconSize = 28;
-            this.dakTagButton.Location = new System.Drawing.Point(160, 0);
+            this.dakTagButton.Location = new System.Drawing.Point(192, 0);
             this.dakTagButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakTagButton.Name = "dakTagButton";
             this.dakTagButton.Size = new System.Drawing.Size(32, 34);
@@ -241,7 +243,7 @@ namespace dNothi.Desktop.UI.Dak
             this.dakArchiveButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.dakArchiveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakArchiveButton.IconSize = 28;
-            this.dakArchiveButton.Location = new System.Drawing.Point(128, 0);
+            this.dakArchiveButton.Location = new System.Drawing.Point(160, 0);
             this.dakArchiveButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakArchiveButton.Name = "dakArchiveButton";
             this.dakArchiveButton.Size = new System.Drawing.Size(32, 34);
@@ -264,7 +266,7 @@ namespace dNothi.Desktop.UI.Dak
             this.nothijatoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.nothijatoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.nothijatoButton.IconSize = 28;
-            this.nothijatoButton.Location = new System.Drawing.Point(96, 0);
+            this.nothijatoButton.Location = new System.Drawing.Point(128, 0);
             this.nothijatoButton.Margin = new System.Windows.Forms.Padding(0);
             this.nothijatoButton.Name = "nothijatoButton";
             this.nothijatoButton.Size = new System.Drawing.Size(32, 34);
@@ -289,7 +291,7 @@ namespace dNothi.Desktop.UI.Dak
             this.nothiteUposthaponButton.IconColor = System.Drawing.Color.Transparent;
             this.nothiteUposthaponButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.nothiteUposthaponButton.IconSize = 28;
-            this.nothiteUposthaponButton.Location = new System.Drawing.Point(64, 0);
+            this.nothiteUposthaponButton.Location = new System.Drawing.Point(96, 0);
             this.nothiteUposthaponButton.Margin = new System.Windows.Forms.Padding(2);
             this.nothiteUposthaponButton.Name = "nothiteUposthaponButton";
             this.nothiteUposthaponButton.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
@@ -313,7 +315,7 @@ namespace dNothi.Desktop.UI.Dak
             this.DakSendButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.DakSendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.DakSendButton.IconSize = 28;
-            this.DakSendButton.Location = new System.Drawing.Point(32, 0);
+            this.DakSendButton.Location = new System.Drawing.Point(64, 0);
             this.DakSendButton.Margin = new System.Windows.Forms.Padding(0);
             this.DakSendButton.Name = "DakSendButton";
             this.DakSendButton.Size = new System.Drawing.Size(32, 34);
@@ -338,7 +340,7 @@ namespace dNothi.Desktop.UI.Dak
             this.dakMovementStatusButton.IconColor = System.Drawing.Color.Transparent;
             this.dakMovementStatusButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakMovementStatusButton.IconSize = 30;
-            this.dakMovementStatusButton.Location = new System.Drawing.Point(0, 0);
+            this.dakMovementStatusButton.Location = new System.Drawing.Point(32, 0);
             this.dakMovementStatusButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakMovementStatusButton.Name = "dakMovementStatusButton";
             this.dakMovementStatusButton.Size = new System.Drawing.Size(32, 34);
@@ -348,6 +350,26 @@ namespace dNothi.Desktop.UI.Dak
             this.dakMovementStatusButton.Click += new System.EventHandler(this.dakMovementStatusButton_Click);
             this.dakMovementStatusButton.MouseLeave += new System.EventHandler(this.dakMovementStatusButton_MouseLeave);
             this.dakMovementStatusButton.MouseHover += new System.EventHandler(this.dakMovementStatusButton_MouseHover);
+            // 
+            // waitForOnlineIconButton
+            // 
+            this.waitForOnlineIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.waitForOnlineIconButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.waitForOnlineIconButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.waitForOnlineIconButton.FlatAppearance.BorderSize = 2;
+            this.waitForOnlineIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.waitForOnlineIconButton.IconChar = FontAwesome.Sharp.IconChar.Server;
+            this.waitForOnlineIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.waitForOnlineIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.waitForOnlineIconButton.IconSize = 28;
+            this.waitForOnlineIconButton.Location = new System.Drawing.Point(0, 0);
+            this.waitForOnlineIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.waitForOnlineIconButton.Name = "waitForOnlineIconButton";
+            this.waitForOnlineIconButton.Size = new System.Drawing.Size(32, 34);
+            this.waitForOnlineIconButton.TabIndex = 86;
+            this.MyToolTip.SetToolTip(this.waitForOnlineIconButton, "অনলাইনে আপডেট হচ্ছে");
+            this.waitForOnlineIconButton.UseVisualStyleBackColor = false;
+            this.waitForOnlineIconButton.Visible = false;
             // 
             // dakTagListButton
             // 
@@ -1126,5 +1148,6 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label fdasfdasf;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton removeIconButton;
+        private FontAwesome.Sharp.IconButton waitForOnlineIconButton;
     }
 }

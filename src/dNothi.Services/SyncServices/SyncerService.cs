@@ -5,6 +5,8 @@ using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
+using dNothi.Services.DakServices.DakSharingService;
+using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
@@ -50,6 +52,7 @@ namespace dNothi.Services.SyncServices
         IDakForwardService _dakForwardService { get; set; }
         IAccountService _accountService { get; set; }
         IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
+        IDakSharingService<ResponseModel> _dakSharingService { get; set; }
         IRepository<SyncStatus> _sycnRepository;
         public SyncerService(
               INoteSaveService noteSave,
@@ -79,7 +82,8 @@ namespace dNothi.Services.SyncServices
 
             IAccountService accountService,
 
-            IRepository<SyncStatus> sycnRepository)
+            IRepository<SyncStatus> sycnRepository,
+            IDakSharingService<ResponseModel> dakSharingService)
         {
             _nothiCreateServices = nothiCreateServices;
             _nothiTypeSave = nothiTypeSave;
@@ -108,6 +112,7 @@ namespace dNothi.Services.SyncServices
             _accountService = accountService;
             _dakListService = dakListService;
             _sycnRepository = sycnRepository;
+            _dakSharingService = dakSharingService;
         }
         /****************=========================================================================***************************
          ****************=========================================================================***************************
@@ -139,8 +144,6 @@ namespace dNothi.Services.SyncServices
             LocalChangeData._isdakNothijatoReverted = false;
             LocalChangeData._isdakNothivuktoReverted = false;
             LocalChangeData._isdakArchivedReverted = false;
-
-
 
             if (InternetConnection.Check())
             {
@@ -191,7 +194,9 @@ namespace dNothi.Services.SyncServices
                 _onucchedFileUploadService.SendNoteListFromLocal();
                 _onucchedSave.SendNoteListFromLocal();
                 _onuchhedForwardService.SendNoteListFromLocal();
-
+                _dakSharingService.SendLocalDataToServer(_userService.GetLocalDakUserParam());
+                _dakSharingService.SendDakSortingLocalDataToServer(_userService.GetLocalDakUserParam());
+              
             }
 
 

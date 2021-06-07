@@ -36,6 +36,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         {
             
             InitializeComponent();
+            MyToolTip.SetToolTip(attachmentDeleteButton, "মুছে ফেলুন");
         }
 
 
