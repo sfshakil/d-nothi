@@ -44,6 +44,15 @@ namespace dNothi.Services.NothiServices
                 fileUploadAction.designation_id = dakListUserParam.designation_id;
                 fileUploadAction.office_id = dakListUserParam.office_id;
                 _fileUploadAction.Insert(fileUploadAction);
+                
+                //List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id && a.dakListUserParamJson == dup && a.dakFileUploadParamJson == oswa).ToList();
+                
+                dakUploadedFileResponse.data = new List<DakAttachmentDTO>();
+
+                DakAttachmentDTO dakAttachmentDTO = new DakAttachmentDTO();
+                dakAttachmentDTO.id = fileUploadAction.Id;
+
+                dakUploadedFileResponse.data.Add(dakAttachmentDTO);
 
                 return dakUploadedFileResponse;
             }

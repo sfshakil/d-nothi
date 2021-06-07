@@ -69,14 +69,51 @@ namespace dNothi.Desktop.UI.Dak
             SubjectBrowser.Visible = true;
             btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.MinusSquare;
         }
+        public static readonly List<string> DOCExtensions = new List<string> { ".DOC", "DOC", ".DOCX", "DOCX" };
+        public static readonly List<string> CSVExtensions = new List<string> { ".CSV", "CSV" };
+        public static readonly List<string> XLSExtensions = new List<string> { ".XLS", "XLS", ".XLSX", "XLSX" };
         public void fileAddInFilePanel(AttachmentDTO attachment)
         {
-            var fileusercontrol = UserControlFactory.Create<FileUserControl>();
-            fileusercontrol.fileName = attachment.user_file_name;
-            fileusercontrol.fileSize = attachment.file_size_in_kb.ToString();
-            fileusercontrol.fileDownloadLink = attachment.download_url;
-            fileusercontrol.fileViewLink = attachment.url;
-            UIDesignCommonMethod.AddRowinTable(fileFLP, fileusercontrol);
+            if (DOCExtensions.Contains(new System.IO.FileInfo(attachment.user_file_name).Extension.ToUpperInvariant()))
+            {
+                var fileusercontrol = UserControlFactory.Create<FileUserControl>();
+                fileusercontrol.fileName = attachment.user_file_name;
+                fileusercontrol.fileSize = attachment.file_size_in_kb.ToString();
+                fileusercontrol.fileDownloadLink = attachment.download_url;
+                fileusercontrol.fileViewLink = attachment.url;
+                fileusercontrol.docExtension();
+                UIDesignCommonMethod.AddRowinTable(fileFLP, fileusercontrol);
+            }
+            else if (CSVExtensions.Contains(new System.IO.FileInfo(attachment.user_file_name).Extension.ToUpperInvariant()))
+            {
+                var fileusercontrol = UserControlFactory.Create<FileUserControl>();
+                fileusercontrol.fileName = attachment.user_file_name;
+                fileusercontrol.fileSize = attachment.file_size_in_kb.ToString();
+                fileusercontrol.fileDownloadLink = attachment.download_url;
+                fileusercontrol.fileViewLink = attachment.url;
+                fileusercontrol.csvExtension();
+                UIDesignCommonMethod.AddRowinTable(fileFLP, fileusercontrol);
+            }
+            else if (XLSExtensions.Contains(new System.IO.FileInfo(attachment.user_file_name).Extension.ToUpperInvariant()))
+            {
+                var fileusercontrol = UserControlFactory.Create<FileUserControl>();
+                fileusercontrol.fileName = attachment.user_file_name;
+                fileusercontrol.fileSize = attachment.file_size_in_kb.ToString();
+                fileusercontrol.fileDownloadLink = attachment.download_url;
+                fileusercontrol.fileViewLink = attachment.url;
+                fileusercontrol.xlsExtension();
+                UIDesignCommonMethod.AddRowinTable(fileFLP, fileusercontrol);
+            }
+            else
+            {
+                var fileusercontrol = UserControlFactory.Create<FileUserControl>();
+                fileusercontrol.fileName = attachment.user_file_name;
+                fileusercontrol.fileSize = attachment.file_size_in_kb.ToString();
+                fileusercontrol.fileDownloadLink = attachment.download_url;
+                fileusercontrol.fileViewLink = attachment.url;
+                UIDesignCommonMethod.AddRowinTable(fileFLP, fileusercontrol);
+            }
+            
         }
         public void filePnaeloff()
         {

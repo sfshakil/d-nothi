@@ -2500,7 +2500,7 @@ namespace dNothi.Desktop.UI
 
         DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
         public static readonly List<string> ImageExtensions = new List<string> { ".JPG", "JPG", "PNG", ".PNG" };
-        public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF", ".Doc", "Doc", ".Docx", "Docx", ".XLS", "XLS", ".CSV", "CSV", ".MP3", "MP3", ".M4p", "M4p", ".MP4", "MP4", ".PPT", "PPT", ".PPTX", "PPTX" };
+        public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF", ".DOC", "DOC", ".DOCX", "DOCX", ".XLS", "XLS", ".XLSX", "XLSX", ".CSV", "CSV", ".MP3", "MP3", ".M4P", "M4P", ".MP4", "MP4", ".PPT", "PPT", ".PPTX", "PPTX" };
 
 
 
@@ -2519,7 +2519,7 @@ namespace dNothi.Desktop.UI
         {
             OpenFileDialog opnfd = new OpenFileDialog();
             //opnfd.DefaultExt = "txt";
-            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
+            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
             //opnfd.Filter = "Pdf Files (*.PDF;)|*.PDF;";
             //opnfd.Filter = "Word Files ()|";
             //opnfd.Filter = "Excel Files ()|";
@@ -2564,33 +2564,36 @@ namespace dNothi.Desktop.UI
                         noteFileUpload.imgSource = opnfd.FileName;
                         noteFileUpload.fileexension = _dakFileUploadParam.file_size_in_kb;
                         noteFileUpload.attachmentName = _dakFileUploadParam.user_file_name;
+                        noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
                         UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
                         //--fileAddFLP.Controls.Add(noteFileUpload);
-                        noteFileUploads.Add(noteFileUpload);
+                        //noteFileUploads.Add(noteFileUpload);
 
 
                     }
                     else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                     {
-                        noteFileUpload.imgSource = "";
+                        //noteFileUpload.imgSource = "";
+                        noteFileUpload.imageBoxOffFileShow("");
                         noteFileUpload.fileexension = _dakFileUploadParam.file_size_in_kb;
                         noteFileUpload.attachmentName = _dakFileUploadParam.user_file_name;
+                        noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
                         UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
-                        noteFileUploads.Add(noteFileUpload);
+                        //noteFileUploads.Add(noteFileUpload);
 
                     }
                     else
                     {
-                        NoteFileDelete noteFileDelete = new NoteFileDelete();
-                        noteFileDelete.attachmentName = _dakFileUploadParam.file_size_in_kb;
-                        noteFileDelete.fileexension = _dakFileUploadParam.user_file_name;
-                        UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete);
+                        //NoteFileDelete noteFileDelete = new NoteFileDelete();
+                        //noteFileDelete.attachmentName = _dakFileUploadParam.file_size_in_kb;
+                        //noteFileDelete.fileexension = _dakFileUploadParam.user_file_name;
+                        //UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete);
                         //--fileAddFLP.Controls.Add(noteFileDelete);
                         //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
                     }
                     //onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
                 } 
-                if (dakUploadedFileResponse.status == "success" && dakUploadedFileResponse.data != null)
+                if (dakUploadedFileResponse.status == "success" && dakUploadedFileResponse.message != "Local")
                 {
                     fileuploadDoneFlag = 1;
                     if (dakUploadedFileResponse.data.Count > 0)
@@ -2602,6 +2605,7 @@ namespace dNothi.Desktop.UI
                             noteFileUpload.imgSource = opnfd.FileName;
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                            noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
                             UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
                             //--fileAddFLP.Controls.Add(noteFileUpload);
                             noteFileUploads.Add(noteFileUpload);
@@ -2621,24 +2625,26 @@ namespace dNothi.Desktop.UI
                                 }
                             }
 
-
+                            onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
                         }
                         else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
-                            noteFileUpload.imgSource = "";
+                            //noteFileUpload.imgSource = "";
+                            noteFileUpload.imageBoxOffFileShow(dakUploadedFileResponse.data[0].download_url);
                             noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
                             noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                            noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
                             UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
                             //--fileAddFLP.Controls.Add(noteFileUpload);
-                            noteFileUploads.Add(noteFileUpload);
-
+                            //noteFileUploads.Add(noteFileUpload);
+                            onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
                         }
                         else
                         {
-                            NoteFileDelete noteFileDelete = new NoteFileDelete();
-                            noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                            noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete);
+                            //NoteFileDelete noteFileDelete = new NoteFileDelete();
+                            //noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                            //noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
+                            //UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete);
                             //--fileAddFLP.Controls.Add(noteFileDelete);
                             //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
                         }
@@ -2650,7 +2656,7 @@ namespace dNothi.Desktop.UI
 
 
 
-                        onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                        
                     }
                 }
 
@@ -3161,10 +3167,12 @@ namespace dNothi.Desktop.UI
                         i++;
                     }
                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-
+                    List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
                     if (!InternetConnection.Check())
                     {
-                        List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                        //onuchhedSaveWithAttachments.Clear();
+
+                        
                         if (fileUploadActions != null && fileUploadActions.Count > 0)
                         {
                             int countflag = fileAddFLP.Controls.Count;
@@ -3208,7 +3216,36 @@ namespace dNothi.Desktop.UI
                             }
                         }
                     }
+                    foreach(NoteFileUpload noteFileUpload in fileAddFLP.Controls)
+                    {
+                        foreach (DakUploadedFileResponse attachment in onuchhedSaveWithAttachments)
+                        {
+                            if (!InternetConnection.Check())
+                            {
+                                foreach (FileUploadAction a in fileUploadActions)
+                                {
+                                    if (a.Id == attachment.data[0].id && attachment.data[0].id == Convert.ToInt32(noteFileUpload.attachementId) && attachment.data[0].user_file_name != noteFileUpload.getNewAttachmentText())
+                                    {
+                                        attachment.data[0].user_file_name = noteFileUpload.getNewAttachmentText();
 
+                                        DakFileUploadParam fileUpload = JsonConvert.DeserializeObject<DakFileUploadParam>(a.dakFileUploadParamJson);
+                                        fileUpload.user_file_name = noteFileUpload.getNewAttachmentText();
+
+                                        a.dakFileUploadParamJson = JsonConvert.SerializeObject(fileUpload);
+                                        _fileUploadAction.Update(a);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (attachment.data[0].id == Convert.ToInt32(noteFileUpload.attachementId) && attachment.data[0].user_file_name != noteFileUpload.getNewAttachmentText())
+                                {
+                                    attachment.data[0].user_file_name = noteFileUpload.getNewAttachmentText();
+                                }
+                            }
+                            
+                        }
+                    }
                     var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(onuchhedId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
                     OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, newnotedata.note_id);
                     if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data == null || onucchedList.data.records.Count == 0)
@@ -3265,11 +3302,11 @@ namespace dNothi.Desktop.UI
                                         {
                                             separateOnucched.filePnaeloff();
                                         }
-                                        List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
-                                        if (fileUploadActions != null && fileUploadActions.Count > 0)
+                                        List<FileUploadAction> fileUploadActions1 = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                                        if (fileUploadActions1 != null && fileUploadActions1.Count > 0)
                                         {
 
-                                            foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                                            foreach (FileUploadAction fileUploadItemAction in fileUploadActions1)
                                             {
                                                 foreach (DakUploadedFileResponse dakUploadedFileResponses in onuchhedSaveWithAttachmentss)
                                                 {
@@ -3543,11 +3580,11 @@ namespace dNothi.Desktop.UI
                                                 {
                                                     separateOnucched.filePnaeloff();
                                                 }
-                                                List<FileUploadAction> fileUploadActions = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
-                                                if (fileUploadActions != null && fileUploadActions.Count > 0)
+                                                List<FileUploadAction> fileUploadActions1 = _fileUploadAction.Table.Where(a => a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id).ToList();
+                                                if (fileUploadActions1 != null && fileUploadActions1.Count > 0)
                                                 {
 
-                                                    foreach (FileUploadAction fileUploadItemAction in fileUploadActions)
+                                                    foreach (FileUploadAction fileUploadItemAction in fileUploadActions1)
                                                     {
                                                         foreach (DakUploadedFileResponse dakUploadedFileResponses in onuchhedSaveWithAttachmentss)
                                                         {
