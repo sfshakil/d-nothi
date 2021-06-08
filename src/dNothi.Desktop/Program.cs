@@ -167,6 +167,13 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakOrigin>>().As<IRepository<dNothi.Core.Entities.DakOrigin>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakAttachment>>().As<IRepository<dNothi.Core.Entities.DakAttachment>>();
 
+
+            builder.RegisterType<EfRepository<DakBoxSharedToOfficer>>().As<IRepository<DakBoxSharedToOfficer>>();
+            builder.RegisterType<EfRepository<DakBoxSharing>>().As<IRepository<DakBoxSharing>>();
+            builder.RegisterType<EfRepository<DakBacaiKaranList>>().As<IRepository<DakBacaiKaranList>>();
+            builder.RegisterType<EfRepository<DakBacaiKaran>>().As<IRepository<DakBacaiKaran>>();
+            
+
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
             builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
             builder.RegisterType<EfRepository<UserToken>>().As<IRepository<UserToken>>();

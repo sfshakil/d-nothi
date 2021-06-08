@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -35,6 +36,7 @@
             this.attachmentLink = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.attachmentDeleteButton = new FontAwesome.Sharp.IconButton();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -161,5 +163,6 @@
         private System.Windows.Forms.PictureBox attachmentLink;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton attachmentDeleteButton;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }

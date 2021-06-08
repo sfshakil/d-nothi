@@ -230,8 +230,6 @@ namespace dNothi.Services.DakServices
         {
             return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
         }
-
-
         protected string GetDesignationSealListEndpoint()
         {
             return DefaultAPIConfiguration.GetDesignationSealListEndpoint;
@@ -256,7 +254,7 @@ namespace dNothi.Services.DakServices
         {
             return DefaultAPIConfiguration.DakDecisionSetupEndpoint;
         }
-         protected string GetDakForwardRevertEndpoint()
+        protected string GetDakForwardRevertEndpoint()
         {
             return DefaultAPIConfiguration.DakForwardRevertEndPoint;
         }

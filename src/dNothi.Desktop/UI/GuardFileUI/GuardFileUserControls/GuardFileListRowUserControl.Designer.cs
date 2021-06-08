@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.typeNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.decisionDeleteButton = new FontAwesome.Sharp.IconButton();
             this.decisionEditRightButton = new FontAwesome.Sharp.IconButton();
             this.typeLabel = new System.Windows.Forms.Label();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -164,5 +166,6 @@
         private FontAwesome.Sharp.IconButton decisionEditRightButton;
         private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.Label typeNameLabel;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }
