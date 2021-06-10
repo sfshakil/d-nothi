@@ -11,5 +11,6 @@ namespace dNothi.Services.NothiServices
     public interface INothiTypeListServices
     {
         NothiTypeListResponse GetNothiTypeList(DakUserParam dakListUserParam);
+        NothiBranchListResponse GetNothiBranchList(DakUserParam dakListUserParam);
     }
 }
