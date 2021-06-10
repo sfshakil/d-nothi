@@ -2,7 +2,9 @@
 using dNothi.Core.Interfaces;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
+using dNothi.Desktop.UI.ManuelUserControl;
 using dNothi.JsonParser.Entity;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
@@ -37,13 +39,16 @@ namespace dNothi.Desktop.UI
         INothiCreateService _nothiCreateServices { get; set; }
         IRepository<NothiCreateItemAction> _nothiCreateItemAction;
         IOnucchedSave _onucchedSave { get; set; }
+        INothiTypeListServices _nothiType { get; set; }
         IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
+        IDesignationSealService _designationSealService { get; set; }
 
         public WaitFormFunc WaitForm;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
-            IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave, IOnucchedFileUploadService onucchedFileUploadService)
+            IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave, IOnucchedFileUploadService onucchedFileUploadService, 
+            INothiTypeListServices nothiType, IDesignationSealService designationSealService)
         {
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _userService = userService;
@@ -56,9 +61,20 @@ namespace dNothi.Desktop.UI
             _nothiCreateItemAction = nothiCreateItemAction;
             _onuchhedForwardService = onuchhedForwardService;
             _onucchedSave = onucchedSave;
+            _nothiType = nothiType;
             _onucchedFileUploadService = onucchedFileUploadService;
+            _designationSealService = designationSealService;
 
             InitializeComponent();
+            LoadNothiTypeListDropDown();
+            LoadOfficerListDropDown();
+            LoadNothiBranchListDropDown();
+
+            cbxPriorityType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbxPriorityType.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            nothiCustomDatePickerUserControl.Visible = false;
+
             WaitForm = new WaitFormFunc();
             loadNothiExtra();
             //nothiBackGroundWorker.RunWorkerAsync();
@@ -70,7 +86,7 @@ namespace dNothi.Desktop.UI
             ResetAllMenuButtonSelection();
             SetDefaultFont(this.Controls);
             SelectButton(btnNothiInbox);
-            nothiDhoronSrchUC.Visible = true;
+            //nothiDhoronSrchUC.Visible = true;
             designationDetailsPanelNothi.Visible = false;
             _dakuserparam = _userService.GetLocalDakUserParam();
             _nothiCurrentCategory.isInbox = true;
@@ -84,6 +100,67 @@ namespace dNothi.Desktop.UI
             loadNothiInboxTotal();
             WaitForm.Close();
 
+        }
+        public void LoadNothiTypeListDropDown()
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            var nothiType = _nothiType.GetNothiTypeList(dakListUserParam);
+            if (nothiType != null && nothiType.status == "success")
+            {
+
+                if (nothiType.data.Count > 0)
+                {
+                    foreach (NothiTypeListDTO nothiTypeListDTO in nothiType.data)
+                    {
+                        cbxNothiType.Items.Add(nothiTypeListDTO.nothi_type);
+                        cbxNothiType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                        cbxNothiType.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+                    }
+
+                }
+            }
+        }
+        public void LoadOfficerListDropDown()
+        {
+            AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            designationSealListResponse = _designationSealService.GetAllDesignationSeal(_dakuserparam, _dakuserparam.office_id);
+            if (designationSealListResponse != null && designationSealListResponse.status == "success")
+            {
+
+                if (designationSealListResponse.data.Count > 0)
+                {
+                    foreach (PrapokDTO prapokDTO in designationSealListResponse.data)
+                    {
+                        cbxSearchOfficer.Items.Add(prapokDTO.NameWithOrganogram);
+                        cbxSearchOfficer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                        cbxSearchOfficer.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+                    }
+
+                }
+            }
+        }
+        public void LoadNothiBranchListDropDown()
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            NothiBranchListResponse nothiBranch = _nothiType.GetNothiBranchList(dakListUserParam);
+            if (nothiBranch != null && nothiBranch.status == "success")
+            {
+
+                if (nothiBranch.data.Count > 0)
+                {
+                    foreach (NothiBranchUnitDTO nothiBranchDTO in nothiBranch.data[0].units)
+                    {
+                        cbxNothiBranch.Items.Add(nothiBranchDTO.unit_name_bng);
+                        cbxNothiBranch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                        cbxNothiBranch.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+                    }
+
+                }
+            }
         }
         public void loadNothiInboxTotal()
         {
@@ -2020,6 +2097,39 @@ namespace dNothi.Desktop.UI
             profilePanel.BackColor = Color.Transparent;
         }
 
+        private void detailSearchStopButton_Click_1(object sender, EventArgs e)
+        {
+            detailsNothiSearcPanel.Visible = false;
+        }
+        
+        private void btnTimeLimit_Click(object sender, EventArgs e)
+        {
+            if (!nothiCustomDatePickerUserControl.Visible)
+            {
+                
+                //nothiCustomDatePickerUserControl.AutoSize = false;
+                //nothiCustomDatePickerUserControl.Height = 300;
+                nothiCustomDatePickerUserControl.Dock = DockStyle.None;
+                nothiCustomDatePickerUserControl.Location = new System.Drawing.Point(panel4.Width + panel22.Width + panel23.Width + panel24.Width + 4, 
+                    panel2.Height + panel12.Height + nothiSearchHeadingPanel.Height + panel5.Height + panel14.Height + panel13.Height + panel15.Height);
+                Controls.Add(nothiCustomDatePickerUserControl);
+                nothiCustomDatePickerUserControl.BringToFront();
+                nothiCustomDatePickerUserControl.Visible = true;
+                
+
+            }
+            else
+            {
+                nothiCustomDatePickerUserControl.Visible = false;
+            }
+        }
+        private void customDatePicker_OptionClick(object sender, EventArgs e)
+        {
+            //last_modified_date = nothiCustomDatePickerUserControl._date;
+            dateRangeTextBox.Text = nothiCustomDatePickerUserControl._date;
+
+            nothiCustomDatePickerUserControl.Visible = false;
+        }
         private void userNameLabel_MouseLeave(object sender, EventArgs e)
         {
             profilePanel.BackColor = Color.Transparent;
