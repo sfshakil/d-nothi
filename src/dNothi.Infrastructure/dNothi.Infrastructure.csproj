@@ -88,6 +88,10 @@
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mappings\AppUsers\AppUserMap.cs" />
     <Compile Include="Mappings\Dak\DakAttachmentMap.cs" />
+    <Compile Include="Mappings\Dak\DakBacaiKaranListMap.cs" />
+    <Compile Include="Mappings\Dak\DakBacaiKaranMap.cs" />
+    <Compile Include="Mappings\Dak\DakBoxSharedToOfficerMap.cs" />
+    <Compile Include="Mappings\Dak\DakBoxSharingMap.cs" />
     <Compile Include="Mappings\Dak\DakItemActionMap.cs" />
     <Compile Include="Mappings\Dak\DakItemDetailsMap.cs" />
     <Compile Include="Mappings\Dak\DakItemMap.cs" />

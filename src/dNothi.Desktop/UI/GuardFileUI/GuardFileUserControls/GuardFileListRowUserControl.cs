@@ -24,6 +24,7 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
         public GuardFileListRowUserControl()
         {
             InitializeComponent();
+            MyToolTip.SetToolTip(decisionDeleteButton, "মুছে ফেলুন");
         }
 
         public List<DakAttachmentDTO> _dakAttachmentDTOs { get; set; }

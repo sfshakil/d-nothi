@@ -49,8 +49,11 @@ public class DesignationSealListResponse
             {
                 return office_unit_bng;
             }
-                
-                
+
+            set
+            {
+                office_unit_bng = value;
+            }
                 }
 
      
@@ -65,16 +68,16 @@ public class DesignationSealListResponse
 
         public int unit_id { get { return office_unit_id; } }
 
-        public string office_eng { get { return office_name_eng; } }
+        string office_eng { get { return office_name_eng; } }
 
-       
-   
+
+
         public string office_name_bng { get { return office_bng; } }
      
         public int office_id { get; set; }
 
       
-        public string employee_name_bng { get { return officer_bng; } }
+        public string employee_name_bng { get { return officer_bng; } set { officer_bng = value; } }
 
  
         public string officer_eng { get; set; }
@@ -98,6 +101,9 @@ public class DesignationSealListResponse
             {
                 return unit_name_bng;
             }
+            set {
+                unit_name_bng = value;
+            }
         }
         public string office_label
         {
@@ -112,6 +118,10 @@ public class DesignationSealListResponse
             get
             {
                 return employee_name_bng;
+            }
+            set
+            {
+                employee_name_bng = value;
             }
         }
          public int officer_id { get; set; }
@@ -131,6 +141,10 @@ public class DesignationSealListResponse
             {
                 return unit_label;
             }
+            set
+            {
+                unit_label = value;
+            }
         }
 
 
@@ -142,7 +156,7 @@ public class DesignationSealListResponse
             }
         }
 
-        public string office_name_eng { get; set; }
+        public string office_name_eng { get { return office_eng; } }
 
 
 
@@ -203,8 +217,8 @@ public class DesignationSealListResponse
 
 
 
-        public string office { get { return office_bng; } }
-        public string officer { get { return officer_bng; } }
+        public string office { get { return office_bng; } set { office_bng = value; } }
+        public string officer { get { return officer_bng; } set { officer_bng = value; } }
       
 
 

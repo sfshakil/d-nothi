@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cancelButton = new FontAwesome.Sharp.IconButton();
             this.saveEditButton = new FontAwesome.Sharp.IconButton();
@@ -40,6 +41,7 @@
             this.decisionNamePanel = new System.Windows.Forms.Panel();
             this.decisionNameTextBox = new System.Windows.Forms.TextBox();
             this.decisionNameLabel = new System.Windows.Forms.Label();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             this.EditUpdatetableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -278,5 +280,6 @@
         private System.Windows.Forms.Panel decisionNamePanel;
         private System.Windows.Forms.TextBox decisionNameTextBox;
         private System.Windows.Forms.Label decisionNameLabel;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }

@@ -46,10 +46,9 @@ namespace dNothi.Core.Entities
 
         public void MakeAllfalse()
         {
-            isForwarded = false;
+             isForwarded = false;
              isDakTagged = false;
-
-            isNothijato = false;
+             isNothijato = false;
              isArchived = false;
              isNothivukto = false;
     }

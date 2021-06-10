@@ -905,7 +905,7 @@ namespace dNothi.Services.DakServices
             designationSealAddRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
       
             designationSealAddRequest.AddParameter("designation_id", dakUserParam.designation_id);
-          
+            
             designationSealAddRequest.AddParameter("seal_info", sealInfo);
             IRestResponse designationSealAddIRestResponse = designationAddAPI.Execute(designationSealAddRequest);
             var designationSealAddResponseJson = designationSealAddIRestResponse.Content;

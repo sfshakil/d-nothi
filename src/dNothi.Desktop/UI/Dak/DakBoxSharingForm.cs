@@ -35,7 +35,7 @@ namespace dNothi.Desktop.UI.Dak
             _dakSharingService = dakSharingService;
             InitializeComponent();
 
-            LoadAssignOfficerList();
+           
         }
         
         private void DakBoxSharingForm_Load(object sender, EventArgs e)
@@ -184,8 +184,8 @@ namespace dNothi.Desktop.UI.Dak
 
         private void LoadAssignOfficerList()
         {
-           
-            var assignlist = _dakSharingService.GetList(_userService.GetLocalDakUserParam(), 1,0);
+            int actionlink=1;
+            var assignlist = _dakSharingService.GetList(_userService.GetLocalDakUserParam(), actionlink, null);
             try
             {
                 if (assignlist.status == "success")
@@ -244,11 +244,13 @@ namespace dNothi.Desktop.UI.Dak
         private void DakBoxSharingForm_Shown(object sender, EventArgs e)
         {
             LoadOfficer();
+            LoadAssignOfficerList();
         }
 
         private void prerokBachaiOfficerButton_Click(object sender, EventArgs e)
         {
-            if (officerSearchList.selectedId > 0)
+            var userParam = _userService.GetLocalDakUserParam();
+            if (officerSearchList.selectedId > 0 && officerSearchList.selectedId!= userParam.officer_id)
             {
                 var assignor = _userService.GetLocalDakUserParam();
                 var assainee = designationSealListResponse.data.Where(x => x.officer_id == officerSearchList.selectedId).FirstOrDefault();
@@ -260,9 +262,13 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                    alartMessage.ErrorMessage("failed");
+                    alartMessage.ErrorMessage("ডাক বক্সটি হস্তান্তর করা সফল হয়নি।");
                 }
                 LoadAssignOfficerList();
+            }
+            else
+            {
+
             }
         }
     }
