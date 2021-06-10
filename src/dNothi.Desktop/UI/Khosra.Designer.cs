@@ -36,6 +36,7 @@
             this.pnlNothiNoteTalika = new System.Windows.Forms.Panel();
             this.khosraReviewButton = new FontAwesome.Sharp.IconButton();
             this.noteDetailsButton = new FontAwesome.Sharp.IconButton();
+            this.protibedonOnumedonButton = new FontAwesome.Sharp.IconButton();
             this.nothiNamePanel = new System.Windows.Forms.Panel();
             this.lbSubject = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -95,6 +96,10 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.officerSelectPanel = new System.Windows.Forms.Panel();
             this.officerTypePanel = new System.Windows.Forms.Panel();
+            this.timePanel = new System.Windows.Forms.Panel();
+            this.timePicker = new System.Windows.Forms.DateTimePicker();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -192,6 +197,7 @@
             this.panel10.SuspendLayout();
             this.officerSelectPanel.SuspendLayout();
             this.officerTypePanel.SuspendLayout();
+            this.timePanel.SuspendLayout();
             this.panel15.SuspendLayout();
             this.onulipiListPanel.SuspendLayout();
             this.onulipiEmptyPanel.SuspendLayout();
@@ -231,7 +237,7 @@
             saveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             saveButton.IconSize = 20;
             saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            saveButton.Location = new System.Drawing.Point(738, 1);
+            saveButton.Location = new System.Drawing.Point(592, 1);
             saveButton.Margin = new System.Windows.Forms.Padding(0);
             saveButton.Name = "saveButton";
             saveButton.Size = new System.Drawing.Size(96, 33);
@@ -267,6 +273,7 @@
             this.pnlNothiNoteTalika.Controls.Add(this.khosraReviewButton);
             this.pnlNothiNoteTalika.Controls.Add(this.noteDetailsButton);
             this.pnlNothiNoteTalika.Controls.Add(saveButton);
+            this.pnlNothiNoteTalika.Controls.Add(this.protibedonOnumedonButton);
             this.pnlNothiNoteTalika.Controls.Add(this.nothiNamePanel);
             this.pnlNothiNoteTalika.Controls.Add(this.panel11);
             this.pnlNothiNoteTalika.Controls.Add(this.nothiAllButton);
@@ -293,7 +300,7 @@
             this.khosraReviewButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.khosraReviewButton.IconSize = 20;
             this.khosraReviewButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.khosraReviewButton.Location = new System.Drawing.Point(525, 1);
+            this.khosraReviewButton.Location = new System.Drawing.Point(379, 1);
             this.khosraReviewButton.Margin = new System.Windows.Forms.Padding(0);
             this.khosraReviewButton.Name = "khosraReviewButton";
             this.khosraReviewButton.Size = new System.Drawing.Size(117, 33);
@@ -317,7 +324,7 @@
             this.noteDetailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.noteDetailsButton.IconSize = 20;
             this.noteDetailsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.noteDetailsButton.Location = new System.Drawing.Point(642, 1);
+            this.noteDetailsButton.Location = new System.Drawing.Point(496, 1);
             this.noteDetailsButton.Margin = new System.Windows.Forms.Padding(0);
             this.noteDetailsButton.Name = "noteDetailsButton";
             this.noteDetailsButton.Size = new System.Drawing.Size(96, 33);
@@ -326,6 +333,31 @@
             this.noteDetailsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.noteDetailsButton.UseVisualStyleBackColor = false;
             this.noteDetailsButton.Visible = false;
+            // 
+            // protibedonOnumedonButton
+            // 
+            this.protibedonOnumedonButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(122)))), ((int)(((byte)(223)))));
+            this.protibedonOnumedonButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.protibedonOnumedonButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.protibedonOnumedonButton.FlatAppearance.BorderSize = 0;
+            this.protibedonOnumedonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protibedonOnumedonButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.protibedonOnumedonButton.ForeColor = System.Drawing.Color.White;
+            this.protibedonOnumedonButton.IconChar = FontAwesome.Sharp.IconChar.UserShield;
+            this.protibedonOnumedonButton.IconColor = System.Drawing.Color.White;
+            this.protibedonOnumedonButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.protibedonOnumedonButton.IconSize = 20;
+            this.protibedonOnumedonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.protibedonOnumedonButton.Location = new System.Drawing.Point(688, 1);
+            this.protibedonOnumedonButton.Margin = new System.Windows.Forms.Padding(0);
+            this.protibedonOnumedonButton.Name = "protibedonOnumedonButton";
+            this.protibedonOnumedonButton.Size = new System.Drawing.Size(146, 33);
+            this.protibedonOnumedonButton.TabIndex = 79;
+            this.protibedonOnumedonButton.Text = "প্রতিবেদন অনুমোদন";
+            this.protibedonOnumedonButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.protibedonOnumedonButton.UseVisualStyleBackColor = false;
+            this.protibedonOnumedonButton.Visible = false;
+            this.protibedonOnumedonButton.Click += new System.EventHandler(this.protibedonOnumedonButton_Click);
             // 
             // nothiNamePanel
             // 
@@ -1161,6 +1193,7 @@
             // 
             this.officerTypePanel.AutoScroll = true;
             this.officerTypePanel.AutoSize = true;
+            this.officerTypePanel.Controls.Add(this.timePanel);
             this.officerTypePanel.Controls.Add(this.panel15);
             this.officerTypePanel.Controls.Add(this.onulipiListPanel);
             this.officerTypePanel.Controls.Add(this.onulipiSelectButtonPanel);
@@ -1179,6 +1212,52 @@
             this.officerTypePanel.Name = "officerTypePanel";
             this.officerTypePanel.Size = new System.Drawing.Size(310, 297);
             this.officerTypePanel.TabIndex = 1;
+            // 
+            // timePanel
+            // 
+            this.timePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.timePanel.Controls.Add(this.timePicker);
+            this.timePanel.Controls.Add(this.label22);
+            this.timePanel.Controls.Add(this.label30);
+            this.timePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.timePanel.Location = new System.Drawing.Point(0, 392);
+            this.timePanel.Name = "timePanel";
+            this.timePanel.Size = new System.Drawing.Size(293, 26);
+            this.timePanel.TabIndex = 12;
+            // 
+            // timePicker
+            // 
+            this.timePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.timePicker.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
+            this.timePicker.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timePicker.Location = new System.Drawing.Point(91, 2);
+            this.timePicker.Name = "timePicker";
+            this.timePicker.ShowUpDown = true;
+            this.timePicker.Size = new System.Drawing.Size(126, 22);
+            this.timePicker.TabIndex = 89;
+            this.timePicker.ValueChanged += new System.EventHandler(this.timePicker_ValueChanged);
+            // 
+            // label22
+            // 
+            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(225)))), ((int)(((byte)(248)))));
+            this.label22.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label22.Location = new System.Drawing.Point(0, 25);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(293, 1);
+            this.label22.TabIndex = 1;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label30.Location = new System.Drawing.Point(4, 4);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(83, 18);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "সম​য়​ নির্বাচনঃ";
             // 
             // panel15
             // 
@@ -2189,6 +2268,8 @@
             this.officerSelectPanel.PerformLayout();
             this.officerTypePanel.ResumeLayout(false);
             this.officerTypePanel.PerformLayout();
+            this.timePanel.ResumeLayout(false);
+            this.timePanel.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.onulipiListPanel.ResumeLayout(false);
@@ -2371,5 +2452,10 @@
         private System.Windows.Forms.TableLayoutPanel prerokListFlowLayoutPanel;
         private designationSelect designationDetailsPanel;
         private FontAwesome.Sharp.IconButton moduleButton;
+        private FontAwesome.Sharp.IconButton protibedonOnumedonButton;
+        private System.Windows.Forms.Panel timePanel;
+        private System.Windows.Forms.DateTimePicker timePicker;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label30;
     }
 }
