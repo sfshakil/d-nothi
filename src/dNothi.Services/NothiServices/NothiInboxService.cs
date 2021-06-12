@@ -66,6 +66,33 @@ namespace dNothi.Services.NothiServices
                 return nothiListInboxResponse;
             }
         }
+        public NothiListInboxResponse GetSearchNothiInbox(DakUserParam dakUserParam, string search_params)
+        {
+            NothiListInboxResponse nothiListInboxResponse = new NothiListInboxResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiInboxListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("length", dakUserParam.limit);
+                request.AddParameter("page", dakUserParam.page);
+                var serializedObject = JsonConvert.SerializeObject(dakUserParam);
+                request.AddParameter("cdesk", serializedObject);
+                request.AddParameter("search_params", search_params);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                nothiListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(responseJson);
+                return nothiListInboxResponse;
+            }
+            catch (Exception ex)
+            {
+                return nothiListInboxResponse;
+            }
+        }
         public class cdesk
         {
             public int office_id { get; set; }
@@ -115,5 +142,7 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiInboxListEndPoint;
         }
+
+        
     }
 }

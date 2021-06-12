@@ -1348,7 +1348,7 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92982F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.38217F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.41258F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.Controls.Add(this.panel36, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.panel37, 0, 0);
@@ -1367,7 +1367,7 @@ namespace dNothi.Desktop.UI
             // panel36
             // 
             this.panel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel36.Location = new System.Drawing.Point(692, 0);
+            this.panel36.Location = new System.Drawing.Point(691, 0);
             this.panel36.Margin = new System.Windows.Forms.Padding(0);
             this.panel36.Name = "panel36";
             this.panel36.Size = new System.Drawing.Size(19, 64);
@@ -1377,11 +1377,11 @@ namespace dNothi.Desktop.UI
             // 
             this.panel37.Controls.Add(this.cbxNothiBranch);
             this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel37.Location = new System.Drawing.Point(711, 0);
+            this.panel37.Location = new System.Drawing.Point(710, 0);
             this.panel37.Margin = new System.Windows.Forms.Padding(0);
             this.panel37.Name = "panel37";
             this.panel37.Padding = new System.Windows.Forms.Padding(1, 15, 1, 1);
-            this.panel37.Size = new System.Drawing.Size(695, 64);
+            this.panel37.Size = new System.Drawing.Size(694, 64);
             this.panel37.TabIndex = 9;
             this.panel37.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
             // 
@@ -1401,7 +1401,7 @@ namespace dNothi.Desktop.UI
             this.cbxNothiBranch.MaxDropDownItems = 100;
             this.cbxNothiBranch.MaxLength = 100;
             this.cbxNothiBranch.Name = "cbxNothiBranch";
-            this.cbxNothiBranch.Size = new System.Drawing.Size(693, 34);
+            this.cbxNothiBranch.Size = new System.Drawing.Size(692, 34);
             this.cbxNothiBranch.TabIndex = 77;
             this.cbxNothiBranch.Text = "দপ্তর/শাখা";
             // 
@@ -1422,7 +1422,7 @@ namespace dNothi.Desktop.UI
             this.panel39.Margin = new System.Windows.Forms.Padding(0);
             this.panel39.Name = "panel39";
             this.panel39.Padding = new System.Windows.Forms.Padding(1, 15, 1, 1);
-            this.panel39.Size = new System.Drawing.Size(674, 64);
+            this.panel39.Size = new System.Drawing.Size(673, 64);
             this.panel39.TabIndex = 7;
             this.panel39.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
             // 
@@ -1442,7 +1442,7 @@ namespace dNothi.Desktop.UI
             this.cbxSearchOfficer.MaxDropDownItems = 100;
             this.cbxSearchOfficer.MaxLength = 100;
             this.cbxSearchOfficer.Name = "cbxSearchOfficer";
-            this.cbxSearchOfficer.Size = new System.Drawing.Size(672, 34);
+            this.cbxSearchOfficer.Size = new System.Drawing.Size(671, 34);
             this.cbxSearchOfficer.TabIndex = 77;
             this.cbxSearchOfficer.Text = "নাম/পদবি দিয়ে খুঁজুন";
             // 
@@ -1453,7 +1453,7 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92982F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.38217F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.41258F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.Controls.Add(this.panel31, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel30, 0, 0);
@@ -1472,7 +1472,7 @@ namespace dNothi.Desktop.UI
             // panel31
             // 
             this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel31.Location = new System.Drawing.Point(692, 0);
+            this.panel31.Location = new System.Drawing.Point(691, 0);
             this.panel31.Margin = new System.Windows.Forms.Padding(0);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(19, 31);
@@ -1482,10 +1482,10 @@ namespace dNothi.Desktop.UI
             // 
             this.panel30.Controls.Add(this.label5);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel30.Location = new System.Drawing.Point(711, 0);
+            this.panel30.Location = new System.Drawing.Point(710, 0);
             this.panel30.Margin = new System.Windows.Forms.Padding(0);
             this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(695, 31);
+            this.panel30.Size = new System.Drawing.Size(694, 31);
             this.panel30.TabIndex = 9;
             // 
             // label5
@@ -1519,7 +1519,7 @@ namespace dNothi.Desktop.UI
             this.panel28.Location = new System.Drawing.Point(18, 0);
             this.panel28.Margin = new System.Windows.Forms.Padding(0);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(674, 31);
+            this.panel28.Size = new System.Drawing.Size(673, 31);
             this.panel28.TabIndex = 7;
             // 
             // label10
@@ -1601,6 +1601,7 @@ namespace dNothi.Desktop.UI
             this.datePickerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.datePickerTableLayoutPanel.Size = new System.Drawing.Size(513, 62);
             this.datePickerTableLayoutPanel.TabIndex = 75;
+            this.datePickerTableLayoutPanel.Click += new System.EventHandler(this.btnTimeLimit_Click);
             this.datePickerTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
             // 
             // btnTimeLimit
@@ -1641,6 +1642,7 @@ namespace dNothi.Desktop.UI
             this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.iconPictureBox2.TabIndex = 3;
             this.iconPictureBox2.TabStop = false;
+            this.iconPictureBox2.Click += new System.EventHandler(this.btnTimeLimit_Click);
             // 
             // label1
             // 
@@ -1654,6 +1656,7 @@ namespace dNothi.Desktop.UI
             this.label1.Size = new System.Drawing.Size(79, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "সময়সীমা";
+            this.label1.Click += new System.EventHandler(this.btnTimeLimit_Click);
             // 
             // calenderIconPictureBox
             // 
@@ -1671,6 +1674,7 @@ namespace dNothi.Desktop.UI
             this.calenderIconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.calenderIconPictureBox.TabIndex = 2;
             this.calenderIconPictureBox.TabStop = false;
+            this.calenderIconPictureBox.Click += new System.EventHandler(this.btnTimeLimit_Click);
             // 
             // dateRangeTextBox
             // 
@@ -1684,6 +1688,7 @@ namespace dNothi.Desktop.UI
             this.dateRangeTextBox.PlaceholderText = "সময়সীমা";
             this.dateRangeTextBox.Size = new System.Drawing.Size(356, 23);
             this.dateRangeTextBox.TabIndex = 4;
+            this.dateRangeTextBox.Click += new System.EventHandler(this.btnTimeLimit_Click);
             // 
             // panel26
             // 
@@ -2025,6 +2030,7 @@ namespace dNothi.Desktop.UI
             this.detailsSearchResetButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.detailsSearchResetButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.detailsSearchResetButton.UseVisualStyleBackColor = false;
+            this.detailsSearchResetButton.Click += new System.EventHandler(this.detailsSearchResetButton_Click);
             // 
             // detailSearchButton
             // 
@@ -2047,6 +2053,7 @@ namespace dNothi.Desktop.UI
             this.detailSearchButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.detailSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.detailSearchButton.UseVisualStyleBackColor = false;
+            this.detailSearchButton.Click += new System.EventHandler(this.detailSearchButton_Click);
             // 
             // panel32
             // 

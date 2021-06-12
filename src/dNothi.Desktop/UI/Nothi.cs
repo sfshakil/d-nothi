@@ -101,10 +101,12 @@ namespace dNothi.Desktop.UI
             WaitForm.Close();
 
         }
+        NothiTypeListResponse nothiType = new NothiTypeListResponse();
+        AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
         public void LoadNothiTypeListDropDown()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            var nothiType = _nothiType.GetNothiTypeList(dakListUserParam);
+            nothiType = _nothiType.GetNothiTypeList(dakListUserParam);
             if (nothiType != null && nothiType.status == "success")
             {
 
@@ -123,7 +125,7 @@ namespace dNothi.Desktop.UI
         }
         public void LoadOfficerListDropDown()
         {
-            AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
+            
             _dakuserparam = _userService.GetLocalDakUserParam();
             designationSealListResponse = _designationSealService.GetAllDesignationSeal(_dakuserparam, _dakuserparam.office_id);
             if (designationSealListResponse != null && designationSealListResponse.status == "success")
@@ -1633,11 +1635,22 @@ namespace dNothi.Desktop.UI
             }
 
         }
+        public void allReset()
+        {
+            cbxNothiType.Text = "বাছাই করুন";
+            cbxPriorityType.Text = "বাছাই করুন";
+            cbxSearchOfficer.Text = "নাম/পদবি দিয়ে খুঁজুন";
+            cbxNothiBranch.Text = "দপ্তর/শাখা";
+            dateRangeTextBox.PlaceholderText = "সময়সীমা";
+            dateRangeTextBox.Text = "";
+            nothiCustomDatePickerUserControl.Visible = false;
+        }
         private void detailPanelDropDownButton_Click_1(object sender, EventArgs e)
         {
             if (detailsNothiSearcPanel.Visible == true)
             {
                 detailsNothiSearcPanel.Visible = false;
+                allReset();
             }
             else
             {
@@ -1760,6 +1773,8 @@ namespace dNothi.Desktop.UI
         private void btnNothiInbox_Click_1(object sender, EventArgs e)
         {
             WaitForm.Show(this);
+            detailsNothiSearcPanel.Visible = false;
+            allReset();
             agotoNothiSelected = 1;
             preritoNothiSelected = 0;
             shokolNothiSelected = 0;
@@ -1785,6 +1800,8 @@ namespace dNothi.Desktop.UI
         private void btnNothiOutbox_Click(object sender, EventArgs e)
         {
             WaitForm.Show(this);
+            detailsNothiSearcPanel.Visible = false;
+            allReset();
             agotoNothiSelected = 0;
             preritoNothiSelected = 1;
             shokolNothiSelected = 0;
@@ -1830,6 +1847,8 @@ namespace dNothi.Desktop.UI
         private void btnNothiAll_Click(object sender, EventArgs e)
         {
             WaitForm.Show(this);
+            detailsNothiSearcPanel.Visible = false;
+            allReset();
             agotoNothiSelected = 0;
             preritoNothiSelected = 0;
             shokolNothiSelected = 1;
@@ -1874,6 +1893,8 @@ namespace dNothi.Desktop.UI
         private void btnNewNothi_Click(object sender, EventArgs e)
         {
             nothiListFlowLayoutPanel.Controls.Clear();
+            detailsNothiSearcPanel.Visible = false;
+            allReset();
             newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
             //newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             newNothi.loadNewNothiPage();
@@ -2100,6 +2121,7 @@ namespace dNothi.Desktop.UI
         private void detailSearchStopButton_Click_1(object sender, EventArgs e)
         {
             detailsNothiSearcPanel.Visible = false;
+            allReset();
         }
         
         private void btnTimeLimit_Click(object sender, EventArgs e)
@@ -2130,6 +2152,97 @@ namespace dNothi.Desktop.UI
 
             nothiCustomDatePickerUserControl.Visible = false;
         }
+
+        private void detailsSearchResetButton_Click(object sender, EventArgs e)
+        {
+            allReset();
+
+        }
+
+        private void detailSearchButton_Click(object sender, EventArgs e)
+        {
+            detailsNothiSearcPanel.Visible = false;
+
+            NothiTypeListDTO nothiSelectedType = new NothiTypeListDTO();
+            PrapokDTO designation = new PrapokDTO();
+            int priority = 0;
+
+            if (cbxNothiType.Text != "বাছাই করুন") 
+            {
+                int i = cbxNothiType.SelectedIndex;
+                nothiSelectedType.id = nothiType.data[i].id;
+            }
+            else
+            {
+                nothiSelectedType.id = 0;
+            }
+
+            if (cbxPriorityType.Text != "বাছাই করুন")
+            {
+                if (cbxPriorityType.Text == "সর্বোচ্চ অগ্রাধিকার")
+                {
+                    priority = 3;
+                }
+                else if (cbxPriorityType.Text == "অবিলম্বে")
+                {
+                    priority = 2;
+                }
+                else if (cbxPriorityType.Text == "জরুরি")
+                {
+                    priority = 1;
+                }
+                else
+                {
+                    priority = 0;
+                }
+            }
+            else
+            {
+                priority = 0;
+            }
+            if (cbxSearchOfficer.Text != "নাম/পদবি দিয়ে খুঁজুন")
+            {
+                int i = cbxSearchOfficer.SelectedIndex;
+                designation.designation_id = designationSealListResponse.data[i].designation_id;
+            }
+            else
+            {
+                designation.designation_id = 0;
+            }
+            var search_Param = "nothi_subject=&nothi_priority="+ priority + "&nothi_type="+ nothiSelectedType.id + "&office_unit_id=0&officer_designation_id="+ designation.designation_id + "&last_modified_date=";
+            
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            limitNothiInboxNo = 10;
+            pageNoNothiInboxNo = 1;
+            dakListUserParam.limit = limitNothiInboxNo;
+            dakListUserParam.page = pageNoNothiInboxNo;
+            var token = _userService.GetToken();
+            var nothiSearchInbox = _nothiInbox.GetSearchNothiInbox(dakListUserParam, search_Param);
+            if (nothiSearchInbox != null && nothiSearchInbox.status == "success")
+            {
+                if (nothiSearchInbox.data.records.Count > 0)
+                {
+                    lengthEndNothiInboxNo = nothiSearchInbox.data.records.Count;
+                    lbLengthStart.Text = string.Concat(pageNoNothiInboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbLengthEnd.Text = string.Concat(lengthEndNothiInboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                    allNextButtonVisibilityOff();
+
+                    pnlNoData.Visible = false;
+                    lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiSearchInbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    LoadNothiInboxinPanel(nothiSearchInbox.data.records);
+
+                }
+                else
+                {
+                    allNextButtonVisibilityOff();
+
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
+                }
+            }
+        }
+
         private void userNameLabel_MouseLeave(object sender, EventArgs e)
         {
             profilePanel.BackColor = Color.Transparent;
@@ -2143,6 +2256,8 @@ namespace dNothi.Desktop.UI
         private void noteListButton_Click(object sender, EventArgs e)
         {
             WaitForm.Show(this);
+            detailsNothiSearcPanel.Visible = false;
+            allReset();
             btnNothiTalika.BackColor = Color.FromArgb(130, 80, 230);
             noteListButton.BackColor = Color.FromArgb(102, 16, 242);
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
@@ -2236,6 +2351,8 @@ namespace dNothi.Desktop.UI
 
         private void btnNothiTalika_Click(object sender, EventArgs e)
         {
+            detailsNothiSearcPanel.Visible = false;
+            allReset();
             noteListButton.BackColor = Color.FromArgb(130, 80, 230);// LightSteelBlue;//130, 80, 230
             btnNothiTalika.BackColor = Color.FromArgb(102, 16, 242);
             if (agotoNothiSelected == 1)
