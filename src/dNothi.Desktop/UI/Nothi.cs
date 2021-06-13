@@ -103,6 +103,7 @@ namespace dNothi.Desktop.UI
         }
         NothiTypeListResponse nothiType = new NothiTypeListResponse();
         AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
+        NothiBranchListResponse nothiBranch = new NothiBranchListResponse();
         public void LoadNothiTypeListDropDown()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -147,7 +148,7 @@ namespace dNothi.Desktop.UI
         public void LoadNothiBranchListDropDown()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            NothiBranchListResponse nothiBranch = _nothiType.GetNothiBranchList(dakListUserParam);
+            nothiBranch = _nothiType.GetNothiBranchList(dakListUserParam);
             if (nothiBranch != null && nothiBranch.status == "success")
             {
 
@@ -2147,7 +2148,7 @@ namespace dNothi.Desktop.UI
         }
         private void customDatePicker_OptionClick(object sender, EventArgs e)
         {
-            //last_modified_date = nothiCustomDatePickerUserControl._date;
+            last_modified_date = nothiCustomDatePickerUserControl._date;
             dateRangeTextBox.Text = nothiCustomDatePickerUserControl._date;
 
             nothiCustomDatePickerUserControl.Visible = false;
@@ -2158,13 +2159,14 @@ namespace dNothi.Desktop.UI
             allReset();
 
         }
-
+        public string last_modified_date = "";
         private void detailSearchButton_Click(object sender, EventArgs e)
         {
             detailsNothiSearcPanel.Visible = false;
 
             NothiTypeListDTO nothiSelectedType = new NothiTypeListDTO();
             PrapokDTO designation = new PrapokDTO();
+            NothiBranchUnitDTO office = new NothiBranchUnitDTO();
             int priority = 0;
 
             if (cbxNothiType.Text != "বাছাই করুন") 
@@ -2209,7 +2211,21 @@ namespace dNothi.Desktop.UI
             {
                 designation.designation_id = 0;
             }
-            var search_Param = "nothi_subject=&nothi_priority="+ priority + "&nothi_type="+ nothiSelectedType.id + "&office_unit_id=0&officer_designation_id="+ designation.designation_id + "&last_modified_date=";
+            if (cbxNothiBranch.Text != "দপ্তর/শাখা")
+            {
+                int i = cbxNothiBranch.SelectedIndex;
+                office.office_unit_id = nothiBranch.data[0].units[i].office_unit_id;
+
+            }
+            else
+            {
+                office.office_unit_id = 0;
+            }
+
+            string nothiSubject = placeholderTextBox2.Text;
+            //string date = dateRangeTextBox.Text;
+
+            var search_Param = "nothi_subject="+ nothiSubject + "&nothi_priority="+ priority + "&nothi_type="+ nothiSelectedType.id + "&office_unit_id="+ office.office_unit_id + "&officer_designation_id="+ designation.designation_id + "&last_modified_date="+ last_modified_date + "";
             
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             limitNothiInboxNo = 10;
