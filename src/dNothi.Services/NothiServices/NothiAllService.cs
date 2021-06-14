@@ -134,5 +134,32 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
         }
+
+        public NothiListAllResponse GetNothiAll(DakUserParam dakUserParam, string search_params)
+        {
+            NothiListAllResponse nothiListAllResponse = new NothiListAllResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiAllListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("length", dakUserParam.limit);
+                request.AddParameter("page", dakUserParam.page);
+                request.AddParameter("search_params", search_params);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                nothiListAllResponse = JsonConvert.DeserializeObject<NothiListAllResponse>(responseJson);
+                return nothiListAllResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

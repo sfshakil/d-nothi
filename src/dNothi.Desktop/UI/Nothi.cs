@@ -1644,6 +1644,7 @@ namespace dNothi.Desktop.UI
             cbxNothiBranch.Text = "দপ্তর/শাখা";
             dateRangeTextBox.PlaceholderText = "সময়সীমা";
             dateRangeTextBox.Text = "";
+            placeholderTextBox2.Text = "";
             nothiCustomDatePickerUserControl.Visible = false;
         }
         private void detailPanelDropDownButton_Click_1(object sender, EventArgs e)
@@ -2169,7 +2170,7 @@ namespace dNothi.Desktop.UI
             NothiBranchUnitDTO office = new NothiBranchUnitDTO();
             int priority = 0;
 
-            if (cbxNothiType.Text != "বাছাই করুন") 
+            if (cbxNothiType.Text != "বাছাই করুন" && cbxNothiType.Text !="") 
             {
                 int i = cbxNothiType.SelectedIndex;
                 nothiSelectedType.id = nothiType.data[i].id;
@@ -2202,7 +2203,7 @@ namespace dNothi.Desktop.UI
             {
                 priority = 0;
             }
-            if (cbxSearchOfficer.Text != "নাম/পদবি দিয়ে খুঁজুন")
+            if (cbxSearchOfficer.Text != "নাম/পদবি দিয়ে খুঁজুন" && cbxSearchOfficer.Text != "")
             {
                 int i = cbxSearchOfficer.SelectedIndex;
                 designation.designation_id = designationSealListResponse.data[i].designation_id;
@@ -2211,7 +2212,7 @@ namespace dNothi.Desktop.UI
             {
                 designation.designation_id = 0;
             }
-            if (cbxNothiBranch.Text != "দপ্তর/শাখা")
+            if (cbxNothiBranch.Text != "দপ্তর/শাখা" && cbxNothiBranch.Text !="")
             {
                 int i = cbxNothiBranch.SelectedIndex;
                 office.office_unit_id = nothiBranch.data[0].units[i].office_unit_id;
@@ -2221,7 +2222,14 @@ namespace dNothi.Desktop.UI
             {
                 office.office_unit_id = 0;
             }
+            if (dateRangeTextBox.Text != "")
+            {
 
+            }
+            else
+            {
+                last_modified_date = "";
+            }
             string nothiSubject = placeholderTextBox2.Text;
             //string date = dateRangeTextBox.Text;
 
@@ -2230,33 +2238,98 @@ namespace dNothi.Desktop.UI
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             limitNothiInboxNo = 10;
             pageNoNothiInboxNo = 1;
+            pageNoNothiOutboxNo = 1;
+            pageNoNothiAllNo = 1;
+
             dakListUserParam.limit = limitNothiInboxNo;
             dakListUserParam.page = pageNoNothiInboxNo;
-            var token = _userService.GetToken();
-            var nothiSearchInbox = _nothiInbox.GetSearchNothiInbox(dakListUserParam, search_Param);
-            if (nothiSearchInbox != null && nothiSearchInbox.status == "success")
+
+            if (agotoNothiSelected == 1)
             {
-                if (nothiSearchInbox.data.records.Count > 0)
+                var nothiSearchInbox = _nothiInbox.GetSearchNothiInbox(dakListUserParam, search_Param);
+                if (nothiSearchInbox != null && nothiSearchInbox.status == "success")
                 {
-                    lengthEndNothiInboxNo = nothiSearchInbox.data.records.Count;
-                    lbLengthStart.Text = string.Concat(pageNoNothiInboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    lbLengthEnd.Text = string.Concat(lengthEndNothiInboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    if (nothiSearchInbox.data.records.Count > 0)
+                    {
+                        lengthEndNothiInboxNo = nothiSearchInbox.data.records.Count;
+                        lbLengthStart.Text = string.Concat(pageNoNothiInboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        lbLengthEnd.Text = string.Concat(lengthEndNothiInboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
 
-                    allNextButtonVisibilityOff();
+                        allNextButtonVisibilityOff();
 
-                    pnlNoData.Visible = false;
-                    lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiSearchInbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    LoadNothiInboxinPanel(nothiSearchInbox.data.records);
+                        pnlNoData.Visible = false;
+                        lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiSearchInbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        LoadNothiInboxinPanel(nothiSearchInbox.data.records);
 
-                }
-                else
-                {
-                    allNextButtonVisibilityOff();
+                    }
+                    else
+                    {
+                        allNextButtonVisibilityOff();
 
-                    pnlNoData.Visible = true;
-                    nothiListFlowLayoutPanel.Controls.Clear();
+                        pnlNoData.Visible = true;
+                        nothiListFlowLayoutPanel.Controls.Clear();
+                    }
                 }
             }
+            else if (preritoNothiSelected == 1)
+            {
+                NothiListOutboxResponse nothiOutbox = _nothiOutbox.GetNothiOutbox(dakListUserParam, search_Param);
+
+                if (nothiOutbox.status == "success")
+                {
+                    totalNothiOutboxNo = nothiOutbox.data.total_records;
+
+                    if (nothiOutbox.data.records.Count > 0)
+                    {
+                        lengthEndNothiOutboxNo = nothiOutbox.data.records.Count;
+                        lbLengthStart.Text = string.Concat(pageNoNothiOutboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        lbLengthEnd.Text = string.Concat(lengthEndNothiOutboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                        allNextButtonVisibilityOff();
+
+                        pnlNoData.Visible = false;
+                        lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiOutbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        LoadNothiOutboxinPanel(nothiOutbox.data.records);
+                    }
+                    else
+                    {
+                        allNextButtonVisibilityOff();
+                        pnlNoData.Visible = true;
+                        nothiListFlowLayoutPanel.Controls.Clear();
+                    }
+
+                }
+            }
+            else if (shokolNothiSelected == 1)
+            {
+                var nothiAll = _nothiAll.GetNothiAll(dakListUserParam, search_Param);
+
+                if (nothiAll.status == "success")
+                {
+                    totalNothiAllNo = nothiAll.data.total_records;
+
+                    if (nothiAll.data.records.Count > 0)
+                    {
+
+                        lengthEndNothiAllNo = nothiAll.data.records.Count;
+                        lbLengthStart.Text = string.Concat(pageNoNothiAllNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        lbLengthEnd.Text = string.Concat(lengthEndNothiAllNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                        allNextButtonVisibilityOff();
+
+                        pnlNoData.Visible = false;
+                        lbTotalNothi.Text = "সর্বমোট: " + string.Concat(totalNothiAllNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        LoadNothiAllinPanel(nothiAll.data.records);
+                    }
+                    else
+                    {
+                        allNextButtonVisibilityOff();
+                        pnlNoData.Visible = true;
+                        nothiListFlowLayoutPanel.Controls.Clear();
+                    }
+                }
+            }
+            
         }
 
         private void userNameLabel_MouseLeave(object sender, EventArgs e)

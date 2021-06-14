@@ -12,5 +12,6 @@ namespace dNothi.Services.NothiServices
     {
         //NothiListOutboxResponse GetNothiOutbox(string token);
         NothiListOutboxResponse GetNothiOutbox(DakUserParam dakListUserParam);
+        NothiListOutboxResponse GetNothiOutbox(DakUserParam dakListUserParam, string searchParam);
     }
 }
