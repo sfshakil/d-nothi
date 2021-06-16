@@ -34,6 +34,7 @@ namespace dNothi.Desktop.UI.Dak
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DakSortingUserUserControl));
             this.padspofjipsod = new System.Windows.Forms.Panel();
+            this.dakRightTopInfoIconUserControl1 = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.label2 = new System.Windows.Forms.Label();
             this.sourceLabel = new System.Windows.Forms.Label();
             this.checkBoxPanel = new System.Windows.Forms.Panel();
@@ -61,6 +62,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel5 = new System.Windows.Forms.Panel();
             this.sourcePanel = new System.Windows.Forms.Panel();
             this.TopRightpanel = new System.Windows.Forms.Panel();
+            this.dakRightTopInfoIconUserControl2 = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.subjectPanel = new System.Windows.Forms.Panel();
             this.subjectLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -93,8 +95,6 @@ namespace dNothi.Desktop.UI.Dak
             this.removeIconButton = new FontAwesome.Sharp.IconButton();
             this.fdasfdasf = new System.Windows.Forms.Label();
             this.rightInfoPanel = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
-            this.dakRightTopInfoIconUserControl2 = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
-            this.dakRightTopInfoIconUserControl1 = new dNothi.Desktop.UI.Dak.DakRightTopInfoIconUserControl();
             this.padspofjipsod.SuspendLayout();
             this.checkBoxPanel.SuspendLayout();
             this.dakActionPanel.SuspendLayout();
@@ -123,6 +123,22 @@ namespace dNothi.Desktop.UI.Dak
             this.padspofjipsod.Name = "padspofjipsod";
             this.padspofjipsod.Size = new System.Drawing.Size(419, 41);
             this.padspofjipsod.TabIndex = 70;
+            // 
+            // dakRightTopInfoIconUserControl1
+            // 
+            this.dakRightTopInfoIconUserControl1.attentionTypeIconValue = null;
+            this.dakRightTopInfoIconUserControl1.AutoSize = true;
+            this.dakRightTopInfoIconUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dakRightTopInfoIconUserControl1.BackColor = System.Drawing.Color.Transparent;
+            this.dakRightTopInfoIconUserControl1.dakPrioriy = null;
+            this.dakRightTopInfoIconUserControl1.dakSecurityIconValue = null;
+            this.dakRightTopInfoIconUserControl1.dakType = null;
+            this.dakRightTopInfoIconUserControl1.dakViewStatus = null;
+            this.dakRightTopInfoIconUserControl1.Location = new System.Drawing.Point(58, 25);
+            this.dakRightTopInfoIconUserControl1.Name = "dakRightTopInfoIconUserControl1";
+            this.dakRightTopInfoIconUserControl1.potrojari = 0;
+            this.dakRightTopInfoIconUserControl1.Size = new System.Drawing.Size(0, 32);
+            this.dakRightTopInfoIconUserControl1.TabIndex = 69;
             // 
             // label2
             // 
@@ -184,7 +200,7 @@ namespace dNothi.Desktop.UI.Dak
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
             this.dakActionPanel.Controls.Add(this.waitForOnlineIconButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-10048, 10);
+            this.dakActionPanel.Location = new System.Drawing.Point(-10272, 10);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);
@@ -557,6 +573,22 @@ namespace dNothi.Desktop.UI.Dak
             this.TopRightpanel.Name = "TopRightpanel";
             this.TopRightpanel.Size = new System.Drawing.Size(341, 41);
             this.TopRightpanel.TabIndex = 71;
+            // 
+            // dakRightTopInfoIconUserControl2
+            // 
+            this.dakRightTopInfoIconUserControl2.attentionTypeIconValue = null;
+            this.dakRightTopInfoIconUserControl2.AutoSize = true;
+            this.dakRightTopInfoIconUserControl2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dakRightTopInfoIconUserControl2.BackColor = System.Drawing.Color.Transparent;
+            this.dakRightTopInfoIconUserControl2.dakPrioriy = null;
+            this.dakRightTopInfoIconUserControl2.dakSecurityIconValue = null;
+            this.dakRightTopInfoIconUserControl2.dakType = null;
+            this.dakRightTopInfoIconUserControl2.dakViewStatus = null;
+            this.dakRightTopInfoIconUserControl2.Location = new System.Drawing.Point(58, 25);
+            this.dakRightTopInfoIconUserControl2.Name = "dakRightTopInfoIconUserControl2";
+            this.dakRightTopInfoIconUserControl2.potrojari = 0;
+            this.dakRightTopInfoIconUserControl2.Size = new System.Drawing.Size(0, 32);
+            this.dakRightTopInfoIconUserControl2.TabIndex = 69;
             // 
             // subjectPanel
             // 
@@ -997,38 +1029,6 @@ namespace dNothi.Desktop.UI.Dak
             this.rightInfoPanel.potrojari = 0;
             this.rightInfoPanel.Size = new System.Drawing.Size(0, 32);
             this.rightInfoPanel.TabIndex = 88;
-            // 
-            // dakRightTopInfoIconUserControl2
-            // 
-            this.dakRightTopInfoIconUserControl2.attentionTypeIconValue = null;
-            this.dakRightTopInfoIconUserControl2.AutoSize = true;
-            this.dakRightTopInfoIconUserControl2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.dakRightTopInfoIconUserControl2.BackColor = System.Drawing.Color.Transparent;
-            this.dakRightTopInfoIconUserControl2.dakPrioriy = null;
-            this.dakRightTopInfoIconUserControl2.dakSecurityIconValue = null;
-            this.dakRightTopInfoIconUserControl2.dakType = null;
-            this.dakRightTopInfoIconUserControl2.dakViewStatus = null;
-            this.dakRightTopInfoIconUserControl2.Location = new System.Drawing.Point(58, 25);
-            this.dakRightTopInfoIconUserControl2.Name = "dakRightTopInfoIconUserControl2";
-            this.dakRightTopInfoIconUserControl2.potrojari = 0;
-            this.dakRightTopInfoIconUserControl2.Size = new System.Drawing.Size(0, 32);
-            this.dakRightTopInfoIconUserControl2.TabIndex = 69;
-            // 
-            // dakRightTopInfoIconUserControl1
-            // 
-            this.dakRightTopInfoIconUserControl1.attentionTypeIconValue = null;
-            this.dakRightTopInfoIconUserControl1.AutoSize = true;
-            this.dakRightTopInfoIconUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.dakRightTopInfoIconUserControl1.BackColor = System.Drawing.Color.Transparent;
-            this.dakRightTopInfoIconUserControl1.dakPrioriy = null;
-            this.dakRightTopInfoIconUserControl1.dakSecurityIconValue = null;
-            this.dakRightTopInfoIconUserControl1.dakType = null;
-            this.dakRightTopInfoIconUserControl1.dakViewStatus = null;
-            this.dakRightTopInfoIconUserControl1.Location = new System.Drawing.Point(58, 25);
-            this.dakRightTopInfoIconUserControl1.Name = "dakRightTopInfoIconUserControl1";
-            this.dakRightTopInfoIconUserControl1.potrojari = 0;
-            this.dakRightTopInfoIconUserControl1.Size = new System.Drawing.Size(0, 32);
-            this.dakRightTopInfoIconUserControl1.TabIndex = 69;
             // 
             // DakSortingUserUserControl
             // 

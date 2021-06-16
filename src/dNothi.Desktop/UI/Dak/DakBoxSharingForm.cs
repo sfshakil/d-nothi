@@ -259,6 +259,9 @@ namespace dNothi.Desktop.UI.Dak
                 if (response.status == "success")
                 {
                     alartMessage.SuccessMessage("ডাক বক্সটি সফলভাবে হস্তান্তর করা হয়েছে।");
+                  
+                    officerSearchList.selectedId = 0;
+                    officerSearchList.searchButtonText = "নাম / পদবী দিয়ে খুঁজুন";
                 }
                 else
                 {
@@ -268,7 +271,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-
+                alartMessage.ErrorMessage("ডাক বক্স হস্তান্তর করা যায় না।");
             }
         }
     }
