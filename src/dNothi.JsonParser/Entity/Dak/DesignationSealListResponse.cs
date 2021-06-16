@@ -68,10 +68,10 @@ public class DesignationSealListResponse
 
         public int unit_id { get { return office_unit_id; } }
 
-        public string office_eng { get { return office_name_eng; } }
+        string office_eng { get { return office_name_eng; } }
 
-       
-   
+
+
         public string office_name_bng { get { return office_bng; } }
      
         public int office_id { get; set; }

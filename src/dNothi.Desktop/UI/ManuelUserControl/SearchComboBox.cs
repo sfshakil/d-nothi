@@ -59,6 +59,8 @@ namespace dNothi.Desktop.UI.ManuelUserControl
             {
 
                 searchPanel.Visible = true;
+                searchPanel.BringToFront();
+                searchPanel.Focus();
                 searchXTextBox.Focus();
             }
         }

@@ -81,7 +81,10 @@
   <ItemGroup>
     <Compile Include="Entity\Khosra\GetSarokNoResponse.cs" />
     <Compile Include="Entity\Nothi\AttachmentDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiBranchListDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiBranchUnitDTO.cs" />
     <Compile Include="Entity\Nothi\NothiNumberResponse.cs" />
+    <Compile Include="Entity\Nothi\NothiBranchListResponse.cs" />
     <Compile Include="INothivuktoPotroParser.cs" />
     <Compile Include="NothivuktoPotroParser.cs" />
     <Compile Include="AllPotroParser.cs" />

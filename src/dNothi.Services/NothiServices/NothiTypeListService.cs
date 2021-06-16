@@ -80,6 +80,29 @@ namespace dNothi.Services.NothiServices
 
             }
         }
+        public NothiBranchListResponse GetNothiBranchList(DakUserParam dakUserParam)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiBranchListEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                var serializedObject = JsonConvert.SerializeObject(dakUserParam);
+                request.AddParameter("office_ids", dakUserParam.office_id);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiBranchListResponse nothiTypeListResponse = JsonConvert.DeserializeObject<NothiBranchListResponse>(responseJson);
+                return nothiTypeListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         protected string GetAPIVersion()
         {
@@ -100,5 +123,11 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiTypleListEndPoint;
         }
+        protected string GetNothiBranchListEndPoint()
+        {
+            return DefaultAPIConfiguration.NothiBranchListEndPoint;
+        }
+
+        
     }
 }

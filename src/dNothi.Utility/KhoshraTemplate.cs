@@ -9,8 +9,11 @@ namespace dNothi.Utility
 {
     public class KhoshraTemplateHtmlStringChange
     {
-
-       
+        public static string onumodonProtibedonString = "<table id=\"khoshraNonApprover\" style=\"opacity: 0;\" title=\"\" contenteditable=\"false\" cellspacing=\"0\" cellpadding=\"0\">";
+        public static string GetOnumodonProtibedonString(string user, string des)
+        {
+            return "<table id=\"khoshraNonApprover\" class=\"mce-item-table\" style=\"opacity: 1;\" title=\"22418\" contenteditable=\"false\" cellspacing=\"0\" cellpadding=\"0\" data-mce-style=\"opacity: 1;\"><tbody><tr id=\"protibedon_sign_tr\"><td colspan=\"1\"><div style=\"text-align: center;\" data-mce-style=\"text-align: center;\">&nbsp;<br><table title=\"22418\" contenteditable=\"false\" cellspacing=\"0\" cellpadding=\"0\" class=\"mce-item-table\"><tbody><tr><td align=\"left\" valign=\"top\"><table cellspacing=\"0\" cellpadding=\"0\" class=\"mce-item-table\" data-mce-selected=\"1\"><tbody><tr><td colspan=\"1\"><div style=\"text-align: center;\" data-mce-style=\"text-align: center;\"><span style=\"display: block; width: 150px; max-width: 150px; margin: 0 auto;\" contenteditable=\"false\" data-mce-style=\"display: block; width: 150px; max-width: 150px; margin: 0 auto;\" data-mce-selected=\"1\"><img src=\"blob:https://dev.nothi-next.tappware.com/5cb66f83-4e45-4ada-a6c7-e328349adcb9\" alt=\"logo\" width=\"100\"></span> <p class=\"write_here \" style=\"margin: 0; line-height: initial; font-size: 10pt;\" contenteditable=\"false\" data-mce-style=\"margin: 0; line-height: initial; font-size: 10pt;\">"+user+"</p> <p class=\"write_here\" style=\"margin: 0; line-height: initial; font-size: 10pt;\" contenteditable=\"false\" data-mce-style=\"margin: 0; line-height: initial; font-size: 10pt;\">"+des+"</p></div></td></tr></tbody></table></td></tr></tbody></table>";
+        }
         public static string bnDateApproverPotroOriginal = "<input id=\"approver_potro_date_bn\" style=\"border: none; font-size: 15px; width: 100%; text-align: center; background: transparent; opacity: 0;\" autocomplete=\"off\" type=\"text\" value=\"৫ জ্যৈষ্ঠ ১৪২৭\" />";
         public static string bnDateApproverPotroSet(DateTime dateTime)
         {
