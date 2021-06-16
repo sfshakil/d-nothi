@@ -650,9 +650,9 @@ namespace dNothi.Desktop.UI
         private void LocalNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiCreateItemAction nothiCreateItemAction, string nothi_type)
         {
             //this.Hide();
-            var form = FormFactory.Create<Note>();
+            var form = FormFactory.Create<Note>(); 
 
-            //form.ShowDialog();
+            //form.ShowDialog();vf
 
             _dakuserparam = _userService.GetLocalDakUserParam();
 
@@ -678,6 +678,9 @@ namespace dNothi.Desktop.UI
             NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
             nothiListRecordsDTO.id = noteListDataRecordNoteDTO.extra_nothi_id;
             nothiListRecordsDTO.local_nothi_type = nothi_type;
+            nothiListRecordsDTO.office_unit_name = nothiCreateItemAction.office_unit_name;
+            nothiListRecordsDTO.nothi_no = nothiCreateItemAction.nothi_no;
+            nothiListRecordsDTO.office_name = _dakuserparam.officer_name;
             form.loadNothiInboxRecords(nothiListRecordsDTO);
             form.loadNoteView(noteView);
             form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
@@ -703,7 +706,7 @@ namespace dNothi.Desktop.UI
             NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiListRecordsDTO;
-            form.GetNothiInboxRecords(nothiListRecords);
+            form.GetNothiInboxRecords(nothiListRecords,"","");
             form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
 
             CalPopUpWindow(form);
@@ -1127,7 +1130,7 @@ namespace dNothi.Desktop.UI
 
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiOutboxListRecords;
-            form.GetNothiInboxRecords(nothiOutboxListRecords);
+            form.GetNothiInboxRecords(nothiOutboxListRecords,"","");
             form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
 
             CalPopUpWindow(form);
@@ -1153,7 +1156,7 @@ namespace dNothi.Desktop.UI
 
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiAllListRecords;
-            form.GetNothiInboxRecords(nothiAllListRecords);
+            form.GetNothiInboxRecords(nothiAllListRecords,"","");
 
             form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
 

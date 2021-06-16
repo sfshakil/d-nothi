@@ -47,6 +47,7 @@ namespace dNothi.Services.NothiServices
                 noteSendItemAction.nothi_no = nothiListRecord.nothi_no;
                 noteSendItemAction.nothi_id = nothiListRecord.id;
                 noteSendItemAction.office_name = nothiListRecord.office_name;
+                noteSendItemAction.local_nothi_type = nothiListRecord.local_nothi_type;
                 noteSendItemAction.nothi_office = newrecords[0].nothi_office;
                 noteSendItemAction.office = newrecords[0].office;
                 noteSendItemAction.office_unit_id = newrecords[0].office_unit_id;

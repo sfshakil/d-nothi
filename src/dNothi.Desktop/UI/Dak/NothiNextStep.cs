@@ -99,7 +99,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
                         NothiOnumodonLevel nothiOnumodonRow = new NothiOnumodonLevel();
-                        nothiOnumodonRow.level = group.Key.ToString();
+                        
                         nothiOnumodonRow.layerIndex = group.Key;
                         nothiOnumodonRow.isFromNothiNextStep = true;
                         nothiOnumodonRow.CheckBoxButton += delegate (object sender, EventArgs e) { CheckboxOfficer_ButtonClick(sender, e, nothiOnumodonRow._designationId, nothiOnumodonRow._isChecked); };
@@ -114,9 +114,9 @@ namespace dNothi.Desktop.UI.Dak
                         {
 
                             nothiOnumodonRow.AddNewOfficerFromNothiNextStep(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index,0);
-                            
+                        nothiOnumodonRow.level = officer.layer_index.ToString();
 
-                        }
+                    }
 
                     UIDesignCommonMethod.AddRowinTable(nothiTalikaFlowLayoutPnl, nothiOnumodonRow);
 
@@ -323,7 +323,7 @@ namespace dNothi.Desktop.UI.Dak
             
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiListRecord;
-            form.GetNothiInboxRecords(nothiListRecords);
+            form.GetNothiInboxRecords(nothiListRecords,"Note", _noteID);
             //form.loadNewNoteDataFromNote(nothiType);
             form.loadNoteList(notelist);
             CalPopUpWindow(form);

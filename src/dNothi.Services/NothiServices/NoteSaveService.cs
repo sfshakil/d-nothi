@@ -20,15 +20,17 @@ namespace dNothi.Services.NothiServices
     {
         IRepository<NoteSaveItemAction> _noteSaveItemAction;
         IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
+        IRepository<NoteSendItemAction> _noteSendItemAction;
         IUserService _userService { get; set; }
         IDakNothivuktoService _dakNothivuktoService { get; set; }
         public NoteSaveService(IDakNothivuktoService dakNothivuktoService, IUserService userService, IRepository<NoteSaveItemAction> noteSaveItemAction,
-            IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction)
+            IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction, IRepository<NoteSendItemAction> noteSendItemAction)
         {
             _dakNothivuktoService = dakNothivuktoService;
             _userService = userService;
             _noteSaveItemAction = noteSaveItemAction;
             _onuchhedSaveItemAction = onuchhedSaveItemAction;
+            _noteSendItemAction = noteSendItemAction;
         }
         public NoteSaveResponse GetNoteSave(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecordsDTO, string noteSubject)
         {
@@ -124,6 +126,18 @@ namespace dNothi.Services.NothiServices
                                             onuchhedSaveItemAction.newnotedataJson = JsonConvert.SerializeObject(newnotedata);
                                             onuchhedSaveItemAction.nothiListRecordsDTOJson = JsonConvert.SerializeObject(nothiListRecordsDTO1);
                                             _onuchhedSaveItemAction.Update(onuchhedSaveItemAction);
+                                            List<NoteSendItemAction> noteSendItemActions = _noteSendItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+                                            if (noteSendItemActions != null && noteSendItemActions.Count > 0)
+                                            {
+                                                foreach (NoteSendItemAction noteSendItemAction in noteSendItemActions)
+                                                {
+                                                    if(noteSendItemAction.local_nothi_type == nothiListRecordsDTO1.local_nothi_type && noteSaveResponse.data.nothi_id == noteSendItemAction.nothi_id) 
+                                                    {
+                                                        noteSendItemAction.note_id = noteSaveResponse.data.note_id;
+                                                        _noteSendItemAction.Update(noteSendItemAction);
+                                                    }
+                                                }
+                                            }
                                         }
 
                                     }
@@ -161,6 +175,18 @@ namespace dNothi.Services.NothiServices
                                             newnotedata.note_id = noteSaveResponse.data.note_id;
                                             onuchhedSaveItemAction.newnotedataJson = JsonConvert.SerializeObject(newnotedata);
                                             _onuchhedSaveItemAction.Update(onuchhedSaveItemAction);
+                                            List<NoteSendItemAction> noteSendItemActions = _noteSendItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+                                            if (noteSendItemActions != null && noteSendItemActions.Count > 0)
+                                            {
+                                                foreach (NoteSendItemAction noteSendItemAction in noteSendItemActions)
+                                                {
+                                                    if (noteSendItemAction.local_nothi_type == nothiListRecordsDTO1.local_nothi_type && noteSaveResponse.data.nothi_id == noteSendItemAction.nothi_id)
+                                                    {
+                                                        noteSendItemAction.note_id = noteSaveResponse.data.note_id;
+                                                        _noteSendItemAction.Update(noteSendItemAction);
+                                                    }
+                                                }
+                                            }
                                         }
 
                                     }
@@ -194,6 +220,18 @@ namespace dNothi.Services.NothiServices
                                             newnotedata.note_id = noteSaveResponse.data.note_id;
                                             onuchhedSaveItemAction.newnotedataJson = JsonConvert.SerializeObject(newnotedata);
                                             _onuchhedSaveItemAction.Update(onuchhedSaveItemAction);
+                                            List<NoteSendItemAction> noteSendItemActions = _noteSendItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
+                                            if (noteSendItemActions != null && noteSendItemActions.Count > 0)
+                                            {
+                                                foreach (NoteSendItemAction noteSendItemAction in noteSendItemActions)
+                                                {
+                                                    if (noteSendItemAction.local_nothi_type == nothiListRecordsDTO1.local_nothi_type && noteSaveResponse.data.nothi_id == noteSendItemAction.nothi_id)
+                                                    {
+                                                        noteSendItemAction.note_id = noteSaveResponse.data.note_id;
+                                                        _noteSendItemAction.Update(noteSendItemAction);
+                                                    }
+                                                }
+                                            }
                                         }
 
                                     }

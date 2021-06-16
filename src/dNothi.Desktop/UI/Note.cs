@@ -3856,10 +3856,10 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(form);
 
         }
-        public void loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(NothiListRecordsDTO nothiListRecords, NothiNextStep nns, NoteListDataRecordNoteDTO notelist)
+        public void loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(NothiListRecordsDTO nothiListRecords, NothiNextStep nns, NoteListDataRecordNoteDTO notelist, string noteId)
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            var onumodonList = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
+            var onumodonList = _onumodonService.GetNoteOnumodonMembers(dakListUserParam, nothiListRecords, noteId);
             if (onumodonList.status == "success")
             {
                 if (onumodonList.data.records.Count > 0)
@@ -3881,18 +3881,27 @@ namespace dNothi.Desktop.UI
             {
                 if (lbOnlineorOfflineStatus.Text == "offline")
                 {
-                    ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
-                }
-                else
-                {
+                    //ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                    var onumodonList = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
-                    if (onumodonList.status == "success")
+                    var onumodonList = _onumodonService.GetNoteOnumodonMembers(dakListUserParam, nothiListRecords, NoteIdfromNothiInboxNoteShomuho.Text);
+                    var onumodonList1 = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
+                    if (onumodonList.status == "success" || onumodonList1.status == "success")
                     {
-                        if (onumodonList.data.records.Count > 0)
-                        {
 
-                            LoadOnumodonListinPanel(onumodonList.data.records);
+                        if (onumodonList.data != null )
+                        {
+                            if (onumodonList.data.records.Count > 0)
+                            {
+                                LoadOnumodonListinPanel(onumodonList.data.records);
+                            }
+                            
+                        }else if (onumodonList1.data != null )
+                        {
+                            if (onumodonList1.data.records.Count > 0)
+                            {
+                                LoadOnumodonListinPanel(onumodonList1.data.records);
+                            }
+                            
                         }
 
                         //this.ShowDialog();
@@ -3900,6 +3909,61 @@ namespace dNothi.Desktop.UI
                     else
                     {
                         ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                    }
+                }
+                else
+                {
+                    if (!InternetConnection.Check())
+                    {
+                        DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                        var onumodonList = _onumodonService.GetNoteOnumodonMembers(dakListUserParam, nothiListRecords, NoteIdfromNothiInboxNoteShomuho.Text);
+                        var onumodonList1 = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
+                        if (onumodonList.status == "success" || onumodonList1.status == "success")
+                        {
+
+                            if (onumodonList.data != null)
+                            {
+                                if (onumodonList.data.records.Count > 0)
+                                {
+                                    LoadOnumodonListinPanel(onumodonList.data.records);
+                                }
+
+                            }
+                            else if (onumodonList1.data != null)
+                            {
+                                if (onumodonList1.data.records.Count > 0)
+                                {
+                                    LoadOnumodonListinPanel(onumodonList1.data.records);
+                                }
+
+                            }
+
+                            //this.ShowDialog();
+                        }
+                        else
+                        {
+                            ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                        }
+                    }
+                    else 
+                    {
+                        DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                        //var onumodonList = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
+                        var onumodonList = _onumodonService.GetNoteOnumodonMembers(dakListUserParam, nothiListRecords, NoteIdfromNothiInboxNoteShomuho.Text);
+                        if (onumodonList.status == "success")
+                        {
+                            if (onumodonList.data.records.Count > 0)
+                            {
+
+                                LoadOnumodonListinPanel(onumodonList.data.records);
+                            }
+
+                            //this.ShowDialog();
+                        }
+                        else
+                        {
+                            ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                        }
                     }
                 }
             }
