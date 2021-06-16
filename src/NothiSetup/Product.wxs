@@ -11,15 +11,15 @@
 
 
 
-  <Product Id="*" Name="E-Nothi" Language="1033" Version="1.0.0.0" Manufacturer="Tappware" UpgradeCode="fb3aa46f-5d81-4a82-a6f1-65f44cbca3dd">
+  <Product Id="*" Name="D-Nothi" Language="1033" Version="1.0.0.0" Manufacturer="Tappware" UpgradeCode="fb3aa46f-5d81-4a82-a6f1-65f44cbca3dd">
 
 
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-    <MajorUpgrade DowngradeErrorMessage="A newer version of E-Nothi is already installed." />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of D-Nothi is already installed." />
     <MediaTemplate EmbedCab="yes" />
 
-    <Feature Id="ProductFeature" Title="E-Nothi" Level="1">
+    <Feature Id="ProductFeature" Title="D-Nothi" Level="1">
       <ComponentGroupRef Id="ProductComponents" />
       <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_css_files" />
       <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_files" />
@@ -199,7 +199,7 @@
       </RegistrySearch>
     </Property>
 
-    <Condition Message="E-Nothi requires Adobe Reader Minimum Version 8! Please make sure you it installed.">ADOBEEXEVERSION</Condition>
+    <Condition Message="D-Nothi requires Adobe Reader Minimum Version 8! Please make sure you it installed.">ADOBEEXEVERSION</Condition>
 
 
   </Product>
@@ -207,7 +207,7 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="E-Nothi">
+        <Directory Id="INSTALLFOLDER" Name="D-Nothi">
 
           <Directory Id="Content" Name="Content" />
           <Directory Id="runtimes" Name="runtimes">
@@ -445,7 +445,7 @@
       </Directory>
 
       <Directory Id="ProgramMenuFolder">
-        <Directory Id="ApplicationProgramsFolder" Name="E-Nothi" />
+        <Directory Id="ApplicationProgramsFolder" Name="D-Nothi" />
       </Directory>
       <Directory Id="DesktopFolder" Name="Desktop" />
 
@@ -733,14 +733,14 @@
   <Fragment>
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut" Guid="fd1adc38-8c68-46fd-b6a6-adf011ade269">
-        <Shortcut Id="ApplicationStartMenuShortcut" Name="E-Nothi" Description="E-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="D-Nothi" Description="D-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
         <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
         <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="DesktopFolder">
       <Component Id="ApplicationShortcutDesktop" Guid="9b8a615a-a2f5-4f99-8bc3-a61f95b4a413">
-        <Shortcut Id="ApplicationDesktopShortcut" Name="E-Nothi" Description="E-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="ApplicationDesktopShortcut" Name="D-Nothi" Description="D-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
         <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
         <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
