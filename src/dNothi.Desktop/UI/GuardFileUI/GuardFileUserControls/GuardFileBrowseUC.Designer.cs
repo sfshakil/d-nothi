@@ -106,7 +106,7 @@
             this.attachmentLink.Name = "attachmentLink";
             this.attachmentLink.Padding = new System.Windows.Forms.Padding(5);
             this.attachmentLink.Size = new System.Drawing.Size(246, 41);
-            this.attachmentLink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.attachmentLink.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.attachmentLink.TabIndex = 6;
             this.attachmentLink.TabStop = false;
             // 

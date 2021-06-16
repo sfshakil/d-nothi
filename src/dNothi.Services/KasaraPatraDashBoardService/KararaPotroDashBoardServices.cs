@@ -1,5 +1,6 @@
 ﻿using dNothi.Constants;
 using dNothi.Services.DakServices;
+using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
 using Newtonsoft.Json;
 using RestSharp;
@@ -113,11 +114,42 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
 
         }
+
+        public ResponseModel KasaraDashBoardRecordCount(DakUserParam userParam)
+        {
+            try
+            {
+                var Api = new RestClient(GetAPIDomain() + GetEndPoint(8));
+                Api.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+
+                request.AddHeader("api-version", "1");
+
+                request.AddHeader("Authorization", "Bearer " + userParam.token);
+
+                request.AlwaysMultipartFormData = true;
+
+                request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
+
+                IRestResponse Response = Api.Execute(request);
+              
+                var responseJson = Response.Content;
+
+                ResponseModel response = JsonConvert.DeserializeObject<ResponseModel>(responseJson);
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+
+        }
         protected string GetAPIDomain()
         {
             return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
         }
-
         protected string GetEndPoint(int code)
         {
             string endPoint = string.Empty;
@@ -148,6 +180,10 @@ namespace dNothi.Services.KasaraPatraDashBoardService
             if (code == 7)
             {
                 endPoint = DefaultAPIConfiguration.mulPattraAndSanjukti;
+            }
+            if (code == 8)
+            {
+                endPoint = DefaultAPIConfiguration.kasaraDashboard;
             }
             return endPoint;
         }

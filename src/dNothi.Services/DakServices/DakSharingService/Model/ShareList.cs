@@ -36,7 +36,10 @@ namespace dNothi.Services.DakServices.DakSharingService.Model
             public List<Assignor> assignor { get; set; }
             public List<Assignee> assignee { get; set; }
         }
-
+        public class CheckData
+        {
+            public List<object> list { get; set; }
+        }
         public string status { get; set; }
         public Data data { get; set; }
        
