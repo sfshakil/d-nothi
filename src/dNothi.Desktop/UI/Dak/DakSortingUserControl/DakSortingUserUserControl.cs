@@ -128,20 +128,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         public bool IsLocalSorted { get { return _IsLocalSorted; } set { _IsLocalSorted = value; if (value == true) { waitForOnlineIconButton.Visible = true; } else { waitForOnlineIconButton.Visible = false; } } }
         public DakListRecordsDTO _dak;
-        public DakListRecordsDTO dak { get { return _dak; } set { _dak = value;
-                if (value != null)
-                {
-                    try
-                    {
-                        mainPrapokButton.Text += value.movement_status.to.Select(x => x.officer).FirstOrDefault();
-                    }
-                    catch
-                    {
-                        mainPrapokButton.Visible = false;
-                    }
-                }
-            }
-        }
+        public DakListRecordsDTO dak { get { return _dak; } set { _dak = value;}}
         public bool isChecked { get { return _isChecked; } set { _isChecked = value; dakCheckBox.Checked = value; } }
 
       
@@ -206,17 +193,17 @@ namespace dNothi.Desktop.UI.Dak
 
                     try
                     {
-                        mainPrapokButton.Text += draftedDecision.recipients!=null? draftedDecision.recipients.mul_prapok.employee_name_bng:string.Empty;
+                        mainPrapokButton.Text += draftedDecision.recipients!=null? draftedDecision.recipients.mul_prapok.officer:string.Empty;
                     }
                     catch
                     {
                         mainPrapokButton.Visible = false;
                     }
 
+                       
 
 
-
-                }
+                    }
                 catch
                 {
                     draftedInfoPanel.Visible = false;

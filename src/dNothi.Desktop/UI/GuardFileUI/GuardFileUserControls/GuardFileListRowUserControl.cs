@@ -25,6 +25,8 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
         {
             InitializeComponent();
             MyToolTip.SetToolTip(decisionDeleteButton, "মুছে ফেলুন");
+            MyToolTip.SetToolTip(decisionEditRightButton, "দেখুন");
+            
         }
 
         public List<DakAttachmentDTO> _dakAttachmentDTOs { get; set; }

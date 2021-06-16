@@ -7,6 +7,7 @@ using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using FontAwesome.Sharp;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,7 @@ namespace dNothi.Desktop.UI
     {
         private DakUserParam dakListUserParam = new DakUserParam();
         private DakUserParam _dakuserparam = new DakUserParam();
+       
         IKasaraPatraDashBoardService _kasaraPatraDashBoardService { get; set; }
         ISyncerService _syncerServices { get; set; }
 
@@ -206,8 +208,6 @@ namespace dNothi.Desktop.UI
 
 
 
-
-
             List<OfficeInfoDTO> officeInfoDTO = _userService.GetAllLocalOfficeInfo();
 
 
@@ -235,7 +235,22 @@ namespace dNothi.Desktop.UI
 
 
 
+            var totalRecord=  _kasaraPatraDashBoardService.KasaraDashBoardRecordCount(dakUserParam);
 
+            JObject data = JObject.Parse( totalRecord.data.ToString());
+            string khoshrapotro = "khoshra_potro";
+            string approvedpotro = "approved_potro";
+            string khoshrawaitingforapproval = "khoshra_waiting_for_approval";
+            string potrojariassenderapprover = "potrojari_as_sender_approver";
+            string draftpotro = "draft_potro";
+
+            draftPotroCountLabel.Text = ConversionMethod.EnglishNumberToBangla(data[draftpotro].ToString());
+            noteAttachmentKhosraCountLabel.Text = ConversionMethod.EnglishNumberToBangla((string)data[khoshrapotro]);
+            pendingApprovalCountLabel.Text = ConversionMethod.EnglishNumberToBangla((string)data[khoshrawaitingforapproval]);
+            pendingForwardCountLabel.Text = ConversionMethod.EnglishNumberToBangla((string)data[approvedpotro]);
+            jarikritoCountLabel.Text = ConversionMethod.EnglishNumberToBangla((string)data[potrojariassenderapprover]);
+
+            userNameLabel.Text = dakUserParam.officer_name + "(" + dakUserParam.designation_label + "," + dakUserParam.unit_label + ")";
 
             designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
 
@@ -306,9 +321,11 @@ namespace dNothi.Desktop.UI
             var dakListUserParam = _userService.GetLocalDakUserParam();
 
             dakListUserParam.limit = pageLimit;
+
             dakListUserParam.page = pages;
           
             var kasarapatralist = _kasaraPatraDashBoardService.GetList(dakListUserParam, menuNo);
+
             if (kasarapatralist.status == "success")
             {
                 foreach (var item in kasarapatralist.data.records)

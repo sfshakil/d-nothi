@@ -27,6 +27,7 @@ using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.DakServices.DakSharingService;
 using Newtonsoft.Json;
 using AutoMapper;
+using Newtonsoft.Json.Linq;
 
 namespace dNothi.Desktop.UI
 {
@@ -1202,7 +1203,7 @@ namespace dNothi.Desktop.UI
             dakInboxUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
             try
             {
-                dakInboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
+                dakInboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from!=null? dakListInboxRecordsDTO.movement_status.from.officer:string.Empty;
                 dakInboxUserControl.receiver = GetDakListMainReceiverName(dakListInboxRecordsDTO.movement_status);
 
             }
@@ -2090,7 +2091,7 @@ namespace dNothi.Desktop.UI
 
             try
             {
-                dakArchiveUserControl.sender = dakListInboxRecordsDTO.movement_status.from.officer;
+                dakArchiveUserControl.sender = dakListInboxRecordsDTO.movement_status.from!=null? dakListInboxRecordsDTO.movement_status.from.officer:string.Empty;
                 dakArchiveUserControl.receiver = GetDakListMainReceiverName(dakListInboxRecordsDTO.movement_status);
             }
             catch
@@ -2542,6 +2543,7 @@ namespace dNothi.Desktop.UI
 
             }
         }
+       
         private bool IsSortedSearch;
         private void LoadDakListSortedUsingSearchParam(string searchParam)
         {
@@ -3627,7 +3629,7 @@ namespace dNothi.Desktop.UI
         }
         private void dakSortedUserButton_Click(object sender, EventArgs e)
         {
-           
+            
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             dakBacaikaranUserView();
@@ -3641,74 +3643,87 @@ namespace dNothi.Desktop.UI
             var response = _dakSharingServeice.GetList(userParam, actionlinkid, assinorid);
             if (response.status == "success")
             {
-              var data = JsonConvert.DeserializeObject<ShareList.Data>(response.data.ToString());
-                if(data.assignor.Count>0)
+                try
                 {
-                    dakBacaiDownArrow.Visible = true;
+                  
+                    var data = JsonConvert.DeserializeObject<ShareList.Data>(response.data.ToString());
+
+                    if (data.assignor.Count > 0)
+                    {
+                        dakBacaiDownArrow.Visible = true;
+                    }
+
+                    else
+                    {
+                        dakBacaiDownArrow.Visible = false;
+                    }
+
+                    return data;
                 }
-                else
+                catch(Exception ex)
                 {
-                    dakBacaiDownArrow.Visible = false;
+                    return null;
                 }
-                
-                return data;
+
             }
+
             return null;
-           
         }
         private void dakBacaikaranUserView()
         {
             var assignorlist = dakBacaikaranUsersDataLoad();
-           
-            if (dakSortingUserFlowLayoutPanel.Visible)
+            if (assignorlist != null)
             {
-                dakSortingUserFlowLayoutPanel.Visible = false;
-                dakBacaiDownArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
 
-            }
-            else
-            {
-                dakSortingUserFlowLayoutPanel.Visible = true;
-                dakBacaiDownArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
-                if (assignorlist.assignor.Count > 0)
+                if (dakSortingUserFlowLayoutPanel.Visible)
                 {
-                    dakSortingUserFlowLayoutPanel.Controls.Clear();
-                    foreach (var item in assignorlist.assignor)
-                    {
-                        Button button = new Button();
-                        button.Text = "- " + item.name + "(" + item.designation_level + ")";
+                    dakSortingUserFlowLayoutPanel.Visible = false;
+                    dakBacaiDownArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
 
-                        button.AutoSize = true;
-                        button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
-                        button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-                        button.Dock = System.Windows.Forms.DockStyle.Top;
-                        button.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-                        button.FlatAppearance.BorderSize = 0;
-                        button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-                        button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-                        button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                        button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                        button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-                        button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                        button.Location = new System.Drawing.Point(0, 0);
-                        button.MaximumSize = new Size(230, 0);
-                        button.Size = new System.Drawing.Size(234, 60);
-
-
-                        button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                        button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-                        button.UseVisualStyleBackColor = false;
-                        button.Click += delegate (object os, EventArgs ev)
-                        {
-                            linkLabel_LinkClicked(os, ev, item.designation_id);
-                        };
-                       
-                        dakSortingUserFlowLayoutPanel.Controls.Add(button);
-                    }
                 }
+                else
+                {
+                    dakSortingUserFlowLayoutPanel.Visible = true;
+                    dakBacaiDownArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                    if (assignorlist.assignor.Count > 0)
+                    {
+                        dakSortingUserFlowLayoutPanel.Controls.Clear();
+                        foreach (var item in assignorlist.assignor)
+                        {
+                            Button button = new Button();
+                            button.Text = "- " + item.name + "(" + item.designation_level + ")";
 
+                            button.AutoSize = true;
+                            button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+                            button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+                            button.Dock = System.Windows.Forms.DockStyle.Top;
+                            button.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+                            button.FlatAppearance.BorderSize = 0;
+                            button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+                            button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+                            button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                            button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                            button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+                            button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                            button.Location = new System.Drawing.Point(0, 0);
+                            button.MaximumSize = new Size(230, 0);
+                            button.Size = new System.Drawing.Size(234, 60);
+
+
+                            button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                            button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+                            button.UseVisualStyleBackColor = false;
+                            button.Click += delegate (object os, EventArgs ev)
+                            {
+                                linkLabel_LinkClicked(os, ev, item.designation_id);
+                            };
+
+                            dakSortingUserFlowLayoutPanel.Controls.Add(button);
+                        }
+                    }
+
+                }
             }
-           
         }
         public int _assignor_designation_id;
         private void linkLabel_LinkClicked(object sender, EventArgs e, int assignor_designation_id)
@@ -3719,13 +3734,15 @@ namespace dNothi.Desktop.UI
         private void LoadDakBacaikaran(int assignor_designation_id)
         {
             _assignor_designation_id = assignor_designation_id;
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            noDakTableLayoutPanel.Visible = false;
             string total = "সর্বমোট: ";
-            int pagelimit = 10;
-            int page = 1;
+          
             //pageLabel.Text=
 
             var userParam = _userService.GetLocalDakUserParam();
-            userParam.limit = pagelimit; userParam.page = page;
+            userParam.limit = NothiCommonStaticValue.pageLimit;
+            userParam.page = pageNumber;
             int actionlink = 2;
             var response = _dakSharingServeice.GetList(userParam, actionlink, assignor_designation_id);
             if (response.status == "success")
@@ -3734,6 +3751,8 @@ namespace dNothi.Desktop.UI
                 totalLabel.Text = total + ConversionMethod.EnglishNumberToBangla(data.total_records.ToString());
                 if (data.records.Count > 0)
                 {
+                    Pagination(data.records.Count,data.total_records);
+                    
                     LoadDakSortinginPanel(data.records);
                 }
 

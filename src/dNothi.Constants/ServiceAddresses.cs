@@ -118,6 +118,7 @@ namespace dNothi.Constants
 
         public const string mulPattraAndSanjukti = "/api/potro/document";
         public const string prapakerTalika = "/api/potrojari/recipient/list";
+        public const string kasaraDashboard = "/api/khoshra/statistics/designation";
 
         //GuardFileApi
         public const string GuardFileCategoryList = "/api/nothi/guardfile/category/list";
