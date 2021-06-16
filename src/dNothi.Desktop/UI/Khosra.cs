@@ -1171,6 +1171,7 @@ namespace dNothi.Desktop.UI
         private void Khosra_Load(object sender, EventArgs e)
         {
             RefreshKhosra();
+            khosraTableLayoutPanel.Enabled = false;
         }
 
         private void RefreshKhosra()
@@ -1366,9 +1367,12 @@ namespace dNothi.Desktop.UI
                 }
             }
 
-          
-            
 
+            BeginInvoke((MethodInvoker)delegate
+            {
+                khosraTableLayoutPanel.Enabled = true;
+            });
+           
         }
         private async void LoadTime(DateTime now)
         {

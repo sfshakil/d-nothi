@@ -156,7 +156,7 @@ public class DesignationSealListResponse
             }
         }
 
-        public string office_name_eng { get { return office_eng; } }
+        public string office_name_eng { get; set; }
 
 
 

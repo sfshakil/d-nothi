@@ -746,6 +746,7 @@ namespace dNothi.Desktop.UI.Dak
             if(oCRResponse != null)
             {
                 dakDescriptionXTextBox.Text = oCRResponse.text;
+                dakAttachment.dak_description = oCRResponse.text;
             }
          
 

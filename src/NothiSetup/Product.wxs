@@ -11,15 +11,15 @@
 
 
 
-  <Product Id="*" Name="E-Nothi" Language="1033" Version="1.0.0.0" Manufacturer="Tappware" UpgradeCode="fb3aa46f-5d81-4a82-a6f1-65f44cbca3dd">
+  <Product Id="*" Name="D-Nothi" Language="1033" Version="1.0.0.0" Manufacturer="Tappware" UpgradeCode="fb3aa46f-5d81-4a82-a6f1-65f44cbca3dd">
 
 
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
-    <MajorUpgrade DowngradeErrorMessage="A newer version of E-Nothi is already installed." />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of D-Nothi is already installed." />
     <MediaTemplate EmbedCab="yes" />
 
-    <Feature Id="ProductFeature" Title="E-Nothi" Level="1">
+    <Feature Id="ProductFeature" Title="D-Nothi" Level="1">
       <ComponentGroupRef Id="ProductComponents" />
       <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_css_files" />
       <ComponentGroupRef Id="tinymce_jscripts_tiny_mce_plugins_table_files" />
@@ -195,11 +195,11 @@
 
     <Property Id="ADOBEEXEVERSION" Secure="yes">
       <RegistrySearch Id="RegSearch_WORDEXE" Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\AcroRd32.exe" Type="file">
-        <FileSearch Name="AcroRd32.exe" MinVersion="8.0.0.0" />
+        <FileSearch Name="AcroRd32.exe" MinVersion="6.0.0.0" />
       </RegistrySearch>
     </Property>
 
-    <Condition Message="E-Nothi requires Adobe Reader Minimum Version 8! Please make sure you it installed.">ADOBEEXEVERSION</Condition>
+    <Condition Message="D-Nothi requires Adobe Reader Minimum Version 6.0! Please make sure you it installed.">ADOBEEXEVERSION</Condition>
 
 
   </Product>
@@ -207,7 +207,7 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="E-Nothi">
+        <Directory Id="INSTALLFOLDER" Name="D-Nothi">
 
           <Directory Id="Content" Name="Content" />
           <Directory Id="runtimes" Name="runtimes">
@@ -445,7 +445,7 @@
       </Directory>
 
       <Directory Id="ProgramMenuFolder">
-        <Directory Id="ApplicationProgramsFolder" Name="E-Nothi" />
+        <Directory Id="ApplicationProgramsFolder" Name="D-Nothi" />
       </Directory>
       <Directory Id="DesktopFolder" Name="Desktop" />
 
@@ -475,6 +475,72 @@
       <Component Id="sqlcese40.dll" Guid="4b9b276f-527e-4ee5-8171-c6cbc1b46779">
         <File Id="sqlcese40.dll" Name="sqlcese40.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\sqlcese40.dll" />
       </Component>
+
+
+      <Component Id="cef.pak2" Guid="7a480c6a-9336-4b94-9fe4-ecbaa676ba59">
+        <File Id="cef.pak2" Name="cef.pak" Source="$(var.dNothi.Desktop_TargetDir)x86\cef.pak" />
+      </Component>
+
+      <Component Id="cef_100_percent.pak2" Guid="936d022c-4bf0-4b7d-9139-a54137fcfd2f">
+        <File Id="cef_100_percent.pak2" Name="cef_100_percent.pak" Source="$(var.dNothi.Desktop_TargetDir)x86\cef_100_percent.pak" />
+      </Component>
+
+      <Component Id="cef_200_percent.pak2" Guid="03895b0e-1aa7-45a9-bc4d-2078b3182cbb">
+        <File Id="cef_200_percent.pak2" Name="cef_200_percent.pak" Source="$(var.dNothi.Desktop_TargetDir)x86\cef_200_percent.pak" />
+      </Component>
+
+      <Component Id="cef_extensions.pak2" Guid="32d219c7-d453-4cd9-9f09-6b6f41b572e5">
+        <File Id="cef_extensions.pak2" Name="cef_extensions.pak" Source="$(var.dNothi.Desktop_TargetDir)x86\cef_extensions.pak" />
+      </Component>
+
+      <Component Id="CefSharp.BrowserSubprocess.Core.dll2" Guid="58f64469-79a4-4657-b580-7883092bede7">
+        <File Id="CefSharp.BrowserSubprocess.Core.dll2" Name="CefSharp.BrowserSubprocess.Core.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\CefSharp.BrowserSubprocess.Core.dll" />
+      </Component>
+
+      <Component Id="CefSharp.BrowserSubprocess.exe2" Guid="216fdff5-79a1-47b9-9c77-1ffa52ed2970">
+        <File Id="CefSharp.BrowserSubprocess.exe2" Name="CefSharp.BrowserSubprocess.exe" Source="$(var.dNothi.Desktop_TargetDir)x86\CefSharp.BrowserSubprocess.exe" />
+      </Component>
+
+      <Component Id="CefSharp.Core.Runtime.dll2" Guid="6c99bfc4-3787-4737-87f0-f87d13f0752c">
+        <File Id="CefSharp.Core.Runtime.dll2" Name="CefSharp.Core.Runtime.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\CefSharp.Core.Runtime.dll" />
+      </Component>
+
+      <Component Id="chrome_elf.dll2" Guid="9861135d-867e-4577-9cf4-373088aaf6f6">
+        <File Id="chrome_elf.dll2" Name="chrome_elf.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\chrome_elf.dll" />
+      </Component>
+
+      <Component Id="d3dcompiler_47.dll2" Guid="78594e3d-0b73-4bdf-93a5-e97b606893e7">
+        <File Id="d3dcompiler_47.dll2" Name="d3dcompiler_47.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\d3dcompiler_47.dll" />
+      </Component>
+
+     
+
+      <Component Id="devtools_resources.pak2" Guid="d067f6fa-cf0e-41d2-b7aa-e03c68981df8">
+        <File Id="devtools_resources.pak2" Name="devtools_resources.pak" Source="$(var.dNothi.Desktop_TargetDir)x86\devtools_resources.pak" />
+      </Component>
+
+  
+
+      <Component Id="icudtl.dat2" Guid="0fc61772-7bb6-445e-b497-020d6dbad95d">
+        <File Id="icudtl.dat2" Name="icudtl.dat" Source="$(var.dNothi.Desktop_TargetDir)x86\icudtl.dat" />
+      </Component>
+
+      <Component Id="libcef.dll2" Guid="5c605749-32fe-45d8-b3de-fc64402bdc82">
+        <File Id="libcef.dll2" Name="libcef.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\libcef.dll" />
+      </Component>
+
+      <Component Id="libEGL.dll2" Guid="3573fad3-d773-4c2b-b510-98f7d47647a0">
+        <File Id="libEGL.dll2" Name="libEGL.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\libEGL.dll" />
+      </Component>
+
+      <Component Id="libGLESv2.dll2" Guid="f89bb93a-fb95-4cac-b84e-8bad5566f027">
+        <File Id="libGLESv2.dll2" Name="libGLESv2.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\libGLESv2.dll" />
+      </Component>
+
+      <Component Id="v8_context_snapshot.bin2" Guid="c9c0d06e-dbf4-4ffc-ae4c-59ea832ebb3f">
+        <File Id="v8_context_snapshot.bin2" Name="v8_context_snapshot.bin" Source="$(var.dNothi.Desktop_TargetDir)x86\v8_context_snapshot.bin" />
+      </Component>
+      
     </ComponentGroup>
 
 
@@ -488,7 +554,7 @@
       <Component Id="msvcr90.dllt" Guid="7824a264-67d3-4a84-9fbc-7961f96fbce6">
         <File Id="msvcr90.dll" Name="msvcr90.dll" Source="$(var.dNothi.Desktop_TargetDir)x86\Microsoft.VC90.CRT\msvcr90.dll" />
       </Component>
-
+      
     </ComponentGroup>
 
   </Fragment>
@@ -498,6 +564,83 @@
       <!-- <Component Id="ProductComponent"> -->
       <!-- TODO: Insert files, registry keys, and other resources here. -->
       <!-- </Component> -->
+
+      <Component Id="Autofac.pdb" Guid="2d325ba4-8727-4fde-8153-69b86721e215">
+        <File Id="Autofac.pdb" Name="Autofac.pdb" Source="$(var.dNothi.Desktop_TargetDir)Autofac.pdb" />
+      </Component>
+      
+      <Component Id="cef.pak" Guid="8e220c67-8eda-410c-b723-770ac25706eb">
+        <File Id="cef.pak" Name="cef.pak" Source="$(var.dNothi.Desktop_TargetDir)cef.pak" />
+      </Component>
+      
+      <Component Id="cef_100_percent.pak" Guid="720628a0-d023-41b7-9230-5d53d704302c">
+        <File Id="cef_100_percent.pak" Name="cef_100_percent.pak" Source="$(var.dNothi.Desktop_TargetDir)cef_100_percent.pak" />
+      </Component>
+
+      <Component Id="cef_200_percent.pak" Guid="a410037d-9b30-473c-99e3-a21339042648">
+        <File Id="cef_200_percent.pak" Name="cef_200_percent.pak" Source="$(var.dNothi.Desktop_TargetDir)cef_200_percent.pak" />
+      </Component>
+
+      <Component Id="cef_extensions.pak" Guid="1b38bcac-31af-4a27-bfe2-1a44c97041fc">
+        <File Id="cef_extensions.pak" Name="cef_extensions.pak" Source="$(var.dNothi.Desktop_TargetDir)cef_extensions.pak" />
+      </Component>
+
+      <Component Id="CefSharp.BrowserSubprocess.Core.dll" Guid="a113f400-df26-41d6-86c6-973f19d4cee5">
+        <File Id="CefSharp.BrowserSubprocess.Core.dll" Name="CefSharp.BrowserSubprocess.Core.dll" Source="$(var.dNothi.Desktop_TargetDir)CefSharp.BrowserSubprocess.Core.dll" />
+      </Component>
+
+      <Component Id="CefSharp.BrowserSubprocess.exe" Guid="dfa6e64d-082a-4666-8dce-bc2b2822923b">
+        <File Id="CefSharp.BrowserSubprocess.exe" Name="CefSharp.BrowserSubprocess.exe" Source="$(var.dNothi.Desktop_TargetDir)CefSharp.BrowserSubprocess.exe" />
+      </Component>
+
+      <Component Id="CefSharp.Core.Runtime.dll" Guid="6981f51e-c33d-43dc-8b31-6b4f3856cb50">
+        <File Id="CefSharp.Core.Runtime.dll" Name="CefSharp.Core.Runtime.dll" Source="$(var.dNothi.Desktop_TargetDir)CefSharp.Core.Runtime.dll" />
+      </Component>
+
+      <Component Id="chrome_elf.dll" Guid="b09bb3a2-aa35-4cc3-80f1-d966f51126a6">
+        <File Id="chrome_elf.dll" Name="chrome_elf.dll" Source="$(var.dNothi.Desktop_TargetDir)chrome_elf.dll" />
+      </Component>
+
+      <Component Id="d3dcompiler_47.dll" Guid="27612b3f-18a0-432e-a059-793bda317294">
+        <File Id="d3dcompiler_47.dll" Name="d3dcompiler_47.dll" Source="$(var.dNothi.Desktop_TargetDir)d3dcompiler_47.dll" />
+      </Component>
+
+      <Component Id="debug.log" Guid="1201a705-91f1-444e-a784-c245fb0922f6">
+        <File Id="debug.log" Name="debug.log" Source="$(var.dNothi.Desktop_TargetDir)debug.log" />
+      </Component>
+
+      <Component Id="devtools_resources.pak" Guid="605ace7c-663d-4445-bf61-255b2c8c6f15">
+        <File Id="devtools_resources.pak" Name="devtools_resources.pak" Source="$(var.dNothi.Desktop_TargetDir)devtools_resources.pak" />
+      </Component>
+
+      <Component Id="dNothi.Desktop.pdb" Guid="46965a9a-b42c-44f6-a811-8ad01be1b752">
+        <File Id="dNothi.Desktop.pdb" Name="dNothi.Desktop.pdb" Source="$(var.dNothi.Desktop_TargetDir)dNothi.Desktop.pdb" />
+      </Component>
+
+      <Component Id="icudtl.dat" Guid="79de2747-63cd-459c-88ae-d2564adbdee7">
+        <File Id="icudtl.dat" Name="icudtl.dat" Source="$(var.dNothi.Desktop_TargetDir)icudtl.dat" />
+      </Component>
+
+      <Component Id="libcef.dll" Guid="fe992421-f2e5-4abe-aa99-9a583900ccef">
+        <File Id="libcef.dll" Name="libcef.dll" Source="$(var.dNothi.Desktop_TargetDir)libcef.dll" />
+      </Component>
+
+      <Component Id="libEGL.dll" Guid="978ace63-9bae-4fb5-96cb-8749016e8fdf">
+        <File Id="libEGL.dll" Name="libEGL.dll" Source="$(var.dNothi.Desktop_TargetDir)libEGL.dll" />
+      </Component>
+
+      <Component Id="libGLESv2.dll" Guid="98870e91-2391-41b3-a421-17eabf503538">
+        <File Id="libGLESv2.dll" Name="libGLESv2.dll" Source="$(var.dNothi.Desktop_TargetDir)libGLESv2.dll" />
+      </Component>
+
+      <Component Id="v8_context_snapshot.bin" Guid="da873245-badd-4b35-8abb-067f33eecd9a">
+        <File Id="v8_context_snapshot.bin" Name="v8_context_snapshot.bin" Source="$(var.dNothi.Desktop_TargetDir)v8_context_snapshot.bin" />
+      </Component>
+
+
+     
+
+      
 
       <Component Id="AxInterop.AcroPDFLib.dll" Guid="3e7fc953-64f7-47d1-831a-cb3e4c301674">
         <File Id="AxInterop.AcroPDFLib.dll" Name="AxInterop.AcroPDFLib.dll" Source="$(var.dNothi.Desktop_TargetDir)AxInterop.AcroPDFLib.dll" />
@@ -733,14 +876,14 @@
   <Fragment>
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut" Guid="fd1adc38-8c68-46fd-b6a6-adf011ade269">
-        <Shortcut Id="ApplicationStartMenuShortcut" Name="E-Nothi" Description="E-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="D-Nothi" Description="D-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
         <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
         <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
     </DirectoryRef>
     <DirectoryRef Id="DesktopFolder">
       <Component Id="ApplicationShortcutDesktop" Guid="9b8a615a-a2f5-4f99-8bc3-a61f95b4a413">
-        <Shortcut Id="ApplicationDesktopShortcut" Name="E-Nothi" Description="E-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="ApplicationDesktopShortcut" Name="D-Nothi" Description="D-Nothi" Target="[INSTALLFOLDER]dNothi.Desktop.exe" WorkingDirectory="INSTALLFOLDER" />
         <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
         <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
@@ -1730,6 +1873,30 @@
       <Component Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce.svg" Guid="4624e82f-4786-42bb-9c1f-86e4eabc3fef">
         <File Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce.svg" Name="tinymce.svg" Source="$(var.dNothi.Desktop_TargetDir)tinymce\js\tinymce\skins\lightgray\fonts\tinymce.svg" />
       </Component>
+      
+      <Component Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce.eot" Guid="c93e074a-0fc2-493e-86ca-7cd2770e67aa">
+        <File Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce.eot" Name="tinymce.eot" Source="$(var.dNothi.Desktop_TargetDir)tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
+      </Component>
+
+      <Component Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce.ttf" Guid="2aa185c1-29e6-4845-bdcd-63d94ecc8f16">
+        <File Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce.ttf" Name="tinymce.ttf" Source="$(var.dNothi.Desktop_TargetDir)tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+      </Component>
+      <Component Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce.woff" Guid="c9040967-82cd-44aa-b671-45b281801b9d">
+        <File Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce.woff" Name="tinymce.woff" Source="$(var.dNothi.Desktop_TargetDir)tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+      </Component>
+
+      <Component Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce_small.eot" Guid="8938df1d-0baf-400d-92fa-1454d5e5b739">
+        <File Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce_small.eot" Name="tinymce-small.eot" Source="$(var.dNothi.Desktop_TargetDir)tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+      </Component>
+
+      <Component Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce_small.woff" Guid="891a26bd-6404-4180-823d-ff7ccf216521">
+        <File Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce_small.woff" Name="tinymce-small.woff" Source="$(var.dNothi.Desktop_TargetDir)tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+      </Component>
+
+      <Component Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce_small.ttf" Guid="1aeed32e-b29f-483b-a14b-224c912468dd">
+        <File Id="tinymce_js_tinymce_skins_lightgray_fonts_tinymce_small.ttf" Name="tinymce-small.ttf" Source="$(var.dNothi.Desktop_TargetDir)tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+      </Component>
+
     </ComponentGroup>
   </Fragment>
 

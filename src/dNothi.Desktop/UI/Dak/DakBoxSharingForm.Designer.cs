@@ -124,7 +124,7 @@
             this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officerSearchList.isListShown = false;
             this.officerSearchList.itemList = null;
-            this.officerSearchList.Location = new System.Drawing.Point(-4, 57);
+            this.officerSearchList.Location = new System.Drawing.Point(14, 57);
             this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
             this.officerSearchList.Name = "officerSearchList";
