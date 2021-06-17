@@ -1926,16 +1926,26 @@ namespace dNothi.Desktop.UI
 
         private void DakModule_Click(object sender, EventArgs e)
         {
-            this.Hide();
             var form = FormFactory.Create<Dashboard>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
+        private void DoSomethingAsync(object sender, EventArgs e, int i)
+        {
+            if (i == 0)
+            {
+                this.Hide();
+            }
+            else
+            {
 
+            }
+        }
         private void Nothi_Module_Click(object sender, EventArgs e)
         {
-            this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.ShowDialog();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
 
         private void moduleButton_Click(object sender, EventArgs e)

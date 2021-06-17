@@ -2499,7 +2499,7 @@ namespace dNothi.Desktop.UI
         }
 
         DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
-        public static readonly List<string> ImageExtensions = new List<string> { ".JPG", "JPG", "PNG", ".PNG" };
+        public static readonly List<string> ImageExtensions = new List<string> { ".JPG", "JPG", "PNG", ".PNG", ".JPEG", "JPEG" };
         public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF", ".DOC", "DOC", ".DOCX", "DOCX", ".XLS", "XLS", ".XLSX", "XLSX", ".CSV", "CSV", ".MP3", "MP3", ".M4P", "M4P", ".MP4", "MP4", ".PPT", "PPT", ".PPTX", "PPTX" };
 
 
@@ -2514,12 +2514,14 @@ namespace dNothi.Desktop.UI
         {
 
         }
+        
+        
         List<DakUploadedFileResponse> onuchhedSaveWithAttachments = new List<DakUploadedFileResponse>();
         private void fileUploadButton_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
             //opnfd.DefaultExt = "txt";
-            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
+            opnfd.Filter = "Files (*.jpg;*.jpeg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.jpeg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.XLSX;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
             //opnfd.Filter = "Pdf Files (*.PDF;)|*.PDF;";
             //opnfd.Filter = "Word Files ()|";
             //opnfd.Filter = "Excel Files ()|";
@@ -2530,11 +2532,12 @@ namespace dNothi.Desktop.UI
 
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
+                progressBar1.Visible = true;
                 _dakFileUploadParam.user_file_name = new System.IO.FileInfo(opnfd.FileName).Name;
                 _dakFileUploadParam.path = "Onucched";
                 _dakFileUploadParam.model = "NothiOnucchedAttachments";
 
-
+                //CreateProgressBar();
 
                 //Read the contents of the file into a stream
                 var fileStream = opnfd.OpenFile();
@@ -2550,115 +2553,136 @@ namespace dNothi.Desktop.UI
 
 
                 var size = new System.IO.FileInfo(opnfd.FileName).Length;
-
-                _dakFileUploadParam.file_size_in_kb = size.ToString() + " KB";
-
-                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-
-                DakUploadedFileResponse dakUploadedFileResponse = _onucchedFileUploadService.GetOnuchhedUploadedFile(dakListUserParam,_dakFileUploadParam);
-                if (!InternetConnection.Check() && dakUploadedFileResponse.status == "success" && dakUploadedFileResponse.message == "Local")
+                if (size < 26214400) 
                 {
-                    NoteFileUpload noteFileUpload = new NoteFileUpload();
-                    if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
-                    {
-                        noteFileUpload.imgSource = opnfd.FileName;
-                        noteFileUpload.fileexension = _dakFileUploadParam.file_size_in_kb;
-                        noteFileUpload.attachmentName = _dakFileUploadParam.user_file_name;
-                        noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
-                        UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
-                        //--fileAddFLP.Controls.Add(noteFileUpload);
-                        //noteFileUploads.Add(noteFileUpload);
+                    progressBar1.Value = 30;
+                    double sizeKB = Convert.ToDouble(size) * 0.00097656;
+                    _dakFileUploadParam.file_size_in_kb = sizeKB.ToString() + " KB";
 
+                    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-                    }
-                    else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                    DakUploadedFileResponse dakUploadedFileResponse = _onucchedFileUploadService.GetOnuchhedUploadedFile(dakListUserParam, _dakFileUploadParam);
+                    if (!InternetConnection.Check() && dakUploadedFileResponse.status == "success" && dakUploadedFileResponse.message == "Local")
                     {
-                        //noteFileUpload.imgSource = "";
-                        noteFileUpload.imageBoxOffFileShow("");
-                        noteFileUpload.fileexension = _dakFileUploadParam.file_size_in_kb;
-                        noteFileUpload.attachmentName = _dakFileUploadParam.user_file_name;
-                        noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
-                        UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
-                        //noteFileUploads.Add(noteFileUpload);
-
-                    }
-                    else
-                    {
-                        //NoteFileDelete noteFileDelete = new NoteFileDelete();
-                        //noteFileDelete.attachmentName = _dakFileUploadParam.file_size_in_kb;
-                        //noteFileDelete.fileexension = _dakFileUploadParam.user_file_name;
-                        //UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete);
-                        //--fileAddFLP.Controls.Add(noteFileDelete);
-                        //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
-                    }
-                    //onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
-                } 
-                if (dakUploadedFileResponse.status == "success" && dakUploadedFileResponse.message != "Local")
-                {
-                    fileuploadDoneFlag = 1;
-                    if (dakUploadedFileResponse.data.Count > 0)
-                    {
-                        //attachmentListFlowLayoutPanel.Controls.Clear();
                         NoteFileUpload noteFileUpload = new NoteFileUpload();
                         if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
+                            progressBar1.Value = 50;
+
                             noteFileUpload.imgSource = opnfd.FileName;
-                            noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                            noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                            noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
-                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
-                            //--fileAddFLP.Controls.Add(noteFileUpload);
-                            noteFileUploads.Add(noteFileUpload);
-                            //dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
-                            //dakUploadAttachmentTableRow._isAllowedforOCR = true;
-
-                            using (Image image = Image.FromFile(opnfd.FileName))
-                            {
-                                using (MemoryStream m = new MemoryStream())
-                                {
-                                    image.Save(m, image.RawFormat);
-                                    byte[] imageBytes = m.ToArray();
-
-                                    // Convert byte[] to Base64 String
-                                    dakUploadedFileResponse.data[0].img_base64 = Convert.ToBase64String(imageBytes);
-
-                                }
-                            }
-
-                            onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
-                        }
-                        else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
-                        {
-                            //noteFileUpload.imgSource = "";
-                            noteFileUpload.imageBoxOffFileShow(dakUploadedFileResponse.data[0].download_url);
-                            noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
-                            noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                            noteFileUpload.fileexension = _dakFileUploadParam.file_size_in_kb;
+                            noteFileUpload.attachmentName = _dakFileUploadParam.user_file_name;
                             noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
                             UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
                             //--fileAddFLP.Controls.Add(noteFileUpload);
                             //noteFileUploads.Add(noteFileUpload);
-                            onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+
+
+                        }
+                        else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                        {
+                            progressBar1.Value = 50;
+
+                            //noteFileUpload.imgSource = "";
+                            noteFileUpload.imageBoxOffFileShow("");
+                            noteFileUpload.fileexension = _dakFileUploadParam.file_size_in_kb;
+                            noteFileUpload.attachmentName = _dakFileUploadParam.user_file_name;
+                            noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
+                            UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
+                            //noteFileUploads.Add(noteFileUpload);
+
                         }
                         else
                         {
                             //NoteFileDelete noteFileDelete = new NoteFileDelete();
-                            //noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                            //noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
+                            //noteFileDelete.attachmentName = _dakFileUploadParam.file_size_in_kb;
+                            //noteFileDelete.fileexension = _dakFileUploadParam.user_file_name;
                             //UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete);
                             //--fileAddFLP.Controls.Add(noteFileDelete);
                             //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
                         }
-
-
-
-                        //dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
-                        //dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._dakAttachment); };
-
-
-
-                        
+                        //onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                        progressBar1.Value = 70;
                     }
+                    if (dakUploadedFileResponse.status == "success" && dakUploadedFileResponse.message != "Local")
+                    {
+                        fileuploadDoneFlag = 1;
+                        if (dakUploadedFileResponse.data.Count > 0)
+                        {
+                            //attachmentListFlowLayoutPanel.Controls.Clear();
+                            NoteFileUpload noteFileUpload = new NoteFileUpload();
+                            if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                            {
+                                progressBar1.Value = 50;
+
+                                noteFileUpload.imgSource = opnfd.FileName;
+                                noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                                noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
+                                UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
+                                //--fileAddFLP.Controls.Add(noteFileUpload);
+                                noteFileUploads.Add(noteFileUpload);
+                                //dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
+                                //dakUploadAttachmentTableRow._isAllowedforOCR = true;
+
+                                using (Image image = Image.FromFile(opnfd.FileName))
+                                {
+                                    using (MemoryStream m = new MemoryStream())
+                                    {
+                                        image.Save(m, image.RawFormat);
+                                        byte[] imageBytes = m.ToArray();
+
+                                        // Convert byte[] to Base64 String
+                                        dakUploadedFileResponse.data[0].img_base64 = Convert.ToBase64String(imageBytes);
+
+                                    }
+                                }
+
+                                onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                            }
+                            else if (PdfExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
+                            {
+                                progressBar1.Value = 50;
+
+                                //noteFileUpload.imgSource = "";
+                                noteFileUpload.imageBoxOffFileShow(dakUploadedFileResponse.data[0].download_url);
+                                noteFileUpload.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                noteFileUpload.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                                noteFileUpload.attachementId = dakUploadedFileResponse.data[0].id.ToString();
+                                UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileUpload);
+                                //--fileAddFLP.Controls.Add(noteFileUpload);
+                                //noteFileUploads.Add(noteFileUpload);
+                                onuchhedSaveWithAttachments.Add(dakUploadedFileResponse);
+                            }
+                            else
+                            {
+                                //NoteFileDelete noteFileDelete = new NoteFileDelete();
+                                //noteFileDelete.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                                //noteFileDelete.fileexension = dakUploadedFileResponse.data[0].file_size_in_kb;
+                                //UIDesignCommonMethod.AddRowinTable(fileAddFLP, noteFileDelete);
+                                //--fileAddFLP.Controls.Add(noteFileDelete);
+                                //dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
+                            }
+
+
+
+                            //dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
+                            //dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._dakAttachment); };
+
+
+                            progressBar1.Value = 70;
+
+                        }
+
+                    }
+                    progressBar1.Value = 100;
+                    progressBar1.Visible = false;
                 }
+                else
+                {
+                    progressBar1.Visible = false;
+                }
+                
 
             }
         }
@@ -2673,7 +2697,7 @@ namespace dNothi.Desktop.UI
             foreach (Form f in Application.OpenForms)
             { BeginInvoke((Action)(() => f.Hide())); }
             var form = FormFactory.Create<Nothi>();
-            BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.ShowDialog())); 
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         int onuchhedint = 0;

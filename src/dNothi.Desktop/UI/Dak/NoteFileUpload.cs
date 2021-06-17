@@ -47,7 +47,21 @@ namespace dNothi.Desktop.UI.Dak
         private string _attachmentName;
         private string _fileextension;
         private string _attachementId;
-
+        ProgressBar pBar = new ProgressBar();
+        private void CreateProgressBar()
+        {
+            //pBar.Location = new System.Drawing.Point(20, 20);
+            //pBar.Name = "progressBar1";
+            pBar.Width = 200;
+            pBar.Height = 30;
+            //pBar.BackColor = Color.Transparent;
+            pBar.Minimum = 0;
+            pBar.Maximum = 100;
+            pBar.Value = 0;
+            panel10.Controls.Add(pBar);
+            //UIDesignCommonMethod.AddRowinTable(fileAddFLP, pBar);
+        }
+        
         public string imgSource
         {
             get { return _imageSrc; }

@@ -20,39 +20,54 @@ namespace dNothi.Desktop.UI
 
         private void khosraPotroButton_Click(object sender, EventArgs e)
         {
-            this.Parent.Hide();
+            //this.Parent.Hide();
+            foreach (Form f in Application.OpenForms)
+            { BeginInvoke((Action)(() => f.Hide())); }
             KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
-            khosraDashboard.ShowDialog();
+            BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
+            khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void khosraButton_Click(object sender, EventArgs e)
         {
-            
+            foreach (Form f in Application.OpenForms)
+            { BeginInvoke((Action)(() => f.Hide())); }
             var form = FormFactory.Create<Khosra>();
-            form.ShowDialog();
-
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+        }
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
             this.Hide();
         }
-
         private void reviewDashBoardButton_Click(object sender, EventArgs e)
         {
-            this.Parent.Hide();
+            //this.Parent.Hide();
+            foreach (Form f in Application.OpenForms)
+            { BeginInvoke((Action)(() => f.Hide())); }
             ReviewDashBoard reviewDashBoard = FormFactory.Create<ReviewDashBoard>();
-            reviewDashBoard.ShowDialog();
+            BeginInvoke((Action)(() => reviewDashBoard.ShowDialog()));
+            reviewDashBoard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void guardFileModuleButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
+            foreach (Form f in Application.OpenForms)
+            { BeginInvoke((Action)(() => f.Hide())); }
             var gurdFileControl = FormFactory.Create<GurdFileControl>();
-            gurdFileControl.ShowDialog();
+            BeginInvoke((Action)(() => gurdFileControl.ShowDialog()));
+            gurdFileControl.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void potrojariButton_Click(object sender, EventArgs e)
         {
-            this.Parent.Hide();
+            //this.Parent.Hide();
+            foreach (Form f in Application.OpenForms)
+            { BeginInvoke((Action)(() => f.Hide())); }
             PotrojariGroup potrojariGroup = FormFactory.Create<PotrojariGroup>();
-            potrojariGroup.ShowDialog();
+            BeginInvoke((Action)(() => potrojariGroup.ShowDialog()));
+            potrojariGroup.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
     }
 }
