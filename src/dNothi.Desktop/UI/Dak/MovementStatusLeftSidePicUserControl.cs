@@ -163,10 +163,12 @@ namespace dNothi.Desktop.UI.Dak
                     movementStatusDetailsUserControlReceiver.userType = "মূল প্রাপক      :";
                     ToDTO toDTO = value.to.FirstOrDefault(a =>a.attention_type == "1" && a.designation_id!=value.from.designation_id);
 
-
-                    movementStatusDetailsUserControlReceiver.userDesignation = toDTO.officer;
-                    movementStatusDetailsUserControlReceiver.userDesignation += " (" + toDTO.designation + "," + toDTO.office_unit + "," + toDTO.office + ")";
-                    movementStatusdetailsFlowLayoutPanel.Controls.Add(movementStatusDetailsUserControlReceiver);
+                    if (toDTO != null)
+                    {
+                        movementStatusDetailsUserControlReceiver.userDesignation = toDTO != null ? toDTO.officer : string.Empty;
+                        movementStatusDetailsUserControlReceiver.userDesignation += " (" + toDTO != null ? toDTO.designation : string.Empty + "," + toDTO.office_unit + "," + toDTO.office + ")";
+                        movementStatusdetailsFlowLayoutPanel.Controls.Add(movementStatusDetailsUserControlReceiver);
+                    }
                 }
                 catch
                 {
