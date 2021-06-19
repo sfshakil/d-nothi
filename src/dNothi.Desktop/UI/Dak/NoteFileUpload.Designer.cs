@@ -197,10 +197,10 @@
             // 
             // attachmentPicturebox
             // 
-            this.attachmentPicturebox.Location = new System.Drawing.Point(59, 17);
+            this.attachmentPicturebox.Location = new System.Drawing.Point(78, 6);
             this.attachmentPicturebox.Margin = new System.Windows.Forms.Padding(4);
             this.attachmentPicturebox.Name = "attachmentPicturebox";
-            this.attachmentPicturebox.Size = new System.Drawing.Size(133, 62);
+            this.attachmentPicturebox.Size = new System.Drawing.Size(92, 87);
             this.attachmentPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.attachmentPicturebox.TabIndex = 60;
             this.attachmentPicturebox.TabStop = false;

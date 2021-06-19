@@ -32,6 +32,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int officer_id { get; set; }
         public string officer { get; set; }
         public string incharge_label { get; set; }
+        public string level_name { get; set; }
         public int designation_sequence { get; set; }
         public int extra { get; set; }
     }

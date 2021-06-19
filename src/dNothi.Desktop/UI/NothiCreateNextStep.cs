@@ -71,7 +71,7 @@ namespace dNothi.Desktop.UI
 
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiListRecordsDTO;
-            form.GetNothiInboxRecords(nothiListRecordsDTO);
+            form.GetNothiInboxRecords(nothiListRecordsDTO,"","");
             form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) {
                 foreach (Form f in Application.OpenForms)
                 { BeginInvoke((Action)(() => f.Hide())); }

@@ -172,7 +172,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
-
+            //form.ShowInTaskbar = false;
             form.ShowDialog();
 
             (sender as Form).Hide();
@@ -203,6 +203,7 @@ namespace dNothi.Desktop.UI.Dak
             form.StartPosition = FormStartPosition.Manual;
             form.FormBorderStyle = FormBorderStyle.None;
             form.BackColor = Color.White;
+            
             //var nothi = FormFactory.Create<Nothi>();
             form.AutoSize = true;
             form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);//(nothi.Height - nothi.ClientSize.Height) / 2);
@@ -218,11 +219,11 @@ namespace dNothi.Desktop.UI.Dak
         private void CalPopUpWindow(Form form)
         {
             Form hideform = new Form();
-
             hideform.BackColor = Color.Black;
             hideform.Height = Screen.PrimaryScreen.WorkingArea.Height; //{Width = 1382 Height = 744}
             hideform.Width = Screen.PrimaryScreen.WorkingArea.Width; //{Width = 1382 Height = 744}
             hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;

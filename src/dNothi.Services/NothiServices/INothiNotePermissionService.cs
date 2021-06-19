@@ -10,7 +10,7 @@ namespace dNothi.Services.NothiServices
 {
     public interface INothiNotePermissionService
     {
-        NothiNotePermissionResponse GetNothiNotePermission(DakUserParam dakListUserParam, List<NothiOnumodonRowDTO> nothiOnumodonRow);
+        NothiNotePermissionResponse GetNothiNotePermission(DakUserParam dakListUserParam, List<onumodonDataRecordDTO> nothiOnumodonRow, NothiListRecordsDTO nothiListRecordsDTO, int other_office_id, string note_Id);
 
         NothiNotePermissionResponse GetNothiPermission(DakUserParam dakListUserParam, List<onumodonDataRecordDTO> nothiOnumodonRow, NothiListRecordsDTO nothiListRecordsDTO, int other_office_id);
     }

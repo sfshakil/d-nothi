@@ -15,12 +15,12 @@ namespace dNothi.Desktop.UI
         public WaitNothiForm()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterParent;
         }
         public WaitNothiForm(Form parent)
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterParent;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public void CloseWaitForm()

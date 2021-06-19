@@ -84,13 +84,25 @@ namespace dNothi.Desktop.UI.Dak
             lbFileName.Cursor = default;
             lbFileSizeInKb.Cursor = default;
         }
+        public void mp4Extension()
+        {
+            //btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.FileCsv;
+            lbFileName.Cursor = default;
+            lbFileSizeInKb.Cursor = default;
+        }
+        public void pdfExtension()
+        {
+            btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            //lbFileName.Cursor = default;
+            //lbFileSizeInKb.Cursor = default;
+        }
         public void xlsExtension()
         {
             btnPlusSquare.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
             lbFileName.Cursor = default;
             lbFileSizeInKb.Cursor = default;
         }
-        public static readonly List<string> DOCExtensions = new List<string> { ".DOC", "DOC", ".DOCX", "DOCX", ".CSV", "CSV",".XLS", "XLS", ".XLSX", "XLSX" };
+        public static readonly List<string> DOCExtensions = new List<string> { ".DOC", "DOC", ".DOCX", "DOCX", ".CSV", "CSV",".XLS", "XLS", ".XLSX", "XLSX", ".MP4", "MP4" };
         private void lbFileName_Click(object sender, EventArgs e)
         {
             if (DOCExtensions.Contains(new System.IO.FileInfo(fileName).Extension.ToUpperInvariant()))
