@@ -975,6 +975,7 @@ namespace dNothi.Desktop.UI.Dak
             hideform.BackColor = Color.Black;
             hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
             hideform.Opacity = .6;
+            hideform.ShowInTaskbar = false;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;

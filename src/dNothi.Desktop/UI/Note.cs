@@ -2102,6 +2102,7 @@ namespace dNothi.Desktop.UI
             hideform.BackColor = Color.Black;
             hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
             hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
@@ -3125,7 +3126,9 @@ namespace dNothi.Desktop.UI
         {
             if (!PnlSave.Visible)
             {
-                PnlSave.Location = new System.Drawing.Point(btnSave.Location.X, btnSave.Location.Y);
+                PnlSave.Location = new System.Drawing.Point(pnlNoteList.Width + splitter1.Width + btnSave.Location.X, 
+                    panel2.Height + panel52.Height + panel15.Height + panel34.Height + noteTabpanel.Height + noteSubjectPanel.Height + panel59.Height + splitter3.Height + onucchedActionPanel.Height);
+                //PnlSave.Anchor = AnchorStyles.None;
                 PnlSave.Visible = true;
                 PnlSave.BringToFront();
                 //PnlSave.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
@@ -3140,8 +3143,11 @@ namespace dNothi.Desktop.UI
         {
             if (!PnlSave.Visible)
             {
-                PnlSave.Location = new System.Drawing.Point(btnSave.Location.X, btnSave.Location.Y);
+                PnlSave.Location = new System.Drawing.Point(pnlNoteList.Width + splitter1.Width + btnSave.Location.X,
+                    panel2.Height + panel52.Height + panel15.Height + panel34.Height + noteTabpanel.Height + noteSubjectPanel.Height + panel59.Height + splitter3.Height + onucchedActionPanel.Height);
+                //PnlSave.Anchor = AnchorStyles.None;
                 PnlSave.Visible = true;
+                PnlSave.BringToFront();
                 //PnlSave.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
             }
             else
@@ -9071,6 +9077,25 @@ namespace dNothi.Desktop.UI
                 modulePanel.Visible = false;
                 modulePanel.Width = 334;
             }
+        }
+        Point lastPoint;
+        private void splitter3_MouseMove(object sender, MouseEventArgs e)
+        {
+            PnlSave.Location = new System.Drawing.Point(pnlNoteList.Width + splitter1.Width + btnSave.Location.X,
+                    panel2.Height + panel52.Height + panel15.Height + panel34.Height + noteTabpanel.Height + noteSubjectPanel.Height + panel59.Height + splitter3.Height + onucchedActionPanel.Height);
+        }
+
+        private void splitter3_MouseDown(object sender, MouseEventArgs e)
+        {
+            PnlSave.Location = new System.Drawing.Point(pnlNoteList.Width + splitter1.Width + btnSave.Location.X,
+                    panel2.Height + panel52.Height + panel15.Height + panel34.Height + noteTabpanel.Height + noteSubjectPanel.Height + panel59.Height + splitter3.Height + onucchedActionPanel.Height);
+
+        }
+
+        private void splitter3_MouseMove(object sender, EventArgs e)
+        {
+            PnlSave.Location = new System.Drawing.Point(pnlNoteList.Width + splitter1.Width + btnSave.Location.X,
+                    panel2.Height + panel52.Height + panel15.Height + panel34.Height + noteTabpanel.Height + noteSubjectPanel.Height + panel59.Height + splitter3.Height + onucchedActionPanel.Height);
         }
     }
 }

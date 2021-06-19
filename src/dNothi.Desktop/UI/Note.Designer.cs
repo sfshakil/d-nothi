@@ -85,6 +85,7 @@
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel60 = new System.Windows.Forms.Panel();
             this.fileAddFLP = new System.Windows.Forms.TableLayoutPanel();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel39 = new System.Windows.Forms.Panel();
             this.panel54 = new System.Windows.Forms.Panel();
             this.fileUploadPanel = new System.Windows.Forms.Panel();
@@ -282,7 +283,6 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.noteBackGroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.panel2.SuspendLayout();
@@ -382,7 +382,7 @@
             this.panel2.Controls.Add(this.profilePanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1798, 62);
             this.panel2.TabIndex = 14;
@@ -1220,6 +1220,17 @@
             this.fileAddFLP.Size = new System.Drawing.Size(1022, 0);
             this.fileAddFLP.TabIndex = 55;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressBar1.Location = new System.Drawing.Point(20, 5);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(0);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(1022, 23);
+            this.progressBar1.TabIndex = 57;
+            this.progressBar1.Value = 10;
+            this.progressBar1.Visible = false;
+            // 
             // panel39
             // 
             this.panel39.Controls.Add(this.panel54);
@@ -1340,7 +1351,6 @@
             // 
             this.panel22.AutoScroll = true;
             this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel22.Controls.Add(this.PnlSave);
             this.panel22.Controls.Add(this.tinyMceEditor);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel22.Location = new System.Drawing.Point(0, 0);
@@ -1354,7 +1364,7 @@
             this.PnlSave.Controls.Add(this.btnSaveWithNewOnuchhed);
             this.PnlSave.Controls.Add(this.iconButton20);
             this.PnlSave.Controls.Add(this.btnOnuchhedSave);
-            this.PnlSave.Location = new System.Drawing.Point(761, 2);
+            this.PnlSave.Location = new System.Drawing.Point(759, 4);
             this.PnlSave.Margin = new System.Windows.Forms.Padding(4);
             this.PnlSave.Name = "PnlSave";
             this.PnlSave.Size = new System.Drawing.Size(249, 158);
@@ -1600,6 +1610,13 @@
             this.splitter3.TabIndex = 2;
             this.splitter3.TabStop = false;
             this.splitter3.Paint += new System.Windows.Forms.PaintEventHandler(this.splitter3_Paint);
+            this.splitter3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitter3_MouseDown);
+            this.splitter3.MouseEnter += new System.EventHandler(this.splitter3_MouseMove);
+            this.splitter3.MouseLeave += new System.EventHandler(this.splitter3_MouseMove);
+            this.splitter3.MouseHover += new System.EventHandler(this.splitter3_MouseMove);
+            this.splitter3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitter3_MouseMove);
+            this.splitter3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitter3_MouseMove);
+            this.splitter3.Move += new System.EventHandler(this.splitter3_MouseMove);
             // 
             // noteHeaderPanel
             // 
@@ -1891,7 +1908,7 @@
             this.noteTabpanel.Controls.Add(this.panel38);
             this.noteTabpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.noteTabpanel.Location = new System.Drawing.Point(0, 0);
-            this.noteTabpanel.Margin = new System.Windows.Forms.Padding(4);
+            this.noteTabpanel.Margin = new System.Windows.Forms.Padding(0);
             this.noteTabpanel.Name = "noteTabpanel";
             this.noteTabpanel.Size = new System.Drawing.Size(1083, 50);
             this.noteTabpanel.TabIndex = 62;
@@ -2020,7 +2037,7 @@
             this.panel15.Controls.Add(this.panel21);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel15.Location = new System.Drawing.Point(267, 0);
-            this.panel15.Margin = new System.Windows.Forms.Padding(4);
+            this.panel15.Margin = new System.Windows.Forms.Padding(0);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(1083, 85);
             this.panel15.TabIndex = 62;
@@ -2065,7 +2082,7 @@
             this.panel34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel34.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel34.Location = new System.Drawing.Point(0, 1);
-            this.panel34.Margin = new System.Windows.Forms.Padding(4);
+            this.panel34.Margin = new System.Windows.Forms.Padding(0);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(1083, 1);
             this.panel34.TabIndex = 60;
@@ -4056,7 +4073,7 @@
             this.pnlNoteList.Controls.Add(this.panel7);
             this.pnlNoteList.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNoteList.Location = new System.Drawing.Point(0, 0);
-            this.pnlNoteList.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlNoteList.Margin = new System.Windows.Forms.Padding(0);
             this.pnlNoteList.Name = "pnlNoteList";
             this.pnlNoteList.Size = new System.Drawing.Size(260, 594);
             this.pnlNoteList.TabIndex = 0;
@@ -4067,7 +4084,7 @@
             this.noteViewBodyPanel.Controls.Add(this.noteViewFLP);
             this.noteViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.noteViewBodyPanel.Location = new System.Drawing.Point(0, 184);
-            this.noteViewBodyPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.noteViewBodyPanel.Margin = new System.Windows.Forms.Padding(0);
             this.noteViewBodyPanel.Name = "noteViewBodyPanel";
             this.noteViewBodyPanel.Size = new System.Drawing.Size(260, 357);
             this.noteViewBodyPanel.TabIndex = 70;
@@ -4268,17 +4285,6 @@
             this.noteBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.noteBackGroundWorker_DoWork);
             this.noteBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.noteBackGroundWorker_RunWorkerCompleted);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBar1.Location = new System.Drawing.Point(20, 5);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(0);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1022, 23);
-            this.progressBar1.TabIndex = 57;
-            this.progressBar1.Value = 10;
-            this.progressBar1.Visible = false;
-            // 
             // tinyMceEditor
             // 
             this.tinyMceEditor.AutoScroll = true;
@@ -4309,6 +4315,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1798, 741);
+            this.Controls.Add(this.PnlSave);
             this.Controls.Add(this.pnl);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.pnlNothiNoteTalika);
