@@ -2240,7 +2240,7 @@ namespace dNothi.Desktop.UI
             var search_Param = "nothi_subject="+ nothiSubject + "&nothi_priority="+ priority + "&nothi_type="+ nothiSelectedType.id + "&office_unit_id="+ office.office_unit_id + "&officer_designation_id="+ designation.designation_id + "&last_modified_date="+ last_modified_date + "";
             
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            limitNothiInboxNo = 10;
+            limitNothiInboxNo = 100000;
             pageNoNothiInboxNo = 1;
             pageNoNothiOutboxNo = 1;
             pageNoNothiAllNo = 1;
