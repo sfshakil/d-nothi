@@ -3565,9 +3565,12 @@ namespace dNothi.Desktop.UI
             SelectButton(sender as Button);
 
             FolderListResponse folderListResponse = _dakFolderService.GetFolderList(_dakuserparam);
-
+            
             var dakFolderForm = FormFactory.Create<DakFolderForm>();
-            dakFolderForm.folderListDataDTO = folderListResponse.data;
+            if (folderListResponse != null && folderListResponse.data != null)
+            {
+                dakFolderForm.folderListDataDTO = folderListResponse.data;
+            }
             dakFolderForm.ShowDakListButton += delegate (object showDakListButton, EventArgs showDakListEvent) { ShowDakList_ButtonClick(showDakListButton, showDakListEvent, dakFolderForm._selectedFolderId, dakFolderForm._selectedFolderName); };
 
             CalPopUpWindow(dakFolderForm);
@@ -4396,7 +4399,7 @@ namespace dNothi.Desktop.UI
             }
 
             officerSearchList.itemList = comboBoxItems;
-
+            officerSearchList.isListShown = true;
 
         }
         public void LoadDetailsOffice()

@@ -710,7 +710,7 @@
             // 
             this.dakDescriptionXTextBox.AutoWordSelection = true;
             this.dakDescriptionXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dakDescriptionXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakDescriptionXTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakDescriptionXTextBox.Location = new System.Drawing.Point(8, 5);
             this.dakDescriptionXTextBox.Name = "dakDescriptionXTextBox";
             this.dakDescriptionXTextBox.Size = new System.Drawing.Size(1018, 241);
