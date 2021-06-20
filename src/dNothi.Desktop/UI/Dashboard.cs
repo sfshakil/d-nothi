@@ -4873,7 +4873,7 @@ namespace dNothi.Desktop.UI
         {
             if (!modulePanel.Visible)
             {
-                //  modulePanel.Location = new Point(moduleButton.Location.Y , moduleButton.Location.X + moduleButton.Height);
+                modulePanel.Location = new Point(moduleButton.Location.X+leftMenuBarTableLayoutPanel.Width , moduleButton.Location.Y + moduleButton.Height);
                 modulePanel.Visible = true;
 
 
