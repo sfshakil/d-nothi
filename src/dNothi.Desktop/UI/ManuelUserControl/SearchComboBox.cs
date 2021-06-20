@@ -147,9 +147,11 @@ namespace dNothi.Desktop.UI.ManuelUserControl
                 if(value)
                 {
                     string btnText = searchButton.Text;
-                    searchListBox.DisplayMember = "Name";
+                   
                     searchListBox.DataSource = null;
                     searchListBox.DataSource = _itemList;
+                    searchListBox.DisplayMember = "Name";
+                    searchListBox.ValueMember = "id";
                     searchButtonText = btnText;
                     _id = 0;
                     

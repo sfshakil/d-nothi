@@ -12,5 +12,6 @@ namespace dNothi.JsonParser.Entity.Dak
 
         public string data { get; set; }
         public string message { get; set; }
+        public string details { get; set; }
     }
 }

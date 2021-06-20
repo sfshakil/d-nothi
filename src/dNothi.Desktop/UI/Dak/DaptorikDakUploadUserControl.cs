@@ -23,7 +23,7 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class DaptorikDakUploadUserControl : UserControl
     {
-        public static readonly List<string> ImageExtensions = new List<string> { ".JPG", "JPG","JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG","IMAGE","IMG" };
+        public static readonly List<string> ImageExtensions = new List<string> { ".JPEG", ".JPG", "JPG","JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG","IMAGE","IMG" };
         public static readonly List<string> PdfExtensions = new List<string> { ".PDF","PDF" };
         List<string> PriorityListCollection = new List<string>();
         List<string> SecurityListCollection = new List<string>();
@@ -591,7 +591,7 @@ namespace dNothi.Desktop.UI.Dak
         private void fileUploadButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog opnfd = new OpenFileDialog();
-            opnfd.Filter = "Files (*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
+            opnfd.Filter = "Files (*.jpeg;*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;)|*.jpeg;*.jpg;*.PNG;*.PDF;*.Doc;*.Docx;*.XLS;*.CSV;*.PPT;*.PPTX;*.MP3;*.M4p;*.MP4;";
 
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
@@ -775,9 +775,11 @@ namespace dNothi.Desktop.UI.Dak
         private void searchOfficerRightXTextBox_TextChanged(object sender, EventArgs e)
         {
             searchOfficerRightListBox.DataSource = null;
+          
             if (searchOfficerRightXTextBox.Text == "")
             {
                 PopulateSenderListBox();
+               
 
             }
             else 
@@ -798,11 +800,13 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                    searchOfficerRightListBox.Visible = false;
+                   // searchOfficerRightListBox.Visible = false;
                     //searchOfficerRightResultLabel.Text = "";
                 }
 
             }
+
+            searchOfficerRightPanel.Visible = true;
         }
 
         private void searchOfficerRightButton_Click(object sender, EventArgs e)

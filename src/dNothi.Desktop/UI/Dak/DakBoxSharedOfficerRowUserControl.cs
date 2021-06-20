@@ -42,7 +42,7 @@ namespace dNothi.Desktop.UI.Dak
         private void deleteButton_Click(object sender, EventArgs e)
         {
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
-            conditonBoxForm.message = "আপনি কি নিশ্চিতভাবে সংযুক্তি টি মুছে ফেলতে চান?";
+            conditonBoxForm.message = "আপনি কি নিশ্চিতভাবে মুছে ফেলতে চান?";
             conditonBoxForm.ShowDialog();
 
             if (conditonBoxForm.Yes)

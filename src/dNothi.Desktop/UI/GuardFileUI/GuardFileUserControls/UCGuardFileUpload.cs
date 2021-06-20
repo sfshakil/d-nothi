@@ -255,7 +255,9 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                     flowLayoutPanel1.Controls.Clear();
                     panel3.Show();
                     panel5.Hide();
-                   subjectTextBox.Text = string.Empty;
+                    guardFileTextBox.Text = string.Empty;
+                    subjectTextBox.Text = string.Empty;
+                    typesearchComboBox.searchButtonText = "ধরণ বাছাই করুন";
 
                 }
             }

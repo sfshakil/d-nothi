@@ -905,8 +905,10 @@ namespace dNothi.Services.DakServices
             designationSealAddRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
       
             designationSealAddRequest.AddParameter("designation_id", dakUserParam.designation_id);
-            
+            string cDeskJson = ConversionMethod.ObjecttoJson(dakUserParam);
+
             designationSealAddRequest.AddParameter("seal_info", sealInfo);
+            designationSealAddRequest.AddParameter("seal_user", cDeskJson);
             IRestResponse designationSealAddIRestResponse = designationAddAPI.Execute(designationSealAddRequest);
             var designationSealAddResponseJson = designationSealAddIRestResponse.Content;
 
@@ -926,10 +928,12 @@ namespace dNothi.Services.DakServices
             designationDeleteAPI.Timeout = -1;
             var designationSealDeleteRequest = new RestRequest(Method.POST);
             designationSealDeleteRequest.AddHeader("api-version", GetAPIVersion());
+            string cDeskJson = ConversionMethod.ObjecttoJson(dakUserParam);
+
             designationSealDeleteRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
 
             designationSealDeleteRequest.AddParameter("designation_id", dakUserParam.designation_id);
-
+            designationSealDeleteRequest.AddParameter("seal_user", cDeskJson);
             designationSealDeleteRequest.AddParameter("remove_designation_ids", remove_designation_ids);
             IRestResponse designationSealDeleteIRestResponse = designationDeleteAPI.Execute(designationSealDeleteRequest);
             var designationSealDeleteResponseJson = designationSealDeleteIRestResponse.Content;

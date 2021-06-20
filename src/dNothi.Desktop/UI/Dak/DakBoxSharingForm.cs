@@ -179,7 +179,6 @@ namespace dNothi.Desktop.UI.Dak
 
             officerSearchList.itemList = comboBoxItems;
             officerSearchList.isListShown = true;
-
         }
 
         private void LoadAssignOfficerList()
@@ -223,8 +222,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-
-       private void DeleteControl_ButtonClick(Object sender,EventArgs e, int assignee_designation_id)
+        private void DeleteControl_ButtonClick(Object sender,EventArgs e, int assignee_designation_id)
         {
             var data = _dakSharingService.Delete(_userService.GetLocalDakUserParam(), assignee_designation_id);
             if(data.status=="success")
@@ -244,9 +242,9 @@ namespace dNothi.Desktop.UI.Dak
         private void DakBoxSharingForm_Shown(object sender, EventArgs e)
         {
             LoadOfficer();
+           
             LoadAssignOfficerList();
         }
-
         private void prerokBachaiOfficerButton_Click(object sender, EventArgs e)
         {
             var userParam = _userService.GetLocalDakUserParam();
@@ -259,15 +257,19 @@ namespace dNothi.Desktop.UI.Dak
                 if (response.status == "success")
                 {
                     alartMessage.SuccessMessage("ডাক বক্সটি সফলভাবে হস্তান্তর করা হয়েছে।");
-                  
-                    officerSearchList.selectedId = 0;
-                    officerSearchList.searchButtonText = "নাম / পদবী দিয়ে খুঁজুন";
+
+                     LoadOfficer();
+                     officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
+                     officerSearchList.selectedId = 0;
+                   
                 }
                 else
                 {
                     alartMessage.ErrorMessage("ডাক বক্সটি হস্তান্তর করা সফল হয়নি।");
                 }
+                
                 LoadAssignOfficerList();
+               
             }
             else
             {

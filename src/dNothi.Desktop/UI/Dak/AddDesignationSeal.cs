@@ -737,7 +737,7 @@ namespace dNothi.Desktop.UI.Dak
             conditonBoxForm.ShowDialog(this);
                 if (conditonBoxForm.Yes)
             {
-                
+                //this.Hide();
                 //this.WindowState = FormWindowState.Minimized;
                 var form = FormFactory.Create<Dashboard>();
                 List<PrapokDTO> designationSealResponse = _ownOfficeDesignationList.Where(a => a.isofficerAdded == true).ToList();
