@@ -71,6 +71,8 @@ namespace dNothi.Desktop.UI.Dak
         }
         public static readonly List<string> DOCExtensions = new List<string> { ".DOC", "DOC", ".DOCX", "DOCX" };
         public static readonly List<string> CSVExtensions = new List<string> { ".CSV", "CSV" };
+        public static readonly List<string> MP4Extensions = new List<string> { ".MP4", "MP4" };
+        public static readonly List<string> PDFExtensions = new List<string> { ".PDF", "PDF" };
         public static readonly List<string> XLSExtensions = new List<string> { ".XLS", "XLS", ".XLSX", "XLSX" };
         public void fileAddInFilePanel(AttachmentDTO attachment)
         {
@@ -92,6 +94,26 @@ namespace dNothi.Desktop.UI.Dak
                 fileusercontrol.fileDownloadLink = attachment.download_url;
                 fileusercontrol.fileViewLink = attachment.url;
                 fileusercontrol.csvExtension();
+                UIDesignCommonMethod.AddRowinTable(fileFLP, fileusercontrol);
+            }
+            else if (MP4Extensions.Contains(new System.IO.FileInfo(attachment.user_file_name).Extension.ToUpperInvariant()))
+            {
+                var fileusercontrol = UserControlFactory.Create<FileUserControl>();
+                fileusercontrol.fileName = attachment.user_file_name;
+                fileusercontrol.fileSize = attachment.file_size_in_kb.ToString();
+                fileusercontrol.fileDownloadLink = attachment.download_url;
+                fileusercontrol.fileViewLink = attachment.url;
+                fileusercontrol.mp4Extension();
+                UIDesignCommonMethod.AddRowinTable(fileFLP, fileusercontrol);
+            }
+            else if (PDFExtensions.Contains(new System.IO.FileInfo(attachment.user_file_name).Extension.ToUpperInvariant()))
+            {
+                var fileusercontrol = UserControlFactory.Create<FileUserControl>();
+                fileusercontrol.fileName = attachment.user_file_name;
+                fileusercontrol.fileSize = attachment.file_size_in_kb.ToString();
+                fileusercontrol.fileDownloadLink = attachment.download_url;
+                fileusercontrol.fileViewLink = attachment.url;
+                fileusercontrol.pdfExtension();
                 UIDesignCommonMethod.AddRowinTable(fileFLP, fileusercontrol);
             }
             else if (XLSExtensions.Contains(new System.IO.FileInfo(attachment.user_file_name).Extension.ToUpperInvariant()))

@@ -11,5 +11,6 @@ namespace dNothi.Services.NothiServices
     public interface IOnumodonService
     {
         OnumodonResponse GetOnumodonMembers(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecords);
+        OnumodonResponse GetNoteOnumodonMembers(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecords, string noteId);
     }
 }

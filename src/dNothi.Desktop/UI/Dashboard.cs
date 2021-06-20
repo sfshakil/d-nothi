@@ -2647,12 +2647,27 @@ namespace dNothi.Desktop.UI
         private void DakForwoard(bool isPreron,DakListRecordsDTO daks)
         {
             string comment = string.Empty;
+            
+            var userParam = _userService.GetLocalDakUserParam();
+            PrapokDTO receiver_info = new PrapokDTO();
+            DakForwardRequestSenderInfo dakSender = new DakForwardRequestSenderInfo();
+            DakForwardRequestParam dakForwardRequestParam = new DakForwardRequestParam();
+
             if (isPreron)
             {
                  comment = "নথিতে উপস্থাপন করুন";
+               
+                ToDTO toDTOs = daks.movement_status.to.FirstOrDefault(a => a.attention_type == "1");
+                dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(toDTOs);
             }
             else
             {
+               
+
+                DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(userParam);
+
+                receiver_info = designationSealListResponse.data.own_office.FirstOrDefault();
+                dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
                 comment = "চেক করুন";
 
             }
@@ -2661,10 +2676,6 @@ namespace dNothi.Desktop.UI
             conditonBoxForm.ShowDialog();
             if (conditonBoxForm.Yes)
             {
-
-                DakForwardRequestParam dakForwardRequestParam = new DakForwardRequestParam();
-
-                var userParam = _userService.GetLocalDakUserParam();
                 DakPriorityList dakPriority = new DakPriorityList();
                 int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(daks.dak_user.dak_priority));
 
@@ -2680,24 +2691,15 @@ namespace dNothi.Desktop.UI
                 dakForwardRequestParam.comment = comment;
                 dakForwardRequestParam.token = userParam.token;
 
+
                 var config = new MapperConfiguration(cfg =>
                           cfg.CreateMap<DakUserParam, DakForwardRequestSenderInfo>()
                       );
                 var mapper = new Mapper(config);
-                var dakSender = mapper.Map<DakForwardRequestSenderInfo>(userParam);
+                dakSender = mapper.Map<DakForwardRequestSenderInfo>(userParam);
 
 
                 dakForwardRequestParam.sender_info = dakForwardRequestParam.CSharpObjtoJson(dakSender);
-
-
-                DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(userParam);
-
-                var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault();
-                dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
-
-                //var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
-                //dakForwardRequestParam.receiver_info = dakForwardRequestParam.CSharpObjtoJson(receiver_info);
-
 
                 List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
                
@@ -2719,7 +2721,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    alartMessage.ErrorMessage("পুনরায় চেষ্টা করুন।");
+                    alartMessage.ErrorMessage(dakForwardResponse.message);
                 }
             }
         }
@@ -3822,7 +3824,7 @@ namespace dNothi.Desktop.UI
 
                 // dakSortedUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
                 // dakSortedUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
-                //dakSortedUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
+                dakSortedUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
                 dakSortedUserControl.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakSortedUserControl.DakArchiveButtonClick += delegate (object sender, EventArgs e) { DakArchive_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
                 dakSortedUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };

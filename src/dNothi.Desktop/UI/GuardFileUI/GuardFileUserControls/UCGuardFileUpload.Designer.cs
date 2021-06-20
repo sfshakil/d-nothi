@@ -92,7 +92,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(850, 330);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(850, 396);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -101,7 +101,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel7, 2);
             this.panel7.Controls.Add(this.SubmitButton);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 299);
+            this.panel7.Location = new System.Drawing.Point(3, 351);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(844, 34);
             this.panel7.TabIndex = 71;
@@ -362,7 +362,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 233);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(847, 60);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(847, 112);
             this.flowLayoutPanel1.TabIndex = 34;
             // 
             // panel4
@@ -389,7 +389,7 @@
             this.label6.Size = new System.Drawing.Size(844, 22);
             this.label6.TabIndex = 1;
             this.label6.Text = "(সর্বোচ্চ ১টি মাত্র সংযুক্তি দেওয়া যাবে, এবং শুধু মাত্র ইমেজ অথবা পি.ডি.এফ দেওয়া " +
-    "যাবে। )";
+    "যাবে ।)";
             // 
             // label5
             // 
@@ -432,7 +432,7 @@
             this.Location = new System.Drawing.Point(10, 20);
             this.Name = "UCGuardFileUpload";
             this.Padding = new System.Windows.Forms.Padding(8);
-            this.Size = new System.Drawing.Size(866, 346);
+            this.Size = new System.Drawing.Size(866, 412);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCGuardFileUpload_Paint);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);

@@ -14,6 +14,7 @@ namespace dNothi.Core.Entities
         public int designation_id { get; set; }
         public int note_id { get; set; }
         public string note_no { get; set; }
+        public string local_nothi_type { get; set; }
         public string note_subject { get; set; }
         public string office_unit_name { get; set; }
         public string nothi_no { get; set; }
