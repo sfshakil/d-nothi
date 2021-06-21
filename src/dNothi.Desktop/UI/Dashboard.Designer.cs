@@ -1895,7 +1895,7 @@
             this.dakBacaikarnMenuPanel.Location = new System.Drawing.Point(0, 530);
             this.dakBacaikarnMenuPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakBacaikarnMenuPanel.Name = "dakBacaikarnMenuPanel";
-            this.dakBacaikarnMenuPanel.Size = new System.Drawing.Size(234, 37);
+            this.dakBacaikarnMenuPanel.Size = new System.Drawing.Size(234, 46);
             this.dakBacaikarnMenuPanel.TabIndex = 64;
             // 
             // dakBacaiDownArrow
@@ -1915,11 +1915,11 @@
             this.dakBacaiDownArrow.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakBacaiDownArrow.IconSize = 16;
             this.dakBacaiDownArrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakBacaiDownArrow.Location = new System.Drawing.Point(194, 0);
+            this.dakBacaiDownArrow.Location = new System.Drawing.Point(180, 0);
             this.dakBacaiDownArrow.Margin = new System.Windows.Forms.Padding(0);
             this.dakBacaiDownArrow.Name = "dakBacaiDownArrow";
-            this.dakBacaiDownArrow.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.dakBacaiDownArrow.Size = new System.Drawing.Size(40, 37);
+            this.dakBacaiDownArrow.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakBacaiDownArrow.Size = new System.Drawing.Size(54, 46);
             this.dakBacaiDownArrow.TabIndex = 65;
             this.dakBacaiDownArrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dakBacaiDownArrow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1945,11 +1945,11 @@
             this.dakSortedUserButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dakSortedUserButton.Location = new System.Drawing.Point(0, 0);
             this.dakSortedUserButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakSortedUserButton.MaximumSize = new System.Drawing.Size(176, 37);
-            this.dakSortedUserButton.MinimumSize = new System.Drawing.Size(176, 37);
+            this.dakSortedUserButton.MaximumSize = new System.Drawing.Size(234, 46);
+            this.dakSortedUserButton.MinimumSize = new System.Drawing.Size(234, 46);
             this.dakSortedUserButton.Name = "dakSortedUserButton";
-            this.dakSortedUserButton.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.dakSortedUserButton.Size = new System.Drawing.Size(176, 37);
+            this.dakSortedUserButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakSortedUserButton.Size = new System.Drawing.Size(234, 46);
             this.dakSortedUserButton.TabIndex = 45;
             this.dakSortedUserButton.TabStop = false;
             this.dakSortedUserButton.Text = "   ডাক বাছাইকরণ";
@@ -2029,7 +2029,7 @@
             this.panel6.Controls.Add(this.registerMenuArrow);
             this.panel6.Controls.Add(this.registerButton);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 576);
+            this.panel6.Location = new System.Drawing.Point(3, 585);
             this.panel6.MaximumSize = new System.Drawing.Size(234, 46);
             this.panel6.MinimumSize = new System.Drawing.Size(234, 46);
             this.panel6.Name = "panel6";
@@ -2097,7 +2097,7 @@
             this.panel2.Controls.Add(this.protibedonMenuArrow);
             this.panel2.Controls.Add(this.protibedonButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 728);
+            this.panel2.Location = new System.Drawing.Point(3, 737);
             this.panel2.MaximumSize = new System.Drawing.Size(234, 46);
             this.panel2.MinimumSize = new System.Drawing.Size(234, 46);
             this.panel2.Name = "panel2";
@@ -2168,7 +2168,7 @@
             this.protibedonPanel.Controls.Add(this.resolvedReportButton);
             this.protibedonPanel.Controls.Add(this.pendingReportButton);
             this.protibedonPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.protibedonPanel.Location = new System.Drawing.Point(0, 777);
+            this.protibedonPanel.Location = new System.Drawing.Point(0, 786);
             this.protibedonPanel.Margin = new System.Windows.Forms.Padding(0);
             this.protibedonPanel.Name = "protibedonPanel";
             this.protibedonPanel.Size = new System.Drawing.Size(234, 160);
@@ -2302,7 +2302,7 @@
             this.registerPanel.Controls.Add(this.registerBiliButton);
             this.registerPanel.Controls.Add(this.registerGrohonButton);
             this.registerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.registerPanel.Location = new System.Drawing.Point(0, 625);
+            this.registerPanel.Location = new System.Drawing.Point(0, 634);
             this.registerPanel.Margin = new System.Windows.Forms.Padding(0);
             this.registerPanel.Name = "registerPanel";
             this.registerPanel.Size = new System.Drawing.Size(234, 100);
@@ -2385,7 +2385,7 @@
             // 
             this.label12.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(2, 571);
+            this.label12.Location = new System.Drawing.Point(2, 580);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(230, 2);
@@ -2404,12 +2404,12 @@
             // 
             this.dakSortingUserFlowLayoutPanel.AutoSize = true;
             this.dakSortingUserFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(2, 569);
+            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(2, 578);
             this.dakSortingUserFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.dakSortingUserFlowLayoutPanel.MaximumSize = new System.Drawing.Size(170, 0);
-            this.dakSortingUserFlowLayoutPanel.MinimumSize = new System.Drawing.Size(170, 0);
+            this.dakSortingUserFlowLayoutPanel.MaximumSize = new System.Drawing.Size(234, 0);
+            this.dakSortingUserFlowLayoutPanel.MinimumSize = new System.Drawing.Size(234, 0);
             this.dakSortingUserFlowLayoutPanel.Name = "dakSortingUserFlowLayoutPanel";
-            this.dakSortingUserFlowLayoutPanel.Size = new System.Drawing.Size(170, 0);
+            this.dakSortingUserFlowLayoutPanel.Size = new System.Drawing.Size(234, 0);
             this.dakSortingUserFlowLayoutPanel.TabIndex = 34;
             this.dakSortingUserFlowLayoutPanel.Visible = false;
             // 
@@ -3431,7 +3431,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(115, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 24);
+            this.label14.Size = new System.Drawing.Size(107, 24);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
