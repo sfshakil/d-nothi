@@ -1394,7 +1394,9 @@ namespace dNothi.Desktop.UI
             var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, _nothiAllListDTO.nothi.id.ToString(), "all");
             noteView.totalNothi = "0";
 
-           NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
+           
+            NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
+            var NoteRecords = new NothiListInboxNoteRecordsDTO();
             try
             {
 
@@ -1411,6 +1413,8 @@ namespace dNothi.Desktop.UI
                             form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
 
                         }
+                        NoteRecords = nothiInboxNote.data.records.FirstOrDefault(a => a.note.nothi_note_id == Convert.ToInt32(_noteSelected.note_id));
+                        
 
                     }
                 }
@@ -1435,12 +1439,24 @@ namespace dNothi.Desktop.UI
             noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
             noteView.checkBox = "1";
             noteView.nothiNoteID = Convert.ToInt32(_noteSelected.note_id);
-            noteView.onucchedCount = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
-            noteView.khosraPotro = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
-            noteView.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
-            noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
-            noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
-            noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
+            
+            try {
+                noteView.onucchedCount = NoteRecords.note.onucched_count.ToString();
+                noteView.khosraPotro = NoteRecords.note.khoshra_potro.ToString();
+                noteView.khoshraWaiting = NoteRecords.note.khoshra_waiting_for_approval.ToString();
+                noteView.approved = NoteRecords.note.approved_potro.ToString();
+                noteView.potrojari = NoteRecords.note.potrojari.ToString();
+                noteView.nothivukto = NoteRecords.note.nothivukto_potro.ToString(); } 
+            catch {
+                //noteView.onucchedCount = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+                //noteView.khosraPotro = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+                //noteView.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
+                //noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
+                //noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
+                //noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
+                }
+            
+            
 
             form.noteTotal = _noteSelected.note_no.ToString();
 
