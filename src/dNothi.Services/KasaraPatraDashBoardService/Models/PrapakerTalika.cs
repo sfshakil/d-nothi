@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dNothi.JsonParser.Entity.Dak;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -136,12 +137,12 @@ namespace dNothi.Services.KasaraPatraDashBoardService.Models
         }
         public class Data
         {
-            public List<Drafter> drafter { get; set; }
-            public List<Receiver> receiver { get; set; }
-            public List<Onulipi> onulipi { get; set; }
-            public List<Approver> approver { get; set; }
-            public List<Attention> attention { get; set; }
-            public List<Sender> sender { get; set; }
+            public List<PrapokDTO> drafter { get; set; }
+            public List<PrapokDTO> receiver { get; set; }
+            public List<PrapokDTO> onulipi { get; set; }
+            public List<PrapokDTO> approver { get; set; }
+            public List<PrapokDTO> attention { get; set; }
+            public List<PrapokDTO> sender { get; set; }
         }
 
         public class Root

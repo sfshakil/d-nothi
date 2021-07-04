@@ -2,6 +2,7 @@
 using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Khosra;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.KasaraPatraDashBoardService;
@@ -363,14 +364,14 @@ namespace dNothi.Desktop.UI
                     commonKhosraRowUserControl.kasaraPotterNam = item.Basic.PotroTypeName;
                     commonKhosraRowUserControl.noteVisible = subcontrol.Item4;
                     commonKhosraRowUserControl.noteNo = subcontrol.Item5;
-                   
+                    var mapmodel = MappingModel(item);
                     commonKhosraRowUserControl.isDraft = v;
                     //commonKhosraRowUserControl.Record = item;
                     commonKhosraRowUserControl.attachmentButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_attachmentButtonClick(sender, e,item); };
-                    commonKhosraRowUserControl.sampadanButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_sampadanButtonClick(sender, e, item); };
+                    commonKhosraRowUserControl.sampadanButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_sampadanButtonClick(sender, e, item, mapmodel); };
                     commonKhosraRowUserControl.PrapakListButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_PrapakListButtonClick(sender, e,item.Basic.Id); };
                     // commonKhosraRowUserControl.viewButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_viewButtonClick(sender, e); };
-                    var mapmodel = MappingModel(item);
+                   
                     commonKhosraRowUserControl.viewButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_NoteDetails_ButtonClick(mapmodel.Item1, e, mapmodel.Item2, mapmodel.Item3); };
 
                     UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl);
@@ -470,29 +471,64 @@ namespace dNothi.Desktop.UI
             }
             return dakAttachmentResponse;
         }
-        private void commonKhosraRowUserControl_sampadanButtonClick(object sender, EventArgs e, KasaraPotro.Record kasaraPotro)
+        private void commonKhosraRowUserControl_sampadanButtonClick(object sender, EventArgs e, KasaraPotro.Record kasaraPotro, (NoteListDataRecordNoteDTO, NothiListRecordsDTO, NothiListInboxNoteRecordsDTO) mapmodel)
         {
            
             var khosra = FormFactory.Create<Khosra>();
             var dakListUserParam = _userService.GetLocalDakUserParam();
             dakListUserParam.limit = 10;
             var prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, kasaraPotro.Basic.Id);
-            
+            KhasraPotroTemplateDataDTO khasraPotroTemplateData = new KhasraPotroTemplateDataDTO();
+            if (kasaraPotro.NoteOwner != null)
+            {
+                NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
+                NothiListAllRecordsDTO nothiListAllRecordsDTO = new NothiListAllRecordsDTO();
+               
+                noteNothiDTO.note_id = Convert.ToString(kasaraPotro.Basic.NothiNoteId);
+                noteNothiDTO.id = kasaraPotro.Basic.NothiMasterId;
+                noteNothiDTO.note_subject = kasaraPotro.NoteOwner.NoteSubject;
+                string branchName = kasaraPotro.NoteOwner.OfficeUnit;
+                string nothiName = kasaraPotro.NoteOwner.NothiSubject;
+                khasraPotroTemplateData.potrojari_id = kasaraPotro.NoteOwner.Potrojari;
+                khosra.NothiKhosrajato(noteNothiDTO, branchName, nothiName, nothiListAllRecordsDTO);
+                khosra.SetSarokNo(kasaraPotro.Basic.SarokNo);
+            }
+            khosra.draft_id = kasaraPotro.Basic.Id;
+            khosra._noteListDataRecordNoteDTO = mapmodel.Item1;
+            khosra._nothiListRecordsDTO = mapmodel.Item2;
+            khosra._nothiListInboxNoteRecordsDTO = mapmodel.Item3;
+
+            var attachment = GetAllMulPattraAndSanjukti(kasaraPotro);
+            khosra.draftAttachmentDTOs = attachment != null ? attachment.data : null;
+            khosra.kasaradashboardHtmlContent = Base64Conversion.Base64ToHtmlContent(kasaraPotro.Mulpotro.PotroDescription);
+
+          
+            khasraPotroTemplateData.template_id = kasaraPotro.Basic.PotroType;
+            khasraPotroTemplateData.template_name = kasaraPotro.Basic.PotroTypeName;
+           
+            khasraPotroTemplateData.html_content = Base64Conversion.Base64ToHtmlContent(kasaraPotro.Mulpotro.PotroDescription);
+
+            khosra._khasraPotroTemplateData = khasraPotroTemplateData;
+
+
+
             if (prapakerTalika.status == "success")
             {
 
-                var attachment = GetAllMulPattraAndSanjukti(kasaraPotro);
+              
                 khosra.LoadAllDesignation();
-                khosra.draftAttachmentDTOs= attachment != null? attachment.data:null;
-                khosra.kasaradashboardHtmlContent = Base64Conversion.Base64ToHtmlContent(kasaraPotro.Mulpotro.PotroDescription);
+               
+               
                 khosra.onulipiOfficerDesignations = prapakerTalika.data.onulipi;
                 khosra.onumodanKariOfficerDesignations = prapakerTalika.data.approver;
                 khosra.prapakOfficerDesignations = prapakerTalika.data.receiver;
                 khosra.prerokOfficerDesignations = prapakerTalika.data.sender;
                 khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
             }
-
+            //this.ShowInTaskbar = false;
             khosra.Show();
+            //this.ShowInTaskbar = true;
+
         }
         private void commonKhosraRowUserControl_PrapakListButtonClick(object sender, EventArgs e,int nodeId)
         {
