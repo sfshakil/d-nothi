@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace dNothi.Services.GuardFile
 {
-    public class GuardFileService<T,U> : IGuardFileService<T,U> where T:class   where U:class
+    public class GuardFileService<ResponseData,Inputparam> : IGuardFileService<ResponseData, Inputparam> where ResponseData : class   where Inputparam : class
     {
        
-        public T GetList(DakUserParam userParam, int actionLink)
+        public ResponseData GetList(DakUserParam userParam, int actionLink)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace dNothi.Services.GuardFile
 
                 var responseJson = Response.Content;
 
-                T guardfilelist = JsonConvert.DeserializeObject<T>(responseJson);
+                ResponseData guardfilelist = JsonConvert.DeserializeObject<ResponseData>(responseJson);
                 return guardfilelist;
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace dNothi.Services.GuardFile
             }
         }
 
-        public ResponseEdit Insert(DakUserParam userParam, int actionLink, string model,U data)
+        public ResponseEdit Insert(DakUserParam userParam, int actionLink, string model, Inputparam data)
         {
           
             try

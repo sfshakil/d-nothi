@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.HorizontalLine = new System.Windows.Forms.Label();
+            this.officerCircularPictureBox = new dNothi.Desktop.CircularPictureBox();
             this.dateLabel = new System.Windows.Forms.Label();
             this.decisionLabel = new System.Windows.Forms.Label();
             this.descriptionPanel = new System.Windows.Forms.Panel();
             this.movementStatusdetailsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.securityPanel = new System.Windows.Forms.Panel();
-            this.dakSecurityIcon = new System.Windows.Forms.Panel();
-            this.priorityPanel = new System.Windows.Forms.Panel();
-            this.prioriyLabel = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.dakSecurityLabel = new System.Windows.Forms.Label();
             this.dakMovementStatusListUserControl1 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
             this.dakMovementStatusListUserControl3 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
             this.dakMovementStatusListUserControl2 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
             this.dakMovementStatusListUserControl4 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
             this.dakMovementStatusListUserControl5 = new dNothi.Desktop.UI.Dak.DakMovementStatusListUserControl();
-            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
-            this.officerCircularPictureBox = new dNothi.Desktop.CircularPictureBox();
+            this.securityPanel = new System.Windows.Forms.Panel();
+            this.dakSecurityLabel = new System.Windows.Forms.Label();
+            this.dakSecurityIcon = new System.Windows.Forms.Panel();
+            this.priorityPanel = new System.Windows.Forms.Panel();
+            this.prioriyLabel = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.LeftPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).BeginInit();
             this.descriptionPanel.SuspendLayout();
             this.movementStatusdetailsFlowLayoutPanel.SuspendLayout();
             this.securityPanel.SuspendLayout();
             this.priorityPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // LeftPanel
@@ -67,6 +67,14 @@
             this.LeftPanel.Size = new System.Drawing.Size(75, 357);
             this.LeftPanel.TabIndex = 2;
             // 
+            // movementStatusSliderPanel1
+            // 
+            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(58, 1);
+            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
+            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(74, 86);
+            this.movementStatusSliderPanel1.TabIndex = 0;
+            // 
             // HorizontalLine
             // 
             this.HorizontalLine.BackColor = System.Drawing.Color.LightGray;
@@ -76,6 +84,16 @@
             this.HorizontalLine.Name = "HorizontalLine";
             this.HorizontalLine.Size = new System.Drawing.Size(1, 300);
             this.HorizontalLine.TabIndex = 0;
+            // 
+            // officerCircularPictureBox
+            // 
+            this.officerCircularPictureBox.BackgroundImage = global::dNothi.Desktop.Properties.Resources.নাগরিক_Icon_PNG;
+            this.officerCircularPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.officerCircularPictureBox.Location = new System.Drawing.Point(4, 7);
+            this.officerCircularPictureBox.Name = "officerCircularPictureBox";
+            this.officerCircularPictureBox.Size = new System.Drawing.Size(50, 47);
+            this.officerCircularPictureBox.TabIndex = 0;
+            this.officerCircularPictureBox.TabStop = false;
             // 
             // dateLabel
             // 
@@ -99,7 +117,7 @@
             this.decisionLabel.MaximumSize = new System.Drawing.Size(424, 0);
             this.decisionLabel.Name = "decisionLabel";
             this.decisionLabel.Padding = new System.Windows.Forms.Padding(10, 5, 0, 10);
-            this.decisionLabel.Size = new System.Drawing.Size(210, 35);
+            this.decisionLabel.Size = new System.Drawing.Size(212, 35);
             this.decisionLabel.TabIndex = 21;
             this.decisionLabel.Text = "সদয় সিদ্ধান্তের জন্যে প্রেরণ করা হলো";
             // 
@@ -132,81 +150,6 @@
             this.movementStatusdetailsFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.movementStatusdetailsFlowLayoutPanel.Size = new System.Drawing.Size(415, 230);
             this.movementStatusdetailsFlowLayoutPanel.TabIndex = 25;
-            // 
-            // securityPanel
-            // 
-            this.securityPanel.AutoSize = true;
-            this.securityPanel.Controls.Add(this.dakSecurityLabel);
-            this.securityPanel.Controls.Add(this.dakSecurityIcon);
-            this.securityPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.securityPanel.Location = new System.Drawing.Point(0, 31);
-            this.securityPanel.Name = "securityPanel";
-            this.securityPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.securityPanel.Size = new System.Drawing.Size(415, 30);
-            this.securityPanel.TabIndex = 24;
-            // 
-            // dakSecurityIcon
-            // 
-            this.dakSecurityIcon.BackColor = System.Drawing.Color.Transparent;
-            this.dakSecurityIcon.BackgroundImage = global::dNothi.Desktop.Properties.Resources.সীমিত_Icon_PNG2;
-            this.dakSecurityIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.dakSecurityIcon.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSecurityIcon.Location = new System.Drawing.Point(2, 3);
-            this.dakSecurityIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.dakSecurityIcon.Name = "dakSecurityIcon";
-            this.dakSecurityIcon.Size = new System.Drawing.Size(28, 22);
-            this.dakSecurityIcon.TabIndex = 21;
-            // 
-            // priorityPanel
-            // 
-            this.priorityPanel.AutoSize = true;
-            this.priorityPanel.Controls.Add(this.prioriyLabel);
-            this.priorityPanel.Controls.Add(this.panel5);
-            this.priorityPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.priorityPanel.Location = new System.Drawing.Point(0, 0);
-            this.priorityPanel.Name = "priorityPanel";
-            this.priorityPanel.Size = new System.Drawing.Size(415, 31);
-            this.priorityPanel.TabIndex = 23;
-            // 
-            // prioriyLabel
-            // 
-            this.prioriyLabel.AutoSize = true;
-            this.prioriyLabel.BackColor = System.Drawing.Color.Transparent;
-            this.prioriyLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prioriyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.prioriyLabel.Location = new System.Drawing.Point(30, 4);
-            this.prioriyLabel.Name = "prioriyLabel";
-            this.prioriyLabel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.prioriyLabel.Size = new System.Drawing.Size(160, 20);
-            this.prioriyLabel.TabIndex = 11;
-            this.prioriyLabel.Text = "uhgsdjfjdasgf hagfda h abvf";
-            this.prioriyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.BackgroundImage = global::dNothi.Desktop.Properties.Resources.icons8_high_priority_24;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(2, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(28, 25);
-            this.panel5.TabIndex = 12;
-            // 
-            // dakSecurityLabel
-            // 
-            this.dakSecurityLabel.AutoSize = true;
-            this.dakSecurityLabel.BackColor = System.Drawing.Color.Transparent;
-            this.dakSecurityLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSecurityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dakSecurityLabel.Location = new System.Drawing.Point(31, 3);
-            this.dakSecurityLabel.Name = "dakSecurityLabel";
-            this.dakSecurityLabel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.dakSecurityLabel.Size = new System.Drawing.Size(57, 20);
-            this.dakSecurityLabel.TabIndex = 13;
-            this.dakSecurityLabel.Text = "qwerqrer";
-            this.dakSecurityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dakSecurityLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // dakMovementStatusListUserControl1
             // 
@@ -283,23 +226,80 @@
     "রাম";
             this.dakMovementStatusListUserControl5.userType = "";
             // 
-            // movementStatusSliderPanel1
+            // securityPanel
             // 
-            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(58, 1);
-            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
-            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(74, 86);
-            this.movementStatusSliderPanel1.TabIndex = 0;
+            this.securityPanel.AutoSize = true;
+            this.securityPanel.Controls.Add(this.dakSecurityLabel);
+            this.securityPanel.Controls.Add(this.dakSecurityIcon);
+            this.securityPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.securityPanel.Location = new System.Drawing.Point(0, 31);
+            this.securityPanel.Name = "securityPanel";
+            this.securityPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.securityPanel.Size = new System.Drawing.Size(415, 30);
+            this.securityPanel.TabIndex = 24;
             // 
-            // officerCircularPictureBox
+            // dakSecurityLabel
             // 
-            this.officerCircularPictureBox.BackgroundImage = global::dNothi.Desktop.Properties.Resources.DamiProfile;
-            this.officerCircularPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.officerCircularPictureBox.Location = new System.Drawing.Point(4, 7);
-            this.officerCircularPictureBox.Name = "officerCircularPictureBox";
-            this.officerCircularPictureBox.Size = new System.Drawing.Size(59, 56);
-            this.officerCircularPictureBox.TabIndex = 0;
-            this.officerCircularPictureBox.TabStop = false;
+            this.dakSecurityLabel.AutoSize = true;
+            this.dakSecurityLabel.BackColor = System.Drawing.Color.Transparent;
+            this.dakSecurityLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSecurityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dakSecurityLabel.Location = new System.Drawing.Point(31, 3);
+            this.dakSecurityLabel.Name = "dakSecurityLabel";
+            this.dakSecurityLabel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.dakSecurityLabel.Size = new System.Drawing.Size(57, 20);
+            this.dakSecurityLabel.TabIndex = 13;
+            this.dakSecurityLabel.Text = "qwerqrer";
+            this.dakSecurityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dakSecurityLabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // dakSecurityIcon
+            // 
+            this.dakSecurityIcon.BackColor = System.Drawing.Color.Transparent;
+            this.dakSecurityIcon.BackgroundImage = global::dNothi.Desktop.Properties.Resources.সীমিত_Icon_PNG2;
+            this.dakSecurityIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.dakSecurityIcon.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSecurityIcon.Location = new System.Drawing.Point(2, 3);
+            this.dakSecurityIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSecurityIcon.Name = "dakSecurityIcon";
+            this.dakSecurityIcon.Size = new System.Drawing.Size(28, 22);
+            this.dakSecurityIcon.TabIndex = 21;
+            // 
+            // priorityPanel
+            // 
+            this.priorityPanel.AutoSize = true;
+            this.priorityPanel.Controls.Add(this.prioriyLabel);
+            this.priorityPanel.Controls.Add(this.panel5);
+            this.priorityPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.priorityPanel.Location = new System.Drawing.Point(0, 0);
+            this.priorityPanel.Name = "priorityPanel";
+            this.priorityPanel.Size = new System.Drawing.Size(415, 31);
+            this.priorityPanel.TabIndex = 23;
+            // 
+            // prioriyLabel
+            // 
+            this.prioriyLabel.AutoSize = true;
+            this.prioriyLabel.BackColor = System.Drawing.Color.Transparent;
+            this.prioriyLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prioriyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.prioriyLabel.Location = new System.Drawing.Point(30, 4);
+            this.prioriyLabel.Name = "prioriyLabel";
+            this.prioriyLabel.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.prioriyLabel.Size = new System.Drawing.Size(160, 20);
+            this.prioriyLabel.TabIndex = 11;
+            this.prioriyLabel.Text = "uhgsdjfjdasgf hagfda h abvf";
+            this.prioriyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.BackgroundImage = global::dNothi.Desktop.Properties.Resources.icons8_high_priority_24;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.Location = new System.Drawing.Point(2, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(28, 25);
+            this.panel5.TabIndex = 12;
             // 
             // MovementStatusLeftSidePicUserControl
             // 
@@ -316,6 +316,7 @@
             this.Size = new System.Drawing.Size(515, 357);
             this.Load += new System.EventHandler(this.MovementStatusLeftSidePicUserControl_Load);
             this.LeftPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).EndInit();
             this.descriptionPanel.ResumeLayout(false);
             this.descriptionPanel.PerformLayout();
             this.movementStatusdetailsFlowLayoutPanel.ResumeLayout(false);
@@ -324,7 +325,6 @@
             this.securityPanel.PerformLayout();
             this.priorityPanel.ResumeLayout(false);
             this.priorityPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.officerCircularPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

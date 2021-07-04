@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace dNothi.Services.GuardFile
 {
-   public interface IGuardFileService<T,U> where T:class where U:class 
+   public interface IGuardFileService<ResponseData, InputParam> where ResponseData : class where InputParam : class 
     {
-        T GetList(DakUserParam obj, int actionLink);
-        ResponseEdit Insert(DakUserParam userParam, int actionLink, string model, U data);
+        ResponseData GetList(DakUserParam obj, int actionLink);
+        ResponseEdit Insert(DakUserParam userParam, int actionLink, string model, InputParam data);
         DeleteResponse Delete(DakUserParam obj, int actionLink,int id,string model);
         GuardFileAttachment UploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam, int actionLink);
     }

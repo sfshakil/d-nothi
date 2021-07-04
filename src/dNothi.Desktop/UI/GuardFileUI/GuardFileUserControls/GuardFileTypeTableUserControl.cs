@@ -98,7 +98,8 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 { label2.Text = ConversionMethod.EnglishNumberToBangla(value); }
             } }
 
-        public event EventHandler RadioButtonClick;
+       
+        public event EventHandler DeleteButtonClick;
         private void decisionRadioButton_CheckedChanged(object sender, EventArgs e)
         {
           
@@ -180,25 +181,11 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             conditonBoxForm.message = "আপনি কি নিশ্চিতভাবে সিদ্ধান্ত টি মুছে ফেলতে চান?";
             conditonBoxForm.ShowDialog();
             if (conditonBoxForm.Yes)
-            {
-                if (TypeId > 0)
+            { if(this.decisionDeleteButton!=null)
                 {
-                    _guardFileService = new GuardFileService<GuardFileCategory, GuardFileCategory.Record>();
-                    var dakListUserParam = _userService.GetLocalDakUserParam();
-                    var response = _guardFileService.Delete(dakListUserParam, 4, TypeId, GuardFileCategory);
-                    if (response.status == "success")
-                    {
-
-                        alartMessage.SuccessMessage("গার্ড ফাইল ধরন মুছে ফেলা হয়েছে।");
-                        NormalMode();
-                    }
-                    else
-                    {
-
-                        alartMessage.ErrorMessage("পুনরায় চেষ্ঠা করুন।");
-
-                    }
+                    DeleteButtonClick(sender,e);
                 }
+               
             }
        
 

@@ -56,7 +56,7 @@ namespace dNothi.Desktop.UI.Dak
                         if (dakAttachmentDTO.is_main == 1 && dakAttachmentDTO.attachment_type.ToUpper().Contains("TEXT"))
                         {
 
-                            detailsAttachmentUserControl.attachmentName = _dakSub;
+                            detailsAttachmentUserControl.attachmentName = _dakSub!=null?_dakSub: dakAttachmentDTO.potro_subject;
                         }
                         else
                         {
@@ -97,10 +97,6 @@ namespace dNothi.Desktop.UI.Dak
                         attachmentListFlowLayoutPanel.Controls.Add(detailsAttachmentUserControl);
                     }
                 }
-
-
-
-
 
             }
         }

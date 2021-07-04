@@ -38,15 +38,10 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.attachmentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.aproverListRowUserControl = new dNothi.Desktop.UI.Khosra_Potro.KhosraPrapokListRowUserControl();
-            this.senderListRowUserControl = new dNothi.Desktop.UI.Khosra_Potro.KhosraPrapokListRowUserControl();
-            this.PrapokListRowUserControl = new dNothi.Desktop.UI.Khosra_Potro.KhosraPrapokListRowUserControl();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.HeadingPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.attachmentTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // HeadingPanel
@@ -54,7 +49,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.HeadingPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.HeadingPanel.Controls.Add(this.sliderCrossButton);
             this.HeadingPanel.Controls.Add(this.singleDakHeaderLabel);
-            this.HeadingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HeadingPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeadingPanel.Location = new System.Drawing.Point(20, 0);
             this.HeadingPanel.Margin = new System.Windows.Forms.Padding(0);
             this.HeadingPanel.Name = "HeadingPanel";
@@ -100,98 +95,21 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.attachmentTableLayoutPanel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.HeadingPanel, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 50);
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(550, 726);
             this.tableLayoutPanel1.TabIndex = 39;
-            // 
-            // attachmentTableLayoutPanel
-            // 
-            this.attachmentTableLayoutPanel.AutoScroll = true;
-            this.attachmentTableLayoutPanel.ColumnCount = 1;
-            this.attachmentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.attachmentTableLayoutPanel.Controls.Add(this.aproverListRowUserControl, 0, 4);
-            this.attachmentTableLayoutPanel.Controls.Add(this.senderListRowUserControl, 0, 4);
-            this.attachmentTableLayoutPanel.Controls.Add(this.PrapokListRowUserControl, 0, 0);
-            this.attachmentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.attachmentTableLayoutPanel.Location = new System.Drawing.Point(23, 72);
-            this.attachmentTableLayoutPanel.Name = "attachmentTableLayoutPanel";
-            this.attachmentTableLayoutPanel.RowCount = 5;
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.attachmentTableLayoutPanel.Size = new System.Drawing.Size(504, 601);
-            this.attachmentTableLayoutPanel.TabIndex = 40;
-            // 
-            // aproverListRowUserControl
-            // 
-            this.aproverListRowUserControl._UserDesignation = "সল্যুশন আর্কিটেক্ট,";
-            this.aproverListRowUserControl._UserName = "মোঃ হাসানুজ্জামান";
-            this.aproverListRowUserControl._UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.aproverListRowUserControl._UserType = "অনুমোদনকারী";
-            this.aproverListRowUserControl.AutoSize = true;
-            this.aproverListRowUserControl.BackColor = System.Drawing.Color.White;
-            this.aproverListRowUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aproverListRowUserControl.Location = new System.Drawing.Point(3, 74);
-            this.aproverListRowUserControl.Name = "aproverListRowUserControl";
-            this.aproverListRowUserControl.Size = new System.Drawing.Size(498, 65);
-            this.aproverListRowUserControl.TabIndex = 2;
-            this.aproverListRowUserControl.UserDesignation = "সল্যুশন আর্কিটেক্ট,";
-            this.aproverListRowUserControl.UserName = "মোঃ হাসানুজ্জামান";
-            this.aproverListRowUserControl.UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.aproverListRowUserControl.UserType = "অনুমোদনকারী";
-            this.aproverListRowUserControl.Load += new System.EventHandler(this.khosraPrapokListRowUserControl3_Load);
-            // 
-            // senderListRowUserControl
-            // 
-            this.senderListRowUserControl._UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
-            this.senderListRowUserControl._UserName = "মোঃ হাসানুজ্জামান";
-            this.senderListRowUserControl._UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.senderListRowUserControl._UserType = "প্রেরক";
-            this.senderListRowUserControl.AutoSize = true;
-            this.senderListRowUserControl.BackColor = System.Drawing.Color.White;
-            this.senderListRowUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.senderListRowUserControl.Location = new System.Drawing.Point(3, 145);
-            this.senderListRowUserControl.Name = "senderListRowUserControl";
-            this.senderListRowUserControl.Size = new System.Drawing.Size(498, 453);
-            this.senderListRowUserControl.TabIndex = 1;
-            this.senderListRowUserControl.UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
-            this.senderListRowUserControl.UserName = "মোঃ হাসানুজ্জামান";
-            this.senderListRowUserControl.UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.senderListRowUserControl.UserType = "প্রেরক";
-            this.senderListRowUserControl.Load += new System.EventHandler(this.khosraPrapokListRowUserControl2_Load);
-            // 
-            // PrapokListRowUserControl
-            // 
-            this.PrapokListRowUserControl._UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
-            this.PrapokListRowUserControl._UserName = "জাফরিন আহমেদ ";
-            this.PrapokListRowUserControl._UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.PrapokListRowUserControl._UserType = "প্রাপক";
-            this.PrapokListRowUserControl.AutoSize = true;
-            this.PrapokListRowUserControl.BackColor = System.Drawing.Color.White;
-            this.PrapokListRowUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PrapokListRowUserControl.Location = new System.Drawing.Point(3, 3);
-            this.PrapokListRowUserControl.Name = "PrapokListRowUserControl";
-            this.PrapokListRowUserControl.Size = new System.Drawing.Size(498, 65);
-            this.PrapokListRowUserControl.TabIndex = 0;
-            this.PrapokListRowUserControl.UserDesignation = "টেকনিক্যাল সাপোর্ট এক্সপার্ট,";
-            this.PrapokListRowUserControl.UserName = "জাফরিন আহমেদ ";
-            this.PrapokListRowUserControl.UserOfficeName = "টেকনোলজি,এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম Test";
-            this.PrapokListRowUserControl.UserType = "প্রাপক";
-            this.PrapokListRowUserControl.Load += new System.EventHandler(this.khosraPrapokListRowUserControl1_Load);
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // dataGridViewImageColumn1
             // 
@@ -233,8 +151,6 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.attachmentTableLayoutPanel.ResumeLayout(false);
-            this.attachmentTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -251,9 +167,5 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         private FontAwesome.Sharp.IconButton sliderCrossButton;
         private DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn mul_prapok;
         private TableLayoutPanel tableLayoutPanel1;
-        private TableLayoutPanel attachmentTableLayoutPanel;
-        private KhosraPrapokListRowUserControl aproverListRowUserControl;
-        private KhosraPrapokListRowUserControl senderListRowUserControl;
-        private KhosraPrapokListRowUserControl PrapokListRowUserControl;
     }
 }

@@ -37,6 +37,9 @@
     <Reference Include="AltoHttp, Version=1.0.7813.41648, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AltoHttp.1.5.1\lib\net45\AltoHttp.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -80,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttentionTypeIConList.cs" />
+    <Compile Include="Base64Conversion.cs" />
     <Compile Include="ConversionMethod.cs" />
     <Compile Include="DaakStatus.cs" />
     <Compile Include="DakAttachmentTypeIconList.cs" />
@@ -97,6 +101,7 @@
     <Compile Include="IScheduleJobRunner.cs" />
     <Compile Include="KhoshraTemplate.cs" />
     <Compile Include="LongExtensions.cs" />
+    <Compile Include="MappingModels.cs" />
     <Compile Include="Md5EncryptDecryptor.cs" />
     <Compile Include="NothiCommonStaticValue.cs" />
     <Compile Include="OnumodonLevel.cs" />

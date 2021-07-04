@@ -31,6 +31,10 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         int start = 1;
         int end = 10;
         int totalrecord = 0;
+      
+        public const string GuardFileCategory = "GuardFileCategories";
+      
+        AllAlartMessage alartMessage = new AllAlartMessage();
         IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
         IGuardFileService<GuardFileCategory,GuardFileCategory.Record> _guardFileCategoryService { get; set; }
         public UCGuardFileTypes(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService, ISyncerService syncerServices)
@@ -84,7 +88,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         decisionTable.GuardFileCountLabelClick += delegate (object sender, EventArgs e) { GuardFileList_Click(sender, e, item); };
 
                         //decisionTable.editButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_attachmentButtonClick(sender, e); };
-                        //decisionTable.deleteButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_onumodonButtonClick(sender, e); };
+                        decisionTable.DeleteButtonClick += delegate (object sender, EventArgs e) { typedeleteTableUserControl_ButtonClick(sender, e,item.id); };
 
                         decisionTable.Dock = DockStyle.Fill;
 
@@ -102,6 +106,28 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 totalLabel.Text = "সর্বমোট:" + ConversionMethod.EnglishNumberToBangla(totalrecord.ToString());
                 float pagesize = (float)totalrecord / (float)pageLimit;
                 totalPage = (int)Math.Ceiling(pagesize);
+            }
+        }
+
+        private void typedeleteTableUserControl_ButtonClick(object sender,EventArgs e, int TypeId)
+        {
+            if (TypeId > 0)
+            {
+                _guardFileCategoryService = new GuardFileService<GuardFileCategory, GuardFileCategory.Record>();
+                var dakListUserParam = _userService.GetLocalDakUserParam();
+                var response = _guardFileService.Delete(dakListUserParam, 4, TypeId, GuardFileCategory);
+                if (response.status == "success")
+                {
+
+                    alartMessage.SuccessMessage("গার্ড ফাইল ধরন মুছে ফেলা হয়েছে।");
+                    LoadGuardFileTypeList();
+                }
+                else
+                {
+
+                    alartMessage.ErrorMessage("পুনরায় চেষ্ঠা করুন।");
+
+                }
             }
         }
 

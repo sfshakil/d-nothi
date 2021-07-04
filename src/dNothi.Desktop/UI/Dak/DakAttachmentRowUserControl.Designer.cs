@@ -180,7 +180,7 @@
             this.attachmentSizeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.attachmentSizeLabel.Location = new System.Drawing.Point(3, 83);
             this.attachmentSizeLabel.Name = "attachmentSizeLabel";
-            this.attachmentSizeLabel.Size = new System.Drawing.Size(52, 18);
+            this.attachmentSizeLabel.Size = new System.Drawing.Size(51, 18);
             this.attachmentSizeLabel.TabIndex = 3;
             this.attachmentSizeLabel.Text = "১৭৩৬.৫";
             // 

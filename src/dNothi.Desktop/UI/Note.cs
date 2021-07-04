@@ -2693,13 +2693,21 @@ namespace dNothi.Desktop.UI
 
         }
 
+        public bool IskasaraDashBoard = false;
         private void btnBack_Click(object sender, EventArgs e)
         {
-            foreach (Form f in Application.OpenForms)
-            { BeginInvoke((Action)(() => f.Hide())); }
-            var form = FormFactory.Create<Nothi>();
-            BeginInvoke((Action)(() => form.ShowDialog())); 
-            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+            if (IskasaraDashBoard)
+            {
+                this.Close();
+            }
+            else
+            {
+                foreach (Form f in Application.OpenForms)
+                { BeginInvoke((Action)(() => f.Hide())); }
+                var form = FormFactory.Create<Nothi>();
+                BeginInvoke((Action)(() => form.ShowDialog()));
+                form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+            }
         }
         int onuchhedint = 0;
         List<FileAttachment> fileAttachments = new List<FileAttachment>();

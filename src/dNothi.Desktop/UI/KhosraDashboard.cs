@@ -1,13 +1,17 @@
-﻿using dNothi.Desktop.UI.Khosra_Potro;
+﻿using dNothi.Desktop.UI.Dak;
+using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.KasaraPatraDashBoardService;
+using dNothi.Services.KasaraPatraDashBoardService.Models;
 using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using FontAwesome.Sharp;
 using Newtonsoft.Json.Linq;
+using org.ietf.jgss;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -100,8 +104,10 @@ namespace dNothi.Desktop.UI
             
             MakeThisPanelClicked(sender);
             LoadData(true, menuNo,page);
+            listTypeLabel.Text = draftPotroButton.Text;
             if (totalrecord < 10) { end = totalrecord; }
             else { end = 10; }
+            NextPreviousButtonShow();
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
             // LoadFakeRow(true);
         }
@@ -113,9 +119,12 @@ namespace dNothi.Desktop.UI
             start = 1;
            
             MakeThisPanelClicked(sender);
+            listTypeLabel.Text = noteAttachmentKhosraButton.Text;
             LoadData(true, menuNo,page);
+           
             if (totalrecord < 10) { end = totalrecord; }
             else { end = 10; }
+            NextPreviousButtonShow();
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
 
 
@@ -129,9 +138,12 @@ namespace dNothi.Desktop.UI
             start = 1;
           
             MakeThisPanelClicked(sender);
+           
             LoadData(false, menuNo,page);
+            listTypeLabel.Text = pendingApprovalButton.Text;
             if (totalrecord < 10) { end = totalrecord; }
             else { end = 10; }
+            NextPreviousButtonShow();
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
 
             // LoadFakeRow(false);
@@ -144,9 +156,12 @@ namespace dNothi.Desktop.UI
             start = 1;
            
             MakeThisPanelClicked(sender);
+           
             LoadData(false, menuNo, page);
+            listTypeLabel.Text = pendingForwardButton.Text;
             if (totalrecord < 10) { end = totalrecord; }
             else { end = 10; }
+            NextPreviousButtonShow();
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
 
             //LoadApprovedData(false,page);
@@ -160,10 +175,12 @@ namespace dNothi.Desktop.UI
             start = 1;
            
             MakeThisPanelClicked(sender);
-           // LoadJarikritaData(false,page);
+            listTypeLabel.Text = jarikritoButton.Text;
+            // LoadJarikritaData(false,page);
             LoadData(false, menuNo, page);
             if (totalrecord < 10) { end = totalrecord; }
             else { end = 10; }
+            NextPreviousButtonShow();
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
 
             //  LoadFakeRow(false);
@@ -183,6 +200,7 @@ namespace dNothi.Desktop.UI
             LoadData(true, menuNo,page);
             if (totalrecord < 10) { end = totalrecord; }
             else { end = 10; }
+            NextPreviousButtonShow();
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
 
 
@@ -244,11 +262,11 @@ namespace dNothi.Desktop.UI
             string potrojariassenderapprover = "potrojari_as_sender_approver";
             string draftpotro = "draft_potro";
 
-            draftPotroCountLabel.Text = ConversionMethod.EnglishNumberToBangla(data[draftpotro].ToString());
-            noteAttachmentKhosraCountLabel.Text = ConversionMethod.EnglishNumberToBangla((string)data[khoshrapotro]);
-            pendingApprovalCountLabel.Text = ConversionMethod.EnglishNumberToBangla((string)data[khoshrawaitingforapproval]);
-            pendingForwardCountLabel.Text = ConversionMethod.EnglishNumberToBangla((string)data[approvedpotro]);
-            jarikritoCountLabel.Text = ConversionMethod.EnglishNumberToBangla((string)data[potrojariassenderapprover]);
+            draftPotroCountLabel.Text ="("+ ConversionMethod.EnglishNumberToBangla(data[draftpotro].ToString())+")";
+            noteAttachmentKhosraCountLabel.Text = "(" +ConversionMethod.EnglishNumberToBangla((string)data[khoshrapotro]) + ")";
+            pendingApprovalCountLabel.Text = "(" + ConversionMethod.EnglishNumberToBangla((string)data[khoshrawaitingforapproval]) + ")";
+            pendingForwardCountLabel.Text = "(" + ConversionMethod.EnglishNumberToBangla((string)data[approvedpotro]) + ")";
+            jarikritoCountLabel.Text = "(" + ConversionMethod.EnglishNumberToBangla((string)data[potrojariassenderapprover]) + ")";
 
             userNameLabel.Text = dakUserParam.officer_name + "(" + dakUserParam.designation_label + "," + dakUserParam.unit_label + ")";
 
@@ -326,26 +344,39 @@ namespace dNothi.Desktop.UI
           
             var kasarapatralist = _kasaraPatraDashBoardService.GetList(dakListUserParam, menuNo);
 
-            if (kasarapatralist.status == "success")
+            if (kasarapatralist.Status == "success")
             {
-                foreach (var item in kasarapatralist.data.records)
+                foreach (var item in kasarapatralist.data.Records)
                 {
                     
-                    CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl(_userService);
-
-                    commonKhosraRowUserControl.sharokNo = item.basic.sarok_no;
-                    commonKhosraRowUserControl.sub = item.basic.potro_subject;
-                    commonKhosraRowUserControl.date = item.basic.modified;
+                    CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl();
+                    
+                    var subcontrol = KasaraUserControlButtonVisibilityAndNoteNo(item, dakListUserParam.designation_id);
+                  
+                    commonKhosraRowUserControl.sharokNo = item.Basic.SarokNo +" "+ (item.NoteOwner!=null?item.NoteOwner.NothiSubject:"");
+                    commonKhosraRowUserControl.sub = item.Basic.PotroSubject;
+                    commonKhosraRowUserControl.date = item.Basic.Modified;
+                    commonKhosraRowUserControl.approver = item.Recipient.Approver.Select(x=>x.Officer+", "+x.Designation).FirstOrDefault();
+                    commonKhosraRowUserControl.sender = item.Recipient.Sender.Select(x => x.Officer + ", " + x.Designation).FirstOrDefault();
+                    commonKhosraRowUserControl.daran = item.Basic.NoteOnucchedId>0?"অনুচ্ছেদ":"খসড়া";
+                    commonKhosraRowUserControl.ButtonVisibility(subcontrol.Item1, subcontrol.Item2, subcontrol.Item3);
+                    commonKhosraRowUserControl.kasaraPotterNam = item.Basic.PotroTypeName;
+                    commonKhosraRowUserControl.noteVisible = subcontrol.Item4;
+                    commonKhosraRowUserControl.noteNo = subcontrol.Item5;
+                   
                     commonKhosraRowUserControl.isDraft = v;
-                    commonKhosraRowUserControl.Record = item;
-                    commonKhosraRowUserControl.attachmentButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_attachmentButtonClick(sender, e); };
-                    commonKhosraRowUserControl.onumodonButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_onumodonButtonClick(sender, e); };
-
+                    //commonKhosraRowUserControl.Record = item;
+                    commonKhosraRowUserControl.attachmentButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_attachmentButtonClick(sender, e,item); };
+                    commonKhosraRowUserControl.sampadanButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_sampadanButtonClick(sender, e, item); };
+                    commonKhosraRowUserControl.PrapakListButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_PrapakListButtonClick(sender, e,item.Basic.Id); };
+                    // commonKhosraRowUserControl.viewButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_viewButtonClick(sender, e); };
+                    var mapmodel = MappingModel(item);
+                    commonKhosraRowUserControl.viewButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_NoteDetails_ButtonClick(mapmodel.Item1, e, mapmodel.Item2, mapmodel.Item3); };
 
                     UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, commonKhosraRowUserControl);
 
                 }
-                 totalrecord = kasarapatralist.data.total_records;
+                 totalrecord = kasarapatralist.data.TotalRecords;
                 totalLabel.Text = "সর্বমোট:" + ConversionMethod.EnglishNumberToBangla(totalrecord.ToString());
                 float pagesize = totalrecord / pageLimit;
                 totalPage =(int) Math.Ceiling(pagesize);
@@ -353,8 +384,190 @@ namespace dNothi.Desktop.UI
 
         }
 
-        private void commonKhosraRowUserControl_attachmentButtonClick(object sender, EventArgs e)
+        private (NoteListDataRecordNoteDTO,NothiListRecordsDTO, NothiListInboxNoteRecordsDTO) MappingModel(KasaraPotro.Record item)
         {
+            var nothiListRecordsDTO = new NothiListRecordsDTO
+            {
+                id = item.NoteOwner.NothiMasterId,
+                issue_date = item.NoteOwner.IssueDate,
+                last_note_date = null,
+                local_nothi_type = null,
+                note_count = 1,
+                note_current_status = item.NoteOwner.NoteCurrentStatus,
+                nothi_class = 1,
+                nothi_no = null,
+                nothi_type = null,
+                office_designation_name = item.NoteOwner.Designation,
+                office_id = item.NoteOwner.OfficeId,
+                office_name = item.NoteOwner.Office,
+                office_unit_id = item.NoteOwner.OfficeUnitId,
+                office_unit_name = item.NoteOwner.OfficeUnit,
+                office_unit_organogram_id = item.NoteOwner.OfficeUnitId,
+                priority = item.NoteOwner.Priority.ToString(),
+                subject = item.NoteOwner.NothiSubject
+            };
+            var noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO { nothi_note_id = item.NoteOwner.NothiNoteId, note_no = item.NoteOwner.NoteNo, is_editable = 1 };
+            var nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO
+            {
+                note = new NoteNothiListInboxNoteRecordsDTO
+                {
+                    note_subject = item.NoteOwner.NoteSubject
+            ,
+                    nothi_note_id = item.NoteOwner.NothiNoteId,
+                    onucched_count = item.NoteOwner.OnucchedCount,
+                    khoshra_potro = item.NoteOwner.KhoshraPotro,
+                    khoshra_waiting_for_approval = item.NoteOwner.KhoshraWaitingForApproval,
+                    approved_potro = item.NoteOwner.ApprovedPotro,
+                    potrojari = item.NoteOwner.Potrojari,
+                    nothivukto_potro = item.NoteOwner.NothivuktoPotro
+                }
+            };
+
+            return (noteListDataRecordNoteDTO,nothiListRecordsDTO, nothiListInboxNoteRecordsDTO);
+        }
+        private (bool,bool,bool,bool,string) KasaraUserControlButtonVisibilityAndNoteNo(KasaraPotro.Record item,int UserParam_designation_id)
+        {
+            bool sampadan = false, view = false, prapaklist = false,  nodeVisible = false;
+            string nodeNo = string.Empty;
+            if (item.NoteOwner.NoteNo > 0)
+            {
+                nodeVisible = true;
+                nodeNo = ConversionMethod.EnglishNumberToBangla(item.NoteOwner.NoteNo.ToString());
+                if (item.NoteOnucched.OnucchedNo != null && item.NoteOnucched.OnucchedNo != "0")
+                {
+                    nodeNo += "." + ConversionMethod.EnglishNumberToBangla(item.NoteOnucched.OnucchedNo);
+                }
+
+            }
+            if (item.Basic.DakId == 0)
+                prapaklist = true;
+            if (item.Basic.PotroStatus == "Draft")
+                sampadan = true;
+            if (item.NoteOwner.DesignationId == UserParam_designation_id)
+                view = true;
+            return (sampadan, view, prapaklist, nodeVisible, nodeNo);
+        }
+        private void commonKhosraRowUserControl_attachmentButtonClick(object sender, EventArgs e, KasaraPotro.Record kasaraPotro)
+        {
+
+                KhosraAttachmentViewForm khosraAttachmentViewForm = new KhosraAttachmentViewForm();
+           
+                khosraAttachmentViewForm.dakAttachmentResponse = GetAllMulPattraAndSanjukti( kasaraPotro);
+
+                UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentViewForm, this);
+            
+        }
+        private DakAttachmentResponse GetAllMulPattraAndSanjukti(KasaraPotro.Record kasaraPotro)
+        {
+            DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse {  data=null, status=null};
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = 10;
+            var noteAntarvuktaKasralist = _kasaraPatraDashBoardService.GetMulPattraAndSanjukti(dakListUserParam, kasaraPotro);
+            if (noteAntarvuktaKasralist.status == "success")
+            {
+
+                dakAttachmentResponse= noteAntarvuktaKasralist;
+            }
+            return dakAttachmentResponse;
+        }
+        private void commonKhosraRowUserControl_sampadanButtonClick(object sender, EventArgs e, KasaraPotro.Record kasaraPotro)
+        {
+           
+            var khosra = FormFactory.Create<Khosra>();
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = 10;
+            var prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, kasaraPotro.Basic.Id);
+            
+            if (prapakerTalika.status == "success")
+            {
+
+                var attachment = GetAllMulPattraAndSanjukti(kasaraPotro);
+                khosra.LoadAllDesignation();
+                khosra.draftAttachmentDTOs= attachment != null? attachment.data:null;
+                khosra.kasaradashboardHtmlContent = Base64Conversion.Base64ToHtmlContent(kasaraPotro.Mulpotro.PotroDescription);
+                khosra.onulipiOfficerDesignations = prapakerTalika.data.onulipi;
+                khosra.onumodanKariOfficerDesignations = prapakerTalika.data.approver;
+                khosra.prapakOfficerDesignations = prapakerTalika.data.receiver;
+                khosra.prerokOfficerDesignations = prapakerTalika.data.sender;
+                khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
+            }
+
+            khosra.Show();
+        }
+        private void commonKhosraRowUserControl_PrapakListButtonClick(object sender, EventArgs e,int nodeId)
+        {
+
+                var dakListUserParam = _userService.GetLocalDakUserParam();
+                dakListUserParam.limit = 10;
+                var prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, nodeId);
+                if (prapakerTalika.status == "success")
+                {
+
+                    KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
+                    khosraPrapokListViewForm.prapakerTalika = prapakerTalika;
+
+
+                    UIDesignCommonMethod.CalPopUpWindow(khosraPrapokListViewForm, this);
+                }
+            
+        }
+        private void commonKhosraRowUserControl_viewButtonClick(object sender, EventArgs e)
+        {
+
+        }
+        private void commonKhosraRowUserControl_NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+            
+            var form = FormFactory.Create<Note>();
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
+            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { commonKhosraRowUserControl_NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+            form.IskasaraDashBoard = true;
+            NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
+            form.nothiNo = nothiListRecords.nothi_no;
+            form.nothiShakha = nothiListRecords.office_unit_name + " " + _dakuserparam.office_label;
+            form.nothiSubject = nothiListRecords.subject;
+            form.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+            form.nothiLastDate = nothiListRecordsDTO.last_note_date;
+            form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+
+            //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
+            //totalnothi.ToString();
+            form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
+
+            NoteView noteView = new NoteView();
+            noteView.totalNothi = noteListDataRecordNoteDTO.note_no.ToString();
+            noteView.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+            noteView.nothiLastDate = nothiListRecordsDTO.last_note_date;
+            noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
+            noteView.checkBox = "1";
+            noteView.nothiNoteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+            noteView.onucchedCount = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+            noteView.khosraPotro = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+            noteView.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
+            noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
+            noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
+            noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
+            //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
+            //form.loadNoteData(notedata);
+            form.loadNothiInboxRecords(nothiListRecordsDTO);
+            form.loadNoteView(noteView);
+            form.noteTotal = noteListDataRecordNoteDTO.note_no.ToString();
+
+
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, noteListDataRecordNoteDTO.is_editable); };
+        }
+        private void DoSomethingAsync(object sender, EventArgs e, int i)
+        {
+            if (i == 0)
+            {
+                this.Hide();
+            }
+            else
+            {
+
+            }
         }
         private void commonKhosraRowUserControl_onumodonButtonClick(object sender, EventArgs e)
         {
@@ -461,6 +674,7 @@ namespace dNothi.Desktop.UI
             if (totalrecord < end) { endrow = totalrecord.ToString(); }
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(endrow);
             //perPageRowLabel.Text = start.ToString()+"-" + endrow; 
+            NextPreviousButtonShow();
         }
 
         private void PreviousIconButton_Click(object sender, EventArgs e)
@@ -484,8 +698,40 @@ namespace dNothi.Desktop.UI
            
             LoadData(true, menuNo, page);
             perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+            NextPreviousButtonShow();
 
-           
+
+        }
+        private void NextPreviousButtonShow()
+        {
+            if (page < totalPage)
+            {
+                if (page == 1 && totalPage > 1)
+                {
+                    PreviousIconButton.Enabled = false;
+                }
+                else
+                {
+                    PreviousIconButton.Enabled = true;
+
+                }
+                nextIconButton.Enabled = true;
+            }
+            if (page == totalPage)
+            {
+                if (page == 1 && totalPage == 1)
+                {
+                    PreviousIconButton.Enabled = false;
+
+                }
+                else
+                {
+                    PreviousIconButton.Enabled = true;
+
+                }
+                nextIconButton.Enabled = false;
+            }
+
         }
 
         private void profileShowArrowButton_Click(object sender, EventArgs e)
@@ -588,6 +834,23 @@ namespace dNothi.Desktop.UI
         private void KhosraDashboard_Load(object sender, EventArgs e)
         {
             backgroundWorker1.RunWorkerAsync();
+        }
+
+        private void recycleIconButton_Click(object sender, EventArgs e)
+        {
+            dakSearchSubTextBox.Text = string.Empty;
+            Formload();
+        }
+        private void Formload()
+        {
+            page = 1;
+            start = 1;
+            LoadData(true, menuNo, page);
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            NextPreviousButtonShow();
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using dNothi.Constants;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices;
 using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
@@ -35,8 +36,9 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
 
                 var responseJson = Response.Content;
+               
 
-                KasaraPotro nothikhoshrapotrolist = JsonConvert.DeserializeObject<KasaraPotro>(responseJson);
+                KasaraPotro nothikhoshrapotrolist = JsonConvert.DeserializeObject<KasaraPotro>(responseJson, NullDeserializeSetting());
                 return nothikhoshrapotrolist;
             }
             catch (Exception ex)
@@ -59,13 +61,13 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
 
                 request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"Technology\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
-                request.AddParameter("potro", 10);
+                request.AddParameter("potro", potro);
                 IRestResponse Response = Api.Execute(request);
 
 
                 var responseJson = Response.Content;
 
-                PrapakerTalika nothikhoshrapotrolist = JsonConvert.DeserializeObject<PrapakerTalika>(responseJson);
+                PrapakerTalika nothikhoshrapotrolist = JsonConvert.DeserializeObject<PrapakerTalika>(responseJson, NullDeserializeSetting());
                 return nothikhoshrapotrolist;
             }
             catch (Exception ex)
@@ -77,7 +79,7 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
         }
 
-        public Attachment GetMulPattraAndSanjukti(DakUserParam userParam, KasaraPotro.Record record)
+        public DakAttachmentResponse GetMulPattraAndSanjukti(DakUserParam userParam, KasaraPotro.Record record)
         {
 
             try
@@ -89,21 +91,24 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                 request.AddHeader("Authorization", "Bearer " + userParam.token);
                 request.AlwaysMultipartFormData = true;
 
-                //request.AddParameter("cdesk", "{\"office_id\":\"" + userParam.office_id + "\",\"office_unit_id\":\"" + userParam.office_unit_id + "\",\"designation_id\":\"" + userParam.designation_id + "\"}");
-                //request.AddParameter("potro", "{\"nothi_id\":\""+ record .basic.shared_nothi_id + "\",\"nothi_office\":\""+record.note_owner.nothi_office+"\",\"note_id\":\""+record.basic.nothi_note_id+"\",\"onucched_id\":\""+record.basic.note_onucched_id+"\",\"nothi_potro_id\":\""+ record.basic.nothi_potro_id + "\",\"potrojari_id\":\""+ record.basic.cloned_potrojari_id + "\",\"cloned_potrojari_id\":\""+ record.basic.cloned_potrojari_id + "\",\"nothi_potro_attachment_id\":\""+ record.basic.nothi_potro_attachment_id + "\",\"potro_type\":\""+record.basic.potro_type+"\",\"sarok_no\":\""+record.basic.sarok_no+"\",\"potro_subject\":\""+record.basic.potro_subject+"\"}");
+               
+                request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + "," +
+                    "\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\"," +
+                    "\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\"," +
+                    "\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "," +
+                    "\"officer_email\":" + userParam.officer_email + ",\"officer_mobile\":" + userParam.officer_mobile + "}");
 
-                request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
-
-                request.AddParameter("length", userParam.limit);
-                request.AddParameter("potro", "{\"sarok_no\":\"" + record.basic.sarok_no + "\",\"potro_subject\":\"" + record.basic.potro_subject + "\",\"nothi_potro_id\":\"" + record.basic.nothi_potro_id + "\",\"nothi_id\":\"" + record.basic.shared_nothi_id + "\",\"nothi_office\":\"" + record.note_owner.nothi_office + "\"}");
-
-
+                request.AddParameter("potro", "{\"nothi_id\":\"" + record.Basic.NothiMasterId + "\",\"nothi_office\":\"" + userParam.office_id + "\"," +
+                    "\"note_id\":\"" + record.Basic.NothiNoteId + "\",\"onucched_id\":\"" + record.NoteOnucched.Id + "\"," +
+                    "\"nothi_potro_id\":\"" + record.Basic.NothiPotroId + "\",\"potrojari_id\":\"" + record.Basic.Id + "\",\"cloned_potrojari_id\":\"" + record.Basic.ClonedPotrojariId + "\"," +
+                    "\"nothi_potro_attachment_id\":\"" + record.Basic.NothiPotroAttachmentId + "\",\"potro_type\":\"" + record.Basic.PotroType + "\",\"sarok_no\":\"" + record.Basic.SarokNo + "\",\"potro_subject\":\"" + record.Basic.PotroSubject + "\"}");
+               
                 IRestResponse Response = Api.Execute(request);
 
 
                 var responseJson = Response.Content;
 
-                Attachment attachmentlist = JsonConvert.DeserializeObject<Attachment>(responseJson);
+                DakAttachmentResponse attachmentlist = JsonConvert.DeserializeObject<DakAttachmentResponse>(responseJson, NullDeserializeSetting());
                 return attachmentlist;
             }
             catch (Exception ex)
@@ -135,7 +140,7 @@ namespace dNothi.Services.KasaraPatraDashBoardService
               
                 var responseJson = Response.Content;
 
-                ResponseModel response = JsonConvert.DeserializeObject<ResponseModel>(responseJson);
+                ResponseModel response = JsonConvert.DeserializeObject<ResponseModel>(responseJson, NullDeserializeSetting());
 
                 return response;
             }
@@ -145,6 +150,16 @@ namespace dNothi.Services.KasaraPatraDashBoardService
             }
 
 
+        }
+
+        private JsonSerializerSettings NullDeserializeSetting()
+        {
+            var settings = new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                MissingMemberHandling = MissingMemberHandling.Ignore
+            };
+            return settings;
         }
         protected string GetAPIDomain()
         {

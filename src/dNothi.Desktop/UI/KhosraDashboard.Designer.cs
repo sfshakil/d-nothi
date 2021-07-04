@@ -93,6 +93,11 @@
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.searchHeaderTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.searchBoxPanel = new System.Windows.Forms.Panel();
+            this.dakSearchSubTextBox = new PlaceholderTextBox.PlaceholderTextBox();
+            this.recycleIconButton = new FontAwesome.Sharp.IconButton();
+            this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.perPageRowLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
@@ -147,6 +152,8 @@
             this.dashboardBodyTableLayoutPanel.SuspendLayout();
             this.rightDashboardBodyTableLayoutPanel.SuspendLayout();
             this.bodyTableLayoutPanel.SuspendLayout();
+            this.searchHeaderTableLayoutPanel.SuspendLayout();
+            this.searchBoxPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -770,7 +777,7 @@
             this.pendingForwardButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.pendingForwardButton.Size = new System.Drawing.Size(200, 50);
             this.pendingForwardButton.TabIndex = 38;
-            this.pendingForwardButton.Text = "প্রেরণের অপেক্ষায়";
+            this.pendingForwardButton.Text = "পত্রজারির অপেক্ষায়";
             this.pendingForwardButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.pendingForwardButton.UseVisualStyleBackColor = false;
             this.pendingForwardButton.Click += new System.EventHandler(this.pendingForwardPanel_Click);
@@ -1091,20 +1098,105 @@
             // 
             this.bodyTableLayoutPanel.ColumnCount = 1;
             this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.bodyTableLayoutPanel.Controls.Add(this.panel5, 0, 1);
+            this.bodyTableLayoutPanel.Controls.Add(this.searchHeaderTableLayoutPanel, 0, 1);
+            this.bodyTableLayoutPanel.Controls.Add(this.panel5, 0, 2);
             this.bodyTableLayoutPanel.Controls.Add(this.panel2, 0, 0);
-            this.bodyTableLayoutPanel.Controls.Add(this.panel6, 0, 2);
+            this.bodyTableLayoutPanel.Controls.Add(this.panel6, 0, 3);
             this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyTableLayoutPanel.Location = new System.Drawing.Point(0, 49);
             this.bodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.bodyTableLayoutPanel.Name = "bodyTableLayoutPanel";
-            this.bodyTableLayoutPanel.RowCount = 3;
+            this.bodyTableLayoutPanel.RowCount = 4;
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1116, 585);
             this.bodyTableLayoutPanel.TabIndex = 54;
+            // 
+            // searchHeaderTableLayoutPanel
+            // 
+            this.searchHeaderTableLayoutPanel.ColumnCount = 3;
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.searchHeaderTableLayoutPanel.Controls.Add(this.searchBoxPanel, 0, 0);
+            this.searchHeaderTableLayoutPanel.Controls.Add(this.recycleIconButton, 2, 0);
+            this.searchHeaderTableLayoutPanel.Controls.Add(this.dakSearchUsingTextButton, 1, 0);
+            this.searchHeaderTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchHeaderTableLayoutPanel.Location = new System.Drawing.Point(0, 51);
+            this.searchHeaderTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.searchHeaderTableLayoutPanel.Name = "searchHeaderTableLayoutPanel";
+            this.searchHeaderTableLayoutPanel.RowCount = 1;
+            this.searchHeaderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.searchHeaderTableLayoutPanel.Size = new System.Drawing.Size(1116, 40);
+            this.searchHeaderTableLayoutPanel.TabIndex = 113;
+            // 
+            // searchBoxPanel
+            // 
+            this.searchBoxPanel.AutoSize = true;
+            this.searchBoxPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.searchBoxPanel.Controls.Add(this.dakSearchSubTextBox);
+            this.searchBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBoxPanel.Location = new System.Drawing.Point(0, 0);
+            this.searchBoxPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBoxPanel.Name = "searchBoxPanel";
+            this.searchBoxPanel.Size = new System.Drawing.Size(1043, 40);
+            this.searchBoxPanel.TabIndex = 4;
+            // 
+            // dakSearchSubTextBox
+            // 
+            this.dakSearchSubTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dakSearchSubTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.dakSearchSubTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dakSearchSubTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSearchSubTextBox.Location = new System.Drawing.Point(19, 9);
+            this.dakSearchSubTextBox.Name = "dakSearchSubTextBox";
+            this.dakSearchSubTextBox.PlaceholderText = "স্মারক নম্বর/বিষয় দিয়ে খুঁজুন";
+            this.dakSearchSubTextBox.Size = new System.Drawing.Size(975, 19);
+            this.dakSearchSubTextBox.TabIndex = 3;
+            // 
+            // recycleIconButton
+            // 
+            this.recycleIconButton.AutoSize = true;
+            this.recycleIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.recycleIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.recycleIconButton.FlatAppearance.BorderSize = 0;
+            this.recycleIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlText;
+            this.recycleIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.recycleIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.recycleIconButton.IconChar = FontAwesome.Sharp.IconChar.Recycle;
+            this.recycleIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.recycleIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.recycleIconButton.IconSize = 24;
+            this.recycleIconButton.Location = new System.Drawing.Point(1081, 0);
+            this.recycleIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.recycleIconButton.Name = "recycleIconButton";
+            this.recycleIconButton.Size = new System.Drawing.Size(35, 40);
+            this.recycleIconButton.TabIndex = 29;
+            this.recycleIconButton.UseVisualStyleBackColor = false;
+            this.recycleIconButton.Click += new System.EventHandler(this.recycleIconButton_Click);
+            // 
+            // dakSearchUsingTextButton
+            // 
+            this.dakSearchUsingTextButton.AutoSize = true;
+            this.dakSearchUsingTextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
+            this.dakSearchUsingTextButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dakSearchUsingTextButton.FlatAppearance.BorderSize = 0;
+            this.dakSearchUsingTextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.dakSearchUsingTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakSearchUsingTextButton.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.dakSearchUsingTextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
+            this.dakSearchUsingTextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakSearchUsingTextButton.IconSize = 32;
+            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(1043, 0);
+            this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
+            this.dakSearchUsingTextButton.Size = new System.Drawing.Size(38, 40);
+            this.dakSearchUsingTextButton.TabIndex = 30;
+            this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -1114,7 +1206,7 @@
             this.panel5.Controls.Add(this.PreviousIconButton);
             this.panel5.Controls.Add(this.nextIconButton);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 51);
+            this.panel5.Location = new System.Drawing.Point(0, 91);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1116, 40);
@@ -1205,7 +1297,7 @@
             this.listTypeLabel.Name = "listTypeLabel";
             this.listTypeLabel.Size = new System.Drawing.Size(172, 51);
             this.listTypeLabel.TabIndex = 37;
-            this.listTypeLabel.Text = "নোটে অন্তর্ভুক্ত খসড়া";
+            this.listTypeLabel.Text = "ড্রাফট পত্র";
             this.listTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // iconButton
@@ -1241,11 +1333,11 @@
             this.panel6.Controls.Add(this.khosraListTableLayoutPanel);
             this.panel6.Controls.Add(this.noKhosraPanel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 91);
+            this.panel6.Location = new System.Drawing.Point(0, 131);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(5);
-            this.panel6.Size = new System.Drawing.Size(1116, 494);
+            this.panel6.Size = new System.Drawing.Size(1116, 454);
             this.panel6.TabIndex = 3;
             // 
             // khosraListTableLayoutPanel
@@ -1686,6 +1778,7 @@
             this.Controls.Add(this.designationDetailsPanel);
             this.Controls.Add(this.dashboardBodyTableLayoutPanel);
             this.Controls.Add(this.modulePanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1091, 572);
             this.Name = "KhosraDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1722,6 +1815,10 @@
             this.rightDashboardBodyTableLayoutPanel.PerformLayout();
             this.bodyTableLayoutPanel.ResumeLayout(false);
             this.bodyTableLayoutPanel.PerformLayout();
+            this.searchHeaderTableLayoutPanel.ResumeLayout(false);
+            this.searchHeaderTableLayoutPanel.PerformLayout();
+            this.searchBoxPanel.ResumeLayout(false);
+            this.searchBoxPanel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -1842,5 +1939,10 @@
         private CustomMessageBox.OnlineToggleButton onlineToggleButton2;
         private FontAwesome.Sharp.IconButton onlineStatus;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TableLayoutPanel searchHeaderTableLayoutPanel;
+        private System.Windows.Forms.Panel searchBoxPanel;
+        private PlaceholderTextBox.PlaceholderTextBox dakSearchSubTextBox;
+        private FontAwesome.Sharp.IconButton recycleIconButton;
+        private FontAwesome.Sharp.IconButton dakSearchUsingTextButton;
     }
 }
