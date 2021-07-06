@@ -172,7 +172,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            if (btnNothiAllNoteShomuho.IconChar == FontAwesome.Sharp.IconChar.Plus)
+            if (btnNothiAllNoteShomuho.IconChar == FontAwesome.Sharp.IconChar.FolderPlus)
             {
                 //int totalNote = Convert.ToInt32(totalnothi.Substring(9));
                 int totalNote = Convert.ToInt32(_noteTotal);
@@ -186,7 +186,7 @@ namespace dNothi.Desktop.UI.Dak
                 this.Width = originalWidth;
                 pnlNewAllNote.Visible = true;
                 newAllNoteFlowLayoutPanel.Visible = true;
-                btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.Minus;
+                btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
                 btnNothiAllNoteShomuho.IconColor = Color.White;
                 btnNothiAllNoteShomuho.BackColor = Color.FromArgb(27, 197, 189);
                 loadnewAllNoteFlowLayoutPanel();
@@ -199,7 +199,7 @@ namespace dNothi.Desktop.UI.Dak
                 pnlNewAllNote.Visible = false;
                 newAllNoteFlowLayoutPanel.Visible = false;
 
-                btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.Plus;
+                btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
                 btnNothiAllNoteShomuho.IconColor = Color.White;
                 btnNothiAllNoteShomuho.BackColor = Color.FromArgb(27, 197, 189);
             }
@@ -354,7 +354,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void iconButton3_MouseLeave(object sender, EventArgs e)
         {
-            if (btnNothiAllNoteShomuho.IconChar == FontAwesome.Sharp.IconChar.Plus)
+            if (btnNothiAllNoteShomuho.IconChar == FontAwesome.Sharp.IconChar.FolderPlus)
             {
                 btnNothiAllNoteShomuho.IconColor = Color.FromArgb(27, 197, 189);
                 btnNothiAllNoteShomuho.BackColor = Color.FromArgb(201, 247, 245);

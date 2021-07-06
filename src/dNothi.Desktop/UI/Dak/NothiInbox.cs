@@ -105,14 +105,14 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void iconButton3_Click_1(object sender, EventArgs e)
         {
-            if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.Plus)
+            if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.FolderPlus)
             {
                 int totalNote = Convert.ToInt32(totalnothi);
                 this.Height = totalNote * 100 + originalHeight;
                 this.Width = originalWidth;
                 pnlNewAllNote.Visible = true;
                 newAllNoteFlowLayoutPanel.Visible = true;
-                iconButton3.IconChar = FontAwesome.Sharp.IconChar.Minus;
+                iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
                 iconButton3.IconColor = Color.White;
                 iconButton3.BackColor = Color.FromArgb(27, 197, 189);
                 loadnewAllNoteFlowLayoutPanel();
@@ -125,7 +125,7 @@ namespace dNothi.Desktop.UI.Dak
                 pnlNewAllNote.Visible = false;
                 newAllNoteFlowLayoutPanel.Visible = false;
 
-                iconButton3.IconChar = FontAwesome.Sharp.IconChar.Plus;
+                iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
                 iconButton3.IconColor = Color.White;
                 iconButton3.BackColor = Color.FromArgb(27, 197, 189);
             }
@@ -272,7 +272,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void iconButton3_MouseLeave_1(object sender, EventArgs e)
         {
-            if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.Plus)
+            if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.FolderPlus)
             {
                 iconButton3.IconColor = Color.FromArgb(27, 197, 189);
                 iconButton3.BackColor = Color.FromArgb(201, 247, 245);
