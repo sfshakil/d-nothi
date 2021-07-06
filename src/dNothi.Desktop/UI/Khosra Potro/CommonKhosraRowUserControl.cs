@@ -22,9 +22,47 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         public CommonKhosraRowUserControl()
         {
             InitializeComponent();
-          
+            IterateControls(this.Controls);
+
+
+        }
+        private bool MouseIsOverControl() =>
+    this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
+        private void MouseHoverAction()
+        {
+            if (MouseIsOverControl())
+            {
+                this.BackColor = Color.FromArgb(243, 243, 243);
+               
+            }
+            else
+            {
+                this.BackColor = Color.White;
+              
+            }
+        }
+        void IterateControls(System.Windows.Forms.Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+               
+                ctrl.MouseEnter += MouseEnter_Background;
+                ctrl.MouseLeave += MouseLeave_Background;
+                IterateControls(ctrl.Controls);
+            }
+
         }
 
+        private void MouseLeave_Background(object sender, EventArgs e)
+        {
+            MouseHoverAction();
+        }
+
+        private void MouseEnter_Background(object sender, EventArgs e)
+        {
+            MouseHoverAction();
+        }
 
         public string _sharokNo { get; set; }
      
