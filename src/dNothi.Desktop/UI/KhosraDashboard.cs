@@ -317,7 +317,7 @@ namespace dNothi.Desktop.UI
                     commonKhosraRowUserControl.kasaraPotterNam = item.Basic.PotroTypeName;
                     commonKhosraRowUserControl.noteVisible = subcontrol.Item4;
                     commonKhosraRowUserControl.noteNo = subcontrol.Item5;
-                   
+                    var mapmodel = MappingModel(item);
                    // commonKhosraRowUserControl.isDraft = v;
                     //commonKhosraRowUserControl.Record = item;
                     commonKhosraRowUserControl.attachmentButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_attachmentButtonClick(sender, e,item); };
