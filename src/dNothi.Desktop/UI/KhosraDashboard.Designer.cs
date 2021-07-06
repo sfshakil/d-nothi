@@ -89,6 +89,7 @@
             this.LeftSign = new FontAwesome.Sharp.IconButton();
             this.button11 = new System.Windows.Forms.Button();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -112,7 +113,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.button30 = new System.Windows.Forms.Button();
@@ -1060,6 +1060,24 @@
             this.button11.TabIndex = 14;
             this.button11.UseVisualStyleBackColor = false;
             // 
+            // moduleButton
+            // 
+            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.moduleButton.FlatAppearance.BorderSize = 0;
+            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
+            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.moduleButton.IconSize = 32;
+            this.moduleButton.Location = new System.Drawing.Point(280, 3);
+            this.moduleButton.Name = "moduleButton";
+            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.moduleButton.Size = new System.Drawing.Size(52, 43);
+            this.moduleButton.TabIndex = 106;
+            this.MyToolTip.SetToolTip(this.moduleButton, "অন্যান্য মডিউল");
+            this.moduleButton.UseVisualStyleBackColor = true;
+            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
+            // 
             // dashboardBodyTableLayoutPanel
             // 
             this.dashboardBodyTableLayoutPanel.ColumnCount = 2;
@@ -1143,6 +1161,7 @@
             this.searchBoxPanel.Name = "searchBoxPanel";
             this.searchBoxPanel.Size = new System.Drawing.Size(1043, 40);
             this.searchBoxPanel.TabIndex = 4;
+            this.searchBoxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchBoxPanel_Paint);
             // 
             // dakSearchSubTextBox
             // 
@@ -1197,6 +1216,7 @@
             this.dakSearchUsingTextButton.Size = new System.Drawing.Size(38, 40);
             this.dakSearchUsingTextButton.TabIndex = 30;
             this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
+            this.dakSearchUsingTextButton.Click += new System.EventHandler(this.dakSearchUsingTextButton_Click);
             // 
             // panel5
             // 
@@ -1419,23 +1439,6 @@
             this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.headerTableLayoutPanel.Size = new System.Drawing.Size(1116, 49);
             this.headerTableLayoutPanel.TabIndex = 9;
-            // 
-            // moduleButton
-            // 
-            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.moduleButton.FlatAppearance.BorderSize = 0;
-            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
-            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.moduleButton.IconSize = 32;
-            this.moduleButton.Location = new System.Drawing.Point(280, 3);
-            this.moduleButton.Name = "moduleButton";
-            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.moduleButton.Size = new System.Drawing.Size(52, 43);
-            this.moduleButton.TabIndex = 106;
-            this.moduleButton.UseVisualStyleBackColor = true;
-            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
             // onlineToggleButton2
             // 

@@ -137,6 +137,7 @@ namespace dNothi.Desktop.UI.OtherModule
         }
         private void submitUserControl_ButtonClick(object sender, EventArgs e)
         {
+            bodyPanel.Controls.Clear();
             guardFileTypeuc = new UCGuardFileTypes(_userService, _guardFileCategoryService, _guardFileService, _syncerServices);
             guardFileTypeuc.page = _currentPage;
             guardFileTypeuc.Dock = DockStyle.Top;

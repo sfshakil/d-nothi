@@ -32,9 +32,12 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
                 request.AddParameter("page", userParam.page);
                 request.AddParameter("limit", userParam.limit);
+                if (!string.IsNullOrEmpty(userParam.NameSearchParam))
+                {
+                    request.AddParameter("search_params", "potro_subject="+ userParam.NameSearchParam + "");
+                }
+              
                 IRestResponse Response = Api.Execute(request);
-
-
                 var responseJson = Response.Content;
                
 
