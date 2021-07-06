@@ -28,8 +28,8 @@ namespace dNothi.Desktop.UI.OtherModule
         IGuardFileService<GuardFileCategory, GuardFileCategory.Record> _guardFileCategoryService;
         ISyncerService _syncerServices { get; set; }
         public int currentPage { get { return 1; } set { } }
-        
-
+        private bool _iscurrentPage = false;
+        public bool iscurrentPage { get => _iscurrentPage; set => _iscurrentPage = value; }
         UCGuardFileList guardFileListuc;
         UCGuardFileUpload guardFileUploaduc; 
         UCGuardFileTypes guardFileTypeuc; 
@@ -56,11 +56,8 @@ namespace dNothi.Desktop.UI.OtherModule
             bodyPanel.Controls.Add(guardFileTypeuc);
             guardFileTypeuc.Dock = DockStyle.Top;
             bodyPanel.Visible = true;
-          
             guardFileTypeuc.Show();
             guardFileAddButton.Show();
-
-
             SelectThisButton(sender, e);
           
         }
@@ -125,8 +122,11 @@ namespace dNothi.Desktop.UI.OtherModule
 
         private void guardFileAddButton_Click(object sender, EventArgs e)
         {
-            CreateGuardFileTypeForm createGuardFileTypeForm = new CreateGuardFileTypeForm(_userService, _guardFileCategoryService, _guardFileService, _syncerServices);
+          
+            var createGuardFileTypeForm = FormFactory.Create<CreateGuardFileTypeForm>();
             createGuardFileTypeForm._currentPage = _currentPage;
+
+            createGuardFileTypeForm.SubmitButtonClick += delegate (object s, EventArgs e1) { submitUserControl_ButtonClick(s, e1); };
 
             UIDesignCommonMethod.CalPopUpWindow(createGuardFileTypeForm, this);
         }
@@ -135,7 +135,15 @@ namespace dNothi.Desktop.UI.OtherModule
         {
 
         }
-
+        private void submitUserControl_ButtonClick(object sender, EventArgs e)
+        {
+            bodyPanel.Controls.Clear();
+            guardFileTypeuc = new UCGuardFileTypes(_userService, _guardFileCategoryService, _guardFileService, _syncerServices);
+            guardFileTypeuc.page = _currentPage;
+            guardFileTypeuc.Dock = DockStyle.Top;
+            bodyPanel.Controls.Add(guardFileTypeuc);
+            guardFileAddButton.Show();
+        }
         private void DakDashboardClick(object sender, EventArgs e)
         {
             UIDesignCommonMethod.DakModuleClick(this);
@@ -149,6 +157,7 @@ namespace dNothi.Desktop.UI.OtherModule
         private void GurdFileControl_Shown(object sender, EventArgs e)
         {
             int page = currentPage;
+           
             
             guardFileTypeuc = new UCGuardFileTypes(_userService,_guardFileCategoryService,_guardFileService, _syncerServices);
             guardFileTypeuc.page = _currentPage;
@@ -169,9 +178,6 @@ namespace dNothi.Desktop.UI.OtherModule
             {
 
             }
-
-
-
 
 
             List<OfficeInfoDTO> officeInfoDTO = _userService.GetAllLocalOfficeInfo();
@@ -196,17 +202,10 @@ namespace dNothi.Desktop.UI.OtherModule
             }
 
 
-
             designationDetailsPanel.officeInfos = officeInfoDTO;
 
 
-
-
-
             designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
-
-
-
 
             guardFileTypeuc.Dock = DockStyle.Top;
             bodyPanel.Controls.Add(guardFileTypeuc);
@@ -316,8 +315,6 @@ namespace dNothi.Desktop.UI.OtherModule
 
 
         }
-
-
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {

@@ -8,8 +8,7 @@ namespace dNothi.Services.KasaraPatraDashBoardService.Models
 {
    public class Attachment
     {
-        public string status { get; set; }
-        public List<Datum> data { get; set; }
+      
         public class Datum
         {
             public int id { get; set; }
@@ -34,12 +33,15 @@ namespace dNothi.Services.KasaraPatraDashBoardService.Models
             public string url { get; set; }
             public string download_url { get; set; }
             public string thumb_url { get; set; }
+
+
         }
 
-        public class Root
-        {
-          
-        }
+     
 
+            public string status { get; set; }
+            public List<Datum> data { get; set; }
+            public List<object> options { get; set; }
+       
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices;
 using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
@@ -14,7 +15,7 @@ namespace dNothi.Services.KasaraPatraDashBoardService
     {
         KasaraPotro GetList(DakUserParam dakListUserParam, int menuNo);
         PrapakerTalika GetPrapakerTalika(DakUserParam dakListUserParam, int potro);
-        Attachment GetMulPattraAndSanjukti(DakUserParam dakListUserParam, KasaraPotro.Record record);
+        DakAttachmentResponse GetMulPattraAndSanjukti(DakUserParam dakListUserParam, KasaraPotro.Record record);
         ResponseModel KasaraDashBoardRecordCount(DakUserParam userParam);
     }
 }

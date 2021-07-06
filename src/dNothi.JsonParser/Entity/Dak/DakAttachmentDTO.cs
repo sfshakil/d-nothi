@@ -52,8 +52,10 @@ namespace dNothi.JsonParser.Entity.Dak
    
         public string modified { get; set; }
         public string delete_url { get; set; }
-        
 
+      
+        public string potro_subject { get; set; }
+        public string potro_description { get; set; }
         public long attachment_id
         { get
             {
@@ -63,8 +65,19 @@ namespace dNothi.JsonParser.Entity.Dak
                 
         }
 
-
-
+        public int nothi_master_id { get; set; }
+        public int nothi_note_id { get; set; }
+        public int nothi_potro_id { get; set; }
+        public int nothijato { get; set; }
+        public int nothi_potro_page { get; set; }
+        public string sarok_no { get; set; }
+       
+        public string potro_cover { get; set; }
+     
+        public string application_origin { get; set; }
+       
+        public int potrojari_id { get; set; }
+       
 
     }
 }

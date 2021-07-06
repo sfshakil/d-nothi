@@ -1,4 +1,5 @@
 ﻿using dNothi.JsonParser.Entity.Dak;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -136,7 +137,7 @@ namespace dNothi.Desktop.UI.Dak
                         //      pdfViewerControl.Document= pdfDocument;
                         // pdfViewerControl.MouseWheel += new MouseEventHandler(this.pdfViewerControl_MouseWheel);
                     }
-
+                   
                     else
                     {
 
@@ -151,7 +152,7 @@ namespace dNothi.Desktop.UI.Dak
                         {
                             mainAttachmentViewWebBrowser.Document.Write(string.Empty);
                         }
-                        string DecodedString = dakAttachmentDTO.dak_description;
+                        string DecodedString = dakAttachmentDTO.dak_description!=null? dakAttachmentDTO.dak_description : Base64Conversion.Base64ToHtmlContent(dakAttachmentDTO.potro_description); 
                         int loopCount = 0;
                         do
                         {
@@ -164,19 +165,11 @@ namespace dNothi.Desktop.UI.Dak
 
                         } while (!DecodedString.StartsWith("<") && loopCount < 5);
 
-
-
                         mainAttachmentViewWebBrowser.DocumentText = DecodedString;
-
-                       
-
                     }
                 }
                 catch
                 {
-
-                    
-                    
                     fileMissingLabel.Visible = true;
                     pdfViewerControl.Visible = false;
                     imagePanel.Visible = false;
@@ -311,6 +304,11 @@ namespace dNothi.Desktop.UI.Dak
         private void AttachmentViewPopUpForm_Load(object sender, EventArgs e)
         {
             //this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void closesIconButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

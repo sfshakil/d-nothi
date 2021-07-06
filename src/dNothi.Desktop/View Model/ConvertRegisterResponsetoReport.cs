@@ -33,7 +33,16 @@ namespace dNothi.Desktop.View_Model
 
                             registerReport.docketingNo = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.DakDaptoriks.docketing_no);
                             registerReport.sub = registerReportRecordDTO.DakDaptoriks.dak_subject;
-                            registerReport.security = dakSecurityList.GetDakSecuritiesName(Convert.ToString(registerReportRecordDTO.DakDaptoriks.dak_security_level));
+                            if(Convert.ToInt32(registerReportRecordDTO.DakDaptoriks.dak_security_level)==0)
+                            {
+                                registerReport.security = "";
+
+                            }
+                            else
+                            {
+                                registerReport.security = dakSecurityList.GetDakSecuritiesName(Convert.ToString(registerReportRecordDTO.DakDaptoriks.dak_security_level));
+
+                            }
                             registerReport.previousPrapok = registerReportRecordDTO.DakDaptoriks.sender_name + ", " + registerReportRecordDTO.DakDaptoriks.sender_officer_designation_label + "," + registerReportRecordDTO.DakDaptoriks.sender_office_unit_name + "," + registerReportRecordDTO.DakDaptoriks.sender_office_name;
                             registerReport.sharokNo = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.DakDaptoriks.sender_sarok_no);
                             registerReport.applyDate = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.daptorikCreated);
@@ -45,7 +54,18 @@ namespace dNothi.Desktop.View_Model
 
                             registerReport.docketingNo = registerReportRecordDTO.DakNagoriks.docketing_no;
                             registerReport.sub = registerReportRecordDTO.DakNagoriks.dak_subject;
-                            registerReport.security = dakSecurityList.GetDakSecuritiesName(Convert.ToString(registerReportRecordDTO.DakNagoriks.dak_security_level));
+
+                            if(Convert.ToInt32(registerReportRecordDTO.DakNagoriks.dak_security_level)==0)
+                            {
+                                registerReport.security = "";
+
+                            }
+                            else
+                            {
+                                registerReport.security = dakSecurityList.GetDakSecuritiesName(Convert.ToString(registerReportRecordDTO.DakNagoriks.dak_security_level));
+
+                            }
+
                             registerReport.previousPrapok = registerReportRecordDTO.DakNagoriks.sender_name;
                             
 
@@ -82,10 +102,20 @@ namespace dNothi.Desktop.View_Model
                    
                     DakPriorityList dakPriorityList = new DakPriorityList(true);
                    
+                    if(registerReportRecordDTO.dak_priority==0)
+                    {
+                        registerReport.priority = "";
+                    }
+                    else
+                    {
+                        registerReport.priority = dakPriorityList.GetDakPriorityName(Convert.ToString(registerReportRecordDTO.dak_priority));
 
-                    registerReport.priority = dakPriorityList.GetDakPriorityName(Convert.ToString(registerReportRecordDTO.dak_priority));
-                
+                    }
+
+
                     registerReport.finalState = registerReportRecordDTO.dak_actions;
+
+
 
 
                     registerReportLis.Add(registerReport);

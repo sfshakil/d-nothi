@@ -603,11 +603,21 @@ namespace dNothi.Services.DakServices
                             _localUploadedDakRepository.Delete(localUploadedDak);
                             isUploaded = true;
                         }
+                        else if(dakDraftedResponse != null && dakDraftedResponse.status == "error")
+                        {
+                            _localUploadedDakRepository.Delete(localUploadedDak);
+                            isUploaded = true;
+                        }
                     }
                     else
                     {
                         DakUploadResponse dakUploadResponse = GetLocalUploadDakSendResponse(dakUserParam, dakUploadParameter);
                         if (dakUploadResponse != null && dakUploadResponse.status == "success")
+                        {
+                            _localUploadedDakRepository.Delete(localUploadedDak);
+                            isUploaded = true;
+                        }
+                        else if (dakUploadResponse != null && dakUploadResponse.status == "error")
                         {
                             _localUploadedDakRepository.Delete(localUploadedDak);
                             isUploaded = true;

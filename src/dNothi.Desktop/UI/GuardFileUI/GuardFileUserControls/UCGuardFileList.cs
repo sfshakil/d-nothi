@@ -77,7 +77,6 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
 
         }
-        
         public void LoadGuardFileList()
         {
             int categoryid = typesearchComboBox.selectedId;
@@ -160,8 +159,6 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 totalPage = (int)Math.Ceiling(pagesize);
             }
         }
-        
-
         private void guardFileTableUserControl_viewButtonClick(object sender, EventArgs e, int id)
         {
             

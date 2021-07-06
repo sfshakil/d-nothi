@@ -299,6 +299,9 @@ namespace dNothi.Desktop
             builder.RegisterType<DakNothiteUposthapitoNewNoteAddUserControl>().AsSelf();
             builder.RegisterType<MultipleDakActionResultForm>().AsSelf();
             builder.RegisterType<MultipleDakSelectedListConfirmForm>().AsSelf();
+           
+            builder.RegisterType<CreateGuardFileTypeForm>().AsSelf();
+            builder.RegisterType<GurdFileControl>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileTypes>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileList>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileUpload>().AsSelf();

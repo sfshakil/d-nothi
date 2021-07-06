@@ -119,7 +119,7 @@
             this.rightArrowButton.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleRight;
             this.rightArrowButton.IconColor = System.Drawing.Color.Black;
             this.rightArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.rightArrowButton.Location = new System.Drawing.Point(722, 260);
+            this.rightArrowButton.Location = new System.Drawing.Point(730, 260);
             this.rightArrowButton.Name = "rightArrowButton";
             this.rightArrowButton.Size = new System.Drawing.Size(39, 44);
             this.rightArrowButton.TabIndex = 7;
@@ -130,7 +130,6 @@
             // 
             // leftArrowButton
             // 
-            this.leftArrowButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.leftArrowButton.FlatAppearance.BorderSize = 0;
             this.leftArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.leftArrowButton.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleLeft;
@@ -146,14 +145,13 @@
             // 
             // closeButton
             // 
-            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closeButton.AutoEllipsis = true;
             this.closeButton.BackColor = System.Drawing.Color.Transparent;
             this.closeButton.FlatAppearance.BorderSize = 0;
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.ForeColor = System.Drawing.Color.Transparent;
+            this.closeButton.ForeColor = System.Drawing.Color.Black;
             this.closeButton.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
-            this.closeButton.IconColor = System.Drawing.Color.DimGray;
+            this.closeButton.IconColor = System.Drawing.Color.Black;
             this.closeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.closeButton.IconSize = 32;
             this.closeButton.Location = new System.Drawing.Point(737, 2);
@@ -161,7 +159,7 @@
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(28, 27);
             this.closeButton.TabIndex = 0;
-            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             this.closeButton.MouseLeave += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
             this.closeButton.MouseHover += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);

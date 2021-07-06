@@ -22,20 +22,19 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
 {
     public partial class CreateGuardFileTypeForm : Form
     {
-       ISyncerService _syncerServices { get; set; }
+     
         IGuardFileService<GuardFileCategory,GuardFileCategory.Record> _guardFileCategoryService { get; set; }
-        IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService { get; set; }
+      
         IUserService _userService { get; set; }
         public const string GuardFileCategory = "GuardFileCategories";
       
         AllAlartMessage _alartMessage = new AllAlartMessage();
-        public CreateGuardFileTypeForm(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService, ISyncerService syncerServices)
+       
+        public CreateGuardFileTypeForm(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService)
         {
             InitializeComponent();
             _userService = userService;
             _guardFileCategoryService = guardFileCategoryService;
-            _guardFileService = guardFileService;
-            _syncerServices = syncerServices;
         }
 
         public DakUserParam dakUserParam { get; }
@@ -61,7 +60,7 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
 
 
         }
-
+        public event EventHandler SubmitButtonClick;
         private void saveEditButton_Click(object sender, EventArgs e)
         {
             if (placeholderTextBox1.Text != string.Empty)
@@ -77,10 +76,11 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
                 if(response.status=="success")
                 {
                     this.Close();
-                    GurdFileControl gurdFileControl = new GurdFileControl(_userService, _guardFileService, _guardFileCategoryService,  _syncerServices);
-                    gurdFileControl._currentPage = _currentPage;
-                    gurdFileControl.Show();
                     _alartMessage.SuccessMessage("ধরন সংরক্ষণ সফল হয়েছে।");
+                    if (this.saveEditButton != null)
+                    {
+                        SubmitButtonClick(sender, e);
+                    }
                 }
             }
             else
