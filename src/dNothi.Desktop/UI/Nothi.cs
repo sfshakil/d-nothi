@@ -708,7 +708,7 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiListRecordsDTO;
             form.GetNothiInboxRecords(nothiListRecords,"","");
-            form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
+            form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiInbox(); };
 
             CalPopUpWindow(form);
 
@@ -1895,6 +1895,25 @@ namespace dNothi.Desktop.UI
             LoadNothiAll();
             WaitForm.Close();
         }
+        private void ClickNothiInbox()
+        {
+            WaitForm.Show(this);
+            agotoNothiSelected = 1;
+            preritoNothiSelected = 0;
+            shokolNothiSelected = 0;
+            _nothiCurrentCategory.isInbox = true;
+            btnNothiInbox.IconColor = Color.FromArgb(78, 165, 254);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            ResetAllMenuButtonSelection();
+            SelectButton(btnNothiInbox);
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
+            LoadNothiInbox();
+            WaitForm.Close();
+        }
 
         private void btnNewNothi_Click(object sender, EventArgs e)
         {
@@ -2372,8 +2391,37 @@ namespace dNothi.Desktop.UI
                 noteList = _nothiNoteTalikaServices.GetNothiNoteListSent(dakUserParam, -1);
 
             }
+            try
+            {
+                if (noteList.data.records.Count > 0)
+                {
+                    var str = 1;
+                    lbLengthStart.Text = string.Concat(str.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbLengthEnd.Text = string.Concat(noteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbTotalNothi.Text = "সর্বমোট: " + string.Concat(noteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
 
-            LoadNote(noteList);
+                    allNextButtonVisibilityOff();
+                    allPreviousButtonVisibilityOff();
+                    pnlNoData.Visible = false;
+                    LoadNote(noteList);
+                }
+                else
+                {
+                    var str = 0;
+                    lbLengthStart.Text = string.Concat(str.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbLengthEnd.Text = string.Concat(str.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbTotalNothi.Text = "সর্বমোট: " + string.Concat(str.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    allNextButtonVisibilityOff();
+                    allPreviousButtonVisibilityOff();
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
+                }
+            }
+            catch
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
             WaitForm.Close();
         }
 
