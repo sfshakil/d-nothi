@@ -825,6 +825,7 @@ namespace dNothi.Desktop.UI
         private void KhosraDashboard_Load(object sender, EventArgs e)
         {
             backgroundWorker1.RunWorkerAsync();
+            label7.Text = UIDesignCommonMethod.copyRightLableText;
         }
 
         private void recycleIconButton_Click(object sender, EventArgs e)

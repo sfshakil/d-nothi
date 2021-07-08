@@ -12,6 +12,8 @@ namespace dNothi.Desktop.UI
    public class UIDesignCommonMethod
     {
 
+        public static string copyRightLableText = "© কপিরাইট ২০২১, V :1.08";
+
         public static void SuccessMessage(string Message)
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();

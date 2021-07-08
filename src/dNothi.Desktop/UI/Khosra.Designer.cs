@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             FontAwesome.Sharp.IconButton saveButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Khosra));
-            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse1 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
+            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse3 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.khosraTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.pnlNothiNoteTalika = new System.Windows.Forms.Panel();
             this.khosraReviewButton = new FontAwesome.Sharp.IconButton();
@@ -69,16 +69,6 @@
             this.LeftSign = new FontAwesome.Sharp.IconButton();
             this.button2 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel47 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label7 = new System.Windows.Forms.Label();
             this.bodyPanel = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.tinyAndAttachmentPanel = new System.Windows.Forms.Panel();
@@ -174,6 +164,15 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.khoshraBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
             saveButton = new FontAwesome.Sharp.IconButton();
             this.khosraTableLayoutPanel.SuspendLayout();
             this.pnlNothiNoteTalika.SuspendLayout();
@@ -187,7 +186,6 @@
             this.panel1.SuspendLayout();
             this.dakMenuButton.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel47.SuspendLayout();
             this.bodyPanel.SuspendLayout();
             this.tinyAndAttachmentPanel.SuspendLayout();
             this.tinyMCEPanel.SuspendLayout();
@@ -222,6 +220,7 @@
             this.templateListPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.footerTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // saveButton
@@ -839,149 +838,12 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.Window;
-            this.panel6.Controls.Add(this.panel47);
-            this.panel6.Controls.Add(this.panel27);
-            this.panel6.Controls.Add(this.linkLabel2);
-            this.panel6.Controls.Add(this.label7);
+            this.panel6.Controls.Add(this.footerTableLayoutPanel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 484);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(924, 34);
             this.panel6.TabIndex = 17;
-            // 
-            // panel47
-            // 
-            this.panel47.Controls.Add(this.label9);
-            this.panel47.Controls.Add(this.button26);
-            this.panel47.Controls.Add(this.button27);
-            this.panel47.Controls.Add(this.button28);
-            this.panel47.Controls.Add(this.button29);
-            this.panel47.Controls.Add(this.button30);
-            this.panel47.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel47.Location = new System.Drawing.Point(685, 2);
-            this.panel47.Margin = new System.Windows.Forms.Padding(0);
-            this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(239, 32);
-            this.panel47.TabIndex = 63;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label9.Location = new System.Drawing.Point(57, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
-            this.label9.Size = new System.Drawing.Size(52, 25);
-            this.label9.TabIndex = 33;
-            this.label9.Text = "পার্টনার: ";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button26
-            // 
-            this.button26.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button26.BackgroundImage")));
-            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button26.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Location = new System.Drawing.Point(109, 0);
-            this.button26.Margin = new System.Windows.Forms.Padding(0);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(25, 32);
-            this.button26.TabIndex = 25;
-            this.button26.UseVisualStyleBackColor = false;
-            // 
-            // button27
-            // 
-            this.button27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button27.BackgroundImage")));
-            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button27.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Location = new System.Drawing.Point(134, 0);
-            this.button27.Margin = new System.Windows.Forms.Padding(0);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(25, 32);
-            this.button27.TabIndex = 26;
-            this.button27.UseVisualStyleBackColor = false;
-            // 
-            // button28
-            // 
-            this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button28.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button28.BackgroundImage")));
-            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button28.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Location = new System.Drawing.Point(159, 0);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(30, 32);
-            this.button28.TabIndex = 27;
-            this.button28.UseVisualStyleBackColor = false;
-            // 
-            // button29
-            // 
-            this.button29.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button29.BackgroundImage")));
-            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button29.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.Location = new System.Drawing.Point(189, 0);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(25, 32);
-            this.button29.TabIndex = 28;
-            this.button29.UseVisualStyleBackColor = false;
-            // 
-            // button30
-            // 
-            this.button30.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button30.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button30.BackgroundImage")));
-            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button30.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30.Location = new System.Drawing.Point(214, 0);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(25, 32);
-            this.button30.TabIndex = 29;
-            this.button30.UseVisualStyleBackColor = false;
-            // 
-            // panel27
-            // 
-            this.panel27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel27.Location = new System.Drawing.Point(214, 0);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(710, 2);
-            this.panel27.TabIndex = 62;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.linkLabel2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.linkLabel2.Location = new System.Drawing.Point(115, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(99, 34);
-            this.linkLabel2.TabIndex = 31;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "এটুআই প্রোগ্রাম";
-            this.linkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 34);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "© Copyright ২০২০, ";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bodyPanel
             // 
@@ -2208,9 +2070,9 @@
             this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            employeDakNothiCountResponse1.data = null;
-            employeDakNothiCountResponse1.status = null;
-            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse1;
+            employeDakNothiCountResponse3.data = null;
+            employeDakNothiCountResponse3.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse3;
             this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationDetailsPanel.Location = new System.Drawing.Point(498, 56);
             this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -2219,6 +2081,159 @@
             this.designationDetailsPanel.Size = new System.Drawing.Size(434, 91);
             this.designationDetailsPanel.TabIndex = 52;
             this.designationDetailsPanel.Visible = false;
+            // 
+            // footerTableLayoutPanel
+            // 
+            this.footerTableLayoutPanel.ColumnCount = 9;
+            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.footerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.footerTableLayoutPanel.Controls.Add(this.label9, 3, 0);
+            this.footerTableLayoutPanel.Controls.Add(this.linkLabel2, 1, 0);
+            this.footerTableLayoutPanel.Controls.Add(this.label7, 0, 0);
+            this.footerTableLayoutPanel.Controls.Add(this.button30, 4, 0);
+            this.footerTableLayoutPanel.Controls.Add(this.button29, 5, 0);
+            this.footerTableLayoutPanel.Controls.Add(this.button28, 6, 0);
+            this.footerTableLayoutPanel.Controls.Add(this.button27, 7, 0);
+            this.footerTableLayoutPanel.Controls.Add(this.button26, 8, 0);
+            this.footerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.footerTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.footerTableLayoutPanel.Name = "footerTableLayoutPanel";
+            this.footerTableLayoutPanel.RowCount = 1;
+            this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.footerTableLayoutPanel.Size = new System.Drawing.Size(924, 34);
+            this.footerTableLayoutPanel.TabIndex = 64;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(714, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 34);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "পার্টনার: ";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Location = new System.Drawing.Point(117, 0);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(89, 34);
+            this.linkLabel2.TabIndex = 31;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "এটুআই প্রোগ্রাম";
+            this.linkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 34);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "© কপিরাইট ২০২১, ";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button30
+            // 
+            this.button30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button30.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button30.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button30.BackgroundImage")));
+            this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button30.Location = new System.Drawing.Point(772, 3);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(25, 28);
+            this.button30.TabIndex = 29;
+            this.button30.UseVisualStyleBackColor = false;
+            // 
+            // button29
+            // 
+            this.button29.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button29.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button29.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button29.BackgroundImage")));
+            this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button29.Location = new System.Drawing.Point(803, 3);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(25, 28);
+            this.button29.TabIndex = 28;
+            this.button29.UseVisualStyleBackColor = false;
+            // 
+            // button28
+            // 
+            this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button28.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button28.BackgroundImage")));
+            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button28.Location = new System.Drawing.Point(834, 3);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(25, 28);
+            this.button28.TabIndex = 27;
+            this.button28.UseVisualStyleBackColor = false;
+            // 
+            // button27
+            // 
+            this.button27.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button27.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button27.BackgroundImage")));
+            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.Location = new System.Drawing.Point(865, 3);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(25, 28);
+            this.button27.TabIndex = 26;
+            this.button27.UseVisualStyleBackColor = false;
+            // 
+            // button26
+            // 
+            this.button26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button26.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button26.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button26.BackgroundImage")));
+            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.Location = new System.Drawing.Point(896, 3);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(25, 28);
+            this.button26.TabIndex = 25;
+            this.button26.UseVisualStyleBackColor = false;
             // 
             // Khosra
             // 
@@ -2252,8 +2267,6 @@
             this.panel1.PerformLayout();
             this.dakMenuButton.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel47.ResumeLayout(false);
-            this.panel47.PerformLayout();
             this.bodyPanel.ResumeLayout(false);
             this.tinyAndAttachmentPanel.ResumeLayout(false);
             this.tinyMCEPanel.ResumeLayout(false);
@@ -2308,6 +2321,8 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.footerTableLayoutPanel.ResumeLayout(false);
+            this.footerTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2336,16 +2351,6 @@
         private System.Windows.Forms.Label userNameLabel;
         private FontAwesome.Sharp.IconButton profileShowArrowButton;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel47;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Button button30;
-        private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel pnlNothiNoteTalika;
         private FontAwesome.Sharp.IconButton noteDetailsButton;
         private System.Windows.Forms.Panel nothiNamePanel;
@@ -2457,5 +2462,14 @@
         private System.Windows.Forms.DateTimePicker timePicker;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TableLayoutPanel footerTableLayoutPanel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button button26;
     }
 }
