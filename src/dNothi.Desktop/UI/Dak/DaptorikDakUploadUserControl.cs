@@ -808,6 +808,7 @@ namespace dNothi.Desktop.UI.Dak
 
             searchOfficerRightPanel.Visible = true;
         }
+       
 
         private void searchOfficerRightButton_Click(object sender, EventArgs e)
         {
