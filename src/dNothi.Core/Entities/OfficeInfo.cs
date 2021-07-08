@@ -17,7 +17,7 @@ namespace dNothi.Core.Entities
         public int office_head { get; set; }
         [StringLength(500)]
         public string incharge_label { get; set; }
-        public DateTime joining_date { get; set; }
+        public string joining_date { get; set; }
         public object last_office_date { get; set; }
         public bool status { get; set; }
         public int show_unit { get; set; }

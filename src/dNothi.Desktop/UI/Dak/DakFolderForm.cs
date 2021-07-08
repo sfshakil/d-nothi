@@ -317,12 +317,12 @@ namespace dNothi.Desktop.UI.Dak
             else
             {
                 folder = null;
-                folder = _folderListDataDTO.publicFOlder.FirstOrDefault(a => a.id == _selectedFolderId);
+                folder = _folderListDataDTO._privateFolder.FirstOrDefault(a => a.id == _selectedFolderId);
 
-                if (folder == null)
-                {
-                    folder = _folderListDataDTO._privateFolder.FirstOrDefault(a => a.id == _selectedFolderId);
-                }
+                //if (folder == null)
+                //{
+                //    folder = _folderListDataDTO._privateFolder.FirstOrDefault(a => a.id == _selectedFolderId);
+                //}
             }
 
 

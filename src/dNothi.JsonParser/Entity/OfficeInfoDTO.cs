@@ -14,7 +14,7 @@ namespace dNothi.JsonParser.Entity
         public int designation_sequence { get; set; }
         public int office_head { get; set; }
         public string incharge_label { get; set; }
-        public DateTime joining_date { get; set; }
+        public string joining_date { get; set; }
         public object last_office_date { get; set; }
         public bool status { get; set; }
         public int show_unit { get; set; }
