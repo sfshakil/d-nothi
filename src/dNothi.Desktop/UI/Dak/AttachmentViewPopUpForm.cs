@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity.Dak;
+﻿using CefSharp;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.Utility;
 using System;
 using System.Collections.Generic;
@@ -86,11 +87,14 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _dakAttachmentDTO = value;
-
+               
                 try
                 {
                     if (dakAttachmentDTO.attachment_type.ToLower().Contains("image") || dakAttachmentDTO.attachment_type.ToLower().Contains("img"))
                     {
+                        rightArrowButton.Visible = true;
+
+                        leftArrowButton.Visible = true;
                         mainAttachmentViewWebBrowser.Visible = false;
                         pdfViewerControl.Visible = false;
                        
@@ -104,8 +108,10 @@ namespace dNothi.Desktop.UI.Dak
                     }
                     else if (dakAttachmentDTO.attachment_type.ToLower().Contains("pdf"))
                     {
+                        rightArrowButton.Visible = true;
 
-                      
+                        leftArrowButton.Visible = true;
+
                         WebClient myClient = new WebClient();
                         byte[] bytes = myClient.DownloadData(dakAttachmentDTO.url);
                         var stream = new MemoryStream(bytes);
@@ -141,17 +147,17 @@ namespace dNothi.Desktop.UI.Dak
                     else
                     {
 
-
-
-                      
+                       
                         pdfViewerControl.Visible = false;
                         imagePanel.Visible = false;
                         fileMissingLabel.Visible = false;
                         mainAttachmentViewWebBrowser.Visible = true;
-                        if (mainAttachmentViewWebBrowser.Document != null)
-                        {
-                            mainAttachmentViewWebBrowser.Document.Write(string.Empty);
-                        }
+                        rightArrowButton.Visible = false;
+                        leftArrowButton.Visible = false;
+                        //if (mainAttachmentViewWebBrowser.Document != null)
+                        //{
+                        //    mainAttachmentViewWebBrowser.Document.Write(string.Empty);
+                        //}
                         string DecodedString = dakAttachmentDTO.dak_description!=null? dakAttachmentDTO.dak_description : Base64Conversion.Base64ToHtmlContent(dakAttachmentDTO.potro_description); 
                         int loopCount = 0;
                         do
@@ -162,10 +168,9 @@ namespace dNothi.Desktop.UI.Dak
                             DecodedString = writer.ToString();
                             loopCount += 1;
 
-
                         } while (!DecodedString.StartsWith("<") && loopCount < 5);
 
-                        mainAttachmentViewWebBrowser.DocumentText = DecodedString;
+                        mainAttachmentViewWebBrowser.LoadHtml(DecodedString, "https://myfakeurl.com");
                     }
                 }
                 catch
@@ -189,24 +194,30 @@ namespace dNothi.Desktop.UI.Dak
         private void mainAttachmentViewWebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             //If dockstyle = fill
-            if(mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Width<this.Width)
-            {
-                this.Width = mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Width + 10;//Border
+            //if(mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Width<this.Width)
+            //{
+            //    this.Width = mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Width + 10;//Border
 
-            }
-            if (mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Height < this.Height)
-            {
-                this.Height = mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Height + 10;//Border
+            //}
+            //if (mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Height < this.Height)
+            //{
+            //    this.Height = mainAttachmentViewWebBrowser.Document.Body.ScrollRectangle.Height + 10;//Border
 
-            }
+            //}
+
+           
 
             Screen scr = Screen.FromPoint(this.Location);
             int heightLoc =Convert.ToInt32((scr.WorkingArea.Bottom - this.Height) / 2);
+            if( heightLoc < 0)
+            {
+                heightLoc = 10;
+            }
             int widthLoc =Convert.ToInt32((scr.WorkingArea.Right - this.Width) / 2);
             this.Location = new Point(widthLoc, heightLoc);
 
 
-            mainAttachmentViewWebBrowser.Document.Body.MouseOver += new HtmlElementEventHandler(Body_MouseOver);
+           // mainAttachmentViewWebBrowser.Document.Body.MouseOver += new HtmlElementEventHandler(Body_MouseOver);
 
         }
 
@@ -310,5 +321,23 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.Hide();
         }
+
+        private void mainAttachmentViewWebBrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        {
+           
+            BeginInvoke((MethodInvoker)delegate
+            {
+                Screen scr = Screen.FromPoint(this.Location);
+                int heightLoc = Convert.ToInt32((scr.WorkingArea.Bottom - this.Height) / 2);
+                if (heightLoc < 0)
+                {
+                    heightLoc = 10;
+                }
+                int widthLoc = Convert.ToInt32((scr.WorkingArea.Right - this.Width) / 2);
+                this.Location = new Point(widthLoc, heightLoc);
+            });
+
+        }
+       
     }
 }

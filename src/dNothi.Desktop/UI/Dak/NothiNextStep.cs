@@ -226,6 +226,29 @@ namespace dNothi.Desktop.UI.Dak
             successMessage.ShowDialog();
 
         }
+        
+        NothiListRecordsDTO nothiList = new NothiListRecordsDTO();
+        NoteView newNoteView ;
+
+        public string _noteIdfromNothiInboxNoteShomuho;
+        public string _nothiNo;
+        public string _nothiShakha;
+        public string _nothiSubject;
+        public string _nothiLastDate;
+        public string _office;
+        NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO = new NothiListInboxNoteRecordsDTO();
+        public void loadNothiInbox(NothiListRecordsDTO nothiListRecordsDTO)
+        {
+            nothiList = nothiListRecordsDTO;
+        }
+        public void loadNoteview(NoteView noteView)
+        {
+            newNoteView = noteView;
+        }
+        public void loadNothiInbox(NothiListInboxNoteRecordsDTO noteAllListDataRecordDTO)
+        {
+            _NoteAllListDataRecordDTO = noteAllListDataRecordDTO;
+        }
         private void btnSend_Click(object sender, EventArgs e)
         {
             List<onumodonDataRecordDTO> newrecords = new List<onumodonDataRecordDTO>();
@@ -260,11 +283,10 @@ namespace dNothi.Desktop.UI.Dak
                 if (onuchhedForwardResponse.status == "success" && onuchhedForwardResponse.message != "Local")
                 {
                     SuccessMessage("প্রক্রিয়াটি সম্পন্ন হয়েছে");
+                    
                     foreach (Form f in Application.OpenForms)
                     { BeginInvoke((Action)(() => f.Hide())); }
-                    var form = FormFactory.Create<Nothi>();
-                    BeginInvoke((Action)(() => form.ShowDialog()));
-
+                    loadNote();
                 }
                 else if (onuchhedForwardResponse.status == "success" && onuchhedForwardResponse.message == "Local")
                 {
@@ -281,6 +303,33 @@ namespace dNothi.Desktop.UI.Dak
 
             }
             
+        }
+        private void loadNote() 
+        {
+            var form = FormFactory.Create<Note>();
+
+            form.noteIdfromNothiInboxNoteShomuho = _noteIdfromNothiInboxNoteShomuho;
+
+            form.nothiNo = _nothiNo;
+            form.nothiShakha = _nothiShakha;
+            form.nothiSubject = _nothiSubject;
+            form.noteSubject = noteSubject;
+            form.nothiLastDate = _nothiLastDate;
+            form.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
+
+            form.office = _office;
+
+
+            form.loadNothiInboxRecords(nothiList);
+            form.loadNoteView(newNoteView);
+            form.noteTotal = noteTotal;
+            form.loadCBXNothiType();
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+        }
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
+            this.Hide();
         }
         void hideform_Shown(object sender, EventArgs e, Form form)
         {

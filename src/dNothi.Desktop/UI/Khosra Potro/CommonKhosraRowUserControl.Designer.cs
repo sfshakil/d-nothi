@@ -83,7 +83,7 @@
             this.subWithIconTableLayoutPanel.Name = "subWithIconTableLayoutPanel";
             this.subWithIconTableLayoutPanel.RowCount = 1;
             this.subWithIconTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.subWithIconTableLayoutPanel.Size = new System.Drawing.Size(819, 41);
+            this.subWithIconTableLayoutPanel.Size = new System.Drawing.Size(761, 41);
             this.subWithIconTableLayoutPanel.TabIndex = 3;
             // 
             // noteFlowLayoutPanel
@@ -93,7 +93,7 @@
             this.noteFlowLayoutPanel.Controls.Add(this.label5);
             this.noteFlowLayoutPanel.Controls.Add(this.dateLabel);
             this.noteFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.noteFlowLayoutPanel.Location = new System.Drawing.Point(542, 3);
+            this.noteFlowLayoutPanel.Location = new System.Drawing.Point(484, 3);
             this.noteFlowLayoutPanel.Name = "noteFlowLayoutPanel";
             this.noteFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(5, 5, 0, 5);
             this.noteFlowLayoutPanel.Size = new System.Drawing.Size(274, 35);
@@ -269,12 +269,13 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(237)))), ((int)(((byte)(243)))));
+            this.ToptableLayoutPanel.SetColumnSpan(this.panel1, 2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(5, 111);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel1.Location = new System.Drawing.Point(3, 36);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panel1.MinimumSize = new System.Drawing.Size(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(819, 1);
+            this.panel1.Size = new System.Drawing.Size(755, 1);
             this.panel1.TabIndex = 4;
             // 
             // sharokNoTableLayoutPanel
@@ -290,7 +291,7 @@
             this.sharokNoTableLayoutPanel.Name = "sharokNoTableLayoutPanel";
             this.sharokNoTableLayoutPanel.RowCount = 1;
             this.sharokNoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.sharokNoTableLayoutPanel.Size = new System.Drawing.Size(819, 32);
+            this.sharokNoTableLayoutPanel.Size = new System.Drawing.Size(761, 32);
             this.sharokNoTableLayoutPanel.TabIndex = 5;
             // 
             // senderReciverFlowLayoutPanel
@@ -300,12 +301,12 @@
             this.senderReciverFlowLayoutPanel.Controls.Add(this.aproverLabel);
             this.senderReciverFlowLayoutPanel.Controls.Add(this.label10);
             this.senderReciverFlowLayoutPanel.Controls.Add(this.senderLabel);
-            this.senderReciverFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.senderReciverFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.senderReciverFlowLayoutPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.senderReciverFlowLayoutPanel.Location = new System.Drawing.Point(412, 3);
+            this.senderReciverFlowLayoutPanel.Location = new System.Drawing.Point(488, 3);
             this.senderReciverFlowLayoutPanel.Name = "senderReciverFlowLayoutPanel";
             this.senderReciverFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(5, 5, 0, 5);
-            this.senderReciverFlowLayoutPanel.Size = new System.Drawing.Size(404, 26);
+            this.senderReciverFlowLayoutPanel.Size = new System.Drawing.Size(270, 26);
             this.senderReciverFlowLayoutPanel.TabIndex = 4;
             // 
             // label6
@@ -377,7 +378,7 @@
             this.sharokNoFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.sharokNoFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.sharokNoFlowLayoutPanel.Name = "sharokNoFlowLayoutPanel";
-            this.sharokNoFlowLayoutPanel.Size = new System.Drawing.Size(409, 32);
+            this.sharokNoFlowLayoutPanel.Size = new System.Drawing.Size(380, 32);
             this.sharokNoFlowLayoutPanel.TabIndex = 1;
             // 
             // label3
@@ -416,14 +417,16 @@
             this.ToptableLayoutPanel.ColumnCount = 2;
             this.ToptableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ToptableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.ToptableLayoutPanel.Controls.Add(this.panel1, 0, 1);
             this.ToptableLayoutPanel.Controls.Add(this.iconButtonPanel, 0, 0);
             this.ToptableLayoutPanel.Controls.Add(this.kasaraflowLayoutPanel, 0, 0);
             this.ToptableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ToptableLayoutPanel.Location = new System.Drawing.Point(5, 78);
             this.ToptableLayoutPanel.Name = "ToptableLayoutPanel";
-            this.ToptableLayoutPanel.RowCount = 1;
+            this.ToptableLayoutPanel.RowCount = 2;
             this.ToptableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.ToptableLayoutPanel.Size = new System.Drawing.Size(819, 33);
+            this.ToptableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.ToptableLayoutPanel.Size = new System.Drawing.Size(761, 38);
             this.ToptableLayoutPanel.TabIndex = 6;
             // 
             // iconButtonPanel
@@ -433,7 +436,7 @@
             this.iconButtonPanel.Controls.Add(this.viewIconButton);
             this.iconButtonPanel.Controls.Add(this.prapaklistIconButton);
             this.iconButtonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButtonPanel.Location = new System.Drawing.Point(717, 0);
+            this.iconButtonPanel.Location = new System.Drawing.Point(659, 0);
             this.iconButtonPanel.Margin = new System.Windows.Forms.Padding(0);
             this.iconButtonPanel.Name = "iconButtonPanel";
             this.iconButtonPanel.Size = new System.Drawing.Size(102, 33);
@@ -450,7 +453,7 @@
             this.kasaraflowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.kasaraflowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.kasaraflowLayoutPanel.Name = "kasaraflowLayoutPanel";
-            this.kasaraflowLayoutPanel.Size = new System.Drawing.Size(717, 33);
+            this.kasaraflowLayoutPanel.Size = new System.Drawing.Size(659, 33);
             this.kasaraflowLayoutPanel.TabIndex = 1;
             // 
             // label8
@@ -518,14 +521,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ToptableLayoutPanel);
             this.Controls.Add(this.subWithIconTableLayoutPanel);
             this.Controls.Add(this.sharokNoTableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "CommonKhosraRowUserControl";
-            this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(829, 117);
+            this.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.Size = new System.Drawing.Size(771, 132);
             this.subWithIconTableLayoutPanel.ResumeLayout(false);
             this.subWithIconTableLayoutPanel.PerformLayout();
             this.noteFlowLayoutPanel.ResumeLayout(false);
