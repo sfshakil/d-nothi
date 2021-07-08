@@ -2189,7 +2189,11 @@ namespace dNothi.Desktop.UI
 
 
         }
-
+        public void loadCBXNothiType()
+        {
+            cbxNothiType.SelectedIndex = 2;
+            
+        }
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -3872,7 +3876,6 @@ namespace dNothi.Desktop.UI
             var nothiType = UserControlFactory.Create<NothiNextStep>();
 
             nothiType.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e); };
-            //nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
             nothiType.Visible = true;
             nothiType.Enabled = true;
             nothiType.noteTotal = notelist.note_status;
@@ -3881,15 +3884,21 @@ namespace dNothi.Desktop.UI
             nothiType.loadNewNoteData(nns.getNewNoteData());
             nothiType.loadlistInboxRecord(nothiListRecords);
 
-            //nothiType.Location = new System.Drawing.Point(0, 0);
             nothiType.GetNothiInboxRecords(records);
             nothiType.loadNoteList(notelist);
-            //var invi = UserControlFactory.Create<NothiNextStep>();
-            //invi.loadNewNoteDataFromNote(nothiType);
-            //invi.Visible = false;
+
+
+            nothiType._noteIdfromNothiInboxNoteShomuho = noteIdfromNothiInboxNoteShomuho;
+            nothiType._nothiNo = nothiNo;
+            nothiType._nothiShakha = nothiShakha;
+            nothiType._nothiSubject = nothiSubject;
+            nothiType._nothiLastDate = nothiLastDate;
+            nothiType._office = office;
+            nothiType.loadNothiInbox(_NoteAllListDataRecordDTO);
+            nothiType.loadNothiInbox(nothiListRecords);
+            nothiType.loadNoteview(newNoteView);
 
             this.Controls.Add(nothiType);
-            //nothiType.BringToFront();
             var form = NothiNextStepControlToForm(nothiType);
             CalPopUpWindow(form);
 
@@ -4044,6 +4053,15 @@ namespace dNothi.Desktop.UI
 
             nothiType.GetNothiInboxRecords(records);
             nothiType.loadNoteList(notelist);
+            nothiType._noteIdfromNothiInboxNoteShomuho = noteIdfromNothiInboxNoteShomuho;
+            nothiType._nothiNo = nothiNo;
+            nothiType._nothiShakha = nothiShakha;
+            nothiType._nothiSubject = nothiSubject;
+            nothiType._nothiLastDate = nothiLastDate;
+            nothiType._office = office;
+            nothiType.loadNothiInbox(_NoteAllListDataRecordDTO);
+            nothiType.loadNothiInbox(nothiListRecords);
+            nothiType.loadNoteview(newNoteView);
 
             this.Controls.Add(nothiType);
             var form = NothiNextStepControlToForm(nothiType);
