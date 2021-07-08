@@ -32,7 +32,7 @@ namespace dNothi.Core.Entities
         [StringLength(50)]
         public string personal_mobile { get; set; }
         public int is_cadre { get; set; }
-        public object joining_date { get; set; }
+        public string joining_date { get; set; }
         public int default_sign { get; set; }
     }
 }

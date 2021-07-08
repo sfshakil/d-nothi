@@ -271,13 +271,14 @@ namespace dNothi.Services.DakServices
 
                 if(dakItemAction == null)
                 {
+                    DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                     dakItemAction = new DakItemAction();
                     dakItemAction.isForwarded = true;
                     dakItemAction.is_copied_dak = dakForwardParam.is_copied_dak;
                     dakItemAction.dak_id = dakForwardParam.dak_id;
                     dakItemAction.dak_type = dakForwardParam.dak_type;
                     dakItemAction.dak_Action_Json = JsonParsingMethod.ObjecttoJson(dakForwardParam);
-
+                    dakItemAction.designation_id = dakUserParam.designation_id;
                     _dakItemAction.Insert(dakItemAction);
                 }
 

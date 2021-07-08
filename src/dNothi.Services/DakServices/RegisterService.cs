@@ -30,8 +30,8 @@ namespace dNothi.Services.DakServices
                 dakGrohonRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 dakGrohonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                dakGrohonRequest.AddParameter("start_date", "2020-12-01");
-                dakGrohonRequest.AddParameter("end_date", "2021-12-01");
+                dakGrohonRequest.AddParameter("start_date",fromDate);
+                dakGrohonRequest.AddParameter("end_date", toDate);
                 dakGrohonRequest.AddParameter("length", "10");
                 dakGrohonRequest.AddParameter("page", "1");
 
@@ -71,8 +71,8 @@ namespace dNothi.Services.DakServices
                 dakGrohonRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 dakGrohonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                dakGrohonRequest.AddParameter("start_date", "2020-12-01");
-                dakGrohonRequest.AddParameter("end_date", "2021-12-01");
+                dakGrohonRequest.AddParameter("start_date",fromDate);
+                dakGrohonRequest.AddParameter("end_date", toDate);
                 dakGrohonRequest.AddParameter("length", "10");
                 dakGrohonRequest.AddParameter("page", "1");
 
@@ -111,8 +111,8 @@ namespace dNothi.Services.DakServices
                 dakGrohonRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 dakGrohonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                dakGrohonRequest.AddParameter("start_date", "2020-12-01");
-                dakGrohonRequest.AddParameter("end_date", "2021-12-01");
+                dakGrohonRequest.AddParameter("start_date", fromDate);
+                dakGrohonRequest.AddParameter("end_date", toDate);
                 dakGrohonRequest.AddParameter("length", "10");
                 dakGrohonRequest.AddParameter("page", "1");
 

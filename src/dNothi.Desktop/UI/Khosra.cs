@@ -1814,6 +1814,14 @@ namespace dNothi.Desktop.UI
                     {
                         LoadNote();
                     }
+                    else
+                    {
+                        foreach (Form f in Application.OpenForms)
+                        { BeginInvoke((Action)(() => f.Hide())); }
+                        KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
+                        BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
+                        khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                    }
                    
                 }
                 else if(khosraSaveResponse.status == "error")
@@ -1828,7 +1836,10 @@ namespace dNothi.Desktop.UI
 
 
         }
-
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
         private void LoadNote()
         {
             var form = FormFactory.Create<Note>();

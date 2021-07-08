@@ -33,6 +33,7 @@ namespace dNothi.Desktop.UI
 {
     public partial class Dashboard : Form
     {
+
         private DakUserParam dakListUserParam = new DakUserParam();
 
         private PictureBox pb;
@@ -4919,15 +4920,17 @@ namespace dNothi.Desktop.UI
                 registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
         }
-
+        string fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+        string todate = DateTime.Now.ToString("yyyy/MM/dd");
         private void registerGrohonButton_Click(object sender, EventArgs e)
         {
+           
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(_dakuserparam, null, null, null);
+            RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(_dakuserparam,fromdate,todate, null);
             RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
             registerReportUserControl.isDakGrohon = true;
             registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
@@ -4946,7 +4949,7 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(_dakuserparam, null, null, null);
+            RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(_dakuserparam, fromdate, todate, null);
             RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
             registerReportUserControl.isDakBili = true;
             registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
@@ -4965,7 +4968,7 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(_dakuserparam, null, null, null);
+            RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(_dakuserparam, fromdate, todate, null);
             RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
             registerReportUserControl.isDakDiary = true;
             registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);

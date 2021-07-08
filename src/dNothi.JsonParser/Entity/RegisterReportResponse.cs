@@ -90,7 +90,7 @@ namespace dNothi.JsonParser.Entity
     public class RegisterReportRecordDTO
     {
         public string daptorikCreated { get; set; }
-        public object nagorikCreated { get; set; }
+        public string nagorikCreated { get; set; }
         public int id { get; set; }
         public string dak_type { get; set; }
         public string from_office_name { get; set; }
@@ -113,6 +113,33 @@ namespace dNothi.JsonParser.Entity
         public RegisterReportDakDaptoriksDTO DakDaptoriks { get; set; }
         public RegisterReportDakNagoriksDTO DakNagoriks { get; set; }
         public List<RegisterReportMainPrapokDTO> mainPrapok { get; set; }
+        public RegisterNothiPartsDTO NothiParts { get; set; }
+        public RegisterNothiPotroDTO NothiPotros { get; set; }
+
+
+        public int is_copied_dak { get; set; }
+        public string sender_sarok_no { get; set; }
+       
+        public string sender_name { get; set; }
+        public string sender_office_unit_name { get; set; }
+        public string sender_officer_designation_label { get; set; }
+        public string sender_office_name { get; set; }
+        public string dak_subject { get; set; }
+
+
+
+    }
+
+    public class RegisterNothiPartsDTO
+    {
+        public string nothi_no { get; set; }
+        public string nothi_master_id { get; set; }
+    }
+
+    public class RegisterNothiPotroDTO
+    {
+        public string created { get; set; }
+        public string sarok_no { get; set; }
     }
 
     public class RegisterReportDataDTO
