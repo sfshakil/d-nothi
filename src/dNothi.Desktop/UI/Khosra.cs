@@ -1309,6 +1309,7 @@ namespace dNothi.Desktop.UI
         private void Khosra_Load(object sender, EventArgs e)
         {
             RefreshKhosra();
+            label7.Text = UIDesignCommonMethod.copyRightLableText;
             khosraTableLayoutPanel.Enabled = false;
         }
 

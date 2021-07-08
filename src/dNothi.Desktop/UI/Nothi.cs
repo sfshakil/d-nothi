@@ -2129,7 +2129,7 @@ namespace dNothi.Desktop.UI
 
         private void Nothi_Load_1(object sender, EventArgs e)
         {
-
+            label7.Text = UIDesignCommonMethod.copyRightLableText;
             nothiBackGroundWorker.RunWorkerAsync();
         }
 

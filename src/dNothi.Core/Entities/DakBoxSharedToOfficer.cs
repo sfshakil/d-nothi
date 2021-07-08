@@ -14,6 +14,7 @@ namespace dNothi.Core.Entities
         public int designation_id { get; set; }
         public int? assignor_designation_id { get; set; }
         public int? assignee_designation_id { get; set; }
+        public bool IsEmpty { get; set; }
 
         [MaxLength]
         public string officer_details_Json { get; set; }

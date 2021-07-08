@@ -8975,6 +8975,7 @@ namespace dNothi.Desktop.UI
 
         private void Note_Load_1(object sender, EventArgs e)
         {
+            label7.Text = UIDesignCommonMethod.copyRightLableText;
             noteBackGroundWorker.RunWorkerAsync();
         }
 

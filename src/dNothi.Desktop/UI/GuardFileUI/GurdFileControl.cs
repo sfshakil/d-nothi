@@ -331,6 +331,7 @@ namespace dNothi.Desktop.UI.OtherModule
 
         private void GurdFileControl_Load(object sender, EventArgs e)
         {
+            label7.Text = UIDesignCommonMethod.copyRightLableText;
             backgroundWorker1.RunWorkerAsync();
         }
     }

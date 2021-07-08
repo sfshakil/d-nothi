@@ -893,7 +893,7 @@ namespace dNothi.Desktop.UI
             //dakUploadBackgorundWorker.RunWorkerAsync();
             dateFrom = DateTime.Now;
             dateTo = DateTime.Now;
-
+            label7.Text = UIDesignCommonMethod.copyRightLableText;
             _dakuserparam = _userService.GetLocalDakUserParam();
             userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
 

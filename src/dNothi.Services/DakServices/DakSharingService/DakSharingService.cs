@@ -5,6 +5,7 @@ using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -337,15 +338,34 @@ namespace dNothi.Services.DakServices.DakSharingService
             if (dakBoxSharedToOfficer != null)
             {
                 dakBoxSharedToOfficer.officer_details_Json = dakBoxSharedToOfficerResponseJson;
+               
                 _localAssigneeRepository.Update(dakBoxSharedToOfficer);
             }
             else
             {
-                DakBoxSharedToOfficer localDakBoxSharedToOfficer = new DakBoxSharedToOfficer { designation_id = dakListUserParam.designation_id, office_id = dakListUserParam.office_id, assignor_designation_id= (assignor_designation_id==null? dakListUserParam.designation_id :0),  assignee_designation_id= (assignor_designation_id != null ? dakListUserParam.designation_id : 0),  officer_details_Json = dakBoxSharedToOfficerResponseJson };
+                DakBoxSharedToOfficer localDakBoxSharedToOfficer = new DakBoxSharedToOfficer { designation_id = dakListUserParam.designation_id, office_id = dakListUserParam.office_id, assignor_designation_id = (assignor_designation_id == null ? dakListUserParam.designation_id : 0), assignee_designation_id = (assignor_designation_id != null ? dakListUserParam.designation_id : 0), officer_details_Json = dakBoxSharedToOfficerResponseJson };
 
 
                 _localAssigneeRepository.Insert(localDakBoxSharedToOfficer);
             }
+
+            string da = "data";
+
+            if (dakBoxSharedToOfficer != null)
+            {
+                var jObject = JObject.Parse(dakBoxSharedToOfficer.officer_details_Json);
+
+
+                var data = jObject[da].ToString();
+
+
+                if (data == "[]")
+                {
+                    _localAssigneeRepository.Delete(dakBoxSharedToOfficer);
+                }
+            }
+
+
 
         }
         private string GetLocaldakBoxSharedToOfficer(DakUserParam dakListUserParam, int? assignor_designation_id)
@@ -358,7 +378,8 @@ namespace dNothi.Services.DakServices.DakSharingService
             }
             else
             {
-                return "";
+                 string defaultJson= "{\"status\":\"success\",\"data\":[],\"options\":[]}";
+                return defaultJson;
             }
 
         }
@@ -381,12 +402,14 @@ namespace dNothi.Services.DakServices.DakSharingService
            
             var assignes = new Assignee { designation_id = assignee.designation_id, designation_level = assignee.designation_level.ToString(), name = assignee.officer_name, office_id = assignee.office_id, office_name = assignee.office_name, office_unit_id = assignee.office_unit_id, office_unit_name = assignee.office_unit_bng };
             var assignor = new Assignor { designation_id = userParam.designation_id, designation_level = userParam.designation_level.ToString(), name = userParam.officer_name, office_id = userParam.office_id, office_name = userParam.office, office_unit_id = userParam.office_unit_id, office_unit_name = userParam.office_unit };
+            
             string dakBoxAssignee = string.Empty;
             var dakBoxSharedToOfficer = _localAssigneeRepository.Table.Where(q => q.designation_id == userParam.designation_id && q.office_id == userParam.office_id && q.assignor_designation_id ==  userParam.designation_id).FirstOrDefault();
-            if (dakBoxSharedToOfficer != null)
+           
+            if (dakBoxSharedToOfficer != null )
             {
-                var localResponse = JsonConvert.DeserializeObject<ShareList>(dakBoxSharedToOfficer.officer_details_Json);
-               
+                ShareList localResponse = new ShareList();
+                localResponse = JsonConvert.DeserializeObject<ShareList>(dakBoxSharedToOfficer.officer_details_Json);
                 localResponse.data.assignee.Add(assignes);
 
                 dakBoxAssignee = JsonConvert.SerializeObject(localResponse);
@@ -395,10 +418,17 @@ namespace dNothi.Services.DakServices.DakSharingService
             else
             {
                 
-                ShareList shareList = new ShareList();
-                shareList.status = "success";
-                shareList.data.assignee.Add(assignes);
-                shareList.data.assignor.Add(assignor);
+               
+                List<Assignee> s =new List<Assignee>();
+                s.Add(assignes);
+                List<Assignor> ass = new List<Assignor>();
+                ass.Add(assignor);
+                ShareList.Data data = new ShareList.Data {  assignee=s, assignor=ass};
+              
+               // shareList.status = "success";
+                ShareList shareList = new ShareList {  status= "success" , data= data };
+                //shareList.data.assignee.Add(assignes);
+                //shareList.data.assignor.Add(assignor);
                 dakBoxAssignee = JsonConvert.SerializeObject(shareList);
             }
             SaveLocalDakBoxSharedToOfficer(dakBoxAssignee, userParam, null);
