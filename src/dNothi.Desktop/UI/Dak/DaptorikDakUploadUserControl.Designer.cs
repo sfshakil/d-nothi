@@ -175,7 +175,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchOfficerRightXTextBox = new System.Windows.Forms.TextBox();
+            this.searchOfficerRightXTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.dakUploadPanel1.SuspendLayout();
             this.dakUploadPanel2.SuspendLayout();
             this.FilePanel.SuspendLayout();
@@ -1991,14 +1991,14 @@
             // 
             // searchOfficerRightXTextBox
             // 
-            this.searchOfficerRightXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
             this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(4, 10);
+            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(5, 9);
             this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
-            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(344, 19);
-            this.searchOfficerRightXTextBox.TabIndex = 0;
+            this.searchOfficerRightXTextBox.PlaceholderText = "নাম/পদবী";
+            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(343, 19);
+            this.searchOfficerRightXTextBox.TabIndex = 5;
             this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
             // 
             // DaptorikDakUploadUserControl
@@ -2213,6 +2213,6 @@
         private System.Windows.Forms.Panel panel16;
         private XTextBox unitAddressManualEntryXTextBox;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.TextBox searchOfficerRightXTextBox;
+        private PlaceholderTextBox.PlaceholderTextBox searchOfficerRightXTextBox;
     }
 }
