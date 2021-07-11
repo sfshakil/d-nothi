@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
+using dNothi.JsonParser.Entity.Khosra;
 
 namespace dNothi.Desktop.UI
 {
@@ -37,6 +38,7 @@ namespace dNothi.Desktop.UI
 
         private int current_potro_id = 0;
         private KhoshraPotroWaitinDataRecordDTO _khoshraPotroWaitinDataRecordDTO;
+        private NoteKhoshraListDataRecordDTO _khoshraPotroDataRecordDTO;
         KhoshraPotroWaitinDataRecordMulpotroDTO khoshraPotroWaitinDataRecordMulpotroDTO { get; set; }
         
         NoteSaveDTO newnotedata = new NoteSaveDTO();
@@ -4833,6 +4835,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                _khoshraPotroWaitinDataRecordDTO = null;
                 current_potro_id = 0;
                 allMulpotroButtonsVisibilityOff();
 
@@ -4927,6 +4930,17 @@ namespace dNothi.Desktop.UI
                         
 
                         current_potro_id = khoshraPotro.data.records[0].basic.id;
+
+                        _khoshraPotroWaitinDataRecordDTO = null;
+                        _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[0];
+                       
+                        khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                        khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = noteKhoshraList.data.records[0].mulpotro.buttonsDTOList;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.buttons = noteKhoshraList.data.records[0].mulpotro.buttons;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.id = noteKhoshraList.data.records[0].mulpotro.id;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = noteKhoshraList.data.records[0].mulpotro.potro_cover;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = noteKhoshraList.data.records[0].mulpotro.potro_description;
+                       
 
 
 
@@ -5771,6 +5785,7 @@ namespace dNothi.Desktop.UI
 
                         allPreviousButtonVisibilityOff();
                         current_potro_id = khoshraPotroWaiting.data.records[0].basic.id;
+                        _khoshraPotroDataRecordDTO = null;
                         _khoshraPotroWaitinDataRecordDTO = khoshraPotroWaiting.data.records[0];
                         khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[0].mulpotro;
                         string DecodedString = khoshraPotroWaiting.data.records[0].mulpotro.potro_description;
@@ -6705,6 +6720,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                _khoshraPotroWaitinDataRecordDTO = null;
                 allLbelButtonPreviousColor();
                 lbNoteKhoshra.BackColor = Color.FromArgb(14, 102, 98);
                 lbNoteKhoshra.ForeColor = Color.FromArgb(191, 239, 237);
@@ -6793,7 +6809,20 @@ namespace dNothi.Desktop.UI
 
                         allPreviousButtonVisibilityOff();
                         string DecodedString = noteKhoshraList.data.records[i].mulpotro.potro_description;
+                        
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+
+                        _khoshraPotroWaitinDataRecordDTO = null;
+                        _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[0];
+                      
+                        khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                        khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = noteKhoshraList.data.records[0].mulpotro.buttonsDTOList;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.buttons = noteKhoshraList.data.records[0].mulpotro.buttons;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.id = noteKhoshraList.data.records[0].mulpotro.id;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = noteKhoshraList.data.records[0].mulpotro.potro_cover;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = noteKhoshraList.data.records[0].mulpotro.potro_description;
+
+
                     }
                 }
                 if (noteKhoshraList.data.total_records == i || noteKhoshraList.data.total_records - 1 == i)
@@ -7087,6 +7116,7 @@ namespace dNothi.Desktop.UI
             try
             {
                 current_potro_id = 0;
+                _khoshraPotroDataRecordDTO = null;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 khoshraPotroWaitinDataRecordMulpotroDTO = null;
 
@@ -8847,6 +8877,10 @@ namespace dNothi.Desktop.UI
 
         private void SavePotrojari(Potrojari form)
         {
+           if(_khoshraPotroDataRecordDTO != null)
+            {
+                _khoshraPotroWaitinDataRecordDTO = GetKhosraWaiting();
+            }
             if(_khoshraPotroWaitinDataRecordDTO != null)
             {
                 PotrojariParameter potrojariParameter = new PotrojariParameter();
@@ -8924,6 +8958,17 @@ namespace dNothi.Desktop.UI
 
                  
             }
+        }
+
+        private KhoshraPotroWaitinDataRecordDTO GetKhosraWaiting()
+        {
+            _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+            _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NoteKhoshraListDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(_khoshraPotroDataRecordDTO.basic);
+            _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NoteKhoshraListDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(_khoshraPotroDataRecordDTO.mulpotro);
+            _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<NoteKhoshraListDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(_khoshraPotroDataRecordDTO.note_onucched);
+            _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NoteKhoshraListDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(_khoshraPotroDataRecordDTO.note_owner);
+
+            return _khoshraPotroWaitinDataRecordDTO;
         }
 
         private void btnNothiPanelNothiCount_Paint(object sender, PaintEventArgs e)
@@ -9064,10 +9109,23 @@ namespace dNothi.Desktop.UI
                             link.SetAttribute("src", dakListUserParam.SignBase64);
                         }
                     }
+                    PotroApproveResponse khoshraUnapprovedResponse = new PotroApproveResponse();
+                   
+                    if (_khoshraPotroDataRecordDTO != null)
+                    {
+                        _khoshraPotroDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
 
-                    _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
+                        khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroDataRecordDTO.basic.potro_status, _khoshraPotroDataRecordDTO.mulpotro.potro_description);
 
-                    var khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroWaitinDataRecordDTO.basic.potro_status, _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description);
+                    }
+                    else if(_khoshraPotroWaitinDataRecordDTO == null)
+                    {
+                        _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
+
+                        khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroWaitinDataRecordDTO.basic.potro_status, _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description);
+
+                    }
+
                     if (khoshraUnapprovedResponse.status == "success")
                     {
 
