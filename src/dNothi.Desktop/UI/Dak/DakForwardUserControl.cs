@@ -508,8 +508,8 @@ namespace dNothi.Desktop.UI.Dak
             prapokOthersDataGridView.DataSource = null;
             prapokOthersDataGridView.DataSource = bindinglist;
         }
-       
-        private void prapokDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+
+         private void prapokDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row_index = e.RowIndex;
             //bool mulprapok = (bool)prapokDataGridView.Rows[row_index].Cells[mulPrapokColumn].Value;
@@ -527,9 +527,10 @@ namespace dNothi.Desktop.UI.Dak
             prapokOwnDataGridView.Refresh();
             prapokOthersDataGridView.Refresh();
         }
-        public event EventHandler SucessfullyDakForwarded;
+         public event EventHandler SucessfullyDakForwarded;
 
-       
+        public MultipleDakSelectedListConfirmForm ActionResult;
+
         private void sendButton_Click(object sender, EventArgs e)
         {
            if(!ValidateUserInput())
@@ -605,14 +606,14 @@ namespace dNothi.Desktop.UI.Dak
 
                     dakForwardRequestParam.onulipi_info = dakForwardRequestParam.CSharpObjtoJson(OnulipiprapokDTOs);
 
-                    var daklist = selectedDakListFlowLayoutPanel.Controls.OfType<SelectedDakListUserControl>().ToList();
-                    var ActionResult = UserControlFactory.Create<MultipleDakSelectedListConfirmForm>();
+                    var daklist = selectedDakListFlowLayoutPanel.Controls.OfType<SelectedDakListUserControl>().Where(a=>a.Visible==true).ToList();
+                   
                     if (daklist.Count > 0)
                     {
                         List<SelectedDakListUserControl> dakListSelected = daklist.Where(a => a._isSelected == true).ToList();
+                        List<SelectedDakListUserControl> notSelecteddak = daklist.Where(a => a._isSelected == false).ToList();
                         if (dakListSelected.Count > 0)
                         {
-
                             foreach (SelectedDakListUserControl dakSelected in dakListSelected)
                             {
                                 _totalForwardRequest += 1;
@@ -624,17 +625,22 @@ namespace dNothi.Desktop.UI.Dak
 
                                 var dakForwardResponse = _dakForwardService.GetDakForwardResponse(dakForwardRequestParam);
 
-                                if (dakForwardResponse.status == "success")
+                                if (dakForwardResponse!= null && dakForwardResponse.status == "success")
                                 {
 
                                     _totalSuccessForwardRequest += 1;
 
-
+                                    dakSelected.Hide();
 
 
                                 }
-                                else
+                                else if(dakForwardResponse != null && dakForwardResponse.status == "error")
                                 {
+
+                                    if(notSelecteddak.Count>0)
+                                    {
+                                        UIDesignCommonMethod.ErrorMessage(dakForwardResponse.data);
+                                    }
                                     _totalFailForwardRequest += 1;
 
                                     MultipleDakActionResultDakRowUserControl multipleDakActionResultDakRowUserControl = new MultipleDakActionResultDakRowUserControl();
@@ -646,24 +652,53 @@ namespace dNothi.Desktop.UI.Dak
                                     ActionResult.multiplaeDakActionResultAdd.Controls.Add(multipleDakActionResultDakRowUserControl);
 
                                 }
+                                else
+                                {
+                                    if (notSelecteddak.Count > 0)
+                                    {
+                                        UIDesignCommonMethod.ErrorMessage("Server Error!");
+                                    }
+                                  
+                                    _totalFailForwardRequest += 1;
+
+                                    MultipleDakActionResultDakRowUserControl multipleDakActionResultDakRowUserControl = new MultipleDakActionResultDakRowUserControl();
+
+
+                                    multipleDakActionResultDakRowUserControl.dakUserDTO = dakSelected.dakUserDTO;
+                                    multipleDakActionResultDakRowUserControl.error = "Server Error!";
+                                    multipleDakActionResultDakRowUserControl.prerok = dakSelected._prerok;
+                                    ActionResult.multiplaeDakActionResultAdd.Controls.Add(multipleDakActionResultDakRowUserControl);
+
+                                }
                             }
                         }
+
+                       
+                      if(notSelecteddak.Count==0)
+                        {
+
+                            ActionResult.isDakForwardReturn = true;
+                            ActionResult.totalRequest = _totalForwardRequest;
+                            ActionResult.totalRequestFail = _totalFailForwardRequest;
+                            ActionResult.totalForwardRequest = _totalSuccessForwardRequest;
+
+                            this.Opacity = .1;
+
+                            Form form = AttachControlToForm(ActionResult);
+                            form.ShowDialog();
+                            // this.Opacity = 1;
+
+                            if (this.SucessfullyDakForwarded != null)
+                                this.SucessfullyDakForwarded(sender, e);
+                            this.Hide();
+
+                        }
+                       
+
+
                     }
 
-                    ActionResult.isDakForwardReturn = true;
-                    ActionResult.totalRequest = _totalForwardRequest;
-                    ActionResult.totalRequestFail = _totalFailForwardRequest;
-                    ActionResult.totalForwardRequest = _totalSuccessForwardRequest;
-
-                    this.Opacity = .1;
                     
-                    Form form = AttachControlToForm(ActionResult);
-                    form.ShowDialog();
-                   // this.Opacity = 1;
-
-                    if (this.SucessfullyDakForwarded != null)
-                        this.SucessfullyDakForwarded(sender, e);
-                    this.Hide();
                 }
 
             }
@@ -1350,6 +1385,7 @@ namespace dNothi.Desktop.UI.Dak
             Screen scr = Screen.FromPoint(this.Location);
             this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
             SetDefaultFont(this.Controls);
+            ActionResult = UserControlFactory.Create<MultipleDakSelectedListConfirmForm>();
         }
 
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)

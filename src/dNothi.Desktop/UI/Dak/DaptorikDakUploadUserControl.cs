@@ -359,10 +359,11 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                        if (!viewSenderDesignationSealLists.Any(a => a.designation_id == viewdesignationListOwnOffice.designation_id))
+                        if (!viewSenderDesignationSealLists.Any(a => a.designation_id == ownOfficeDTO.designation_id))
                         {
                             viewSenderDesignationSealLists.Add(viewdesignationListOwnOffice);
                         }
+                        
 
                     }
 
@@ -774,23 +775,28 @@ namespace dNothi.Desktop.UI.Dak
 
         private void searchOfficerRightXTextBox_TextChanged(object sender, EventArgs e)
         {
+            SearchOfficer();
+        }
+
+        private void SearchOfficer()
+        {
             searchOfficerRightListBox.DataSource = null;
-          
+
             if (searchOfficerRightXTextBox.Text == "")
             {
                 PopulateSenderListBox();
-               
+
 
             }
-            else 
+            else
             {
-              
-                List<ViewDesignationSealList> viewDesignationSealListsforOfficerSearch = viewDesignationSealLists.Where(a => a.employee_name_bng.Contains(searchOfficerRightXTextBox.Text)).ToList();
-               
-              
-                
-                
-                if(viewDesignationSealListsforOfficerSearch.Count>0)
+
+                List<ViewDesignationSealList> viewDesignationSealListsforOfficerSearch = viewSenderDesignationSealLists.Where(a => a.employee_name_bng.Contains(searchOfficerRightXTextBox.Text)).ToList();
+
+
+
+
+                if (viewDesignationSealListsforOfficerSearch.Count > 0)
                 {
                     searchOfficerRightListBox.DisplayMember = "designationwithname";
                     searchOfficerRightListBox.DataSource = null;
@@ -800,7 +806,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                   // searchOfficerRightListBox.Visible = false;
+                    // searchOfficerRightListBox.Visible = false;
                     //searchOfficerRightResultLabel.Text = "";
                 }
 
@@ -808,7 +814,6 @@ namespace dNothi.Desktop.UI.Dak
 
             searchOfficerRightPanel.Visible = true;
         }
-       
 
         private void searchOfficerRightButton_Click(object sender, EventArgs e)
         {

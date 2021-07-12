@@ -4702,18 +4702,27 @@ namespace dNothi.Desktop.UI
             dakSearchSubTextBox.Text = "";
 
 
-            searchDakStatusComboBox.Text = "সকল";
-            searchDakStatusComboBox.SelectedValue = 0;
-            searchDakPotroTypeComboBox.Text = "পত্রের ধরন";
-            searchDakPotroTypeComboBox.SelectedValue = 0;
-            searchDakSecurityComboBox.Text = "গোপনীয়তা";
+           
+            searchDakStatusComboBox.SelectedValue = "";
+            
+            searchDakPotroTypeComboBox.SelectedValue = "";
+           
             searchDakSecurityComboBox.SelectedValue = 0;
-            searchDakPriorityComboBox.Text = "অগ্রাধিকার";
+            
             searchDakPriorityComboBox.SelectedValue = 0;
+        
             searchDakTypeComboBox.SelectedValue = 0;
-            searchThirdPartyComboBox.Text = "সার্ভিস";
-            searchThirdPartyComboBox.SelectedValue = 0;
+           
 
+            searchThirdPartyComboBox.SelectedValue = 0;
+            
+            
+            searchDakStatusComboBox.Text = "সকল";
+            searchDakTypeComboBox.Text = "ডাকের ধরণ";
+            searchDakPotroTypeComboBox.Text = "পত্রের ধরন";
+            searchDakSecurityComboBox.Text = "গোপনীয়তা";
+            searchDakPriorityComboBox.Text = "অগ্রাধিকার";
+            searchThirdPartyComboBox.Text = "সার্ভিস";
 
             officerSourceCheckBox.Checked = false;
             detailsSearchOfficerNamePanel.Visible = false;
@@ -5320,7 +5329,10 @@ namespace dNothi.Desktop.UI
 
         }
 
-       
+        private void resetSubjectSearchButton_Click(object sender, EventArgs e)
+        {
+            dakSearchSubTextBox.Text = "";
+        }
     }
 
 

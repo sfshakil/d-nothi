@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse1 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
+            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse2 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.profilePanel = new System.Windows.Forms.Panel();
@@ -180,6 +180,7 @@
             this.LeftSign = new FontAwesome.Sharp.IconButton();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
+            this.resetSubjectSearchButton = new FontAwesome.Sharp.IconButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -517,7 +518,7 @@
             this.dakSearchSubTextBox.Location = new System.Drawing.Point(19, 11);
             this.dakSearchSubTextBox.Name = "dakSearchSubTextBox";
             this.dakSearchSubTextBox.PlaceholderText = "বিষয়/সিদ্ধান্ত দিয়ে খুঁজুন ";
-            this.dakSearchSubTextBox.Size = new System.Drawing.Size(686, 19);
+            this.dakSearchSubTextBox.Size = new System.Drawing.Size(674, 19);
             this.dakSearchSubTextBox.TabIndex = 3;
             // 
             // label3
@@ -1200,7 +1201,7 @@
             this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
             this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
             this.searchOfficeDetailSearch.selectedId = 0;
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 63);
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 44);
             this.searchOfficeDetailSearch.TabIndex = 53;
             // 
             // officerSearchList
@@ -1216,7 +1217,7 @@
             this.officerSearchList.Name = "officerSearchList";
             this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
             this.officerSearchList.selectedId = 0;
-            this.officerSearchList.Size = new System.Drawing.Size(516, 63);
+            this.officerSearchList.Size = new System.Drawing.Size(516, 44);
             this.officerSearchList.TabIndex = 52;
             // 
             // label11
@@ -1526,7 +1527,7 @@
             this.searchBoxPanel.Location = new System.Drawing.Point(35, 0);
             this.searchBoxPanel.Margin = new System.Windows.Forms.Padding(0);
             this.searchBoxPanel.Name = "searchBoxPanel";
-            this.searchBoxPanel.Size = new System.Drawing.Size(754, 40);
+            this.searchBoxPanel.Size = new System.Drawing.Size(712, 40);
             this.searchBoxPanel.TabIndex = 4;
             this.searchBoxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchBoxPanel_Paint);
             // 
@@ -2828,14 +2829,34 @@
             this.dakSearchUsingTextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
             this.dakSearchUsingTextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakSearchUsingTextButton.IconSize = 32;
-            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(789, 0);
+            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(747, 0);
             this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
-            this.dakSearchUsingTextButton.Size = new System.Drawing.Size(34, 40);
+            this.dakSearchUsingTextButton.Size = new System.Drawing.Size(39, 40);
             this.dakSearchUsingTextButton.TabIndex = 30;
             this.MyToolTip.SetToolTip(this.dakSearchUsingTextButton, "খুঁজুন");
             this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
             this.dakSearchUsingTextButton.Click += new System.EventHandler(this.dakSearchUsingTextButton_Click);
+            // 
+            // resetSubjectSearchButton
+            // 
+            this.resetSubjectSearchButton.BackColor = System.Drawing.Color.Salmon;
+            this.resetSubjectSearchButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resetSubjectSearchButton.FlatAppearance.BorderSize = 0;
+            this.resetSubjectSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.resetSubjectSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resetSubjectSearchButton.IconChar = FontAwesome.Sharp.IconChar.Recycle;
+            this.resetSubjectSearchButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.resetSubjectSearchButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.resetSubjectSearchButton.IconSize = 32;
+            this.resetSubjectSearchButton.Location = new System.Drawing.Point(786, 0);
+            this.resetSubjectSearchButton.Margin = new System.Windows.Forms.Padding(0);
+            this.resetSubjectSearchButton.Name = "resetSubjectSearchButton";
+            this.resetSubjectSearchButton.Size = new System.Drawing.Size(37, 40);
+            this.resetSubjectSearchButton.TabIndex = 31;
+            this.MyToolTip.SetToolTip(this.resetSubjectSearchButton, "রিসেট");
+            this.resetSubjectSearchButton.UseVisualStyleBackColor = false;
+            this.resetSubjectSearchButton.Click += new System.EventHandler(this.resetSubjectSearchButton_Click);
             // 
             // timer1
             // 
@@ -2969,14 +2990,7 @@
             this.dakSortMetroPanel.MinimumSize = new System.Drawing.Size(40, 40);
             this.dakSortMetroPanel.Name = "dakSortMetroPanel";
             this.dakSortMetroPanel.RowCount = 1;
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.dakSortMetroPanel.Size = new System.Drawing.Size(823, 52);
             this.dakSortMetroPanel.TabIndex = 54;
             // 
@@ -3046,10 +3060,12 @@
             // 
             // searchHeaderTableLayoutPanel
             // 
-            this.searchHeaderTableLayoutPanel.ColumnCount = 3;
-            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.searchHeaderTableLayoutPanel.ColumnCount = 4;
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.329005F));
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.58009F));
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.329004F));
+            this.searchHeaderTableLayoutPanel.Controls.Add(this.resetSubjectSearchButton, 2, 0);
             this.searchHeaderTableLayoutPanel.Controls.Add(this.searchBoxPanel, 1, 0);
             this.searchHeaderTableLayoutPanel.Controls.Add(this.detailPanelDropDownButton, 0, 0);
             this.searchHeaderTableLayoutPanel.Controls.Add(this.dakSearchUsingTextButton, 2, 0);
@@ -3059,7 +3075,6 @@
             this.searchHeaderTableLayoutPanel.Name = "searchHeaderTableLayoutPanel";
             this.searchHeaderTableLayoutPanel.RowCount = 1;
             this.searchHeaderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchHeaderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.searchHeaderTableLayoutPanel.Size = new System.Drawing.Size(823, 40);
             this.searchHeaderTableLayoutPanel.TabIndex = 4;
             // 
@@ -3431,7 +3446,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(115, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 24);
+            this.label14.Size = new System.Drawing.Size(106, 24);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
@@ -3462,9 +3477,9 @@
             this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            employeDakNothiCountResponse1.data = null;
-            employeDakNothiCountResponse1.status = null;
-            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse1;
+            employeDakNothiCountResponse2.data = null;
+            employeDakNothiCountResponse2.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse2;
             this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationDetailsPanel.Location = new System.Drawing.Point(1215, 49);
             this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -3775,6 +3790,7 @@
         private System.Windows.Forms.Panel dakBacaikarnMenuPanel;
         private FontAwesome.Sharp.IconButton dakBacaiDownArrow;
         private FontAwesome.Sharp.IconButton dakSortedUserButton;
+        private FontAwesome.Sharp.IconButton resetSubjectSearchButton;
     }
 }
 
