@@ -19,10 +19,12 @@ namespace dNothi.Desktop.UI.Dak
     {
         IUserService _userService { get; set; }
         IOnuchhedForwardService _onuchhedForward { get; set; }
-        public NothiNextStep(IUserService userService, IOnuchhedForwardService onuchhedForward)
+        INothiAllNoteServices _nothiAllNote { get; set; }
+        public NothiNextStep(IUserService userService, IOnuchhedForwardService onuchhedForward, INothiAllNoteServices nothiAllNote)
         {
             _userService = userService;
             _onuchhedForward = onuchhedForward;
+            _nothiAllNote = nothiAllNote;
             InitializeComponent();
             SetDefaultFont(this.Controls);
             cbxPriorityType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -306,6 +308,18 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void loadNote() 
         {
+            var eachNothiId = _NoteAllListDataRecordDTO.nothi.id;
+            var nothiListUserParam = _userService.GetLocalDakUserParam();
+            string note_category = "all";
+            var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId.ToString(), note_category);
+            if (nothiInboxNote != null && nothiInboxNote.status == "success")
+            {
+                foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiInboxNote.data.records)
+                {
+                    if (nothiListInboxNoteRecordsDTO.note.nothi_note_id == _NoteAllListDataRecordDTO.note.nothi_note_id)
+                    { _NoteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO; }
+                }
+            }
             var form = FormFactory.Create<Note>();
 
             form.noteIdfromNothiInboxNoteShomuho = _noteIdfromNothiInboxNoteShomuho;
