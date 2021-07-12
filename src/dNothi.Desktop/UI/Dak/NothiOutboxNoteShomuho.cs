@@ -125,7 +125,7 @@ namespace dNothi.Desktop.UI.Dak
                     noteListDataRecordNoteDTO1.note_subject = lbsubject.Text;
                     noteListDataRecordNoteDTO1.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
                     noteListDataRecordNoteDTO1.note_no = Convert.ToInt32(_noteNumber);
-                    noteListDataRecordNoteDTO1.is_editable = 0; // is editable ==0 means not new tab;
+                    noteListDataRecordNoteDTO1.new_tab = 0; // is new_tab ==0 means not new tab;
 
                     if (this.LocalNoteDetailsButton != null)
                         this.LocalNoteDetailsButton(noteListDataRecordNoteDTO1, e);
@@ -133,7 +133,7 @@ namespace dNothi.Desktop.UI.Dak
                 NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
                 noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
                 noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_noteNumber);
-                noteListDataRecordNoteDTO.is_editable = 0; // is editable ==0 means not new tab;
+                noteListDataRecordNoteDTO.new_tab = 0; // is new_tab ==0 means not new tab;
                 if (this.OutboxNoteDetailsButton != null)
                     this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e);
             }
@@ -151,7 +151,7 @@ namespace dNothi.Desktop.UI.Dak
                 NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
                 noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(lbNoteId.Text);
                 noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_noteNumber);
-                noteListDataRecordNoteDTO.is_editable = 1; // is editable ==1 means new tab;
+                noteListDataRecordNoteDTO.new_tab = 1; // is new_tab ==1 means new tab;
                 if (this.OutboxNoteDetailsButton != null)
                     this.OutboxNoteDetailsButton(noteListDataRecordNoteDTO, e);
             }

@@ -523,7 +523,7 @@ namespace dNothi.Desktop.UI
 
 
             BeginInvoke((Action)(() => form.ShowDialog()));
-            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, noteListDataRecordNoteDTO.is_editable); };
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, noteListDataRecordNoteDTO.new_tab); };
 
         }
         private void DoSomethingAsync(object sender, EventArgs e, int i)
@@ -540,7 +540,7 @@ namespace dNothi.Desktop.UI
         private void NoteAll_ButtonClick(NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
         {
             NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
-            noteListDataRecordNoteDTO.is_editable = nothiListInboxNoteRecordsDTO.note.is_editable;
+            //noteListDataRecordNoteDTO.new_tab = nothiListInboxNoteRecordsDTO.note.new_tab;
             noteListDataRecordNoteDTO.note_no = nothiListInboxNoteRecordsDTO.note.note_no;
 
             //this.Hide();
@@ -620,7 +620,7 @@ namespace dNothi.Desktop.UI
 
 
             BeginInvoke((Action)(() => form.ShowDialog()));
-            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, noteListDataRecordNoteDTO.is_editable); };
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, noteListDataRecordNoteDTO.new_tab); };
         }
 
         void hideform_Shown(object sender, EventArgs e, Form form)
@@ -1499,17 +1499,24 @@ namespace dNothi.Desktop.UI
 
                 nothiAll.nothiAllListDTO = nothiAllListDTO;
 
-                if (nothiAllListDTO.desk != null && nothiAllListDTO.status != null)
+                if (nothiAllListDTO.desk != null || nothiAllListDTO.status != null)
                 {
-                    nothiAll.nothiPriority(nothiAllListDTO.desk.priority);
+                    if (nothiAllListDTO.desk != null)
+                    {
+                        nothiAll.nothiPriority(nothiAllListDTO.desk.priority);
+                        nothiAll.desk = nothiAllListDTO.desk.note_count.ToString();
+                    }
+                    if (nothiAllListDTO.status != null)
+                    {
+                        nothiAll.noteTotal = nothiAllListDTO.status.total;
+                        nothiAll.permitted = nothiAllListDTO.status.permitted;
+                        nothiAll.onishponno = nothiAllListDTO.status.onishponno;
+                        nothiAll.nishponno = nothiAllListDTO.status.nishponno;
+                        nothiAll.archived = nothiAllListDTO.status.archived;
+                    }
+                    
                     nothiAll.nothi = nothiAllListDTO.nothi.nothi_no + " " + nothiAllListDTO.nothi.subject;
                     nothiAll.shakha = nothiAllListDTO.nothi.office_unit_name;
-                    nothiAll.desk = nothiAllListDTO.desk.note_count.ToString();
-                    nothiAll.noteTotal = nothiAllListDTO.status.total;
-                    nothiAll.permitted = nothiAllListDTO.status.permitted;
-                    nothiAll.onishponno = nothiAllListDTO.status.onishponno;
-                    nothiAll.nishponno = nothiAllListDTO.status.nishponno;
-                    nothiAll.archived = nothiAllListDTO.status.archived;
                     nothiAll.noteLastDate = "নোটের সর্বশেষ তারিখঃ " + nothiAllListDTO.nothi.last_note_date;
                     nothiAll.nothiId = Convert.ToString(nothiAllListDTO.nothi.id);
 

@@ -359,10 +359,11 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-                        if (!viewSenderDesignationSealLists.Any(a => a.designation_id == viewdesignationListOwnOffice.designation_id))
+                        if (!viewSenderDesignationSealLists.Any(a => a.designation_id == ownOfficeDTO.designation_id))
                         {
                             viewSenderDesignationSealLists.Add(viewdesignationListOwnOffice);
                         }
+                        
 
                     }
 
@@ -790,7 +791,7 @@ namespace dNothi.Desktop.UI.Dak
             else
             {
 
-                List<ViewDesignationSealList> viewDesignationSealListsforOfficerSearch = viewDesignationSealLists.Where(a => a.employee_name_bng.Contains(searchOfficerRightXTextBox.Text)).ToList();
+                List<ViewDesignationSealList> viewDesignationSealListsforOfficerSearch = viewSenderDesignationSealLists.Where(a => a.employee_name_bng.Contains(searchOfficerRightXTextBox.Text)).ToList();
 
 
 
