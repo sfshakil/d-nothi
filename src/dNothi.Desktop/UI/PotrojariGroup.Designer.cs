@@ -1075,7 +1075,7 @@ namespace dNothi.Desktop.UI
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(130, 10);
+            this.label6.Location = new System.Drawing.Point(129, 10);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label6.Size = new System.Drawing.Size(18, 18);
@@ -1090,7 +1090,7 @@ namespace dNothi.Desktop.UI
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
             this.label3.Location = new System.Drawing.Point(8, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 18);
+            this.label3.Size = new System.Drawing.Size(121, 18);
             this.label3.TabIndex = 41;
             this.label3.Text = "গ্রুপে অন্তর্ভুক্ত ব্যক্তিবর্গ";
             // 
@@ -1220,7 +1220,7 @@ namespace dNothi.Desktop.UI
             this.label2.Location = new System.Drawing.Point(8, 10);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.label2.Size = new System.Drawing.Size(78, 38);
+            this.label2.Size = new System.Drawing.Size(76, 38);
             this.label2.TabIndex = 41;
             this.label2.Text = "অফিসার খুঁজুন";
             // 
@@ -1825,7 +1825,7 @@ namespace dNothi.Desktop.UI
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(115, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 24);
+            this.label14.Size = new System.Drawing.Size(107, 24);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 

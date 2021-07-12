@@ -1214,6 +1214,18 @@
     <Compile Include="UI\PotrojariGroup.Designer.cs">
       <DependentUpon>PotrojariGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PotroJariGroups\PotrojariUsersListRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PotroJariGroups\PotrojariUsersListRowUserControl.Designer.cs">
+      <DependentUpon>PotrojariUsersListRowUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PotroJariGroups\PotrojariGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PotroJariGroups\PotrojariGroupForm.Designer.cs">
+      <DependentUpon>PotrojariGroupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ResponsiveForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1710,6 +1722,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PotrojariGroup.resx">
       <DependentUpon>PotrojariGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PotroJariGroups\PotrojariUsersListRowUserControl.resx">
+      <DependentUpon>PotrojariUsersListRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PotroJariGroups\PotrojariGroupForm.resx">
+      <DependentUpon>PotrojariGroupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ResponsiveForm.resx">
       <DependentUpon>ResponsiveForm.cs</DependentUpon>
