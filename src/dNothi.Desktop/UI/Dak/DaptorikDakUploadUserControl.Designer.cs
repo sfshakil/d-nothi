@@ -1277,7 +1277,6 @@
             this.searchOfficerRightListBox.Click += new System.EventHandler(this.searchOfficerRightListBox_Click);
             this.searchOfficerRightListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.searchOfficerRightListBox_DrawItem);
             this.searchOfficerRightListBox.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.searchOfficerRightListBox_MeasureItem);
-            this.searchOfficerRightListBox.SelectedIndexChanged += new System.EventHandler(this.searchOfficerRightButton_Click);
             // 
             // panel8
             // 
