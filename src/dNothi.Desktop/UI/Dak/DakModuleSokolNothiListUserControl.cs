@@ -403,6 +403,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
+
                 dakNothiteUposthaponNoteList.nothiDTO = noteNothiDTO;
                 dakNothiteUposthaponNoteList.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakNothiteUposthaponNoteList._nothiDTO); };
 

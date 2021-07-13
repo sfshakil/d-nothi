@@ -30,12 +30,13 @@ namespace dNothi.Desktop.UI.Dak
         INothiNoteTalikaServices _nothinotetalikaservices { get; set; }
 
         public DakUserParam _userParam = new DakUserParam();
-
+        public bool _khosra;
 
         public void Khoshra()
         {
             nothiteUposthaponLabel.Visible = true;
             dakSubjectLabel.Visible = true;
+            _khosra = true;
         }
 
         public DakNothiteUposthapitoForm(IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiAllServices nothiAll, INothiNoteTalikaServices nothiNoteTalikaServices)
@@ -141,7 +142,7 @@ namespace dNothi.Desktop.UI.Dak
                     nothiAll.flag = 1;
                 }
                 nothiAll.NothiteUposthaponButton += delegate (object addSender, EventArgs addEvent) { NothiteUposthapito_ButtonClick(addSender, addEvent, nothiAll._nothiDTO, nothiAll.nothi, nothiAllListDTO.nothi.office_unit_name, nothiAllListDTO); };
-                nothiAll._khoshra = true;
+                nothiAll._khoshra = _khosra;
                 nothiAll.nothi_id = nothiAllListDTO.nothi.id.ToString();
                 nothiAll.dak_id = _dak_id;
                 nothiAll.is_copied_dak = _is_copied_dak;
