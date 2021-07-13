@@ -1,4 +1,6 @@
 ﻿using dNothi.Desktop.UI.Dak;
+using dNothi.Services.PotroJariGroup;
+using dNothi.Services.PotroJariGroup.Models;
 using dNothi.Services.UserServices;
 using System;
 using System.Collections.Generic;
@@ -14,14 +16,84 @@ namespace dNothi.Desktop.UI
 {
     public partial class PotrojariGroup : Form
     {
-        public PotrojariGroup(IUserService userService)
+        IPotroJariGroupService _potroJariGroupService { get; set; }
+        int page = 1;
+        int pageLimit = 10;
+        int menuNo = 1;
+        int totalPage = 1;
+        int start = 1;
+        int end = 10;
+        int totalrecord = 0;
+        public PotrojariGroup(IUserService userService, IPotroJariGroupService potroJariGroupService)
         {
             _userService = userService;
+            _potroJariGroupService = potroJariGroupService;
             InitializeComponent();
-            loadpotrojariGroupContent();
+           // loadpotrojariGroupContent();
 
         }
 
+        private PotrojariGroupModel LoadData(int menuNo, int pages)
+        {
+            //khosraListTableLayoutPanel.Controls.Clear();
+            //_kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
+            //string nameSearchparam = dakSearchSubTextBox.Text;
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+
+            dakListUserParam.limit = pageLimit;
+
+            dakListUserParam.page = pages;
+           // dakListUserParam.NameSearchParam = nameSearchparam;
+
+            var potroJariGrouplist = _potroJariGroupService.GetList(dakListUserParam, menuNo);
+
+            return potroJariGrouplist;
+
+        }
+       
+        private void ViewData(int menuNo,int pageNo)
+        {
+            var potroJariGrouplist = LoadData(menuNo, pageNo);
+
+            if (potroJariGrouplist.status == "success")
+            {
+                // noKhosraPanel.Visible = false;
+                foreach (var item in potroJariGrouplist.data.records)
+                {
+
+                    PotrojariGroupContent pgc = UserControlFactory.Create< PotrojariGroupContent>();
+
+                    //pgc.creator = item.created;
+                    //pgc.details = item.officer;
+                    //commonKhosraRowUserControl.viewButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_NoteDetails_ButtonClick(mapmodel.Item1, e, mapmodel.Item2, mapmodel.Item3); };
+
+                   UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, pgc);
+
+                }
+
+                totalrecord = potroJariGrouplist.data.total_records;
+                // totalLabel.Text = "সর্বমোট:" + ConversionMethod.EnglishNumberToBangla(totalrecord.ToString());
+                float pagesize = (float)totalrecord / (float)pageLimit;
+                totalPage = (int)Math.Ceiling(pagesize);
+            }
+            else
+            {
+                // noKhosraPanel.Visible = true;
+            }
+           
+        }
+        private void Formload()
+        {
+            page = 1;
+            start = 1;
+            ViewData(1,1);
+           // LoadData(menuNo, page);
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+           // NextPreviousButtonShow();
+           // perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+        }
         private void loadpotrojariGroupContent()
         {
             newPotrojariPanel.Visible = false;
@@ -38,7 +110,7 @@ namespace dNothi.Desktop.UI
             for (int j = 0; j <= 10 ; j++)
             {
 
-                PotrojariGroupContent pgc = new PotrojariGroupContent();
+                PotrojariGroupContent pgc = UserControlFactory.Create< PotrojariGroupContent>();
                 pgc.PotrojariEditButtonClick += delegate (object sender, EventArgs e) { editButtonClick(sender , e); };
                 dakBodyFlowLayoutPanel.AutoScroll = true;
 

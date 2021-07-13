@@ -1,6 +1,6 @@
-﻿namespace dNothi.Desktop.UI
+﻿namespace dNothi.Desktop.UI.PotroJariGroups
 {
-    partial class KhosraDashboard
+    partial class PotrojariGroupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhosraDashboard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PotrojariGroupForm));
             dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse1 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
@@ -69,19 +69,8 @@
             this.menuTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.jarikritoPanel = new System.Windows.Forms.Panel();
             this.jarikritoButton = new FontAwesome.Sharp.IconButton();
-            this.jarikritoCountLabel = new System.Windows.Forms.Label();
-            this.pendingForwardPanel = new System.Windows.Forms.Panel();
-            this.pendingForwardButton = new FontAwesome.Sharp.IconButton();
-            this.pendingForwardCountLabel = new System.Windows.Forms.Label();
-            this.pendingApprovalPanel = new System.Windows.Forms.Panel();
-            this.pendingApprovalButton = new FontAwesome.Sharp.IconButton();
-            this.pendingApprovalCountLabel = new System.Windows.Forms.Label();
-            this.noteAttachmentKhosraPanel = new System.Windows.Forms.Panel();
-            this.noteAttachmentKhosraButton = new FontAwesome.Sharp.IconButton();
-            this.noteAttachmentKhosraCountLabel = new System.Windows.Forms.Label();
             this.draftPotroPanel = new System.Windows.Forms.Panel();
             this.draftPotroButton = new FontAwesome.Sharp.IconButton();
-            this.draftPotroCountLabel = new System.Windows.Forms.Label();
             this.logoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.dakMenuButton = new System.Windows.Forms.Panel();
@@ -94,11 +83,6 @@
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.searchHeaderTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.searchBoxPanel = new System.Windows.Forms.Panel();
-            this.dakSearchSubTextBox = new PlaceholderTextBox.PlaceholderTextBox();
-            this.recycleIconButton = new FontAwesome.Sharp.IconButton();
-            this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.perPageRowLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
@@ -143,17 +127,12 @@
             this.leftMenuBarTableLayoutPanel.SuspendLayout();
             this.menuTableLayoutPanel.SuspendLayout();
             this.jarikritoPanel.SuspendLayout();
-            this.pendingForwardPanel.SuspendLayout();
-            this.pendingApprovalPanel.SuspendLayout();
-            this.noteAttachmentKhosraPanel.SuspendLayout();
             this.draftPotroPanel.SuspendLayout();
             this.logoTableLayoutPanel.SuspendLayout();
             this.dakMenuButton.SuspendLayout();
             this.dashboardBodyTableLayoutPanel.SuspendLayout();
             this.rightDashboardBodyTableLayoutPanel.SuspendLayout();
             this.bodyTableLayoutPanel.SuspendLayout();
-            this.searchHeaderTableLayoutPanel.SuspendLayout();
-            this.searchBoxPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -667,22 +646,19 @@
             this.menuTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.menuTableLayoutPanel.ColumnCount = 1;
             this.menuTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.menuTableLayoutPanel.Controls.Add(this.jarikritoPanel, 0, 4);
-            this.menuTableLayoutPanel.Controls.Add(this.pendingForwardPanel, 0, 3);
-            this.menuTableLayoutPanel.Controls.Add(this.pendingApprovalPanel, 0, 2);
-            this.menuTableLayoutPanel.Controls.Add(this.noteAttachmentKhosraPanel, 0, 1);
+            this.menuTableLayoutPanel.Controls.Add(this.jarikritoPanel, 0, 1);
             this.menuTableLayoutPanel.Controls.Add(this.draftPotroPanel, 0, 0);
             this.menuTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.menuTableLayoutPanel.Location = new System.Drawing.Point(0, 50);
             this.menuTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.menuTableLayoutPanel.Name = "menuTableLayoutPanel";
-            this.menuTableLayoutPanel.RowCount = 5;
+            this.menuTableLayoutPanel.RowCount = 2;
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.menuTableLayoutPanel.Size = new System.Drawing.Size(205, 250);
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuTableLayoutPanel.Size = new System.Drawing.Size(205, 100);
             this.menuTableLayoutPanel.TabIndex = 47;
             // 
             // jarikritoPanel
@@ -690,9 +666,8 @@
             this.jarikritoPanel.AutoSize = true;
             this.jarikritoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.jarikritoPanel.Controls.Add(this.jarikritoButton);
-            this.jarikritoPanel.Controls.Add(this.jarikritoCountLabel);
             this.jarikritoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.jarikritoPanel.Location = new System.Drawing.Point(0, 200);
+            this.jarikritoPanel.Location = new System.Drawing.Point(0, 50);
             this.jarikritoPanel.Margin = new System.Windows.Forms.Padding(0);
             this.jarikritoPanel.Name = "jarikritoPanel";
             this.jarikritoPanel.Size = new System.Drawing.Size(205, 50);
@@ -710,201 +685,22 @@
             this.jarikritoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.jarikritoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jarikritoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.jarikritoButton.IconChar = FontAwesome.Sharp.IconChar.PaperPlane;
+            this.jarikritoButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
             this.jarikritoButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.jarikritoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.jarikritoButton.IconSize = 24;
+            this.jarikritoButton.IconSize = 20;
             this.jarikritoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.jarikritoButton.Location = new System.Drawing.Point(0, 0);
             this.jarikritoButton.Margin = new System.Windows.Forms.Padding(0);
             this.jarikritoButton.Name = "jarikritoButton";
             this.jarikritoButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.jarikritoButton.Size = new System.Drawing.Size(155, 50);
+            this.jarikritoButton.Size = new System.Drawing.Size(205, 50);
             this.jarikritoButton.TabIndex = 39;
-            this.jarikritoButton.Text = "জারিকৃত পত্র";
+            this.jarikritoButton.Text = "নতুন পত্রজারি গ্রুপ";
             this.jarikritoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.jarikritoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jarikritoButton.UseVisualStyleBackColor = false;
             this.jarikritoButton.Click += new System.EventHandler(this.jarikritoButton_Click);
-            // 
-            // jarikritoCountLabel
-            // 
-            this.jarikritoCountLabel.BackColor = System.Drawing.Color.Transparent;
-            this.jarikritoCountLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.jarikritoCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jarikritoCountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.jarikritoCountLabel.Location = new System.Drawing.Point(155, 0);
-            this.jarikritoCountLabel.Name = "jarikritoCountLabel";
-            this.jarikritoCountLabel.Size = new System.Drawing.Size(50, 50);
-            this.jarikritoCountLabel.TabIndex = 0;
-            this.jarikritoCountLabel.Text = "(২৮)";
-            this.jarikritoCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.jarikritoCountLabel.Click += new System.EventHandler(this.jarikritoButton_Click);
-            // 
-            // pendingForwardPanel
-            // 
-            this.pendingForwardPanel.AutoSize = true;
-            this.pendingForwardPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.pendingForwardPanel.Controls.Add(this.pendingForwardButton);
-            this.pendingForwardPanel.Controls.Add(this.pendingForwardCountLabel);
-            this.pendingForwardPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pendingForwardPanel.Location = new System.Drawing.Point(0, 150);
-            this.pendingForwardPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.pendingForwardPanel.Name = "pendingForwardPanel";
-            this.pendingForwardPanel.Size = new System.Drawing.Size(205, 50);
-            this.pendingForwardPanel.TabIndex = 4;
-            this.pendingForwardPanel.Click += new System.EventHandler(this.pendingForwardPanel_Click);
-            // 
-            // pendingForwardButton
-            // 
-            this.pendingForwardButton.BackColor = System.Drawing.Color.Transparent;
-            this.pendingForwardButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pendingForwardButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.pendingForwardButton.FlatAppearance.BorderSize = 0;
-            this.pendingForwardButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.pendingForwardButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.pendingForwardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pendingForwardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingForwardButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.pendingForwardButton.IconChar = FontAwesome.Sharp.IconChar.File;
-            this.pendingForwardButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.pendingForwardButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pendingForwardButton.IconSize = 24;
-            this.pendingForwardButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pendingForwardButton.Location = new System.Drawing.Point(0, 0);
-            this.pendingForwardButton.Margin = new System.Windows.Forms.Padding(0);
-            this.pendingForwardButton.Name = "pendingForwardButton";
-            this.pendingForwardButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.pendingForwardButton.Size = new System.Drawing.Size(155, 50);
-            this.pendingForwardButton.TabIndex = 38;
-            this.pendingForwardButton.Text = "পত্রজারির অপেক্ষায়";
-            this.pendingForwardButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.pendingForwardButton.UseVisualStyleBackColor = false;
-            this.pendingForwardButton.Click += new System.EventHandler(this.pendingForwardPanel_Click);
-            // 
-            // pendingForwardCountLabel
-            // 
-            this.pendingForwardCountLabel.BackColor = System.Drawing.Color.Transparent;
-            this.pendingForwardCountLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pendingForwardCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingForwardCountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.pendingForwardCountLabel.Location = new System.Drawing.Point(155, 0);
-            this.pendingForwardCountLabel.Name = "pendingForwardCountLabel";
-            this.pendingForwardCountLabel.Size = new System.Drawing.Size(50, 50);
-            this.pendingForwardCountLabel.TabIndex = 0;
-            this.pendingForwardCountLabel.Text = "(২৮)";
-            this.pendingForwardCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pendingForwardCountLabel.Click += new System.EventHandler(this.pendingForwardPanel_Click);
-            // 
-            // pendingApprovalPanel
-            // 
-            this.pendingApprovalPanel.AutoSize = true;
-            this.pendingApprovalPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.pendingApprovalPanel.Controls.Add(this.pendingApprovalButton);
-            this.pendingApprovalPanel.Controls.Add(this.pendingApprovalCountLabel);
-            this.pendingApprovalPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pendingApprovalPanel.Location = new System.Drawing.Point(0, 100);
-            this.pendingApprovalPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.pendingApprovalPanel.Name = "pendingApprovalPanel";
-            this.pendingApprovalPanel.Size = new System.Drawing.Size(205, 50);
-            this.pendingApprovalPanel.TabIndex = 3;
-            this.pendingApprovalPanel.Click += new System.EventHandler(this.pendingApprovalPanel_Click);
-            // 
-            // pendingApprovalButton
-            // 
-            this.pendingApprovalButton.BackColor = System.Drawing.Color.Transparent;
-            this.pendingApprovalButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pendingApprovalButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.pendingApprovalButton.FlatAppearance.BorderSize = 0;
-            this.pendingApprovalButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.pendingApprovalButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.pendingApprovalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pendingApprovalButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingApprovalButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.pendingApprovalButton.IconChar = FontAwesome.Sharp.IconChar.FileArchive;
-            this.pendingApprovalButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.pendingApprovalButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pendingApprovalButton.IconSize = 24;
-            this.pendingApprovalButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pendingApprovalButton.Location = new System.Drawing.Point(0, 0);
-            this.pendingApprovalButton.Margin = new System.Windows.Forms.Padding(0);
-            this.pendingApprovalButton.Name = "pendingApprovalButton";
-            this.pendingApprovalButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.pendingApprovalButton.Size = new System.Drawing.Size(155, 50);
-            this.pendingApprovalButton.TabIndex = 37;
-            this.pendingApprovalButton.Text = "অনুমোদনের অপেক্ষায়";
-            this.pendingApprovalButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.pendingApprovalButton.UseVisualStyleBackColor = false;
-            this.pendingApprovalButton.Click += new System.EventHandler(this.pendingApprovalPanel_Click);
-            // 
-            // pendingApprovalCountLabel
-            // 
-            this.pendingApprovalCountLabel.BackColor = System.Drawing.Color.Transparent;
-            this.pendingApprovalCountLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pendingApprovalCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingApprovalCountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.pendingApprovalCountLabel.Location = new System.Drawing.Point(155, 0);
-            this.pendingApprovalCountLabel.Name = "pendingApprovalCountLabel";
-            this.pendingApprovalCountLabel.Size = new System.Drawing.Size(50, 50);
-            this.pendingApprovalCountLabel.TabIndex = 0;
-            this.pendingApprovalCountLabel.Text = "(২৮)";
-            this.pendingApprovalCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pendingApprovalCountLabel.Click += new System.EventHandler(this.pendingApprovalPanel_Click);
-            // 
-            // noteAttachmentKhosraPanel
-            // 
-            this.noteAttachmentKhosraPanel.AutoSize = true;
-            this.noteAttachmentKhosraPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.noteAttachmentKhosraPanel.Controls.Add(this.noteAttachmentKhosraButton);
-            this.noteAttachmentKhosraPanel.Controls.Add(this.noteAttachmentKhosraCountLabel);
-            this.noteAttachmentKhosraPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.noteAttachmentKhosraPanel.Location = new System.Drawing.Point(0, 50);
-            this.noteAttachmentKhosraPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.noteAttachmentKhosraPanel.Name = "noteAttachmentKhosraPanel";
-            this.noteAttachmentKhosraPanel.Size = new System.Drawing.Size(205, 50);
-            this.noteAttachmentKhosraPanel.TabIndex = 2;
-            this.noteAttachmentKhosraPanel.Click += new System.EventHandler(this.noteAttachmentKhosraButton_Click);
-            // 
-            // noteAttachmentKhosraButton
-            // 
-            this.noteAttachmentKhosraButton.BackColor = System.Drawing.Color.Transparent;
-            this.noteAttachmentKhosraButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.noteAttachmentKhosraButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.noteAttachmentKhosraButton.FlatAppearance.BorderSize = 0;
-            this.noteAttachmentKhosraButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.noteAttachmentKhosraButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.noteAttachmentKhosraButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noteAttachmentKhosraButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noteAttachmentKhosraButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.noteAttachmentKhosraButton.IconChar = FontAwesome.Sharp.IconChar.StickyNote;
-            this.noteAttachmentKhosraButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.noteAttachmentKhosraButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.noteAttachmentKhosraButton.IconSize = 24;
-            this.noteAttachmentKhosraButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.noteAttachmentKhosraButton.Location = new System.Drawing.Point(0, 0);
-            this.noteAttachmentKhosraButton.Margin = new System.Windows.Forms.Padding(0);
-            this.noteAttachmentKhosraButton.Name = "noteAttachmentKhosraButton";
-            this.noteAttachmentKhosraButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.noteAttachmentKhosraButton.Size = new System.Drawing.Size(155, 50);
-            this.noteAttachmentKhosraButton.TabIndex = 36;
-            this.noteAttachmentKhosraButton.Text = "নোটে অন্তর্ভুক্ত খসড়া";
-            this.noteAttachmentKhosraButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.noteAttachmentKhosraButton.UseVisualStyleBackColor = false;
-            this.noteAttachmentKhosraButton.Click += new System.EventHandler(this.noteAttachmentKhosraButton_Click);
-            // 
-            // noteAttachmentKhosraCountLabel
-            // 
-            this.noteAttachmentKhosraCountLabel.BackColor = System.Drawing.Color.Transparent;
-            this.noteAttachmentKhosraCountLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.noteAttachmentKhosraCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noteAttachmentKhosraCountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.noteAttachmentKhosraCountLabel.Location = new System.Drawing.Point(155, 0);
-            this.noteAttachmentKhosraCountLabel.Name = "noteAttachmentKhosraCountLabel";
-            this.noteAttachmentKhosraCountLabel.Size = new System.Drawing.Size(50, 50);
-            this.noteAttachmentKhosraCountLabel.TabIndex = 0;
-            this.noteAttachmentKhosraCountLabel.Text = "(২৮)";
-            this.noteAttachmentKhosraCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.noteAttachmentKhosraCountLabel.Click += new System.EventHandler(this.noteAttachmentKhosraButton_Click);
             // 
             // draftPotroPanel
             // 
@@ -912,7 +708,6 @@
             this.draftPotroPanel.AutoSize = true;
             this.draftPotroPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.draftPotroPanel.Controls.Add(this.draftPotroButton);
-            this.draftPotroPanel.Controls.Add(this.draftPotroCountLabel);
             this.draftPotroPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.draftPotroPanel.Location = new System.Drawing.Point(0, 0);
             this.draftPotroPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -931,35 +726,21 @@
             this.draftPotroButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.draftPotroButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.draftPotroButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
-            this.draftPotroButton.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.draftPotroButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.draftPotroButton.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.draftPotroButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.draftPotroButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.draftPotroButton.IconSize = 24;
+            this.draftPotroButton.IconSize = 25;
             this.draftPotroButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.draftPotroButton.Location = new System.Drawing.Point(0, 0);
             this.draftPotroButton.Margin = new System.Windows.Forms.Padding(0);
             this.draftPotroButton.Name = "draftPotroButton";
             this.draftPotroButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.draftPotroButton.Size = new System.Drawing.Size(151, 50);
+            this.draftPotroButton.Size = new System.Drawing.Size(205, 50);
             this.draftPotroButton.TabIndex = 35;
-            this.draftPotroButton.Text = "ড্রাফট পত্র ";
+            this.draftPotroButton.Text = "পত্রজারি গ্রুপ";
             this.draftPotroButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.draftPotroButton.UseVisualStyleBackColor = false;
             this.draftPotroButton.Click += new System.EventHandler(this.draftPotroPanel_Click);
-            // 
-            // draftPotroCountLabel
-            // 
-            this.draftPotroCountLabel.BackColor = System.Drawing.Color.Transparent;
-            this.draftPotroCountLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.draftPotroCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.draftPotroCountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(165)))), ((int)(((byte)(254)))));
-            this.draftPotroCountLabel.Location = new System.Drawing.Point(151, 0);
-            this.draftPotroCountLabel.Name = "draftPotroCountLabel";
-            this.draftPotroCountLabel.Size = new System.Drawing.Size(54, 50);
-            this.draftPotroCountLabel.TabIndex = 0;
-            this.draftPotroCountLabel.Text = "(২৮)";
-            this.draftPotroCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.draftPotroCountLabel.Click += new System.EventHandler(this.draftPotroPanel_Click);
             // 
             // logoTableLayoutPanel
             // 
@@ -1116,7 +897,6 @@
             // 
             this.bodyTableLayoutPanel.ColumnCount = 1;
             this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.bodyTableLayoutPanel.Controls.Add(this.searchHeaderTableLayoutPanel, 0, 1);
             this.bodyTableLayoutPanel.Controls.Add(this.panel5, 0, 2);
             this.bodyTableLayoutPanel.Controls.Add(this.panel2, 0, 0);
             this.bodyTableLayoutPanel.Controls.Add(this.panel6, 0, 3);
@@ -1132,92 +912,6 @@
             this.bodyTableLayoutPanel.Size = new System.Drawing.Size(823, 525);
             this.bodyTableLayoutPanel.TabIndex = 54;
             // 
-            // searchHeaderTableLayoutPanel
-            // 
-            this.searchHeaderTableLayoutPanel.ColumnCount = 3;
-            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.searchHeaderTableLayoutPanel.Controls.Add(this.searchBoxPanel, 0, 0);
-            this.searchHeaderTableLayoutPanel.Controls.Add(this.recycleIconButton, 2, 0);
-            this.searchHeaderTableLayoutPanel.Controls.Add(this.dakSearchUsingTextButton, 1, 0);
-            this.searchHeaderTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchHeaderTableLayoutPanel.Location = new System.Drawing.Point(0, 51);
-            this.searchHeaderTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.searchHeaderTableLayoutPanel.Name = "searchHeaderTableLayoutPanel";
-            this.searchHeaderTableLayoutPanel.RowCount = 1;
-            this.searchHeaderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.searchHeaderTableLayoutPanel.Size = new System.Drawing.Size(823, 40);
-            this.searchHeaderTableLayoutPanel.TabIndex = 113;
-            // 
-            // searchBoxPanel
-            // 
-            this.searchBoxPanel.AutoSize = true;
-            this.searchBoxPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.searchBoxPanel.Controls.Add(this.dakSearchSubTextBox);
-            this.searchBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBoxPanel.Location = new System.Drawing.Point(0, 0);
-            this.searchBoxPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.searchBoxPanel.Name = "searchBoxPanel";
-            this.searchBoxPanel.Size = new System.Drawing.Size(750, 40);
-            this.searchBoxPanel.TabIndex = 4;
-            this.searchBoxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchBoxPanel_Paint);
-            // 
-            // dakSearchSubTextBox
-            // 
-            this.dakSearchSubTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dakSearchSubTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.dakSearchSubTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dakSearchSubTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSearchSubTextBox.Location = new System.Drawing.Point(19, 9);
-            this.dakSearchSubTextBox.Name = "dakSearchSubTextBox";
-            this.dakSearchSubTextBox.PlaceholderText = "স্মারক নম্বর/বিষয় দিয়ে খুঁজুন";
-            this.dakSearchSubTextBox.Size = new System.Drawing.Size(682, 19);
-            this.dakSearchSubTextBox.TabIndex = 3;
-            // 
-            // recycleIconButton
-            // 
-            this.recycleIconButton.AutoSize = true;
-            this.recycleIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.recycleIconButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.recycleIconButton.FlatAppearance.BorderSize = 0;
-            this.recycleIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlText;
-            this.recycleIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.recycleIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.recycleIconButton.IconChar = FontAwesome.Sharp.IconChar.Recycle;
-            this.recycleIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.recycleIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.recycleIconButton.IconSize = 24;
-            this.recycleIconButton.Location = new System.Drawing.Point(788, 0);
-            this.recycleIconButton.Margin = new System.Windows.Forms.Padding(0);
-            this.recycleIconButton.Name = "recycleIconButton";
-            this.recycleIconButton.Size = new System.Drawing.Size(35, 40);
-            this.recycleIconButton.TabIndex = 29;
-            this.recycleIconButton.UseVisualStyleBackColor = false;
-            this.recycleIconButton.Click += new System.EventHandler(this.recycleIconButton_Click);
-            // 
-            // dakSearchUsingTextButton
-            // 
-            this.dakSearchUsingTextButton.AutoSize = true;
-            this.dakSearchUsingTextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
-            this.dakSearchUsingTextButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dakSearchUsingTextButton.FlatAppearance.BorderSize = 0;
-            this.dakSearchUsingTextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.dakSearchUsingTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakSearchUsingTextButton.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.dakSearchUsingTextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-            this.dakSearchUsingTextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.dakSearchUsingTextButton.IconSize = 32;
-            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(750, 0);
-            this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
-            this.dakSearchUsingTextButton.Size = new System.Drawing.Size(38, 40);
-            this.dakSearchUsingTextButton.TabIndex = 30;
-            this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
-            this.dakSearchUsingTextButton.Click += new System.EventHandler(this.dakSearchUsingTextButton_Click);
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
@@ -1226,7 +920,7 @@
             this.panel5.Controls.Add(this.PreviousIconButton);
             this.panel5.Controls.Add(this.nextIconButton);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 91);
+            this.panel5.Location = new System.Drawing.Point(0, 51);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(823, 40);
@@ -1317,7 +1011,7 @@
             this.listTypeLabel.Name = "listTypeLabel";
             this.listTypeLabel.Size = new System.Drawing.Size(415, 51);
             this.listTypeLabel.TabIndex = 37;
-            this.listTypeLabel.Text = "ড্রাফট পত্র";
+            this.listTypeLabel.Text = "পত্রজারি গ্রুপ তালিকা";
             this.listTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // iconButton
@@ -1353,11 +1047,11 @@
             this.panel6.Controls.Add(this.khosraListTableLayoutPanel);
             this.panel6.Controls.Add(this.noKhosraPanel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 131);
+            this.panel6.Location = new System.Drawing.Point(0, 91);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(5);
-            this.panel6.Size = new System.Drawing.Size(823, 394);
+            this.panel6.Size = new System.Drawing.Size(823, 434);
             this.panel6.TabIndex = 3;
             // 
             // khosraListTableLayoutPanel
@@ -1771,7 +1465,7 @@
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.Load += new System.EventHandler(this.designationDetailsPanel_Load);
             // 
-            // KhosraDashboard
+            // PotrojariGroupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1783,12 +1477,12 @@
             this.Controls.Add(this.modulePanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1027, 570);
-            this.Name = "KhosraDashboard";
+            this.Name = "PotrojariGroupForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.KhosraDashboard_Load);
-            this.Shown += new System.EventHandler(this.KhosraDashboard_Shown);
+            this.Load += new System.EventHandler(this.PotrojariGroupForm_Load);
+            this.Shown += new System.EventHandler(this.PotrojariGroupForm_Shown);
             this.panel4.ResumeLayout(false);
             this.profilePanel.ResumeLayout(false);
             this.profilePanel.PerformLayout();
@@ -1806,9 +1500,6 @@
             this.menuTableLayoutPanel.ResumeLayout(false);
             this.menuTableLayoutPanel.PerformLayout();
             this.jarikritoPanel.ResumeLayout(false);
-            this.pendingForwardPanel.ResumeLayout(false);
-            this.pendingApprovalPanel.ResumeLayout(false);
-            this.noteAttachmentKhosraPanel.ResumeLayout(false);
             this.draftPotroPanel.ResumeLayout(false);
             this.logoTableLayoutPanel.ResumeLayout(false);
             this.logoTableLayoutPanel.PerformLayout();
@@ -1818,10 +1509,6 @@
             this.rightDashboardBodyTableLayoutPanel.PerformLayout();
             this.bodyTableLayoutPanel.ResumeLayout(false);
             this.bodyTableLayoutPanel.PerformLayout();
-            this.searchHeaderTableLayoutPanel.ResumeLayout(false);
-            this.searchHeaderTableLayoutPanel.PerformLayout();
-            this.searchBoxPanel.ResumeLayout(false);
-            this.searchBoxPanel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -1893,9 +1580,6 @@
         private System.Windows.Forms.TableLayoutPanel headerTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel menuTableLayoutPanel;
         private FontAwesome.Sharp.IconButton jarikritoButton;
-        private FontAwesome.Sharp.IconButton pendingForwardButton;
-        private FontAwesome.Sharp.IconButton pendingApprovalButton;
-        private FontAwesome.Sharp.IconButton noteAttachmentKhosraButton;
         private FontAwesome.Sharp.IconButton draftPotroButton;
         private System.Windows.Forms.TableLayoutPanel bodyTableLayoutPanel;
         private FontAwesome.Sharp.IconButton moduleButton;
@@ -1918,14 +1602,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel draftPotroPanel;
         private System.Windows.Forms.Panel jarikritoPanel;
-        private System.Windows.Forms.Label jarikritoCountLabel;
-        private System.Windows.Forms.Panel pendingForwardPanel;
-        private System.Windows.Forms.Label pendingForwardCountLabel;
-        private System.Windows.Forms.Panel pendingApprovalPanel;
-        private System.Windows.Forms.Label pendingApprovalCountLabel;
-        private System.Windows.Forms.Panel noteAttachmentKhosraPanel;
-        private System.Windows.Forms.Label noteAttachmentKhosraCountLabel;
-        private System.Windows.Forms.Label draftPotroCountLabel;
         private System.Windows.Forms.Panel noKhosraPanel;
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton iconButton3;
@@ -1942,10 +1618,5 @@
         private CustomMessageBox.OnlineToggleButton onlineToggleButton2;
         private FontAwesome.Sharp.IconButton onlineStatus;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.TableLayoutPanel searchHeaderTableLayoutPanel;
-        private System.Windows.Forms.Panel searchBoxPanel;
-        private PlaceholderTextBox.PlaceholderTextBox dakSearchSubTextBox;
-        private FontAwesome.Sharp.IconButton recycleIconButton;
-        private FontAwesome.Sharp.IconButton dakSearchUsingTextButton;
     }
 }

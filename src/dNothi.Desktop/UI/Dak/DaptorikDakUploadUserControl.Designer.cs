@@ -121,6 +121,7 @@
             this.searchOfficerRightListBox = new System.Windows.Forms.ListBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.searchOfficerRightXTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.prerokBachaiOfficerButton = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.searchOfficerRightButton = new System.Windows.Forms.Button();
@@ -175,7 +176,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchOfficerRightXTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.dakUploadPanel1.SuspendLayout();
             this.dakUploadPanel2.SuspendLayout();
             this.FilePanel.SuspendLayout();
@@ -1297,6 +1297,18 @@
             this.panel12.TabIndex = 34;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
             // 
+            // searchOfficerRightXTextBox
+            // 
+            this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
+            this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(5, 9);
+            this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
+            this.searchOfficerRightXTextBox.PlaceholderText = "নাম/পদবী";
+            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(343, 19);
+            this.searchOfficerRightXTextBox.TabIndex = 5;
+            this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
+            // 
             // prerokBachaiOfficerButton
             // 
             this.prerokBachaiOfficerButton.BackColor = System.Drawing.Color.DodgerBlue;
@@ -1987,18 +1999,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "attachment_id";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Visible = false;
-            // 
-            // searchOfficerRightXTextBox
-            // 
-            this.searchOfficerRightXTextBox.BackColor = System.Drawing.Color.White;
-            this.searchOfficerRightXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchOfficerRightXTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(5, 9);
-            this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
-            this.searchOfficerRightXTextBox.PlaceholderText = "নাম/পদবী";
-            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(343, 19);
-            this.searchOfficerRightXTextBox.TabIndex = 5;
-            this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
             // 
             // DaptorikDakUploadUserControl
             // 

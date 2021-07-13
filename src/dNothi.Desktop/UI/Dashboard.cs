@@ -28,6 +28,7 @@ using dNothi.Services.DakServices.DakSharingService;
 using Newtonsoft.Json;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
+using dNothi.Desktop.UI.PotroJariGroups;
 
 namespace dNothi.Desktop.UI
 {
@@ -5121,7 +5122,9 @@ namespace dNothi.Desktop.UI
         private void potrojariButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PotrojariGroup potrojariGroup = FormFactory.Create<PotrojariGroup>();
+            // PotrojariGroup potrojariGroup = FormFactory.Create<PotrojariGroup>();
+             PotrojariGroupForm potrojariGroup = FormFactory.Create<PotrojariGroupForm>();
+           // PotrojariGroupControl potrojariGroup = new PotrojariGroupControl();
             potrojariGroup.ShowDialog();
         }
 

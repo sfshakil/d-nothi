@@ -153,6 +153,14 @@ namespace dNothi.Constants
         // Khosara
         public const string SharokNoEndpoint = "/api/potro/setup/dispatch";
 
+        //potrajari Group
+
+        public const string potraJariTalikaEndpoint = "/api/potrojari/group";
+        public const string potraJariTalikaDistrictCommissionerEndpoint = "/api/district_commissioner/all";
+        public const string potraJariTalikaDeputyCommissionerEndpoint = "/api/deputy_commissioner/all";
+        public const string potraJariTalikaUNOEndpoint = "/api/uno/all";
+        public const string potraJariTalikaOfficeHeadEndpoint = "/api/office_head/all";
+        public const string potraJariTalikaOfficeAdminEndpoint = "/api/office_admin/all";
 
 
     }

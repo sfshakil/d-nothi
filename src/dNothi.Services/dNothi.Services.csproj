@@ -112,6 +112,7 @@
     <Compile Include="AccountServices\IAccountService.cs" />
     <Compile Include="AccountServices\ITokenService.cs" />
     <Compile Include="AccountServices\TokenService.cs" />
+    <Compile Include="CommonSetting.cs" />
     <Compile Include="DakServices\DakAttachmentListinGrid.cs" />
     <Compile Include="DakServices\DakCatagoryList.cs" />
     <Compile Include="DakServices\DakComboBoxList.cs" />
@@ -247,6 +248,12 @@
     <Compile Include="NothiServices\PotrojariParameter.cs" />
     <Compile Include="NothiServices\PotrojariServices.cs" />
     <Compile Include="NothiServices\SingleOnucchedServices.cs" />
+    <Compile Include="PotroJariGroup\ApiEndPoint.cs" />
+    <Compile Include="PotroJariGroup\IPotroJariGroupService.cs" />
+    <Compile Include="PotroJariGroup\Models\Attachment.cs" />
+    <Compile Include="PotroJariGroup\Models\PotrojariGroupModel.cs" />
+    <Compile Include="PotroJariGroup\Models\PrapakerTalika.cs" />
+    <Compile Include="PotroJariGroup\PotroJariGroupService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncServices\LocalChangeData.cs" />
     <Compile Include="SyncServices\SyncerService.cs" />
