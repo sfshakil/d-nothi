@@ -29,6 +29,8 @@ using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
 using dNothi.JsonParser.Entity.Khosra;
+using dNothi.Services.KasaraPatraDashBoardService.Models;
+using dNothi.Services.KasaraPatraDashBoardService;
 
 namespace dNothi.Desktop.UI
 {
@@ -40,7 +42,8 @@ namespace dNothi.Desktop.UI
         private KhoshraPotroWaitinDataRecordDTO _khoshraPotroWaitinDataRecordDTO;
         private NoteKhoshraListDataRecordDTO _khoshraPotroDataRecordDTO;
         KhoshraPotroWaitinDataRecordMulpotroDTO khoshraPotroWaitinDataRecordMulpotroDTO { get; set; }
-        
+        IKasaraPatraDashBoardService _kasaraPatraDashBoardService { get; set; }
+      
         NoteSaveDTO newnotedata = new NoteSaveDTO();
      
         NoteView newNoteView = new NoteView();
@@ -78,13 +81,15 @@ namespace dNothi.Desktop.UI
         private int _noteFormWidth;
         private int _collapseExpandeHeight;
         private int _collapseExpandeWidth;
-        public Note(IPotrojariServices potrojariServices,IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
+        public Note(
+        IPotrojariServices potrojariServices,IUserService userService, IOnucchedSave onucchedSave, IOnumodonService onumodonService, 
             IOnucchedDelete onucchedDelete, INothiNoteTalikaServices nothiNoteTalikaServices, INothiPotrangshoServices loadPotrangsho, IAllPotroServices allPotro,
             IKhoshraPotroServices khoshraPotro, INothivuktoPotroServices nothivuktoPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
             IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave, INothiAllNoteServices nothiAllNote,
             IOnucchedFileUploadService onucchedFileUploadService, IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction, IRepository<FileUploadAction> fileUploadAction)
         {
+            _kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
             _potrojariServices = potrojariServices;
             _userService = userService;
             _onucchedSave = onucchedSave;
@@ -5101,7 +5106,7 @@ namespace dNothi.Desktop.UI
                         
 
                         current_potro_id = khoshraPotro.data.records[0].basic.id;
-
+                        KhosraAttachmentButton(khoshraPotro.data.records[0].basic.potro_pages);
                         _khoshraPotroWaitinDataRecordDTO = null;
                         _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[0];
                        
@@ -5958,6 +5963,7 @@ namespace dNothi.Desktop.UI
                         current_potro_id = khoshraPotroWaiting.data.records[0].basic.id;
                         _khoshraPotroDataRecordDTO = null;
                         _khoshraPotroWaitinDataRecordDTO = khoshraPotroWaiting.data.records[0];
+                        KhosraAttachmentButton(khoshraPotroWaiting.data.records[0].basic.potro_pages);
                         khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[0].mulpotro;
                         string DecodedString = khoshraPotroWaiting.data.records[0].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
@@ -6985,7 +6991,7 @@ namespace dNothi.Desktop.UI
 
                         _khoshraPotroWaitinDataRecordDTO = null;
                         _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[0];
-                      
+                        KhosraAttachmentButton(noteKhoshraList.data.records[0].basic.potro_pages);
                         khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
                         khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = noteKhoshraList.data.records[0].mulpotro.buttonsDTOList;
                         khoshraPotroWaitinDataRecordMulpotroDTO.buttons = noteKhoshraList.data.records[0].mulpotro.buttons;
@@ -7010,6 +7016,22 @@ namespace dNothi.Desktop.UI
             
             
         }
+
+        private void KhosraAttachmentButton(int attachment_count)
+        {
+           if(attachment_count>0)
+            {
+                lbMulPotroOShonjukti.Visible = true;
+                btnMulPotroOShonjukti.Visible = true;
+                btnMulPotroOShonjukti.Text = ConversionMethod.EngDigittoBanDigit(attachment_count.ToString());
+            }
+            else
+            {
+                btnMulPotroOShonjukti.Visible = false;
+                lbMulPotroOShonjukti.Visible = false;
+            }
+        }
+
         private void btnNoteKhoshraPrevious_Click(object sender, EventArgs e)
         {
             i--;
@@ -7379,9 +7401,10 @@ namespace dNothi.Desktop.UI
 
                         allPreviousButtonVisibilityOff();
 
-                        current_potro_id = noteKhshraWaitingList.data.records[0].basic.id;
+                       // current_potro_id = noteKhshraWaitingList.data.records[0].basic.id;
                        _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[0];
                         khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[0].mulpotro;
+                        KhosraAttachmentButton(noteKhshraWaitingList.data.records[0].basic.potro_pages);
 
 
 
@@ -9021,6 +9044,15 @@ namespace dNothi.Desktop.UI
 
         private void btnPrapokerTalika_Click(object sender, EventArgs e)
         {
+            if(_khoshraPotroWaitinDataRecordDTO != null)
+            {
+                current_potro_id = _khoshraPotroWaitinDataRecordDTO.basic.id;
+            }
+            else if(_khoshraPotroDataRecordDTO != null)
+            {
+                current_potro_id = _khoshraPotroDataRecordDTO.basic.id;
+            }
+
             if(current_potro_id != 0)
             {
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -9178,6 +9210,8 @@ namespace dNothi.Desktop.UI
 
             return _khoshraPotroWaitinDataRecordDTO;
         }
+
+      
 
         private void btnNothiPanelNothiCount_Paint(object sender, PaintEventArgs e)
         {
@@ -9463,6 +9497,61 @@ namespace dNothi.Desktop.UI
             string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
             editortext += " " + text;
             tinyMceEditor.HtmlContent = editortext;
+        }
+        private DakAttachmentResponse GetAllMulPattraAndSanjukti(KasaraPotro.Record kasaraPotro)
+        {
+            DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse { data = null, status = null };
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = 10;
+            var noteAntarvuktaKasralist = _kasaraPatraDashBoardService.GetMulPattraAndSanjukti(dakListUserParam, kasaraPotro);
+            if (noteAntarvuktaKasralist!=null && noteAntarvuktaKasralist.status == "success")
+            {
+                dakAttachmentResponse = noteAntarvuktaKasralist;
+            }
+            return dakAttachmentResponse;
+        }
+        private void btnMulPotroOShonjukti_Click(object sender, EventArgs e)
+        {
+            KhosraAttachmentViewForm khosraAttachmentViewForm = new KhosraAttachmentViewForm();
+
+            KasaraPotro.Record khoshraPotro = new KasaraPotro.Record();
+
+            try
+            {
+                if (_khoshraPotroWaitinDataRecordDTO == null)
+                {
+                    _khoshraPotroWaitinDataRecordDTO = GetKhosraWaiting();
+                }
+
+                khoshraPotro = GetKhosra(_khoshraPotroWaitinDataRecordDTO);
+                khosraAttachmentViewForm.dakAttachmentResponse = GetAllMulPattraAndSanjukti(khoshraPotro);
+
+                UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentViewForm, this);
+            }
+            catch
+            {
+
+            }
+
+
+            
+
+           
+        }
+
+        private KasaraPotro.Record GetKhosra(KhoshraPotroWaitinDataRecordDTO khoshraPotroWaitinDataRecordDTO)
+        {
+            KasaraPotro.Record record = new KasaraPotro.Record();
+
+            record.Basic = MappingModels.MapModel<NoteKhoshraListDataRecordBasicDTO, KasaraPotro.Basic> (_khoshraPotroDataRecordDTO.basic);
+            record.Mulpotro = MappingModels.MapModel<NoteKhoshraListDataRecordMulpotroDTO, KasaraPotro.Mulpotro> (_khoshraPotroDataRecordDTO.mulpotro);
+            record.NoteOnucched = MappingModels.MapModel<NoteKhoshraListDataRecordNoteOnucchedDTO, KasaraPotro.NoteOnucched> (_khoshraPotroDataRecordDTO.note_onucched);
+            record.NoteOwner = MappingModels.MapModel<NoteKhoshraListDataRecordNoteOwnerDTO, KasaraPotro.NoteOwner> (_khoshraPotroDataRecordDTO.note_owner);
+          
+
+
+
+            return record;
         }
     }
 }
