@@ -66,8 +66,8 @@ namespace dNothi.Desktop.UI.Dak
             this.lbDecisionText.Location = new System.Drawing.Point(56, 2);
             this.lbDecisionText.Margin = new System.Windows.Forms.Padding(0);
             this.lbDecisionText.Name = "lbDecisionText";
-            this.lbDecisionText.Padding = new System.Windows.Forms.Padding(350, 8, 0, 0);
-            this.lbDecisionText.Size = new System.Drawing.Size(404, 34);
+            this.lbDecisionText.Padding = new System.Windows.Forms.Padding(150, 8, 0, 0);
+            this.lbDecisionText.Size = new System.Drawing.Size(204, 34);
             this.lbDecisionText.TabIndex = 82;
             this.lbDecisionText.Text = "খসড়া";
             // 

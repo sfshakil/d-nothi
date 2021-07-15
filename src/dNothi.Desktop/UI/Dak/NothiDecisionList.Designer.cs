@@ -33,17 +33,17 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnNothiDecisionListCross = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.decisionViewBodyPanel = new System.Windows.Forms.Panel();
-            this.decisionViewFLP = new System.Windows.Forms.TableLayoutPanel();
             this.lbLengthStart = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lbLengthEnd = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.btnNothiOutboxPrevious = new FontAwesome.Sharp.IconButton();
             this.btnNothiAllNext = new FontAwesome.Sharp.IconButton();
-            this.btnNothiDecisionListCross = new FontAwesome.Sharp.IconButton();
+            this.decisionViewBodyPanel = new System.Windows.Forms.Panel();
+            this.decisionViewFLP = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.decisionViewBodyPanel.SuspendLayout();
@@ -91,6 +91,24 @@ namespace dNothi.Desktop.UI.Dak
             this.panel6.Size = new System.Drawing.Size(960, 1);
             this.panel6.TabIndex = 64;
             // 
+            // btnNothiDecisionListCross
+            // 
+            this.btnNothiDecisionListCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnNothiDecisionListCross.FlatAppearance.BorderSize = 0;
+            this.btnNothiDecisionListCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiDecisionListCross.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNothiDecisionListCross.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btnNothiDecisionListCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnNothiDecisionListCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiDecisionListCross.IconSize = 24;
+            this.btnNothiDecisionListCross.Location = new System.Drawing.Point(870, 27);
+            this.btnNothiDecisionListCross.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiDecisionListCross.Name = "btnNothiDecisionListCross";
+            this.btnNothiDecisionListCross.Size = new System.Drawing.Size(45, 43);
+            this.btnNothiDecisionListCross.TabIndex = 63;
+            this.btnNothiDecisionListCross.UseVisualStyleBackColor = false;
+            this.btnNothiDecisionListCross.Click += new System.EventHandler(this.btnNothiDecisionListCross_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -117,34 +135,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(960, 48);
             this.panel3.TabIndex = 76;
-            // 
-            // decisionViewBodyPanel
-            // 
-            this.decisionViewBodyPanel.AutoScroll = true;
-            this.decisionViewBodyPanel.Controls.Add(this.decisionViewFLP);
-            this.decisionViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.decisionViewBodyPanel.Location = new System.Drawing.Point(0, 170);
-            this.decisionViewBodyPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.decisionViewBodyPanel.Name = "decisionViewBodyPanel";
-            this.decisionViewBodyPanel.Size = new System.Drawing.Size(960, 722);
-            this.decisionViewBodyPanel.TabIndex = 77;
-            // 
-            // decisionViewFLP
-            // 
-            this.decisionViewFLP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.decisionViewFLP.AutoSize = true;
-            this.decisionViewFLP.ColumnCount = 1;
-            this.decisionViewFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.decisionViewFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.decisionViewFLP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.decisionViewFLP.Location = new System.Drawing.Point(0, 0);
-            this.decisionViewFLP.Margin = new System.Windows.Forms.Padding(0);
-            this.decisionViewFLP.Name = "decisionViewFLP";
-            this.decisionViewFLP.RowCount = 1;
-            this.decisionViewFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.decisionViewFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.decisionViewFLP.Size = new System.Drawing.Size(960, 0);
-            this.decisionViewFLP.TabIndex = 55;
             // 
             // lbLengthStart
             // 
@@ -240,23 +230,33 @@ namespace dNothi.Desktop.UI.Dak
             this.btnNothiAllNext.UseVisualStyleBackColor = false;
             this.btnNothiAllNext.Visible = false;
             // 
-            // btnNothiDecisionListCross
+            // decisionViewBodyPanel
             // 
-            this.btnNothiDecisionListCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.btnNothiDecisionListCross.FlatAppearance.BorderSize = 0;
-            this.btnNothiDecisionListCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiDecisionListCross.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNothiDecisionListCross.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnNothiDecisionListCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.btnNothiDecisionListCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiDecisionListCross.IconSize = 24;
-            this.btnNothiDecisionListCross.Location = new System.Drawing.Point(870, 27);
-            this.btnNothiDecisionListCross.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNothiDecisionListCross.Name = "btnNothiDecisionListCross";
-            this.btnNothiDecisionListCross.Size = new System.Drawing.Size(45, 43);
-            this.btnNothiDecisionListCross.TabIndex = 63;
-            this.btnNothiDecisionListCross.UseVisualStyleBackColor = false;
-            this.btnNothiDecisionListCross.Click += new System.EventHandler(this.btnNothiDecisionListCross_Click);
+            this.decisionViewBodyPanel.AutoScroll = true;
+            this.decisionViewBodyPanel.Controls.Add(this.decisionViewFLP);
+            this.decisionViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.decisionViewBodyPanel.Location = new System.Drawing.Point(0, 170);
+            this.decisionViewBodyPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.decisionViewBodyPanel.Name = "decisionViewBodyPanel";
+            this.decisionViewBodyPanel.Size = new System.Drawing.Size(960, 722);
+            this.decisionViewBodyPanel.TabIndex = 77;
+            // 
+            // decisionViewFLP
+            // 
+            this.decisionViewFLP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.decisionViewFLP.AutoSize = true;
+            this.decisionViewFLP.ColumnCount = 1;
+            this.decisionViewFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.decisionViewFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.decisionViewFLP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.decisionViewFLP.Location = new System.Drawing.Point(0, 0);
+            this.decisionViewFLP.Margin = new System.Windows.Forms.Padding(0);
+            this.decisionViewFLP.Name = "decisionViewFLP";
+            this.decisionViewFLP.RowCount = 1;
+            this.decisionViewFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.decisionViewFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.decisionViewFLP.Size = new System.Drawing.Size(960, 0);
+            this.decisionViewFLP.TabIndex = 55;
             // 
             // NothiDecisionList
             // 

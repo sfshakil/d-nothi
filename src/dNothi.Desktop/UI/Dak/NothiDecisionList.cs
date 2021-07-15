@@ -1,4 +1,5 @@
-﻿using dNothi.Services.DakServices;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
 using System;
@@ -24,6 +25,13 @@ namespace dNothi.Desktop.UI.Dak
             InitializeComponent();
             loadRow();
         }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
         public void loadRow()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -31,9 +39,18 @@ namespace dNothi.Desktop.UI.Dak
             dakListUserParam.page = 1;
             var token = _userService.GetToken();
             var nothiDecisionList = _nothiDecisionListService.GetNothiDecisionList(dakListUserParam);
-            if (nothiDecisionList != null && nothiDecisionList.Status == "success")
+            if (nothiDecisionList != null && nothiDecisionList.Status == "success" )
             {
-                LoadNothiInboxinPanel(nothiDecisionList.Data.Records);
+                if (nothiDecisionList.Data.Records.Count > 0) 
+                {
+                    lbLengthStart.Text = "১";
+                    lbLengthEnd.Text = string.Concat(nothiDecisionList.Data.TotalRecords.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbTotalNothi.Text = " সর্বমোট: " + string.Concat(nothiDecisionList.Data.TotalRecords.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    LoadNothiInboxinPanel(nothiDecisionList.Data.Records);
+                }
+                
+            } else {
+                ErrorMessage(nothiDecisionList.Status);
             }
         }
         private void LoadNothiInboxinPanel(Dictionary<string, string> nothiDecisionLists)
