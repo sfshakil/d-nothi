@@ -1160,6 +1160,12 @@
     <Compile Include="UI\ManuelUserControl\SearchComboBox.Designer.cs">
       <DependentUpon>SearchComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ManuelUserControl\SearchDropdownList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ManuelUserControl\SearchDropdownList.Designer.cs">
+      <DependentUpon>SearchDropdownList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ManuelUserControl\UserNameLoginPageUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1171,6 +1177,12 @@
     </Compile>
     <Compile Include="UI\CustomMessageBox\UIFormValidationAlertMessageForm.Designer.cs">
       <DependentUpon>UIFormValidationAlertMessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DefaultPageUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\DefaultPageUserControl.Designer.cs">
+      <DependentUpon>DefaultPageUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ModulePanelUserControl.cs">
       <SubType>UserControl</SubType>
@@ -1225,6 +1237,12 @@
     </Compile>
     <Compile Include="UI\PotrojariGroup.Designer.cs">
       <DependentUpon>PotrojariGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PotroJariGroups\PatraJariGroupCreateUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PotroJariGroups\PatraJariGroupCreateUserControl.Designer.cs">
+      <DependentUpon>PatraJariGroupCreateUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PotroJariGroups\PotrojariUsersListRowUserControl.cs">
       <SubType>UserControl</SubType>
@@ -1711,11 +1729,17 @@
     <EmbeddedResource Include="UI\ManuelUserControl\SearchComboBox.resx">
       <DependentUpon>SearchComboBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ManuelUserControl\SearchDropdownList.resx">
+      <DependentUpon>SearchDropdownList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ManuelUserControl\UserNameLoginPageUserControl.resx">
       <DependentUpon>UserNameLoginPageUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomMessageBox\UIFormValidationAlertMessageForm.resx">
       <DependentUpon>UIFormValidationAlertMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DefaultPageUserControl.resx">
+      <DependentUpon>DefaultPageUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ModulePanelUserControl.resx">
       <DependentUpon>ModulePanelUserControl.cs</DependentUpon>
@@ -1740,6 +1764,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PotrojariGroup.resx">
       <DependentUpon>PotrojariGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PotroJariGroups\PatraJariGroupCreateUserControl.resx">
+      <DependentUpon>PatraJariGroupCreateUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PotroJariGroups\PotrojariUsersListRowUserControl.resx">
       <DependentUpon>PotrojariUsersListRowUserControl.cs</DependentUpon>

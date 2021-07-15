@@ -46,7 +46,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-       
+        
         public bool isNewlyAdded
         {
             get { return _isNewAdded; }

@@ -57,6 +57,7 @@
             this.potrojariLabel = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.usersButton = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.branchNoteSubLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -77,7 +78,6 @@
             this.preritoNoteDatePanel = new System.Windows.Forms.Panel();
             this.preritoNoteCDeskLabel = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.sourcePanel.SuspendLayout();
             this.senderAndReceiverPanel.SuspendLayout();
             this.preritoNotePrapokPanel.SuspendLayout();
@@ -172,7 +172,7 @@
             this.subjectLabel.Location = new System.Drawing.Point(32, 8);
             this.subjectLabel.MaximumSize = new System.Drawing.Size(260, 0);
             this.subjectLabel.Name = "subjectLabel";
-            this.subjectLabel.Size = new System.Drawing.Size(114, 21);
+            this.subjectLabel.Size = new System.Drawing.Size(88, 18);
             this.subjectLabel.TabIndex = 62;
             this.subjectLabel.Text = "asa hbfhjfvgha";
             // 
@@ -243,6 +243,7 @@
             this.optionButton.Size = new System.Drawing.Size(30, 30);
             this.optionButton.TabIndex = 94;
             this.optionButton.UseVisualStyleBackColor = false;
+            this.optionButton.Click += new System.EventHandler(this.optionButton_Click);
             // 
             // iconButton5
             // 
@@ -267,10 +268,10 @@
             this.lbToOfficer.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbToOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbToOfficer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(93)))), ((int)(((byte)(106)))));
-            this.lbToOfficer.Location = new System.Drawing.Point(264, 0);
+            this.lbToOfficer.Location = new System.Drawing.Point(218, 0);
             this.lbToOfficer.Name = "lbToOfficer";
             this.lbToOfficer.Padding = new System.Windows.Forms.Padding(3);
-            this.lbToOfficer.Size = new System.Drawing.Size(115, 27);
+            this.lbToOfficer.Size = new System.Drawing.Size(90, 24);
             this.lbToOfficer.TabIndex = 70;
             this.lbToOfficer.Text = "toOfficerLabel";
             // 
@@ -283,7 +284,7 @@
             this.lbDeskOfficer.Location = new System.Drawing.Point(31, 0);
             this.lbDeskOfficer.Name = "lbDeskOfficer";
             this.lbDeskOfficer.Padding = new System.Windows.Forms.Padding(3);
-            this.lbDeskOfficer.Size = new System.Drawing.Size(217, 27);
+            this.lbDeskOfficer.Size = new System.Drawing.Size(171, 24);
             this.lbDeskOfficer.TabIndex = 68;
             this.lbDeskOfficer.Text = "deskOfficerLabel adafdasf s ";
             // 
@@ -307,10 +308,10 @@
             this.preritoNotePrapokPanel.Controls.Add(this.preritoNotePrapokLabel);
             this.preritoNotePrapokPanel.Controls.Add(this.prapokHeadlineLabel);
             this.preritoNotePrapokPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.preritoNotePrapokPanel.Location = new System.Drawing.Point(379, 0);
+            this.preritoNotePrapokPanel.Location = new System.Drawing.Point(308, 0);
             this.preritoNotePrapokPanel.Margin = new System.Windows.Forms.Padding(0);
             this.preritoNotePrapokPanel.Name = "preritoNotePrapokPanel";
-            this.preritoNotePrapokPanel.Size = new System.Drawing.Size(393, 24);
+            this.preritoNotePrapokPanel.Size = new System.Drawing.Size(464, 24);
             this.preritoNotePrapokPanel.TabIndex = 99;
             this.preritoNotePrapokPanel.Visible = false;
             // 
@@ -324,7 +325,7 @@
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 27;
-            this.iconButton3.Location = new System.Drawing.Point(163, 0);
+            this.iconButton3.Location = new System.Drawing.Point(141, 0);
             this.iconButton3.Margin = new System.Windows.Forms.Padding(5);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(30, 24);
@@ -342,7 +343,7 @@
             this.preritoNotePrapokLabel.MaximumSize = new System.Drawing.Size(700, 0);
             this.preritoNotePrapokLabel.Name = "preritoNotePrapokLabel";
             this.preritoNotePrapokLabel.Padding = new System.Windows.Forms.Padding(3);
-            this.preritoNotePrapokLabel.Size = new System.Drawing.Size(105, 27);
+            this.preritoNotePrapokLabel.Size = new System.Drawing.Size(83, 24);
             this.preritoNotePrapokLabel.TabIndex = 71;
             this.preritoNotePrapokLabel.Text = "prapokLabel";
             // 
@@ -368,7 +369,7 @@
             this.sokolNoteNoteDeskPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sokolNoteNoteDeskPanel.Location = new System.Drawing.Point(0, 0);
             this.sokolNoteNoteDeskPanel.Name = "sokolNoteNoteDeskPanel";
-            this.sokolNoteNoteDeskPanel.Size = new System.Drawing.Size(379, 24);
+            this.sokolNoteNoteDeskPanel.Size = new System.Drawing.Size(308, 24);
             this.sokolNoteNoteDeskPanel.TabIndex = 100;
             // 
             // iconButton6
@@ -381,7 +382,7 @@
             this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 24;
-            this.iconButton6.Location = new System.Drawing.Point(248, 0);
+            this.iconButton6.Location = new System.Drawing.Point(202, 0);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Padding = new System.Windows.Forms.Padding(2);
             this.iconButton6.Size = new System.Drawing.Size(16, 24);
@@ -485,6 +486,24 @@
             this.usersButton.UseVisualStyleBackColor = false;
             this.usersButton.Visible = false;
             // 
+            // iconButton4
+            // 
+            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkAlt;
+            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.IconSize = 18;
+            this.iconButton4.Location = new System.Drawing.Point(30, 0);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(30, 30);
+            this.iconButton4.TabIndex = 93;
+            this.MyToolTip.SetToolTip(this.iconButton4, "নোটের বিস্তারিত (নতুন ট্যাব)");
+            this.iconButton4.UseVisualStyleBackColor = false;
+            this.iconButton4.Visible = false;
+            // 
             // branchNoteSubLabel
             // 
             this.branchNoteSubLabel.AutoSize = true;
@@ -495,7 +514,7 @@
             this.branchNoteSubLabel.MinimumSize = new System.Drawing.Size(750, 0);
             this.branchNoteSubLabel.Name = "branchNoteSubLabel";
             this.branchNoteSubLabel.Padding = new System.Windows.Forms.Padding(3);
-            this.branchNoteSubLabel.Size = new System.Drawing.Size(750, 27);
+            this.branchNoteSubLabel.Size = new System.Drawing.Size(750, 24);
             this.branchNoteSubLabel.TabIndex = 104;
             this.branchNoteSubLabel.Text = "Subject";
             // 
@@ -672,7 +691,7 @@
             this.cDeskLabel.Location = new System.Drawing.Point(85, 4);
             this.cDeskLabel.MaximumSize = new System.Drawing.Size(700, 0);
             this.cDeskLabel.Name = "cDeskLabel";
-            this.cDeskLabel.Size = new System.Drawing.Size(114, 21);
+            this.cDeskLabel.Size = new System.Drawing.Size(88, 18);
             this.cDeskLabel.TabIndex = 71;
             this.cDeskLabel.Text = "asa hbfhjfvgha";
             // 
@@ -730,24 +749,6 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(90, 30);
             this.panel14.TabIndex = 93;
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkAlt;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 18;
-            this.iconButton4.Location = new System.Drawing.Point(30, 0);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(30, 30);
-            this.iconButton4.TabIndex = 93;
-            this.MyToolTip.SetToolTip(this.iconButton4, "নোটের বিস্তারিত (নতুন ট্যাব)");
-            this.iconButton4.UseVisualStyleBackColor = false;
-            this.iconButton4.Visible = false;
             // 
             // NothiNoteTalikaAll
             // 

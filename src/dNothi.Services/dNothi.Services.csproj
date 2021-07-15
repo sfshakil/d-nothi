@@ -290,6 +290,7 @@
     <None Include="App.config" />
     <None Include="FakeJsonData\FakeDakDetails.json" />
     <None Include="FakeJsonData\FakeDakList.json" />
+    <None Include="JsonData\offices.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

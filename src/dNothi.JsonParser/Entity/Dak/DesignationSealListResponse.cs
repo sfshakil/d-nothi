@@ -72,7 +72,7 @@ public class DesignationSealListResponse
 
 
 
-        public string office_name_bng { get { return office_bng; } }
+        public string office_name_bng { get { return office_bng; } set=> office_bng=value; }
      
         public int office_id { get; set; }
 
@@ -211,7 +211,7 @@ public class DesignationSealListResponse
         public string is_office_head { get; set; }
 
         public string unitWithCode { get { return unit_label + " শাখা কোডঃ " + string.Concat(office_unit_code.ToString().Select(c => (char)('\u09E6' + c - '0'))); } }
-        public string NameWithDesignation { get { return employee_name_bng + " " + designation_bng; } }
+        public string NameWithDesignation { get { return employee_name_bng + " " + designation_bng; } set { employee_name_bng = value; designation_bng = value; } }
         public string NameWithOrganogram { get { return employee_name_bng + ", " + designation_bng + ", " + unit_name_bng + ", " + office_bng; } }
 
 

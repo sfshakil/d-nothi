@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using dNothi.Constants;
 using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
+using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Utility;
 using Newtonsoft.Json;
@@ -169,13 +172,24 @@ namespace dNothi.Services.DakServices
             dakOfficeRequest.AddParameter("cdesk", dakListUserParam.json_String);
 
             IRestResponse dakOfficeIRestResponse = dakOfficeAPI.Execute(dakOfficeRequest);
-            var dakOfficeResponseJson =ConversionMethod.FilterJsonResponse(dakOfficeIRestResponse.Content);
+            var dakOfficeResponseJson = ConversionMethod.FilterJsonResponse(dakOfficeIRestResponse.Content);
 
 
             SaveAllOfficeListResponseLocally(dakListUserParam.designation_id, dakListUserParam.office_id, dakOfficeResponseJson);
-            
+
+
+
             officeListResponse = JsonConvert.DeserializeObject<OfficeListResponse>(dakOfficeResponseJson);
             return officeListResponse;
+        }
+        public List<LocalOfficesResponse> GetAllLocalOffice()
+        {
+           
+            string currentFolderPath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\JsonData\offices.json";
+
+            List<LocalOfficesResponse> localOfficesResponses = JsonConvert.DeserializeObject<List<LocalOfficesResponse>>(File.ReadAllText(currentFolderPath));
+
+             return localOfficesResponses;
         }
 
         protected string GetAllDesignationSealEndpoint()

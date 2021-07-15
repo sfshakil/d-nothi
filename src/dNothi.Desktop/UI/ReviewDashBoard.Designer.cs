@@ -255,7 +255,7 @@ namespace dNothi.Desktop.UI
             this.nothiModuleNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.nothiModuleNameLabel.Location = new System.Drawing.Point(30, 8);
             this.nothiModuleNameLabel.Name = "nothiModuleNameLabel";
-            this.nothiModuleNameLabel.Size = new System.Drawing.Size(37, 25);
+            this.nothiModuleNameLabel.Size = new System.Drawing.Size(31, 21);
             this.nothiModuleNameLabel.TabIndex = 19;
             this.nothiModuleNameLabel.Text = "নথি";
             this.nothiModuleNameLabel.Click += new System.EventHandler(this.nothiModulePanel_Click);
@@ -312,7 +312,7 @@ namespace dNothi.Desktop.UI
             this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(33, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 25);
+            this.label1.Size = new System.Drawing.Size(35, 21);
             this.label1.TabIndex = 19;
             this.label1.Text = "ডাক";
             this.label1.Click += new System.EventHandler(this.dakModulePanel_Click);
@@ -355,9 +355,9 @@ namespace dNothi.Desktop.UI
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label9.Location = new System.Drawing.Point(891, 0);
+            this.label9.Location = new System.Drawing.Point(900, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 29);
+            this.label9.Size = new System.Drawing.Size(52, 29);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -369,9 +369,9 @@ namespace dNothi.Desktop.UI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(137, 0);
+            this.linkLabel2.Location = new System.Drawing.Point(118, 0);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(99, 29);
+            this.linkLabel2.Size = new System.Drawing.Size(82, 29);
             this.linkLabel2.TabIndex = 31;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "এটুআই প্রোগ্রাম";
@@ -387,7 +387,7 @@ namespace dNothi.Desktop.UI
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 29);
+            this.label7.Size = new System.Drawing.Size(109, 29);
             this.label7.TabIndex = 30;
             this.label7.Text = "© কপিরাইট ২০২১, ";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1041,9 +1041,9 @@ namespace dNothi.Desktop.UI
             this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbTotalNothi.Location = new System.Drawing.Point(18, 0);
+            this.lbTotalNothi.Location = new System.Drawing.Point(30, 0);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Size = new System.Drawing.Size(78, 21);
+            this.lbTotalNothi.Size = new System.Drawing.Size(66, 18);
             this.lbTotalNothi.TabIndex = 33;
             this.lbTotalNothi.Text = " সর্বমোট: ০";
             // 
@@ -1097,7 +1097,7 @@ namespace dNothi.Desktop.UI
             this.lbPotrojariName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
             this.lbPotrojariName.Location = new System.Drawing.Point(0, 6);
             this.lbPotrojariName.Name = "lbPotrojariName";
-            this.lbPotrojariName.Size = new System.Drawing.Size(128, 25);
+            this.lbPotrojariName.Size = new System.Drawing.Size(109, 21);
             this.lbPotrojariName.TabIndex = 1;
             this.lbPotrojariName.Text = "রিভিউ ড্যাশবোর্ড";
             // 
@@ -1167,7 +1167,7 @@ namespace dNothi.Desktop.UI
             this.moduleButton.Size = new System.Drawing.Size(52, 43);
             this.moduleButton.TabIndex = 106;
             this.moduleButton.UseVisualStyleBackColor = true;
-            this.moduleButton.Visible = false;
+            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
             // footerTableLayoutPanel
             // 
@@ -1426,7 +1426,7 @@ namespace dNothi.Desktop.UI
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(115, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(130, 27);
+            this.label14.Size = new System.Drawing.Size(107, 24);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 

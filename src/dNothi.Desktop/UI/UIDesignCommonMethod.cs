@@ -1,5 +1,6 @@
 ﻿using dNothi.Desktop.UI.CustomMessageBox;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -11,6 +12,75 @@ namespace dNothi.Desktop.UI
 {
    public class UIDesignCommonMethod
     {
+
+
+        public static bool SelectFirstNode(TreeView treeView, TreeNodeCollection nodes)
+        {
+            foreach (TreeNode node in nodes)
+            {
+                if (node.BackColor == Color.Yellow)
+                {
+                    treeView.SelectedNode = node;
+                    return true;
+                }
+
+
+                if (node.Nodes.Count > 0)
+                {
+                    if (SelectFirstNode(treeView, node.Nodes))
+                    {
+                        return true;
+                    }
+                }
+
+            }
+            return false;
+        }
+
+        public static void CollapseTree(TreeNodeCollection nodes)
+        {
+            foreach (TreeNode node in nodes)
+            {
+                node.Collapse();
+
+            }
+        }
+
+   
+
+        public static bool SearchRecursive(TreeView treeView, IEnumerable nodes, string searchFor)
+        {
+            foreach (TreeNode node in nodes)
+            {
+
+                if (node.Text.Contains(searchFor) && !String.IsNullOrEmpty(searchFor))
+                {
+
+                    if (node.Nodes.Count <= 0 && !node.Parent.IsExpanded)
+                    {
+                        node.Parent.Expand();
+                    }
+                    node.BackColor = Color.Yellow;
+                }
+                else if (node.BackColor == Color.Yellow)
+                {
+                    node.BackColor = Color.White;
+
+                    if (node.Nodes.Count <= 0 && node.Parent.IsExpanded)
+                    {
+                        node.Parent.Collapse();
+                    }
+
+                }
+
+
+                if (SearchRecursive(treeView, node.Nodes, searchFor))
+                    return true;
+            }
+            return false;
+        }
+
+
 
         public static string copyRightLableText = "© কপিরাইট ২০২১, V :1.08";
 
@@ -85,6 +155,33 @@ namespace dNothi.Desktop.UI
 
                 modulePanelUserControl.BringToFront();
                
+
+            }
+            else
+            {
+                form.Controls.Remove(modulePanelUserControls);
+            }
+        }
+
+        public static void CallAllModulePanel(Button button, UserControl form)
+        {
+            var modulePanelUserControls = form.Controls.OfType<ModulePanelUserControl>().FirstOrDefault(a => a.Visible == true);
+
+            if (modulePanelUserControls == null)
+            {
+                Point locationOnForm = button.FindForm().PointToClient(
+                button.Parent.PointToScreen(button.Location));
+
+
+                ModulePanelUserControl modulePanelUserControl = new ModulePanelUserControl();
+                // modulePanelUserControl.Location = new Point(locationOnForm.X, locationOnForm.Y + button.Height + 1);
+
+                modulePanelUserControl.Location = new Point(button.Location.X, button.Location.Y);
+
+                form.Controls.Add(modulePanelUserControl);
+
+                modulePanelUserControl.BringToFront();
+
 
             }
             else

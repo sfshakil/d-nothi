@@ -321,7 +321,10 @@ namespace dNothi.Desktop
             
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
+            builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();
             
+
+
 
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
 
