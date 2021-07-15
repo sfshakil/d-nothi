@@ -122,5 +122,10 @@ namespace dNothi.Desktop.UI
             }
             
             }
+
+        private void moduleButton_Click(object sender, EventArgs e)
+        {
+            UIDesignCommonMethod.CallAllModulePanel(moduleButton, this);
+        }
     }
 }

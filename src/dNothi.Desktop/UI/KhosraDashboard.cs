@@ -1,5 +1,6 @@
 ﻿using dNothi.Desktop.UI.Dak;
 using dNothi.Desktop.UI.Khosra_Potro;
+using dNothi.Desktop.UI.PotroJariGroups;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Khosra;
@@ -854,6 +855,15 @@ namespace dNothi.Desktop.UI
         private void searchBoxPanel_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+        }
+
+        private void potrojariButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+           
+            PotrojariGroupForm potrojariGroup = FormFactory.Create<PotrojariGroupForm>();
+          
+            potrojariGroup.ShowDialog();
         }
     }
 }

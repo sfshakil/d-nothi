@@ -3331,10 +3331,10 @@
             this.potrojariButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.potrojariButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.potrojariButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
-            this.potrojariButton.IconChar = FontAwesome.Sharp.IconChar.File;
+            this.potrojariButton.IconChar = FontAwesome.Sharp.IconChar.Users;
             this.potrojariButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
             this.potrojariButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.potrojariButton.IconSize = 32;
+            this.potrojariButton.IconSize = 35;
             this.potrojariButton.Location = new System.Drawing.Point(4, 182);
             this.potrojariButton.Name = "potrojariButton";
             this.potrojariButton.Size = new System.Drawing.Size(158, 86);

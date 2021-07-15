@@ -12,9 +12,9 @@ using dNothi.Desktop.UI.PotroJariGroups;
 
 namespace dNothi.Desktop.UI
 {
-    public partial class ModulePanelUserControl : UserControl
+    public partial class DefaultPageUserControl : UserControl
     {
-        public ModulePanelUserControl()
+        public DefaultPageUserControl()
         {
             InitializeComponent();
         }

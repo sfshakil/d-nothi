@@ -172,5 +172,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(235, 237, 243), ButtonBorderStyle.Solid);
         }
+
+        private void optionButton_Click(object sender, EventArgs e)
+        {
+           // UIDesignCommonMethod.CallAllModulePanel(optionButton, this);
+        }
     }
 }

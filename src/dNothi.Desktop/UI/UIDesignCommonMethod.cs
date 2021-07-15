@@ -93,6 +93,33 @@ namespace dNothi.Desktop.UI
             }
         }
 
+        public static void CallAllModulePanel(Button button, UserControl form)
+        {
+            var modulePanelUserControls = form.Controls.OfType<ModulePanelUserControl>().FirstOrDefault(a => a.Visible == true);
+
+            if (modulePanelUserControls == null)
+            {
+                Point locationOnForm = button.FindForm().PointToClient(
+                button.Parent.PointToScreen(button.Location));
+
+
+                ModulePanelUserControl modulePanelUserControl = new ModulePanelUserControl();
+                // modulePanelUserControl.Location = new Point(locationOnForm.X, locationOnForm.Y + button.Height + 1);
+
+                modulePanelUserControl.Location = new Point(button.Location.X, button.Location.Y);
+
+                form.Controls.Add(modulePanelUserControl);
+
+                modulePanelUserControl.BringToFront();
+
+
+            }
+            else
+            {
+                form.Controls.Remove(modulePanelUserControls);
+            }
+        }
+
         public static void NothiModuleClick(Form form)
         {
             form.Hide();
