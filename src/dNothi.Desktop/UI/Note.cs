@@ -9297,10 +9297,20 @@ namespace dNothi.Desktop.UI
                             link.SetAttribute("src", "../img/sign-1.png");
                         }
                     }
+                    PotroApproveResponse khoshraUnapprovedResponse = new PotroApproveResponse();
+                    if (_khoshraPotroWaitinDataRecordDTO==null)
+                    {
+                        _khoshraPotroDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
+                         khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroDataRecordDTO.basic.potro_status, _khoshraPotroDataRecordDTO.mulpotro.potro_description);
 
-                    _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
+                    }
+                    else
+                    {
+                        _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
+                        khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroWaitinDataRecordDTO.basic.potro_status, _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description);
 
-                    var khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam,khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroWaitinDataRecordDTO.basic.potro_status, _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description);
+                    }
+
                     if (khoshraUnapprovedResponse.status == "success")
                     {
 
