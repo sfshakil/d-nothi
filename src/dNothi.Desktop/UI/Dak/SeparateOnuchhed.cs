@@ -34,6 +34,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             btnSchedule.Visible = true;
             btnDelete.Visible = false;
+            btnKhosra.Visible = false;
         }
         public void lastopenOnuchhed()
         {
@@ -313,10 +314,12 @@ namespace dNothi.Desktop.UI.Dak
             if (btnSchedule.Visible==true)
             {
                 btnDelete.Visible = false;
+                btnKhosra.Visible = false;
             }
             else
             {
                 btnDelete.Visible = true;
+                btnKhosra.Visible = true;
             }
             
         }
@@ -347,6 +350,7 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
         public event EventHandler DeleteButtonClick;
+        public event EventHandler KhoshraButtonClick;
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string message = "আপনি অনুচ্ছেদটি মুছে ফেলতে চান?";
@@ -371,6 +375,37 @@ namespace dNothi.Desktop.UI.Dak
             SubjectBrowser.Document.Body.Style = "font-size:10pt;";//font-family:SolaimanLipi;SubjectBrowser.Height = SubjectBrowser.Document.Body.ScrollRectangle.Height;
             //this.Height += SubjectBrowser.Document.Body.ScrollRectangle.Height;
             //SubjectBrowser.Height = SubjectBrowser.Document.Body.ScrollRectangle.Height;
+        }
+
+        private void btnKhosra_MouseHover(object sender, EventArgs e)
+        {
+            if (btnSchedule.Visible == true)
+            {
+                btnKhosra.Visible = false;
+            }
+            else
+            {
+                btnKhosra.Visible = true;
+                btnKhosra.IconColor = Color.Red;
+            }
+        }
+
+        private void btnKhosra_MouseLeave(object sender, EventArgs e)
+        {
+            if (btnSchedule.Visible == true)
+            {
+                btnKhosra.Visible = false;
+            }
+            else
+            {
+                btnKhosra.IconColor = Color.FromArgb(54, 153, 255);
+            }
+        }
+
+        private void btnKhosra_Click(object sender, EventArgs e)
+        {
+            if (this.KhoshraButtonClick != null)
+                this.KhoshraButtonClick(onucchedId, e);
         }
     }
 }

@@ -278,7 +278,7 @@
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.PnlSave = new System.Windows.Forms.Panel();
             this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
-            this.iconButton20 = new FontAwesome.Sharp.IconButton();
+            this.btnSaveAndKhoshra = new FontAwesome.Sharp.IconButton();
             this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -4236,8 +4236,9 @@
             // 
             // PnlSave
             // 
+            this.PnlSave.AutoSize = true;
             this.PnlSave.Controls.Add(this.btnSaveWithNewOnuchhed);
-            this.PnlSave.Controls.Add(this.iconButton20);
+            this.PnlSave.Controls.Add(this.btnSaveAndKhoshra);
             this.PnlSave.Controls.Add(this.btnOnuchhedSave);
             this.PnlSave.Location = new System.Drawing.Point(759, 4);
             this.PnlSave.Margin = new System.Windows.Forms.Padding(4);
@@ -4247,9 +4248,9 @@
             // 
             // btnSaveWithNewOnuchhed
             // 
+            this.btnSaveWithNewOnuchhed.AutoSize = true;
             this.btnSaveWithNewOnuchhed.BackColor = System.Drawing.SystemColors.Window;
             this.btnSaveWithNewOnuchhed.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSaveWithNewOnuchhed.Enabled = false;
             this.btnSaveWithNewOnuchhed.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
             this.btnSaveWithNewOnuchhed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveWithNewOnuchhed.Font = new System.Drawing.Font("SolaimanLipi", 12F);
@@ -4269,31 +4270,33 @@
             this.btnSaveWithNewOnuchhed.UseVisualStyleBackColor = false;
             this.btnSaveWithNewOnuchhed.Click += new System.EventHandler(this.btnSaveWithNewOnuchhed_Click);
             // 
-            // iconButton20
+            // btnSaveAndKhoshra
             // 
-            this.iconButton20.BackColor = System.Drawing.SystemColors.Window;
-            this.iconButton20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton20.Enabled = false;
-            this.iconButton20.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
-            this.iconButton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton20.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.iconButton20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton20.IconChar = FontAwesome.Sharp.IconChar.Cloud;
-            this.iconButton20.IconColor = System.Drawing.Color.Silver;
-            this.iconButton20.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton20.IconSize = 20;
-            this.iconButton20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton20.Location = new System.Drawing.Point(0, 52);
-            this.iconButton20.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton20.Name = "iconButton20";
-            this.iconButton20.Size = new System.Drawing.Size(249, 52);
-            this.iconButton20.TabIndex = 67;
-            this.iconButton20.Text = "সংরক্ষণ ও খসড়া";
-            this.iconButton20.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton20.UseVisualStyleBackColor = false;
+            this.btnSaveAndKhoshra.AutoSize = true;
+            this.btnSaveAndKhoshra.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSaveAndKhoshra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSaveAndKhoshra.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnSaveAndKhoshra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveAndKhoshra.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.btnSaveAndKhoshra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnSaveAndKhoshra.IconChar = FontAwesome.Sharp.IconChar.Cloud;
+            this.btnSaveAndKhoshra.IconColor = System.Drawing.Color.Silver;
+            this.btnSaveAndKhoshra.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSaveAndKhoshra.IconSize = 20;
+            this.btnSaveAndKhoshra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveAndKhoshra.Location = new System.Drawing.Point(0, 52);
+            this.btnSaveAndKhoshra.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSaveAndKhoshra.Name = "btnSaveAndKhoshra";
+            this.btnSaveAndKhoshra.Size = new System.Drawing.Size(249, 52);
+            this.btnSaveAndKhoshra.TabIndex = 67;
+            this.btnSaveAndKhoshra.Text = "সংরক্ষণ ও খসড়া";
+            this.btnSaveAndKhoshra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveAndKhoshra.UseVisualStyleBackColor = false;
+            this.btnSaveAndKhoshra.Click += new System.EventHandler(this.btnSaveAndKhoshra_Click);
             // 
             // btnOnuchhedSave
             // 
+            this.btnOnuchhedSave.AutoSize = true;
             this.btnOnuchhedSave.BackColor = System.Drawing.SystemColors.Window;
             this.btnOnuchhedSave.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOnuchhedSave.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
@@ -4472,7 +4475,9 @@
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.PnlSave.ResumeLayout(false);
+            this.PnlSave.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -4578,7 +4583,7 @@
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel PnlSave;
         private FontAwesome.Sharp.IconButton btnSaveWithNewOnuchhed;
-        private FontAwesome.Sharp.IconButton iconButton20;
+        private FontAwesome.Sharp.IconButton btnSaveAndKhoshra;
         private FontAwesome.Sharp.IconButton btnOnuchhedSave;
         private Dak.TinyMCE tinyMceEditor;
         private System.Windows.Forms.Panel tabButtonPanel;
