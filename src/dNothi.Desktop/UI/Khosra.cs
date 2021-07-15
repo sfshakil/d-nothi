@@ -1708,10 +1708,7 @@ namespace dNothi.Desktop.UI
 
             if (conditonBoxForm.Yes)
             {
-                JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
-
-
-                _currentHtmlString = response.Result.ToString();
+               
 
                 //_currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.dateSharokTitleOriginal, KhoshraTemplateHtmlStringChange.dateSharokTitleReplace);
 
@@ -1758,6 +1755,13 @@ namespace dNothi.Desktop.UI
                 }
 
                 SetSharokNoAsync(khosraSaveParamPotro.potrojari.sarok_no);
+
+                JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
+
+
+                _currentHtmlString = response.Result.ToString();
+
+
                 khosraSaveParamPotro.potrojari.potro_description = ConversionMethod.Base64Encode(_currentHtmlString);
                 khosraSaveParamPotro.potrojari.potro_priority_level = dakPriorityComboBox.SelectedIndex;
                 khosraSaveParamPotro.potrojari.potro_security_level = dakSecrurityComboBox.SelectedIndex;
