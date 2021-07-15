@@ -528,6 +528,7 @@ namespace dNothi.Desktop.UI.Dak
             prapokOthersDataGridView.Refresh();
         }
          public event EventHandler SucessfullyDakForwarded;
+         public event EventHandler DecreaseDaakCount;
 
         public MultipleDakSelectedListConfirmForm ActionResult;
 
@@ -789,6 +790,7 @@ namespace dNothi.Desktop.UI.Dak
                     else if (dakForwardResponse.status == "success")
                     {
                         SuccessMessage(dakForwardResponse.data);
+                        _totalSuccessForwardRequest = 1;
                         if (this.SucessfullyDakForwarded != null)
                             this.SucessfullyDakForwarded(sender, e);
                         this.Hide();
@@ -835,9 +837,7 @@ namespace dNothi.Desktop.UI.Dak
                     {
                         _totalForwardRequest += 1;
 
-                        //dakForwardRequestParam.dak_id = dakSelected.dakUserDTO.dak_id;
-                        //dakForwardRequestParam.is_copied_dak = dakSelected.dakUserDTO.is_copied_dak;
-                        //dakForwardRequestParam.dak_type = dakSelected.dakUserDTO.dak_type;
+                       
                         DakSorting daksort =
                                 new DakSorting
                                 {
@@ -875,28 +875,22 @@ namespace dNothi.Desktop.UI.Dak
 
 
                             multipleDakActionResultDakRowUserControl.dakUserDTO = dakSelected.dakUserDTO;
-                            // multipleDakActionResultDakRowUserControl.error = dakForwardResponse.data;
-                            multipleDakActionResultDakRowUserControl.prerok = dakSelected._prerok;
-                          //  ActionResult.multiplaeDakActionResultAdd.Controls.Add(multipleDakActionResultDakRowUserControl);
-
+                             multipleDakActionResultDakRowUserControl.prerok = dakSelected._prerok;
+                        
                         }
                     }
                 }
             }
 
-           // ActionResult.isDakForwardReturn = true;
-            //ActionResult.totalRequest = _totalForwardRequest;
-           // ActionResult.totalRequestFail = _totalFailForwardRequest;
-           // ActionResult.totalForwardRequest = _totalSuccessForwardRequest;
-
-          //  this.Opacity = .1;
-
-           // Form form = AttachControlToForm(ActionResult);
-          //  form.ShowDialog();
-            // this.Opacity = 1;
+         
             if(_totalSuccessForwardRequest!=0)
             {
                 UIDesignCommonMethod.SuccessMessage("ডাক সর্টিং সফল হয়েছে!");
+
+                if (this.DecreaseDaakCount != null)
+                    this.DecreaseDaakCount(sender, e);
+
+
                 if (this.SucessfullyDakForwarded != null)
                     this.SucessfullyDakForwarded(sender, e);
                 this.Hide();

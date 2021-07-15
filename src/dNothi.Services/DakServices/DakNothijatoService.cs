@@ -11,6 +11,7 @@ using dNothi.Core.Interfaces;
 using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.UserServices;
+
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -369,7 +370,7 @@ namespace dNothi.Services.DakServices
             NothijatoRevertDakSendRequest.AddParameter("dak", "{\"dak_id\":\"" + dak_id + "\",\"dak_type\":\"" + dak_type + "\",\"is_copied_dak\":" + is_copied_dak + "}");
 
             IRestResponse dakNothijatoRevertIRestResponse = nothijatoRevertDakSendAPI.Execute(NothijatoRevertDakSendRequest);
-            var dakNothijatoRevertResponseJson = dakNothijatoRevertIRestResponse.Content;
+            var dakNothijatoRevertResponseJson = dNothi.Utility.ConversionMethod.FilterJsonResponse(dakNothijatoRevertIRestResponse.Content);
 
             dakNothijatoRevertResponse = JsonConvert.DeserializeObject<DakNothijatoRevertResponse>(dakNothijatoRevertResponseJson, new JsonSerializerSettings
             {

@@ -43,16 +43,12 @@
             this.prapokSearchOwnOfficeTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.prapokownOfficeTreeView = new System.Windows.Forms.TreeView();
             this.otherOfficeTabPageLeft = new System.Windows.Forms.TabPage();
-            this.officerSearchOfficeIdLabel = new System.Windows.Forms.Label();
-            this.officeSearchOfficeNameLabel = new System.Windows.Forms.Label();
-            this.searchOfficePanel = new System.Windows.Forms.Panel();
-            this.searchOfficeListBox = new System.Windows.Forms.ListBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.searchOfficeTextBox = new dNothi.Desktop.XTextBox();
+            this.searchOfficeListComboBox = new dNothi.Desktop.UI.ManuelUserControl.SearchDropdownList();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.otherOfficerSearchTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.designationStateOtherLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.otherOfficeTreeView = new System.Windows.Forms.TreeView();
-            this.searchOfficeButton = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControlRight = new System.Windows.Forms.TabControl();
             this.ownOfficeTabPageRight = new System.Windows.Forms.TabPage();
@@ -76,8 +72,7 @@
             this.ownOfficeTabPageLeft.SuspendLayout();
             this.panel4.SuspendLayout();
             this.otherOfficeTabPageLeft.SuspendLayout();
-            this.searchOfficePanel.SuspendLayout();
-            this.panel12.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.tabControlRight.SuspendLayout();
             this.ownOfficeTabPageRight.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -214,8 +209,10 @@
             // 
             // prapokownOfficeTreeView
             // 
+            this.prapokownOfficeTreeView.BackColor = System.Drawing.Color.White;
             this.prapokownOfficeTreeView.CheckBoxes = true;
             this.prapokownOfficeTreeView.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
+            this.prapokownOfficeTreeView.ForeColor = System.Drawing.Color.Black;
             this.prapokownOfficeTreeView.Location = new System.Drawing.Point(18, 134);
             this.prapokownOfficeTreeView.Name = "prapokownOfficeTreeView";
             this.prapokownOfficeTreeView.Size = new System.Drawing.Size(490, 301);
@@ -227,13 +224,12 @@
             // 
             // otherOfficeTabPageLeft
             // 
-            this.otherOfficeTabPageLeft.Controls.Add(this.officerSearchOfficeIdLabel);
-            this.otherOfficeTabPageLeft.Controls.Add(this.officeSearchOfficeNameLabel);
-            this.otherOfficeTabPageLeft.Controls.Add(this.searchOfficePanel);
+            this.otherOfficeTabPageLeft.AutoScroll = true;
+            this.otherOfficeTabPageLeft.Controls.Add(this.searchOfficeListComboBox);
+            this.otherOfficeTabPageLeft.Controls.Add(this.panel5);
             this.otherOfficeTabPageLeft.Controls.Add(this.designationStateOtherLabel);
             this.otherOfficeTabPageLeft.Controls.Add(this.label10);
             this.otherOfficeTabPageLeft.Controls.Add(this.otherOfficeTreeView);
-            this.otherOfficeTabPageLeft.Controls.Add(this.searchOfficeButton);
             this.otherOfficeTabPageLeft.ImageIndex = 0;
             this.otherOfficeTabPageLeft.Location = new System.Drawing.Point(4, 37);
             this.otherOfficeTabPageLeft.Name = "otherOfficeTabPageLeft";
@@ -243,86 +239,47 @@
             this.otherOfficeTabPageLeft.Text = "অন্য অফিসের পদসমূহ ";
             this.otherOfficeTabPageLeft.UseVisualStyleBackColor = true;
             // 
-            // officerSearchOfficeIdLabel
+            // searchOfficeListComboBox
             // 
-            this.officerSearchOfficeIdLabel.AutoSize = true;
-            this.officerSearchOfficeIdLabel.Location = new System.Drawing.Point(122, 10);
-            this.officerSearchOfficeIdLabel.MaximumSize = new System.Drawing.Size(320, 18);
-            this.officerSearchOfficeIdLabel.MinimumSize = new System.Drawing.Size(320, 18);
-            this.officerSearchOfficeIdLabel.Name = "officerSearchOfficeIdLabel";
-            this.officerSearchOfficeIdLabel.Size = new System.Drawing.Size(320, 18);
-            this.officerSearchOfficeIdLabel.TabIndex = 97;
-            this.officerSearchOfficeIdLabel.Visible = false;
+            this.searchOfficeListComboBox.BackColor = System.Drawing.Color.White;
+            this.searchOfficeListComboBox.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeListComboBox.isListShown = false;
+            this.searchOfficeListComboBox.itemList = null;
+            this.searchOfficeListComboBox.Location = new System.Drawing.Point(10, 33);
+            this.searchOfficeListComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchOfficeListComboBox.Name = "searchOfficeListComboBox";
+            this.searchOfficeListComboBox.searchButtonText = "অফিস বাছাই করুন";
+            this.searchOfficeListComboBox.selectedId = 0;
+            this.searchOfficeListComboBox.Size = new System.Drawing.Size(477, 38);
+            this.searchOfficeListComboBox.TabIndex = 89;
+            this.searchOfficeListComboBox.ChangeSelectedIndex += new System.EventHandler(this.searchOfficeListComboBox_ChangeSelectedIndex);
             // 
-            // officeSearchOfficeNameLabel
+            // panel5
             // 
-            this.officeSearchOfficeNameLabel.AutoSize = true;
-            this.officeSearchOfficeNameLabel.Location = new System.Drawing.Point(27, 55);
-            this.officeSearchOfficeNameLabel.MaximumSize = new System.Drawing.Size(320, 18);
-            this.officeSearchOfficeNameLabel.MinimumSize = new System.Drawing.Size(320, 18);
-            this.officeSearchOfficeNameLabel.Name = "officeSearchOfficeNameLabel";
-            this.officeSearchOfficeNameLabel.Size = new System.Drawing.Size(320, 18);
-            this.officeSearchOfficeNameLabel.TabIndex = 96;
-            this.officeSearchOfficeNameLabel.Text = "অফিস বাছাই করুন";
-            this.officeSearchOfficeNameLabel.Click += new System.EventHandler(this.searchOfficeButton_Click);
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.otherOfficerSearchTextBox);
+            this.panel5.Location = new System.Drawing.Point(9, 89);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(310, 35);
+            this.panel5.TabIndex = 88;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
             // 
-            // searchOfficePanel
+            // otherOfficerSearchTextBox
             // 
-            this.searchOfficePanel.AutoScroll = true;
-            this.searchOfficePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchOfficePanel.Controls.Add(this.searchOfficeListBox);
-            this.searchOfficePanel.Controls.Add(this.panel12);
-            this.searchOfficePanel.Location = new System.Drawing.Point(20, 83);
-            this.searchOfficePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficePanel.Name = "searchOfficePanel";
-            this.searchOfficePanel.Padding = new System.Windows.Forms.Padding(5);
-            this.searchOfficePanel.Size = new System.Drawing.Size(363, 217);
-            this.searchOfficePanel.TabIndex = 95;
-            this.searchOfficePanel.Visible = false;
-            this.searchOfficePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchOfficePanel_Paint);
-            // 
-            // searchOfficeListBox
-            // 
-            this.searchOfficeListBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchOfficeListBox.FormattingEnabled = true;
-            this.searchOfficeListBox.HorizontalScrollbar = true;
-            this.searchOfficeListBox.ItemHeight = 18;
-            this.searchOfficeListBox.Items.AddRange(new object[] {
-            "অফিস বাছাই করুন"});
-            this.searchOfficeListBox.Location = new System.Drawing.Point(5, 42);
-            this.searchOfficeListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficeListBox.Name = "searchOfficeListBox";
-            this.searchOfficeListBox.Size = new System.Drawing.Size(351, 166);
-            this.searchOfficeListBox.TabIndex = 35;
-            this.searchOfficeListBox.Click += new System.EventHandler(this.searchOfficeListBox_Click);
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.searchOfficeTextBox);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(5, 5);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(351, 37);
-            this.panel12.TabIndex = 34;
-            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
-            // 
-            // searchOfficeTextBox
-            // 
-            this.searchOfficeTextBox.BackColor = System.Drawing.Color.White;
-            this.searchOfficeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchOfficeTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchOfficeTextBox.Location = new System.Drawing.Point(3, 9);
-            this.searchOfficeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficeTextBox.Name = "searchOfficeTextBox";
-            this.searchOfficeTextBox.Size = new System.Drawing.Size(336, 19);
-            this.searchOfficeTextBox.TabIndex = 33;
-            this.searchOfficeTextBox.TextChanged += new System.EventHandler(this.searchOfficeTextBox_TextChanged);
+            this.otherOfficerSearchTextBox.BackColor = System.Drawing.Color.White;
+            this.otherOfficerSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.otherOfficerSearchTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.otherOfficerSearchTextBox.Location = new System.Drawing.Point(6, 7);
+            this.otherOfficerSearchTextBox.Name = "otherOfficerSearchTextBox";
+            this.otherOfficerSearchTextBox.PlaceholderText = "প্রাপক খুঁজুন";
+            this.otherOfficerSearchTextBox.Size = new System.Drawing.Size(297, 19);
+            this.otherOfficerSearchTextBox.TabIndex = 3;
+            this.otherOfficerSearchTextBox.TextChanged += new System.EventHandler(this.otherOfficerSearchTextBox_TextChanged);
             // 
             // designationStateOtherLabel
             // 
             this.designationStateOtherLabel.AutoSize = true;
-            this.designationStateOtherLabel.Location = new System.Drawing.Point(17, 104);
+            this.designationStateOtherLabel.Location = new System.Drawing.Point(3, 127);
             this.designationStateOtherLabel.Name = "designationStateOtherLabel";
             this.designationStateOtherLabel.Size = new System.Drawing.Size(242, 18);
             this.designationStateOtherLabel.TabIndex = 79;
@@ -333,7 +290,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label10.Location = new System.Drawing.Point(17, 18);
+            this.label10.Location = new System.Drawing.Point(18, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(196, 28);
             this.label10.TabIndex = 87;
@@ -342,34 +299,14 @@
             // otherOfficeTreeView
             // 
             this.otherOfficeTreeView.CheckBoxes = true;
-            this.otherOfficeTreeView.Location = new System.Drawing.Point(16, 134);
+            this.otherOfficeTreeView.Location = new System.Drawing.Point(9, 148);
             this.otherOfficeTreeView.Name = "otherOfficeTreeView";
-            this.otherOfficeTreeView.Size = new System.Drawing.Size(490, 301);
+            this.otherOfficeTreeView.Scrollable = false;
+            this.otherOfficeTreeView.Size = new System.Drawing.Size(490, 319);
             this.otherOfficeTreeView.TabIndex = 78;
             this.otherOfficeTreeView.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.otherOfficeTreeView_BeforeCheck);
             this.otherOfficeTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.otherOfficeTreeView_AfterCheck);
             this.otherOfficeTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.prapokotherOfficeTreeView_DrawNode);
-            // 
-            // searchOfficeButton
-            // 
-            this.searchOfficeButton.BackColor = System.Drawing.Color.Transparent;
-            this.searchOfficeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.searchOfficeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.searchOfficeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.searchOfficeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchOfficeButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchOfficeButton.Image = ((System.Drawing.Image)(resources.GetObject("searchOfficeButton.Image")));
-            this.searchOfficeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.searchOfficeButton.Location = new System.Drawing.Point(20, 46);
-            this.searchOfficeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficeButton.Name = "searchOfficeButton";
-            this.searchOfficeButton.Size = new System.Drawing.Size(363, 37);
-            this.searchOfficeButton.TabIndex = 94;
-            this.searchOfficeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.searchOfficeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.searchOfficeButton.UseVisualStyleBackColor = false;
-            this.searchOfficeButton.Click += new System.EventHandler(this.searchOfficeButton_Click);
             // 
             // imageList1
             // 
@@ -586,7 +523,7 @@
             this.saveDesignationSealButton.IconSize = 32;
             this.saveDesignationSealButton.Location = new System.Drawing.Point(847, 621);
             this.saveDesignationSealButton.Name = "saveDesignationSealButton";
-            this.saveDesignationSealButton.Size = new System.Drawing.Size(124, 48);
+            this.saveDesignationSealButton.Size = new System.Drawing.Size(131, 48);
             this.saveDesignationSealButton.TabIndex = 36;
             this.saveDesignationSealButton.Text = "সংরক্ষণ করুন";
             this.saveDesignationSealButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -626,9 +563,8 @@
             this.panel4.PerformLayout();
             this.otherOfficeTabPageLeft.ResumeLayout(false);
             this.otherOfficeTabPageLeft.PerformLayout();
-            this.searchOfficePanel.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.tabControlRight.ResumeLayout(false);
             this.ownOfficeTabPageRight.ResumeLayout(false);
             this.ownOfficeTabPageRight.PerformLayout();
@@ -680,15 +616,11 @@
         private FontAwesome.Sharp.IconButton saveDesignationSealButton;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Label officerSearchOfficeIdLabel;
-        private System.Windows.Forms.Label officeSearchOfficeNameLabel;
-        private System.Windows.Forms.Panel searchOfficePanel;
-        private System.Windows.Forms.ListBox searchOfficeListBox;
-        private System.Windows.Forms.Panel panel12;
-        private XTextBox searchOfficeTextBox;
-        private System.Windows.Forms.Button searchOfficeButton;
         private FontAwesome.Sharp.IconButton AddDesignationCloseButton;
         private System.Windows.Forms.Label label8;
         private MetroFramework.Controls.MetroPanel metroPanel1;
+        private System.Windows.Forms.Panel panel5;
+        private PlaceholderTextBox.PlaceholderTextBox otherOfficerSearchTextBox;
+        private ManuelUserControl.SearchDropdownList searchOfficeListComboBox;
     }
 }

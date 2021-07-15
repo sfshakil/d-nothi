@@ -76,7 +76,17 @@ namespace dNothi.Desktop
 
       
 
-     
+        public void ChangeDaakCount(int i)
+        {
+            var designationRow = designationRowFlowLayoutPanel.Controls.OfType<DesignationRow>().FirstOrDefault(a=>a._designationId==_designationId);
+            
+            if(designationRow != null)
+            {
+                designationRow.dakTotalNumber = i;
+            }
+
+
+        }
 
         private void DakInboxUserControl_Click(object sender, EventArgs e)
         {

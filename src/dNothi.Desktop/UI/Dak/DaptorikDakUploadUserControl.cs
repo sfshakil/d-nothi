@@ -199,7 +199,9 @@ namespace dNothi.Desktop.UI.Dak
                             dakUploadAttachmentTableRow.fileexension = attachment.attachment_type.ToLowerInvariant();
                             dakUploadAttachmentTableRow._dakAttachment = attachment;
                             dakUploadAttachmentTableRow.imageLink = attachment.url;
-                          
+                            dakUploadAttachmentTableRow.imageDownloadLink = attachment.download_url;
+
+
                             dakUploadAttachmentTableRow.attachmentName = attachment.user_file_name;
                             dakUploadAttachmentTableRow.attachmentId = attachment.attachment_id; ;
                             dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(radioSender, radioEvent, dakUploadAttachmentTableRow.attachmentId); };
@@ -670,11 +672,12 @@ namespace dNothi.Desktop.UI.Dak
                         dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
                         dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._dakAttachment); };
 
-
+                        
 
                         dakUploadAttachmentTableRow.fileexension = new System.IO.FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
                         dakUploadAttachmentTableRow._dakAttachment = dakUploadedFileResponse.data[0];
                         dakUploadAttachmentTableRow.imageLink = dakUploadedFileResponse.data[0].url;
+                        dakUploadAttachmentTableRow.imageDownloadLink = dakUploadedFileResponse.data[0].download_url;
                      
                         dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
                         dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;

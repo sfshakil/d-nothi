@@ -42,7 +42,7 @@ namespace dNothi.JsonParser.Entity.Nothi
     }
     public class NoteNothiDTO
     {
-        public int id { get; set; }
+        public int id { get; set; }//nothiid
         public bool _isOffline { get; set; }
         public int office_id { get; set; }
         public long extra_nothi_id { get; set; }
@@ -52,7 +52,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int office_unit_organogram_id { get; set; }
         public string office_designation_name { get; set; }
         public int nothi_type_id { get; set; }
-        public string nothi_no { get; set; }
+        public string nothi_no { get; set; }//
         public string subject { get; set; }
         public string nothi_created_date { get; set; }
         public object description { get; set; }
@@ -71,9 +71,9 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string office_unit { get; set; }
 
         public string nothi_id { get { return id.ToString(); } }
-        public string note_no { get; set; }
-        public string note_subject { get; set; }
-        public string note_id { get; set; }
+        public string note_no { get; set; }//
+        public string note_subject { get; set; }//
+        public string note_id { get; set; }//
 
 
         public long local_Note_id { get; set; }

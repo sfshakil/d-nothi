@@ -1148,6 +1148,12 @@
     <Compile Include="UI\ManuelUserControl\SearchComboBox.Designer.cs">
       <DependentUpon>SearchComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ManuelUserControl\SearchDropdownList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ManuelUserControl\SearchDropdownList.Designer.cs">
+      <DependentUpon>SearchDropdownList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ManuelUserControl\UserNameLoginPageUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1704,6 +1710,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ManuelUserControl\SearchComboBox.resx">
       <DependentUpon>SearchComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ManuelUserControl\SearchDropdownList.resx">
+      <DependentUpon>SearchDropdownList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ManuelUserControl\UserNameLoginPageUserControl.resx">
       <DependentUpon>UserNameLoginPageUserControl.cs</DependentUpon>
