@@ -604,10 +604,12 @@
       <Component Id="d3dcompiler_47.dll" Guid="27612b3f-18a0-432e-a059-793bda317294">
         <File Id="d3dcompiler_47.dll" Name="d3dcompiler_47.dll" Source="$(var.dNothi.Desktop_TargetDir)d3dcompiler_47.dll" />
       </Component>
+<!--
 
       <Component Id="debug.log" Guid="1201a705-91f1-444e-a784-c245fb0922f6">
         <File Id="debug.log" Name="debug.log" Source="$(var.dNothi.Desktop_TargetDir)debug.log" />
       </Component>
+-->
 
       <Component Id="devtools_resources.pak" Guid="605ace7c-663d-4445-bf61-255b2c8c6f15">
         <File Id="devtools_resources.pak" Name="devtools_resources.pak" Source="$(var.dNothi.Desktop_TargetDir)devtools_resources.pak" />
