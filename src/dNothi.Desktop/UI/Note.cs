@@ -316,6 +316,7 @@ namespace dNothi.Desktop.UI
                                 lbNothiLastDate.Text = list.date;
 
                                 btnSave.Visible = false;
+                                btnDecision.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
 
@@ -442,6 +443,7 @@ namespace dNothi.Desktop.UI
                             btnSend.Visible = false;
 
                             btnSave.Visible = true;
+                            btnDecision.Visible = true;
                             btnSaveArrow.Visible = true;
                             btnCancel.Visible = true;
 
@@ -477,6 +479,7 @@ namespace dNothi.Desktop.UI
                         btnSend.Visible = false;
 
                         btnSave.Visible = true;
+                        btnDecision.Visible = true;
                         btnSaveArrow.Visible = true;
                         btnCancel.Visible = true;
 
@@ -522,6 +525,7 @@ namespace dNothi.Desktop.UI
                                     lbNothiLastDate.Text = list.date;
 
                                     btnSave.Visible = false;
+                                    btnDecision.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
 
@@ -784,6 +788,7 @@ namespace dNothi.Desktop.UI
                         btnSend.Visible = false;
 
                         btnSave.Visible = true;
+                        btnDecision.Visible = true;
                         btnSaveArrow.Visible = true;
                         btnCancel.Visible = true;
 
@@ -931,6 +936,7 @@ namespace dNothi.Desktop.UI
                                 lbNothiLastDate.Text = list.date;
 
                                 btnSave.Visible = false;
+                                btnDecision.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
 
@@ -1060,6 +1066,7 @@ namespace dNothi.Desktop.UI
                             btnSend.Visible = false;
 
                             btnSave.Visible = true;
+                            btnDecision.Visible = true;
                             btnSaveArrow.Visible = true;
                             btnCancel.Visible = true;
 
@@ -1133,6 +1140,7 @@ namespace dNothi.Desktop.UI
                                     lbNothiLastDate.Text = list.date;
 
                                     btnSave.Visible = false;
+                                    btnDecision.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
 
@@ -1330,6 +1338,7 @@ namespace dNothi.Desktop.UI
                         btnSend.Visible = false;
 
                         btnSave.Visible = true;
+                        btnDecision.Visible = true;
                         btnSaveArrow.Visible = true;
                         btnCancel.Visible = true;
 
@@ -1778,6 +1787,7 @@ namespace dNothi.Desktop.UI
                             lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.to.issue_date;
 
                             btnSave.Visible = false;
+                            btnDecision.Visible = false;
                             btnSaveArrow.Visible = false;
                             btnCancel.Visible = false;
 
@@ -1859,6 +1869,7 @@ namespace dNothi.Desktop.UI
                     btnSend.Visible = false;
 
                     btnSave.Visible = true;
+                    btnDecision.Visible = true;
                     btnSaveArrow.Visible = true;
                     btnCancel.Visible = true;
 
@@ -2074,6 +2085,7 @@ namespace dNothi.Desktop.UI
                     btnSend.Visible = false;
 
                     btnSave.Visible = true;
+                    btnDecision.Visible = true;
                     btnSaveArrow.Visible = true;
                     btnCancel.Visible = true;
 
@@ -2607,6 +2619,7 @@ namespace dNothi.Desktop.UI
             lbNothiType.Text = "সকল নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
             
             btnSave.Visible = false;
+            btnDecision.Visible = false;
             btnSaveArrow.Visible = false;
             btnCancel.Visible = false;
 
@@ -2952,6 +2965,7 @@ namespace dNothi.Desktop.UI
                             lbNothiLastDate.Text = list.date;
 
                             btnSave.Visible = false;
+                            btnDecision.Visible = false;
                             btnSaveArrow.Visible = false;
                             btnCancel.Visible = false;
 
@@ -3056,6 +3070,7 @@ namespace dNothi.Desktop.UI
                                 lbNothiLastDate.Text = list.date;
 
                                 btnSave.Visible = false;
+                                btnDecision.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
 
@@ -3254,6 +3269,7 @@ namespace dNothi.Desktop.UI
                     btnSend.Visible = false;
 
                     btnSave.Visible = true;
+                    btnDecision.Visible = true;
                     btnSaveArrow.Visible = true;
                     btnCancel.Visible = true;
 
@@ -3486,6 +3502,7 @@ namespace dNothi.Desktop.UI
                                 {
                                     flag++;
                                     btnSave.Visible = false;
+                                    btnDecision.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
 
@@ -3661,6 +3678,7 @@ namespace dNothi.Desktop.UI
                                             var rec = singleOnucched.data.records;
 
                                             btnSave.Visible = false;
+                                            btnDecision.Visible = false;
                                             btnSaveArrow.Visible = false;
                                             btnCancel.Visible = false;
 
@@ -3925,6 +3943,7 @@ namespace dNothi.Desktop.UI
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
             btnSave.Visible = true;
+            btnDecision.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
 
@@ -3947,6 +3966,7 @@ namespace dNothi.Desktop.UI
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
             btnSave.Visible = true;
+            btnDecision.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
             panel22.Visible = true;
@@ -3971,6 +3991,7 @@ namespace dNothi.Desktop.UI
             noteHeaderPanel.Height = 426;
             btnCancel.Visible = false;
             btnSave.Visible = false;
+            btnDecision.Visible = false;
             btnSaveArrow.Visible = false;
 
             if (_NoteAllListDataRecordDTO.note.can_revert == 1)
@@ -3995,6 +4016,7 @@ namespace dNothi.Desktop.UI
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
             btnSave.Visible = true;
+            btnDecision.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
 
@@ -4015,7 +4037,9 @@ namespace dNothi.Desktop.UI
         {
             PnlSave.Visible = false;
         }
-        public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records,NothiNextStep nns, NothiListRecordsDTO nothiListRecords, NoteListDataRecordNoteDTO notelist)
+        public void LoadOnumodonListinPanel(List<onumodonDataRecordDTO> records,NothiNextStep nns, NothiListRecordsDTO nothiListRecords, 
+            NoteListDataRecordNoteDTO notelist, string _noteIdfromNothiInboxNoteShomuho, string _nothiNo, string _nothiShakha, string _nothiSubject, string _nothiLastDate,
+            NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO, string _office, NoteView newNoteView)
         {
             this.Hide();
 
@@ -4034,12 +4058,12 @@ namespace dNothi.Desktop.UI
             nothiType.loadNoteList(notelist);
 
 
-            nothiType._noteIdfromNothiInboxNoteShomuho = noteIdfromNothiInboxNoteShomuho;
-            nothiType._nothiNo = nothiNo;
-            nothiType._nothiShakha = nothiShakha;
-            nothiType._nothiSubject = nothiSubject;
-            nothiType._nothiLastDate = nothiLastDate;
-            nothiType._office = office;
+            nothiType._noteIdfromNothiInboxNoteShomuho = _noteIdfromNothiInboxNoteShomuho;
+            nothiType._nothiNo = _nothiNo;
+            nothiType._nothiShakha = _nothiShakha;
+            nothiType._nothiSubject = _nothiSubject;
+            nothiType._nothiLastDate = _nothiLastDate;
+            nothiType._office = _office;
             nothiType.loadNothiInbox(_NoteAllListDataRecordDTO);
             nothiType.loadNothiInbox(nothiListRecords);
             nothiType.loadNoteview(newNoteView);
@@ -4049,7 +4073,9 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(form);
 
         }
-        public void loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(NothiListRecordsDTO nothiListRecords, NothiNextStep nns, NoteListDataRecordNoteDTO notelist, string noteId)
+        public void loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(NothiListRecordsDTO nothiListRecords, NothiNextStep nns, NoteListDataRecordNoteDTO notelist, 
+            string noteId, string _noteIdfromNothiInboxNoteShomuho, string _nothiNo, string _nothiShakha, string _nothiSubject, string _nothiLastDate, 
+            NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO, string _office, NoteView newNoteView)
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             var onumodonList = _onumodonService.GetNoteOnumodonMembers(dakListUserParam, nothiListRecords, noteId);
@@ -4058,7 +4084,8 @@ namespace dNothi.Desktop.UI
                 if (onumodonList.data.records.Count > 0)
                 {
 
-                    LoadOnumodonListinPanel(onumodonList.data.records,nns, nothiListRecords,notelist);
+                    LoadOnumodonListinPanel(onumodonList.data.records,nns, nothiListRecords,notelist, 
+                        _noteIdfromNothiInboxNoteShomuho, _nothiNo, _nothiShakha, _nothiSubject, _nothiLastDate, _NoteAllListDataRecordDTO, _office, newNoteView);
                 }
 
                 //this.ShowDialog();
@@ -9412,6 +9439,20 @@ namespace dNothi.Desktop.UI
             form.NothiKhosrajato(noteNothiDTO, lbNoteShakha.Text, lbSubject.Text, nothiListRecords);
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+        }
+
+        private void btnDecision_Click(object sender, EventArgs e)
+        {
+            var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+            nothiDecisionList.DecisionText += delegate (object sender1, EventArgs e1) { DecisionText_Click(sender1 as string, e1); };
+            var form = NothiNextStepControlToForm(nothiDecisionList);
+            CalPopUpWindow(form);
+        }
+        private void DecisionText_Click(string text, EventArgs e1)
+        {
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+            editortext += " " + text;
+            tinyMceEditor.HtmlContent = editortext;
         }
     }
 }

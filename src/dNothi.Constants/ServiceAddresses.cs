@@ -109,6 +109,7 @@ namespace dNothi.Constants
         public const string NothiNoteSingleOnucchedEndPoint = "/api/nothi/note/onucched";
         public const string NothiNoteOnucchedListEndPoint = "/api/nothi/note/onucched/list";
         public const string NothiNoteOnucchedRevertEndPoint = "/api/nothi/note/onucched/revert";
+        public const string NothiDecisionListEndpoint = "/api/nothi/decision/list";
 
 
 

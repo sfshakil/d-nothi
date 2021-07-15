@@ -253,6 +253,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void btnSend_Click(object sender, EventArgs e)
         {
+            var x = _NoteAllListDataRecordDTO;
             List<onumodonDataRecordDTO> newrecords = new List<onumodonDataRecordDTO>();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
@@ -383,6 +384,7 @@ namespace dNothi.Desktop.UI.Dak
         private void btnEdit_Click(object sender, EventArgs e)
         {
             NothiListRecordsDTO nothiListRecords = nothiListRecord;
+            //var x = _NoteAllListDataRecordDTO;
             //this.Hide();
             foreach (Form f in Application.OpenForms)
             {
@@ -392,6 +394,23 @@ namespace dNothi.Desktop.UI.Dak
 
             var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
             form.nothiListRecordsDTO = nothiListRecord;
+
+            form.noteIdfromNothiInboxNoteShomuho = _noteIdfromNothiInboxNoteShomuho;
+
+            form.nothiNo = _nothiNo;
+            form.nothiShakha = _nothiShakha;
+            form.nothiSubject = _nothiSubject;
+            form.noteSubject = noteSubject;
+            form.nothiLastDate = _nothiLastDate;
+            form.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
+
+            form.office = _office;
+
+
+            form.loadNothiInboxRecords(nothiList);
+            form.loadNoteView(newNoteView);
+            form.noteTotal = noteTotal;
+
             form.GetNothiInboxRecords(nothiListRecords,"Note", _noteID);
             //form.loadNewNoteDataFromNote(nothiType);
             form.loadNoteList(notelist);
