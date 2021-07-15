@@ -184,6 +184,7 @@
     <Compile Include="NothiServices\AllPotroServices.cs" />
     <Compile Include="NothiServices\FileAttachment.cs" />
     <Compile Include="NothiServices\IAllPotroServices.cs" />
+    <Compile Include="NothiServices\INothiDecisionListService.cs" />
     <Compile Include="NothiServices\INothivuktoPotroServices.cs" />
     <Compile Include="NothiServices\IKhoshraPotroServices.cs" />
     <Compile Include="NothiServices\IKhoshraPotroWaitingServices.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="NothiServices\IOnumodonService.cs" />
     <Compile Include="NothiServices\IPotrojariServices.cs" />
     <Compile Include="NothiServices\ISingleOnucchedServices.cs" />
+    <Compile Include="NothiServices\NothiDecisionListService.cs" />
     <Compile Include="NothiServices\NothivuktoPotroServices.cs" />
     <Compile Include="NothiServices\KhoshraPotroServices.cs" />
     <Compile Include="NothiServices\KhoshraPotroWaitingServices.cs" />

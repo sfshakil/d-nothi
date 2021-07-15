@@ -84,6 +84,7 @@
     <Compile Include="Entity\Nothi\AttachmentDTO.cs" />
     <Compile Include="Entity\Nothi\NothiBranchListDTO.cs" />
     <Compile Include="Entity\Nothi\NothiBranchUnitDTO.cs" />
+    <Compile Include="Entity\Nothi\NothiDecisionListResponse.cs" />
     <Compile Include="Entity\Nothi\NothiNumberResponse.cs" />
     <Compile Include="Entity\Nothi\NothiBranchListResponse.cs" />
     <Compile Include="INothivuktoPotroParser.cs" />

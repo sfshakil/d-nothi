@@ -547,6 +547,18 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\NothiDecisionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiDecisionList.Designer.cs">
+      <DependentUpon>NothiDecisionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiDecisionListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiDecisionListRow.Designer.cs">
+      <DependentUpon>NothiDecisionListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\OnuchhedShonjukti.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1416,6 +1428,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NewNothiTypeGuidelines.resx">
       <DependentUpon>NewNothiTypeGuidelines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiDecisionList.resx">
+      <DependentUpon>NothiDecisionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiDecisionListRow.resx">
+      <DependentUpon>NothiDecisionListRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiNoteAllAttachement.resx">
       <DependentUpon>NothiNoteAllAttachement.cs</DependentUpon>

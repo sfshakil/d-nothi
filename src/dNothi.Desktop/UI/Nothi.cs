@@ -42,13 +42,14 @@ namespace dNothi.Desktop.UI
         INothiTypeListServices _nothiType { get; set; }
         IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
         IDesignationSealService _designationSealService { get; set; }
+        INothiAllNoteServices _nothiAllNote { get; set; }
 
         public WaitFormFunc WaitForm;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
             IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave, IOnucchedFileUploadService onucchedFileUploadService, 
-            INothiTypeListServices nothiType, IDesignationSealService designationSealService)
+            INothiTypeListServices nothiType, IDesignationSealService designationSealService, INothiAllNoteServices nothiAllNote)
         {
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _userService = userService;
@@ -64,6 +65,7 @@ namespace dNothi.Desktop.UI
             _nothiType = nothiType;
             _onucchedFileUploadService = onucchedFileUploadService;
             _designationSealService = designationSealService;
+            _nothiAllNote = nothiAllNote;
 
             InitializeComponent();
             LoadNothiTypeListDropDown();
@@ -769,7 +771,22 @@ namespace dNothi.Desktop.UI
                     //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
                     //totalnothi.ToString();
                     form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
+                    
+                    var eachNothiId = nothiListRecords.id;
+                    var nothiListUserParam = _userService.GetLocalDakUserParam();
+                    string note_category = "all";
 
+                    var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId.ToString(), note_category);
+                    if (nothiInboxNote != null && nothiInboxNote.status == "success")
+                    {
+                        foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiInboxNote.data.records)
+                        {
+                            if (nothiListInboxNoteRecordsDTO.note.nothi_note_id == notedata.note_id)
+                            { form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO; }
+                        }
+                    }
+
+                    //form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
                     NoteView noteView = new NoteView();
                     noteView.totalNothi = notedata.note_no.ToString();
                     noteView.noteSubject = sender.ToString();

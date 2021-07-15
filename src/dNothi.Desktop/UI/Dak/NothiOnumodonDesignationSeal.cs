@@ -1058,6 +1058,102 @@ namespace dNothi.Desktop.UI.Dak
         {
             notelist = notelistFromNote;
         }
+        private string _nothiLastDate;
+        private string _noteSubject;
+        private string _noteIdfromNothiInboxNoteShomuho;
+
+        [Category("Custom Props")]
+        public string noteIdfromNothiInboxNoteShomuho
+        {
+            get { return _noteIdfromNothiInboxNoteShomuho; }
+            set
+            {
+                _noteIdfromNothiInboxNoteShomuho = value;
+            }
+        }
+        [Category("Custom Props")]
+        public string noteTotal
+        {
+            get { return _noteTotal; }
+            set
+            {
+                _noteTotal = value;
+            }
+        }
+        public string totalRange
+        {
+            get { return _noteTotal; }
+            set
+            {
+                _noteTotal = value;
+            }
+        }
+
+        [Category("Custom Props")]
+        public string nothiLastDate
+        {
+            get { return _nothiLastDate; }
+            set { _nothiLastDate = value;  }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+
+        [Category("Custom Props")]
+        public string noteSubject
+        {
+            get { return _noteSubject; }
+            set { _noteSubject = value; }
+        }
+        private string _nothiShakha;
+        private string _nothiNo;
+        private string _nothiSubject;
+        private string _noteTotal;
+        private string _office;
+        private string _totalRange;
+        public NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO { get; set; }
+        public NothiListInboxNoteRecordsDTO noteAllListDataRecordDTO
+        {
+            get { return _NoteAllListDataRecordDTO; }
+            set
+            {
+                _NoteAllListDataRecordDTO = value;
+            }
+        }
+        NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
+        public void loadNothiInboxRecords(NothiListRecordsDTO nothiListRecordsDTO)
+        {
+            nothiListRecords = nothiListRecordsDTO;
+        }
+        NoteView newNoteView = new NoteView();
+        public void loadNoteView(NoteView noteView)
+        {
+            newNoteView = noteView;
+        }
+        [Category("Custom Props")]
+        public string office
+        {
+            get { return _office; }
+            set { _office = value; }
+        }
+
+        [Category("Custom Props")]
+        public string nothiShakha
+        {
+            get { return _nothiShakha; }
+            set { _nothiShakha = value; }
+        }
+
+        [Category("Custom Props")]
+        public string nothiNo
+        {
+            get { return _nothiNo; }
+            set { _nothiNo = value; }
+        }
+
+        [Category("Custom Props")]
+        public string nothiSubject
+        {
+            get { return _nothiSubject; }
+            set { _nothiSubject = value; }
+        }
         public event EventHandler SuccessfullyOnumodonSaveButton;
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
@@ -1089,7 +1185,8 @@ namespace dNothi.Desktop.UI.Dak
                     if (notelist.note_status != null)
                     {
                         var invi = FormFactory.Create<Note>();
-                        invi.loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(_nothiListRecordsDTO, nothiType, notelist, noteID);
+                        invi.loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(_nothiListRecordsDTO, nothiType, notelist, noteID, 
+                            _noteIdfromNothiInboxNoteShomuho, _nothiNo, _nothiShakha, _nothiSubject, _nothiLastDate, _NoteAllListDataRecordDTO, _office, newNoteView);
                     }
                           
                 }
