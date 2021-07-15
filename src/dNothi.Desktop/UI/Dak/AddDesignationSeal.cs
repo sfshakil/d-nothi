@@ -104,7 +104,7 @@ namespace dNothi.Desktop.UI.Dak
             LoadOwnOfficerTree();
             LoadOwnOfficeRight();
 
-            LoadOtherOfficeLeftList();
+          //  LoadOtherOfficeLeftList();
         }
         List<LocalOfficesResponse> officeListResponse = new List<LocalOfficesResponse>();
         private void LoadOtherOfficeLeftList()
@@ -135,7 +135,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
             searchOfficeListComboBox.itemList = comboBoxItems;
-            searchOfficeListComboBox.height = 100;
+           // searchOfficeListComboBox.height = 100;
             searchOfficeListComboBox.isListShown = true;
         }
 
@@ -778,11 +778,11 @@ namespace dNothi.Desktop.UI.Dak
 
             if (string.IsNullOrEmpty(searchText))
             {
-                UIDesignCommonMethod.CollapseTree(prapokownOfficeTreeView.Nodes);
+                UIDesignCommonMethod.CollapseTree(otherOfficeTreeView.Nodes);
             }
 
-            UIDesignCommonMethod.SearchRecursive(prapokownOfficeTreeView, prapokownOfficeTreeView.Nodes, searchText);
-            UIDesignCommonMethod.SelectFirstNode(prapokownOfficeTreeView, prapokownOfficeTreeView.Nodes);
+            UIDesignCommonMethod.SearchRecursive(otherOfficeTreeView, otherOfficeTreeView.Nodes, searchText);
+            UIDesignCommonMethod.SelectFirstNode(otherOfficeTreeView, otherOfficeTreeView.Nodes);
 
         }
 

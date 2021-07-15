@@ -399,7 +399,7 @@ namespace dNothi.Desktop.UI
 
             dakSendUserControl.ButtonClick += delegate (object sender, EventArgs e) { sliderCrossButton_Click(sender, e); };
             dakSendUserControl.AddDesignationButtonClick += delegate (object sender, EventArgs e) { AddDesignationFromForwardWindow_ButtonClick(dakSendUserControl); };
-            dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false, 0, 0, 0, dakSendUserControl._IsDakLocallyUploaded); };
+            dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false, 0, dakSendUserControl._totalSuccessForwardRequest, 0, dakSendUserControl._IsDakLocallyUploaded); };
 
 
             CalPopUpWindow(dakSendUserControl);
@@ -424,6 +424,11 @@ namespace dNothi.Desktop.UI
 
         private void SuccessfullySingleDakForwarded(bool v, int req, int success, int fail, bool _IsDakLocallyUploaded)
         {
+            
+              
+            
+           
+
             if (_IsDakLocallyUploaded)
             {
                 LoadDakInbox();
@@ -434,6 +439,30 @@ namespace dNothi.Desktop.UI
             }
 
         }
+
+     
+
+
+
+        private void RefreshDaakCount()
+        {
+            DakUserParam dakUser = _userService.GetLocalDakUserParam();
+         
+            EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUser);
+
+            try
+            {
+               
+              
+                moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla((employeDakNothiCountResponse.data.total.dak).ToString());
+                designationDetailsPanel.ChangeDaakCount(employeDakNothiCountResponse.data.total.dak);
+
+            }
+            catch
+            {
+
+            }
+            }
 
         private void GetDakMovementList(int dak_id, string dak_type, int is_copied_dak, DakListRecordsDTO dak)
         {
@@ -629,6 +658,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakOutbox()
         {
+            RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
             SelectButton(dakOutboxButton);
@@ -992,6 +1022,7 @@ namespace dNothi.Desktop.UI
 
         private async void LoadDakInbox()
         {
+            RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
             SelectButton(dakInboxButton);
@@ -1705,6 +1736,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakNothivukto()
         {
+            RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
             SelectButton(dakNotivuktoButton);
@@ -1999,6 +2031,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakArchive()
         {
+            RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
             SelectButton(dakArchiveButton);
@@ -2266,7 +2299,7 @@ namespace dNothi.Desktop.UI
                 }
                 else if (revertResponse.status == "success")
                 {
-                    SuccessMessage(revertResponse.data);
+                    SuccessMessage(revertResponse.message);
                     LoadDakNothijato();
 
                 }
@@ -2342,6 +2375,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakNothijato()
         {
+            RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
             SelectButton(dakNothijatoButton);
@@ -2537,6 +2571,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakListSorted()
         {
+            RefreshDaakCount();
             _currentDakCatagory.isSorted = true;
             NormalizeDashBoard();
             dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
@@ -2943,6 +2978,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakKhasraList()
         {
+            RefreshDaakCount();
             _currentDakCatagory.isKhosra = true;
             dakBodyFlowLayoutPanel.Controls.Clear();
             NormalizeDashBoard();
@@ -3756,6 +3792,7 @@ namespace dNothi.Desktop.UI
         }
         private void LoadDakBacaikaran(int assignor_designation_id)
         {
+            RefreshDaakCount();
             _assignor_designation_id = assignor_designation_id;
             dakBodyFlowLayoutPanel.Controls.Clear();
             noDakTableLayoutPanel.Visible = false;
@@ -4110,10 +4147,10 @@ namespace dNothi.Desktop.UI
                 dakSendUserControl._inbox_officer_designation_id = _assignor_designation_id;
                 dakSendUserControl.dak_List_User_Param = dakListUserParam;
                 dakSendUserControl.AddDesignationButtonClick += delegate (object snd, EventArgs eve) { AddDesignationUserControl_ButtonClick(sender, e); };
-                if(daksharingUserControls.Count>0)
+                if (daksharingUserControls.Count>0)
                 {
                     dakSendUserControl.SucessfullyDakForwarded += delegate (object snd, EventArgs eve) { linkLabel_LinkClicked(snd, eve, _assignor_designation_id); };
-                    
+                
                 }
                 else
                 {
@@ -4252,7 +4289,7 @@ namespace dNothi.Desktop.UI
 
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
 
-
+            
 
             try
             {
@@ -4297,7 +4334,7 @@ namespace dNothi.Desktop.UI
 
             designationDetailsPanel.officeInfos = officeInfoDTO;
 
-
+            designationDetailsPanel._designationId = dakUserParam.designation_id;
 
 
 

@@ -31,19 +31,19 @@ namespace dNothi.Desktop.UI.ManuelUserControl
         public bool _isListShown;
         public int _height;
 
-        public int height
-        {
-            get
-            {
-                return _height;
-            }
-            set
-            {
-                _height = value;
-                this.height = value;
+        //public int height
+        //{
+        //    get
+        //    {
+        //        return _height;
+        //    }
+        //    set
+        //    {
+        //        _height = value;
+        //        this.height = value;
                 
-            }
-        }
+        //    }
+        //}
         public List<ComboBoxItems> itemList
         {
             get { return _itemList; }
@@ -176,7 +176,8 @@ namespace dNothi.Desktop.UI.ManuelUserControl
                     searchListBox.DataSource = null;
                     if(_itemList.Count>15)
                     {
-                        searchListBox.DataSource = _itemList.Take(15);
+                        List<ComboBoxItems> comboBoxItems= _itemList.Take(15).ToList();
+                        searchListBox.DataSource = comboBoxItems;
                     }
                     else
                     {
