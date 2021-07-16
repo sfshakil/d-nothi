@@ -93,6 +93,21 @@ namespace dNothi.Desktop.UI.Dak
             txtNothiSubject.Text = "";
             txtNothiSubject.PlaceholderText = "নথির বিষয়";
         }
+        public void loadNewNothiPageWithData(NothiListAllRecordsDTO nothiAllListDTO)
+        {
+            cbxNothiType.Text = "বাছাই করুন";
+            lbNothilast4digitText.Visible = true;
+            lbNothiNoText.Visible = true;
+            lbNothiNo.Text = "";
+            lbNothiNoText.Text = "**.**.****.***.**.";
+            lbNothilast4digitText.Text = "***.**";
+            lbNothilast4digit.Text = "";
+            cbxLast2digitNothiNo.Text = "বাছাই করুন";
+            cbxNothiClass.Text = "বাছাই করুন";
+            nothiTalikaPnl.Visible = false;
+            txtNothiSubject.Text = "";
+            txtNothiSubject.PlaceholderText = "নথির বিষয়";
+        }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
             foreach (Control ctrl in collection)
@@ -401,7 +416,7 @@ namespace dNothi.Desktop.UI.Dak
 
             var nothi_class = nothiclass;
             var currentYear = DateTime.Now.ToString("yyyy-MM-dd");
-            NothiCreateResponse nothiCreate = _nothiCreateServices.GetNothiCreate(UserParam, nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
+            NothiCreateResponse nothiCreate = _nothiCreateServices.GetNothiCreate(UserParam, "0", nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
             if (!InternetConnection.Check())
             {
                 if (nothiCreate.status == "success" && nothiCreate.message == "Local")

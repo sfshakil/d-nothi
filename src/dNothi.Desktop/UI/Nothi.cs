@@ -746,6 +746,7 @@ namespace dNothi.Desktop.UI
                     { BeginInvoke((Action)(() => f.Hide())); }
                     
                     var form = FormFactory.Create<Nothi>();
+                    form.TopMost = true;
                     form.LoadNothiInbox();
                     BeginInvoke((Action)(() => form.ShowDialog()));
                     form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
@@ -839,6 +840,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
 
@@ -1515,7 +1517,7 @@ namespace dNothi.Desktop.UI
                 };
 
                 nothiAll.nothiAllListDTO = nothiAllListDTO;
-
+                nothiAll.NothiAllEditButtonClick += delegate (object sender, EventArgs e) { NothiAllEdit_ButtonClick(sender, e, nothiAllListDTO); };
                 if (nothiAllListDTO.desk != null || nothiAllListDTO.status != null)
                 {
                     if (nothiAllListDTO.desk != null)
@@ -1551,7 +1553,30 @@ namespace dNothi.Desktop.UI
             }
             
         }
-
+        private void NothiAllEdit_ButtonClick(object sender, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO)
+        {
+            nothiListFlowLayoutPanel.Controls.Clear();
+            detailsNothiSearcPanel.Visible = false;
+            allReset();
+            newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
+            //newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            newNothi.loadNewNothiPageWithData(nothiAllListDTO);
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(btnNewNothi);
+            newNothi.Visible = true;
+            newNothi.Location = new System.Drawing.Point(233, 50);
+            //newNothi.Size = this.Size - panel4.Size;
+            newNothi.Height = this.Height - panel2.Height - pnlNothiNoteTalika.Height - panel6.Height;
+            newNothi.Width = bodyPanel.Width;
+            Controls.Add(newNothi);
+            //<nothi>int borderWidth = (this.Height - this.ClientSize.Height) / 2;
+            newNothi.BringToFront();
+            newNothi.BackColor = Color.WhiteSmoke;
+        }
         private void btnGardFile_Click(object sender, EventArgs e)
         {
             ResetAllMenuButtonSelection();
@@ -1605,6 +1630,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -1692,6 +1718,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -1700,6 +1727,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -1708,6 +1736,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
