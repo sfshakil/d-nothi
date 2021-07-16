@@ -78,6 +78,7 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
+        private string Nothi_id;
         public void loadNewNothiPage()
         {
             cbxNothiType.Text = "বাছাই করুন";
@@ -92,6 +93,7 @@ namespace dNothi.Desktop.UI.Dak
             nothiTalikaPnl.Visible = false;
             txtNothiSubject.Text = "";
             txtNothiSubject.PlaceholderText = "নথির বিষয়";
+            Nothi_id = "0";
         }
         public void loadNewNothiPageWithData(NothiListAllRecordsDTO nothiAllListDTO)
         {
@@ -416,7 +418,7 @@ namespace dNothi.Desktop.UI.Dak
 
             var nothi_class = nothiclass;
             var currentYear = DateTime.Now.ToString("yyyy-MM-dd");
-            NothiCreateResponse nothiCreate = _nothiCreateServices.GetNothiCreate(UserParam, "0", nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
+            NothiCreateResponse nothiCreate = _nothiCreateServices.GetNothiCreate(UserParam, Nothi_id, nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
             if (!InternetConnection.Check())
             {
                 if (nothiCreate.status == "success" && nothiCreate.message == "Local")

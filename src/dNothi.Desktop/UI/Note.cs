@@ -566,6 +566,7 @@ namespace dNothi.Desktop.UI
                                     separateOnucched.onucchedId = z.onuchhed_id;
                                     separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                     separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
+                                    separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1.ToString(), e1); };
                                     try
                                     {
                                         separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -1179,6 +1180,7 @@ namespace dNothi.Desktop.UI
                                     separateOnucched.onucchedId = z.onuchhed_id;
                                     separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                     separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
+                                    separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1.ToString(), e1); };
                                     try
                                     {
                                         separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -2894,7 +2896,7 @@ namespace dNothi.Desktop.UI
                 foreach (Form f in Application.OpenForms)
                 { BeginInvoke((Action)(() => f.Hide())); }
                 var form = FormFactory.Create<Nothi>();
-                form.TopMost = true;
+                //form.TopMost = true;
                 BeginInvoke((Action)(() => form.ShowDialog()));
                 form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
             }
@@ -3110,7 +3112,7 @@ namespace dNothi.Desktop.UI
                                 separateOnucched.onucchedId = z.onuchhed_id;
                                 separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                 separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
-
+                                separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1.ToString(), e1); };
                                 try
                                 {
                                     separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -3376,8 +3378,11 @@ namespace dNothi.Desktop.UI
                 //onuchhedFLP.Controls.Clear();
                 PnlSave.Visible = false;
                 string onuchhedId = "0";
-                if (updateOnuchhedId > 0)
+                if (updateOnuchhedId > 0) {
                     onuchhedId = updateOnuchhedId.ToString();
+                    updateOnuchhedId = 0;
+                }
+                    
                 if (Convert.ToInt32(NoteIdfromNothiInboxNoteShomuho.Text) > 0)
                     newnotedata.note_id = Convert.ToInt32(NoteIdfromNothiInboxNoteShomuho.Text);
                 //string editortext = tinyMceEditor.HtmlContent;
@@ -3718,7 +3723,7 @@ namespace dNothi.Desktop.UI
                                             separateOnucched.onucchedId = z.onuchhed_id;
                                             separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                             separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
-                                            
+                                            separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1.ToString(), e1); };
                                             try
                                             {
                                                 separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -4016,7 +4021,6 @@ namespace dNothi.Desktop.UI
 
         private void btnWriteOnuchhed_Click(object sender, EventArgs e)
         {
-
             noteHeaderPanel.Width = 990;
             noteHeaderPanel.Height = 150;
             btnWriteOnuchhed.Visible = false;
@@ -4361,7 +4365,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.TopMost = true;
+            //form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
@@ -4370,7 +4374,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.TopMost = true;
+            //form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
@@ -4379,7 +4383,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.TopMost = true;
+            //form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
@@ -4388,7 +4392,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            form.TopMost = true;
+            //form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
@@ -9448,6 +9452,30 @@ namespace dNothi.Desktop.UI
         public void KhoshraButton_Click(string onucchedId, EventArgs e)
         {
             loadKhoshra();
+        }
+        public void EditButton_Click(string onucchedId, EventArgs e)
+        {
+            updateOnuchhedId = Convert.ToInt32(onucchedId);
+            noteHeaderPanel.Width = 990;
+            noteHeaderPanel.Height = 150;
+            btnWriteOnuchhed.Visible = false;
+            btnSend.Visible = false;
+            btnSave.Visible = true;
+            btnDecision.Visible = true;
+            btnSaveArrow.Visible = true;
+            btnCancel.Visible = true;
+
+            PnlSave.Visible = false;
+            panel22.Visible = true;
+            tinyMceEditor.Visible = true;
+            panel28.Visible = true;
+            panel22.SendToBack();
+            panel24.Visible = true;
+            //panel24.SendToBack();
+            tinyMceEditor.HtmlContent = "";
+            fileAddFLP.Controls.Clear();
+            noteFileUploads.Clear();
+            onucchedEditorPanel.Visible = true;
         }
         private void loadKhoshra()
         {

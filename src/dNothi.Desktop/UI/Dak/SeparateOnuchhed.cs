@@ -315,11 +315,13 @@ namespace dNothi.Desktop.UI.Dak
             {
                 btnDelete.Visible = false;
                 btnKhosra.Visible = false;
+                btnEdit.Visible = false;
             }
             else
             {
                 btnDelete.Visible = true;
                 btnKhosra.Visible = true;
+                btnEdit.Visible = true;
             }
             
         }
@@ -351,6 +353,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         public event EventHandler DeleteButtonClick;
         public event EventHandler KhoshraButtonClick;
+        public event EventHandler EditButtonClick;
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string message = "আপনি অনুচ্ছেদটি মুছে ফেলতে চান?";
@@ -406,6 +409,37 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.KhoshraButtonClick != null)
                 this.KhoshraButtonClick(onucchedId, e);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (this.EditButtonClick != null)
+                this.EditButtonClick(onucchedId, e);
+        }
+
+        private void btnEdit_MouseHover(object sender, EventArgs e)
+        {
+            if (btnSchedule.Visible == true)
+            {
+                btnEdit.Visible = false;
+            }
+            else
+            {
+                btnEdit.Visible = true;
+                btnEdit.IconColor = Color.Red;
+            }
+        }
+
+        private void btnEdit_MouseLeave(object sender, EventArgs e)
+        {
+            if (btnSchedule.Visible == true)
+            {
+                btnEdit.Visible = false;
+            }
+            else
+            {
+                btnEdit.IconColor = Color.FromArgb(54, 153, 255);
+            }
         }
     }
 }
