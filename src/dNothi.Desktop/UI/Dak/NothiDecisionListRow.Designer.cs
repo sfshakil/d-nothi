@@ -77,7 +77,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnDecisionAdd.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnDecisionAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDecisionAdd.FlatAppearance.BorderSize = 0;
-            this.btnDecisionAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDecisionAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnDecisionAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnDecisionAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDecisionAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

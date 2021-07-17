@@ -1,4 +1,5 @@
-﻿using dNothi.Desktop.UI.CustomMessageBox;
+﻿using dNothi.Core.Entities;
+using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.JsonParser.Entity.Nothi;
 using System;
 using System.Collections.Generic;
@@ -414,8 +415,12 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            OnuchhedSaveItemAction onuchhedEditItemAction = new OnuchhedSaveItemAction();
+            onuchhedEditItemAction.onuchhedId = onucchedId.ToString();
+            onuchhedEditItemAction.editorEncodedData = _subjectBrowser;
+
             if (this.EditButtonClick != null)
-                this.EditButtonClick(onucchedId, e);
+                this.EditButtonClick(onuchhedEditItemAction, e);
         }
 
         private void btnEdit_MouseHover(object sender, EventArgs e)

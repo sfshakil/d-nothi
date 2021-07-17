@@ -11,5 +11,6 @@ namespace dNothi.Services.NothiServices
     public interface INothiDecisionListService
     {
         NothiDecisionListResponse GetNothiDecisionList(DakUserParam dakUserParam);
+        NothiGaurdFileListResponse GetNothiGaurdFileList(DakUserParam dakUserParam);
     }
 }

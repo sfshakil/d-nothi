@@ -58,5 +58,35 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiDecisionListEndpoint;
         }
+        protected string GetNothiGaurdFileListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiGaurdFileListEndpoint;
+        }
+
+        public NothiGaurdFileListResponse GetNothiGaurdFileList(DakUserParam dakUserParam)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiGaurdFileListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("office_id", dakUserParam.office_id);
+                request.AddParameter("page", dakUserParam.page);
+                request.AddParameter("limit", dakUserParam.limit);
+                request.AddParameter("designation_id", dakUserParam.designation_id);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiGaurdFileListResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiGaurdFileListResponse>(responseJson);
+                return nothiDecisionListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

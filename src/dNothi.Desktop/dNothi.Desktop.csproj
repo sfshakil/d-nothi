@@ -559,6 +559,18 @@
     <Compile Include="UI\Dak\NothiDecisionListRow.Designer.cs">
       <DependentUpon>NothiDecisionListRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileList.Designer.cs">
+      <DependentUpon>NothiGaurdFileList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileListRow.Designer.cs">
+      <DependentUpon>NothiGaurdFileListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\OnuchhedShonjukti.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1440,6 +1452,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiDecisionListRow.resx">
       <DependentUpon>NothiDecisionListRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiGaurdFileList.resx">
+      <DependentUpon>NothiGaurdFileList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiGaurdFileListRow.resx">
+      <DependentUpon>NothiGaurdFileListRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiNoteAllAttachement.resx">
       <DependentUpon>NothiNoteAllAttachement.cs</DependentUpon>

@@ -322,6 +322,7 @@ namespace dNothi.Desktop.UI
 
                                 btnSave.Visible = false;
                                 btnDecision.Visible = false;
+                                btnGardFile.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
 
@@ -449,6 +450,7 @@ namespace dNothi.Desktop.UI
 
                             btnSave.Visible = true;
                             btnDecision.Visible = true;
+                            btnGardFile.Visible = true;
                             btnSaveArrow.Visible = true;
                             btnCancel.Visible = true;
 
@@ -485,6 +487,7 @@ namespace dNothi.Desktop.UI
 
                         btnSave.Visible = true;
                         btnDecision.Visible = true;
+                        btnGardFile.Visible = true;
                         btnSaveArrow.Visible = true;
                         btnCancel.Visible = true;
 
@@ -531,6 +534,7 @@ namespace dNothi.Desktop.UI
 
                                     btnSave.Visible = false;
                                     btnDecision.Visible = false;
+                                    btnGardFile.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
 
@@ -566,7 +570,7 @@ namespace dNothi.Desktop.UI
                                     separateOnucched.onucchedId = z.onuchhed_id;
                                     separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                     separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
-                                    separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1.ToString(), e1); };
+                                    separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as OnuchhedSaveItemAction, e1); };
                                     try
                                     {
                                         separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -796,6 +800,7 @@ namespace dNothi.Desktop.UI
 
                         btnSave.Visible = true;
                         btnDecision.Visible = true;
+                        btnGardFile.Visible = true;
                         btnSaveArrow.Visible = true;
                         btnCancel.Visible = true;
 
@@ -944,6 +949,7 @@ namespace dNothi.Desktop.UI
 
                                 btnSave.Visible = false;
                                 btnDecision.Visible = false;
+                                btnGardFile.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
 
@@ -1074,6 +1080,7 @@ namespace dNothi.Desktop.UI
 
                             btnSave.Visible = true;
                             btnDecision.Visible = true;
+                            btnGardFile.Visible = true;
                             btnSaveArrow.Visible = true;
                             btnCancel.Visible = true;
 
@@ -1148,6 +1155,7 @@ namespace dNothi.Desktop.UI
 
                                     btnSave.Visible = false;
                                     btnDecision.Visible = false;
+                                    btnGardFile.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
 
@@ -1181,7 +1189,7 @@ namespace dNothi.Desktop.UI
                                     separateOnucched.onucchedId = z.onuchhed_id;
                                     separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                     separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
-                                    separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1.ToString(), e1); };
+                                    separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as OnuchhedSaveItemAction, e1); };
                                     try
                                     {
                                         separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -1347,6 +1355,7 @@ namespace dNothi.Desktop.UI
 
                         btnSave.Visible = true;
                         btnDecision.Visible = true;
+                        btnGardFile.Visible = true;
                         btnSaveArrow.Visible = true;
                         btnCancel.Visible = true;
 
@@ -1796,6 +1805,7 @@ namespace dNothi.Desktop.UI
 
                             btnSave.Visible = false;
                             btnDecision.Visible = false;
+                            btnGardFile.Visible = false;
                             btnSaveArrow.Visible = false;
                             btnCancel.Visible = false;
 
@@ -1878,6 +1888,7 @@ namespace dNothi.Desktop.UI
 
                     btnSave.Visible = true;
                     btnDecision.Visible = true;
+                    btnGardFile.Visible = true;
                     btnSaveArrow.Visible = true;
                     btnCancel.Visible = true;
 
@@ -2094,6 +2105,7 @@ namespace dNothi.Desktop.UI
 
                     btnSave.Visible = true;
                     btnDecision.Visible = true;
+                    btnGardFile.Visible = true;
                     btnSaveArrow.Visible = true;
                     btnCancel.Visible = true;
 
@@ -2628,6 +2640,7 @@ namespace dNothi.Desktop.UI
             
             btnSave.Visible = false;
             btnDecision.Visible = false;
+            btnGardFile.Visible = false;
             btnSaveArrow.Visible = false;
             btnCancel.Visible = false;
 
@@ -2975,6 +2988,7 @@ namespace dNothi.Desktop.UI
 
                             btnSave.Visible = false;
                             btnDecision.Visible = false;
+                            btnGardFile.Visible = false;
                             btnSaveArrow.Visible = false;
                             btnCancel.Visible = false;
 
@@ -3080,6 +3094,7 @@ namespace dNothi.Desktop.UI
 
                                 btnSave.Visible = false;
                                 btnDecision.Visible = false;
+                                btnGardFile.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
 
@@ -3113,7 +3128,7 @@ namespace dNothi.Desktop.UI
                                 separateOnucched.onucchedId = z.onuchhed_id;
                                 separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                 separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
-                                separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1.ToString(), e1); };
+                                separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as OnuchhedSaveItemAction, e1); };
                                 try
                                 {
                                     separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -3279,6 +3294,7 @@ namespace dNothi.Desktop.UI
 
                     btnSave.Visible = true;
                     btnDecision.Visible = true;
+                    btnGardFile.Visible = true;
                     btnSaveArrow.Visible = true;
                     btnCancel.Visible = true;
 
@@ -3515,6 +3531,7 @@ namespace dNothi.Desktop.UI
                                     flag++;
                                     btnSave.Visible = false;
                                     btnDecision.Visible = false;
+                                    btnGardFile.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
 
@@ -3691,6 +3708,7 @@ namespace dNothi.Desktop.UI
 
                                             btnSave.Visible = false;
                                             btnDecision.Visible = false;
+                                            btnGardFile.Visible = false;
                                             btnSaveArrow.Visible = false;
                                             btnCancel.Visible = false;
 
@@ -3724,7 +3742,7 @@ namespace dNothi.Desktop.UI
                                             separateOnucched.onucchedId = z.onuchhed_id;
                                             separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                             separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
-                                            separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1.ToString(), e1); };
+                                            separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as OnuchhedSaveItemAction, e1); };
                                             try
                                             {
                                                 separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -3956,6 +3974,7 @@ namespace dNothi.Desktop.UI
             btnSend.Visible = false;
             btnSave.Visible = true;
             btnDecision.Visible = true;
+            btnGardFile.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
 
@@ -3979,6 +3998,7 @@ namespace dNothi.Desktop.UI
             btnSend.Visible = false;
             btnSave.Visible = true;
             btnDecision.Visible = true;
+            btnGardFile.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
             panel22.Visible = true;
@@ -4004,8 +4024,9 @@ namespace dNothi.Desktop.UI
             btnCancel.Visible = false;
             btnSave.Visible = false;
             btnDecision.Visible = false;
+            btnGardFile.Visible = false;
             btnSaveArrow.Visible = false;
-
+            updateOnuchhedId = 0;
             if (_NoteAllListDataRecordDTO.note.can_revert == 1)
             { 
                 btnCanRevert.Visible = true;
@@ -4028,6 +4049,7 @@ namespace dNothi.Desktop.UI
             btnSend.Visible = false;
             btnSave.Visible = true;
             btnDecision.Visible = true;
+            btnGardFile.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
 
@@ -9454,15 +9476,16 @@ namespace dNothi.Desktop.UI
         {
             loadKhoshra();
         }
-        public void EditButton_Click(string onucchedId, EventArgs e)
+        public void EditButton_Click(OnuchhedSaveItemAction onucched, EventArgs e)
         {
-            updateOnuchhedId = Convert.ToInt32(onucchedId);
+            updateOnuchhedId = Convert.ToInt32(onucched.onuchhedId);
             noteHeaderPanel.Width = 990;
             noteHeaderPanel.Height = 150;
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
             btnSave.Visible = true;
             btnDecision.Visible = true;
+            btnGardFile.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
 
@@ -9473,7 +9496,7 @@ namespace dNothi.Desktop.UI
             panel22.SendToBack();
             panel24.Visible = true;
             //panel24.SendToBack();
-            tinyMceEditor.HtmlContent = "";
+            tinyMceEditor.HtmlContent = onucched.editorEncodedData;
             fileAddFLP.Controls.Clear();
             noteFileUploads.Clear();
             onucchedEditorPanel.Visible = true;
@@ -9521,9 +9544,11 @@ namespace dNothi.Desktop.UI
 
         private void btnDecision_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
             var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
             nothiDecisionList.DecisionText += delegate (object sender1, EventArgs e1) { DecisionText_Click(sender1 as string, e1); };
             var form = NothiNextStepControlToForm(nothiDecisionList);
+            WaitForm.Close();
             CalPopUpWindow(form);
         }
         private void DecisionText_Click(string text, EventArgs e1)
@@ -9581,11 +9606,30 @@ namespace dNothi.Desktop.UI
             record.Mulpotro = MappingModels.MapModel<NoteKhoshraListDataRecordMulpotroDTO, KasaraPotro.Mulpotro> (_khoshraPotroDataRecordDTO.mulpotro);
             record.NoteOnucched = MappingModels.MapModel<NoteKhoshraListDataRecordNoteOnucchedDTO, KasaraPotro.NoteOnucched> (_khoshraPotroDataRecordDTO.note_onucched);
             record.NoteOwner = MappingModels.MapModel<NoteKhoshraListDataRecordNoteOwnerDTO, KasaraPotro.NoteOwner> (_khoshraPotroDataRecordDTO.note_owner);
-          
+          return record;
+        }
 
+        private void btnGardFile_Click(object sender, EventArgs e)
+        {
+            WaitForm.Show(this);
+            var nothiGaurdFileList = UserControlFactory.Create<NothiGaurdFileList>();
+            nothiGaurdFileList.GaurdFileAttachment += delegate (object sender1, EventArgs e1) { GaurdFileText_Click(sender1 as GaurdFileRecord, e1); };
+            var form = NothiNextStepControlToForm(nothiGaurdFileList);
+            WaitForm.Close();
+            CalPopUpWindow(form);
+        }
+        private void GaurdFileText_Click(GaurdFileRecord gaurdFileRecord, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
 
-
-            return record;
+            editortext += " " + "<a href=" + gaurdFileRecord.attachment.url + ">" + gaurdFileRecord.name_bng + "</a>";
+            //string link = "https://dev.nothibs.tappware.com/api/content/view?token=NjBmMmYzMjNhNTk1MiZvZmZpY2VJZF82NV8yMDk%3D";
+            //tinyMceEditor.HtmlContent = "<p><a href=" + link + ">Test</a></p>";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
         }
     }
 }
