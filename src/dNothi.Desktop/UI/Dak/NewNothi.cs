@@ -95,20 +95,33 @@ namespace dNothi.Desktop.UI.Dak
             txtNothiSubject.PlaceholderText = "নথির বিষয়";
             Nothi_id = "0";
         }
-        public void loadNewNothiPageWithData(NothiListAllRecordsDTO nothiAllListDTO)
+        public void loadNewNothiPageWithData(NothiListAllRecordsDTO nothiAllListDTO, NothiInformationResponse nothiInfo)
         {
-            cbxNothiType.Text = "বাছাই করুন";
-            lbNothilast4digitText.Visible = true;
-            lbNothiNoText.Visible = true;
-            lbNothiNo.Text = "";
-            lbNothiNoText.Text = "**.**.****.***.**.";
-            lbNothilast4digitText.Text = "***.**";
-            lbNothilast4digit.Text = "";
-            cbxLast2digitNothiNo.Text = "বাছাই করুন";
-            cbxNothiClass.Text = "বাছাই করুন";
+            Nothi_id = nothiInfo.Data.Id.ToString();
+            LoadNothiTypeListDropDown();
+            cbxNothiType.SelectedIndex = Convert.ToInt32(nothiInfo.Data.NothiTypeId-1);
+            lbNothilast4digitText.Visible = false;
+            lbNothiNoText.Visible = false;
+            lbNothiNo.Text = nothiInfo.Data.NothiNo.ToString().Substring(0, 18);
+            lbNothilast4digit.Text = nothiInfo.Data.NothiNo.ToString().Substring(18, 4);
+            cbxLast2digitNothiNo.Text = nothiInfo.Data.NothiNo.ToString().Substring(22, 2);
+            if (nothiInfo.Data.NothiClass == 1)
+            {
+                cbxNothiClass.SelectedIndex = 3;
+            }else if (nothiInfo.Data.NothiClass == 2)
+            {
+                cbxNothiClass.SelectedIndex = 2;
+            }else if (nothiInfo.Data.NothiClass == 3)
+            {
+                cbxNothiClass.SelectedIndex = 1;
+            }
+            else if (nothiInfo.Data.NothiClass == 4)
+            {
+                cbxNothiClass.SelectedIndex = 0;
+            }
             nothiTalikaPnl.Visible = false;
-            txtNothiSubject.Text = "";
-            txtNothiSubject.PlaceholderText = "নথির বিষয়";
+            txtNothiSubject.Text = nothiInfo.Data.Subject;
+            lbNothiShakha.Text = nothiInfo.Data.OfficeUnitName;
         }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
@@ -419,6 +432,7 @@ namespace dNothi.Desktop.UI.Dak
             var nothi_class = nothiclass;
             var currentYear = DateTime.Now.ToString("yyyy-MM-dd");
             NothiCreateResponse nothiCreate = _nothiCreateServices.GetNothiCreate(UserParam, Nothi_id, nothishkha, nothi_no, nothi_type_id, nothi_subject, nothi_class, currentYear);
+            Nothi_id = "0";
             if (!InternetConnection.Check())
             {
                 if (nothiCreate.status == "success" && nothiCreate.message == "Local")

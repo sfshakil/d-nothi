@@ -1555,12 +1555,14 @@ namespace dNothi.Desktop.UI
         }
         private void NothiAllEdit_ButtonClick(object sender, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO)
         {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            NothiInformationResponse nothiInfo = _nothiAll.GetNothiInformation(dakListUserParam, nothiAllListDTO.nothi.id);
             nothiListFlowLayoutPanel.Controls.Clear();
             detailsNothiSearcPanel.Visible = false;
             allReset();
             newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
             //newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            newNothi.loadNewNothiPageWithData(nothiAllListDTO);
+            newNothi.loadNewNothiPageWithData(nothiAllListDTO, nothiInfo);
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);

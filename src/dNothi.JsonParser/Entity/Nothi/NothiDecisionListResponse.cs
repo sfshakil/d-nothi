@@ -14,13 +14,13 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string Status { get; set; }
 
         [JsonProperty("data")]
-        public Data Data { get; set; }
+        public DataDTO Data { get; set; }
 
         [JsonProperty("options")]
         public object[] Options { get; set; }
     }
 
-    public class Data
+    public class DataDTO
     {
         [JsonProperty("records")]
         public Dictionary<string, string> Records { get; set; }
