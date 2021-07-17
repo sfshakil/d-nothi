@@ -570,6 +570,7 @@ namespace dNothi.Desktop.UI
                                     try
                                     {
                                         separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
+                                        
                                     }
                                     catch
                                     {

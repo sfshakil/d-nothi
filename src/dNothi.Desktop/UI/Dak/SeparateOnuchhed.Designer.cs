@@ -241,6 +241,7 @@ namespace dNothi.Desktop.UI.Dak
             this.SubjectBrowser.TabIndex = 4;
             this.SubjectBrowser.WebBrowserShortcutsEnabled = false;
             this.SubjectBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.SubjectBrowser_DocumentCompleted);
+            this.SubjectBrowser.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.SubjectBrowser_Navigated);
             // 
             // btnSchedule
             // 
