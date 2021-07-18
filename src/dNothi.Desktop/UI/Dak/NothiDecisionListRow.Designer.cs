@@ -70,6 +70,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbDecisionText.Size = new System.Drawing.Size(204, 34);
             this.lbDecisionText.TabIndex = 82;
             this.lbDecisionText.Text = "খসড়া";
+            this.lbDecisionText.Click += new System.EventHandler(this.lbDecisionText_Click);
             // 
             // btnDecisionAdd
             // 

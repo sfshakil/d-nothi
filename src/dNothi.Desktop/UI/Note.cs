@@ -290,6 +290,26 @@ namespace dNothi.Desktop.UI
                 }
             }
         }
+        public void visibilityOFF()
+        {
+            btnSave.Visible = false;
+            btnDecision.Visible = false;
+            btnGardFile.Visible = false;
+            btnShongjuktiRef.Visible = false;
+            btnBibechhoPotro.Visible = false;
+            btnSaveArrow.Visible = false;
+            btnCancel.Visible = false;
+        }
+        public void visibilityON()
+        {
+            btnSave.Visible = true;
+            btnDecision.Visible = true;
+            btnGardFile.Visible = true;
+            btnShongjuktiRef.Visible = true;
+            btnBibechhoPotro.Visible = true;
+            btnSaveArrow.Visible = true;
+            btnCancel.Visible = true;
+        }
         public void loadNotangsho_Potrangsho(NoteListDataRecordNoteDTO list)
         {
             try
@@ -320,12 +340,7 @@ namespace dNothi.Desktop.UI
                                 lbNoteSubject.Text = list.note_subject_sub_text;
                                 lbNothiLastDate.Text = list.date;
 
-                                btnSave.Visible = false;
-                                btnDecision.Visible = false;
-                                btnGardFile.Visible = false;
-                                btnBibechhoPotro.Visible = false;
-                                btnSaveArrow.Visible = false;
-                                btnCancel.Visible = false;
+                                visibilityOFF();
 
                                 //onuchhedheaderPnl.Visible = true;
                                 //onuchhedFLP.Visible = true;
@@ -449,12 +464,7 @@ namespace dNothi.Desktop.UI
                             btnWriteOnuchhed.Visible = false;
                             btnSend.Visible = false;
 
-                            btnSave.Visible = true;
-                            btnDecision.Visible = true;
-                            btnGardFile.Visible = true;
-                            btnBibechhoPotro.Visible = true;
-                            btnSaveArrow.Visible = true;
-                            btnCancel.Visible = true;
+                            visibilityON();
 
                             //panel14.Visible = true;
                             panel22.Visible = true;
@@ -487,12 +497,7 @@ namespace dNothi.Desktop.UI
                         btnWriteOnuchhed.Visible = false;
                         btnSend.Visible = false;
 
-                        btnSave.Visible = true;
-                        btnDecision.Visible = true;
-                        btnGardFile.Visible = true;
-                        btnBibechhoPotro.Visible = true;
-                        btnSaveArrow.Visible = true;
-                        btnCancel.Visible = true;
+                        visibilityON();
 
                         //panel14.Visible = true;
                         panel22.Visible = true;
@@ -535,12 +540,7 @@ namespace dNothi.Desktop.UI
                                     lbNoteSubject.Text = list.note_subject_sub_text;
                                     lbNothiLastDate.Text = list.date;
 
-                                    btnSave.Visible = false;
-                                    btnDecision.Visible = false;
-                                    btnGardFile.Visible = false;
-                                    btnBibechhoPotro.Visible = false;
-                                    btnSaveArrow.Visible = false;
-                                    btnCancel.Visible = false;
+                                    visibilityOFF();
 
                                     //onuchhedheaderPnl.Visible = true;
                                     //onuchhedFLP.Visible = true;
@@ -802,12 +802,7 @@ namespace dNothi.Desktop.UI
                         btnWriteOnuchhed.Visible = false;
                         btnSend.Visible = false;
 
-                        btnSave.Visible = true;
-                        btnDecision.Visible = true;
-                        btnGardFile.Visible = true;
-                        btnBibechhoPotro.Visible = true;
-                        btnSaveArrow.Visible = true;
-                        btnCancel.Visible = true;
+                        visibilityON();
 
                         //panel14.Visible = true;
                         panel22.Visible = true;
@@ -952,12 +947,7 @@ namespace dNothi.Desktop.UI
                                 lbNoteSubject.Text = list.note_subject_sub_text;
                                 lbNothiLastDate.Text = list.date;
 
-                                btnSave.Visible = false;
-                                btnDecision.Visible = false;
-                                btnGardFile.Visible = false;
-                                btnBibechhoPotro.Visible = false;
-                                btnSaveArrow.Visible = false;
-                                btnCancel.Visible = false;
+                                visibilityOFF();
 
                                 //onuchhedheaderPnl.Visible = true;
                                 //onuchhedFLP.Visible = true;
@@ -1084,12 +1074,7 @@ namespace dNothi.Desktop.UI
                             btnWriteOnuchhed.Visible = false;
                             btnSend.Visible = false;
 
-                            btnSave.Visible = true;
-                            btnDecision.Visible = true;
-                            btnGardFile.Visible = true;
-                            btnBibechhoPotro.Visible = true;
-                            btnSaveArrow.Visible = true;
-                            btnCancel.Visible = true;
+                            visibilityON();
 
                             //panel14.Visible = true;
                             panel22.Visible = true;
@@ -1160,12 +1145,7 @@ namespace dNothi.Desktop.UI
                                     lbNoteSubject.Text = list.note_subject_sub_text;
                                     lbNothiLastDate.Text = list.date;
 
-                                    btnSave.Visible = false;
-                                    btnDecision.Visible = false;
-                                    btnGardFile.Visible = false;
-                                    btnBibechhoPotro.Visible = false;
-                                    btnSaveArrow.Visible = false;
-                                    btnCancel.Visible = false;
+                                    visibilityOFF();
 
                                     //onuchhedheaderPnl.Visible = true;
                                     //onuchhedFLP.Visible = true;
@@ -1361,12 +1341,7 @@ namespace dNothi.Desktop.UI
                         btnWriteOnuchhed.Visible = false;
                         btnSend.Visible = false;
 
-                        btnSave.Visible = true;
-                        btnDecision.Visible = true;
-                        btnGardFile.Visible = true;
-                        btnBibechhoPotro.Visible = true;
-                        btnSaveArrow.Visible = true;
-                        btnCancel.Visible = true;
+                        visibilityON();
 
                         //panel14.Visible = true;
                         panel22.Visible = true;
@@ -1812,12 +1787,7 @@ namespace dNothi.Desktop.UI
                             lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject;
                             lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.to.issue_date;
 
-                            btnSave.Visible = false;
-                            btnDecision.Visible = false;
-                            btnGardFile.Visible = false;
-                            btnBibechhoPotro.Visible = false;
-                            btnSaveArrow.Visible = false;
-                            btnCancel.Visible = false;
+                            visibilityOFF();
 
                             //onuchhedheaderPnl.Visible = true;
                             //onuchhedFLP.Visible = true;
@@ -1896,12 +1866,7 @@ namespace dNothi.Desktop.UI
                     btnWriteOnuchhed.Visible = false;
                     btnSend.Visible = false;
 
-                    btnSave.Visible = true;
-                    btnDecision.Visible = true;
-                    btnGardFile.Visible = true;
-                    btnBibechhoPotro.Visible = true;
-                    btnSaveArrow.Visible = true;
-                    btnCancel.Visible = true;
+                    visibilityON();
 
                     onucchedEditorPanel.Visible = true;
                     panel22.Visible = true;
@@ -2114,12 +2079,7 @@ namespace dNothi.Desktop.UI
                     btnWriteOnuchhed.Visible = false;
                     btnSend.Visible = false;
 
-                    btnSave.Visible = true;
-                    btnDecision.Visible = true;
-                    btnGardFile.Visible = true;
-                    btnBibechhoPotro.Visible = true;
-                    btnSaveArrow.Visible = true;
-                    btnCancel.Visible = true;
+                    visibilityON();
 
                     onucchedEditorPanel.Visible = true;
                     panel22.Visible = true;
@@ -2651,13 +2611,8 @@ namespace dNothi.Desktop.UI
             noteViewFLP.Controls.Clear();
             NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
             lbNothiType.Text = "সকল নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
-            
-            btnSave.Visible = false;
-            btnDecision.Visible = false;
-            btnGardFile.Visible = false;
-            btnBibechhoPotro.Visible = false;
-            btnSaveArrow.Visible = false;
-            btnCancel.Visible = false;
+
+            visibilityOFF();
 
             //onuchhedheaderPnl.Visible = true;
             //onuchhedFLP.Visible = true;
@@ -3002,12 +2957,7 @@ namespace dNothi.Desktop.UI
                             lbNoteSubject.Text = list.note_subject_sub_text;
                             lbNothiLastDate.Text = list.date;
 
-                            btnSave.Visible = false;
-                            btnDecision.Visible = false;
-                            btnGardFile.Visible = false;
-                            btnBibechhoPotro.Visible = false;
-                            btnSaveArrow.Visible = false;
-                            btnCancel.Visible = false;
+                            visibilityOFF();
 
                             //onuchhedheaderPnl.Visible = true;
                             //onuchhedFLP.Visible = true;
@@ -3109,12 +3059,7 @@ namespace dNothi.Desktop.UI
                                 lbNoteSubject.Text = list.note_subject_sub_text;
                                 lbNothiLastDate.Text = list.date;
 
-                                btnSave.Visible = false;
-                                btnDecision.Visible = false;
-                                btnGardFile.Visible = false;
-                                btnBibechhoPotro.Visible = false;
-                                btnSaveArrow.Visible = false;
-                                btnCancel.Visible = false;
+                                visibilityOFF();
 
                                 //onuchhedheaderPnl.Visible = true;
                                 //onuchhedFLP.Visible = true;
@@ -3310,12 +3255,7 @@ namespace dNothi.Desktop.UI
                     btnWriteOnuchhed.Visible = false;
                     btnSend.Visible = false;
 
-                    btnSave.Visible = true;
-                    btnDecision.Visible = true;
-                    btnGardFile.Visible = true;
-                    btnBibechhoPotro.Visible = true;
-                    btnSaveArrow.Visible = true;
-                    btnCancel.Visible = true;
+                    visibilityON();
 
                     //panel14.Visible = true;
                     panel22.Visible = true;
@@ -3548,12 +3488,7 @@ namespace dNothi.Desktop.UI
                                 foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
                                 {
                                     flag++;
-                                    btnSave.Visible = false;
-                                    btnDecision.Visible = false;
-                                    btnGardFile.Visible = false;
-                                    btnBibechhoPotro.Visible = false;
-                                    btnSaveArrow.Visible = false;
-                                    btnCancel.Visible = false;
+                                    visibilityOFF();
 
                                     //onuchhedheaderPnl.Visible = true;
                                     //onuchhedFLP.Visible = true;
@@ -3726,12 +3661,7 @@ namespace dNothi.Desktop.UI
                                         {
                                             var rec = singleOnucched.data.records;
 
-                                            btnSave.Visible = false;
-                                            btnDecision.Visible = false;
-                                            btnGardFile.Visible = false;
-                                            btnBibechhoPotro.Visible = false;
-                                            btnSaveArrow.Visible = false;
-                                            btnCancel.Visible = false;
+                                            visibilityOFF();
 
                                             //onuchhedheaderPnl.Visible = true;
                                             //onuchhedFLP.Visible = true;
@@ -3993,12 +3923,7 @@ namespace dNothi.Desktop.UI
             noteHeaderPanel.Height = 150;
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
-            btnSave.Visible = true;
-            btnDecision.Visible = true;
-            btnGardFile.Visible = true;
-            btnBibechhoPotro.Visible = true;
-            btnSaveArrow.Visible = true;
-            btnCancel.Visible = true;
+            visibilityON();
 
             PnlSave.Visible = false;
             panel22.Visible = true;
@@ -4018,12 +3943,7 @@ namespace dNothi.Desktop.UI
             //onuchhed.onucchedId = onucchedSave.data.id;
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
-            btnSave.Visible = true;
-            btnDecision.Visible = true;
-            btnGardFile.Visible = true;
-            btnBibechhoPotro.Visible = true;
-            btnSaveArrow.Visible = true;
-            btnCancel.Visible = true;
+            visibilityON();
             panel22.Visible = true;
             tinyMceEditor.Visible = true;
             panel28.Visible = true;
@@ -4044,13 +3964,9 @@ namespace dNothi.Desktop.UI
             PnlSave.Visible = false;
             noteHeaderPanel.Width = 990;
             noteHeaderPanel.Height = 426;
-            btnCancel.Visible = false;
-            btnSave.Visible = false;
-            btnDecision.Visible = false;
-            btnGardFile.Visible = false;
-            btnBibechhoPotro.Visible = false;
-            btnSaveArrow.Visible = false;
+            visibilityOFF();
             updateOnuchhedId = 0;
+            onuchhedSaveWithAttachments.Clear();
             if (_NoteAllListDataRecordDTO.note.can_revert == 1)
             { 
                 btnCanRevert.Visible = true;
@@ -4071,12 +3987,7 @@ namespace dNothi.Desktop.UI
             noteHeaderPanel.Height = 150;
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
-            btnSave.Visible = true;
-            btnDecision.Visible = true;
-            btnGardFile.Visible = true;
-            btnBibechhoPotro.Visible = true;
-            btnSaveArrow.Visible = true;
-            btnCancel.Visible = true;
+            visibilityON();
 
             PnlSave.Visible = false;
             panel22.Visible = true;
@@ -9526,12 +9437,7 @@ namespace dNothi.Desktop.UI
             noteHeaderPanel.Height = 150;
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
-            btnSave.Visible = true;
-            btnDecision.Visible = true;
-            btnGardFile.Visible = true;
-            btnBibechhoPotro.Visible = true;
-            btnSaveArrow.Visible = true;
-            btnCancel.Visible = true;
+            visibilityON();
 
             PnlSave.Visible = false;
             panel22.Visible = true;
@@ -9593,6 +9499,7 @@ namespace dNothi.Desktop.UI
             WaitForm.Show(this);
             var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
             nothiDecisionList.DecisionText += delegate (object sender1, EventArgs e1) { DecisionText_Click(sender1 as string, e1); };
+            nothiDecisionList.loadRow();
             var form = NothiNextStepControlToForm(nothiDecisionList);
             WaitForm.Close();
             CalPopUpWindow(form);
@@ -9697,6 +9604,29 @@ namespace dNothi.Desktop.UI
             string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
 
             editortext += " " + "<a href=" + record.mulpotro.url + ">বিবেচ্য পত্র: " + record.basic.sarok_no + " ,"+ record.basic.subject + " সদয় দ্রষ্টব্য।</a>";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
+        }
+
+        private void btnShongjuktiRef_Click(object sender, EventArgs e)
+        {
+            //var str = onuchhedSaveWithAttachments;
+            WaitForm.Show(this);
+            var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+            nothiDecisionList.labelText = "সংযুক্তি তালিকা";
+            nothiDecisionList.AttachmentAdd += delegate (object sender1, EventArgs e1) { AttachmentAdd_Click(sender1 as DakAttachmentDTO, e1); };
+            nothiDecisionList.loadRowAttachments(onuchhedSaveWithAttachments);
+            var form = NothiNextStepControlToForm(nothiDecisionList);
+            WaitForm.Close();
+            CalPopUpWindow(form);
+        }
+        private void AttachmentAdd_Click(DakAttachmentDTO record, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+            editortext += " " + "<a href=" + record.url + ">" + record.user_file_name + "</a>";
             allText = addParagraphStartTag + editortext + addParagraphEndTag;
             tinyMceEditor.HtmlContent = allText;
         }

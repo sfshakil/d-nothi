@@ -98,6 +98,8 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
+            this.btnShongjuktiRef = new FontAwesome.Sharp.IconButton();
+            this.btnBibechhoPotro = new FontAwesome.Sharp.IconButton();
             this.btnGardFile = new FontAwesome.Sharp.IconButton();
             this.btnDecision = new FontAwesome.Sharp.IconButton();
             this.btnCanRevert = new FontAwesome.Sharp.IconButton();
@@ -286,7 +288,6 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.noteBackGroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.btnBibechhoPotro = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel29.SuspendLayout();
             this.nothiModulePanel.SuspendLayout();
@@ -1409,6 +1410,7 @@
             // onucchedActionPanel
             // 
             this.onucchedActionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.onucchedActionPanel.Controls.Add(this.btnShongjuktiRef);
             this.onucchedActionPanel.Controls.Add(this.btnBibechhoPotro);
             this.onucchedActionPanel.Controls.Add(this.btnGardFile);
             this.onucchedActionPanel.Controls.Add(this.btnDecision);
@@ -1425,6 +1427,52 @@
             this.onucchedActionPanel.Size = new System.Drawing.Size(1122, 52);
             this.onucchedActionPanel.TabIndex = 18;
             this.onucchedActionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // btnShongjuktiRef
+            // 
+            this.btnShongjuktiRef.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnShongjuktiRef.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnShongjuktiRef.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnShongjuktiRef.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnShongjuktiRef.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnShongjuktiRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShongjuktiRef.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShongjuktiRef.ForeColor = System.Drawing.Color.White;
+            this.btnShongjuktiRef.IconChar = FontAwesome.Sharp.IconChar.Paperclip;
+            this.btnShongjuktiRef.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnShongjuktiRef.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnShongjuktiRef.IconSize = 30;
+            this.btnShongjuktiRef.Location = new System.Drawing.Point(106, 0);
+            this.btnShongjuktiRef.Margin = new System.Windows.Forms.Padding(0);
+            this.btnShongjuktiRef.Name = "btnShongjuktiRef";
+            this.btnShongjuktiRef.Size = new System.Drawing.Size(43, 52);
+            this.btnShongjuktiRef.TabIndex = 73;
+            this.MyToolTip.SetToolTip(this.btnShongjuktiRef, "সংযুক্ত-রেফ");
+            this.btnShongjuktiRef.UseVisualStyleBackColor = false;
+            this.btnShongjuktiRef.Click += new System.EventHandler(this.btnShongjuktiRef_Click);
+            // 
+            // btnBibechhoPotro
+            // 
+            this.btnBibechhoPotro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnBibechhoPotro.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnBibechhoPotro.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBibechhoPotro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBibechhoPotro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBibechhoPotro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBibechhoPotro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBibechhoPotro.ForeColor = System.Drawing.Color.White;
+            this.btnBibechhoPotro.IconChar = FontAwesome.Sharp.IconChar.Envelope;
+            this.btnBibechhoPotro.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnBibechhoPotro.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBibechhoPotro.IconSize = 30;
+            this.btnBibechhoPotro.Location = new System.Drawing.Point(149, 0);
+            this.btnBibechhoPotro.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBibechhoPotro.Name = "btnBibechhoPotro";
+            this.btnBibechhoPotro.Size = new System.Drawing.Size(43, 52);
+            this.btnBibechhoPotro.TabIndex = 72;
+            this.MyToolTip.SetToolTip(this.btnBibechhoPotro, "বিবেচ্য পত্র");
+            this.btnBibechhoPotro.UseVisualStyleBackColor = false;
+            this.btnBibechhoPotro.Click += new System.EventHandler(this.btnBibechhoPotro_Click);
             // 
             // btnGardFile
             // 
@@ -4385,29 +4433,6 @@
             this.noteBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.noteBackGroundWorker_DoWork);
             this.noteBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.noteBackGroundWorker_RunWorkerCompleted);
             // 
-            // btnBibechhoPotro
-            // 
-            this.btnBibechhoPotro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnBibechhoPotro.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnBibechhoPotro.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnBibechhoPotro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnBibechhoPotro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnBibechhoPotro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBibechhoPotro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBibechhoPotro.ForeColor = System.Drawing.Color.White;
-            this.btnBibechhoPotro.IconChar = FontAwesome.Sharp.IconChar.Envelope;
-            this.btnBibechhoPotro.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.btnBibechhoPotro.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBibechhoPotro.IconSize = 30;
-            this.btnBibechhoPotro.Location = new System.Drawing.Point(149, 0);
-            this.btnBibechhoPotro.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBibechhoPotro.Name = "btnBibechhoPotro";
-            this.btnBibechhoPotro.Size = new System.Drawing.Size(43, 52);
-            this.btnBibechhoPotro.TabIndex = 72;
-            this.MyToolTip.SetToolTip(this.btnBibechhoPotro, "গার্ড ফাইল");
-            this.btnBibechhoPotro.UseVisualStyleBackColor = false;
-            this.btnBibechhoPotro.Click += new System.EventHandler(this.btnBibechhoPotro_Click);
-            // 
             // Note
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -4816,5 +4841,6 @@
         private FontAwesome.Sharp.IconButton btnDecision;
         private FontAwesome.Sharp.IconButton btnGardFile;
         private FontAwesome.Sharp.IconButton btnBibechhoPotro;
+        private FontAwesome.Sharp.IconButton btnShongjuktiRef;
     }
 }

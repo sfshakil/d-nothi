@@ -189,6 +189,88 @@ namespace dNothi.JsonParser.Entity.Nothi
         public List<object> options { get; set; }
     }
 
+    public class OnuchhedListData
+    {
+        public int onucched_id { get; set; }
+        public int note_id { get; set; }
+        public int note_no { get; set; }
+        public string note_subject { get; set; }
+        public string value { get; set; }
+    }
+
+    public class NothiOnuchhedListResponse
+    {
+        public string status { get; set; }
+        public List<OnuchhedListData> data { get; set; }
+        public List<object> options { get; set; }
+    }
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+    public class PotakaListAttachment
+    {
+        public int id { get; set; }
+        public int nothi_master_id { get; set; }
+        public int nothi_note_id { get; set; }
+        public int nothi_potro_id { get; set; }
+        public int nothijato { get; set; }
+        public int is_main { get; set; }
+        public int nothi_potro_page { get; set; }
+        public string nothi_potro_page_bn { get; set; }
+        public string sarok_no { get; set; }
+        public string attachment_type { get; set; }
+        public string attachment_description { get; set; }
+        public string file_name { get; set; }
+        public string user_file_name { get; set; }
+        public double file_size_in_kb { get; set; }
+        public string file_dir { get; set; }
+        public string potro_cover { get; set; }
+        public string content_body { get; set; }
+        public string meta_data { get; set; }
+        public int potrojari { get; set; }
+        public int potrojari_id { get; set; }
+        public string potrojari_status { get; set; }
+        public int is_summary_nothi { get; set; }
+        public int is_approved { get; set; }
+        public int status { get; set; }
+        public string application_origin { get; set; }
+        public string created { get; set; }
+        public string modified { get; set; }
+        public string url { get; set; }
+        public string download_url { get; set; }
+        public string thumb_url { get; set; }
+    }
+
+    public class PotakaListRecord
+    {
+        public int id { get; set; }
+        public int nothi_master_id { get; set; }
+        public int nothi_note_id { get; set; }
+        public int office_id { get; set; }
+        public int office_unit_id { get; set; }
+        public int designation_id { get; set; }
+        public string office { get; set; }
+        public string office_unit { get; set; }
+        public string designation { get; set; }
+        public string color { get; set; }
+        public string title { get; set; }
+        public int potro_attachment_id { get; set; }
+        public int page_no { get; set; }
+        public string created { get; set; }
+        public PotakaListAttachment attachment { get; set; }
+    }
+
+    public class PotakaListData
+    {
+        public List<PotakaListRecord> records { get; set; }
+        public int total_records { get; set; }
+    }
+
+    public class NothiPotakaListResponse
+    {
+        public string status { get; set; }
+        public PotakaListData data { get; set; }
+        public List<object> options { get; set; }
+    }
+
 
 
 }
