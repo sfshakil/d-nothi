@@ -202,21 +202,34 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void btnOption_Click(object sender, EventArgs e)
         {
-            string message = "নোটটি মুছে ফেলুন"; 
-            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
-            conditonBoxForm.message = message;
-            conditonBoxForm.ShowDialog(this);
-            if (conditonBoxForm.Yes && lbNoteSubText.Text == "অনুচ্ছেদ দেওয়া হয়নি")
+            
+            if (lbNoteSubText.Text == "অনুচ্ছেদ দেওয়া হয়নি")
             {
-                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                string model = "NothiNotes";
-                string noteID = lbNoteId.Text;
-                var noteDelete = _noteDelete.GetNoteDelteResponse(dakListUserParam,model,noteID);
-                if(noteDelete.status == "success")
+                string message = "নোটটি মুছে ফেলুন";
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = message;
+                conditonBoxForm.ShowDialog(this);
+                if (conditonBoxForm.Yes)
                 {
-                    SuccessMessage(noteDelete.status);
-                    this.Hide();
+                    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                    string model = "NothiNotes";
+                    string noteID = lbNoteId.Text;
+                    var noteDelete = _noteDelete.GetNoteDelteResponse(dakListUserParam, model, noteID);
+                    if (noteDelete.status == "success")
+                    {
+                        SuccessMessage(noteDelete.status);
+                        this.Hide();
+                    }
+                    else
+                    {
+                        ErrorMessage(noteDelete.status);
+                    }
                 }
+                else
+                {
+
+                }
+                
 
             }
             else
