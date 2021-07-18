@@ -126,7 +126,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                ErrorMessage(nothiPotakaList.status);
+                //ErrorMessage(nothiPotakaList.status);
             }
         }
         private void LoadNothiPotakainTLP(List<PotakaListRecord> Records)

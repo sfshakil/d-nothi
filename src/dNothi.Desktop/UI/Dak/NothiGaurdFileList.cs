@@ -36,7 +36,7 @@ namespace dNothi.Desktop.UI.Dak
         public void loadRow()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            dakListUserParam.limit = 74;
+            dakListUserParam.limit = 30;
             dakListUserParam.page = 1;
             var token = _userService.GetToken();
             var nothiDecisionList = _nothiDecisionListService.GetNothiGaurdFileList(dakListUserParam);

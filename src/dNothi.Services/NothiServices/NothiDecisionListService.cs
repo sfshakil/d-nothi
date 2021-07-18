@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace dNothi.Services.NothiServices
@@ -155,6 +156,7 @@ namespace dNothi.Services.NothiServices
 
         public NothiPotakaListResponse GetNothiPotakaList(DakUserParam dakUserParam, string nothi_id, string note_id)
         {
+            NothiPotakaListResponse nothiBibechhoPotroResponse = new NothiPotakaListResponse();
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiPotakaListEndpoint());
@@ -168,12 +170,13 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                NothiPotakaListResponse nothiBibechhoPotroResponse = JsonConvert.DeserializeObject<NothiPotakaListResponse>(responseJson);
+                responseJson = System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
+                nothiBibechhoPotroResponse = JsonConvert.DeserializeObject<NothiPotakaListResponse>(responseJson);
                 return nothiBibechhoPotroResponse;
             }
             catch (Exception ex)
             {
-                throw;
+                return nothiBibechhoPotroResponse;
             }
         }
     }
