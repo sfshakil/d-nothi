@@ -112,6 +112,7 @@ namespace dNothi.Constants
         public const string NothiNoteOnucchedRevertEndPoint = "/api/nothi/note/onucched/revert";
         public const string NothiDecisionListEndpoint = "/api/nothi/decision/list";
         public const string NothiGaurdFileListEndpoint = "/api/nothi/guardfile/list";
+        public const string NothiBibechhoPotroListEndpoint = "/api/nothi_all_potro_list";
 
 
 

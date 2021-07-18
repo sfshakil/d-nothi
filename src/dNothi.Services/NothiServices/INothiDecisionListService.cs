@@ -12,5 +12,6 @@ namespace dNothi.Services.NothiServices
     {
         NothiDecisionListResponse GetNothiDecisionList(DakUserParam dakUserParam);
         NothiGaurdFileListResponse GetNothiGaurdFileList(DakUserParam dakUserParam);
+        NothiBibechhoPotroResponse GetNothiBibechhoPotroList(DakUserParam dakUserParam, string nothi_id);
     }
 }

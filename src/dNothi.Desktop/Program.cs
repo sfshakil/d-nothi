@@ -302,6 +302,8 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiDecisionList>().AsSelf();
             builder.RegisterType<NothiGaurdFileListRow>().AsSelf();
             builder.RegisterType<NothiGaurdFileList>().AsSelf();
+            builder.RegisterType<NothiBibechhoPotroList>().AsSelf();
+            builder.RegisterType<NothiBibechhoPotroListRow>().AsSelf();
             builder.RegisterType<DakForwardUserControl>().AsSelf();
             builder.RegisterType<DakNothijatoForm>().AsSelf();
             builder.RegisterType<DakModuleAgotoNothiList>().AsSelf();

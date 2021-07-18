@@ -98,6 +98,7 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
+            this.btnGardFile = new FontAwesome.Sharp.IconButton();
             this.btnDecision = new FontAwesome.Sharp.IconButton();
             this.btnCanRevert = new FontAwesome.Sharp.IconButton();
             this.btnWriteOnuchhed = new FontAwesome.Sharp.IconButton();
@@ -285,7 +286,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.noteBackGroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.btnGardFile = new FontAwesome.Sharp.IconButton();
+            this.btnBibechhoPotro = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel29.SuspendLayout();
             this.nothiModulePanel.SuspendLayout();
@@ -1408,6 +1409,7 @@
             // onucchedActionPanel
             // 
             this.onucchedActionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.onucchedActionPanel.Controls.Add(this.btnBibechhoPotro);
             this.onucchedActionPanel.Controls.Add(this.btnGardFile);
             this.onucchedActionPanel.Controls.Add(this.btnDecision);
             this.onucchedActionPanel.Controls.Add(this.btnCanRevert);
@@ -1423,6 +1425,29 @@
             this.onucchedActionPanel.Size = new System.Drawing.Size(1122, 52);
             this.onucchedActionPanel.TabIndex = 18;
             this.onucchedActionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // btnGardFile
+            // 
+            this.btnGardFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnGardFile.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGardFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGardFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGardFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnGardFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGardFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGardFile.ForeColor = System.Drawing.Color.White;
+            this.btnGardFile.IconChar = FontAwesome.Sharp.IconChar.ShieldAlt;
+            this.btnGardFile.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnGardFile.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGardFile.IconSize = 30;
+            this.btnGardFile.Location = new System.Drawing.Point(192, 0);
+            this.btnGardFile.Margin = new System.Windows.Forms.Padding(0);
+            this.btnGardFile.Name = "btnGardFile";
+            this.btnGardFile.Size = new System.Drawing.Size(43, 52);
+            this.btnGardFile.TabIndex = 71;
+            this.MyToolTip.SetToolTip(this.btnGardFile, "গার্ড ফাইল");
+            this.btnGardFile.UseVisualStyleBackColor = false;
+            this.btnGardFile.Click += new System.EventHandler(this.btnGardFile_Click);
             // 
             // btnDecision
             // 
@@ -4360,28 +4385,28 @@
             this.noteBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.noteBackGroundWorker_DoWork);
             this.noteBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.noteBackGroundWorker_RunWorkerCompleted);
             // 
-            // btnGardFile
+            // btnBibechhoPotro
             // 
-            this.btnGardFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnGardFile.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnGardFile.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnGardFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnGardFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnGardFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGardFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGardFile.ForeColor = System.Drawing.Color.White;
-            this.btnGardFile.IconChar = FontAwesome.Sharp.IconChar.ShieldAlt;
-            this.btnGardFile.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.btnGardFile.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGardFile.IconSize = 30;
-            this.btnGardFile.Location = new System.Drawing.Point(192, 0);
-            this.btnGardFile.Margin = new System.Windows.Forms.Padding(0);
-            this.btnGardFile.Name = "btnGardFile";
-            this.btnGardFile.Size = new System.Drawing.Size(43, 52);
-            this.btnGardFile.TabIndex = 71;
-            this.MyToolTip.SetToolTip(this.btnGardFile, "গার্ড ফাইল");
-            this.btnGardFile.UseVisualStyleBackColor = false;
-            this.btnGardFile.Click += new System.EventHandler(this.btnGardFile_Click);
+            this.btnBibechhoPotro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnBibechhoPotro.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnBibechhoPotro.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBibechhoPotro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBibechhoPotro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBibechhoPotro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBibechhoPotro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBibechhoPotro.ForeColor = System.Drawing.Color.White;
+            this.btnBibechhoPotro.IconChar = FontAwesome.Sharp.IconChar.Envelope;
+            this.btnBibechhoPotro.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnBibechhoPotro.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBibechhoPotro.IconSize = 30;
+            this.btnBibechhoPotro.Location = new System.Drawing.Point(149, 0);
+            this.btnBibechhoPotro.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBibechhoPotro.Name = "btnBibechhoPotro";
+            this.btnBibechhoPotro.Size = new System.Drawing.Size(43, 52);
+            this.btnBibechhoPotro.TabIndex = 72;
+            this.MyToolTip.SetToolTip(this.btnBibechhoPotro, "গার্ড ফাইল");
+            this.btnBibechhoPotro.UseVisualStyleBackColor = false;
+            this.btnBibechhoPotro.Click += new System.EventHandler(this.btnBibechhoPotro_Click);
             // 
             // Note
             // 
@@ -4790,5 +4815,6 @@
         private System.Windows.Forms.Label label9;
         private FontAwesome.Sharp.IconButton btnDecision;
         private FontAwesome.Sharp.IconButton btnGardFile;
+        private FontAwesome.Sharp.IconButton btnBibechhoPotro;
     }
 }

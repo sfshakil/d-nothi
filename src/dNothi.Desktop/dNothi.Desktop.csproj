@@ -547,6 +547,18 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\NothiBibechhoPotroList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiBibechhoPotroList.Designer.cs">
+      <DependentUpon>NothiBibechhoPotroList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiBibechhoPotroListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiBibechhoPotroListRow.Designer.cs">
+      <DependentUpon>NothiBibechhoPotroListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiDecisionList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1446,6 +1458,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NewNothiTypeGuidelines.resx">
       <DependentUpon>NewNothiTypeGuidelines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiBibechhoPotroList.resx">
+      <DependentUpon>NothiBibechhoPotroList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiBibechhoPotroListRow.resx">
+      <DependentUpon>NothiBibechhoPotroListRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiDecisionList.resx">
       <DependentUpon>NothiDecisionList.cs</DependentUpon>

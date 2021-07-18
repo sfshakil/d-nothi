@@ -62,6 +62,10 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiGaurdFileListEndpoint;
         }
+        protected string GetNothiBibechhoPotroListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiBibechhoPotroListEndpoint;
+        }
 
         public NothiGaurdFileListResponse GetNothiGaurdFileList(DakUserParam dakUserParam)
         {
@@ -82,6 +86,34 @@ namespace dNothi.Services.NothiServices
                 var responseJson = response.Content;
                 NothiGaurdFileListResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiGaurdFileListResponse>(responseJson);
                 return nothiDecisionListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiBibechhoPotroResponse GetNothiBibechhoPotroList(DakUserParam dakUserParam, string nothi_id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiBibechhoPotroListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("length", dakUserParam.limit);
+                request.AddParameter("page", dakUserParam.page);
+                request.AddParameter("nothi", "{\"nothi_id\":\""+ nothi_id +"\", \"nothi_office\":\""+ dakUserParam.office_id + "\"}");
+
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiBibechhoPotroResponse nothiBibechhoPotroResponse = JsonConvert.DeserializeObject<NothiBibechhoPotroResponse>(responseJson);
+                return nothiBibechhoPotroResponse;
             }
             catch (Exception ex)
             {

@@ -323,6 +323,7 @@ namespace dNothi.Desktop.UI
                                 btnSave.Visible = false;
                                 btnDecision.Visible = false;
                                 btnGardFile.Visible = false;
+                                btnBibechhoPotro.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
 
@@ -451,6 +452,7 @@ namespace dNothi.Desktop.UI
                             btnSave.Visible = true;
                             btnDecision.Visible = true;
                             btnGardFile.Visible = true;
+                            btnBibechhoPotro.Visible = true;
                             btnSaveArrow.Visible = true;
                             btnCancel.Visible = true;
 
@@ -488,6 +490,7 @@ namespace dNothi.Desktop.UI
                         btnSave.Visible = true;
                         btnDecision.Visible = true;
                         btnGardFile.Visible = true;
+                        btnBibechhoPotro.Visible = true;
                         btnSaveArrow.Visible = true;
                         btnCancel.Visible = true;
 
@@ -535,6 +538,7 @@ namespace dNothi.Desktop.UI
                                     btnSave.Visible = false;
                                     btnDecision.Visible = false;
                                     btnGardFile.Visible = false;
+                                    btnBibechhoPotro.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
 
@@ -801,6 +805,7 @@ namespace dNothi.Desktop.UI
                         btnSave.Visible = true;
                         btnDecision.Visible = true;
                         btnGardFile.Visible = true;
+                        btnBibechhoPotro.Visible = true;
                         btnSaveArrow.Visible = true;
                         btnCancel.Visible = true;
 
@@ -950,6 +955,7 @@ namespace dNothi.Desktop.UI
                                 btnSave.Visible = false;
                                 btnDecision.Visible = false;
                                 btnGardFile.Visible = false;
+                                btnBibechhoPotro.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
 
@@ -1081,6 +1087,7 @@ namespace dNothi.Desktop.UI
                             btnSave.Visible = true;
                             btnDecision.Visible = true;
                             btnGardFile.Visible = true;
+                            btnBibechhoPotro.Visible = true;
                             btnSaveArrow.Visible = true;
                             btnCancel.Visible = true;
 
@@ -1156,6 +1163,7 @@ namespace dNothi.Desktop.UI
                                     btnSave.Visible = false;
                                     btnDecision.Visible = false;
                                     btnGardFile.Visible = false;
+                                    btnBibechhoPotro.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
 
@@ -1356,6 +1364,7 @@ namespace dNothi.Desktop.UI
                         btnSave.Visible = true;
                         btnDecision.Visible = true;
                         btnGardFile.Visible = true;
+                        btnBibechhoPotro.Visible = true;
                         btnSaveArrow.Visible = true;
                         btnCancel.Visible = true;
 
@@ -1806,6 +1815,7 @@ namespace dNothi.Desktop.UI
                             btnSave.Visible = false;
                             btnDecision.Visible = false;
                             btnGardFile.Visible = false;
+                            btnBibechhoPotro.Visible = false;
                             btnSaveArrow.Visible = false;
                             btnCancel.Visible = false;
 
@@ -1889,6 +1899,7 @@ namespace dNothi.Desktop.UI
                     btnSave.Visible = true;
                     btnDecision.Visible = true;
                     btnGardFile.Visible = true;
+                    btnBibechhoPotro.Visible = true;
                     btnSaveArrow.Visible = true;
                     btnCancel.Visible = true;
 
@@ -2106,6 +2117,7 @@ namespace dNothi.Desktop.UI
                     btnSave.Visible = true;
                     btnDecision.Visible = true;
                     btnGardFile.Visible = true;
+                    btnBibechhoPotro.Visible = true;
                     btnSaveArrow.Visible = true;
                     btnCancel.Visible = true;
 
@@ -2641,6 +2653,7 @@ namespace dNothi.Desktop.UI
             btnSave.Visible = false;
             btnDecision.Visible = false;
             btnGardFile.Visible = false;
+            btnBibechhoPotro.Visible = false;
             btnSaveArrow.Visible = false;
             btnCancel.Visible = false;
 
@@ -2989,6 +3002,7 @@ namespace dNothi.Desktop.UI
                             btnSave.Visible = false;
                             btnDecision.Visible = false;
                             btnGardFile.Visible = false;
+                            btnBibechhoPotro.Visible = false;
                             btnSaveArrow.Visible = false;
                             btnCancel.Visible = false;
 
@@ -3095,6 +3109,7 @@ namespace dNothi.Desktop.UI
                                 btnSave.Visible = false;
                                 btnDecision.Visible = false;
                                 btnGardFile.Visible = false;
+                                btnBibechhoPotro.Visible = false;
                                 btnSaveArrow.Visible = false;
                                 btnCancel.Visible = false;
 
@@ -3295,6 +3310,7 @@ namespace dNothi.Desktop.UI
                     btnSave.Visible = true;
                     btnDecision.Visible = true;
                     btnGardFile.Visible = true;
+                    btnBibechhoPotro.Visible = true;
                     btnSaveArrow.Visible = true;
                     btnCancel.Visible = true;
 
@@ -3532,6 +3548,7 @@ namespace dNothi.Desktop.UI
                                     btnSave.Visible = false;
                                     btnDecision.Visible = false;
                                     btnGardFile.Visible = false;
+                                    btnBibechhoPotro.Visible = false;
                                     btnSaveArrow.Visible = false;
                                     btnCancel.Visible = false;
 
@@ -3709,6 +3726,7 @@ namespace dNothi.Desktop.UI
                                             btnSave.Visible = false;
                                             btnDecision.Visible = false;
                                             btnGardFile.Visible = false;
+                                            btnBibechhoPotro.Visible = false;
                                             btnSaveArrow.Visible = false;
                                             btnCancel.Visible = false;
 
@@ -3975,6 +3993,7 @@ namespace dNothi.Desktop.UI
             btnSave.Visible = true;
             btnDecision.Visible = true;
             btnGardFile.Visible = true;
+            btnBibechhoPotro.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
 
@@ -3999,6 +4018,7 @@ namespace dNothi.Desktop.UI
             btnSave.Visible = true;
             btnDecision.Visible = true;
             btnGardFile.Visible = true;
+            btnBibechhoPotro.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
             panel22.Visible = true;
@@ -4025,6 +4045,7 @@ namespace dNothi.Desktop.UI
             btnSave.Visible = false;
             btnDecision.Visible = false;
             btnGardFile.Visible = false;
+            btnBibechhoPotro.Visible = false;
             btnSaveArrow.Visible = false;
             updateOnuchhedId = 0;
             if (_NoteAllListDataRecordDTO.note.can_revert == 1)
@@ -4050,6 +4071,7 @@ namespace dNothi.Desktop.UI
             btnSave.Visible = true;
             btnDecision.Visible = true;
             btnGardFile.Visible = true;
+            btnBibechhoPotro.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
 
@@ -9486,6 +9508,7 @@ namespace dNothi.Desktop.UI
             btnSave.Visible = true;
             btnDecision.Visible = true;
             btnGardFile.Visible = true;
+            btnBibechhoPotro.Visible = true;
             btnSaveArrow.Visible = true;
             btnCancel.Visible = true;
 
@@ -9628,6 +9651,29 @@ namespace dNothi.Desktop.UI
             editortext += " " + "<a href=" + gaurdFileRecord.attachment.url + ">" + gaurdFileRecord.name_bng + "</a>";
             //string link = "https://dev.nothibs.tappware.com/api/content/view?token=NjBmMmYzMjNhNTk1MiZvZmZpY2VJZF82NV8yMDk%3D";
             //tinyMceEditor.HtmlContent = "<p><a href=" + link + ">Test</a></p>";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
+        }
+
+        private void btnBibechhoPotro_Click(object sender, EventArgs e)
+        {
+            WaitForm.Show(this);
+            var nothiBibechhoPotroList = UserControlFactory.Create<NothiBibechhoPotroList>();
+            nothiBibechhoPotroList.BibechhoPotroRecord += delegate (object sender1, EventArgs e1) { BibechhoPotroText_Click(sender1 as BibechhoPotroRecord, e1); };
+            nothiBibechhoPotroList.nothi_id = nothiListRecords.id.ToString();
+            nothiBibechhoPotroList.loadRow();
+            var form = NothiNextStepControlToForm(nothiBibechhoPotroList);
+            WaitForm.Close();
+            CalPopUpWindow(form);
+        }
+        private void BibechhoPotroText_Click(BibechhoPotroRecord record, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+
+            editortext += " " + "<a href=" + record.mulpotro.url + ">বিবেচ্য পত্র: " + record.basic.sarok_no + " ,"+ record.basic.subject + " সদয় দ্রষ্টব্য।</a>";
             allText = addParagraphStartTag + editortext + addParagraphEndTag;
             tinyMceEditor.HtmlContent = allText;
         }
