@@ -147,6 +147,7 @@ namespace dNothi.Desktop.UI.Dak
             // btnGaurdFileAdd
             // 
             this.btnGaurdFileAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnGaurdFileAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGaurdFileAdd.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnGaurdFileAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnGaurdFileAdd.FlatAppearance.BorderSize = 0;

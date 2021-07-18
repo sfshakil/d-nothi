@@ -1,5 +1,6 @@
 ﻿using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
@@ -100,10 +101,51 @@ namespace dNothi.Desktop.UI.Dak
             {
                 var nothiDecisionListRow = UserControlFactory.Create<NothiDecisionListRow>();
                 nothiDecisionListRow.decisionText = record.user_file_name;
-                nothiDecisionListRow.URL = record.url;
+                nothiDecisionListRow.shongjuktiURL = record.url;
                 nothiDecisionListRow.AttachmentAddButton += delegate (object sender1, EventArgs e1) { AttachmentAdd_ButtonClick(sender1 as DakAttachmentDTO, e1); };
                 UIDesignCommonMethod.AddRowinTable(decisionViewFLP, nothiDecisionListRow);
             }
+        }
+        public void loadPotaka(string nothi_id, string note_id)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = 32;
+            dakListUserParam.page = 1;
+            var token = _userService.GetToken();
+            var nothiPotakaList = _nothiDecisionListService.GetNothiPotakaList(dakListUserParam, nothi_id, note_id);
+            if (nothiPotakaList != null && nothiPotakaList.status == "success")
+            {
+                if (nothiPotakaList.data.records.Count > 0)
+                {
+                    lbLengthStart.Text = "১";
+                    lbLengthEnd.Text = string.Concat(nothiPotakaList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbTotalNothi.Text = " সর্বমোট: " + string.Concat(nothiPotakaList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    LoadNothiPotakainTLP(nothiPotakaList.data.records);
+                }
+
+            }
+            else
+            {
+                ErrorMessage(nothiPotakaList.status);
+            }
+        }
+        private void LoadNothiPotakainTLP(List<PotakaListRecord> Records)
+        {
+            foreach (PotakaListRecord record in Records)
+            {
+                var nothiDecisionListRow = UserControlFactory.Create<NothiDecisionListRow>();
+                nothiDecisionListRow.decisionText = record.title;
+                nothiDecisionListRow.potakaURL = record.attachment.url;
+                nothiDecisionListRow.setPotakaColor(record.color);
+                nothiDecisionListRow.PotakaAddButton += delegate (object sender1, EventArgs e1) { PotakaAdd_ButtonClick(sender1, e1, record); };
+                UIDesignCommonMethod.AddRowinTable(decisionViewFLP, nothiDecisionListRow);
+            }
+        }
+        public event EventHandler PotakaAdd;
+        private void PotakaAdd_ButtonClick(object sender, EventArgs e1, PotakaListRecord record)
+        {
+            if (this.PotakaAdd != null)
+                this.PotakaAdd(record, e1);
         }
         public event EventHandler DecisionText;
         private void DecisionAdd_ButtonClick(string test, EventArgs e1)

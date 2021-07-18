@@ -75,6 +75,7 @@ namespace dNothi.Desktop.UI.Dak
             // btnDecisionAdd
             // 
             this.btnDecisionAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnDecisionAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDecisionAdd.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnDecisionAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDecisionAdd.FlatAppearance.BorderSize = 0;

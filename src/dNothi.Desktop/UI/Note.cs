@@ -294,6 +294,7 @@ namespace dNothi.Desktop.UI
         {
             btnSave.Visible = false;
             btnDecision.Visible = false;
+            btnPotaka.Visible = false;
             btnGardFile.Visible = false;
             btnShongjuktiRef.Visible = false;
             btnBibechhoPotro.Visible = false;
@@ -304,6 +305,7 @@ namespace dNothi.Desktop.UI
         {
             btnSave.Visible = true;
             btnDecision.Visible = true;
+            btnPotaka.Visible = true;
             btnGardFile.Visible = true;
             btnShongjuktiRef.Visible = true;
             btnBibechhoPotro.Visible = true;
@@ -9591,8 +9593,8 @@ namespace dNothi.Desktop.UI
             var nothiBibechhoPotroList = UserControlFactory.Create<NothiBibechhoPotroList>();
             nothiBibechhoPotroList.BibechhoPotroRecord += delegate (object sender1, EventArgs e1) { BibechhoPotroText_Click(sender1 as BibechhoPotroRecord, e1); };
             nothiBibechhoPotroList.nothi_id = nothiListRecords.id.ToString();
-            nothiBibechhoPotroList.loadRow();
-            var form = NothiNextStepControlToForm(nothiBibechhoPotroList);
+            nothiBibechhoPotroList.loadRow(); 
+             var form = NothiNextStepControlToForm(nothiBibechhoPotroList);
             WaitForm.Close();
             CalPopUpWindow(form);
         }
@@ -9627,6 +9629,28 @@ namespace dNothi.Desktop.UI
             string allText = "";
             string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
             editortext += " " + "<a href=" + record.url + ">" + record.user_file_name + "</a>";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
+        }
+
+        private void btnPotaka_Click(object sender, EventArgs e)
+        {
+            WaitForm.Show(this);
+            var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+            nothiDecisionList.labelText = "পতাকা বাছাই করুন";
+            nothiDecisionList.loadPotaka(nothiListRecords.id.ToString(), notelist.nothi_note_id.ToString());
+            nothiDecisionList.PotakaAdd += delegate (object sender1, EventArgs e1) { PotakaAdd_Click(sender1 as PotakaListRecord, e1); };
+            var form = NothiNextStepControlToForm(nothiDecisionList);
+            WaitForm.Close();
+            CalPopUpWindow(form);
+        }
+        private void PotakaAdd_Click(PotakaListRecord record, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+            editortext += " " + "<a style= color:" + record .color+ "; href=" + record.attachment.url + "> বিবেচ্য পতাকা: " + record.title + " সদয় দ্রষ্টব্য।</a>";
             allText = addParagraphStartTag + editortext + addParagraphEndTag;
             tinyMceEditor.HtmlContent = allText;
         }

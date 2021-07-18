@@ -131,6 +131,7 @@ namespace dNothi.Desktop.UI.Dak
             // btnShow
             // 
             this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnShow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShow.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnShow.FlatAppearance.BorderSize = 0;
             this.btnShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
@@ -165,6 +166,7 @@ namespace dNothi.Desktop.UI.Dak
             // btnGaurdFileAdd
             // 
             this.btnGaurdFileAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnGaurdFileAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGaurdFileAdd.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnGaurdFileAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnGaurdFileAdd.FlatAppearance.BorderSize = 0;

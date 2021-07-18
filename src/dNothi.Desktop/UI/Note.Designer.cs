@@ -98,6 +98,7 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
+            this.btnPotaka = new FontAwesome.Sharp.IconButton();
             this.btnShongjuktiRef = new FontAwesome.Sharp.IconButton();
             this.btnBibechhoPotro = new FontAwesome.Sharp.IconButton();
             this.btnGardFile = new FontAwesome.Sharp.IconButton();
@@ -1410,6 +1411,7 @@
             // onucchedActionPanel
             // 
             this.onucchedActionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.onucchedActionPanel.Controls.Add(this.btnPotaka);
             this.onucchedActionPanel.Controls.Add(this.btnShongjuktiRef);
             this.onucchedActionPanel.Controls.Add(this.btnBibechhoPotro);
             this.onucchedActionPanel.Controls.Add(this.btnGardFile);
@@ -1427,6 +1429,29 @@
             this.onucchedActionPanel.Size = new System.Drawing.Size(1122, 52);
             this.onucchedActionPanel.TabIndex = 18;
             this.onucchedActionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // btnPotaka
+            // 
+            this.btnPotaka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnPotaka.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnPotaka.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPotaka.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPotaka.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPotaka.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPotaka.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPotaka.ForeColor = System.Drawing.Color.White;
+            this.btnPotaka.IconChar = FontAwesome.Sharp.IconChar.Flag;
+            this.btnPotaka.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnPotaka.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPotaka.IconSize = 30;
+            this.btnPotaka.Location = new System.Drawing.Point(63, 0);
+            this.btnPotaka.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPotaka.Name = "btnPotaka";
+            this.btnPotaka.Size = new System.Drawing.Size(43, 52);
+            this.btnPotaka.TabIndex = 74;
+            this.MyToolTip.SetToolTip(this.btnPotaka, "পতাকা");
+            this.btnPotaka.UseVisualStyleBackColor = false;
+            this.btnPotaka.Click += new System.EventHandler(this.btnPotaka_Click);
             // 
             // btnShongjuktiRef
             // 
@@ -4842,5 +4867,6 @@
         private FontAwesome.Sharp.IconButton btnGardFile;
         private FontAwesome.Sharp.IconButton btnBibechhoPotro;
         private FontAwesome.Sharp.IconButton btnShongjuktiRef;
+        private FontAwesome.Sharp.IconButton btnPotaka;
     }
 }

@@ -18,11 +18,34 @@ namespace dNothi.Desktop.UI.Dak
             InitializeComponent();
         }
         private string _decisionText;
-        private string _URL;
-        public string URL
+        private string _shongjuktiURL;
+        private string _potakaURL;
+        public string potakaURL
         {
-            get { return _URL; }
-            set { _URL = value; lbDecisionText.ForeColor = Color.FromArgb(54, 153, 255); lbDecisionText.Cursor = Cursors.Hand;  }
+            get { return _potakaURL; }
+            set { _potakaURL = value; //lbDecisionText.ForeColor = Color.FromArgb(54, 153, 255);
+                  lbDecisionText.Cursor = Cursors.Hand;  }
+        }
+        public void setPotakaColor(string color)
+        {
+            if (color == "#fada5e")
+            {
+                lbDecisionText.ForeColor = Color.FromArgb(250, 218, 94);
+            }else if (color == "#dc143c")
+            {
+                lbDecisionText.ForeColor = Color.Crimson;
+            }
+            else if (color == "#6495ed")
+            {
+                lbDecisionText.ForeColor = Color.CornflowerBlue;
+            }
+            
+        }
+
+        public string shongjuktiURL
+        {
+            get { return _shongjuktiURL; }
+            set { _shongjuktiURL = value; lbDecisionText.ForeColor = Color.FromArgb(54, 153, 255); lbDecisionText.Cursor = Cursors.Hand;  }
         }
         [Category("Custom Props")]
         public string decisionText
@@ -33,6 +56,7 @@ namespace dNothi.Desktop.UI.Dak
         
         public event EventHandler DecisionAddButton;
         public event EventHandler AttachmentAddButton;
+        public event EventHandler PotakaAddButton;
         private void btnDecisionAdd_Click(object sender, EventArgs e)
         {
             if (this.DecisionAddButton != null)
@@ -42,17 +66,27 @@ namespace dNothi.Desktop.UI.Dak
             {
                 DakAttachmentDTO record = new DakAttachmentDTO();
                 record.user_file_name = _decisionText;
-                record.url = _URL;
+                record.url = _shongjuktiURL;
                 this.AttachmentAddButton(record, e);
+            }
+            if (this.PotakaAddButton != null)
+            {
+                this.PotakaAddButton(sender, e);
             }
         }
 
         private void lbDecisionText_Click(object sender, EventArgs e)
         {
-            if (_URL != null)
+            if (_shongjuktiURL != null)
             {
                 FileViewWebBrowser fileViewWebBrowser = new FileViewWebBrowser();
-                fileViewWebBrowser.fileAddInWebBrowser(_URL, _decisionText);
+                fileViewWebBrowser.fileAddInWebBrowser(_shongjuktiURL, _decisionText);
+                CalPopUpWindow(fileViewWebBrowser);
+            }
+            else if (_potakaURL != null)
+            {
+                FileViewWebBrowser fileViewWebBrowser = new FileViewWebBrowser();
+                fileViewWebBrowser.fileAddInWebBrowser(_potakaURL, _decisionText);
                 CalPopUpWindow(fileViewWebBrowser);
             }
         }
