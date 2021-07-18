@@ -2383,7 +2383,9 @@ namespace dNothi.Desktop.UI
                 form.noteTotal = notedata.note_no.ToString();
 
 
+                form.TopMost = true;
                 BeginInvoke((Action)(() => form.ShowDialog()));
+                BeginInvoke((Action)(() => form.TopMost = false));
                 form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
             }
@@ -2923,8 +2925,9 @@ namespace dNothi.Desktop.UI
                 foreach (Form f in Application.OpenForms)
                 { BeginInvoke((Action)(() => f.Hide())); }
                 var form = FormFactory.Create<Nothi>();
-                //form.TopMost = true;
+                form.TopMost = true;
                 BeginInvoke((Action)(() => form.ShowDialog()));
+                BeginInvoke((Action)(() => form.TopMost = false));
                 form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
             }
         }
@@ -4375,7 +4378,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4383,7 +4388,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         private void DoSomethingAsync(object sender, EventArgs e)
@@ -4394,7 +4401,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4402,7 +4411,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4410,8 +4421,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            //form.TopMost = true;
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4419,8 +4431,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            //form.TopMost = true;
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4428,8 +4441,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            //form.TopMost = true;
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4437,8 +4451,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
-            //form.TopMost = true;
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         public static string Base64Decode1(string base64EncodedData)
@@ -8709,7 +8724,9 @@ namespace dNothi.Desktop.UI
             form.loadNoteView(newNoteView);
             form.noteTotal = noteTotal;
             form.loadInboxCBXNothiType();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         private void pdfViewWebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
@@ -9128,7 +9145,9 @@ namespace dNothi.Desktop.UI
             form.nothiNo = lbNothiNo.Text;
             form.nothiShakha = lbNoteShakha.Text;
             form.nothiSubject = lbSubject.Text;
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -9146,7 +9165,9 @@ namespace dNothi.Desktop.UI
             form.nothiNo = lbNothiNo.Text;
             form.nothiShakha = lbNoteShakha.Text;
             form.nothiSubject = lbSubject.Text;
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -9561,7 +9582,9 @@ namespace dNothi.Desktop.UI
 
             var form = FormFactory.Create<Khosra>();
             form.NothiKhosrajato(noteNothiDTO, lbNoteShakha.Text, lbSubject.Text, nothiListRecords);
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
