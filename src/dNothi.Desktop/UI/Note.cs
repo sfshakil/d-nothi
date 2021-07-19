@@ -296,6 +296,7 @@ namespace dNothi.Desktop.UI
             btnDecision.Visible = false;
             btnPotaka.Visible = false;
             btnGardFile.Visible = false;
+            btnOnuchhed.Visible = false;
             btnShongjuktiRef.Visible = false;
             btnBibechhoPotro.Visible = false;
             btnSaveArrow.Visible = false;
@@ -307,6 +308,7 @@ namespace dNothi.Desktop.UI
             btnDecision.Visible = true;
             btnPotaka.Visible = true;
             btnGardFile.Visible = true;
+            btnOnuchhed.Visible = true;
             btnShongjuktiRef.Visible = true;
             btnBibechhoPotro.Visible = true;
             btnSaveArrow.Visible = true;
@@ -9651,6 +9653,28 @@ namespace dNothi.Desktop.UI
             string allText = "";
             string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
             editortext += " " + "<a style= color:" + record .color+ "; href=" + record.attachment.url + "> বিবেচ্য পতাকা: " + record.title + " সদয় দ্রষ্টব্য।</a>";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
+        }
+
+        private void btnOnuchhed_Click(object sender, EventArgs e)
+        {
+            WaitForm.Show(this);
+            var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+            nothiDecisionList.labelText = "অনুচ্ছেদ তালিকা";
+            nothiDecisionList.loadOnuchhed(nothiListRecords.id.ToString());
+            nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
+            var form = NothiNextStepControlToForm(nothiDecisionList);
+            WaitForm.Close();
+            CalPopUpWindow(form);
+        }
+        private void OnuchhedAdd_Click(string Text, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+            editortext += Text+",";
             allText = addParagraphStartTag + editortext + addParagraphEndTag;
             tinyMceEditor.HtmlContent = allText;
         }

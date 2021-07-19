@@ -141,6 +141,55 @@ namespace dNothi.Desktop.UI.Dak
                 UIDesignCommonMethod.AddRowinTable(decisionViewFLP, nothiDecisionListRow);
             }
         }
+        public void loadOnuchhed(string nothi_id)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = 32;
+            dakListUserParam.page = 1;
+            var token = _userService.GetToken();
+            var nothiOnuchhedList = _nothiDecisionListService.GetNothiOnuchhedList(dakListUserParam, nothi_id);
+            if (nothiOnuchhedList != null && nothiOnuchhedList.status == "success")
+            {
+                if (nothiOnuchhedList.data.Count > 0)
+                {
+                    lbLengthStart.Visible = false;
+                    lbLengthEnd.Visible = false;
+                    lbTotalNothi.Visible = false;
+                    lbDash.Visible = false;
+                    LoadNothiOnuchhedTLP(nothiOnuchhedList.data);
+                }
+
+            }
+            else
+            {
+                ErrorMessage(nothiOnuchhedList.status);
+            }
+        }
+        private void LoadNothiOnuchhedTLP(List<OnuchhedListData> Records)
+        {
+            
+            foreach (OnuchhedListData record in Records)
+            {
+                var nothiDecisionListRow = UserControlFactory.Create<NothiDecisionListRow>();
+                nothiDecisionListRow.setLabelColorForOnuchhedList();
+                
+                if (record.onucched_id == 0) 
+                {
+                    nothiDecisionListRow.decisionText = "অনুচ্ছেদ " + string.Concat(record.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')))+".*";
+                }
+                else
+                {
+                    string str = record.value;
+                    string target = ".";
+                    char[] anyOf = target.ToCharArray();
+                    int at = str.IndexOfAny(anyOf);
+                    nothiDecisionListRow.setPaddingForOnuchhedList();
+                    nothiDecisionListRow.decisionText = "অনুচ্ছেদ " + string.Concat(record.note_no.ToString().Select(c => (char)('\u09E6' + c - '0'))) +"."+ string.Concat(record.value.ToString().Substring(at+1).Select(c => (char)('\u09E6' + c - '0')));
+                }
+                nothiDecisionListRow.OnuchhedAddButton += delegate (object sender1, EventArgs e1) { OnuchhedAdd_ButtonClick(sender1 as string, e1); };
+                UIDesignCommonMethod.AddRowinTable(decisionViewFLP, nothiDecisionListRow);
+            }
+        }
         public event EventHandler PotakaAdd;
         private void PotakaAdd_ButtonClick(object sender, EventArgs e1, PotakaListRecord record)
         {
@@ -158,6 +207,12 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.AttachmentAdd != null)
                 this.AttachmentAdd(record, e1);
+        }
+        public event EventHandler OnuchhedAdd;
+        private void OnuchhedAdd_ButtonClick(string text, EventArgs e1)
+        {
+            if (this.OnuchhedAdd != null)
+                this.OnuchhedAdd(text, e1);
         }
         private void btnNothiDecisionListCross_Click(object sender, EventArgs e)
         {

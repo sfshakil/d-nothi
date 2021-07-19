@@ -53,10 +53,22 @@ namespace dNothi.Desktop.UI.Dak
             get { return _decisionText; }
             set { _decisionText = value; lbDecisionText.Text = value; }
         }
-        
+        public void setPaddingForOnuchhedList()
+        {
+            this.Padding = new Padding(25, 0, 0, 0);
+            this.Margin = new Padding(0, 10, 0, 0);
+            this.BackColor = Color.FromArgb(243,246,249);
+        }
+        public void setLabelColorForOnuchhedList()
+        {
+            this.Margin = new Padding(0, 10, 0, 0);
+            this.BackColor = Color.FromArgb(243, 246, 249);
+            lbDecisionText.ForeColor = Color.FromArgb(54, 153, 255); lbDecisionText.Cursor = Cursors.Hand;
+        }
         public event EventHandler DecisionAddButton;
         public event EventHandler AttachmentAddButton;
         public event EventHandler PotakaAddButton;
+        public event EventHandler OnuchhedAddButton;
         private void btnDecisionAdd_Click(object sender, EventArgs e)
         {
             if (this.DecisionAddButton != null)
@@ -72,6 +84,10 @@ namespace dNothi.Desktop.UI.Dak
             if (this.PotakaAddButton != null)
             {
                 this.PotakaAddButton(sender, e);
+            }
+            if (this.OnuchhedAddButton != null)
+            {
+                this.OnuchhedAddButton(lbDecisionText.Text, e);
             }
         }
 
