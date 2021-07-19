@@ -9,18 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Desktop.View_Model;
 using dNothi.Utility;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
 using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using dNothi.Services.NothiReportService;
+using dNothi.Services.UserServices;
 
-namespace dNothi.Desktop.UI.Dak
+namespace dNothi.Desktop.UI.NothiUI
 {
     public partial class RegisterReportUserControl : UserControl
     {
-        public int pageLimit=10;
+        public int pageLimit=100;
         public int pageNo=1;
-       
-
+        IUserService _userService { get; set; }
+        INothiReportService _nothiReportService { get; set; }
         private void RefreshPagination()
         {
             
@@ -57,8 +59,10 @@ namespace dNothi.Desktop.UI.Dak
 
         //}
 
-        public RegisterReportUserControl()
+        public RegisterReportUserControl(IUserService userService, INothiReportService nothiReportService)
         {
+            _userService = userService;
+            _nothiReportService = nothiReportService;
             InitializeComponent();
         }
 
@@ -151,6 +155,80 @@ namespace dNothi.Desktop.UI.Dak
         {
             DataExportToExcel();
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+             DataExportToPDF(); 
+            //printPdf();
+        }
+        private void DisplayData()
+        {
+            var userParam = _userService.GetLocalDakUserParam();
+            DataTable dt = new DataTable();
+            userParam.page = 1;
+            userParam.limit = 100;
+            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam);
+            if (nothiRegisterBook.status == "success")
+            {
+                totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";
+                noRowMessageLabel.Visible = false;
+                int sirialNo = 1;
+                var columns = from t in nothiRegisterBook.data.records
+
+                              select new
+                              {
+
+                                  sl = ConversionMethod.EnglishNumberToBangla(sirialNo++.ToString()),
+                                  acceptNum = t.nothi.nothi_no,
+                                  docketingNo = "",
+                                  sharokNo = t.nothi.subject,
+                                  applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
+
+                              };
+
+                registerReportDataGridView.DataSource = columns.ToList();
+                // Resize the master DataGridView columns to fit the newly loaded data.
+                registerReportDataGridView.AutoResizeColumns();
+
+                // Configure the details DataGridView so that its columns automatically
+                // adjust their widths when the data changes.
+                registerReportDataGridView.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.AllCells;
+
+                MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);
+            }
+            else
+            {
+                noRowMessageLabel.Visible = true;
+            }
+
+        }
+        Bitmap bitmap;
+        private void printPdf()
+        {
+            //Add a Panel control.
+            Panel panel = new Panel();
+            this.Controls.Add(panel);
+
+            //Create a Bitmap of size same as that of the Form.
+            Graphics grp = panel.CreateGraphics();
+            Size formSize = bodyTableLayoutPanel.ClientSize;
+             bitmap = new Bitmap(registerReportDataGridView.Width + bodyTableLayoutPanel.Width, registerReportDataGridView.Height + bodyTableLayoutPanel.Height, grp);
+            grp = Graphics.FromImage(bitmap);
+
+            formSize.Width = registerReportDataGridView.Width + bodyTableLayoutPanel.Width;
+            formSize.Height = registerReportDataGridView.Height + bodyTableLayoutPanel.Height;
+
+            //Copy screen area that that the Panel covers.
+            Point panelLocation = PointToScreen(registerReportDataGridView.Location);
+            grp.CopyFromScreen(panelLocation.X, panelLocation.Y, 0, 0, formSize);
+
+            //Show the Print Preview Dialog.
+            nothiPrintPreviewDialog.Document = printDocument1;
+            nothiPrintPreviewDialog.PrintPreviewControl.Zoom = 1;
+            printDocument1.DefaultPageSettings.Landscape = true;
+            nothiPrintPreviewDialog.ShowDialog();
+        }
         private void DataExportToExcel()
         {
             try
@@ -211,6 +289,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void DataExportToPDF()
         {
+           
             if (registerReportDataGridView.Rows.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
@@ -235,6 +314,8 @@ namespace dNothi.Desktop.UI.Dak
                     {
                         try
                         {
+                            BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\Arial.ttf", BaseFont.IDENTITY_H, true);
+
                             PdfPTable pdfTable = new PdfPTable(registerReportDataGridView.Columns.Count);
                             pdfTable.DefaultCell.Padding = 3;
                             pdfTable.WidthPercentage = 100;
@@ -242,7 +323,10 @@ namespace dNothi.Desktop.UI.Dak
 
                             foreach (DataGridViewColumn column in registerReportDataGridView.Columns)
                             {
-                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
+                               
+                               PdfPCell cell = new PdfPCell(new Phrase(12, column.HeaderText, font));
+                               // PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
                                 pdfTable.AddCell(cell);
                             }
 
@@ -250,7 +334,11 @@ namespace dNothi.Desktop.UI.Dak
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
-                                    pdfTable.AddCell(cell.Value.ToString());
+                                    iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
+
+                                    PdfPCell cells = new PdfPCell(new Phrase(12, cell.Value.ToString(), font));
+                                    // pdfTable.AddCell(cell.Value.ToString());
+                                    pdfTable.AddCell(cells);
                                 }
                             }
 
@@ -258,14 +346,7 @@ namespace dNothi.Desktop.UI.Dak
                             {
                                 Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
                                 PdfWriter.GetInstance(pdfDoc, stream);
-                                string fontLoc = @"C:\Windows\Fonts\SolaimanLipi";
-                                BaseFont bf = BaseFont.CreateFont(fontLoc, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-                               // Font f = new Font(bf, 12);
 
-                               
-                                //table.RunDirection = PdfWriter.RUN_DIRECTION_RTL; // can also be set on the cell
-                               
-                                
                                 pdfDoc.Open();
                                 pdfDoc.Add(pdfTable);
                                 pdfDoc.Close();
@@ -286,10 +367,15 @@ namespace dNothi.Desktop.UI.Dak
                 MessageBox.Show("No Record To Export !!!", "Info");
             }
         }
-
-        private void iconButton1_Click(object sender, EventArgs e)
+       
+        private void RegisterReportUserControl_Load(object sender, EventArgs e)
         {
-            DataExportToPDF();
+            DisplayData();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bitmap, 0, 0);
         }
     }
 }

@@ -103,7 +103,7 @@ namespace dNothi.Desktop.UI.Dak
             this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
             this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
             this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(138, 21);
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(137, 21);
             this.singleDakHeaderLabel.TabIndex = 28;
             this.singleDakHeaderLabel.Text = "ব্যক্তিগত ফোল্ডারসমূহ";
             // 
@@ -137,7 +137,7 @@ namespace dNothi.Desktop.UI.Dak
             this.label1.Location = new System.Drawing.Point(23, 115);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 18);
+            this.label1.Size = new System.Drawing.Size(215, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "আপনি মোট (0) টি ফোল্ডার খুজে পেয়েছেন";
             // 

@@ -32,8 +32,9 @@
             this.mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightSideOfficerAddPanel = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
-            this.talikaTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new FontAwesome.Sharp.IconButton();
+            this.talikaTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.totalOfficerlabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,12 +47,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.InfoBySelf = new System.Windows.Forms.TabPage();
-            this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.txtNothiSubject = new PlaceholderTextBox.PlaceholderTextBox();
-            this.panelTxt = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.selfInfoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.workplaceEngPanelTxt = new System.Windows.Forms.Panel();
@@ -85,21 +80,24 @@
             this.mobilePanelTxt = new System.Windows.Forms.Panel();
             this.mobileTxt = new PlaceholderTextBox.PlaceholderTextBox();
             this.selfSaveiconButton = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.txtSubject = new PlaceholderTextBox.PlaceholderTextBox();
+            this.panelTxt = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.searchComboBox1 = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.mainTableLayoutPanel.SuspendLayout();
             this.rightSideOfficerAddPanel.SuspendLayout();
             this.panel24.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel2.SuspendLayout();
             this.prerokBachaiTabControl.SuspendLayout();
             this.officerSearchTabPage.SuspendLayout();
             this.officerBacaiTapPage.SuspendLayout();
             this.InfoBySelf.SuspendLayout();
-            this.bodyTableLayoutPanel.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panelTxt.SuspendLayout();
             this.panel6.SuspendLayout();
             this.selfInfoTableLayoutPanel.SuspendLayout();
             this.workplaceEngPanelTxt.SuspendLayout();
@@ -112,7 +110,9 @@
             this.namEngPanelTxt.SuspendLayout();
             this.emailPanelTxt.SuspendLayout();
             this.mobilePanelTxt.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.bodyTableLayoutPanel.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panelTxt.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTableLayoutPanel
@@ -127,7 +127,7 @@
             this.mainTableLayoutPanel.Name = "mainTableLayoutPanel";
             this.mainTableLayoutPanel.RowCount = 1;
             this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.mainTableLayoutPanel.Size = new System.Drawing.Size(996, 462);
+            this.mainTableLayoutPanel.Size = new System.Drawing.Size(976, 462);
             this.mainTableLayoutPanel.TabIndex = 1;
             // 
             // rightSideOfficerAddPanel
@@ -135,10 +135,10 @@
             this.rightSideOfficerAddPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.rightSideOfficerAddPanel.Controls.Add(this.panel24);
             this.rightSideOfficerAddPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rightSideOfficerAddPanel.Location = new System.Drawing.Point(498, 0);
+            this.rightSideOfficerAddPanel.Location = new System.Drawing.Point(488, 0);
             this.rightSideOfficerAddPanel.Margin = new System.Windows.Forms.Padding(0);
             this.rightSideOfficerAddPanel.Name = "rightSideOfficerAddPanel";
-            this.rightSideOfficerAddPanel.Size = new System.Drawing.Size(498, 462);
+            this.rightSideOfficerAddPanel.Size = new System.Drawing.Size(488, 462);
             this.rightSideOfficerAddPanel.TabIndex = 43;
             // 
             // panel24
@@ -152,21 +152,18 @@
             this.panel24.Margin = new System.Windows.Forms.Padding(0);
             this.panel24.Name = "panel24";
             this.panel24.Padding = new System.Windows.Forms.Padding(3);
-            this.panel24.Size = new System.Drawing.Size(498, 462);
+            this.panel24.Size = new System.Drawing.Size(488, 462);
             this.panel24.TabIndex = 2;
             // 
-            // talikaTableLayoutPanel
+            // panel1
             // 
-            this.talikaTableLayoutPanel.AutoSize = true;
-            this.talikaTableLayoutPanel.ColumnCount = 1;
-            this.talikaTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.talikaTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.talikaTableLayoutPanel.Location = new System.Drawing.Point(3, 40);
-            this.talikaTableLayoutPanel.Name = "talikaTableLayoutPanel";
-            this.talikaTableLayoutPanel.RowCount = 1;
-            this.talikaTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.talikaTableLayoutPanel.Size = new System.Drawing.Size(492, 0);
-            this.talikaTableLayoutPanel.TabIndex = 67;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 40);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(482, 48);
+            this.panel1.TabIndex = 68;
             // 
             // btnSave
             // 
@@ -182,7 +179,7 @@
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 25;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(397, 0);
+            this.btnSave.Location = new System.Drawing.Point(387, 0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 48);
             this.btnSave.TabIndex = 66;
@@ -190,6 +187,20 @@
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // talikaTableLayoutPanel
+            // 
+            this.talikaTableLayoutPanel.AutoSize = true;
+            this.talikaTableLayoutPanel.ColumnCount = 1;
+            this.talikaTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.talikaTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.talikaTableLayoutPanel.Location = new System.Drawing.Point(3, 40);
+            this.talikaTableLayoutPanel.Name = "talikaTableLayoutPanel";
+            this.talikaTableLayoutPanel.RowCount = 1;
+            this.talikaTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.talikaTableLayoutPanel.Size = new System.Drawing.Size(482, 0);
+            this.talikaTableLayoutPanel.TabIndex = 67;
             // 
             // panel22
             // 
@@ -201,7 +212,7 @@
             this.panel22.Margin = new System.Windows.Forms.Padding(0);
             this.panel22.Name = "panel22";
             this.panel22.Padding = new System.Windows.Forms.Padding(8, 10, 8, 0);
-            this.panel22.Size = new System.Drawing.Size(492, 37);
+            this.panel22.Size = new System.Drawing.Size(482, 37);
             this.panel22.TabIndex = 1;
             // 
             // totalOfficerlabel
@@ -237,7 +248,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(498, 462);
+            this.panel2.Size = new System.Drawing.Size(488, 462);
             this.panel2.TabIndex = 42;
             // 
             // prerokBachaiTabControl
@@ -253,7 +264,7 @@
             this.prerokBachaiTabControl.Padding = new System.Drawing.Point(12, 8);
             this.prerokBachaiTabControl.SelectedIndex = 0;
             this.prerokBachaiTabControl.ShowToolTips = true;
-            this.prerokBachaiTabControl.Size = new System.Drawing.Size(498, 479);
+            this.prerokBachaiTabControl.Size = new System.Drawing.Size(488, 468);
             this.prerokBachaiTabControl.TabIndex = 69;
             // 
             // officerSearchTabPage
@@ -265,7 +276,7 @@
             this.officerSearchTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerSearchTabPage.Name = "officerSearchTabPage";
             this.officerSearchTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchTabPage.Size = new System.Drawing.Size(490, 438);
+            this.officerSearchTabPage.Size = new System.Drawing.Size(480, 417);
             this.officerSearchTabPage.TabIndex = 0;
             this.officerSearchTabPage.Text = "অফিসার খুঁজুন";
             this.officerSearchTabPage.ToolTipText = "নাম/পদবি/শাখা/অফিস দিয়ে অফিসার খুঁজুন";
@@ -307,7 +318,7 @@
             this.officerBacaiTapPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerBacaiTapPage.Name = "officerBacaiTapPage";
             this.officerBacaiTapPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerBacaiTapPage.Size = new System.Drawing.Size(490, 438);
+            this.officerBacaiTapPage.Size = new System.Drawing.Size(480, 417);
             this.officerBacaiTapPage.TabIndex = 1;
             this.officerBacaiTapPage.Text = "অফিসার বাছাই করুন";
             this.officerBacaiTapPage.ToolTipText = "অফিস অরগানগ্রাম থেকে অফিসার বাছাই করুন";
@@ -346,95 +357,11 @@
             this.InfoBySelf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.InfoBySelf.Name = "InfoBySelf";
             this.InfoBySelf.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.InfoBySelf.Size = new System.Drawing.Size(490, 438);
+            this.InfoBySelf.Size = new System.Drawing.Size(480, 427);
             this.InfoBySelf.TabIndex = 2;
             this.InfoBySelf.Text = "নিজে তথ্য লিখুন";
             this.InfoBySelf.ToolTipText = "অফিসারের তথ্য নিজে লিখুন";
             this.InfoBySelf.UseVisualStyleBackColor = true;
-            // 
-            // bodyTableLayoutPanel
-            // 
-            this.bodyTableLayoutPanel.ColumnCount = 1;
-            this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.bodyTableLayoutPanel.Controls.Add(this.panel19, 0, 1);
-            this.bodyTableLayoutPanel.Controls.Add(this.panelTxt, 0, 0);
-            this.bodyTableLayoutPanel.Controls.Add(this.mainTableLayoutPanel, 0, 2);
-            this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.bodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.bodyTableLayoutPanel.Name = "bodyTableLayoutPanel";
-            this.bodyTableLayoutPanel.RowCount = 4;
-            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1002, 582);
-            this.bodyTableLayoutPanel.TabIndex = 55;
-            this.bodyTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyTableLayoutPanel_Paint);
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.txtNothiSubject);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel19.Location = new System.Drawing.Point(0, 44);
-            this.panel19.Margin = new System.Windows.Forms.Padding(0);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.panel19.Size = new System.Drawing.Size(441, 43);
-            this.panel19.TabIndex = 1;
-            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.allPanel_Paint);
-            // 
-            // txtNothiSubject
-            // 
-            this.txtNothiSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtNothiSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNothiSubject.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtNothiSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.txtNothiSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.txtNothiSubject.Location = new System.Drawing.Point(10, 10);
-            this.txtNothiSubject.Margin = new System.Windows.Forms.Padding(0);
-            this.txtNothiSubject.Name = "txtNothiSubject";
-            this.txtNothiSubject.PlaceholderText = "";
-            this.txtNothiSubject.Size = new System.Drawing.Size(419, 19);
-            this.txtNothiSubject.TabIndex = 4;
-            // 
-            // panelTxt
-            // 
-            this.panelTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panelTxt.Controls.Add(this.label10);
-            this.panelTxt.Controls.Add(this.label15);
-            this.panelTxt.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTxt.Location = new System.Drawing.Point(0, 0);
-            this.panelTxt.Margin = new System.Windows.Forms.Padding(0);
-            this.panelTxt.Name = "panelTxt";
-            this.panelTxt.Padding = new System.Windows.Forms.Padding(10, 20, 0, 0);
-            this.panelTxt.Size = new System.Drawing.Size(1002, 44);
-            this.panelTxt.TabIndex = 83;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.label10.Location = new System.Drawing.Point(77, 20);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(10, 10);
-            this.label10.TabIndex = 77;
-            this.label10.Text = "*";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.label15.Location = new System.Drawing.Point(10, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(67, 18);
-            this.label15.TabIndex = 40;
-            this.label15.Text = "গ্রুপের নামঃ";
             // 
             // panel6
             // 
@@ -445,7 +372,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(8, 10, 8, 0);
-            this.panel6.Size = new System.Drawing.Size(484, 430);
+            this.panel6.Size = new System.Drawing.Size(474, 419);
             this.panel6.TabIndex = 2;
             // 
             // selfInfoTableLayoutPanel
@@ -489,55 +416,60 @@
             this.selfInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.selfInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.selfInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.selfInfoTableLayoutPanel.Size = new System.Drawing.Size(468, 293);
+            this.selfInfoTableLayoutPanel.Size = new System.Drawing.Size(458, 293);
             this.selfInfoTableLayoutPanel.TabIndex = 0;
+            this.selfInfoTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.selfInfoTableLayoutPanel_Paint);
             // 
             // workplaceEngPanelTxt
             // 
             this.workplaceEngPanelTxt.Controls.Add(this.workplaceEngTxt);
             this.workplaceEngPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.workplaceEngPanelTxt.Location = new System.Drawing.Point(158, 201);
+            this.workplaceEngPanelTxt.Location = new System.Drawing.Point(155, 201);
             this.workplaceEngPanelTxt.Name = "workplaceEngPanelTxt";
             this.workplaceEngPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.workplaceEngPanelTxt.Size = new System.Drawing.Size(150, 36);
+            this.workplaceEngPanelTxt.Size = new System.Drawing.Size(146, 36);
             this.workplaceEngPanelTxt.TabIndex = 61;
             // 
             // workplaceEngTxt
             // 
+            this.workplaceEngTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.workplaceEngTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.workplaceEngTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.workplaceEngTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.workplaceEngTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.workplaceEngTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.workplaceEngTxt.Location = new System.Drawing.Point(10, 10);
+            this.workplaceEngTxt.Location = new System.Drawing.Point(3, 10);
             this.workplaceEngTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.workplaceEngTxt.Name = "workplaceEngTxt";
-            this.workplaceEngTxt.PlaceholderText = "";
-            this.workplaceEngTxt.Size = new System.Drawing.Size(140, 19);
+            this.workplaceEngTxt.PlaceholderText = "কার্যালয় (ইংরেজিতে)";
+            this.workplaceEngTxt.Size = new System.Drawing.Size(136, 19);
             this.workplaceEngTxt.TabIndex = 4;
             // 
             // branchEngPanelTxt
             // 
             this.branchEngPanelTxt.Controls.Add(this.branchENgTxt);
             this.branchEngPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.branchEngPanelTxt.Location = new System.Drawing.Point(158, 141);
+            this.branchEngPanelTxt.Location = new System.Drawing.Point(155, 141);
             this.branchEngPanelTxt.Name = "branchEngPanelTxt";
             this.branchEngPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.branchEngPanelTxt.Size = new System.Drawing.Size(150, 36);
+            this.branchEngPanelTxt.Size = new System.Drawing.Size(146, 36);
             this.branchEngPanelTxt.TabIndex = 60;
             // 
             // branchENgTxt
             // 
+            this.branchENgTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.branchENgTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.branchENgTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.branchENgTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.branchENgTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.branchENgTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.branchENgTxt.Location = new System.Drawing.Point(10, 10);
+            this.branchENgTxt.Location = new System.Drawing.Point(3, 10);
             this.branchENgTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.branchENgTxt.Name = "branchENgTxt";
-            this.branchENgTxt.PlaceholderText = "";
-            this.branchENgTxt.Size = new System.Drawing.Size(140, 19);
+            this.branchENgTxt.PlaceholderText = "শাখা (ইংরেজিতে)";
+            this.branchENgTxt.Size = new System.Drawing.Size(136, 19);
             this.branchENgTxt.TabIndex = 4;
             // 
             // branchPanelTxt
@@ -547,21 +479,23 @@
             this.branchPanelTxt.Location = new System.Drawing.Point(3, 141);
             this.branchPanelTxt.Name = "branchPanelTxt";
             this.branchPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.branchPanelTxt.Size = new System.Drawing.Size(149, 36);
+            this.branchPanelTxt.Size = new System.Drawing.Size(146, 36);
             this.branchPanelTxt.TabIndex = 59;
             // 
             // branchTxt
             // 
+            this.branchTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.branchTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.branchTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.branchTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.branchTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.branchTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.branchTxt.Location = new System.Drawing.Point(10, 10);
+            this.branchTxt.Location = new System.Drawing.Point(4, 10);
             this.branchTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.branchTxt.Name = "branchTxt";
-            this.branchTxt.PlaceholderText = "";
-            this.branchTxt.Size = new System.Drawing.Size(139, 19);
+            this.branchTxt.PlaceholderText = "শাখা (বাংলায়)";
+            this.branchTxt.Size = new System.Drawing.Size(136, 19);
             this.branchTxt.TabIndex = 4;
             // 
             // workplacePanelTxt
@@ -571,45 +505,49 @@
             this.workplacePanelTxt.Location = new System.Drawing.Point(3, 201);
             this.workplacePanelTxt.Name = "workplacePanelTxt";
             this.workplacePanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.workplacePanelTxt.Size = new System.Drawing.Size(149, 36);
+            this.workplacePanelTxt.Size = new System.Drawing.Size(146, 36);
             this.workplacePanelTxt.TabIndex = 58;
             // 
             // workPlaceTxt
             // 
+            this.workPlaceTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.workPlaceTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.workPlaceTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.workPlaceTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.workPlaceTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.workPlaceTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.workPlaceTxt.Location = new System.Drawing.Point(10, 10);
+            this.workPlaceTxt.Location = new System.Drawing.Point(3, 10);
             this.workPlaceTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.workPlaceTxt.Name = "workPlaceTxt";
-            this.workPlaceTxt.PlaceholderText = "";
-            this.workPlaceTxt.Size = new System.Drawing.Size(139, 19);
+            this.workPlaceTxt.PlaceholderText = "কার্যালয় (বাংলায়)";
+            this.workPlaceTxt.Size = new System.Drawing.Size(136, 19);
             this.workPlaceTxt.TabIndex = 4;
             // 
             // padEngPanelTxt
             // 
             this.padEngPanelTxt.Controls.Add(this.padEngTxt);
             this.padEngPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.padEngPanelTxt.Location = new System.Drawing.Point(158, 81);
+            this.padEngPanelTxt.Location = new System.Drawing.Point(155, 81);
             this.padEngPanelTxt.Name = "padEngPanelTxt";
             this.padEngPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.padEngPanelTxt.Size = new System.Drawing.Size(150, 36);
+            this.padEngPanelTxt.Size = new System.Drawing.Size(146, 36);
             this.padEngPanelTxt.TabIndex = 57;
             // 
             // padEngTxt
             // 
+            this.padEngTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.padEngTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.padEngTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.padEngTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.padEngTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.padEngTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.padEngTxt.Location = new System.Drawing.Point(10, 10);
+            this.padEngTxt.Location = new System.Drawing.Point(3, 10);
             this.padEngTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.padEngTxt.Name = "padEngTxt";
-            this.padEngTxt.PlaceholderText = "";
-            this.padEngTxt.Size = new System.Drawing.Size(140, 19);
+            this.padEngTxt.PlaceholderText = "পদ (ইংরেজিতে)";
+            this.padEngTxt.Size = new System.Drawing.Size(136, 19);
             this.padEngTxt.TabIndex = 4;
             // 
             // padPanelTxt
@@ -619,21 +557,23 @@
             this.padPanelTxt.Location = new System.Drawing.Point(3, 81);
             this.padPanelTxt.Name = "padPanelTxt";
             this.padPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.padPanelTxt.Size = new System.Drawing.Size(149, 36);
+            this.padPanelTxt.Size = new System.Drawing.Size(146, 36);
             this.padPanelTxt.TabIndex = 56;
             // 
             // padTxt
             // 
+            this.padTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.padTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.padTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.padTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.padTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.padTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.padTxt.Location = new System.Drawing.Point(10, 10);
+            this.padTxt.Location = new System.Drawing.Point(4, 10);
             this.padTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.padTxt.Name = "padTxt";
-            this.padTxt.PlaceholderText = "";
-            this.padTxt.Size = new System.Drawing.Size(139, 19);
+            this.padTxt.PlaceholderText = "পদ (বাংলায়)";
+            this.padTxt.Size = new System.Drawing.Size(136, 19);
             this.padTxt.TabIndex = 4;
             // 
             // label22
@@ -657,7 +597,7 @@
             this.label20.BackColor = System.Drawing.Color.White;
             this.label20.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(158, 180);
+            this.label20.Location = new System.Drawing.Point(155, 180);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label20.Size = new System.Drawing.Size(114, 18);
@@ -685,7 +625,7 @@
             this.label13.BackColor = System.Drawing.Color.White;
             this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(158, 0);
+            this.label13.Location = new System.Drawing.Point(155, 0);
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label13.Size = new System.Drawing.Size(92, 18);
@@ -699,7 +639,7 @@
             this.label16.BackColor = System.Drawing.Color.White;
             this.label16.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(314, 0);
+            this.label16.Location = new System.Drawing.Point(307, 0);
             this.label16.Name = "label16";
             this.label16.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label16.Size = new System.Drawing.Size(54, 18);
@@ -727,7 +667,7 @@
             this.label18.BackColor = System.Drawing.Color.White;
             this.label18.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(158, 60);
+            this.label18.Location = new System.Drawing.Point(155, 60);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label18.Size = new System.Drawing.Size(91, 18);
@@ -741,7 +681,7 @@
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(314, 60);
+            this.label12.Location = new System.Drawing.Point(307, 60);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label12.Size = new System.Drawing.Size(82, 18);
@@ -769,7 +709,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(158, 120);
+            this.label2.Location = new System.Drawing.Point(155, 120);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label2.Size = new System.Drawing.Size(96, 18);
@@ -784,20 +724,20 @@
             this.nampanelTxt.Location = new System.Drawing.Point(3, 21);
             this.nampanelTxt.Name = "nampanelTxt";
             this.nampanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.nampanelTxt.Size = new System.Drawing.Size(149, 36);
+            this.nampanelTxt.Size = new System.Drawing.Size(146, 36);
             this.nampanelTxt.TabIndex = 54;
             // 
             // namBanglaTxt
             // 
-            this.namBanglaTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.namBanglaTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.namBanglaTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
             this.namBanglaTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.namBanglaTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.namBanglaTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.namBanglaTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.namBanglaTxt.Location = new System.Drawing.Point(10, 10);
-            this.namBanglaTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.namBanglaTxt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.namBanglaTxt.Location = new System.Drawing.Point(4, 9);
             this.namBanglaTxt.Name = "namBanglaTxt";
-            this.namBanglaTxt.PlaceholderText = "";
+            this.namBanglaTxt.PlaceholderText = "নাম (বাংলায়)";
             this.namBanglaTxt.Size = new System.Drawing.Size(139, 19);
             this.namBanglaTxt.TabIndex = 4;
             // 
@@ -805,23 +745,25 @@
             // 
             this.namEngPanelTxt.Controls.Add(this.namEngTxt);
             this.namEngPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.namEngPanelTxt.Location = new System.Drawing.Point(158, 21);
+            this.namEngPanelTxt.Location = new System.Drawing.Point(155, 21);
             this.namEngPanelTxt.Name = "namEngPanelTxt";
             this.namEngPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.namEngPanelTxt.Size = new System.Drawing.Size(150, 36);
+            this.namEngPanelTxt.Size = new System.Drawing.Size(146, 36);
             this.namEngPanelTxt.TabIndex = 53;
             // 
             // namEngTxt
             // 
+            this.namEngTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.namEngTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.namEngTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.namEngTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.namEngTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.namEngTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.namEngTxt.Location = new System.Drawing.Point(10, 10);
+            this.namEngTxt.Location = new System.Drawing.Point(3, 10);
             this.namEngTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.namEngTxt.Name = "namEngTxt";
-            this.namEngTxt.PlaceholderText = "";
+            this.namEngTxt.PlaceholderText = "নাম (ইংরেজিতে)";
             this.namEngTxt.Size = new System.Drawing.Size(140, 19);
             this.namEngTxt.TabIndex = 4;
             // 
@@ -829,48 +771,52 @@
             // 
             this.emailPanelTxt.Controls.Add(this.emailTxt);
             this.emailPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailPanelTxt.Location = new System.Drawing.Point(314, 21);
+            this.emailPanelTxt.Location = new System.Drawing.Point(307, 21);
             this.emailPanelTxt.Name = "emailPanelTxt";
             this.emailPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.emailPanelTxt.Size = new System.Drawing.Size(151, 36);
+            this.emailPanelTxt.Size = new System.Drawing.Size(148, 36);
             this.emailPanelTxt.TabIndex = 55;
             // 
             // emailTxt
             // 
+            this.emailTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.emailTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.emailTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emailTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.emailTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.emailTxt.Location = new System.Drawing.Point(10, 10);
+            this.emailTxt.Location = new System.Drawing.Point(3, 9);
             this.emailTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.emailTxt.Name = "emailTxt";
-            this.emailTxt.PlaceholderText = "";
-            this.emailTxt.Size = new System.Drawing.Size(141, 19);
+            this.emailTxt.PlaceholderText = "ইমেইল";
+            this.emailTxt.Size = new System.Drawing.Size(138, 19);
             this.emailTxt.TabIndex = 4;
             // 
             // mobilePanelTxt
             // 
             this.mobilePanelTxt.Controls.Add(this.mobileTxt);
             this.mobilePanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mobilePanelTxt.Location = new System.Drawing.Point(314, 81);
+            this.mobilePanelTxt.Location = new System.Drawing.Point(307, 81);
             this.mobilePanelTxt.Name = "mobilePanelTxt";
             this.mobilePanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.mobilePanelTxt.Size = new System.Drawing.Size(151, 36);
+            this.mobilePanelTxt.Size = new System.Drawing.Size(148, 36);
             this.mobilePanelTxt.TabIndex = 56;
             // 
             // mobileTxt
             // 
+            this.mobileTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mobileTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.mobileTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mobileTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mobileTxt.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.mobileTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.mobileTxt.Location = new System.Drawing.Point(10, 10);
+            this.mobileTxt.Location = new System.Drawing.Point(3, 10);
             this.mobileTxt.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.mobileTxt.Name = "mobileTxt";
-            this.mobileTxt.PlaceholderText = "";
-            this.mobileTxt.Size = new System.Drawing.Size(141, 19);
+            this.mobileTxt.PlaceholderText = "01XXXXXXXXX";
+            this.mobileTxt.Size = new System.Drawing.Size(138, 19);
             this.mobileTxt.TabIndex = 4;
             // 
             // selfSaveiconButton
@@ -887,7 +833,7 @@
             this.selfSaveiconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.selfSaveiconButton.IconSize = 25;
             this.selfSaveiconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.selfSaveiconButton.Location = new System.Drawing.Point(369, 260);
+            this.selfSaveiconButton.Location = new System.Drawing.Point(359, 260);
             this.selfSaveiconButton.Margin = new System.Windows.Forms.Padding(0);
             this.selfSaveiconButton.Name = "selfSaveiconButton";
             this.selfSaveiconButton.Size = new System.Drawing.Size(99, 33);
@@ -897,15 +843,89 @@
             this.selfSaveiconButton.UseVisualStyleBackColor = false;
             this.selfSaveiconButton.Click += new System.EventHandler(this.selfSaveiconButton_Click);
             // 
-            // panel1
+            // bodyTableLayoutPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 40);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 48);
-            this.panel1.TabIndex = 68;
+            this.bodyTableLayoutPanel.ColumnCount = 1;
+            this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.bodyTableLayoutPanel.Controls.Add(this.panel19, 0, 1);
+            this.bodyTableLayoutPanel.Controls.Add(this.panelTxt, 0, 0);
+            this.bodyTableLayoutPanel.Controls.Add(this.mainTableLayoutPanel, 0, 2);
+            this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyTableLayoutPanel.Location = new System.Drawing.Point(10, 10);
+            this.bodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.bodyTableLayoutPanel.Name = "bodyTableLayoutPanel";
+            this.bodyTableLayoutPanel.RowCount = 4;
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(982, 562);
+            this.bodyTableLayoutPanel.TabIndex = 55;
+            this.bodyTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyTableLayoutPanel_Paint);
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.txtSubject);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel19.Location = new System.Drawing.Point(10, 44);
+            this.panel19.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.panel19.Size = new System.Drawing.Size(441, 43);
+            this.panel19.TabIndex = 1;
+            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.allPanel_Paint);
+            // 
+            // txtSubject
+            // 
+            this.txtSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtSubject.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.txtSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.txtSubject.Location = new System.Drawing.Point(10, 10);
+            this.txtSubject.Margin = new System.Windows.Forms.Padding(0);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.PlaceholderText = "গ্রুপের নাম";
+            this.txtSubject.Size = new System.Drawing.Size(419, 19);
+            this.txtSubject.TabIndex = 4;
+            // 
+            // panelTxt
+            // 
+            this.panelTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panelTxt.Controls.Add(this.label10);
+            this.panelTxt.Controls.Add(this.label15);
+            this.panelTxt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTxt.Location = new System.Drawing.Point(0, 0);
+            this.panelTxt.Margin = new System.Windows.Forms.Padding(0);
+            this.panelTxt.Name = "panelTxt";
+            this.panelTxt.Padding = new System.Windows.Forms.Padding(10, 20, 0, 0);
+            this.panelTxt.Size = new System.Drawing.Size(982, 44);
+            this.panelTxt.TabIndex = 83;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("SolaimanLipi", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.label10.Location = new System.Drawing.Point(77, 20);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(10, 10);
+            this.label10.TabIndex = 77;
+            this.label10.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label15.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.label15.Location = new System.Drawing.Point(10, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(67, 18);
+            this.label15.TabIndex = 40;
+            this.label15.Text = "গ্রুপের নামঃ";
             // 
             // officerSearchList
             // 
@@ -946,12 +966,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.bodyTableLayoutPanel);
             this.Name = "PatraJariGroupCreateUserControl";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Size = new System.Drawing.Size(1002, 582);
             this.Load += new System.EventHandler(this.PatraJariGroupCreateUserControl_Load);
             this.mainTableLayoutPanel.ResumeLayout(false);
             this.rightSideOfficerAddPanel.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -961,11 +984,6 @@
             this.officerBacaiTapPage.ResumeLayout(false);
             this.officerBacaiTapPage.PerformLayout();
             this.InfoBySelf.ResumeLayout(false);
-            this.bodyTableLayoutPanel.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
-            this.panelTxt.ResumeLayout(false);
-            this.panelTxt.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.selfInfoTableLayoutPanel.ResumeLayout(false);
             this.selfInfoTableLayoutPanel.PerformLayout();
@@ -989,8 +1007,11 @@
             this.emailPanelTxt.PerformLayout();
             this.mobilePanelTxt.ResumeLayout(false);
             this.mobilePanelTxt.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.bodyTableLayoutPanel.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panelTxt.ResumeLayout(false);
+            this.panelTxt.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1003,7 +1024,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel19;
-        private PlaceholderTextBox.PlaceholderTextBox txtNothiSubject;
+        private PlaceholderTextBox.PlaceholderTextBox txtSubject;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabControl prerokBachaiTabControl;
         private System.Windows.Forms.TabPage officerSearchTabPage;
@@ -1047,7 +1068,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel nampanelTxt;
-        private PlaceholderTextBox.PlaceholderTextBox namBanglaTxt;
         private System.Windows.Forms.Panel namEngPanelTxt;
         private PlaceholderTextBox.PlaceholderTextBox namEngTxt;
         private System.Windows.Forms.Panel emailPanelTxt;
@@ -1056,5 +1076,6 @@
         private PlaceholderTextBox.PlaceholderTextBox mobileTxt;
         private FontAwesome.Sharp.IconButton selfSaveiconButton;
         private System.Windows.Forms.Panel panel1;
+        private PlaceholderTextBox.PlaceholderTextBox namBanglaTxt;
     }
 }

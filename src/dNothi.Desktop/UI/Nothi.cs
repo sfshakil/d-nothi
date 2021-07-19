@@ -3,6 +3,7 @@ using dNothi.Core.Interfaces;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
 using dNothi.Desktop.UI.ManuelUserControl;
+using dNothi.Desktop.UI.NothiUI;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
@@ -2360,6 +2361,46 @@ namespace dNothi.Desktop.UI
                 }
             }
             
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            if (registerPanel.Visible)
+            {
+                registerPanel.Visible = false;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            }
+            else
+            {
+                registerPanel.Visible = true;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+            }
+        }
+
+        private void registerDiaryButton_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiSearchHeadingPanel.Visible = false;
+            var nothiRegisterBook = UserControlFactory.Create<UI.NothiUI.RegisterReportUserControl>();
+            nothiRegisterBook.Dock = DockStyle.Fill;
+            pnlNothiBody.Controls.Add(nothiRegisterBook);
+           
+            //nothiRegisterBook.Show();
+        }
+
+        private void registerMenuArrow_Click(object sender, EventArgs e)
+        {
+            if (registerPanel.Visible)
+            {
+                registerPanel.Visible = false;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            }
+            else
+            {
+                registerPanel.Visible = true;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+            }
         }
 
         private void userNameLabel_MouseLeave(object sender, EventArgs e)

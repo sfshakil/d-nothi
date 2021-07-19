@@ -176,7 +176,7 @@ namespace dNothi.Desktop.UI
                 ModulePanelUserControl modulePanelUserControl = new ModulePanelUserControl();
                 // modulePanelUserControl.Location = new Point(locationOnForm.X, locationOnForm.Y + button.Height + 1);
 
-                modulePanelUserControl.Location = new Point(button.Location.X, button.Location.Y);
+                modulePanelUserControl.Location = new Point(30, 30);
 
                 form.Controls.Add(modulePanelUserControl);
 

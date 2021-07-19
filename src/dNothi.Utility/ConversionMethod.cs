@@ -29,6 +29,11 @@ namespace dNothi.Utility
             string output = input.Replace("0","০" ).Replace("1","১").Replace("2","২").Replace("3","৩").Replace("4","৪").Replace("5","৫").Replace("6","৬").Replace("7","৭").Replace("8","৮" ).Replace("9","৯");
             return output;
         }
+        public static string numberToConsonet(string input)
+        {
+            string output = input.Replace("0", "").Replace("1", "ক").Replace("2", "খ").Replace("3", "গ").Replace("4", "ঘ").Replace("5", "ঙ").Replace("6", "চ").Replace("7", "ছ").Replace("8", "জ").Replace("9", "ঝ").Replace("10", "ঞ");
+            return output;
+        }
 
         public static string GetBengaliDayFromEnglishDay(string EnglishDay)
         {
