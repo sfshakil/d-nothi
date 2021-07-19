@@ -1,4 +1,5 @@
-﻿using dNothi.Desktop.UI.CustomMessageBox;
+﻿using dNothi.Core.Entities;
+using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.JsonParser.Entity.Nothi;
 using System;
 using System.Collections.Generic;
@@ -169,7 +170,8 @@ namespace dNothi.Desktop.UI.Dak
         public string subjectBrowser
         {
             get { return _subjectBrowser; }
-            set { _subjectBrowser = value; SubjectBrowser.DocumentText = value;}
+            set { _subjectBrowser = value; SubjectBrowser.DocumentText = value;
+            }
         }
 
         [Category("Custom Props")]
@@ -315,11 +317,13 @@ namespace dNothi.Desktop.UI.Dak
             {
                 btnDelete.Visible = false;
                 btnKhosra.Visible = false;
+                btnEdit.Visible = false;
             }
             else
             {
                 btnDelete.Visible = true;
                 btnKhosra.Visible = true;
+                btnEdit.Visible = true;
             }
             
         }
@@ -351,6 +355,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         public event EventHandler DeleteButtonClick;
         public event EventHandler KhoshraButtonClick;
+        public event EventHandler EditButtonClick;
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string message = "আপনি অনুচ্ছেদটি মুছে ফেলতে চান?";
@@ -406,6 +411,75 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.KhoshraButtonClick != null)
                 this.KhoshraButtonClick(onucchedId, e);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            OnuchhedSaveItemAction onuchhedEditItemAction = new OnuchhedSaveItemAction();
+            onuchhedEditItemAction.onuchhedId = onucchedId.ToString();
+            onuchhedEditItemAction.editorEncodedData = _subjectBrowser;
+
+            if (this.EditButtonClick != null)
+                this.EditButtonClick(onuchhedEditItemAction, e);
+        }
+
+        private void btnEdit_MouseHover(object sender, EventArgs e)
+        {
+            if (btnSchedule.Visible == true)
+            {
+                btnEdit.Visible = false;
+            }
+            else
+            {
+                btnEdit.Visible = true;
+                btnEdit.IconColor = Color.Red;
+            }
+        }
+
+        private void btnEdit_MouseLeave(object sender, EventArgs e)
+        {
+            if (btnSchedule.Visible == true)
+            {
+                btnEdit.Visible = false;
+            }
+            else
+            {
+                btnEdit.IconColor = Color.FromArgb(54, 153, 255);
+            }
+        }
+
+        private void SubjectBrowser_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        {
+            if (e.Url.AbsolutePath != "blank") 
+            {
+                SubjectBrowser.DocumentText = subjectBrowser;
+                FileViewWebBrowser fileViewWebBrowser = new FileViewWebBrowser();
+                fileViewWebBrowser.fileAddInWebBrowser(e.Url.AbsoluteUri, "");
+                CalPopUpWindow(fileViewWebBrowser);
+            }
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
     }
 }

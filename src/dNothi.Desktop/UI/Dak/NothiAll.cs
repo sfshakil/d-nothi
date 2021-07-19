@@ -150,7 +150,7 @@ namespace dNothi.Desktop.UI.Dak
                     iconButton5.Visible = false; iconButton6.Visible = false; iconButton7.Visible = false;
                     lbNoteTotal.Visible = false; lbPermitted.Visible = false; lbOnishponno.Visible = false;
                     lbNishponno.Visible = false; lbArchived.Visible = false;
-                    nothiShompadonIcon.Visible = true;
+                    btnNothiEdit.Visible = true;
                 }
                 if (value == 2)
                 {
@@ -160,7 +160,7 @@ namespace dNothi.Desktop.UI.Dak
                     iconButton5.Visible = false; iconButton6.Visible = false; iconButton7.Visible = false;
                     lbNoteTotal.Visible = false; lbPermitted.Visible = false; lbOnishponno.Visible = false;
                     lbNishponno.Visible = false; lbArchived.Visible = false;
-                    nothiShompadonIcon.Visible = false; btnSchedule.Visible = true;
+                    btnNothiEdit.Visible = false; btnSchedule.Visible = true;
                 }
             }
         }
@@ -387,12 +387,18 @@ namespace dNothi.Desktop.UI.Dak
         [Category("Action")]
         [Description("Invoked when user clicks button")]
         public event EventHandler NothiAllNewNoteButtonClick;
+        public event EventHandler NothiAllEditButtonClick;
         private void btnNewNote_Click(object sender, EventArgs e)
         {
             sender= lbNothiId.Text;
             if (this.NothiAllNewNoteButtonClick != null)
                 this.NothiAllNewNoteButtonClick(sender, e);
         }
-        
+
+        private void btnNothiEdit_Click(object sender, EventArgs e)
+        {
+            if (this.NothiAllEditButtonClick != null)
+                this.NothiAllEditButtonClick(sender, e);
+        }
     }
 }

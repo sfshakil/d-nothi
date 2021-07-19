@@ -97,6 +97,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
         private string _level;
+        private string _karjodibosh;
         public int _layerIndex;
         private string _name;
         private string _designation;
@@ -123,7 +124,19 @@ namespace dNothi.Desktop.UI.Dak
             get { return _layerIndex; }
             set { _layerIndex = value; }
         }
-
+        public string karjodibosh
+        {
+            get { return _karjodibosh; }
+            set { _karjodibosh = value;
+                string buildString = "";
+                if (Convert.ToInt32(value) > 0)
+                {
+                    buildString += string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) + " ";
+                }
+                 
+                btnKarjodibosh.Text = buildString + "কার্যদিবস";
+            }
+        }
         public void uncheck()
         {
             this.Hide();
@@ -322,6 +335,7 @@ namespace dNothi.Desktop.UI.Dak
 
        
         public event EventHandler DeleteLevelButtonClick;
+        public event EventHandler KarjodiboshButtonClick;
         private void deleteButton_Click(object sender, EventArgs e)
         {
            
@@ -335,8 +349,78 @@ namespace dNothi.Desktop.UI.Dak
 
             this.Hide();
         }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
 
-       
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+        public Form AttachNothiTypeListControlToForm(Control control)
+        {
+            Form form = new Form();
+
+            //form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+
+            form.AutoSize = true;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            //form.Location = new System.Drawing.Point(903, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            form.Size = control.Size;
+            //
+            form.Controls.Add(control);
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            form.TopMost = true;
+            //form.Activate();
+            //form.Focus();
+            //form.Show();
+            return form;
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.TopMost = true;
+            hideform.ShowDialog();
+        }
+        private void btnKarjodibosh_Click(object sender, EventArgs e)
+        {
+            if (deleteButton.Visible)
+            {
+                //this.SendToBack();
+                SetKarjodibosh setkarjodibosh = new SetKarjodibosh();
+                setkarjodibosh.KarjodiboshSaveButtonClick += delegate (object sender1, EventArgs e1) { karjodiboshSaveButton_Click(sender1, e); };
+                setkarjodibosh.Visible = true;
+                //setkarjodibosh.Location = new System.Drawing.Point(0, 0);
+                //Controls.Add(setkarjodibosh);
+                var form = AttachNothiTypeListControlToForm(setkarjodibosh);
+                CalPopUpWindow(form);
+            }
+        }
+        private void karjodiboshSaveButton_Click(object karjodibosh, EventArgs e1)
+        {
+            var karjoDibosh = karjodibosh.ToString();
+            string buildString = "";
+            
+            if (Convert.ToInt32(karjoDibosh) >0) { buildString += string.Concat(karjoDibosh.ToString().Select(c => (char)('\u09E6' + c - '0'))) + " "; }
+            btnKarjodibosh.Text = buildString + "কার্যদিবস";
+
+            if (this.KarjodiboshButtonClick != null)
+                this.KarjodiboshButtonClick(karjoDibosh, e1);
+        }
 
         private void cbxNiontron_CheckedChanged(object sender, EventArgs e)
         {
@@ -347,5 +431,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
+
+        
     }
 }

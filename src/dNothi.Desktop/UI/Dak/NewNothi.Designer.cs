@@ -70,7 +70,6 @@
             this.panel21 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel32 = new System.Windows.Forms.Panel();
-            this.cbxNothiClass = new System.Windows.Forms.ComboBox();
             this.searchUserController1 = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.panel31 = new System.Windows.Forms.Panel();
             this.cbxLast2digitNothiNo = new System.Windows.Forms.ComboBox();
@@ -107,6 +106,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.cbxNothiClass = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -716,29 +716,6 @@
             this.panel32.Size = new System.Drawing.Size(265, 54);
             this.panel32.TabIndex = 7;
             // 
-            // cbxNothiClass
-            // 
-            this.cbxNothiClass.DropDownHeight = 200;
-            this.cbxNothiClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxNothiClass.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.cbxNothiClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.cbxNothiClass.FormattingEnabled = true;
-            this.cbxNothiClass.IntegralHeight = false;
-            this.cbxNothiClass.ItemHeight = 26;
-            this.cbxNothiClass.Items.AddRange(new object[] {
-            "ঘ",
-            "গ",
-            "খ",
-            "ক"});
-            this.cbxNothiClass.Location = new System.Drawing.Point(10, 15);
-            this.cbxNothiClass.Margin = new System.Windows.Forms.Padding(0);
-            this.cbxNothiClass.MaxDropDownItems = 100;
-            this.cbxNothiClass.MaxLength = 100;
-            this.cbxNothiClass.Name = "cbxNothiClass";
-            this.cbxNothiClass.Size = new System.Drawing.Size(228, 34);
-            this.cbxNothiClass.TabIndex = 71;
-            this.cbxNothiClass.Text = "বাছাই করুন";
-            // 
             // searchUserController1
             // 
             this.searchUserController1.AutoSize = true;
@@ -1231,6 +1208,29 @@
             this.panel9.Size = new System.Drawing.Size(1509, 1);
             this.panel9.TabIndex = 57;
             // 
+            // cbxNothiClass
+            // 
+            this.cbxNothiClass.DropDownHeight = 200;
+            this.cbxNothiClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxNothiClass.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.cbxNothiClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.cbxNothiClass.FormattingEnabled = true;
+            this.cbxNothiClass.IntegralHeight = false;
+            this.cbxNothiClass.ItemHeight = 26;
+            this.cbxNothiClass.Items.AddRange(new object[] {
+            "ঘ",
+            "গ",
+            "খ",
+            "ক"});
+            this.cbxNothiClass.Location = new System.Drawing.Point(10, 15);
+            this.cbxNothiClass.Margin = new System.Windows.Forms.Padding(0);
+            this.cbxNothiClass.MaxDropDownItems = 100;
+            this.cbxNothiClass.MaxLength = 100;
+            this.cbxNothiClass.Name = "cbxNothiClass";
+            this.cbxNothiClass.Size = new System.Drawing.Size(228, 34);
+            this.cbxNothiClass.TabIndex = 71;
+            this.cbxNothiClass.Text = "বাছাই করুন";
+            // 
             // NewNothi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1349,7 +1349,6 @@
         private PlaceholderTextBox.PlaceholderTextBox txtNothiSubject;
         private SearchUserController last2DigitNothiNoSUC;
         private System.Windows.Forms.ComboBox cbxNothiType;
-        private System.Windows.Forms.ComboBox cbxNothiClass;
         private System.Windows.Forms.ComboBox cbxLast2digitNothiNo;
         private System.Windows.Forms.TextBox lbNothilast4digit;
         private System.Windows.Forms.Panel pnlNoData;
@@ -1402,5 +1401,6 @@
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Panel bodyPanel;
         private System.Windows.Forms.TableLayoutPanel nothiTalikaFlowLayoutPnl;
+        private System.Windows.Forms.ComboBox cbxNothiClass;
     }
 }

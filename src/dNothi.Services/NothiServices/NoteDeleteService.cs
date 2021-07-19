@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace dNothi.Services.NothiServices
@@ -59,7 +60,10 @@ namespace dNothi.Services.NothiServices
                 Console.WriteLine(response.Content);
 
 
+                
+                
                 var responseJson = response.Content;
+                responseJson = System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
                 NoteDeleteResponse noteDeleteResponse = JsonConvert.DeserializeObject<NoteDeleteResponse>(responseJson);
                 return noteDeleteResponse;
             }

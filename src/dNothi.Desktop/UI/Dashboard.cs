@@ -642,6 +642,7 @@ namespace dNothi.Desktop.UI
         private void button13_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Nothi>();
+            //form.TopMost = true;
             form.ShowDialog();
         }
 
@@ -3442,7 +3443,9 @@ namespace dNothi.Desktop.UI
         private async  void nothiModulePanel_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<Nothi>();
-            BeginInvoke((Action)(() => form.ShowDialog()));
+            form.TopMost = true;
+            BeginInvoke((Action)(() => form.ShowDialog())) ;
+            BeginInvoke((Action)(() => form.TopMost = false)) ;
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         private void DoSomethingAsync(object sender, EventArgs e)

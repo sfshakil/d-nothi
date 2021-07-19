@@ -187,7 +187,7 @@ namespace dNothi.Desktop.UI.Dak
                         nothiOnumodonRow.DeleteLevelButtonClick += delegate (object sender, EventArgs e) { leveldeleteButton_Click(sender, e, nothiOnumodonRow._layerIndex); };
                         nothiOnumodonRow.UpButton += delegate (object sender, EventArgs e) { officerUpButton_Click(sender, e,nothiOnumodonRow._layerIndex, nothiOnumodonRow._selectedRouteIndex); };
                         nothiOnumodonRow.DownButton += delegate (object sender, EventArgs e) { officerDownButton_Click(sender, e, nothiOnumodonRow._layerIndex, nothiOnumodonRow._selectedRouteIndex); };
-
+                        nothiOnumodonRow.KarjodiboshButtonClick += delegate (object sender, EventArgs e) { karjodiboshButton_Click(sender , e, nothiOnumodonRow._layerIndex); };
 
 
 
@@ -199,7 +199,7 @@ namespace dNothi.Desktop.UI.Dak
                             
                             nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index);
                             nothiOnumodonRow.level = officer.layer_index.ToString();
-
+                            nothiOnumodonRow.karjodibosh = officer.max_transaction_day.ToString();
                         }
 
                         nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
@@ -272,7 +272,42 @@ namespace dNothi.Desktop.UI.Dak
             
 
         }
+        private void karjodiboshButton_Click(object max_transaction_day, EventArgs e, int level)
+        {
+            var onumodonRowforThisLevel = _currentOnumodonRow.Where(a => a.layer_index == level).ToList();
 
+            if (onumodonRowforThisLevel != null && onumodonRowforThisLevel.Count > 0)
+            {
+                _currentOnumodonRow = _currentOnumodonRow.Where(a => a.layer_index != level).ToList();
+
+                foreach (var singleOnumodon in onumodonRowforThisLevel)
+                {
+                    onumodonDataRecordDTO onumodonDataRecordDTO = new onumodonDataRecordDTO();
+                    onumodonDataRecordDTO.officer_id = singleOnumodon.officer_id;
+                    onumodonDataRecordDTO.layer_index = singleOnumodon.layer_index;
+                    onumodonDataRecordDTO.office_id = singleOnumodon.office_id;
+                    onumodonDataRecordDTO.office_unit = singleOnumodon.office_unit;
+                    onumodonDataRecordDTO.office_unit_id = singleOnumodon.office_unit_id;
+                    onumodonDataRecordDTO.officer = singleOnumodon.officer;
+                    onumodonDataRecordDTO.office = singleOnumodon.office;
+                    onumodonDataRecordDTO.designation_level = singleOnumodon.designation_level;
+                    onumodonDataRecordDTO.designation_id = singleOnumodon.designation_id;
+                    onumodonDataRecordDTO.designation = singleOnumodon.designation;
+                    onumodonDataRecordDTO.route_index = singleOnumodon.route_index;
+                    onumodonDataRecordDTO.nothi_master_id = singleOnumodon.nothi_master_id;
+                    onumodonDataRecordDTO.is_active = singleOnumodon.is_active;
+                    onumodonDataRecordDTO.level_name = singleOnumodon.level_name;
+                    onumodonDataRecordDTO.max_transaction_day = Convert.ToInt32(max_transaction_day.ToString());
+
+                    _currentOnumodonRow.Add(onumodonDataRecordDTO);
+
+                }
+                
+
+
+            }
+            LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a => a.layer_index).ToList());
+        }
         private TreeNode FindTreeNode(TreeNodeCollection nodes, int id)
         {
             foreach(TreeNode treeNode in nodes)
@@ -946,6 +981,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiOnumodonRow.layerIndex = group.Key;
                 nothiOnumodonRow.DeleteButtonClick += delegate (object sender, EventArgs e) { officerdeleteButton_Click(sender, e, nothiOnumodonRow._designationId); };
                 nothiOnumodonRow.DeleteLevelButtonClick += delegate (object sender, EventArgs e) { leveldeleteButton_Click(sender, e, nothiOnumodonRow._layerIndex); };
+                nothiOnumodonRow.KarjodiboshButtonClick += delegate (object sender, EventArgs e) { karjodiboshButton_Click(sender, e, nothiOnumodonRow._layerIndex); };
 
 
 
@@ -957,7 +993,7 @@ namespace dNothi.Desktop.UI.Dak
 
                     nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name,officer.route_index);
                     nothiOnumodonRow.level = officer.layer_index.ToString();
-
+                    nothiOnumodonRow.karjodibosh = officer.max_transaction_day.ToString();
                 }
 
                 nothiOnumodonFLP.Controls.Add(nothiOnumodonRow);
@@ -1058,6 +1094,102 @@ namespace dNothi.Desktop.UI.Dak
         {
             notelist = notelistFromNote;
         }
+        private string _nothiLastDate;
+        private string _noteSubject;
+        private string _noteIdfromNothiInboxNoteShomuho;
+
+        [Category("Custom Props")]
+        public string noteIdfromNothiInboxNoteShomuho
+        {
+            get { return _noteIdfromNothiInboxNoteShomuho; }
+            set
+            {
+                _noteIdfromNothiInboxNoteShomuho = value;
+            }
+        }
+        [Category("Custom Props")]
+        public string noteTotal
+        {
+            get { return _noteTotal; }
+            set
+            {
+                _noteTotal = value;
+            }
+        }
+        public string totalRange
+        {
+            get { return _noteTotal; }
+            set
+            {
+                _noteTotal = value;
+            }
+        }
+
+        [Category("Custom Props")]
+        public string nothiLastDate
+        {
+            get { return _nothiLastDate; }
+            set { _nothiLastDate = value;  }//string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
+        }
+
+        [Category("Custom Props")]
+        public string noteSubject
+        {
+            get { return _noteSubject; }
+            set { _noteSubject = value; }
+        }
+        private string _nothiShakha;
+        private string _nothiNo;
+        private string _nothiSubject;
+        private string _noteTotal;
+        private string _office;
+        private string _totalRange;
+        public NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO { get; set; }
+        public NothiListInboxNoteRecordsDTO noteAllListDataRecordDTO
+        {
+            get { return _NoteAllListDataRecordDTO; }
+            set
+            {
+                _NoteAllListDataRecordDTO = value;
+            }
+        }
+        NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
+        public void loadNothiInboxRecords(NothiListRecordsDTO nothiListRecordsDTO)
+        {
+            nothiListRecords = nothiListRecordsDTO;
+        }
+        NoteView newNoteView = new NoteView();
+        public void loadNoteView(NoteView noteView)
+        {
+            newNoteView = noteView;
+        }
+        [Category("Custom Props")]
+        public string office
+        {
+            get { return _office; }
+            set { _office = value; }
+        }
+
+        [Category("Custom Props")]
+        public string nothiShakha
+        {
+            get { return _nothiShakha; }
+            set { _nothiShakha = value; }
+        }
+
+        [Category("Custom Props")]
+        public string nothiNo
+        {
+            get { return _nothiNo; }
+            set { _nothiNo = value; }
+        }
+
+        [Category("Custom Props")]
+        public string nothiSubject
+        {
+            get { return _nothiSubject; }
+            set { _nothiSubject = value; }
+        }
         public event EventHandler SuccessfullyOnumodonSaveButton;
         private void saveDesignationSealButton_Click(object sender, EventArgs e)
         {
@@ -1089,7 +1221,8 @@ namespace dNothi.Desktop.UI.Dak
                     if (notelist.note_status != null)
                     {
                         var invi = FormFactory.Create<Note>();
-                        invi.loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(_nothiListRecordsDTO, nothiType, notelist, noteID);
+                        invi.loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(_nothiListRecordsDTO, nothiType, notelist, noteID, 
+                            _noteIdfromNothiInboxNoteShomuho, _nothiNo, _nothiShakha, _nothiSubject, _nothiLastDate, _NoteAllListDataRecordDTO, _office, newNoteView);
                     }
                           
                 }

@@ -1708,10 +1708,7 @@ namespace dNothi.Desktop.UI
 
             if (conditonBoxForm.Yes)
             {
-                JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
-
-
-                _currentHtmlString = response.Result.ToString();
+               
 
                 //_currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.dateSharokTitleOriginal, KhoshraTemplateHtmlStringChange.dateSharokTitleReplace);
 
@@ -1756,6 +1753,13 @@ namespace dNothi.Desktop.UI
                  
 
                 }
+
+                SetSharokNoAsync(khosraSaveParamPotro.potrojari.sarok_no);
+
+                JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
+
+
+                _currentHtmlString = response.Result.ToString();
 
 
                 khosraSaveParamPotro.potrojari.potro_description = ConversionMethod.Base64Encode(_currentHtmlString);
@@ -1837,6 +1841,36 @@ namespace dNothi.Desktop.UI
 
 
         }
+
+        private async Task SetSharokNoAsync(string sarok_no)
+        {
+            JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
+
+            _currentHtmlString = response.Result.ToString();
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(_currentHtmlString);
+
+            try
+            {
+
+                var sharokNoElement = doc.DocumentNode.Descendants("p").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_sarok_number"));
+                 if (sharokNoElement != null)
+                {
+                    sharokNoElement.InnerHtml = sarok_no;
+                   
+                }
+             
+
+            }
+            catch
+            {
+
+            }
+
+            _currentHtmlString = _khasraPotroTemplateData.html_content = doc.DocumentNode.OuterHtml;
+            Template_CLick(_khasraPotroTemplateData);
+        }
+
         private void DoSomethingAsync(object sender, EventArgs e)
         {
             this.Hide();
@@ -2207,6 +2241,11 @@ namespace dNothi.Desktop.UI
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tinyMceEditor_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
         {
 
         }

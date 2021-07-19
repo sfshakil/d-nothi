@@ -590,6 +590,42 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\NothiBibechhoPotroList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiBibechhoPotroList.Designer.cs">
+      <DependentUpon>NothiBibechhoPotroList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiBibechhoPotroListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiBibechhoPotroListRow.Designer.cs">
+      <DependentUpon>NothiBibechhoPotroListRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiDecisionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiDecisionList.Designer.cs">
+      <DependentUpon>NothiDecisionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiDecisionListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiDecisionListRow.Designer.cs">
+      <DependentUpon>NothiDecisionListRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileList.Designer.cs">
+      <DependentUpon>NothiGaurdFileList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileListRow.Designer.cs">
+      <DependentUpon>NothiGaurdFileListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\OnuchhedShonjukti.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -631,6 +667,12 @@
     </Compile>
     <Compile Include="UI\Dak\ReviewDashBoardContentShare.Designer.cs">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\SetKarjodibosh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\SetKarjodibosh.Designer.cs">
+      <DependentUpon>SetKarjodibosh.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ModalMenuUserControl.cs">
       <SubType>UserControl</SubType>
@@ -1484,6 +1526,24 @@
     <EmbeddedResource Include="UI\Dak\NewNothiTypeGuidelines.resx">
       <DependentUpon>NewNothiTypeGuidelines.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiBibechhoPotroList.resx">
+      <DependentUpon>NothiBibechhoPotroList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiBibechhoPotroListRow.resx">
+      <DependentUpon>NothiBibechhoPotroListRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiDecisionList.resx">
+      <DependentUpon>NothiDecisionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiDecisionListRow.resx">
+      <DependentUpon>NothiDecisionListRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiGaurdFileList.resx">
+      <DependentUpon>NothiGaurdFileList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiGaurdFileListRow.resx">
+      <DependentUpon>NothiGaurdFileListRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiNoteAllAttachement.resx">
       <DependentUpon>NothiNoteAllAttachement.cs</DependentUpon>
     </EmbeddedResource>
@@ -1522,6 +1582,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\ReviewDashBoardContentShare.resx">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\SetKarjodibosh.resx">
+      <DependentUpon>SetKarjodibosh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ModalMenuUserControl.resx">
       <DependentUpon>ModalMenuUserControl.cs</DependentUpon>

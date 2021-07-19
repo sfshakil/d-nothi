@@ -43,13 +43,14 @@ namespace dNothi.Desktop.UI
         INothiTypeListServices _nothiType { get; set; }
         IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
         IDesignationSealService _designationSealService { get; set; }
+        INothiAllNoteServices _nothiAllNote { get; set; }
 
         public WaitFormFunc WaitForm;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
             IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave, IOnucchedFileUploadService onucchedFileUploadService, 
-            INothiTypeListServices nothiType, IDesignationSealService designationSealService)
+            INothiTypeListServices nothiType, IDesignationSealService designationSealService, INothiAllNoteServices nothiAllNote)
         {
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _userService = userService;
@@ -65,6 +66,7 @@ namespace dNothi.Desktop.UI
             _nothiType = nothiType;
             _onucchedFileUploadService = onucchedFileUploadService;
             _designationSealService = designationSealService;
+            _nothiAllNote = nothiAllNote;
 
             InitializeComponent();
             LoadNothiTypeListDropDown();
@@ -745,6 +747,7 @@ namespace dNothi.Desktop.UI
                     { BeginInvoke((Action)(() => f.Hide())); }
                     
                     var form = FormFactory.Create<Nothi>();
+                    form.TopMost = true;
                     form.LoadNothiInbox();
                     BeginInvoke((Action)(() => form.ShowDialog()));
                     form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
@@ -770,7 +773,22 @@ namespace dNothi.Desktop.UI
                     //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
                     //totalnothi.ToString();
                     form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
+                    
+                    var eachNothiId = nothiListRecords.id;
+                    var nothiListUserParam = _userService.GetLocalDakUserParam();
+                    string note_category = "all";
 
+                    var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId.ToString(), note_category);
+                    if (nothiInboxNote != null && nothiInboxNote.status == "success")
+                    {
+                        foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiInboxNote.data.records)
+                        {
+                            if (nothiListInboxNoteRecordsDTO.note.nothi_note_id == notedata.note_id)
+                            { form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO; }
+                        }
+                    }
+
+                    //form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
                     NoteView noteView = new NoteView();
                     noteView.totalNothi = notedata.note_no.ToString();
                     noteView.noteSubject = sender.ToString();
@@ -823,6 +841,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
 
@@ -1499,7 +1518,7 @@ namespace dNothi.Desktop.UI
                 };
 
                 nothiAll.nothiAllListDTO = nothiAllListDTO;
-
+                nothiAll.NothiAllEditButtonClick += delegate (object sender, EventArgs e) { NothiAllEdit_ButtonClick(sender, e, nothiAllListDTO); };
                 if (nothiAllListDTO.desk != null || nothiAllListDTO.status != null)
                 {
                     if (nothiAllListDTO.desk != null)
@@ -1535,7 +1554,32 @@ namespace dNothi.Desktop.UI
             }
             
         }
-
+        private void NothiAllEdit_ButtonClick(object sender, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            NothiInformationResponse nothiInfo = _nothiAll.GetNothiInformation(dakListUserParam, nothiAllListDTO.nothi.id);
+            nothiListFlowLayoutPanel.Controls.Clear();
+            detailsNothiSearcPanel.Visible = false;
+            allReset();
+            newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
+            //newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            newNothi.loadNewNothiPageWithData(nothiAllListDTO, nothiInfo);
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(btnNewNothi);
+            newNothi.Visible = true;
+            newNothi.Location = new System.Drawing.Point(233, 50);
+            //newNothi.Size = this.Size - panel4.Size;
+            newNothi.Height = this.Height - panel2.Height - pnlNothiNoteTalika.Height - panel6.Height;
+            newNothi.Width = bodyPanel.Width;
+            Controls.Add(newNothi);
+            //<nothi>int borderWidth = (this.Height - this.ClientSize.Height) / 2;
+            newNothi.BringToFront();
+            newNothi.BackColor = Color.WhiteSmoke;
+        }
         private void btnGardFile_Click(object sender, EventArgs e)
         {
             ResetAllMenuButtonSelection();
@@ -1589,6 +1633,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -1676,6 +1721,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -1684,6 +1730,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -1692,6 +1739,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }

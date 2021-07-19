@@ -101,6 +101,10 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiAllListEndPoint;
         }
+        protected string GetNothiInformationEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiInformationEndpoint;
+        }
 
         public NothiListAllResponse GetNothiAllByUser(DakUserParam dakUserParam)
         {
@@ -155,6 +159,31 @@ namespace dNothi.Services.NothiServices
                 var responseJson = response.Content;
                 nothiListAllResponse = JsonConvert.DeserializeObject<NothiListAllResponse>(responseJson);
                 return nothiListAllResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public NothiInformationResponse GetNothiInformation(DakUserParam dakUserParam, long nothi_id)
+        {
+            NothiInformationResponse nothiInformationResponse = new NothiInformationResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiInformationEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("designation_id", dakUserParam.designation_id);
+                request.AddParameter("office_id", dakUserParam.office_id);
+                request.AddParameter("nothi_id", nothi_id);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                nothiInformationResponse = JsonConvert.DeserializeObject<NothiInformationResponse>(responseJson);
+                return nothiInformationResponse;
             }
             catch (Exception ex)
             {
