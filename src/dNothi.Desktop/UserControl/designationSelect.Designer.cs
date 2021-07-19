@@ -172,6 +172,7 @@
             this.profileButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MyToolTip.SetToolTip(this.profileButton, "প্রোফাইল ");
             this.profileButton.UseVisualStyleBackColor = false;
+            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
             // panel1
             // 

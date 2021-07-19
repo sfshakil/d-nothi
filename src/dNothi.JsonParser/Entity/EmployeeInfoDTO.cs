@@ -18,7 +18,7 @@ namespace dNothi.JsonParser.Entity
         public string personal_email { get; set; }
         public string personal_mobile { get; set; }
         public int is_cadre { get; set; }
-        public object joining_date { get; set; }
+        public string joining_date { get; set; }
         public int default_sign { get; set; }
 
 

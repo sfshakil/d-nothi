@@ -87,10 +87,9 @@
             this.attachmentPanel = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.selectedAttachmentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.label29 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
             this.newAttachmentButton = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.officerSelectPanel = new System.Windows.Forms.Panel();
@@ -192,7 +191,6 @@
             this.tinyMCEPanel.SuspendLayout();
             this.attachmentPanel.SuspendLayout();
             this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
             this.panel10.SuspendLayout();
             this.officerSelectPanel.SuspendLayout();
             this.officerTypePanel.SuspendLayout();
@@ -236,10 +234,10 @@
             saveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             saveButton.IconSize = 20;
             saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            saveButton.Location = new System.Drawing.Point(684, 1);
+            saveButton.Location = new System.Drawing.Point(667, 1);
             saveButton.Margin = new System.Windows.Forms.Padding(0);
             saveButton.Name = "saveButton";
-            saveButton.Size = new System.Drawing.Size(96, 33);
+            saveButton.Size = new System.Drawing.Size(113, 33);
             saveButton.TabIndex = 75;
             saveButton.Text = "সংরক্ষণ";
             saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -299,10 +297,10 @@
             this.khosraReviewButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.khosraReviewButton.IconSize = 20;
             this.khosraReviewButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.khosraReviewButton.Location = new System.Drawing.Point(471, 1);
+            this.khosraReviewButton.Location = new System.Drawing.Point(473, 1);
             this.khosraReviewButton.Margin = new System.Windows.Forms.Padding(0);
             this.khosraReviewButton.Name = "khosraReviewButton";
-            this.khosraReviewButton.Size = new System.Drawing.Size(117, 33);
+            this.khosraReviewButton.Size = new System.Drawing.Size(106, 33);
             this.khosraReviewButton.TabIndex = 78;
             this.khosraReviewButton.Text = "খসড়া রিভিউ";
             this.khosraReviewButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -323,10 +321,10 @@
             this.noteDetailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.noteDetailsButton.IconSize = 20;
             this.noteDetailsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.noteDetailsButton.Location = new System.Drawing.Point(588, 1);
+            this.noteDetailsButton.Location = new System.Drawing.Point(579, 1);
             this.noteDetailsButton.Margin = new System.Windows.Forms.Padding(0);
             this.noteDetailsButton.Name = "noteDetailsButton";
-            this.noteDetailsButton.Size = new System.Drawing.Size(96, 33);
+            this.noteDetailsButton.Size = new System.Drawing.Size(88, 33);
             this.noteDetailsButton.TabIndex = 76;
             this.noteDetailsButton.Text = " নোট (১)";
             this.noteDetailsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1084,7 +1082,6 @@
             this.panel13.AutoScroll = true;
             this.panel13.AutoSize = true;
             this.panel13.Controls.Add(this.selectedAttachmentTableLayoutPanel);
-            this.panel13.Controls.Add(this.panel14);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(0, 31);
             this.panel13.Name = "panel13";
@@ -1098,35 +1095,13 @@
             this.selectedAttachmentTableLayoutPanel.ColumnCount = 1;
             this.selectedAttachmentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.selectedAttachmentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.selectedAttachmentTableLayoutPanel.Location = new System.Drawing.Point(15, 40);
+            this.selectedAttachmentTableLayoutPanel.Location = new System.Drawing.Point(15, 10);
             this.selectedAttachmentTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.selectedAttachmentTableLayoutPanel.Name = "selectedAttachmentTableLayoutPanel";
             this.selectedAttachmentTableLayoutPanel.RowCount = 1;
             this.selectedAttachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.selectedAttachmentTableLayoutPanel.Size = new System.Drawing.Size(518, 0);
             this.selectedAttachmentTableLayoutPanel.TabIndex = 0;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.label29);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(15, 10);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(518, 30);
-            this.panel14.TabIndex = 1;
-            // 
-            // label29
-            // 
-            this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
-            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label29.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(59)))));
-            this.label29.Location = new System.Drawing.Point(0, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(518, 30);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "সংযুক্তি যোগ করার জন্য সংযুক্তি + বাটনে ক্লিক করুন";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel12
             // 
@@ -1140,6 +1115,7 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.label29);
             this.panel10.Controls.Add(this.newAttachmentButton);
             this.panel10.Controls.Add(this.iconButton4);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1147,6 +1123,19 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(548, 30);
             this.panel10.TabIndex = 0;
+            // 
+            // label29
+            // 
+            this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(238)))), ((int)(((byte)(204)))));
+            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label29.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(87)))), ((int)(((byte)(59)))));
+            this.label29.Location = new System.Drawing.Point(119, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(296, 30);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "সংযুক্তি যোগ করার জন্য \"নতুন সংযুক্তি\" বাটনে ক্লিক করুন";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // newAttachmentButton
             // 
@@ -1162,10 +1151,10 @@
             this.newAttachmentButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.newAttachmentButton.IconSize = 18;
             this.newAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.newAttachmentButton.Location = new System.Drawing.Point(427, 0);
+            this.newAttachmentButton.Location = new System.Drawing.Point(415, 0);
             this.newAttachmentButton.Margin = new System.Windows.Forms.Padding(0);
             this.newAttachmentButton.Name = "newAttachmentButton";
-            this.newAttachmentButton.Size = new System.Drawing.Size(121, 30);
+            this.newAttachmentButton.Size = new System.Drawing.Size(133, 30);
             this.newAttachmentButton.TabIndex = 5;
             this.newAttachmentButton.Text = " নতুন সংযুক্তি";
             this.newAttachmentButton.UseVisualStyleBackColor = false;
@@ -2277,7 +2266,6 @@
             this.attachmentPanel.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.panel14.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.officerSelectPanel.ResumeLayout(false);
@@ -2442,8 +2430,6 @@
         private FontAwesome.Sharp.IconButton newAttachmentButton;
         private FontAwesome.Sharp.IconButton iconButton4;
         private System.Windows.Forms.TableLayoutPanel selectedAttachmentTableLayoutPanel;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Label label29;
         private FontAwesome.Sharp.IconButton khosraReviewButton;
         private CefSharp.WinForms.ChromiumWebBrowser tinyMceEditor;
         private System.ComponentModel.BackgroundWorker khoshraBackgroundWorker;
@@ -2472,5 +2458,6 @@
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Label label29;
     }
 }

@@ -56,6 +56,7 @@
             this.fileTypeIconButton.Size = new System.Drawing.Size(70, 22);
             this.fileTypeIconButton.TabIndex = 0;
             this.fileTypeIconButton.UseVisualStyleBackColor = true;
+            this.fileTypeIconButton.Click += new System.EventHandler(this.fileTypeIconButton_Click);
             // 
             // selectCheckBox
             // 
@@ -70,6 +71,7 @@
             this.selectCheckBox.Size = new System.Drawing.Size(20, 14);
             this.selectCheckBox.TabIndex = 3;
             this.selectCheckBox.UseVisualStyleBackColor = true;
+            this.selectCheckBox.CheckedChanged += new System.EventHandler(this.selectCheckBox_CheckedChanged);
             // 
             // panel1
             // 
@@ -97,6 +99,7 @@
             this.downloadButton.Size = new System.Drawing.Size(29, 46);
             this.downloadButton.TabIndex = 2;
             this.downloadButton.UseVisualStyleBackColor = true;
+            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
             // eyeButton
             // 
@@ -112,6 +115,7 @@
             this.eyeButton.Size = new System.Drawing.Size(29, 46);
             this.eyeButton.TabIndex = 1;
             this.eyeButton.UseVisualStyleBackColor = true;
+            this.eyeButton.Click += new System.EventHandler(this.eyeButton_Click);
             // 
             // tableLayoutPanel2
             // 

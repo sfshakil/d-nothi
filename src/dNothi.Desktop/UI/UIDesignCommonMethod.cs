@@ -1,9 +1,14 @@
 ﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.UI.Dak;
+using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Khosra;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +18,198 @@ namespace dNothi.Desktop.UI
    public class UIDesignCommonMethod
     {
 
+        public static Image GetImageFromBase64(string imageBase64)
+        {
+
+            try
+            {
+                int firstStringIndex = imageBase64.IndexOf(",") + 1;
+                if (firstStringIndex > 0)
+                {
+                    imageBase64 = imageBase64.Substring(firstStringIndex, imageBase64.Length - firstStringIndex);
+
+                }
+
+
+                byte[] bytes = Convert.FromBase64String(imageBase64);
+
+                using (MemoryStream ms = new MemoryStream(bytes))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
+          
+        }
+
+        public static readonly List<string> ImageExtensions = new List<string> { ".JPEG", ".JPG", "JPG", "JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG", "IMAGE", "IMG" };
+        public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
+        public static readonly List<string> ExcelExtension = new List<string> { ".XLS", "XLS" };
+        public static readonly List<string> TxtExtension = new List<string> { ".TXT",".TEXT", "TXT", "TEXT" };
+        public static readonly List<string> docExtension = new List<string> { "DOCX", "DOC" };
+        public static readonly List<string> PPTExtension = new List<string> { "PPT", "PPTX" };
+        public static readonly List<string> CSVExtension = new List<string> { "CSV" };
+        public static readonly List<string> AudioExtension = new List<string> { "MP3", "M4P", "MP4" };
+
+        public static void ShowSingleAttachment(DakAttachmentDTO dakAttachmentDTO, UserControl parentForm)
+        {
+            AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
+            attachmentViewPopUpForm.dakAttachmentDTO = dakAttachmentDTO;
+
+            CalPopUpWindow(attachmentViewPopUpForm, parentForm);
+
+            
+        }
+        public static void ShowSingleAttachment(DakAttachmentDTO dakAttachmentDTO, Form parentForm)
+        {
+            AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
+            attachmentViewPopUpForm.dakAttachmentDTO = dakAttachmentDTO;
+
+            CalPopUpWindow(attachmentViewPopUpForm, parentForm);
+
+
+        }
+        public static void ShowMultipleAttachment(DakAttachmentDTO dakAttachmentDTO, List<DakAttachmentDTO> dakAttachmentDTOs, Form parentForm)
+        {
+            AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
+            attachmentViewPopUpForm.dakAttachmentDTO = dakAttachmentDTO;
+            attachmentViewPopUpForm.dakAttachmentDTOs = dakAttachmentDTOs;
+
+            attachmentViewPopUpForm.PreviousButton += delegate (object os, EventArgs ev) { Previous(attachmentViewPopUpForm._dakAttachmentDTO, dakAttachmentDTOs, parentForm); };
+            attachmentViewPopUpForm.NextButton += delegate (object os, EventArgs ev) { Next(attachmentViewPopUpForm._dakAttachmentDTO, dakAttachmentDTOs, parentForm); };
+
+            CalPopUpWindow(attachmentViewPopUpForm, parentForm);
+        }
+        public static void Previous(DakAttachmentDTO dakAttachmentDTO, List<DakAttachmentDTO> dakAttachmentDTOs, Form parentForm)
+        {
+            AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
+
+            attachmentViewPopUpForm.dakAttachmentDTOs = dakAttachmentDTOs;
+
+            if (dakAttachmentDTOs != null)
+            {
+                for (int i = dakAttachmentDTOs.Count - 1; i >= 0; i--)
+                {
+                    if (dakAttachmentDTOs[i].attachment_id == dakAttachmentDTO.attachment_id)
+                    {
+                        if (i == 0)
+                        {
+                            attachmentViewPopUpForm.dakAttachmentDTO = dakAttachmentDTOs[dakAttachmentDTOs.Count - 1];
+                        }
+
+                        else
+                        {
+                            attachmentViewPopUpForm.dakAttachmentDTO = dakAttachmentDTOs[i - 1];
+                        }
+                        break;
+                    }
+                }
+            }
+
+            attachmentViewPopUpForm.PreviousButton += delegate (object os, EventArgs ev) { Previous(attachmentViewPopUpForm._dakAttachmentDTO, dakAttachmentDTOs, parentForm); };
+            attachmentViewPopUpForm.NextButton += delegate (object os, EventArgs ev) { Next(attachmentViewPopUpForm._dakAttachmentDTO, dakAttachmentDTOs,parentForm); };
+
+            CalPopUpWindow(attachmentViewPopUpForm, parentForm);
+        }
+
+        private static void Next(DakAttachmentDTO dakAttachmentDTO, List<DakAttachmentDTO> dakAttachmentDTOs, Form parentForm)
+        {
+            AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
+
+            attachmentViewPopUpForm.dakAttachmentDTOs = dakAttachmentDTOs;
+
+
+            if (dakAttachmentDTOs != null)
+            {
+                for (int i = 0; i <= dakAttachmentDTOs.Count - 1; i++)
+                {
+                    if (dakAttachmentDTOs[i].attachment_id == dakAttachmentDTO.attachment_id)
+                    {
+                        if (i == dakAttachmentDTOs.Count - 1)
+                        {
+                            attachmentViewPopUpForm.dakAttachmentDTO = dakAttachmentDTOs[0];
+                        }
+                        else
+                        {
+
+                            attachmentViewPopUpForm.dakAttachmentDTO = dakAttachmentDTOs[i + 1];
+                        }
+                        break;
+                    }
+                }
+            }
+
+            attachmentViewPopUpForm.PreviousButton += delegate (object os, EventArgs ev) { Previous(attachmentViewPopUpForm._dakAttachmentDTO, dakAttachmentDTOs,parentForm); };
+            attachmentViewPopUpForm.NextButton += delegate (object os, EventArgs ev) { Next(attachmentViewPopUpForm._dakAttachmentDTO, dakAttachmentDTOs,parentForm); };
+
+            CalPopUpWindow(attachmentViewPopUpForm, parentForm);
+
+        }
+        public static void DownLoadFile(string fileDownloadLink, string fileName )
+        {
+            WebClient client = new WebClient();
+            string folderPath = "";
+            FolderBrowserDialog directchoosedlg = new FolderBrowserDialog();
+            if (fileDownloadLink != "")
+            {
+                if (directchoosedlg.ShowDialog() == DialogResult.OK)
+                {
+                    folderPath = directchoosedlg.SelectedPath;
+                    Uri uri = new Uri(fileDownloadLink);
+                    //string fileName = System.IO.Path.GetFileName(uri.AbsolutePath);
+                    client.DownloadFileAsync(uri, folderPath + "/" + fileName);
+                }
+            }
+        }
+        public static void FileIconSet(string value, FontAwesome.Sharp.IconButton btnFile)
+        {
+            string extUpper = value.ToUpperInvariant();
+
+             if (PdfExtensions.Any(a=>extUpper.Contains(a)))
+            {
+                btnFile.Visible = true;
+                btnFile.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            }
+            else if (docExtension.Any(a => extUpper.Contains(a)))
+            {
+                btnFile.Visible = true;
+                btnFile.IconChar = FontAwesome.Sharp.IconChar.FileWord;
+            }
+            else if (CSVExtension.Any(a => extUpper.Contains(a)))
+            {
+                btnFile.Visible = true;
+                btnFile.IconChar = FontAwesome.Sharp.IconChar.FileCsv;
+            }
+            else if (TxtExtension.Any(a => extUpper.Contains(a)))
+            {
+                btnFile.Visible = true;
+                btnFile.IconChar = FontAwesome.Sharp.IconChar.FileWord;
+            }
+            else if (AudioExtension.Any(a => extUpper.Contains(a)))
+            {
+                btnFile.Visible = true;
+                btnFile.IconChar = FontAwesome.Sharp.IconChar.FileAudio;
+            }
+            else if (ExcelExtension.Any(a => extUpper.Contains(a)))
+            {
+                btnFile.Visible = true;
+                btnFile.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
+            }
+            else if (PPTExtension.Any(a => extUpper.Contains(a)))
+            {
+                btnFile.Visible = true;
+                btnFile.IconChar = FontAwesome.Sharp.IconChar.FilePowerpoint;
+            }
+            else if (ImageExtensions.Any(a => extUpper.Contains(a)))
+            {
+                btnFile.Visible = true;
+                btnFile.IconChar = FontAwesome.Sharp.IconChar.FileImage;
+            }
+        }
 
         public static bool SelectFirstNode(TreeView treeView, TreeNodeCollection nodes)
         {
@@ -161,6 +358,15 @@ namespace dNothi.Desktop.UI
             {
                 form.Controls.Remove(modulePanelUserControls);
             }
+        }
+
+        public static PermittedPotroResponseMulpotroDTO GetPermittedPotroResponseFromDakAttachmentRespnse(DakAttachmentDTO dakAttachmentDTO)
+        {
+            PermittedPotroResponseMulpotroDTO permittedPotroResponseMulpotroDTO = new PermittedPotroResponseMulpotroDTO();
+
+
+
+            return permittedPotroResponseMulpotroDTO;
         }
 
         public static void CallAllModulePanel(Button button, UserControl form)

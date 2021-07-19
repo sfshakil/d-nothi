@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhosraSelectedAttachmentRow));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.attachmentNameLabel = new System.Windows.Forms.Label();
+            this.fileIconButton = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -80,7 +78,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.fileIconButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
@@ -88,17 +86,6 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panel1.Size = new System.Drawing.Size(33, 39);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // attachmentNameLabel
             // 
@@ -114,6 +101,24 @@
             this.attachmentNameLabel.Text = "৫৬.৪২.০০০০.০১০.২৫.০০৩.২১.২ - ২২ ফেব্রুয়ারি ২০২";
             this.attachmentNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // fileIconButton
+            // 
+            this.fileIconButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fileIconButton.FlatAppearance.BorderSize = 0;
+            this.fileIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fileIconButton.IconChar = FontAwesome.Sharp.IconChar.Neos;
+            this.fileIconButton.IconColor = System.Drawing.Color.Black;
+            this.fileIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.fileIconButton.IconSize = 24;
+            this.fileIconButton.Location = new System.Drawing.Point(2, 9);
+            this.fileIconButton.Name = "fileIconButton";
+            this.fileIconButton.Size = new System.Drawing.Size(29, 22);
+            this.fileIconButton.TabIndex = 0;
+            this.fileIconButton.UseVisualStyleBackColor = true;
+            this.fileIconButton.Click += new System.EventHandler(this.fileIconButton_Click);
+            // 
             // KhosraSelectedAttachmentRow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,7 +130,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,8 +139,8 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton deleteButton;
         private System.Windows.Forms.Label attachmentNameLabel;
+        private FontAwesome.Sharp.IconButton fileIconButton;
     }
 }

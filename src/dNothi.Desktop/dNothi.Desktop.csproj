@@ -601,6 +601,12 @@
     <Compile Include="UI\Dak\ReviewDashBoardContentShare.Designer.cs">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\UserProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\UserProfileForm.Designer.cs">
+      <DependentUpon>UserProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1473,6 +1479,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\ReviewDashBoardContentShare.resx">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\UserProfileForm.resx">
+      <DependentUpon>UserProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

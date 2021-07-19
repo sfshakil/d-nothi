@@ -37,29 +37,27 @@
             this.label3 = new System.Windows.Forms.Label();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.iconButton7 = new FontAwesome.Sharp.IconButton();
-            this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.NextButton = new FontAwesome.Sharp.IconButton();
+            this.previousButton = new FontAwesome.Sharp.IconButton();
+            this.totalAttachmentLabel = new System.Windows.Forms.Label();
+            this.attachmentRangeLabel = new System.Windows.Forms.Label();
             this.allNothiAttachmentTabPageLeft = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.khosraOnumodonAttachmentUserControl2 = new dNothi.Desktop.UI.Khosra_Potro.KhosraOnumodonAttachmentUserControl();
-            this.khosraOnumodonAttachmentUserControl1 = new dNothi.Desktop.UI.Khosra_Potro.KhosraOnumodonAttachmentUserControl();
+            this.attachmentBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.noFIlePanel02 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.searchPanel = new System.Windows.Forms.Panel();
             this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
             this.placeholderTextBox1 = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.totalRowlabel = new System.Windows.Forms.Label();
+            this.paginationPanel = new System.Windows.Forms.Panel();
+            this.nextAllButton = new FontAwesome.Sharp.IconButton();
+            this.previousAllButton = new FontAwesome.Sharp.IconButton();
+            this.totalAttachmentAllLabel = new System.Windows.Forms.Label();
+            this.attachmentAllRangeLabel = new System.Windows.Forms.Label();
             this.ownComputerTabPage = new System.Windows.Forms.TabPage();
             this.FilePanel = new System.Windows.Forms.Panel();
             this.attachmentListFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -69,7 +67,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.selectedAttachmentTabPage = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.selectButton = new FontAwesome.Sharp.IconButton();
             this.panel13 = new System.Windows.Forms.Panel();
             this.selectedAttachmentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.HeadingPanel = new System.Windows.Forms.Panel();
@@ -86,10 +84,9 @@
             this.allNothiAttachmentTabPageLeft.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.noFIlePanel02.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.searchPanel.SuspendLayout();
+            this.paginationPanel.SuspendLayout();
             this.ownComputerTabPage.SuspendLayout();
             this.FilePanel.SuspendLayout();
             this.fileUploadPanel.SuspendLayout();
@@ -212,10 +209,10 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.iconButton7);
-            this.panel9.Controls.Add(this.iconButton8);
-            this.panel9.Controls.Add(this.label4);
-            this.panel9.Controls.Add(this.label5);
+            this.panel9.Controls.Add(this.NextButton);
+            this.panel9.Controls.Add(this.previousButton);
+            this.panel9.Controls.Add(this.totalAttachmentLabel);
+            this.panel9.Controls.Add(this.attachmentRangeLabel);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
@@ -224,67 +221,69 @@
             this.panel9.Size = new System.Drawing.Size(791, 36);
             this.panel9.TabIndex = 0;
             // 
-            // iconButton7
+            // NextButton
             // 
-            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.iconButton7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton7.FlatAppearance.BorderSize = 0;
-            this.iconButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.IconSize = 24;
-            this.iconButton7.Location = new System.Drawing.Point(193, 1);
-            this.iconButton7.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Size = new System.Drawing.Size(34, 34);
-            this.iconButton7.TabIndex = 102;
-            this.iconButton7.UseVisualStyleBackColor = false;
+            this.NextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.NextButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NextButton.FlatAppearance.BorderSize = 0;
+            this.NextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.NextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextButton.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.NextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.NextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.NextButton.IconSize = 24;
+            this.NextButton.Location = new System.Drawing.Point(291, 1);
+            this.NextButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(34, 34);
+            this.NextButton.TabIndex = 102;
+            this.NextButton.UseVisualStyleBackColor = false;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
-            // iconButton8
+            // previousButton
             // 
-            this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.iconButton8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton8.FlatAppearance.BorderSize = 0;
-            this.iconButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton8.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton8.IconSize = 24;
-            this.iconButton8.Location = new System.Drawing.Point(159, 1);
-            this.iconButton8.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Size = new System.Drawing.Size(34, 34);
-            this.iconButton8.TabIndex = 101;
-            this.iconButton8.UseVisualStyleBackColor = false;
+            this.previousButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.previousButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.previousButton.FlatAppearance.BorderSize = 0;
+            this.previousButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.previousButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.previousButton.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.previousButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.previousButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.previousButton.IconSize = 24;
+            this.previousButton.Location = new System.Drawing.Point(257, 1);
+            this.previousButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.previousButton.Name = "previousButton";
+            this.previousButton.Size = new System.Drawing.Size(34, 34);
+            this.previousButton.TabIndex = 101;
+            this.previousButton.UseVisualStyleBackColor = false;
+            this.previousButton.Click += new System.EventHandler(this.previousButton_Click);
             // 
-            // label4
+            // totalAttachmentLabel
             // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.label4.Location = new System.Drawing.Point(80, 1);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 34);
-            this.label4.TabIndex = 103;
-            this.label4.Text = "সর্বমোট ৮১ টি";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.totalAttachmentLabel.BackColor = System.Drawing.Color.Transparent;
+            this.totalAttachmentLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.totalAttachmentLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalAttachmentLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.totalAttachmentLabel.Location = new System.Drawing.Point(116, 1);
+            this.totalAttachmentLabel.Name = "totalAttachmentLabel";
+            this.totalAttachmentLabel.Size = new System.Drawing.Size(141, 34);
+            this.totalAttachmentLabel.TabIndex = 103;
+            this.totalAttachmentLabel.Text = "সর্বমোট ৮১ টি";
+            this.totalAttachmentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // attachmentRangeLabel
             // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.label5.Location = new System.Drawing.Point(1, 1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 34);
-            this.label5.TabIndex = 100;
-            this.label5.Text = "১ - ৮১";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.attachmentRangeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.attachmentRangeLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.attachmentRangeLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentRangeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.attachmentRangeLabel.Location = new System.Drawing.Point(1, 1);
+            this.attachmentRangeLabel.Name = "attachmentRangeLabel";
+            this.attachmentRangeLabel.Size = new System.Drawing.Size(115, 34);
+            this.attachmentRangeLabel.TabIndex = 100;
+            this.attachmentRangeLabel.Text = "১ - ৮১";
+            this.attachmentRangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // allNothiAttachmentTabPageLeft
             // 
@@ -298,15 +297,16 @@
             this.allNothiAttachmentTabPageLeft.TabIndex = 1;
             this.allNothiAttachmentTabPageLeft.Text = "সকল অনুমোদিত পত্র (নিজ অফিস)";
             this.allNothiAttachmentTabPageLeft.UseVisualStyleBackColor = true;
+            this.allNothiAttachmentTabPageLeft.Click += new System.EventHandler(this.allNothiAttachmentTabPageLeft_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.noFIlePanel02);
             this.panel1.Controls.Add(this.panel10);
-            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.searchPanel);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.paginationPanel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -319,7 +319,7 @@
             // 
             this.panel6.AutoScroll = true;
             this.panel6.AutoSize = true;
-            this.panel6.Controls.Add(this.tableLayoutPanel2);
+            this.panel6.Controls.Add(this.attachmentBodyTableLayoutPanel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 159);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
@@ -327,43 +327,19 @@
             this.panel6.Size = new System.Drawing.Size(791, 261);
             this.panel6.TabIndex = 106;
             // 
-            // tableLayoutPanel2
+            // attachmentBodyTableLayoutPanel
             // 
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.khosraOnumodonAttachmentUserControl2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.khosraOnumodonAttachmentUserControl1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(774, 548);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // khosraOnumodonAttachmentUserControl2
-            // 
-            this.khosraOnumodonAttachmentUserControl2.AutoSize = true;
-            this.khosraOnumodonAttachmentUserControl2.BackColor = System.Drawing.Color.White;
-            this.khosraOnumodonAttachmentUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khosraOnumodonAttachmentUserControl2.Location = new System.Drawing.Point(3, 278);
-            this.khosraOnumodonAttachmentUserControl2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.khosraOnumodonAttachmentUserControl2.Name = "khosraOnumodonAttachmentUserControl2";
-            this.khosraOnumodonAttachmentUserControl2.Size = new System.Drawing.Size(768, 264);
-            this.khosraOnumodonAttachmentUserControl2.TabIndex = 1;
-            // 
-            // khosraOnumodonAttachmentUserControl1
-            // 
-            this.khosraOnumodonAttachmentUserControl1.AutoSize = true;
-            this.khosraOnumodonAttachmentUserControl1.BackColor = System.Drawing.Color.White;
-            this.khosraOnumodonAttachmentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khosraOnumodonAttachmentUserControl1.Location = new System.Drawing.Point(3, 4);
-            this.khosraOnumodonAttachmentUserControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.khosraOnumodonAttachmentUserControl1.Name = "khosraOnumodonAttachmentUserControl1";
-            this.khosraOnumodonAttachmentUserControl1.Size = new System.Drawing.Size(768, 264);
-            this.khosraOnumodonAttachmentUserControl1.TabIndex = 0;
+            this.attachmentBodyTableLayoutPanel.AutoSize = true;
+            this.attachmentBodyTableLayoutPanel.ColumnCount = 1;
+            this.attachmentBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.attachmentBodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.attachmentBodyTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.attachmentBodyTableLayoutPanel.Name = "attachmentBodyTableLayoutPanel";
+            this.attachmentBodyTableLayoutPanel.RowCount = 2;
+            this.attachmentBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentBodyTableLayoutPanel.Size = new System.Drawing.Size(791, 0);
+            this.attachmentBodyTableLayoutPanel.TabIndex = 0;
             // 
             // noFIlePanel02
             // 
@@ -415,18 +391,18 @@
             this.panel10.Size = new System.Drawing.Size(791, 10);
             this.panel10.TabIndex = 107;
             // 
-            // panel5
+            // searchPanel
             // 
-            this.panel5.Controls.Add(this.dakSearchUsingTextButton);
-            this.panel5.Controls.Add(this.placeholderTextBox1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 46);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(1);
-            this.panel5.Size = new System.Drawing.Size(791, 36);
-            this.panel5.TabIndex = 105;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Gray);
+            this.searchPanel.Controls.Add(this.dakSearchUsingTextButton);
+            this.searchPanel.Controls.Add(this.placeholderTextBox1);
+            this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchPanel.Location = new System.Drawing.Point(0, 46);
+            this.searchPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.searchPanel.Name = "searchPanel";
+            this.searchPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.searchPanel.Size = new System.Drawing.Size(791, 36);
+            this.searchPanel.TabIndex = 105;
+            this.searchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Gray);
             // 
             // dakSearchUsingTextButton
             // 
@@ -466,82 +442,84 @@
             this.panel4.Size = new System.Drawing.Size(791, 10);
             this.panel4.TabIndex = 104;
             // 
-            // panel2
+            // paginationPanel
             // 
-            this.panel2.Controls.Add(this.iconButton4);
-            this.panel2.Controls.Add(this.iconButton3);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.totalRowlabel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(1);
-            this.panel2.Size = new System.Drawing.Size(791, 36);
-            this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Gray);
+            this.paginationPanel.Controls.Add(this.nextAllButton);
+            this.paginationPanel.Controls.Add(this.previousAllButton);
+            this.paginationPanel.Controls.Add(this.totalAttachmentAllLabel);
+            this.paginationPanel.Controls.Add(this.attachmentAllRangeLabel);
+            this.paginationPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.paginationPanel.Location = new System.Drawing.Point(0, 0);
+            this.paginationPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.paginationPanel.Name = "paginationPanel";
+            this.paginationPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.paginationPanel.Size = new System.Drawing.Size(791, 36);
+            this.paginationPanel.TabIndex = 0;
+            this.paginationPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Gray);
             // 
-            // iconButton4
+            // nextAllButton
             // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 24;
-            this.iconButton4.Location = new System.Drawing.Point(193, 1);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(34, 34);
-            this.iconButton4.TabIndex = 102;
-            this.iconButton4.UseVisualStyleBackColor = false;
+            this.nextAllButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.nextAllButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nextAllButton.FlatAppearance.BorderSize = 0;
+            this.nextAllButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.nextAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextAllButton.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.nextAllButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.nextAllButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nextAllButton.IconSize = 24;
+            this.nextAllButton.Location = new System.Drawing.Point(244, 1);
+            this.nextAllButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.nextAllButton.Name = "nextAllButton";
+            this.nextAllButton.Size = new System.Drawing.Size(34, 34);
+            this.nextAllButton.TabIndex = 102;
+            this.nextAllButton.UseVisualStyleBackColor = false;
+            this.nextAllButton.Click += new System.EventHandler(this.nextAllButton_Click);
             // 
-            // iconButton3
+            // previousAllButton
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(159, 1);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(34, 34);
-            this.iconButton3.TabIndex = 101;
-            this.iconButton3.UseVisualStyleBackColor = false;
+            this.previousAllButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.previousAllButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.previousAllButton.FlatAppearance.BorderSize = 0;
+            this.previousAllButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.previousAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.previousAllButton.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.previousAllButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.previousAllButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.previousAllButton.IconSize = 24;
+            this.previousAllButton.Location = new System.Drawing.Point(210, 1);
+            this.previousAllButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.previousAllButton.Name = "previousAllButton";
+            this.previousAllButton.Size = new System.Drawing.Size(34, 34);
+            this.previousAllButton.TabIndex = 101;
+            this.previousAllButton.UseVisualStyleBackColor = false;
+            this.previousAllButton.Click += new System.EventHandler(this.previousAllButton_Click);
             // 
-            // label1
+            // totalAttachmentAllLabel
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.label1.Location = new System.Drawing.Point(80, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 34);
-            this.label1.TabIndex = 103;
-            this.label1.Text = "সর্বমোট ৮১ টি";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.totalAttachmentAllLabel.BackColor = System.Drawing.Color.Transparent;
+            this.totalAttachmentAllLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.totalAttachmentAllLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalAttachmentAllLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.totalAttachmentAllLabel.Location = new System.Drawing.Point(97, 1);
+            this.totalAttachmentAllLabel.Name = "totalAttachmentAllLabel";
+            this.totalAttachmentAllLabel.Size = new System.Drawing.Size(113, 34);
+            this.totalAttachmentAllLabel.TabIndex = 103;
+            this.totalAttachmentAllLabel.Text = "সর্বমোট ৮১ টি";
+            this.totalAttachmentAllLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // totalRowlabel
+            // attachmentAllRangeLabel
             // 
-            this.totalRowlabel.BackColor = System.Drawing.Color.Transparent;
-            this.totalRowlabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.totalRowlabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalRowlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
-            this.totalRowlabel.Location = new System.Drawing.Point(1, 1);
-            this.totalRowlabel.Name = "totalRowlabel";
-            this.totalRowlabel.Size = new System.Drawing.Size(79, 34);
-            this.totalRowlabel.TabIndex = 100;
-            this.totalRowlabel.Text = "১ - ৮১";
-            this.totalRowlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.attachmentAllRangeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.attachmentAllRangeLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.attachmentAllRangeLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentAllRangeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
+            this.attachmentAllRangeLabel.Location = new System.Drawing.Point(1, 1);
+            this.attachmentAllRangeLabel.Name = "attachmentAllRangeLabel";
+            this.attachmentAllRangeLabel.Size = new System.Drawing.Size(96, 34);
+            this.attachmentAllRangeLabel.TabIndex = 100;
+            this.attachmentAllRangeLabel.Text = "১ - ৮১";
+            this.attachmentAllRangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ownComputerTabPage
             // 
@@ -643,40 +621,41 @@
             this.selectedAttachmentTabPage.Name = "selectedAttachmentTabPage";
             this.selectedAttachmentTabPage.Size = new System.Drawing.Size(791, 420);
             this.selectedAttachmentTabPage.TabIndex = 3;
-            this.selectedAttachmentTabPage.Text = "বাছাইকৃত";
+            this.selectedAttachmentTabPage.Text = "বাছাইকৃত(০)";
             this.selectedAttachmentTabPage.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.iconButton6);
+            this.panel8.Controls.Add(this.selectButton);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 50);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(791, 44);
             this.panel8.TabIndex = 65;
             // 
-            // iconButton6
+            // selectButton
             // 
-            this.iconButton6.AutoSize = true;
-            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
-            this.iconButton6.FlatAppearance.BorderSize = 0;
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton6.ForeColor = System.Drawing.Color.White;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton6.IconColor = System.Drawing.Color.White;
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton6.IconSize = 18;
-            this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.iconButton6.Location = new System.Drawing.Point(15, 0);
-            this.iconButton6.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton6.MaximumSize = new System.Drawing.Size(95, 44);
-            this.iconButton6.MinimumSize = new System.Drawing.Size(95, 44);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(95, 44);
-            this.iconButton6.TabIndex = 6;
-            this.iconButton6.Text = "বাছাই সম্পন্ন";
-            this.iconButton6.UseVisualStyleBackColor = false;
+            this.selectButton.AutoSize = true;
+            this.selectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(80)))), ((int)(((byte)(252)))));
+            this.selectButton.FlatAppearance.BorderSize = 0;
+            this.selectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectButton.ForeColor = System.Drawing.Color.White;
+            this.selectButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.selectButton.IconColor = System.Drawing.Color.White;
+            this.selectButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.selectButton.IconSize = 18;
+            this.selectButton.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.selectButton.Location = new System.Drawing.Point(15, 0);
+            this.selectButton.Margin = new System.Windows.Forms.Padding(0);
+            this.selectButton.MaximumSize = new System.Drawing.Size(95, 44);
+            this.selectButton.MinimumSize = new System.Drawing.Size(95, 44);
+            this.selectButton.Name = "selectButton";
+            this.selectButton.Size = new System.Drawing.Size(95, 44);
+            this.selectButton.TabIndex = 6;
+            this.selectButton.Text = "বাছাই সম্পন্ন";
+            this.selectButton.UseVisualStyleBackColor = false;
+            this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
             // 
             // panel13
             // 
@@ -818,13 +797,11 @@
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.noFIlePanel02.ResumeLayout(false);
             this.noFIlePanel02.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.searchPanel.ResumeLayout(false);
+            this.searchPanel.PerformLayout();
+            this.paginationPanel.ResumeLayout(false);
             this.ownComputerTabPage.ResumeLayout(false);
             this.ownComputerTabPage.PerformLayout();
             this.FilePanel.ResumeLayout(false);
@@ -859,13 +836,13 @@
         private System.Windows.Forms.TabPage selectedAttachmentTabPage;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel noFIlePanel02;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel paginationPanel;
+        private System.Windows.Forms.Panel searchPanel;
         private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label totalRowlabel;
+        private FontAwesome.Sharp.IconButton nextAllButton;
+        private FontAwesome.Sharp.IconButton previousAllButton;
+        private System.Windows.Forms.Label totalAttachmentAllLabel;
+        private System.Windows.Forms.Label attachmentAllRangeLabel;
         private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox1;
         private FontAwesome.Sharp.IconButton dakSearchUsingTextButton;
         private System.Windows.Forms.Label label2;
@@ -875,13 +852,13 @@
         private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton iconButton5;
         private System.Windows.Forms.Panel panel9;
-        private FontAwesome.Sharp.IconButton iconButton7;
-        private FontAwesome.Sharp.IconButton iconButton8;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private FontAwesome.Sharp.IconButton NextButton;
+        private FontAwesome.Sharp.IconButton previousButton;
+        private System.Windows.Forms.Label totalAttachmentLabel;
+        private System.Windows.Forms.Label attachmentRangeLabel;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
-        private FontAwesome.Sharp.IconButton iconButton6;
+        private FontAwesome.Sharp.IconButton selectButton;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TableLayoutPanel selectedAttachmentTableLayoutPanel;
         private System.Windows.Forms.Panel panel8;
@@ -892,8 +869,6 @@
         private System.Windows.Forms.FlowLayoutPanel attachmentListFlowLayoutPanel;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private KhosraOnumodonAttachmentUserControl khosraOnumodonAttachmentUserControl2;
-        private KhosraOnumodonAttachmentUserControl khosraOnumodonAttachmentUserControl1;
+        private System.Windows.Forms.TableLayoutPanel attachmentBodyTableLayoutPanel;
     }
 }

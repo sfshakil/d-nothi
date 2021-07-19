@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Khosra\GetSarokNoResponse.cs" />
+    <Compile Include="Entity\Khosra\PermittedPotroResponse.cs" />
     <Compile Include="Entity\LocalOfficesResponse.cs" />
     <Compile Include="Entity\Nothi\AttachmentDTO.cs" />
     <Compile Include="Entity\Nothi\NothiBranchListDTO.cs" />

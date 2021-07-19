@@ -36,7 +36,7 @@
             this.nothiNameLabel = new System.Windows.Forms.Label();
             this.attachmentCountLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.attachmentListTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.khosraSingleAttachmentUserControl3 = new dNothi.Desktop.UI.Khosra_Potro.KhosraSingleAttachmentUserControl();
             this.khosraSingleAttachmentUserControl2 = new dNothi.Desktop.UI.Khosra_Potro.KhosraSingleAttachmentUserControl();
             this.khosraSingleAttachmentUserControl1 = new dNothi.Desktop.UI.Khosra_Potro.KhosraSingleAttachmentUserControl();
@@ -44,7 +44,7 @@
             this.allSelectPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.attachmentListTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel3
@@ -74,6 +74,7 @@
             this.allSelectPanel.Name = "allSelectPanel";
             this.allSelectPanel.Size = new System.Drawing.Size(587, 29);
             this.allSelectPanel.TabIndex = 9;
+            this.allSelectPanel.Visible = false;
             // 
             // allSelectCheckBox
             // 
@@ -88,6 +89,7 @@
             this.allSelectCheckBox.Text = "সকল";
             this.allSelectCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.allSelectCheckBox.UseVisualStyleBackColor = true;
+            this.allSelectCheckBox.CheckedChanged += new System.EventHandler(this.allSelectCheckBox_CheckedChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -150,7 +152,7 @@
             // panel1
             // 
             this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
+            this.panel1.Controls.Add(this.attachmentListTableLayoutPanel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 81);
             this.panel1.Name = "panel1";
@@ -158,52 +160,58 @@
             this.panel1.Size = new System.Drawing.Size(587, 156);
             this.panel1.TabIndex = 11;
             // 
-            // tableLayoutPanel2
+            // attachmentListTableLayoutPanel
             // 
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.khosraSingleAttachmentUserControl3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.khosraSingleAttachmentUserControl2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.khosraSingleAttachmentUserControl1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(30, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(557, 156);
-            this.tableLayoutPanel2.TabIndex = 9;
+            this.attachmentListTableLayoutPanel.AutoSize = true;
+            this.attachmentListTableLayoutPanel.ColumnCount = 1;
+            this.attachmentListTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.attachmentListTableLayoutPanel.Controls.Add(this.khosraSingleAttachmentUserControl3, 0, 2);
+            this.attachmentListTableLayoutPanel.Controls.Add(this.khosraSingleAttachmentUserControl2, 0, 1);
+            this.attachmentListTableLayoutPanel.Controls.Add(this.khosraSingleAttachmentUserControl1, 0, 0);
+            this.attachmentListTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.attachmentListTableLayoutPanel.Location = new System.Drawing.Point(30, 0);
+            this.attachmentListTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.attachmentListTableLayoutPanel.Name = "attachmentListTableLayoutPanel";
+            this.attachmentListTableLayoutPanel.RowCount = 3;
+            this.attachmentListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentListTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.attachmentListTableLayoutPanel.Size = new System.Drawing.Size(557, 156);
+            this.attachmentListTableLayoutPanel.TabIndex = 9;
             // 
             // khosraSingleAttachmentUserControl3
             // 
+            this.khosraSingleAttachmentUserControl3._permittedPotroResponseMulpotroDTO = null;
             this.khosraSingleAttachmentUserControl3.AutoSize = true;
             this.khosraSingleAttachmentUserControl3.BackColor = System.Drawing.Color.White;
             this.khosraSingleAttachmentUserControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.khosraSingleAttachmentUserControl3.Location = new System.Drawing.Point(3, 107);
             this.khosraSingleAttachmentUserControl3.Name = "khosraSingleAttachmentUserControl3";
+            this.khosraSingleAttachmentUserControl3.permittedPotroResponseMulpotroDTO = null;
             this.khosraSingleAttachmentUserControl3.Size = new System.Drawing.Size(551, 46);
             this.khosraSingleAttachmentUserControl3.TabIndex = 14;
             // 
             // khosraSingleAttachmentUserControl2
             // 
+            this.khosraSingleAttachmentUserControl2._permittedPotroResponseMulpotroDTO = null;
             this.khosraSingleAttachmentUserControl2.AutoSize = true;
             this.khosraSingleAttachmentUserControl2.BackColor = System.Drawing.Color.White;
             this.khosraSingleAttachmentUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.khosraSingleAttachmentUserControl2.Location = new System.Drawing.Point(3, 55);
             this.khosraSingleAttachmentUserControl2.Name = "khosraSingleAttachmentUserControl2";
+            this.khosraSingleAttachmentUserControl2.permittedPotroResponseMulpotroDTO = null;
             this.khosraSingleAttachmentUserControl2.Size = new System.Drawing.Size(551, 46);
             this.khosraSingleAttachmentUserControl2.TabIndex = 13;
             // 
             // khosraSingleAttachmentUserControl1
             // 
+            this.khosraSingleAttachmentUserControl1._permittedPotroResponseMulpotroDTO = null;
             this.khosraSingleAttachmentUserControl1.AutoSize = true;
             this.khosraSingleAttachmentUserControl1.BackColor = System.Drawing.Color.White;
             this.khosraSingleAttachmentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.khosraSingleAttachmentUserControl1.Location = new System.Drawing.Point(3, 3);
             this.khosraSingleAttachmentUserControl1.Name = "khosraSingleAttachmentUserControl1";
+            this.khosraSingleAttachmentUserControl1.permittedPotroResponseMulpotroDTO = null;
             this.khosraSingleAttachmentUserControl1.Size = new System.Drawing.Size(551, 46);
             this.khosraSingleAttachmentUserControl1.TabIndex = 12;
             // 
@@ -225,8 +233,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.attachmentListTableLayoutPanel.ResumeLayout(false);
+            this.attachmentListTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,7 +250,7 @@
         private System.Windows.Forms.Panel allSelectPanel;
         private System.Windows.Forms.CheckBox allSelectCheckBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel attachmentListTableLayoutPanel;
         private KhosraSingleAttachmentUserControl khosraSingleAttachmentUserControl3;
         private KhosraSingleAttachmentUserControl khosraSingleAttachmentUserControl2;
         private KhosraSingleAttachmentUserControl khosraSingleAttachmentUserControl1;

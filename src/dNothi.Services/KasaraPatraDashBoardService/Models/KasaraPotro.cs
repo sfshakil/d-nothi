@@ -373,7 +373,14 @@ namespace dNothi.Services.KasaraPatraDashBoardService.Models
             [JsonProperty("potro_type_name")]
             public string PotroTypeName { get; set; }
 
-          
+
+
+
+           
+       
+
+
+
         }
 
         public class Mulpotro
@@ -389,6 +396,10 @@ namespace dNothi.Services.KasaraPatraDashBoardService.Models
 
             [JsonProperty("buttons")]
             public List<string> Buttons { get; set; }
+
+
+
+
 
             
             
