@@ -49,6 +49,7 @@
             this.LeftSign = new FontAwesome.Sharp.IconButton();
             this.RightSign = new FontAwesome.Sharp.IconButton();
             this.btnNothiIcon = new System.Windows.Forms.Button();
+            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.onlineStatus = new FontAwesome.Sharp.IconButton();
@@ -95,6 +96,7 @@
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
             this.btnPotaka = new FontAwesome.Sharp.IconButton();
             this.btnShongjuktiRef = new FontAwesome.Sharp.IconButton();
@@ -678,6 +680,19 @@
             this.btnNothiIcon.TabIndex = 30;
             this.btnNothiIcon.UseVisualStyleBackColor = false;
             this.btnNothiIcon.Click += new System.EventHandler(this.dakModuleNameLabel_Click);
+            // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(619, 0);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 50);
+            this.onlineToggleButton2.TabIndex = 85;
             // 
             // profilePanel
             // 
@@ -1384,6 +1399,17 @@
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(1101, 449);
             this.panel22.TabIndex = 62;
+            // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = "";
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(452, 406);
+            this.tinyMceEditor.TabIndex = 61;
             // 
             // onucchedActionPanel
             // 
@@ -2383,6 +2409,7 @@
             this.MyToolTip.SetToolTip(this.btnFullEditable, "সম্পূর্ণ সম্পাদন");
             this.btnFullEditable.UseVisualStyleBackColor = false;
             this.btnFullEditable.Visible = false;
+            this.btnFullEditable.Click += new System.EventHandler(this.btnFullEditable_Click);
             // 
             // btnKhoshra
             // 

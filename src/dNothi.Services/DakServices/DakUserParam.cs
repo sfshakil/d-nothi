@@ -10,6 +10,14 @@ namespace dNothi.Services.DakServices
 {
     public class DakUserParam
     {
+        public string loginId { get; set; }
+
+        public string fatherName { get; set; }
+        public string motherName { get; set; }
+        public string nationalId { get; set; }
+        public string birthCertificate { get; set; }
+        public string joiningDate { get; set; }
+
         public string token { get; set; }
         public string designation_label { get; set; }
         public string unit_label { get; set; }
@@ -44,6 +52,6 @@ namespace dNothi.Services.DakServices
         public string  json_String { get; set; }
         public int CategoryId { get; set; }
         public string NameSearchParam { get; set; }
-
+        public string DateofBirth { get; internal set; }
     }
 }

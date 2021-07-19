@@ -351,8 +351,19 @@ namespace dNothi.Services.UserServices
                 dakListUserParam.user_id = userDTO.userid;
                 dakListUserParam.json_String = new JavaScriptSerializer().Serialize(dakListUserParam);
 
+                dakListUserParam.fatherName = employeeInfoDTO.father_name_bng;
+                dakListUserParam.motherName = employeeInfoDTO.mother_name_bng;
+                dakListUserParam.DateofBirth = employeeInfoDTO.date_of_birth.ToString("dd-MM-yyyy");
+                dakListUserParam.nationalId = employeeInfoDTO.nid;
+                dakListUserParam.birthCertificate = employeeInfoDTO.bcn;
+                dakListUserParam.loginId = userDTO.username;
+                if (employeeInfoDTO.joining_date != null)
+                {
+                    dakListUserParam.joiningDate = employeeInfoDTO.joining_date.ToString();
+                }
+              
 
-
+              
 
             }
             catch

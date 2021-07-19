@@ -589,6 +589,9 @@ namespace dNothi.Desktop.UI
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
             form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+            form._noteListDataRecordNoteDTO = noteListDataRecordNoteDTO;
+            form._nothiListRecordsDTO = nothiListRecordsDTO;
+            form._nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
 
             NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
             form.nothiNo = nothiListRecords.nothi_no;

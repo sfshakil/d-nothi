@@ -1,7 +1,11 @@
 ﻿using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.JsonParser.Entity.Khosra;
+using dNothi.Services;
 using dNothi.Services.DakServices;
+using dNothi.Services.UserServices;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +21,164 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 {
     public partial class KhosraAttachmentForm : Form
     {
+       
+        private int potroAll_StartPage;
+        private int potroAll_EndPage;
+        private int potroAll_PageNo;
+
+
+        IUserService _userService { get; set; }
+        IPotroServices _potroServices { get; set; }
+        private DakUserParam _dakuserparam { get; set; }
+
         public static readonly List<string> ImageExtensions = new List<string> { ".JPG", "JPG", "JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG", "IMAGE", "IMG" };
         public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
 
         DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
-        public KhosraAttachmentForm()
+        public KhosraAttachmentForm(IUserService userService, IPotroServices potroServices)
         {
+
+            paginationReset();
+
+            _userService = userService;
+            _potroServices = potroServices;
             InitializeComponent();
+            LoadAllPermittedPotro();
+        }
+
+        private void paginationReset()
+        {
+            potroAll_StartPage = 1;
+            potroAll_EndPage = 0;
+            potroAll_PageNo = 1;
+        }
+
+        private void LoadAllPermittedPotro()
+        {
+
+
+
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            _dakuserparam.page =potroAll_PageNo;
+            _dakuserparam.limit =NothiCommonStaticValue.pageLimit;
+
+
+
+            attachmentBodyTableLayoutPanel.Controls.Clear();
+
+            PermittedPotroResponse permittedPotroResponse = _potroServices.GetPermittedPotro(_dakuserparam);
+            if (permittedPotroResponse != null && permittedPotroResponse.data != null && permittedPotroResponse.data.records != null && permittedPotroResponse.data.records.Count > 0)
+            {
+                SetPotroAllPagination(permittedPotroResponse.data.records.Count, permittedPotroResponse.data.total_records);
+
+
+                IsThereAnyPermittedPotre(true);
+
+                foreach (var potro in permittedPotroResponse.data.records)
+                {
+                    KhosraOnumodonAttachmentUserControl khosraOnumodonAttachmentUserControl = new KhosraOnumodonAttachmentUserControl();
+
+                    khosraOnumodonAttachmentUserControl.permittedPotroResponseRecordDTO = potro;
+
+                    khosraOnumodonAttachmentUserControl.checkButtonClick += delegate (object sender, EventArgs e) { AddAttachmentFromPermittedTab(sender, e, khosraOnumodonAttachmentUserControl.selectedPermittedPotroResponseMulpotroDTO, khosraOnumodonAttachmentUserControl.isPotroSelected); ; };
+
+                    UIDesignCommonMethod.AddRowinTable( attachmentBodyTableLayoutPanel, khosraOnumodonAttachmentUserControl);
+                }
+            }
+            else
+            {
+                IsThereAnyPermittedPotre(false);
+            }
+          
+        }
+
+        private void AddAttachmentFromPermittedTab(object sender, EventArgs e, PermittedPotroResponseMulpotroDTO selectedPermittedPotroResponseMulpotroDTO, bool ischecked)
+        {
+            if (ischecked)
+            {
+                SelecteAttachment(selectedPermittedPotroResponseMulpotroDTO);
+            }
+            else
+            {
+                RemoveSelectedAttachment(selectedPermittedPotroResponseMulpotroDTO.id);
+
+            }
+
+            CountSelectedPotro();
+        }
+
+        private void RemoveSelectedAttachment(long id)
+        {
+            var khosraSelectedAttachmentRow = selectedAttachmentTableLayoutPanel.Controls.OfType<KhosraSelectedAttachmentRow>().FirstOrDefault(a => a._permittedPotroResponseMulpotroDTO.id ==id && a.isDeleted == false);
+            if (khosraSelectedAttachmentRow != null)
+            {
+                khosraSelectedAttachmentRow.isDeleted = true;
+                khosraSelectedAttachmentRow.Hide();
+            }
+        }
+
+        private void SelecteAttachment(PermittedPotroResponseMulpotroDTO selectedPermittedPotroResponseMulpotroDTO)
+        {
+            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow = new KhosraSelectedAttachmentRow();
+
+            khosraSelectedAttachmentRow.permittedPotroResponseMulpotroDTO = selectedPermittedPotroResponseMulpotroDTO;
+
+            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow);
+
+        }
+
+        private void CountSelectedPotro()
+        {
+            try
+            {
+                var khosraSelectedAttachmentRows = selectedAttachmentTableLayoutPanel.Controls.OfType<KhosraSelectedAttachmentRow>().Where(a => a.isDeleted==false).ToList();
+                selectedAttachmentTabPage.Text = "বাছাইকৃত(" + ConversionMethod.EngDigittoBanDigit(khosraSelectedAttachmentRows.Count.ToString()) + ")";
+            }
+            catch
+            {
+
+                selectedAttachmentTabPage.Text = "বাছাইকৃত(০)";
+            }
+        }
+
+        private void SetPotroAllPagination(int count, int total_records)
+        {
+
+            potroAll_StartPage = 1+potroAll_PageNo*NothiCommonStaticValue.pageLimit-10;
+            potroAll_EndPage = potroAll_StartPage + count - 1;
+
+            totalAttachmentAllLabel.Text = "সর্বমোট " + ConversionMethod.EngDigittoBanDigit(total_records.ToString()) + " টি";
+            attachmentAllRangeLabel.Text = ConversionMethod.EngDigittoBanDigit(potroAll_StartPage.ToString()) + "-" + ConversionMethod.EngDigittoBanDigit(potroAll_EndPage.ToString());
+
+            
+
+
+
+        }
+
+        private void SetPaginationText(int total_records, int StartPage, int EndPage)
+        {
+           
+        }
+
+        private void IsThereAnyPermittedPotre(bool anyRow)
+        {
+            
+                noFIlePanel02.Visible = !anyRow;
+                searchPanel.Visible = anyRow;
+                paginationPanel.Visible = anyRow;
+            
+           
+
+           
+        }
+
+        public void  IsCurrentPotroTabPageShow(bool Show)
+        {
+            if(!Show)
+            {
+                tabControlLeft.TabPages.Remove(currentNothiAttachmentTabPageLeft); 
+            }
         }
 
         private void crossButton_Click(object sender, EventArgs e)
@@ -52,19 +207,11 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 
 
 
-                //Read the contents of the file into a stream
-                // var fileStream = opnfd.OpenFile();
-
-                // using (StreamReader reader = new StreamReader(opnfd.FileName, Encoding.UTF8))
-                // {
-                //     _dakFileUploadParam.content = reader.ReadToEnd();
-                // }
-
-                //// _dakFileUploadParam.content = File.ReadAllText(opnfd.FileName);
-                // // _dakFileUploadParam.file_size_in_kb=opnfd.
-
                 Byte[] bytes = File.ReadAllBytes(opnfd.FileName);
                 _dakFileUploadParam.content = Convert.ToBase64String(bytes);
+
+                _dakFileUploadParam.path = "Potrojari";
+                _dakFileUploadParam.model = "PotrojariAttachments";
 
                 var size = new System.IO.FileInfo(opnfd.FileName).Length;
 
@@ -83,51 +230,64 @@ namespace dNothi.Desktop.UI.Khosra_Potro
                 {
                     if (dakUploadedFileResponse.data.Count > 0)
                     {
-                        //attachmentListFlowLayoutPanel.Controls.Clear();
+                        PermittedPotroResponseMulpotroDTO permittedPotroResponseMulpotroDTO = new PermittedPotroResponseMulpotroDTO();
                         DakUploadAttachmentTableRow dakUploadAttachmentTableRow = new DakUploadAttachmentTableRow();
                         if (ImageExtensions.Contains(new System.IO.FileInfo(opnfd.FileName).Extension.ToUpperInvariant()))
                         {
                             dakUploadAttachmentTableRow.isAllowedforMulpotro = true;
                             dakUploadAttachmentTableRow._isAllowedforOCR = true;
                             dakUploadAttachmentTableRow.imgSource = opnfd.FileName;
-                            //using (Image image = Image.FromFile(opnfd.FileName))
-                            //{
-                            //    using (MemoryStream m = new MemoryStream())
-                            //    {
-                            //        image.Save(m, image.RawFormat);
-                            //        byte[] imageBytes = m.ToArray();
-
-                            //        // Convert byte[] to Base64 String
-                            //        dakUploadAttachmentTableRow.imageBase64String = Convert.ToBase64String(imageBytes);
-
-                            //    }
-                            //}
+                         
 
 
                         }
 
                       
-                            dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
-                        
+                        dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
 
 
-                        dakUploadAttachmentTableRow.imageBase64String = _dakFileUploadParam.content;
 
-                     //   dakUploadAttachmentTableRow.OCRButtonClick += delegate (object oCRSender, EventArgs oCREvent) { OCRControl_ButtonClick(sender, e, dakUploadAttachmentTableRow.imageBase64String, dakUploadAttachmentTableRow._dakAttachment, dakUploadAttachmentTableRow.fileexension); };
+                        permittedPotroResponseMulpotroDTO.content_body = dakUploadAttachmentTableRow.imageBase64String = _dakFileUploadParam.content;
+
                         dakUploadAttachmentTableRow.DeleteButtonClick += delegate (object deleteSender, EventArgs deleteeVent) { DeleteControl_ButtonClick(sender, e, dakUploadAttachmentTableRow._dakAttachment); };
 
 
 
-                        dakUploadAttachmentTableRow.fileexension = new System.IO.FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
+                        permittedPotroResponseMulpotroDTO.attachment_type=dakUploadAttachmentTableRow.fileexension = new System.IO.FileInfo(opnfd.FileName).Extension.ToLowerInvariant();
                         dakUploadAttachmentTableRow._dakAttachment = dakUploadedFileResponse.data[0];
                         dakUploadAttachmentTableRow.imageLink = dakUploadedFileResponse.data[0].url;
 
-                        dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
-                        dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;
-                        //dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
-
+                        permittedPotroResponseMulpotroDTO.user_file_name= dakUploadAttachmentTableRow.attachmentName = dakUploadedFileResponse.data[0].user_file_name;
+                        permittedPotroResponseMulpotroDTO.id=dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;
+                      
                         dakUploadAttachmentTableRow.Dock = DockStyle.Top;
                         attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
+
+
+                        permittedPotroResponseMulpotroDTO.file_name= dakUploadedFileResponse.data[0].file_name;
+                        permittedPotroResponseMulpotroDTO.file_dir= dakUploadedFileResponse.data[0].file_dir;
+                        try
+                        {
+
+                            permittedPotroResponseMulpotroDTO.file_size_in_kb = Convert.ToDouble(dakUploadedFileResponse.data[0].file_size_in_kb);
+                        }
+                        catch
+                        {
+
+                        }
+                        permittedPotroResponseMulpotroDTO.application_origin= dakUploadedFileResponse.data[0].application_origin;
+                        permittedPotroResponseMulpotroDTO.attachment_description= dakUploadedFileResponse.data[0].attachment_description;
+                        permittedPotroResponseMulpotroDTO.attachment_type= dakUploadedFileResponse.data[0].attachment_type;
+                        permittedPotroResponseMulpotroDTO.download_url= dakUploadedFileResponse.data[0].download_url;
+                        permittedPotroResponseMulpotroDTO.meta_data= dakUploadedFileResponse.data[0].meta_data;
+                        permittedPotroResponseMulpotroDTO.thumb_url= dakUploadedFileResponse.data[0].thumb_url;
+                        permittedPotroResponseMulpotroDTO.url = dakUploadedFileResponse.data[0].url ;
+
+
+                        permittedPotroResponseMulpotroDTO=UIDesignCommonMethod.GetPermittedPotroResponseFromDakAttachmentRespnse(dakUploadedFileResponse.data[0]);
+                        SelecteAttachment(permittedPotroResponseMulpotroDTO);
+                        CountSelectedPotro();
+
                     }
                 }
 
@@ -152,7 +312,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             if (response.status == "success")
 
             {
-                SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
+                UIDesignCommonMethod.SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
                 var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
 
                 foreach (var attachment in attachmentList)
@@ -160,6 +320,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
                     if (attachment.attachmentId == dakAttachment.attachment_id)
                     {
                         attachmentListFlowLayoutPanel.Controls.Remove(attachment);
+                        RemoveSelectedAttachment(attachment.attachmentId);
                     }
                 }
             }
@@ -167,42 +328,62 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 
         }
 
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
+      
 
         private void KhosraAttachmentForm_Shown(object sender, EventArgs e)
         {
-            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow = new KhosraSelectedAttachmentRow();
-            khosraSelectedAttachmentRow.fileName = "৫৬.৪২.০০০০.০১০.২৫.০০৩.২১.২ - ২২ ফেব্রুয়ারি ২০২";
-
-            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow);
-
-
-
-            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow2 = new KhosraSelectedAttachmentRow();
-            khosraSelectedAttachmentRow2.fileName = "Potrojari_2021_65_02_2216139904184630293468.png";
-            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow2);
-
-
-            KhosraSelectedAttachmentRow khosraSelectedAttachmentRow3 = new KhosraSelectedAttachmentRow();
-            khosraSelectedAttachmentRow3.fileName = "file_example_JPG_1MB.jpg";
-
-            UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow3);
-
+          
         }
 
         private void Border_Blue(object sender, PaintEventArgs e)
         {
             UIDesignCommonMethod.Border_Color_Blue(sender, e);
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void previousButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void previousAllButton_Click(object sender, EventArgs e)
+        {
+            potroAll_PageNo -= 1;
+            LoadAllPermittedPotro();
+        }
+
+        private void nextAllButton_Click(object sender, EventArgs e)
+        {
+            potroAll_PageNo += 1;
+            LoadAllPermittedPotro();
+        }
+
+        private void allNothiAttachmentTabPageLeft_Click(object sender, EventArgs e)
+        {
+            paginationReset();
+            LoadAllPermittedPotro();
+        }
+
+        public List<PermittedPotroResponseMulpotroDTO> permittedPotroResponseMulpotroDTOs;
+        public event EventHandler SelectButtonClicked;
+        private void selectButton_Click(object sender, EventArgs e)
+        {
+            permittedPotroResponseMulpotroDTOs = new List<PermittedPotroResponseMulpotroDTO>();
+            var khosraSelectedAttachmentRows = selectedAttachmentTableLayoutPanel.Controls.OfType<KhosraSelectedAttachmentRow>().Where(a=>a.isDeleted == false).ToList();
+            if (khosraSelectedAttachmentRows != null && khosraSelectedAttachmentRows.Count>0)
+            {
+                foreach(var attachment in khosraSelectedAttachmentRows)
+                {
+                    permittedPotroResponseMulpotroDTOs.Add(attachment._permittedPotroResponseMulpotroDTO);
+                }
+            }
+            this.Hide();
+            if (this.SelectButtonClicked != null)
+                this.SelectButtonClicked(sender, e);
         }
     }
 }

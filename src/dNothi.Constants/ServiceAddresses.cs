@@ -12,6 +12,7 @@ namespace dNothi.Constants
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";// dev server
         //public const string DefaultAPIDomainAddress = "https://api-bes.nothi.gov.bd";// Test Server
         public const string DakNothiCountEndPoint = "/api/module/pending";
+        public const string PermittedPotroEndPoint = "/api/potro/permitted";
         public const string NothijatoProtibedonEndPoint = "/api/reports/dak/nothijato";
         public const string NothiteUposthapitoProtibedonEndPoint = "/api/reports/dak/nothite_uposthapito";
         public const string PotrojariProtibedonEndPoint = "/api/reports/dak/jarikrito";

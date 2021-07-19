@@ -30,6 +30,8 @@ using dNothi.Services.GuardFile;
 using dNothi.Services.DakServices.DakSharingService;
 using dNothi.Services.PotroJariGroup;
 using dNothi.Desktop.UI.PotroJariGroups;
+using dNothi.Services;
+using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.Services.NothiReportService;
 
 namespace dNothi.Desktop
@@ -254,6 +256,7 @@ namespace dNothi.Desktop
             builder.RegisterType<PotrojariServices>().As<IPotrojariServices>();
             builder.RegisterType<KhosraSaveService>().As<IKhosraSaveService>();
             builder.RegisterType<PotroJariGroupService>().As<IPotroJariGroupService>();
+            builder.RegisterType<PotroServices>().As<IPotroServices>();
            
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
             builder.RegisterGeneric(typeof(DakSharingService<>)).As(typeof(IDakSharingService<>)).AsSelf();
@@ -263,6 +266,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
 
             builder.RegisterType<UI.Nothi>().AsSelf();
+            builder.RegisterType<KhosraAttachmentForm>().AsSelf();
             builder.RegisterType<UI.KhosraDashboard>().AsSelf();
             builder.RegisterType<UI.PotrojariGroup>().AsSelf();
             builder.RegisterType<PotrojariGroupForm>().AsSelf();
@@ -323,6 +327,8 @@ namespace dNothi.Desktop
            
             builder.RegisterType<NoteCreatePopUpForm>().AsSelf();
             
+            builder.RegisterType<UserProfileForm>().AsSelf();
+           
             builder.RegisterType<CreateGuardFileTypeForm>().AsSelf();
 
             builder.RegisterType<GurdFileControl>().AsSelf();

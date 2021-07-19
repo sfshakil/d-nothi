@@ -44,7 +44,9 @@ namespace dNothi.Services.KhasraService
             }
             catch (Exception ex)
             {
-                throw;
+                GetSarokNoResponse sarok_no = new GetSarokNoResponse();
+                sarok_no.sarok_no = "";
+                return sarok_no;
             }
         }
 

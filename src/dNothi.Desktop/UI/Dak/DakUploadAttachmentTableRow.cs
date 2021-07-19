@@ -15,15 +15,7 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakUploadAttachmentTableRow : UserControl
     {
-        public static readonly List<string> ImageExtensions = new List<string> { ".JPEG", ".JPG", "JPG", "JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG", "IMAGE", "IMG" };
-        public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
-        public static readonly List<string> ExcelExtension = new List<string> { ".XLS", "PDF" };
-        public static readonly List<string> TxtExtension = new List<string> { ".TXT" };
-        public static readonly List<string> docExtension = new List<string> { ".DOCX", ".DOC" };
-        public static readonly List<string> PPTExtension = new List<string> { ".PPT", ".PPTX" };
-        public static readonly List<string> CSVExtension = new List<string> { ".CSV" };
-        public static readonly List<string> AudioExtension = new List<string> { ".MP3", ".M4P", ".MP4" };
-      
+         
         private string _imageSrc;
         private string _imageDownloadLink;
         private string _imageLink;
@@ -116,41 +108,41 @@ namespace dNothi.Desktop.UI.Dak
         {
             string extUpper = value.ToUpperInvariant();
 
-            if(ImageExtensions.Contains(extUpper))
+            if(UIDesignCommonMethod.ImageExtensions.Contains(extUpper))
             {
                 attachmentLink.Visible = true;
             }
-            else if(PdfExtensions.Contains(extUpper))
+            else if(UIDesignCommonMethod.PdfExtensions.Contains(extUpper))
             {
                 btnFile.Visible = true;
                 btnFile.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
             }
-            else if (docExtension.Contains(extUpper))
+            else if (UIDesignCommonMethod.docExtension.Contains(extUpper))
             {
                 btnFile.Visible = true;
                 btnFile.IconChar = FontAwesome.Sharp.IconChar.FileWord;
             }
-            else if (CSVExtension.Contains(extUpper))
+            else if (UIDesignCommonMethod.CSVExtension.Contains(extUpper))
             {
                 btnFile.Visible = true;
                 btnFile.IconChar = FontAwesome.Sharp.IconChar.FileCsv;
             }
-            else if (TxtExtension.Contains(extUpper))
+            else if (UIDesignCommonMethod.TxtExtension.Contains(extUpper))
             {
                 btnFile.Visible = true;
                 btnFile.IconChar = FontAwesome.Sharp.IconChar.FileWord;
             }
-            else if (AudioExtension.Contains(extUpper))
+            else if (UIDesignCommonMethod.AudioExtension.Contains(extUpper))
             {
                 btnFile.Visible = true;
                 btnFile.IconChar = FontAwesome.Sharp.IconChar.FileAudio;
             }
-            else if (ExcelExtension.Contains(extUpper))
+            else if (UIDesignCommonMethod.ExcelExtension.Contains(extUpper))
             {
                 btnFile.Visible = true;
                 btnFile.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
             }
-            else if (PPTExtension.Contains(extUpper))
+            else if (UIDesignCommonMethod.PPTExtension.Contains(extUpper))
             {
                 btnFile.Visible = true;
                 btnFile.IconChar = FontAwesome.Sharp.IconChar.FilePowerpoint;

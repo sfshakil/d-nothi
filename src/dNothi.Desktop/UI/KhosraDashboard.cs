@@ -456,8 +456,12 @@ namespace dNothi.Desktop.UI
             khosra._nothiListRecordsDTO = mapmodel.Item2;
             khosra._nothiListInboxNoteRecordsDTO = mapmodel.Item3;
 
-            var attachment = GetAllMulPattraAndSanjukti(kasaraPotro);
-            khosra.draftAttachmentDTOs = attachment != null ? attachment.data : null;
+            if (kasaraPotro.Basic.PotroPages>0)
+            {
+                var attachment = GetAllMulPattraAndSanjukti(kasaraPotro);
+                khosra.draftAttachmentDTOs = attachment != null ? attachment.data.Where(a=>a.is_main!=1).ToList() : null;
+            }
+
             khosra.kasaradashboardHtmlContent = Base64Conversion.Base64ToHtmlContent(kasaraPotro.Mulpotro.PotroDescription);
 
           

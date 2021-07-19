@@ -31,6 +31,7 @@ using CefSharp.WinForms;
 using dNothi.JsonParser.Entity.Khosra;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
 using dNothi.Services.KasaraPatraDashBoardService;
+using dNothi.Services.KhasraService;
 
 namespace dNothi.Desktop.UI
 {
@@ -50,6 +51,7 @@ namespace dNothi.Desktop.UI
 
         NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
         IUserService _userService { get; set; }
+        IKhosraSaveService _khosraSaveService { get; set; }
         IPotrojariServices _potrojariServices { get; set; }
         IOnucchedSave _onucchedSave { get; set; }
         IOnucchedDelete _onucchedDelete { get; set; }
@@ -87,12 +89,14 @@ namespace dNothi.Desktop.UI
             IKhoshraPotroServices khoshraPotro, INothivuktoPotroServices nothivuktoPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
             IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave, INothiAllNoteServices nothiAllNote,
-            IOnucchedFileUploadService onucchedFileUploadService, IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction, IRepository<FileUploadAction> fileUploadAction)
+            IOnucchedFileUploadService onucchedFileUploadService, IKhosraSaveService khosraSaveService ,
+        IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction, IRepository<FileUploadAction> fileUploadAction)
         {
             _kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
             _potrojariServices = potrojariServices;
             _userService = userService;
             _onucchedSave = onucchedSave;
+            _khosraSaveService = khosraSaveService;
             _onucchedDelete=onucchedDelete;
             _onumodonService = onumodonService;
             _dakuserparam = _userService.GetLocalDakUserParam();
@@ -3351,8 +3355,10 @@ namespace dNothi.Desktop.UI
             }
         }
 
+        public string _saved_Onucched_Id;
         private void btnOnuchhedSave_Click(object sender, EventArgs e)
         {
+            _saved_Onucched_Id=null;
             try
             {
                 //onuchhedFLP.Controls.Clear();
@@ -3609,6 +3615,7 @@ namespace dNothi.Desktop.UI
                     {
                         if (onucchedSave.status == "success")
                         {
+                            _saved_Onucched_Id = onucchedSave.data.id;
                             onuchhedSaveWithAttachments.Clear();
                             //onuchhedheaderPnl.Visible = true;
                             //onuchhedFLP.Visible = true;
@@ -9056,14 +9063,7 @@ namespace dNothi.Desktop.UI
 
         private void btnClone_Click(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<Khosra>();
-            form.nothiNo = lbNothiNo.Text;
-            form.nothiShakha = lbNoteShakha.Text;
-            form.nothiSubject = lbSubject.Text;
-            form.TopMost = true;
-            BeginInvoke((Action)(() => form.ShowDialog()));
-            BeginInvoke((Action)(() => form.TopMost = false));
-            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+            EditorCloneKhosra(true);
         }
 
         private void btnDraftHistory_Click(object sender, EventArgs e)
@@ -9075,15 +9075,8 @@ namespace dNothi.Desktop.UI
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<Khosra>();
-
-            form.nothiNo = lbNothiNo.Text;
-            form.nothiShakha = lbNoteShakha.Text;
-            form.nothiSubject = lbSubject.Text;
-            form.TopMost = true;
-            BeginInvoke((Action)(() => form.ShowDialog()));
-            BeginInvoke((Action)(() => form.TopMost = false));
-            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+            EditorCloneKhosra(false);
+           
         }
 
         private void btnPotrojari_Click(object sender, EventArgs e)
@@ -9406,6 +9399,11 @@ namespace dNothi.Desktop.UI
             }
         }
         Point lastPoint;
+
+        public NoteListDataRecordNoteDTO _noteListDataRecordNoteDTO;
+        public NothiListRecordsDTO _nothiListRecordsDTO;
+        public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO;
+
         private void splitter3_MouseMove(object sender, MouseEventArgs e)
         {
             PnlSave.Location = new System.Drawing.Point(pnlNoteList.Width + splitter1.Width + btnSave.Location.X,
@@ -9428,11 +9426,15 @@ namespace dNothi.Desktop.UI
         private void btnSaveAndKhoshra_Click(object sender, EventArgs e)
         {
             btnOnuchhedSave_Click(sender, e);
-            loadKhoshra();
+            if(string.IsNullOrEmpty(_saved_Onucched_Id))
+            {
+                loadKhoshra(_saved_Onucched_Id);
+            }
+            
         }
         public void KhoshraButton_Click(string onucchedId, EventArgs e)
         {
-            loadKhoshra();
+            loadKhoshra(onucchedId);
         }
         public void EditButton_Click(OnuchhedSaveItemAction onucched, EventArgs e)
         {
@@ -9455,46 +9457,26 @@ namespace dNothi.Desktop.UI
             noteFileUploads.Clear();
             onucchedEditorPanel.Visible = true;
         }
-        private void loadKhoshra()
+        private void loadKhoshra(string onucchedId)
         {
-            NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
-            noteNothiDTO.id = _NoteAllListDataRecordDTO.nothi.id;//nothiId
-            noteNothiDTO.nothi_no = _NoteAllListDataRecordDTO.nothi.nothi_no;
-            noteNothiDTO.note_no = _NoteAllListDataRecordDTO.note.note_no.ToString();
-            noteNothiDTO.note_subject = _NoteAllListDataRecordDTO.note.note_subject;
-            noteNothiDTO.note_id = _NoteAllListDataRecordDTO.note.nothi_note_id.ToString();
 
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+            NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
             NothiListAllRecordsDTO nothiListRecords = new NothiListAllRecordsDTO();
 
-            NothiAllDTO nothiAllDTO = new NothiAllDTO();
-            nothiAllDTO.id = _NoteAllListDataRecordDTO.nothi.id;
-            nothiAllDTO.office_id = _NoteAllListDataRecordDTO.nothi.office_id;
-            nothiAllDTO.office_name = _NoteAllListDataRecordDTO.nothi.office_name;
-            nothiAllDTO.office_unit_id = _NoteAllListDataRecordDTO.nothi.office_unit_id;
-            nothiAllDTO.office_unit_name = _NoteAllListDataRecordDTO.nothi.office_unit_name;
-            nothiAllDTO.office_unit_organogram_id = _NoteAllListDataRecordDTO.nothi.office_unit_organogram_id;
-            nothiAllDTO.office_designation_name = _NoteAllListDataRecordDTO.nothi.office_designation_name;
-            nothiAllDTO.nothi_no = _NoteAllListDataRecordDTO.nothi.nothi_no;
-            nothiAllDTO.subject = _NoteAllListDataRecordDTO.nothi.subject;
-            nothiAllDTO.nothi_class = _NoteAllListDataRecordDTO.nothi.nothi_class;
-            nothiAllDTO.modified = _NoteAllListDataRecordDTO.nothi.modified;
-
-            nothiListRecords.nothi = nothiAllDTO;
-
-            DeskAllDTO deskAllDTO = new DeskAllDTO();
-            deskAllDTO.nothi_master_id = _NoteAllListDataRecordDTO.desk.nothi_master_id;
-            deskAllDTO.issue_date = _NoteAllListDataRecordDTO.desk.issue_date;
-            deskAllDTO.note_count = _NoteAllListDataRecordDTO.desk.note_count;
-            deskAllDTO.note_current_status = _NoteAllListDataRecordDTO.desk.note_current_status;
-            deskAllDTO.priority = _NoteAllListDataRecordDTO.desk.priority;
-
-            nothiListRecords.desk = deskAllDTO;
-
+            (noteNothiDTO, nothiListRecords) = GetNothiAndNoteInfo();
             var form = FormFactory.Create<Khosra>();
             form.NothiKhosrajato(noteNothiDTO, lbNoteShakha.Text, lbSubject.Text, nothiListRecords);
-            form.TopMost = true;
+
+            form._noteListDataRecordNoteDTO = _noteListDataRecordNoteDTO;
+            form._nothiListRecordsDTO = _nothiListRecordsDTO;
+            form._nothiListInboxNoteRecordsDTO = _nothiListInboxNoteRecordsDTO;
+            form._note_onucched_id = Convert.ToInt32(onucchedId);
+            
+            //GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(noteNothiDTO.nothi_id), potrojari_id);
+            //form.SetSarokNo(sarok_no.sarok_no);
+
             BeginInvoke((Action)(() => form.ShowDialog()));
-            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -9725,6 +9707,136 @@ namespace dNothi.Desktop.UI
             editortext += Text+",";
             allText = addParagraphStartTag + editortext + addParagraphEndTag;
             tinyMceEditor.HtmlContent = allText;
+        }
+
+        private void btnFullEditable_Click(object sender, EventArgs e)
+        {
+            EditorCloneKhosra(false);
+
+        }
+
+        private void EditorCloneKhosra(bool clone)
+        {
+            if (_khoshraPotroDataRecordDTO != null)
+            {
+                _khoshraPotroWaitinDataRecordDTO = GetKhosraWaiting();
+            }
+            if (_khoshraPotroWaitinDataRecordDTO != null)
+            {
+                NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
+                NothiListAllRecordsDTO nothiListRecords = new NothiListAllRecordsDTO();
+
+                (noteNothiDTO, nothiListRecords) = GetNothiAndNoteInfo();
+
+
+                var khosra = FormFactory.Create<Khosra>();
+                var dakListUserParam = _userService.GetLocalDakUserParam();
+                dakListUserParam.limit = 10;
+                var prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, _khoshraPotroWaitinDataRecordDTO.basic.id);
+                KhasraPotroTemplateDataDTO khasraPotroTemplateData = new KhasraPotroTemplateDataDTO();
+                if (_khoshraPotroWaitinDataRecordDTO.note_owner != null)
+                {
+                    
+                    khasraPotroTemplateData.potrojari_id = _khoshraPotroWaitinDataRecordDTO.note_owner.potrojari;
+                    khosra.NothiKhosrajato(noteNothiDTO, lbNoteShakha.Text, lbSubject.Text, nothiListRecords);
+                    khosra.SetSarokNo(_khoshraPotroWaitinDataRecordDTO.basic.sarok_no);
+                }
+                khosra._note_onucched_id = _khoshraPotroWaitinDataRecordDTO.note_onucched.id;
+              
+                if(clone)
+                {
+                    khosra._cloned_potrojari_id = _khoshraPotroWaitinDataRecordDTO.basic.id;
+                }
+                else
+                {
+                    khosra.draft_id = _khoshraPotroWaitinDataRecordDTO.basic.id;
+                }
+
+                
+                khosra._noteListDataRecordNoteDTO = _noteListDataRecordNoteDTO;
+                khosra._nothiListRecordsDTO = _nothiListRecordsDTO;
+                khosra._nothiListInboxNoteRecordsDTO = _nothiListInboxNoteRecordsDTO;
+                
+               if(_khoshraPotroWaitinDataRecordDTO.basic.potro_pages>0)
+                {
+                    var khoshraPotro = GetKhosra(_khoshraPotroWaitinDataRecordDTO);
+                    var attachment = GetAllMulPattraAndSanjukti(khoshraPotro);
+
+                    //_khoshraPotroWaitinDataRecordDTO
+                    khosra.draftAttachmentDTOs = attachment != null ? attachment.data.Where(a => a.is_main != 1).ToList() : null;
+
+                }
+
+                khosra.kasaradashboardHtmlContent = Base64Conversion.Base64ToHtmlContent(_khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description);
+
+
+                khasraPotroTemplateData.template_id = _khoshraPotroWaitinDataRecordDTO.basic.potro_type;
+                khasraPotroTemplateData.template_name = _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_cover;
+
+                khasraPotroTemplateData.html_content = Base64Conversion.Base64ToHtmlContent(_khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description);
+
+                khosra._khasraPotroTemplateData = khasraPotroTemplateData;
+
+
+
+                if (prapakerTalika.status == "success")
+                {
+
+
+                    khosra.LoadAllDesignation();
+
+
+                    khosra.onulipiOfficerDesignations = prapakerTalika.data.onulipi;
+                    khosra.onumodanKariOfficerDesignations = prapakerTalika.data.approver;
+                    khosra.prapakOfficerDesignations = prapakerTalika.data.receiver;
+                    khosra.prerokOfficerDesignations = prapakerTalika.data.sender;
+                    khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
+                }
+               
+        
+                BeginInvoke((Action)(() => khosra.ShowDialog()));
+                khosra.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+               
+            }
+        }
+
+        private (NoteNothiDTO noteNothiDTO, NothiListAllRecordsDTO nothiListRecords) GetNothiAndNoteInfo()
+        {
+            NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
+            noteNothiDTO.id = _NoteAllListDataRecordDTO.nothi.id;//nothiId
+            noteNothiDTO.nothi_no = _NoteAllListDataRecordDTO.nothi.nothi_no;
+            noteNothiDTO.note_no = _NoteAllListDataRecordDTO.note.note_no.ToString();
+            noteNothiDTO.note_subject = _NoteAllListDataRecordDTO.note.note_subject;
+            noteNothiDTO.note_id = _NoteAllListDataRecordDTO.note.nothi_note_id.ToString();
+
+            NothiListAllRecordsDTO nothiListRecords = new NothiListAllRecordsDTO();
+
+            NothiAllDTO nothiAllDTO = new NothiAllDTO();
+            nothiAllDTO.id = _NoteAllListDataRecordDTO.nothi.id;
+            nothiAllDTO.office_id = _NoteAllListDataRecordDTO.nothi.office_id;
+            nothiAllDTO.office_name = _NoteAllListDataRecordDTO.nothi.office_name;
+            nothiAllDTO.office_unit_id = _NoteAllListDataRecordDTO.nothi.office_unit_id;
+            nothiAllDTO.office_unit_name = _NoteAllListDataRecordDTO.nothi.office_unit_name;
+            nothiAllDTO.office_unit_organogram_id = _NoteAllListDataRecordDTO.nothi.office_unit_organogram_id;
+            nothiAllDTO.office_designation_name = _NoteAllListDataRecordDTO.nothi.office_designation_name;
+            nothiAllDTO.nothi_no = _NoteAllListDataRecordDTO.nothi.nothi_no;
+            nothiAllDTO.subject = _NoteAllListDataRecordDTO.nothi.subject;
+            nothiAllDTO.nothi_class = _NoteAllListDataRecordDTO.nothi.nothi_class;
+            nothiAllDTO.modified = _NoteAllListDataRecordDTO.nothi.modified;
+
+            nothiListRecords.nothi = nothiAllDTO;
+
+            DeskAllDTO deskAllDTO = new DeskAllDTO();
+            deskAllDTO.nothi_master_id = _NoteAllListDataRecordDTO.desk.nothi_master_id;
+            deskAllDTO.issue_date = _NoteAllListDataRecordDTO.desk.issue_date;
+            deskAllDTO.note_count = _NoteAllListDataRecordDTO.desk.note_count;
+            deskAllDTO.note_current_status = _NoteAllListDataRecordDTO.desk.note_current_status;
+            deskAllDTO.priority = _NoteAllListDataRecordDTO.desk.priority;
+
+            nothiListRecords.desk = deskAllDTO;
+
+
+            return (noteNothiDTO, nothiListRecords);
         }
     }
 }

@@ -13,6 +13,7 @@ using dNothi.JsonParser.Entity;
 using System.Threading;
 using dNothi.Utility;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.UI.Dak;
 
 namespace dNothi.Desktop
 {
@@ -114,6 +115,15 @@ namespace dNothi.Desktop
         {
             
             
+        }
+
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form = FormFactory.Create<UserProfileForm>();
+            Form parentForm = this.Parent.FindForm();
+            UIDesignCommonMethod.CalPopUpWindow(form, parentForm);
+
         }
     }
 }
