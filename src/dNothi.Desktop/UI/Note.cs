@@ -9500,13 +9500,21 @@ namespace dNothi.Desktop.UI
 
         private void btnDecision_Click(object sender, EventArgs e)
         {
-            WaitForm.Show(this);
-            var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
-            nothiDecisionList.DecisionText += delegate (object sender1, EventArgs e1) { DecisionText_Click(sender1 as string, e1); };
-            nothiDecisionList.loadRow();
-            var form = NothiNextStepControlToForm(nothiDecisionList);
-            WaitForm.Close();
-            CalPopUpWindow(form);
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.DecisionText += delegate (object sender1, EventArgs e1) { DecisionText_Click(sender1 as string, e1); };
+                nothiDecisionList.loadRow();
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
         }
         private void DecisionText_Click(string text, EventArgs e1)
         {
@@ -9568,12 +9576,20 @@ namespace dNothi.Desktop.UI
 
         private void btnGardFile_Click(object sender, EventArgs e)
         {
-            WaitForm.Show(this);
-            var nothiGaurdFileList = UserControlFactory.Create<NothiGaurdFileList>();
-            nothiGaurdFileList.GaurdFileAttachment += delegate (object sender1, EventArgs e1) { GaurdFileText_Click(sender1 as GaurdFileRecord, e1); };
-            var form = NothiNextStepControlToForm(nothiGaurdFileList);
-            WaitForm.Close();
-            CalPopUpWindow(form);
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiGaurdFileList = UserControlFactory.Create<NothiGaurdFileList>();
+                nothiGaurdFileList.GaurdFileAttachment += delegate (object sender1, EventArgs e1) { GaurdFileText_Click(sender1 as GaurdFileRecord, e1); };
+                var form = NothiNextStepControlToForm(nothiGaurdFileList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
         }
         private void GaurdFileText_Click(GaurdFileRecord gaurdFileRecord, EventArgs e1)
         {
@@ -9591,14 +9607,22 @@ namespace dNothi.Desktop.UI
 
         private void btnBibechhoPotro_Click(object sender, EventArgs e)
         {
-            WaitForm.Show(this);
-            var nothiBibechhoPotroList = UserControlFactory.Create<NothiBibechhoPotroList>();
-            nothiBibechhoPotroList.BibechhoPotroRecord += delegate (object sender1, EventArgs e1) { BibechhoPotroText_Click(sender1 as BibechhoPotroRecord, e1); };
-            nothiBibechhoPotroList.nothi_id = nothiListRecords.id.ToString();
-            nothiBibechhoPotroList.loadRow(); 
-             var form = NothiNextStepControlToForm(nothiBibechhoPotroList);
-            WaitForm.Close();
-            CalPopUpWindow(form);
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiBibechhoPotroList = UserControlFactory.Create<NothiBibechhoPotroList>();
+                nothiBibechhoPotroList.BibechhoPotroRecord += delegate (object sender1, EventArgs e1) { BibechhoPotroText_Click(sender1 as BibechhoPotroRecord, e1); };
+                nothiBibechhoPotroList.nothi_id = nothiListRecords.id.ToString();
+                nothiBibechhoPotroList.loadRow();
+                var form = NothiNextStepControlToForm(nothiBibechhoPotroList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
         }
         private void BibechhoPotroText_Click(BibechhoPotroRecord record, EventArgs e1)
         {
@@ -9614,15 +9638,23 @@ namespace dNothi.Desktop.UI
 
         private void btnShongjuktiRef_Click(object sender, EventArgs e)
         {
-            //var str = onuchhedSaveWithAttachments;
-            WaitForm.Show(this);
-            var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
-            nothiDecisionList.labelText = "সংযুক্তি তালিকা";
-            nothiDecisionList.AttachmentAdd += delegate (object sender1, EventArgs e1) { AttachmentAdd_Click(sender1 as DakAttachmentDTO, e1); };
-            nothiDecisionList.loadRowAttachments(onuchhedSaveWithAttachments);
-            var form = NothiNextStepControlToForm(nothiDecisionList);
-            WaitForm.Close();
-            CalPopUpWindow(form);
+            if (InternetConnection.Check())
+            {
+                //var str = onuchhedSaveWithAttachments;
+                WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.labelText = "সংযুক্তি তালিকা";
+                nothiDecisionList.AttachmentAdd += delegate (object sender1, EventArgs e1) { AttachmentAdd_Click(sender1 as DakAttachmentDTO, e1); };
+                nothiDecisionList.loadRowAttachments(onuchhedSaveWithAttachments);
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
         }
         private void AttachmentAdd_Click(DakAttachmentDTO record, EventArgs e1)
         {
@@ -9637,14 +9669,22 @@ namespace dNothi.Desktop.UI
 
         private void btnPotaka_Click(object sender, EventArgs e)
         {
-            WaitForm.Show(this);
-            var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
-            nothiDecisionList.labelText = "পতাকা বাছাই করুন";
-            nothiDecisionList.loadPotaka(nothiListRecords.id.ToString(), notelist.nothi_note_id.ToString());
-            nothiDecisionList.PotakaAdd += delegate (object sender1, EventArgs e1) { PotakaAdd_Click(sender1 as PotakaListRecord, e1); };
-            var form = NothiNextStepControlToForm(nothiDecisionList);
-            WaitForm.Close();
-            CalPopUpWindow(form);
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.labelText = "পতাকা বাছাই করুন";
+                nothiDecisionList.loadPotaka(nothiListRecords.id.ToString(), notelist.nothi_note_id.ToString());
+                nothiDecisionList.PotakaAdd += delegate (object sender1, EventArgs e1) { PotakaAdd_Click(sender1 as PotakaListRecord, e1); };
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
         }
         private void PotakaAdd_Click(PotakaListRecord record, EventArgs e1)
         {
@@ -9659,14 +9699,22 @@ namespace dNothi.Desktop.UI
 
         private void btnOnuchhed_Click(object sender, EventArgs e)
         {
-            WaitForm.Show(this);
-            var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
-            nothiDecisionList.labelText = "অনুচ্ছেদ তালিকা";
-            nothiDecisionList.loadOnuchhed(nothiListRecords.id.ToString());
-            nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
-            var form = NothiNextStepControlToForm(nothiDecisionList);
-            WaitForm.Close();
-            CalPopUpWindow(form);
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.labelText = "অনুচ্ছেদ তালিকা";
+                nothiDecisionList.loadOnuchhed(nothiListRecords.id.ToString());
+                nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
         }
         private void OnuchhedAdd_Click(string Text, EventArgs e1)
         {
