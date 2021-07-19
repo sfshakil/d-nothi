@@ -203,8 +203,10 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler btnOptionClick;
         private void btnOption_Click(object sender, EventArgs e)
         {
+            Point locationOnForm = btnOption.FindForm().PointToClient(btnOption.Parent.PointToScreen(btnOption.Location));
+            object buttonCoOrdinates = locationOnForm;
             if (this.btnOptionClick != null)
-                this.btnOptionClick(sender, e);
+                this.btnOptionClick(buttonCoOrdinates, e);
            
         }
 

@@ -44,6 +44,7 @@ namespace dNothi.Desktop.UI.Dak
             originalHeight = this.Height;
             pnlNewAllNote.Visible = false;
             newAllNoteFlowLayoutPanel.Visible = false;
+            uc.Visible = false;
             SetDefaultFont(this.Controls);
         }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
@@ -186,24 +187,33 @@ namespace dNothi.Desktop.UI.Dak
 
         public event EventHandler LocalNoteDetailsButton;
         bool isActive = false;
+        ModalMenuUserControl uc = new ModalMenuUserControl();
+        
         private void btnOption_ButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
-            ModalMenuUserControl uc = new ModalMenuUserControl();
-
             //if (!isActive)
             ////  uc.Location = System.Windows.Forms.Cursor.Position;
             //{
+            if (uc.Visible != true)
+            {
                 bool remove = true;
-                if ( nothiListInboxNoteRecordsDTO.note.onucched_count>0)
-                   { remove = false; }
-                uc.ButtonVisibility(true,  remove,true);
-                uc.Location = new Point(50, this.Location.Y+40);
+                if (nothiListInboxNoteRecordsDTO.note.onucched_count > 0)
+                { remove = false; }
+                uc.ButtonVisibility(true, remove, true);
+                uc.Location = new Point(50,this.Location.Y);//((Point)sender).X, ((Point)sender).Y);
                 uc.noteEditButtonClick += delegate (object s1, EventArgs e1) { uc_noteEditButtonClick(s1, e1, nothiListInboxNoteRecordsDTO); };
                 uc.noteOnumodanButtonClick += delegate (object s2, EventArgs e2) { uc_noteOnumodanButtonClick(s2, e2); };
                 uc.noteRemoveButtonClick += delegate (object s3, EventArgs e3) { uc_noteRemoveButtonClick(s3, e3, nothiListInboxNoteRecordsDTO); };
 
                 this.Controls.Add(uc);
                 uc.BringToFront();
+                uc.Visible = true;
+            }
+            else
+            {
+                uc.Visible = false;
+            }
+                
             //    isActive = true;
             //}
             //else
@@ -348,7 +358,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiNoteShomuho.btnOptionClick += delegate (object sender1, EventArgs e1)
                 {
 
-                    btnOption_ButtonClick(sender1, e1, nothiListInboxNoteRecordsDTO);
+                    btnOption_ButtonClick(sender1 as object, e1, nothiListInboxNoteRecordsDTO);
                 };
                 i = i + 1;
                 UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);

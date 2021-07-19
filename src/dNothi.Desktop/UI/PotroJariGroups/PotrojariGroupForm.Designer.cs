@@ -268,6 +268,7 @@
             this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.profilePanel.Size = new System.Drawing.Size(373, 39);
             this.profilePanel.TabIndex = 28;
+            this.profilePanel.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             // 
             // userPictureBox
             // 
@@ -287,6 +288,7 @@
             this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.userPictureBox.TabIndex = 29;
             this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             // 
             // onlineStatus
             // 
@@ -308,6 +310,7 @@
             this.onlineStatus.Size = new System.Drawing.Size(21, 29);
             this.onlineStatus.TabIndex = 31;
             this.onlineStatus.UseVisualStyleBackColor = false;
+            this.onlineStatus.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             // 
             // userNameLabel
             // 
@@ -321,6 +324,7 @@
             this.userNameLabel.Size = new System.Drawing.Size(287, 25);
             this.userNameLabel.TabIndex = 23;
             this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি) ";
+            this.userNameLabel.Click += new System.EventHandler(this.profileShowArrowButton_Click);
             // 
             // profileShowArrowButton
             // 
@@ -1252,10 +1256,10 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(129, 10);
+            this.label6.Location = new System.Drawing.Point(148, 10);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label6.Size = new System.Drawing.Size(18, 18);
+            this.label6.Size = new System.Drawing.Size(22, 21);
             this.label6.TabIndex = 42;
             this.label6.Text = "০";
             // 
@@ -1267,7 +1271,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
             this.label3.Location = new System.Drawing.Point(8, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 18);
+            this.label3.Size = new System.Drawing.Size(140, 21);
             this.label3.TabIndex = 41;
             this.label3.Text = "গ্রুপে অন্তর্ভুক্ত ব্যক্তিবর্গ";
             // 
@@ -1311,11 +1315,11 @@
             this.officerSearchTabPage.Controls.Add(this.iconButton4);
             this.officerSearchTabPage.Controls.Add(this.officerSearchList);
             this.officerSearchTabPage.Controls.Add(this.label23);
-            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 30);
+            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 34);
             this.officerSearchTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerSearchTabPage.Name = "officerSearchTabPage";
             this.officerSearchTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchTabPage.Size = new System.Drawing.Size(434, 211);
+            this.officerSearchTabPage.Size = new System.Drawing.Size(434, 207);
             this.officerSearchTabPage.TabIndex = 3;
             this.officerSearchTabPage.Text = "অফিসার খুঁজুন";
             this.officerSearchTabPage.UseVisualStyleBackColor = true;
@@ -1357,7 +1361,7 @@
             this.officerSearchList.Name = "officerSearchList";
             this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
             this.officerSearchList.selectedId = 0;
-            this.officerSearchList.Size = new System.Drawing.Size(358, 44);
+            this.officerSearchList.Size = new System.Drawing.Size(358, 52);
             this.officerSearchList.TabIndex = 93;
             // 
             // label23
@@ -1365,7 +1369,7 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(13, 19);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(92, 21);
+            this.label23.Size = new System.Drawing.Size(109, 25);
             this.label23.TabIndex = 89;
             this.label23.Text = "অফিসার খুঁজুন";
             // 
@@ -1375,10 +1379,10 @@
             this.OfficeTabPageLeft.Controls.Add(this.panel8);
             this.OfficeTabPageLeft.Controls.Add(this.prapokownOfficeTreeView);
             this.OfficeTabPageLeft.ImageIndex = 1;
-            this.OfficeTabPageLeft.Location = new System.Drawing.Point(4, 30);
+            this.OfficeTabPageLeft.Location = new System.Drawing.Point(4, 34);
             this.OfficeTabPageLeft.Name = "OfficeTabPageLeft";
             this.OfficeTabPageLeft.Padding = new System.Windows.Forms.Padding(3);
-            this.OfficeTabPageLeft.Size = new System.Drawing.Size(434, 211);
+            this.OfficeTabPageLeft.Size = new System.Drawing.Size(434, 207);
             this.OfficeTabPageLeft.TabIndex = 4;
             this.OfficeTabPageLeft.Text = "নিজ অফিসের পদসমূহ";
             this.OfficeTabPageLeft.UseVisualStyleBackColor = true;
@@ -1388,7 +1392,7 @@
             this.designationStateOwnLabel.AutoSize = true;
             this.designationStateOwnLabel.Location = new System.Drawing.Point(18, 93);
             this.designationStateOwnLabel.Name = "designationStateOwnLabel";
-            this.designationStateOwnLabel.Size = new System.Drawing.Size(290, 21);
+            this.designationStateOwnLabel.Size = new System.Drawing.Size(331, 25);
             this.designationStateOwnLabel.TabIndex = 77;
             this.designationStateOwnLabel.Text = "শাখা ০ টি, পদ ০টি, শুন্যপদ ০টি, কর্মরত ০ জন";
             // 
@@ -1409,7 +1413,7 @@
             this.prapokSearchOwnOfficeTextBox.Location = new System.Drawing.Point(10, 13);
             this.prapokSearchOwnOfficeTextBox.Name = "prapokSearchOwnOfficeTextBox";
             this.prapokSearchOwnOfficeTextBox.PlaceholderText = "প্রাপক খুঁজুন";
-            this.prapokSearchOwnOfficeTextBox.Size = new System.Drawing.Size(297, 19);
+            this.prapokSearchOwnOfficeTextBox.Size = new System.Drawing.Size(297, 22);
             this.prapokSearchOwnOfficeTextBox.TabIndex = 3;
             // 
             // prapokownOfficeTreeView
@@ -1426,10 +1430,10 @@
             this.InfoBySelf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.InfoBySelf.Controls.Add(this.panel6);
             this.InfoBySelf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.InfoBySelf.Location = new System.Drawing.Point(4, 30);
+            this.InfoBySelf.Location = new System.Drawing.Point(4, 34);
             this.InfoBySelf.Margin = new System.Windows.Forms.Padding(0);
             this.InfoBySelf.Name = "InfoBySelf";
-            this.InfoBySelf.Size = new System.Drawing.Size(434, 211);
+            this.InfoBySelf.Size = new System.Drawing.Size(434, 207);
             this.InfoBySelf.TabIndex = 2;
             this.InfoBySelf.Text = "নিজে তথ্য লিখুন";
             // 
@@ -1442,7 +1446,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(8, 10, 8, 0);
-            this.panel6.Size = new System.Drawing.Size(434, 211);
+            this.panel6.Size = new System.Drawing.Size(434, 207);
             this.panel6.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -1483,14 +1487,14 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(418, 201);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(418, 197);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // workplaceEngPanelTxt
             // 
             this.workplaceEngPanelTxt.Controls.Add(this.workplaceEngTxt);
             this.workplaceEngPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.workplaceEngPanelTxt.Location = new System.Drawing.Point(139, 180);
+            this.workplaceEngPanelTxt.Location = new System.Drawing.Point(139, 213);
             this.workplaceEngPanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.workplaceEngPanelTxt.Name = "workplaceEngPanelTxt";
             this.workplaceEngPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1508,14 +1512,14 @@
             this.workplaceEngTxt.Margin = new System.Windows.Forms.Padding(0);
             this.workplaceEngTxt.Name = "workplaceEngTxt";
             this.workplaceEngTxt.PlaceholderText = "";
-            this.workplaceEngTxt.Size = new System.Drawing.Size(103, 19);
+            this.workplaceEngTxt.Size = new System.Drawing.Size(103, 22);
             this.workplaceEngTxt.TabIndex = 4;
             // 
             // branchEngPanelTxt
             // 
             this.branchEngPanelTxt.Controls.Add(this.branchENgTxt);
             this.branchEngPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.branchEngPanelTxt.Location = new System.Drawing.Point(139, 126);
+            this.branchEngPanelTxt.Location = new System.Drawing.Point(139, 135);
             this.branchEngPanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.branchEngPanelTxt.Name = "branchEngPanelTxt";
             this.branchEngPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1533,14 +1537,14 @@
             this.branchENgTxt.Margin = new System.Windows.Forms.Padding(0);
             this.branchENgTxt.Name = "branchENgTxt";
             this.branchENgTxt.PlaceholderText = "";
-            this.branchENgTxt.Size = new System.Drawing.Size(103, 19);
+            this.branchENgTxt.Size = new System.Drawing.Size(103, 22);
             this.branchENgTxt.TabIndex = 4;
             // 
             // branchPanelTxt
             // 
             this.branchPanelTxt.Controls.Add(this.branchTxt);
             this.branchPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.branchPanelTxt.Location = new System.Drawing.Point(0, 126);
+            this.branchPanelTxt.Location = new System.Drawing.Point(0, 135);
             this.branchPanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.branchPanelTxt.Name = "branchPanelTxt";
             this.branchPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1558,14 +1562,14 @@
             this.branchTxt.Margin = new System.Windows.Forms.Padding(0);
             this.branchTxt.Name = "branchTxt";
             this.branchTxt.PlaceholderText = "";
-            this.branchTxt.Size = new System.Drawing.Size(103, 19);
+            this.branchTxt.Size = new System.Drawing.Size(103, 22);
             this.branchTxt.TabIndex = 4;
             // 
             // workplacePanelTxt
             // 
             this.workplacePanelTxt.Controls.Add(this.workPlaceTxt);
             this.workplacePanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.workplacePanelTxt.Location = new System.Drawing.Point(0, 180);
+            this.workplacePanelTxt.Location = new System.Drawing.Point(0, 213);
             this.workplacePanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.workplacePanelTxt.Name = "workplacePanelTxt";
             this.workplacePanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1583,14 +1587,14 @@
             this.workPlaceTxt.Margin = new System.Windows.Forms.Padding(0);
             this.workPlaceTxt.Name = "workPlaceTxt";
             this.workPlaceTxt.PlaceholderText = "";
-            this.workPlaceTxt.Size = new System.Drawing.Size(103, 19);
+            this.workPlaceTxt.Size = new System.Drawing.Size(103, 22);
             this.workPlaceTxt.TabIndex = 4;
             // 
             // padEngPanelTxt
             // 
             this.padEngPanelTxt.Controls.Add(this.padEngTxt);
             this.padEngPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.padEngPanelTxt.Location = new System.Drawing.Point(139, 72);
+            this.padEngPanelTxt.Location = new System.Drawing.Point(139, 78);
             this.padEngPanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.padEngPanelTxt.Name = "padEngPanelTxt";
             this.padEngPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1608,14 +1612,14 @@
             this.padEngTxt.Margin = new System.Windows.Forms.Padding(0);
             this.padEngTxt.Name = "padEngTxt";
             this.padEngTxt.PlaceholderText = "";
-            this.padEngTxt.Size = new System.Drawing.Size(103, 19);
+            this.padEngTxt.Size = new System.Drawing.Size(103, 22);
             this.padEngTxt.TabIndex = 4;
             // 
             // padPanelTxt
             // 
             this.padPanelTxt.Controls.Add(this.padTxt);
             this.padPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.padPanelTxt.Location = new System.Drawing.Point(0, 72);
+            this.padPanelTxt.Location = new System.Drawing.Point(0, 78);
             this.padPanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.padPanelTxt.Name = "padPanelTxt";
             this.padPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1633,7 +1637,7 @@
             this.padTxt.Margin = new System.Windows.Forms.Padding(0);
             this.padTxt.Name = "padTxt";
             this.padTxt.PlaceholderText = "";
-            this.padTxt.Size = new System.Drawing.Size(103, 19);
+            this.padTxt.Size = new System.Drawing.Size(103, 22);
             this.padTxt.TabIndex = 4;
             // 
             // label22
@@ -1643,10 +1647,10 @@
             this.label22.BackColor = System.Drawing.Color.White;
             this.label22.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(3, 162);
+            this.label22.Location = new System.Drawing.Point(3, 192);
             this.label22.Name = "label22";
             this.label22.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label22.Size = new System.Drawing.Size(107, 18);
+            this.label22.Size = new System.Drawing.Size(121, 21);
             this.label22.TabIndex = 52;
             this.label22.Text = "কার্যালয় (বাংলায়)*";
             // 
@@ -1657,10 +1661,10 @@
             this.label20.BackColor = System.Drawing.Color.White;
             this.label20.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(142, 162);
+            this.label20.Location = new System.Drawing.Point(142, 171);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label20.Size = new System.Drawing.Size(114, 18);
+            this.label20.Size = new System.Drawing.Size(83, 42);
             this.label20.TabIndex = 50;
             this.label20.Text = "কার্যালয় (ইংরেজিতে)";
             // 
@@ -1674,7 +1678,7 @@
             this.label11.Location = new System.Drawing.Point(3, 0);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label11.Size = new System.Drawing.Size(77, 18);
+            this.label11.Size = new System.Drawing.Size(90, 21);
             this.label11.TabIndex = 43;
             this.label11.Text = "নাম (বাংলায়)";
             // 
@@ -1688,7 +1692,7 @@
             this.label13.Location = new System.Drawing.Point(142, 0);
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label13.Size = new System.Drawing.Size(92, 18);
+            this.label13.Size = new System.Drawing.Size(109, 21);
             this.label13.TabIndex = 45;
             this.label13.Text = "নাম (ইংরেজিতে)";
             // 
@@ -1702,7 +1706,7 @@
             this.label16.Location = new System.Drawing.Point(281, 0);
             this.label16.Name = "label16";
             this.label16.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label16.Size = new System.Drawing.Size(54, 18);
+            this.label16.Size = new System.Drawing.Size(61, 21);
             this.label16.TabIndex = 46;
             this.label16.Text = "ইমেইল*";
             // 
@@ -1713,10 +1717,10 @@
             this.label17.BackColor = System.Drawing.Color.White;
             this.label17.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(3, 54);
+            this.label17.Location = new System.Drawing.Point(3, 57);
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label17.Size = new System.Drawing.Size(84, 18);
+            this.label17.Size = new System.Drawing.Size(93, 21);
             this.label17.TabIndex = 47;
             this.label17.Text = "পদ (বাংলায়)*";
             // 
@@ -1727,10 +1731,10 @@
             this.label18.BackColor = System.Drawing.Color.White;
             this.label18.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(142, 54);
+            this.label18.Location = new System.Drawing.Point(142, 57);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label18.Size = new System.Drawing.Size(91, 18);
+            this.label18.Size = new System.Drawing.Size(106, 21);
             this.label18.TabIndex = 48;
             this.label18.Text = "পদ (ইংরেজিতে)";
             // 
@@ -1741,10 +1745,10 @@
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(281, 54);
+            this.label12.Location = new System.Drawing.Point(281, 57);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label12.Size = new System.Drawing.Size(82, 18);
+            this.label12.Size = new System.Drawing.Size(99, 21);
             this.label12.TabIndex = 44;
             this.label12.Text = "মোবাইল নাম্বার";
             // 
@@ -1755,10 +1759,10 @@
             this.label21.BackColor = System.Drawing.Color.White;
             this.label21.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(3, 108);
+            this.label21.Location = new System.Drawing.Point(3, 114);
             this.label21.Name = "label21";
             this.label21.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label21.Size = new System.Drawing.Size(81, 18);
+            this.label21.Size = new System.Drawing.Size(95, 21);
             this.label21.TabIndex = 51;
             this.label21.Text = "শাখা (বাংলায়)";
             // 
@@ -1769,10 +1773,10 @@
             this.label19.BackColor = System.Drawing.Color.White;
             this.label19.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(142, 108);
+            this.label19.Location = new System.Drawing.Point(142, 114);
             this.label19.Name = "label19";
             this.label19.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.label19.Size = new System.Drawing.Size(96, 18);
+            this.label19.Size = new System.Drawing.Size(114, 21);
             this.label19.TabIndex = 49;
             this.label19.Text = "শাখা (ইংরেজিতে)";
             // 
@@ -1781,7 +1785,7 @@
             this.nampanelTxt.AutoSize = true;
             this.nampanelTxt.Controls.Add(this.namBanglaTxt);
             this.nampanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nampanelTxt.Location = new System.Drawing.Point(0, 18);
+            this.nampanelTxt.Location = new System.Drawing.Point(0, 21);
             this.nampanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.nampanelTxt.Name = "nampanelTxt";
             this.nampanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1799,14 +1803,14 @@
             this.namBanglaTxt.Margin = new System.Windows.Forms.Padding(0);
             this.namBanglaTxt.Name = "namBanglaTxt";
             this.namBanglaTxt.PlaceholderText = "";
-            this.namBanglaTxt.Size = new System.Drawing.Size(103, 19);
+            this.namBanglaTxt.Size = new System.Drawing.Size(103, 22);
             this.namBanglaTxt.TabIndex = 4;
             // 
             // namEngPanelTxt
             // 
             this.namEngPanelTxt.Controls.Add(this.placeholderTextBox1);
             this.namEngPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.namEngPanelTxt.Location = new System.Drawing.Point(139, 18);
+            this.namEngPanelTxt.Location = new System.Drawing.Point(139, 21);
             this.namEngPanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.namEngPanelTxt.Name = "namEngPanelTxt";
             this.namEngPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1824,14 +1828,14 @@
             this.placeholderTextBox1.Margin = new System.Windows.Forms.Padding(0);
             this.placeholderTextBox1.Name = "placeholderTextBox1";
             this.placeholderTextBox1.PlaceholderText = "";
-            this.placeholderTextBox1.Size = new System.Drawing.Size(103, 19);
+            this.placeholderTextBox1.Size = new System.Drawing.Size(103, 22);
             this.placeholderTextBox1.TabIndex = 4;
             // 
             // emailPanelTxt
             // 
             this.emailPanelTxt.Controls.Add(this.emailTxt);
             this.emailPanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailPanelTxt.Location = new System.Drawing.Point(278, 18);
+            this.emailPanelTxt.Location = new System.Drawing.Point(278, 21);
             this.emailPanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.emailPanelTxt.Name = "emailPanelTxt";
             this.emailPanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1849,14 +1853,14 @@
             this.emailTxt.Margin = new System.Windows.Forms.Padding(0);
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.PlaceholderText = "";
-            this.emailTxt.Size = new System.Drawing.Size(103, 19);
+            this.emailTxt.Size = new System.Drawing.Size(103, 22);
             this.emailTxt.TabIndex = 4;
             // 
             // mobilePanelTxt
             // 
             this.mobilePanelTxt.Controls.Add(this.mobileTxt);
             this.mobilePanelTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mobilePanelTxt.Location = new System.Drawing.Point(278, 72);
+            this.mobilePanelTxt.Location = new System.Drawing.Point(278, 78);
             this.mobilePanelTxt.Margin = new System.Windows.Forms.Padding(0);
             this.mobilePanelTxt.Name = "mobilePanelTxt";
             this.mobilePanelTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
@@ -1874,7 +1878,7 @@
             this.mobileTxt.Margin = new System.Windows.Forms.Padding(0);
             this.mobileTxt.Name = "mobileTxt";
             this.mobileTxt.PlaceholderText = "";
-            this.mobileTxt.Size = new System.Drawing.Size(103, 19);
+            this.mobileTxt.Size = new System.Drawing.Size(103, 22);
             this.mobileTxt.TabIndex = 4;
             // 
             // panel15
@@ -1933,7 +1937,7 @@
             this.txtNothiSubject.Margin = new System.Windows.Forms.Padding(0);
             this.txtNothiSubject.Name = "txtNothiSubject";
             this.txtNothiSubject.PlaceholderText = "";
-            this.txtNothiSubject.Size = new System.Drawing.Size(419, 19);
+            this.txtNothiSubject.Size = new System.Drawing.Size(419, 22);
             this.txtNothiSubject.TabIndex = 4;
             // 
             // panel16
@@ -1955,10 +1959,10 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Font = new System.Drawing.Font("SolaimanLipi", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.label10.Location = new System.Drawing.Point(77, 20);
+            this.label10.Location = new System.Drawing.Point(90, 20);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(10, 10);
+            this.label10.Size = new System.Drawing.Size(8, 12);
             this.label10.TabIndex = 77;
             this.label10.Text = "*";
             // 
@@ -1970,7 +1974,7 @@
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
             this.label15.Location = new System.Drawing.Point(10, 20);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(67, 18);
+            this.label15.Size = new System.Drawing.Size(80, 21);
             this.label15.TabIndex = 40;
             this.label15.Text = "গ্রুপের নামঃ";
             // 

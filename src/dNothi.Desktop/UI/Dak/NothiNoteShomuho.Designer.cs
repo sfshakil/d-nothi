@@ -156,7 +156,7 @@
             this.lbNoteSubject.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteSubject.Name = "lbNoteSubject";
             this.lbNoteSubject.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lbNoteSubject.Size = new System.Drawing.Size(107, 18);
+            this.lbNoteSubject.Size = new System.Drawing.Size(138, 21);
             this.lbNoteSubject.TabIndex = 63;
             this.lbNoteSubject.Text = "noteSubjectLabel";
             // 
@@ -168,7 +168,7 @@
             this.lbDeskOfficer.Location = new System.Drawing.Point(28, 0);
             this.lbDeskOfficer.Name = "lbDeskOfficer";
             this.lbDeskOfficer.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
-            this.lbDeskOfficer.Size = new System.Drawing.Size(103, 20);
+            this.lbDeskOfficer.Size = new System.Drawing.Size(133, 23);
             this.lbDeskOfficer.TabIndex = 64;
             this.lbDeskOfficer.Text = "deskOfficerLabel";
             // 
@@ -182,7 +182,7 @@
             this.fromToIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.fromToIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.fromToIcon.IconSize = 15;
-            this.fromToIcon.Location = new System.Drawing.Point(131, 0);
+            this.fromToIcon.Location = new System.Drawing.Point(161, 0);
             this.fromToIcon.Name = "fromToIcon";
             this.fromToIcon.Size = new System.Drawing.Size(20, 36);
             this.fromToIcon.TabIndex = 65;
@@ -193,10 +193,10 @@
             this.lbToOfficer.AutoSize = true;
             this.lbToOfficer.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbToOfficer.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbToOfficer.Location = new System.Drawing.Point(151, 0);
+            this.lbToOfficer.Location = new System.Drawing.Point(181, 0);
             this.lbToOfficer.Name = "lbToOfficer";
             this.lbToOfficer.Padding = new System.Windows.Forms.Padding(3, 2, 0, 0);
-            this.lbToOfficer.Size = new System.Drawing.Size(87, 20);
+            this.lbToOfficer.Size = new System.Drawing.Size(112, 23);
             this.lbToOfficer.TabIndex = 66;
             this.lbToOfficer.Text = "toOfficerLabel";
             // 
@@ -228,10 +228,10 @@
             this.lbNoteIssueDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbNoteIssueDate.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteIssueDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbNoteIssueDate.Location = new System.Drawing.Point(850, 5);
+            this.lbNoteIssueDate.Location = new System.Drawing.Point(817, 5);
             this.lbNoteIssueDate.Name = "lbNoteIssueDate";
             this.lbNoteIssueDate.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
-            this.lbNoteIssueDate.Size = new System.Drawing.Size(120, 18);
+            this.lbNoteIssueDate.Size = new System.Drawing.Size(153, 21);
             this.lbNoteIssueDate.TabIndex = 69;
             this.lbNoteIssueDate.Text = "noteLastDateLabel";
             // 
@@ -250,7 +250,7 @@
             this.eyeIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
             this.eyeIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.eyeIcon.IconSize = 24;
-            this.eyeIcon.Location = new System.Drawing.Point(818, 5);
+            this.eyeIcon.Location = new System.Drawing.Point(785, 5);
             this.eyeIcon.Margin = new System.Windows.Forms.Padding(0);
             this.eyeIcon.Name = "eyeIcon";
             this.eyeIcon.Size = new System.Drawing.Size(32, 31);
@@ -263,10 +263,10 @@
             this.lbKhoshrawaiting.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbKhoshrawaiting.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbKhoshrawaiting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbKhoshrawaiting.Location = new System.Drawing.Point(859, 0);
+            this.lbKhoshrawaiting.Location = new System.Drawing.Point(828, 0);
             this.lbKhoshrawaiting.Name = "lbKhoshrawaiting";
             this.lbKhoshrawaiting.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
-            this.lbKhoshrawaiting.Size = new System.Drawing.Size(111, 18);
+            this.lbKhoshrawaiting.Size = new System.Drawing.Size(142, 21);
             this.lbKhoshrawaiting.TabIndex = 73;
             this.lbKhoshrawaiting.Text = "lbKhoshrawaiting";
             this.lbKhoshrawaiting.Visible = false;
@@ -277,10 +277,10 @@
             this.lbOnucched.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbOnucched.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbOnucched.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbOnucched.Location = new System.Drawing.Point(705, 0);
+            this.lbOnucched.Location = new System.Drawing.Point(633, 0);
             this.lbOnucched.Name = "lbOnucched";
             this.lbOnucched.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
-            this.lbOnucched.Size = new System.Drawing.Size(82, 18);
+            this.lbOnucched.Size = new System.Drawing.Size(104, 21);
             this.lbOnucched.TabIndex = 75;
             this.lbOnucched.Text = "lbOnucched";
             this.lbOnucched.Visible = false;
@@ -291,10 +291,10 @@
             this.lbKhoshra.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbKhoshra.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbKhoshra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(128)))), ((int)(((byte)(129)))));
-            this.lbKhoshra.Location = new System.Drawing.Point(787, 0);
+            this.lbKhoshra.Location = new System.Drawing.Point(737, 0);
             this.lbKhoshra.Name = "lbKhoshra";
             this.lbKhoshra.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
-            this.lbKhoshra.Size = new System.Drawing.Size(72, 18);
+            this.lbKhoshra.Size = new System.Drawing.Size(91, 21);
             this.lbKhoshra.TabIndex = 74;
             this.lbKhoshra.Text = "lbKhoshra";
             this.lbKhoshra.Visible = false;
@@ -310,7 +310,7 @@
             this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSchedule.IconSize = 28;
-            this.btnSchedule.Location = new System.Drawing.Point(793, 5);
+            this.btnSchedule.Location = new System.Drawing.Point(760, 5);
             this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(25, 31);
