@@ -750,6 +750,7 @@ namespace dNothi.Desktop.UI
                     form.TopMost = true;
                     form.LoadNothiInbox();
                     BeginInvoke((Action)(() => form.ShowDialog()));
+                    BeginInvoke((Action)(() => form.TopMost = false));
                     form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
                 }
             }
@@ -843,6 +844,7 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Nothi>();
             form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
 
         }
@@ -1635,6 +1637,7 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Nothi>();
             form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
 
@@ -1723,6 +1726,7 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Nothi>();
             form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
 
@@ -1732,6 +1736,7 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Nothi>();
             form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
 
@@ -1741,6 +1746,7 @@ namespace dNothi.Desktop.UI
             var form = FormFactory.Create<Nothi>();
             form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
 
@@ -1836,7 +1842,9 @@ namespace dNothi.Desktop.UI
         {
             WaitForm.Show(this);
             detailsNothiSearcPanel.Visible = false;
+            nothiRegisterBook.Visible = false;
             allReset();
+            panel3.Visible = true;
             agotoNothiSelected = 1;
             preritoNothiSelected = 0;
             shokolNothiSelected = 0;
@@ -1862,8 +1870,10 @@ namespace dNothi.Desktop.UI
         private void btnNothiOutbox_Click(object sender, EventArgs e)
         {
             WaitForm.Show(this);
+            nothiRegisterBook.Visible = false;
             detailsNothiSearcPanel.Visible = false;
             allReset();
+            panel3.Visible = true;
             agotoNothiSelected = 0;
             preritoNothiSelected = 1;
             shokolNothiSelected = 0;
@@ -1909,8 +1919,10 @@ namespace dNothi.Desktop.UI
         private void btnNothiAll_Click(object sender, EventArgs e)
         {
             WaitForm.Show(this);
+            nothiRegisterBook.Visible = false;
             detailsNothiSearcPanel.Visible = false;
             allReset();
+            panel3.Visible = true;
             agotoNothiSelected = 0;
             preritoNothiSelected = 0;
             shokolNothiSelected = 1;
@@ -1974,8 +1986,10 @@ namespace dNothi.Desktop.UI
         private void btnNewNothi_Click(object sender, EventArgs e)
         {
             nothiListFlowLayoutPanel.Controls.Clear();
+            nothiRegisterBook.Visible = false;
             detailsNothiSearcPanel.Visible = false;
             allReset();
+            panel3.Visible = true;
             newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
             //newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             newNothi.loadNewNothiPage();
@@ -2424,15 +2438,16 @@ namespace dNothi.Desktop.UI
                 registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
         }
-
+        UI.NothiUI.RegisterReportUserControl nothiRegisterBook = UserControlFactory.Create<UI.NothiUI.RegisterReportUserControl>();
         private void registerDiaryButton_Click(object sender, EventArgs e)
         {
             panel3.Visible = false;
             detailsNothiSearcPanel.Visible = false;
             nothiSearchHeadingPanel.Visible = false;
-            var nothiRegisterBook = UserControlFactory.Create<UI.NothiUI.RegisterReportUserControl>();
+            nothiRegisterBook.Visible = true;
             nothiRegisterBook.Dock = DockStyle.Fill;
             pnlNothiBody.Controls.Add(nothiRegisterBook);
+            pnlNothiBody.BringToFront();
            
             //nothiRegisterBook.Show();
         }
