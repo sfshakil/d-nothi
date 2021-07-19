@@ -14,5 +14,6 @@ namespace dNothi.Services.NothiServices
         NothiListAllResponse GetNothiAll(DakUserParam dakUserParam);
         NothiListAllResponse GetNothiAll(DakUserParam dakUserParam, string search_Param);
         NothiListAllResponse GetNothiAllByUser(DakUserParam dakUserParam);
+        NothiInformationResponse GetNothiInformation(DakUserParam dakUserParam, long nothi_id);
     }
 }

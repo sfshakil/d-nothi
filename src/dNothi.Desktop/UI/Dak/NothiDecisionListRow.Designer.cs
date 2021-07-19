@@ -66,18 +66,20 @@ namespace dNothi.Desktop.UI.Dak
             this.lbDecisionText.Location = new System.Drawing.Point(56, 2);
             this.lbDecisionText.Margin = new System.Windows.Forms.Padding(0);
             this.lbDecisionText.Name = "lbDecisionText";
-            this.lbDecisionText.Padding = new System.Windows.Forms.Padding(350, 8, 0, 0);
-            this.lbDecisionText.Size = new System.Drawing.Size(404, 34);
+            this.lbDecisionText.Padding = new System.Windows.Forms.Padding(150, 8, 0, 0);
+            this.lbDecisionText.Size = new System.Drawing.Size(204, 34);
             this.lbDecisionText.TabIndex = 82;
             this.lbDecisionText.Text = "খসড়া";
+            this.lbDecisionText.Click += new System.EventHandler(this.lbDecisionText_Click);
             // 
             // btnDecisionAdd
             // 
             this.btnDecisionAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnDecisionAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDecisionAdd.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnDecisionAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDecisionAdd.FlatAppearance.BorderSize = 0;
-            this.btnDecisionAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDecisionAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnDecisionAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnDecisionAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDecisionAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

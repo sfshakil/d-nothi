@@ -33,17 +33,17 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnNothiDecisionListCross = new FontAwesome.Sharp.IconButton();
+            this.lbLabelText = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.decisionViewBodyPanel = new System.Windows.Forms.Panel();
-            this.decisionViewFLP = new System.Windows.Forms.TableLayoutPanel();
             this.lbLengthStart = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbDash = new System.Windows.Forms.Label();
             this.lbLengthEnd = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.btnNothiOutboxPrevious = new FontAwesome.Sharp.IconButton();
             this.btnNothiAllNext = new FontAwesome.Sharp.IconButton();
-            this.btnNothiDecisionListCross = new FontAwesome.Sharp.IconButton();
+            this.decisionViewBodyPanel = new System.Windows.Forms.Panel();
+            this.decisionViewFLP = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.decisionViewBodyPanel.SuspendLayout();
@@ -63,7 +63,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnNothiDecisionListCross);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbLabelText);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -91,22 +91,40 @@ namespace dNothi.Desktop.UI.Dak
             this.panel6.Size = new System.Drawing.Size(960, 1);
             this.panel6.TabIndex = 64;
             // 
-            // label1
+            // btnNothiDecisionListCross
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label1.Location = new System.Drawing.Point(13, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "সিদ্ধান্ত";
+            this.btnNothiDecisionListCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnNothiDecisionListCross.FlatAppearance.BorderSize = 0;
+            this.btnNothiDecisionListCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiDecisionListCross.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNothiDecisionListCross.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btnNothiDecisionListCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnNothiDecisionListCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiDecisionListCross.IconSize = 24;
+            this.btnNothiDecisionListCross.Location = new System.Drawing.Point(901, 18);
+            this.btnNothiDecisionListCross.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiDecisionListCross.Name = "btnNothiDecisionListCross";
+            this.btnNothiDecisionListCross.Size = new System.Drawing.Size(45, 43);
+            this.btnNothiDecisionListCross.TabIndex = 63;
+            this.btnNothiDecisionListCross.UseVisualStyleBackColor = false;
+            this.btnNothiDecisionListCross.Click += new System.EventHandler(this.btnNothiDecisionListCross_Click);
+            // 
+            // lbLabelText
+            // 
+            this.lbLabelText.AutoSize = true;
+            this.lbLabelText.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLabelText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbLabelText.Location = new System.Drawing.Point(13, 31);
+            this.lbLabelText.Margin = new System.Windows.Forms.Padding(0);
+            this.lbLabelText.Name = "lbLabelText";
+            this.lbLabelText.Size = new System.Drawing.Size(67, 30);
+            this.lbLabelText.TabIndex = 0;
+            this.lbLabelText.Text = "সিদ্ধান্ত";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lbLengthStart);
-            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.lbDash);
             this.panel3.Controls.Add(this.lbLengthEnd);
             this.panel3.Controls.Add(this.lbTotalNothi);
             this.panel3.Controls.Add(this.btnNothiOutboxPrevious);
@@ -118,41 +136,13 @@ namespace dNothi.Desktop.UI.Dak
             this.panel3.Size = new System.Drawing.Size(960, 48);
             this.panel3.TabIndex = 76;
             // 
-            // decisionViewBodyPanel
-            // 
-            this.decisionViewBodyPanel.AutoScroll = true;
-            this.decisionViewBodyPanel.Controls.Add(this.decisionViewFLP);
-            this.decisionViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.decisionViewBodyPanel.Location = new System.Drawing.Point(0, 170);
-            this.decisionViewBodyPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.decisionViewBodyPanel.Name = "decisionViewBodyPanel";
-            this.decisionViewBodyPanel.Size = new System.Drawing.Size(960, 722);
-            this.decisionViewBodyPanel.TabIndex = 77;
-            // 
-            // decisionViewFLP
-            // 
-            this.decisionViewFLP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.decisionViewFLP.AutoSize = true;
-            this.decisionViewFLP.ColumnCount = 1;
-            this.decisionViewFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.decisionViewFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.decisionViewFLP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.decisionViewFLP.Location = new System.Drawing.Point(0, 0);
-            this.decisionViewFLP.Margin = new System.Windows.Forms.Padding(0);
-            this.decisionViewFLP.Name = "decisionViewFLP";
-            this.decisionViewFLP.RowCount = 1;
-            this.decisionViewFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.decisionViewFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.decisionViewFLP.Size = new System.Drawing.Size(960, 0);
-            this.decisionViewFLP.TabIndex = 55;
-            // 
             // lbLengthStart
             // 
             this.lbLengthStart.AutoSize = true;
             this.lbLengthStart.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbLengthStart.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbLengthStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLengthStart.Location = new System.Drawing.Point(705, 0);
+            this.lbLengthStart.Location = new System.Drawing.Point(700, 0);
             this.lbLengthStart.Margin = new System.Windows.Forms.Padding(0);
             this.lbLengthStart.Name = "lbLengthStart";
             this.lbLengthStart.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
@@ -160,19 +150,19 @@ namespace dNothi.Desktop.UI.Dak
             this.lbLengthStart.TabIndex = 73;
             this.lbLengthStart.Text = "০";
             // 
-            // label13
+            // lbDash
             // 
-            this.label13.AutoSize = true;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label13.Location = new System.Drawing.Point(729, 0);
-            this.label13.Margin = new System.Windows.Forms.Padding(0);
-            this.label13.Name = "label13";
-            this.label13.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.label13.Size = new System.Drawing.Size(19, 34);
-            this.label13.TabIndex = 72;
-            this.label13.Text = "-";
+            this.lbDash.AutoSize = true;
+            this.lbDash.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbDash.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbDash.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbDash.Location = new System.Drawing.Point(724, 0);
+            this.lbDash.Margin = new System.Windows.Forms.Padding(0);
+            this.lbDash.Name = "lbDash";
+            this.lbDash.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.lbDash.Size = new System.Drawing.Size(19, 34);
+            this.lbDash.TabIndex = 72;
+            this.lbDash.Text = "-";
             // 
             // lbLengthEnd
             // 
@@ -180,7 +170,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbLengthEnd.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbLengthEnd.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbLengthEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLengthEnd.Location = new System.Drawing.Point(748, 0);
+            this.lbLengthEnd.Location = new System.Drawing.Point(743, 0);
             this.lbLengthEnd.Margin = new System.Windows.Forms.Padding(0);
             this.lbLengthEnd.Name = "lbLengthEnd";
             this.lbLengthEnd.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
@@ -194,11 +184,11 @@ namespace dNothi.Desktop.UI.Dak
             this.lbTotalNothi.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbTotalNothi.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbTotalNothi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbTotalNothi.Location = new System.Drawing.Point(772, 0);
+            this.lbTotalNothi.Location = new System.Drawing.Point(767, 0);
             this.lbTotalNothi.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalNothi.Name = "lbTotalNothi";
-            this.lbTotalNothi.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.lbTotalNothi.Size = new System.Drawing.Size(98, 34);
+            this.lbTotalNothi.Padding = new System.Windows.Forms.Padding(0, 8, 5, 0);
+            this.lbTotalNothi.Size = new System.Drawing.Size(103, 34);
             this.lbTotalNothi.TabIndex = 70;
             this.lbTotalNothi.Text = " সর্বমোট: ০";
             // 
@@ -240,23 +230,33 @@ namespace dNothi.Desktop.UI.Dak
             this.btnNothiAllNext.UseVisualStyleBackColor = false;
             this.btnNothiAllNext.Visible = false;
             // 
-            // btnNothiDecisionListCross
+            // decisionViewBodyPanel
             // 
-            this.btnNothiDecisionListCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.btnNothiDecisionListCross.FlatAppearance.BorderSize = 0;
-            this.btnNothiDecisionListCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiDecisionListCross.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNothiDecisionListCross.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnNothiDecisionListCross.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.btnNothiDecisionListCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiDecisionListCross.IconSize = 24;
-            this.btnNothiDecisionListCross.Location = new System.Drawing.Point(870, 27);
-            this.btnNothiDecisionListCross.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNothiDecisionListCross.Name = "btnNothiDecisionListCross";
-            this.btnNothiDecisionListCross.Size = new System.Drawing.Size(45, 43);
-            this.btnNothiDecisionListCross.TabIndex = 63;
-            this.btnNothiDecisionListCross.UseVisualStyleBackColor = false;
-            this.btnNothiDecisionListCross.Click += new System.EventHandler(this.btnNothiDecisionListCross_Click);
+            this.decisionViewBodyPanel.AutoScroll = true;
+            this.decisionViewBodyPanel.Controls.Add(this.decisionViewFLP);
+            this.decisionViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.decisionViewBodyPanel.Location = new System.Drawing.Point(0, 170);
+            this.decisionViewBodyPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.decisionViewBodyPanel.Name = "decisionViewBodyPanel";
+            this.decisionViewBodyPanel.Size = new System.Drawing.Size(960, 722);
+            this.decisionViewBodyPanel.TabIndex = 77;
+            // 
+            // decisionViewFLP
+            // 
+            this.decisionViewFLP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.decisionViewFLP.AutoSize = true;
+            this.decisionViewFLP.ColumnCount = 1;
+            this.decisionViewFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.decisionViewFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.decisionViewFLP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.decisionViewFLP.Location = new System.Drawing.Point(0, 0);
+            this.decisionViewFLP.Margin = new System.Windows.Forms.Padding(0);
+            this.decisionViewFLP.Name = "decisionViewFLP";
+            this.decisionViewFLP.RowCount = 1;
+            this.decisionViewFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.decisionViewFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.decisionViewFLP.Size = new System.Drawing.Size(960, 0);
+            this.decisionViewFLP.TabIndex = 55;
             // 
             // NothiDecisionList
             // 
@@ -286,12 +286,12 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private FontAwesome.Sharp.IconButton btnNothiDecisionListCross;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbLabelText;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel decisionViewBodyPanel;
         private System.Windows.Forms.TableLayoutPanel decisionViewFLP;
         private System.Windows.Forms.Label lbLengthStart;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbDash;
         private System.Windows.Forms.Label lbLengthEnd;
         private System.Windows.Forms.Label lbTotalNothi;
         private FontAwesome.Sharp.IconButton btnNothiOutboxPrevious;

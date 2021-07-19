@@ -3,6 +3,7 @@ using dNothi.Core.Interfaces;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
 using dNothi.Desktop.UI.ManuelUserControl;
+using dNothi.Desktop.UI.NothiUI;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
@@ -749,6 +750,7 @@ namespace dNothi.Desktop.UI
                     { BeginInvoke((Action)(() => f.Hide())); }
                     
                     var form = FormFactory.Create<Nothi>();
+                    form.TopMost = true;
                     form.LoadNothiInbox();
                     BeginInvoke((Action)(() => form.ShowDialog()));
                     form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
@@ -842,6 +844,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
 
@@ -1518,7 +1521,7 @@ namespace dNothi.Desktop.UI
                 };
 
                 nothiAll.nothiAllListDTO = nothiAllListDTO;
-
+                nothiAll.NothiAllEditButtonClick += delegate (object sender, EventArgs e) { NothiAllEdit_ButtonClick(sender, e, nothiAllListDTO); };
                 if (nothiAllListDTO.desk != null || nothiAllListDTO.status != null)
                 {
                     if (nothiAllListDTO.desk != null)
@@ -1554,7 +1557,32 @@ namespace dNothi.Desktop.UI
             }
             
         }
-
+        private void NothiAllEdit_ButtonClick(object sender, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            NothiInformationResponse nothiInfo = _nothiAll.GetNothiInformation(dakListUserParam, nothiAllListDTO.nothi.id);
+            nothiListFlowLayoutPanel.Controls.Clear();
+            detailsNothiSearcPanel.Visible = false;
+            allReset();
+            newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
+            //newNothi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            newNothi.loadNewNothiPageWithData(nothiAllListDTO, nothiInfo);
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
+            ResetAllMenuButtonSelection();
+            SelectButton(btnNewNothi);
+            newNothi.Visible = true;
+            newNothi.Location = new System.Drawing.Point(233, 50);
+            //newNothi.Size = this.Size - panel4.Size;
+            newNothi.Height = this.Height - panel2.Height - pnlNothiNoteTalika.Height - panel6.Height;
+            newNothi.Width = bodyPanel.Width;
+            Controls.Add(newNothi);
+            //<nothi>int borderWidth = (this.Height - this.ClientSize.Height) / 2;
+            newNothi.BringToFront();
+            newNothi.BackColor = Color.WhiteSmoke;
+        }
         private void btnGardFile_Click(object sender, EventArgs e)
         {
             ResetAllMenuButtonSelection();
@@ -1608,6 +1636,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -1695,6 +1724,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -1703,6 +1733,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -1711,6 +1742,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
@@ -2380,6 +2412,46 @@ namespace dNothi.Desktop.UI
                 }
             }
             
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            if (registerPanel.Visible)
+            {
+                registerPanel.Visible = false;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            }
+            else
+            {
+                registerPanel.Visible = true;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+            }
+        }
+
+        private void registerDiaryButton_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiSearchHeadingPanel.Visible = false;
+            var nothiRegisterBook = UserControlFactory.Create<UI.NothiUI.RegisterReportUserControl>();
+            nothiRegisterBook.Dock = DockStyle.Fill;
+            pnlNothiBody.Controls.Add(nothiRegisterBook);
+           
+            //nothiRegisterBook.Show();
+        }
+
+        private void registerMenuArrow_Click(object sender, EventArgs e)
+        {
+            if (registerPanel.Visible)
+            {
+                registerPanel.Visible = false;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            }
+            else
+            {
+                registerPanel.Visible = true;
+                registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+            }
         }
 
         private void userNameLabel_MouseLeave(object sender, EventArgs e)

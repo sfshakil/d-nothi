@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterReportUserControl));
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -74,6 +75,7 @@
             this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.noRowMessageLabel = new System.Windows.Forms.Label();
             this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
+            this.nothiPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.dateRangeTextBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -105,6 +107,7 @@
             this.iconButton1.TabIndex = 68;
             this.MyToolTip.SetToolTip(this.iconButton1, "পিডিএফ");
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // iconButton2
             // 
@@ -124,6 +127,7 @@
             this.iconButton2.TabIndex = 69;
             this.MyToolTip.SetToolTip(this.iconButton2, "এক্সেল");
             this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // dateRangeTextBox
             // 
@@ -371,7 +375,7 @@
             this.headlineLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.headlineLabel.Location = new System.Drawing.Point(44, 9);
             this.headlineLabel.Name = "headlineLabel";
-            this.headlineLabel.Size = new System.Drawing.Size(136, 21);
+            this.headlineLabel.Size = new System.Drawing.Size(134, 21);
             this.headlineLabel.TabIndex = 66;
             this.headlineLabel.Text = "ডাক গ্রহণ নিবন্ধন বহি";
             this.headlineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -479,28 +483,28 @@
             this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
             this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
-            this.slDataGridViewTextBoxColumn.Width = 105;
+            this.slDataGridViewTextBoxColumn.Width = 104;
             // 
             // acceptNumDataGridViewTextBoxColumn
             // 
             this.acceptNumDataGridViewTextBoxColumn.DataPropertyName = "acceptNum";
             this.acceptNumDataGridViewTextBoxColumn.HeaderText = "গ্রহণ নম্বর";
             this.acceptNumDataGridViewTextBoxColumn.Name = "acceptNumDataGridViewTextBoxColumn";
-            this.acceptNumDataGridViewTextBoxColumn.Width = 104;
+            this.acceptNumDataGridViewTextBoxColumn.Width = 103;
             // 
             // docketingNoDataGridViewTextBoxColumn
             // 
             this.docketingNoDataGridViewTextBoxColumn.DataPropertyName = "docketingNo";
             this.docketingNoDataGridViewTextBoxColumn.HeaderText = "ডকেট নং";
             this.docketingNoDataGridViewTextBoxColumn.Name = "docketingNoDataGridViewTextBoxColumn";
-            this.docketingNoDataGridViewTextBoxColumn.Width = 102;
+            this.docketingNoDataGridViewTextBoxColumn.Width = 101;
             // 
             // sharokNoDataGridViewTextBoxColumn
             // 
             this.sharokNoDataGridViewTextBoxColumn.DataPropertyName = "sharokNo";
             this.sharokNoDataGridViewTextBoxColumn.HeaderText = "স্মারক নম্বর";
             this.sharokNoDataGridViewTextBoxColumn.Name = "sharokNoDataGridViewTextBoxColumn";
-            this.sharokNoDataGridViewTextBoxColumn.Width = 114;
+            this.sharokNoDataGridViewTextBoxColumn.Width = 113;
             // 
             // applyDateDataGridViewTextBoxColumn
             // 
@@ -508,7 +512,7 @@
             this.applyDateDataGridViewTextBoxColumn.HeaderText = "আবেদনের তারিখ";
             this.applyDateDataGridViewTextBoxColumn.Name = "applyDateDataGridViewTextBoxColumn";
             this.applyDateDataGridViewTextBoxColumn.ToolTipText = "আবেদনের তারিখ";
-            this.applyDateDataGridViewTextBoxColumn.Width = 148;
+            this.applyDateDataGridViewTextBoxColumn.Width = 147;
             // 
             // typeDataGridViewTextBoxColumn
             // 
@@ -536,35 +540,35 @@
             this.previousPrapokDataGridViewTextBoxColumn.DataPropertyName = "previousPrapok";
             this.previousPrapokDataGridViewTextBoxColumn.HeaderText = "পূর্ববর্তী প্রেরক";
             this.previousPrapokDataGridViewTextBoxColumn.Name = "previousPrapokDataGridViewTextBoxColumn";
-            this.previousPrapokDataGridViewTextBoxColumn.Width = 127;
+            this.previousPrapokDataGridViewTextBoxColumn.Width = 126;
             // 
             // mainPrapokDataGridViewTextBoxColumn
             // 
             this.mainPrapokDataGridViewTextBoxColumn.DataPropertyName = "mainPrapok";
             this.mainPrapokDataGridViewTextBoxColumn.HeaderText = "মূল প্রাপক";
             this.mainPrapokDataGridViewTextBoxColumn.Name = "mainPrapokDataGridViewTextBoxColumn";
-            this.mainPrapokDataGridViewTextBoxColumn.Width = 106;
+            this.mainPrapokDataGridViewTextBoxColumn.Width = 107;
             // 
             // receivedDateDataGridViewTextBoxColumn
             // 
             this.receivedDateDataGridViewTextBoxColumn.DataPropertyName = "receivedDate";
             this.receivedDateDataGridViewTextBoxColumn.HeaderText = "প্রাপ্তির তারিখ";
             this.receivedDateDataGridViewTextBoxColumn.Name = "receivedDateDataGridViewTextBoxColumn";
-            this.receivedDateDataGridViewTextBoxColumn.Width = 124;
+            this.receivedDateDataGridViewTextBoxColumn.Width = 122;
             // 
             // securityDataGridViewTextBoxColumn
             // 
             this.securityDataGridViewTextBoxColumn.DataPropertyName = "security";
             this.securityDataGridViewTextBoxColumn.HeaderText = "গোপনীয়তা";
             this.securityDataGridViewTextBoxColumn.Name = "securityDataGridViewTextBoxColumn";
-            this.securityDataGridViewTextBoxColumn.Width = 112;
+            this.securityDataGridViewTextBoxColumn.Width = 110;
             // 
             // priorityDataGridViewTextBoxColumn
             // 
             this.priorityDataGridViewTextBoxColumn.DataPropertyName = "priority";
             this.priorityDataGridViewTextBoxColumn.HeaderText = "অগ্রাধিকার";
             this.priorityDataGridViewTextBoxColumn.Name = "priorityDataGridViewTextBoxColumn";
-            this.priorityDataGridViewTextBoxColumn.Width = 106;
+            this.priorityDataGridViewTextBoxColumn.Width = 107;
             // 
             // finalStateDataGridViewTextBoxColumn
             // 
@@ -586,7 +590,7 @@
             this.noRowMessageLabel.ForeColor = System.Drawing.Color.Red;
             this.noRowMessageLabel.Location = new System.Drawing.Point(348, 147);
             this.noRowMessageLabel.Name = "noRowMessageLabel";
-            this.noRowMessageLabel.Size = new System.Drawing.Size(171, 18);
+            this.noRowMessageLabel.Size = new System.Drawing.Size(169, 18);
             this.noRowMessageLabel.TabIndex = 97;
             this.noRowMessageLabel.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
             this.noRowMessageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -600,13 +604,23 @@
             this.customDatePicker.BackColor = System.Drawing.Color.White;
             this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
             this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
-            this.customDatePicker.Location = new System.Drawing.Point(275, 111);
+            this.customDatePicker.Location = new System.Drawing.Point(369, 87);
             this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
             this.customDatePicker.Name = "customDatePicker";
             this.customDatePicker.Size = new System.Drawing.Size(152, 230);
             this.customDatePicker.TabIndex = 59;
             this.customDatePicker.Visible = false;
             this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
+            // 
+            // nothiPrintPreviewDialog
+            // 
+            this.nothiPrintPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.nothiPrintPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.nothiPrintPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.nothiPrintPreviewDialog.Enabled = true;
+            this.nothiPrintPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("nothiPrintPreviewDialog.Icon")));
+            this.nothiPrintPreviewDialog.Name = "dakUploadPrintPreviewDialog";
+            this.nothiPrintPreviewDialog.Visible = false;
             // 
             // RegisterReportUserControl
             // 
@@ -678,5 +692,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priorityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn finalStateDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label noRowMessageLabel;
+        private System.Windows.Forms.PrintPreviewDialog nothiPrintPreviewDialog;
     }
 }

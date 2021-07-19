@@ -32,6 +32,7 @@ using dNothi.Services.PotroJariGroup;
 using dNothi.Desktop.UI.PotroJariGroups;
 using dNothi.Services;
 using dNothi.Desktop.UI.Khosra_Potro;
+using dNothi.Services.NothiReportService;
 
 namespace dNothi.Desktop
 {
@@ -211,6 +212,8 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiInboxNoteServices>().As<INothiInboxNoteServices>();
             builder.RegisterType<NothiOutboxNoteServices>().As<INothiOutboxNoteServices>();
             builder.RegisterType<NothiAllNoteServices>().As<INothiAllNoteServices>();
+            builder.RegisterType<NothiReportService>().As<INothiReportService>();
+            
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiNoteTalikaServices>().As<INothiNoteTalikaServices>();
             builder.RegisterType<NothiAllService>().As<INothiAllServices>();
@@ -278,6 +281,8 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dak.FileUserControl>().AsSelf();
             builder.RegisterType<NothiAll>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
+            builder.RegisterType<UI.NothiUI.RegisterReportUserControl>().AsSelf();
+            
 
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();
             builder.RegisterType<NothiLevelAddForm>().AsSelf();
@@ -297,6 +302,8 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiOutboxNoteShomuho>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<NothiOutbox>().AsSelf();
+            builder.RegisterType<UCAllNothiList>().AsSelf();
+            
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();
             builder.RegisterType<FolderCreatePopUpForm>().AsSelf();
@@ -304,6 +311,10 @@ namespace dNothi.Desktop
             builder.RegisterType<CreateNewNothiType>().AsSelf();
             builder.RegisterType<NothiDecisionListRow>().AsSelf();
             builder.RegisterType<NothiDecisionList>().AsSelf();
+            builder.RegisterType<NothiGaurdFileListRow>().AsSelf();
+            builder.RegisterType<NothiGaurdFileList>().AsSelf();
+            builder.RegisterType<NothiBibechhoPotroList>().AsSelf();
+            builder.RegisterType<NothiBibechhoPotroListRow>().AsSelf();
             builder.RegisterType<DakForwardUserControl>().AsSelf();
             builder.RegisterType<DakNothijatoForm>().AsSelf();
             builder.RegisterType<DakModuleAgotoNothiList>().AsSelf();
@@ -312,9 +323,14 @@ namespace dNothi.Desktop
             builder.RegisterType<DakNothiteUposthapitoNewNoteAddUserControl>().AsSelf();
             builder.RegisterType<MultipleDakActionResultForm>().AsSelf();
             builder.RegisterType<MultipleDakSelectedListConfirmForm>().AsSelf();
+            builder.RegisterType<SetKarjodibosh>().AsSelf();
+           
+            builder.RegisterType<NoteCreatePopUpForm>().AsSelf();
+            
             builder.RegisterType<UserProfileForm>().AsSelf();
            
             builder.RegisterType<CreateGuardFileTypeForm>().AsSelf();
+
             builder.RegisterType<GurdFileControl>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileTypes>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileList>().AsSelf();

@@ -79,6 +79,9 @@
     <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="CefSharp, Version=89.0.170.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
       <HintPath>..\packages\CefSharp.Common.89.0.170\lib\net452\CefSharp.dll</HintPath>
     </Reference>
@@ -87,6 +90,12 @@
     </Reference>
     <Reference Include="CefSharp.WinForms, Version=89.0.170.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
       <HintPath>..\packages\CefSharp.WinForms.89.0.170\lib\net452\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
@@ -214,6 +223,36 @@
     <Reference Include="IKVM.Runtime.JNI, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
       <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.Runtime.JNI.dll</HintPath>
     </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.16.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.16\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -232,6 +271,10 @@
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.774.44, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.WebView2.1.0.774.44\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
@@ -547,6 +590,18 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\NothiBibechhoPotroList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiBibechhoPotroList.Designer.cs">
+      <DependentUpon>NothiBibechhoPotroList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiBibechhoPotroListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiBibechhoPotroListRow.Designer.cs">
+      <DependentUpon>NothiBibechhoPotroListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiDecisionList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -558,6 +613,18 @@
     </Compile>
     <Compile Include="UI\Dak\NothiDecisionListRow.Designer.cs">
       <DependentUpon>NothiDecisionListRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileList.Designer.cs">
+      <DependentUpon>NothiGaurdFileList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiGaurdFileListRow.Designer.cs">
+      <DependentUpon>NothiGaurdFileListRow.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\OnuchhedShonjukti.cs">
       <SubType>UserControl</SubType>
@@ -606,6 +673,18 @@
     </Compile>
     <Compile Include="UI\Dak\UserProfileForm.Designer.cs">
       <DependentUpon>UserProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\SetKarjodibosh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\SetKarjodibosh.Designer.cs">
+      <DependentUpon>SetKarjodibosh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ModalMenuUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ModalMenuUserControl.Designer.cs">
+      <DependentUpon>ModalMenuUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>
@@ -1226,11 +1305,29 @@
     <Compile Include="UI\NothiCreateNextStep.Designer.cs">
       <DependentUpon>NothiCreateNextStep.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NothiUI\NoteCreatePopUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NoteCreatePopUpForm.Designer.cs">
+      <DependentUpon>NoteCreatePopUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\NothiUI\NothiLevelAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\NothiUI\NothiLevelAddForm.Designer.cs">
       <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\RegisterReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\RegisterReportUserControl.Designer.cs">
+      <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\UCAllNothiList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\UCAllNothiList.Designer.cs">
+      <DependentUpon>UCAllNothiList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\OfficerRowUserControl.cs">
       <SubType>UserControl</SubType>
@@ -1435,11 +1532,23 @@
     <EmbeddedResource Include="UI\Dak\NewNothiTypeGuidelines.resx">
       <DependentUpon>NewNothiTypeGuidelines.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiBibechhoPotroList.resx">
+      <DependentUpon>NothiBibechhoPotroList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiBibechhoPotroListRow.resx">
+      <DependentUpon>NothiBibechhoPotroListRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiDecisionList.resx">
       <DependentUpon>NothiDecisionList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiDecisionListRow.resx">
       <DependentUpon>NothiDecisionListRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiGaurdFileList.resx">
+      <DependentUpon>NothiGaurdFileList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiGaurdFileListRow.resx">
+      <DependentUpon>NothiGaurdFileListRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiNoteAllAttachement.resx">
       <DependentUpon>NothiNoteAllAttachement.cs</DependentUpon>
@@ -1479,6 +1588,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\ReviewDashBoardContentShare.resx">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\SetKarjodibosh.resx">
+      <DependentUpon>SetKarjodibosh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ModalMenuUserControl.resx">
+      <DependentUpon>ModalMenuUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\UserProfileForm.resx">
       <DependentUpon>UserProfileForm.cs</DependentUpon>
@@ -1765,8 +1880,17 @@
     <EmbeddedResource Include="UI\NothiCreateNextStep.resx">
       <DependentUpon>NothiCreateNextStep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NoteCreatePopUpForm.resx">
+      <DependentUpon>NoteCreatePopUpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiUI\NothiLevelAddForm.resx">
       <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\RegisterReportUserControl.resx">
+      <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\UCAllNothiList.resx">
+      <DependentUpon>UCAllNothiList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
@@ -1842,6 +1966,7 @@
     <None Include="Resources\download1.png" />
     <None Include="Resources\nothicreateguideline.png" />
     <None Include="Resources\newnothitypeguideline.png" />
+    <None Include="Resources\excelIcon.png" />
     <Content Include="tinymce\js\tinymce\jquery _3.6.js" />
     <None Include="tinymce\js\tinymce\langs\readme.md" />
     <None Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
@@ -2405,6 +2530,15 @@
       <Lcid>0</Lcid>
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

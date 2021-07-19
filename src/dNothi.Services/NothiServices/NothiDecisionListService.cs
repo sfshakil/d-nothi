@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace dNothi.Services.NothiServices
@@ -57,6 +58,126 @@ namespace dNothi.Services.NothiServices
         protected string GetNothiDecisionListEndpoint()
         {
             return DefaultAPIConfiguration.NothiDecisionListEndpoint;
+        }
+        protected string GetNothiGaurdFileListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiGaurdFileListEndpoint;
+        }
+        protected string GetNothiBibechhoPotroListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiBibechhoPotroListEndpoint;
+        }
+        protected string GetNothiOnuchhedListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiOnuchhedListEndpoint;
+        }
+        protected string GetNothiPotakaListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiPotakaListEndpoint;
+        }
+
+        public NothiGaurdFileListResponse GetNothiGaurdFileList(DakUserParam dakUserParam)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiGaurdFileListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("office_id", dakUserParam.office_id);
+                request.AddParameter("page", dakUserParam.page);
+                request.AddParameter("limit", dakUserParam.limit);
+                request.AddParameter("designation_id", dakUserParam.designation_id);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiGaurdFileListResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiGaurdFileListResponse>(responseJson);
+                return nothiDecisionListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiBibechhoPotroResponse GetNothiBibechhoPotroList(DakUserParam dakUserParam, string nothi_id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiBibechhoPotroListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("length", dakUserParam.limit);
+                request.AddParameter("page", dakUserParam.page);
+                request.AddParameter("nothi", "{\"nothi_id\":\""+ nothi_id +"\", \"nothi_office\":\""+ dakUserParam.office_id + "\"}");
+
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiBibechhoPotroResponse nothiBibechhoPotroResponse = JsonConvert.DeserializeObject<NothiBibechhoPotroResponse>(responseJson);
+                return nothiBibechhoPotroResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiOnuchhedListResponse GetNothiOnuchhedList(DakUserParam dakUserParam, string nothi_id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiOnuchhedListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi_id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\"}");
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiOnuchhedListResponse nothiBibechhoPotroResponse = JsonConvert.DeserializeObject<NothiOnuchhedListResponse>(responseJson);
+                return nothiBibechhoPotroResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiPotakaListResponse GetNothiPotakaList(DakUserParam dakUserParam, string nothi_id, string note_id)
+        {
+            NothiPotakaListResponse nothiBibechhoPotroResponse = new NothiPotakaListResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiPotakaListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("note", "{\"nothi_note_id\":\""+ note_id + "\",\"nothi_office_id\":"+ dakUserParam.office_id + ",\"nothi_master_id\":\""+ nothi_id + "\"}");
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                responseJson = System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
+                nothiBibechhoPotroResponse = JsonConvert.DeserializeObject<NothiPotakaListResponse>(responseJson);
+                return nothiBibechhoPotroResponse;
+            }
+            catch (Exception ex)
+            {
+                return nothiBibechhoPotroResponse;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using dNothi.Services.DakServices;
 
 
 using dNothi.Services.PotroJariGroup;
+using dNothi.Services.PotroJariGroup.Models;
 using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
@@ -422,7 +423,7 @@ namespace dNothi.Desktop.UI.PotroJariGroups
                         pgc.isDelete = false;
                         pgc.isEditable = false;
                     }
-                    //commonKhosraRowUserControl.viewButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_NoteDetails_ButtonClick(mapmodel.Item1, e, mapmodel.Item2, mapmodel.Item3); };
+                    pgc.PotrojariEditButtonClick += delegate (object sender, EventArgs e) { Potrojari_EditButtonClick(sender, e, item); };
 
                     UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, pgc);
 
@@ -440,8 +441,23 @@ namespace dNothi.Desktop.UI.PotroJariGroups
 
         }
 
-     
 
+        private void Potrojari_EditButtonClick(object sender, EventArgs e,PotrojariGroupModel.Record item)
+        {
+            khosraListTableLayoutPanel.Controls.Clear();
+            khosraListTableLayoutPanel.Visible = false;
+            noKhosraPanel.Visible = false;
+            label2.Text = "পত্রজারি গ্রুপ অন্তর্ভুক্তিকরণ এর কাজ চলছে । ";
+            panel5.Visible = false;
+            newPotrojariPanel.Visible = false;
+            var uscontrol = UserControlFactory.Create<PatraJariGroupCreateUserControl>();
+            uscontrol.potrojariGroupModel = item;
+            uscontrol.groupName = item.group.group_name;
+            bodyContentPanel.Controls.Add(uscontrol);
+             MakeThisPanelClicked(sender);
+             listTypeLabel.Text = "পত্রজারি গ্রুপ অন্তর্ভুক্তিকরণ";
+            
+        }
         private void DakModule_CLick(object sender, EventArgs e)
         {
             UIDesignCommonMethod.DakModuleClick(this);
@@ -642,12 +658,12 @@ namespace dNothi.Desktop.UI.PotroJariGroups
         {
             khosraListTableLayoutPanel.Controls.Clear();
             khosraListTableLayoutPanel.Visible = false;
-            noKhosraPanel.Visible = true;
+            noKhosraPanel.Visible = false;
             label2.Text = "পত্রজারি গ্রুপ অন্তর্ভুক্তিকরণ এর কাজ চলছে । ";
             panel5.Visible = false;
             newPotrojariPanel.Visible = false;
-            //var uscontrol = UserControlFactory.Create<PatraJariGroupCreateUserControl>();
-            //bodyContentPanel.Controls.Add(uscontrol);
+            var uscontrol = UserControlFactory.Create<PatraJariGroupCreateUserControl>();
+            bodyContentPanel.Controls.Add(uscontrol);
 
 
             MakeThisPanelClicked(sender);

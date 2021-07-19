@@ -294,6 +294,30 @@ namespace dNothi.Desktop.UI
                 }
             }
         }
+        public void visibilityOFF()
+        {
+            btnSave.Visible = false;
+            btnDecision.Visible = false;
+            btnPotaka.Visible = false;
+            btnGardFile.Visible = false;
+            btnOnuchhed.Visible = false;
+            btnShongjuktiRef.Visible = false;
+            btnBibechhoPotro.Visible = false;
+            btnSaveArrow.Visible = false;
+            btnCancel.Visible = false;
+        }
+        public void visibilityON()
+        {
+            btnSave.Visible = true;
+            btnDecision.Visible = true;
+            btnPotaka.Visible = true;
+            btnGardFile.Visible = true;
+            btnOnuchhed.Visible = true;
+            btnShongjuktiRef.Visible = true;
+            btnBibechhoPotro.Visible = true;
+            btnSaveArrow.Visible = true;
+            btnCancel.Visible = true;
+        }
         public void loadNotangsho_Potrangsho(NoteListDataRecordNoteDTO list)
         {
             try
@@ -324,10 +348,7 @@ namespace dNothi.Desktop.UI
                                 lbNoteSubject.Text = list.note_subject_sub_text;
                                 lbNothiLastDate.Text = list.date;
 
-                                btnSave.Visible = false;
-                                btnDecision.Visible = false;
-                                btnSaveArrow.Visible = false;
-                                btnCancel.Visible = false;
+                                visibilityOFF();
 
                                 //onuchhedheaderPnl.Visible = true;
                                 //onuchhedFLP.Visible = true;
@@ -451,10 +472,7 @@ namespace dNothi.Desktop.UI
                             btnWriteOnuchhed.Visible = false;
                             btnSend.Visible = false;
 
-                            btnSave.Visible = true;
-                            btnDecision.Visible = true;
-                            btnSaveArrow.Visible = true;
-                            btnCancel.Visible = true;
+                            visibilityON();
 
                             //panel14.Visible = true;
                             panel22.Visible = true;
@@ -487,10 +505,7 @@ namespace dNothi.Desktop.UI
                         btnWriteOnuchhed.Visible = false;
                         btnSend.Visible = false;
 
-                        btnSave.Visible = true;
-                        btnDecision.Visible = true;
-                        btnSaveArrow.Visible = true;
-                        btnCancel.Visible = true;
+                        visibilityON();
 
                         //panel14.Visible = true;
                         panel22.Visible = true;
@@ -533,10 +548,7 @@ namespace dNothi.Desktop.UI
                                     lbNoteSubject.Text = list.note_subject_sub_text;
                                     lbNothiLastDate.Text = list.date;
 
-                                    btnSave.Visible = false;
-                                    btnDecision.Visible = false;
-                                    btnSaveArrow.Visible = false;
-                                    btnCancel.Visible = false;
+                                    visibilityOFF();
 
                                     //onuchhedheaderPnl.Visible = true;
                                     //onuchhedFLP.Visible = true;
@@ -570,9 +582,11 @@ namespace dNothi.Desktop.UI
                                     separateOnucched.onucchedId = z.onuchhed_id;
                                     separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                     separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
+                                    separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as OnuchhedSaveItemAction, e1); };
                                     try
                                     {
                                         separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
+                                        
                                     }
                                     catch
                                     {
@@ -796,10 +810,7 @@ namespace dNothi.Desktop.UI
                         btnWriteOnuchhed.Visible = false;
                         btnSend.Visible = false;
 
-                        btnSave.Visible = true;
-                        btnDecision.Visible = true;
-                        btnSaveArrow.Visible = true;
-                        btnCancel.Visible = true;
+                        visibilityON();
 
                         //panel14.Visible = true;
                         panel22.Visible = true;
@@ -944,10 +955,7 @@ namespace dNothi.Desktop.UI
                                 lbNoteSubject.Text = list.note_subject_sub_text;
                                 lbNothiLastDate.Text = list.date;
 
-                                btnSave.Visible = false;
-                                btnDecision.Visible = false;
-                                btnSaveArrow.Visible = false;
-                                btnCancel.Visible = false;
+                                visibilityOFF();
 
                                 //onuchhedheaderPnl.Visible = true;
                                 //onuchhedFLP.Visible = true;
@@ -1074,10 +1082,7 @@ namespace dNothi.Desktop.UI
                             btnWriteOnuchhed.Visible = false;
                             btnSend.Visible = false;
 
-                            btnSave.Visible = true;
-                            btnDecision.Visible = true;
-                            btnSaveArrow.Visible = true;
-                            btnCancel.Visible = true;
+                            visibilityON();
 
                             //panel14.Visible = true;
                             panel22.Visible = true;
@@ -1148,10 +1153,7 @@ namespace dNothi.Desktop.UI
                                     lbNoteSubject.Text = list.note_subject_sub_text;
                                     lbNothiLastDate.Text = list.date;
 
-                                    btnSave.Visible = false;
-                                    btnDecision.Visible = false;
-                                    btnSaveArrow.Visible = false;
-                                    btnCancel.Visible = false;
+                                    visibilityOFF();
 
                                     //onuchhedheaderPnl.Visible = true;
                                     //onuchhedFLP.Visible = true;
@@ -1183,6 +1185,7 @@ namespace dNothi.Desktop.UI
                                     separateOnucched.onucchedId = z.onuchhed_id;
                                     separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                     separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
+                                    separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as OnuchhedSaveItemAction, e1); };
                                     try
                                     {
                                         separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -1346,10 +1349,7 @@ namespace dNothi.Desktop.UI
                         btnWriteOnuchhed.Visible = false;
                         btnSend.Visible = false;
 
-                        btnSave.Visible = true;
-                        btnDecision.Visible = true;
-                        btnSaveArrow.Visible = true;
-                        btnCancel.Visible = true;
+                        visibilityON();
 
                         //panel14.Visible = true;
                         panel22.Visible = true;
@@ -1795,10 +1795,7 @@ namespace dNothi.Desktop.UI
                             lbNoteSubject.Text = nothiListInboxNoteRecordsDTO.note.note_subject;
                             lbNothiLastDate.Text = nothiListInboxNoteRecordsDTO.to.issue_date;
 
-                            btnSave.Visible = false;
-                            btnDecision.Visible = false;
-                            btnSaveArrow.Visible = false;
-                            btnCancel.Visible = false;
+                            visibilityOFF();
 
                             //onuchhedheaderPnl.Visible = true;
                             //onuchhedFLP.Visible = true;
@@ -1877,10 +1874,7 @@ namespace dNothi.Desktop.UI
                     btnWriteOnuchhed.Visible = false;
                     btnSend.Visible = false;
 
-                    btnSave.Visible = true;
-                    btnDecision.Visible = true;
-                    btnSaveArrow.Visible = true;
-                    btnCancel.Visible = true;
+                    visibilityON();
 
                     onucchedEditorPanel.Visible = true;
                     panel22.Visible = true;
@@ -2093,10 +2087,7 @@ namespace dNothi.Desktop.UI
                     btnWriteOnuchhed.Visible = false;
                     btnSend.Visible = false;
 
-                    btnSave.Visible = true;
-                    btnDecision.Visible = true;
-                    btnSaveArrow.Visible = true;
-                    btnCancel.Visible = true;
+                    visibilityON();
 
                     onucchedEditorPanel.Visible = true;
                     panel22.Visible = true;
@@ -2360,7 +2351,9 @@ namespace dNothi.Desktop.UI
                 form.noteTotal = notedata.note_no.ToString();
 
 
+                form.TopMost = true;
                 BeginInvoke((Action)(() => form.ShowDialog()));
+                BeginInvoke((Action)(() => form.TopMost = false));
                 form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
             }
@@ -2626,11 +2619,8 @@ namespace dNothi.Desktop.UI
             noteViewFLP.Controls.Clear();
             NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
             lbNothiType.Text = "সকল নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
-            
-            btnSave.Visible = false;
-            btnDecision.Visible = false;
-            btnSaveArrow.Visible = false;
-            btnCancel.Visible = false;
+
+            visibilityOFF();
 
             //onuchhedheaderPnl.Visible = true;
             //onuchhedFLP.Visible = true;
@@ -2898,7 +2888,9 @@ namespace dNothi.Desktop.UI
                 foreach (Form f in Application.OpenForms)
                 { BeginInvoke((Action)(() => f.Hide())); }
                 var form = FormFactory.Create<Nothi>();
+                form.TopMost = true;
                 BeginInvoke((Action)(() => form.ShowDialog()));
+                BeginInvoke((Action)(() => form.TopMost = false));
                 form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
             }
         }
@@ -2973,10 +2965,7 @@ namespace dNothi.Desktop.UI
                             lbNoteSubject.Text = list.note_subject_sub_text;
                             lbNothiLastDate.Text = list.date;
 
-                            btnSave.Visible = false;
-                            btnDecision.Visible = false;
-                            btnSaveArrow.Visible = false;
-                            btnCancel.Visible = false;
+                            visibilityOFF();
 
                             //onuchhedheaderPnl.Visible = true;
                             //onuchhedFLP.Visible = true;
@@ -3078,10 +3067,7 @@ namespace dNothi.Desktop.UI
                                 lbNoteSubject.Text = list.note_subject_sub_text;
                                 lbNothiLastDate.Text = list.date;
 
-                                btnSave.Visible = false;
-                                btnDecision.Visible = false;
-                                btnSaveArrow.Visible = false;
-                                btnCancel.Visible = false;
+                                visibilityOFF();
 
                                 //onuchhedheaderPnl.Visible = true;
                                 //onuchhedFLP.Visible = true;
@@ -3113,7 +3099,7 @@ namespace dNothi.Desktop.UI
                                 separateOnucched.onucchedId = z.onuchhed_id;
                                 separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                 separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
-
+                                separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as OnuchhedSaveItemAction, e1); };
                                 try
                                 {
                                     separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -3277,10 +3263,7 @@ namespace dNothi.Desktop.UI
                     btnWriteOnuchhed.Visible = false;
                     btnSend.Visible = false;
 
-                    btnSave.Visible = true;
-                    btnDecision.Visible = true;
-                    btnSaveArrow.Visible = true;
-                    btnCancel.Visible = true;
+                    visibilityON();
 
                     //panel14.Visible = true;
                     panel22.Visible = true;
@@ -3381,8 +3364,11 @@ namespace dNothi.Desktop.UI
                 //onuchhedFLP.Controls.Clear();
                 PnlSave.Visible = false;
                 string onuchhedId = "0";
-                if (updateOnuchhedId > 0)
+                if (updateOnuchhedId > 0) {
                     onuchhedId = updateOnuchhedId.ToString();
+                    updateOnuchhedId = 0;
+                }
+                    
                 if (Convert.ToInt32(NoteIdfromNothiInboxNoteShomuho.Text) > 0)
                     newnotedata.note_id = Convert.ToInt32(NoteIdfromNothiInboxNoteShomuho.Text);
                 //string editortext = tinyMceEditor.HtmlContent;
@@ -3512,10 +3498,7 @@ namespace dNothi.Desktop.UI
                                 foreach (OnuchhedSaveItemAction onuchhedSaveItemAction in onuchhedSaveItemActions)
                                 {
                                     flag++;
-                                    btnSave.Visible = false;
-                                    btnDecision.Visible = false;
-                                    btnSaveArrow.Visible = false;
-                                    btnCancel.Visible = false;
+                                    visibilityOFF();
 
                                     //onuchhedheaderPnl.Visible = true;
                                     //onuchhedFLP.Visible = true;
@@ -3689,10 +3672,7 @@ namespace dNothi.Desktop.UI
                                         {
                                             var rec = singleOnucched.data.records;
 
-                                            btnSave.Visible = false;
-                                            btnDecision.Visible = false;
-                                            btnSaveArrow.Visible = false;
-                                            btnCancel.Visible = false;
+                                            visibilityOFF();
 
                                             //onuchhedheaderPnl.Visible = true;
                                             //onuchhedFLP.Visible = true;
@@ -3724,7 +3704,7 @@ namespace dNothi.Desktop.UI
                                             separateOnucched.onucchedId = z.onuchhed_id;
                                             separateOnucched.DeleteButtonClick += delegate (object sender1, EventArgs e1) { DeleteButton_Click(sender1.ToString(), e1, dakListUserParam, nothiListRecords, newnotedata); };
                                             separateOnucched.KhoshraButtonClick += delegate (object sender1, EventArgs e1) { KhoshraButton_Click(sender1.ToString(), e1); };
-                                            
+                                            separateOnucched.EditButtonClick += delegate (object sender1, EventArgs e1) { EditButton_Click(sender1 as OnuchhedSaveItemAction, e1); };
                                             try
                                             {
                                                 separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
@@ -3954,10 +3934,7 @@ namespace dNothi.Desktop.UI
             noteHeaderPanel.Height = 150;
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
-            btnSave.Visible = true;
-            btnDecision.Visible = true;
-            btnSaveArrow.Visible = true;
-            btnCancel.Visible = true;
+            visibilityON();
 
             PnlSave.Visible = false;
             panel22.Visible = true;
@@ -3977,10 +3954,7 @@ namespace dNothi.Desktop.UI
             //onuchhed.onucchedId = onucchedSave.data.id;
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
-            btnSave.Visible = true;
-            btnDecision.Visible = true;
-            btnSaveArrow.Visible = true;
-            btnCancel.Visible = true;
+            visibilityON();
             panel22.Visible = true;
             tinyMceEditor.Visible = true;
             panel28.Visible = true;
@@ -4001,11 +3975,9 @@ namespace dNothi.Desktop.UI
             PnlSave.Visible = false;
             noteHeaderPanel.Width = 990;
             noteHeaderPanel.Height = 426;
-            btnCancel.Visible = false;
-            btnSave.Visible = false;
-            btnDecision.Visible = false;
-            btnSaveArrow.Visible = false;
-
+            visibilityOFF();
+            updateOnuchhedId = 0;
+            onuchhedSaveWithAttachments.Clear();
             if (_NoteAllListDataRecordDTO.note.can_revert == 1)
             { 
                 btnCanRevert.Visible = true;
@@ -4022,15 +3994,11 @@ namespace dNothi.Desktop.UI
 
         private void btnWriteOnuchhed_Click(object sender, EventArgs e)
         {
-
             noteHeaderPanel.Width = 990;
             noteHeaderPanel.Height = 150;
             btnWriteOnuchhed.Visible = false;
             btnSend.Visible = false;
-            btnSave.Visible = true;
-            btnDecision.Visible = true;
-            btnSaveArrow.Visible = true;
-            btnCancel.Visible = true;
+            visibilityON();
 
             PnlSave.Visible = false;
             panel22.Visible = true;
@@ -4332,7 +4300,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4340,7 +4310,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         private void DoSomethingAsync(object sender, EventArgs e)
@@ -4351,7 +4323,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4359,7 +4333,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4367,7 +4343,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4375,7 +4353,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4383,7 +4363,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -4391,7 +4373,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Nothi>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         public static string Base64Decode1(string base64EncodedData)
@@ -8662,7 +8646,9 @@ namespace dNothi.Desktop.UI
             form.loadNoteView(newNoteView);
             form.noteTotal = noteTotal;
             form.loadInboxCBXNothiType();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         private void pdfViewWebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
@@ -9450,6 +9436,27 @@ namespace dNothi.Desktop.UI
         {
             loadKhoshra(onucchedId);
         }
+        public void EditButton_Click(OnuchhedSaveItemAction onucched, EventArgs e)
+        {
+            updateOnuchhedId = Convert.ToInt32(onucched.onuchhedId);
+            noteHeaderPanel.Width = 990;
+            noteHeaderPanel.Height = 150;
+            btnWriteOnuchhed.Visible = false;
+            btnSend.Visible = false;
+            visibilityON();
+
+            PnlSave.Visible = false;
+            panel22.Visible = true;
+            tinyMceEditor.Visible = true;
+            panel28.Visible = true;
+            panel22.SendToBack();
+            panel24.Visible = true;
+            //panel24.SendToBack();
+            tinyMceEditor.HtmlContent = onucched.editorEncodedData;
+            fileAddFLP.Controls.Clear();
+            noteFileUploads.Clear();
+            onucchedEditorPanel.Visible = true;
+        }
         private void loadKhoshra(string onucchedId)
         {
 
@@ -9475,10 +9482,21 @@ namespace dNothi.Desktop.UI
 
         private void btnDecision_Click(object sender, EventArgs e)
         {
-            var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
-            nothiDecisionList.DecisionText += delegate (object sender1, EventArgs e1) { DecisionText_Click(sender1 as string, e1); };
-            var form = NothiNextStepControlToForm(nothiDecisionList);
-            CalPopUpWindow(form);
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.DecisionText += delegate (object sender1, EventArgs e1) { DecisionText_Click(sender1 as string, e1); };
+                nothiDecisionList.loadRow();
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
         }
         private void DecisionText_Click(string text, EventArgs e1)
         {
@@ -9535,11 +9553,160 @@ namespace dNothi.Desktop.UI
             record.Mulpotro = MappingModels.MapModel<NoteKhoshraListDataRecordMulpotroDTO, KasaraPotro.Mulpotro> (_khoshraPotroDataRecordDTO.mulpotro);
             record.NoteOnucched = MappingModels.MapModel<NoteKhoshraListDataRecordNoteOnucchedDTO, KasaraPotro.NoteOnucched> (_khoshraPotroDataRecordDTO.note_onucched);
             record.NoteOwner = MappingModels.MapModel<NoteKhoshraListDataRecordNoteOwnerDTO, KasaraPotro.NoteOwner> (_khoshraPotroDataRecordDTO.note_owner);
-          
+          return record;
+        }
 
+        private void btnGardFile_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiGaurdFileList = UserControlFactory.Create<NothiGaurdFileList>();
+                nothiGaurdFileList.GaurdFileAttachment += delegate (object sender1, EventArgs e1) { GaurdFileText_Click(sender1 as GaurdFileRecord, e1); };
+                var form = NothiNextStepControlToForm(nothiGaurdFileList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
+        }
+        private void GaurdFileText_Click(GaurdFileRecord gaurdFileRecord, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
 
+            editortext += " " + "<a href=" + gaurdFileRecord.attachment.url + ">" + gaurdFileRecord.name_bng + "</a>";
+            //string link = "https://dev.nothibs.tappware.com/api/content/view?token=NjBmMmYzMjNhNTk1MiZvZmZpY2VJZF82NV8yMDk%3D";
+            //tinyMceEditor.HtmlContent = "<p><a href=" + link + ">Test</a></p>";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
+        }
 
-            return record;
+        private void btnBibechhoPotro_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiBibechhoPotroList = UserControlFactory.Create<NothiBibechhoPotroList>();
+                nothiBibechhoPotroList.BibechhoPotroRecord += delegate (object sender1, EventArgs e1) { BibechhoPotroText_Click(sender1 as BibechhoPotroRecord, e1); };
+                nothiBibechhoPotroList.nothi_id = nothiListRecords.id.ToString();
+                nothiBibechhoPotroList.loadRow();
+                var form = NothiNextStepControlToForm(nothiBibechhoPotroList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
+        }
+        private void BibechhoPotroText_Click(BibechhoPotroRecord record, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+
+            editortext += " " + "<a href=" + record.mulpotro.url + ">বিবেচ্য পত্র: " + record.basic.sarok_no + " ,"+ record.basic.subject + " সদয় দ্রষ্টব্য।</a>";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
+        }
+
+        private void btnShongjuktiRef_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                //var str = onuchhedSaveWithAttachments;
+                WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.labelText = "সংযুক্তি তালিকা";
+                nothiDecisionList.AttachmentAdd += delegate (object sender1, EventArgs e1) { AttachmentAdd_Click(sender1 as DakAttachmentDTO, e1); };
+                nothiDecisionList.loadRowAttachments(onuchhedSaveWithAttachments);
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
+        }
+        private void AttachmentAdd_Click(DakAttachmentDTO record, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+            editortext += " " + "<a href=" + record.url + ">" + record.user_file_name + "</a>";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
+        }
+
+        private void btnPotaka_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.labelText = "পতাকা বাছাই করুন";
+                nothiDecisionList.loadPotaka(nothiListRecords.id.ToString(), notelist.nothi_note_id.ToString());
+                nothiDecisionList.PotakaAdd += delegate (object sender1, EventArgs e1) { PotakaAdd_Click(sender1 as PotakaListRecord, e1); };
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
+        }
+        private void PotakaAdd_Click(PotakaListRecord record, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+            editortext += " " + "<a style= color:" + record .color+ "; href=" + record.attachment.url + "> বিবেচ্য পতাকা: " + record.title + " সদয় দ্রষ্টব্য।</a>";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
+        }
+
+        private void btnOnuchhed_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.labelText = "অনুচ্ছেদ তালিকা";
+                nothiDecisionList.loadOnuchhed(nothiListRecords.id.ToString());
+                nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
+        }
+        private void OnuchhedAdd_Click(string Text, EventArgs e1)
+        {
+            string addParagraphStartTag = "<p>";
+            string addParagraphEndTag = "</p>";
+            string allText = "";
+            string editortext = getparagraphtext(tinyMceEditor.HtmlContent);
+            editortext += Text+",";
+            allText = addParagraphStartTag + editortext + addParagraphEndTag;
+            tinyMceEditor.HtmlContent = allText;
         }
 
         private void btnFullEditable_Click(object sender, EventArgs e)

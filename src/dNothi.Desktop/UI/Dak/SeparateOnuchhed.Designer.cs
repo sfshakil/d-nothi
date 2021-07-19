@@ -31,6 +31,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.components = new System.ComponentModel.Container();
             this.topPnl = new System.Windows.Forms.Panel();
+            this.btnEdit = new FontAwesome.Sharp.IconButton();
+            this.btnKhosra = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.lbCreateDate = new System.Windows.Forms.Label();
             this.middlePnl = new System.Windows.Forms.Panel();
@@ -39,6 +41,7 @@ namespace dNothi.Desktop.UI.Dak
             this.label5 = new System.Windows.Forms.Label();
             this.SubjectBrowser = new System.Windows.Forms.WebBrowser();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.SignatureViewBodyPanel = new System.Windows.Forms.Panel();
             this.SignatureFLP = new System.Windows.Forms.TableLayoutPanel();
             this.filePnael = new System.Windows.Forms.Panel();
@@ -48,9 +51,7 @@ namespace dNothi.Desktop.UI.Dak
             this.label3 = new System.Windows.Forms.Label();
             this.lbTotalFileNo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnKhosra = new FontAwesome.Sharp.IconButton();
             this.onuchhedheaderPnl = new dNothi.Desktop.AdvancedPanel();
-            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.lbOffice = new System.Windows.Forms.Label();
             this.lbNoteNo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -67,6 +68,7 @@ namespace dNothi.Desktop.UI.Dak
             // topPnl
             // 
             this.topPnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.topPnl.Controls.Add(this.btnEdit);
             this.topPnl.Controls.Add(this.btnKhosra);
             this.topPnl.Controls.Add(this.btnDelete);
             this.topPnl.Controls.Add(this.lbCreateDate);
@@ -78,6 +80,58 @@ namespace dNothi.Desktop.UI.Dak
             this.topPnl.TabIndex = 2;
             this.topPnl.MouseLeave += new System.EventHandler(this.onuchhedheaderPnl_MouseLeave);
             this.topPnl.MouseHover += new System.EventHandler(this.onuchhedheaderPnl_MouseHover);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
+            this.btnEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEdit.IconSize = 24;
+            this.btnEdit.Location = new System.Drawing.Point(1168, 0);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(43, 30);
+            this.btnEdit.TabIndex = 74;
+            this.MyToolTip.SetToolTip(this.btnEdit, "সম্পাদনা");
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnEdit.MouseLeave += new System.EventHandler(this.btnEdit_MouseLeave);
+            this.btnEdit.MouseHover += new System.EventHandler(this.btnEdit_MouseHover);
+            // 
+            // btnKhosra
+            // 
+            this.btnKhosra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnKhosra.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnKhosra.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnKhosra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnKhosra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnKhosra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhosra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKhosra.ForeColor = System.Drawing.Color.White;
+            this.btnKhosra.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.btnKhosra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnKhosra.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnKhosra.IconSize = 22;
+            this.btnKhosra.Location = new System.Drawing.Point(1211, 0);
+            this.btnKhosra.Margin = new System.Windows.Forms.Padding(0);
+            this.btnKhosra.Name = "btnKhosra";
+            this.btnKhosra.Size = new System.Drawing.Size(43, 30);
+            this.btnKhosra.TabIndex = 73;
+            this.MyToolTip.SetToolTip(this.btnKhosra, "খসড়া পত্র");
+            this.btnKhosra.UseVisualStyleBackColor = false;
+            this.btnKhosra.Visible = false;
+            this.btnKhosra.Click += new System.EventHandler(this.btnKhosra_Click);
+            this.btnKhosra.MouseLeave += new System.EventHandler(this.btnKhosra_MouseLeave);
+            this.btnKhosra.MouseHover += new System.EventHandler(this.btnKhosra_MouseHover);
             // 
             // btnDelete
             // 
@@ -92,7 +146,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDelete.IconSize = 18;
+            this.btnDelete.IconSize = 22;
             this.btnDelete.Location = new System.Drawing.Point(1254, 0);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
@@ -187,6 +241,27 @@ namespace dNothi.Desktop.UI.Dak
             this.SubjectBrowser.TabIndex = 4;
             this.SubjectBrowser.WebBrowserShortcutsEnabled = false;
             this.SubjectBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.SubjectBrowser_DocumentCompleted);
+            this.SubjectBrowser.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.SubjectBrowser_Navigated);
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(1254, 0);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(33, 43);
+            this.btnSchedule.TabIndex = 120;
+            this.MyToolTip.SetToolTip(this.btnSchedule, "আপলোড হচ্ছে");
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
             // 
             // SignatureViewBodyPanel
             // 
@@ -309,32 +384,6 @@ namespace dNothi.Desktop.UI.Dak
             this.label1.TabIndex = 67;
             this.label1.Text = "সংযুক্তি(";
             // 
-            // btnKhosra
-            // 
-            this.btnKhosra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnKhosra.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnKhosra.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnKhosra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnKhosra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnKhosra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKhosra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhosra.ForeColor = System.Drawing.Color.White;
-            this.btnKhosra.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.btnKhosra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnKhosra.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnKhosra.IconSize = 18;
-            this.btnKhosra.Location = new System.Drawing.Point(1211, 0);
-            this.btnKhosra.Margin = new System.Windows.Forms.Padding(0);
-            this.btnKhosra.Name = "btnKhosra";
-            this.btnKhosra.Size = new System.Drawing.Size(43, 30);
-            this.btnKhosra.TabIndex = 73;
-            this.MyToolTip.SetToolTip(this.btnKhosra, "খসড়া পত্র");
-            this.btnKhosra.UseVisualStyleBackColor = false;
-            this.btnKhosra.Visible = false;
-            this.btnKhosra.Click += new System.EventHandler(this.btnKhosra_Click);
-            this.btnKhosra.MouseLeave += new System.EventHandler(this.btnKhosra_MouseLeave);
-            this.btnKhosra.MouseHover += new System.EventHandler(this.btnKhosra_MouseHover);
-            // 
             // onuchhedheaderPnl
             // 
             this.onuchhedheaderPnl.BackColor = System.Drawing.Color.Transparent;
@@ -362,26 +411,6 @@ namespace dNothi.Desktop.UI.Dak
             this.onuchhedheaderPnl.TabIndex = 6;
             this.onuchhedheaderPnl.MouseLeave += new System.EventHandler(this.onuchhedheaderPnl_MouseLeave);
             this.onuchhedheaderPnl.MouseHover += new System.EventHandler(this.onuchhedheaderPnl_MouseHover);
-            // 
-            // btnSchedule
-            // 
-            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.btnSchedule.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.FlatAppearance.BorderSize = 0;
-            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
-            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSchedule.IconSize = 28;
-            this.btnSchedule.Location = new System.Drawing.Point(1254, 0);
-            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(33, 43);
-            this.btnSchedule.TabIndex = 120;
-            this.MyToolTip.SetToolTip(this.btnSchedule, "আপলোড হচ্ছে");
-            this.btnSchedule.UseVisualStyleBackColor = false;
-            this.btnSchedule.Visible = false;
             // 
             // lbOffice
             // 
@@ -508,5 +537,6 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbTotalFileNo;
         private FontAwesome.Sharp.IconButton btnKhosra;
+        private FontAwesome.Sharp.IconButton btnEdit;
     }
 }

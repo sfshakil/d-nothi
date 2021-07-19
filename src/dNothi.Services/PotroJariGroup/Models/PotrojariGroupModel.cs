@@ -36,6 +36,7 @@ namespace dNothi.Services.PotroJariGroup.Models
         public class User
         {
             public int id { get; set; }
+            public int rowId { get; set; }
             public int group_id { get; set; }
             public string group_name { get; set; }
             public int office_head { get; set; }

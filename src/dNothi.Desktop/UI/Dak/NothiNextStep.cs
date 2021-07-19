@@ -117,6 +117,7 @@ namespace dNothi.Desktop.UI.Dak
 
                             nothiOnumodonRow.AddNewOfficerFromNothiNextStep(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index,0);
                         nothiOnumodonRow.level = officer.layer_index.ToString();
+                        nothiOnumodonRow.karjodibosh = officer.max_transaction_day.ToString();
 
                     }
 

@@ -27,7 +27,7 @@ namespace dNothi.Services.NothiServices
             _nothiCreateItemAction = nothiCreateItemAction;
             _noteSaveItemAction = noteSaveItemAction;
         }
-        public NothiCreateResponse GetNothiCreate(DakUserParam UserParam, string nothishkha, string nothi_no, string nothi_type_id, string nothi_subject, string nothi_class, string currentYear)
+        public NothiCreateResponse GetNothiCreate(DakUserParam UserParam, string id, string nothishkha, string nothi_no, string nothi_type_id, string nothi_subject, string nothi_class, string currentYear)
         {
             NothiCreateResponse nothiCreateResponse = new NothiCreateResponse();
 
@@ -71,7 +71,7 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("office_id", +UserParam.office_id);
                 request.AddParameter("designation_id", +UserParam.designation_id);
                 request.AddParameter("model", "NothiMasters");
-                request.AddParameter("data", "{\"id\":\"0\",\"office_id\":\"" + UserParam.office_id + "\",\"office_name\":\"" + UserParam.officer_name + "\",\"office_unit_id\":\"" + UserParam.office_unit_id + "\",\"office_unit_name\":\"" + nothishkha + "\",\"office_unit_organogram_id\":\"" + UserParam.designation_id + "\",\"office_designation_name\":\"" + UserParam.designation + "\",\"nothi_type_id\":\"" + nothi_type_id + "\",\"nothi_no\":\"" + nothi_no + "\",\"subject\":\"" + nothi_subject + "\",\"description\":\"NULL\",\"nothi_class\":\"" + nothi_class + "\",\"nothi_created_date\":\"" + currentYear + "\"}");
+                request.AddParameter("data", "{\"id\":\""+ id +"\",\"office_id\":\"" + UserParam.office_id + "\",\"office_name\":\"" + UserParam.officer_name + "\",\"office_unit_id\":\"" + UserParam.office_unit_id + "\",\"office_unit_name\":\"" + nothishkha + "\",\"office_unit_organogram_id\":\"" + UserParam.designation_id + "\",\"office_designation_name\":\"" + UserParam.designation + "\",\"nothi_type_id\":\"" + nothi_type_id + "\",\"nothi_no\":\"" + nothi_no + "\",\"subject\":\"" + nothi_subject + "\",\"description\":\"NULL\",\"nothi_class\":\"" + nothi_class + "\",\"nothi_created_date\":\"" + currentYear + "\"}");
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
@@ -99,7 +99,7 @@ namespace dNothi.Services.NothiServices
                     userParam.unit_id = nothiCreateItemAction.office_unit_id;
                     userParam.designation_label = nothiCreateItemAction.designation;
                     userParam.token = dakUserParam.token;
-                    var nothiCreateResponse = GetNothiCreate(userParam, nothiCreateItemAction.nothishkha, nothiCreateItemAction.nothi_no, nothiCreateItemAction.nothi_type_id, nothiCreateItemAction.nothi_subject, nothiCreateItemAction.nothi_class, nothiCreateItemAction.currentYear);
+                    var nothiCreateResponse = GetNothiCreate(userParam, "0", nothiCreateItemAction.nothishkha, nothiCreateItemAction.nothi_no, nothiCreateItemAction.nothi_type_id, nothiCreateItemAction.nothi_subject, nothiCreateItemAction.nothi_class, nothiCreateItemAction.currentYear);
 
                     if (nothiCreateResponse != null && (nothiCreateResponse.status == "error" || nothiCreateResponse.status == "success"))
                     {

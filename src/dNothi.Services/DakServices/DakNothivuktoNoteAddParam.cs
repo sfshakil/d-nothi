@@ -8,7 +8,9 @@ namespace dNothi.JsonParser.Entity.Dak
 {
    public class DakNothivuktoNoteAddParam
     {
+        public int id { get; set; }
         public int nothi_master_id { get; set; }
+      
         public string note_subject { get; set; }
         public int office_id { get; set; }
         public string office_name { get; set; }

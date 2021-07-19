@@ -14,6 +14,7 @@ namespace dNothi.Services.PotroJariGroup
   public  interface IPotroJariGroupService
     {
         PotrojariGroupModel GetList(DakUserParam dakListUserParam, int menuNo);
-     
+        PotroJariGroupModels PatroJariGroupCreateUpdate(DakUserParam userParam, PotrojariGroupModel.Group potrojariGroup, List<PotroJariGroupModels.User> users);
+      
     }
 }

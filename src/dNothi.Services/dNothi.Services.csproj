@@ -181,6 +181,9 @@
     <Compile Include="KhasraService\KhasraSaveParam.cs" />
     <Compile Include="KhasraService\KhasraTemplateService.cs" />
     <Compile Include="KhasraService\KhosraSaveService.cs" />
+    <Compile Include="NothiReportService\INothiReportService.cs" />
+    <Compile Include="NothiReportService\Model\NothiRegisterReport.cs" />
+    <Compile Include="NothiReportService\NothiReportService.cs" />
     <Compile Include="NothiServices\AllPotroServices.cs" />
     <Compile Include="NothiServices\FileAttachment.cs" />
     <Compile Include="NothiServices\IAllPotroServices.cs" />
@@ -252,9 +255,8 @@
     <Compile Include="NothiServices\SingleOnucchedServices.cs" />
     <Compile Include="PotroJariGroup\ApiEndPoint.cs" />
     <Compile Include="PotroJariGroup\IPotroJariGroupService.cs" />
-    <Compile Include="PotroJariGroup\Models\Attachment.cs" />
     <Compile Include="PotroJariGroup\Models\PotrojariGroupModel.cs" />
-    <Compile Include="PotroJariGroup\Models\PrapakerTalika.cs" />
+    <Compile Include="PotroJariGroup\Models\PotroJariGroupModels.cs" />
     <Compile Include="PotroJariGroup\PotroJariGroupService.cs" />
     <Compile Include="PotroServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
