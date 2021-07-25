@@ -201,6 +201,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbonucchedId.Size = new System.Drawing.Size(24, 26);
             this.lbonucchedId.TabIndex = 68;
             this.lbonucchedId.Text = "0";
+            this.lbonucchedId.Visible = false;
             // 
             // lbOnucchedNo
             // 
