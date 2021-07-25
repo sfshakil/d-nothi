@@ -453,6 +453,7 @@
             this.registerReportDataGridView.Location = new System.Drawing.Point(3, 100);
             this.registerReportDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.registerReportDataGridView.Name = "registerReportDataGridView";
+            this.registerReportDataGridView.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -483,6 +484,7 @@
             this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
             this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
+            this.slDataGridViewTextBoxColumn.ReadOnly = true;
             this.slDataGridViewTextBoxColumn.Width = 104;
             // 
             // acceptNumDataGridViewTextBoxColumn
@@ -490,6 +492,7 @@
             this.acceptNumDataGridViewTextBoxColumn.DataPropertyName = "acceptNum";
             this.acceptNumDataGridViewTextBoxColumn.HeaderText = "গ্রহণ নম্বর";
             this.acceptNumDataGridViewTextBoxColumn.Name = "acceptNumDataGridViewTextBoxColumn";
+            this.acceptNumDataGridViewTextBoxColumn.ReadOnly = true;
             this.acceptNumDataGridViewTextBoxColumn.Width = 103;
             // 
             // docketingNoDataGridViewTextBoxColumn
@@ -497,6 +500,7 @@
             this.docketingNoDataGridViewTextBoxColumn.DataPropertyName = "docketingNo";
             this.docketingNoDataGridViewTextBoxColumn.HeaderText = "ডকেট নং";
             this.docketingNoDataGridViewTextBoxColumn.Name = "docketingNoDataGridViewTextBoxColumn";
+            this.docketingNoDataGridViewTextBoxColumn.ReadOnly = true;
             this.docketingNoDataGridViewTextBoxColumn.Width = 101;
             // 
             // sharokNoDataGridViewTextBoxColumn
@@ -504,6 +508,7 @@
             this.sharokNoDataGridViewTextBoxColumn.DataPropertyName = "sharokNo";
             this.sharokNoDataGridViewTextBoxColumn.HeaderText = "স্মারক নম্বর";
             this.sharokNoDataGridViewTextBoxColumn.Name = "sharokNoDataGridViewTextBoxColumn";
+            this.sharokNoDataGridViewTextBoxColumn.ReadOnly = true;
             this.sharokNoDataGridViewTextBoxColumn.Width = 113;
             // 
             // applyDateDataGridViewTextBoxColumn
@@ -511,6 +516,7 @@
             this.applyDateDataGridViewTextBoxColumn.DataPropertyName = "applyDate";
             this.applyDateDataGridViewTextBoxColumn.HeaderText = "আবেদনের তারিখ";
             this.applyDateDataGridViewTextBoxColumn.Name = "applyDateDataGridViewTextBoxColumn";
+            this.applyDateDataGridViewTextBoxColumn.ReadOnly = true;
             this.applyDateDataGridViewTextBoxColumn.ToolTipText = "আবেদনের তারিখ";
             this.applyDateDataGridViewTextBoxColumn.Width = 147;
             // 
@@ -519,6 +525,7 @@
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
             this.typeDataGridViewTextBoxColumn.HeaderText = "ধরন";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
             this.typeDataGridViewTextBoxColumn.Width = 72;
             // 
             // subDataGridViewTextBoxColumn
@@ -526,6 +533,7 @@
             this.subDataGridViewTextBoxColumn.DataPropertyName = "sub";
             this.subDataGridViewTextBoxColumn.HeaderText = "বিষয়";
             this.subDataGridViewTextBoxColumn.Name = "subDataGridViewTextBoxColumn";
+            this.subDataGridViewTextBoxColumn.ReadOnly = true;
             this.subDataGridViewTextBoxColumn.Width = 77;
             // 
             // applicantDataGridViewTextBoxColumn
@@ -533,6 +541,7 @@
             this.applicantDataGridViewTextBoxColumn.DataPropertyName = "applicant";
             this.applicantDataGridViewTextBoxColumn.HeaderText = "আবেদনকারী";
             this.applicantDataGridViewTextBoxColumn.Name = "applicantDataGridViewTextBoxColumn";
+            this.applicantDataGridViewTextBoxColumn.ReadOnly = true;
             this.applicantDataGridViewTextBoxColumn.Width = 120;
             // 
             // previousPrapokDataGridViewTextBoxColumn
@@ -540,6 +549,7 @@
             this.previousPrapokDataGridViewTextBoxColumn.DataPropertyName = "previousPrapok";
             this.previousPrapokDataGridViewTextBoxColumn.HeaderText = "পূর্ববর্তী প্রেরক";
             this.previousPrapokDataGridViewTextBoxColumn.Name = "previousPrapokDataGridViewTextBoxColumn";
+            this.previousPrapokDataGridViewTextBoxColumn.ReadOnly = true;
             this.previousPrapokDataGridViewTextBoxColumn.Width = 126;
             // 
             // mainPrapokDataGridViewTextBoxColumn
@@ -547,6 +557,7 @@
             this.mainPrapokDataGridViewTextBoxColumn.DataPropertyName = "mainPrapok";
             this.mainPrapokDataGridViewTextBoxColumn.HeaderText = "মূল প্রাপক";
             this.mainPrapokDataGridViewTextBoxColumn.Name = "mainPrapokDataGridViewTextBoxColumn";
+            this.mainPrapokDataGridViewTextBoxColumn.ReadOnly = true;
             this.mainPrapokDataGridViewTextBoxColumn.Width = 107;
             // 
             // receivedDateDataGridViewTextBoxColumn
@@ -554,6 +565,7 @@
             this.receivedDateDataGridViewTextBoxColumn.DataPropertyName = "receivedDate";
             this.receivedDateDataGridViewTextBoxColumn.HeaderText = "প্রাপ্তির তারিখ";
             this.receivedDateDataGridViewTextBoxColumn.Name = "receivedDateDataGridViewTextBoxColumn";
+            this.receivedDateDataGridViewTextBoxColumn.ReadOnly = true;
             this.receivedDateDataGridViewTextBoxColumn.Width = 122;
             // 
             // securityDataGridViewTextBoxColumn
@@ -561,6 +573,7 @@
             this.securityDataGridViewTextBoxColumn.DataPropertyName = "security";
             this.securityDataGridViewTextBoxColumn.HeaderText = "গোপনীয়তা";
             this.securityDataGridViewTextBoxColumn.Name = "securityDataGridViewTextBoxColumn";
+            this.securityDataGridViewTextBoxColumn.ReadOnly = true;
             this.securityDataGridViewTextBoxColumn.Width = 110;
             // 
             // priorityDataGridViewTextBoxColumn
@@ -568,6 +581,7 @@
             this.priorityDataGridViewTextBoxColumn.DataPropertyName = "priority";
             this.priorityDataGridViewTextBoxColumn.HeaderText = "অগ্রাধিকার";
             this.priorityDataGridViewTextBoxColumn.Name = "priorityDataGridViewTextBoxColumn";
+            this.priorityDataGridViewTextBoxColumn.ReadOnly = true;
             this.priorityDataGridViewTextBoxColumn.Width = 107;
             // 
             // finalStateDataGridViewTextBoxColumn
@@ -575,6 +589,7 @@
             this.finalStateDataGridViewTextBoxColumn.DataPropertyName = "finalState";
             this.finalStateDataGridViewTextBoxColumn.HeaderText = "সর্বশেষ অবস্থা";
             this.finalStateDataGridViewTextBoxColumn.Name = "finalStateDataGridViewTextBoxColumn";
+            this.finalStateDataGridViewTextBoxColumn.ReadOnly = true;
             this.finalStateDataGridViewTextBoxColumn.Width = 127;
             // 
             // registerReportBindingSource

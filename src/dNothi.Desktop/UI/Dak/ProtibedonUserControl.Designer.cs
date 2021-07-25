@@ -57,11 +57,6 @@
             this.headlineLabel = new System.Windows.Forms.Label();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.registerReportDataGridView = new System.Windows.Forms.DataGridView();
-            this.protibedonBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.noRowMessageLabel = new System.Windows.Forms.Label();
-            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
-            this.protibedonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.slDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acceptNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docketingNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +72,11 @@
             this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pendingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.protibedonBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.noRowMessageLabel = new System.Windows.Forms.Label();
+            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
+            this.protibedonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateRangeTextBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -376,7 +376,7 @@
             this.headlineLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.headlineLabel.Location = new System.Drawing.Point(44, 9);
             this.headlineLabel.Name = "headlineLabel";
-            this.headlineLabel.Size = new System.Drawing.Size(124, 21);
+            this.headlineLabel.Size = new System.Drawing.Size(123, 21);
             this.headlineLabel.TabIndex = 66;
             this.headlineLabel.Text = "মীমাংসিত ডাকসমূহ";
             this.headlineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -455,6 +455,7 @@
             this.registerReportDataGridView.Location = new System.Drawing.Point(3, 100);
             this.registerReportDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.registerReportDataGridView.Name = "registerReportDataGridView";
+            this.registerReportDataGridView.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -477,49 +478,6 @@
             this.registerReportDataGridView.TabIndex = 96;
             this.registerReportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokDataGridView_CellContentClick);
             // 
-            // protibedonBindingSource1
-            // 
-            this.protibedonBindingSource1.DataSource = typeof(dNothi.Desktop.View_Model.Protibedon);
-            // 
-            // registerReportBindingSource
-            // 
-            this.registerReportBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.RegisterReport);
-            // 
-            // noRowMessageLabel
-            // 
-            this.noRowMessageLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.noRowMessageLabel.AutoSize = true;
-            this.noRowMessageLabel.BackColor = System.Drawing.Color.Transparent;
-            this.noRowMessageLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noRowMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.noRowMessageLabel.Location = new System.Drawing.Point(348, 147);
-            this.noRowMessageLabel.Name = "noRowMessageLabel";
-            this.noRowMessageLabel.Size = new System.Drawing.Size(171, 18);
-            this.noRowMessageLabel.TabIndex = 97;
-            this.noRowMessageLabel.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
-            this.noRowMessageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // customDatePicker
-            // 
-            this.customDatePicker._date = null;
-            this.customDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.customDatePicker.AutoSize = true;
-            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.customDatePicker.BackColor = System.Drawing.Color.White;
-            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
-            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
-            this.customDatePicker.Location = new System.Drawing.Point(275, 111);
-            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
-            this.customDatePicker.Name = "customDatePicker";
-            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
-            this.customDatePicker.TabIndex = 59;
-            this.customDatePicker.Visible = false;
-            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
-            // 
-            // protibedonBindingSource
-            // 
-            this.protibedonBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.Protibedon);
-            // 
             // slDataGridViewTextBoxColumn
             // 
             this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -528,42 +486,48 @@
             this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
             this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
-            this.slDataGridViewTextBoxColumn.Width = 105;
+            this.slDataGridViewTextBoxColumn.ReadOnly = true;
+            this.slDataGridViewTextBoxColumn.Width = 104;
             // 
             // acceptNumDataGridViewTextBoxColumn
             // 
             this.acceptNumDataGridViewTextBoxColumn.DataPropertyName = "acceptNum";
             this.acceptNumDataGridViewTextBoxColumn.HeaderText = "গ্রহণ নম্বর";
             this.acceptNumDataGridViewTextBoxColumn.Name = "acceptNumDataGridViewTextBoxColumn";
-            this.acceptNumDataGridViewTextBoxColumn.Width = 104;
+            this.acceptNumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.acceptNumDataGridViewTextBoxColumn.Width = 103;
             // 
             // docketingNo
             // 
             this.docketingNo.DataPropertyName = "docketingNo";
             this.docketingNo.HeaderText = "ডকেট নং";
             this.docketingNo.Name = "docketingNo";
-            this.docketingNo.Width = 102;
+            this.docketingNo.ReadOnly = true;
+            this.docketingNo.Width = 101;
             // 
             // sharokNoDataGridViewTextBoxColumn
             // 
             this.sharokNoDataGridViewTextBoxColumn.DataPropertyName = "sharokNo";
             this.sharokNoDataGridViewTextBoxColumn.HeaderText = "স্মারক নম্বর";
             this.sharokNoDataGridViewTextBoxColumn.Name = "sharokNoDataGridViewTextBoxColumn";
-            this.sharokNoDataGridViewTextBoxColumn.Width = 114;
+            this.sharokNoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sharokNoDataGridViewTextBoxColumn.Width = 113;
             // 
             // applyDateDataGridViewTextBoxColumn
             // 
             this.applyDateDataGridViewTextBoxColumn.DataPropertyName = "applyDate";
             this.applyDateDataGridViewTextBoxColumn.HeaderText = "আবেদনের তারিখ";
             this.applyDateDataGridViewTextBoxColumn.Name = "applyDateDataGridViewTextBoxColumn";
+            this.applyDateDataGridViewTextBoxColumn.ReadOnly = true;
             this.applyDateDataGridViewTextBoxColumn.ToolTipText = "আবেদনের তারিখ";
-            this.applyDateDataGridViewTextBoxColumn.Width = 148;
+            this.applyDateDataGridViewTextBoxColumn.Width = 147;
             // 
             // subDataGridViewTextBoxColumn
             // 
             this.subDataGridViewTextBoxColumn.DataPropertyName = "sub";
             this.subDataGridViewTextBoxColumn.HeaderText = "বিষয়";
             this.subDataGridViewTextBoxColumn.Name = "subDataGridViewTextBoxColumn";
+            this.subDataGridViewTextBoxColumn.ReadOnly = true;
             this.subDataGridViewTextBoxColumn.Width = 77;
             // 
             // applicantDataGridViewTextBoxColumn
@@ -571,6 +535,7 @@
             this.applicantDataGridViewTextBoxColumn.DataPropertyName = "applicant";
             this.applicantDataGridViewTextBoxColumn.HeaderText = "আবেদনকারী";
             this.applicantDataGridViewTextBoxColumn.Name = "applicantDataGridViewTextBoxColumn";
+            this.applicantDataGridViewTextBoxColumn.ReadOnly = true;
             this.applicantDataGridViewTextBoxColumn.Width = 120;
             // 
             // mainPrapok
@@ -578,7 +543,8 @@
             this.mainPrapok.DataPropertyName = "mainPrapok";
             this.mainPrapok.HeaderText = "মূল প্রাপক";
             this.mainPrapok.Name = "mainPrapok";
-            this.mainPrapok.Width = 106;
+            this.mainPrapok.ReadOnly = true;
+            this.mainPrapok.Width = 107;
             // 
             // PotrojariDate
             // 
@@ -612,20 +578,23 @@
             this.securityDataGridViewTextBoxColumn.DataPropertyName = "security";
             this.securityDataGridViewTextBoxColumn.HeaderText = "গোপনীয়তা";
             this.securityDataGridViewTextBoxColumn.Name = "securityDataGridViewTextBoxColumn";
-            this.securityDataGridViewTextBoxColumn.Width = 112;
+            this.securityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.securityDataGridViewTextBoxColumn.Width = 110;
             // 
             // priorityDataGridViewTextBoxColumn
             // 
             this.priorityDataGridViewTextBoxColumn.DataPropertyName = "priority";
             this.priorityDataGridViewTextBoxColumn.HeaderText = "অগ্রাধিকার";
             this.priorityDataGridViewTextBoxColumn.Name = "priorityDataGridViewTextBoxColumn";
-            this.priorityDataGridViewTextBoxColumn.Width = 106;
+            this.priorityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priorityDataGridViewTextBoxColumn.Width = 107;
             // 
             // finalState
             // 
             this.finalState.DataPropertyName = "finalState";
             this.finalState.HeaderText = "সর্বশেষ অবস্থা";
             this.finalState.Name = "finalState";
+            this.finalState.ReadOnly = true;
             this.finalState.Width = 127;
             // 
             // pendingTime
@@ -633,7 +602,51 @@
             this.pendingTime.DataPropertyName = "pendingTime";
             this.pendingTime.HeaderText = "পেন্ডিং সময়";
             this.pendingTime.Name = "pendingTime";
+            this.pendingTime.ReadOnly = true;
             this.pendingTime.Width = 115;
+            // 
+            // protibedonBindingSource1
+            // 
+            this.protibedonBindingSource1.DataSource = typeof(dNothi.Desktop.View_Model.Protibedon);
+            // 
+            // registerReportBindingSource
+            // 
+            this.registerReportBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.RegisterReport);
+            // 
+            // noRowMessageLabel
+            // 
+            this.noRowMessageLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.noRowMessageLabel.AutoSize = true;
+            this.noRowMessageLabel.BackColor = System.Drawing.Color.Transparent;
+            this.noRowMessageLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noRowMessageLabel.ForeColor = System.Drawing.Color.Red;
+            this.noRowMessageLabel.Location = new System.Drawing.Point(348, 147);
+            this.noRowMessageLabel.Name = "noRowMessageLabel";
+            this.noRowMessageLabel.Size = new System.Drawing.Size(169, 18);
+            this.noRowMessageLabel.TabIndex = 97;
+            this.noRowMessageLabel.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
+            this.noRowMessageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // customDatePicker
+            // 
+            this.customDatePicker._date = null;
+            this.customDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.customDatePicker.AutoSize = true;
+            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.customDatePicker.BackColor = System.Drawing.Color.White;
+            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
+            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
+            this.customDatePicker.Location = new System.Drawing.Point(275, 111);
+            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.customDatePicker.Name = "customDatePicker";
+            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
+            this.customDatePicker.TabIndex = 59;
+            this.customDatePicker.Visible = false;
+            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
+            // 
+            // protibedonBindingSource
+            // 
+            this.protibedonBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.Protibedon);
             // 
             // ProtibedonUserControl
             // 

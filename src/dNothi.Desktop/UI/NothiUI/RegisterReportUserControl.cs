@@ -314,7 +314,7 @@ namespace dNothi.Desktop.UI.NothiUI
                     {
                         try
                         {
-                            BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\Arial.ttf", BaseFont.IDENTITY_H, true);
+                            BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\Siyamrupali.ttf", BaseFont.IDENTITY_H,true);
 
                             PdfPTable pdfTable = new PdfPTable(registerReportDataGridView.Columns.Count);
                             pdfTable.DefaultCell.Padding = 3;

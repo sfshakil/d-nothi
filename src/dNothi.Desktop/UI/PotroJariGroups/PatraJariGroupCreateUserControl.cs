@@ -103,15 +103,7 @@ namespace dNothi.Desktop.UI.PotroJariGroups
             }
            
             LoadOfficer();
-           //if((_potrojariGroupModel!=null? _potrojariGroupModel.group.id:0)>0)
-           //     {
-
-           // }
-           // else {
-           //     talikaTableLayoutPanel.Controls.Clear();
-           //     officers.Clear();
-           // }
-
+          
         }
         private void allPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -177,15 +169,15 @@ namespace dNothi.Desktop.UI.PotroJariGroups
         private void officerTalika_DeleteButtonClick(object sender, EventArgs e, int rowid)
         {
             int id=  officers.Where(x => x.rowId == rowid).Select(x=>x.id).FirstOrDefault();
-            if (id == 0)
-            {
+            //if (id == 0)
+            //{
                 
 
                 officers.RemoveAll(x => x.rowId == rowid);
                 totalOfficer--;
                 totalOfficerlabel.Text = ConversionMethod.EnglishNumberToBangla(totalOfficer.ToString());
                 UpdateOfficerTalika();
-            }
+           // }
 
         }
 

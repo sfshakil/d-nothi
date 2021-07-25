@@ -41,9 +41,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.prerokBachaiTabControl = new System.Windows.Forms.TabControl();
             this.officerSearchTabPage = new System.Windows.Forms.TabPage();
+            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.prerokBachaiOfficerButton = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.officerBacaiTapPage = new System.Windows.Forms.TabPage();
+            this.searchComboBox1 = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.InfoBySelf = new System.Windows.Forms.TabPage();
@@ -86,8 +88,6 @@
             this.panelTxt = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
-            this.searchComboBox1 = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.mainTableLayoutPanel.SuspendLayout();
             this.rightSideOfficerAddPanel.SuspendLayout();
             this.panel24.SuspendLayout();
@@ -276,11 +276,27 @@
             this.officerSearchTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerSearchTabPage.Name = "officerSearchTabPage";
             this.officerSearchTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchTabPage.Size = new System.Drawing.Size(480, 417);
+            this.officerSearchTabPage.Size = new System.Drawing.Size(480, 427);
             this.officerSearchTabPage.TabIndex = 0;
             this.officerSearchTabPage.Text = "অফিসার খুঁজুন";
             this.officerSearchTabPage.ToolTipText = "নাম/পদবি/শাখা/অফিস দিয়ে অফিসার খুঁজুন";
             this.officerSearchTabPage.UseVisualStyleBackColor = true;
+            // 
+            // officerSearchList
+            // 
+            this.officerSearchList.AutoSize = true;
+            this.officerSearchList.BackColor = System.Drawing.Color.White;
+            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchList.isListShown = false;
+            this.officerSearchList.itemList = null;
+            this.officerSearchList.Location = new System.Drawing.Point(6, 57);
+            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
+            this.officerSearchList.Name = "officerSearchList";
+            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
+            this.officerSearchList.selectedId = 0;
+            this.officerSearchList.Size = new System.Drawing.Size(422, 44);
+            this.officerSearchList.TabIndex = 92;
             // 
             // prerokBachaiOfficerButton
             // 
@@ -318,11 +334,28 @@
             this.officerBacaiTapPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerBacaiTapPage.Name = "officerBacaiTapPage";
             this.officerBacaiTapPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerBacaiTapPage.Size = new System.Drawing.Size(480, 417);
+            this.officerBacaiTapPage.Size = new System.Drawing.Size(480, 427);
             this.officerBacaiTapPage.TabIndex = 1;
             this.officerBacaiTapPage.Text = "অফিসার বাছাই করুন";
             this.officerBacaiTapPage.ToolTipText = "অফিস অরগানগ্রাম থেকে অফিসার বাছাই করুন";
             this.officerBacaiTapPage.UseVisualStyleBackColor = true;
+            // 
+            // searchComboBox1
+            // 
+            this.searchComboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchComboBox1.AutoSize = true;
+            this.searchComboBox1.BackColor = System.Drawing.Color.White;
+            this.searchComboBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchComboBox1.isListShown = false;
+            this.searchComboBox1.itemList = null;
+            this.searchComboBox1.Location = new System.Drawing.Point(34, 57);
+            this.searchComboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchComboBox1.MinimumSize = new System.Drawing.Size(140, 0);
+            this.searchComboBox1.Name = "searchComboBox1";
+            this.searchComboBox1.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
+            this.searchComboBox1.selectedId = 0;
+            this.searchComboBox1.Size = new System.Drawing.Size(422, 44);
+            this.searchComboBox1.TabIndex = 92;
             // 
             // button1
             // 
@@ -926,39 +959,6 @@
             this.label15.Size = new System.Drawing.Size(67, 18);
             this.label15.TabIndex = 40;
             this.label15.Text = "গ্রুপের নামঃ";
-            // 
-            // officerSearchList
-            // 
-            this.officerSearchList.AutoSize = true;
-            this.officerSearchList.BackColor = System.Drawing.Color.White;
-            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.officerSearchList.isListShown = false;
-            this.officerSearchList.itemList = null;
-            this.officerSearchList.Location = new System.Drawing.Point(6, 57);
-            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
-            this.officerSearchList.Name = "officerSearchList";
-            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
-            this.officerSearchList.selectedId = 0;
-            this.officerSearchList.Size = new System.Drawing.Size(422, 44);
-            this.officerSearchList.TabIndex = 92;
-            // 
-            // searchComboBox1
-            // 
-            this.searchComboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchComboBox1.AutoSize = true;
-            this.searchComboBox1.BackColor = System.Drawing.Color.White;
-            this.searchComboBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchComboBox1.isListShown = false;
-            this.searchComboBox1.itemList = null;
-            this.searchComboBox1.Location = new System.Drawing.Point(34, 57);
-            this.searchComboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchComboBox1.MinimumSize = new System.Drawing.Size(140, 0);
-            this.searchComboBox1.Name = "searchComboBox1";
-            this.searchComboBox1.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
-            this.searchComboBox1.selectedId = 0;
-            this.searchComboBox1.Size = new System.Drawing.Size(422, 44);
-            this.searchComboBox1.TabIndex = 92;
             // 
             // PatraJariGroupCreateUserControl
             // 

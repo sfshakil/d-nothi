@@ -30,6 +30,7 @@ namespace dNothi.Desktop.UI.PotroJariGroups
         private DakUserParam dakListUserParam = new DakUserParam();
         private DakUserParam _dakuserparam = new DakUserParam();
         AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
+        AllAlartMessage alartMessage = new AllAlartMessage();
         List<PrapokDTO> _addedOwnOfficerDesignationSeal { get; set; }
         private List<PrapokDTO> _ownOfficeDesignationList = new List<PrapokDTO>();
         IDesignationSealService _designationSealService { get; set; }
@@ -256,111 +257,111 @@ namespace dNothi.Desktop.UI.PotroJariGroups
         }
 
 
-        private void LoadOwnOfficerTree()
-        {
+        //private void LoadOwnOfficerTree()
+        //{
 
 
 
-          var   _dakUserParam = _userService.GetLocalDakUserParam();
+        //  var   _dakUserParam = _userService.GetLocalDakUserParam();
 
 
-            AllDesignationSealListResponse designationSealListOwnOfficeResponse = _designationSealService.GetAllDesignationSeal(_dakUserParam, _dakUserParam.office_id);
-            OfficeListResponse officeListResponse = _designationSealService.GetAllOffice(_dakUserParam);
-
-
-
-            int unitOwnOffice = 0, designationOwnOffice = 0, emptydesignationOwnOffice = 0, workingdesignationOwnOffice = 0;
-            if (designationSealListOwnOfficeResponse.status == "success")
-            {
-                if (designationSealListOwnOfficeResponse.data.Count > 0)
-                {
-                    List<PrapokDTO> ownOfficers = designationSealListOwnOfficeResponse.data.Where(a => a.office_id == _dakUserParam.office_id).ToList();
-                    _ownOfficeDesignationList = ownOfficers;
-                    if (ownOfficers.Count > 0)
-                    {
-
-                        designationOwnOffice = ownOfficers.Count;
-                        var groupOwnOfficebyUnit = ownOfficers.GroupBy(a => a.unitWithCode);
-                        unitOwnOffice = groupOwnOfficebyUnit.Count();
-
-                        foreach (var group in groupOwnOfficebyUnit)
-                        {
+        //    AllDesignationSealListResponse designationSealListOwnOfficeResponse = _designationSealService.GetAllDesignationSeal(_dakUserParam, _dakUserParam.office_id);
+        //    OfficeListResponse officeListResponse = _designationSealService.GetAllOffice(_dakUserParam);
 
 
 
-                            string branchName = group.Key;
+        //    int unitOwnOffice = 0, designationOwnOffice = 0, emptydesignationOwnOffice = 0, workingdesignationOwnOffice = 0;
+        //    if (designationSealListOwnOfficeResponse.status == "success")
+        //    {
+        //        if (designationSealListOwnOfficeResponse.data.Count > 0)
+        //        {
+        //            List<PrapokDTO> ownOfficers = designationSealListOwnOfficeResponse.data.Where(a => a.office_id == _dakUserParam.office_id).ToList();
+        //            _ownOfficeDesignationList = ownOfficers;
+        //            if (ownOfficers.Count > 0)
+        //            {
 
-                            int count = group.Count();
-                            branchName += "(" +ConversionMethod.EnglishNumberToBangla(count.ToString()) + ")";
-                            TreeNode branchNodeOwnOffice = new TreeNode(branchName);
+        //                designationOwnOffice = ownOfficers.Count;
+        //                var groupOwnOfficebyUnit = ownOfficers.GroupBy(a => a.unitWithCode);
+        //                unitOwnOffice = groupOwnOfficebyUnit.Count();
 
-
-
-                            foreach (var officer in group)
-                            {
-                                if (officer.officer_id > 0)
-                                {
-                                    workingdesignationOwnOffice += 1;
-
-                                }
-                                else
-                                {
-                                    emptydesignationOwnOffice += 1;
-
-
-                                }
-
-
-                                TreeNode childNode = new TreeNode();
-                                childNode.Tag = officer.designation_id;
-                                childNode.Text = officer.NameWithDesignation;
-                                if (_addedOwnOfficerDesignationSeal.Any(a => a.designation_id == officer.designation_id))
-                                {
-                                    childNode.Checked = true;
-                                    childNode.ForeColor = Color.Gray;
-
-                                }
-
-                                branchNodeOwnOffice.Nodes.Add(childNode);
+        //                foreach (var group in groupOwnOfficebyUnit)
+        //                {
 
 
 
+        //                    string branchName = group.Key;
+
+        //                    int count = group.Count();
+        //                    branchName += "(" +ConversionMethod.EnglishNumberToBangla(count.ToString()) + ")";
+        //                    TreeNode branchNodeOwnOffice = new TreeNode(branchName);
 
 
-                            }
 
-                            prapokownOfficeTreeView.Nodes.Add(branchNodeOwnOffice);
+        //                    foreach (var officer in group)
+        //                    {
+        //                        if (officer.officer_id > 0)
+        //                        {
+        //                            workingdesignationOwnOffice += 1;
+
+        //                        }
+        //                        else
+        //                        {
+        //                            emptydesignationOwnOffice += 1;
+
+
+        //                        }
+
+
+        //                        TreeNode childNode = new TreeNode();
+        //                        childNode.Tag = officer.designation_id;
+        //                        childNode.Text = officer.NameWithDesignation;
+        //                        if (_addedOwnOfficerDesignationSeal.Any(a => a.designation_id == officer.designation_id))
+        //                        {
+        //                            childNode.Checked = true;
+        //                            childNode.ForeColor = Color.Gray;
+
+        //                        }
+
+        //                        branchNodeOwnOffice.Nodes.Add(childNode);
 
 
 
 
 
+        //                    }
 
-                        }
-
-                        HideParentNodeCheckBox(prapokownOfficeTreeView);
-                    }
-
-
-
-                }
-            }
+        //                    prapokownOfficeTreeView.Nodes.Add(branchNodeOwnOffice);
 
 
 
 
 
 
+        //                }
+
+        //                HideParentNodeCheckBox(prapokownOfficeTreeView);
+        //            }
 
 
 
-            OfficerStatTreeOwn(unitOwnOffice, designationOwnOffice, emptydesignationOwnOffice, workingdesignationOwnOffice);
+        //        }
+        //    }
 
 
 
 
 
-        }
+
+
+
+
+        //    OfficerStatTreeOwn(unitOwnOffice, designationOwnOffice, emptydesignationOwnOffice, workingdesignationOwnOffice);
+
+
+
+
+
+        //}
         private void HideParentNodeCheckBox(TreeView tvw)
         {
             foreach (TreeNode trNode in tvw.Nodes)
@@ -382,8 +383,8 @@ namespace dNothi.Desktop.UI.PotroJariGroups
 
         }
         private void OfficerStatTreeOwn(int unit, int designation, int emptydesignation, int workingdesignation)
-        {
-            designationStateOwnLabel.Text = "শাখা " +ConversionMethod.EnglishNumberToBangla(unit.ToString()) + " টি, পদ " +ConversionMethod.EnglishNumberToBangla(designation.ToString()) + "টি, শুন্যপদ " +ConversionMethod.EnglishNumberToBangla(emptydesignation.ToString()) + "টি, কর্মরত " +ConversionMethod.EnglishNumberToBangla(workingdesignation.ToString()) + " জন";
+        { //{
+        //    designationStateOwnLabel.Text = "শাখা " +ConversionMethod.EnglishNumberToBangla(unit.ToString()) + " টি, পদ " +ConversionMethod.EnglishNumberToBangla(designation.ToString()) + "টি, শুন্যপদ " +ConversionMethod.EnglishNumberToBangla(emptydesignation.ToString()) + "টি, কর্মরত " +ConversionMethod.EnglishNumberToBangla(workingdesignation.ToString()) + " জন";
 
         }
         private void LoadData(int menuNo,int pages)
@@ -424,6 +425,8 @@ namespace dNothi.Desktop.UI.PotroJariGroups
                         pgc.isEditable = false;
                     }
                     pgc.PotrojariEditButtonClick += delegate (object sender, EventArgs e) { Potrojari_EditButtonClick(sender, e, item); };
+                   // pgc.PotrojariDeleteButtonClick += delegate (object sender, EventArgs e) { potrojarigroup_DeleteButtonClick(sender,e,item.id); };
+
 
                     UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, pgc);
 
@@ -440,7 +443,19 @@ namespace dNothi.Desktop.UI.PotroJariGroups
             }
 
         }
+        
+       private void potrojarigroup_DeleteButtonClick(object sender, EventArgs e, int groupId)
+        {
+            var dakListUserParam = _userService.GetLocalDakUserParam();
 
+            var potroJariGroupDeleteResponse = _potroJariGroupService.PatroJariGroupDelete(dakListUserParam, groupId);
+            if(potroJariGroupDeleteResponse.status=="success")
+            {
+                alartMessage.SuccessMessage(potroJariGroupDeleteResponse.data.data);
+                LoadData(menuNo, page);
+            }
+
+        }
 
         private void Potrojari_EditButtonClick(object sender, EventArgs e,PotrojariGroupModel.Record item)
         {
@@ -449,11 +464,12 @@ namespace dNothi.Desktop.UI.PotroJariGroups
             noKhosraPanel.Visible = false;
             label2.Text = "পত্রজারি গ্রুপ অন্তর্ভুক্তিকরণ এর কাজ চলছে । ";
             panel5.Visible = false;
-            newPotrojariPanel.Visible = false;
+           // newPotrojariPanel.Visible = false;
+            newPotrojariPanel.Controls.Clear();
             var uscontrol = UserControlFactory.Create<PatraJariGroupCreateUserControl>();
             uscontrol.potrojariGroupModel = item;
             uscontrol.groupName = item.group.group_name;
-            bodyContentPanel.Controls.Add(uscontrol);
+            newPotrojariPanel.Controls.Add(uscontrol);
              MakeThisPanelClicked(sender);
              listTypeLabel.Text = "পত্রজারি গ্রুপ অন্তর্ভুক্তিকরণ";
             
@@ -661,12 +677,14 @@ namespace dNothi.Desktop.UI.PotroJariGroups
             noKhosraPanel.Visible = false;
             label2.Text = "পত্রজারি গ্রুপ অন্তর্ভুক্তিকরণ এর কাজ চলছে । ";
             panel5.Visible = false;
-            newPotrojariPanel.Visible = false;
-            var uscontrol = UserControlFactory.Create<PatraJariGroupCreateUserControl>();
-            bodyContentPanel.Controls.Add(uscontrol);
-
-
+           // newPotrojariPanel.Visible = false;
             MakeThisPanelClicked(sender);
+            newPotrojariPanel.Controls.Clear();
+           var uscontrol = UserControlFactory.Create<PatraJariGroupCreateUserControl>();
+            newPotrojariPanel.Controls.Add(uscontrol);
+
+
+           
             //var panels = tableLayoutPanel2.Controls.OfType<Panel>().Where(x => x.Name.EndsWith("Txt"));
             //foreach (Panel p in panels)
             //{
@@ -680,7 +698,8 @@ namespace dNothi.Desktop.UI.PotroJariGroups
 
         private void potrojariGroupTalikaButton_Click(object sender, EventArgs e)
         {
-            newPotrojariPanel.Visible = false;
+            newPotrojariPanel.Controls.Clear();
+            //newPotrojariPanel.Visible = false;
             khosraListTableLayoutPanel.Visible = true;
             panel5.Visible = true;
             menuNo = 1;
@@ -688,34 +707,34 @@ namespace dNothi.Desktop.UI.PotroJariGroups
             Formload();
             listTypeLabel.Text = "পত্রজারি গ্রুপ তালিকা";
         }
-        public void LoadOfficer()
-        {
-            DakUserParam userParam = _userService.GetLocalDakUserParam();
+        //public void LoadOfficer()
+        //{
+        //    DakUserParam userParam = _userService.GetLocalDakUserParam();
 
-            designationSealListResponse = _designationSealService.GetAllDesignationSeal(userParam, userParam.office_id);
-            List<ComboBoxItems> comboBoxItems = new List<ComboBoxItems>();
-            try
-            {
+        //    designationSealListResponse = _designationSealService.GetAllDesignationSeal(userParam, userParam.office_id);
+        //    List<ComboBoxItems> comboBoxItems = new List<ComboBoxItems>();
+        //    try
+        //    {
 
-                if (designationSealListResponse.data.Count > 0)
-                {
+        //        if (designationSealListResponse.data.Count > 0)
+        //        {
 
-                    foreach (PrapokDTO prapokDTO in designationSealListResponse.data)
-                    {
-                        comboBoxItems.Add(new ComboBoxItems { id = prapokDTO.officer_id, Name = prapokDTO.NameWithDesignation });
-                    }
-                }
+        //            foreach (PrapokDTO prapokDTO in designationSealListResponse.data)
+        //            {
+        //                comboBoxItems.Add(new ComboBoxItems { id = prapokDTO.officer_id, Name = prapokDTO.NameWithDesignation });
+        //            }
+        //        }
 
 
-            }
-            catch (Exception Ex)
-            {
+        //    }
+        //    catch (Exception Ex)
+        //    {
 
-            }
+        //    }
 
-            officerSearchList.itemList = comboBoxItems;
-            officerSearchList.isListShown = true;
-        }
+        //    officerSearchList.itemList = comboBoxItems;
+        //    officerSearchList.isListShown = true;
+        //}
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(210, 234, 255), ButtonBorderStyle.Solid);

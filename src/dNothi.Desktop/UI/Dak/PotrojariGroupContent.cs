@@ -82,18 +82,17 @@ namespace dNothi.Desktop.UI.Dak
       
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string message = "আপনি কি মুছে ফেলতে চান?";
-            //string title = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
+            string message = "আপনি কি গ্রুপটি মুছে ফেলতে চান?";
+        
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
             conditonBoxForm.message = message;
             conditonBoxForm.ShowDialog(this);
-            //MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            //DialogResult result = MessageBox.Show(message, title, buttons);
+          
             if (conditonBoxForm.Yes)
             {
                 if (this.PotrojariDeleteButtonClick != null)
                     this.PotrojariDeleteButtonClick(sender, e);
-               // SuccessMessage("মুছে ফেলা হয়েছে।");
+              
             }
         }
 
