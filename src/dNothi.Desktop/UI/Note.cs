@@ -539,7 +539,16 @@ namespace dNothi.Desktop.UI
                             foreach (var z in zip)
                             {
                                 flag++;
-                                SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+                                SingleOnucchedResponse singleOnucched = new SingleOnucchedResponse();
+                                try
+                                {
+                                    singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+
+                                }
+                                catch
+                                {
+                                    continue;
+                                }
                                 if (singleOnucched.data.total_records > 0)
                                 {
                                     var rec = singleOnucched.data.records;
@@ -563,7 +572,7 @@ namespace dNothi.Desktop.UI
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                                     separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
 
-                                    if (rec[0].attachment.Count>0)
+                                    if (rec[0].attachment.Count > 0)
                                     {
                                         separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
                                         foreach (AttachmentDTO attachment in rec[0].attachment)
@@ -576,7 +585,7 @@ namespace dNothi.Desktop.UI
                                     {
                                         separateOnucched.filePnaeloff();
                                     }
-                                    
+
                                     separateOnucched.noteNo(lbNoteTotl1.Text.Substring(lbNoteTotl1.Text.IndexOf("টঃ") + 2), z.onuchhed_no.ToString());
                                     separateOnucched.createDate = onucchedsingleListRec.created;
                                     separateOnucched.onucchedId = z.onuchhed_id;
@@ -586,7 +595,7 @@ namespace dNothi.Desktop.UI
                                     try
                                     {
                                         separateOnucched.subjectBrowser = Encoding.UTF8.GetString(Convert.FromBase64String(rec[0].onucched.note_description));
-                                        
+
                                     }
                                     catch
                                     {
@@ -1144,7 +1153,16 @@ namespace dNothi.Desktop.UI
                             foreach (var z in zip)
                             {
                                 flag++;
-                                SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+                                SingleOnucchedResponse singleOnucched = new SingleOnucchedResponse();
+                                try
+                                {
+                                    singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+
+                                }
+                                catch
+                                {
+                                    continue;
+                                }
                                 if (singleOnucched.data.total_records > 0)
                                 {
                                     var rec = singleOnucched.data.records;
@@ -3060,7 +3078,16 @@ namespace dNothi.Desktop.UI
                             foreach (var z in zip)
                             {
                                 flag++;
-                                SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+                                SingleOnucchedResponse singleOnucched = new SingleOnucchedResponse();
+                                try
+                                {
+                                    singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+
+                                }
+                                catch
+                                {
+                                    continue;
+                                }
                                 if (singleOnucched.data.total_records > 0)
                                 {
                                     var rec = singleOnucched.data.records;
@@ -3674,7 +3701,16 @@ namespace dNothi.Desktop.UI
                                     foreach (var z in zip)
                                     {
                                         flag++;
-                                        SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, newnotedata.note_id, z.onuchhed_id);
+                                        SingleOnucchedResponse singleOnucched = new SingleOnucchedResponse();
+                                        try
+                                        {
+                                            singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, newnotedata.note_id, z.onuchhed_id);
+
+                                        }
+                                        catch
+                                        {
+                                            continue;
+                                        }
                                         if (singleOnucched.data.total_records > 0)
                                         {
                                             var rec = singleOnucched.data.records;
