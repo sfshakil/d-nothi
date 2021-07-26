@@ -425,7 +425,7 @@ namespace dNothi.Desktop.UI.PotroJariGroups
                         pgc.isEditable = false;
                     }
                     pgc.PotrojariEditButtonClick += delegate (object sender, EventArgs e) { Potrojari_EditButtonClick(sender, e, item); };
-                   // pgc.PotrojariDeleteButtonClick += delegate (object sender, EventArgs e) { potrojarigroup_DeleteButtonClick(sender,e,item.id); };
+                    pgc.PotrojariDeleteButtonClick += delegate (object sender, EventArgs e) { potrojarigroup_DeleteButtonClick(sender,e,item.group.id); };
 
 
                     UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, pgc);
@@ -453,6 +453,10 @@ namespace dNothi.Desktop.UI.PotroJariGroups
             {
                 alartMessage.SuccessMessage(potroJariGroupDeleteResponse.data.data);
                 LoadData(menuNo, page);
+            }
+            else
+            {
+                alartMessage.ErrorMessage("দুঃখিত!পুনরায় চেষ্ঠা করুন।");
             }
 
         }
