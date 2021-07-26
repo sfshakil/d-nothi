@@ -187,7 +187,7 @@
             this.totalRowlabel.AutoSize = true;
             this.totalRowlabel.BackColor = System.Drawing.Color.Transparent;
             this.totalRowlabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalRowlabel.Location = new System.Drawing.Point(561, 18);
+            this.totalRowlabel.Location = new System.Drawing.Point(566, 18);
             this.totalRowlabel.Name = "totalRowlabel";
             this.totalRowlabel.Size = new System.Drawing.Size(79, 18);
             this.totalRowlabel.TabIndex = 97;
@@ -196,13 +196,12 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Location = new System.Drawing.Point(648, 10);
+            this.panel1.Location = new System.Drawing.Point(652, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(1);
-            this.panel1.Size = new System.Drawing.Size(68, 35);
+            this.panel1.Size = new System.Drawing.Size(69, 35);
             this.panel1.TabIndex = 96;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Color_Blue);
             // 
@@ -214,18 +213,12 @@
             this.comboBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Items.AddRange(new object[] {
-            "১০",
-            "২০",
-            "৩০",
-            "৪০",
-            "৫০"});
-            this.comboBox1.Location = new System.Drawing.Point(4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(3, 4);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(63, 26);
+            this.comboBox1.Size = new System.Drawing.Size(64, 26);
             this.comboBox1.TabIndex = 91;
-            this.comboBox1.Text = "১০";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // panel3
             // 

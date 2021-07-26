@@ -5038,19 +5038,42 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
+            _dakuserparam.page = 1;
+            _dakuserparam.limit = 20;
             ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(_dakuserparam, null, null, null);
             ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
             protibedonUserControl.isPending = true;
+            protibedonUserControl.totalRecord = protibedonResponse.data.total_records;
             protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-
-
-
+               
+            protibedonUserControl.comboBoxSelectedIndexChanged +=  gridviewpagination_selectedChanged;
+           
             protibedonUserControl.Dock = DockStyle.Fill;
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
         }
 
+       private void gridviewpagination_selectedChanged(string name,int id)
+        {
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            _dakuserparam.page = 1;
+            _dakuserparam.limit =Convert.ToInt32( ConversionMethod.BanglaDigittoEngDigit(name));
+            ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(_dakuserparam, null, null, null);
+            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            protibedonUserControl.isPending = true;
+            protibedonUserControl.totalRecord = protibedonResponse.data.total_records;
+            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+
+            protibedonUserControl.comboBoxSelectedIndexChanged += gridviewpagination_selectedChanged;
+
+            protibedonUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+        }
         private void resolvedReportButton_Click(object sender, EventArgs e)
         {
             ResetAllMenuButtonSelection();
