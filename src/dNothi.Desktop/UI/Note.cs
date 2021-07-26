@@ -5099,14 +5099,16 @@ namespace dNothi.Desktop.UI
                         current_potro_id = khoshraPotro.data.records[0].basic.id;
                         KhosraAttachmentButton(khoshraPotro.data.records[0].basic.potro_pages);
                         _khoshraPotroWaitinDataRecordDTO = null;
-                        _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[0];
+
+                        _khoshraPotroDataRecordDTO= GetNoteKhosraFromKhosra(khoshraPotro.data.records[0]);
+                       
                        
                         khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
-                        khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = noteKhoshraList.data.records[0].mulpotro.buttonsDTOList;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.buttons = noteKhoshraList.data.records[0].mulpotro.buttons;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.id = noteKhoshraList.data.records[0].mulpotro.id;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = noteKhoshraList.data.records[0].mulpotro.potro_cover;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = noteKhoshraList.data.records[0].mulpotro.potro_description;
+                      //  khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = khoshraPotro.data.records[0].mulpotro.;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.buttons = khoshraPotro.data.records[0].mulpotro.buttons;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.id = khoshraPotro.data.records[0].mulpotro.id;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = khoshraPotro.data.records[0].mulpotro.potro_cover;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = khoshraPotro.data.records[0].mulpotro.potro_description;
                        
 
 
@@ -5127,6 +5129,19 @@ namespace dNothi.Desktop.UI
             }
             
         }
+
+        private NoteKhoshraListDataRecordDTO GetNoteKhosraFromKhosra(KhoshraPotroRecordsDTO khoshraPotroRecordsDTO)
+        {
+            NoteKhoshraListDataRecordDTO record = new NoteKhoshraListDataRecordDTO();
+
+                record.basic = MappingModels.MapModel<KhoshraPotroRecordsBasicDTO, NoteKhoshraListDataRecordBasicDTO>(khoshraPotroRecordsDTO.basic);
+                record.mulpotro = MappingModels.MapModel<KhoshraPotroRecordsMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(khoshraPotroRecordsDTO.mulpotro);
+                record.note_onucched = MappingModels.MapModel<KhoshraPotroRecordsNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(khoshraPotroRecordsDTO.note_onucched);
+                record.note_owner = MappingModels.MapModel<KhoshraPotroRecordsNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(khoshraPotroRecordsDTO.note_owner);
+                return record;
+            
+        }
+
         private void btnKhoshraPrevious_Click(object sender, EventArgs e)
         {
             i--;
