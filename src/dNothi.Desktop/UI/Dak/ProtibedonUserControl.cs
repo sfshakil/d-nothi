@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Desktop.View_Model;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -114,8 +115,36 @@ namespace dNothi.Desktop.UI.Dak
 
 
         }
-
-        
+        private int _totalRecord { get; set; }
+        public int totalRecord { get => _totalRecord;
+            set { 
+                _totalRecord = value; 
+                totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla(value.ToString())+" টি";
+               
+                comboBox1.DisplayMember = "Name";
+                comboBox1.ValueMember = "Id";
+                if (value >= 20)
+                {
+                    int totalpage = (int)Math.Ceiling((float)value / (float)20);
+                    int pageSize = 20;
+                    int page = 0;
+                    for (int i = 1; i <= totalpage; i++)
+                    {
+                        page += pageSize;
+                        comboBox1.Items.Add(new ComboBoxItem(ConversionMethod.EnglishNumberToBangla(page.ToString()), i));
+                    }
+                }
+                else
+                {
+                    comboBox1.Items.Add(new ComboBoxItem("১০", 1));
+                    comboBox1.Items.Add(new ComboBoxItem("২০", 2));
+                    comboBox1.Items.Add(new ComboBoxItem("৩০", 3));
+                    comboBox1.Items.Add(new ComboBoxItem("৪০", 4));
+                    comboBox1.Items.Add(new ComboBoxItem("৫০", 5));
+                }
+               
+            } 
+        }
         private void ReportingTypeTwo()
         {
             registerReportDataGridView.Columns["docketingNo"].Visible = false;
@@ -160,6 +189,22 @@ namespace dNothi.Desktop.UI.Dak
 
         private void prapokDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        public event DatabaseChangeHandler comboBoxSelectedIndexChanged;
+        public delegate void DatabaseChangeHandler(string name,int id);
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (this.comboBoxSelectedIndexChanged != null)
+            {
+                string name = comboBox1.Text;
+               
+               // string  ids = comboBox1.SelectedValue.ToString();
+                int id = 1;
+                this.comboBoxSelectedIndexChanged(name,id);
+            }
 
         }
     }
