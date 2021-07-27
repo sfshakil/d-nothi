@@ -110,6 +110,7 @@ namespace dNothi.Desktop.UI.Dak
             nothiGuidelines.Height = Screen.PrimaryScreen.WorkingArea.Height;
             //nothiGuidelines.Location = new System.Drawing.Point(0, 0);
             var nothiTypeform = AttachNothiGuidelinesControlToForm(nothiGuidelines);
+            nothiTypeform.Text = "NothiGuidelines";
             CalPopUpWindow(nothiTypeform);
         }
 
@@ -181,6 +182,7 @@ namespace dNothi.Desktop.UI.Dak
             successMessage.ShowDialog();
 
         }
+        public event EventHandler NothiTypeAddButton;
         private void btnNothiDhoron_Click(object sender, EventArgs e)
         {
 
@@ -212,14 +214,18 @@ namespace dNothi.Desktop.UI.Dak
                             //int parsed_number = int.Parse(english_text);
                             var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, lbNothitype2digit.Text);
                             if (nothiTypeSave.status == "success")
+                            
                             {
+                                this.Hide();
                                 SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
-                                foreach (Form f in Application.OpenForms)
-                                { BeginInvoke((Action)(() => f.Hide())); }
-                                var form = FormFactory.Create<Nothi>();
-                                form.ForceLoadNewNothi();
-                                BeginInvoke((Action)(() => form.ShowDialog()));
-                                form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                                if (this.NothiTypeAddButton != null)
+                                    this.NothiTypeAddButton(sender, e);
+                                //foreach (Form f in Application.OpenForms)
+                                //{ BeginInvoke((Action)(() => f.Hide())); }
+                                //var form = FormFactory.Create<Nothi>();
+                                //form.ForceLoadNewNothi();
+                                //BeginInvoke((Action)(() => form.ShowDialog()));
+                                //form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
                             }
                         }

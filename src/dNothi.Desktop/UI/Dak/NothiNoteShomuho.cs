@@ -45,6 +45,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _khosra;
         private string _khoshraWaiting;
         private string _noteIssueDate;
+        private string _noteAttachment;
         public long _nothi_id;
 
         public void loadEyeIcon(string i)
@@ -69,6 +70,17 @@ namespace dNothi.Desktop.UI.Dak
         }
 
         [Category("Custom Props")]
+        public string noteAttachment
+        {
+            get { return _noteIssueDate; }
+            set { _noteIssueDate = value; 
+                if (Convert.ToInt32(value) > 0) 
+                {
+                    btnNoteAttachment.Visible = true;
+                    btnNoteAttachment.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); 
+                } 
+            }
+        }
         public string noteIssueDate
         {
             get { return _noteIssueDate; }
@@ -263,6 +275,12 @@ namespace dNothi.Desktop.UI.Dak
                 ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
+        }
+        public event EventHandler btnAttachment;
+        private void btnNoteAttachment_Click(object sender, EventArgs e)
+        {
+            if (this.btnAttachment != null)
+                this.btnAttachment(sender, e);
         }
     }
 }

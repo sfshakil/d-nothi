@@ -264,9 +264,11 @@ namespace dNothi.Desktop.UI.Dak
         {
             var nothiType = UserControlFactory.Create<NothiType>();
             nothiType.Visible = true;
+            nothiType.NothitypeAddButton += delegate (object sender1, EventArgs e1) { cbxNothiType.Items.Clear(); LoadNothiTypeListDropDown(); loadNewNothiPage(); };
             nothiType.Enabled = true;
             nothiType.Location = new System.Drawing.Point(845, 0);
             var nothiTypeform = AttachNothiTypeListControlToForm(nothiType);
+            nothiTypeform.Text = "NothiType";
             CalPopUpWindow(nothiTypeform);
         }
 

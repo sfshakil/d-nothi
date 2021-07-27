@@ -123,30 +123,29 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.Hide();
         }
+        public event EventHandler NothiTypeDeleteButton;
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string message = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
-            //string title = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
             conditonBoxForm.message = message;
             conditonBoxForm.ShowDialog(this);
-            //MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            //DialogResult result = MessageBox.Show(message, title, buttons);
             if (conditonBoxForm.Yes)
             {
-                //this.Hide();
                 string noteId = lbNoteId.Text;
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                 var noteDelete = _noteDelete.GetNoteDelete(dakListUserParam, noteId);
                 if (noteDelete.status == "success")
                 {
                     SuccessMessage("নথি ধরন মুছে ফেলা হয়েছে।");
-                    foreach (Form f in Application.OpenForms)
-                    { BeginInvoke((Action)(() => f.Hide())); }
-                    var form = FormFactory.Create<Nothi>();
-                    form.ForceLoadNewNothi();
-                    BeginInvoke((Action)(() => form.ShowDialog()));
-                    form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                    if (this.NothiTypeDeleteButton != null)
+                        this.NothiTypeDeleteButton(sender, e);
+                    //foreach (Form f in Application.OpenForms)
+                    //{ BeginInvoke((Action)(() => f.Hide())); }
+                    //var form = FormFactory.Create<Nothi>();
+                    //form.ForceLoadNewNothi();
+                    //BeginInvoke((Action)(() => form.ShowDialog()));
+                    //form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
                 }
             }
             else
