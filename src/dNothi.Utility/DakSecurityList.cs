@@ -6,7 +6,30 @@ using System.Threading.Tasks;
 
 namespace dNothi.Utility
 {
-   public class DakSecurityList
+
+    public class DakSecurityData
+    {
+        public string _id { get; set; }
+        public string _typeName { get; set; }
+    }
+
+    public static class LocalDakSecurity
+    {
+        public static List<DakSecurityData> Getdata()
+        {
+            List<DakSecurityData> dakSecurityDatas = new List<DakSecurityData>();
+            dakSecurityDatas.Add(new DakSecurityData { _id = "0", _typeName = "বাছাই করুন" });
+            dakSecurityDatas.Add(new DakSecurityData { _id = "1", _typeName = "অতি গোপনীয়" });
+            dakSecurityDatas.Add(new DakSecurityData { _id = "2", _typeName = "বিশেষ গোপনীয়" });
+            dakSecurityDatas.Add(new DakSecurityData { _id = "3", _typeName = "গোপনীয়" });
+            dakSecurityDatas.Add(new DakSecurityData { _id = "4", _typeName = "সীমিত" });
+
+
+            return dakSecurityDatas;
+        }
+    }
+
+    public class DakSecurityList
     {
        public  List<DakSecurity> _dakSecurities = new List<DakSecurity>();
 
