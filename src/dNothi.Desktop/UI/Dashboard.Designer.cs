@@ -2993,6 +2993,9 @@
             this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.dakSortMetroPanel.Size = new System.Drawing.Size(1034, 52);
             this.dakSortMetroPanel.TabIndex = 54;
+            // Filter Dak List
+            this.RefreshButton.Click += RefreshButton_Click;
+            
             // 
             // pageNextButton
             // 

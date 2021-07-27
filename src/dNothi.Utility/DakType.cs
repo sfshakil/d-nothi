@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace dNothi.Utility
 {
-   
+
+    public class DakTypeData
+    {
+        public string _id { get; set; }
+        public string _typeName { get; set; }
+    }
+
+    public static class LocalDakType
+    {
+        public static List<DakTypeData> Getdata()
+        {
+            List<DakTypeData> dakTypeDatas = new List<DakTypeData>();
+            dakTypeDatas.Add(new DakTypeData { _id = "", _typeName = "ডাকের ধরণ" });
+            dakTypeDatas.Add(new DakTypeData { _id = "0", _typeName = "দাপ্তরিক" });
+            dakTypeDatas.Add(new DakTypeData { _id = "1", _typeName = "নাগরিক" });
+
+
+            return dakTypeDatas;
+        }
+    }
+
 
     public class DakTypeList
     {

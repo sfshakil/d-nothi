@@ -114,7 +114,8 @@ namespace dNothi.Desktop
                     e.Exception.Message, e.Exception.StackTrace);
             var logmessage = "Exception: " + ((Exception)e.Exception).Message + "Stack Trace: " + ((Exception)e.Exception).StackTrace;
             _log.Error(logmessage);
-            MessageBox.Show(message, @"Unexpected error");
+            //MessageBox.Show(message, @"Unexpected error");
+            UIDesignCommonMethod.ErrorMessage("System Error!");
         }
 
         private static void Bootstrap()
