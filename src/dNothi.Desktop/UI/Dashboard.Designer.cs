@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse5 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
+            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse1 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.profilePanel = new System.Windows.Forms.Panel();
@@ -61,6 +61,7 @@
             this.starButton = new FontAwesome.Sharp.IconButton();
             this.shortSearchPanel = new System.Windows.Forms.Panel();
             this.dakShareButton = new FontAwesome.Sharp.IconButton();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.dakPriorityComboBox = new System.Windows.Forms.ComboBox();
             this.dakTypeComboBox = new System.Windows.Forms.ComboBox();
             this.dakSecretComboBox = new System.Windows.Forms.ComboBox();
@@ -218,7 +219,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button11 = new System.Windows.Forms.Button();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -227,6 +227,7 @@
             this.settingsPanel.SuspendLayout();
             this.multipleSelectionPanel.SuspendLayout();
             this.shortSearchPanel.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.selectDakBoxHolderPanel.SuspendLayout();
             this.detailsDakSearcPanel.SuspendLayout();
             this.searchTopTableLayoutPanel.SuspendLayout();
@@ -271,7 +272,6 @@
             this.modulePanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -772,6 +772,20 @@
             this.MyToolTip.SetToolTip(this.dakShareButton, "ডাক বক্স শেয়ারিং");
             this.dakShareButton.UseVisualStyleBackColor = false;
             this.dakShareButton.Click += new System.EventHandler(this.dakShareButton_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.AutoSize = true;
+            this.panel10.Controls.Add(this.dakPriorityComboBox);
+            this.panel10.Controls.Add(this.dakTypeComboBox);
+            this.panel10.Controls.Add(this.dakSecretComboBox);
+            this.panel10.Controls.Add(this.dakStatusComboBox);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel10.Location = new System.Drawing.Point(0, 6);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panel10.Size = new System.Drawing.Size(480, 40);
+            this.panel10.TabIndex = 31;
             // 
             // dakPriorityComboBox
             // 
@@ -3474,9 +3488,9 @@
             this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            employeDakNothiCountResponse5.data = null;
-            employeDakNothiCountResponse5.status = null;
-            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse5;
+            employeDakNothiCountResponse1.data = null;
+            employeDakNothiCountResponse1.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse1;
             this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationDetailsPanel.Location = new System.Drawing.Point(1426, 49);
             this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -3486,20 +3500,6 @@
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
-            // 
-            // panel10
-            // 
-            this.panel10.AutoSize = true;
-            this.panel10.Controls.Add(this.dakPriorityComboBox);
-            this.panel10.Controls.Add(this.dakTypeComboBox);
-            this.panel10.Controls.Add(this.dakSecretComboBox);
-            this.panel10.Controls.Add(this.dakStatusComboBox);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(0, 6);
-            this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel10.Size = new System.Drawing.Size(480, 40);
-            this.panel10.TabIndex = 31;
             // 
             // Dashboard
             // 
@@ -3533,6 +3533,7 @@
             this.multipleSelectionPanel.ResumeLayout(false);
             this.shortSearchPanel.ResumeLayout(false);
             this.shortSearchPanel.PerformLayout();
+            this.panel10.ResumeLayout(false);
             this.selectDakBoxHolderPanel.ResumeLayout(false);
             this.selectDakBoxHolderPanel.PerformLayout();
             this.detailsDakSearcPanel.ResumeLayout(false);
@@ -3607,7 +3608,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

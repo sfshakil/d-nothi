@@ -31,8 +31,8 @@ namespace dNothi.Desktop.UI.Profile
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -57,7 +57,6 @@ namespace dNothi.Desktop.UI.Profile
             this.iconPictureBox25 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox22 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox24 = new FontAwesome.Sharp.IconPictureBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -68,9 +67,10 @@ namespace dNothi.Desktop.UI.Profile
             this.label30 = new System.Windows.Forms.Label();
             this.iconPictureBox15 = new FontAwesome.Sharp.IconPictureBox();
             this.label28 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.HeadingPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.bodyTableLayoutPanel.SuspendLayout();
@@ -517,22 +517,6 @@ namespace dNothi.Desktop.UI.Profile
             this.iconPictureBox24.TabIndex = 65;
             this.iconPictureBox24.TabStop = false;
             // 
-            // label36
-            // 
-            this.label36.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label36.AutoSize = true;
-            this.label36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(57)))), ((int)(((byte)(122)))));
-            this.label36.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label36.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.SystemColors.Control;
-            this.label36.Location = new System.Drawing.Point(450, 185);
-            this.label36.Margin = new System.Windows.Forms.Padding(0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(64, 21);
-            this.label36.TabIndex = 75;
-            this.label36.Text = "ভার্সনঃ ২";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label20
             // 
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -692,30 +676,21 @@ namespace dNothi.Desktop.UI.Profile
             this.label28.Text = "support@nothi.org.bd";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dataGridViewImageColumn1
+            // label36
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewImageColumn1.HeaderText = "+";
-            this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
-            this.dataGridViewImageColumn1.MinimumWidth = 2;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 27;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewImageColumn2.HeaderText = "+";
-            this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.Width = 23;
+            this.label36.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label36.AutoSize = true;
+            this.label36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(57)))), ((int)(((byte)(122)))));
+            this.label36.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label36.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.SystemColors.Control;
+            this.label36.Location = new System.Drawing.Point(450, 185);
+            this.label36.Margin = new System.Windows.Forms.Padding(0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(64, 21);
+            this.label36.TabIndex = 75;
+            this.label36.Text = "ভার্সনঃ ২";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -726,6 +701,31 @@ namespace dNothi.Desktop.UI.Profile
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(567, 2);
             this.label1.TabIndex = 9;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewImageColumn1.HeaderText = "+";
+            this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewImageColumn1.MinimumWidth = 2;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 27;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewImageColumn2.HeaderText = "+";
+            this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.Width = 23;
             // 
             // HelpDeskForm
             // 

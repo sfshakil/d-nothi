@@ -129,6 +129,7 @@ namespace dNothi.Desktop
 
         private void helpDeskButton_Click(object sender, EventArgs e)
         {
+            
             HelpDeskForm helpDeskForm = new HelpDeskForm();
             UIDesignCommonMethod.CalPopUpWindow(helpDeskForm,this.Parent.FindForm());
         }

@@ -142,10 +142,7 @@ namespace dNothi.Desktop.UI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            
-            var form = FormFactory.Create<Dashboard>();
-            BeginInvoke((Action)(() => form.ShowDialog()));
-            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
+            UIDesignCommonMethod.BacktoPreviousForm(this);
 
         }
         private string _nothiShakha;

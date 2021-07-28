@@ -17,6 +17,8 @@ namespace dNothi.Desktop.UI
 {
    public class UIDesignCommonMethod
     {
+
+        public static Form returnForm { get; set; }
         public static void RightSideWindowSet(Form form)
         {
             Screen scr = Screen.FromPoint(form.Location);
@@ -198,6 +200,26 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(attachmentViewPopUpForm, parentForm);
 
         }
+
+        public static void BacktoPreviousForm(Form form)
+        {
+            form.Hide();
+            if (UIDesignCommonMethod.returnForm != null)
+            {
+               
+                UIDesignCommonMethod.returnForm.Show();
+            }
+            else
+            {
+                
+                var newForm = FormFactory.Create<Dashboard>();
+                newForm.ShowDialog();
+              
+            }
+
+            UIDesignCommonMethod.returnForm = null;
+        }
+
         public static void DownLoadFile(string fileDownloadLink, string fileName )
         {
             WebClient client = new WebClient();

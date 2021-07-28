@@ -15,6 +15,7 @@ namespace dNothi.Desktop.UI.Profile
         public HelpDeskForm()
         {
             InitializeComponent();
+           
         }
 
         private void HelpDeskForm_Load(object sender, EventArgs e)
