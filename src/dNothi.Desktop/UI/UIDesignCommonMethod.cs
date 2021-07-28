@@ -17,6 +17,46 @@ namespace dNothi.Desktop.UI
 {
    public class UIDesignCommonMethod
     {
+        public static void RightSideWindowSet(Form form)
+        {
+            Screen scr = Screen.FromPoint(form.Location);
+            form.Location = new Point(scr.WorkingArea.Right - form.Width, scr.WorkingArea.Top);
+            form.Height = scr.WorkingArea.Height;
+        }
+
+        public static void SetDefaultFont(Control.ControlCollection collection)
+        {
+            foreach (Control ctrl in collection)
+            {
+
+
+
+
+                if (ctrl.Font.Style != FontStyle.Regular)
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size, ctrl.Font.Style);
+
+                }
+                else
+                {
+                    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+                    ctrl.Font = MemoryFonts.GetFont(0, ctrl.Font.Size);
+                }
+
+
+
+
+                SetDefaultFont(ctrl.Controls);
+            }
+        }
+
+        public static void RightSideWindowSet(UserControl userControl)
+        {
+            Screen scr = Screen.FromPoint(userControl.Location);
+            userControl.Location = new Point(scr.WorkingArea.Right - userControl.Width, scr.WorkingArea.Top);
+            userControl.Height = scr.WorkingArea.Height;
+        }
         public static void ChangeForm(Form newForm, Form currentForm)
         {
            

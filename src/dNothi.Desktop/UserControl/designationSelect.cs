@@ -14,6 +14,7 @@ using System.Threading;
 using dNothi.Utility;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Desktop.UI.Dak;
+using dNothi.Desktop.UI.Profile;
 
 namespace dNothi.Desktop
 {
@@ -124,6 +125,12 @@ namespace dNothi.Desktop
             Form parentForm = this.Parent.FindForm();
             UIDesignCommonMethod.CalPopUpWindow(form, parentForm);
 
+        }
+
+        private void helpDeskButton_Click(object sender, EventArgs e)
+        {
+            HelpDeskForm helpDeskForm = new HelpDeskForm();
+            UIDesignCommonMethod.CalPopUpWindow(helpDeskForm,this.Parent.FindForm());
         }
     }
 }

@@ -1360,6 +1360,12 @@
     <Compile Include="UI\PotroJariGroups\PotrojariGroupForm.Designer.cs">
       <DependentUpon>PotrojariGroupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Profile\HelpDeskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Profile\HelpDeskForm.Designer.cs">
+      <DependentUpon>HelpDeskForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ResponsiveForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1907,6 +1913,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PotroJariGroups\PotrojariGroupForm.resx">
       <DependentUpon>PotrojariGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Profile\HelpDeskForm.resx">
+      <DependentUpon>HelpDeskForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ResponsiveForm.resx">
       <DependentUpon>ResponsiveForm.cs</DependentUpon>

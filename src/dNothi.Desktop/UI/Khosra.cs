@@ -31,6 +31,8 @@ namespace dNothi.Desktop.UI
 {
     public partial class Khosra : Form
     {
+        public int _dakSecurity { get; set; }
+        public int _dakPriority { get; set; }
         IUserService _userService { get; set; }
         INothiInboxNoteServices _nothiInboxNote { get; set; }
         IDesignationSealService _designationSealService { get; set; }
@@ -441,6 +443,8 @@ namespace dNothi.Desktop.UI
             dakPriorityComboBox.DataSource = dakPriorityList._dakPriority.OrderBy(a => a._id).ToList();
             dakPriorityComboBox.DisplayMember = "_typeName";
             dakPriorityComboBox.ValueMember = "_id";
+
+            dakPriorityComboBox.SelectedIndexChanged += dakPriorityComboBox_SelectedIndexChanged;
         }
 
         private void LoadDakSecurity()
@@ -453,7 +457,12 @@ namespace dNothi.Desktop.UI
             dakSecrurityComboBox.DisplayMember = "_typeName";
            
             dakSecrurityComboBox.ValueMember = "_id";
-          
+
+            dakSecrurityComboBox.SelectedValue = _dakSecurity.ToString();
+            dakSecrurityComboBox.SelectedValue = _dakPriority.ToString();
+
+            dakSecrurityComboBox.SelectedIndexChanged += dakSecrurityComboBox_SelectedIndexChanged;
+
 
         }
 
@@ -2378,6 +2387,57 @@ namespace dNothi.Desktop.UI
         private void tinyMceEditor_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
         {
 
+        }
+
+        private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            SetPTaginHtml(dakPriorityComboBox.Text, "potro_priority_text write_here",null);
+
+
+
+        }
+
+        private void SetPTaginHtml(string text, string className, string idName)
+        {
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(_currentHtmlString);
+
+
+            HtmlNode priorityElement=null;
+
+             if(!string.IsNullOrEmpty(className))
+            {
+                priorityElement = doc.DocumentNode.Descendants("p").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains(className));
+
+            }
+            else if(!string.IsNullOrEmpty(idName))
+            {
+                priorityElement = doc.DocumentNode.Descendants("p").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains(idName));
+
+            }
+
+            if (priorityElement != null)
+            {
+                priorityElement.InnerHtml = text;
+            }
+
+            SetHtml(doc.DocumentNode.OuterHtml);
+        }
+
+        private void SetHtml(string html)
+        {
+            _currentHtmlString = _khasraPotroTemplateData.html_content = html;
+
+
+            tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { _currentHtmlString });
+            tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+        }
+
+        private void dakSecrurityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetPTaginHtml(dakSecrurityComboBox.Text, "potro_security_text write_here", null);
         }
     }
 }
