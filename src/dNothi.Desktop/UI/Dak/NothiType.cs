@@ -175,6 +175,31 @@ namespace dNothi.Desktop.UI.Dak
             createNewNothiType.BringToFront();
         }
 
+        private void detailsSearchDocketingNoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            nothiTalikaFlowLayoutPnl.Controls.Clear();
+            i = 0; k = 1;
+            string searchText = detailsSearchDocketingNoTextBox.Text;
+            var responses = nothiType.data;
+            List<NothiTypeListDTO> nothiTypeLists = new List<NothiTypeListDTO>();
+            foreach (NothiTypeListDTO response in responses)
+            {
+                var str = response.nothi_type.Contains(searchText);
+                if (str) 
+                {
+                    nothiTypeLists.Add(response);
+                }
+                    
+            }
+            totalNothi = string.Concat(nothiTypeLists.Count.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            LoadNothiTypeListinPanel(nothiTypeLists);
+        }
+
+        private void btnSearchNothiType_Click(object sender, EventArgs e)
+        {
+            detailsSearchDocketingNoTextBox_TextChanged(sender, e);
+        }
+
         private void panel11_Paint(object sender, PaintEventArgs e)
         {
            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(210, 234, 255), ButtonBorderStyle.Solid);

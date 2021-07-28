@@ -356,10 +356,14 @@ namespace dNothi.Services.DakServices
                 dakDecisionAddRequest.AddHeader("api-version", GetOldAPIVersion());
                 dakDecisionAddRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 dakDecisionAddRequest.AlwaysMultipartFormData = true;
-                dakDecisionAddRequest.AddParameter("user_id", dakUserParam.user_id);
+                //dakDecisionAddRequest.AddParameter("user_id", dakUserParam.user_id);
+                //dakDecisionAddRequest.AddParameter("desk", dakUserParam.json_String);
                 dakDecisionAddRequest.AddParameter("dak_decision_employee", dakDecision.dak_decision_employee);
                 dakDecisionAddRequest.AddParameter("dak_decision", dakDecision.dak_decision);
-                dakDecisionAddRequest.AddParameter("id", dakDecision.id);
+                if(dakDecision.id !=0)
+                {
+                    dakDecisionAddRequest.AddParameter("id", dakDecision.id);
+                }
 
                 IRestResponse dakDecisionResponseAPI = DakDecisionAddApi.Execute(dakDecisionAddRequest);
 
@@ -385,6 +389,7 @@ namespace dNothi.Services.DakServices
                 dakDecisionDeleteRequest.AddHeader("api-version", GetOldAPIVersion());
                 dakDecisionDeleteRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 dakDecisionDeleteRequest.AlwaysMultipartFormData = true;
+                dakDecisionDeleteRequest.AddParameter("desk", dakUserParam.json_String);
                 dakDecisionDeleteRequest.AddParameter("dak_decision_id", dakDecision.id);
             
                 IRestResponse dakDecisionResponseAPI = DakDecisionDeleteApi.Execute(dakDecisionDeleteRequest);

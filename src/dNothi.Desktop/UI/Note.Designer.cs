@@ -283,6 +283,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.PnlSave = new System.Windows.Forms.Panel();
+            this.btnSaveAndSend = new FontAwesome.Sharp.IconButton();
             this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
             this.btnSaveAndKhoshra = new FontAwesome.Sharp.IconButton();
             this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
@@ -679,12 +680,12 @@
             this.onlineToggleButton2.AutoSize = true;
             this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
             this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.onlineToggleButton2.Location = new System.Drawing.Point(625, 0);
+            this.onlineToggleButton2.Location = new System.Drawing.Point(1327, 0);
             this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(53, 0);
             this.onlineToggleButton2.Name = "onlineToggleButton2";
-            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 50);
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(53, 62);
             this.onlineToggleButton2.TabIndex = 85;
             // 
             // profilePanel
@@ -1383,9 +1384,9 @@
             this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
             this.tinyMceEditor.HtmlContent = "";
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(5);
             this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(458, 406);
+            this.tinyMceEditor.Size = new System.Drawing.Size(452, 406);
             this.tinyMceEditor.TabIndex = 61;
             // 
             // onucchedActionPanel
@@ -1410,29 +1411,6 @@
             this.onucchedActionPanel.Size = new System.Drawing.Size(492, 42);
             this.onucchedActionPanel.TabIndex = 18;
             this.onucchedActionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
-            // 
-            // btnOnuchhed
-            // 
-            this.btnOnuchhed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnOnuchhed.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnOnuchhed.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnOnuchhed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnOnuchhed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnOnuchhed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOnuchhed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOnuchhed.ForeColor = System.Drawing.Color.White;
-            this.btnOnuchhed.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnOnuchhed.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.btnOnuchhed.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOnuchhed.IconSize = 24;
-            this.btnOnuchhed.Location = new System.Drawing.Point(-333, 0);
-            this.btnOnuchhed.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOnuchhed.Name = "btnOnuchhed";
-            this.btnOnuchhed.Size = new System.Drawing.Size(32, 42);
-            this.btnOnuchhed.TabIndex = 75;
-            this.MyToolTip.SetToolTip(this.btnOnuchhed, "অনুচ্ছেদ");
-            this.btnOnuchhed.UseVisualStyleBackColor = false;
-            this.btnOnuchhed.Click += new System.EventHandler(this.btnOnuchhed_Click);
             // 
             // btnPotaka
             // 
@@ -4303,13 +4281,38 @@
             // PnlSave
             // 
             this.PnlSave.AutoSize = true;
+            this.PnlSave.Controls.Add(this.btnSaveAndSend);
             this.PnlSave.Controls.Add(this.btnSaveWithNewOnuchhed);
             this.PnlSave.Controls.Add(this.btnSaveAndKhoshra);
             this.PnlSave.Controls.Add(this.btnOnuchhedSave);
             this.PnlSave.Location = new System.Drawing.Point(569, 3);
             this.PnlSave.Name = "PnlSave";
-            this.PnlSave.Size = new System.Drawing.Size(187, 128);
+            this.PnlSave.Size = new System.Drawing.Size(249, 158);
             this.PnlSave.TabIndex = 66;
+            // 
+            // btnSaveAndSend
+            // 
+            this.btnSaveAndSend.AutoSize = true;
+            this.btnSaveAndSend.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSaveAndSend.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSaveAndSend.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnSaveAndSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveAndSend.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.btnSaveAndSend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnSaveAndSend.IconChar = FontAwesome.Sharp.IconChar.Cloud;
+            this.btnSaveAndSend.IconColor = System.Drawing.Color.Silver;
+            this.btnSaveAndSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSaveAndSend.IconSize = 20;
+            this.btnSaveAndSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveAndSend.Location = new System.Drawing.Point(0, 156);
+            this.btnSaveAndSend.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSaveAndSend.Name = "btnSaveAndSend";
+            this.btnSaveAndSend.Size = new System.Drawing.Size(249, 52);
+            this.btnSaveAndSend.TabIndex = 69;
+            this.btnSaveAndSend.Text = "সংরক্ষণ ও প্রেরণ";
+            this.btnSaveAndSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveAndSend.UseVisualStyleBackColor = false;
+            this.btnSaveAndSend.Click += new System.EventHandler(this.btnSaveAndSend_Click);
             // 
             // btnSaveWithNewOnuchhed
             // 
@@ -4807,5 +4810,6 @@
         private FontAwesome.Sharp.IconButton btnShongjuktiRef;
         private FontAwesome.Sharp.IconButton btnPotaka;
         private FontAwesome.Sharp.IconButton btnOnuchhed;
+        private FontAwesome.Sharp.IconButton btnSaveAndSend;
     }
 }

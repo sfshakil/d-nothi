@@ -31,6 +31,8 @@ namespace dNothi.Desktop.UI
 
         private void khosraButton_Click(object sender, EventArgs e)
         {
+
+            UIDesignCommonMethod.returnForm = this.Parent.FindForm();
             foreach (Form f in Application.OpenForms)
             { BeginInvoke((Action)(() => f.Hide())); }
             var form = FormFactory.Create<Khosra>();

@@ -2903,15 +2903,19 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                foreach (Form f in Application.OpenForms)
-                { BeginInvoke((Action)(() => f.Hide())); }
-                var form = FormFactory.Create<Nothi>();
-                form.TopMost = true;
-                BeginInvoke((Action)(() => form.ShowDialog()));
-                BeginInvoke((Action)(() => form.TopMost = false));
-                form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                if (this.NoteBackButton != null)
+                    this.NoteBackButton(sender, e);
+                //foreach (Form f in Application.OpenForms)
+                //{ BeginInvoke((Action)(() => f.Hide())); }
+                //var form = FormFactory.Create<Nothi>();
+                //form.TopMost = true;
+                //BeginInvoke((Action)(() => form.ShowDialog()));
+                //BeginInvoke((Action)(() => form.TopMost = false));
+                //form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
             }
         }
+        public event EventHandler NoteBackButton;
+        
         int onuchhedint = 0;
         List<FileAttachment> fileAttachments = new List<FileAttachment>();
         
@@ -8688,7 +8692,16 @@ namespace dNothi.Desktop.UI
                 }
             }
             var form = FormFactory.Create<Note>();
-
+            form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                foreach (Form f in Application.OpenForms)
+                { BeginInvoke((Action)(() => f.Hide())); }
+                var nothi = FormFactory.Create<Nothi>();
+                nothi.TopMost = true;
+                nothi.LoadNothiInboxButton(sender1, e1);
+                BeginInvoke((Action)(() => nothi.ShowDialog()));
+                BeginInvoke((Action)(() => nothi.TopMost = false));
+                nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+            };
             form.noteIdfromNothiInboxNoteShomuho = _noteIdfromNothiInboxNoteShomuho;
 
             form.nothiNo = _nothiNo;
@@ -9531,10 +9544,11 @@ namespace dNothi.Desktop.UI
             form._nothiListRecordsDTO = _nothiListRecordsDTO;
             form._nothiListInboxNoteRecordsDTO = _nothiListInboxNoteRecordsDTO;
             form._note_onucched_id = Convert.ToInt32(onucchedId);
-            
+
             //GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(noteNothiDTO.nothi_id), potrojari_id);
             //form.SetSarokNo(sarok_no.sarok_no);
-
+            UIDesignCommonMethod.returnForm = this;
+            
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
@@ -9851,8 +9865,9 @@ namespace dNothi.Desktop.UI
                     khosra.prerokOfficerDesignations = prapakerTalika.data.sender;
                     khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
                 }
-               
-        
+
+                UIDesignCommonMethod.returnForm = this;
+                
                 BeginInvoke((Action)(() => khosra.ShowDialog()));
                 khosra.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
                
@@ -9896,12 +9911,6 @@ namespace dNothi.Desktop.UI
 
 
             return (noteNothiDTO, nothiListRecords);
-        }
-
-        
-        private void iconButton18_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

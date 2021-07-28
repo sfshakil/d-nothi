@@ -4964,6 +4964,7 @@ namespace dNothi.Desktop.UI
 
         private void khosraButton_Click(object sender, EventArgs e)
         {
+            UIDesignCommonMethod.returnForm = this;
             modulePanel.Hide();
             var form = FormFactory.Create<Khosra>();
             BeginInvoke((Action)(() => form.ShowDialog()));

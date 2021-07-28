@@ -150,6 +150,7 @@
             this.helpDeskButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MyToolTip.SetToolTip(this.helpDeskButton, "হেল্প ডেস্ক ");
             this.helpDeskButton.UseVisualStyleBackColor = false;
+            this.helpDeskButton.Click += new System.EventHandler(this.helpDeskButton_Click);
             // 
             // profileButton
             // 
