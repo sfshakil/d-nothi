@@ -34,6 +34,7 @@ namespace dNothi.Desktop.UI
 {
     public partial class Dashboard : Form
     {
+       
 
         private DakUserParam dakListUserParam = new DakUserParam();
 
@@ -3814,8 +3815,9 @@ namespace dNothi.Desktop.UI
         public int _assignor_designation_id;
         private void linkLabel_LinkClicked(object sender, EventArgs e, int assignor_designation_id)
         {
-
+            WaitForm.Show(this);
             LoadDakBacaikaran(assignor_designation_id);
+            WaitForm.Close();
         }
         private void LoadDakBacaikaran(int assignor_designation_id)
         {
@@ -5014,8 +5016,9 @@ namespace dNothi.Desktop.UI
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
             RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(_dakuserparam,fromdate,todate, null);
-            RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
+            RegisterReportUserControl registerReportUserControl = UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakGrohon = true;
+            registerReportUserControl.totalRecord = registerReportResponse.data.total_records;
             registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
            
             UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, registerReportUserControl);
@@ -5033,8 +5036,9 @@ namespace dNothi.Desktop.UI
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
             RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(_dakuserparam, fromdate, todate, null);
-            RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
+            RegisterReportUserControl registerReportUserControl = UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakBili = true;
+            registerReportUserControl.totalRecord = registerReportResponse.data.total_records;
             registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
 
 
@@ -5052,8 +5056,9 @@ namespace dNothi.Desktop.UI
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
             RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(_dakuserparam, fromdate, todate, null);
-            RegisterReportUserControl registerReportUserControl = new RegisterReportUserControl();
+            RegisterReportUserControl registerReportUserControl =UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakDiary = true;
+            registerReportUserControl.totalRecord = registerReportResponse.data.total_records;
             registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
 
 
@@ -5074,12 +5079,12 @@ namespace dNothi.Desktop.UI
             _dakuserparam.page = 1;
             _dakuserparam.limit = 20;
             ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(_dakuserparam, null, null, null);
-            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            ProtibedonUserControl protibedonUserControl =UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isPending = true;
             protibedonUserControl.totalRecord = protibedonResponse.data.total_records;
             protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
                
-            protibedonUserControl.comboBoxSelectedIndexChanged +=  gridviewpagination_selectedChanged;
+           // protibedonUserControl.comboBoxSelectedIndexChanged +=  gridviewpagination_selectedChanged;
            
             protibedonUserControl.Dock = DockStyle.Fill;
             int row = dakBodyFlowLayoutPanel.RowCount++;
@@ -5090,22 +5095,22 @@ namespace dNothi.Desktop.UI
        private void gridviewpagination_selectedChanged(string name,int id)
         {
 
-            dakBodyFlowLayoutPanel.Controls.Clear();
-            dakBodyFlowLayoutPanel.RowCount = 0;
-            _dakuserparam.page = 1;
-            _dakuserparam.limit =Convert.ToInt32( ConversionMethod.BanglaDigittoEngDigit(name));
-            ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(_dakuserparam, null, null, null);
-            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
-            protibedonUserControl.isPending = true;
-            protibedonUserControl.totalRecord = protibedonResponse.data.total_records;
-            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            //dakBodyFlowLayoutPanel.Controls.Clear();
+            //dakBodyFlowLayoutPanel.RowCount = 0;
+            //_dakuserparam.page = 1;
+            //_dakuserparam.limit =Convert.ToInt32( ConversionMethod.BanglaDigittoEngDigit(name));
+            //ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(_dakuserparam, null, null, null);
+            //ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            //protibedonUserControl.isPending = true;
+            //protibedonUserControl.totalRecord = protibedonResponse.data.total_records;
+            //protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
-            protibedonUserControl.comboBoxSelectedIndexChanged += gridviewpagination_selectedChanged;
+            //protibedonUserControl.comboBoxSelectedIndexChanged += gridviewpagination_selectedChanged;
 
-            protibedonUserControl.Dock = DockStyle.Fill;
-            int row = dakBodyFlowLayoutPanel.RowCount++;
-            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
-            dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+            //protibedonUserControl.Dock = DockStyle.Fill;
+            //int row = dakBodyFlowLayoutPanel.RowCount++;
+            //dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            //dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
         }
         private void resolvedReportButton_Click(object sender, EventArgs e)
         {
@@ -5115,7 +5120,7 @@ namespace dNothi.Desktop.UI
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
             ProtibedonResponse protibedonResponse = _protibedonService.GetResolvedProtibedonResponse(_dakuserparam, null, null, null);
-            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            ProtibedonUserControl protibedonUserControl = UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isResolved = true;
             protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
@@ -5150,9 +5155,9 @@ namespace dNothi.Desktop.UI
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
             DakProtibedonResponse protibedonResponse = _protibedonService.GetNothiteUposthapitoProtibedonResponse(_dakuserparam, null, null, null);
-            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            ProtibedonUserControl protibedonUserControl = UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isNothiteUposthapito = true;
-            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+           protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
 
 
@@ -5171,7 +5176,7 @@ namespace dNothi.Desktop.UI
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
             DakProtibedonResponse protibedonResponse = _protibedonService.GetPotrojariProtibedonResponse(_dakuserparam, null, null, null);
-            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            ProtibedonUserControl protibedonUserControl = UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isPotrojari = true;
             protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
@@ -5191,7 +5196,7 @@ namespace dNothi.Desktop.UI
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
             DakProtibedonResponse protibedonResponse = _protibedonService.GetNothijatoProtibedonResponse(_dakuserparam, null, null, null);
-            ProtibedonUserControl protibedonUserControl = new ProtibedonUserControl();
+            ProtibedonUserControl protibedonUserControl = UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isNothijato = true;
             protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
