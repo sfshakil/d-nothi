@@ -33,6 +33,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel34 = new System.Windows.Forms.Panel();
             this.lbDecisionText = new System.Windows.Forms.Label();
             this.btnDecisionAdd = new FontAwesome.Sharp.IconButton();
+            this.lbAttachmentKilobyte = new System.Windows.Forms.Label();
             this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@ namespace dNothi.Desktop.UI.Dak
             // lbDecisionText
             // 
             this.lbDecisionText.AutoSize = true;
-            this.lbDecisionText.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbDecisionText.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbDecisionText.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDecisionText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbDecisionText.Location = new System.Drawing.Point(56, 2);
@@ -96,11 +97,27 @@ namespace dNothi.Desktop.UI.Dak
             this.btnDecisionAdd.UseVisualStyleBackColor = false;
             this.btnDecisionAdd.Click += new System.EventHandler(this.btnDecisionAdd_Click);
             // 
+            // lbAttachmentKilobyte
+            // 
+            this.lbAttachmentKilobyte.AutoSize = true;
+            this.lbAttachmentKilobyte.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbAttachmentKilobyte.Font = new System.Drawing.Font("SolaimanLipi", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAttachmentKilobyte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.lbAttachmentKilobyte.Location = new System.Drawing.Point(56, 36);
+            this.lbAttachmentKilobyte.Margin = new System.Windows.Forms.Padding(0);
+            this.lbAttachmentKilobyte.Name = "lbAttachmentKilobyte";
+            this.lbAttachmentKilobyte.Padding = new System.Windows.Forms.Padding(150, 0, 0, 0);
+            this.lbAttachmentKilobyte.Size = new System.Drawing.Size(349, 22);
+            this.lbAttachmentKilobyte.TabIndex = 83;
+            this.lbAttachmentKilobyte.Text = "১৬৪.৫৫৩২৮৯৬৮ কিলোবাইট";
+            this.lbAttachmentKilobyte.Visible = false;
+            // 
             // NothiDecisionListRow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lbAttachmentKilobyte);
             this.Controls.Add(this.lbDecisionText);
             this.Controls.Add(this.btnDecisionAdd);
             this.Controls.Add(this.panel16);
@@ -120,5 +137,6 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel34;
         private FontAwesome.Sharp.IconButton btnDecisionAdd;
         private System.Windows.Forms.Label lbDecisionText;
+        private System.Windows.Forms.Label lbAttachmentKilobyte;
     }
 }

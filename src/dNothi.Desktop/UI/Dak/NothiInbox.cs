@@ -315,6 +315,9 @@ namespace dNothi.Desktop.UI.Dak
                 nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
                 nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
                 nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
+
+                nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
+                nothiNoteShomuho.btnAttachment  += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
                 nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.desk.note_current_status);
                 nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
 
@@ -375,7 +378,44 @@ namespace dNothi.Desktop.UI.Dak
             if (this.NoteDetailsButton != null)
                 this.NoteDetailsButton(noteListDataRecordNoteDTO, e1);
         }
-
+        public event EventHandler NoteAttachment;
+        private void NoteAttachment_ButtonClick(NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, EventArgs e1)
+        {
+            if (InternetConnection.Check())
+            {
+                var nothiListUserParam = _userService.GetLocalDakUserParam();
+                var nothiInboxNote = _nothiInboxNote.GetNoteAttachments(nothiListUserParam, nothiListInboxNoteRecordsDTO.nothi.id.ToString(), nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString());
+                
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.labelText = "নোটের সংযুক্তি";
+                nothiDecisionList.loadNoteRowAttachments(nothiInboxNote);
+                //nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
+        public Form NothiNextStepControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
+        }
         public event EventHandler NoteAllButton;
         private void btnAllNote_Click(object sender, EventArgs e)
         {

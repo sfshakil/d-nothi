@@ -249,6 +249,7 @@
             this.prapokSearchOwnOfficeTextBox.PlaceholderText = "প্রাপক খুঁজুন";
             this.prapokSearchOwnOfficeTextBox.Size = new System.Drawing.Size(297, 23);
             this.prapokSearchOwnOfficeTextBox.TabIndex = 3;
+            this.prapokSearchOwnOfficeTextBox.TextChanged += new System.EventHandler(this.prapokSearchOwnOfficeTextBox_TextChanged);
             // 
             // prapokownOfficeTreeView
             // 

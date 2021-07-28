@@ -13,6 +13,7 @@ using dNothi.Services.UserServices;
 using dNothi.Services.NothiServices;
 using dNothi.Utility;
 using dNothi.Core.Entities;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -21,14 +22,16 @@ namespace dNothi.Desktop.UI.Dak
         private int originalWidth;
         private int originalHeight;
         IUserService _userService { get; set; }
+        INothiInboxNoteServices _nothiInboxNote { get; set; }
         //INothiInboxNoteServices _nothiInboxNote { get; set; }
         INothiAllNoteServices _nothiAllNote { get; set; }
 
         public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
-        public NothiAll(IUserService userService, INothiAllNoteServices nothiAllNote)
+        public NothiAll(IUserService userService, INothiAllNoteServices nothiAllNote, INothiInboxNoteServices nothiInboxNote)
         {
             _userService = userService;
             _nothiAllNote = nothiAllNote;
+            _nothiInboxNote = nothiInboxNote;
             InitializeComponent();
             originalWidth = this.Width;
             originalHeight = this.Height;
@@ -297,6 +300,8 @@ namespace dNothi.Desktop.UI.Dak
                 //nothiNoteShomuho.noteSubText = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
                 nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
                 nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
+                nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
+                nothiNoteShomuho.btnAttachment += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
                 nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.desk.note_current_status);
                 nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
 
@@ -345,7 +350,84 @@ namespace dNothi.Desktop.UI.Dak
             
 
         }
+        private void NoteAttachment_ButtonClick(NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, EventArgs e1)
+        {
+            if (InternetConnection.Check())
+            {
+                var nothiListUserParam = _userService.GetLocalDakUserParam();
+                var nothiInboxNote = _nothiInboxNote.GetNoteAttachments(nothiListUserParam, nothiListInboxNoteRecordsDTO.nothi.id.ToString(), nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString());
 
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.labelText = "নোটের সংযুক্তি";
+                nothiDecisionList.loadNoteRowAttachments(nothiInboxNote);
+                //nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+            Screen scr = Screen.FromPoint(this.Location);
+            hideform.BackColor = Color.Black;
+            hideform.Size = scr.WorkingArea.Size;
+            hideform.Opacity = .6;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+        public Form NothiNextStepControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
+        }
         private void iconButton3_MouseHover(object sender, EventArgs e)
         {
             btnNothiAllNoteShomuho.IconColor = Color.White;

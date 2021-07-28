@@ -3649,7 +3649,8 @@ namespace dNothi.Desktop.UI
                     {
                         if (onucchedSave.status == "success")
                         {
-                            _saved_Onucched_Id = onucchedSave.data.id;
+                            if (InternetConnection.Check())
+                                _saved_Onucched_Id = onucchedSave.data.id;
                             onuchhedSaveWithAttachments.Clear();
                             //onuchhedheaderPnl.Visible = true;
                             //onuchhedFLP.Visible = true;

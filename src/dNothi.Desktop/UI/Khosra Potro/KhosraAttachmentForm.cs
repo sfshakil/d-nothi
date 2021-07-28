@@ -115,6 +115,8 @@ namespace dNothi.Desktop.UI.Khosra_Potro
                 khosraSelectedAttachmentRow.isDeleted = true;
                 khosraSelectedAttachmentRow.Hide();
             }
+
+            CountSelectedPotro();
         }
 
         private void SelecteAttachment(PermittedPotroResponseMulpotroDTO selectedPermittedPotroResponseMulpotroDTO)
@@ -284,7 +286,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
                         permittedPotroResponseMulpotroDTO.url = dakUploadedFileResponse.data[0].url ;
 
 
-                        permittedPotroResponseMulpotroDTO=UIDesignCommonMethod.GetPermittedPotroResponseFromDakAttachmentRespnse(dakUploadedFileResponse.data[0]);
+                        //permittedPotroResponseMulpotroDTO=permittedPotroResponseMulpotroDTO;
                         SelecteAttachment(permittedPotroResponseMulpotroDTO);
                         CountSelectedPotro();
 
