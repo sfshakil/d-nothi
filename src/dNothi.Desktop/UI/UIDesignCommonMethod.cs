@@ -2,6 +2,7 @@
 using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Khosra;
+using dNothi.Services.DakServices;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,29 @@ namespace dNothi.Desktop.UI
 {
    public class UIDesignCommonMethod
     {
+        public static PrapokDTO GetMulPrapokForOwnDesk(DakUserParam dak_List_User_Param)
+        {
+            PrapokDTO prapokDTO = new PrapokDTO();
 
+            prapokDTO.designation_bng = dak_List_User_Param.designation;
+            prapokDTO.designation_id = dak_List_User_Param.designation_id;
+            prapokDTO.employee_id = dak_List_User_Param.employee_record_id.ToString();
+            prapokDTO.employee_name_bng = dak_List_User_Param.officer_name;
+            prapokDTO.incharge_label = dak_List_User_Param.incharge_label;
+            prapokDTO.office = dak_List_User_Param.office;
+            prapokDTO.officer = dak_List_User_Param.officer;
+            prapokDTO.officer_bng = dak_List_User_Param.officer_name;
+            prapokDTO.office_bng = dak_List_User_Param.office_label;
+            prapokDTO.office_id = dak_List_User_Param.office_id;
+            prapokDTO.officer_id = dak_List_User_Param.officer_id;
+            prapokDTO.office_layer_id = dak_List_User_Param.office_unit_id;
+            prapokDTO.office_unit_id = dak_List_User_Param.office_unit_id;
+            prapokDTO.office_unit_bng = dak_List_User_Param.office_unit;
+            prapokDTO.office_unit_bng = dak_List_User_Param.office_unit;
+            prapokDTO.unit_name_bng = dak_List_User_Param.office_unit;
+            prapokDTO.office_unit_code = dak_List_User_Param.unit_id.ToString();
+            return prapokDTO;
+        }
         public static Form returnForm { get; set; }
         public static void RightSideWindowSet(Form form)
         {
