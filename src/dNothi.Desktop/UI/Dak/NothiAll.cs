@@ -14,28 +14,33 @@ using dNothi.Services.NothiServices;
 using dNothi.Utility;
 using dNothi.Core.Entities;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Services.DakServices;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class NothiAll : UserControl
     {
+        ModalMenuUserControl uc = new ModalMenuUserControl();
         private int originalWidth;
         private int originalHeight;
         IUserService _userService { get; set; }
+        INoteDeleteService _noteDelete { get; set; }
         INothiInboxNoteServices _nothiInboxNote { get; set; }
         //INothiInboxNoteServices _nothiInboxNote { get; set; }
         INothiAllNoteServices _nothiAllNote { get; set; }
 
         public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
-        public NothiAll(IUserService userService, INothiAllNoteServices nothiAllNote, INothiInboxNoteServices nothiInboxNote)
+        public NothiAll(IUserService userService, INothiAllNoteServices nothiAllNote, INothiInboxNoteServices nothiInboxNote, INoteDeleteService noteDelete)
         {
             _userService = userService;
             _nothiAllNote = nothiAllNote;
             _nothiInboxNote = nothiInboxNote;
+            _noteDelete = noteDelete;
             InitializeComponent();
             originalWidth = this.Width;
             originalHeight = this.Height;
             pnlNewAllNote.Visible = false;
+            uc.Visible = false;
             newAllNoteFlowLayoutPanel.Visible = false;
             SetDefaultFont(this.Controls);
         }
@@ -258,6 +263,116 @@ namespace dNothi.Desktop.UI.Dak
                 }
             }
         }
+        private void btnOption_ButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+            //if (!isActive)
+            ////  uc.Location = System.Windows.Forms.Cursor.Position;
+            //{
+           
+            if (uc.Visible != true)
+            {
+                bool remove = true;
+                if (nothiListInboxNoteRecordsDTO.note.onucched_count > 0)
+                { remove = false; }
+                uc.ButtonVisibility(true, remove, true);
+                //uc.Location = new Point(50, ((Point)sender).Y);
+                uc.Location = new Point(50, this.Location.Y);
+                // uc.Location = new Point(50,this.Location.Y);//((Point)sender).X, ((Point)sender).Y);
+                uc.noteEditButtonClick += delegate (object s1, EventArgs e1) { uc_noteEditButtonClick(s1, e1, nothiListInboxNoteRecordsDTO); };
+                uc.noteOnumodanButtonClick += delegate (object s2, EventArgs e2) { uc_noteOnumodanButtonClick(s2, e2, nothiListInboxNoteRecordsDTO); };
+                uc.noteRemoveButtonClick += delegate (object s3, EventArgs e3) { uc_noteRemoveButtonClick(s3, e3, nothiListInboxNoteRecordsDTO); };
+
+                this.Controls.Add(uc);
+                uc.BringToFront();
+                uc.Visible = true;
+            }
+            else
+            {
+                uc.Visible = false;
+            }
+
+            //    isActive = true;
+            //}
+            //else
+            //    uc.Visible = false;
+            //    isActive = false;
+        }
+
+        private void uc_noteOnumodanButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+            //foreach (Form f in Application.OpenForms)
+            //{
+            //    if (f.Name != "Note")
+            //    { BeginInvoke((Action)(() => f.Hide())); }
+            //}
+            NoteView newNoteView = new NoteView();
+
+            var nothiListRecord = MappingModels.MapModel<NothiNothiListInboxNoteRecordsDTO, NothiListRecordsDTO>(nothiListInboxNoteRecordsDTO.nothi);
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.nothiListRecordsDTO = nothiListRecord;
+
+            // form.noteIdfromNothiInboxNoteShomuho = nothiListInboxNoteRecordsDTO.note.;
+
+            form.nothiNo = nothiListInboxNoteRecordsDTO.nothi.nothi_no;
+            form.nothiShakha = nothiListInboxNoteRecordsDTO.nothi.office;
+            form.nothiSubject = nothiListInboxNoteRecordsDTO.nothi.subject;
+            form.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+            form.nothiLastDate = nothiListInboxNoteRecordsDTO.nothi.nothi_created_date;
+            form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+
+            form.office = nothiListInboxNoteRecordsDTO.nothi.office;
+
+
+            form.loadNothiInboxRecords(nothiListRecord);
+            form.loadNoteView(newNoteView);
+            form.noteTotal = ConversionMethod.EnglishNumberToBangla(nothiListInboxNoteRecordsDTO.note.finished_count.ToString());
+
+            form.GetNothiInboxRecords(nothiListRecord, "Note", nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString());
+            var notelist = MappingModels.MapModel<NoteNothiListInboxNoteRecordsDTO, NoteListDataRecordNoteDTO>(nothiListInboxNoteRecordsDTO.note);
+            //form.loadNewNoteDataFromNote(nothiType);
+            form.loadNoteList(notelist);
+            CalPopUpWindow(form);
+        }
+        private void uc_noteRemoveButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+
+            string message = "নোটটি মুছে ফেলুন";
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = message;
+            conditonBoxForm.ShowDialog(this);
+            if (conditonBoxForm.Yes && nothiListInboxNoteRecordsDTO.note.onucched_count == 0)
+            {
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                string model = "NothiNotes";
+                string noteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
+                var noteDelete = _noteDelete.GetNoteDelteResponse(dakListUserParam, model, noteID);
+                if (noteDelete.status == "success")
+                {
+                    SuccessMessage(noteDelete.status);
+                    this.Hide();
+                }
+
+            }
+            else
+            {
+
+            }
+        }
+        private void uc_noteEditButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+            var noteCreatePopUpForm = FormFactory.Create<NoteCreatePopUpForm>();
+
+            noteCreatePopUpForm.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+            noteCreatePopUpForm.noteId = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+            noteCreatePopUpForm.nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
+            noteCreatePopUpForm.SaveButtonClick += delegate (object senderSaveButton, EventArgs eventSaveButton) {
+                loadnewAllNoteFlowLayoutPanel();
+            };
+
+
+            CalPopUpWindow(noteCreatePopUpForm);
+
+        }
         public event EventHandler LocalNoteDetailsButton;
         private void LocalNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO1, EventArgs e)
         {
@@ -342,6 +457,11 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     nothiNoteShomuho.toofficer = "";
                 }
+                nothiNoteShomuho.btnOptionClick += delegate (object sender1, EventArgs e1)
+                {
+
+                    btnOption_ButtonClick(sender1 as object, e1, nothiListInboxNoteRecordsDTO);
+                };
                 i = i + 1;
                 UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
 
