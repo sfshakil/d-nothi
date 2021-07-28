@@ -175,9 +175,13 @@ namespace dNothi.Desktop.UI.Dak
                 if (dakDecisionAddResponse.status == "success")
                 {
                    
-                MessageBox.Show("সফল হ​য়েছে।");
+                  UIDesignCommonMethod.SuccessMessage("সফলভাবে ডিলেট হ​য়েছে।");
                     decision = dakDecision.dak_decision;
                     this.Hide();
+                }
+                else
+                {
+                    UIDesignCommonMethod.ErrorMessage("সফলভাবে ডিলেট হইনি!");
                 }
             }
         }

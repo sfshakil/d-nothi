@@ -9,13 +9,13 @@ namespace dNothi.JsonParser.Entity.Dak
    public class DakDecisionAddResponse
     {
         public string status { get; set; }
-        public DakDecisionDTO data { get; set; }
+        //public Dictionary<int, string> data { get; set; }
     }
 
     public class DakDecisionDeleteResponse
     {
         public string status { get; set; }
-        public string data { get; set; }
+        public object data { get; set; }
     }
     public class DakDecisionSetupResponse
     {

@@ -17,6 +17,17 @@ namespace dNothi.JsonParser.Entity.Dak
 
     }
 
+    public class DakDecisionDataDTO
+    {
+        public int id { get; set; }
+        public string dak_decision { get; set; }
+        public int status { get; set; }
+        public int dak_decision_employee { get; set; }
+        public int dak_decision_id { get; set; }
+
+
+    }
+
     public class DakDecisionListResponse
     {
         public string status { get; set; }
