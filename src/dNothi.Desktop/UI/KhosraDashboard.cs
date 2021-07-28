@@ -431,6 +431,7 @@ namespace dNothi.Desktop.UI
         }
         private void commonKhosraRowUserControl_sampadanButtonClick(object sender, EventArgs e, KasaraPotro.Record kasaraPotro, (NoteListDataRecordNoteDTO, NothiListRecordsDTO, NothiListInboxNoteRecordsDTO) mapmodel)
         {
+
            
             var khosra = FormFactory.Create<Khosra>();
             var dakListUserParam = _userService.GetLocalDakUserParam();
@@ -488,7 +489,9 @@ namespace dNothi.Desktop.UI
                 khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
             }
             //this.ShowInTaskbar = false;
-            khosra.Show();
+            UIDesignCommonMethod.returnForm = this;
+            this.Hide();
+            khosra.ShowDialog();
             //this.ShowInTaskbar = true;
 
         }

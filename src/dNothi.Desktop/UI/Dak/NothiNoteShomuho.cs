@@ -47,6 +47,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _noteIssueDate;
         private string _noteAttachment;
         public long _nothi_id;
+        public int onucched_count;
 
         public void loadEyeIcon(string i)
         {
@@ -212,14 +213,25 @@ namespace dNothi.Desktop.UI.Dak
             successMessage.ShowDialog();
 
         }
+        public event DatabaseChangeHandler btnOptionClickedPoint;
+        public delegate void DatabaseChangeHandler(int x,int y);
         public event EventHandler btnOptionClick;
+        ModalMenuUserControl uc = new ModalMenuUserControl();
         private void btnOption_Click(object sender, EventArgs e)
         {
+           
             Point locationOnForm = btnOption.FindForm().PointToClient(btnOption.Parent.PointToScreen(btnOption.Location));
             object buttonCoOrdinates = locationOnForm;
+            
             if (this.btnOptionClick != null)
-                this.btnOptionClick(buttonCoOrdinates, e);
-           
+            { 
+                this.btnOptionClick(locationOnForm,e);
+            }
+            //if (this.btnOptionClickedPoint != null)
+            //{
+            //    this.btnOptionClickedPoint(locationOnForm.X, locationOnForm.Y);
+            //}
+
         }
 
         private void uc_noteEditButtonClick(object sender, EventArgs e)

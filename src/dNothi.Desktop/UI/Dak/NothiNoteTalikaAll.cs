@@ -172,12 +172,21 @@ namespace dNothi.Desktop.UI.Dak
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(235, 237, 243), ButtonBorderStyle.Solid);
         }
-
+        public event EventHandler btnOptionClick;
         private void optionButton_Click(object sender, EventArgs e)
         {
-           // UIDesignCommonMethod.CallAllModulePanel(optionButton, this);
-            
+            // UIDesignCommonMethod.CallAllModulePanel(optionButton, this);
+            Point locationOnForm = optionButton.FindForm().PointToClient(optionButton.Parent.PointToScreen(optionButton.Location));
+            object buttonCoOrdinates = locationOnForm;
+
+            if (this.btnOptionClick != null)
+            {
+                this.btnOptionClick(locationOnForm, e);
+            }
 
         }
+        
+       
+       
     }
 }

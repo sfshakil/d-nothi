@@ -9544,10 +9544,11 @@ namespace dNothi.Desktop.UI
             form._nothiListRecordsDTO = _nothiListRecordsDTO;
             form._nothiListInboxNoteRecordsDTO = _nothiListInboxNoteRecordsDTO;
             form._note_onucched_id = Convert.ToInt32(onucchedId);
-            
+
             //GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(noteNothiDTO.nothi_id), potrojari_id);
             //form.SetSarokNo(sarok_no.sarok_no);
-
+            UIDesignCommonMethod.returnForm = this;
+            
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
@@ -9864,8 +9865,9 @@ namespace dNothi.Desktop.UI
                     khosra.prerokOfficerDesignations = prapakerTalika.data.sender;
                     khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
                 }
-               
-        
+
+                UIDesignCommonMethod.returnForm = this;
+                
                 BeginInvoke((Action)(() => khosra.ShowDialog()));
                 khosra.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
                
@@ -9909,12 +9911,6 @@ namespace dNothi.Desktop.UI
 
 
             return (noteNothiDTO, nothiListRecords);
-        }
-
-        private void btnSaveAndSend_Click(object sender, EventArgs e)
-        {
-            btnOnuchhedSave_Click(sender, e);
-            btnSend_Click(sender, e);
         }
     }
 }
