@@ -200,6 +200,17 @@ namespace dNothi.Desktop.UI
             newNothi.BringToFront();
             newNothi.BackColor = Color.WhiteSmoke;
         }
+        public void LoadNothiInboxButton(object sender, EventArgs e)
+        {
+            btnNothiInbox_Click_1(sender, e);
+        }
+        public void LoadNothiOutboxButton(object sender, EventArgs e)
+        {
+            btnNothiOutbox_Click(sender, e);
+        }public void LoadNothiAllButton(object sender, EventArgs e)
+        {
+            btnNothiAll_Click(sender, e);
+        }
 
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
@@ -442,8 +453,8 @@ namespace dNothi.Desktop.UI
                 nothiInbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiListRecordsDTO.last_note_date;
                 nothiInbox.nothiId = Convert.ToString(nothiListRecordsDTO.id);
                 nothiInbox.NewNoteButtonClick += delegate (object sender, EventArgs e) { nothiListRecordsDTO.nothi_type = "Inbox"; NewNote_ButtonClick(sender, e, nothiListRecordsDTO); };
-                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO); };
-                nothiInbox.NoteAllButton += delegate (object sender, EventArgs e) { NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO); };
+                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO, 1); };// 1 means inbox
+                nothiInbox.NoteAllButton += delegate (object sender, EventArgs e) { NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 1); };// 1 means inbox
                 nothiInbox.NothiOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiOnumodon_ButtonClick(sender, e, nothiListRecordsDTO); };
 
                 nothiInbox.LocalNoteDetailsButton += delegate (object sender, EventArgs e) {
@@ -464,6 +475,7 @@ namespace dNothi.Desktop.UI
                 UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, nothiInbox);
             }
         }
+        
         private void NoteAllDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
 
@@ -476,6 +488,16 @@ namespace dNothi.Desktop.UI
                 
             //}
             var form = FormFactory.Create<Note>();
+            form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                foreach (Form f in Application.OpenForms)
+                { BeginInvoke((Action)(() => f.Hide() )); }
+                var nothi = FormFactory.Create<Nothi>();
+                nothi.TopMost = true;
+                nothi.LoadNothiAllButton(sender1, e1);
+                BeginInvoke((Action)(() => nothi.ShowDialog()));
+                BeginInvoke((Action)(() => nothi.TopMost = false));
+                nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
+            };
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
             form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteAllDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiAllListDTO, nothiListInboxNoteRecordsDTO); };
@@ -540,7 +562,7 @@ namespace dNothi.Desktop.UI
 
             }
         }
-        private void NoteAll_ButtonClick(NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
+        private void NoteAll_ButtonClick(NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, int inboxORoutboxORall)
         {
             NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
             //noteListDataRecordNoteDTO.new_tab = nothiListInboxNoteRecordsDTO.note.new_tab;
@@ -548,6 +570,27 @@ namespace dNothi.Desktop.UI
 
             //this.Hide();
             var form = FormFactory.Create<Note>();
+            form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                foreach (Form f in Application.OpenForms)
+                { BeginInvoke((Action)(() => f.Hide())); }
+                var nothi = FormFactory.Create<Nothi>();
+                nothi.TopMost = true;
+                if (inboxORoutboxORall == 1)
+                {
+                    nothi.LoadNothiInboxButton(sender1, e1);
+                }
+                else if (inboxORoutboxORall == 2)
+                {
+                    nothi.LoadNothiOutboxButton(sender1, e1);
+                }
+                else if (inboxORoutboxORall == 3)
+                {
+                    nothi.LoadNothiAllButton(sender1, e1);
+                }
+                BeginInvoke((Action)(() => nothi.ShowDialog()));
+                BeginInvoke((Action)(() => nothi.TopMost = false));
+                nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
+            };
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
             //form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
@@ -574,7 +617,7 @@ namespace dNothi.Desktop.UI
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
-        private void NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        private void NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, int inboxORoutboxORall)
         {
             //if (noteListDataRecordNoteDTO.is_editable == 0)
             //{
@@ -586,9 +629,26 @@ namespace dNothi.Desktop.UI
             //}
 
             var form = FormFactory.Create<Note>();
+            form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                foreach (Form f in Application.OpenForms)
+                { BeginInvoke((Action)(() => f.Hide())); }
+                var nothi = FormFactory.Create<Nothi>();
+                nothi.TopMost = true;
+                if (inboxORoutboxORall == 1)
+                {
+                    nothi.LoadNothiInboxButton(sender1, e1);
+                }
+                else if (inboxORoutboxORall == 2)
+                {
+                    nothi.LoadNothiOutboxButton(sender1, e1);
+                }
+                BeginInvoke((Action)(() => nothi.ShowDialog()));
+                BeginInvoke((Action)(() => nothi.TopMost = false));
+                nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
+            };
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
-            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO, inboxORoutboxORall); };
             form._noteListDataRecordNoteDTO = noteListDataRecordNoteDTO;
             form._nothiListRecordsDTO = nothiListRecordsDTO;
             form._nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
@@ -1101,7 +1161,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
-                    NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiOutbox._nothiListInboxNoteRecordsDTO);
+                    NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiOutbox._nothiListInboxNoteRecordsDTO, 2);// 2 means outbox
                 };
 
                 nothiOutbox.NoteAllButton += delegate (object sender, EventArgs e) {
@@ -1117,7 +1177,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
-                    NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO);
+                    NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 2);// 2 means outbox
                 };
 
 
@@ -1500,7 +1560,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiAllListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiAllListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiAllListDTO.nothi.last_note_date;
-                    NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO);
+                    NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 3); // 3 means allnothi
                 };
 
                 //nothiAll.NoteAllButton += delegate (object sender, EventArgs e) { NoteAllDetails_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiAllListDTO, nothiAll._nothiListInboxNoteRecordsDTO); };
@@ -1858,7 +1918,7 @@ namespace dNothi.Desktop.UI
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiInbox.IconColor = Color.FromArgb(78, 165, 254);
             ResetAllMenuButtonSelection();
-            SelectButton(sender as Button);
+            SelectButton(btnNothiInbox);
             nothiListFlowLayoutPanel.Visible = true;
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
@@ -1890,7 +1950,7 @@ namespace dNothi.Desktop.UI
             btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(78, 165, 254);
             ResetAllMenuButtonSelection();
-            SelectButton(sender as Button);
+            SelectButton(btnNothiOutbox);
             nothiListFlowLayoutPanel.Visible = true;
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;
@@ -1939,7 +1999,7 @@ namespace dNothi.Desktop.UI
             btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiAll.IconColor = Color.FromArgb(78, 165, 254);
             ResetAllMenuButtonSelection();
-            SelectButton(sender as Button);
+            SelectButton(btnNothiAll);
             nothiListFlowLayoutPanel.Visible = true;
             pnlNothiNoteTalika.Visible = true;
             newNothi.Visible = false;

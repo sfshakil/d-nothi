@@ -2903,15 +2903,19 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                foreach (Form f in Application.OpenForms)
-                { BeginInvoke((Action)(() => f.Hide())); }
-                var form = FormFactory.Create<Nothi>();
-                form.TopMost = true;
-                BeginInvoke((Action)(() => form.ShowDialog()));
-                BeginInvoke((Action)(() => form.TopMost = false));
-                form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                if (this.NoteBackButton != null)
+                    this.NoteBackButton(sender, e);
+                //foreach (Form f in Application.OpenForms)
+                //{ BeginInvoke((Action)(() => f.Hide())); }
+                //var form = FormFactory.Create<Nothi>();
+                //form.TopMost = true;
+                //BeginInvoke((Action)(() => form.ShowDialog()));
+                //BeginInvoke((Action)(() => form.TopMost = false));
+                //form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
             }
         }
+        public event EventHandler NoteBackButton;
+        
         int onuchhedint = 0;
         List<FileAttachment> fileAttachments = new List<FileAttachment>();
         
