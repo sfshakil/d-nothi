@@ -717,8 +717,28 @@ namespace dNothi.Desktop.UI
         private void LocalNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiCreateItemAction nothiCreateItemAction, string nothi_type)
         {
             //this.Hide();
-            var form = FormFactory.Create<Note>(); 
-
+            var form = FormFactory.Create<Note>();
+            form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                foreach (Form f in Application.OpenForms)
+                { BeginInvoke((Action)(() => f.Hide())); }
+                var nothi = FormFactory.Create<Nothi>();
+                nothi.TopMost = true;
+                if (nothi_type == "Inbox")
+                {
+                    nothi.LoadNothiInboxButton(sender1, e1);
+                }
+                else if (nothi_type == "sent")
+                {
+                    nothi.LoadNothiOutboxButton(sender1, e1);
+                }
+                else if (nothi_type == "all")
+                {
+                    nothi.LoadNothiAllButton(sender1, e1);
+                }
+                BeginInvoke((Action)(() => nothi.ShowDialog()));
+                BeginInvoke((Action)(() => nothi.TopMost = false));
+                nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
+            };
             //form.ShowDialog();vf
 
             _dakuserparam = _userService.GetLocalDakUserParam();
@@ -825,6 +845,27 @@ namespace dNothi.Desktop.UI
                     //this.Hide();
 
                     var form = FormFactory.Create<Note>();
+                    form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                        foreach (Form f in Application.OpenForms)
+                        { BeginInvoke((Action)(() => f.Hide())); }
+                        var nothi = FormFactory.Create<Nothi>();
+                        nothi.TopMost = true;
+                        if (nothiListRecordsDTO.nothi_type == "Inbox")
+                        {
+                            nothi.LoadNothiInboxButton(sender1, e1);
+                        }
+                        else if (nothiListRecordsDTO.nothi_type == "sent")
+                        {
+                            nothi.LoadNothiOutboxButton(sender1, e1);
+                        }
+                        else if (nothiListRecordsDTO.nothi_type == "all")
+                        {
+                            nothi.LoadNothiAllButton(sender1, e1);
+                        }
+                        BeginInvoke((Action)(() => nothi.ShowDialog()));
+                        BeginInvoke((Action)(() => nothi.TopMost = false));
+                        nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
+                    };
                     _dakuserparam = _userService.GetLocalDakUserParam();
 
                     NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
