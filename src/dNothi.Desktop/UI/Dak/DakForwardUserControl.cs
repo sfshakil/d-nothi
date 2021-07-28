@@ -1348,23 +1348,32 @@ namespace dNothi.Desktop.UI.Dak
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
 
             DakDecisionAddResponse dakDecisionAddResponse = _dakForwardService.GetDakDecisionAddResponse(dakUserParam, dakDecision);
-            if (dakDecisionAddResponse.status == "success")
+            if (dakDecisionAddResponse != null && dakDecisionAddResponse.status == "success")
             {
                 SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
-                var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();
-                decisionTable.id = dakDecisionAddResponse.data.id;
-                decisionTable.decision = dakDecision.dak_decision;
-                if (dakDecision.dak_decision_employee == 1)
-                {
-                    decisionTable.isAdded = true;
-                    decisionComboBox.Items.Add(dakDecision.dak_decision);
-                }
-                else
-                {
-                    decisionTable.isAdded = false;
-                }
+                LoadDecisionList();
+                //var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();
+                //decisionTable.id = dakDecisionAddResponse.data.Keys.First();
+                //decisionTable.decision = dakDecision.dak_decision;
+                //if (dakDecision.dak_decision_employee == 1)
+                //{
+                //    decisionTable.isAdded = true;
+                //    decisionComboBox.Items.Add(dakDecision.dak_decision);
+                //}
+                //else
+                //{
+                //    decisionTable.isAdded = false;
+                //}
 
-                decisionListFlowLayoutPanel.Controls.Add(decisionTable);
+                //decisionListFlowLayoutPanel.Controls.Add(decisionTable);
+
+            }
+            else if (dakDecisionAddResponse.status == "error")
+            {
+                UIDesignCommonMethod.ErrorMessage("সফলভাবে সংরক্ষণ হইনি।");
+            }
+            else;
+            {
 
             }
         }
