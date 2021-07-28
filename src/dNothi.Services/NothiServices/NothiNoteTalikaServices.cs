@@ -56,9 +56,10 @@ namespace dNothi.Services.NothiServices
                 var serializedObject = JsonConvert.SerializeObject(dakUserParam);
                 request.AddParameter("cdesk", serializedObject);
                 //request.AddParameter("cdesk", "{\"office_id\":\""+ dakUserParam.office_id+"\",\"office_unit_id\":\""+ dakUserParam.office_unit_id+ "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
-                request.AddParameter("length", "100");
+                request.AddParameter("length", "100000");
                 request.AddParameter("page", "1");
-                request.AddParameter("search_params", "{\"nothi_type_id\":\""+nothi_type_id+ "\"}");
+                //request.AddParameter("search_params", "{\"nothi_type_id\":\"\"}");
+                request.AddParameter("search_params", "{\"nothi_type_id\":\"" + nothi_type_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\"}");
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;

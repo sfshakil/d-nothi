@@ -40,6 +40,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
+        
         {
             lbNothilast4digitText.Visible = false;
             lbNothiNoText.Visible = false;
@@ -61,6 +62,7 @@ namespace dNothi.Desktop.UI.Dak
                     nothiTalikaFlowLayoutPnl.Visible = true;
                     string code = nothinumber.data.ToString().Substring(0, 18);//"৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ".";
                     string nothi4Digit = nothinumber.data.ToString().Substring(18, 4);
+                    lbTotalNote.Text = "সর্বমোট: " + string.Concat(nothiNoteTalika.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records, code, nothi4Digit);
 
 
@@ -371,7 +373,7 @@ namespace dNothi.Desktop.UI.Dak
                 //    lbNothilast4digit.Text = "০০১.";
                 //}
             }
-            lbTotalNote.Text = "সর্বমোট: " + string.Concat(i.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            
             nothiNoteNos = nothiNoteNo;
             
         }
