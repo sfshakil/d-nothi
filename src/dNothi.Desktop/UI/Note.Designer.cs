@@ -49,6 +49,7 @@
             this.LeftSign = new FontAwesome.Sharp.IconButton();
             this.RightSign = new FontAwesome.Sharp.IconButton();
             this.btnNothiIcon = new System.Windows.Forms.Button();
+            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.onlineStatus = new FontAwesome.Sharp.IconButton();
@@ -95,6 +96,7 @@
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
             this.btnOnuchhed = new FontAwesome.Sharp.IconButton();
             this.btnPotaka = new FontAwesome.Sharp.IconButton();
@@ -281,6 +283,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.PnlSave = new System.Windows.Forms.Panel();
+            this.btnSaveAndSend = new FontAwesome.Sharp.IconButton();
             this.btnSaveWithNewOnuchhed = new FontAwesome.Sharp.IconButton();
             this.btnSaveAndKhoshra = new FontAwesome.Sharp.IconButton();
             this.btnOnuchhedSave = new FontAwesome.Sharp.IconButton();
@@ -288,9 +291,6 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.noteBackGroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
-            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
-            this.btnSaveAndSend = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel29.SuspendLayout();
             this.nothiModulePanel.SuspendLayout();
@@ -679,6 +679,19 @@
             this.btnNothiIcon.TabIndex = 30;
             this.btnNothiIcon.UseVisualStyleBackColor = false;
             this.btnNothiIcon.Click += new System.EventHandler(this.dakModuleNameLabel_Click);
+            // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(1327, 0);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(53, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(53, 62);
+            this.onlineToggleButton2.TabIndex = 85;
             // 
             // profilePanel
             // 
@@ -1385,6 +1398,17 @@
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(1101, 449);
             this.panel22.TabIndex = 62;
+            // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = "";
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(5);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(1080, 500);
+            this.tinyMceEditor.TabIndex = 61;
             // 
             // onucchedActionPanel
             // 
@@ -4376,6 +4400,30 @@
             this.PnlSave.Size = new System.Drawing.Size(249, 208);
             this.PnlSave.TabIndex = 66;
             // 
+            // btnSaveAndSend
+            // 
+            this.btnSaveAndSend.AutoSize = true;
+            this.btnSaveAndSend.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSaveAndSend.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSaveAndSend.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+            this.btnSaveAndSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveAndSend.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.btnSaveAndSend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnSaveAndSend.IconChar = FontAwesome.Sharp.IconChar.Cloud;
+            this.btnSaveAndSend.IconColor = System.Drawing.Color.Silver;
+            this.btnSaveAndSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSaveAndSend.IconSize = 20;
+            this.btnSaveAndSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveAndSend.Location = new System.Drawing.Point(0, 156);
+            this.btnSaveAndSend.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSaveAndSend.Name = "btnSaveAndSend";
+            this.btnSaveAndSend.Size = new System.Drawing.Size(249, 52);
+            this.btnSaveAndSend.TabIndex = 69;
+            this.btnSaveAndSend.Text = "সংরক্ষণ ও প্রেরণ";
+            this.btnSaveAndSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSaveAndSend.UseVisualStyleBackColor = false;
+            this.btnSaveAndSend.Click += new System.EventHandler(this.btnSaveAndSend_Click);
+            // 
             // btnSaveWithNewOnuchhed
             // 
             this.btnSaveWithNewOnuchhed.AutoSize = true;
@@ -4461,54 +4509,6 @@
             // 
             this.noteBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.noteBackGroundWorker_DoWork);
             this.noteBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.noteBackGroundWorker_RunWorkerCompleted);
-            // 
-            // tinyMceEditor
-            // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = "";
-            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(5);
-            this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(1080, 500);
-            this.tinyMceEditor.TabIndex = 61;
-            // 
-            // onlineToggleButton2
-            // 
-            this.onlineToggleButton2.AutoSize = true;
-            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
-            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.onlineToggleButton2.Location = new System.Drawing.Point(1327, 0);
-            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(53, 0);
-            this.onlineToggleButton2.Name = "onlineToggleButton2";
-            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.onlineToggleButton2.Size = new System.Drawing.Size(53, 62);
-            this.onlineToggleButton2.TabIndex = 85;
-            // 
-            // btnSaveAndSend
-            // 
-            this.btnSaveAndSend.AutoSize = true;
-            this.btnSaveAndSend.BackColor = System.Drawing.SystemColors.Window;
-            this.btnSaveAndSend.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSaveAndSend.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
-            this.btnSaveAndSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveAndSend.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.btnSaveAndSend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.btnSaveAndSend.IconChar = FontAwesome.Sharp.IconChar.Cloud;
-            this.btnSaveAndSend.IconColor = System.Drawing.Color.Silver;
-            this.btnSaveAndSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSaveAndSend.IconSize = 20;
-            this.btnSaveAndSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveAndSend.Location = new System.Drawing.Point(0, 156);
-            this.btnSaveAndSend.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSaveAndSend.Name = "btnSaveAndSend";
-            this.btnSaveAndSend.Size = new System.Drawing.Size(249, 52);
-            this.btnSaveAndSend.TabIndex = 69;
-            this.btnSaveAndSend.Text = "সংরক্ষণ ও প্রেরণ";
-            this.btnSaveAndSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSaveAndSend.UseVisualStyleBackColor = false;
-            this.btnSaveAndSend.Click += new System.EventHandler(this.btnSaveAndSend_Click);
             // 
             // Note
             // 
