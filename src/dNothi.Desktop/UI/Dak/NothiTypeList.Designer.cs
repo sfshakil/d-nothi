@@ -43,39 +43,48 @@
             // 
             // lbNothiSubjectType
             // 
+            this.lbNothiSubjectType.AutoSize = true;
             this.lbNothiSubjectType.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiSubjectType.Location = new System.Drawing.Point(76, 8);
+            this.lbNothiSubjectType.Location = new System.Drawing.Point(101, 10);
+            this.lbNothiSubjectType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNothiSubjectType.MaximumSize = new System.Drawing.Size(300, 0);
             this.lbNothiSubjectType.Name = "lbNothiSubjectType";
-            this.lbNothiSubjectType.Size = new System.Drawing.Size(199, 43);
+            this.lbNothiSubjectType.Size = new System.Drawing.Size(168, 26);
             this.lbNothiSubjectType.TabIndex = 50;
             this.lbNothiSubjectType.Text = "NothiSubjectType";
             // 
             // lbNothiCode
             // 
+            this.lbNothiCode.AutoSize = true;
             this.lbNothiCode.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiCode.Location = new System.Drawing.Point(279, 8);
+            this.lbNothiCode.Location = new System.Drawing.Point(400, 10);
+            this.lbNothiCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNothiCode.Name = "lbNothiCode";
-            this.lbNothiCode.Size = new System.Drawing.Size(44, 35);
+            this.lbNothiCode.Size = new System.Drawing.Size(59, 26);
             this.lbNothiCode.TabIndex = 51;
-            this.lbNothiCode.Text = "NothiCode";
+            this.lbNothiCode.Text = "Code";
             this.lbNothiCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbNothiNumber
             // 
+            this.lbNothiNumber.AutoSize = true;
             this.lbNothiNumber.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNothiNumber.Location = new System.Drawing.Point(340, 8);
+            this.lbNothiNumber.Location = new System.Drawing.Point(473, 10);
+            this.lbNothiNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNothiNumber.Name = "lbNothiNumber";
-            this.lbNothiNumber.Size = new System.Drawing.Size(44, 35);
+            this.lbNothiNumber.Size = new System.Drawing.Size(58, 26);
             this.lbNothiNumber.TabIndex = 52;
-            this.lbNothiNumber.Text = "NothiCode";
+            this.lbNothiNumber.Text = "Nothi";
             this.lbNothiNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSerialNo
             // 
+            this.lblSerialNo.AutoSize = true;
             this.lblSerialNo.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSerialNo.Location = new System.Drawing.Point(15, 8);
+            this.lblSerialNo.Location = new System.Drawing.Point(20, 10);
+            this.lblSerialNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSerialNo.Name = "lblSerialNo";
-            this.lblSerialNo.Size = new System.Drawing.Size(44, 35);
+            this.lblSerialNo.Size = new System.Drawing.Size(87, 26);
             this.lblSerialNo.TabIndex = 53;
             this.lblSerialNo.Text = "SerialNo";
             this.lblSerialNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -90,10 +99,10 @@
             this.btnNothiTypeCross.IconColor = System.Drawing.Color.White;
             this.btnNothiTypeCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNothiTypeCross.IconSize = 20;
-            this.btnNothiTypeCross.Location = new System.Drawing.Point(410, 6);
+            this.btnNothiTypeCross.Location = new System.Drawing.Point(547, 7);
             this.btnNothiTypeCross.Margin = new System.Windows.Forms.Padding(0);
             this.btnNothiTypeCross.Name = "btnNothiTypeCross";
-            this.btnNothiTypeCross.Size = new System.Drawing.Size(24, 35);
+            this.btnNothiTypeCross.Size = new System.Drawing.Size(32, 43);
             this.btnNothiTypeCross.TabIndex = 64;
             this.btnNothiTypeCross.UseVisualStyleBackColor = false;
             // 
@@ -107,10 +116,10 @@
             this.btnAdd.IconColor = System.Drawing.Color.White;
             this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdd.IconSize = 20;
-            this.btnAdd.Location = new System.Drawing.Point(434, 6);
+            this.btnAdd.Location = new System.Drawing.Point(579, 7);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(0);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(24, 35);
+            this.btnAdd.Size = new System.Drawing.Size(32, 43);
             this.btnAdd.TabIndex = 65;
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
@@ -124,10 +133,10 @@
             this.btnDelete.IconColor = System.Drawing.Color.White;
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDelete.IconSize = 20;
-            this.btnDelete.Location = new System.Drawing.Point(457, 6);
+            this.btnDelete.Location = new System.Drawing.Point(609, 7);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(24, 35);
+            this.btnDelete.Size = new System.Drawing.Size(32, 43);
             this.btnDelete.TabIndex = 66;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Visible = false;
@@ -139,9 +148,10 @@
             this.lbNoteId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
             this.lbNoteId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNoteId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(51)))), ((int)(((byte)(146)))));
-            this.lbNoteId.Location = new System.Drawing.Point(378, 39);
+            this.lbNoteId.Location = new System.Drawing.Point(504, 48);
+            this.lbNoteId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNoteId.Name = "lbNoteId";
-            this.lbNoteId.Size = new System.Drawing.Size(0, 20);
+            this.lbNoteId.Size = new System.Drawing.Size(0, 25);
             this.lbNoteId.TabIndex = 67;
             this.lbNoteId.Visible = false;
             // 
@@ -155,10 +165,10 @@
             this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSchedule.IconSize = 35;
-            this.btnSchedule.Location = new System.Drawing.Point(434, 6);
+            this.btnSchedule.Location = new System.Drawing.Point(579, 7);
             this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
             this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(34, 35);
+            this.btnSchedule.Size = new System.Drawing.Size(45, 43);
             this.btnSchedule.TabIndex = 68;
             this.MyToolTip.SetToolTip(this.btnSchedule, "আপলোড হচ্ছে");
             this.btnSchedule.UseVisualStyleBackColor = false;
@@ -166,7 +176,7 @@
             // 
             // NothiTypeList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnSchedule);
             this.Controls.Add(this.lbNoteId);
@@ -179,7 +189,7 @@
             this.Controls.Add(this.lbNothiSubjectType);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NothiTypeList";
-            this.Size = new System.Drawing.Size(490, 59);
+            this.Size = new System.Drawing.Size(653, 73);
             this.ResumeLayout(false);
             this.PerformLayout();
 
