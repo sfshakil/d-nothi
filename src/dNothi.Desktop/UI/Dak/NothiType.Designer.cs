@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnNewNothiCreate = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearchNothiType = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -68,7 +68,7 @@
             this.btnNewNothiCreate.ForeColor = System.Drawing.Color.White;
             this.btnNewNothiCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNewNothiCreate.Location = new System.Drawing.Point(24, 47);
-            this.btnNewNothiCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewNothiCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewNothiCreate.Name = "btnNewNothiCreate";
             this.btnNewNothiCreate.Size = new System.Drawing.Size(203, 53);
             this.btnNewNothiCreate.TabIndex = 42;
@@ -76,21 +76,22 @@
             this.btnNewNothiCreate.UseVisualStyleBackColor = false;
             this.btnNewNothiCreate.Click += new System.EventHandler(this.btnNewNothiCreate_Click);
             // 
-            // button1
+            // btnSearchNothiType
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(577, 10);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 62);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "খুঁজুন";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSearchNothiType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnSearchNothiType.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnSearchNothiType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchNothiType.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchNothiType.ForeColor = System.Drawing.Color.White;
+            this.btnSearchNothiType.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchNothiType.Location = new System.Drawing.Point(577, 10);
+            this.btnSearchNothiType.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchNothiType.Name = "btnSearchNothiType";
+            this.btnSearchNothiType.Size = new System.Drawing.Size(108, 62);
+            this.btnSearchNothiType.TabIndex = 44;
+            this.btnSearchNothiType.Text = "খুঁজুন";
+            this.btnSearchNothiType.UseVisualStyleBackColor = false;
+            this.btnSearchNothiType.Click += new System.EventHandler(this.btnSearchNothiType_Click);
             // 
             // panel2
             // 
@@ -109,7 +110,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1, 158);
             this.panel7.TabIndex = 66;
@@ -119,7 +120,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 158);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(712, 1);
             this.panel4.TabIndex = 58;
@@ -136,10 +137,10 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.lbTotalNothi);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnSearchNothiType);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 250);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(712, 164);
             this.panel3.TabIndex = 46;
@@ -149,7 +150,7 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1, 164);
             this.panel8.TabIndex = 67;
@@ -159,7 +160,7 @@
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
             this.panel11.Controls.Add(this.detailsSearchDocketingNoTextBox);
             this.panel11.Location = new System.Drawing.Point(15, 10);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(567, 62);
             this.panel11.TabIndex = 66;
@@ -172,18 +173,19 @@
             this.detailsSearchDocketingNoTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detailsSearchDocketingNoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.detailsSearchDocketingNoTextBox.Location = new System.Drawing.Point(13, 18);
-            this.detailsSearchDocketingNoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.detailsSearchDocketingNoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.detailsSearchDocketingNoTextBox.Name = "detailsSearchDocketingNoTextBox";
             this.detailsSearchDocketingNoTextBox.PlaceholderText = "নথির ধরন দিয়ে খুঁজুন";
-            this.detailsSearchDocketingNoTextBox.Size = new System.Drawing.Size(249, 27);
+            this.detailsSearchDocketingNoTextBox.Size = new System.Drawing.Size(541, 27);
             this.detailsSearchDocketingNoTextBox.TabIndex = 3;
+            this.detailsSearchDocketingNoTextBox.TextChanged += new System.EventHandler(this.detailsSearchDocketingNoTextBox_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label9.Location = new System.Drawing.Point(532, 113);
+            this.label9.Location = new System.Drawing.Point(536, 113);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 26);
@@ -195,7 +197,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label8.Location = new System.Drawing.Point(463, 108);
+            this.label8.Location = new System.Drawing.Point(465, 108);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 52);
@@ -207,7 +209,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label7.Location = new System.Drawing.Point(381, 108);
+            this.label7.Location = new System.Drawing.Point(385, 108);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 52);
@@ -310,7 +312,7 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 90);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(712, 1);
             this.panel6.TabIndex = 64;
@@ -323,7 +325,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(712, 91);
             this.panel1.TabIndex = 0;
@@ -333,7 +335,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1, 90);
             this.panel5.TabIndex = 65;
@@ -376,7 +378,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NothiType";
             this.Size = new System.Drawing.Size(712, 892);
             this.panel2.ResumeLayout(false);
@@ -395,7 +397,7 @@
 
         #endregion
         private System.Windows.Forms.Button btnNewNothiCreate;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearchNothiType;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
