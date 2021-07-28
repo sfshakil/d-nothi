@@ -932,7 +932,7 @@ namespace dNothi.Desktop.UI.Dak
         private void khosraSaveButton_Click(object sender, EventArgs e)
         {
 
-            if (!DaptorikDakSaveAndSendValidation())
+            if (!DaptorikDakSaveAndSendValidation(false))
             {
                 return;
             }
@@ -943,7 +943,7 @@ namespace dNothi.Desktop.UI.Dak
             if (conditonBoxForm.Yes)
             {
 
-                SetDakUploadData();
+                SetDakUploadData(false);
 
                 if (this.KhosraSaveButtonClick != null)
                     this.KhosraSaveButtonClick(sender, e);
@@ -959,9 +959,12 @@ namespace dNothi.Desktop.UI.Dak
 
 
         }
-
-        private void SetDakUploadData()
+        public bool _isOwnDesk;
+        private void SetDakUploadData(bool isOwnDesk)
         {
+            _isOwnDesk = isOwnDesk;
+            DakUserParam dakUserParam = _dak_List_User_Param;
+
             prerokName = selectedPrerokLabel.Text;
             sub = subjectXTextBox.Text;
           
@@ -1044,23 +1047,34 @@ namespace dNothi.Desktop.UI.Dak
 
             // Receiver
             DakUploadReceiver dakUploadReceiver = new DakUploadReceiver();
-
-            ViewDesignationSealList mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
-
-            if (mulprapok.nij_Office == true)
+            if (!isOwnDesk)
             {
-                var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
-                dakUploadReceiver.mul_prapok = receiver_info;
+               
+
+                ViewDesignationSealList mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
+
+                if (mulprapok.nij_Office == true)
+                {
+                    var receiver_info = designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                    dakUploadReceiver.mul_prapok = receiver_info;
+                }
+                else
+                {
+                    var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
+                    dakUploadReceiver.mul_prapok = receiver_info;
+                }
+               
             }
-            else
+           else
             {
-                var receiver_info = designationSealListResponse.data.other_office.FirstOrDefault(a => a.designation_id == mulprapok.designation_id);
-                dakUploadReceiver.mul_prapok = receiver_info;
+                    dakUploadReceiver.mul_prapok = UIDesignCommonMethod.GetMulPrapokForOwnDesk(_dak_List_User_Param);
+                
             }
+          
             prapokName = dakUploadReceiver.mul_prapok.officer_name + " ," + dakUploadReceiver.mul_prapok.designation_bng + "," + dakUploadReceiver.mul_prapok.unit_name_bng + "," + dakUploadReceiver.mul_prapok.office_bng;
 
-          // onulipi
-            List <PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
+            // onulipi
+            List<PrapokDTO> OnulipiprapokDTOs = new List<PrapokDTO>();
 
             List<ViewDesignationSealList> viewDesignationSealListsOnulipPrapok = viewDesignationSealLists.Where(a => a.onulipi_prapok == true).ToList();
 
@@ -1099,6 +1113,8 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        
+
         public event EventHandler AddDesignationButtonClick;
         private void addDesignationButton_Click(object sender, EventArgs e)
         {
@@ -1111,7 +1127,7 @@ namespace dNothi.Desktop.UI.Dak
         private void sendButton_Click(object sender, EventArgs e)
         {
 
-            if(!DaptorikDakSaveAndSendValidation())
+            if(!DaptorikDakSaveAndSendValidation(false))
             {
                 return;
             }
@@ -1123,7 +1139,7 @@ namespace dNothi.Desktop.UI.Dak
             if (conditonBoxForm.Yes)
             {
                
-                SetDakUploadData();
+                SetDakUploadData(false);
 
 
                 if (this.DakSendButton != null)
@@ -1136,21 +1152,22 @@ namespace dNothi.Desktop.UI.Dak
         
         }
 
-        private bool DaptorikDakSaveAndSendValidation()
+        private bool DaptorikDakSaveAndSendValidation(bool IsOwnDesk)
         {
           
 
-            // Mulpotro
-            List<DakUploadAttachment> dakUploadAttachments = new List<DakUploadAttachment>();
+                // Mulpotro
+                List<DakUploadAttachment> dakUploadAttachments = new List<DakUploadAttachment>();
 
-            var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
+                var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
 
-            if(!attachmentList.Any(a=>a.isMulpotro==true))
-            {
-                fileUploadPanel.Focus();
-                ShowAlertMessage(MessageBoxMessage.mulpotroNotSelectErrorMessage);
-                return false;
-            }
+                if (!attachmentList.Any(a => a.isMulpotro == true))
+                {
+                    fileUploadPanel.Focus();
+                    ShowAlertMessage(MessageBoxMessage.mulpotroNotSelectErrorMessage);
+                    return false;
+                }
+            
             
 
 
@@ -1178,13 +1195,15 @@ namespace dNothi.Desktop.UI.Dak
                 return false;
             }
 
-            var mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
-            if (mulprapok == null)
+            if (!IsOwnDesk)
             {
-                ShowAlertMessage(MessageBoxMessage.mulPrapokNotSelectErrorMessage);
-                return false;
+                var mulprapok = viewDesignationSealLists.FirstOrDefault(a => a.mul_prapok == true);
+                if (mulprapok == null)
+                {
+                    ShowAlertMessage(MessageBoxMessage.mulPrapokNotSelectErrorMessage);
+                    return false;
+                }
             }
-
             return true;
 
         }
@@ -1230,6 +1249,32 @@ namespace dNothi.Desktop.UI.Dak
         private void searchOfficerRightPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void ownDeskSendButton_Click(object sender, EventArgs e)
+        {
+            if (!DaptorikDakSaveAndSendValidation(true))
+            {
+                return;
+            }
+
+
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = "আপনি কি নিজ ডেস্কে ডাকটি প্রেরণ করতে চান?";
+            conditonBoxForm.ShowDialog();
+            if (conditonBoxForm.Yes)
+            {
+
+                SetDakUploadData(true);
+
+
+                if (this.DakSendButton != null)
+                    this.DakSendButton(sender, e);
+            }
+            else
+            {
+
+            }
         }
     }
 }
