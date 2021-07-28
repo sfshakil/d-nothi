@@ -8692,7 +8692,16 @@ namespace dNothi.Desktop.UI
                 }
             }
             var form = FormFactory.Create<Note>();
-
+            form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                foreach (Form f in Application.OpenForms)
+                { BeginInvoke((Action)(() => f.Hide())); }
+                var nothi = FormFactory.Create<Nothi>();
+                nothi.TopMost = true;
+                nothi.LoadNothiInboxButton(sender1, e1);
+                BeginInvoke((Action)(() => nothi.ShowDialog()));
+                BeginInvoke((Action)(() => nothi.TopMost = false));
+                nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+            };
             form.noteIdfromNothiInboxNoteShomuho = _noteIdfromNothiInboxNoteShomuho;
 
             form.nothiNo = _nothiNo;
@@ -9900,6 +9909,12 @@ namespace dNothi.Desktop.UI
 
 
             return (noteNothiDTO, nothiListRecords);
+        }
+
+        private void btnSaveAndSend_Click(object sender, EventArgs e)
+        {
+            btnOnuchhedSave_Click(sender, e);
+            btnSend_Click(sender, e);
         }
     }
 }
