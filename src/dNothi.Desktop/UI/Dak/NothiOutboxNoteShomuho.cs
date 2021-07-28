@@ -82,7 +82,13 @@ namespace dNothi.Desktop.UI.Dak
         }public string noteAttachment
         {
             get { return _noteAttachment; }
-            set { _noteAttachment = value; btnAttachment.Text = value; }
+            set { _noteAttachment = value;
+                if (Convert.ToInt32(value) > 0)
+                {
+                    btnAttachment.Visible = true;
+                    btnAttachment.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                } 
+            }
         }public int canRevert
         {
             get { return _canRevert; }
@@ -159,6 +165,12 @@ namespace dNothi.Desktop.UI.Dak
             {
                 ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
+        }
+        public event EventHandler btnnoteAttachment;
+        private void btnAttachment_Click(object sender, EventArgs e)
+        {
+            if (this.btnnoteAttachment != null)
+                this.btnnoteAttachment(sender, e);
         }
     }
 }

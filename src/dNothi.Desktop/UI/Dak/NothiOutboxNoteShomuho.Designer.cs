@@ -278,6 +278,8 @@ namespace dNothi.Desktop.UI.Dak
             this.btnAttachment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachment.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAttachment.UseVisualStyleBackColor = true;
+            this.btnAttachment.Visible = false;
+            this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click);
             // 
             // eyeIcon
             // 

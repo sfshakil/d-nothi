@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static dNothi.JsonParser.Entity.Nothi.NothiListInboxNoteResponse;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -93,6 +94,43 @@ namespace dNothi.Desktop.UI.Dak
                 lbLengthEnd.Visible = false;
                 lbTotalNothi.Text = " সংযুক্তি :( ০ )";
                 decisionViewFLP.Controls.Clear();
+            }
+        }
+        private int isNothi;
+        public void loadNoteRowAttachments(NoteAttachmentsListResponse onuchhedSaveWithAttachments)
+        {
+            isNothi = 1;
+            if (onuchhedSaveWithAttachments.data.total_records > 0)
+            {
+                lbLengthStart.Visible = false;
+                lbDash.Visible = false;
+                lbLengthEnd.Visible = false;
+                lbTotalNothi.Dock = DockStyle.Left;
+                lbTotalNothi.Text = " সংযুক্তি :( " + string.Concat(onuchhedSaveWithAttachments.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')))+" )";
+                LoadNoteAttachmentinPanel(onuchhedSaveWithAttachments.data);
+                
+            }
+            else
+            {
+                lbLengthStart.Visible = false;
+                lbDash.Visible = false;
+                lbLengthEnd.Visible = false;
+                lbTotalNothi.Dock = DockStyle.Left;
+                lbTotalNothi.Text = " সংযুক্তি :( ০ )";
+                decisionViewFLP.Controls.Clear();
+            }
+        }
+        private void LoadNoteAttachmentinPanel(NoteAttachmentsData Attachments)
+        {
+            foreach (NoteAttachmentsRecord record in Attachments.records)
+            {
+                var nothiDecisionListRow = UserControlFactory.Create<NothiDecisionListRow>();
+                nothiDecisionListRow.decisionText = record.user_file_name;
+                nothiDecisionListRow.shongjuktiURL = record.url;
+                nothiDecisionListRow.attachmentKilobyte = record.file_size_in_kb.ToString();
+                nothiDecisionListRow.setbtnDecisionIcon();
+                //nothiDecisionListRow.AttachmentAddButton += delegate (object sender1, EventArgs e1) { AttachmentAdd_ButtonClick(sender1 as DakAttachmentDTO, e1); };
+                UIDesignCommonMethod.AddRowinTable(decisionViewFLP, nothiDecisionListRow);
             }
         }
         private void LoadAttachmentinPanel(List<DakAttachmentDTO> Attachments)
@@ -216,16 +254,33 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void btnNothiDecisionListCross_Click(object sender, EventArgs e)
         {
-            List<Form> openForms = new List<Form>();
-
-            foreach (Form f in Application.OpenForms)
-                openForms.Add(f);
-
-            foreach (Form f in openForms)
+            if (isNothi == 1)
             {
-                if (f.Name != "Note")
-                    f.Close();
+                List<Form> openForms = new List<Form>();
+
+                foreach (Form f in Application.OpenForms)
+                    openForms.Add(f);
+
+                foreach (Form f in openForms)
+                {
+                    if (f.Name != "Nothi")
+                        f.Close();
+                }
+            } else
+            {
+                List<Form> openForms = new List<Form>();
+
+                foreach (Form f in Application.OpenForms)
+                    openForms.Add(f);
+
+                foreach (Form f in openForms)
+                {
+                    if (f.Name != "Note")
+                        f.Close();
+                }
             }
+
+            
         }
     }
 }

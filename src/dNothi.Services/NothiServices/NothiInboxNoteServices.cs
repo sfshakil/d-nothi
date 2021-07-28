@@ -11,6 +11,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static dNothi.JsonParser.Entity.Nothi.NothiListInboxNoteResponse;
 
 namespace dNothi.Services.NothiServices
 {
@@ -109,7 +110,38 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiInboxNoteEndPoint;
         }
+        protected string GetNoteAttachmentsEndPoint()
+        {
+            return DefaultAPIConfiguration.NoteAttachmentsEndPoint;
+        }
 
-        
+        public NoteAttachmentsListResponse GetNoteAttachments(DakUserParam dakListUserParam, string nothi_id, string note_id)
+        {
+            NoteAttachmentsListResponse noteAttachmentsListResponse = new NoteAttachmentsListResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNoteAttachmentsEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("designation_id", dakListUserParam.designation_id);
+                request.AddParameter("nothi_id", nothi_id);
+                request.AddParameter("nothi_office", dakListUserParam.office_id);
+                request.AddParameter("note_id", note_id);
+                IRestResponse response = client.Execute(request);
+                Console.WriteLine(response.Content);
+
+                var responseJson = response.Content;
+                //SaveOrUpdateNothiRecords(dakListUserParam, responseJson, Convert.ToInt32(eachNothiId), note_category);
+                noteAttachmentsListResponse = JsonConvert.DeserializeObject<NoteAttachmentsListResponse>(responseJson);
+                return noteAttachmentsListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

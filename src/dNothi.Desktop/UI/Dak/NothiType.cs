@@ -103,6 +103,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiType.nothiCode = nothiTypeListDTO.nothi_type_code;
                 nothiType.nothiNumber = nothiTypeListDTO.nothi_type_count;
                 nothiType.noteId = nothiTypeListDTO.id.ToString();
+                nothiType.NothiTypeDeleteButton += delegate (object sender1, EventArgs e1) { NothiTypeDelete_ButtonClick(sender1, e1); };
                 i = i + 1;
                 k++;
                 if (i % 2 != 0)
@@ -114,15 +115,32 @@ namespace dNothi.Desktop.UI.Dak
             
             
         }
-
+        public event EventHandler NothitypeAddButton;
+        private void NothiTypeDelete_ButtonClick(object sender, EventArgs e)
+        {
+            i = 0; k = 1;
+            LoadNothiTypeList();
+            if (this.NothitypeAddButton != null)
+                this.NothitypeAddButton(sender, e);
+        }
         private void btnNothiTypeCross_Click(object sender, EventArgs e)
         {
+            List<Form> openForms = new List<Form>();
+
             foreach (Form f in Application.OpenForms)
-            { BeginInvoke((Action)(() => f.Hide())); }
-            var form = FormFactory.Create<Nothi>();
-            form.forceLoadNewNothi();
-            BeginInvoke((Action)(() => form.ShowDialog()));
-            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name != "Nothi")
+                    f.Close();
+            }
+            //foreach (Form f in Application.OpenForms)
+            //{ BeginInvoke((Action)(() => f.Hide())); }
+            //var form = FormFactory.Create<Nothi>();
+            //form.forceLoadNewNothi();
+            //BeginInvoke((Action)(() => form.ShowDialog()));
+            //form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         private void DoSomethingAsync(object sender, EventArgs e)
         {
@@ -141,6 +159,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             var createNewNothiType = UserControlFactory.Create<CreateNewNothiType>();
             createNewNothiType.nothiTypeList(nothiType.data);
+            createNewNothiType.NothiTypeAddButton += delegate (object sender1, EventArgs e1) { NothiTypeDelete_ButtonClick(sender1, e1); };
             foreach (NothiTypeListDTO nothiTypeListDTO in nothiType.data)
             {
                 createNewNothiType.nothiType = nothiTypeListDTO.nothi_type;

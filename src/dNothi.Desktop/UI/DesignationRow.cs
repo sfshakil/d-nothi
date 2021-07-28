@@ -21,8 +21,12 @@ namespace dNothi.Desktop.UI
         {
             foreach (Control ctrl in collection)
             {
-                ctrl.Click += User_Click;
-                IterateControls(ctrl.Controls);
+                if(ctrl!=dakCountButton && ctrl!=nothiCountButton)
+                {
+                    ctrl.Click += User_Click;
+                    IterateControls(ctrl.Controls);
+                }
+                
             }
 
         }
@@ -92,6 +96,25 @@ namespace dNothi.Desktop.UI
                 _nothiTotalNumber = value;
                 nothiCountButton.Text = string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) + " টি নথি";
             }
+        }
+
+        private void dakCountButton_Click(object sender, EventArgs e)
+        {
+
+            var newForm = FormFactory.Create<Dashboard>();
+            var currentForm = this.Parent.FindForm();
+
+            UIDesignCommonMethod.ChangeForm(newForm, currentForm);
+
+
+        }
+
+        private void nothiCountButton_Click(object sender, EventArgs e)
+        {
+            var newForm = FormFactory.Create<Nothi>();
+            var currentForm = this.Parent.FindForm();
+
+            UIDesignCommonMethod.ChangeForm(newForm, currentForm);
         }
     }
 }

@@ -20,6 +20,16 @@ namespace dNothi.Desktop.UI.Dak
         private string _decisionText;
         private string _shongjuktiURL;
         private string _potakaURL;
+        private string _attachmentKilobyte;
+        public string attachmentKilobyte
+        {
+            get { return _attachmentKilobyte; }
+            set { 
+                _attachmentKilobyte = value; //lbDecisionText.ForeColor = Color.FromArgb(54, 153, 255);
+                lbAttachmentKilobyte.Visible = true;
+                lbAttachmentKilobyte.Text = string.Concat(value.ToString().Select(c => char.IsDigit(c) ?  (char)('\u09E6' + c - '0') : '.')) + " কিলোবাইট";
+            }
+        }
         public string potakaURL
         {
             get { return _potakaURL; }
@@ -64,6 +74,16 @@ namespace dNothi.Desktop.UI.Dak
             this.Margin = new Padding(0, 10, 0, 0);
             this.BackColor = Color.FromArgb(243, 246, 249);
             lbDecisionText.ForeColor = Color.FromArgb(54, 153, 255); lbDecisionText.Cursor = Cursors.Hand;
+        }
+        public void setbtnDecisionIcon()
+        {
+            btnDecisionAdd.Cursor = Cursors.Default;
+            btnDecisionAdd.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnDecisionAdd.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            //btnDecisionAdd.Enabled = false;
+            btnDecisionAdd.BackColor = Color.White;
+            btnDecisionAdd.IconChar = FontAwesome.Sharp.IconChar.Image;
+            btnDecisionAdd.IconColor = Color.FromArgb(255, 168, 0);
         }
         public event EventHandler DecisionAddButton;
         public event EventHandler AttachmentAddButton;

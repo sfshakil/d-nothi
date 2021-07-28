@@ -1312,5 +1312,18 @@ namespace dNothi.Desktop.UI.Dak
         {
             lastPoint = new Point(e.X, e.Y);
         }
+
+        private void prapokSearchOwnOfficeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = prapokSearchOwnOfficeTextBox.Text.ToString();
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                UIDesignCommonMethod.CollapseTree(prapokownOfficeTreeView.Nodes);
+            }
+
+            UIDesignCommonMethod.SearchRecursive(prapokownOfficeTreeView, prapokownOfficeTreeView.Nodes, searchText);
+            UIDesignCommonMethod.SelectFirstNode(prapokownOfficeTreeView, prapokownOfficeTreeView.Nodes);
+        }
     }
 }

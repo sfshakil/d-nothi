@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse1 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
+            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse5 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.profilePanel = new System.Windows.Forms.Panel();
@@ -218,6 +218,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button11 = new System.Windows.Forms.Button();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -270,6 +271,7 @@
             this.modulePanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -614,6 +616,7 @@
             this.RefreshButton.TabIndex = 31;
             this.MyToolTip.SetToolTip(this.RefreshButton, "রিফ্রেশ");
             this.RefreshButton.UseVisualStyleBackColor = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // multipleSelectionPanel
             // 
@@ -739,15 +742,12 @@
             // 
             this.shortSearchPanel.AutoSize = true;
             this.shortSearchPanel.Controls.Add(this.dakShareButton);
-            this.shortSearchPanel.Controls.Add(this.dakPriorityComboBox);
-            this.shortSearchPanel.Controls.Add(this.dakTypeComboBox);
-            this.shortSearchPanel.Controls.Add(this.dakSecretComboBox);
-            this.shortSearchPanel.Controls.Add(this.dakStatusComboBox);
+            this.shortSearchPanel.Controls.Add(this.panel10);
             this.shortSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.shortSearchPanel.Location = new System.Drawing.Point(56, 3);
             this.shortSearchPanel.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.shortSearchPanel.Name = "shortSearchPanel";
-            this.shortSearchPanel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.shortSearchPanel.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.shortSearchPanel.Size = new System.Drawing.Size(525, 46);
             this.shortSearchPanel.TabIndex = 33;
             // 
@@ -763,11 +763,11 @@
             this.dakShareButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.dakShareButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakShareButton.IconSize = 22;
-            this.dakShareButton.Location = new System.Drawing.Point(480, 5);
+            this.dakShareButton.Location = new System.Drawing.Point(480, 6);
             this.dakShareButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakShareButton.Name = "dakShareButton";
             this.dakShareButton.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.dakShareButton.Size = new System.Drawing.Size(45, 41);
+            this.dakShareButton.Size = new System.Drawing.Size(45, 40);
             this.dakShareButton.TabIndex = 30;
             this.MyToolTip.SetToolTip(this.dakShareButton, "ডাক বক্স শেয়ারিং");
             this.dakShareButton.UseVisualStyleBackColor = false;
@@ -777,7 +777,6 @@
             // 
             this.dakPriorityComboBox.BackColor = System.Drawing.Color.White;
             this.dakPriorityComboBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dakPriorityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dakPriorityComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dakPriorityComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakPriorityComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
@@ -793,7 +792,6 @@
             // 
             this.dakTypeComboBox.BackColor = System.Drawing.Color.White;
             this.dakTypeComboBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dakTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dakTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dakTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
@@ -809,7 +807,6 @@
             // 
             this.dakSecretComboBox.BackColor = System.Drawing.Color.White;
             this.dakSecretComboBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dakSecretComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dakSecretComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dakSecretComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakSecretComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
@@ -826,7 +823,6 @@
             this.dakStatusComboBox.BackColor = System.Drawing.Color.White;
             this.dakStatusComboBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.dakStatusComboBox.DropDownHeight = 100;
-            this.dakStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dakStatusComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dakStatusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakStatusComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
@@ -862,8 +858,9 @@
             // 
             // selectAllCheckBox
             // 
+            this.selectAllCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.selectAllCheckBox.AutoSize = true;
-            this.selectAllCheckBox.Location = new System.Drawing.Point(13, 11);
+            this.selectAllCheckBox.Location = new System.Drawing.Point(13, 17);
             this.selectAllCheckBox.Name = "selectAllCheckBox";
             this.selectAllCheckBox.Size = new System.Drawing.Size(15, 14);
             this.selectAllCheckBox.TabIndex = 2;
@@ -3446,7 +3443,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(115, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 24);
+            this.label14.Size = new System.Drawing.Size(106, 24);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
@@ -3477,9 +3474,9 @@
             this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            employeDakNothiCountResponse1.data = null;
-            employeDakNothiCountResponse1.status = null;
-            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse1;
+            employeDakNothiCountResponse5.data = null;
+            employeDakNothiCountResponse5.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse5;
             this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationDetailsPanel.Location = new System.Drawing.Point(1426, 49);
             this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -3489,6 +3486,20 @@
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
+            // 
+            // panel10
+            // 
+            this.panel10.AutoSize = true;
+            this.panel10.Controls.Add(this.dakPriorityComboBox);
+            this.panel10.Controls.Add(this.dakTypeComboBox);
+            this.panel10.Controls.Add(this.dakSecretComboBox);
+            this.panel10.Controls.Add(this.dakStatusComboBox);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel10.Location = new System.Drawing.Point(0, 6);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panel10.Size = new System.Drawing.Size(480, 40);
+            this.panel10.TabIndex = 31;
             // 
             // Dashboard
             // 
@@ -3521,6 +3532,7 @@
             this.settingsPanel.PerformLayout();
             this.multipleSelectionPanel.ResumeLayout(false);
             this.shortSearchPanel.ResumeLayout(false);
+            this.shortSearchPanel.PerformLayout();
             this.selectDakBoxHolderPanel.ResumeLayout(false);
             this.selectDakBoxHolderPanel.PerformLayout();
             this.detailsDakSearcPanel.ResumeLayout(false);
@@ -3595,6 +3607,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3791,6 +3804,7 @@
         private FontAwesome.Sharp.IconButton dakBacaiDownArrow;
         private FontAwesome.Sharp.IconButton dakSortedUserButton;
         private FontAwesome.Sharp.IconButton resetSubjectSearchButton;
+        private System.Windows.Forms.Panel panel10;
     }
 }
 

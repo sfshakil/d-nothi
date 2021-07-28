@@ -22,11 +22,21 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnCross_Click(object sender, EventArgs e)
         {
+            List<Form> openForms = new List<Form>();
+
             foreach (Form f in Application.OpenForms)
-            { BeginInvoke((Action)(() => f.Hide())); }
-            var form = FormFactory.Create<Nothi>();
-            form.forceLoadNewNothi();
-            BeginInvoke((Action)(() => form.ShowDialog()));
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name != "Nothi")
+                    f.Close();
+            }
+            //foreach (Form f in Application.OpenForms)
+            //{ BeginInvoke((Action)(() => f.Hide())); }
+            //var form = FormFactory.Create<Nothi>();
+            //form.forceLoadNewNothi();
+            //BeginInvoke((Action)(() => form.ShowDialog()));
 
         }
     }
