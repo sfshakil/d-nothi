@@ -314,9 +314,9 @@ namespace dNothi.Desktop.UI.NothiUI
                     {
                         try
                         {
-                            BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\Siyamrupali.ttf", BaseFont.IDENTITY_H,true);
-
-                            PdfPTable pdfTable = new PdfPTable(registerReportDataGridView.Columns.Count);
+                            BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\ARIALUNI.TTF", BaseFont.IDENTITY_H,true);
+                            //BaseFont bf = BaseFont.CreateFont(MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi), BaseFont.IDENTITY_H, true);
+                             PdfPTable pdfTable = new PdfPTable(registerReportDataGridView.Columns.Count);
                             pdfTable.DefaultCell.Padding = 3;
                             pdfTable.WidthPercentage = 100;
                             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;

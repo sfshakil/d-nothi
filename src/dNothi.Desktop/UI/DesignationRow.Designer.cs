@@ -30,9 +30,9 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.linkLabel = new System.Windows.Forms.LinkLabel();
             this.dakCountButton = new System.Windows.Forms.Button();
             this.nothiCountButton = new System.Windows.Forms.Button();
-            this.linkLabel = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,9 +46,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.iconPictureBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dakCountButton, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.nothiCountButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.linkLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dakCountButton, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.nothiCountButton, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
@@ -56,7 +56,7 @@
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(418, 136);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(415, 100);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // iconPictureBox1
@@ -72,40 +72,6 @@
             this.iconPictureBox1.TabIndex = 16;
             this.iconPictureBox1.TabStop = false;
             // 
-            // dakCountButton
-            // 
-            this.dakCountButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dakCountButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.dakCountButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.dakCountButton.FlatAppearance.BorderSize = 0;
-            this.dakCountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakCountButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakCountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dakCountButton.Location = new System.Drawing.Point(326, 10);
-            this.dakCountButton.Margin = new System.Windows.Forms.Padding(0);
-            this.dakCountButton.Name = "dakCountButton";
-            this.dakCountButton.Size = new System.Drawing.Size(92, 25);
-            this.dakCountButton.TabIndex = 14;
-            this.dakCountButton.Text = "৫ টি ডাক";
-            this.dakCountButton.UseVisualStyleBackColor = false;
-            // 
-            // nothiCountButton
-            // 
-            this.nothiCountButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.nothiCountButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
-            this.nothiCountButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.nothiCountButton.FlatAppearance.BorderSize = 0;
-            this.nothiCountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nothiCountButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiCountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.nothiCountButton.Location = new System.Drawing.Point(234, 10);
-            this.nothiCountButton.Margin = new System.Windows.Forms.Padding(0);
-            this.nothiCountButton.Name = "nothiCountButton";
-            this.nothiCountButton.Size = new System.Drawing.Size(92, 25);
-            this.nothiCountButton.TabIndex = 15;
-            this.nothiCountButton.Text = "৫ টি নথি";
-            this.nothiCountButton.UseVisualStyleBackColor = false;
-            // 
             // linkLabel
             // 
             this.linkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -118,11 +84,47 @@
             this.linkLabel.Location = new System.Drawing.Point(41, 10);
             this.linkLabel.MaximumSize = new System.Drawing.Size(190, 0);
             this.linkLabel.Name = "linkLabel";
-            this.linkLabel.Size = new System.Drawing.Size(190, 126);
+            this.linkLabel.Size = new System.Drawing.Size(187, 90);
             this.linkLabel.TabIndex = 13;
             this.linkLabel.TabStop = true;
             this.linkLabel.Text = "টেকনোলজি,   এসপায়ার টু ইনোভেট (এটুআই) প্রোগ্রাম adhggba hasgdhas dhasgd asnnhgdas" +
     " dhasgvbd kjabdfkjashgfjk absdj gadhgashdgsahd ";
+            // 
+            // dakCountButton
+            // 
+            this.dakCountButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dakCountButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.dakCountButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.dakCountButton.FlatAppearance.BorderSize = 0;
+            this.dakCountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakCountButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakCountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dakCountButton.Location = new System.Drawing.Point(231, 10);
+            this.dakCountButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakCountButton.Name = "dakCountButton";
+            this.dakCountButton.Size = new System.Drawing.Size(92, 25);
+            this.dakCountButton.TabIndex = 14;
+            this.dakCountButton.Text = "৫ টি ডাক";
+            this.dakCountButton.UseVisualStyleBackColor = false;
+            this.dakCountButton.Click += new System.EventHandler(this.dakCountButton_Click);
+            // 
+            // nothiCountButton
+            // 
+            this.nothiCountButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.nothiCountButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.nothiCountButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.nothiCountButton.FlatAppearance.BorderSize = 0;
+            this.nothiCountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothiCountButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiCountButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.nothiCountButton.Location = new System.Drawing.Point(323, 10);
+            this.nothiCountButton.Margin = new System.Windows.Forms.Padding(0);
+            this.nothiCountButton.Name = "nothiCountButton";
+            this.nothiCountButton.Size = new System.Drawing.Size(92, 25);
+            this.nothiCountButton.TabIndex = 15;
+            this.nothiCountButton.Text = "৫ টি নথি";
+            this.nothiCountButton.UseVisualStyleBackColor = false;
+            this.nothiCountButton.Click += new System.EventHandler(this.nothiCountButton_Click);
             // 
             // DesignationRow
             // 
@@ -132,7 +134,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "DesignationRow";
-            this.Size = new System.Drawing.Size(418, 136);
+            this.Size = new System.Drawing.Size(415, 100);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();

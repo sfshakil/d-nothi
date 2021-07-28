@@ -283,6 +283,10 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiAll>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
             builder.RegisterType<UI.NothiUI.RegisterReportUserControl>().AsSelf();
+
+            
+            builder.RegisterType<ProtibedonUserControl>().AsSelf();
+            builder.RegisterType<UI.Dak.RegisterReportUserControl>().AsSelf();
             
 
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();

@@ -9,14 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.Desktop.View_Model;
 using dNothi.Utility;
+using dNothi.Services.DakServices;
+using dNothi.Services.UserServices;
+using dNothi.JsonParser.Entity.Dak;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class ProtibedonUserControl : UserControl
     {
-        public ProtibedonUserControl()
+        IProtibedonService _protibedonService { get; set; }
+        IUserService _userService { get; set; }
+        public ProtibedonUserControl(IProtibedonService protibedonService, IUserService userService)
         {
             InitializeComponent();
+            _protibedonService = protibedonService;
+            _userService = userService;
         }
 
         public bool _isNothijato { get; set; }
@@ -133,6 +140,7 @@ namespace dNothi.Desktop.UI.Dak
                         page += pageSize;
                         comboBox1.Items.Add(new ComboBoxItem(ConversionMethod.EnglishNumberToBangla(page.ToString()), i));
                     }
+                    comboBox1.SelectedIndex = 0;
                 }
                 else
                 {
@@ -141,6 +149,7 @@ namespace dNothi.Desktop.UI.Dak
                     comboBox1.Items.Add(new ComboBoxItem("৩০", 3));
                     comboBox1.Items.Add(new ComboBoxItem("৪০", 4));
                     comboBox1.Items.Add(new ComboBoxItem("৫০", 5));
+                    comboBox1.SelectedIndex = 0;
                 }
                
             } 
@@ -192,19 +201,83 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        public event DatabaseChangeHandler comboBoxSelectedIndexChanged;
-        public delegate void DatabaseChangeHandler(string name,int id);
+       
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            if (this.comboBoxSelectedIndexChanged != null)
+           
+            List<Protibedon> protibedonlist = new List<Protibedon>();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            string name = comboBox1.Text;
+
+            dakListUserParam.page = 1;
+            dakListUserParam.limit =Convert.ToInt32( ConversionMethod.BanglaDigittoEngDigit(name));
+            if (isPending)
             {
-                string name = comboBox1.Text;
-               
-               // string  ids = comboBox1.SelectedValue.ToString();
-                int id = 1;
-                this.comboBoxSelectedIndexChanged(name,id);
+                ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(dakListUserParam, null, null, null);
+                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
             }
+            if(isResolved)
+            {
+                ProtibedonResponse protibedonResponse = _protibedonService.GetResolvedProtibedonResponse(dakListUserParam, null, null, null);
+                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            }
+            if(isNothiteUposthapito)
+            {
+                DakProtibedonResponse protibedonResponse = _protibedonService.GetNothiteUposthapitoProtibedonResponse(dakListUserParam, null, null, null);
+                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            }
+            if(isPotrojari)
+            {
+                DakProtibedonResponse protibedonResponse = _protibedonService.GetPotrojariProtibedonResponse(dakListUserParam, null, null, null);
+                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            
+            }
+            if(isNothijato)
+            {
+                DakProtibedonResponse protibedonResponse = _protibedonService.GetNothijatoProtibedonResponse(dakListUserParam, null, null, null);
+                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            }
+            if (protibedonlist.Count <= 0)
+            {
+                noRowMessageLabel.Visible = true;
+            }
+            else
+            {
+                noRowMessageLabel.Visible = false;
+            }
+            registerReportDataGridView.DataSource = null;
+            registerReportDataGridView.DataSource = protibedonlist;
+
+
+            // Resize the master DataGridView columns to fit the newly loaded data.
+            registerReportDataGridView.AutoResizeColumns();
+
+            // Configure the details DataGridView so that its columns automatically
+            // adjust their widths when the data changes.
+            registerReportDataGridView.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.AllCells;
+
+            MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+            registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);
+
+            //if (this.comboBoxSelectedIndexChanged != null)
+            //{
+            //    string name = comboBox1.Text;
+
+            //   // string  ids = comboBox1.SelectedValue.ToString();
+            //    int id = 1;
+            //    this.comboBoxSelectedIndexChanged(name,id);
+            //}
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
 
         }
     }

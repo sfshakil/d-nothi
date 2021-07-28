@@ -17,7 +17,16 @@ namespace dNothi.Desktop.UI
 {
    public class UIDesignCommonMethod
     {
+        public static void ChangeForm(Form newForm, Form currentForm)
+        {
+           
 
+            if ( newForm.GetType()!=currentForm.GetType())
+            {
+                currentForm.Hide();
+                newForm.ShowDialog();
+            }
+        }
         public static Image GetImageFromBase64(string imageBase64)
         {
 
