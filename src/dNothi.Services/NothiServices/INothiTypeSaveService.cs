@@ -10,7 +10,7 @@ namespace dNothi.Services.NothiServices
 {
     public interface INothiTypeSaveService
     {
-        NothiTypeSaveResponse GetNothiTypeList(DakUserParam dakUserParam, string nothiDhoron, string nothiDhoronCode);
+        NothiTypeSaveResponse GetNothiTypeList(DakUserParam dakUserParam, string nothiDhoron, string nothiDhoronCode, string type_id);
         bool SendNothiTypeListFromLocal();
     }
 }

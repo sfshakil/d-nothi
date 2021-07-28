@@ -25,7 +25,7 @@ namespace dNothi.Services.NothiServices
             _userService = userService;
             _nothiTypeItemAction = nothiTypeItemAction;
         }
-        public NothiTypeSaveResponse GetNothiTypeList(DakUserParam dakUserParam, string nothiDhoron, string nothiDhoronCode)
+        public NothiTypeSaveResponse GetNothiTypeList(DakUserParam dakUserParam, string nothiDhoron, string nothiDhoronCode, string type_id)
         {
             NothiTypeSaveResponse nothiTypeSaveResponse = new NothiTypeSaveResponse();
             if (!InternetConnection.Check())
@@ -61,7 +61,7 @@ namespace dNothi.Services.NothiServices
                     request.AddParameter("office_id", +dakUserParam.office_id);
                     request.AddParameter("designation_id", +dakUserParam.designation_id);
                     request.AddParameter("model", "NothiTypes");
-                    request.AddParameter("data", "{\"id\":0,\"type_name\":\""+nothiDhoron+"\",\"type_code\":\""+nothiDhoronCode+"\",\"type_last_number\":\"0\"}");
+                    request.AddParameter("data", "{\"id\":"+ type_id + ",\"type_name\":\""+nothiDhoron+"\",\"type_code\":\""+nothiDhoronCode+"\",\"type_last_number\":\"0\"}");
                     IRestResponse response = client.Execute(request);
 
                     var responseJson = response.Content;
@@ -84,7 +84,7 @@ namespace dNothi.Services.NothiServices
             {
                 foreach (NothiTypeItemAction nothiTypeItemAction in nothiTypeItemActions)
                 {
-                    var dakForwardResponse = GetNothiTypeList(dakUserParam, nothiTypeItemAction.nothiDhoron, nothiTypeItemAction.nothiDhoronCode);
+                    var dakForwardResponse = GetNothiTypeList(dakUserParam, nothiTypeItemAction.nothiDhoron, nothiTypeItemAction.nothiDhoronCode, "0");
 
                     if (dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status == "success"))
 

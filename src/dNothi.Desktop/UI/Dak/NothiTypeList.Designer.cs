@@ -33,12 +33,16 @@
             this.lbNothiCode = new System.Windows.Forms.Label();
             this.lbNothiNumber = new System.Windows.Forms.Label();
             this.lblSerialNo = new System.Windows.Forms.Label();
-            this.btnNothiTypeCross = new FontAwesome.Sharp.IconButton();
+            this.btnNothiTypeEdit = new FontAwesome.Sharp.IconButton();
             this.btnAdd = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.lbNoteId = new System.Windows.Forms.Label();
             this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.txtNothiSubjectTypeEdit = new System.Windows.Forms.TextBox();
+            this.txtNothiCodeEdit = new System.Windows.Forms.TextBox();
+            this.btnEditSave = new FontAwesome.Sharp.IconButton();
+            this.btnEditCancel = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // lbNothiSubjectType
@@ -89,22 +93,24 @@
             this.lblSerialNo.Text = "SerialNo";
             this.lblSerialNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnNothiTypeCross
+            // btnNothiTypeEdit
             // 
-            this.btnNothiTypeCross.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnNothiTypeCross.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnNothiTypeCross.FlatAppearance.BorderSize = 0;
-            this.btnNothiTypeCross.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiTypeCross.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnNothiTypeCross.IconColor = System.Drawing.Color.White;
-            this.btnNothiTypeCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiTypeCross.IconSize = 20;
-            this.btnNothiTypeCross.Location = new System.Drawing.Point(547, 7);
-            this.btnNothiTypeCross.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNothiTypeCross.Name = "btnNothiTypeCross";
-            this.btnNothiTypeCross.Size = new System.Drawing.Size(32, 43);
-            this.btnNothiTypeCross.TabIndex = 64;
-            this.btnNothiTypeCross.UseVisualStyleBackColor = false;
+            this.btnNothiTypeEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnNothiTypeEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnNothiTypeEdit.FlatAppearance.BorderSize = 0;
+            this.btnNothiTypeEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNothiTypeEdit.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnNothiTypeEdit.IconColor = System.Drawing.Color.White;
+            this.btnNothiTypeEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNothiTypeEdit.IconSize = 20;
+            this.btnNothiTypeEdit.Location = new System.Drawing.Point(547, 7);
+            this.btnNothiTypeEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNothiTypeEdit.Name = "btnNothiTypeEdit";
+            this.btnNothiTypeEdit.Size = new System.Drawing.Size(32, 43);
+            this.btnNothiTypeEdit.TabIndex = 64;
+            this.btnNothiTypeEdit.UseVisualStyleBackColor = false;
+            this.btnNothiTypeEdit.Visible = false;
+            this.btnNothiTypeEdit.Click += new System.EventHandler(this.btnNothiTypeEdit_Click);
             // 
             // btnAdd
             // 
@@ -122,6 +128,7 @@
             this.btnAdd.Size = new System.Drawing.Size(32, 43);
             this.btnAdd.TabIndex = 65;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -174,15 +181,77 @@
             this.btnSchedule.UseVisualStyleBackColor = false;
             this.btnSchedule.Visible = false;
             // 
+            // txtNothiSubjectTypeEdit
+            // 
+            this.txtNothiSubjectTypeEdit.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNothiSubjectTypeEdit.Location = new System.Drawing.Point(101, 10);
+            this.txtNothiSubjectTypeEdit.Multiline = true;
+            this.txtNothiSubjectTypeEdit.Name = "txtNothiSubjectTypeEdit";
+            this.txtNothiSubjectTypeEdit.Size = new System.Drawing.Size(292, 40);
+            this.txtNothiSubjectTypeEdit.TabIndex = 69;
+            this.txtNothiSubjectTypeEdit.Visible = false;
+            // 
+            // txtNothiCodeEdit
+            // 
+            this.txtNothiCodeEdit.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNothiCodeEdit.Location = new System.Drawing.Point(400, 10);
+            this.txtNothiCodeEdit.Multiline = true;
+            this.txtNothiCodeEdit.Name = "txtNothiCodeEdit";
+            this.txtNothiCodeEdit.Size = new System.Drawing.Size(66, 40);
+            this.txtNothiCodeEdit.TabIndex = 70;
+            this.txtNothiCodeEdit.Visible = false;
+            // 
+            // btnEditSave
+            // 
+            this.btnEditSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.btnEditSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(183)))), ((int)(((byte)(175)))));
+            this.btnEditSave.FlatAppearance.BorderSize = 0;
+            this.btnEditSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditSave.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            this.btnEditSave.IconColor = System.Drawing.Color.White;
+            this.btnEditSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditSave.IconSize = 24;
+            this.btnEditSave.Location = new System.Drawing.Point(547, 7);
+            this.btnEditSave.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEditSave.Name = "btnEditSave";
+            this.btnEditSave.Size = new System.Drawing.Size(32, 43);
+            this.btnEditSave.TabIndex = 71;
+            this.btnEditSave.UseVisualStyleBackColor = false;
+            this.btnEditSave.Visible = false;
+            this.btnEditSave.Click += new System.EventHandler(this.btnEditSave_Click);
+            // 
+            // btnEditCancel
+            // 
+            this.btnEditCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.btnEditCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.btnEditCancel.FlatAppearance.BorderSize = 0;
+            this.btnEditCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditCancel.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+            this.btnEditCancel.IconColor = System.Drawing.Color.White;
+            this.btnEditCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditCancel.IconSize = 24;
+            this.btnEditCancel.Location = new System.Drawing.Point(579, 7);
+            this.btnEditCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEditCancel.Name = "btnEditCancel";
+            this.btnEditCancel.Size = new System.Drawing.Size(32, 43);
+            this.btnEditCancel.TabIndex = 72;
+            this.btnEditCancel.UseVisualStyleBackColor = false;
+            this.btnEditCancel.Visible = false;
+            this.btnEditCancel.Click += new System.EventHandler(this.btnEditCancel_Click);
+            // 
             // NothiTypeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnEditCancel);
+            this.Controls.Add(this.btnEditSave);
+            this.Controls.Add(this.txtNothiCodeEdit);
+            this.Controls.Add(this.txtNothiSubjectTypeEdit);
             this.Controls.Add(this.btnSchedule);
             this.Controls.Add(this.lbNoteId);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnNothiTypeCross);
+            this.Controls.Add(this.btnNothiTypeEdit);
             this.Controls.Add(this.lblSerialNo);
             this.Controls.Add(this.lbNothiNumber);
             this.Controls.Add(this.lbNothiCode);
@@ -200,11 +269,15 @@
         private System.Windows.Forms.Label lbNothiCode;
         private System.Windows.Forms.Label lbNothiNumber;
         private System.Windows.Forms.Label lblSerialNo;
-        private FontAwesome.Sharp.IconButton btnNothiTypeCross;
+        private FontAwesome.Sharp.IconButton btnNothiTypeEdit;
         private FontAwesome.Sharp.IconButton btnAdd;
         private FontAwesome.Sharp.IconButton btnDelete;
         private System.Windows.Forms.Label lbNoteId;
         private FontAwesome.Sharp.IconButton btnSchedule;
         private System.Windows.Forms.ToolTip MyToolTip;
+        private System.Windows.Forms.TextBox txtNothiSubjectTypeEdit;
+        private System.Windows.Forms.TextBox txtNothiCodeEdit;
+        private FontAwesome.Sharp.IconButton btnEditSave;
+        private FontAwesome.Sharp.IconButton btnEditCancel;
     }
 }

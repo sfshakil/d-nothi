@@ -104,6 +104,8 @@ namespace dNothi.Desktop.UI.Dak
                 nothiType.nothiNumber = nothiTypeListDTO.nothi_type_count;
                 nothiType.noteId = nothiTypeListDTO.id.ToString();
                 nothiType.NothiTypeDeleteButton += delegate (object sender1, EventArgs e1) { NothiTypeDelete_ButtonClick(sender1, e1); };
+                nothiType.nothitypeeditbutton += delegate (object sender1, EventArgs e1) { NothiTypeDelete_ButtonClick(sender1, e1); };
+                nothiType.NothiAddButton += delegate (object sender1, EventArgs e1) { NothiAdd_ButtonClick(sender1 as string, e1); };
                 i = i + 1;
                 k++;
                 if (i % 2 != 0)
@@ -116,12 +118,19 @@ namespace dNothi.Desktop.UI.Dak
             
         }
         public event EventHandler NothitypeAddButton;
+        public event EventHandler NothiAddButton;
         private void NothiTypeDelete_ButtonClick(object sender, EventArgs e)
         {
             i = 0; k = 1;
             LoadNothiTypeList();
             if (this.NothitypeAddButton != null)
                 this.NothitypeAddButton(sender, e);
+        }
+        private void NothiAdd_ButtonClick(string nothi_type, EventArgs e)
+        {
+            btnNothiTypeCross_Click(nothi_type as object, e);
+            if (this.NothiAddButton != null)
+                this.NothiAddButton(nothi_type, e);
         }
         private void btnNothiTypeCross_Click(object sender, EventArgs e)
         {

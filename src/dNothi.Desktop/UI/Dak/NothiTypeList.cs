@@ -11,6 +11,8 @@ using dNothi.Services.UserServices;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -18,10 +20,15 @@ namespace dNothi.Desktop.UI.Dak
     {
         IUserService _userService { get; set; }
         INoteDeleteService _noteDelete { get; set; }
-        public NothiTypeList(IUserService userService, INoteDeleteService noteDelete)
+        INothiTypeListServices _nothiType { get; set; }
+        INothiTypeSaveService _nothiTypeSave { get; set; }
+        public NothiTypeList(IUserService userService, INoteDeleteService noteDelete, INothiTypeListServices nothiType,
+            INothiTypeSaveService nothiTypeSave)
         {
             _userService = userService;
             _noteDelete = noteDelete;
+            _nothiType = nothiType;
+            _nothiTypeSave = nothiTypeSave;
             InitializeComponent();
             SetDefaultFont(this.Controls);
         }
@@ -52,7 +59,7 @@ namespace dNothi.Desktop.UI.Dak
         public void offline()
         {
             lbNothiNumber.Visible = false;
-            btnNothiTypeCross.Visible = false;
+            btnNothiTypeEdit.Visible = false;
             btnAdd.Visible = false;
             btnDelete.Visible = false;
             btnSchedule.Visible = true;
@@ -92,6 +99,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (value == "0")
                 {
                     btnDelete.Visible = true;
+                    btnNothiTypeEdit.Visible = true;
                 }       
             }
         }
@@ -126,35 +134,188 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NothiTypeDeleteButton;
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string message = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
-            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
-            conditonBoxForm.message = message;
-            conditonBoxForm.ShowDialog(this);
-            if (conditonBoxForm.Yes)
+            if (InternetConnection.Check())
             {
-                string noteId = lbNoteId.Text;
-                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                var noteDelete = _noteDelete.GetNoteDelete(dakListUserParam, noteId);
-                if (noteDelete.status == "success")
+                string message = "আপনি কি নথি ধরনটি মুছে ফেলতে চান?";
+                ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+                conditonBoxForm.message = message;
+                conditonBoxForm.ShowDialog(this);
+                if (conditonBoxForm.Yes)
                 {
-                    SuccessMessage("নথি ধরন মুছে ফেলা হয়েছে।");
-                    if (this.NothiTypeDeleteButton != null)
-                        this.NothiTypeDeleteButton(sender, e);
-                    //foreach (Form f in Application.OpenForms)
-                    //{ BeginInvoke((Action)(() => f.Hide())); }
-                    //var form = FormFactory.Create<Nothi>();
-                    //form.ForceLoadNewNothi();
-                    //BeginInvoke((Action)(() => form.ShowDialog()));
-                    //form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                    string noteId = lbNoteId.Text;
+                    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                    var noteDelete = _noteDelete.GetNoteDelete(dakListUserParam, noteId);
+                    if (noteDelete.status == "success")
+                    {
+                        SuccessMessage("নথি ধরন মুছে ফেলা হয়েছে।");
+                        if (this.NothiTypeDeleteButton != null)
+                            this.NothiTypeDeleteButton(sender, e);
+                        //foreach (Form f in Application.OpenForms)
+                        //{ BeginInvoke((Action)(() => f.Hide())); }
+                        //var form = FormFactory.Create<Nothi>();
+                        //form.ForceLoadNewNothi();
+                        //BeginInvoke((Action)(() => form.ShowDialog()));
+                        //form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                    }
+                }
+                else
+                {
+                    // Do something  
                 }
             }
             else
             {
-                // Do something  
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
             
 
             ///////////////////
+        }
+
+        private void btnNothiTypeEdit_Click(object sender, EventArgs e)
+        {
+            lbNothiSubjectType.Visible = false;
+            lbNothiCode.Visible = false;
+
+            txtNothiCodeEdit.Visible = true;
+            txtNothiSubjectTypeEdit.Visible = true;
+
+            btnNothiTypeEdit.Visible = false;
+            btnDelete.Visible = false;
+            btnAdd.Visible = false;
+
+            btnEditSave.Visible = true;
+            btnEditCancel.Visible = true;
+
+            txtNothiSubjectTypeEdit.Text = lbNothiSubjectType.Text;
+            txtNothiCodeEdit.Text = lbNothiCode.Text;
+        }
+
+        private void btnEditCancel_Click(object sender, EventArgs e)
+        {
+            lbNothiSubjectType.Visible = true;
+            lbNothiCode.Visible = true;
+
+            txtNothiCodeEdit.Visible = false;
+            txtNothiSubjectTypeEdit.Visible = false;
+
+            btnNothiTypeEdit.Visible = true;
+            btnDelete.Visible = true;
+            btnAdd.Visible = true;
+
+            btnEditSave.Visible = false;
+            btnEditCancel.Visible = false;
+        }
+        public event EventHandler nothitypeeditbutton;
+        public NothiTypeListResponse nothiType;
+        public bool IsEnglishDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
+        }
+        private void btnEditSave_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                if (txtNothiSubjectTypeEdit.Text != "" && txtNothiCodeEdit.Text != "")
+                {
+                    string type_id = "0";
+                    bool check = false;
+                    bool IsEnglish = true;
+                    var type_code = "";
+                    if (!IsEnglishDigitsOnly(txtNothiCodeEdit.Text))
+                    {
+                        type_code = string.Concat(txtNothiCodeEdit.Text.Select(c => (char)('0' + c - '\u09E6')));
+                    }
+                    else
+                    {
+                        type_code = txtNothiCodeEdit.Text;
+                    }
+                    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                    nothiType = _nothiType.GetNothiTypeList(dakListUserParam);
+                    if (nothiType.status == "success")
+                    {
+                        if (nothiType.data.Count > 0)
+                        {
+                            foreach (NothiTypeListDTO response in nothiType.data)
+                            {
+                                if (response.nothi_type == lbNothiSubjectType.Text && response.nothi_type_code == string.Concat(lbNothiCode.Text.Select(c => (char)('0' + c - '\u09E6'))))
+                                {
+                                    type_id = response.id.ToString();
+                                    continue;
+                                }
+                                else if (response.nothi_type != lbNothiSubjectType.Text && response.nothi_type_code == type_code)
+                                {
+                                    check = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    check = false;
+                                }
+                            }
+                        }
+                    }
+                    if (check)
+                    {
+                        ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
+
+                    }
+                    else
+                    {
+                        bool eng = IsEnglishDigitsOnly(txtNothiCodeEdit.Text);
+                        if (eng)
+                        {
+                            var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, txtNothiSubjectTypeEdit.Text, type_code, type_id);
+                            if (nothiTypeSave.status == "success")
+                            {
+                                this.Hide();
+                                SuccessMessage("নথি ধরণ হালনাগাদ করা হয়েছে।");
+                                if (this.nothitypeeditbutton != null)
+                                    this.nothitypeeditbutton(sender, e);
+                            }
+                        }
+                        else
+                        {
+                            var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, txtNothiSubjectTypeEdit.Text, type_code, type_id);
+                            if (nothiTypeSave.status == "success")
+                            {
+                                SuccessMessage("নথি ধরণ হালনাগাদ করা হয়েছে।");
+                                if (this.nothitypeeditbutton != null)
+                                    this.nothitypeeditbutton(sender, e);
+                                //foreach (Form f in Application.OpenForms)
+                                //{ BeginInvoke((Action)(() => f.Hide())); }
+                                //var form = FormFactory.Create<Nothi>();
+                                //form.ForceLoadNewNothi();
+                                //BeginInvoke((Action)(() => form.ShowDialog()));
+                                //form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    ErrorMessage("দুঃখিত! ধরন ফাকা রাখা যাবে না।");
+                }
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
+        public event EventHandler NothiAddButton;
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var nothi_type = lbNothiSubjectType.Text;
+            if (this.NothiAddButton != null)
+                this.NothiAddButton(nothi_type, e);
         }
     }
 }

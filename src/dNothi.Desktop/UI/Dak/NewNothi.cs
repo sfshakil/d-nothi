@@ -40,7 +40,6 @@ namespace dNothi.Desktop.UI.Dak
 
         }
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
-        
         {
             lbNothilast4digitText.Visible = false;
             lbNothiNoText.Visible = false;
@@ -262,11 +261,17 @@ namespace dNothi.Desktop.UI.Dak
             hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
             hideform.ShowDialog();
         }
+        public void loadCBXNothiType(int i)
+        {
+            cbxNothiType.SelectedIndex = i;
+
+        }
         private void btnNothiTypeList_Click_1(object sender, EventArgs e)
         {
             var nothiType = UserControlFactory.Create<NothiType>();
             nothiType.Visible = true;
             nothiType.NothitypeAddButton += delegate (object sender1, EventArgs e1) { cbxNothiType.Items.Clear(); LoadNothiTypeListDropDown(); loadNewNothiPage(); };
+            nothiType.NothiAddButton += delegate (object sender1, EventArgs e1) { var i = cbxNothiType.Items.IndexOf(sender1.ToString()); loadCBXNothiType(i); };
             nothiType.Enabled = true;
             nothiType.Location = new System.Drawing.Point(845, 0);
             var nothiTypeform = AttachNothiTypeListControlToForm(nothiType);

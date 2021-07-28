@@ -208,11 +208,8 @@ namespace dNothi.Desktop.UI.Dak
                         }
                         else
                         {
-                            //string english_text = string.Concat(txtDhoronCode.Text.Select(c => (char)('0' + c - '\u09E6')));
-
                             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                            //int parsed_number = int.Parse(english_text);
-                            var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, lbNothitype2digit.Text);
+                            var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, lbNothitype2digit.Text, "0");
                             if (nothiTypeSave.status == "success")
                             
                             {
@@ -235,17 +232,12 @@ namespace dNothi.Desktop.UI.Dak
                         string english_text = string.Concat(lbNothitype2digit.Text.Select(c => (char)('0' + c - '\u09E6')));
 
                         DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                        //int parsed_number = int.Parse(english_text);
-                        var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, english_text);
+                        var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, english_text, "0");
                         if (nothiTypeSave.status == "success")
                         {
                             SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
-                            foreach (Form f in Application.OpenForms)
-                            { BeginInvoke((Action)(() => f.Hide())); }
-                            var form = FormFactory.Create<Nothi>();
-                            form.ForceLoadNewNothi();
-                            BeginInvoke((Action)(() => form.ShowDialog()));
-                            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                            if (this.NothiTypeAddButton != null)
+                                this.NothiTypeAddButton(sender, e);
 
                         }
                     }
