@@ -34,8 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterReportUserControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -58,6 +58,9 @@
             this.headlineLabel = new System.Windows.Forms.Label();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.registerReportDataGridView = new System.Windows.Forms.DataGridView();
+            this.noRowMessageLabel = new System.Windows.Forms.Label();
+            this.nothiPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.slDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acceptNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docketingNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,9 +76,6 @@
             this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.noRowMessageLabel = new System.Windows.Forms.Label();
-            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
-            this.nothiPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.dateRangeTextBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -225,6 +225,7 @@
             this.comboBox1.Size = new System.Drawing.Size(63, 26);
             this.comboBox1.TabIndex = 91;
             this.comboBox1.Text = "১০";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -476,6 +477,47 @@
             this.registerReportDataGridView.TabIndex = 96;
             this.registerReportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokDataGridView_CellContentClick);
             // 
+            // noRowMessageLabel
+            // 
+            this.noRowMessageLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.noRowMessageLabel.AutoSize = true;
+            this.noRowMessageLabel.BackColor = System.Drawing.Color.Transparent;
+            this.noRowMessageLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noRowMessageLabel.ForeColor = System.Drawing.Color.Red;
+            this.noRowMessageLabel.Location = new System.Drawing.Point(348, 147);
+            this.noRowMessageLabel.Name = "noRowMessageLabel";
+            this.noRowMessageLabel.Size = new System.Drawing.Size(169, 18);
+            this.noRowMessageLabel.TabIndex = 97;
+            this.noRowMessageLabel.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
+            this.noRowMessageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // nothiPrintPreviewDialog
+            // 
+            this.nothiPrintPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.nothiPrintPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.nothiPrintPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.nothiPrintPreviewDialog.Enabled = true;
+            this.nothiPrintPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("nothiPrintPreviewDialog.Icon")));
+            this.nothiPrintPreviewDialog.Name = "dakUploadPrintPreviewDialog";
+            this.nothiPrintPreviewDialog.Visible = false;
+            // 
+            // customDatePicker
+            // 
+            this.customDatePicker._date = null;
+            this.customDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.customDatePicker.AutoSize = true;
+            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.customDatePicker.BackColor = System.Drawing.Color.White;
+            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
+            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
+            this.customDatePicker.Location = new System.Drawing.Point(369, 87);
+            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.customDatePicker.Name = "customDatePicker";
+            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
+            this.customDatePicker.TabIndex = 59;
+            this.customDatePicker.Visible = false;
+            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
+            // 
             // slDataGridViewTextBoxColumn
             // 
             this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -595,47 +637,6 @@
             // registerReportBindingSource
             // 
             this.registerReportBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.RegisterReport);
-            // 
-            // noRowMessageLabel
-            // 
-            this.noRowMessageLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.noRowMessageLabel.AutoSize = true;
-            this.noRowMessageLabel.BackColor = System.Drawing.Color.Transparent;
-            this.noRowMessageLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noRowMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.noRowMessageLabel.Location = new System.Drawing.Point(348, 147);
-            this.noRowMessageLabel.Name = "noRowMessageLabel";
-            this.noRowMessageLabel.Size = new System.Drawing.Size(169, 18);
-            this.noRowMessageLabel.TabIndex = 97;
-            this.noRowMessageLabel.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
-            this.noRowMessageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // customDatePicker
-            // 
-            this.customDatePicker._date = null;
-            this.customDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.customDatePicker.AutoSize = true;
-            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.customDatePicker.BackColor = System.Drawing.Color.White;
-            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
-            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
-            this.customDatePicker.Location = new System.Drawing.Point(369, 87);
-            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
-            this.customDatePicker.Name = "customDatePicker";
-            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
-            this.customDatePicker.TabIndex = 59;
-            this.customDatePicker.Visible = false;
-            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
-            // 
-            // nothiPrintPreviewDialog
-            // 
-            this.nothiPrintPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.nothiPrintPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.nothiPrintPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
-            this.nothiPrintPreviewDialog.Enabled = true;
-            this.nothiPrintPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("nothiPrintPreviewDialog.Icon")));
-            this.nothiPrintPreviewDialog.Name = "dakUploadPrintPreviewDialog";
-            this.nothiPrintPreviewDialog.Visible = false;
             // 
             // RegisterReportUserControl
             // 

@@ -226,34 +226,34 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Clear();
             this.InitializeComponent();
             waitPictureBox.Visible = true;
- 
+         
 
             if (_dakAttachmentDTOs != null)
+            {
+                for (int i = 0; i <= _dakAttachmentDTOs.Count - 1; i++)
                 {
-                    for (int i = 0; i <= _dakAttachmentDTOs.Count - 1; i++)
+                    if (_dakAttachmentDTOs[i].attachment_id == _dakAttachmentDTO.attachment_id)
                     {
-                        if (_dakAttachmentDTOs[i].attachment_id == _dakAttachmentDTO.attachment_id)
+                        if (i == _dakAttachmentDTOs.Count - 1)
                         {
-                            if (i == _dakAttachmentDTOs.Count - 1)
-                            {
-                                dakAttachmentDTO = _dakAttachmentDTOs[0];
-                            }
-                            else
-                            {
-
-                                dakAttachmentDTO = _dakAttachmentDTOs[i + 1];
-                            }
-                            break;
+                            dakAttachmentDTO = _dakAttachmentDTOs[0];
                         }
+                        else
+                        {
+
+                            dakAttachmentDTO = _dakAttachmentDTOs[i + 1];
+                        }
+                        break;
                     }
-                
-                // this.Hide();
+                }
+
+                //this.Hide();
                 //this.NextButton(sender, e);
-               
+
             }
 
             waitPictureBox.Visible = false;
-
+          
 
         }
 
@@ -302,6 +302,8 @@ namespace dNothi.Desktop.UI.Dak
                             break;
                         }
                     }
+                    //this.Hide();
+                    //this.PreviousButton(sender, e);
                 }
 
             waitPictureBox.Visible = false;
@@ -315,6 +317,16 @@ namespace dNothi.Desktop.UI.Dak
         private void AttachmentViewPopUpForm_Load(object sender, EventArgs e)
         {
             //this.StartPosition = FormStartPosition.CenterScreen;
+            
+                Screen scr = Screen.FromPoint(this.Location);
+                int heightLoc = Convert.ToInt32((scr.WorkingArea.Bottom - this.Height) / 2);
+                if (heightLoc < 0)
+                {
+                    heightLoc = 10;
+                }
+                int widthLoc = Convert.ToInt32((scr.WorkingArea.Right - this.Width) / 2);
+                this.Location = new Point(widthLoc, heightLoc);
+           
         }
 
         private void closesIconButton_Click(object sender, EventArgs e)

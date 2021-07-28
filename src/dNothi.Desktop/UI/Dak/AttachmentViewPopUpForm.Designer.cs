@@ -108,7 +108,7 @@
             this.rightArrowButton.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleRight;
             this.rightArrowButton.IconColor = System.Drawing.Color.Black;
             this.rightArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.rightArrowButton.Location = new System.Drawing.Point(722, 260);
+            this.rightArrowButton.Location = new System.Drawing.Point(728, 139);
             this.rightArrowButton.Name = "rightArrowButton";
             this.rightArrowButton.Size = new System.Drawing.Size(39, 44);
             this.rightArrowButton.TabIndex = 7;

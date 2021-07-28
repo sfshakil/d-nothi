@@ -12,6 +12,9 @@ using dNothi.Utility;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
+using dNothi.Services.DakServices;
+using dNothi.Services.UserServices;
+using dNothi.JsonParser.Entity;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -19,7 +22,15 @@ namespace dNothi.Desktop.UI.Dak
     {
         public int pageLimit=10;
         public int pageNo=1;
-       
+
+        IRegisterService _registerService;
+        IUserService _userService { get; set; }
+        public RegisterReportUserControl(IRegisterService registerService, IUserService userService)
+        {
+            InitializeComponent();
+            _registerService = registerService;
+            _userService = userService;
+        }
 
         private void RefreshPagination()
         {
@@ -57,10 +68,10 @@ namespace dNothi.Desktop.UI.Dak
 
         //}
 
-        public RegisterReportUserControl()
-        {
-            InitializeComponent();
-        }
+        //public RegisterReportUserControl()
+        //{
+        //    InitializeComponent();
+        //}
 
 
         public bool _isDakGrohon { get; set; }
@@ -70,7 +81,41 @@ namespace dNothi.Desktop.UI.Dak
         public bool isDakGrohon { get {return _isDakGrohon ; } set {_isDakGrohon=value; if (value) { headlineLabel.Text = "ডাক গ্রহণ নিবন্ধন বহি"; } } }
         public bool isDakDiary { get {return _isDakDiary; } set { _isDakDiary = value; if (value) { headlineLabel.Text = "শাখা ডায়েরি নিবন্ধন বহি"; } } }
         public bool isDakBili { get {return _isDakBili; } set { _isDakBili = value; if (value) { headlineLabel.Text = "ডাক বিলি নিবন্ধন বহি"; } } }
+        private int _totalRecord { get; set; }
+        public int totalRecord
+        {
+            get => _totalRecord;
+            set
+            {
+                _totalRecord = value;
+                totalRowlabel.Text = "সর্বমোট " + ConversionMethod.EnglishNumberToBangla(value.ToString()) + " টি";
 
+                comboBox1.DisplayMember = "Name";
+                comboBox1.ValueMember = "Id";
+                if (value >= 20)
+                {
+                    int totalpage = (int)Math.Ceiling((float)value / (float)20);
+                    int pageSize = 20;
+                    int page = 0;
+                    for (int i = 1; i <= totalpage; i++)
+                    {
+                        page += pageSize;
+                        comboBox1.Items.Add(new ComboBoxItem(ConversionMethod.EnglishNumberToBangla(page.ToString()), i));
+                    }
+                    comboBox1.SelectedIndex = 0;
+                }
+                else
+                {
+                    comboBox1.Items.Add(new ComboBoxItem("১০", 1));
+                    comboBox1.Items.Add(new ComboBoxItem("২০", 2));
+                    comboBox1.Items.Add(new ComboBoxItem("৩০", 3));
+                    comboBox1.Items.Add(new ComboBoxItem("৪০", 4));
+                    comboBox1.Items.Add(new ComboBoxItem("৫০", 5));
+                    comboBox1.SelectedIndex = 0;
+                }
+
+            }
+        }
         public List<RegisterReport> _registerReports { get; set; }
         public List<RegisterReport> registerReports {
             get { return _registerReports; }
@@ -290,6 +335,61 @@ namespace dNothi.Desktop.UI.Dak
         private void iconButton1_Click(object sender, EventArgs e)
         {
             DataExportToPDF();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<RegisterReport> RegisterReportlist = new List<RegisterReport>();
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            string name = comboBox1.Text;
+            string fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+            string todate = DateTime.Now.ToString("yyyy/MM/dd");
+            dakListUserParam.page = 1;
+            dakListUserParam.limit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(name));
+            if (isDakGrohon)
+            {
+               
+              
+                RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(dakListUserParam, fromdate, todate, null);
+
+                RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
+            }
+            if (isDakBili)
+            {
+                RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(dakListUserParam, fromdate, todate, null);
+
+                RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
+            }
+            if (isDakDiary)
+            {
+                RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(dakListUserParam, fromdate, todate, null);
+                RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
+            }
+
+            if (RegisterReportlist.Count <= 0)
+            {
+                noRowMessageLabel.Visible = true;
+            }
+            else
+            {
+                noRowMessageLabel.Visible = false;
+            }
+            registerReportDataGridView.DataSource = null;
+            registerReportDataGridView.DataSource = RegisterReportlist;
+
+
+            // Resize the master DataGridView columns to fit the newly loaded data.
+            registerReportDataGridView.AutoResizeColumns();
+
+            // Configure the details DataGridView so that its columns automatically
+            // adjust their widths when the data changes.
+            registerReportDataGridView.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.AllCells;
+
+            MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+            registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);
+
+          
         }
     }
 }
