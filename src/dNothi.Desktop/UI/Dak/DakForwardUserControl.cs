@@ -1235,6 +1235,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             newDecisionAddFormPanel.Visible = false;
             newDecisionAddButton.Visible = true;
+            newDecisionTextBox.Text = "";
         }
 
         private void GetDecisionListButton_Click(object sender, EventArgs e)
@@ -1351,6 +1352,7 @@ namespace dNothi.Desktop.UI.Dak
             if (dakDecisionAddResponse != null && dakDecisionAddResponse.status == "success")
             {
                 SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                newDecisionTextBox.Text = "";
                 LoadDecisionList();
                 //var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();
                 //decisionTable.id = dakDecisionAddResponse.data.Keys.First();

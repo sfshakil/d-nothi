@@ -19,8 +19,8 @@ namespace dNothi.Utility
         {
             List<DakTypeData> dakTypeDatas = new List<DakTypeData>();
             dakTypeDatas.Add(new DakTypeData { _id = "", _typeName = "ডাকের ধরণ" });
-            dakTypeDatas.Add(new DakTypeData { _id = "0", _typeName = "দাপ্তরিক" });
-            dakTypeDatas.Add(new DakTypeData { _id = "1", _typeName = "নাগরিক" });
+            dakTypeDatas.Add(new DakTypeData { _id = "Daptorik", _typeName = "দাপ্তরিক" });
+            dakTypeDatas.Add(new DakTypeData { _id = "Nagorik", _typeName = "নাগরিক" });
 
 
             return dakTypeDatas;
