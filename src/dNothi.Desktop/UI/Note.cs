@@ -9560,7 +9560,7 @@ namespace dNothi.Desktop.UI
 
             //GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(noteNothiDTO.nothi_id), potrojari_id);
             //form.SetSarokNo(sarok_no.sarok_no);
-
+            UIDesignCommonMethod.returnForm = this;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
@@ -9878,7 +9878,7 @@ namespace dNothi.Desktop.UI
                     khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
                 }
 
-
+                UIDesignCommonMethod.returnForm = this;
                 BeginInvoke((Action)(() => khosra.ShowDialog()));
                 khosra.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
