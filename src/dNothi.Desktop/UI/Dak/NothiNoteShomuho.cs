@@ -220,7 +220,8 @@ namespace dNothi.Desktop.UI.Dak
         private void btnOption_Click(object sender, EventArgs e)
         {
            
-            Point locationOnForm = btnOption.FindForm().PointToClient(btnOption.Parent.PointToScreen(btnOption.Location));
+            Point locationOnForm = GetPositionInForm(btnOption);
+            locationOnForm.Y += btnOption.Height;
             object buttonCoOrdinates = locationOnForm;
             
             if (this.btnOptionClick != null)
@@ -233,7 +234,24 @@ namespace dNothi.Desktop.UI.Dak
             //}
 
         }
+        public Point GetPositionInForm(Control ctrl)
+        {
+            Point p = ctrl.Location;
+            Control parent = ctrl.Parent;
+           
+            while (!(parent is NothiInbox))
+            {
+                p.Offset(parent.Location.X, parent.Location.Y);
+               
+                //if (parent is NothiInbox)
+                //{
 
+                //    break;
+                //}
+                parent = parent.Parent;
+            }
+            return p;
+        }
         private void uc_noteEditButtonClick(object sender, EventArgs e)
         {
 
