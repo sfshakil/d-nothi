@@ -204,8 +204,10 @@ namespace dNothi.Desktop.UI.Dak
                 if (nothiListInboxNoteRecordsDTO.note.onucched_count > 0)
                 { remove = false; }
                 uc.ButtonVisibility(true, remove, true);
-                //uc.Location = new Point(50, ((Point)sender).Y);
-                uc.Location = new Point(50, this.Location.Y);
+                uc.Location = new Point(((Point)sender).X, ((Point)sender).Y);
+                //uc.Location = new Point(50, this.Location.Y);
+
+                //Point locationOnForm = this.FindForm().PointToClient(this.Parent.Parent.PointToScreen(this.Location));
                 // uc.Location = new Point(50,this.Location.Y);//((Point)sender).X, ((Point)sender).Y);
                 uc.noteEditButtonClick += delegate (object s1, EventArgs e1) { uc_noteEditButtonClick(s1, e1, nothiListInboxNoteRecordsDTO); };
                 uc.noteOnumodanButtonClick += delegate (object s2, EventArgs e2) { uc_noteOnumodanButtonClick(s2, e2, nothiListInboxNoteRecordsDTO); };
