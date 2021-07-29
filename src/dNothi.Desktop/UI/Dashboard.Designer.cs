@@ -3378,6 +3378,7 @@
             // reviewDashBoardButton
             // 
             this.reviewDashBoardButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reviewDashBoardButton.Enabled = false;
             this.reviewDashBoardButton.FlatAppearance.BorderSize = 0;
             this.reviewDashBoardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reviewDashBoardButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3457,7 +3458,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(115, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 24);
+            this.label14.Size = new System.Drawing.Size(106, 24);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
