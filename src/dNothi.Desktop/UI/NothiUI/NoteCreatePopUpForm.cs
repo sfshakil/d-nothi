@@ -99,10 +99,10 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     
                     SuccessMessage("নোট টির বিষয় সফলভাবে পরিবর্তন হযেছে!");
-                   // object noteSubject = textBox.Text;
+                    object noteSubject = textBox.Text;
                      
                     if (this.SaveButtonClick != null)
-                        this.SaveButtonClick(sender, e);
+                        this.SaveButtonClick(noteSubject, e);
 
                     this.Hide();
                 }
