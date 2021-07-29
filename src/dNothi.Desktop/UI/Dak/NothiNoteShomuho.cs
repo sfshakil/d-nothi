@@ -243,11 +243,6 @@ namespace dNothi.Desktop.UI.Dak
             {
                 p.Offset(parent.Location.X, parent.Location.Y);
                
-                //if (parent is NothiInbox)
-                //{
-
-                //    break;
-                //}
                 parent = parent.Parent;
             }
             return p;
