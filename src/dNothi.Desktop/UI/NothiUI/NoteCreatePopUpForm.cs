@@ -97,8 +97,10 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (nothivuktoNoteAddResponse.status == "success")
                 {
-                   
+                    
                     SuccessMessage("নোট টির বিষয় সফলভাবে পরিবর্তন হযেছে!");
+                   // object noteSubject = textBox.Text;
+                     
                     if (this.SaveButtonClick != null)
                         this.SaveButtonClick(sender, e);
 
