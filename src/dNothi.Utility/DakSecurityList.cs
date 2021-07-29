@@ -19,10 +19,10 @@ namespace dNothi.Utility
         {
             List<DakSecurityData> dakSecurityDatas = new List<DakSecurityData>();
             dakSecurityDatas.Add(new DakSecurityData { _id = "0", _typeName = "বাছাই করুন" });
-            dakSecurityDatas.Add(new DakSecurityData { _id = "1", _typeName = "অতি গোপনীয়" });
-            dakSecurityDatas.Add(new DakSecurityData { _id = "2", _typeName = "বিশেষ গোপনীয়" });
+            dakSecurityDatas.Add(new DakSecurityData { _id = "5", _typeName = "অতি গোপনীয়" });
+            dakSecurityDatas.Add(new DakSecurityData { _id = "4", _typeName = "বিশেষ গোপনীয়" });
             dakSecurityDatas.Add(new DakSecurityData { _id = "3", _typeName = "গোপনীয়" });
-            dakSecurityDatas.Add(new DakSecurityData { _id = "4", _typeName = "সীমিত" });
+            dakSecurityDatas.Add(new DakSecurityData { _id = "2", _typeName = "সীমিত" });
 
 
             return dakSecurityDatas;
