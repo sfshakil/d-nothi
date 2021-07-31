@@ -179,14 +179,14 @@ namespace dNothi.Desktop.UI
                     btnWriteOnuchhed.Visible = false;
                     btnSend.Visible = false;
                 }
-                //if (_NoteAllListDataRecordDTO.note.onucched_count > 0)
-                //{
-                //    iconButton18.Visible = true;
-                //}
-                //else
-                //{
-                //    iconButton18.Visible = false;
-                //}
+                if (_NoteAllListDataRecordDTO.note.onucched_count > 0)
+                {
+                    iconButton18.Visible = false;
+                }
+                else
+                {
+                    iconButton18.Visible = true;
+                }
             }
         }
         public void loadPotrangshoNothiPanel()
