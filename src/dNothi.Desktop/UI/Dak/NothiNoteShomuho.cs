@@ -48,7 +48,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _noteAttachment;
         public long _nothi_id;
         public int onucched_count;
-
+        public bool isNothiAll;
         public void loadEyeIcon(string i)
         {
             if (i != "New")
@@ -238,13 +238,26 @@ namespace dNothi.Desktop.UI.Dak
         {
             Point p = ctrl.Location;
             Control parent = ctrl.Parent;
-           
-            while (!(parent is NothiInbox))
+            if(isNothiAll)
             {
-                p.Offset(parent.Location.X, parent.Location.Y);
-               
-                parent = parent.Parent;
+                while (!(parent is NothiAll))
+                {
+                    p.Offset(parent.Location.X, parent.Location.Y);
+
+                    parent = parent.Parent;
+                }
             }
+            else
+            {
+                while (!(parent is NothiInbox))
+                {
+                    p.Offset(parent.Location.X, parent.Location.Y);
+
+                    parent = parent.Parent;
+                }
+            }
+           
+           
             return p;
         }
         private void uc_noteEditButtonClick(object sender, EventArgs e)

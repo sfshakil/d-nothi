@@ -321,11 +321,7 @@ namespace dNothi.Desktop.UI.Dak
             hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
             hideform.ShowDialog();
         }
-        void nothiNoteShomuho_btnOptionClickedPoint(int X,int Y)
-        {
-            x = X;
-            y = Y;
-        }
+       
         
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
@@ -404,6 +400,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     nothiNoteShomuho.toofficer = "";
                 }
+                nothiNoteShomuho.isNothiAll = false;
                 int rowCount = newAllNoteFlowLayoutPanel.Controls.Count;
                 nothiNoteShomuho.btnOptionClick += delegate (object sender1, EventArgs e1)
                 {

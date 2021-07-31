@@ -23,8 +23,9 @@ namespace dNothi.Desktop.UI.Dak
         public AttachmentViewPopUpForm()
         {
             InitializeComponent();
-            IterateControls(this.Controls);
             WaitForm = new WaitFormFunc();
+            IterateControls(this.Controls);
+           
 
         }
 
@@ -226,9 +227,11 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.Controls.Clear();
             this.InitializeComponent();
+           
+            WaitForm.Show(this);
             waitPictureBox.Visible = true;
 
-            WaitForm.Show(this);
+            
 
             if (_dakAttachmentDTOs != null)
             {
@@ -253,9 +256,13 @@ namespace dNothi.Desktop.UI.Dak
                 //this.NextButton(sender, e);
 
             }
-            WaitForm.Close();
+           
             waitPictureBox.Visible = false;
-          
+            WaitForm.Close();
+            
+        
+
+
 
         }
 
@@ -281,6 +288,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.Controls.Clear();
             InitializeComponent();
+            //WaitForm = new WaitFormFunc();
+           // WaitForm.Show(this);
             waitPictureBox.Visible = true;
             //this.Visible = false;
             //WaitWindowForm waitWindowForm = new WaitWindowForm();
@@ -309,6 +318,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
 
             waitPictureBox.Visible = false;
+           // WaitForm.Close();
             //this.Hide();
 
             //this.PreviousButton(sender, e);

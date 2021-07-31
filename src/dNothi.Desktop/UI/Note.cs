@@ -179,14 +179,14 @@ namespace dNothi.Desktop.UI
                     btnWriteOnuchhed.Visible = false;
                     btnSend.Visible = false;
                 }
-                //if (_NoteAllListDataRecordDTO.note.onucched_count > 0)
-                //{
-                //    iconButton18.Visible = true;
-                //}
-                //else
-                //{
-                //    iconButton18.Visible = false;
-                //}
+                if (_NoteAllListDataRecordDTO.note.onucched_count > 0)
+                {
+                    iconButton18.Visible = false;
+                }
+                else
+                {
+                    iconButton18.Visible = true;
+                }
             }
         }
         public void loadPotrangshoNothiPanel()
@@ -207,6 +207,10 @@ namespace dNothi.Desktop.UI
             lbNote.Visible = false;
             pnlNotePotrojari.Visible = false;
             pnlNoNote.Visible = true;
+        }
+        public void visibilityoffNewNoteButton()
+        {
+            btnNewNote.Visible = false;
         }
         public void loadNoteData(NoteSaveDTO notedata)
         {
@@ -907,7 +911,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("API response issue that can't be desterilized");
+                ErrorMessage(ex.Message);
             }
         }
         public void loadNoteViewToNoPo(NoteView noteView)
@@ -1464,7 +1468,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("API response issue that can't be desterilized.");
+                ErrorMessage(ex.Message);
             }
 
         }
@@ -2360,6 +2364,16 @@ namespace dNothi.Desktop.UI
                 //this.Hide();
 
                 var form = FormFactory.Create<Note>();
+                form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                    foreach (Form f in Application.OpenForms)
+                    { BeginInvoke((Action)(() => f.Hide())); }
+                    var nothi = FormFactory.Create<Nothi>();
+                    nothi.TopMost = true;
+                    nothi.LoadNothiInboxButton(sender1, e1);
+                    BeginInvoke((Action)(() => nothi.ShowDialog()));
+                    BeginInvoke((Action)(() => nothi.TopMost = false));
+                    nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                };
                 _dakuserparam = _userService.GetLocalDakUserParam();
 
                 NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
@@ -3374,7 +3388,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("API response issue that can't be desterilized");
+                ErrorMessage(ex.Message);
             }
         }
 
@@ -3991,7 +4005,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("API response issue that can't be desterilized");
+                ErrorMessage(ex.Message);
             }
         }
 
@@ -8696,6 +8710,10 @@ namespace dNothi.Desktop.UI
                 //newNoteView.checkcbNote();
                 //noteViewFLP.Controls.Add(newNoteView);
 
+            }
+            else
+            {
+                ErrorMessage(noteOnucchedRevert.message);
             }
         }
         private void loadNote()

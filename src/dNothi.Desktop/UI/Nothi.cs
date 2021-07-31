@@ -591,6 +591,10 @@ namespace dNothi.Desktop.UI
                 BeginInvoke((Action)(() => nothi.TopMost = false));
                 nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
             };
+            if (inboxORoutboxORall == 2)
+            {
+                form.visibilityoffNewNoteButton();
+            }
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
             //form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
@@ -646,6 +650,10 @@ namespace dNothi.Desktop.UI
                 BeginInvoke((Action)(() => nothi.TopMost = false));
                 nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
             };
+            if (inboxORoutboxORall == 2)
+            {
+                form.visibilityoffNewNoteButton();
+            }
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
             form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO, inboxORoutboxORall); };
@@ -739,6 +747,10 @@ namespace dNothi.Desktop.UI
                 BeginInvoke((Action)(() => nothi.TopMost = false));
                 nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
             };
+            if (nothi_type == "sent")
+            {
+                form.visibilityoffNewNoteButton();
+            }
             //form.ShowDialog();vf
 
             _dakuserparam = _userService.GetLocalDakUserParam();
@@ -866,6 +878,10 @@ namespace dNothi.Desktop.UI
                         BeginInvoke((Action)(() => nothi.TopMost = false));
                         nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
                     };
+                    if (nothiListRecordsDTO.nothi_type == "sent")
+                    {
+                        form.visibilityoffNewNoteButton();
+                    }
                     _dakuserparam = _userService.GetLocalDakUserParam();
 
                     NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
@@ -1204,6 +1220,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
                     NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiOutbox._nothiListInboxNoteRecordsDTO, 2);// 2 means outbox
                 };
+                nothiOutbox.OutboxNoteRevertButton += delegate (object sender, EventArgs e) { LoadNothiOutboxButton(sender, e); };
 
                 nothiOutbox.NoteAllButton += delegate (object sender, EventArgs e) {
                     NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();

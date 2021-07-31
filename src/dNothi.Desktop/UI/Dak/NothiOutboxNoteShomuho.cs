@@ -94,9 +94,9 @@ namespace dNothi.Desktop.UI.Dak
             get { return _canRevert; }
             set { _canRevert = value;
                 if (value == 0)
-                    eyeIcon.IconChar = FontAwesome.Sharp.IconChar.Eye;
+                { eyeIcon.IconChar = FontAwesome.Sharp.IconChar.Eye; btnCanRevert.Visible = false; }
                 else
-                    eyeIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+                { eyeIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash; btnCanRevert.Visible = true; }
             }
         }
         public void invisible()
@@ -171,6 +171,12 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.btnnoteAttachment != null)
                 this.btnnoteAttachment(sender, e);
+        }
+        public event EventHandler btnnoteCanRevert;
+        private void btnCanRevert_Click(object sender, EventArgs e)
+        {
+            if (this.btnnoteCanRevert != null)
+                this.btnnoteCanRevert(sender, e);
         }
     }
 }

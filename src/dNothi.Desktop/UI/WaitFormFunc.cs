@@ -31,10 +31,13 @@ namespace dNothi.Utility
         {
             if (wait != null)
             {
-                wait.BeginInvoke(new System.Threading.ThreadStart(wait.CloseWaitForm));
-                wait = null;
-                loadthread = null;
+                
+                    wait.BeginInvoke(new System.Threading.ThreadStart(wait.CloseWaitForm));
+                    wait = null;
+                    loadthread = null;
+                
             }
+          
         }
 
         private void LoadingProcess()

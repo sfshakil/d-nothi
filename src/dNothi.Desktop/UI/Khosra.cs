@@ -49,7 +49,7 @@ namespace dNothi.Desktop.UI
         public WaitFormFunc WaitForm;
         private DakUserParam _dakuserparam { get; set; }
 
-
+        public bool isKasoraDashboard = false;
         private void commonKhosraRowUserControl_NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
          
@@ -1910,6 +1910,7 @@ namespace dNothi.Desktop.UI
                 {
                     UIDesignCommonMethod.SuccessMessage(khosraSaveResponse.data);
                    
+<<<<<<< HEAD
                     if(_noteListDataRecordNoteDTO != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id != "0")
                     {
                         commonKhosraRowUserControl_NoteDetails_ButtonClick(_noteListDataRecordNoteDTO, _nothiListRecordsDTO, _nothiListInboxNoteRecordsDTO);
@@ -1925,9 +1926,35 @@ namespace dNothi.Desktop.UI
                         KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
                         BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
                         khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+=======
+                        if (_noteListDataRecordNoteDTO != null)
+                        {
+                            commonKhosraRowUserControl_NoteDetails_ButtonClick(_noteListDataRecordNoteDTO, _nothiListRecordsDTO, _nothiListInboxNoteRecordsDTO);
+                        }
+                        else if (_noteSelected != null)
+                        {
+                            LoadNote();
+                        }
+                        else
+                        {
+                            foreach (Form f in Application.OpenForms)
+                            { BeginInvoke((Action)(() => f.Hide())); }
+                            KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
+                            BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
+                            khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                        }
+
+                    //   if (isKasoraDashboard)
+                    //   {
+                    //    foreach (Form f in Application.OpenForms)
+                    //    { BeginInvoke((Action)(() => f.Hide())); }
+                    //    KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
+                    //    BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
+                    //    khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                    //}
+
+>>>>>>> ca1b062bf8640c55db0b3c66451a47bf11aaccff
                     }
-                   
-                }
                 else if(khosraSaveResponse.status == "error")
                 {
                     UIDesignCommonMethod.ErrorMessage(khosraSaveResponse.message);

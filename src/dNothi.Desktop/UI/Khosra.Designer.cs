@@ -1350,7 +1350,7 @@
             this.label27.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label27.Location = new System.Drawing.Point(19, 5);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(198, 18);
+            this.label27.Size = new System.Drawing.Size(195, 18);
             this.label27.TabIndex = 1;
             this.label27.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1486,7 +1486,7 @@
             this.label24.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label24.Location = new System.Drawing.Point(19, 5);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(198, 18);
+            this.label24.Size = new System.Drawing.Size(195, 18);
             this.label24.TabIndex = 1;
             this.label24.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1623,7 +1623,7 @@
             this.label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label20.Location = new System.Drawing.Point(19, 5);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(198, 18);
+            this.label20.Size = new System.Drawing.Size(195, 18);
             this.label20.TabIndex = 1;
             this.label20.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1759,7 +1759,7 @@
             this.label17.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label17.Location = new System.Drawing.Point(19, 5);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(198, 18);
+            this.label17.Size = new System.Drawing.Size(195, 18);
             this.label17.TabIndex = 1;
             this.label17.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
@@ -1899,7 +1899,7 @@
             this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label14.Location = new System.Drawing.Point(19, 5);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(198, 18);
+            this.label14.Size = new System.Drawing.Size(195, 18);
             this.label14.TabIndex = 1;
             this.label14.Text = "দয়া করে একজন অফিসার বাছাই করুন";
             // 
