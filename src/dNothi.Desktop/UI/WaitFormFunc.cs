@@ -48,9 +48,9 @@ namespace dNothi.Utility
             Form parent1 = parent as Form;
             wait = new WaitNothiForm(parent1);
             //wait.ShowDialog();
-            CalPopUpWindow(wait);
+            CalPopUpWindow(wait,parent1);
         }
-        private void CalPopUpWindow(Form form)
+        private void CalPopUpWindow(Form form, Form parent)
         {
             Form hideform = new Form();
 
@@ -62,6 +62,7 @@ namespace dNothi.Utility
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
+
             hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
             hideform.ShowDialog();
         }

@@ -35,15 +35,21 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
 
         DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
+        //public WaitFormFunc WaitForm;
+        public WaitNothiForm WaitForm;
         public KhosraAttachmentForm(IUserService userService, IPotroServices potroServices)
         {
-
+            //WaitForm = new WaitNothiForm();
+            //UIDesignCommonMethod.CalPopUpWindow(WaitForm, this);
+            //UIDesignCommonMethod.hideform_Shown
             paginationReset();
 
             _userService = userService;
             _potroServices = potroServices;
             InitializeComponent();
             LoadAllPermittedPotro();
+
+            //WaitForm.Hide();
         }
 
         private void paginationReset()
@@ -301,6 +307,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 
         private void DeleteControl_ButtonClick(object sender, EventArgs e, DakAttachmentDTO dakAttachment)
         {
+            //this.Hide();
             DakUploadFileDeleteParam deleteParam = new DakUploadFileDeleteParam();
             deleteParam.delete_token = dakAttachment.delete_token;
             deleteParam.file_name = dakAttachment.file_name;
@@ -334,7 +341,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 
         private void KhosraAttachmentForm_Shown(object sender, EventArgs e)
         {
-          
+            //WaitForm.Close();
         }
 
         private void Border_Blue(object sender, PaintEventArgs e)
@@ -386,6 +393,11 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.Hide();
             if (this.SelectButtonClicked != null)
                 this.SelectButtonClicked(sender, e);
+        }
+
+        private void KhosraAttachmentForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

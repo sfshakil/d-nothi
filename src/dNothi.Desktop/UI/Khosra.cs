@@ -105,7 +105,7 @@ namespace dNothi.Desktop.UI
 
 
         }
-
+       
 
         public Khosra(INothiInboxNoteServices nothiInboxNote,IDesignationSealService designationSealService, IKhosraSaveService khosraSaveService,IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService)
         {
@@ -118,7 +118,7 @@ namespace dNothi.Desktop.UI
             WaitForm = new WaitFormFunc();
             InitializeComponent();
             timePicker.CustomFormat = "HH:mm";
-
+           
             //WaitForm.Show(this);
 
             //CreateEditor();
@@ -1315,11 +1315,13 @@ namespace dNothi.Desktop.UI
 
         private void newAttachmentButton_Click(object sender, EventArgs e)
         {
+            
             var khosraAttachmentForm = FormFactory.Create<KhosraAttachmentForm>();
             khosraAttachmentForm.IsCurrentPotroTabPageShow(false);
             khosraAttachmentForm.SelectButtonClicked += delegate (object s, EventArgs ev) { AddAttachment(khosraAttachmentForm.permittedPotroResponseMulpotroDTOs); ; };
 
             UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentForm, this);
+            
         }
 
         private void AddAttachment(List<PermittedPotroResponseMulpotroDTO> selectedPermittedPotroResponseMulpotroDTO)
@@ -1357,6 +1359,8 @@ namespace dNothi.Desktop.UI
             RefreshKhosra();
             label7.Text = UIDesignCommonMethod.copyRightLableText;
             khosraTableLayoutPanel.Enabled = false;
+            WaitForm = new WaitFormFunc();
+            WaitForm.Show();
         }
 
         private void RefreshKhosra()
@@ -1585,7 +1589,7 @@ namespace dNothi.Desktop.UI
                         }
 
                         tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { kasaradashboardHtmlContent });
-                        _khasraPotroTemplateData.html_content = kasaradashboardHtmlContent;
+                       _currentHtmlString= _khasraPotroTemplateData.html_content = kasaradashboardHtmlContent;
 
                         
                     }
@@ -1610,6 +1614,7 @@ namespace dNothi.Desktop.UI
             BeginInvoke((MethodInvoker)delegate
             {
                 khosraTableLayoutPanel.Enabled = true;
+                WaitForm.Close();
             });
            
         }
@@ -1905,11 +1910,11 @@ namespace dNothi.Desktop.UI
                 {
                     UIDesignCommonMethod.SuccessMessage(khosraSaveResponse.data);
                    
-                    if(_noteListDataRecordNoteDTO != null)
+                    if(_noteListDataRecordNoteDTO != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id != "0")
                     {
                         commonKhosraRowUserControl_NoteDetails_ButtonClick(_noteListDataRecordNoteDTO, _nothiListRecordsDTO, _nothiListInboxNoteRecordsDTO);
                     }
-                    else if(_noteSelected != null)
+                    else if(_noteSelected != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id !="0")
                     {
                         LoadNote();
                     }

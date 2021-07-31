@@ -2264,7 +2264,7 @@ namespace dNothi.Desktop.UI
                 }
                 else if (revertResponse.status == "success")
                 {
-                    SuccessMessage(revertResponse.data);
+                    SuccessMessage(revertResponse.message);
                     LoadDakNothivukto();
 
                 }
@@ -5511,16 +5511,17 @@ namespace dNothi.Desktop.UI
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            //RefreshPagination();
+            RefreshdDakList();
+        }
 
-          
 
-
+        private void PageReset()
+        {
             NormalizeDashBoard();
 
             RefreshDetailsSearchAllInput();
 
-          
+
 
 
 
