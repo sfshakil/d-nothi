@@ -261,7 +261,16 @@ namespace dNothi.Desktop.UI.Dak
                     if (singleRecSignature.Signature1.encode_sign != "")
                     {
                         var str = singleRecSignature.Signature1.encode_sign.Substring(singleRecSignature.Signature1.encode_sign.IndexOf(",") + 1);
-                        onucchedSignature.pbSign1 = Convert.FromBase64String(str);
+                        try
+                        {
+                            onucchedSignature.pbSign1 = Convert.FromBase64String(str);
+                        }
+                        catch
+                        {
+                            var strtry = str.Substring(str.IndexOf(",") + 1);
+                            onucchedSignature.pbSign1 = Convert.FromBase64String(strtry);
+                        }
+                        
                     }
                     
 
@@ -275,7 +284,16 @@ namespace dNothi.Desktop.UI.Dak
                     if (singleRecSignature.Signature2.encode_sign != "")
                     {
                         var str = singleRecSignature.Signature2.encode_sign.Substring(singleRecSignature.Signature2.encode_sign.IndexOf(",") + 1);
-                        onucchedSignature.pbSign2 = Convert.FromBase64String(str);
+                        
+                        try
+                        {
+                            onucchedSignature.pbSign2 = Convert.FromBase64String(str);
+                        }
+                        catch
+                        {
+                            var strtry = str.Substring(str.IndexOf(",") + 1);
+                            onucchedSignature.pbSign2 = Convert.FromBase64String(strtry);
+                        }
                     }
                 }
                 if (singleRecSignature.Signature3 != null)
@@ -287,7 +305,16 @@ namespace dNothi.Desktop.UI.Dak
                     if (singleRecSignature.Signature3.encode_sign != "")
                     {
                         var str = singleRecSignature.Signature3.encode_sign.Substring(singleRecSignature.Signature3.encode_sign.IndexOf(",") + 1);
-                        onucchedSignature.pbSign3 = Convert.FromBase64String(str);
+                        
+                        try
+                        {
+                            onucchedSignature.pbSign3 = Convert.FromBase64String(str);
+                        }
+                        catch
+                        {
+                            var strtry = str.Substring(str.IndexOf(",") + 1);
+                            onucchedSignature.pbSign3 = Convert.FromBase64String(strtry);
+                        }
                     }
                     
                 }
@@ -300,7 +327,16 @@ namespace dNothi.Desktop.UI.Dak
                     if (singleRecSignature.Signature4.encode_sign != "")
                     {
                         var str = singleRecSignature.Signature4.encode_sign.Substring(singleRecSignature.Signature4.encode_sign.IndexOf(",") + 1);
-                        onucchedSignature.pbSign4 = Convert.FromBase64String(str);
+                        
+                        try
+                        {
+                            onucchedSignature.pbSign4 = Convert.FromBase64String(str);
+                        }
+                        catch
+                        {
+                            var strtry = str.Substring(str.IndexOf(",") + 1);
+                            onucchedSignature.pbSign4 = Convert.FromBase64String(strtry);
+                        }
                     }
                     
                 }

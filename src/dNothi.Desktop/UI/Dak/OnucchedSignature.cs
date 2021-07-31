@@ -50,10 +50,12 @@ namespace dNothi.Desktop.UI.Dak
             get { return _pbSign1; }
             set { _pbSign1 = value;
 
-                using (MemoryStream ms = new MemoryStream(value))
+                if (value.Length != 0 )
                 {
-                    pbSignature1.Image = Image.FromStream(ms)
-;
+                    using (MemoryStream ms = new MemoryStream(value))
+                    {
+                        pbSignature1.Image = Image.FromStream(ms);
+                    }
                 }
             }
         }
@@ -96,11 +98,12 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _pbSign2; }
             set { _pbSign2 = value;
-
-                using (MemoryStream ms = new MemoryStream(value))
+                if (value.Length != 0)
                 {
-                    pbSignature2.Image = Image.FromStream(ms)
-;
+                    using (MemoryStream ms = new MemoryStream(value))
+                    {
+                        pbSignature2.Image = Image.FromStream(ms);
+                    }
                 }
             }
         }
@@ -142,11 +145,12 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _pbSign3; }
             set { _pbSign3 = value;
-
-                using (MemoryStream ms = new MemoryStream(value))
+                if (value.Length != 0)
                 {
-                    pbSignature3.Image = Image.FromStream(ms)
-;
+                    using (MemoryStream ms = new MemoryStream(value))
+                    {
+                        pbSignature3.Image = Image.FromStream(ms);
+                    }
                 }
             }
         }
@@ -188,11 +192,12 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _pbSign4; }
             set { _pbSign4 = value;
-
-                using (MemoryStream ms = new MemoryStream(value))
+                if (value.Length != 0)
                 {
-                    pbSignature4.Image = Image.FromStream(ms)
-;
+                    using (MemoryStream ms = new MemoryStream(value))
+                    {
+                        pbSignature4.Image = Image.FromStream(ms);
+                    }
                 }
             }
         }
