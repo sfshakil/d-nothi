@@ -2360,6 +2360,16 @@ namespace dNothi.Desktop.UI
                 //this.Hide();
 
                 var form = FormFactory.Create<Note>();
+                form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                    foreach (Form f in Application.OpenForms)
+                    { BeginInvoke((Action)(() => f.Hide())); }
+                    var nothi = FormFactory.Create<Nothi>();
+                    nothi.TopMost = true;
+                    nothi.LoadNothiInboxButton(sender1, e1);
+                    BeginInvoke((Action)(() => nothi.ShowDialog()));
+                    BeginInvoke((Action)(() => nothi.TopMost = false));
+                    nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                };
                 _dakuserparam = _userService.GetLocalDakUserParam();
 
                 NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
