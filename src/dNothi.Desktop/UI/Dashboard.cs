@@ -1675,6 +1675,7 @@ namespace dNothi.Desktop.UI
 
             selectDakBoxHolderPanel.Visible = true;
 
+
             ResetAllMenuButtonSelection();
             SelectButton(dakInboxButton);
             DakListLoad();
@@ -2371,9 +2372,14 @@ namespace dNothi.Desktop.UI
             searchHeaderTableLayoutPanel.Visible = true;
             designationDetailsPanel.Visible = false;
 
-
-            isAllTypeSearch = IsArchiveSearch = IsDakInboxSearch = IsOutboxSearch = IsNothiJatoSearch = isNothivuktoSearched = IsSortedSearch = IsKhosraSearch = false;
+            if(isAllTypeSearch || IsArchiveSearch || IsDakInboxSearch || IsOutboxSearch || IsNothiJatoSearch || isNothivuktoSearched || IsSortedSearch || IsKhosraSearch)
+            {
+                RefreshPagination();
+                isAllTypeSearch = IsArchiveSearch = IsDakInboxSearch = IsOutboxSearch = IsNothiJatoSearch = isNothivuktoSearched = IsSortedSearch = IsKhosraSearch = false;
+            }
         }
+
+            
         private void NormalizeDashboardWithoutSearchRefresh()
         {
             dakTagPanel.Visible = false;
@@ -4411,7 +4417,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                pageEnd = pageEnd - (NothiCommonStaticValue.pageLimit - count);
+                pageEnd = pageStart + count-1;
 
             }
 
@@ -4695,35 +4701,35 @@ namespace dNothi.Desktop.UI
             //  if(dakSearchSubTextBox.Text !=""){ searchParam += "dak_subject=" + dakSearchSubTextBox.Text; }
             if (searchDakSecurityComboBox.SelectedValue != null && searchDakSecurityComboBox.SelectedValue.ToString() != "0" && searchDakSecurityComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_security=" + searchDakSecurityComboBox.SelectedValue.ToString();
+                searchParam += "&dak_security=" + searchDakSecurityComboBox.SelectedValue.ToString();
             }
             if (searchDakPriorityComboBox.SelectedValue != null && searchDakPriorityComboBox.SelectedValue.ToString() != "0" && searchDakPriorityComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_priority=" + searchDakPriorityComboBox.SelectedValue.ToString();
+                searchParam += "&dak_priority=" + searchDakPriorityComboBox.SelectedValue.ToString();
             }
 
             if (last_modified_date != "")
             {
-                searchParam += " & last_modified_date=" + last_modified_date;
+                searchParam += "&last_modified_date=" + last_modified_date;
             }
 
             if (searchDakTypeComboBox.SelectedValue != null && searchDakTypeComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_type=" + searchDakTypeComboBox.SelectedValue.ToString();
+                searchParam += "&dak_type=" + searchDakTypeComboBox.SelectedValue.ToString();
             }
 
             if (searchDakPotroTypeComboBox.SelectedValue != null && searchDakPotroTypeComboBox.SelectedValue.ToString() != "0" && searchDakPotroTypeComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & potro_type=" + searchDakPotroTypeComboBox.SelectedValue.ToString();
+                searchParam += "&potro_type=" + searchDakPotroTypeComboBox.SelectedValue.ToString();
             }
 
             if (searchDakStatusComboBox.SelectedValue != null && searchDakStatusComboBox.SelectedValue.ToString() != "0" && searchDakStatusComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_view_status=" + searchDakStatusComboBox.SelectedValue.ToString();
+                searchParam += "&dak_view_status=" + searchDakStatusComboBox.SelectedValue.ToString();
             }
             if (searchThirdPartyComboBox.SelectedValue != null && searchThirdPartyComboBox.SelectedValue.ToString() != "0" && searchThirdPartyComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & daak_service=" + searchThirdPartyComboBox.SelectedValue.ToString();
+                searchParam += "&daak_service=" + searchThirdPartyComboBox.SelectedValue.ToString();
             }
 
 
@@ -4731,20 +4737,20 @@ namespace dNothi.Desktop.UI
 
             if (detailSearchApplicationAcceptNumberTextBox.Text.ToString() != "")
             {
-                searchParam += " & dak_receipt_no=" + detailSearchApplicationAcceptNumberTextBox.Text.ToString();
+                searchParam += "&dak_receipt_no=" + detailSearchApplicationAcceptNumberTextBox.Text.ToString();
             }
             if (detailsSearchDocketingNoTextBox.Text.ToString() != "")
             {
-                searchParam += " & docketing_no=" + detailsSearchDocketingNoTextBox.Text.ToString();
+                searchParam += "&docketing_no=" + detailsSearchDocketingNoTextBox.Text.ToString();
             }
             if (detailsSearchPrerokOficerNameTextBox.Text.ToString() != "")
             {
-                searchParam += " & sender_officer_name=" + detailsSearchPrerokOficerNameTextBox.Text.ToString();
+                searchParam += "&sender_officer_name=" + detailsSearchPrerokOficerNameTextBox.Text.ToString();
             }
 
             if (detailsSearchPrerokOficeNameTextBox.Text.ToString() != "")
             {
-                searchParam += " & sender_office_name=" + detailsSearchPrerokOficeNameTextBox.Text.ToString();
+                searchParam += "&sender_office_name=" + detailsSearchPrerokOficeNameTextBox.Text.ToString();
             }
 
 
@@ -4756,19 +4762,19 @@ namespace dNothi.Desktop.UI
             //  searchParam += "&sender_office_id=" + detailsSearchPrerokOficeNameTextBox.Text.ToString();
             if (officerSearchList._id != 0)
             {
-                searchParam += " & to_officer_id=" + officerSearchList._id;
+                searchParam += "&to_officer_id=" + officerSearchList._id;
             }
 
             if (searchOfficeDetailSearch._id != 0)
             {
-                searchParam += " & to_office_id=" + searchOfficeDetailSearch._id;
+                searchParam += "&to_office_id=" + searchOfficeDetailSearch._id;
             }
             string subStringWithoutFirstLetter = "";
             if (searchParam != "")
             {
-                int strLength = searchParam.Length - 3;
+                int strLength = searchParam.Length - 1;
 
-                subStringWithoutFirstLetter = searchParam.Substring(3, strLength);
+                subStringWithoutFirstLetter = searchParam.Substring(1, strLength);
 
             }
 
@@ -4779,6 +4785,7 @@ namespace dNothi.Desktop.UI
 
         private void RefreshDetailsSearchAllInput()
         {
+            UnAssignFilterOption();
             // timeLimitFromDateTimePicker.Text = DateTime.Now.Date.ToString();
             // timeLimitToDateTimePicker.Text = DateTime.Now.Date.ToString();
             dakSearchSubTextBox.Text = "";
@@ -4839,7 +4846,7 @@ namespace dNothi.Desktop.UI
             detailsSearchPrerokOficeNameTextBox.Text = "";
 
 
-
+            AssignFilterOption();
         }
 
         public bool istimeLimitFromDateTimePickerSelected = false;
@@ -5461,27 +5468,27 @@ namespace dNothi.Desktop.UI
 
             if (dakStatusComboBox.SelectedValue != null && dakStatusComboBox.SelectedValue.ToString() != "0" && dakStatusComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_view_status=" + dakStatusComboBox.SelectedValue.ToString();
+                searchParam += "&dak_view_status=" + dakStatusComboBox.SelectedValue.ToString();
             }
             if (dakSecretComboBox.SelectedValue != null && dakSecretComboBox.SelectedValue.ToString() != "0" && dakSecretComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_security=" + dakSecretComboBox.SelectedValue.ToString();
+                searchParam += "&dak_security=" + dakSecretComboBox.SelectedValue.ToString();
             }
             if (dakTypeComboBox.SelectedValue != null && dakTypeComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_type=" + dakTypeComboBox.SelectedValue.ToString();
+                searchParam += "&dak_type=" + dakTypeComboBox.SelectedValue.ToString();
             }
             if (dakPriorityComboBox.SelectedValue != null && dakPriorityComboBox.SelectedValue.ToString() != "0" && dakPriorityComboBox.SelectedValue.ToString() != "")
             {
-                searchParam += " & dak_priority=" + dakPriorityComboBox.SelectedValue.ToString();
+                searchParam += "&dak_priority=" + dakPriorityComboBox.SelectedValue.ToString();
             }
 
             string subStringWithoutFirstLetter = "";
             if (searchParam != "")
             {
-                int strLength = searchParam.Length - 3;
+                int strLength = searchParam.Length - 1;
 
-                subStringWithoutFirstLetter = searchParam.Substring(3, strLength);
+                subStringWithoutFirstLetter = searchParam.Substring(1, strLength);
 
             }
 
@@ -5506,25 +5513,42 @@ namespace dNothi.Desktop.UI
         {
             //RefreshPagination();
 
-            dakStatusComboBox.SelectedIndexChanged -= dakFilterClick;
-            dakSecretComboBox.SelectedIndexChanged -= dakFilterClick;
-            dakPriorityComboBox.SelectedIndexChanged -= dakFilterClick;
-            dakTypeComboBox.SelectedIndexChanged -= dakFilterClick;
+          
+
 
             NormalizeDashBoard();
 
             RefreshDetailsSearchAllInput();
-            
-            dakStatusComboBox.SelectedIndexChanged += dakFilterClick;
-            dakSecretComboBox.SelectedIndexChanged += dakFilterClick;
-            dakPriorityComboBox.SelectedIndexChanged += dakFilterClick;
-            dakTypeComboBox.SelectedIndexChanged += dakFilterClick;
+
+          
+
 
 
             RefreshdDakList();
         }
 
-       
+        private void AssignFilterOption()
+        {
+            dakStatusComboBox.SelectedIndexChanged += dakFilterClick;
+            dakSecretComboBox.SelectedIndexChanged += dakFilterClick;
+            dakPriorityComboBox.SelectedIndexChanged += dakFilterClick;
+            dakTypeComboBox.SelectedIndexChanged += dakFilterClick;
+        }
+
+        private void UnAssignFilterOption()
+        {
+            try
+            {
+                dakStatusComboBox.SelectedIndexChanged -= dakFilterClick;
+                dakSecretComboBox.SelectedIndexChanged -= dakFilterClick;
+                dakPriorityComboBox.SelectedIndexChanged -= dakFilterClick;
+                dakTypeComboBox.SelectedIndexChanged -= dakFilterClick;
+            }
+            catch
+            {
+
+            }
+        }
 
         private void dakFilterClick(object sender, EventArgs e)
         {

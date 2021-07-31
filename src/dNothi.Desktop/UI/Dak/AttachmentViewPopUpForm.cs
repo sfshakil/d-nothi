@@ -17,13 +17,14 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class AttachmentViewPopUpForm : Form
     {
+        public WaitFormFunc WaitForm;
         private bool MouseIsOverControl() =>
    this.ClientRectangle.Contains(this.PointToClient(Cursor.Position));
         public AttachmentViewPopUpForm()
         {
             InitializeComponent();
             IterateControls(this.Controls);
-        
+            WaitForm = new WaitFormFunc();
 
         }
 
@@ -226,7 +227,8 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Clear();
             this.InitializeComponent();
             waitPictureBox.Visible = true;
-         
+
+            WaitForm.Show(this);
 
             if (_dakAttachmentDTOs != null)
             {
@@ -251,7 +253,7 @@ namespace dNothi.Desktop.UI.Dak
                 //this.NextButton(sender, e);
 
             }
-
+            WaitForm.Close();
             waitPictureBox.Visible = false;
           
 

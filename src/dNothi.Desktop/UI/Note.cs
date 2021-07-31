@@ -179,6 +179,14 @@ namespace dNothi.Desktop.UI
                     btnWriteOnuchhed.Visible = false;
                     btnSend.Visible = false;
                 }
+                //if (_NoteAllListDataRecordDTO.note.onucched_count > 0)
+                //{
+                //    iconButton18.Visible = true;
+                //}
+                //else
+                //{
+                //    iconButton18.Visible = false;
+                //}
             }
         }
         public void loadPotrangshoNothiPanel()
@@ -9560,7 +9568,7 @@ namespace dNothi.Desktop.UI
 
             //GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(noteNothiDTO.nothi_id), potrojari_id);
             //form.SetSarokNo(sarok_no.sarok_no);
-
+            UIDesignCommonMethod.returnForm = this;
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
@@ -9878,7 +9886,7 @@ namespace dNothi.Desktop.UI
                     khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
                 }
 
-
+                UIDesignCommonMethod.returnForm = this;
                 BeginInvoke((Action)(() => khosra.ShowDialog()));
                 khosra.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
@@ -9928,6 +9936,27 @@ namespace dNothi.Desktop.UI
         {
             btnOnuchhedSave_Click(sender, e);
             btnSend_Click(sender, e);
+        }
+
+        private void iconButton18_Click(object sender, EventArgs e)
+        {
+            var noteCreatePopUpForm = FormFactory.Create<NoteCreatePopUpForm>();
+
+            noteCreatePopUpForm.noteSubject = lbNoteSubject.Text;
+            noteCreatePopUpForm.noteId = noteAllListDataRecordDTO.note.nothi_note_id;
+            noteCreatePopUpForm.nothiListInboxNoteRecordsDTO = noteAllListDataRecordDTO;
+            noteCreatePopUpForm.SaveButtonClick += delegate (object senderSaveButton, EventArgs eventSaveButton)
+            {
+                nothiSubjectupdate(senderSaveButton as object, eventSaveButton);
+
+            };
+            CalPopUpWindow(noteCreatePopUpForm);
+        }
+
+        private void nothiSubjectupdate(object sender, EventArgs e)
+        {
+
+            lbNoteSubject.Text = sender.ToString();
         }
     }
 }
