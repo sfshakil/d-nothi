@@ -60,7 +60,10 @@ namespace dNothi.Desktop.UI.Dak
         public bool isPreritoNote
         {
             get { return _isPreritoNote; }
-            set { _isPreritoNote = value; if (value) { sokolNoteNoteDeskPanel.Visible = false; preritoNoteCDeskPanel.Visible = true; preritoNoteDatePanel.Visible = true; preritoNotePrapokPanel.Visible = true;usersButton.Visible = true; optionButton.Visible = false; } }
+            set { _isPreritoNote = value; if (value) { sokolNoteNoteDeskPanel.Visible = false; 
+                    preritoNoteCDeskPanel.Visible = true; preritoNoteDatePanel.Visible = true; preritoNotePrapokPanel.Visible = true;
+                    //usersButton.Visible = true; 
+                    optionButton.Visible = false; } }
         }
 
 

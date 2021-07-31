@@ -208,6 +208,10 @@ namespace dNothi.Desktop.UI
             pnlNotePotrojari.Visible = false;
             pnlNoNote.Visible = true;
         }
+        public void visibilityoffNewNoteButton()
+        {
+            btnNewNote.Visible = false;
+        }
         public void loadNoteData(NoteSaveDTO notedata)
         {
             newnotedata = notedata;
@@ -8706,6 +8710,10 @@ namespace dNothi.Desktop.UI
                 //newNoteView.checkcbNote();
                 //noteViewFLP.Controls.Add(newNoteView);
 
+            }
+            else
+            {
+                ErrorMessage(noteOnucchedRevert.message);
             }
         }
         private void loadNote()

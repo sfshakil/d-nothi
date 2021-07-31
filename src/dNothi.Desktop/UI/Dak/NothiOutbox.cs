@@ -26,11 +26,13 @@ namespace dNothi.Desktop.UI.Dak
         //INothiInboxNoteServices _nothiInboxNote { get; set; }
         INothiOutboxNoteServices _nothiOutboxNote { get; set; }
         NothiListInboxNoteRecordsDTO _noteListForNoteAll = new NothiListInboxNoteRecordsDTO();
-        public NothiOutbox(IUserService userService, INothiOutboxNoteServices nothiOutboxNote, INothiInboxNoteServices nothiInboxNote)
+        INoteOnucchedRevertServices _noteOnucchedRevert { get; set; }
+        public NothiOutbox(IUserService userService, INothiOutboxNoteServices nothiOutboxNote, INothiInboxNoteServices nothiInboxNote, INoteOnucchedRevertServices noteOnucchedRevert)
         {
             _userService = userService;
             _nothiOutboxNote = nothiOutboxNote;
             _nothiInboxNote = nothiInboxNote;
+            _noteOnucchedRevert = noteOnucchedRevert;
             InitializeComponent();
             originalWidth = this.Width;
             originalHeight = this.Height;
@@ -264,6 +266,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiNoteShomuho.canRevert = nothiListInboxNoteRecordsDTO.note.can_revert;
                 nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
                 nothiNoteShomuho.btnnoteAttachment  += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
+                nothiNoteShomuho.btnnoteCanRevert += delegate (object sender1, EventArgs e1) { NoteCanRevert_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
 
                 nothiNoteShomuho.OutboxNoteDetailsButton += delegate (object sender1, EventArgs e1) { OutboxNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
 
@@ -347,6 +350,40 @@ namespace dNothi.Desktop.UI.Dak
                 var form = NothiNextStepControlToForm(nothiDecisionList);
 
                 CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
+        public event EventHandler OutboxNoteRevertButton;
+        private void NoteCanRevert_ButtonClick(NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, EventArgs e1)
+        {
+            if (InternetConnection.Check())
+            {
+                NoteSaveDTO newnotedata = new NoteSaveDTO();
+                NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
+
+                var nothiListUserParam = _userService.GetLocalDakUserParam();
+                newnotedata.note_subject = nothiListInboxNoteRecordsDTO.note.note_subject;
+                newnotedata.note_id = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+                nothiListRecords.subject = nothiListInboxNoteRecordsDTO.nothi.subject;
+                nothiListRecords.id = nothiListInboxNoteRecordsDTO.nothi.id;
+                nothiListRecords.office_name = nothiListInboxNoteRecordsDTO.nothi.office_name;
+
+                NoteOnucchedRevertResPonse noteOnucchedRevert = _noteOnucchedRevert.GetNoteOnucchedRevert(nothiListUserParam, nothiListRecords, newnotedata);
+                if (noteOnucchedRevert.status == "success")
+                {
+                    SuccessMessage(noteOnucchedRevert.data);
+                    if (this.OutboxNoteRevertButton != null)
+                        this.OutboxNoteRevertButton(nothiListInboxNoteRecordsDTO as object, e1);
+                    
+
+                }
+                else
+                {
+                    ErrorMessage(noteOnucchedRevert.message);
+                }
             }
             else
             {

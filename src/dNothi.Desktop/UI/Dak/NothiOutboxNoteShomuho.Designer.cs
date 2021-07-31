@@ -35,7 +35,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnCanRevert = new FontAwesome.Sharp.IconButton();
             this.btnOption = new FontAwesome.Sharp.IconButton();
             this.nothiOutboxDetBtnNewTab = new FontAwesome.Sharp.IconButton();
             this.NoteDetailsButton = new FontAwesome.Sharp.IconButton();
@@ -137,7 +137,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.iconButton2);
+            this.panel3.Controls.Add(this.btnCanRevert);
             this.panel3.Controls.Add(this.btnOption);
             this.panel3.Controls.Add(this.nothiOutboxDetBtnNewTab);
             this.panel3.Controls.Add(this.NoteDetailsButton);
@@ -148,22 +148,23 @@ namespace dNothi.Desktop.UI.Dak
             this.panel3.Size = new System.Drawing.Size(180, 42);
             this.panel3.TabIndex = 0;
             // 
-            // iconButton2
+            // btnCanRevert
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Undo;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 18;
-            this.iconButton2.Location = new System.Drawing.Point(120, 0);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(40, 42);
-            this.iconButton2.TabIndex = 67;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.btnCanRevert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnCanRevert.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCanRevert.FlatAppearance.BorderSize = 0;
+            this.btnCanRevert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCanRevert.IconChar = FontAwesome.Sharp.IconChar.Undo;
+            this.btnCanRevert.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnCanRevert.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCanRevert.IconSize = 18;
+            this.btnCanRevert.Location = new System.Drawing.Point(120, 0);
+            this.btnCanRevert.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCanRevert.Name = "btnCanRevert";
+            this.btnCanRevert.Size = new System.Drawing.Size(40, 42);
+            this.btnCanRevert.TabIndex = 67;
+            this.btnCanRevert.UseVisualStyleBackColor = false;
+            this.btnCanRevert.Click += new System.EventHandler(this.btnCanRevert_Click);
             // 
             // btnOption
             // 
@@ -181,6 +182,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnOption.Size = new System.Drawing.Size(40, 42);
             this.btnOption.TabIndex = 66;
             this.btnOption.UseVisualStyleBackColor = false;
+            this.btnOption.Visible = false;
             // 
             // nothiOutboxDetBtnNewTab
             // 
@@ -686,7 +688,7 @@ namespace dNothi.Desktop.UI.Dak
         private FontAwesome.Sharp.IconButton btnOption;
         private FontAwesome.Sharp.IconButton nothiOutboxDetBtnNewTab;
         private FontAwesome.Sharp.IconButton NoteDetailsButton;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnCanRevert;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
