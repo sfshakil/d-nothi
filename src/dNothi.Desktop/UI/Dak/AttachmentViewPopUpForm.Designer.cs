@@ -48,7 +48,7 @@
             // 
             this.pdfViewerControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.pdfViewerControl.Enabled = true;
-            this.pdfViewerControl.Location = new System.Drawing.Point(0, 1021);
+            this.pdfViewerControl.Location = new System.Drawing.Point(0, 501);
             this.pdfViewerControl.Name = "pdfViewerControl";
             this.pdfViewerControl.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("pdfViewerControl.OcxState")));
             this.pdfViewerControl.Size = new System.Drawing.Size(767, 650);
@@ -61,7 +61,7 @@
             this.imagePanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.imagePanel.Controls.Add(this.imageViewPictureBox);
             this.imagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imagePanel.Location = new System.Drawing.Point(0, 1671);
+            this.imagePanel.Location = new System.Drawing.Point(0, 1151);
             this.imagePanel.Margin = new System.Windows.Forms.Padding(0);
             this.imagePanel.MaximumSize = new System.Drawing.Size(867, 620);
             this.imagePanel.Name = "imagePanel";
@@ -102,34 +102,33 @@
             // 
             // rightArrowButton
             // 
-            this.rightArrowButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rightArrowButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.rightArrowButton.FlatAppearance.BorderSize = 0;
             this.rightArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rightArrowButton.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleRight;
             this.rightArrowButton.IconColor = System.Drawing.Color.Black;
             this.rightArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.rightArrowButton.Location = new System.Drawing.Point(728, 139);
+            this.rightArrowButton.Location = new System.Drawing.Point(726, 265);
             this.rightArrowButton.Name = "rightArrowButton";
             this.rightArrowButton.Size = new System.Drawing.Size(39, 44);
             this.rightArrowButton.TabIndex = 7;
             this.rightArrowButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.rightArrowButton.UseVisualStyleBackColor = true;
-            this.rightArrowButton.Visible = false;
             this.rightArrowButton.Click += new System.EventHandler(this.rightArrowButton_Click);
             // 
             // leftArrowButton
             // 
+            this.leftArrowButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.leftArrowButton.FlatAppearance.BorderSize = 0;
             this.leftArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.leftArrowButton.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleLeft;
             this.leftArrowButton.IconColor = System.Drawing.Color.Black;
             this.leftArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.leftArrowButton.Location = new System.Drawing.Point(4, 280);
+            this.leftArrowButton.Location = new System.Drawing.Point(5, 258);
             this.leftArrowButton.Name = "leftArrowButton";
             this.leftArrowButton.Size = new System.Drawing.Size(39, 44);
             this.leftArrowButton.TabIndex = 6;
             this.leftArrowButton.UseVisualStyleBackColor = true;
-            this.leftArrowButton.Visible = false;
             this.leftArrowButton.Click += new System.EventHandler(this.leftArrowButton_Click);
             // 
             // closeButton
@@ -155,11 +154,12 @@
             // 
             // waitPictureBox
             // 
-            this.waitPictureBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.waitPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("waitPictureBox.Image")));
-            this.waitPictureBox.Location = new System.Drawing.Point(0, 501);
+            this.waitPictureBox.BackColor = System.Drawing.Color.White;
+            this.waitPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.waitPictureBox.Image = global::dNothi.Desktop.Properties.Resources.Full_snake;
+            this.waitPictureBox.Location = new System.Drawing.Point(0, 1151);
             this.waitPictureBox.Name = "waitPictureBox";
-            this.waitPictureBox.Size = new System.Drawing.Size(767, 520);
+            this.waitPictureBox.Size = new System.Drawing.Size(767, 0);
             this.waitPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.waitPictureBox.TabIndex = 8;
             this.waitPictureBox.TabStop = false;
@@ -169,7 +169,7 @@
             // 
             this.mainAttachmentViewWebBrowser.ActivateBrowserOnCreation = false;
             this.mainAttachmentViewWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(0, 1671);
+            this.mainAttachmentViewWebBrowser.Location = new System.Drawing.Point(0, 1151);
             this.mainAttachmentViewWebBrowser.Margin = new System.Windows.Forms.Padding(3, 3, 3, 50);
             this.mainAttachmentViewWebBrowser.Name = "mainAttachmentViewWebBrowser";
             this.mainAttachmentViewWebBrowser.Padding = new System.Windows.Forms.Padding(0, 0, 0, 50);
@@ -187,15 +187,15 @@
             this.Controls.Add(this.rightArrowButton);
             this.Controls.Add(this.leftArrowButton);
             this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.waitPictureBox);
             this.Controls.Add(this.imagePanel);
             this.Controls.Add(this.mainAttachmentViewWebBrowser);
             this.Controls.Add(this.pdfViewerControl);
-            this.Controls.Add(this.waitPictureBox);
             this.Controls.Add(this.fileMissingLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AttachmentViewPopUpForm";
             this.Text = "AttachmentViewPopUpForm";
-            this.Load += new System.EventHandler(this.AttachmentViewPopUpForm_Load);
+            this.Load += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
             this.MouseLeave += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
             this.MouseHover += new System.EventHandler(this.AttachmentViewPopUpForm_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.pdfViewerControl)).EndInit();

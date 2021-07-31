@@ -77,7 +77,11 @@ namespace dNothi.Desktop.UI.Dak
       
         public List<DakAttachmentDTO> dakAttachmentDTOs { get { return _dakAttachmentDTOs; } set { 
                 
-                    
+                    if(value != null && value.Count<=1)
+                      {
+                            leftArrowButton.Visible = rightArrowButton.Visible = false;
+                      }
+
                 _dakAttachmentDTOs = value.Where(a=>a.attachment_type.ToLower().Contains("image") || a.attachment_type.ToLower().Contains("img") || a.attachment_type.ToLower().Contains("pdf") || a.attachment_type.ToLower().Contains("txt") || a.attachment_type.ToLower().Contains("text")).ToList(); 
             
             } 
@@ -94,9 +98,9 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     if (dakAttachmentDTO.attachment_type.ToLower().Contains("image") || dakAttachmentDTO.attachment_type.ToLower().Contains("img"))
                     {
-                        rightArrowButton.Visible = true;
+                        //rightArrowButton.Visible = true;
 
-                        leftArrowButton.Visible = true;
+                       // leftArrowButton.Visible = true;
                         mainAttachmentViewWebBrowser.Visible = false;
                         pdfViewerControl.Visible = false;
                        
@@ -110,9 +114,9 @@ namespace dNothi.Desktop.UI.Dak
                     }
                     else if (dakAttachmentDTO.attachment_type.ToLower().Contains("pdf"))
                     {
-                        rightArrowButton.Visible = true;
+                        //rightArrowButton.Visible = true;
 
-                        leftArrowButton.Visible = true;
+                        //leftArrowButton.Visible = true;
 
                         WebClient myClient = new WebClient();
                         byte[] bytes = myClient.DownloadData(dakAttachmentDTO.url);
@@ -154,8 +158,8 @@ namespace dNothi.Desktop.UI.Dak
                         imagePanel.Visible = false;
                         fileMissingLabel.Visible = false;
                         mainAttachmentViewWebBrowser.Visible = true;
-                        rightArrowButton.Visible = false;
-                        leftArrowButton.Visible = false;
+                      //  rightArrowButton.Visible = false;
+                       // leftArrowButton.Visible = false;
                         //if (mainAttachmentViewWebBrowser.Document != null)
                         //{
                         //    mainAttachmentViewWebBrowser.Document.Write(string.Empty);
@@ -227,8 +231,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.Controls.Clear();
             this.InitializeComponent();
-           
-            WaitForm.Show(this);
+            
+            //WaitForm.Show(this);
             waitPictureBox.Visible = true;
 
             
@@ -254,11 +258,11 @@ namespace dNothi.Desktop.UI.Dak
 
                 //this.Hide();
                 //this.NextButton(sender, e);
-
+                
             }
            
             waitPictureBox.Visible = false;
-            WaitForm.Close();
+            //WaitForm.Close();
             
         
 
@@ -289,7 +293,7 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Clear();
             InitializeComponent();
             //WaitForm = new WaitFormFunc();
-           // WaitForm.Show(this);
+            // WaitForm.Show(this);
             waitPictureBox.Visible = true;
             //this.Visible = false;
             //WaitWindowForm waitWindowForm = new WaitWindowForm();
