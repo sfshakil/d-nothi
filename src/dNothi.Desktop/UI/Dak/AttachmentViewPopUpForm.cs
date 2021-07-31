@@ -228,7 +228,7 @@ namespace dNothi.Desktop.UI.Dak
             this.InitializeComponent();
             waitPictureBox.Visible = true;
 
-            WaitForm.Show(this);
+            //WaitForm.Show(this);
 
             if (_dakAttachmentDTOs != null)
             {
@@ -253,7 +253,7 @@ namespace dNothi.Desktop.UI.Dak
                 //this.NextButton(sender, e);
 
             }
-            WaitForm.Close();
+            //WaitForm.Close();
             waitPictureBox.Visible = false;
           
 
