@@ -899,7 +899,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("API response issue that can't be desterilized");
+                ErrorMessage(ex.Message);
             }
         }
         public void loadNoteViewToNoPo(NoteView noteView)
@@ -1456,7 +1456,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("API response issue that can't be desterilized.");
+                ErrorMessage(ex.Message);
             }
 
         }
@@ -3366,7 +3366,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("API response issue that can't be desterilized");
+                ErrorMessage(ex.Message);
             }
         }
 
@@ -3983,7 +3983,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("API response issue that can't be desterilized");
+                ErrorMessage(ex.Message);
             }
         }
 
