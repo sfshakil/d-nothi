@@ -25,8 +25,9 @@ namespace dNothi.Utility
         }
         public static string EngDigittoBanDigit(string input)
         {
-
-            string output = input.Replace("0","০" ).Replace("1","১").Replace("2","২").Replace("3","৩").Replace("4","৪").Replace("5","৫").Replace("6","৬").Replace("7","৭").Replace("8","৮" ).Replace("9","৯");
+            if (input == null)
+                input = string.Empty;
+            string output = input.Replace(string.Empty, "").Replace("0","০" ).Replace("1","১").Replace("2","২").Replace("3","৩").Replace("4","৪").Replace("5","৫").Replace("6","৬").Replace("7","৭").Replace("8","৮" ).Replace("9","৯");
             return output;
         }
         public static string numberToConsonet(string input)
@@ -34,6 +35,47 @@ namespace dNothi.Utility
             string output = input.Replace("0", "").Replace("1", "ক").Replace("2", "খ").Replace("3", "গ").Replace("4", "ঘ").Replace("5", "ঙ").Replace("6", "চ").Replace("7", "ছ").Replace("8", "জ").Replace("9", "ঝ").Replace("10", "ঞ");
             return output;
         }
+
+        public static List<ComboBoxItem> ShakaList()
+        {
+            List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
+            ComboBoxItem data=new ComboBoxItem {  Id= 6691, Name= "প্রকল্প পরিচালকের" };
+            comboBoxItems.Add(data);
+            ComboBoxItem data1 = new ComboBoxItem { Id = 6692, Name = "পলিসি অ্যাডভাইজর" };
+            comboBoxItems.Add(data1);
+            ComboBoxItem data2 = new ComboBoxItem { Id = 6699, Name = "ক্যাপাসিটি ডেভেলপমেন্ট" };
+            comboBoxItems.Add(data2);
+            ComboBoxItem data3 = new ComboBoxItem { Id = 6700, Name = "ক্যাপাসিটি ডেভেলপমেন্ট" };
+            comboBoxItems.Add(data3);
+            ComboBoxItem data4 = new ComboBoxItem { Id = 6707, Name = "কমিউনিকেশন ও পার্টনারশীপ" };
+            comboBoxItems.Add(data4);
+            ComboBoxItem data5 = new ComboBoxItem { Id = 6711, Name = "এইচডি মিডিয়া" };
+            comboBoxItems.Add(data5);
+            ComboBoxItem data6 = new ComboBoxItem { Id = 6712, Name = "ই - লার্নিং" };
+            comboBoxItems.Add(data6);
+            ComboBoxItem data7 = new ComboBoxItem { Id = 6712, Name = "এডমিন" };
+            comboBoxItems.Add(data7);
+            ComboBoxItem data8= new ComboBoxItem { Id = 9739, Name = "মনিটরিং এ্যান্ড ইভালুয়েশন" };
+            comboBoxItems.Add(data8);
+            ComboBoxItem data9 = new ComboBoxItem { Id = 9625, Name = "ই - সার্ভিস " };
+            comboBoxItems.Add(data9);
+            ComboBoxItem data10 = new ComboBoxItem { Id = 9739, Name = "হিউম্যান রিসোর্স" };
+            comboBoxItems.Add(data10);
+            ComboBoxItem data11 = new ComboBoxItem { Id = 9742, Name = "ইনোভেশন -১" };
+            comboBoxItems.Add(data11);
+            ComboBoxItem data12 = new ComboBoxItem { Id = 9747, Name = "অবকাঠামো" };
+            comboBoxItems.Add(data12);
+            ComboBoxItem data13 = new ComboBoxItem { Id = 46122, Name = "টেকনোলজি" };
+            comboBoxItems.Add(data13);
+            ComboBoxItem data14= new ComboBoxItem { Id = 46180, Name = "টেস্ট 111" };
+            comboBoxItems.Add(data14);
+
+            //"শাখা নির্বাচন করুন"="",
+
+            return comboBoxItems;
+        }
+
+        
 
         public static string GetBengaliDayFromEnglishDay(string EnglishDay)
         {
@@ -185,9 +227,12 @@ namespace dNothi.Utility
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
-
+        
         public static string EnglishNumberToBangla(string Num)
         {
+            if (Num == null)
+                Num = string.Empty;
+
             return string.Concat(Num.ToString().Select(c => (char)('\u09E6' + c - '0')));
         }
 
@@ -693,6 +738,11 @@ namespace dNothi.Utility
 
 
 
+}
+public class ComboBoxItem
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
 }
 
 //public static List<double> mas_len = new List<double> { 0, 30.92569444, 62.63289352, 94.00184028, 125.4761458, 156.4885417, 186.9247338, 216.8066667, 246.3155787, 275.6427546, 305.0935301, 334.9103588, 365.2587564814815 };

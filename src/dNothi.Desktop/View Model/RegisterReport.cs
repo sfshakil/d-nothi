@@ -12,7 +12,7 @@ namespace dNothi.Desktop.View_Model
     public class RegisterReport
         {
 
-
+            public int sln { get; set; }
             public string sl { get; set; }
             public string acceptNum { get; set; }
             public string docketingNo { get; set; }
@@ -27,7 +27,8 @@ namespace dNothi.Desktop.View_Model
             public string security { get; set; }
             public string priority { get; set; }
             public string finalState { get; set; }
-    
-        
+           
+
+
     }
 }

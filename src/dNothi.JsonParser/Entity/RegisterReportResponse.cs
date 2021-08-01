@@ -126,7 +126,7 @@ namespace dNothi.JsonParser.Entity
         public string sender_office_name { get; set; }
         public string dak_subject { get; set; }
 
-
+       
 
     }
 

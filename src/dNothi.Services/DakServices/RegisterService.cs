@@ -32,8 +32,8 @@ namespace dNothi.Services.DakServices
 
                 dakGrohonRequest.AddParameter("start_date",fromDate);
                 dakGrohonRequest.AddParameter("end_date", toDate);
-                dakGrohonRequest.AddParameter("length", "10");
-                dakGrohonRequest.AddParameter("page", "1");
+                dakGrohonRequest.AddParameter("length", dakUserParam.limit);
+                dakGrohonRequest.AddParameter("page", dakUserParam.page);
 
 
 
@@ -73,8 +73,8 @@ namespace dNothi.Services.DakServices
 
                 dakGrohonRequest.AddParameter("start_date",fromDate);
                 dakGrohonRequest.AddParameter("end_date", toDate);
-                dakGrohonRequest.AddParameter("length", "10");
-                dakGrohonRequest.AddParameter("page", "1");
+                dakGrohonRequest.AddParameter("length", dakUserParam.limit);
+                dakGrohonRequest.AddParameter("page", dakUserParam.page);
 
 
 
@@ -113,8 +113,8 @@ namespace dNothi.Services.DakServices
 
                 dakGrohonRequest.AddParameter("start_date", fromDate);
                 dakGrohonRequest.AddParameter("end_date", toDate);
-                dakGrohonRequest.AddParameter("length", "10");
-                dakGrohonRequest.AddParameter("page", "1");
+                dakGrohonRequest.AddParameter("length", dakUserParam.limit);
+                dakGrohonRequest.AddParameter("page", dakUserParam.page);
 
 
 

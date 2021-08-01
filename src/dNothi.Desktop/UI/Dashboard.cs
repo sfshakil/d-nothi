@@ -5057,6 +5057,8 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
+            _dakuserparam.page = 1;
+            _dakuserparam.limit = 10;
             RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(_dakuserparam,fromdate,todate, null);
             RegisterReportUserControl registerReportUserControl = UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakGrohon = true;
@@ -5077,6 +5079,8 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
+            _dakuserparam.page = 1;
+            _dakuserparam.limit = 10;
             RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(_dakuserparam, fromdate, todate, null);
             RegisterReportUserControl registerReportUserControl = UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakBili = true;
@@ -5097,6 +5101,8 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
+            _dakuserparam.page = 1;
+            _dakuserparam.limit = 10;
             RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(_dakuserparam, fromdate, todate, null);
             RegisterReportUserControl registerReportUserControl =UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakDiary = true;
