@@ -49,10 +49,10 @@ namespace dNothi.Desktop.UI
         public WaitFormFunc WaitForm;
         private DakUserParam _dakuserparam { get; set; }
 
-        public bool isKasoraDashboard = false;
+
         private void commonKhosraRowUserControl_NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
-         
+
 
             var form = FormFactory.Create<Note>();
             _dakuserparam = _userService.GetLocalDakUserParam();
@@ -62,7 +62,7 @@ namespace dNothi.Desktop.UI
             form._nothiListRecordsDTO = _nothiListRecordsDTO;
             form._nothiListInboxNoteRecordsDTO = _nothiListInboxNoteRecordsDTO;
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
-            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { commonKhosraRowUserControl_NoteDetails_ButtonClick(noteListDataRecordNoteDTO,  nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
+            form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { commonKhosraRowUserControl_NoteDetails_ButtonClick(noteListDataRecordNoteDTO, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
             form.IskasaraDashBoard = true;
             NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
             form.nothiNo = nothiListRecords.nothi_no;
@@ -71,7 +71,7 @@ namespace dNothi.Desktop.UI
             form.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
             form.nothiLastDate = nothiListRecordsDTO.last_note_date;
             form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
- 
+
             //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
             //totalnothi.ToString();
             form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
@@ -107,7 +107,7 @@ namespace dNothi.Desktop.UI
         }
 
 
-        public Khosra(INothiInboxNoteServices nothiInboxNote,IDesignationSealService designationSealService, IKhosraSaveService khosraSaveService,IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService)
+        public Khosra(INothiInboxNoteServices nothiInboxNote, IDesignationSealService designationSealService, IKhosraSaveService khosraSaveService, IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService)
         {
             _nothiInboxNote = nothiInboxNote;
             _khosraSaveService = khosraSaveService;
@@ -131,8 +131,8 @@ namespace dNothi.Desktop.UI
             if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"tinymce\js\tinymce\tinymce.min.js")))
             {
                 tinyMceEditor.Load(@"file:///" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"tinymce/tinymce.htm").Replace('\\', '/'));
-               
-           
+
+
             }
             else
             {
@@ -176,35 +176,37 @@ namespace dNothi.Desktop.UI
         public List<PrapokDTO> onumodanKariOfficerDesignations
         {
             get => _onumodanKariOfficerDesignations;
-            set { _onumodanKariOfficerDesignations = value;onumodonOfficer = value; DraftOfficerinOnumodonKariOfficerList(onumodonkariOfficerSelectButton, value.Select(x=>x.designation_id).ToList(), onumodonkariListPanel, onumodonkariEmptyPanel, onumodonkariListFlowLayoutPanel); }
-       
+            set { _onumodanKariOfficerDesignations = value; onumodonOfficer = value; DraftOfficerinOnumodonKariOfficerList(onumodonkariOfficerSelectButton, value.Select(x => x.designation_id).ToList(), onumodonkariListPanel, onumodonkariEmptyPanel, onumodonkariListFlowLayoutPanel); }
+
         }
-        
+
         private List<PrapokDTO> _prapakOfficerDesignations { get; set; }
         public List<PrapokDTO> prapakOfficerDesignations
         {
             get => _prapakOfficerDesignations;
-            set {
-                _prapakOfficerDesignations = value;prapokOfficers = value;
-                DraftOfficerinOnumodonKariOfficerList(prapokListShowButton, value.Select(x => x.designation_id).ToList(), prapokListPanel, prapokEmptyPanel, prapokListFlowLayoutPanel); }
+            set
+            {
+                _prapakOfficerDesignations = value; prapokOfficers = value;
+                DraftOfficerinOnumodonKariOfficerList(prapokListShowButton, value.Select(x => x.designation_id).ToList(), prapokListPanel, prapokEmptyPanel, prapokListFlowLayoutPanel);
+            }
         }
         private List<PrapokDTO> _prerokOfficerDesignations { get; set; }
         public List<PrapokDTO> prerokOfficerDesignations
         {
             get => _prerokOfficerDesignations;
-            set { _prerokOfficerDesignations = value;senderOfficer = value; DraftOfficerinOnumodonKariOfficerList(prerokListShowButton, value.Select(x => x.designation_id).ToList(), prerokListPanel, prerokEmptyPanel, prerokListFlowLayoutPanel); }
+            set { _prerokOfficerDesignations = value; senderOfficer = value; DraftOfficerinOnumodonKariOfficerList(prerokListShowButton, value.Select(x => x.designation_id).ToList(), prerokListPanel, prerokEmptyPanel, prerokListFlowLayoutPanel); }
         }
         private List<PrapokDTO> _attensionOfficerDesignations { get; set; }
         public List<PrapokDTO> attensionOfficerDesignations
         {
             get => _attensionOfficerDesignations;
-            set { _attensionOfficerDesignations = value;attentionOfficers = value; DraftOfficerinOnumodonKariOfficerList(attentionListShowButton, value.Select(x => x.designation_id).ToList(), attentionListPanel, attentionEmptyPanel, attentionListFlowLayoutPanel); }
-            }
+            set { _attensionOfficerDesignations = value; attentionOfficers = value; DraftOfficerinOnumodonKariOfficerList(attentionListShowButton, value.Select(x => x.designation_id).ToList(), attentionListPanel, attentionEmptyPanel, attentionListFlowLayoutPanel); }
+        }
         private List<PrapokDTO> _onulipiOfficerDesignations { get; set; }
         public List<PrapokDTO> onulipiOfficerDesignations
         {
             get => _onulipiOfficerDesignations;
-            set { _onulipiOfficerDesignations = value;onumodonOfficer = value; DraftOfficerinOnumodonKariOfficerList(onulipiListShowButton, value.Select(x => x.designation_id).ToList(), onulipiListPanel, onulipiEmptyPanel, onulipiListFlowLayoutPanel); }
+            set { _onulipiOfficerDesignations = value; onumodonOfficer = value; DraftOfficerinOnumodonKariOfficerList(onulipiListShowButton, value.Select(x => x.designation_id).ToList(), onulipiListPanel, onulipiEmptyPanel, onulipiListFlowLayoutPanel); }
         }
         private List<DakAttachmentDTO> _draftAttachmentDTOs { get; set; }
         public List<DakAttachmentDTO> draftAttachmentDTOs
@@ -212,12 +214,12 @@ namespace dNothi.Desktop.UI
             get { return _draftAttachmentDTOs; }
             set
             {
-                if(value!=null && value.Count>0)
+                if (value != null && value.Count > 0)
                 {
                     List<PermittedPotroResponseMulpotroDTO> permittedPotroResponses = new List<PermittedPotroResponseMulpotroDTO>();
-                    foreach(var attachment in value)
+                    foreach (var attachment in value)
                     {
-                        
+
                         permittedPotroResponses.Add(MappingModels.MapModel<DakAttachmentDTO, PermittedPotroResponseMulpotroDTO>(attachment));
 
                     }
@@ -225,7 +227,7 @@ namespace dNothi.Desktop.UI
                     AddAttachment(permittedPotroResponses);
                 }
                 _draftAttachmentDTOs = value;
-               
+
             }
         }
 
@@ -299,7 +301,7 @@ namespace dNothi.Desktop.UI
             moduleNothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
 
 
-           
+
         }
         public string _sub;
         private void Template_CLick_New(KhasraPotroTemplateDataDTO khasraPotroTemplateData)
@@ -320,7 +322,7 @@ namespace dNothi.Desktop.UI
 
             tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { khasraPotroTemplateData.html_content });
             tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
-          
+
             LoadTime(DateTime.Now);
             LoadDate(DateTime.Now);
         }
@@ -338,7 +340,7 @@ namespace dNothi.Desktop.UI
             SetRecipientType(khasraPotroTemplateData.recipient_type);
 
 
-           
+
             tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { khasraPotroTemplateData.html_content });
             tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
             LoadTime(DateTime.Now);
@@ -415,17 +417,17 @@ namespace dNothi.Desktop.UI
 
         private async void SetCurrentInputValue(string currentString)
         {
-            
+
             JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
             string sub = GetPotroSubjectFromHtmlString(response.Result.ToString());
-           
-            string newHtmlString= SetPotroElementToHtmlString(currentString, sub);
+
+            string newHtmlString = SetPotroElementToHtmlString(currentString, sub);
 
             tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { newHtmlString });
             tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
         }
 
-       
+
         private void Border_Color_Blue(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
@@ -436,7 +438,7 @@ namespace dNothi.Desktop.UI
         {
             DakPriorityList dakPriorityList = new DakPriorityList(true);
             dakPriorityComboBox.DataSource = null;
-           
+
             dakPriorityComboBox.DataSource = dakPriorityList._dakPriority.OrderBy(a => a._id).ToList();
             dakPriorityComboBox.DisplayMember = "_typeName";
             dakPriorityComboBox.ValueMember = "_id";
@@ -447,12 +449,12 @@ namespace dNothi.Desktop.UI
         private void LoadDakSecurity()
         {
             DakSecurityList dakSecurityList = new DakSecurityList(true);
-          
+
             dakSecrurityComboBox.DataSource = null;
 
-            dakSecrurityComboBox.DataSource  = dakSecurityList._dakSecurities.OrderBy(a => a._id).ToList();
+            dakSecrurityComboBox.DataSource = dakSecurityList._dakSecurities.OrderBy(a => a._id).ToList();
             dakSecrurityComboBox.DisplayMember = "_typeName";
-           
+
             dakSecrurityComboBox.ValueMember = "_id";
 
             dakSecrurityComboBox.SelectedValue = _dakSecurity.ToString();
@@ -564,31 +566,31 @@ namespace dNothi.Desktop.UI
         {
 
         }
-        
-       
 
 
 
-       
+
+
+
         private void onumodonkariOfficerSelectButton_Click(object sender, EventArgs e)
         {
-            SelectOfficer(onumodonkariOfficerSelectButton,onumodonkariListPanel, onumodonkariEmptyPanel,onumodonkariListFlowLayoutPanel);
+            SelectOfficer(onumodonkariOfficerSelectButton, onumodonkariListPanel, onumodonkariEmptyPanel, onumodonkariListFlowLayoutPanel);
         }
 
         private void SelectOfficer(FontAwesome.Sharp.IconButton officerSelectButton, Panel officerListPanel, Panel officerEmptyPanel, TableLayoutPanel officerListFlowLayoutPanel)
         {
             SelectOfficerForm selectOfficerForm = new SelectOfficerForm();
-            
-            if(officerSelectButton == onumodonkariOfficerSelectButton || officerSelectButton== prerokListShowButton)
+
+            if (officerSelectButton == onumodonkariOfficerSelectButton || officerSelectButton == prerokListShowButton)
             {
                 selectOfficerForm._isOneOfficerAllowed = true;
             }
-               
+
             selectOfficerForm.designationSealListResponse = _designationSealListResponse;
 
-            selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton,selectOfficerForm._selectedOfficerDesignations, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
+            selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton, selectOfficerForm._selectedOfficerDesignations, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
 
-            UIDesignCommonMethod.CalPopUpWindow(selectOfficerForm,this);
+            UIDesignCommonMethod.CalPopUpWindow(selectOfficerForm, this);
         }
 
         private void SaveOfficerinOnumodonKariOfficerList(FontAwesome.Sharp.IconButton officerSelectButton, List<int> selectedOfficerDesignations, Panel officerListPanel, Panel officerEmptyPanel, TableLayoutPanel officerListFlowLayoutPanel)
@@ -608,18 +610,19 @@ namespace dNothi.Desktop.UI
                     if (designationSeal != null)
                     {
                         OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
-                        officerRowUserControl.officerName = designationSeal.officer_name+","+ designationSeal.designation_bng + "," + designationSeal.office_unit + "," + designationSeal.office_bng;
+                        officerRowUserControl.officerName = designationSeal.officer_name + "," + designationSeal.designation_bng + "," + designationSeal.office_unit + "," + designationSeal.office_bng;
                         officerRowUserControl.designationId = designationSeal.designation_id;
                         officerRowUserControl.officerInfo = designationSeal;
-                         officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) {
-                       
-                               ReloadOfficerList(officerSelectButton,officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);};
+                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) {
 
-                            officerListFlowLayoutPanel.Controls.Add(officerRowUserControl);
+                            ReloadOfficerList(officerSelectButton, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);
+                        };
 
-                       if(selectedOfficerDesignations.Count !=1)
+                        officerListFlowLayoutPanel.Controls.Add(officerRowUserControl);
+
+                        if (selectedOfficerDesignations.Count != 1)
                         {
-                            
+
                             officerRowUserControl.UpButton += delegate (object sender, EventArgs e) { UpButton_Click(sender, e, officerRowUserControl._designationId, officerListFlowLayoutPanel, officerSelectButton, officerListPanel, officerEmptyPanel); };
                             officerRowUserControl.DownButton += delegate (object sender, EventArgs e) { DownButton_Click(sender, e, officerRowUserControl._designationId, officerListFlowLayoutPanel, officerSelectButton, officerListPanel, officerEmptyPanel); };
 
@@ -630,7 +633,7 @@ namespace dNothi.Desktop.UI
                         }
 
                         UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
-                        
+
                     }
 
                 }
@@ -683,7 +686,7 @@ namespace dNothi.Desktop.UI
                     }
 
                 }
-               // ReloadOfficerList(officerSelectButton, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);
+                // ReloadOfficerList(officerSelectButton, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);
 
             }
         }
@@ -692,17 +695,17 @@ namespace dNothi.Desktop.UI
         {
 
             var officers = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Visible == true).ToList();
-           
-            if(officers!=null && officers.Count!=0)
+
+            if (officers != null && officers.Count != 0)
             {
-                for(int i=0;i<officers.Count;i++)
+                for (int i = 0; i < officers.Count; i++)
                 {
-                    if (officers[i]._designationId == designationId && i!=officers.Count-1)
+                    if (officers[i]._designationId == designationId && i != officers.Count - 1)
                     {
                         OfficerRowUserControl temp = officers[i + 1];
-                        
+
                         officers[i + 1] = officers[i];
-                        officers[i] =temp;
+                        officers[i] = temp;
                     }
 
                 }
@@ -715,14 +718,14 @@ namespace dNothi.Desktop.UI
                 }
             }
 
-                ReloadOfficerList(officerSelectButton, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);
+            ReloadOfficerList(officerSelectButton, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);
 
-            
+
 
 
 
         }
-       
+
         private void UpButton_Click(object sender, EventArgs e, int designationId, TableLayoutPanel officerListFlowLayoutPanel, FontAwesome.Sharp.IconButton officerSelectButton, Panel officerListPanel, Panel officerEmptyPanel)
         {
             var officers = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Visible == true).ToList();
@@ -771,7 +774,7 @@ namespace dNothi.Desktop.UI
 
         }
 
-        
+
 
         private void tableLayoutPanelDrop_DragOver(object sender, DragEventArgs e)
         {
@@ -796,34 +799,34 @@ namespace dNothi.Desktop.UI
                 onumodonkariEmptyPanel.Visible = false;
             }
 
-            if(officerSelectButton==onumodonkariOfficerSelectButton)
+            if (officerSelectButton == onumodonkariOfficerSelectButton)
             {
                 onumodonkariListShowButton.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
                 AddOnumodonOfficertoScript(officerList);
-                
+
 
             }
 
-            else if (officerSelectButton== prapokListShowButton)
+            else if (officerSelectButton == prapokListShowButton)
             {
                 prapokListShowButton.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
                 AddPrapokOfficerstoScript(officerList);
 
 
             }
-            else if (officerSelectButton== prerokListShowButton)
+            else if (officerSelectButton == prerokListShowButton)
             {
                 prerokListShowButton.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
                 AddSenderOfficertoScript(officerList);
 
 
             }
-            else if(officerSelectButton == attentionListShowButton)
+            else if (officerSelectButton == attentionListShowButton)
             {
                 attentionListShowButton.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
                 AddAttentionOfficersOfficertoScript(officerList);
             }
-            else if(officerSelectButton == onulipiListShowButton)
+            else if (officerSelectButton == onulipiListShowButton)
             {
                 onulipiListShowButton.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
                 AddOnulipiOfficersOfficertoScript(officerList);
@@ -869,7 +872,7 @@ namespace dNothi.Desktop.UI
                 {
                     officerTableElement.Attributes.FirstOrDefault(a => a.Name == "style").Value = "width: 100%; opacity: 1;";
 
-                    string officerListHtml =KhoshraTemplateHtmlStringChange.AddOnulipiOfficerintheList(officerListString);
+                    string officerListHtml = KhoshraTemplateHtmlStringChange.AddOnulipiOfficerintheList(officerListString);
                     officerULElement.InnerHtml = officerListHtml;
 
                     onulipiDateAndTimeElement.Attributes.FirstOrDefault(a => a.Name == "style").Value = "width: 100%; opacity: 1;";
@@ -908,22 +911,22 @@ namespace dNothi.Desktop.UI
         public List<PrapokDTO> attentionOfficers;
         private async void AddAttentionOfficersOfficertoScript(List<OfficerRowUserControl> officerList)
         {
-           
-                JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
 
-                _currentHtmlString = response.Result.ToString();
-           
+            JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
+
+            _currentHtmlString = response.Result.ToString();
+
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(_currentHtmlString);
 
-           
+
             var officerTableElement = doc.DocumentNode.Descendants("div").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("khoshraAttentionList"));
             //var officerTableElementProtibedon = doc.DocumentNode.Descendants("p").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_attention_text"));
 
 
 
             // htmlString = htmlString.Replace(System.Environment.NewLine, "");
-           
+
             if (officerList.Count > 0)
             {
                 List<string> officerListString = new List<string>();
@@ -935,21 +938,21 @@ namespace dNothi.Desktop.UI
 
                 }
 
-               
-                
-                    try
-                    {
-                        officerTableElement.Attributes.FirstOrDefault(a => a.Name == "style").Value = "margin-top: 40px;";
-                        string officerListHtml = KhoshraTemplateHtmlStringChange.AttentionOfficerPOriginal + KhoshraTemplateHtmlStringChange.AddAttentionOfficerintheList(officerListString);
 
-                        officerTableElement.InnerHtml = officerListHtml;
-                    }
-                    catch
-                    {
 
-                    }
-                
-                
+                try
+                {
+                    officerTableElement.Attributes.FirstOrDefault(a => a.Name == "style").Value = "margin-top: 40px;";
+                    string officerListHtml = KhoshraTemplateHtmlStringChange.AttentionOfficerPOriginal + KhoshraTemplateHtmlStringChange.AddAttentionOfficerintheList(officerListString);
+
+                    officerTableElement.InnerHtml = officerListHtml;
+                }
+                catch
+                {
+
+                }
+
+
 
 
 
@@ -958,8 +961,8 @@ namespace dNothi.Desktop.UI
             {
                 try
                 {
-                    
-                    
+
+
                     officerTableElement.Attributes.FirstOrDefault(a => a.Name == "style").Value = "display: none; margin-top: 40px;";
                     officerTableElement.InnerHtml = "<p class=\"write_here khoshraAttentionTitle\" style=\"margin: 0; font - family: 'nikosh'!important; \" contenteditable=\"false\">দৃষ্টি আকর্ষণ:</p>";
                     attentionOfficers = null;
@@ -968,7 +971,7 @@ namespace dNothi.Desktop.UI
                 {
 
                 }
-                
+
 
 
 
@@ -984,7 +987,7 @@ namespace dNothi.Desktop.UI
         public string _currentHtmlString;
 
 
-        private  void LoadNewTemplate()
+        private void LoadNewTemplate()
         {
             prapokofficersScript = null;
             _currentHtmlString = null;
@@ -994,7 +997,7 @@ namespace dNothi.Desktop.UI
 
             onumodonkariListFlowLayoutPanel.Controls.Clear();
             onumodonkariEmptyPanel.Visible = true;
-            
+
 
             prerokListFlowLayoutPanel.Controls.Clear();
             prerokEmptyPanel.Visible = true;
@@ -1008,7 +1011,7 @@ namespace dNothi.Desktop.UI
             onulipiListFlowLayoutPanel.Controls.Clear();
             onulipiEmptyPanel.Visible = true;
         }
-        
+
         private async void AddPrapokOfficerstoScript(List<OfficerRowUserControl> officerList)
         {
 
@@ -1087,22 +1090,22 @@ namespace dNothi.Desktop.UI
         private async void AddOnumodonOfficertoScript(List<OfficerRowUserControl> officerList)
         {
 
-           
-                JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
 
-                _currentHtmlString = response.Result.ToString();
+            JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
 
-          
+            _currentHtmlString = response.Result.ToString();
+
+
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(_currentHtmlString);
 
             var officerNameApprover = doc.DocumentNode.Descendants("p").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("write_here khoshra_approver_text"));
             var shovapotiNames = doc.DocumentNode.Descendants("td").Where(d => d.GetAttributeValue("class", "").Contains("shovapoti_name")).ToList();
-            
 
-            if(officerNameApprover == null)
+
+            if (officerNameApprover == null)
             {
-               officerNameApprover = doc.DocumentNode.Descendants("p").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_approver_text write_here"));
+                officerNameApprover = doc.DocumentNode.Descendants("p").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_approver_text write_here"));
 
             }
 
@@ -1134,16 +1137,16 @@ namespace dNothi.Desktop.UI
 
             }
 
-          
-
-           
 
 
-            if (officerList.Count>0)
+
+
+
+            if (officerList.Count > 0)
             {
                 onumodonOfficer = new List<PrapokDTO>();
                 onumodonOfficer.Add(officerList[0]._officerInfo);
-             
+
                 if (shovapotiNames != null && shovapotiNames.Count > 0)
                 {
                     foreach (HtmlNode shovapotiName in shovapotiNames)
@@ -1154,11 +1157,11 @@ namespace dNothi.Desktop.UI
 
                 try
                 {
-                    officerPhoneApprover.InnerHtml =officerList[0]._officerInfo.personal_mobile;
-                    officeremailApprover.InnerHtml =officerList[0]._officerInfo.personal_email;
+                    officerPhoneApprover.InnerHtml = officerList[0]._officerInfo.personal_mobile;
+                    officeremailApprover.InnerHtml = officerList[0]._officerInfo.personal_email;
                     officerfaxApprover.InnerHtml = "";
                     officerNameApprover.InnerHtml = officerList[0]._officerInfo.officer_bng;
-                    officerDesignationApprover.InnerHtml =officerList[0]._officerInfo.designation_bng;
+                    officerDesignationApprover.InnerHtml = officerList[0]._officerInfo.designation_bng;
 
                 }
                 catch
@@ -1172,12 +1175,12 @@ namespace dNothi.Desktop.UI
             else
             {
                 onumodonOfficer = null;
-               
+
                 if (shovapotiNames != null && shovapotiNames.Count > 0)
                 {
                     foreach (HtmlNode shovapotiName in shovapotiNames)
                     {
-                        shovapotiName.InnerHtml ="..............";
+                        shovapotiName.InnerHtml = "..............";
                     }
                 }
 
@@ -1196,7 +1199,7 @@ namespace dNothi.Desktop.UI
 
             }
 
-           _currentHtmlString = _khasraPotroTemplateData.html_content = doc.DocumentNode.OuterHtml;
+            _currentHtmlString = _khasraPotroTemplateData.html_content = doc.DocumentNode.OuterHtml;
             Template_CLick(_khasraPotroTemplateData);
 
         }
@@ -1232,7 +1235,7 @@ namespace dNothi.Desktop.UI
 
 
 
-           
+
 
 
             if (officerList.Count > 0)
@@ -1264,7 +1267,7 @@ namespace dNothi.Desktop.UI
 
                 try
                 {
-                   
+
                     officerNameApprover.InnerHtml = "(প্রেরক)";
                     officerDesignationApprover.InnerHtml = "(প্রেরক পদবী)";
                     officerTableElement.Attributes.FirstOrDefault(a => a.Name == "style").Value = "width: 100%; opacity: 0;";
@@ -1297,10 +1300,10 @@ namespace dNothi.Desktop.UI
             SelectOfficer(prapokListShowButton, prapokListPanel, prapokEmptyPanel, prapokListFlowLayoutPanel);
 
         }
-       
+
         private void prerokOfficerSelectButton_Click(object sender, EventArgs e)
         {
-            SelectOfficer(prerokListShowButton,prerokListPanel, prerokEmptyPanel, prerokListFlowLayoutPanel);
+            SelectOfficer(prerokListShowButton, prerokListPanel, prerokEmptyPanel, prerokListFlowLayoutPanel);
         }
 
         private void attentionOfficerSelectButton_Click(object sender, EventArgs e)
@@ -1315,11 +1318,13 @@ namespace dNothi.Desktop.UI
 
         private void newAttachmentButton_Click(object sender, EventArgs e)
         {
+
             var khosraAttachmentForm = FormFactory.Create<KhosraAttachmentForm>();
             khosraAttachmentForm.IsCurrentPotroTabPageShow(false);
             khosraAttachmentForm.SelectButtonClicked += delegate (object s, EventArgs ev) { AddAttachment(khosraAttachmentForm.permittedPotroResponseMulpotroDTOs); ; };
 
             UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentForm, this);
+
         }
 
         private void AddAttachment(List<PermittedPotroResponseMulpotroDTO> selectedPermittedPotroResponseMulpotroDTO)
@@ -1327,24 +1332,24 @@ namespace dNothi.Desktop.UI
             if (selectedPermittedPotroResponseMulpotroDTO != null && selectedPermittedPotroResponseMulpotroDTO.Count > 0)
                 foreach (var attachment in selectedPermittedPotroResponseMulpotroDTO)
                 {
-                
-                     KhosraSelectedAttachmentRow khosraSelectedAttachmentRow = new KhosraSelectedAttachmentRow();
-                     if(string.IsNullOrEmpty(attachment.user_file_name))
+
+                    KhosraSelectedAttachmentRow khosraSelectedAttachmentRow = new KhosraSelectedAttachmentRow();
+                    if (string.IsNullOrEmpty(attachment.user_file_name))
                     {
                         attachment.user_file_name = attachment.file_name;
                     }
-                     khosraSelectedAttachmentRow.permittedPotroResponseMulpotroDTO = attachment;
+                    khosraSelectedAttachmentRow.permittedPotroResponseMulpotroDTO = attachment;
 
-                     UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow);
+                    UIDesignCommonMethod.AddRowinTable(selectedAttachmentTableLayoutPanel, khosraSelectedAttachmentRow);
 
-            
+
                 }
-         }
+        }
         private void khosraReviewButton_Click(object sender, EventArgs e)
         {
             SelectOfficersFormKhosraReview selectOfficerForm = new SelectOfficersFormKhosraReview();
-            
-            
+
+
             selectOfficerForm.designationSealListResponse = _designationSealListResponse;
 
             //selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton, selectOfficerForm._selectedOfficerDesignations, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
@@ -1357,6 +1362,8 @@ namespace dNothi.Desktop.UI
             RefreshKhosra();
             label7.Text = UIDesignCommonMethod.copyRightLableText;
             khosraTableLayoutPanel.Enabled = false;
+            WaitForm = new WaitFormFunc();
+            WaitForm.Show();
         }
 
         private void RefreshKhosra()
@@ -1399,11 +1406,11 @@ namespace dNothi.Desktop.UI
 
                         if (count == 0)
                         {
-                            if(_khasraPotroTemplateData == null)
+                            if (_khasraPotroTemplateData == null)
                             {
                                 _khasraPotroTemplateData = khasraPotroTemplateDataDTO;
                             }
-                           
+
 
 
                             khosraTemplateButtonFake.khasraPotroTemplateData = khasraPotroTemplateDataDTO;
@@ -1425,9 +1432,9 @@ namespace dNothi.Desktop.UI
             }
 
 
-            
 
-         
+
+
         }
 
         public void AddSelectedAttachment()
@@ -1473,7 +1480,7 @@ namespace dNothi.Desktop.UI
             form.NothiKhosrajato += delegate (object snd, EventArgs eve) { NothiKhosrajato(form._noteSelected, form._nothiBranch, form._nothiName, form._nothiAllListDTO); };
 
 
-            UIDesignCommonMethod.CalPopUpWindow(form,this);
+            UIDesignCommonMethod.CalPopUpWindow(form, this);
         }
         private NoteNothiDTO _noteSelected;
         private NothiListAllRecordsDTO _nothiAllListDTO;
@@ -1489,14 +1496,14 @@ namespace dNothi.Desktop.UI
             _nothiAllListDTO = nothiAllListDTO;
 
 
-            if(noteSelected.id!=0)
+            if (noteSelected.id != 0)
             {
                 nothiNamePanel.Visible = true;
                 noteDetailsButton.Visible = true;
             }
         }
 
-        
+
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
@@ -1506,7 +1513,7 @@ namespace dNothi.Desktop.UI
         bool _isTinyMceEditorLoaded;
         private void khoshraBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            
+
 
             //try
             //{
@@ -1528,7 +1535,7 @@ namespace dNothi.Desktop.UI
         private void khoshraBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
-            if(tinyMceEditor.IsAccessible)
+            if (tinyMceEditor.IsAccessible)
             {
                 tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { _khasraPotroTemplateData.html_content });
                 tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
@@ -1545,15 +1552,15 @@ namespace dNothi.Desktop.UI
             //}
         }
 
-      
+
 
         private void tinyMceEditor_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
-            if(!_isTinyMceEditorLoaded)
+            if (!_isTinyMceEditorLoaded)
             {
                 try
                 {
-                    
+
                     if (!string.IsNullOrEmpty(kasaradashboardHtmlContent))
                     {
                         if (_noteSelected != null)
@@ -1568,10 +1575,10 @@ namespace dNothi.Desktop.UI
                             {
                                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                                 GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(_noteSelected.nothi_id), _khasraPotroTemplateData.template_id);
-                             
+
                             }
 
-                            if(!string.IsNullOrEmpty(_sarokNo))
+                            if (!string.IsNullOrEmpty(_sarokNo))
                             {
                                 kasaradashboardHtmlContent = SetSharokNoinHtml(sarokNO, kasaradashboardHtmlContent);
 
@@ -1585,9 +1592,9 @@ namespace dNothi.Desktop.UI
                         }
 
                         tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { kasaradashboardHtmlContent });
-                        _khasraPotroTemplateData.html_content = kasaradashboardHtmlContent;
+                        _currentHtmlString = _khasraPotroTemplateData.html_content = kasaradashboardHtmlContent;
 
-                        
+
                     }
                     else
                     {
@@ -1598,9 +1605,9 @@ namespace dNothi.Desktop.UI
                     }
                     tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
                     _isTinyMceEditorLoaded = true;
-                   
+
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     _isTinyMceEditorLoaded = false;
                 }
@@ -1610,8 +1617,9 @@ namespace dNothi.Desktop.UI
             BeginInvoke((MethodInvoker)delegate
             {
                 khosraTableLayoutPanel.Enabled = true;
+                WaitForm.Close();
             });
-           
+
         }
         private async void LoadTime(DateTime now)
         {
@@ -1651,25 +1659,25 @@ namespace dNothi.Desktop.UI
         }
 
         private DateTime? dateTime;
-        
+
         private async void LoadDate(DateTime now)
         {
-           
-          JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
 
-         _currentHtmlString = response.Result.ToString();
+            JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
+
+            _currentHtmlString = response.Result.ToString();
             string enDate = ConversionMethod.EnglishNumberToBangla(now.Day.ToString()) + " " + ConversionMethod.GetEngMonthNameinBengali(now.Month) + " " + ConversionMethod.EnglishNumberToBangla(now.Year.ToString());
             string bnDate = KhoshraTemplateHtmlStringChange.BanglaDateFromEngDate(now);
-          //string timestring=now.
+            //string timestring=now.
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(_currentHtmlString);
 
             try
             {
-               
+
                 var engDate = doc.DocumentNode.Descendants("input").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("potro_date_en"));
                 var engDateSpan = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("en_date_text"));
-                if(engDateSpan !=null)
+                if (engDateSpan != null)
                 {
                     engDateSpan.InnerHtml = enDate;
                     if (engDate != null)
@@ -1679,7 +1687,7 @@ namespace dNothi.Desktop.UI
 
                     }
                 }
-                else if(engDate !=null)
+                else if (engDate != null)
                 {
                     engDate.Attributes.FirstOrDefault(a => a.Name == "value").Value = enDate;
                     engDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "border: none; font-size: 15px; width: 100%; text-align: center; background: transparent; opacity: 1;";
@@ -1689,8 +1697,8 @@ namespace dNothi.Desktop.UI
                 var banglaDate = doc.DocumentNode.Descendants("input").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("potro_date_bn"));
                 var banglaDateSpan = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("bn_date_text"));
 
-                
-                if(banglaDateSpan != null)
+
+                if (banglaDateSpan != null)
                 {
                     banglaDateSpan.InnerHtml = bnDate;
                     banglaDateSpan.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0px; left: 0px; right: 0px; color: #414141; opacity: 1;";
@@ -1743,14 +1751,14 @@ namespace dNothi.Desktop.UI
                 banglaDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0;left: 0; right: 0; text-align: center;opacity:0";
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
 
             _currentHtmlString = _khasraPotroTemplateData.html_content = doc.DocumentNode.OuterHtml;
-          
-            
+
+
             tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { _currentHtmlString });
             tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
 
@@ -1767,7 +1775,7 @@ namespace dNothi.Desktop.UI
             _sarokNo = sarokNo;
         }
         private DateTime? dateTimeApprover;
-      
+
 
 
         private string _potrosub;
@@ -1792,7 +1800,7 @@ namespace dNothi.Desktop.UI
 
             if (conditonBoxForm.Yes)
             {
-               
+
 
                 //_currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.dateSharokTitleOriginal, KhoshraTemplateHtmlStringChange.dateSharokTitleReplace);
 
@@ -1802,16 +1810,16 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamPotro.attachment = GetSelectedAttachment();
                 khosraSaveParamPotro.potrojari = new KhasraSaveParamPotrojari();
                 khosraSaveParamPotro.potrojari.potro_type = _khasraPotroTemplateData.template_id;
-                if(draft_id !=0)
+                if (draft_id != 0)
                 {
-                      khosraSaveParamPotro.potrojari.id = draft_id;
-                    
+                    khosraSaveParamPotro.potrojari.id = draft_id;
+
                 }
-               
+
                 //khosraSaveParamPotro.potrojari.attached_potro=
                 int potrojari_id = 0;
 
-                if(_khasraPotroTemplateData.potrojari_id != 0)
+                if (_khasraPotroTemplateData.potrojari_id != 0)
                 {
                     potrojari_id = _khasraPotroTemplateData.potrojari_id;
                 }
@@ -1820,11 +1828,11 @@ namespace dNothi.Desktop.UI
                     potrojari_id = _khasraPotroTemplateData.id;
                 }
 
-                if(_noteSelected != null)
+                if (_noteSelected != null)
                 {
                     khosraSaveParamPotro.potrojari.note_subject = _noteSelected.note_subject;
                     khosraSaveParamPotro.potrojari.nothi_master_id = Convert.ToInt32(_noteSelected.nothi_id);
-                   
+
                     if (!string.IsNullOrEmpty(_sarokNo))
                     {
                         khosraSaveParamPotro.potrojari.sarok_no = _sarokNo;
@@ -1837,20 +1845,20 @@ namespace dNothi.Desktop.UI
 
                     khosraSaveParamPotro.potrojari.nothi_note_id = Convert.ToInt32(_noteSelected.note_id);
 
-                    _currentHtmlString= SetSharokNoinHtml(khosraSaveParamPotro.potrojari.sarok_no, _currentHtmlString);
+                    _currentHtmlString = SetSharokNoinHtml(khosraSaveParamPotro.potrojari.sarok_no, _currentHtmlString);
                 }
 
-              
+
 
 
 
                 khosraSaveParamPotro.potrojari.potro_description = ConversionMethod.Base64Encode(_currentHtmlString);
                 khosraSaveParamPotro.potrojari.potro_priority_level = dakPriorityComboBox.SelectedIndex;
                 khosraSaveParamPotro.potrojari.potro_security_level = dakSecrurityComboBox.SelectedIndex;
-               
+
                 khosraSaveParamPotro.potrojari.potro_subject = GetPotroSubjectFromHtmlString(_currentHtmlString);
                 khosraSaveParamPotro.potrojari.draft_officer_id = dakUserParam.officer_id;
-               
+
                 if (_cloned_potrojari_id != 0)
                 {
                     khosraSaveParamPotro.potrojari.cloned_potrojari_id = _cloned_potrojari_id;
@@ -1867,15 +1875,15 @@ namespace dNothi.Desktop.UI
                 //khosraSaveParamPotro.potrojari.sarok_no=
                 khosraSaveParamPotro.recipient = new KhosraSaveParamRecipent();
 
-               
 
 
 
-               if(onumodonOfficer != null)
+
+                if (onumodonOfficer != null)
                 {
                     AddOnumodontoParam(khosraSaveParamPotro);
                 }
-               if(onulipiOfficers != null)
+                if (onulipiOfficers != null)
                 {
                     AddOnulipiParam(khosraSaveParamPotro);
                 }
@@ -1892,47 +1900,38 @@ namespace dNothi.Desktop.UI
                     AddAttentiontoParam(khosraSaveParamPotro);
                 }
 
-               
-    
-               
 
 
 
-                 KhosraSaveResponse khosraSaveResponse = _khosraSaveService.GetKhosraSaveResponse(dakUserParam, khosraSaveParamPotro);
 
 
-                if(khosraSaveResponse.status=="success")
+
+                KhosraSaveResponse khosraSaveResponse = _khosraSaveService.GetKhosraSaveResponse(dakUserParam, khosraSaveParamPotro);
+
+
+                if (khosraSaveResponse.status == "success")
                 {
                     UIDesignCommonMethod.SuccessMessage(khosraSaveResponse.data);
-                   
-                        if (_noteListDataRecordNoteDTO != null)
-                        {
-                            commonKhosraRowUserControl_NoteDetails_ButtonClick(_noteListDataRecordNoteDTO, _nothiListRecordsDTO, _nothiListInboxNoteRecordsDTO);
-                        }
-                        else if (_noteSelected != null)
-                        {
-                            LoadNote();
-                        }
-                        else
-                        {
-                            foreach (Form f in Application.OpenForms)
-                            { BeginInvoke((Action)(() => f.Hide())); }
-                            KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
-                            BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
-                            khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
-                        }
 
-                    //   if (isKasoraDashboard)
-                    //   {
-                    //    foreach (Form f in Application.OpenForms)
-                    //    { BeginInvoke((Action)(() => f.Hide())); }
-                    //    KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
-                    //    BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
-                    //    khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
-                    //}
-
+                    if (_noteListDataRecordNoteDTO != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id != "0")
+                    {
+                        commonKhosraRowUserControl_NoteDetails_ButtonClick(_noteListDataRecordNoteDTO, _nothiListRecordsDTO, _nothiListInboxNoteRecordsDTO);
                     }
-                else if(khosraSaveResponse.status == "error")
+                    else if (_noteSelected != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id != "0")
+                    {
+                        LoadNote();
+                    }
+                    else
+                    {
+                        foreach (Form f in Application.OpenForms)
+                        { BeginInvoke((Action)(() => f.Hide())); }
+                        KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
+                        BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
+                        khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                    }
+
+                }
+                else if (khosraSaveResponse.status == "error")
                 {
                     UIDesignCommonMethod.ErrorMessage(khosraSaveResponse.message);
                 }
@@ -1952,28 +1951,28 @@ namespace dNothi.Desktop.UI
             var khosraSelectedAttachmentRows = selectedAttachmentTableLayoutPanel.Controls.OfType<KhosraSelectedAttachmentRow>().Where(a => a.isDeleted == false).ToList();
             if (khosraSelectedAttachmentRows != null && khosraSelectedAttachmentRows.Count > 0)
             {
-                
+
                 foreach (var attachment in khosraSelectedAttachmentRows)
                 {
                     KhosraPotroSaveAttachment khosraPotroSaveAttachment = new KhosraPotroSaveAttachment();
-                    
-                    if(attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id == 0)
+
+                    if (attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id == 0)
                     {
                         attachments.Add(ConversionMethod.ObjecttoJson(new { id = attachment._permittedPotroResponseMulpotroDTO.id, user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name }));
-                       
+
                     }
                     else
                     {
-                        attachments.Add(ConversionMethod.ObjecttoJson(new { nothi_potro_attachment_id = attachment._permittedPotroResponseMulpotroDTO.id, nothi_potro_id= attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id, user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name }));
+                        attachments.Add(ConversionMethod.ObjecttoJson(new { nothi_potro_attachment_id = attachment._permittedPotroResponseMulpotroDTO.id, nothi_potro_id = attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id, user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name }));
 
-                      //  khosraPotroSaveAttachment.nothi_potro_attachment_id = attachment._permittedPotroResponseMulpotroDTO.id;
-                      //  khosraPotroSaveAttachment.nothi_potro_id = attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id;
+                        //  khosraPotroSaveAttachment.nothi_potro_attachment_id = attachment._permittedPotroResponseMulpotroDTO.id;
+                        //  khosraPotroSaveAttachment.nothi_potro_id = attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id;
 
                     }
 
-                   // khosraPotroSaveAttachment.user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name;
+                    // khosraPotroSaveAttachment.user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name;
 
-                  //  attachments.Add(khosraPotroSaveAttachment);
+                    //  attachments.Add(khosraPotroSaveAttachment);
                 }
 
             }
@@ -1981,7 +1980,7 @@ namespace dNothi.Desktop.UI
         }
         private string SetSharokNoinHtml(string sarok_no, string htmlText)
         {
-           
+
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(htmlText);
 
@@ -2003,9 +2002,9 @@ namespace dNothi.Desktop.UI
             }
 
             return doc.DocumentNode.OuterHtml;
-            
+
         }
-      
+
 
         private void DoSomethingAsync(object sender, EventArgs e)
         {
@@ -2147,7 +2146,7 @@ namespace dNothi.Desktop.UI
                 var td = doc.DocumentNode.Descendants("td").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_subject"));
                 sub = td.InnerText;
 
-               
+
 
 
 
@@ -2166,14 +2165,14 @@ namespace dNothi.Desktop.UI
 
 
 
-           
+
 
             try
             {
                 HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
                 doc.LoadHtml(currentHtmlString);
                 var td = doc.DocumentNode.Descendants("td").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("khoshra_subject"));
-                td.InnerHtml=subject;
+                td.InnerHtml = subject;
 
 
                 return doc.DocumentNode.OuterHtml;
@@ -2191,7 +2190,7 @@ namespace dNothi.Desktop.UI
         private void AddPrpoktoParam(KhosraSaveParamPotro khosraSaveParamPotro)
         {
             List<KhosraSaveParamOfficer> receivers = new List<KhosraSaveParamOfficer>();
-            foreach(PrapokDTO prapokDTO in prapokOfficers)
+            foreach (PrapokDTO prapokDTO in prapokOfficers)
             {
                 KhosraSaveParamOfficer khosraSaveParamOfficer = new KhosraSaveParamOfficer();
                 khosraSaveParamOfficer.designation_id = prapokDTO.designation_id.ToString();
@@ -2208,7 +2207,7 @@ namespace dNothi.Desktop.UI
 
             }
 
-            khosraSaveParamPotro.recipient.receiver = receivers.ToDictionary(a=>a.designation_id);
+            khosraSaveParamPotro.recipient.receiver = receivers.ToDictionary(a => a.designation_id);
         }
 
         private void AddOnulipiParam(KhosraSaveParamPotro khosraSaveParamPotro)
@@ -2293,7 +2292,7 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamOfficer.office_unit = prapokDTO.office_unit_bng;
                 khosraSaveParamOfficer.office_unit_id = prapokDTO.office_unit_id.ToString();
                 khosraSaveParamOfficer.office_id = prapokDTO.office_id.ToString();
-              
+
                 khosraSaveParamOfficer.recipient_type = "approver";
                 receivers.Add(khosraSaveParamOfficer);
 
@@ -2305,7 +2304,7 @@ namespace dNothi.Desktop.UI
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             LoadDate(dateTimePicker.Value);
-           
+
         }
 
         private void userNameLabel_Click(object sender, EventArgs e)
@@ -2376,7 +2375,7 @@ namespace dNothi.Desktop.UI
             _currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.onumodonProtibedonString, onumodonProtibedonSign);
 
 
-             _khasraPotroTemplateData.html_content = _currentHtmlString;
+            _khasraPotroTemplateData.html_content = _currentHtmlString;
             Template_CLick(_khasraPotroTemplateData);
         }
 
@@ -2399,7 +2398,7 @@ namespace dNothi.Desktop.UI
         {
 
 
-            SetPTaginHtml(dakPriorityComboBox.Text, "potro_priority_text write_here",null);
+            SetPTaginHtml(dakPriorityComboBox.Text, "potro_priority_text write_here", null);
 
 
 
@@ -2411,14 +2410,14 @@ namespace dNothi.Desktop.UI
             doc.LoadHtml(_currentHtmlString);
 
 
-            HtmlNode priorityElement=null;
+            HtmlNode priorityElement = null;
 
-             if(!string.IsNullOrEmpty(className))
+            if (!string.IsNullOrEmpty(className))
             {
                 priorityElement = doc.DocumentNode.Descendants("p").FirstOrDefault(d => d.GetAttributeValue("class", "").Contains(className));
 
             }
-            else if(!string.IsNullOrEmpty(idName))
+            else if (!string.IsNullOrEmpty(idName))
             {
                 priorityElement = doc.DocumentNode.Descendants("p").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains(idName));
 

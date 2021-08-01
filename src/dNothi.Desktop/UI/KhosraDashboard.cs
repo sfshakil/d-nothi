@@ -472,7 +472,7 @@ namespace dNothi.Desktop.UI
             khasraPotroTemplateData.html_content = Base64Conversion.Base64ToHtmlContent(kasaraPotro.Mulpotro.PotroDescription);
 
             khosra._khasraPotroTemplateData = khasraPotroTemplateData;
-            khosra.isKasoraDashboard = true;
+        
 
 
 
