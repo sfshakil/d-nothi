@@ -17,6 +17,7 @@ using dNothi.Desktop.Interfaces;
 using System.Text.RegularExpressions;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Services.SyncServices;
+using System.Diagnostics;
 
 namespace dNothi.Desktop.UI
 {
@@ -365,7 +366,8 @@ namespace dNothi.Desktop.UI
 
         private void label29_Click(object sender, EventArgs e)
         {
-
+            Process.Start("chrome.exe", "https://fb.com/groups/nothi/");
+            // https://fb.com/groups/nothi/
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -375,12 +377,55 @@ namespace dNothi.Desktop.UI
 
         private void label20_Click(object sender, EventArgs e)
         {
-
+            Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
+            
         }
 
         private void tabControl1_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
+            Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
+        }
 
+        private void label10_Click(object sender, EventArgs e)
+        {
+            Process.Start("chrome.exe", "https://nothi-next.tappware.com/mobile-app");
+            
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Process.Start("chrome.exe", "https://nothi-next.tappware.com/faq");
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Process.Start("chrome.exe", "https://nothi-next.tappware.com/release-note");
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+            Process.Start("chrome.exe", "https://nothi-next.tappware.com/notice");
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+            Process.Start("chrome.exe", "https://nothi-next.tappware.com/user-manual");
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+            Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+           //Process.Start("chrome.exe", "mailto: support @nothi.org.bd");
+           
         }
     }
 }
