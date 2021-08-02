@@ -25,10 +25,14 @@ namespace dNothi.Utility
         }
         public static string EngDigittoBanDigit(string input)
         {
-            if (input == null)
-                input = string.Empty;
-            string output = input.Replace(string.Empty, "").Replace("0","০" ).Replace("1","১").Replace("2","২").Replace("3","৩").Replace("4","৪").Replace("5","৫").Replace("6","৬").Replace("7","৭").Replace("8","৮" ).Replace("9","৯");
-            return output;
+                if(string.IsNullOrEmpty(input))
+                {
+                    return "";
+                }
+            
+                string output = input.Replace("0", "০").Replace("1", "১").Replace("2", "২").Replace("3", "৩").Replace("4", "৪").Replace("5", "৫").Replace("6", "৬").Replace("7", "৭").Replace("8", "৮").Replace("9", "৯");
+                return output;
+            
         }
         public static string numberToConsonet(string input)
         {
@@ -268,7 +272,16 @@ namespace dNothi.Utility
 
         }
 
-        
+        public static (string,string) GetLeftRightSharok(string sharokNo)
+        {
+            if (string.IsNullOrEmpty(sharokNo))
+            {
+                return ("", "");
+            }
+            string left = sharokNo.Substring(0,sharokNo.LastIndexOf("."));
+            string right = sharokNo.Substring(sharokNo.LastIndexOf(".") + 1);
+            return (left, right);
+        }
     }
 
 

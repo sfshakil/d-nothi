@@ -9198,6 +9198,21 @@ namespace dNothi.Desktop.UI
             if (conditonBoxForm.Yes)
             {
                 Potrojari form = new Potrojari();
+                string sharokNo="";
+                
+                if(_khoshraPotroWaitinDataRecordDTO !=null)
+                {
+                    sharokNo=_khoshraPotroWaitinDataRecordDTO.basic.sarok_no.ToString();
+                }
+                else if(_khoshraPotroDataRecordDTO !=null)
+                {
+                    sharokNo = _khoshraPotroDataRecordDTO.basic.sarok_no.ToString();
+
+                }
+
+
+                (form.leftSharok,form.rightSharok) = ConversionMethod.GetLeftRightSharok(sharokNo);
+
                 form.loadPotrojariBrowser(khosraViewWebBrowser.DocumentText);
                 form.PotrojariButtonClick += delegate (object ss, EventArgs ee) { SavePotrojari(form); };
 
@@ -9261,13 +9276,14 @@ namespace dNothi.Desktop.UI
                 potrojariParameter.potrojari.potrojari_internal = _khoshraPotroWaitinDataRecordDTO.basic.potrojari_internal.ToString();
                 potrojariParameter.potrojari.potrojari_language = _khoshraPotroWaitinDataRecordDTO.basic.potrojari_language.ToString();
                 potrojariParameter.potrojari.potro_cover = _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_cover.ToString();
-                potrojariParameter.potrojari.potro_description = _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description.ToString();
+
+                potrojariParameter.potrojari.potro_description = ConversionMethod.Base64Encode(form._potrojariDocument);
                 potrojariParameter.potrojari.potro_pages = _khoshraPotroWaitinDataRecordDTO.basic.potro_pages.ToString();
                 potrojariParameter.potrojari.potro_status = _khoshraPotroWaitinDataRecordDTO.basic.potro_status.ToString();
                 potrojariParameter.potrojari.potro_subject = _khoshraPotroWaitinDataRecordDTO.basic.potro_subject.ToString();
                 potrojariParameter.potrojari.potro_type = _khoshraPotroWaitinDataRecordDTO.basic.potro_type.ToString();
                 potrojariParameter.potrojari.receiver_sent = _khoshraPotroWaitinDataRecordDTO.basic.receiver_sent.ToString();
-                potrojariParameter.potrojari.sarok_no = _khoshraPotroWaitinDataRecordDTO.basic.sarok_no.ToString();
+                potrojariParameter.potrojari.sarok_no = form._leftSharok+"."+form._rightSharok;
                 potrojariParameter.potrojari.shared_nothi_id = _khoshraPotroWaitinDataRecordDTO.basic.shared_nothi_id.ToString();
                 potrojariParameter.potrojari.sign_info = _khoshraPotroWaitinDataRecordDTO.basic.sign_info.ToString();
 
@@ -9449,7 +9465,6 @@ namespace dNothi.Desktop.UI
 
                     foreach (HtmlElement link in links)
                     {
-
                         if (link.GetAttribute("ClassName") == "khoshra_approver_signature")
                         {
                             link.SetAttribute("src", dakListUserParam.SignBase64);
@@ -9464,7 +9479,7 @@ namespace dNothi.Desktop.UI
                         khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroDataRecordDTO.basic.potro_status, _khoshraPotroDataRecordDTO.mulpotro.potro_description);
 
                     }
-                    else if (_khoshraPotroWaitinDataRecordDTO == null)
+                    else if (_khoshraPotroWaitinDataRecordDTO != null)
                     {
                         _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
 
@@ -9476,9 +9491,17 @@ namespace dNothi.Desktop.UI
                     {
 
                         UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
+                       
+
+                        
+
+
+
                         btnApprove.Visible = false;
                         btnUnapprove.Visible = true;
                         btnPotrojari.Visible = true;
+
+
 
                         //khosraViewWebBrowser.Document.Images.("img.khoshra_approver_signature")
                         // .SetAttribute("src", dakListUserParam.SignBase64);
