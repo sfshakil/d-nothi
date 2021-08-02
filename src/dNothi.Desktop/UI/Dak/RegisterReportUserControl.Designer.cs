@@ -46,7 +46,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.placeholderTextBox1 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.dateTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -161,6 +161,7 @@
             this.pageNextButton.Size = new System.Drawing.Size(34, 34);
             this.pageNextButton.TabIndex = 99;
             this.pageNextButton.UseVisualStyleBackColor = false;
+            this.pageNextButton.Click += new System.EventHandler(this.pageNextButton_Click);
             // 
             // iconButton3
             // 
@@ -179,6 +180,7 @@
             this.iconButton3.Size = new System.Drawing.Size(34, 34);
             this.iconButton3.TabIndex = 98;
             this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // totalRowlabel
             // 
@@ -230,7 +232,7 @@
             // panel3
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel3.Controls.Add(this.placeholderTextBox1);
+            this.panel3.Controls.Add(this.dateTextBox);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(274, 9);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
@@ -241,18 +243,18 @@
             this.panel3.Click += new System.EventHandler(this.dateRangePickerShow);
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Color_Blue);
             // 
-            // placeholderTextBox1
+            // dateTextBox
             // 
-            this.placeholderTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.placeholderTextBox1.BackColor = System.Drawing.Color.White;
-            this.placeholderTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.placeholderTextBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBox1.Location = new System.Drawing.Point(98, 8);
-            this.placeholderTextBox1.Name = "placeholderTextBox1";
-            this.placeholderTextBox1.PlaceholderText = "সময়সীমা";
-            this.placeholderTextBox1.Size = new System.Drawing.Size(165, 19);
-            this.placeholderTextBox1.TabIndex = 95;
-            this.placeholderTextBox1.Click += new System.EventHandler(this.dateRangePickerShow);
+            this.dateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTextBox.BackColor = System.Drawing.Color.White;
+            this.dateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dateTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTextBox.Location = new System.Drawing.Point(98, 8);
+            this.dateTextBox.Name = "dateTextBox";
+            this.dateTextBox.PlaceholderText = "সময়সীমা";
+            this.dateTextBox.Size = new System.Drawing.Size(165, 19);
+            this.dateTextBox.TabIndex = 95;
+            this.dateTextBox.Click += new System.EventHandler(this.dateRangePickerShow);
             // 
             // panel4
             // 
@@ -322,6 +324,7 @@
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
             this.dakPriorityComboBox.Size = new System.Drawing.Size(174, 26);
             this.dakPriorityComboBox.TabIndex = 91;
+            this.dakPriorityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPriorityComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -517,6 +520,8 @@
             this.customDatePicker.TabIndex = 59;
             this.customDatePicker.Visible = false;
             this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
+            this.customDatePicker.Load += new System.EventHandler(this.customDatePicker_Load);
+            this.customDatePicker.Click += new System.EventHandler(this.customDatePicker_Click);
             // 
             // slDataGridViewTextBoxColumn
             // 
@@ -678,7 +683,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel3;
-        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox1;
+        private PlaceholderTextBox.PlaceholderTextBox dateTextBox;
         private System.Windows.Forms.Panel panel4;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private System.Windows.Forms.Label label2;

@@ -14,8 +14,14 @@ namespace dNothi.Utility
     {
         WaitNothiForm wait;
         Thread loadthread;
+        //public WaitFormFunc()
+        //{
+        //   // wait =new WaitNothiForm();
+        //   // loadthread = null;
+           
+        //}
 
-        public void Show()
+       public void Show()
         {
             loadthread = new Thread(new ThreadStart(LoadingProcess));
             loadthread.Start();
@@ -24,6 +30,7 @@ namespace dNothi.Utility
         public void Show(Form parent)
         {
             loadthread = new Thread(new ParameterizedThreadStart(LoadingProcess));
+        
             loadthread.Start(parent);
         }
 
@@ -31,25 +38,27 @@ namespace dNothi.Utility
         {
             if (wait != null)
             {
-                
-                    wait.BeginInvoke(new System.Threading.ThreadStart(wait.CloseWaitForm));
-                    wait = null;
-                    loadthread = null;
+               wait.BeginInvoke(new System.Threading.ThreadStart(wait.CloseWaitForm));
+               
+                wait = null;
+                loadthread = null;
                 
             }
           
         }
-
+      
         private void LoadingProcess()
         {
             wait = new WaitNothiForm();
             wait.ShowDialog();
+
         }
 
         private void LoadingProcess(object parent)
         {
             Form parent1 = parent as Form;
             wait = new WaitNothiForm(parent1);
+           
             //wait.ShowDialog();
             CalPopUpWindow(wait,parent1);
         }

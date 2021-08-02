@@ -10,24 +10,27 @@ namespace dNothi.Desktop.View_Model
 {
     public class ConvertRegisterResponsetoReport
     {
+        public static int lastCount = 0;
         public static List<RegisterReport> GetRegisterReports(RegisterReportResponse registerReportResponse)
         {
-
+            int count = 1;
 
             List<RegisterReport> registerReportLis = new List<RegisterReport>();
 
             try
             {
-                int count = 1;
+                count += lastCount;
                 foreach (RegisterReportRecordDTO registerReportRecordDTO in registerReportResponse.data.records)
                 {
+
                     RegisterReport registerReport = new RegisterReport();
+                    registerReport.sln = count;
                     registerReport.sl = ConversionMethod.EnglishNumberToBangla(count.ToString());
                     count++;
                     DakSecurityList dakSecurityList = new DakSecurityList(true);
                     try
                     {
-                        if (registerReportRecordDTO.DakDaptoriks.dak_received_no != null)
+                        if (registerReportRecordDTO.DakDaptoriks!= null)
                         {
                             registerReport.acceptNum = ConversionMethod.EnglishNumberToBangla(registerReportRecordDTO.DakDaptoriks.dak_received_no);
 
@@ -48,9 +51,9 @@ namespace dNothi.Desktop.View_Model
                             registerReport.applyDate = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.daptorikCreated);
 
                         }
-                        else
+                        if(registerReportRecordDTO.DakNagoriks != null)
                         {
-                            registerReport.acceptNum = ConversionMethod.EnglishNumberToBangla(registerReportRecordDTO.DakNagoriks.dak_received_no);
+                            registerReport.acceptNum = ConversionMethod.EnglishNumberToBangla(registerReportRecordDTO.DakNagoriks!=null? registerReportRecordDTO.DakNagoriks.dak_received_no:string.Empty);
 
                             registerReport.docketingNo = registerReportRecordDTO.DakNagoriks.docketing_no;
                             registerReport.sub = registerReportRecordDTO.DakNagoriks.dak_subject;
@@ -70,20 +73,20 @@ namespace dNothi.Desktop.View_Model
                             registerReport.applyDate = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.nagorikCreated);
 
                         }
+                        registerReport.sub = registerReportRecordDTO.dak_subject;
 
+                        registerReport.previousPrapok = registerReportRecordDTO.sender_name + ", " + registerReportRecordDTO.sender_officer_designation_label + "," + registerReportRecordDTO.sender_office_unit_name + "," + registerReportRecordDTO.sender_office_name;
+                        registerReport.sharokNo = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.sender_sarok_no);
+                        string applyDate = ConversionMethod.BanglaDigittoEngDigit(registerReportRecordDTO.created);
+                        DateTime dateTime2 = Convert.ToDateTime(applyDate);
+                        registerReport.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd-MM-yyyy HH:mm:ss"));
                     }
                     catch
                     {
                         //registerReport.acceptNum = ConversionMethod.EnglishNumberToBangla(registerReportRecordDTO.DakDaptoriks.dak_received_no);
 
                      //   registerReport.docketingNo = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.DakDaptoriks.docketing_no);
-                        registerReport.sub = registerReportRecordDTO.dak_subject;
                         
-                        registerReport.previousPrapok = registerReportRecordDTO.sender_name + ", " + registerReportRecordDTO.sender_officer_designation_label + "," + registerReportRecordDTO.sender_office_unit_name + "," + registerReportRecordDTO.sender_office_name;
-                        registerReport.sharokNo = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.sender_sarok_no);
-                        string applyDate = ConversionMethod.BanglaDigittoEngDigit(registerReportRecordDTO.created);
-                        DateTime dateTime2 = Convert.ToDateTime(applyDate);
-                        registerReport.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd-MM-yyyy HH:mm:ss"));
 
                     }
                     try
@@ -128,9 +131,6 @@ namespace dNothi.Desktop.View_Model
 
 
                     registerReport.finalState = registerReportRecordDTO.dak_actions;
-
-
-
 
                     registerReportLis.Add(registerReport);
                 }
