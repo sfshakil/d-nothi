@@ -408,7 +408,7 @@ namespace dNothi.Desktop.UI.Dak
            
             string name = comboBox1.Text;
             string dateRange = dateTextBox.Text;
-            string value = dakPriorityComboBox.SelectedText;
+            int value =(int) dakPriorityComboBox.SelectedValue;
             if (dateRange==string.Empty) {
                  fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
                  todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
@@ -428,19 +428,19 @@ namespace dNothi.Desktop.UI.Dak
             if (isDakGrohon)
             {
 
-                RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(dakListUserParam, fromdate, todate, null);
+                RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(dakListUserParam, fromdate, todate, value.ToString());
                 ConvertRegisterResponsetoReport.lastCount = lastCountValue;
                 RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
             }
             if (isDakBili)
             {
-                RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(dakListUserParam, fromdate, todate, null);
+                RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(dakListUserParam, fromdate, todate, value.ToString());
                 ConvertRegisterResponsetoReport.lastCount = lastCountValue;
                 RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
             }
             if (isDakDiary)
             {
-                RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(dakListUserParam, fromdate, todate, null);
+                RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(dakListUserParam, fromdate, todate, value.ToString());
                 ConvertRegisterResponsetoReport.lastCount = lastCountValue;
                 RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
             }
@@ -452,11 +452,12 @@ namespace dNothi.Desktop.UI.Dak
             else
             {
                 noRowMessageLabel.Visible = false;
+                lastCountValue = RegisterReportlist.Max(x => x.sln);
             }
            
             float pagesize = (float)_totalRecord / (float)pageLimit;
             totalPage = (int)Math.Ceiling(pagesize);
-            lastCountValue = RegisterReportlist.Max(x => x.sln);
+           
 
             registerReportDataGridView.DataSource = null;
             registerReportDataGridView.DataSource = RegisterReportlist;
@@ -589,13 +590,11 @@ namespace dNothi.Desktop.UI.Dak
 
         private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (dakPriorityComboBox.SelectedIndex > 0)
-            {
+            
                 page = 1;
                 lastCountValue = 0;
                 LoadData();
-            }
-
+           
         }
     }
 }
