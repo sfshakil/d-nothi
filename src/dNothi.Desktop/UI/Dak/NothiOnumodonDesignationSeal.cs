@@ -110,8 +110,9 @@ namespace dNothi.Desktop.UI.Dak
             _dakUserParam = _userService.GetLocalDakUserParam();
             InitializeComponent();
 
-           
-            
+            _prapokownOfficeTreeView = new TreeView();
+
+
             LoadOwnOfficeRight();
            
             LoadOtherOfficeLeftList();
@@ -456,13 +457,13 @@ namespace dNothi.Desktop.UI.Dak
             }
 
 
-          
-
-
-          
 
 
 
+
+
+
+            UIDesignCommonMethod.AssignNode(prapokownOfficeTreeView, _prapokownOfficeTreeView);
             OfficerStatTreeOwn(unitOwnOffice, designationOwnOffice, emptydesignationOwnOffice, workingdesignationOwnOffice);
 
             MakeParentTreeDisable(prapokownOfficeTreeView);
@@ -565,6 +566,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        public TreeView _prapokownOfficeTreeView;
         private void LoadOwnOfficeRight()
         {
             if (_ownOfficeDesignationList.Count > 0)
@@ -1317,13 +1319,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             string searchText = prapokSearchOwnOfficeTextBox.Text.ToString();
 
-            if (string.IsNullOrEmpty(searchText))
-            {
-                UIDesignCommonMethod.CollapseTree(prapokownOfficeTreeView.Nodes);
-            }
-
-            UIDesignCommonMethod.SearchRecursive(prapokownOfficeTreeView, prapokownOfficeTreeView.Nodes, searchText);
-            UIDesignCommonMethod.SelectFirstNode(prapokownOfficeTreeView, prapokownOfficeTreeView.Nodes);
+            UIDesignCommonMethod.SearchFromTree(prapokownOfficeTreeView,_prapokownOfficeTreeView, searchText);
         }
     }
 }

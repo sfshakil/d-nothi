@@ -100,9 +100,11 @@ namespace dNothi.Desktop.UI.Dak
             designationSealListResponse = _designationSeal.GetOfficerAddedSealList(_dakUserParam);
 
             _addedOwnOfficerDesignationSeal = designationSealListResponse.data.own_office;
-
+            prapokTreeView = new TreeView();
             LoadOwnOfficerTree();
             LoadOwnOfficeRight();
+
+           
 
           //  LoadOtherOfficeLeftList();
         }
@@ -220,7 +222,7 @@ namespace dNothi.Desktop.UI.Dak
                             }
 
                             prapokownOfficeTreeView.Nodes.Add(branchNodeOwnOffice);
-
+                            
 
 
 
@@ -229,6 +231,7 @@ namespace dNothi.Desktop.UI.Dak
                         }
 
                         HideParentNodeCheckBox(prapokownOfficeTreeView);
+                        
                     }
 
 
@@ -248,7 +251,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-
+            UIDesignCommonMethod.AssignNode(prapokownOfficeTreeView, prapokTreeView);
 
         }
 
@@ -758,17 +761,14 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        public TreeView prapokTreeView;
         private void prapokSearchOwnOfficeTextBox_TextChanged(object sender, EventArgs e)
         {
+            
+
             string searchText = prapokSearchOwnOfficeTextBox.Text.ToString();
 
-            if(string.IsNullOrEmpty(searchText))
-            {
-                UIDesignCommonMethod.CollapseTree(prapokownOfficeTreeView.Nodes);
-            }
-
-            UIDesignCommonMethod.SearchRecursive(prapokownOfficeTreeView,prapokownOfficeTreeView.Nodes,searchText);
-            UIDesignCommonMethod.SelectFirstNode(prapokownOfficeTreeView, prapokownOfficeTreeView.Nodes);
+            UIDesignCommonMethod.SearchFromTree(prapokownOfficeTreeView, prapokTreeView, searchText);
         }
 
        

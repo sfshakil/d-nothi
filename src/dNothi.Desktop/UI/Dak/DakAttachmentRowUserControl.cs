@@ -107,6 +107,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (value == "")
                 {
                     attachmentNameLabel.LinkColor = Color.Gray;
+                    attachmentNameLabel.LinkClicked -= attachmentNameLabel_LinkClicked;
                 }
             }
         }
@@ -253,10 +254,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        private void attachmentNameLabel_LinkClicked(object sender, EventArgs e)
-        {
-            
-        }
+      
 
         private void attachmentNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

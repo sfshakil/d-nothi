@@ -150,7 +150,7 @@ namespace dNothi.Desktop.UI.Dak
                         // pdfViewerControl.MouseWheel += new MouseEventHandler(this.pdfViewerControl_MouseWheel);
                     }
                    
-                    else
+                    else if(dakAttachmentDTO.attachment_type.ToLower().Contains("txt") || dakAttachmentDTO.attachment_type.ToLower().Contains("text"))
                     {
 
                        
@@ -178,6 +178,8 @@ namespace dNothi.Desktop.UI.Dak
 
                         mainAttachmentViewWebBrowser.LoadHtml(DecodedString, "https://myfakeurl.com");
                     }
+
+                    
                 }
                 catch
                 {

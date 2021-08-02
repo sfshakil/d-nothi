@@ -190,6 +190,14 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(attachmentViewPopUpForm, parentForm);
         }
 
+        public static void AssignNode(TreeView FromTreeView, TreeView ToTreeView)
+        {
+            foreach(TreeNode treeNode in FromTreeView.Nodes)
+            {
+                ToTreeView.Nodes.Add((TreeNode)treeNode.Clone());
+            }
+        }
+
         private static void Next(DakAttachmentDTO dakAttachmentDTO, List<DakAttachmentDTO> dakAttachmentDTOs, Form parentForm)
         {
             AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
@@ -337,7 +345,24 @@ namespace dNothi.Desktop.UI
             }
         }
 
-   
+        public static bool RemoveWhiteNode(TreeView treeView)
+        {
+            foreach (TreeNode node in treeView.Nodes)
+            {
+
+                 if (node.BackColor == Color.White && node.Nodes.Count <=0)
+                {
+                    node.BackColor = Color.White;
+
+                    continue;
+                }
+
+                if (RemoveWhiteNode(treeView))
+                    return true;
+            }
+            return false;
+        }
+
 
         public static bool SearchRecursive(TreeView treeView, IEnumerable nodes, string searchFor)
         {
@@ -371,7 +396,7 @@ namespace dNothi.Desktop.UI
             return false;
         }
 
-
+       
 
         public static string copyRightLableText = "© কপিরাইট ২০২১, V:1.09";
 
@@ -652,6 +677,51 @@ namespace dNothi.Desktop.UI
                     }
                 }
             }
+        }
+
+        public static void SearchFromTree(TreeView searchtoTreeView, TreeView searchFromTreeView, string searchText)
+        {
+            searchtoTreeView.BeginUpdate();
+
+            searchtoTreeView.Nodes.Clear();
+
+
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                foreach (TreeNode _parentNode in searchFromTreeView.Nodes)
+                {
+                    TreeNode parentNode = (TreeNode)_parentNode.Clone();
+                    parentNode.Nodes.Clear();
+                    foreach (TreeNode _childNode in _parentNode.Nodes)
+                    {
+
+                        if (_childNode.Text.StartsWith(searchText))
+                        {
+
+                            parentNode.Nodes.Add((TreeNode)_childNode.Clone());
+                            parentNode.LastNode.BackColor = Color.Yellow;
+                        }
+
+                    }
+
+                    if (parentNode.Nodes.Count > 0)
+                    {
+                        parentNode.ExpandAll();
+                        searchtoTreeView.Nodes.Add(parentNode);
+                    }
+
+                }
+            }
+            else
+            {
+                foreach (TreeNode _node in searchFromTreeView.Nodes)
+                {
+                    searchtoTreeView.Nodes.Add((TreeNode)_node.Clone());
+                }
+            }
+
+            searchtoTreeView.EndUpdate();
         }
     }
 }
