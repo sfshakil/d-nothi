@@ -141,7 +141,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     nothiAll.flag = 1;
                 }
-                nothiAll.NothiteUposthaponButton += delegate (object addSender, EventArgs addEvent) { NothiteUposthapito_ButtonClick(addSender, addEvent, nothiAll._nothiDTO, nothiAll.nothi, nothiAllListDTO.nothi.office_unit_name, nothiAllListDTO); };
+                nothiAll.NothiteUposthaponButton += delegate (object addSender, EventArgs addEvent) { NothiteUposthapito_ButtonClick(addSender, addEvent, nothiAll._nothiDTO, nothiAll.nothi, nothiAllListDTO.nothi.office_unit_name, nothiAllListDTO,nothiAll._nothiListInboxRecordDTO); };
                 nothiAll._khoshra = _khosra;
                 nothiAll.nothi_id = nothiAllListDTO.nothi.id.ToString();
                 nothiAll.dak_id = _dak_id;
@@ -158,13 +158,16 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler MultipleDakNothivukto;
 
         public NothiListAllRecordsDTO _nothiAllListDTO { get; set; }
+        public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
         public string _noteId { get; set; }
-        private void NothiteUposthapito_ButtonClick(object addSender, EventArgs addEvent, NoteNothiDTO nothiDTO, string nothiName, string nothiBranch, NothiListAllRecordsDTO nothiAllListDTO)
+
+
+        private void NothiteUposthapito_ButtonClick(object addSender, EventArgs addEvent, NoteNothiDTO nothiDTO, string nothiName, string nothiBranch, NothiListAllRecordsDTO nothiAllListDTO, NothiListInboxNoteRecordsDTO _nothiListInboxRecordDTO)
         {
             _noteId = nothiDTO.note_id;
             _nothiAllListDTO = nothiAllListDTO;
 
-
+            _nothiListInboxNoteRecordsDTO = _nothiListInboxRecordDTO;
             _noteSelected = nothiDTO;
             _nothiName = nothiName;
             _nothiBranch = nothiBranch;
