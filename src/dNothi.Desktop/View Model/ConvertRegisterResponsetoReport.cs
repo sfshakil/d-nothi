@@ -19,7 +19,7 @@ namespace dNothi.Desktop.View_Model
 
             try
             {
-                count += lastCount;
+                count += lastCount;  
                 foreach (RegisterReportRecordDTO registerReportRecordDTO in registerReportResponse.data.records)
                 {
 

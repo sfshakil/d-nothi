@@ -18,6 +18,7 @@ using System.Text.RegularExpressions;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Services.SyncServices;
 using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace dNothi.Desktop.UI
 {
@@ -25,6 +26,8 @@ namespace dNothi.Desktop.UI
     {
         Button btn = new Button();
         bool pass_hide = true;
+       
+        
 
         IAccountService _accountService { get; set; }
         IUserService _userService { get; set; }
@@ -364,11 +367,64 @@ namespace dNothi.Desktop.UI
             }
         }
 
+        private void OpenBrowser(string linkname)
+        {
+            RegistryKey browserKeys;
+           
+            browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Clients\StartMenuInternet");
+            if (browserKeys == null)
+                browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Clients\StartMenuInternet");
+
+                string[] browserNames = browserKeys.GetSubKeyNames();
+
+                if (browserNames.Contains("Google Chrome"))
+                {
+                    Process.Start("chrome", linkname);
+                }
+                else
+                {
+                    if (browserNames.Contains("Firefox"))
+                    {
+                        Process.Start("firefox", linkname);
+                    }
+                    else
+                    {
+                        if (browserNames.Contains("IEXPLORE.EXE"))
+                        {
+                            Process.Start("iexplore", linkname);
+                        }
+                        else
+                        {
+                            if (browserNames.Contains("Microsoft Edge"))
+                            {
+                                Process.Start("iexplore", linkname);
+                            }
+                        
+                            Process.Start(linkname);
+                        }
+                    }
+                }
+        }
+        struct LinkNames
+        {
+            public const string lg = "https://fb.com/groups/nothi/";
+            public const string mg = "https://nothi-next.tappware.com/mobile-app";
+            public const string bc = "https://nothi-next.tappware.com/#";
+            public const string faq = "https://nothi-next.tappware.com/faq";
+            public const string up = "https://nothi-next.tappware.com/release-note";
+            public const string nt = "https://nothi-next.tappware.com/notice";
+            public const string um = "https://nothi-next.tappware.com/user-manual";
+            public const string vt = "https://nothi-next.tappware.com/video/tutorial";
+           // public const string vtn = "https://nothi-next.tappware.com/#";
+        }
+
         private void label29_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe", "https://fb.com/groups/nothi/");
-            // https://fb.com/groups/nothi/
+            
+            OpenBrowser(LinkNames.lg);
+         
         }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -377,49 +433,58 @@ namespace dNothi.Desktop.UI
 
         private void label20_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
+            OpenBrowser(LinkNames.vt);
+           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
             
         }
 
         private void tabControl1_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
-            Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
+            OpenBrowser(LinkNames.vt);
+           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe", "https://nothi-next.tappware.com/mobile-app");
+            OpenBrowser(LinkNames.mg);
+           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/mobile-app");
             
         }
 
         private void label11_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
+            OpenBrowser(LinkNames.bc);
+            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe", "https://nothi-next.tappware.com/faq");
+            OpenBrowser(LinkNames.faq);
+            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/faq");
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe", "https://nothi-next.tappware.com/release-note");
+            OpenBrowser(LinkNames.up);
+            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/release-note");
         }
 
         private void label19_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe", "https://nothi-next.tappware.com/notice");
+            OpenBrowser(LinkNames.nt);
+           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/notice");
         }
 
         private void label21_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe", "https://nothi-next.tappware.com/user-manual");
+            OpenBrowser(LinkNames.um);
+           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/user-manual");
         }
 
         private void label31_Click(object sender, EventArgs e)
         {
-            Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
+            OpenBrowser(LinkNames.bc);
+            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
         }
 
         private void label28_Click(object sender, EventArgs e)

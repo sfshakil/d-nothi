@@ -11,6 +11,7 @@ namespace dNothi.Desktop.View_Model
 {
    public class ConvertProtibedonResponsetoProtibedon
     {
+        public static int lastCount = 0;
         public static List<Protibedon> GetProtibedons(ProtibedonResponse protibedonResponse)
         {
 
@@ -20,9 +21,11 @@ namespace dNothi.Desktop.View_Model
             try
             {
                 int count = 1;
+                count += lastCount;
                 foreach (ProtibedonResponseRecordDTO protibedonResponseRecordDTO in protibedonResponse.data.records)
                 {
                     Protibedon protibedon = new Protibedon();
+                    protibedon.sln = count;
                     protibedon.sl = ConversionMethod.EnglishNumberToBangla(count.ToString());
                     count++;
                     
@@ -46,8 +49,9 @@ namespace dNothi.Desktop.View_Model
                     try
                     {
                         String dateString = ConversionMethod.BanglaDigittoEngDigit(protibedonResponseRecordDTO.dakcreted);
-                        DateTime dateTime = Convert.ToDateTime(dateString);
-                        protibedon.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime.ToString("dd-MM-yyyy HH:mm:ss"));
+                        DateTime dateTime2 = Convert.ToDateTime(dateString);
+                        protibedon.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd-MM-yyyy HH:mm:ss"));
+                        //protibedon.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime.ToString("dd-MM-yyyy HH:mm:ss"));
 
                     }
                     catch

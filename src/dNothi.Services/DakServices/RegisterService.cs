@@ -32,6 +32,7 @@ namespace dNothi.Services.DakServices
 
                 dakGrohonRequest.AddParameter("start_date",fromDate);
                 dakGrohonRequest.AddParameter("end_date", toDate);
+                dakGrohonRequest.AddParameter("unit_id", branchName);
                 dakGrohonRequest.AddParameter("length", dakUserParam.limit);
                 dakGrohonRequest.AddParameter("page", dakUserParam.page);
 
@@ -55,6 +56,22 @@ namespace dNothi.Services.DakServices
 
 
         }
+    //    private void param() {
+    //        [designation_id] => 22418
+    //[office_id] => 65
+    //[user_id] => 4398
+    //[page] => 1
+    //[length] => 10
+    //[start_date] => 2021 / 07 / 04
+    //[end_date] => 2021 / 08 / 02
+    //[unit_id] => 
+    //[subject] =>
+    //[from] => 
+    //[previous_sender] =>
+    //[security_level] => 
+    //[priority_level] =>
+    //[daak_type] => 
+    //    }
 
         public RegisterReportResponse GetDakBiliResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName)
         {
@@ -73,6 +90,7 @@ namespace dNothi.Services.DakServices
 
                 dakGrohonRequest.AddParameter("start_date",fromDate);
                 dakGrohonRequest.AddParameter("end_date", toDate);
+                dakGrohonRequest.AddParameter("unit_id", branchName);
                 dakGrohonRequest.AddParameter("length", dakUserParam.limit);
                 dakGrohonRequest.AddParameter("page", dakUserParam.page);
 
@@ -113,6 +131,7 @@ namespace dNothi.Services.DakServices
 
                 dakGrohonRequest.AddParameter("start_date", fromDate);
                 dakGrohonRequest.AddParameter("end_date", toDate);
+                dakGrohonRequest.AddParameter("unit_id", branchName);
                 dakGrohonRequest.AddParameter("length", dakUserParam.limit);
                 dakGrohonRequest.AddParameter("page", dakUserParam.page);
 

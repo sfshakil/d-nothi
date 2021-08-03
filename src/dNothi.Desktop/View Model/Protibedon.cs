@@ -8,6 +8,7 @@ namespace dNothi.Desktop.View_Model
 {
    public class Protibedon
     {
+        public int sln { get; set; }
         public string sl { get; set; }
         public string acceptNum { get; set; }
         public string docketingNo { get; set; }

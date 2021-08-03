@@ -22,20 +22,21 @@ namespace dNothi.Services.DakServices
             {
                 var pendingProtibedonAPI = new RestClient(GetAPIDomain() + GetPendingProtibedonEndPoint());
                 pendingProtibedonAPI.Timeout = -1;
-                var pendingProtibedonRequest = new RestRequest(Method.POST);
-                pendingProtibedonRequest.AddHeader("api-version", GetOldAPIVersion());
-                pendingProtibedonRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
-                pendingProtibedonRequest.AlwaysMultipartFormData = true;
-                pendingProtibedonRequest.AddParameter("designation_id", dakUserParam.designation_id);
-                pendingProtibedonRequest.AddParameter("office_id", dakUserParam.office_id);
+                var protibedonRequest = new RestRequest(Method.POST);
+                protibedonRequest.AddHeader("api-version", GetOldAPIVersion());
+                protibedonRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                protibedonRequest.AlwaysMultipartFormData = true;
+                protibedonRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                protibedonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                pendingProtibedonRequest.AddParameter("start_date", "2019-12-01");
-                pendingProtibedonRequest.AddParameter("end_date", "2021-12-01");
-                pendingProtibedonRequest.AddParameter("length", dakUserParam.limit);
-                pendingProtibedonRequest.AddParameter("page", dakUserParam.page);
+                protibedonRequest.AddParameter("start_date", fromDate);
+                protibedonRequest.AddParameter("end_date", toDate);
+                protibedonRequest.AddParameter("unit_id", branchName);
+                protibedonRequest.AddParameter("length", dakUserParam.limit);
+                protibedonRequest.AddParameter("page", dakUserParam.page);
 
 
-                IRestResponse pendingProtibedonResponseIRest = pendingProtibedonAPI.Execute(pendingProtibedonRequest);
+                IRestResponse pendingProtibedonResponseIRest = pendingProtibedonAPI.Execute(protibedonRequest);
 
 
 
@@ -62,20 +63,21 @@ namespace dNothi.Services.DakServices
             {
                 var pendingProtibedonAPI = new RestClient(GetAPIDomain() + GetResolvesProtibedonEndPoint());
                 pendingProtibedonAPI.Timeout = -1;
-                var pendingProtibedonRequest = new RestRequest(Method.POST);
-                pendingProtibedonRequest.AddHeader("api-version", GetOldAPIVersion());
-                pendingProtibedonRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
-                pendingProtibedonRequest.AlwaysMultipartFormData = true;
-                pendingProtibedonRequest.AddParameter("designation_id", dakUserParam.designation_id);
-                pendingProtibedonRequest.AddParameter("office_id", dakUserParam.office_id);
+                var protibedonRequest = new RestRequest(Method.POST);
+                protibedonRequest.AddHeader("api-version", GetOldAPIVersion());
+                protibedonRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                protibedonRequest.AlwaysMultipartFormData = true;
+                protibedonRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                protibedonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                pendingProtibedonRequest.AddParameter("start_date", "2020-12-01");
-                pendingProtibedonRequest.AddParameter("end_date", "2021-12-01");
-                pendingProtibedonRequest.AddParameter("length", "10");
-                pendingProtibedonRequest.AddParameter("page", "1");
+                protibedonRequest.AddParameter("start_date", fromDate);
+                protibedonRequest.AddParameter("end_date", toDate);
+                protibedonRequest.AddParameter("unit_id", branchName);
+                protibedonRequest.AddParameter("length", dakUserParam.limit);
+                protibedonRequest.AddParameter("page", dakUserParam.page);
 
 
-                IRestResponse pendingProtibedonResponseIRest = pendingProtibedonAPI.Execute(pendingProtibedonRequest);
+                IRestResponse pendingProtibedonResponseIRest = pendingProtibedonAPI.Execute(protibedonRequest);
 
 
 
@@ -109,10 +111,11 @@ namespace dNothi.Services.DakServices
                 protibedonRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 protibedonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                protibedonRequest.AddParameter("start_date", "2020-12-01");
-                protibedonRequest.AddParameter("end_date", "2021-12-01");
-                protibedonRequest.AddParameter("length", "10");
-                protibedonRequest.AddParameter("page", "1");
+                protibedonRequest.AddParameter("start_date", fromDate);
+                protibedonRequest.AddParameter("end_date", toDate);
+                protibedonRequest.AddParameter("unit_id", branchName);
+                protibedonRequest.AddParameter("length", dakUserParam.limit);
+                protibedonRequest.AddParameter("page", dakUserParam.page);
 
 
                 IRestResponse protibedonResponseIRest = protibedonAPI.Execute(protibedonRequest);
@@ -150,10 +153,11 @@ namespace dNothi.Services.DakServices
                 protibedonRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 protibedonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                protibedonRequest.AddParameter("start_date", "2020-12-01");
-                protibedonRequest.AddParameter("end_date", "2021-12-01");
-                protibedonRequest.AddParameter("length", "10");
-                protibedonRequest.AddParameter("page", "1");
+                protibedonRequest.AddParameter("start_date", fromDate);
+                protibedonRequest.AddParameter("end_date", toDate);
+                protibedonRequest.AddParameter("unit_id", branchName);
+                protibedonRequest.AddParameter("length", dakUserParam.limit);
+                protibedonRequest.AddParameter("page", dakUserParam.page);
 
 
                 IRestResponse protibedonResponseIRest = protibedonAPI.Execute(protibedonRequest);
@@ -190,11 +194,11 @@ namespace dNothi.Services.DakServices
                 protibedonRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 protibedonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                protibedonRequest.AddParameter("start_date", "2020-12-01");
-                protibedonRequest.AddParameter("end_date", "2021-12-01");
-                protibedonRequest.AddParameter("length", "10");
-                protibedonRequest.AddParameter("page", "1");
-
+                protibedonRequest.AddParameter("start_date", fromDate);
+                protibedonRequest.AddParameter("end_date", toDate);
+                protibedonRequest.AddParameter("unit_id", branchName);
+                protibedonRequest.AddParameter("length", dakUserParam.limit);
+                protibedonRequest.AddParameter("page", dakUserParam.page);
 
                 IRestResponse protibedonResponseIRest = protibedonAPI.Execute(protibedonRequest);
 
