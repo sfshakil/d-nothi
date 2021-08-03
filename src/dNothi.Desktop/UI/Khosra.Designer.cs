@@ -330,6 +330,7 @@
             this.noteDetailsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.noteDetailsButton.UseVisualStyleBackColor = false;
             this.noteDetailsButton.Visible = false;
+            this.noteDetailsButton.Click += new System.EventHandler(this.noteDetailsButton_Click);
             // 
             // protibedonOnumedonButton
             // 

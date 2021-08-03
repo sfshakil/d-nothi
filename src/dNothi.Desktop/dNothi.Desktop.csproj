@@ -681,6 +681,12 @@
     <Compile Include="UI\Dak\SetKarjodibosh.Designer.cs">
       <DependentUpon>SetKarjodibosh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.Designer.cs">
+      <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ModalMenuUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1598,6 +1604,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SetKarjodibosh.resx">
       <DependentUpon>SetKarjodibosh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
+      <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ModalMenuUserControl.resx">
       <DependentUpon>ModalMenuUserControl.cs</DependentUpon>

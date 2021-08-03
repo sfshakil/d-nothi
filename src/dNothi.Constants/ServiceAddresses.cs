@@ -171,7 +171,10 @@ namespace dNothi.Constants
         public const string potraJariTalikaOfficeAdminEndpoint = "/api/office_admin/all";
         public const string potraJariGroupCreateEndpoint = "/api/potrojari/group/save";
         public const string potraJariGroupDeleteEndpoint = "/api/potrojari/group/delete";
-        
+
+        //BasicApi
+        public const string OfficeUintEndpoint = "/api/dak/seal/office/show";
+
 
 
 

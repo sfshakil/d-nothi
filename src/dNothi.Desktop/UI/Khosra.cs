@@ -2452,5 +2452,33 @@ namespace dNothi.Desktop.UI
         {
             SetPTaginHtml(dakSecrurityComboBox.Text, "potro_security_text write_here", null);
         }
+
+        private void noteDetailsButton_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<KhosraDakNoteDetailForm>();
+
+           
+            form.Khoshra();
+
+
+            // form.NothiKhosrajato += delegate (object snd, EventArgs eve) { NothiKhosrajato(form._noteSelected, form._nothiBranch, form._nothiName, form._nothiAllListDTO); };
+            //var d = _noteSelected;
+            
+            //var d4 = _nothiAllListDTO;
+
+            //NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
+
+            form.noteSubject = _noteSelected.note_subject;
+            //nothiListInboxNoteRecordsDTO.note.note_subject;
+            // form.nothiLastDate = _noteSelected.l.last_note_date;
+            //form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+            form.loadNoteOnucced( Convert.ToInt32(_noteSelected.nothi_id ),Convert.ToInt32( _noteSelected.note_id), _noteSelected, _nothiAllListDTO);
+
+            //form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";
+
+
+
+            UIDesignCommonMethod.CalPopUpWindow(form, this);
+        }
     }
 }

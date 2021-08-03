@@ -73,10 +73,10 @@ namespace dNothi.Desktop.UI.Dak
             this.topPnl.Controls.Add(this.btnDelete);
             this.topPnl.Controls.Add(this.lbCreateDate);
             this.topPnl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.topPnl.Location = new System.Drawing.Point(0, 43);
+            this.topPnl.Location = new System.Drawing.Point(0, 35);
             this.topPnl.Margin = new System.Windows.Forms.Padding(0);
             this.topPnl.Name = "topPnl";
-            this.topPnl.Size = new System.Drawing.Size(1297, 30);
+            this.topPnl.Size = new System.Drawing.Size(973, 24);
             this.topPnl.TabIndex = 2;
             this.topPnl.MouseLeave += new System.EventHandler(this.onuchhedheaderPnl_MouseLeave);
             this.topPnl.MouseHover += new System.EventHandler(this.onuchhedheaderPnl_MouseHover);
@@ -95,10 +95,10 @@ namespace dNothi.Desktop.UI.Dak
             this.btnEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEdit.IconSize = 24;
-            this.btnEdit.Location = new System.Drawing.Point(1168, 0);
+            this.btnEdit.Location = new System.Drawing.Point(877, 0);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(43, 30);
+            this.btnEdit.Size = new System.Drawing.Size(32, 24);
             this.btnEdit.TabIndex = 74;
             this.MyToolTip.SetToolTip(this.btnEdit, "সম্পাদনা");
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -121,10 +121,10 @@ namespace dNothi.Desktop.UI.Dak
             this.btnKhosra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnKhosra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnKhosra.IconSize = 22;
-            this.btnKhosra.Location = new System.Drawing.Point(1211, 0);
+            this.btnKhosra.Location = new System.Drawing.Point(909, 0);
             this.btnKhosra.Margin = new System.Windows.Forms.Padding(0);
             this.btnKhosra.Name = "btnKhosra";
-            this.btnKhosra.Size = new System.Drawing.Size(43, 30);
+            this.btnKhosra.Size = new System.Drawing.Size(32, 24);
             this.btnKhosra.TabIndex = 73;
             this.MyToolTip.SetToolTip(this.btnKhosra, "খসড়া পত্র");
             this.btnKhosra.UseVisualStyleBackColor = false;
@@ -147,10 +147,10 @@ namespace dNothi.Desktop.UI.Dak
             this.btnDelete.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDelete.IconSize = 22;
-            this.btnDelete.Location = new System.Drawing.Point(1254, 0);
+            this.btnDelete.Location = new System.Drawing.Point(941, 0);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(43, 30);
+            this.btnDelete.Size = new System.Drawing.Size(32, 24);
             this.btnDelete.TabIndex = 72;
             this.MyToolTip.SetToolTip(this.btnDelete, "মুছে ফেলুন");
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -169,7 +169,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbCreateDate.Location = new System.Drawing.Point(0, 0);
             this.lbCreateDate.Margin = new System.Windows.Forms.Padding(0);
             this.lbCreateDate.Name = "lbCreateDate";
-            this.lbCreateDate.Size = new System.Drawing.Size(168, 26);
+            this.lbCreateDate.Size = new System.Drawing.Size(110, 18);
             this.lbCreateDate.TabIndex = 65;
             this.lbCreateDate.Text = " ১১/১/২১ ৪:০১ PM";
             // 
@@ -180,10 +180,10 @@ namespace dNothi.Desktop.UI.Dak
             this.middlePnl.Controls.Add(this.lbOnucchedNo);
             this.middlePnl.Controls.Add(this.label5);
             this.middlePnl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.middlePnl.Location = new System.Drawing.Point(0, 73);
+            this.middlePnl.Location = new System.Drawing.Point(0, 59);
             this.middlePnl.Margin = new System.Windows.Forms.Padding(0);
             this.middlePnl.Name = "middlePnl";
-            this.middlePnl.Size = new System.Drawing.Size(1297, 30);
+            this.middlePnl.Size = new System.Drawing.Size(973, 24);
             this.middlePnl.TabIndex = 3;
             this.middlePnl.MouseLeave += new System.EventHandler(this.onuchhedheaderPnl_MouseLeave);
             this.middlePnl.MouseHover += new System.EventHandler(this.onuchhedheaderPnl_MouseHover);
@@ -195,10 +195,10 @@ namespace dNothi.Desktop.UI.Dak
             this.lbonucchedId.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbonucchedId.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbonucchedId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbonucchedId.Location = new System.Drawing.Point(121, 0);
+            this.lbonucchedId.Location = new System.Drawing.Point(84, 0);
             this.lbonucchedId.Margin = new System.Windows.Forms.Padding(0);
             this.lbonucchedId.Name = "lbonucchedId";
-            this.lbonucchedId.Size = new System.Drawing.Size(24, 26);
+            this.lbonucchedId.Size = new System.Drawing.Size(16, 18);
             this.lbonucchedId.TabIndex = 68;
             this.lbonucchedId.Text = "0";
             this.lbonucchedId.Visible = false;
@@ -210,10 +210,10 @@ namespace dNothi.Desktop.UI.Dak
             this.lbOnucchedNo.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbOnucchedNo.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOnucchedNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbOnucchedNo.Location = new System.Drawing.Point(76, 0);
+            this.lbOnucchedNo.Location = new System.Drawing.Point(53, 0);
             this.lbOnucchedNo.Margin = new System.Windows.Forms.Padding(0);
             this.lbOnucchedNo.Name = "lbOnucchedNo";
-            this.lbOnucchedNo.Size = new System.Drawing.Size(45, 26);
+            this.lbOnucchedNo.Size = new System.Drawing.Size(31, 18);
             this.lbOnucchedNo.TabIndex = 67;
             this.lbOnucchedNo.Text = "০.০";
             // 
@@ -227,18 +227,18 @@ namespace dNothi.Desktop.UI.Dak
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 26);
+            this.label5.Size = new System.Drawing.Size(53, 18);
             this.label5.TabIndex = 66;
             this.label5.Text = "অনুচ্ছেদ";
             // 
             // SubjectBrowser
             // 
             this.SubjectBrowser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SubjectBrowser.Location = new System.Drawing.Point(0, 103);
+            this.SubjectBrowser.Location = new System.Drawing.Point(0, 83);
             this.SubjectBrowser.Margin = new System.Windows.Forms.Padding(0);
-            this.SubjectBrowser.MinimumSize = new System.Drawing.Size(27, 25);
+            this.SubjectBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.SubjectBrowser.Name = "SubjectBrowser";
-            this.SubjectBrowser.Size = new System.Drawing.Size(1297, 110);
+            this.SubjectBrowser.Size = new System.Drawing.Size(973, 89);
             this.SubjectBrowser.TabIndex = 4;
             this.SubjectBrowser.WebBrowserShortcutsEnabled = false;
             this.SubjectBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.SubjectBrowser_DocumentCompleted);
@@ -255,10 +255,10 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSchedule.IconSize = 28;
-            this.btnSchedule.Location = new System.Drawing.Point(1254, 0);
+            this.btnSchedule.Location = new System.Drawing.Point(940, 0);
             this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
             this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(33, 43);
+            this.btnSchedule.Size = new System.Drawing.Size(25, 35);
             this.btnSchedule.TabIndex = 120;
             this.MyToolTip.SetToolTip(this.btnSchedule, "আপলোড হচ্ছে");
             this.btnSchedule.UseVisualStyleBackColor = false;
@@ -269,10 +269,9 @@ namespace dNothi.Desktop.UI.Dak
             this.SignatureViewBodyPanel.AutoScroll = true;
             this.SignatureViewBodyPanel.Controls.Add(this.SignatureFLP);
             this.SignatureViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SignatureViewBodyPanel.Location = new System.Drawing.Point(0, 330);
-            this.SignatureViewBodyPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.SignatureViewBodyPanel.Location = new System.Drawing.Point(0, 267);
             this.SignatureViewBodyPanel.Name = "SignatureViewBodyPanel";
-            this.SignatureViewBodyPanel.Size = new System.Drawing.Size(1297, 0);
+            this.SignatureViewBodyPanel.Size = new System.Drawing.Size(973, 0);
             this.SignatureViewBodyPanel.TabIndex = 71;
             // 
             // SignatureFLP
@@ -281,7 +280,7 @@ namespace dNothi.Desktop.UI.Dak
             this.SignatureFLP.AutoSize = true;
             this.SignatureFLP.ColumnCount = 1;
             this.SignatureFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.SignatureFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.SignatureFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.SignatureFLP.Dock = System.Windows.Forms.DockStyle.Top;
             this.SignatureFLP.Location = new System.Drawing.Point(0, 0);
             this.SignatureFLP.Margin = new System.Windows.Forms.Padding(0);
@@ -289,7 +288,7 @@ namespace dNothi.Desktop.UI.Dak
             this.SignatureFLP.RowCount = 1;
             this.SignatureFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.SignatureFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.SignatureFLP.Size = new System.Drawing.Size(1297, 0);
+            this.SignatureFLP.Size = new System.Drawing.Size(973, 0);
             this.SignatureFLP.TabIndex = 55;
             // 
             // filePnael
@@ -297,10 +296,10 @@ namespace dNothi.Desktop.UI.Dak
             this.filePnael.Controls.Add(this.fileViewBodyPanel);
             this.filePnael.Controls.Add(this.fileHeaderPanel);
             this.filePnael.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filePnael.Location = new System.Drawing.Point(0, 213);
+            this.filePnael.Location = new System.Drawing.Point(0, 172);
             this.filePnael.Margin = new System.Windows.Forms.Padding(0);
             this.filePnael.Name = "filePnael";
-            this.filePnael.Size = new System.Drawing.Size(1297, 117);
+            this.filePnael.Size = new System.Drawing.Size(973, 95);
             this.filePnael.TabIndex = 72;
             // 
             // fileViewBodyPanel
@@ -308,10 +307,10 @@ namespace dNothi.Desktop.UI.Dak
             this.fileViewBodyPanel.AutoScroll = true;
             this.fileViewBodyPanel.Controls.Add(this.fileFLP);
             this.fileViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileViewBodyPanel.Location = new System.Drawing.Point(0, 31);
+            this.fileViewBodyPanel.Location = new System.Drawing.Point(0, 25);
             this.fileViewBodyPanel.Margin = new System.Windows.Forms.Padding(0);
             this.fileViewBodyPanel.Name = "fileViewBodyPanel";
-            this.fileViewBodyPanel.Size = new System.Drawing.Size(1297, 86);
+            this.fileViewBodyPanel.Size = new System.Drawing.Size(973, 70);
             this.fileViewBodyPanel.TabIndex = 74;
             // 
             // fileFLP
@@ -320,7 +319,7 @@ namespace dNothi.Desktop.UI.Dak
             this.fileFLP.AutoSize = true;
             this.fileFLP.ColumnCount = 1;
             this.fileFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.fileFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.fileFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.fileFLP.Dock = System.Windows.Forms.DockStyle.Top;
             this.fileFLP.Location = new System.Drawing.Point(0, 0);
             this.fileFLP.Margin = new System.Windows.Forms.Padding(0);
@@ -328,7 +327,7 @@ namespace dNothi.Desktop.UI.Dak
             this.fileFLP.RowCount = 1;
             this.fileFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.fileFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.fileFLP.Size = new System.Drawing.Size(1297, 0);
+            this.fileFLP.Size = new System.Drawing.Size(973, 0);
             this.fileFLP.TabIndex = 55;
             // 
             // fileHeaderPanel
@@ -340,7 +339,7 @@ namespace dNothi.Desktop.UI.Dak
             this.fileHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.fileHeaderPanel.Margin = new System.Windows.Forms.Padding(0);
             this.fileHeaderPanel.Name = "fileHeaderPanel";
-            this.fileHeaderPanel.Size = new System.Drawing.Size(1297, 31);
+            this.fileHeaderPanel.Size = new System.Drawing.Size(973, 25);
             this.fileHeaderPanel.TabIndex = 73;
             // 
             // label3
@@ -350,10 +349,10 @@ namespace dNothi.Desktop.UI.Dak
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
             this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label3.Location = new System.Drawing.Point(101, 0);
+            this.label3.Location = new System.Drawing.Point(71, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 26);
+            this.label3.Size = new System.Drawing.Size(14, 18);
             this.label3.TabIndex = 69;
             this.label3.Text = ")";
             // 
@@ -364,10 +363,10 @@ namespace dNothi.Desktop.UI.Dak
             this.lbTotalFileNo.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbTotalFileNo.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalFileNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbTotalFileNo.Location = new System.Drawing.Point(77, 0);
+            this.lbTotalFileNo.Location = new System.Drawing.Point(55, 0);
             this.lbTotalFileNo.Margin = new System.Windows.Forms.Padding(0);
             this.lbTotalFileNo.Name = "lbTotalFileNo";
-            this.lbTotalFileNo.Size = new System.Drawing.Size(24, 26);
+            this.lbTotalFileNo.Size = new System.Drawing.Size(16, 18);
             this.lbTotalFileNo.TabIndex = 68;
             this.lbTotalFileNo.Text = "0";
             // 
@@ -381,7 +380,7 @@ namespace dNothi.Desktop.UI.Dak
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 26);
+            this.label1.Size = new System.Drawing.Size(55, 18);
             this.label1.TabIndex = 67;
             this.label1.Text = "সংযুক্তি(";
             // 
@@ -401,12 +400,12 @@ namespace dNothi.Desktop.UI.Dak
             this.onuchhedheaderPnl.Location = new System.Drawing.Point(0, 0);
             this.onuchhedheaderPnl.Margin = new System.Windows.Forms.Padding(0);
             this.onuchhedheaderPnl.Name = "onuchhedheaderPnl";
-            this.onuchhedheaderPnl.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.onuchhedheaderPnl.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
             this.onuchhedheaderPnl.RectRadius = 0;
             this.onuchhedheaderPnl.ShadowColor = System.Drawing.Color.Transparent;
             this.onuchhedheaderPnl.ShadowShift = 0;
             this.onuchhedheaderPnl.ShadowStyle = dNothi.Desktop.AdvancedPanel.ShadowMode.ForwardDiagonal;
-            this.onuchhedheaderPnl.Size = new System.Drawing.Size(1297, 43);
+            this.onuchhedheaderPnl.Size = new System.Drawing.Size(973, 35);
             this.onuchhedheaderPnl.StartColor = System.Drawing.Color.White;
             this.onuchhedheaderPnl.Style = dNothi.Desktop.AdvancedPanel.BevelStyle.Flat;
             this.onuchhedheaderPnl.TabIndex = 6;
@@ -420,11 +419,11 @@ namespace dNothi.Desktop.UI.Dak
             this.lbOffice.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbOffice.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbOffice.Location = new System.Drawing.Point(151, 0);
+            this.lbOffice.Location = new System.Drawing.Point(105, 0);
             this.lbOffice.Margin = new System.Windows.Forms.Padding(0);
             this.lbOffice.Name = "lbOffice";
-            this.lbOffice.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.lbOffice.Size = new System.Drawing.Size(313, 32);
+            this.lbOffice.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lbOffice.Size = new System.Drawing.Size(206, 23);
             this.lbOffice.TabIndex = 76;
             this.lbOffice.Text = "(মোঃ হাসানুজ্জামান ১১/১/২১ ৪:০১ PM)";
             // 
@@ -435,11 +434,11 @@ namespace dNothi.Desktop.UI.Dak
             this.lbNoteNo.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbNoteNo.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.lbNoteNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNoteNo.Location = new System.Drawing.Point(109, 0);
+            this.lbNoteNo.Location = new System.Drawing.Point(77, 0);
             this.lbNoteNo.Margin = new System.Windows.Forms.Padding(0);
             this.lbNoteNo.Name = "lbNoteNo";
-            this.lbNoteNo.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.lbNoteNo.Size = new System.Drawing.Size(42, 32);
+            this.lbNoteNo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lbNoteNo.Size = new System.Drawing.Size(28, 23);
             this.lbNoteNo.TabIndex = 73;
             this.lbNoteNo.Text = "০.০";
             // 
@@ -450,11 +449,11 @@ namespace dNothi.Desktop.UI.Dak
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label6.Location = new System.Drawing.Point(33, 0);
+            this.label6.Location = new System.Drawing.Point(25, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(5, 6, 0, 0);
-            this.label6.Size = new System.Drawing.Size(76, 32);
+            this.label6.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label6.Size = new System.Drawing.Size(52, 23);
             this.label6.TabIndex = 72;
             this.label6.Text = "অনুচ্ছেদ";
             // 
@@ -476,14 +475,14 @@ namespace dNothi.Desktop.UI.Dak
             this.btnPlusSquare.Location = new System.Drawing.Point(0, 0);
             this.btnPlusSquare.Margin = new System.Windows.Forms.Padding(0);
             this.btnPlusSquare.Name = "btnPlusSquare";
-            this.btnPlusSquare.Size = new System.Drawing.Size(33, 43);
+            this.btnPlusSquare.Size = new System.Drawing.Size(25, 35);
             this.btnPlusSquare.TabIndex = 71;
             this.btnPlusSquare.UseVisualStyleBackColor = false;
             this.btnPlusSquare.Click += new System.EventHandler(this.btnPlusSquare_Click);
             // 
             // SeparateOnuchhed
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.SignatureViewBodyPanel);
@@ -494,7 +493,7 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Add(this.onuchhedheaderPnl);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "SeparateOnuchhed";
-            this.Size = new System.Drawing.Size(1297, 43);
+            this.Size = new System.Drawing.Size(973, 35);
             this.topPnl.ResumeLayout(false);
             this.topPnl.PerformLayout();
             this.middlePnl.ResumeLayout(false);

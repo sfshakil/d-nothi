@@ -15,6 +15,7 @@ using System.IO;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
 using dNothi.JsonParser.Entity;
+using dNothi.Services.BasicService;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -33,17 +34,19 @@ namespace dNothi.Desktop.UI.Dak
 
         IRegisterService _registerService;
         IUserService _userService { get; set; }
-        public RegisterReportUserControl(IRegisterService registerService, IUserService userService)
+        IBasicService _basicService { get; set; }
+        public RegisterReportUserControl(IRegisterService registerService, IUserService userService, IBasicService basicService)
         {
             InitializeComponent();
             _registerService = registerService;
             _userService = userService;
+            _basicService = basicService;
             fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
             todate = DateTime.Now.ToString("yyyy/MM/dd");
             dateTextBox.Text = fromdate+":"+todate;
 
             
-            dakPriorityComboBox.DataSource= getList();
+            dakPriorityComboBox.DataSource= getShaka();
             dakPriorityComboBox.DisplayMember = "Name";
             dakPriorityComboBox.ValueMember = "Id";
             //dakPriorityComboBox.SelectedIndex = 0;
@@ -87,7 +90,21 @@ namespace dNothi.Desktop.UI.Dak
             return comboBoxItems;
 
         }
-
+        private List<ComboBoxItem> getShaka()
+        {
+            List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
+            var userparam = _userService.GetLocalDakUserParam();
+            var officeUnitResponse = _basicService.GetOfficeUnitList(userparam);
+            if (officeUnitResponse.status == "success")
+            {
+                comboBoxItems.Add(new ComboBoxItem("শাখা নির্বাচন করুন", 0));
+                foreach (var item in officeUnitResponse.data)
+                {
+                    comboBoxItems.Add(new ComboBoxItem(item.unit_name_bng, item.unit_id));
+                }
+            }
+            return comboBoxItems;
+        }
         private void RefreshPagination()
         {
             
@@ -408,7 +425,7 @@ namespace dNothi.Desktop.UI.Dak
            
             string name = comboBox1.Text;
             string dateRange = dateTextBox.Text;
-            int value =(int) dakPriorityComboBox.SelectedValue;
+            string value = dakPriorityComboBox.SelectedValue.ToString();
             if (dateRange==string.Empty) {
                  fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
                  todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
@@ -428,19 +445,19 @@ namespace dNothi.Desktop.UI.Dak
             if (isDakGrohon)
             {
 
-                RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(dakListUserParam, fromdate, todate, value.ToString());
+                RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(dakListUserParam, fromdate, todate, value);
                 ConvertRegisterResponsetoReport.lastCount = lastCountValue;
                 RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
             }
             if (isDakBili)
             {
-                RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(dakListUserParam, fromdate, todate, value.ToString());
+                RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(dakListUserParam, fromdate, todate, value);
                 ConvertRegisterResponsetoReport.lastCount = lastCountValue;
                 RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
             }
             if (isDakDiary)
             {
-                RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(dakListUserParam, fromdate, todate, value.ToString());
+                RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(dakListUserParam, fromdate, todate, value);
                 ConvertRegisterResponsetoReport.lastCount = lastCountValue;
                 RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
             }

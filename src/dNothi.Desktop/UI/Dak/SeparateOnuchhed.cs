@@ -246,6 +246,12 @@ namespace dNothi.Desktop.UI.Dak
                 
             }
         }
+        public void ButtonVisibleFromKasra()
+        {
+            btnEdit.Visible = false;
+            btnDelete.Visible = false;
+            btnKhosra.Visible = false;
+        }
         public void loadOnuchhedSignature(SingleOnucchedRecordSignatureDTO singleRecSignature)
         {
             if(singleRecSignature.Signature1 != null || singleRecSignature.Signature2 != null || singleRecSignature.Signature3 != null || singleRecSignature.Signature4 != null)

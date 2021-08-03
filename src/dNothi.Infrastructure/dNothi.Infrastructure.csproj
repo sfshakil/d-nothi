@@ -96,6 +96,7 @@
     <Compile Include="Mappings\Dak\DakItemDetailsMap.cs" />
     <Compile Include="Mappings\Dak\DakItemMap.cs" />
     <Compile Include="Mappings\Dak\DakListMap.cs" />
+    <Compile Include="Mappings\Dak\DakRegisterBookMap.cs" />
     <Compile Include="Mappings\Dak\DakTypeMap.cs" />
     <Compile Include="Mappings\Dak\DakOriginMap.cs" />
     <Compile Include="Mappings\Dak\DakTagMap.cs" />

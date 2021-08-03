@@ -12,6 +12,7 @@ using dNothi.Utility;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Services.BasicService;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -171,17 +172,18 @@ namespace dNothi.Desktop.UI.Dak
         }
         IProtibedonService _protibedonService { get; set; }
         IUserService _userService { get; set; }
-        public ProtibedonUserControl(IProtibedonService protibedonService, IUserService userService)
+        IBasicService _basicService { get; set; }
+        public ProtibedonUserControl(IProtibedonService protibedonService, IUserService userService, IBasicService basicService)
         {
             InitializeComponent();
             _protibedonService = protibedonService;
             _userService = userService;
+            _basicService = basicService;
             fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
             todate = DateTime.Now.ToString("yyyy/MM/dd");
             dateTextBox.Text = fromdate + ":" + todate;
 
-
-            dakPriorityComboBox.DataSource = getList();
+            dakPriorityComboBox.DataSource = getShaka();
             dakPriorityComboBox.DisplayMember = "Name";
             dakPriorityComboBox.ValueMember = "Id";
         }
@@ -223,6 +225,22 @@ namespace dNothi.Desktop.UI.Dak
             comboBoxItems.Add(data14);
             return comboBoxItems;
 
+        }
+
+        private List<ComboBoxItem> getShaka()
+        {
+            List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
+            var userparam=  _userService.GetLocalDakUserParam();
+            var officeUnitResponse = _basicService.GetOfficeUnitList(userparam);
+            if (officeUnitResponse.status == "success")
+            {
+                comboBoxItems.Add(new ComboBoxItem("শাখা নির্বাচন করুন", 0));
+                foreach (var item in officeUnitResponse.data)
+                {
+                    comboBoxItems.Add(new ComboBoxItem(item.unit_name_bng, item.unit_id));
+                }
+            }
+            return comboBoxItems;
         }
        
 

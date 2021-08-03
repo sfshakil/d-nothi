@@ -33,6 +33,7 @@ using dNothi.Desktop.UI.PotroJariGroups;
 using dNothi.Services;
 using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.Services.NothiReportService;
+using dNothi.Services.BasicService;
 
 namespace dNothi.Desktop
 {
@@ -186,7 +187,10 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<DakBoxSharing>>().As<IRepository<DakBoxSharing>>();
             builder.RegisterType<EfRepository<DakBacaiKaranList>>().As<IRepository<DakBacaiKaranList>>();
             builder.RegisterType<EfRepository<DakBacaiKaran>>().As<IRepository<DakBacaiKaran>>();
-            
+
+            builder.RegisterType<EfRepository<DakRegisterBook>>().As<IRepository<DakRegisterBook>>();
+
+            builder.RegisterType<BasicService>().As<IBasicService>();
 
             builder.RegisterType<EfRepository<EmployeeInfo>>().As<IRepository<EmployeeInfo>>();
             builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
@@ -336,6 +340,7 @@ namespace dNothi.Desktop
            
             builder.RegisterType<CreateGuardFileTypeForm>().AsSelf();
 
+
             builder.RegisterType<GurdFileControl>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileTypes>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileList>().AsSelf();
@@ -348,10 +353,8 @@ namespace dNothi.Desktop
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();
+            builder.RegisterType<KhosraDakNoteDetailForm>().AsSelf();
             
-
-
-
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
 
            

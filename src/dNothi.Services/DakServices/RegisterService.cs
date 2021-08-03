@@ -1,6 +1,9 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -15,9 +18,25 @@ namespace dNothi.Services.DakServices
 {
    public class RegisterService:IRegisterService
     {
+        IRepository<DakRegisterBook> _localDakRegisterBookRepository;
+        public RegisterService(IRepository<DakRegisterBook> localDakRegisterBookRepository)
+        {
+            _localDakRegisterBookRepository = localDakRegisterBookRepository;
+        }
         public RegisterReportResponse GetDakGrohonResponse(DakUserParam dakUserParam,string fromDate, string toDate, string branchName)
         {
+            bool dnb = true;
+            bool dnc = false;
+            bool dnd = false;
             RegisterReportResponse registerReportResponse = new RegisterReportResponse();
+            if (!InternetConnection.Check())
+            {
+               
+
+                registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(GetLocalDakRegisterBook(dakUserParam, fromDate , toDate, branchName, dnb, dnc, dnd));
+                return registerReportResponse;
+               
+            }
 
             try
             {
@@ -44,6 +63,7 @@ namespace dNothi.Services.DakServices
 
 
                 var dakGrohonResponseJson = dakGrohonResponseIRest.Content;
+                var data=  SaveLocalDakRegisterBook(dakGrohonResponseJson, dakUserParam, fromDate, toDate, branchName, dnb, dnc, dnd);
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(dakGrohonResponseJson);
@@ -56,26 +76,73 @@ namespace dNothi.Services.DakServices
 
 
         }
-    //    private void param() {
-    //        [designation_id] => 22418
-    //[office_id] => 65
-    //[user_id] => 4398
-    //[page] => 1
-    //[length] => 10
-    //[start_date] => 2021 / 07 / 04
-    //[end_date] => 2021 / 08 / 02
-    //[unit_id] => 
-    //[subject] =>
-    //[from] => 
-    //[previous_sender] =>
-    //[security_level] => 
-    //[priority_level] =>
-    //[daak_type] => 
-    //    }
+        private string GetLocalDakRegisterBook(DakUserParam dakListUserParam, string fromDate, string toDate, string branchName, bool dnb, bool dnc, bool dnd)
+        {
+            var dakBox = _localDakRegisterBookRepository.Table.Where(q => q.designation_id == dakListUserParam.designation_id && q.office_id == dakListUserParam.office_id && q.limit== dakListUserParam.limit && q.page == dakListUserParam.page && q.fromDate==fromDate && q.toDate==toDate && q.dnd==dnd && q.dnc==q.dnc && q.dnb==q.dnb ).FirstOrDefault();
+
+            if (dakBox != null)
+            {
+                return dakBox.daklist_json;
+            }
+            else
+            {
+                return "";
+            }
+
+        }
+        private bool SaveLocalDakRegisterBook(string dakBoxResponseJson, DakUserParam dakListUserParam, string fromDate, string toDate, string branchName, bool dnb, bool dnc, bool dnd)
+        {
+            var dakBox = _localDakRegisterBookRepository.Table.Where(q => q.designation_id == dakListUserParam.designation_id && q.office_id == dakListUserParam.office_id && q.limit == dakListUserParam.limit && q.page == dakListUserParam.page && q.fromDate == fromDate && q.toDate == toDate && q.dnd == dnd && q.dnc == q.dnc && q.dnb == q.dnb ).FirstOrDefault();
+
+            if (dakBox != null)
+            {
+                dakBox.daklist_json = dakBoxResponseJson;
+                _localDakRegisterBookRepository.Update(dakBox);
+            }
+            else
+            {
+                DakRegisterBook localDakRegisterBook = new DakRegisterBook
+                { 
+                    designation_id = dakListUserParam.designation_id, office_id = dakListUserParam.office_id, 
+                    daklist_json = dakBoxResponseJson, page = dakListUserParam.page, limit = dakListUserParam.limit,
+                     dnb=dnb, dnc=dnc, dnd=dnd, fromDate=fromDate, toDate=toDate,
+                };
+               _localDakRegisterBookRepository.Insert(localDakRegisterBook);
+            }
+            return true;
+        }
+
+        //private void param() {
+        //[designation_id] => 22418
+        //[office_id] => 65
+        //[user_id] => 4398
+        //[page] => 1
+        //[length] => 10
+        //[start_date] => 2021 / 07 / 04
+        //[end_date] => 2021 / 08 / 02
+        //[unit_id] => 
+        //[subject] =>
+        //[from] => 
+        //[previous_sender] =>
+        //[security_level] => 
+        //[priority_level] =>
+        //[daak_type] => 
+        //}
 
         public RegisterReportResponse GetDakBiliResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName)
         {
+            bool dnb = false;
+            bool dnc = true;
+            bool dnd = false;
             RegisterReportResponse registerReportResponse = new RegisterReportResponse();
+            if (!InternetConnection.Check())
+            {
+
+
+                registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(GetLocalDakRegisterBook(dakUserParam, fromDate, toDate, branchName, dnb, dnc, dnd));
+                return registerReportResponse;
+
+            }
 
             try
             {
@@ -102,6 +169,7 @@ namespace dNothi.Services.DakServices
 
 
                 var dakGrohonResponseJson = dakGrohonResponseIRest.Content;
+                var data = SaveLocalDakRegisterBook(dakGrohonResponseJson, dakUserParam, fromDate, toDate, branchName, dnb, dnc, dnd);
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(dakGrohonResponseJson);
@@ -116,7 +184,18 @@ namespace dNothi.Services.DakServices
         }
         public RegisterReportResponse GetDakDiaryResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName)
         {
+            bool dnb = false;
+            bool dnc = false;
+            bool dnd = true;
             RegisterReportResponse registerReportResponse = new RegisterReportResponse();
+            if (!InternetConnection.Check())
+            {
+
+
+                registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(GetLocalDakRegisterBook(dakUserParam, fromDate, toDate, branchName, dnb, dnc, dnd));
+                return registerReportResponse;
+
+            }
 
             try
             {
@@ -143,6 +222,7 @@ namespace dNothi.Services.DakServices
 
 
                 var dakGrohonResponseJson = dakGrohonResponseIRest.Content;
+                var data = SaveLocalDakRegisterBook(dakGrohonResponseJson, dakUserParam, fromDate, toDate, branchName, dnb, dnc, dnd);
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(dakGrohonResponseJson);
@@ -155,8 +235,6 @@ namespace dNothi.Services.DakServices
 
 
         }
-
-
         protected string GetAPIVersion()
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
@@ -169,13 +247,10 @@ namespace dNothi.Services.DakServices
         {
             return ConfigurationManager.AppSettings[key];
         }
-
-
         protected string GetAPIDomain()
         {
             return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
         }
-
         protected string GetDakGrohonEndPoint()
         {
             return DefaultAPIConfiguration.DakGrohonEndPoint;
