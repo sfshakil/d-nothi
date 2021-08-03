@@ -114,6 +114,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.lbNothiNoText.AutoSize = true;
             this.lbNothiNoText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.lbNothiNoText.Enabled = false;
             this.lbNothiNoText.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothiNoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.lbNothiNoText.Location = new System.Drawing.Point(21, 34);
@@ -125,6 +126,7 @@ namespace dNothi.Desktop.UI.Dak
             // lbNothiNo
             // 
             this.lbNothiNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.lbNothiNo.Enabled = false;
             this.lbNothiNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbNothiNo.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothiNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
@@ -151,7 +153,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbNothilast4digit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbNothilast4digit.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothilast4digit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothilast4digit.Location = new System.Drawing.Point(13, 7);
+            this.lbNothilast4digit.Location = new System.Drawing.Point(12, 6);
             this.lbNothilast4digit.Multiline = true;
             this.lbNothilast4digit.Name = "lbNothilast4digit";
             this.lbNothilast4digit.Size = new System.Drawing.Size(592, 30);
@@ -188,6 +190,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSave.Text = "সংরক্ষণ";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 

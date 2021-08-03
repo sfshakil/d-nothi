@@ -27,6 +27,7 @@ namespace dNothi.Desktop.UI.Dak
         public string _dak_type;
         public int _is_copied_dak;
         public NoteNothiDTO _nothiDTO;
+        public NothiListInboxNoteRecordsDTO _nothiListInboxRecordDTO;
         public NothiAllDTO _nothiAllDTO;
 
         public string dak_type
@@ -295,8 +296,9 @@ namespace dNothi.Desktop.UI.Dak
                         nothiNoteShomuho.invisible();
                         
                             nothiNoteShomuho._khoshra = _khoshra;
-                        
-                        nothiNoteShomuho.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, nothiNoteShomuho._nothiDTO); };
+                        NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO=null;
+
+                        nothiNoteShomuho.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, nothiNoteShomuho._nothiDTO, nothiListInboxNoteRecordsDTO); };
 
                         nothiNoteShomuhos.Add(nothiNoteShomuho);
 
@@ -350,7 +352,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     dakNothiteUposthaponNoteList.NoDesk = true;
                 }
-
+                dakNothiteUposthaponNoteList._noteDto = noteDTO;
                 dakNothiteUposthaponNoteList.note_no = Convert.ToString(noteDTO.note.note_no);
                 dakNothiteUposthaponNoteList.note_subject = noteDTO.note.note_subject;
 
@@ -405,7 +407,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
                 dakNothiteUposthaponNoteList.nothiDTO = noteNothiDTO;
-                dakNothiteUposthaponNoteList.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakNothiteUposthaponNoteList._nothiDTO); };
+                dakNothiteUposthaponNoteList.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakNothiteUposthaponNoteList._nothiDTO, dakNothiteUposthaponNoteList._noteDto); };
 
                 dakNothiteUposthaponNoteList._khoshra = _khoshra;
                 dakNothiteUposthaponNoteLists.Add(dakNothiteUposthaponNoteList);
@@ -423,10 +425,11 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NothiteUposthaponButton;
         public bool _khoshra;
       
-
-        private void NothiteUposthapito_ButtonClick(object sender, EventArgs e, NoteNothiDTO nothiDTO)
+        
+        private void NothiteUposthapito_ButtonClick(object sender, EventArgs e, NoteNothiDTO nothiDTO, NothiListInboxNoteRecordsDTO _noteDto)
         {
             _nothiDTO = nothiDTO;
+            _nothiListInboxRecordDTO = _noteDto;
 
             if (this.NothiteUposthaponButton != null)
                 this.NothiteUposthaponButton(sender, e);

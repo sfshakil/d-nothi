@@ -449,7 +449,7 @@ namespace dNothi.Desktop.UI
                 string branchName = kasaraPotro.NoteOwner.OfficeUnit;
                 string nothiName = kasaraPotro.NoteOwner.NothiSubject;
                 khasraPotroTemplateData.potrojari_id = kasaraPotro.NoteOwner.Potrojari;
-                khosra.NothiKhosrajato(noteNothiDTO, branchName, nothiName, nothiListAllRecordsDTO);
+                khosra.NothiKhosrajato(noteNothiDTO, branchName, nothiName, nothiListAllRecordsDTO,mapmodel.Item3);
                 khosra.SetSarokNo(kasaraPotro.Basic.SarokNo);
             }
             khosra.draft_id = kasaraPotro.Basic.Id;

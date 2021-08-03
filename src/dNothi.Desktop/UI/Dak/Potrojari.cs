@@ -12,6 +12,30 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class Potrojari : UserControl
     {
+        public string _leftSharok { get; set; }
+        public string leftSharok
+        {
+            get { return _leftSharok; }
+            set
+            {
+                _leftSharok = value;
+
+            }
+                
+                
+        }
+        public string _rightSharok { get; set; }
+        public string rightSharok {
+            get { return _rightSharok; }
+            set
+            {
+                _rightSharok = value;
+               
+            }
+                
+                
+        }
+
         public Potrojari()
         {
             InitializeComponent();
@@ -32,7 +56,9 @@ namespace dNothi.Desktop.UI.Dak
                 decodedString = Encoding.UTF8.GetString(data);// &quot;
                 return decodedString;
             }
-        } 
+        }
+
+        public string _potrojariDocument;
         public void loadPotrojariBrowser(string encodeData)
         {
             potrojariWeBrowser.DocumentText = encodeData;
@@ -87,8 +113,29 @@ namespace dNothi.Desktop.UI.Dak
         private void btnPotrojari_Click(object sender, EventArgs e)
         {
             ChangeSharokNumber form = new ChangeSharokNumber();
+            form.leftSharok = _leftSharok;
+            form.rightSharok = _rightSharok;
+            form.SharokNoChangeButton += delegate (object ss, EventArgs ee) { ChangeSharokNo(form._leftSharok,form._rightSharok); };
+
             var nothiNoteMovementListform = AttachSharokNoControlToForm(form);
             CalPopUpWindow(nothiNoteMovementListform);
+        }
+
+        private void ChangeSharokNo(string leftSharok, string rightSharok)
+        {
+            this.rightSharok = rightSharok;
+            var links = potrojariWeBrowser.Document.GetElementsByTagName("p");
+
+
+            foreach (HtmlElement link in links)
+            {
+                if (link.GetAttribute("ClassName") == "khoshra_sarok_number contenteditable" || link.GetAttribute("ClassName") == "khoshra_sarok_number")
+                {
+                    link.InnerText = _leftSharok+"."+_rightSharok;
+                }
+            }
+
+         
         }
 
         private void btnCross_Click(object sender, EventArgs e)
@@ -124,6 +171,7 @@ namespace dNothi.Desktop.UI.Dak
                 _rightMargin = rightMargin.Text;
                 _leftMargin = leftMargin.Text;
 
+                _potrojariDocument = potrojariWeBrowser.Document.Body.OuterHtml.ToString();
 
                 this.PotrojariButtonClick(sender, e);
 

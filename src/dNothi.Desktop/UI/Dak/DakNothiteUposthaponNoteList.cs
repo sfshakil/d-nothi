@@ -141,6 +141,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
         public bool _khoshra;
+        public NothiListInboxNoteRecordsDTO _noteDto;
 
         [Browsable(true)]
         [Category("Action")]

@@ -37,7 +37,7 @@
             this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.nothiModulePanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
+            this.nothiCountLabel = new System.Windows.Forms.Label();
             this.nothiModuleNameLabel = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.dakModulePanel = new System.Windows.Forms.Panel();
@@ -475,7 +475,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label22);
+            this.panel5.Controls.Add(this.nothiCountLabel);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(74, 5);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
@@ -488,18 +488,18 @@
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label22.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label22.Location = new System.Drawing.Point(6, 7);
-            this.label22.Margin = new System.Windows.Forms.Padding(0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(31, 18);
-            this.label22.TabIndex = 18;
-            this.label22.Text = "১২২";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
+            this.nothiCountLabel.AutoSize = true;
+            this.nothiCountLabel.BackColor = System.Drawing.Color.Transparent;
+            this.nothiCountLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.nothiCountLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nothiCountLabel.Location = new System.Drawing.Point(8, 9);
+            this.nothiCountLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.nothiCountLabel.Name = "label22";
+            this.nothiCountLabel.Size = new System.Drawing.Size(45, 26);
+            this.nothiCountLabel.TabIndex = 18;
+            this.nothiCountLabel.Text = "১২২";
+            this.nothiCountLabel.Click += new System.EventHandler(this.label22_Click);
             // 
             // nothiModuleNameLabel
             // 
@@ -4440,6 +4440,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Note_Load_1);
+            this.Shown += new System.EventHandler(this.Note_Shown_1);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel29.ResumeLayout(false);
@@ -4577,7 +4578,7 @@
         private System.Windows.Forms.Panel nothiModulePanel;
         private System.Windows.Forms.Label nothiModuleNameLabel;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label nothiCountLabel;
         private System.Windows.Forms.Panel dakModulePanel;
         private System.Windows.Forms.Label dakModuleNameLabel;
         private FontAwesome.Sharp.IconButton iconButton1;

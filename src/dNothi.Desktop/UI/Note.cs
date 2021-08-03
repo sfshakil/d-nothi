@@ -32,6 +32,7 @@ using dNothi.JsonParser.Entity.Khosra;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
 using dNothi.Services.KasaraPatraDashBoardService;
 using dNothi.Services.KhasraService;
+using dNothi.JsonParser.Entity;
 
 namespace dNothi.Desktop.UI
 {
@@ -8908,12 +8909,12 @@ namespace dNothi.Desktop.UI
             if (designationDetailsPanelNothi.Width == 434 && !designationDetailsPanelNothi.Visible)
             {
                 designationDetailsPanelNothi.Visible = true;
-                //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
+                //designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
                 designationDetailsPanelNothi.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - designationDetailsPanelNothi.Width, profilePanel.Height);
                 Controls.Add(designationDetailsPanelNothi);
                 designationDetailsPanelNothi.BringToFront();
                 designationDetailsPanelNothi.Width = 427;
-                designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
+                //designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
 
             }
             else
@@ -9198,6 +9199,21 @@ namespace dNothi.Desktop.UI
             if (conditonBoxForm.Yes)
             {
                 Potrojari form = new Potrojari();
+                string sharokNo="";
+                
+                if(_khoshraPotroWaitinDataRecordDTO !=null)
+                {
+                    sharokNo=_khoshraPotroWaitinDataRecordDTO.basic.sarok_no.ToString();
+                }
+                else if(_khoshraPotroDataRecordDTO !=null)
+                {
+                    sharokNo = _khoshraPotroDataRecordDTO.basic.sarok_no.ToString();
+
+                }
+
+
+                (form.leftSharok,form.rightSharok) = ConversionMethod.GetLeftRightSharok(sharokNo);
+
                 form.loadPotrojariBrowser(khosraViewWebBrowser.DocumentText);
                 form.PotrojariButtonClick += delegate (object ss, EventArgs ee) { SavePotrojari(form); };
 
@@ -9261,13 +9277,14 @@ namespace dNothi.Desktop.UI
                 potrojariParameter.potrojari.potrojari_internal = _khoshraPotroWaitinDataRecordDTO.basic.potrojari_internal.ToString();
                 potrojariParameter.potrojari.potrojari_language = _khoshraPotroWaitinDataRecordDTO.basic.potrojari_language.ToString();
                 potrojariParameter.potrojari.potro_cover = _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_cover.ToString();
-                potrojariParameter.potrojari.potro_description = _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description.ToString();
+
+                potrojariParameter.potrojari.potro_description = ConversionMethod.Base64Encode(form._potrojariDocument);
                 potrojariParameter.potrojari.potro_pages = _khoshraPotroWaitinDataRecordDTO.basic.potro_pages.ToString();
                 potrojariParameter.potrojari.potro_status = _khoshraPotroWaitinDataRecordDTO.basic.potro_status.ToString();
                 potrojariParameter.potrojari.potro_subject = _khoshraPotroWaitinDataRecordDTO.basic.potro_subject.ToString();
                 potrojariParameter.potrojari.potro_type = _khoshraPotroWaitinDataRecordDTO.basic.potro_type.ToString();
                 potrojariParameter.potrojari.receiver_sent = _khoshraPotroWaitinDataRecordDTO.basic.receiver_sent.ToString();
-                potrojariParameter.potrojari.sarok_no = _khoshraPotroWaitinDataRecordDTO.basic.sarok_no.ToString();
+                potrojariParameter.potrojari.sarok_no = form._leftSharok+"."+form._rightSharok;
                 potrojariParameter.potrojari.shared_nothi_id = _khoshraPotroWaitinDataRecordDTO.basic.shared_nothi_id.ToString();
                 potrojariParameter.potrojari.sign_info = _khoshraPotroWaitinDataRecordDTO.basic.sign_info.ToString();
 
@@ -9284,6 +9301,20 @@ namespace dNothi.Desktop.UI
                 if (potrojariResponse != null && potrojariResponse.status == "success")
                 {
                     UIDesignCommonMethod.SuccessMessage(potrojariResponse.data);
+                    
+                    lbNoteKhoshra.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNoteKhoshra.Text))-1).ToString());
+                    lbKhoshra.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbKhoshra.Text))-1).ToString());
+                   
+                    lbKhoshraWaiting.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbKhoshraWaiting.Text))-1).ToString());
+                    lbNoteKhoshraWaiting.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNoteKhoshraWaiting.Text))-1).ToString());
+
+
+                    lbNotePotrojari.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNotePotrojari.Text))+1).ToString());
+                    lbPotrojari.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbPotrojari.Text))+1).ToString());
+
+                    lbNotePotrojari_Click(null, EventArgs.Empty);
+
+
                     //loadPotrangshoNotePanel();
                     //loadPotrangshoNothiPanel();
                     //loadCollapseExpandSize();
@@ -9310,9 +9341,9 @@ namespace dNothi.Desktop.UI
         private void btnNothiPanelNothiCount_Paint(object sender, PaintEventArgs e)
         {
             SolidBrush Brush = new SolidBrush(Color.FromArgb(255, 168, 0));
-            GraphicsPath path = Roundedrectangle.Create(6, 7, label22.Width - 2, label22.Height - 2, 2);
+            GraphicsPath path = Roundedrectangle.Create(6, 7, nothiCountLabel.Width - 2, nothiCountLabel.Height - 2, 2);
             e.Graphics.DrawPath(new Pen(Color.FromArgb(255, 168, 0)), path);
-            GraphicsPath path1 = Roundedrectangle.Create(6, 7, label22.Width - 2, label22.Height - 2, 2);
+            GraphicsPath path1 = Roundedrectangle.Create(6, 7, nothiCountLabel.Width - 2, nothiCountLabel.Height - 2, 2);
             e.Graphics.FillPath(Brush, path1);
         }
 
@@ -9449,7 +9480,6 @@ namespace dNothi.Desktop.UI
 
                     foreach (HtmlElement link in links)
                     {
-
                         if (link.GetAttribute("ClassName") == "khoshra_approver_signature")
                         {
                             link.SetAttribute("src", dakListUserParam.SignBase64);
@@ -9464,7 +9494,7 @@ namespace dNothi.Desktop.UI
                         khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroDataRecordDTO.basic.potro_status, _khoshraPotroDataRecordDTO.mulpotro.potro_description);
 
                     }
-                    else if (_khoshraPotroWaitinDataRecordDTO == null)
+                    else if (_khoshraPotroWaitinDataRecordDTO != null)
                     {
                         _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
 
@@ -9476,9 +9506,17 @@ namespace dNothi.Desktop.UI
                     {
 
                         UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
+                       
+
+                        
+
+
+
                         btnApprove.Visible = false;
                         btnUnapprove.Visible = true;
                         btnPotrojari.Visible = true;
+
+
 
                         //khosraViewWebBrowser.Document.Images.("img.khoshra_approver_signature")
                         // .SetAttribute("src", dakListUserParam.SignBase64);
@@ -9577,7 +9615,7 @@ namespace dNothi.Desktop.UI
 
             (noteNothiDTO, nothiListRecords) = GetNothiAndNoteInfo();
             var form = FormFactory.Create<Khosra>();
-            form.NothiKhosrajato(noteNothiDTO, lbNoteShakha.Text, lbSubject.Text, nothiListRecords);
+            form.NothiKhosrajato(noteNothiDTO, lbNoteShakha.Text, lbSubject.Text, nothiListRecords,_nothiListInboxNoteRecordsDTO);
 
             form._noteListDataRecordNoteDTO = _noteListDataRecordNoteDTO;
             form._nothiListRecordsDTO = _nothiListRecordsDTO;
@@ -9849,7 +9887,7 @@ namespace dNothi.Desktop.UI
                 {
 
                     khasraPotroTemplateData.potrojari_id = _khoshraPotroWaitinDataRecordDTO.note_owner.potrojari;
-                    khosra.NothiKhosrajato(noteNothiDTO, lbNoteShakha.Text, lbSubject.Text, nothiListRecords);
+                    khosra.NothiKhosrajato(noteNothiDTO, lbNoteShakha.Text, lbSubject.Text, nothiListRecords,_nothiListInboxNoteRecordsDTO);
                     khosra.SetSarokNo(_khoshraPotroWaitinDataRecordDTO.basic.sarok_no);
                 }
                 khosra._note_onucched_id = _khoshraPotroWaitinDataRecordDTO.note_onucched.id;
@@ -9975,6 +10013,73 @@ namespace dNothi.Desktop.UI
         {
 
             lbNoteSubject.Text = sender.ToString();
+        }
+
+        private void LoadDesignationListinPanel()
+        {
+
+
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+
+
+            try
+            {
+                EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
+                var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
+
+                moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
+                nothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
+
+            }
+            catch (Exception Ex)
+            {
+
+            }
+
+
+            List<OfficeInfoDTO> officeInfoDTO = _userService.GetAllLocalOfficeInfo();
+
+
+            foreach (OfficeInfoDTO officeInfoDTO1 in officeInfoDTO)
+            {
+               
+
+                dakUserParam.designation_id = officeInfoDTO1.office_unit_organogram_id;
+                dakUserParam.office_id = officeInfoDTO1.office_id;
+                try
+                {
+                    EmployeDakNothiCountResponse singleOfficeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
+                    var singleOfficeDakNothiCount = singleOfficeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
+
+                    officeInfoDTO1.dakCount = singleOfficeDakNothiCount.Value.dak;
+                    officeInfoDTO1.nothiCount = singleOfficeDakNothiCount.Value.own_office_nothi;
+                }
+                catch
+                {
+
+                }
+            }
+
+
+
+            designationDetailsPanelNothi.officeInfos = officeInfoDTO;
+
+            designationDetailsPanelNothi._designationId = dakUserParam.designation_id;
+
+
+
+            //designationDetailsPanelNothi.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
+
+        }
+
+        private void Note_Shown(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Note_Shown_1(object sender, EventArgs e)
+        {
+            LoadDesignationListinPanel();
         }
     }
 }

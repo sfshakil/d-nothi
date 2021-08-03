@@ -89,6 +89,13 @@ namespace dNothi.Desktop.UI
             noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
             noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
             noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
+
+           
+
+
+
+
+
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
@@ -1485,21 +1492,22 @@ namespace dNothi.Desktop.UI
             form.Khoshra();
 
 
-            form.NothiKhosrajato += delegate (object snd, EventArgs eve) { NothiKhosrajato(form._noteSelected, form._nothiBranch, form._nothiName, form._nothiAllListDTO); };
+            form.NothiKhosrajato += delegate (object snd, EventArgs eve) { NothiKhosrajato(form._noteSelected, form._nothiBranch, form._nothiName, form._nothiAllListDTO,form._nothiListInboxNoteRecordsDTO); };
 
 
             UIDesignCommonMethod.CalPopUpWindow(form, this);
         }
         private NoteNothiDTO _noteSelected;
         private NothiListAllRecordsDTO _nothiAllListDTO;
+        private NothiListInboxNoteRecordsDTO _noteDTO;
 
-        public void NothiKhosrajato(NoteNothiDTO noteSelected, string nothiBranch, string nothiName, NothiListAllRecordsDTO nothiAllListDTO)
+        public void NothiKhosrajato(NoteNothiDTO noteSelected, string nothiBranch, string nothiName, NothiListAllRecordsDTO nothiAllListDTO, NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO)
         {
             lbNoteShakha.Text = nothiBranch;
             lbNothiNo.Text = noteSelected.nothi_no;
             lbSubject.Text = nothiName;
 
-
+            _noteDTO = _nothiListInboxNoteRecordsDTO;
             _noteSelected = noteSelected;
             _nothiAllListDTO = nothiAllListDTO;
 
@@ -1915,11 +1923,23 @@ namespace dNothi.Desktop.UI
 
 
                 KhosraSaveResponse khosraSaveResponse = _khosraSaveService.GetKhosraSaveResponse(dakUserParam, khosraSaveParamPotro);
-
+                
 
                 if (khosraSaveResponse.status == "success")
                 {
                     UIDesignCommonMethod.SuccessMessage(khosraSaveResponse.data);
+
+                     if(_noteDTO != null && _noteDTO.note!=null)
+                    {
+                        _noteDTO.note.khoshra_potro += 1;
+
+                        if(onumodonOfficer[0].designation_id==dakUserParam.designation_id)
+                        {
+                            _noteDTO.note.khoshra_waiting_for_approval += 1;
+                        }
+
+                        _noteDTO.note.khoshra_waiting_for_approval += 1;
+                    }
 
                     if (_noteListDataRecordNoteDTO != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id != "0")
                     {
@@ -2062,52 +2082,45 @@ namespace dNothi.Desktop.UI
             form.noteSubject = _noteSelected.note_subject;
             form.nothiLastDate = nothiListRecords.last_note_date;
 
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, _nothiAllListDTO.nothi.id.ToString(), "all");
-            noteView.totalNothi = "0";
 
-            NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
+
+            noteView.totalNothi = _noteSelected.note_no.ToString();
+            noteView.noteSubject = _noteSelected.note_subject;
+            noteView.nothiLastDate = _nothiAllListDTO.nothi.last_note_date;
+            noteView.officerInfo = _dakuserparam.officer + "," + _nothiAllListDTO.nothi.office_designation_name + "," + _nothiAllListDTO.nothi.office_unit_name + "," + _dakuserparam.office_label;
+            noteView.checkBox = "1";
+            //noteView.nothiNoteID = _nothiListInboxNoteRecordsDTO.note.nothi_note_id;
             try
             {
-
-                if (nothiInboxNote.status == "success")
-                {
-
-                    if (nothiInboxNote.data.records.Count > 0)
-                    {
-
-                        nothiListInboxNoteRecordsDTO = nothiInboxNote.data.records.FirstOrDefault(a => a.note.nothi_note_id == _nothiAllListDTO.nothi.id);
-                        if (nothiListInboxNoteRecordsDTO != null)
-
-                        {
-                            form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
-
-                        }
-
-                    }
-                }
-
-
+                noteView.nothiNoteID = _noteDTO.note.nothi_note_id;
+                noteView.khosraPotro = _noteDTO.note.khoshra_potro.ToString();
+                noteView.khoshraWaiting = _noteDTO.note.khoshra_waiting_for_approval.ToString();
+                noteView.approved = _noteDTO.note.approved_potro.ToString();
+                noteView.potrojari = _noteDTO.note.potrojari.ToString();
+                noteView.nothivukto = _noteDTO.note.nothivukto_potro.ToString();
             }
             catch
             {
 
             }
+           
+            
+            //noteView.totalNothi = "0";
 
 
 
+           // var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, _nothiAllListDTO.nothi.id.ToString(), "all");
+          
 
+         
+
+
+
+            form.noteAllListDataRecordDTO = _noteDTO;
             form.office = "( " + nothiListRecords.office_name + " " + nothiListRecords.last_note_date + ")";
 
 
-            noteView.nothiLastDate = nothiListRecords.last_note_date;
-
-            noteView.totalNothi = _noteSelected.note_no.ToString();
-            noteView.noteSubject = _noteSelected.note_subject;
-            noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
-            noteView.checkBox = "1";
-            noteView.nothiNoteID = Convert.ToInt32(_noteSelected.note_id);
-
-
+            
             form.noteTotal = _noteSelected.note_no.ToString();
 
 
@@ -2124,11 +2137,7 @@ namespace dNothi.Desktop.UI
 
 
             nothiListRecords.local_nothi_type = "all";
-            //this.Hide();
-            //form.Show();
-
-            //foreach (Form f in Application.OpenForms)
-            //{ BeginInvoke((Action)(() => f.Hide())); }
+            
 
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
