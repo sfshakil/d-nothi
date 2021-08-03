@@ -10074,6 +10074,11 @@ namespace dNothi.Desktop.UI
 
         private void Note_Shown(object sender, EventArgs e)
         {
+            
+        }
+
+        private void Note_Shown_1(object sender, EventArgs e)
+        {
             LoadDesignationListinPanel();
         }
     }
