@@ -9901,7 +9901,6 @@ namespace dNothi.Desktop.UI
                     khosra.draft_id = _khoshraPotroWaitinDataRecordDTO.basic.id;
                 }
 
-
                 khosra._noteListDataRecordNoteDTO = _noteListDataRecordNoteDTO;
                 khosra._nothiListRecordsDTO = _nothiListRecordsDTO;
                 khosra._nothiListInboxNoteRecordsDTO = _nothiListInboxNoteRecordsDTO;
@@ -9926,6 +9925,9 @@ namespace dNothi.Desktop.UI
 
                 khosra._khasraPotroTemplateData = khasraPotroTemplateData;
 
+
+                khosra._dakSecurity = Convert.ToInt32(_khoshraPotroWaitinDataRecordDTO.basic.potro_security_level);
+                khosra._dakPriority = Convert.ToInt32(_khoshraPotroWaitinDataRecordDTO.basic.potro_priority_level);
 
 
                 if (prapakerTalika.status == "success")

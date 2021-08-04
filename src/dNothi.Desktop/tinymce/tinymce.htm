@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script src='js/tinymce/tinymce.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
      <script type="text/javascript">
 
         function GetContent() {
@@ -16,40 +17,22 @@
             tinyMCE.get('editorcontent').setContent(htmlContent);
         }
 
-        function SetOnumodonName(htmlContent) {
-            //try {
-            //   // document.getElementsByClassName("write_here khoshra_approver_text").attributes
-            //    document.getElementsByClassName('write_here khoshra_approver_text').src =htmlContent;  // Find the elements
-            //    alert(document.getElementsByClassName('write_here khoshra_approver_text').innerText);
-            //
-            //}
-            //catch{
-
-            //}
-            //var $ = tinymce.dom.DomQuery;
-            //$('.write_here khoshra_approver_text').attr('attr', htmlContent);
-
-            // tinyMCE.get('.write_here khoshra_approver_text').setContent(htmlContent);
-           // alert(1);
-            //$("#p1").text('test');
-            tinyMCE.get('p1');
-            //alert(1);
-            // tinyMCE.get('p1').setContent(htmlContent);
-            //tinyMCE.document.getElementById("p1").innerHTML = "New text!";
-            //alert("alert1");
-            //alert(document.getElementsByClassName("write_here khoshra_approver_text").innerHTML);
-
-            //alert(document.getElementsByClassName("write_here khoshra_approver_text")[0].innerHTML);
-            // document.getElementsByClassName('write_here khoshra_approver_text')[0].innerHTML='Hello';
-            //alert("alert2");
-            //alert(document.getElementsByClassName("write_here khoshra_approver_text")[0].innerHTML);
-            //alert("alert3");
-             $(".write_here khoshra_approver_text").text('test');
+        function SetSovapotiName() {
+          //var documentHtml=tinyMCE.get('editorcontent').getContent();
+          var t= $(editor.contentDocument).contents().find("#sovapoti_designation").text();
+               alert(t);
+          //lert(tinyMCE.get("sovapoti_name").getContent());
+          //alert(tinymce.get('editorcontent').getContent().find("#sovapoti_name").text());
         }
 
+      
+       
+             
 
     </script>
     <script>
+    
+
         tinyMCE.init({
             selector: '#editorcontent',
             plugins: [
@@ -104,11 +87,53 @@
 
             // menubar: "edit insert view format table tools",
             //language: 'cs_CZ',
-            setup: function (ed) {
-                ed.on('init', function (e) {
+            //setup: function (ed) {
+            //    ed.on('init', function (e) {
                     //  ed.execCommand('mceFullScreen');
-                });
-            }
+            //    });
+           // }
+
+       setup: function(editor) {
+        
+        editor.on('change', function(e) {
+            
+              try
+              {
+
+              var namePresident= $(editor.contentDocument).find("#sovapoti_name").text();
+               
+               $(editor.contentDocument).find(".khoshra_sovapoti_bottom").prop('display', 'block');
+                   $(editor.contentDocument).find(".khoshra_sovapoti_bottom").html(namePresident);
+               
+
+                   var desPresident= $(editor.contentDocument).find("#sovapoti_designation").text();
+               
+               $(editor.contentDocument).find(".khoshra_sovapoti_designation_bottom").prop('display', 'block');
+                   $(editor.contentDocument).find(".khoshra_sovapoti_designation_bottom").html(desPresident);
+
+
+                    //alert($(editor.contentDocument).find("#sovapoti_name").text());
+               
+              //var text=$(editor.contentDocument).find("#sovapoti_name").text());
+                
+                //if(text !="..................."){
+                 //  $(editor.contentDocument).find(".khoshra_sovapoti_bottom").prop('display', 'block');
+                   //$(editor.contentDocument).find(".khoshra_sovapoti_bottom").html(text);
+                 //alert(text);
+                //}
+                //SetSovapotiName();
+              }
+              catch(err)
+              {
+                    alert(err);
+              }
+            
+            //alert($("#editorcontent").contents().find("#sovapoti_designation").text());
+        });
+        
+
+    },
+
         });
     </script>
 </head>
@@ -117,8 +142,7 @@
 	<form method="post" style="height:300px">
 	    <textarea id="editorcontent"style="height:300px">
 
-
-</textarea>
+        </textarea>
 	</form>
 </body>
 </html>
