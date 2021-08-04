@@ -14,59 +14,62 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using dNothi.Services.NothiReportService;
 using dNothi.Services.UserServices;
+using dNothi.Services.BasicService;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
     public partial class RegisterReportUserControl : UserControl
     {
-        public int pageLimit=100;
-        public int pageNo=1;
+        string fromdate, todate;
+        public int pageLimit = 10;
+        public int pageNo = 1;
+        int page = 1;
+        int totalPage = 1;
+        int start = 1;
+        int end = 10;
+        int totalrecord = 0;
+        int lastCountValue = 1;
+        int lastrecord = 0;
+        string datetextFromtextbox = string.Empty;
         IUserService _userService { get; set; }
         INothiReportService _nothiReportService { get; set; }
+        IBasicService _basicService { get; set; }
         private void RefreshPagination()
         {
             
-
-            //Pagination(0, 0);
         }
 
-        //private void Pagination(int count, int total)
-        //{
-
-
-
-        //    pageLabel.Text = ConversionMethod.EnglishNumberToBangla(pageStartTemp.ToString()) + " - " + ConversionMethod.EnglishNumberToBangla(pageEnd.ToString());
-        //    totalRowlabel.Text = "সর্বমোট: " + ConversionMethod.EnglishNumberToBangla(total.ToString());
-
-        //    if (pageLimit <= total)
-        //    {
-        //        pageNextButton.Enabled = false;
-        //    }
-        //    else
-        //    {
-        //        pageNextButton.Enabled = true;
-        //    }
-
-        //    if (pageStart == 1)
-        //    {
-        //        pagePrevButton.Enabled = false;
-        //    }
-        //    else
-        //    {
-        //        pagePrevButton.Enabled = true;
-        //    }
-
-
-        //}
-
-        public RegisterReportUserControl(IUserService userService, INothiReportService nothiReportService)
+        public RegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService)
         {
             _userService = userService;
             _nothiReportService = nothiReportService;
+            _basicService = basicService;
             InitializeComponent();
+            fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+            todate = DateTime.Now.ToString("yyyy/MM/dd");
+            dateTextBox.Text = fromdate + ":" + todate;
+
+
+            dakPriorityComboBox.DataSource = getShaka();
+            dakPriorityComboBox.DisplayMember = "Name";
+            dakPriorityComboBox.ValueMember = "Id";
         }
 
-
+        private List<ComboBoxItem> getShaka()
+        {
+            List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
+            var userparam = _userService.GetLocalDakUserParam();
+            var officeUnitResponse = _basicService.GetOfficeUnitList(userparam);
+            if (officeUnitResponse.status == "success")
+            {
+                comboBoxItems.Add(new ComboBoxItem("শাখা নির্বাচন করুন", 0));
+                foreach (var item in officeUnitResponse.data)
+                {
+                    comboBoxItems.Add(new ComboBoxItem(item.unit_name_bng, item.unit_id));
+                }
+            }
+            return comboBoxItems;
+        }
         public bool _isDakGrohon { get; set; }
         public bool _isDakDiary { get; set; }
         public bool _isDakBili { get; set; }
@@ -110,9 +113,6 @@ namespace dNothi.Desktop.UI.NothiUI
         
         }
 
-
-
-
         private void Border_Color_Blue(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
@@ -136,9 +136,12 @@ namespace dNothi.Desktop.UI.NothiUI
         private void customDatePicker_OptionClick(object sender, EventArgs e)
         {
             
-            dateRangeTextBox.Text = customDatePicker._date;
+            dateTextBox.Text = customDatePicker._date;
 
             customDatePicker.Visible = false;
+            page = 1;
+            lastCountValue = 1;
+            LoadData();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -161,31 +164,58 @@ namespace dNothi.Desktop.UI.NothiUI
              DataExportToPDF(); 
             //printPdf();
         }
-        private void DisplayData()
+        private void LoadData()
         {
             var userParam = _userService.GetLocalDakUserParam();
-            DataTable dt = new DataTable();
-            userParam.page = 1;
-            userParam.limit = 100;
-            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam);
+            string pagessize = comboBox1.Text;
+            string dateRange = dateTextBox.Text;
+            string unitid = dakPriorityComboBox.SelectedValue.ToString();
+            if (dateRange == string.Empty)
+            {
+                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
+            }
+            else
+            {
+                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                todate = DateTime.Now.ToString("yyyy/MM/dd");
+            }
+
+            pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
+
+            userParam.page = page;
+            userParam.limit = pageLimit;
+            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam,fromdate,todate, unitid);
             if (nothiRegisterBook.status == "success")
             {
                 totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";
                 noRowMessageLabel.Visible = false;
-                int sirialNo = 1;
-                var columns = from t in nothiRegisterBook.data.records
+                lastrecord = nothiRegisterBook.data.records.Count();
+                //lastCountValue = 1;
+                //int serial = 1;
+                var columns = (from t in nothiRegisterBook.data.records
+                               select new
+                               {
+                                    
+                                   sl = ConversionMethod.EnglishNumberToBangla((lastCountValue++).ToString()),
+                                   acceptNum = t.nothi.nothi_no,
+                                   docketingNo = "",
+                                   sharokNo = t.nothi.subject,
+                                   applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
 
-                              select new
-                              {
+                               }).ToList();
+                if (columns.Count <= 0)
+                {
+                    noRowMessageLabel.Visible = true;
+                }
+                else
+                {
+                    noRowMessageLabel.Visible = false;
+                    //lastCountValue = columns.Max(x => x.lastCountValue);
+                }
 
-                                  sl = ConversionMethod.EnglishNumberToBangla(sirialNo++.ToString()),
-                                  acceptNum = t.nothi.nothi_no,
-                                  docketingNo = "",
-                                  sharokNo = t.nothi.subject,
-                                  applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
-
-                              };
-
+                float pagesize = (float)(nothiRegisterBook.data.total_records) / (float)pageLimit;
+                totalPage = (int)Math.Ceiling(pagesize);
                 registerReportDataGridView.DataSource = columns.ToList();
                 // Resize the master DataGridView columns to fit the newly loaded data.
                 registerReportDataGridView.AutoResizeColumns();
@@ -370,7 +400,120 @@ namespace dNothi.Desktop.UI.NothiUI
        
         private void RegisterReportUserControl_Load(object sender, EventArgs e)
         {
-            DisplayData();
+            page = 1;
+            lastCountValue = 1;
+            LoadData();
+            NextPreviousButtonShow();
+        }
+
+       
+        #region Pagination
+        private void NextPreviousButtonShow()
+        {
+            if (page < totalPage)
+            {
+                if (page == 1 && totalPage > 1)
+                {
+                    iconButton3.Enabled = false;
+                }
+                else
+                {
+                    iconButton3.Enabled = true;
+
+                }
+                pageNextButton.Enabled = true;
+            }
+            if (page == totalPage)
+            {
+                if (page == 1 && totalPage == 1)
+                {
+                    iconButton3.Enabled = false;
+
+                }
+                else
+                {
+                    iconButton3.Enabled = true;
+
+                }
+                pageNextButton.Enabled = false;
+            }
+
+
+
+        }
+        private void pageNextButton_Click(object sender, EventArgs e)
+        {
+            string endrow;
+
+            if (page <= totalPage)
+            {
+                page += 1;
+                start += pageLimit;
+                end += pageLimit;
+
+            }
+            else
+            {
+                page = totalPage;
+                start = start;
+                end = end;
+
+
+            }
+            endrow = end.ToString();
+            LoadData();
+
+
+            if (totalrecord < end) { endrow = totalrecord.ToString(); }
+
+            NextPreviousButtonShow();
+        }
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+
+            if (page > 1)
+            {
+
+                page -= 1;
+                start -= pageLimit;
+                end -= pageLimit;
+                lastCountValue -= (pageLimit+lastrecord);
+
+            }
+            else
+            {
+                page = 1;
+                start = start;
+                end = end;
+
+            }
+
+
+            LoadData();
+            //perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+            NextPreviousButtonShow();
+
+        }
+
+        #endregion
+
+        private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dakPriorityComboBox.SelectedValue.ToString() != "dNothi.Desktop.ComboBoxItem")
+                
+            {
+                page = 1;
+                lastCountValue = 1;
+                LoadData();
+                NextPreviousButtonShow();
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            page = 1;
+            lastCountValue = 1;
+            LoadData();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
